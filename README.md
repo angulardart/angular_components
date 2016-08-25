@@ -1,10 +1,16 @@
-# ACX
+# ACX: AngularDart Material Design Components
 
-This is the first stab at opensourcing the Angular 2 components used by Google.
+**Preview Release**
 
-It is an **early preview**. Much work is needed to make it usable outside Google. But we wanted you
-to have an opportunity to play around with this as soon as possible.
+This is an early attempt at open-sourcing the Angular 2 components that Google uses to build many
+of its web applications. Only a small fragment of all the ACX components is available right now.
+We want developers to have an opportunity to play around with the package as soon as possible.
 
 This is not an official Google product.
 
-TODO(filip): more info
+## Useful links
+
+* [AngularDart pub package](https://pub.dartlang.org/packages/angular2)
+* [AngularDart documentation](https://angular.io/dart)
+* [Material Design site](https://material.google.com/)
+
