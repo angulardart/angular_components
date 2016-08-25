@@ -1,0 +1,15 @@
+name: angular2_material
+version: 0.0.0-preview.1
+description: Material Design components for AngularDart.
+dependencies:
+  angular2: ^2.0.0-beta.20
+  js: ^0.6.0-beta.7
+  perf_api: ^0.1.0
+  quiver: ^0.22.0
+  uuid: ^0.5.3
+transformers:
+- angular2:
+    resolved_identifiers:
+      Document: 'dart:html'
+      Profiler: 'package:perf_api/perf_api.dart'
+      Window: 'dart:html'

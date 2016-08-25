@@ -1,0 +1,158 @@
+// Copyright 2016 Google Inc.
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+library ads.acx2.utils.browser.events.events;
+
+import 'dart:async';
+import 'dart:html';
+
+import 'package:angular2/angular2.dart';
+
+/// Determines if the space key was pressed in a [KeyboardEvent].
+///
+/// Use this utility because `keyCode` is deprecated in Firefox (and doesn't
+/// work for &lt;space&gt;) and `key` is not yet implemented in Chrome. See
+/// b/28054488 for details.
+bool isSpaceKey(KeyboardEvent event) {
+  // NB: keyCode does not work on Firefox, returning `0` for the space key.
+  return event.keyCode != 0 ? event.keyCode == KeyCode.SPACE : event.key == ' ';
+}
+
+bool isKeyboardTrigger(KeyboardEvent event) =>
+    event.keyCode == KeyCode.ENTER || isSpaceKey(event);
+
+bool modifierKeyUsed(dynamic /* MouseEvent | KeyboardEvent */ event) {
+  if (event is! KeyboardEvent && event is! MouseEvent) {
+    throw new ArgumentError('type ${event.runtimeType} is not supported');
+  }
+  return (event.ctrlKey || event.shiftKey);
+}
+
+typedef bool Predicate<T>(T value);
+
+Predicate<Predicate> not(Predicate predicate) => (value) => !predicate(value);
+
+/// A stream of click, mouseup or focus events outside a given element.
+Stream<Event> triggersOutside(dynamic /* Element | ElementRef */ element) {
+  if (element is ElementRef) element = element.nativeElement;
+  return triggersOutsideAny((node) => node == element);
+}
+
+/// A stream of click, mouseup or focus events of any node none of whose parents
+/// pass the check inside function.
+Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
+  StreamController<Event> controller;
+  StreamSubscription<MouseEvent> clickListener;
+  StreamSubscription<MouseEvent> mouseUpListener;
+  EventListener listener;
+
+  controller = new StreamController.broadcast(
+      sync: true,
+      onListen: () {
+        assert(clickListener == null);
+        assert(mouseUpListener == null);
+
+        var lastEvent = null;
+
+        listener = (Event e) {
+          lastEvent = e;
+          var node = e.target as Node;
+          while (node != null) {
+            if (checkNodeInside(node)) {
+              return;
+            } else {
+              node = node.parent;
+            }
+          }
+          controller.add(e);
+        };
+
+        // Handle cases where the mouse is down on one element, dragged, and
+        // then released on another element. This catches clicks too, in real
+        // browsers.
+        mouseUpListener = document.onMouseUp.listen(listener);
+
+        // In tests, we generally only see click events and not mouseups. So
+        // listen to those too.
+        clickListener = document.onClick.listen((MouseEvent e) {
+          // Ignore the click if we just saw a mouseup on the same element... it
+          // probably means that that mouseup was part of this same click
+          if (lastEvent?.type == 'mouseup' && e.target == lastEvent?.target)
+            return;
+          listener(e);
+        });
+
+        // Since 'focusin' event is not supported in Firefox, listen to 'focus'
+        // event with useCapture set to true to implement event delegation and
+        // capture changes to active element on document.
+        document.addEventListener('focus', listener, true);
+
+        // Handles touches outside of element for Safari on iOS devices since
+        // touch events are not detected as clicks on iOS platforms.
+        document.addEventListener('touchend', listener);
+      },
+      onCancel: () {
+        clickListener.cancel();
+        clickListener = null;
+        mouseUpListener.cancel();
+        mouseUpListener = null;
+        document.removeEventListener('focus', listener, true);
+        document.removeEventListener('touchend', listener);
+      });
+  return controller.stream;
+}
+
+/// Return true if the element or any of its ancestors have an attribute.
+///
+/// It's used to handle lose focus (or blur) event for composite components.
+/// For example, MaterialAutoSuggestInput need close suggest popup when
+/// lose focus from the input, but not for the case when clicking the popup
+/// itself.
+bool anyParentHasAttribute(Element target, String attribute) {
+  while (target != null) {
+    if (target.attributes.containsKey(attribute)) {
+      return true;
+    }
+    target = target.parent;
+  }
+  return false;
+}
+
+/// Return true if the element or any of its ancestors have the given tag.
+///
+/// It's used to handle lose focus (or blur) event for composite components.
+/// For example, FilterBarComponent needs to enter summary mode when it loses
+/// focus, unless the focus is moving to one of the components it spawned.
+bool anyParentHasTag(Element target, String componentTag) {
+  componentTag = componentTag.toLowerCase();
+  while (target != null) {
+    if (target.tagName.toLowerCase() == componentTag) {
+      return true;
+    }
+    target = target.parent;
+  }
+  return false;
+}
+
+/// Whether [element] is a parent of [node] in the dom tree.
+bool isParentOf(Element element, Node node) {
+  while (node != null) {
+    if (node == element) {
+      return true;
+    } else {
+      node = node.parent;
+    }
+  }
+  return false;
+}

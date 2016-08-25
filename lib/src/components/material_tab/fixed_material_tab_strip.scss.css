@@ -1,0 +1,16 @@
+/*
+ * Copyright 2016 Google Inc.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+:host{display:-webkit-flex;display:flex;-webkit-flex-shrink:0;flex-shrink:0;width:100%}.navi-bar{display:-webkit-flex;display:flex;margin:0;overflow:hidden;padding:0;position:relative;white-space:nowrap;width:100%}.navi-bar .tab-button{-webkit-flex:1;flex:1;color:#616161;font-weight:500;margin:0}.navi-bar .tab-button.active{color:#4285f4}.tab-indicator{-moz-transform-origin:left center;-ms-transform-origin:left center;-webkit-transform-origin:left center;transform-origin:left center;background:#4285f4;bottom:0;left:0;right:0;height:2px;position:absolute;transition:transform cubic-bezier(0.4, 0, 0.2, 1) 436ms}

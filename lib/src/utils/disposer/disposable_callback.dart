@@ -1,0 +1,63 @@
+// Copyright 2016 Google Inc.
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+library ads.acx2.utils.disposer.disposable_callback;
+
+import './disposer.dart';
+
+typedef void CallbackNoParamFn();
+typedef void CallbackSingleParamFn<T>(T value);
+
+/// A Disposable Callback base that can be extended from or used as a mixin.
+///
+/// Disposable callbacks allow the developer to pass in a callback but still
+/// maintain control over the lifecycle of the callback.  Ex: Pass a callback
+/// to a future but the future completes after the object no longer needs the
+/// result.
+/// Being able to use noSuchMethod would simplify the need for multiple classes.
+class DisposableCallbackBase implements Disposable {
+  Function _callback;
+
+  void dispose() {
+    _callback = null;
+  }
+}
+
+/// A disposable callback/function for a callback with no parameters.
+///
+/// It is assumed that the callback will return void.
+class DisposableCallback extends DisposableCallbackBase {
+  DisposableCallback(CallbackNoParamFn callback) {
+    _callback = callback;
+  }
+
+  call() {
+    if (_callback != null) {
+      _callback();
+    }
+  }
+}
+
+/// A disposable callback/function for a callback with one parameters.
+class SingleValueCallback<T> extends DisposableCallbackBase {
+  SingleValueCallback(CallbackSingleParamFn<T> callback) {
+    _callback = callback;
+  }
+
+  call(T value) {
+    if (_callback != null) {
+      _callback(value);
+    }
+  }
+}
