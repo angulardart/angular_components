@@ -2,9 +2,12 @@
 
 **Preview Release**
 
-This is an early attempt at open-sourcing the Angular 2 components that Google uses to build many
-of its web applications. Only a small fragment of all the ACX components is available right now.
-We want developers to have an opportunity to play around with the package as soon as possible.
+This is an early attempt at open-sourcing the ACX components. Google uses these to build many
+of its web applications.
+
+Only a small fragment of all the ACX components is available right now. We want developers to have
+an opportunity to play around with the package as soon as possible. We will be releasing more
+depending on your feedback.
 
 This is not an official Google product.
 
