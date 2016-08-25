@@ -52,6 +52,11 @@ const indeterminateAriaState = 'mixed';
 /// - `indeterminateToChecked: bool` -- Whether the checkbox should go to
 ///    checked state or unchecked when toggled from indeterminate state.
 /// - `label: String` -- Label for the checkbox, alternatively use content.
+/// - `themeColor: String` -- Color of the checkbox and ripple when checked.
+///    Example: '#FF00FF'. By default it is $mat-blue-500.
+///    Note that the themeColor is applied to the checkbox even when the box is
+///    unchecked, which deviates form the standard material spec. Use mixin to
+///    set themeColor unless you want this behavior.
 ///
 /// __Attributes:__
 ///
@@ -72,7 +77,8 @@ const indeterminateAriaState = 'mixed';
       'disabled',
       'indeterminate',
       'indeterminateToChecked',
-      'label'
+      'label',
+      'themeColor'
     ],
     outputs: const [
       'onChange: change',
@@ -234,6 +240,15 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
   /// Current icon, depends on the state of [checked] and [indeterminate].
   Icon get icon => _icon;
   Icon _icon = uncheckedIcon;
+
+  /// Color of the checkbox.
+  String themeColor;
+
+  /// Color of the ripple.
+  ///
+  /// When the checkbox is unchecked, the ripple color does not follow theme
+  /// color.
+  String get rippleColor => checked ? themeColor : '';
 
   /// Label for the checkbox.
   String label;

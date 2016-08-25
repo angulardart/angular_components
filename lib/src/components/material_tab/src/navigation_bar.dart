@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'dart:async';
 import 'dart:html';
 
 import 'package:angular2/angular2.dart';
@@ -22,29 +21,17 @@ import '../../../utils/browser/dom_service/dom_service.dart';
 // Private directive that catches the navi bar element of the tab panel.
 // Also provides convenient methods for handling scrolling on it.
 @Directive(selector: '[naviBar]')
-class NaviBarDirective implements OnDestroy {
-  final Element _element;
-  bool _isScrollable = false;
+class NaviBarDirective {
+  final HtmlElement _element;
   bool _isRtl = false;
-  StreamSubscription _layoutChangedSubscription;
 
   NaviBarDirective(ElementRef elementRef, @Optional() DomService domService)
       : _element = elementRef.nativeElement {
     if (domService != null) {
-      _layoutChangedSubscription = domService.onLayoutChanged.listen((_) {
-        domService.scheduleRead(() {
-          _isScrollable = _element.clientWidth < _element.scrollWidth;
-        });
-      });
       domService.scheduleRead(() {
         _isRtl = _element.getComputedStyle().direction == 'rtl';
       });
     }
-  }
-
-  @override
-  void ngOnDestroy() {
-    _layoutChangedSubscription?.cancel();
   }
 
   bool get isRtl => _isRtl;
@@ -53,7 +40,8 @@ class NaviBarDirective implements OnDestroy {
   bool get atEnd =>
       _element.scrollLeft.abs() + _element.clientWidth == _element.scrollWidth;
 
-  bool get isScrollable => _isScrollable;
+  int get offsetWidth => _element.offsetWidth;
+  int get scrollWidth => _element.scrollWidth;
 
   void scrollLeft() {
     var newValue = _element.scrollLeft.abs() - _element.clientWidth;

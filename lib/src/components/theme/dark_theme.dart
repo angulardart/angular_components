@@ -48,7 +48,7 @@ class AcxDarkTheme {
 
   void theme(ElementRef element) {
     if (_darkTheme) {
-      (element.nativeElement as Element).classes.add(darkThemeClass);
+      (element.nativeElement as HtmlElement).classes.add(darkThemeClass);
     }
   }
 

@@ -16,7 +16,6 @@ import 'package:angular2/angular2.dart';
 
 import '../content/deferred_content_aware.dart';
 import '../focus/focus.dart';
-import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
 
@@ -79,12 +78,10 @@ abstract class Tab extends Focusable {
     directives: const [NgIf])
 class MaterialTabComponent extends RootFocusable
     implements Tab, DeferredContentAware {
-  final ManagedZone _managedZone;
   final String _uuid;
   final _visible = new LazyStreamController<bool>.broadcast(sync: true);
 
-  MaterialTabComponent(ElementRef element, this._managedZone,
-      @Optional() IdGenerator idGenerator)
+  MaterialTabComponent(ElementRef element, @Optional() IdGenerator idGenerator)
       : _uuid = (idGenerator ?? new SequentialIdGenerator.fromUUID()).nextId(),
         super(element);
 
@@ -103,12 +100,6 @@ class MaterialTabComponent extends RootFocusable
   void activate() {
     _active = true;
     _visible.add(true);
-
-    /// Focus at the end of the turn, as the tab panel element is not
-    /// immediately available in the DOM to focus.
-    _managedZone.onTurnDone.first.then((_) {
-      focus();
-    });
   }
 
   @override

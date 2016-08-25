@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:html';
+
 import 'package:angular2/angular2.dart';
 
 import '../../material_button/material_button_base.dart';
@@ -45,8 +47,41 @@ import '../../material_ripple/material_ripple.dart';
     styleUrls: const ['tab_button.scss.css'],
     directives: const [MaterialRippleComponent])
 class TabButtonComponent extends MaterialButtonBase {
+  final Element _nativeElement;
+  String _label;
+  int _textWidth = 0;
+
+  TabButtonComponent(ElementRef element)
+      : _nativeElement = element.nativeElement as Element,
+        super(element);
+
   /// Label of the button.
   @Input()
-  String label;
-  TabButtonComponent(ElementRef element) : super(element);
+  set label(String label) {
+    _textWidth = 0;
+    _label = label;
+  }
+
+  String get label => _label;
+
+  /// The width of the text without any constraints as if no width was set.
+  int get textWidth => _textWidth;
+
+  /// These getters should ideally be used inside dom_service schedule read.
+  String get width => _nativeElement.style.width;
+  int get offsetWidth => _nativeElement.offsetWidth;
+  int get offsetLeft => _nativeElement.offsetLeft;
+  void updateTextWidth() {
+    if (_textWidth == 0) {
+      _textWidth = offsetWidth;
+    }
+  }
+
+  /// Theses should ideally be used inside dom_service schedule write.
+  set width(String width) => _nativeElement.style.width = width;
+  void tryClearWidth() {
+    if (_textWidth == 0 && !width.isEmpty) {
+      width = '';
+    }
+  }
 }

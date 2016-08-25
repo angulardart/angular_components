@@ -73,7 +73,7 @@ class MaterialTabPanelComponent implements AfterContentInit {
   set activeTabIndex(index) {
     // Tabs are already initialized; this is a programmatic tab change.
     if (_tabs != null) {
-      _setActiveTab(index);
+      _setActiveTab(index, true);
     } else {
       // Tab buttons are not initialized; this is the initial value being set.
       _activeTabIndex = index;
@@ -103,16 +103,23 @@ class MaterialTabPanelComponent implements AfterContentInit {
       _tabLabels = _tabs.map((t) => t.label).toList();
       _tabIds = _tabs.map((t) => t.tabId).toList();
 
-      _setActiveTab(_activeTabIndex);
+      _setActiveTab(_activeTabIndex, false);
     });
   }
 
-  void _setActiveTab(i) {
+  void _setActiveTab(int i, bool focusTab) {
     assert(i >= 0 && i < _tabs.length);
     _activeTab?.deactivate();
     _activeTabIndex = i;
     _activeTab.activate();
     _changeDetector.markForCheck();
+
+    if (!focusTab) return;
+    /// Focus at the end of the turn, as the tab panel element is not
+    /// immediately available in the DOM to focus.
+    _managedZone.onTurnDone.first.then((_) {
+      _activeTab.focus();
+    });
   }
 
   /// Fires beforeTabChange event.

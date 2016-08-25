@@ -14,6 +14,9 @@
  limitations under the License.
 -->
 <div class="panel themeable"
+     role="group"
+     [attr.aria-label]="name"
+     [attr.aria-expanded]="isExpanded"
      [class.open]="isExpanded"
      [class.background]="anotherExpanded">
 
@@ -34,10 +37,10 @@
       <ng-content select="[value]"></ng-content>
     </div>
 
-    <glyph *ngIf="!disabled"
+    <glyph *ngIf="shouldShowExpandIcon"
            class="expand-button"
-           icon="expand_less"
-           [class.expand-more] = "!isExpanded">
+           [icon]="expandIcon"
+           [class.expand-more]="shouldFlipExpandIcon">
     </glyph>
   </header>
 
@@ -47,13 +50,13 @@
       <div class="content">
         <ng-content></ng-content>
       </div>
-      <glyph *ngIf="hideExpandedHeader && !disabled"
+      <glyph *ngIf="shouldShowHiddenHeaderExpandIcon"
              #expandCollapseButton
-             icon="expand_less"
+             [icon]="expandIcon"
              class="expand-button"
              buttonDecorator
              (trigger)="collapse()"
-             [attr.aria-label]="closeDrawerMsg">
+             [attr.aria-label]="closePanelMsg">
       </glyph>
     </div>
 

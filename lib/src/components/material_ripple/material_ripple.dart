@@ -46,10 +46,10 @@ class MaterialRippleComponent implements OnDestroy {
   static const double FOCUSED_OPACITY_INT = 0.12;
   static const String TRANSPARENT_OPACITY = '0';
 
-  Element _element;
+  HtmlElement _element;
   final Disposer _disposer = new Disposer.multi();
-  Element _background;
-  Element _container;
+  HtmlElement _background;
+  HtmlElement _container;
   final DomService _domService;
 
   final bool _center;

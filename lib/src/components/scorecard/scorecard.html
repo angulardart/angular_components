@@ -17,6 +17,12 @@
 <h3>{{label}}</h3>
 <h2>{{value}}</h2>
 <span *ngIf="suggestionBefore != null" class="suggestion before">{{suggestionBefore}}</span>
-<span *ngIf="description != null" class="description">{{description}}</span>
+<span *ngIf="description != null" class="description">
+  <glyph *ngIf="changeGlyph && description != '' && !isChangeNeutral"
+         class="change-glyph"
+         [icon]="changeGlyphIcon"
+         size="small">
+  </glyph>
+  {{description}}</span>
 <span *ngIf="suggestionAfter != null" class="suggestion after">{{suggestionAfter}}</span>
 <ng-content></ng-content>

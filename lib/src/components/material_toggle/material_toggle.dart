@@ -72,6 +72,15 @@ class MaterialToggleComponent {
   @Input()
   String label;
 
+  /// ARIA label to use for the toggle button.
+  @Input()
+  set ariaLabel(String value) {
+    _ariaLabel = value;
+  }
+
+  String get ariaLabel => _ariaLabel ?? label;
+  String _ariaLabel;
+
   /// The theme color to be used for this toggle button.
   ///
   /// The default color is `teal`.

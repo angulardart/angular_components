@@ -13,4 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-:host{display:-webkit-inline-flex;display:inline-flex}:host[light]{opacity:0.54}:host[size="x-small"]>i{font-size:12px;height:12px;line-height:12px;width:12px}:host[size="small"]>i{font-size:13px;height:13px;line-height:13px;width:13px}:host[size="medium"]>i{font-size:16px;height:16px;line-height:16px;width:16px}:host[size="large"]>i{font-size:18px;height:18px;line-height:18px;width:18px}:host[size="x-large"]>i{font-size:20px;height:20px;line-height:20px;width:20px}
+:host{display:-webkit-inline-flex;display:inline-flex}:host[light]{opacity:0.54}:host[size="x-small"] /deep/ i{font-size:12px;height:12px;line-height:12px;width:12px}:host[size="small"] /deep/ i{font-size:13px;height:13px;line-height:13px;width:13px}:host[size="medium"] /deep/ i{font-size:16px;height:16px;line-height:16px;width:16px}:host[size="large"] /deep/ i{font-size:18px;height:18px;line-height:18px;width:18px}:host[size="x-large"] /deep/ i{font-size:20px;height:20px;line-height:20px;width:20px}

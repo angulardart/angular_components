@@ -18,6 +18,7 @@ import 'dart:html';
 import 'package:angular2/angular2.dart';
 
 import '../focus/keyboard_only_focus_indicator.dart';
+import '../glyph/glyph.dart';
 import '../material_ripple/material_ripple.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/async/async.dart';
@@ -55,7 +56,7 @@ import '../../utils/color/palette.dart';
 ///     <acx-scorecard class="right-align"></acx-scorecard>
 @Component(
     selector: 'acx-scorecard',
-    directives: const [MaterialRippleComponent, NgIf],
+    directives: const [MaterialRippleComponent, NgIf, GlyphComponent],
     templateUrl: 'scorecard.html',
     host: const {
       '[attr.tabindex]': 'selectable ? 0 : null',
@@ -82,7 +83,7 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   bool _extraBig = false;
 
   ElementRef _ref;
-  Element get element => _ref.nativeElement;
+  HtmlElement get element => _ref.nativeElement;
   ScorecardComponent(ElementRef ref, Renderer renderer, DomService domService)
       : super(ref, renderer, domService) {
     this._ref = ref;
@@ -103,6 +104,10 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   /// The value displayed to the user.
   @Input()
   String value;
+
+  /// Whether to display a small change arrow glyph; optional.
+  @Input()
+  bool changeGlyph = false;
 
   /// A piece of suggestion text before the description; optional.
   @Input()
@@ -159,6 +164,12 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
 
   /// Whether the [description] field should be styled as a neutral change.
   bool get isChangeNeutral => _isChangeNeutral;
+
+  /// The name of the glyph icon to display next to the change description.
+  String get changeGlyphIcon {
+    assert(!isChangeNeutral);
+    return isChangePositive ? "arrow_upward" : "arrow_downward";
+  }
 
   /// Whether the scorecard is selected.
   @HostBinding('class.selected')

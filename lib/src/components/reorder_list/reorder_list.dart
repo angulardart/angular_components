@@ -60,11 +60,11 @@ class ReorderListComponent implements OnDestroy {
   // Reorderable items in the list
   QueryList<ReorderItemDirective> _items;
   // Map of active drag&drop event subscriptions.
-  Map<Element, List<StreamSubscription>> _subscriptions;
+  Map<HtmlElement, List<StreamSubscription>> _subscriptions;
   // Map of active onDrag subscriptions,
   // stored in separate map to be able to
   // temporary deregister one
-  Map<Element, StreamSubscription> _dragSubscriptions;
+  Map<HtmlElement, StreamSubscription> _dragSubscriptions;
   // Current top transform value for each element during reorder.
   List<int> _curTransformY;
   // Height or width of each content item at the time reorder starts.
@@ -75,26 +75,26 @@ class ReorderListComponent implements OnDestroy {
   // Index of element that is being moved. Set when drag starts.
   int _moveSourceIndex = -1;
   int _currentMoveIndex = -1;
-  Element _dragSourceElement;
+  HtmlElement _dragSourceElement;
 
   ReorderListComponent(
       this._managedZone, @ContentChildren(ReorderItemDirective) this._items) {
-    _subscriptions = new Map<Element, List<StreamSubscription>>();
-    _dragSubscriptions = new Map<Element, StreamSubscription>();
+    _subscriptions = new Map<HtmlElement, List<StreamSubscription>>();
+    _dragSubscriptions = new Map<HtmlElement, StreamSubscription>();
     _disposer
         .addStreamSubscription(_items.changes.listen((_) => _refreshItems()));
     _refreshItems();
   }
 
   void _refreshItems() {
-    Set<Element> newElements = _items.map((e) => e.element).toSet();
-    Set<Element> currentlyTracked = new Set.from(_subscriptions.keys);
-    for (Element tracked in currentlyTracked) {
+    Set<HtmlElement> newElements = _items.map((e) => e.element).toSet();
+    Set<HtmlElement> currentlyTracked = new Set.from(_subscriptions.keys);
+    for (HtmlElement tracked in currentlyTracked) {
       if (!newElements.contains(tracked)) {
         unTrack(tracked);
       }
     }
-    for (Element newElement in newElements) {
+    for (HtmlElement newElement in newElements) {
       if (!currentlyTracked.contains(newElement)) {
         track(newElement);
       }
@@ -109,8 +109,8 @@ class ReorderListComponent implements OnDestroy {
 
   void _unTrackAll() {
     // Prevent concurrent modification exception.
-    var keys = new List<Element>.from(_subscriptions.keys);
-    for (Element element in keys) {
+    var keys = new List<HtmlElement>.from(_subscriptions.keys);
+    for (HtmlElement element in keys) {
       unTrack(element);
     }
   }
@@ -127,7 +127,7 @@ class ReorderListComponent implements OnDestroy {
     int nextOffset = null;
     for (int i = 0; i < childCount; i++) {
       int offset = 0;
-      Element e = contents[i];
+      HtmlElement e = contents[i];
       // Calculate offset based on removing original item and inserting into
       // new position.
       if (i == _moveSourceIndex) {
@@ -169,7 +169,7 @@ class ReorderListComponent implements OnDestroy {
     }
   }
 
-  int _horizontalTransformHandler(Element e, Element prev, int offset,
+  int _horizontalTransformHandler(HtmlElement e, Element prev, int offset,
       int nextOffset, int leftSide, int rightSide) {
     // Update offset from previous calculated 'nextOffset'
     if (nextOffset != null) {
@@ -206,7 +206,7 @@ class ReorderListComponent implements OnDestroy {
   }
 
   /// Starts listening to drag events for a child element.
-  void track(Element element) {
+  void track(HtmlElement element) {
     element.draggable = true;
     List subs = _subscriptionsForElement(element);
     subs.add(element.onDragStart.listen((e) {
@@ -222,7 +222,7 @@ class ReorderListComponent implements OnDestroy {
         element.onDragOver.listen((e) => _onDragOver(e, element));
   }
 
-  void unTrack(Element element) {
+  void unTrack(HtmlElement element) {
     // Cancel subscriptions to events for removed element.
     var subs = _subscriptionsForElement(element);
     for (StreamSubscription s in subs) {
@@ -267,7 +267,7 @@ class ReorderListComponent implements OnDestroy {
     _resetChildren();
   }
 
-  _onKeyDown(KeyboardEvent e, Element element) {
+  _onKeyDown(KeyboardEvent e, HtmlElement element) {
     if ((e.keyCode == KeyCode.UP || e.keyCode == KeyCode.DOWN) &&
         modifiersKeysFor(e)) {
       int index = _getIndex(element);
@@ -333,7 +333,7 @@ class ReorderListComponent implements OnDestroy {
     }
   }
 
-  _onDragOver(MouseEvent event, Element element) {
+  _onDragOver(MouseEvent event, HtmlElement element) {
     if (_dragSourceElement == element) {
       return;
     }
@@ -371,7 +371,7 @@ class ReorderListComponent implements OnDestroy {
     }
   }
 
-  int _getIndex(Element element) {
+  int _getIndex(HtmlElement element) {
     List contents = _reorderElements;
     int childCount = contents.length;
     for (int i = 0; i < childCount; i++) {
@@ -389,7 +389,7 @@ class ReorderListComponent implements OnDestroy {
       List contents = _reorderElements;
       int childCount = contents.length;
       for (int i = 0; i < childCount; i++) {
-        Element e = contents[i];
+        HtmlElement e = contents[i];
         e.style.transition = '';
         if (_curTransformY[i] != 0) {
           e.style.transform = '';
@@ -399,7 +399,7 @@ class ReorderListComponent implements OnDestroy {
   }
 
   /// Lazily creates a list for subscriptions for element.
-  List<StreamSubscription> _subscriptionsForElement(Element elm) {
+  List<StreamSubscription> _subscriptionsForElement(HtmlElement elm) {
     var l = _subscriptions[elm];
     if (l == null) {
       l = <StreamSubscription>[];
@@ -424,7 +424,7 @@ class ReorderEvent {
     selector: '[reorderItem]',
     host: const {'draggable': 'true', 'role': 'listitem', 'tabindex': '0'})
 class ReorderItemDirective {
-  final Element element;
+  final HtmlElement element;
 
   ReorderItemDirective(ElementRef elementRef)
       : element = elementRef.nativeElement {}

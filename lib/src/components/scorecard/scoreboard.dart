@@ -221,7 +221,7 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   }
 
   void _makeScorecardsUniformWidth() {
-    List<Element> scorecardsElem = _scorecards
+    List<HtmlElement> scorecardsElem = _scorecards
         .map((ScorecardComponent scorecard) => scorecard.element)
         .toList();
 

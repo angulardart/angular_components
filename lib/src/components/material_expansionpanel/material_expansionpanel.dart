@@ -30,9 +30,8 @@ import '../../utils/disposer/disposer.dart';
 /// A material-styled expansion-panel.
 ///
 /// One or more panels are grouped together in a expansion-panel-set. When a
-/// panel is clicked on, it expands into an expansion drawer. A panel consists
-/// of a name, a value, optional secondary text, and the expanded drawer
-/// contents.
+/// panel is clicked on, the panel contents expand. A panel consists of a name,
+/// a value, optional secondary text, and the expanded panel contents.
 ///
 /// Content element with attribute `value` will be used as the "value" of the
 /// panel contents when it is in a collapsed state
@@ -127,6 +126,7 @@ class MaterialExpansionPanel
   final ManagedZone _managedZone;
   final ChangeDetectorRef _changeDetector;
   final _disposer = new Disposer.oneShot();
+  final _defaultExpandIcon = 'expand_less';
 
   MaterialExpansionPanel(this._managedZone, this._changeDetector);
 
@@ -160,7 +160,12 @@ class MaterialExpansionPanel
   /// Whether a different panel in the set is currently expanded.
   ///
   /// This determines the color of the panel.
-  bool anotherExpanded = false;
+  bool _anotherExpanded = false;
+  bool get anotherExpanded => _anotherExpanded;
+  set anotherExpanded(bool anotherExpanded) {
+    _anotherExpanded = anotherExpanded;
+    _changeDetector.markForCheck();
+  }
 
   bool _disabled = false;
   bool get disabled => _disabled;
@@ -186,11 +191,32 @@ class MaterialExpansionPanel
   String name;
 
   /// Some optional secondary summary text that describes the state of the
-  /// widget hosted inside the panel
+  /// widget hosted inside the panel.
   @Input()
   String secondaryText;
 
-  /// Option to set if widget should show save/cancel buttons `true` by default
+  /// An optional glyph icon name to replace the expand arrows with a custom
+  /// icon.
+  ///
+  /// If a custom icon is used, then the icon disappears when the panel is
+  /// expanded. By default, the expand icon is "expand_less."
+  String _expandIcon;
+  String get expandIcon => _expandIcon ?? _defaultExpandIcon;
+
+  @Input()
+  set expandIcon(String expandIcon) => _expandIcon = expandIcon;
+
+  bool get hasCustomExpandIcon => expandIcon != _defaultExpandIcon;
+
+  bool get shouldShowExpandIcon =>
+      (hasCustomExpandIcon && isExpanded) ? false : !disabled;
+
+  bool get shouldFlipExpandIcon => hasCustomExpandIcon ? false : !isExpanded;
+
+  bool get shouldShowHiddenHeaderExpandIcon =>
+      hasCustomExpandIcon ? false : (hideExpandedHeader && !disabled);
+
+  /// Option to set if widget should show save/cancel buttons `true` by default.
   @Input()
   bool showSaveCancel = true;
 
@@ -206,17 +232,35 @@ class MaterialExpansionPanel
   @Input()
   String cancelText = _msgCancel;
 
-  String get closeDrawerMsg => Intl.message('Close drawer',
-      name: 'closeDrawerMsg',
-      meaning: 'Button to close the expansion panel drawer',
-      desc: 'Aria label for an icon that closes the drawer');
+  String get closePanelMsg =>
+      name == null ? _closePanelMsg : _closeNamedPanelMsg(name);
 
-  String get _openDrawerMsg => Intl.message('Open drawer',
-      name: '_openDrawerMsg',
-      meaning: 'Button to open the expansion panel drawer.',
-      desc: 'Aria label for a button that opening the drawer.');
+  String get openPanelMsg =>
+      name == null ? _openPanelMsg : _openNamedPanelMsg(name);
 
-  String get headerMsg => _isExpanded ? closeDrawerMsg : _openDrawerMsg;
+  String get headerMsg => _isExpanded ? closePanelMsg : openPanelMsg;
+
+  String get _closePanelMsg => Intl.message('Close panel',
+      name: '_closePanelMsg',
+      desc: 'ARIA label for a button that closes the panel.');
+
+  String get _openPanelMsg => Intl.message('Open panel',
+      name: '_openPanelMsg',
+      desc: 'ARIA label for a button that opens the panel.');
+
+  String _closeNamedPanelMsg(String panelName) =>
+      Intl.message('Close $panelName panel',
+          name: '_closeNamedPanelMsg',
+          args: [panelName],
+          desc: 'ARIA label for a button that closes the panel.',
+          examples: const {'panelName': 'Conversions'});
+
+  String _openNamedPanelMsg(String panelName) =>
+      Intl.message('Open $panelName panel',
+          name: '_openNamedPanelMsg',
+          args: [panelName],
+          desc: 'ARIA label for a button that opens the panel.',
+          examples: const {'panelName': 'Conversions'});
 
   final _openController =
       new LazyStreamController<AsyncAction<bool>>.broadcast(sync: true);
@@ -227,23 +271,23 @@ class MaterialExpansionPanel
   final _cancelController =
       new LazyStreamController<AsyncAction<bool>>.broadcast(sync: true);
 
-  /// Event fired when drawer is trying to close.
+  /// Event fired when panel is trying to close.
   ///
   /// This action may be cancelled.
   @Output()
   Stream<AsyncAction<bool>> get close => _closeController.stream;
 
-  /// Event fired when drawer is trying to open.
+  /// Event fired when panel is trying to open.
   ///
   /// This action may be cancelled.
   @Output()
   Stream<AsyncAction<bool>> get open => _openController.stream;
 
-  /// Event fired when drawer is saved.
+  /// Event fired when panel is saved.
   @Output()
   Stream<AsyncAction<bool>> get save => _saveController.stream;
 
-  /// Event fired when drawer is cancelled.
+  /// Event fired when panel is cancelled.
   @Output()
   Stream<AsyncAction<bool>> get cancel => _cancelController.stream;
 
@@ -255,7 +299,7 @@ class MaterialExpansionPanel
       // Wait for the button reference to be set after change detection is done
       // and buttonDirective is created.
       _managedZone.onTurnDone.first.then(([_]) {
-        _expandCollapseButton.focus();
+        _expandCollapseButton?.focus();
       });
     }));
   }

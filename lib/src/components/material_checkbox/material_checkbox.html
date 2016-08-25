@@ -14,13 +14,15 @@
  limitations under the License.
 -->
 <div class="icon-container">
-  <glyph [icon]="icon"
+  <glyph [style.color]="themeColor"
+         [icon]="icon"
          size="large"
          class="icon"
          aria-hidden="true"
          [class.filled]="checked || indeterminate">
   </glyph>
-  <material-ripple *ngIf="!disabled"
+  <material-ripple [style.color]="rippleColor"
+                   *ngIf="!disabled"
                    [focused]="showFocus"
                    [class.filled]="checked"
                    class="ripple">

@@ -22,7 +22,7 @@ const String ARIA_VALUENOW_ATTR = "aria-valuenow";
 ///
 /// __Example usage:__
 ///
-///    <material-progress activeProgress="10" secondaryProgress="30">
+///    <material-progress [activeProgress]="10" [secondaryProgress]="30">
 ///    </material-progress>
 ///
 @Component(

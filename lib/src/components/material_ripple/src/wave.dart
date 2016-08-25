@@ -122,10 +122,10 @@ class Wave {
   final num _initialOpacity;
   final num _opacityDecayVelocity;
 
-  final Element _containerElement;
+  final HtmlElement _containerElement;
   final Rectangle _containerMetrics;
   final num _containerSize;
-  final Element _waveElement;
+  final HtmlElement _waveElement;
 
   // The maximum radius that the wave should be.
   num _maxRadius = 0;
@@ -145,7 +145,7 @@ class Wave {
   /// Other properties:
   ///   - [center]: Will center all waves
   ///   - [recenter]: Will translate the wave towards the center.
-  factory Wave(Element hostElement,
+  factory Wave(HtmlElement hostElement,
       {Clock clock: const Clock(), bool center: false, bool recenter: false}) {
     final containerElement = new DivElement()
       ..classes.add('__material-ripple_wave-container');

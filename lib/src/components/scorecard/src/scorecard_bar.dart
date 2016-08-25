@@ -26,7 +26,7 @@ import '../../../utils/disposer/disposer.dart';
 class ScorecardBarDirective implements OnInit, OnDestroy {
   final _refreshController = new StreamController<bool>.broadcast();
   final _disposer = new Disposer.oneShot();
-  final Element _element;
+  final HtmlElement _element;
   final DomService _domService;
 
   bool _isRtl;
