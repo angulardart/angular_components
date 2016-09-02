@@ -18,7 +18,7 @@ import '../material_ripple/material_ripple.dart';
 
 import 'material_button_base.dart';
 
-// TODO(matanl): Right now we use is-raised and isDisabled for CSS styling.
+// TODO(google): Right now we use is-raised and isDisabled for CSS styling.
 // When Angular supports conditionally adding/removing an attribute, use.
 // See https://github.com/angular/angular/issues/2869.
 

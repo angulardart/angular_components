@@ -215,7 +215,7 @@ abstract class BoundaryAwareKeyUpDirective implements OnDestroy {
 
 /// Marks a subtree of the dom that should handle `keyup` events for a
 /// [BoundaryAwareKeyUpDirective] implementation.
-// TODO(rkj): move to somewhere common.
+// TODO(google): move to somewhere common.
 @Directive(selector: '[keyupBoundary]')
 class KeyUpBoundaryDirective {
   /// Stream of `keyup` [KeyboardEvent]s of the DOM subtree.

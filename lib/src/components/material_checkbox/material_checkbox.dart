@@ -68,7 +68,7 @@ const indeterminateAriaState = 'mixed';
 /// - `checked: bool` -- Published when the check state changes.
 /// - `indeterminate: bool` -- Published when the indeterminate state changes.
 ///
-/// TODO(tsander): restore example usage (latest ng2 tries to eval example code)
+/// TODO(google): restore example usage (latest ng2 tries to eval example code)
 ///
 @Component(
     selector: 'material-checkbox',

@@ -57,7 +57,7 @@ class _ComparingListDiff<T> implements ListDiff<T> {
     _calculateEntries(prev, curr);
   }
 
-  // TODO(isoos): make calculation of [entries] or the sorting of [deleted]
+  // TODO(google): make calculation of [entries] or the sorting of [deleted]
   // deferred to the time of the getter call
   void _calculateEntries(List<T> prev, List<T> curr) {
     var map = new LinkedHashMap<T, DiffEntry<T>>();

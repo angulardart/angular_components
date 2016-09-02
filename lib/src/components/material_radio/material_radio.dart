@@ -131,7 +131,7 @@ class MaterialRadioComponent extends RootFocusable
   @Input()
   set checked(bool newValue) {
     if (_checked == newValue) return;
-    // TODO(ananthmohan): A video test fails without this MarkForCheck, but
+    // TODO(google): A video test fails without this MarkForCheck, but
     // it shouldn't be needed for @Inputs.
     _changeDetector.markForCheck();
 

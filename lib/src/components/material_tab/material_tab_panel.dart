@@ -34,7 +34,7 @@ import 'tab_change_event.dart';
 ///         </my-tab-panel>
 ///       </my-panel>
 ///     </material-tab-panel>
-// TODO(tsander): Support Scrolling tab strip in addition to fixed with an
+// TODO(google): Support Scrolling tab strip in addition to fixed with an
 // attribute.
 @Component(
     selector: 'material-tab-panel',

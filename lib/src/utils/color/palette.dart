@@ -17,7 +17,7 @@ library ads.acx2.utils.color.palette;
 import 'color.dart';
 
 // Default google colors sourced from go/spec (quantum color palette)
-// TODO(zny): fill in all the rest of these
+// TODO(google): fill in all the rest of these
 
 // grayscale shades
 final Color white = new Color.fromHex('#FFFFFF');

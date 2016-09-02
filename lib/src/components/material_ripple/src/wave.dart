@@ -268,7 +268,7 @@ class Wave {
     final waveRadius = min(sqrt(widthX2 + heightX2), MAX_RADIUS) * 1.1 + 5;
 
     // Sorry for the magic numbers/vars, this is copied from Polymer's code.
-    // TODO(matanl): Investigate and see if we can label these.
+    // TODO(google): Investigate and see if we can label these.
     final duration = 1.1 - 0.2 * (waveRadius / MAX_RADIUS);
     final timeNow = _timeTracker.mouseInteractionSeconds / duration;
     final size = waveRadius * (1 - pow(80, -timeNow));

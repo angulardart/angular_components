@@ -87,7 +87,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   Stream<T> asBroadcastStream(
       {void onListen(StreamSubscription<T> subscription),
       void onCancel(StreamSubscription<T> subscription)}) {
-    /// TODO(irfan): onListen & onCancel need to be implemented.
+    /// TODO(google): onListen & onCancel need to be implemented.
     if (onListen != null || onCancel != null) {
       throw new UnsupportedError('Not supported outside constructor.');
     }

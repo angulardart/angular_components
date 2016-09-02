@@ -42,7 +42,7 @@ class FrameworkStabilizers {
 
   static List get _frameworkStabilizers {
     if (_frameworkStabilizersJs == null) {
-      // TODO(https://github.com/dart-lang/sdk/issues/24843): switch this to
+      // TODO(google): switch this to
       //     "_frameworkStabilizersJs = []" when bug is resolved.
       context['frameworkStabilizers'] = new JsArray();
     }

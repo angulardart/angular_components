@@ -22,11 +22,11 @@ import 'dart:math' show max, min;
 import '../../angular/managed_zone/interface.dart';
 import '../../async/async.dart';
 import '../../disposer/disposable_callback.dart';
-// TODO(ferhat,isoos,matanl,tbosch): Consolidate this with RenderSync /Angular.
+// TODO(google): Consolidate this with RenderSync /Angular.
 
 import '../../disposer/disposer.dart';
 
-// TODO(ferhat,isoos,matanl,tbosch): Consolidate this with RenderSync /Angular.
+// TODO(google): Consolidate this with RenderSync /Angular.
 
 /// A callback from [DomService.scheduleRead] or [DomService.scheduleWrite].
 typedef void DomReadWriteFn();
@@ -172,7 +172,7 @@ class DomService {
       _nextFrameCompleter = completer;
       _managedZone.runOutside(() {
         // Delayed initialization of the cross-app event sending.
-        // TODO(isoos): figure out a better way to initialize this earlier
+        // TODO(google): figure out a better way to initialize this earlier
         init();
         _nextFrameId = _window.requestAnimationFrame((highResTimer) {
           // Protect against window implementation that does not cancel the frame.
@@ -199,10 +199,10 @@ class DomService {
     if (_onIdleStream == null) {
       _onIdleController = new StreamController.broadcast(
           sync: true, onListen: _resetIdleTimer, onCancel: _resetIdleTimer);
-      // TODO(isoos): consider scoping it to be inside the managed zone:
+      // TODO(google): consider scoping it to be inside the managed zone:
       _onIdleStream =
           new ZonedStream(_onIdleController.stream, _managedZone.runOutside);
-      // TODO(isoos): integrate with Chrome's new idle detection API
+      // TODO(google): integrate with Chrome's new idle detection API
     }
     return _onIdleStream;
   }
@@ -391,7 +391,7 @@ class DomService {
   /// observer.
   StreamSubscription trackLayoutChange(fn(), void callback(value),
       {int framesToStabilize: 1, bool runInAngularZone: false}) {
-    // TODO(matanl): Move layout checking into ruler service when landed.
+    // TODO(google): Move layout checking into ruler service when landed.
     Function trackerCallback = callback;
     if (runInAngularZone) {
       trackerCallback = (value) {
@@ -437,7 +437,7 @@ class DomService {
     }
   }
 
-  // TODO(matanl): Consider deprecating from public API.
+  // TODO(google): Consider deprecating from public API.
   void requestLayoutFrame() {
     _scheduleOnLayoutChanged();
   }
@@ -477,9 +477,9 @@ class DomService {
     _cancelIdleTimer();
     if (!_onIdleController.hasListener) return;
     // running in root zone, in order to go outside of the activity tracking
-    // TODO(isoos): implement proper activity tracking integration
+    // TODO(google): implement proper activity tracking integration
     _rootZone.run(() {
-      // TODO(isoos): consider adding animation frame counting that can be used:
+      // TODO(google): consider adding animation frame counting that can be used:
       // - to shorten the minimum period
       // - to detect CPU activities that we are not aware of
       _idleTimerMillis = max(_MIN_IDLE_TIMER_MILLIS, _idleTimerMillis);

@@ -24,7 +24,7 @@ typedef StreamController<T> LazyEventEmitterStreamControllerFactory<T>();
 ///
 /// Additionally the default version is creating non-broadcast,
 /// sync [StreamController] that should be good enough for most cases.
-// TODO(rkj): add tests.
+// TODO(google): add tests.
 class LazyEventEmitter<T> extends Stream<T> {
   final LazyEventEmitterStreamControllerFactory<T> _streamControllerFactory;
 

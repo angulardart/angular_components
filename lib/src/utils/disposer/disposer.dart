@@ -116,7 +116,7 @@ class Disposer implements Disposable {
   ///   [addStreamSubscription]
   ///   [addFunction]
   dynamic/*=T*/ addDisposable/*<T>*/(/*=T*/ disposable) {
-    // TODO(sigmund): `disposable_` is a workaround to make this code
+    // TODO(google): `disposable_` is a workaround to make this code
     // strong-clean. We should be able to get rid of it once dartbug.com/26439
     // is addressed in the language.
     dynamic disposable_ = disposable;

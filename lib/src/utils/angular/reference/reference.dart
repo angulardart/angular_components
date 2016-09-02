@@ -16,7 +16,7 @@ library ads.acx2.utils.angular.reference.reference;
 
 import 'package:angular2/angular2.dart';
 
-// TODO(matanl,tbosch): Remove this once use of '#' in a template is either
+// TODO(google): Remove this once use of '#' in a template is either
 // consistent, or has a way to declare specifically what you want - e.g. the
 // component instance or the element ref. Today, using # on an HTML element will
 // be an elementRef, but # on a component will be a component instance.

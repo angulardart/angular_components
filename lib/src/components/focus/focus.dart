@@ -121,7 +121,7 @@ class FocusMoveEvent {
     });
   }
 
-  // TODO(typotter): account for RTL.
+  // TODO(google): account for RTL.
   static bool _isNextKey(int keyCode) =>
       keyCode == KeyCode.RIGHT || keyCode == KeyCode.DOWN;
   static bool _isPrevKey(int keyCode) =>

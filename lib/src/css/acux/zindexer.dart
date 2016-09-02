@@ -31,7 +31,7 @@ external set _currentZIndex(int value);
 /// elements will sometimes show up underneath existing elements.
 @Injectable()
 class ZIndexer {
-  // TODO(matanl): Replace this with support for shared z-index in particle overlays.
+  // TODO(google): Replace this with support for shared z-index in particle overlays.
   static ZIndexer _currentInstance;
 
   static void _initZIndex() {

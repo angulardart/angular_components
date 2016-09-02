@@ -16,7 +16,7 @@ library ads.acx2.model.selection.select;
 
 import '../../utils/async/async.dart';
 
-// TODO(matanl): Slowly change to use the refined interfaces in src/interfaces.
+// TODO(google): Slowly change to use the refined interfaces in src/interfaces.
 // - interfaces/filterable.dart will replace Filterable
 // - interfaces/parent.dart will replace Parent.
 export 'src/interfaces/selectable.dart';

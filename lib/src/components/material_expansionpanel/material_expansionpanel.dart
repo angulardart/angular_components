@@ -40,7 +40,7 @@ import '../../utils/disposer/disposer.dart';
 /// takes into account the state of the other panels in the set, and issues the
 /// appropriate actions onto each individual panel.
 ///
-/// TODO(ananthmohan): Keyboard/accessibility inputs
+/// TODO(google): Keyboard/accessibility inputs
 ///
 /// __Example usage:__
 ///

@@ -52,7 +52,7 @@ class MaterialChipsComponent implements HasRenderer, OnDestroy {
   bool removable = true;
 
   /// The list of `HasUIDisplayName` objects to render.
-  //  TODO(tsander): update this to be selection, not selectionModel, in order
+  //  TODO(google): update this to be selection, not selectionModel, in order
   //  to match SelectionModel properties from other components
   SelectionModel _selectionModel = const SelectionModel();
 

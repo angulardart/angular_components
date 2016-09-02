@@ -22,7 +22,7 @@
 /// [ObservableReference] and [ObservableComposite] provide base classes for
 /// complex domain objects that aren't able to implement [Observable].
 ///
-/// TODO(isoos): check with jmesserly: how to merge these with package:observe
+/// TODO(google): check with jmesserly: how to merge these with package:observe
 library ads.acx2.model.observable.observable;
 
 import 'dart:async';
