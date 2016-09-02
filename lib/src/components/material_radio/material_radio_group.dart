@@ -66,7 +66,8 @@ import '../../utils/disposer/disposer.dart';
     selector: 'material-radio-group',
     host: const {'role': 'radiogroup', 'tabindex': '-1',},
     template: '<ng-content></ng-content>',
-    styleUrls: const ['material_radio_group.scss.css'])
+    styleUrls: const ['material_radio_group.scss.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
   final _disposer = new Disposer.oneShot();
   final ManagedZone _managedZone;

@@ -18,7 +18,7 @@ import 'dart:async';
 
 import 'src/managed_zone.dart';
 export 'src/managed_zone.dart';
-import 'package:angular2/angular2.dart';
+import 'package:angular2/di.dart';
 
 /// An implementation of [ManagedZone] that uses Angular 2's [NgZone].
 @Injectable()

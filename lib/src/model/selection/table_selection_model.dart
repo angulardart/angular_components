@@ -39,10 +39,11 @@ abstract class TableSelectionModel<T> extends MultiSelectionModel<T>
         deselectOnRemove: deselectOnRemove);
   }
 
-  /// Total number of entries for a given table, including all the pages.
+  /// Total number of selectable entries for a given table, including all
+  /// the pages.
   CountGetter totalEntitiesCount;
 
-  /// Number of entries visible to the user.
+  /// Number of selectable entries.
   CountGetter entitiesOnPageCount;
 
   SelectableGetter getSelectable;
@@ -50,13 +51,13 @@ abstract class TableSelectionModel<T> extends MultiSelectionModel<T>
   /// If the table supports selection over multiple pages.
   bool supportsMultiplePageSelection;
 
-  /// Selects all the entries across all the pages.
+  /// Selects all selectable entries across all the pages.
   void selectAllAcrossPages();
 
-  /// True if all entries are selected.
+  /// True if all selectable entries are selected.
   bool get allAcrossPagesSelected;
 
-  /// True if all entries on a page are selected.
+  /// True if all selectable entries on a page are selected.
   bool get isPageSelected;
 
   /// Number of entries selected in the model.

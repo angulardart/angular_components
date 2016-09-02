@@ -99,8 +99,10 @@ const indeterminateAriaState = 'mixed';
     },
     directives: const [GlyphComponent, MaterialRippleComponent, NgIf],
     templateUrl: 'material_checkbox.html',
-    styleUrls: const ['material_checkbox.scss.css'])
+    styleUrls: const ['material_checkbox.scss.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialCheckboxComponent implements ControlValueAccessor {
+  final ChangeDetectorRef _changeDetector;
   final Renderer _renderer;
   final ElementRef _root;
   final String _defaultTabIndex;
@@ -108,6 +110,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
 
   MaterialCheckboxComponent(
       this._root,
+      this._changeDetector,
       @Self() @Optional() NgControl cd,
       this._renderer,
       @Attribute('tabindex') String hostTabIndex,
@@ -235,6 +238,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
     if (_renderer == null || _root == null) return;
     _renderer.setElementAttribute(
         _root.nativeElement, 'aria-checked', _checkedStr);
+    _changeDetector?.markForCheck();
   }
 
   /// Current icon, depends on the state of [checked] and [indeterminate].

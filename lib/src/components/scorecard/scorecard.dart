@@ -81,6 +81,7 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   bool _isChangeNeutral = true;
   bool _selectable = false;
   bool _extraBig = false;
+  bool _changeGlyph = false;
 
   ElementRef _ref;
   HtmlElement get element => _ref.nativeElement;
@@ -105,9 +106,13 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   @Input()
   String value;
 
-  /// Whether to display a small change arrow glyph; optional.
+  /// Whether to display a small change arrow glyph in the description;
+  /// optional.
+  bool get changeGlyph => _changeGlyph;
   @Input()
-  bool changeGlyph = false;
+  set changeGlyph(bool value) {
+    _changeGlyph = getBool(value);
+  }
 
   /// A piece of suggestion text before the description; optional.
   @Input()

@@ -73,7 +73,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   SimpleStream([this._isSync = false]) : super(const Stream.empty());
 
   SimpleStream.broadcast(
-      {bool isSync,
+      {bool isSync: false,
       SubscriptionChangeListener<T> onListen,
       SubscriptionChangeListener<T> onCancel})
       : _isSync = isSync,
@@ -254,7 +254,7 @@ class LastStateStream<T> extends SimpleStream<T> {
   T _lastItem;
 
   LastStateStream(
-      {bool isSync,
+      {bool isSync: false,
       SubscriptionChangeListener onListen,
       SubscriptionChangeListener onCancel})
       : super.broadcast(isSync: isSync, onListen: onListen, onCancel: onCancel);

@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'dart:async';
 import 'dart:html';
 
 import 'package:angular2/angular2.dart';
@@ -68,7 +67,6 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   bool _scrollable = false;
   bool _resetOnCardChanges = false;
   SelectionModel _selectionModel;
-  StreamSubscription<Event> _windowResizeListener;
   QueryList<ScorecardComponent> _scorecards;
   ScorecardBarDirective _scorecardBar;
 
@@ -83,7 +81,6 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   bool get atScorecardBarEnd => _atScorecardBarEnd;
 
   ScoreboardComponent(
-      Window window,
       @ContentChildren(ScorecardComponent) this._scorecards,
       @Attribute('enableUniformWidths') String enableUniformWidths,
       this._domService,
@@ -114,10 +111,6 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   void ngOnDestroy() {
     _disposer.dispose();
     _cardSelectionDisposer.dispose();
-    if (_windowResizeListener != null) {
-      _windowResizeListener?.cancel();
-      _windowResizeListener = null;
-    }
   }
 
   @ViewChild(ScorecardBarDirective)
@@ -139,13 +132,6 @@ class ScoreboardComponent implements OnInit, OnDestroy {
     var value = getBool(scrollable);
     if (value != _scrollable) {
       _scrollable = value;
-      if (_scrollable) {
-        _windowResizeListener = window.onResize.listen((_) {
-          _scorecardBar?.onResize();
-        });
-      } else {
-        _windowResizeListener?.cancel();
-      }
     }
   }
 

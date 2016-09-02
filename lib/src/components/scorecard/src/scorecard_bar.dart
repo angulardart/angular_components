@@ -43,6 +43,11 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
   void ngOnInit() {
     _isRtl = _element.getComputedStyle().direction == 'rtl';
     _disposer.addDisposable(_domService.scheduleRead(_readElement));
+    _disposer.addDisposable(
+        _domService.trackLayoutChange(() => _element.clientWidth, (_) {
+      _readElement();
+      _refreshController.add(true);
+    }, runInAngularZone: true));
   }
 
   @override
@@ -102,19 +107,15 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
     }));
   }
 
-  void onResize() {
-    _disposer.addDisposable(_domService.scheduleRead(() {
-      _readElement();
-      _refreshController.add(true);
-    }));
-  }
-
   void reset() {
     if (_transform != 0) {
       _transform = 0;
       _updateTransform();
     }
-    onResize();
+    _disposer.addDisposable(_domService.scheduleRead(() {
+      _readElement();
+      _refreshController.add(true);
+    }));
   }
 
   void _readElement() {

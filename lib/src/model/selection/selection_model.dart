@@ -31,6 +31,8 @@ part 'src/selection_change_notifier.dart';
 part 'src/single_selection_model_impl.dart';
 
 /// Returns a key-able object from [o].
+///
+/// Must not return null, which is reserved to mean "no selection".
 typedef Object KeyProvider<T>(T o);
 
 /// Matching function provider, for example used in SelectSuggestInput.

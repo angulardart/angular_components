@@ -155,7 +155,7 @@ class MaterialRippleComponent implements OnDestroy {
   /// Completes the next time the mouse is released.
   Future _nextMouseUp() {
     final completer = new Completer.sync();
-    final maybeComplete = (MouseEvent e) {
+    final maybeComplete = (UIEvent e) {
       if (completer.isCompleted) return;
       completer.complete(e);
       _disposer.dispose(); // Cleanup the document subscriptions.
@@ -164,6 +164,8 @@ class MaterialRippleComponent implements OnDestroy {
         document.onMouseUp.take(1).listen(maybeComplete));
     _disposer.addStreamSubscription(
         document.onDragEnd.take(1).listen(maybeComplete));
+    _disposer.addStreamSubscription(
+        document.onTouchEnd.take(1).listen(maybeComplete));
     return completer.future;
   }
 

@@ -110,7 +110,8 @@ class LazyListTracker<S, T> extends Object
 
   void disposeMapped(T object) {
     if (object is Disposable) {
-      (object as Disposable).dispose();
+      var d = object;
+      d.dispose();
     }
   }
 
