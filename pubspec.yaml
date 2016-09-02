@@ -1,6 +1,6 @@
 name: angular2_material
 version: 0.0.0-preview.1
-description: Material Design components for AngularDart.
+description: The official Material Design components for AngularDart.
 dependencies:
   angular2: ^2.0.0-beta.20
   js: ^0.6.0-beta.7
