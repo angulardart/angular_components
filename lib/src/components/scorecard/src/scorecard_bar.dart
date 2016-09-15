@@ -44,7 +44,7 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
     _isRtl = _element.getComputedStyle().direction == 'rtl';
     _disposer.addDisposable(_domService.scheduleRead(_readElement));
     _disposer.addDisposable(
-        _domService.trackLayoutChange(() => _element.clientWidth, (_) {
+        _domService.trackLayoutChange(() => _element.parent.clientWidth, (_) {
       _readElement();
       _refreshController.add(true);
     }, runInAngularZone: true));

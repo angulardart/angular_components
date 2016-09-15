@@ -21,6 +21,7 @@ export 'src/disposable_future.dart';
 export 'src/lazy_event_emitter.dart';
 export 'src/lazy_stream_controller.dart';
 export 'src/noop_stream.dart';
+export 'src/priority_stream_iterator.dart';
 export 'src/simple_stream.dart';
 export 'src/throttle_stream.dart';
 export 'src/zoned_async.dart';

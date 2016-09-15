@@ -23,6 +23,9 @@ import '../../utils/disposer/disposer.dart';
 import '../../utils/keyboard/keyboard.dart';
 
 /// Provides a list that can reorder it's children using html5 drag&drop.
+/// A vertical reorder-list will use any component in its <ng-content>
+/// marked with 'reorderPlaceholder' attribute as a placeholder when moving
+/// items.
 ///
 /// Typical use:
 /// '''
@@ -47,6 +50,11 @@ class ReorderListComponent implements OnDestroy {
   @Output()
   final reorder = new LazyEventEmitter<ReorderEvent>();
 
+  /// Will emit [ReorderEvent] when the prospective reordering position has
+  /// changed.
+  @Output()
+  final reorderAttempt = new LazyEventEmitter<ReorderEvent>();
+
   /// Will emit [int] index of element to delete when delete is triggered.
   @Output()
   final delete = new LazyEventEmitter<int>();
@@ -54,6 +62,7 @@ class ReorderListComponent implements OnDestroy {
   final ManagedZone _managedZone;
 
   /// If true (default), items are aligned vertically.
+  @HostBinding('class.vertical')
   @Input()
   bool verticalItems = true;
 
@@ -76,6 +85,9 @@ class ReorderListComponent implements OnDestroy {
   int _moveSourceIndex = -1;
   int _currentMoveIndex = -1;
   HtmlElement _dragSourceElement;
+
+  @ViewChild('placeholder', read: ElementRef)
+  ElementRef placeholder;
 
   ReorderListComponent(
       this._managedZone, @ContentChildren(ReorderItemDirective) this._items) {
@@ -125,6 +137,7 @@ class ReorderListComponent implements OnDestroy {
       rightSide = contents.first.parent.offset.right;
     }
     int nextOffset = null;
+    int upperStackSize = 0;
     for (int i = 0; i < childCount; i++) {
       int offset = 0;
       HtmlElement e = contents[i];
@@ -133,17 +146,16 @@ class ReorderListComponent implements OnDestroy {
       if (i == _moveSourceIndex) {
         // move original div off-screen so we only see moving clone.
         offset = -8000;
-      } else if (i > _moveSourceIndex) {
+      } else if (_moveSourceIndex < i && i <= toIndex) {
         // Remove item delta.
         offset -= _itemSizes[_moveSourceIndex];
-
-        if (i > toIndex) {
-          // insert item delta.
-          offset += _itemSizes[_moveSourceIndex];
-        }
-      } else if (i < _moveSourceIndex && i >= toIndex) {
+      } else if (toIndex <= i && i < _moveSourceIndex) {
         // insert item delta.
         offset += _itemSizes[_moveSourceIndex];
+      }
+      if ((i != _moveSourceIndex && i < toIndex) ||
+          (i == toIndex && toIndex > _moveSourceIndex)) {
+        upperStackSize += _itemSizes[i];
       }
       if (offset != _curTransformY[i]) {
         _curTransformY[i] = offset;
@@ -167,6 +179,12 @@ class ReorderListComponent implements OnDestroy {
         }
       }
     }
+
+    placeholder.nativeElement.style
+      ..height = "${_dragSourceElement.borderEdge.height}px"
+      ..width = "${_dragSourceElement.borderEdge.width}px"
+      ..top = "${upperStackSize}px";
+    reorderAttempt.add(new ReorderEvent(_moveSourceIndex, toIndex));
   }
 
   int _horizontalTransformHandler(HtmlElement e, Element prev, int offset,
@@ -259,12 +277,13 @@ class ReorderListComponent implements OnDestroy {
 
   _onDragEnd(MouseEvent e) {
     e.stopPropagation();
-    reorder.add(new ReorderEvent(_moveSourceIndex, _currentMoveIndex));
 
     _reorderActive = false;
     _dragSourceElement.classes.remove('reorder-list-dragging-active');
     _reorderActive = false;
     _resetChildren();
+
+    reorder.add(new ReorderEvent(_moveSourceIndex, _currentMoveIndex));
   }
 
   _onKeyDown(KeyboardEvent e, HtmlElement element) {
@@ -407,6 +426,8 @@ class ReorderListComponent implements OnDestroy {
     }
     return l;
   }
+
+  bool get showPlaceholder => verticalItems && _reorderActive;
 }
 
 typedef void ReorderListHandler(int sourceIndex, int destIndex);

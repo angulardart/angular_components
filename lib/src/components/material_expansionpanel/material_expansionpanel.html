@@ -25,8 +25,9 @@
           #expandCollapseButton
           *ngIf="!isExpanded || !hideExpandedHeader"
           [class.closed] = "!isExpanded"
+          [class.disable-header-expansion]="disableHeaderExpansion"
           [attr.aria-label]="headerMsg"
-          (trigger)="isExpanded == false ? expand() : collapse();">
+          (trigger)="handleHeaderClick()">
     <div class="panel-name">
       <p class="primary-text">{{name}}</p>
       <p class="secondary-text" *ngIf="secondaryText != null">{{secondaryText}}</p>
@@ -37,10 +38,12 @@
       <ng-content select="[value]"></ng-content>
     </div>
 
-    <glyph *ngIf="shouldShowExpandIcon"
+    <glyph buttonDecorator
+           *ngIf="shouldShowExpandIcon"
            class="expand-button"
            [icon]="expandIcon"
-           [class.expand-more]="shouldFlipExpandIcon">
+           [class.expand-more]="shouldFlipExpandIcon"
+           (trigger)="handleExpandIconClick()">
     </glyph>
   </header>
 
@@ -65,6 +68,7 @@
         [pending]="activeSaveCancelAction"
         [yesText]="saveText"
         [noText]="cancelText"
+        [yesDisabled]="saveDisabled"
         (yes)="doSave()"
         (no)="doCancel()">
     </material-yes-no-buttons>

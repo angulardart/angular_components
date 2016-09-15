@@ -90,6 +90,7 @@ import '../../utils/disposer/disposer.dart';
 ///    "okay", "apply"). The default text is "save".
 ///  - `cancelText: String` -- The text to be shown on the cancel button (e.g.
 ///    "dismiss", "not now"). The default text is "cancel".
+///  - `saveDisabled: bool` -- If true, the save button is disabled.
 ///
 /// __Events:__
 ///
@@ -175,16 +176,25 @@ class MaterialExpansionPanel
   @Input()
   set disabled(value) {
     _disabled = getBool(value);
+    _changeDetector.markForCheck();
   }
+
+  /// Whether the save button is disabled.
+  @Input()
+  bool saveDisabled = false;
 
   // Whether there is an in-progress action from the save/cancel buttons
   bool _activeSaveCancelAction = false;
   bool get activeSaveCancelAction => _activeSaveCancelAction;
 
-  /// If true, The header which displays the name of the panel is hidden when
+  /// If true, the header which displays the name of the panel is hidden when
   /// the panel is expanded.
   @Input()
   bool hideExpandedHeader = false;
+
+  /// If true, clicking on the header does not expand or collapse the panel.
+  @Input()
+  bool disableHeaderExpansion = false;
 
   /// A short name label for the expansion panel.
   @Input()
@@ -290,6 +300,14 @@ class MaterialExpansionPanel
   /// Event fired when panel is cancelled.
   @Output()
   Stream<AsyncAction<bool>> get cancel => _cancelController.stream;
+
+  void handleHeaderClick() {
+    if (!disableHeaderExpansion) isExpanded ? collapse() : expand();
+  }
+
+  void handleExpandIconClick() {
+    if (disableHeaderExpansion) isExpanded ? collapse() : expand();
+  }
 
   @override
   void ngOnInit() {

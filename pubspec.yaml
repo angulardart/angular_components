@@ -1,6 +1,6 @@
 name: angular2_components
 version: 0.0.0-preview.2
-description: >
+description:  >
   The official Material Design components for AngularDart. Used at Google
   in production apps.
 dependencies:

@@ -76,6 +76,8 @@ import 'src/components/material_tab/src/navigation_bar.dart';
 export 'src/components/material_tab/src/navigation_bar.dart';
 import 'src/components/material_tab/src/tab_button.dart';
 export 'src/components/material_tab/src/tab_button.dart';
+import 'src/components/material_tab/src/tab_mixin.dart';
+export 'src/components/material_tab/src/tab_mixin.dart';
 import 'src/components/material_tab/tab_change_event.dart';
 export 'src/components/material_tab/tab_change_event.dart';
 import 'src/components/material_toggle/material_toggle.dart';

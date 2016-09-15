@@ -96,6 +96,7 @@ const indeterminateAriaState = 'mixed';
       '[attr.aria-disabled]': 'disabled',
       '[attr.role]': 'role != null ? role : "checkbox"',
       '[attr.tabindex]': 'tabIndex',
+      '[attr.aria-label]': 'label',
     },
     directives: const [GlyphComponent, MaterialRippleComponent, NgIf],
     templateUrl: 'material_checkbox.html',
