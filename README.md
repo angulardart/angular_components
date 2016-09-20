@@ -9,8 +9,6 @@ Only a small fragment of all the ACX components is available right now. We want 
 an opportunity to play around with the package as soon as possible. We will be releasing more
 depending on your feedback.
 
-This is not an official Google product.
-
 ## Useful links
 
 * [AngularDart pub package](https://pub.dartlang.org/packages/angular2)
