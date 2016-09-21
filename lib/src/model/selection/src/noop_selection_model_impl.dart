@@ -48,6 +48,18 @@ class _NoopSelectionModelImpl<T> implements SelectionModel<T> {
           Symbol field, /*=T*/ oldValue, /*=T*/ newValue) =>
       null;
 
+  @override
+  void observed() {}
+
+  @override
+  void unobserved() {}
+
+  @override
+  void postProcessChangeRecords(ChangeRecordPayload payload) {}
+
+  @override
+  bool get deliverOnNotify => false;
+
   // Selection model.
 
   @override
