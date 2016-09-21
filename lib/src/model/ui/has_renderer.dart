@@ -60,8 +60,8 @@ class CachingItemRenderer<T> {
 /// In particular, if a component is loaded by [DynamicComponent] and it needs
 /// to render a value, it must implement this interface to allow
 /// DynamicComponent to set the value.
-abstract class RendersValue {
-  set value(dynamic newValue);
+abstract class RendersValue<T> {
+  set value(T newValue);
 }
 
 /// Defines a method that returns a component to render the Item.  The

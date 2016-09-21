@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:html';
+
 import 'package:angular2/angular2.dart';
 
 import '../../utils/disposer/disposer.dart';
@@ -32,9 +34,12 @@ import 'deferred_content_aware.dart';
 /// </modal>
 @Directive(selector: '[deferredContent]')
 class DeferredContentDirective implements OnDestroy {
-  ViewContainerRef _viewContainer;
-  TemplateRef _template;
   final _disposer = new Disposer.oneShot();
+  final _placeholder = new DivElement();
+
+  ViewContainerRef _viewContainer;
+  EmbeddedViewRef _viewRef;
+  TemplateRef _template;
 
   // Keep around the current state.
   bool _visible = false;
@@ -42,9 +47,30 @@ class DeferredContentDirective implements OnDestroy {
   void _setVisible(bool value) {
     if (value == _visible) return;
     if (value) {
-      _viewContainer.createEmbeddedView(_template);
+      // Remove the placeholder and add the deferred content.
+      _placeholder.remove();
+      _viewRef = _viewContainer.createEmbeddedView(_template);
     } else {
+      // Save the dimensions of the deferred content.
+      var rootNodes = _viewRef?.rootNodes ?? [];
+      var content = rootNodes.length > 0 ? rootNodes.first : null;
+      if (content is HtmlElement) {
+        // This isn't in DomService.schedule{Read,Write} because
+        // it needs to work with components that aren't scheduled.
+        var dimensions = content.getBoundingClientRect();
+        _placeholder.style
+          ..width = '${dimensions.width}px'
+          ..height = '${dimensions.height}px';
+      }
+
+      // Remove the deferred content.
       _viewContainer.clear();
+
+      // Add the placeholder so the parent's size doesn't change.
+      var container = _viewContainer.element?.nativeElement;
+      if (container != null) {
+        container.parentNode.insertBefore(_placeholder, container);
+      }
     }
     _visible = value;
   }

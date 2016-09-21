@@ -182,7 +182,7 @@ class MaterialRippleComponent implements OnDestroy {
 
   void _initDom() {
     // Initialize the background and waves divs.
-    if (_background == null) {
+    if (_element != null && _background == null) {
       _background = new Element.div()
         ..classes.add('__material-ripple_background');
       _container = new Element.div()..classes.add('__material-ripple_waves');
