@@ -15,7 +15,6 @@
 import 'dart:async';
 
 import 'package:observe/observe.dart';
-import 'package:observable/transitional.dart' show ChangeRecordPayload;
 
 import '../selection_model.dart';
 
@@ -72,19 +71,6 @@ class DelegatingSelectionModel<T> implements SelectionModel<T> {
 
   @override
   bool get hasObservers => _delegateModel.hasObservers;
-
-  @override
-  void observed() => _delegateModel.observed();
-
-  @override
-  void unobserved() => _delegateModel.unobserved();
-
-  @override
-  void postProcessChangeRecords(ChangeRecordPayload payload) =>
-      _delegateModel.postProcessChangeRecords(payload);
-
-  @override
-  bool get deliverOnNotify => _delegateModel.deliverOnNotify;
 
   // Delegate to SelectionChangeNotifier.
 

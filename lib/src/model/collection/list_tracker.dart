@@ -17,7 +17,6 @@ library ads.acx2.model.collection.list_tracker;
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:observable/observable.dart' as obs;
 import 'package:observe/observe.dart';
 
 import '../../utils/disposer/disposer.dart';
@@ -132,9 +131,9 @@ class LazyListTracker<S, T> extends Object
   void _initIfRequired() {
     if (_target == null) {
       _target = new List();
-      if (_source is obs.ObservableList) {
-        (_source as obs.ObservableList).deliverListChanges();
-        _subscription = (_source as obs.ObservableList)
+      if (_source is ObservableList) {
+        (_source as ObservableList).deliverListChanges();
+        _subscription = (_source as ObservableList)
             .listChanges
             .listen((event) => _onSourceChanges(event));
       }
