@@ -17,7 +17,6 @@ library ads.acx2.model.selection.selection_model;
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:observable/transitional.dart' show ChangeRecordPayload;
 import 'package:observe/observe.dart';
 
 import 'src/interfaces/selectable.dart';
