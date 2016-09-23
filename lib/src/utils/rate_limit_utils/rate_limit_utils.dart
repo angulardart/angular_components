@@ -16,8 +16,6 @@ library angular2_components.utils.rate_limit_utils.rate_limit_utils;
 
 import 'dart:async';
 
-/// See go/gt-debounce-throttle for in-depth documentation.
-
 /// A function that can be throttled or debounced.
 typedef UnaryFunction(argument);
 typedef Future DebouncedFunction(argument);

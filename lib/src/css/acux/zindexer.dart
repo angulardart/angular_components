@@ -13,7 +13,7 @@
 // limitations under the License.
 
 @JS()
-library ads.acx.css.acux.zindexer;
+library angular2_components.css.acux.zindexer;
 
 import 'package:angular2/angular2.dart';
 import 'package:js/js.dart';

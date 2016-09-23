@@ -89,9 +89,6 @@ class MaterialToggleComponent {
   /// `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`,
   /// `yellow`, `google-yellow`, `orange`, `deep-orange`, `brown`, `grey`,
   /// `blue-grey`, `vanilla-red`, `vanilla-green`, `vanilla-blue`, `amber`.
-  ///
-  /// See [the extended quantum palette](http://go/quantumpalette#extended)
-  /// for more details.
   static const _validColors = const <String>[
     'red',
     'pink',

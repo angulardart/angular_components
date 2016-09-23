@@ -35,7 +35,6 @@ external List get _frameworkStabilizersJs;
 /// Provides a set of helper functions for frameworks to register and deregister
 /// stabilizing functions. These functions will be called by tests, whenever
 /// they require the page to be stable before they can perform the next action.
-/// The approach is described in detail at go/acx-framework-stabilizers.
 class FrameworkStabilizers {
   static final Map<int, dynamic> _idToFrameworkStabilizer = {};
   static int _nextId = 0;

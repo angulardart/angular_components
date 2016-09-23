@@ -25,7 +25,7 @@ import '../../disposer/disposer.dart';
 
 /// A single entrypoint library for working with highly dynamic views in Angular
 /// 2 code. This allows easier refactoring and migration of approaches as the
-/// Angular team iterates and a standard API for ACX components to use.
+/// Angular team iterates and a standard API for AngularDart components to use.
 ///
 /// Example use (see imperative_view_test as wel):
 ///     @Component(

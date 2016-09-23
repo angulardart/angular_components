@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library angular2_material;
+library angular2_components;
 
 import 'package:angular2/angular2.dart' show Provider;
 

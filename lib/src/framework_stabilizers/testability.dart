@@ -38,7 +38,7 @@ abstract class Testability {
 }
 
 /// Tesability base class that implements some of the rules for calling the
-/// [IsStableCallback]s as defined by go/acx-framework-stabilizers. The
+/// [IsStableCallback]s as defined by FrameworkStabilizers. The
 /// extending frameworks are responsible for providing their own implementation
 /// of [isStable] and they are responsible for calling [checkStable] whenever
 /// they have potentially moved from an unstable to a stable state.

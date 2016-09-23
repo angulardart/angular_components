@@ -41,9 +41,6 @@ abstract class Tab extends Focusable {
 /// property. Tab contents can be lazily instantiated by using the
 /// `*deferredContent` template directive.
 ///
-/// This component supports
-/// [Deferred Content](http://go/acx-deferred-content).
-///
 /// __Example Usage:__
 ///
 ///     <material-tab-panel>

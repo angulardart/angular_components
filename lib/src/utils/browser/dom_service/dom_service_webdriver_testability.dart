@@ -26,8 +26,6 @@ Testability createDomServiceWebdriverTestability(DomService domService) {
 
 /// The DomService Webdriver Testability API allows test frameworks to wait for
 /// all pending activities to finish before executing the next test action.
-///
-/// Details can be found at go/acx-framework-stabilizers.
 class DomServiceWebdriverTestability extends AbstractTestability {
   final DomService _domService;
 

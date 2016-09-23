@@ -19,7 +19,7 @@ import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:stack_trace/stack_trace.dart';
 
-final Logger _logger = new Logger('ads.acx2.utils.disposer');
+final Logger _logger = new Logger('angular2_components.utils.disposer');
 const String _oneShotDisposerMemoryLeakWarning =
     'Possible memory leak detected: A disposable should not be added to '
     'one shot disposers after the dispose() method has been called.';

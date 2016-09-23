@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-part of ads.acx2.model.selection.selection_model;
+part of angular2_components.model.selection.selection_model;
 
 class _MultiSelectionModelImpl<T> extends ChangeNotifier
     with SelectionChangeNotifier<T>

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx.css.shared.acux_css_const;
+library angular2_components.css.shared.acux_css_const;
 
 /// Global registry for z-index values used by various components.
 /// A z-index creates a new stacking context and you can go back to using

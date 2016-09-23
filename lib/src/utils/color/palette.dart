@@ -16,7 +16,7 @@ library angular2_components.utils.color.palette;
 
 import 'color.dart';
 
-// Default google colors sourced from go/spec (quantum color palette)
+// Default Google colors
 // TODO(google): fill in all the rest of these
 
 // grayscale shades

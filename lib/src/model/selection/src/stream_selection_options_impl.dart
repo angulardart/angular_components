@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-part of ads.acx2.model.selection.selection_options;
+part of angular2_components.model.selection.selection_options;
 
 class _StreamSelectionOptions<T> extends SelectionOptions<T> {
   StreamSubscription _streamSub;
