@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.ui.async_display_name;
+library angular2_components.model.ui.async_display_name;
 
 import 'dart:async';
 

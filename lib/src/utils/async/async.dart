@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.async.async;
+library angular2_components.utils.async.async;
 
 export 'src/async_update_scheduler.dart';
 export 'src/async_where.dart';

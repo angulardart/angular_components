@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.ui.icon;
+library angular2_components.model.ui.icon;
 
 /// Designates a model class which has a canonical _icon_ field.
 abstract class HasIcon {

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.async.src.lazy_stream_controller;
+library angular2_components.utils.async.src.lazy_stream_controller;
 
 import 'dart:async';
 

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.action.src.async_action_controller;
+library angular2_components.model.action.src.async_action_controller;
 
 import 'dart:async';
 

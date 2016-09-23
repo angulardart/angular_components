@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.ui.highlight_assistant;
+library angular2_components.model.ui.highlight_assistant;
 
 import './has_renderer.dart';
 import './highlighted_text_model.dart';

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.selection.src.interfaces.selectable;
+library angular2_components.model.selection.src.interfaces.selectable;
 
 enum SelectableOption { Selectable, Disabled, Hidden }
 

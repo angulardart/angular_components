@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.ui.item_sorter;
+library angular2_components.model.ui.item_sorter;
 
 import 'dart:collection';
 

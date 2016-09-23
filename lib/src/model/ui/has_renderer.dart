@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.ui.has_renderer;
+library angular2_components.model.ui.has_renderer;
 
 /// Definition for a method that takes in an item and converts it to a string.
 typedef String ItemRenderer<T>(T item);

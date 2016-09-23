@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.async.src.noop_stream;
+library angular2_components.utils.async.src.noop_stream;
 
 import 'dart:async';
 

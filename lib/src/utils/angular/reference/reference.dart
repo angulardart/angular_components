@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.angular.reference.reference;
+library angular2_components.utils.angular.reference.reference;
 
 import 'package:angular2/angular2.dart';
 

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /// **NOTE**: This library is currently unused and will replace select.dart.
-library ads.acx2.model.selection.src.interfaces.parent;
+library angular2_components.model.selection.src.interfaces.parent;
 
 import 'dart:async';
 

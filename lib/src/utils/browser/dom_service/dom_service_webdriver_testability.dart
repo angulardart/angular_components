@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.browser.dom_service.dom_service_webdriver_testability;
+library angular2_components.utils.browser.dom_service.dom_service_webdriver_testability;
 
 import '../../../framework_stabilizers/testability.dart';
 import './dom_service.dart';

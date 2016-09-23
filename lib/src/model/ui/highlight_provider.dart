@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.ui.highlight_provider;
+library angular2_components.model.ui.highlight_provider;
 
 import 'package:angular2/angular2.dart';
 

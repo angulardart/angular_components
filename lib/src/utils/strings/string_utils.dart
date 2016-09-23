@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.strings.string_utils;
+library angular2_components.utils.strings.string_utils;
 
 final RegExp _camelCaseSplitter = new RegExp('([a-z])([A-Z])');
 

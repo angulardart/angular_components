@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.selection.table_selection_model;
+library angular2_components.model.selection.table_selection_model;
 
 import 'dart:async';
 

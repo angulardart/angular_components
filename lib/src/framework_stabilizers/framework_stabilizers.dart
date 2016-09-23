@@ -13,7 +13,7 @@
 // limitations under the License.
 
 @JS()
-library ads.acx2.framework_stabilizers;
+library angular2_components.framework_stabilizers;
 
 import 'dart:js';
 

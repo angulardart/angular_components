@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.id_generator.id_generator;
+library angular2_components.utils.id_generator.id_generator;
 
 import 'package:uuid/uuid.dart';
 

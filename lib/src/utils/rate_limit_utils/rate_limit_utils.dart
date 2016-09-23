@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.rate_limit_utils.rate_limit_utils;
+library angular2_components.utils.rate_limit_utils.rate_limit_utils;
 
 import 'dart:async';
 

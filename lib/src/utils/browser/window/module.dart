@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.browser.window.module;
+library angular2_components.utils.browser.window.module;
 
 import 'dart:html';
 

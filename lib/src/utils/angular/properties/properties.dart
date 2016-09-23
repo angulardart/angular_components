@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.angular.properties.properties;
+library angular2_components.utils.angular.properties.properties;
 
 // These are alternative to Angular 2.0 pipes that are lighter weight and typed.
 // However, ideally Angular should help with these.

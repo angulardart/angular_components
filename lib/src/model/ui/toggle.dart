@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.ui.toggle;
+library angular2_components.model.ui.toggle;
 
 /// Has a binary state that may be toggled on or off.
 ///

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.angular.managed_zone.interface;
+library angular2_components.utils.angular.managed_zone.interface;
 
 export 'src/managed_zone.dart'
     show ManagedZone, ManagedZoneBase;

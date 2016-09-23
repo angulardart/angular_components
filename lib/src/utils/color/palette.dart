@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.color.palette;
+library angular2_components.utils.color.palette;
 
 import 'color.dart';
 

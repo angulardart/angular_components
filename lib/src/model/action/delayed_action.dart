@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.action.delayed_action;
+library angular2_components.model.action.delayed_action;
 
 import 'dart:async';
 

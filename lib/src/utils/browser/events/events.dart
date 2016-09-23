@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.browser.events.events;
+library angular2_components.utils.browser.events.events;
 
 import 'dart:async';
 import 'dart:html';

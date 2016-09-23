@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.browser.dom_service.angular_2;
+library angular2_components.utils.browser.dom_service.angular_2;
 
 import 'dart:html';
 

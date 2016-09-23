@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.collection.combined_list;
+library angular2_components.model.collection.combined_list;
 
 import 'dart:collection';
 

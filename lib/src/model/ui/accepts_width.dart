@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.ui.accepts_width;
+library angular2_components.model.ui.accepts_width;
 
 /// Interface for setting widgets programatically.
 /// Preset width, 1 through 5. By default, width #2 is used.

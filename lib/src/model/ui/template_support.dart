@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.model.ui.template_support;
+library angular2_components.model.ui.template_support;
 
 import 'package:angular2/angular2.dart';
 

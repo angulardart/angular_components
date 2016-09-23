@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library ads.acx2.utils.disposer.disposable_callback;
+library angular2_components.utils.disposer.disposable_callback;
 
 import './disposer.dart';
 
