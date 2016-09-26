@@ -9,8 +9,6 @@ dependencies:
   perf_api: ^0.1.0
   quiver: ^0.22.0
   uuid: ^0.5.3
-dev_dependencies:
-  browser: any
 transformers:
 - angular2:
     resolved_identifiers:
@@ -20,4 +18,3 @@ transformers:
     platform_directives:
       - 'package:angular2/common.dart#CORE_DIRECTIVES'
       - 'package:angular2/common.dart#FORM_DIRECTIVES'
-    entry_points: example/main.dart
