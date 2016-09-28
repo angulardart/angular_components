@@ -51,7 +51,6 @@ final Color purple400 = new Color.fromHex('#AB47BC');
 final Color teal700 = new Color.fromHex('#00796B');
 
 /// Standard palette of colors for use in charting
-/// Source: https://spec.googleplex.com/charting/colors/categorical-palettes
 final List<Color> chartingPalette = [
   blue500,
   red500,

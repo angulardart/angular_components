@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library angular2_components.utils.browser.dom_service.dom_service;
-
 import 'dart:async';
 import 'dart:html';
 import 'dart:math' show max, min;
