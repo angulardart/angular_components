@@ -6,6 +6,7 @@ description:  >
 dependencies:
   angular2: ^2.0.0-beta.21
   js: ^0.6.0-beta.7
+  observe: any
   perf_api: ^0.1.0
   quiver: ^0.22.0
   uuid: ^0.5.3
