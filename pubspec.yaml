@@ -15,5 +15,6 @@ transformers:
 - angular2:
     resolved_identifiers:
       Document: 'dart:html'
+      Observable: 'package:observable/observable.dart'
       Profiler: 'package:perf_api/perf_api.dart'
       Window: 'dart:html'
