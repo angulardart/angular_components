@@ -248,7 +248,13 @@ class MaterialExpansionPanel
   String get openPanelMsg =>
       name == null ? _openPanelMsg : _openNamedPanelMsg(name);
 
-  String get headerMsg => _isExpanded ? closePanelMsg : openPanelMsg;
+  String get headerMsg {
+    if (disabled) {
+      return name;
+    } else {
+      return _isExpanded ? closePanelMsg : openPanelMsg;
+    }
+  }
 
   String get _closePanelMsg => Intl.message('Close panel',
       name: '_closePanelMsg',

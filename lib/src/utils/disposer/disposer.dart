@@ -93,15 +93,12 @@ class Disposer implements Disposable {
   List<EventSink> _disposeSinks = null;
   List<Disposable> _disposeDisposables = null;
   final bool _oneShot;
-  bool _deprecated = false;
   bool _disposeCalled = false;
 
   /// Pass [oneShot] as true if no disposables are meant to be added after
   /// the dispose method is called.
   @Deprecated("Please use oneShot or multi instead")
-  Disposer({bool oneShot: false})
-      : _oneShot = oneShot,
-        _deprecated = true;
+  Disposer({bool oneShot: false}) : _oneShot = oneShot;
 
   /// Convenience constructor for one shot mode or single dispose mode.
   Disposer.oneShot() : _oneShot = true;
@@ -165,13 +162,9 @@ class Disposer implements Disposable {
 
   void _checkIfAlreadyDisposed() {
     if (_oneShot && _disposeCalled) {
-      if (_deprecated) {
-        _logger.severe(_oneShotDisposerMemoryLeakWarning, null /* error */,
-            new Trace.current());
-        assert(false); // For easy testing.
-      } else {
-        throw new StateError(_oneShotDisposerMemoryLeakWarning);
-      }
+      _logger.severe(_oneShotDisposerMemoryLeakWarning, null /* error */,
+          new Trace.current());
+      assert(false); // For easy testing.
     }
   }
 

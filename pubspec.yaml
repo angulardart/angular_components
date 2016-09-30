@@ -4,9 +4,10 @@ description:  >
   The official Material Design components for AngularDart. Used at Google
   in production apps.
 dependencies:
-  angular2: ^2.0.0-beta.21
+  angular2: 2.0.0-beta.22
   js: ^0.6.0-beta.7
-  observe: any
+  observe: 0.14.0
+  observable: 0.14.0+1
   perf_api: ^0.1.0
   quiver: ^0.22.0
   uuid: ^0.5.3
@@ -16,6 +17,3 @@ transformers:
       Document: 'dart:html'
       Profiler: 'package:perf_api/perf_api.dart'
       Window: 'dart:html'
-    platform_directives:
-      - 'package:angular2/common.dart#CORE_DIRECTIVES'
-      - 'package:angular2/common.dart#FORM_DIRECTIVES'

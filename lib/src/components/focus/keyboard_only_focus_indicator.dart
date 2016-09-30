@@ -15,6 +15,7 @@
 import 'dart:html';
 
 import 'package:angular2/angular2.dart';
+
 import '../../utils/browser/dom_service/dom_service.dart';
 
 /// [KeyboardOnlyFocusIndicatorDirective] is a decorator that hides the outline

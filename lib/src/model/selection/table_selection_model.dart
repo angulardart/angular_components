@@ -16,7 +16,7 @@ library angular2_components.model.selection.table_selection_model;
 
 import 'dart:async';
 
-import 'package:observe/observe.dart';
+import 'package:observable/observable.dart';
 
 import './select.dart';
 
@@ -74,7 +74,7 @@ abstract class TableSelectionModel<T> extends MultiSelectionModel<T>
   IsIndeterminate isIndeterminate;
 }
 
-class _TableSelectionModelImpl<T> extends ChangeNotifier
+class _TableSelectionModelImpl<T> extends Observable
     implements TableSelectionModel<T> {
   _TableSelectionModelImpl(
       {KeyProvider<T> keyProvider, this.getSelectable, this.deselectOnRemove})

@@ -15,8 +15,8 @@
 /// The library provides utility classes in addition to package:observe.
 ///
 /// Objects implementing the [ObserveAware] and [ChangeAware] interfaces are
-/// very similar to objects with [Observable], with a much lower verbosity and
-/// smaller implementation. Classes using these may be migrated to use
+/// very similar to objects with [Observable], with a much lower verbosity
+/// and smaller implementation. Classes using these may be migrated to use
 /// [Observable] instead.
 ///
 /// [ObservableReference] and [ObservableComposite] provide base classes for

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library angular2_components.utils.keyboard;
+library angular2_components.utils.keyboard.keyboard;
 
 import 'dart:html';
 
@@ -21,8 +21,11 @@ import 'dart:html';
 /// i.e. if called (modifiersKeysFor, shiftKey : true)
 /// it will return true if shift is pressed,
 /// but false if both shift and alt are pressed
-bool modifiersKeysFor(KeyboardEvent event, {bool shiftKey: false,
-    bool ctrlKey: false, bool altKey: false, bool metaKey: false}) {
+bool modifiersKeysFor(KeyboardEvent event,
+    {bool shiftKey: false,
+    bool ctrlKey: false,
+    bool altKey: false,
+    bool metaKey: false}) {
   return (event.shiftKey == shiftKey) &&
       (event.altKey == altKey) &&
       (event.ctrlKey == ctrlKey) &&

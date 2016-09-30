@@ -17,8 +17,8 @@ import 'package:angular2/angular2.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/async/async.dart';
 
-import 'material_tab.dart';
 import 'fixed_material_tab_strip.dart';
+import 'material_tab.dart';
 import 'tab_change_event.dart';
 
 /// A component that creates a tab panel with navigation bar on the top.
@@ -115,6 +115,7 @@ class MaterialTabPanelComponent implements AfterContentInit {
     _changeDetector.markForCheck();
 
     if (!focusTab) return;
+
     /// Focus at the end of the turn, as the tab panel element is not
     /// immediately available in the DOM to focus.
     _managedZone.onTurnDone.first.then((_) {

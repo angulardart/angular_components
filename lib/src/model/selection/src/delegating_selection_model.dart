@@ -14,7 +14,7 @@
 
 import 'dart:async';
 
-import 'package:observe/observe.dart';
+import 'package:observable/observable.dart';
 
 import '../selection_model.dart';
 
@@ -49,7 +49,7 @@ class DelegatingSelectionModel<T> implements SelectionModel<T> {
   @override
   Iterable<T> get selectedValues => _delegateModel.selectedValues;
 
-  // Delegate to ChangeNotifier.
+  // Delegate to Observable.
 
   @override
   Stream<List<ChangeRecord>> get changes => _delegateModel.changes;
@@ -71,6 +71,12 @@ class DelegatingSelectionModel<T> implements SelectionModel<T> {
 
   @override
   bool get hasObservers => _delegateModel.hasObservers;
+
+  @override
+  void observed() => _delegateModel.observed();
+
+  @override
+  void unobserved() => _delegateModel.unobserved();
 
   // Delegate to SelectionChangeNotifier.
 

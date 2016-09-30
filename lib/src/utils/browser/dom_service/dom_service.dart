@@ -82,7 +82,7 @@ class DomService {
 
   /// Optional callback to reset dom mutation state for predicate.
   Function resetIsDomMutated;
-  bool _queuesProcessed = false;
+  bool _writeQueueChangedLayout = false;
 
   /// Creates an instance that automatically runs outside of [managedZone], and
   /// uses the browser-supplied ([Window]) for animation frames and resizing
@@ -269,7 +269,6 @@ class DomService {
       _scheduledProcessQueue = false;
       return;
     }
-    _queuesProcessed = true;
 
     // Execute all DOM reads.
     _state = DomServiceState.Reading;
@@ -278,6 +277,7 @@ class DomService {
     // Execute all DOM writes.
     _state = DomServiceState.Writing;
     final previousWriteQueueLength = _processQueue(_domWriteQueue);
+    _writeQueueChangedLayout = previousWriteQueueLength > 0;
 
     // Mention we are now in an 'Idle'. state (neither reading or writing).
     _state = DomServiceState.Idle;
@@ -285,7 +285,7 @@ class DomService {
     // If we have mutated the DOM in this queue, subscribers to
     // `onLayoutChanged` will want to be notified, perhaps to recalculate
     // dimensions or positioning of their elements.
-    if (previousWriteQueueLength > 0) {
+    if (_writeQueueChangedLayout) {
       _scheduleOnLayoutChanged();
     }
 
@@ -346,9 +346,9 @@ class DomService {
           // Reduce layout checks to only those zone turns that mutated DOM.
           if (isDomMutatedPredicate == null ||
               isDomMutatedPredicate() ||
-              _queuesProcessed) {
+              _writeQueueChangedLayout) {
             _scheduleOnLayoutChanged();
-            _queuesProcessed = false;
+            _writeQueueChangedLayout = false;
           }
         });
         _listenOnLayoutEvents(_window.onAnimationEnd);

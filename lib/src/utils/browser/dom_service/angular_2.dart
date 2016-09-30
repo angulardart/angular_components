@@ -26,9 +26,10 @@ import './dom_service.dart';
 import './dom_service_webdriver_testability.dart';
 import '../../disposer/disposer.dart';
 
-export './dom_service.dart';
 export 'package:angular2/src/platform/dom/dom_renderer.dart'
     show DomRootRenderer;
+
+export './dom_service.dart';
 
 // WARNING EXPERIMENTAL DO NOT COPY THIS PATTERN without talking to
 // tsander@, matanl@, or ferhat@ first. This is an experimental pattern which

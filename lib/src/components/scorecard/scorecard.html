@@ -14,7 +14,7 @@
  limitations under the License.
 -->
 <material-ripple *ngIf="selectable"></material-ripple>
-<h3>{{label}}</h3>
+<h3>{{label}}<ng-content select="name"></ng-content></h3>
 <h2>{{value}}</h2>
 <span *ngIf="suggestionBefore != null" class="suggestion before">{{suggestionBefore}}</span>
 <span *ngIf="description != null" class="description">

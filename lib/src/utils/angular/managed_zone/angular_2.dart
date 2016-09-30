@@ -12,13 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library angular2_components.utils.angular.managed_zone;
+library angular2_components.utils.angular.managed_zone.angular_2;
 
 import 'dart:async';
 
-import 'src/managed_zone.dart';
-export 'src/managed_zone.dart';
 import 'package:angular2/di.dart';
+
+import 'src/managed_zone.dart';
+
+export 'src/managed_zone.dart';
 
 /// An implementation of [ManagedZone] that uses Angular 2's [NgZone].
 @Injectable()

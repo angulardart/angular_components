@@ -20,6 +20,7 @@ import 'dart:async';
 import 'package:js/js.dart';
 
 import 'framework_stabilizers.dart';
+
 export 'framework_stabilizers.dart' show FrameworkStabilizer, IsStableCallback;
 
 // We are getting the URL from JS land because Dart's URI.base is more expensive

@@ -60,10 +60,10 @@ class MaterialChipsComponent implements HasRenderer, OnDestroy {
   set selectionModel(SelectionModel model) {
     _selectionModel = model;
     _disposer
-        ..dispose()
-        ..addDisposable(_selectionModel.selectionChanges.listen((_) {
-      _changeDetector.markForCheck();
-    }));
+      ..dispose()
+      ..addDisposable(_selectionModel.selectionChanges.listen((_) {
+        _changeDetector.markForCheck();
+      }));
   }
 
   SelectionModel get selectionModel => _selectionModel;

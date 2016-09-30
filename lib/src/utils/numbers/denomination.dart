@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library crm.greentea.fe3.common.utils.numbers.denomination;
+library angular2_components.utils.numbers.denomination;
 
 import 'package:fixnum/fixnum.dart';
 

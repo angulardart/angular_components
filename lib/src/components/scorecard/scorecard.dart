@@ -54,6 +54,13 @@ import '../../utils/color/palette.dart';
 /// To right-align the text in a scorecard add the CSS class 'right-align':
 ///
 ///     <acx-scorecard class="right-align"></acx-scorecard>
+///
+/// Content projection can also be used with the <name> element to insert DOM
+/// into the label area:
+///
+///     <acx-scorecard ...>
+///         <name>Estimated earnings <i>(NEW)</i></name>
+///     </acx-scorecard>
 @Component(
     selector: 'acx-scorecard',
     directives: const [MaterialRippleComponent, NgIf, GlyphComponent],

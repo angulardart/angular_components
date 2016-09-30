@@ -80,7 +80,8 @@ class NoopStream<T> implements Stream<T> {
 
   @override
   Future/*<S>*/ fold/*<S>*/(
-          /*=S*/ initialValue, /*=S*/ combine(/*=S*/ a, /*=T*/ b)) =>
+          /*=S*/ initialValue,
+          /*=S*/ combine(/*=S*/ a, /*=T*/ b)) =>
       new Future/*<S>*/ .value();
 
   @override

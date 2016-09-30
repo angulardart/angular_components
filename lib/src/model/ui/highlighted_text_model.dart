@@ -104,6 +104,7 @@ class TextHighlighter {
           new HighlightedTextSegment(currentSegment.toString(), highlight));
       currentSegment.clear();
     }
+
     var ink = 0, inkPrevious = 0, i = 0, caseOffset = 0;
 
     while (i < text.length) {

@@ -64,7 +64,10 @@ import '../../utils/disposer/disposer.dart';
 ///   </material-radio-group>
 @Component(
     selector: 'material-radio-group',
-    host: const {'role': 'radiogroup', 'tabindex': '-1',},
+    host: const {
+      'role': 'radiogroup',
+      'tabindex': '-1',
+    },
     template: '<ng-content></ng-content>',
     styleUrls: const ['material_radio_group.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
@@ -90,6 +93,8 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
         _managedZone.onTurnDone.first.then((_) {
           // Initialize preselect now, this will trigger tabIndex reset.
           selected = _preselectedValue;
+          // The preselected value should be used only once.
+          _preselectedValue = null;
         });
       } else {
         // Initialize tabIndex.
@@ -108,9 +113,10 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
       // In case this was programmatically selected, thus won't get updated
       // by focus calls.
       _resetTabIndex();
-      MaterialRadioComponent selectedComponent = componentSelection
-          .selectedValues
-          .isEmpty ? null : componentSelection.selectedValues.first;
+      MaterialRadioComponent selectedComponent =
+          componentSelection.selectedValues.isEmpty
+              ? null
+              : componentSelection.selectedValues.first;
       _selected = selectedComponent == null ? null : selectedComponent.value;
       if (valueSelection != null) {
         valueSelection.select(_selected);
@@ -160,9 +166,10 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
       for (var child in _children) {
         child.tabbable = false;
       }
-      MaterialRadioComponent selectedComponent = componentSelection
-          .selectedValues
-          .isEmpty ? null : componentSelection.selectedValues.first;
+      MaterialRadioComponent selectedComponent =
+          componentSelection.selectedValues.isEmpty
+              ? null
+              : componentSelection.selectedValues.first;
       if (selectedComponent != null) {
         // Only selected is tabbable.
         selectedComponent.tabbable = true;
