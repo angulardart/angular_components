@@ -2,7 +2,7 @@
 
 **Preview Release**
 
-This are the AngularDart components that Google uses to build many of its web
+These are the AngularDart components that Google uses to build many of its web
 applications.
 
 Only a small fragment of all the components is available right now. We want
