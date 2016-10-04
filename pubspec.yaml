@@ -6,10 +6,9 @@ description:  >
 dependencies:
   angular2: 2.0.0-beta.22
   js: ^0.6.0-beta.7
-  observe: 0.14.0
   observable: 0.14.0+1
   perf_api: ^0.1.0
-  quiver: ^0.22.0
+  quiver: '>=0.22.0 <0.24.0'
   uuid: ^0.5.3
 transformers:
 - angular2:
