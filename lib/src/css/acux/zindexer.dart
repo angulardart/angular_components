@@ -36,7 +36,7 @@ class ZIndexer {
 
   static void _initZIndex() {
     if (_currentZIndex == null) {
-       _currentZIndex = AcuxZIndexConsts.hoverableAutoIncrement;
+      _currentZIndex = AcuxZIndexConsts.hoverableAutoIncrement;
     }
   }
 

@@ -15,8 +15,6 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
-
 import '../focus/keyboard_only_focus_indicator.dart';
 import '../glyph/glyph.dart';
 import '../material_ripple/material_ripple.dart';
@@ -26,6 +24,7 @@ import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/browser/events/events.dart';
 import '../../utils/color/color.dart';
 import '../../utils/color/palette.dart';
+import 'package:angular2/angular2.dart';
 
 /// ACUX standalone scorecard component.
 ///

@@ -64,6 +64,10 @@
       </glyph>
     </div>
 
+    <div *ngIf="!showSaveCancel" class="toolbelt">
+      <ng-content select="[toolbelt]"></ng-content>
+    </div>
+
     <material-yes-no-buttons
         *ngIf="showSaveCancel"
         [pending]="activeSaveCancelAction"

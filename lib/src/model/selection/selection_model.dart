@@ -18,7 +18,6 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:observable/observable.dart';
-import 'package:observe/observe.dart';
 
 import 'src/interfaces/selectable.dart';
 

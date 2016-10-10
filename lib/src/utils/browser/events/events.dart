@@ -145,6 +145,23 @@ bool anyParentHasTag(Element target, String componentTag) {
   return false;
 }
 
+/// Return true if the element or any of its ancestors have the given class.
+///
+/// Among other use cases, this can be helpful for handling nested popup
+/// scenarios.  For example, BaseLensEdit needs to ignore clicks on targets
+/// that have ancestors of class material-popup-content when deciding whether
+/// a click counts as a click out (for exiting the popup).
+bool anyParentHasClass(Element target, String className) {
+  while (target != null) {
+    if (target.attributes.containsKey("class") &&
+        target.classes.contains(className)) {
+      return true;
+    }
+    target = target.parent;
+  }
+  return false;
+}
+
 /// Whether [element] is a parent of [node] in the dom tree.
 bool isParentOf(Element element, Node node) {
   while (node != null) {

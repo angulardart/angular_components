@@ -12,13 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library angular2_components.model.selection.table_selection_model;
-
 import 'dart:async';
 
-import 'package:observable/observable.dart';
-
 import './select.dart';
+import 'package:observable/observable.dart';
 
 import 'selection_model.dart';
 
@@ -104,6 +101,9 @@ class _TableSelectionModelImpl<T> extends Observable
   int get selectedCount => _allSelected ? totalEntitiesCount() : _selectedCount;
 
   @override
+  // TODO(google): This tries to consolidate two cases, i.e.
+  // allOnPageSelected and allAcrossPagesSelected, but it turns out to be
+  // ambiguous and does more bad than good.
   bool get allAcrossPagesSelected =>
       _allSelected ||
       (_selectedCount > 0 && totalEntitiesCount() == _selectedCount);
@@ -158,17 +158,12 @@ class _TableSelectionModelImpl<T> extends Observable
 
   @override
   Iterable<T> get selectedValues {
-    if (supportsMultiplePageSelection && allAcrossPagesSelected) {
-      // If it's cross-page, we don't actually know the full set of selected
-      // entities.
+    if (supportsMultiplePageSelection &&
+        allAcrossPagesSelected &&
+        _selectedCount != totalEntitiesCount()) {
+      // If we are selecting all across multiple pages, we don't actually know
+      // the full set of selected entities.
       throw new StateError("AllAcrossPagesSelected");
-
-      // (Strictly speaking, this isn't true if there is only one page worth of
-      // stuff. But it's easier to reason about if we throw anyway -- users of
-      // the selection model don't have any easy way of distinguishing those two
-      // cases. If we only throw sometimes, it's easy to get code that seems
-      // correct but then breaks down in more complicated cases; see b/28634713
-      // for instance.)
     }
     return _backingModel.selectedValues;
   }

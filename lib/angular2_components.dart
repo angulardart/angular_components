@@ -54,6 +54,19 @@ import 'src/components/material_expansionpanel/material_expansionpanel.dart';
 export 'src/components/material_expansionpanel/material_expansionpanel.dart';
 import 'src/components/material_expansionpanel/material_expansionpanel_set.dart';
 export 'src/components/material_expansionpanel/material_expansionpanel_set.dart';
+import 'src/components/material_input/base_material_input.dart';
+export 'src/components/material_input/base_material_input.dart';
+import 'src/components/material_input/deferred_validator.dart';
+export 'src/components/material_input/deferred_validator.dart';
+import 'src/components/material_input/input_wrapper.dart';
+export 'src/components/material_input/input_wrapper.dart';
+import 'src/components/material_input/material_input.dart';
+export 'src/components/material_input/material_input.dart'
+    hide materialInputErrorKey;
+import 'src/components/material_input/material_input_default_value_accessor.dart';
+export 'src/components/material_input/material_input_default_value_accessor.dart';
+import 'src/components/material_input/material_input_multiline.dart';
+export 'src/components/material_input/material_input_multiline.dart';
 import 'src/components/material_progress/material_progress.dart';
 export 'src/components/material_progress/material_progress.dart';
 import 'src/components/material_radio/material_radio.dart';
@@ -109,6 +122,7 @@ const List<Type> materialDirectives = const [
   FocusListDirective,
   FocusableDirective,
   GlyphComponent,
+  InputTextModel,
   MaterialButtonComponent,
   MaterialCheckboxComponent,
   MaterialChipComponent,
@@ -116,6 +130,8 @@ const List<Type> materialDirectives = const [
   MaterialExpansionPanel,
   MaterialExpansionPanelSet,
   MaterialFabComponent,
+  MaterialInputComponent,
+  MaterialInputDefaultValueAccessor,
   MaterialProgressComponent,
   MaterialRadioComponent,
   MaterialRadioGroupComponent,
@@ -125,6 +141,7 @@ const List<Type> materialDirectives = const [
   MaterialTabPanelComponent,
   MaterialToggleComponent,
   MaterialYesNoButtonsComponent,
+  MultilineMaterialInputComponent,
   ReorderItemDirective,
   ReorderListComponent,
   ScorecardComponent

@@ -20,7 +20,6 @@ library angular2_components.css.shared.acux_css_const;
 /// element.
 /// Please update the related values in ../asset/const/_settings.scss
 abstract class AcuxZIndexConsts {
-
   /// Send the element to the back.
   static const int minus1 = -1;
 
