@@ -24,7 +24,7 @@ possible.
 * ✓ `<material-yes-no-buttons>`
 * ✓ `<reorder-list>`
 * ✓ `<acx-scorecard>`
-* ☐ `<material-input>` 
+* ✓ `<material-input>` 
 * ☐ `<material-auto-suggest-input>`
 * ☐ `<material-date-range-picker>`
 * ☐ `<material-dialog>`
