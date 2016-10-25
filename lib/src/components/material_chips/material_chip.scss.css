@@ -1,0 +1,6 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+:host{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;border-radius:16px;height:32px;margin:4px}.content{margin:0 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.delete-icon{display:-webkit-flex;display:flex;background-size:19px 19px;border:0;cursor:pointer;height:19px;margin-left:-8px;margin-right:4px;min-width:19px;padding:3px;width:19px}.delete-icon:focus{outline:none}:host{background-color:#e0e0e0;color:#000}:host .delete-icon{fill:#9e9e9e}:host .delete-icon:focus{fill:#fff}:host[emphasis]{background-color:#4285f4;color:#fff}:host[emphasis] .delete-icon{fill:#fff}

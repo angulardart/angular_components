@@ -1,0 +1,6 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+:host{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;color:rgba(0,0,0,0.87);display:inline-block;font-size:13px;padding:24px;position:relative}:host:hover.selectable{cursor:pointer}:host:hover:not(.selected){background:rgba(0,0,0,0.06)}:host:not(.selected).is-change-positive .description{color:#3d9400}:host:not(.selected).is-change-negative .description{color:#dd4b39}:host.selected{color:#fff}:host.selected .description,:host.selected .suggestion{color:#fff}:host.right-align{text-align:right}:host.extra-big{padding:0;margin:24px}:host.extra-big h3{font-size:14px;padding-bottom:4px}:host.extra-big h2{font-size:34px}:host.extra-big .description{padding-top:4px;font-size:14px;display:block}h3,h2{clear:both;color:inherit;font-weight:normal;line-height:initial;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}h3{font-size:13px;padding-bottom:8px}h2{font-size:32px}.description,.suggestion{color:rgba(0,0,0,0.54);padding-top:8px}.change-glyph{color:#63656a;display:inline-block}

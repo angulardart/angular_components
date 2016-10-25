@@ -1,0 +1,21 @@
+name: angular2_components
+version: 0.1.0
+description: >
+  The official Material Design components for AngularDart. Used at Google
+  in production apps.
+environment:
+  sdk: '>=1.20.0 <2.0.0'
+dependencies:
+  angular2: 2.0.0-beta.22
+  js: ^0.6.1
+  observable: ^0.14.0+1
+  perf_api: ^0.1.0
+  quiver: '>=0.22.0 <0.24.0'
+  uuid: ^0.5.3
+transformers:
+- angular2:
+    resolved_identifiers:
+      Document: 'dart:html'
+      Observable: 'package:observable/observable.dart'
+      Profiler: 'package:perf_api/perf_api.dart'
+      Window: 'dart:html'

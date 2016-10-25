@@ -1,0 +1,6 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+material-ripple{border-radius:inherit;bottom:0;display:block;left:0;overflow:hidden;position:absolute;right:0;top:0;transform:translateX(0)}material-ripple .__material-ripple_background,material-ripple .__material-ripple_waves,material-ripple .__material-ripple_wave-container,material-ripple .__material-ripple_wave{height:100%;left:0;pointer-events:none;position:absolute;top:0;width:100%}material-ripple .__material-ripple_background,material-ripple .__material-ripple_wave{opacity:0;background-color:currentColor}material-ripple .__material-ripple_waves,material-ripple .__material-ripple_wave{overflow:hidden}material-ripple .__material-ripple_wave-container,material-ripple .__material-ripple_wave{border-radius:50%}

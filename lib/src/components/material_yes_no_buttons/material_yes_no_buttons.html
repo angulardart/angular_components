@@ -1,0 +1,26 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div *ngIf="pending"
+     class="btn spinner">
+  <material-spinner></material-spinner>
+</div>
+<material-button #yesButton
+                 *ngIf="!pending"
+                 class="btn btn-yes"
+                 [raised]="yesRaised || raised"
+                 [class.highlighted]="yesHighlighted"
+                 [disabled]="yesDisabled || disabled"
+                 (trigger)="yes.add($event)">
+  {{yesText}}
+</material-button>
+<material-button #noButton
+                 *ngIf="!pending && noDisplayed"
+                 class="btn btn-no"
+                 [raised]="raised"
+                 [disabled]="disabled"
+                 (trigger)="no.add($event)">
+  {{noText}}
+</material-button>
