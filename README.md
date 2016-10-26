@@ -1,5 +1,3 @@
-# AngularDart Components
-
 **Preview Release**
 
 These are the AngularDart components that Google uses to build many of its web
