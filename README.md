@@ -33,6 +33,7 @@ possible.
 
 ## Useful links
 
+* **[Example gallery](https://dart-lang.github.io/angular2_components_example/)**
 * [AngularDart pub package](https://pub.dartlang.org/packages/angular2)
 * [AngularDart documentation](https://angulardart.org/)
 * [Material Design site](https://material.google.com/)
