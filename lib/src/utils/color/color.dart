@@ -100,4 +100,11 @@ class Color {
   /// identical components are equal). Compare rgb strings because that's the
   /// cheapest public getter that exposes all components.
   bool operator ==(other) => other is Color && other.rgbString == rgbString;
+
+  /// Override hashCode consistent with equality operator.
+  int get hashCode =>
+      _r * ((maxValue + 1) * (maxValue + 1)) +
+          _g * (maxValue + 1) +
+          _b; // hashCode is red*256^2 + green*256 + blue
+
 }
