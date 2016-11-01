@@ -19,7 +19,7 @@ import '../../model/ui/icon.dart';
 ///
 /// ```html
 /// <link rel="stylesheet" type="text/css"
-///     href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended">
+///     href="https://fonts.googleapis.com/icon?family=Material+Icons">
 /// ```
 /// __Attributes:__
 ///
