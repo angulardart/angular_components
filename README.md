@@ -37,4 +37,6 @@ possible.
 * [AngularDart pub package](https://pub.dartlang.org/packages/angular2)
 * [AngularDart documentation](https://angulardart.org/)
 * [Material Design site](https://material.google.com/)
+* [Code Lab: AngularDart Components](https://webdev.dartlang.org/codelabs/angular2_components)
+
 
