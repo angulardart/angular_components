@@ -4,16 +4,15 @@
 
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
-import 'package:intl/intl.dart';
-import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
-
 import '../focus/focus.dart';
 import '../glyph/glyph.dart';
 import '../../model/observable/observable.dart';
 import '../../utils/angular/reference/reference.dart';
 import '../../utils/async/async.dart';
 import '../../utils/disposer/disposer.dart';
+import 'package:angular2/angular2.dart';
+import 'package:intl/intl.dart';
+import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
 
 import 'base_material_input.dart';
 import 'deferred_validator.dart';
@@ -159,14 +158,15 @@ const String materialInputErrorKey = 'material-input-error';
       NgFor,
       NgIf,
       NgModel,
-    ])
+    ],
+    preserveWhitespace: false)
 class MaterialInputComponent extends BaseMaterialInput
     implements Focusable, ReferenceDirective, AfterViewInit, OnDestroy {
   /// TODO(google): The following value could be set in the base class, but
   /// there is currently no working way to set ViewChild values on the base
   /// class.
   @ViewChild(FocusableDirective)
-  set focusable(FocusableDirective value) {
+  set focusable(Focusable value) {
     super.focusable = value;
   }
 
@@ -219,10 +219,9 @@ class MaterialInputComponent extends BaseMaterialInput
   MaterialInputComponent(
       @Attribute('type') String type,
       @Self() @Optional() NgControl cd,
-      NgZone zone,
       ChangeDetectorRef changeDetector,
       DeferredValidator validator)
-      : super(cd, zone, changeDetector, validator) {
+      : super(cd, changeDetector, validator) {
     if (type == null) {
       this.type = 'text';
     } else if (const ['number', 'tel'].contains(type)) {

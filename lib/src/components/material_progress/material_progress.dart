@@ -17,6 +17,7 @@ const String ARIA_VALUENOW_ATTR = "aria-valuenow";
 ///
 @Component(
     selector: 'material-progress',
+    preserveWhitespace: false,
     templateUrl: 'material_progress.html',
     styleUrls: const ['material_progress.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)

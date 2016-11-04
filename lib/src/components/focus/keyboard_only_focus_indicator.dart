@@ -22,21 +22,19 @@ import '../../utils/browser/dom_service/dom_service.dart';
     exportAs: 'keyboardOnlyFocusIndicator')
 class KeyboardOnlyFocusIndicatorDirective {
   final ElementRef _element;
-  final Renderer _renderer;
   final DomService _domService;
 
-  KeyboardOnlyFocusIndicatorDirective(
-      this._element, this._renderer, this._domService);
+  KeyboardOnlyFocusIndicatorDirective(this._element, this._domService);
 
   void resetOutline() {
     _domService.scheduleWrite(() {
-      _renderer.setElementStyle(_element.nativeElement, 'outline', '');
+      _element.nativeElement.style.outline = '';
     });
   }
 
   void hideOutline() {
     _domService.scheduleWrite(() {
-      _renderer.setElementStyle(_element.nativeElement, 'outline', 'none');
+      _element.nativeElement.style.outline = 'none';
     });
   }
 

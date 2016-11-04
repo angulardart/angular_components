@@ -4,12 +4,12 @@
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
-
 import '../focus/focus.dart';
+import '../mixins/has_tab_index.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
+import 'package:angular2/angular2.dart';
 
 /// ButtonDirective adds all basic required a11y functional for any element,
 /// that are designed to work as a button (clickable icon, etc.)
@@ -25,18 +25,21 @@ import '../../utils/browser/events/events.dart';
 @Directive(selector: '[buttonDecorator]', host: const {
   '(click)': r'handleClick($event)',
   '(keypress)': r'handleKeyPress($event)',
-  'tabindex': '0',
+  '[tabindex]': 'tabIndex',
   'role': 'button',
   '[attr.aria-disabled]': 'disabledStr',
   '[class.is-disabled]': 'disabled',
 })
-class ButtonDirective extends RootFocusable {
+class ButtonDirective extends RootFocusable with HasTabIndex {
   /// Will emit Event on mouse click or keyboard activation.
   @Output()
   final LazyEventEmitter<UIEvent> trigger =
       new LazyEventEmitter<UIEvent>.broadcast();
 
   bool _disabled = false;
+  bool _tabbable = true;
+
+  String _hostTabIndex;
 
   ButtonDirective(ElementRef element) : super(element);
 
@@ -48,6 +51,23 @@ class ButtonDirective extends RootFocusable {
   @Input()
   set disabled(value) {
     _disabled = getBool(value);
+  }
+
+  /// Is the button tabbable.
+  bool get tabbable => _tabbable;
+  @Input()
+  set tabbable(value) {
+    _tabbable = getBool(value);
+  }
+
+  String get hostTabIndex => tabbable && !disabled ? _hostTabIndex : '-1';
+
+  /// The tab index of the button.
+  ///
+  /// The value is used if [tabbable] is `true` and [disabled] is `false`.
+  @Input()
+  set tabindex(String value) {
+    _hostTabIndex = value;
   }
 
 

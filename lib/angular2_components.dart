@@ -43,7 +43,7 @@ const List<Type> materialDirectives = const [
   ScorecardComponent
 ];
 
-/// A convenience list of all bindings exposed by this package.
+/// A convenience list of all providers exposed by this package.
 const List<List<Provider>> materialProviders = const <List<Provider>>[
   rippleBindings
 ];

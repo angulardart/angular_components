@@ -158,7 +158,6 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
     // Make sure we don't send the event to listeners that were added during
     // the callback.
     if (len == -1) {
-      /// Written like this to work around b/31469725.
       len = listeners.length;
     }
     for (int i = 0; i < len; i++) {

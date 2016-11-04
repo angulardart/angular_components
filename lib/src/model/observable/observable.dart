@@ -251,7 +251,7 @@ class ObservableComposite extends ChangeNotificationProvider {
 
   /// Starts listening on value changes (if not already doing so).
   Stream registerStream(Stream stream,
-      {Stream replaces, bool initialNotification}) {
+      {Stream replaces, bool initialNotification: true}) {
     if (_subscriptions.containsKey(stream)) {
       // little sanity check
       assert(replaces == null);

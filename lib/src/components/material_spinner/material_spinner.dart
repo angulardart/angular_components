@@ -20,6 +20,7 @@ import 'package:angular2/angular2.dart';
 ///     }
 @Component(
     selector: 'material-spinner',
+    preserveWhitespace: false,
     templateUrl: 'material_spinner.html',
     styleUrls: const ['material_spinner.scss.css'],
     changeDetection: ChangeDetectionStrategy.Detached)

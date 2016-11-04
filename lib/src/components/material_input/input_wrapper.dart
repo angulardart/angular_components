@@ -5,20 +5,27 @@
 /// Properties for a component which wants to expose typical options for a
 /// input. See MaterialInput for fields definition.
 class MaterialInputWrapper {
-  Function characterCounter = null;
-  Function checkValid = null;
+  Function characterCounter;
+  Function checkValid;
   bool disabled = false;
   bool displayBottomPanel = true;
-  bool floatingLabel;
+  bool floatingLabel = false;
   String leadingText;
-  String label;
   int maxCount;
-  bool required;
+  bool required = false;
   bool rightAlign = false;
   String trailingText;
 
+  String _label;
+  String get label => _label;
+  // Set is added to allow the base classes to override this functionality.
+  set label(String value) {
+    _label = value;
+  }
+
   String _inputText;
   String get inputText => _inputText;
+  // Set is added to allow the base classes to override this functionality.
   set inputText(String value) {
     _inputText = value;
   }

@@ -5,10 +5,9 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
-
 import '../button_decorator/button_decorator.dart';
 import '../../utils/angular/properties/properties.dart';
+import 'package:angular2/angular2.dart';
 
 // TODO(google): Right now we use is-raised and isDisabled for CSS styling.
 // When Angular supports conditionally adding/removing an attribute, use.
@@ -28,13 +27,13 @@ import '../../utils/angular/properties/properties.dart';
 /// - `trigger: Event` -- Published when the button is activated via click or
 ///   keypress.
 class MaterialButtonBase extends ButtonDirective {
-  static const _MOUSE_UP_Z = 1;
-  static const _MOUSE_DOWN_Z = 2;
+  static const lowElevation = 1;
+  static const mediumElevation = 2;
 
   bool _raised = false;
-  int _zElevation = 1;
   bool _focused = false;
   bool _clickFocused = false;
+  bool _isMouseDown = false;
 
   /// Whether the button should be raised.
   bool get raised => _raised;
@@ -51,9 +50,8 @@ class MaterialButtonBase extends ButtonDirective {
   /// The elevation the material-shadow component should show.
   ///
   /// When a button is pressed, this is increased.
-  int get zElevation => _zElevation;
-
-  String get tabIndex => disabled ? '-1' : '0';
+  int get zElevation =>
+      _isMouseDown || _focused ? mediumElevation : lowElevation;
 
   MaterialButtonBase(ElementRef element) : super(element);
 
@@ -74,12 +72,12 @@ class MaterialButtonBase extends ButtonDirective {
   /// Triggered on a mouse press.
   void onMouseDown(_) {
     _clickFocused = true;
-    _zElevation = _MOUSE_DOWN_Z;
+    _isMouseDown = true;
   }
 
   /// Triggered on a mouse release.
   void onMouseUp(_) {
-    _zElevation = _MOUSE_UP_Z;
+    _isMouseDown = false;
   }
 
   /// Triggered on focus.

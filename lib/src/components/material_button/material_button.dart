@@ -2,11 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:angular2/angular2.dart';
-
 import '../button_decorator/button_decorator.dart';
 import '../material_ripple/material_ripple.dart';
 import '../theme/dark_theme.dart';
+import 'package:angular2/angular2.dart';
 
 import 'material_button_base.dart';
 
@@ -85,7 +84,7 @@ import 'material_button_base.dart';
       '[attr.elevation]': 'zElevation',
       'animated': 'true'
     },
-    inputs: const ['disabled', 'raised'],
+    inputs: const ['disabled', 'raised', 'tabindex'],
     outputs: const ['trigger'],
     directives: const [MaterialRippleComponent],
     templateUrl: 'material_button.html',
@@ -94,7 +93,8 @@ import 'material_button_base.dart';
       const Provider(ButtonDirective, useExisting: MaterialButtonComponent)
     ],
     styleUrls: const ['material_button.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    preserveWhitespace: false)
 class MaterialButtonComponent extends MaterialButtonBase {
   final ChangeDetectorRef _changeDetector;
 

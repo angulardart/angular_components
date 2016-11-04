@@ -48,7 +48,8 @@ const Icon checkedIcon = const Icon('radio_button_checked');
     directives: const [GlyphComponent, MaterialRippleComponent, NgIf],
     templateUrl: 'material_radio.html',
     styleUrls: const ['material_radio.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    preserveWhitespace: false)
 class MaterialRadioComponent extends RootFocusable
     implements ControlValueAccessor, FocusableItem, OnDestroy {
   final ChangeDetectorRef _changeDetector;
@@ -238,7 +239,6 @@ class MaterialRadioComponent extends RootFocusable
 
   void _syncAriaChecked() {
     if (_renderer == null || _root == null) return;
-    _renderer.setElementAttribute(
-        _root.nativeElement, 'aria-checked', _ariaChecked);
+    _root.nativeElement.attributes['aria-checked'] = _ariaChecked;
   }
 }

@@ -79,12 +79,11 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   bool _extraBig = false;
   bool _changeGlyph = false;
 
-  ElementRef _ref;
+  final ElementRef _ref;
   HtmlElement get element => _ref.nativeElement;
-  ScorecardComponent(ElementRef ref, Renderer renderer, DomService domService)
-      : super(ref, renderer, domService) {
-    this._ref = ref;
-  }
+  ScorecardComponent(ElementRef ref, DomService domService)
+      : this._ref = ref,
+        super(ref, domService);
 
   /// The title of the scorecard.
   @Input()
@@ -94,7 +93,7 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   /// The title of the scorecard.
   String get label => title;
   @Input()
-  void set label(String value) {
+  set label(String value) {
     title = value;
   }
 

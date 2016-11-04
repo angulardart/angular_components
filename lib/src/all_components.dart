@@ -46,6 +46,8 @@ export 'components/material_tab/src/tab_mixin.dart';
 export 'components/material_tab/tab_change_event.dart';
 export 'components/material_toggle/material_toggle.dart';
 export 'components/material_yes_no_buttons/material_yes_no_buttons.dart';
+export 'components/mixins/focusable_mixin.dart';
+export 'components/mixins/has_tab_index.dart';
 export 'components/reorder_list/reorder_list.dart';
 export 'components/scorecard/scoreboard.dart';
 export 'components/scorecard/scorecard.dart';

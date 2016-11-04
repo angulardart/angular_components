@@ -19,8 +19,8 @@ import '../../utils/async/async.dart';
 /// Text on the buttons can be changed, they can also be raised.
 /// The 'yes' button can be optionally highlighted.
 ///
-/// Basic text customization can be provided with directives like saveCancel
-/// below that replaces yes/no with save/cancel.
+/// Basic text customization can be provided with directives like
+/// [MaterialSaveCancelButtonsDirective] that replaces yes/no with save/cancel.
 ///
 /// To display buttons in reversed order add a `reverse` attribute.
 @Component(
@@ -29,7 +29,7 @@ import '../../utils/async/async.dart';
       MaterialButtonComponent,
       MaterialSpinnerComponent,
       NgClass,
-      NgIf
+      NgIf,
     ],
     templateUrl: 'material_yes_no_buttons.html',
     styleUrls: const ['material_yes_no_buttons.scss.css'],

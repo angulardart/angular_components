@@ -5,13 +5,14 @@
 import 'dart:async';
 import 'dart:html';
 
+import '../focus/focus.dart';
+import '../mixins/focusable_mixin.dart';
+import '../../utils/angular/properties/properties.dart';
+import '../../utils/async/async.dart';
+import '../../utils/disposer/disposer.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
-
-import '../focus/focus.dart';
-import '../../utils/async/async.dart';
-import '../../utils/disposer/disposer.dart';
 
 import 'deferred_validator.dart';
 
@@ -22,8 +23,8 @@ typedef String ValidityCheck(String inputText);
 typedef int CharacterCounter(String inputText);
 
 /// Base class for behavior that is shared between material input components.
-class BaseMaterialInput implements Focusable, AfterViewInit, OnDestroy {
-  final NgZone _zone;
+class BaseMaterialInput extends FocusableMixin
+    implements Focusable, AfterViewInit, OnDestroy {
   final ChangeDetectorRef _changeDetector;
   final _disposer = new Disposer.oneShot();
   bool _invalid = false;
@@ -32,26 +33,13 @@ class BaseMaterialInput implements Focusable, AfterViewInit, OnDestroy {
   // Error message resulting from local validation.
   String _localValidationMessage;
 
-  FocusableDirective _focusable;
-  set focusable(FocusableDirective value) {
-    _focusable = value;
-    if (_focusPending) {
-      // Focus the object on the next turn.
-      _disposer
-          .addStreamSubscription(_zone.onMicrotaskEmpty.take(1).listen((_) {
-        _focusable.focus();
-      }));
-      _focusPending = false;
-    }
-  }
-
   bool _floatingLabel = false;
   bool _required = false;
+  bool _disabled = false;
 
   /// Enable native validation (e.g. for type="url").
   bool useNativeValidation = true;
 
-  bool _focusPending = false;
   bool _pristine = true;
   NgControl _cd;
 
@@ -115,8 +103,8 @@ class BaseMaterialInput implements Focusable, AfterViewInit, OnDestroy {
   /// Custom character counter function to be used.
   CharacterCounter characterCounter;
 
-  BaseMaterialInput(@Self() @Optional() this._cd, this._zone,
-      this._changeDetector, DeferredValidator validator) {
+  BaseMaterialInput(@Self() @Optional() this._cd, this._changeDetector,
+      DeferredValidator validator) {
     var call = this.call;
     validator.add(call);
     _disposer.addFunction(() {
@@ -180,13 +168,16 @@ class BaseMaterialInput implements Focusable, AfterViewInit, OnDestroy {
   }
 
   /// Whether or not this input is disabled.
-  bool disabled = false;
+  bool get disabled => _disabled;
+  set disabled(value) {
+    _disabled = getBool(value);
+  }
 
   /// Input is a required field if attribute is present.
   bool get required => _required;
   set required(required) {
     var prev = _required;
-    _required = required != false && required != null;
+    _required = getBool(required);
     if (prev != _required && _cd != null) {
       // Required value changed and we are using a control. Force revalidation
       // on the control.
@@ -205,12 +196,6 @@ class BaseMaterialInput implements Focusable, AfterViewInit, OnDestroy {
 
   /// Publishes events when a change event is fired. (On enter, or on blur.)
   Stream<String> get onChange => _changeController.stream;
-
-  final _focusController =
-      new LazyStreamController<FocusEvent>.broadcast(sync: true);
-
-  /// Publishes events when a focus event is fired.
-  Stream<FocusEvent> get onFocus => _focusController.stream;
 
   final _blurController =
       new LazyStreamController<FocusEvent>.broadcast(sync: true);
@@ -283,28 +268,14 @@ class BaseMaterialInput implements Focusable, AfterViewInit, OnDestroy {
 
   bool get hasErrorMessage => isNotEmpty(errorMessage);
 
-  /// Focuses underlying input or textarea wrapped by this component.
-  ///
-  /// Check out the [AutoFocusDirective] if you are looking to automatically
-  /// focus this component.
-  @override
-  void focus() {
-    if (_focusable != null) {
-      _focusable.focus();
-    } else {
-      _focusPending = true;
-    }
-  }
-
   @override
   void ngOnDestroy() {
     _disposer.dispose();
-    _focusable = null;
   }
 
   void inputFocusAction(event) {
     focused = true;
-    _focusController.add(event);
+    handleFocus(event);
   }
 
   void inputBlurAction(event, valid, validationMessage) {

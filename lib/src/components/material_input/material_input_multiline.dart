@@ -2,10 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:angular2/angular2.dart';
-
 import '../focus/focus.dart';
 import '../../utils/angular/reference/reference.dart';
+import 'package:angular2/angular2.dart';
 
 import 'base_material_input.dart';
 import 'deferred_validator.dart';
@@ -110,7 +109,8 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
       NgFor,
       NgIf,
       NgModel,
-    ])
+    ],
+    preserveWhitespace: false)
 class MultilineMaterialInputComponent extends BaseMaterialInput
     implements ReferenceDirective, AfterViewInit, OnDestroy {
   @ViewChild('textareaEl')
@@ -135,15 +135,15 @@ class MultilineMaterialInputComponent extends BaseMaterialInput
   /// 0 means no maximum. Default Value is 0.
   int _maxRows = 0;
 
-  MultilineMaterialInputComponent(@Self() @Optional() NgControl cd, NgZone zone,
+  MultilineMaterialInputComponent(@Self() @Optional() NgControl cd,
       ChangeDetectorRef changeDetector, DeferredValidator validator)
-      : super(cd, zone, changeDetector, validator);
+      : super(cd, changeDetector, validator);
 
   /// TODO(google): The following values could be set in the base class, but
   /// there is currently no working way to set ViewChild values on the base
   /// class.
   @ViewChild(FocusableDirective)
-  set focusable(FocusableDirective value) {
+  set focusable(Focusable value) {
     super.focusable = value;
   }
 

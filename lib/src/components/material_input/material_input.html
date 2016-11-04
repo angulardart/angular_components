@@ -21,7 +21,9 @@
 
     <div class="input-container"
          [class.floated-label]="floatingLabel">
-      <div class="label" aria-hidden="true">
+      <div class="label"
+           aria-hidden="true"
+           [class.right-align]="rightAlign">
         <!-- needed for floating label animation measurement -->
         <span class="label-text"
               [class.invisible]="!labelVisible"

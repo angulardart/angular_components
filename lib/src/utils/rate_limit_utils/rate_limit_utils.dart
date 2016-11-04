@@ -54,6 +54,7 @@ UnaryFunction throttleGuaranteeLast(
 UnaryFunction _throttle(UnaryFunction delegate, Duration interval,
     {@required bool guaranteeLast}) {
   bool onCooldown = false;
+  bool hasLastArg = false;
   var lastArg;
   UnaryFunction self;
   self = (argument) {
@@ -61,14 +62,15 @@ UnaryFunction _throttle(UnaryFunction delegate, Duration interval,
       onCooldown = true;
       new Timer(interval, () {
         onCooldown = false;
-        if (lastArg != null) {
+        if (hasLastArg) {
           self(lastArg);
-          lastArg = null;
+          hasLastArg = false;
         }
       });
       delegate(argument);
     } else if (guaranteeLast) {
       lastArg = argument;
+      hasLastArg = true;
     }
   };
   return self;

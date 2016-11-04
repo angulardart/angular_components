@@ -37,6 +37,7 @@ import '../../utils/id_generator/id_generator.dart';
     providers: const [
       const Provider(HasRenderer, useExisting: MaterialChipComponent)
     ],
+    preserveWhitespace: false,
     templateUrl: 'material_chip.html',
     styleUrls: const ['material_chip.scss.css'],
     directives: const [GlyphComponent, ButtonDirective, NgIf],

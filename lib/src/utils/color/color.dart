@@ -96,8 +96,13 @@ class Color {
   String get hexString =>
       '${hexPrefix}${getHexFor(_r)}${getHexFor(_g)}${getHexFor(_b)}';
 
-  /// Override equality operator to give expected behavior (colors with
-  /// identical components are equal). Compare rgb strings because that's the
-  /// cheapest public getter that exposes all components.
-  bool operator ==(other) => other is Color && other.rgbString == rgbString;
+  @override
+  bool operator ==(other) =>
+      other is Color &&
+      other._r == this._r &&
+      other._g == this._g &&
+      other._b == this._b;
+
+  @override
+  int get hashCode => (_r.hashCode * 31) ^ (_g.hashCode * 7) ^ _b.hashCode;
 }

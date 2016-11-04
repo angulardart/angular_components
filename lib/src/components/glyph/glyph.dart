@@ -19,7 +19,7 @@ import '../../model/ui/icon.dart';
 ///
 /// ```html
 /// <link rel="stylesheet" type="text/css"
-///     href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended">
+///     href="https://fonts.googleapis.com/icon?family=Material+Icons">
 /// ```
 /// __Attributes:__
 ///
@@ -30,7 +30,8 @@ import '../../model/ui/icon.dart';
     selector: 'glyph',
     templateUrl: 'glyph.html',
     styleUrls: const ['glyph.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    preserveWhitespace: false)
 class GlyphComponent {
   static const String _materialIconsExtended = 'material-icons-extended';
 

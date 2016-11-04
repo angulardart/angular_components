@@ -33,6 +33,7 @@ import 'tab_change_event.dart';
       'role': 'tablist',
       'aria-multiselectable': 'false'
     },
+    preserveWhitespace: false,
     templateUrl: 'fixed_material_tab_strip.html',
     styleUrls: const ['fixed_material_tab_strip.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)

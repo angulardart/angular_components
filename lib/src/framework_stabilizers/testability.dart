@@ -59,7 +59,6 @@ abstract class AbstractTestability implements Testability {
   /// the framework is not stable, this is a noop.
   void _runCallbacksIfStable({IsStableCallback newCallback}) {
     // Run in root zone to stop blocking activity ends.
-    // See b/27282628 #8 for details.
     Zone.ROOT.run(() {
       if (!isStable) {
         if (newCallback != null) _callbacks.add(newCallback);

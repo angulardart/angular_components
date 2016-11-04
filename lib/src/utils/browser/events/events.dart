@@ -12,8 +12,7 @@ import 'package:angular2/angular2.dart';
 /// Determines if the space key was pressed in a [KeyboardEvent].
 ///
 /// Use this utility because `keyCode` is deprecated in Firefox (and doesn't
-/// work for &lt;space&gt;) and `key` is not yet implemented in Chrome. See
-/// b/28054488 for details.
+/// work for &lt;space&gt;) and `key` is not yet implemented in Chrome.
 bool isSpaceKey(KeyboardEvent event) {
   // NB: keyCode does not work on Firefox, returning `0` for the space key.
   return event.keyCode != 0 ? event.keyCode == KeyCode.SPACE : event.key == ' ';
