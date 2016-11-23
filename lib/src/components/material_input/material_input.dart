@@ -41,7 +41,7 @@ const String materialInputErrorKey = 'material-input-error';
 ///
 /// __Example usage:__
 ///
-///     @Component({
+///     @Component(
 ///       selector: 'my-component',
 ///       template: '''
 ///         <material-input label="Your Name"></material-input>
@@ -49,9 +49,11 @@ const String materialInputErrorKey = 'material-input-error';
 ///         </material-input>
 ///         <material-input [(inputText)]="text"></material-input>
 ///       ''',
-///       directives: [materialInputDirectives]
-///     })
-///     class MyComponent {}
+///       directives: const [materialInputDirectives]
+///     )
+///     class MyComponent {
+///       String text;
+///     }
 ///
 /// __Attributes:__
 ///
