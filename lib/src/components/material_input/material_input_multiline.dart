@@ -16,15 +16,17 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 ///
 /// __Example usage:__
 ///
-///     @Component({
+///     @Component(
 ///       selector: 'my-component',
 ///       template: '''
 ///         <material-input multiline [(ngModel)]="text" label="Enter text">
 ///         </material-input>
 ///       ''',
-///       directives: [materialInputDirectives]
-///     })
-///     class MyComponent {}
+///       directives: const [materialInputDirectives]
+///     )
+///     class MyComponent {
+///       String text;
+///     }
 ///
 /// __Inputs:__
 ///
