@@ -228,6 +228,7 @@ class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
       @Optional() KeyUpBoundaryDirective boundary)
       : super(element, boundary);
 
+  @override
   bool _isKeyUpMatching(KeyboardEvent event) {
     if (event.keyCode != KeyCode.ESC) return false;
     // Make sure the no button is visible and enabled
@@ -236,6 +237,7 @@ class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
     return true;
   }
 
+  @override
   void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.no.add(true);
 }
 
@@ -253,6 +255,7 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
       @Optional() KeyUpBoundaryDirective boundary)
       : super(element, boundary);
 
+  @override
   bool _isKeyUpMatching(KeyboardEvent event) {
     if (event.keyCode != KeyCode.ENTER) return false;
     // Make sure the yes button is visible and enabled
@@ -264,6 +267,7 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
     return true;
   }
 
+  @override
   void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.yes.add(true);
 }
 

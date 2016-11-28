@@ -16,14 +16,14 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 ///
 /// __Example usage:__
 ///
-///     @Component({
+///     @Component(
 ///       selector: 'my-component',
 ///       template: '''
 ///         <material-input multiline [(ngModel)]="text" label="Enter text">
 ///         </material-input>
 ///       ''',
 ///       directives: [materialInputDirectives]
-///     })
+///     )
 ///     class MyComponent {}
 ///
 /// __Inputs:__
@@ -37,6 +37,10 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 /// - `floatingLabel: bool` -- Whether or not the label "floats". If false, the
 ///   label disappears when text is entered into the box. If true, it instead
 ///   "floats" up above the input.
+/// - `hintText: String` -- The hint to be shown on the input. This text will
+///    not be displayed if there is an error message on the input.
+/// - `showHintOnlyOnFocus: bool` -- Whether or not the hint text will be
+///    displayed when the input is not focused. Defaults to false.
 /// - `required: bool` -- Whether or not the input is required. If there's no
 ///   input text, a required input will show a validation error when it's first
 ///   focused.
@@ -51,8 +55,8 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 /// - `characterCounter: CharacterCounter` -- A custom character counter
 ///   function. Takes in the input text; returns how many characters the text
 ///   should be considered as.
-/// - `displayBottomPanel: bool` -- Whether to display error and character
-///    counter panel
+/// - `displayBottomPanel: bool` -- Whether to display error, hint text, and
+///   character counter panel.
 /// - `rows` -- If the input is multiline, how many lines there are.
 /// - `maxRows` -- If the input is multiline, the max number of lines.
 ///
@@ -74,6 +78,8 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
       'errorMsg',
       'label',
       'floatingLabel',
+      'hint',
+      'showHintOnlyOnFocus',
       'required',
       'requiredErrorMsg',
       'disabled',
@@ -96,10 +102,10 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
       const Provider(NG_VALIDATORS,
           useExisting: DeferredValidator, multi: true),
       const Provider(ReferenceDirective,
-          useExisting: MultilineMaterialInputComponent),
-      const Provider(Focusable, useExisting: MultilineMaterialInputComponent),
+          useExisting: MaterialMultilineInputComponent),
+      const Provider(Focusable, useExisting: MaterialMultilineInputComponent),
       const Provider(BaseMaterialInput,
-          useExisting: MultilineMaterialInputComponent)
+          useExisting: MaterialMultilineInputComponent)
     ],
     templateUrl: 'material_input_multiline.html',
     styleUrls: const ['material_input.scss.css'],
@@ -109,9 +115,11 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
       NgFor,
       NgIf,
       NgModel,
+      NgSwitch,
+      NgSwitchWhen,
     ],
     preserveWhitespace: false)
-class MultilineMaterialInputComponent extends BaseMaterialInput
+class MaterialMultilineInputComponent extends BaseMaterialInput
     implements ReferenceDirective, AfterViewInit, OnDestroy {
   @ViewChild('textareaEl')
   ElementRef textareaEl;
@@ -135,7 +143,7 @@ class MultilineMaterialInputComponent extends BaseMaterialInput
   /// 0 means no maximum. Default Value is 0.
   int _maxRows = 0;
 
-  MultilineMaterialInputComponent(@Self() @Optional() NgControl cd,
+  MaterialMultilineInputComponent(@Self() @Optional() NgControl cd,
       ChangeDetectorRef changeDetector, DeferredValidator validator)
       : super(cd, changeDetector, validator);
 
@@ -143,6 +151,7 @@ class MultilineMaterialInputComponent extends BaseMaterialInput
   /// there is currently no working way to set ViewChild values on the base
   /// class.
   @ViewChild(FocusableDirective)
+  @override
   set focusable(Focusable value) {
     super.focusable = value;
   }

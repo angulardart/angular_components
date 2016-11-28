@@ -33,6 +33,7 @@ abstract class TableSelectionModel<T> extends MultiSelectionModel<T>
   /// Number of selectable entries.
   CountGetter entitiesOnPageCount;
 
+  @override
   SelectableGetter getSelectable;
 
   /// If the table supports selection over multiple pages.
@@ -76,12 +77,16 @@ class _TableSelectionModelImpl<T> extends Observable
 
   bool _allSelected = false;
 
+  @override
   CountGetter totalEntitiesCount = () => -1;
 
+  @override
   CountGetter entitiesOnPageCount = () => -1;
 
+  @override
   bool supportsMultiplePageSelection = true;
 
+  @override
   SelectableGetter getSelectable;
 
   /// Returns number of items selected in the model.

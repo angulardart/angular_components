@@ -7,6 +7,10 @@ import 'dart:html' show KeyCode, KeyboardEvent, Element;
 
 import 'package:angular2/angular2.dart';
 
+import '../../laminate/components/modal/modal.dart';
+import '../../laminate/popup/popup.dart';
+import '../../utils/angular/properties/properties.dart';
+import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
 
 /// A component or directive that can be programmatically focused.
@@ -38,6 +42,7 @@ abstract class RootFocusable implements Focusable, Disposable {
     element.focus();
   }
 
+  @override
   void dispose() {
     _root = null;
   }
@@ -118,6 +123,82 @@ class FocusMoveEvent {
       keyCode == KeyCode.LEFT || keyCode == KeyCode.UP;
 }
 
+/// The element will be focused as soon as directive is initialized.
+///
+/// Please put only on content that appears after user action and
+/// requires focus to be changed to it.
+@Directive(selector: '[autoFocus]')
+class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
+  final _disposer = new Disposer.oneShot();
+
+  bool _autoFocus;
+  // These fields are not final to support nulling them out for easier memory
+  // leak detection.
+  Focusable _focusable;
+  DomService _domService;
+  ModalComponent _modal;
+  PopupRef _popupRef;
+
+  AutoFocusDirective(
+      ElementRef node,
+      this._domService,
+      @Optional() this._focusable,
+      @Optional() this._modal,
+      @Optional() this._popupRef)
+      : super(node);
+
+  @override
+  void ngOnInit() {
+    if (!_autoFocus) return;
+
+    if (_modal != null || _popupRef != null) {
+      var isVisible = _popupRef != null
+          ? _popupRef.isVisible
+          : _modal.resolvedOverlayRef.isVisible;
+      _onModalOrPopupVisibleChanged(isVisible);
+
+      var onVisibleChanged = _popupRef != null
+          ? _popupRef.onVisibleChanged
+          : _modal.resolvedOverlayRef.onVisibleChanged;
+      _disposer.addStreamSubscription(
+          onVisibleChanged.listen(_onModalOrPopupVisibleChanged));
+    } else {
+      _domService.scheduleWrite(focus);
+    }
+  }
+
+  /// Enables the auto focus directive so that it can be conditionally applied.
+  ///
+  /// This value should not change during the component's life.
+  @Input()
+  set autoFocus(value) {
+    assert(_autoFocus == null);
+    _autoFocus = getBool(value);
+  }
+
+  @override
+  void focus() {
+    if (_focusable != null) {
+      _focusable.focus();
+    } else {
+      super.focus();
+    }
+  }
+
+  @override
+  void ngOnDestroy() {
+    super.dispose();
+    _disposer.dispose();
+    _focusable = null;
+    _domService = null;
+    _modal = null;
+    _popupRef = null;
+  }
+
+  void _onModalOrPopupVisibleChanged(bool isVisible) {
+    if (isVisible) _domService.scheduleWrite(focus);
+  }
+}
 
 /// This directive is used to [ViewChild] focusable element in your view.
 @Directive(selector: '[focusableElement]', exportAs: 'focusableElement')

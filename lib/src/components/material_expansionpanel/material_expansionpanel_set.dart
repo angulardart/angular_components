@@ -25,12 +25,13 @@ class MaterialExpansionPanelSet implements OnDestroy {
     _onPanelsChange();
   }
 
-  ngOnDestroy() {
+  @override
+  void ngOnDestroy() {
     _panelDisposer.dispose();
     _tearDownDisposer.dispose();
   }
 
-  _onPanelsChange() {
+  void _onPanelsChange() {
     _panelDisposer.dispose();
     _openPanel = null;
     _panels.forEach((panel) {
@@ -49,7 +50,7 @@ class MaterialExpansionPanelSet implements OnDestroy {
     });
   }
 
-  _onPanelOpen(MaterialExpansionPanel panel, AsyncAction<bool> event) {
+  void _onPanelOpen(MaterialExpansionPanel panel, AsyncAction<bool> event) {
     if (_openPanel != null) {
       if (_openPanel.activeSaveCancelAction) {
         // Do not open the new panel, when the currently opened panel has an
@@ -69,7 +70,7 @@ class MaterialExpansionPanelSet implements OnDestroy {
     }
   }
 
-  _onPanelClose(MaterialExpansionPanel panel, AsyncAction<bool> e) {
+  void _onPanelClose(MaterialExpansionPanel panel, AsyncAction<bool> e) {
     e.onDone.then((success) {
       if (success && _openPanel == panel) {
         _setOpenPanel(null);
@@ -77,7 +78,7 @@ class MaterialExpansionPanelSet implements OnDestroy {
     });
   }
 
-  _setOpenPanel(MaterialExpansionPanel panel) {
+  void _setOpenPanel(MaterialExpansionPanel panel) {
     _panels.forEach((p) {
       if (p != panel) p.anotherExpanded = (panel != null);
     });

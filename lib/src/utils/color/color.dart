@@ -2,107 +2,148 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.utils.color.color;
+import 'package:quiver/core.dart';
 
-/// A color utility class that provides a lightweight representation of colors
-/// and simple conversion between different representations
+/// A color utility class.
+///
+/// Provides conversion between different color representations.
 class Color {
-  // Strings used in text processing (mostly stripped)
-  static const String rgbPrefix = 'rgb(';
-  static const String rgbSuffix = ')';
-  static const String rgbSeparator = ',';
-  static const String hexPrefix = '#';
-  static const String semicolon = ';';
-  static const String whitespace = ' ';
-  static const String emptyString = '';
+  /// _Deprecated; use [rgb] instead._
+  // TODO(google) Send CLs replacing uses.
+  Color.fromRgb(int r, int g, int b) : this.rgb(r, g, b);
 
-  /// Maximum value of a single color component (r, g, or b)
-  static const int maxValue = 255;
+  /// _Deprecated; use [parse] instead._
+  // TODO(google) Send CLs replacing uses.
+  factory Color.fromRgbString(String rgb) => parse(rgb);
 
-  /// Radix value for hex conversion
-  static const int hexRadix = 16;
+  /// _Deprecated; use [parse] instead._
+  // TODO(google) Send CLs replacing uses.
+  factory Color.fromHex(String hex) => parse(hex);
 
-  /// Get a 2-character hex representation of an int between 0 and 255
-  static String getHexFor(int val) {
-    assert(val >= 0 && val <= maxValue);
-    String result = val.toRadixString(hexRadix).toUpperCase();
-    if (result.length == 1) {
-      // pad with a leading zero if necessary
-      result = '0' + result;
-    }
-    return result;
-  }
+  /// Difference threshold, below which two alpha values are considered equal.
+  static const _alphaThreshold = 0.01;
 
-  /// red, green, and blue values, always 0-255
+  /// [RegExp] for matching start of rgb() or rgba() functional notation.
+  static final _rgbRE = new RegExp(r'^rgba?\((.*)\)$');
+
+  /// [RegExp for matching separator of rgb() or rgba() functional notation.
+  static final _separatorRE = new RegExp(r' *, *');
+
+  /// Color channels.
+  ///
+  /// Should be between 0 and 255, inclusive.
   final int _r, _g, _b;
 
-  /// Private constructor, should only be called from Color.fromRGB factory
-  const Color._(this._r, this._g, this._b);
+  /// Alpha channel.
+  ///
+  /// Should be between 0 and 1, inclusive.
+  final num _a;
 
-  /// Factory from rgb values -- also called by all other factories for
-  /// DRY asserts
-  factory Color.fromRgb(int r, int g, int b) {
-    var color = new Color._(r, g, b);
-    color._checkValues();
-    return color;
-  }
+  /// RGB color.
+  ///
+  /// Each channel should be between 0 and 255, inclusive.
+  const Color.rgb(int r, int g, int b) : this.rgba(r, g, b, 1);
 
-  /// Factory from a CSS-style RGB string (e.g. 'rgb(0,0,0)')
-  factory Color.fromRgbString(String rgb) {
-    // strip extraneous stuff if present
-    [rgbPrefix, rgbSuffix, semicolon, whitespace].forEach((String stripThis) {
-      rgb = rgb.replaceAll(stripThis, emptyString);
-    });
+  /// RGB color with an alpha channel.
+  ///
+  /// Each color channel should be between 0 and 255, inclusive. The alpha
+  /// channel should be between 0 and 1, inclusive.
+  const Color.rgba(this._r, this._g, this._b, this._a);
 
-    // String is now of format 'x,y,z'; split into component parts
-    List<int> components = rgb.split(rgbSeparator).map(int.parse).toList();
-    assert(components.length == 3);
-    return new Color.fromRgb(components[0], components[1], components[2]);
-  }
-
-  /// Factory from hex string (e.g. '#000', '#DB4437', etc.)
-  factory Color.fromHex(String hex) {
-    // strip extraneous stuff if present
-    [hexPrefix, semicolon, whitespace].forEach((String stripThis) {
-      hex = hex.replaceAll(stripThis, emptyString);
-    });
-    // string should be raw hex now with no pre/suffix, either 3 or 6 chars long
-    assert(hex.length == 3 || hex.length == 6);
-    var rHex, gHex, bHex;
-    if (hex.length == 3) {
-      rHex = hex[0];
-      gHex = hex[1];
-      bHex = hex[2];
-    } else if (hex.length == 6) {
-      rHex = hex.substring(0, 2);
-      gHex = hex.substring(2, 4);
-      bHex = hex.substring(4, 6);
+  static void _checkValues(int r, int g, int b, num a, [String s]) {
+    if (r < 0 ||
+        r > 255 ||
+        g < 0 ||
+        g > 255 ||
+        b < 0 ||
+        b > 255 ||
+        a < 0 ||
+        a > 1) {
+      throw new FormatException(
+          'Invalid color format; value out of bounds.', s);
     }
-    return new Color.fromRgb(int.parse(rHex, radix: hexRadix),
-        int.parse(gHex, radix: hexRadix), int.parse(bHex, radix: hexRadix));
   }
 
-  void _checkValues() {
-    [_r, _g, _b].forEach((value) {
-      assert(value >= 0 && value <= maxValue);
-    });
+  /// Parses a string into a [Color].
+  ///
+  /// Accepts rgb() and rgba() colors, in either functional or hex notation, as
+  /// defined by https://developer.mozilla.org/en/docs/Web/CSS/color_value.
+  // TODO(google) add support for color keywords and hsl.
+  static Color parse(String s) {
+    switch (s[0]) {
+      case 'r': // rgb
+        final match = _rgbRE.firstMatch(s);
+        if (match == null) break;
+        final values = match[1].split(_separatorRE);
+        if (values.length != 3 && values.length != 4) break;
+        int color(String s) {
+          final last = s.length - 1;
+          return s[last] == '%'
+              ? 255 * int.parse(s.substring(0, last)) ~/ 100
+              : int.parse(s);
+        }
+
+        final r = color(values[0]);
+        final g = color(values[1]);
+        final b = color(values[2]);
+        final a = values.length == 4 ? num.parse(values.last) : 1;
+        _checkValues(r, g, b, a, s);
+        return new Color.rgba(r, g, b, a);
+      case '#': // hex
+        s = s.substring(1);
+        // Calculate number of characters per channel.
+        final width = s.length == 6 || s.length == 8
+            ? 2
+            : s.length == 3 || s.length == 4 ? 1 : 0;
+        if (width == 0) break;
+        int hex(int position) {
+          final start = position * width;
+          final value = int.parse(s.substring(start, start + width), radix: 16);
+          return width == 1 ? value * 17 : value;
+        }
+        final r = hex(0);
+        final g = hex(1);
+        final b = hex(2);
+        final a = s.length % 4 == 0 ? hex(3) / 255 : 1;
+        _checkValues(r, g, b, a, s);
+        return new Color.rgba(r, g, b, a);
+    }
+    throw new FormatException('Invalid color format', s);
   }
 
-  /// Get color's representation as an rgb string (e.g. 'rgb(0,0,0)')
+  /// Creates a copy of this, with the given alpha channel value.
+  Color withAlpha(num a) {
+    assert(a >= 0 && a <= 1);
+    return new Color.rgba(_r, _g, _b, a);
+  }
+
+  String get _alphaString => _a < _alphaThreshold ? '0' : _a.toStringAsFixed(2);
+
+  /// Returns this as a string in rgb() or rgba() functional notation.
   String get rgbString =>
-      '${rgbPrefix}${_r}${rgbSeparator}${_g}${rgbSeparator}${_b}${rgbSuffix}';
+      _a == 1 ? 'rgb($_r,$_g,$_b)' : 'rgba($_r,$_g,$_b,$_alphaString)';
 
-  /// Get color's representation as a hex string (e.g. '#AABBCC')
+  /// Returns a 2-character hex representation of an int between 0 and 255.
+  static String _toHex(num value) =>
+      value.toInt().toRadixString(16).padLeft(2, '0');
+
+  /// Returns this as a string in #rrggbb or #rrggbbaa hex notation.
   String get hexString =>
-      '${hexPrefix}${getHexFor(_r)}${getHexFor(_g)}${getHexFor(_b)}';
+      '#${_toHex(_r)}${_toHex(_g)}${_toHex(_b)}' +
+      (_a == 1 ? '' : '${_toHex(255 * _a)}');
 
   @override
-  bool operator ==(other) =>
-      other is Color &&
-      other._r == this._r &&
-      other._g == this._g &&
-      other._b == this._b;
+  String toString() => rgbString;
 
   @override
-  int get hashCode => (_r.hashCode * 31) ^ (_g.hashCode * 7) ^ _b.hashCode;
+  bool operator ==(o) =>
+      identical(this, o) ||
+      o is Color &&
+          _r == o._r &&
+          _g == o._g &&
+          _b == o._b &&
+          (_a - o._a).abs() < _alphaThreshold;
+
+  @override
+  int get hashCode => hash4(_r, _g, _b, _a);
 }

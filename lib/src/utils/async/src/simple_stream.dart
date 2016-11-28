@@ -99,6 +99,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   Stream<T> get stream => this;
 
   /// Send an item to the subscriptions.
+  @override
   void add(T item) {
     if (!hasListener) return;
     if (_isSync) {

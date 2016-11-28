@@ -15,7 +15,7 @@ typedef Map<String, dynamic> _ValidatorFn(AbstractControl c);
 @Injectable()
 class DeferredValidator {
   final Set<_ValidatorFn> _delegates = new Set.identity();
-  _ValidatorFn _validator = null;
+  _ValidatorFn _validator;
 
   void add(_ValidatorFn validation) {
     _delegates.add(validation);

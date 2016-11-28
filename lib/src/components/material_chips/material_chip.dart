@@ -72,12 +72,14 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
   ///
   /// When provided, it is used to generate a label for the chip.
   @Input()
+  @override
   set itemRenderer(ItemRenderer value) {
     _itemRenderer = value;
     _genLabel();
   }
 
   ItemRenderer _itemRenderer;
+  @override
   ItemRenderer get itemRenderer => _itemRenderer;
 
   /// Data model to render.

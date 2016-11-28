@@ -44,11 +44,13 @@ import 'package:angular2/angular2.dart';
 ///
 ///     <acx-scorecard class="right-align"></acx-scorecard>
 ///
-/// Content projection can also be used with the <name> element to insert DOM
-/// into the label area:
+/// Content projection can also be used with the <name> element to insert custom
+/// content into the label area, or with <value> to insert custom content into
+/// the value area:
 ///
 ///     <acx-scorecard ...>
-///         <name>Estimated earnings <i>(NEW)</i></name>
+///       <name>Estimated earnings <i>(NEW)</i></name>
+///       <value><glyph icon="mode_edit"></glyph></value>
 ///     </acx-scorecard>
 @Component(
     selector: 'acx-scorecard',
@@ -87,14 +89,15 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
 
   /// The title of the scorecard.
   @Input()
-  @Deprecated('Use label instead')
-  String title;
+  String label;
 
   /// The title of the scorecard.
-  String get label => title;
+  @Deprecated('Use label instead')
+  String get title => label;
+  @Deprecated('Use label instead')
   @Input()
-  set label(String value) {
-    title = value;
+  set title(String value) {
+    label = value;
   }
 
   /// The value displayed to the user.

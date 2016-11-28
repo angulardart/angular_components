@@ -8,16 +8,12 @@ import 'dart:html';
 
 import 'package:angular2/angular2.dart';
 import 'package:angular2/src/core/di.dart' show Injector, Injectable;
-import 'package:angular2/src/platform/dom/dom_renderer.dart'
-    show DomRootRenderer;
-
+import 'package:angular2/src/core/linker/app_view.dart'
+    show domRootRendererIsDirty;
 import '../../angular/managed_zone/interface.dart';
 import './dom_service.dart';
 import './dom_service_webdriver_testability.dart';
 import '../../disposer/disposer.dart';
-
-export 'package:angular2/src/platform/dom/dom_renderer.dart'
-    show DomRootRenderer;
 
 export './dom_service.dart';
 
@@ -66,10 +62,10 @@ DomService createDomService(@Optional() @SkipSelf() DomService service,
 void setupAcxRootDomRenderer(Injector appInjector) {
   appInjector.get(DomService)
     ..isDomMutatedPredicate = () {
-      return DomRootRenderer.isDirty;
+      return domRootRendererIsDirty;
     }
     ..resetIsDomMutated = () {
-      DomRootRenderer.isDirty = false;
+      domRootRendererIsDirty = false;
     }
     ..init();
 }

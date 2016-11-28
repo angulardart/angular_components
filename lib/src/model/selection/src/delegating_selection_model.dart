@@ -48,7 +48,7 @@ class DelegatingSelectionModel<T> implements SelectionModel<T> {
   bool deliverChanges() => _delegateModel.deliverChanges();
 
   @override
-  void notifyChange(ChangeRecord changeRecord) {
+  void notifyChange([ChangeRecord changeRecord]) {
     _delegateModel.notifyChange(changeRecord);
   }
 
@@ -92,7 +92,7 @@ class DelegatingSelectionModel<T> implements SelectionModel<T> {
 class DelegatingMultiSelectionModel<T> extends DelegatingSelectionModel<T>
     implements MultiSelectionModel<T> {
   DelegatingMultiSelectionModel(MultiSelectionModel<T> delegateModel)
-      : super(delegateModel) {}
+      : super(delegateModel);
 
   @override
   void selectAll(Iterable<T> values) {

@@ -56,7 +56,6 @@ class MaterialRadioComponent extends RootFocusable
   final Disposer _disposer = new Disposer.oneShot();
   final MaterialRadioGroupComponent _group;
   final ElementRef _root;
-  final Renderer _renderer;
   final String role;
 
   MaterialRadioComponent(
@@ -64,7 +63,6 @@ class MaterialRadioComponent extends RootFocusable
       this._changeDetector,
       @Host() @Optional() this._group,
       @Self() @Optional() NgControl cd,
-      Renderer this._renderer,
       @Attribute('role') this.role)
       : this._root = element,
         super(element) {
@@ -238,7 +236,8 @@ class MaterialRadioComponent extends RootFocusable
   String get _ariaChecked => checked is bool ? '$checked' : 'mixed';
 
   void _syncAriaChecked() {
-    if (_renderer == null || _root == null) return;
-    _root.nativeElement.attributes['aria-checked'] = _ariaChecked;
+    Element elm = _root?.nativeElement;
+    if (elm == null) return;
+    elm.attributes['aria-checked'] = _ariaChecked;
   }
 }

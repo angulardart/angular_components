@@ -31,7 +31,7 @@ class _NoopSelectionModelImpl<T> implements SelectionModel<T> {
   final bool hasObservers = false;
 
   @override
-  void notifyChange(_) {}
+  void notifyChange([_]) {}
 
   @override
   /*=T*/ notifyPropertyChange/*<T>*/(

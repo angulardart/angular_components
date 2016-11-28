@@ -149,7 +149,7 @@ class ReorderListComponent implements OnDestroy {
       leftSide = contents.first.parent.offset.left;
       rightSide = contents.first.parent.offset.right;
     }
-    int nextOffset = null;
+    int nextOffset;
     int upperStackSize = 0;
     var moveRight = true;
     for (int i = 0; i < childCount; i++) {

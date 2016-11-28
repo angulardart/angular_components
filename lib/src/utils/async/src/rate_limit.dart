@@ -51,6 +51,7 @@ class RateLimitTransformer implements StreamTransformer {
 
   RateLimitTransformer(this._duration, this._rateLimitStrategy);
 
+  @override
   Stream bind(Stream stream) => new Stream.eventTransformed(
       stream,
       (EventSink sink) =>

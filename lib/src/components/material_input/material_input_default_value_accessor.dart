@@ -18,16 +18,16 @@ class MaterialInputDefaultValueAccessor
   final _disposer = new Disposer.oneShot();
 
   final BaseMaterialInput _input;
+  final NgControl _cd;
 
-  MaterialInputDefaultValueAccessor(
-      this._input, @Self() @Optional() NgControl cd) {
+  MaterialInputDefaultValueAccessor(this._input, @Self() @Optional() this._cd) {
     // To get around a circular dependency injection assign the valueAccessor
     // ourselves.
-    cd?.valueAccessor = this;
+    _cd?.valueAccessor = this;
     _disposer.addFunction(() {
       // Kill the control's handle on this accessor directive so that it can be
       // GC'ed.
-      cd?.valueAccessor = null;
+      _cd?.valueAccessor = null;
     });
   }
 
@@ -43,44 +43,14 @@ class MaterialInputDefaultValueAccessor
   }
 
   @override
-  void registerOnTouched(_) {} // onTouched API is not supported for now.
+  void registerOnTouched(callback) {
+    _disposer.addStreamSubscription(_input.onBlur.take(1).listen((_) {
+      callback();
+    }));
+  }
 
   @override
   void ngOnDestroy() {
     _disposer.dispose();
-  }
-}
-
-/// Copy of NgModel with a different selector and sync update stream.
-///
-/// This is to allow for transition away from
-/// [MaterialInputDefaultValueAccessor] being a model, and the accessor. Also
-/// allows moving to the more standard [NgModel].
-/// Needed until everything can be renamed to use ngModel instead.
-@Directive(
-    selector: "material-input[inputText]:not([ngModel])"
-        ":not([ngControl]):not([ngFormControl])",
-    providers: const [const Provider(NgControl, useExisting: InputTextModel)],
-    inputs: const ["model: inputText"],
-    outputs: const ["update: inputTextChange"],
-    exportAs: "ngForm")
-class InputTextModel extends NgModel implements OnChanges {
-  InputTextModel(
-      @Optional()
-      @Self()
-      @Inject(NG_VALIDATORS)
-          validators,
-      @Optional()
-      @Self()
-      @Inject(NG_ASYNC_VALIDATORS)
-          asyncValidators,
-      @Optional()
-      @Self()
-      @Inject(NG_VALUE_ACCESSOR)
-          List<ControlValueAccessor> valueAccessors)
-      : super(validators, asyncValidators, valueAccessors);
-  @override
-  ngOnChanges(Map<String, SimpleChange> changes) {
-    super.ngOnChanges(changes);
   }
 }

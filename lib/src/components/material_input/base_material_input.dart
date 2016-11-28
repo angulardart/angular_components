@@ -22,11 +22,24 @@ const String materialInputErrorKey = 'material-input-error';
 typedef String ValidityCheck(String inputText);
 typedef int CharacterCounter(String inputText);
 
+/// Represents which label should be shown in the BottomPanel
+enum BottomPanelState {
+  empty,
+  error,
+  hint,
+}
+
 /// Base class for behavior that is shared between material input components.
 class BaseMaterialInput extends FocusableMixin
     implements Focusable, AfterViewInit, OnDestroy {
   final ChangeDetectorRef _changeDetector;
   final _disposer = new Disposer.oneShot();
+
+  /// Template accessors for the BottomPanelState
+  final emptyState = BottomPanelState.empty;
+  final errorState = BottomPanelState.error;
+  final hintState = BottomPanelState.hint;
+
   bool _invalid = false;
   // Error message coming from the browser.
   String _validationMessage;
@@ -36,6 +49,7 @@ class BaseMaterialInput extends FocusableMixin
   bool _floatingLabel = false;
   bool _required = false;
   bool _disabled = false;
+  bool _showHintOnlyOnFocus = false;
 
   /// Enable native validation (e.g. for type="url").
   bool useNativeValidation = true;
@@ -43,16 +57,37 @@ class BaseMaterialInput extends FocusableMixin
   bool _pristine = true;
   NgControl _cd;
 
+  /// Controls what section of the BottomPanel is displayed.
+  BottomPanelState bottomPanelState = BottomPanelState.empty;
+
   /// Error message to be displayed in case of invalid input.
-  String errorMsg;
+  String _errorMsg;
+  String get errorMsg => _errorMsg;
+  set errorMsg(String msg) {
+    _errorMsg = msg;
+    updateBottomPanelState();
+  }
 
   /// Error to be displayed.
   ///
   /// Higher precendent than all other errors which may be on this input.
-  String error;
+  String _error;
+  String get error => _error;
+  set error(String error) {
+    _error = error;
+    updateBottomPanelState();
+  }
 
   /// The label for this input. It disappears when user inputs text.
   String label;
+
+  /// The hint text to be shown on the input. Not shown during an error.
+  String _hintText;
+  String get hintText => _hintText;
+  set hintText(value) {
+    _hintText = value;
+    updateBottomPanelState();
+  }
 
   /// Custom error message to show when the field is required and blank.
   String requiredErrorMsg = defaultEmptyMessage;
@@ -75,6 +110,7 @@ class BaseMaterialInput extends FocusableMixin
       // Validator was changed. Rerun validation.
       _cd.control.updateValueAndValidity();
     }
+    updateBottomPanelState();
   }
 
   int _inputTextLength = 0;
@@ -122,6 +158,7 @@ class BaseMaterialInput extends FocusableMixin
       _disposer
           .addStreamSubscription(_cd.control.statusChanges.listen((status) {
         _changeDetector.markForCheck();
+        updateBottomPanelState();
       }));
     }
   }
@@ -142,7 +179,7 @@ class BaseMaterialInput extends FocusableMixin
       return {materialInputErrorKey: _localValidationMessage};
     }
     if (maxCount != null && inputTextLength > maxCount) {
-      _localValidationMessage = errorMsg;
+      _localValidationMessage = _errorMsg;
       return {materialInputErrorKey: _localValidationMessage};
     }
     if (checkValid != null) {
@@ -171,6 +208,14 @@ class BaseMaterialInput extends FocusableMixin
   bool get disabled => _disabled;
   set disabled(value) {
     _disabled = getBool(value);
+  }
+
+  /// Whether or not the hint text will be displayed when the input is not
+  /// focused.
+  bool get showHintOnlyOnFocus => _showHintOnlyOnFocus;
+  set showHintOnlyOnFocus(value) {
+    _showHintOnlyOnFocus = getBool(value);
+    updateBottomPanelState();
   }
 
   /// Input is a required field if attribute is present.
@@ -220,11 +265,14 @@ class BaseMaterialInput extends FocusableMixin
       floatingLabelVisible && !focused && !hasVisibleText;
 
   bool get invalid {
-    if (error?.isNotEmpty ?? false) return true;
+    if (_error?.isNotEmpty ?? false) return true;
     // If there is a Control, then it is already using this as a Validator, and
     // possibly others.
-    if (_cd != null && _cd.control != null) {
-      return !_cd.control.valid;
+    if (_cd?.control != null) {
+      // Show errors only when a control is invalid, and a user has interacted
+      // with it. This conforms to the material spec:
+      // https://material.google.com/patterns/errors.html
+      return !_cd.valid && (_cd.touched || _cd.dirty);
     }
     // otherwise, just do our local validation
     return _isLocallyValid() != null;
@@ -237,7 +285,7 @@ class BaseMaterialInput extends FocusableMixin
   String get ariaLabel => label;
 
   String get errorMessage {
-    if (error?.isNotEmpty ?? false) return error;
+    if (_error?.isNotEmpty ?? false) return _error;
     // if there is a Control, then all error messages will be in the Control's
     // error map
     if (_cd != null && _cd.control?.errors != null) {
@@ -255,7 +303,7 @@ class BaseMaterialInput extends FocusableMixin
         }
         if ("maxlength" == key) {
           // Angular2 forms max length validator.
-          return errorMsg;
+          return _errorMsg;
         }
         // TODO(google): Support angular2 forms min length validator
       }
@@ -266,8 +314,6 @@ class BaseMaterialInput extends FocusableMixin
     return _localValidationMessage ?? '';
   }
 
-  bool get hasErrorMessage => isNotEmpty(errorMessage);
-
   @override
   void ngOnDestroy() {
     _disposer.dispose();
@@ -276,6 +322,7 @@ class BaseMaterialInput extends FocusableMixin
   void inputFocusAction(event) {
     focused = true;
     handleFocus(event);
+    updateBottomPanelState();
   }
 
   void inputBlurAction(event, valid, validationMessage) {
@@ -283,6 +330,7 @@ class BaseMaterialInput extends FocusableMixin
     _pristine = false;
     focused = false;
     _blurController.add(event);
+    updateBottomPanelState();
   }
 
   void inputChange(newValue, valid, validationMessage) {
@@ -290,6 +338,7 @@ class BaseMaterialInput extends FocusableMixin
     _pristine = false;
     inputText = newValue;
     _changeController.add(newValue);
+    updateBottomPanelState();
   }
 
   void inputKeypress(newValue, valid, validationMessage) {
@@ -297,11 +346,29 @@ class BaseMaterialInput extends FocusableMixin
     _pristine = false;
     inputText = newValue;
     _keypressController.add(newValue);
+    // If this update is removed, ensure that the test logic of 'error message
+    // updated with input change' works manually.
+    updateBottomPanelState();
   }
 
   void _validate(valid, validationMessage) {
     _invalid = !valid;
     _validationMessage = validationMessage;
+  }
+
+  void updateBottomPanelState() {
+    var oldState = bottomPanelState;
+    if (invalid && isNotEmpty(errorMessage)) {
+      bottomPanelState = BottomPanelState.error;
+    } else if ((!showHintOnlyOnFocus || focused) && isNotEmpty(_hintText)) {
+      bottomPanelState = BottomPanelState.hint;
+    } else {
+      bottomPanelState = BottomPanelState.empty;
+    }
+
+    if (oldState != bottomPanelState) {
+      _changeDetector.markForCheck();
+    }
   }
 
   String msgCharacterCounter(int currentCount, int maxCount) => Intl.message(

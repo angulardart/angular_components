@@ -40,6 +40,7 @@ abstract class _ZoneRunner {
 ///     }
 class ZonedFuture<T> extends _ZoneRunner implements Future<T> {
   final Future<T> _innerFuture;
+  @override
   final RunInZoneFn _runInZoneFn;
 
   ZonedFuture(this._innerFuture, this._runInZoneFn);
@@ -97,6 +98,7 @@ class ZonedFuture<T> extends _ZoneRunner implements Future<T> {
 ///     }
 class ZonedStream<T> extends Stream<T> with _ZoneRunner {
   final Stream<T> _innerStream;
+  @override
   final RunInZoneFn _runInZoneFn;
 
   ZonedStream(this._innerStream, this._runInZoneFn);

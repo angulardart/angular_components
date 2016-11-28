@@ -10,8 +10,10 @@ class MaterialInputWrapper {
   bool disabled = false;
   bool displayBottomPanel = true;
   bool floatingLabel = false;
+  String hintText;
   String leadingText;
   int maxCount;
+  bool showHintOnlyOnFocus = false;
   bool required = false;
   bool rightAlign = false;
   String trailingText;

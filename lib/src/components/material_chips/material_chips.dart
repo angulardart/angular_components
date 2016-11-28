@@ -69,11 +69,13 @@ class MaterialChipsComponent implements HasRenderer, OnDestroy {
   /// internal state that may render the same item differently, the reference
   /// itself must change in order to take effect.
   @Input()
+  @override
   set itemRenderer(ItemRenderer value) {
     _itemRenderer = value;
   }
 
   ItemRenderer _itemRenderer = _defaultItemRenderer;
+  @override
   ItemRenderer get itemRenderer => _itemRenderer;
 
   Iterable get selectedItems => selectionModel.selectedValues;

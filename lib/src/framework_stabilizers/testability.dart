@@ -38,12 +38,14 @@ abstract class AbstractTestability implements Testability {
 
   /// Registers the framework's [FrameworkStabilizer] function on the global
   /// window object to make it accessable in webdriver tests.
+  @override
   void register() {
     FrameworkStabilizers.add(whenStable);
   }
 
   /// Hook for tests to register an [IsStableCallback] that is called when
   /// a stable state is reached.
+  @override
   void whenStable(IsStableCallback fn) {
     _runCallbacksIfStable(newCallback: fn);
   }
@@ -75,6 +77,7 @@ abstract class AbstractTestability implements Testability {
   }
 
   /// Returns true if the framework is in a stable state, false otherwise.
+  @override
   bool get isStable;
 }
 

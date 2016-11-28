@@ -6,6 +6,7 @@ import 'dart:html';
 
 import 'package:angular2/angular2.dart';
 
+import '../../utils/angular/properties/properties.dart';
 import '../../utils/disposer/disposer.dart';
 
 import 'deferred_content_aware.dart';
@@ -31,35 +32,51 @@ class DeferredContentDirective implements OnDestroy {
   EmbeddedViewRef _viewRef;
   TemplateRef _template;
 
+  /// Create a placeholder element to maintain content size when hidden.
+  ///
+  /// Used like *deferredContent="true".
+  bool _preserveDimensions = false;
+  @Input('deferredContent')
+  set preserveDimensions(value) {
+    // If it's just *deferredContent, default to false.
+    _preserveDimensions = getBool(value ?? false);
+  }
+
   // Keep around the current state.
   bool _visible = false;
 
   void _setVisible(bool value) {
     if (value == _visible) return;
     if (value) {
-      // Remove the placeholder and add the deferred content.
-      _placeholder.remove();
+      if (_preserveDimensions) {
+        // Remove the placeholder and add the deferred content.
+        _placeholder.remove();
+      }
       _viewRef = _viewContainer.createEmbeddedView(_template);
     } else {
-      // Save the dimensions of the deferred content.
-      var rootNodes = _viewRef?.rootNodes ?? [];
-      var content = rootNodes.length > 0 ? rootNodes.first : null;
-      if (content is HtmlElement) {
-        // This isn't in DomService.schedule{Read,Write} because
-        // it needs to work with components that aren't scheduled.
-        var dimensions = content.getBoundingClientRect();
-        _placeholder.style
-          ..width = '${dimensions.width}px'
-          ..height = '${dimensions.height}px';
+      if (_preserveDimensions) {
+        // Save the dimensions of the deferred content.
+        var rootNodes = _viewRef?.rootNodes ?? [];
+        var content = rootNodes.length > 0 ? rootNodes.first : null;
+        if (content is HtmlElement) {
+          // This isn't in DomService.schedule{Read,Write} because
+          // it needs to work with components that aren't scheduled.
+          var dimensions = content.getBoundingClientRect();
+          _placeholder.style
+            ..width = '${dimensions.width}px'
+            ..height = '${dimensions.height}px';
+        }
       }
 
       // Remove the deferred content.
       _viewContainer.clear();
 
-      // Add the placeholder so the parent's size doesn't change.
-      var container = _viewContainer.element?.nativeElement;
-      if (container != null) {
-        container.parentNode.insertBefore(_placeholder, container);
+      if (_preserveDimensions) {
+        // Add the placeholder so the parent's size doesn't change.
+        var container = _viewContainer.element?.nativeElement;
+        if (container != null) {
+          container.parentNode.insertBefore(_placeholder, container);
+        }
       }
     }
     _visible = value;

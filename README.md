@@ -5,7 +5,7 @@ applications.
 
 Only a small fragment of all the components is available right now. We want
 developers to have an opportunity to play around with the package as soon as
-possible. 
+possible.
 
 * ✓ `<glyph>`
 * ✓ `<material-button>`
@@ -22,13 +22,15 @@ possible.
 * ✓ `<material-yes-no-buttons>`
 * ✓ `<reorder-list>`
 * ✓ `<acx-scorecard>`
-* ✓ `<material-input>` 
+* ✓ `<material-input>`
+* ✓ `<material-dialog>`
+* ☐ `<material-popup>`
+* ☐ `<material-tooltip>`
 * ☐ `<material-auto-suggest-input>`
 * ☐ `<material-date-range-picker>`
-* ☐ `<material-dialog>`
 * ☐ `<material-list>`
 * ☐ `<material-menu>`
-* ☐ many more, including a fast table
+* many more, including a fast table
 
 
 ## Useful links

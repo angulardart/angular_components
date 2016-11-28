@@ -10,6 +10,8 @@ export 'src/all_components.dart';
 
 /// A convenience list of all Directives exposed by this package.
 const List<Type> materialDirectives = const [
+  AutoDismissDirective,
+  AutoFocusDirective,
   CachingDeferredContentDirective,
   DeferredContentDirective,
   FixedMaterialTabStripComponent,
@@ -17,12 +19,13 @@ const List<Type> materialDirectives = const [
   FocusItemDirective,
   FocusListDirective,
   FocusableDirective,
+  FocusTrapComponent,
   GlyphComponent,
-  InputTextModel,
   MaterialButtonComponent,
   MaterialCheckboxComponent,
   MaterialChipComponent,
   MaterialChipsComponent,
+  MaterialDialogComponent,
   MaterialExpansionPanel,
   MaterialExpansionPanelSet,
   MaterialFabComponent,
@@ -37,13 +40,16 @@ const List<Type> materialDirectives = const [
   MaterialTabPanelComponent,
   MaterialToggleComponent,
   MaterialYesNoButtonsComponent,
-  MultilineMaterialInputComponent,
+  MaterialMultilineInputComponent,
+  ModalComponent,
+  NgModel,
   ReorderItemDirective,
   ReorderListComponent,
-  ScorecardComponent
+  ScorecardComponent,
 ];
 
 /// A convenience list of all providers exposed by this package.
 const List<List<Provider>> materialProviders = const <List<Provider>>[
-  rippleBindings
+  rippleBindings,
+  overlayBindings,
 ];

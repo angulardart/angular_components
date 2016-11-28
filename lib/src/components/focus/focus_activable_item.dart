@@ -17,6 +17,7 @@ class FocusActivableItemDirective extends RootFocusable
     implements FocusableActivateItem {
   /// Key to assign to the focusable item.
   @Input('focusActivableItem')
+  @override
   String key;
 
   FocusActivableItemDirective(ElementRef root) : super(root);

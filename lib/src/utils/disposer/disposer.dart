@@ -78,10 +78,10 @@ class _SingleFunctionDisposable implements Disposable {
 ///   [addFunction]
 ///   [addStreamSubscription]
 class Disposer implements Disposable {
-  List<DisposeFunction> _disposeFunctions = null;
-  List<StreamSubscription> _disposeSubs = null;
-  List<EventSink> _disposeSinks = null;
-  List<Disposable> _disposeDisposables = null;
+  List<DisposeFunction> _disposeFunctions;
+  List<StreamSubscription> _disposeSubs;
+  List<EventSink> _disposeSinks;
+  List<Disposable> _disposeDisposables;
   final bool _oneShot;
   bool _disposeCalled = false;
 

@@ -49,7 +49,7 @@ abstract class TabMixin {
   ///
   /// This allows us to re-calculate an appropriate width and set it afterwards.
   void tryClearWidth() {
-    if (_textWidth == 0 && !width.isEmpty) {
+    if (_textWidth == 0 && width.isNotEmpty) {
       width = '';
     }
   }

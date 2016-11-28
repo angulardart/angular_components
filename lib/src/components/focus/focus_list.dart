@@ -94,6 +94,7 @@ class FocusListDirective implements OnDestroy {
     _children[newIndex].tabbable = true;
   }
 
+  @override
   void ngOnDestroy() {
     _disposer.dispose();
   }

@@ -2,22 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:async';
-
 import '../focus/focus.dart';
 import '../glyph/glyph.dart';
-import '../../model/observable/observable.dart';
 import '../../utils/angular/reference/reference.dart';
-import '../../utils/async/async.dart';
-import '../../utils/disposer/disposer.dart';
 import 'package:angular2/angular2.dart';
-import 'package:intl/intl.dart';
-import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
+import 'package:quiver/strings.dart' show isNotEmpty;
 
 import 'base_material_input.dart';
 import 'deferred_validator.dart';
 import 'material_input_default_value_accessor.dart';
 import 'material_input_multiline.dart';
+
+export 'package:angular2/angular2.dart' show NgModel;
 
 export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 export 'material_input_default_value_accessor.dart';
@@ -27,8 +23,8 @@ export 'material_input_multiline.dart';
 const materialInputDirectives = const [
   MaterialInputComponent,
   MaterialInputDefaultValueAccessor,
-  MultilineMaterialInputComponent,
-  InputTextModel
+  MaterialMultilineInputComponent,
+  NgModel
 ];
 
 /// Key used in the Control's error map, when there is an error.
@@ -41,23 +37,22 @@ const String materialInputErrorKey = 'material-input-error';
 ///
 /// __Example usage:__
 ///
-///     @Component({
+///     @Component(
 ///       selector: 'my-component',
 ///       template: '''
 ///         <material-input label="Your Name"></material-input>
 ///         <material-input multiline label="Enter multiple lines here">
 ///         </material-input>
-///         <material-input [(inputText)]="text"></material-input>
+///         <material-input [(ngModel)]="text"></material-input>
 ///       ''',
 ///       directives: [materialInputDirectives]
-///     })
+///     )
 ///     class MyComponent {}
 ///
 /// __Attributes:__
 ///
 /// - `type` -- The type of the input. Defaults to "text". Other supported
 ///   values are "email", "password", "url", "number", "tel", and "search".
-///   (Inputs of type "number" also use [MaterialNumberInputValidatorDirective])
 ///
 /// __Inputs:__
 ///
@@ -71,6 +66,10 @@ const String materialInputErrorKey = 'material-input-error';
 /// - `floatingLabel: bool` -- Whether or not the label "floats". If false, the
 ///   label disappears when text is entered into the box. If true, it instead
 ///   "floats" up above the input.
+/// - `hintText: String` -- The hint to be shown on the input. This text will
+///    not be displayed if there is an error message on the input.
+/// - `showHintOnlyOnFocus: bool` -- Whether or not the hint text will be
+///    displayed when the input is not focused. Defaults to false.
 /// - `required: bool` -- Whether or not the input is required. If there's no
 ///   input text, a required input will show a validation error when it's first
 ///   focused.
@@ -95,8 +94,8 @@ const String materialInputErrorKey = 'material-input-error';
 ///   input -- e.g. a URL link icon or similar.
 /// - `trailingGlyph: String` -- Any symbol to show at the trailing edge of the
 ///   input -- e.g. a URL link icon or similar.
-/// - `displayBottomPanel: bool` -- Whether to display error and character
-///    counter panel
+/// - `displayBottomPanel: bool` -- Whether to display error, hint text, and
+///   character counter panel.
 /// - `rows` -- If the input is multiline, how many lines there are.
 /// - `maxRows` -- If the input is multiline, the max number of lines.
 ///
@@ -118,6 +117,8 @@ const String materialInputErrorKey = 'material-input-error';
       'errorMsg',
       'label',
       'floatingLabel',
+      'hintText',
+      'showHintOnlyOnFocus',
       'required',
       'requiredErrorMsg',
       'disabled',
@@ -158,6 +159,8 @@ const String materialInputErrorKey = 'material-input-error';
       NgFor,
       NgIf,
       NgModel,
+      NgSwitch,
+      NgSwitchWhen,
     ],
     preserveWhitespace: false)
 class MaterialInputComponent extends BaseMaterialInput
@@ -166,6 +169,7 @@ class MaterialInputComponent extends BaseMaterialInput
   /// there is currently no working way to set ViewChild values on the base
   /// class.
   @ViewChild(FocusableDirective)
+  @override
   set focusable(Focusable value) {
     super.focusable = value;
   }
@@ -248,312 +252,3 @@ class MaterialInputComponent extends BaseMaterialInput
   }
 }
 
-/// A default locale-aware validator for number inputs.
-///
-/// __Example usage:__
-///     <material-input floatingLabel
-///                     label="Type positive numbers from 10 to 99999"
-///                     type="number"
-///                     [(numericValue)]="numericValue"
-///                     [checkInteger]="true"
-///                     [checkPositive]="true"
-///                     [lowerBound]="10"
-///                     [upperBound]="99999">
-///     </material-input>
-///
-/// __Inputs:__
-///   - `numericValue: num` -- The initial value of the number input.
-///   - `checkPositive: bool`-- Whether to check if the input is positive.
-///     Default to false (i.e. won't check if the input is positive).
-///   - `lowerBound: num`-- Check if the input is not lower than the bound. If
-///     the property is not set, the check will be skip.
-///   - `upperBound: num`-- Check if the input is not larger than the bound. If
-///     the property is not set, the check will be skip.
-///
-/// __Outputs:__
-///   - `numericValue: num` -- Fired when the value of input changes.
-///
-@Directive(selector: 'material-input[type=number]', inputs: const [
-  'numericValue',
-  'checkInteger',
-  'checkPositive',
-  'lowerBound',
-  'upperBound',
-  'errorMsg',
-], outputs: const [
-  'numericValueChange'
-])
-class MaterialNumberInputValidatorDirective implements OnDestroy {
-  final NumberFormat _numberFormat;
-  final MaterialInputComponent _input;
-  StreamSubscription _inputTextChangeSubscription;
-  NumberValidator _validator;
-
-  MaterialNumberInputValidatorDirective(this._input)
-      : _numberFormat = new NumberFormat.decimalPattern(Intl.defaultLocale) {
-    _validator = new NumberValidator(false, false, null, null, _input.errorMsg);
-    _input.checkValid = _validator;
-    _inputTextChangeSubscription = _input.onKeypress.listen((inputText) {
-      numericValue = _parseNumericValue(inputText);
-    });
-  }
-
-  set checkInteger(bool isInteger) {
-    _validator = new NumberValidator(isInteger, _validator._checkPositive,
-        _validator._lowerBound, _validator._upperBound, _validator._errorMsg);
-    _input.checkValid = _validator;
-  }
-
-  set checkPositive(bool isNonNegative) {
-    _validator = new NumberValidator(_validator._checkInteger, isNonNegative,
-        _validator._lowerBound, _validator._upperBound, _validator._errorMsg);
-    _input.checkValid = _validator;
-  }
-
-  set lowerBound(num lowerBound) {
-    _validator = new NumberValidator(
-        _validator._checkInteger,
-        _validator._checkPositive,
-        lowerBound,
-        _validator._upperBound,
-        _validator._errorMsg);
-    _input.checkValid = _validator;
-  }
-
-  set upperBound(num upperBound) {
-    _validator = new NumberValidator(
-        _validator._checkInteger,
-        _validator._checkPositive,
-        _validator._lowerBound,
-        upperBound,
-        _validator._errorMsg);
-    _input.checkValid = _validator;
-  }
-
-  set errorMsg(String message) {
-    _validator = new NumberValidator(
-        _validator._checkInteger,
-        _validator._checkPositive,
-        _validator._lowerBound,
-        _validator._upperBound,
-        message);
-    _input.checkValid = _validator;
-  }
-
-  final _numericValueController =
-      new LazyStreamController<num>.broadcast(sync: true);
-  Stream<num> get numericValueChange => _numericValueController.stream;
-  num _numericValue;
-  num get numericValue => _numericValue;
-  set numericValue(num numericValue) {
-    if (_numericValue != numericValue) {
-      _numericValue = numericValue;
-      _numericValueController.add(_numericValue);
-      if (_parseNumericValue(_input.inputText) != _numericValue) {
-        // If the numeric value of the current input text doesn't equal to the
-        // new numeric value, update the input text accordingly.
-        _input.inputText =
-            _numericValue == null ? '' : _numberFormat.format(_numericValue);
-      }
-    }
-  }
-
-  // Parses numeric value from the given input text. Returns null if it is not
-  // parsable.
-  num _parseNumericValue(String inputText) {
-    try {
-      return _numberFormat.parse(inputText);
-    } on FormatException {
-      return null;
-    }
-  }
-
-  @override
-  void ngOnDestroy() {
-    _inputTextChangeSubscription.cancel();
-  }
-}
-
-/// A pure validator function used to validate a number input.
-// TODO(google): Move this to forms validation when input is using a control
-// natively.
-class NumberValidator {
-  final NumberFormat _numberFormat =
-      new NumberFormat.decimalPattern(Intl.defaultLocale);
-  final bool _checkInteger;
-  final bool _checkPositive;
-  final num _lowerBound;
-  final num _upperBound;
-  final String _errorMsg;
-
-  NumberValidator(this._checkInteger, this._checkPositive, this._lowerBound,
-      this._upperBound, this._errorMsg);
-
-  // Parses numeric value from the given input text. Returns null if it is not
-  // parsable.
-  num _parseNumericValue(String inputText) {
-    try {
-      return _numberFormat.parse(inputText);
-    } on FormatException {
-      return null;
-    }
-  }
-
-  String call(String inputText) {
-    if (inputText == null || inputText.isEmpty) {
-      return null;
-    }
-    var number = _parseNumericValue(inputText);
-    if (number == null) {
-      return _errorMsg ?? inputIsNotNumberMsg();
-    }
-    if (_checkInteger &&
-        inputText.contains(_numberFormat.symbols.DECIMAL_SEP)) {
-      return _errorMsg ?? numberIsNotIntegerMsg();
-    }
-    if (_checkPositive && number <= 0) {
-      return _errorMsg ?? numberIsNotPositiveMsg();
-    }
-    if (_lowerBound != null && number < _lowerBound) {
-      return _errorMsg ?? numberIsTooSmallMsg(_lowerBound);
-    }
-    if (_upperBound != null && number > _upperBound) {
-      return _errorMsg ?? numberIsTooLargeMsg(_upperBound);
-    }
-    return null;
-  }
-
-  static String inputIsNotNumberMsg() => Intl.message('Enter a number',
-      name: 'inputIsNotNumberMsg',
-      desc: 'Error message when input is not a number.',
-      meaning: 'Error message when input is not a number.');
-
-  static String numberIsNotIntegerMsg() => Intl.message('Enter an integer',
-      name: 'numberIsNotIntegerMsg',
-      desc: 'Error message when input number is not an integer.',
-      meaning: 'Error message when input number is not an integer.');
-
-  static String numberIsNotPositiveMsg() =>
-      Intl.message('Enter a number greater than 0',
-          name: 'numberIsNotPositiveMsg',
-          desc: 'Error message when input number is not positive.');
-
-  static String numberIsTooSmallMsg(num _lowerBound) =>
-      Intl.message('Enter a number $_lowerBound or greater',
-          name: 'numberIsTooSmallMsg',
-          args: [_lowerBound],
-          desc: 'Error message when input number is too small.',
-          examples: const {'_lowerBound': 42});
-
-  static String numberIsTooLargeMsg(num _upperBound) =>
-      Intl.message('Enter a number $_upperBound or smaller',
-          name: 'numberIsTooLargeMsg',
-          args: [_upperBound],
-          desc: 'Error message when number input is too large.',
-          examples: const {'_upperBound': 42});
-}
-
-/// A default directive for URL inputs.
-///
-/// NOTE: The directive verifies if the input text is a valid URL
-///       (only no protocol, http:// or https:// are acceptable).
-///
-/// __Example usage:__
-///     <material-input type="url"
-///                     (urlValueChange)="urlValue=$event">
-///     </material-input>
-///
-@Directive(selector: 'material-input[type=url]', providers: const [
-  DeferredValidator,
-  const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true)
-])
-class MaterialUrlInputDirective implements Validator, OnDestroy {
-  static final String _defaultProtocol = 'http://';
-
-  /// Empty url optional - still valid.
-  static final Uri _emptyUri = Uri.parse("");
-
-  final _disposer = new Disposer.oneShot();
-
-  /// Emits events when the value of URL input changes.
-  final ObservableReference<Uri> _uriValue = new ObservableReference<Uri>(null);
-  Uri get uriValue => _uriValue.value;
-  String get urlValue => _uriValue.value?.toString();
-
-  /// Fires event when the value of URL input changes. If protocol is absent in
-  /// the input text, 'http://' will be prepended.
-  @Output()
-  Stream<String> get urlValueChange =>
-      _uriValue.stream.map((uri) => uri?.toString());
-
-  MaterialUrlInputDirective(DeferredValidator validator,
-      @Host() MaterialInputComponent materialInput) {
-    validator.add(this);
-    materialInput.useNativeValidation = false;
-    _disposer.addFunction(() {
-      validator.remove(this);
-    });
-  }
-
-  @override
-  Map<String, dynamic> validate(AbstractControl c) {
-    return _updateValueAndValidation(c);
-  }
-
-  /// Performs validation.
-  ///
-  /// Required for [DeferredValidator] API.
-  Map<String, dynamic> call(AbstractControl c) => validate(c);
-
-  /// Validates url input.
-  ///
-  /// Valid urls consist of http or https protocol (or no protocol,
-  /// [_defaultProtocol] is prepended in that case) and at least a valid host.
-  /// Will return null if the url is invalid.
-  Uri _validateUrl(String inputText) {
-    if (isEmpty(inputText)) return _emptyUri;
-    Uri uri = _tryParse(inputText);
-
-    if (uri == null || !uri.hasScheme || !uri.hasAuthority) {
-      // No protocol://, prepend with [_defaultProtocol].
-      uri = _tryParse(_defaultProtocol + inputText);
-    }
-
-    if (uri == null ||
-        (uri.scheme != 'http' && uri.scheme != 'https') ||
-        isEmpty(uri.host)) {
-      return null;
-    }
-    return uri;
-  }
-
-  Uri _tryParse(String inputText) {
-    try {
-      return Uri.parse(inputText);
-    } on FormatException {
-      return null;
-    }
-  }
-
-  /// Validates the input, returns error dictionary or null when there are no
-  /// errors. Updates the [_uriValue] observable as well.
-  Map<String, dynamic> _updateValueAndValidation(AbstractControl c) {
-    final uri = _validateUrl(c.value);
-    _uriValue.value = uri;
-    if (uri == null) {
-      return {materialInputErrorKey: _invalidUrlMsg};
-    } else {
-      return null;
-    }
-  }
-
-  @override
-  void ngOnDestroy() {
-    _disposer.dispose();
-  }
-
-  String get _invalidUrlMsg => Intl.message('Please enter a URL.',
-      name: '_invalidUrlMsg',
-      desc: "Error message when the user specified a value "
-          "which doesn't look like a URL.");
-}

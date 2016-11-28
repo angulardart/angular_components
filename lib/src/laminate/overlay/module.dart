@@ -1,0 +1,80 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+library angular2_components.laminate.overlay.module;
+
+import 'dart:html';
+
+import 'package:angular2/angular2.dart';
+
+import '../../css/acux/zindexer.dart';
+import 'src/overlay_dom_service.dart';
+import 'src/overlay_service.dart';
+import 'src/render/overlay_dom_render_service.dart';
+import 'src/render/overlay_style_config.dart';
+import '../ruler/dom_ruler.dart';
+import '../../utils/angular/imperative_view/imperative_view.dart';
+import '../../utils/angular/managed_zone/angular_2.dart';
+import '../../utils/browser/dom_service/angular_2.dart';
+import '../../utils/browser/window/module.dart';
+
+export 'src/render/overlay_dom_render_service.dart'
+    show
+        overlayContainerName,
+        overlayContainerParent,
+        overlayContainerToken,
+        overlaySyncDom;
+
+/// Either finds, or creates an "acx-overlay-container" div at the end of body.
+@Injectable()
+HtmlElement getDefaultContainer(@Inject(overlayContainerName) String name,
+    @Inject(overlayContainerParent) HtmlElement parent) {
+  var element = parent.querySelector('#default-acx-overlay-container');
+  if (element == null) {
+    element = new DivElement()
+      ..id = 'default-acx-overlay-container'
+      ..classes.add('acx-overlay-container');
+    parent.append(element);
+  }
+  element.attributes['container-name'] = name;
+  return element;
+}
+
+/// Returns an overlay container with debugging aid enabled.
+@Injectable()
+HtmlElement getDebugContainer(@Inject(overlayContainerName) String name,
+    @Inject(overlayContainerParent) HtmlElement parent) {
+  var element = getDefaultContainer(name, parent);
+  element.classes.add('debug');
+  return element;
+}
+
+@Injectable()
+HtmlElement getOverlayContainerParent(Document document) {
+  return document.querySelector('body');
+}
+
+/// DI bindings for Overlay and its dependencies.
+const overlayBindings = const [
+  AcxImperativeViewUtils,
+  DomRuler,
+  domServiceBinding,
+  const Provider(ManagedZone, useClass: Angular2ManagedZone),
+  const Provider(overlayContainerName, useValue: 'default'),
+  const Provider(overlayContainerToken, useFactory: getDefaultContainer),
+  const Provider(overlayContainerParent, useFactory: getOverlayContainerParent),
+  // Applications may experimentally make this true to increase performance.
+  const Provider(overlaySyncDom, useValue: true),
+  OverlayDomRenderService,
+  OverlayStyleConfig,
+  const Provider(OverlayService, useClass: OverlayDomService),
+  windowBindings,
+  ZIndexer
+];
+
+/// Similar to [overlayBindings], but enables easy debugging of the overlays.
+const overlayDebugBindings = const [
+  overlayBindings,
+  const Provider(overlayContainerToken, useFactory: getDebugContainer)
+];

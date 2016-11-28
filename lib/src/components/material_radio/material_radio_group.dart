@@ -193,7 +193,7 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
       new SelectionModel.withList();
 
   // Keep the preselected value until children are loaded.
-  dynamic _preselectedValue = null;
+  dynamic _preselectedValue;
 
   ///  Value of currently selected radio.
   @Input()
@@ -212,7 +212,7 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
     }
   }
 
-  dynamic _selected = null;
+  dynamic _selected;
   dynamic get selected => _selected;
 
   void _moveFocus(FocusMoveEvent event) => _move(event);

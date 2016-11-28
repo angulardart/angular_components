@@ -100,5 +100,6 @@ class MaterialTabComponent extends RootFocusable
   String get panelId => 'panel-$_uuid';
 
   /// HTML ID for the tab.
+  @override
   String get tabId => 'tab-$_uuid';
 }

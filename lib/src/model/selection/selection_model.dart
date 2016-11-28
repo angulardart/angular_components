@@ -89,6 +89,7 @@ abstract class SelectionModel<T> implements Observable, SelectionObservable<T> {
   Iterable<T> get selectedValues;
 
   /// A stream that returns changes to selected elements.
+  @override
   Stream<List<SelectionChangeRecord<T>>> get selectionChanges;
 }
 
