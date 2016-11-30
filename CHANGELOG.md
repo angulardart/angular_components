@@ -1,8 +1,12 @@
+## 0.2.1
+
+* Restrict version of Angular2 in pubspec until compatable with 2.2.0
+
 ## 0.2.0
 
 * Add a modal dialog window called material_dialog.
 * Rename MultilineMaterialInputComponent to MaterialMultilineInputComponent.
-* Make the deferredContent placeholder element optional, off by default. 
+* Make the deferredContent placeholder element optional, off by default.
 * Remove InputTextModel.
 * Cleanup linter warnings.
 * Refactor color support.
