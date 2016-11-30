@@ -78,17 +78,14 @@ class PopupSourceDirective
 
   @override
   Stream<Rectangle<num>> onDimensionsChanged({bool track: false}) {
-    StreamController<Rectangle> buffer;
-    return (buffer = new StreamController(
-            sync: true,
-            onListen: () {
-              buffer.addStream(_popupSource.onDimensionsChanged(track: track));
-            }))
-        .stream;
+    return _popupSource.onDimensionsChanged(track: track).distinct();
   }
 
   void _updateSource() {
-    _popupSource = _domPopupSourceFactory.create(_elementRef.nativeElement,
-        alignOriginX: _alignOriginX, alignOriginY: _alignOriginY);
+    _popupSource = _domPopupSourceFactory.create(
+      _elementRef.nativeElement,
+      alignOriginX: _alignOriginX,
+      alignOriginY: _alignOriginY,
+    );
   }
 }

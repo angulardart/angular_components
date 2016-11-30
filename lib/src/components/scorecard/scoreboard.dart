@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import '../glyph/glyph.dart';
@@ -70,14 +71,18 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   bool get atScorecardBarEnd => _atScorecardBarEnd;
 
   ScoreboardComponent(
-      @ContentChildren(ScorecardComponent) this._scorecards,
       @Attribute('enableUniformWidths') String enableUniformWidths,
       this._domService,
       this._changeDetector) {
     _enableUniformWidths = enableUniformWidths != 'false'; // Defaults to true
+  }
+
+  @ContentChildren(ScorecardComponent)
+  set scoreCards(QueryList<ScorecardComponent> value) {
+    _scorecards = value;
     _disposer.addStreamSubscription(
-        _scorecards.changes.listen((_) => _onScorecardsChange()));
-    _onScorecardsChange();
+        _scorecards.changes.listen((_) => _onScorecardsChange));
+    scheduleMicrotask(_onScorecardsChange);
   }
 
   @override

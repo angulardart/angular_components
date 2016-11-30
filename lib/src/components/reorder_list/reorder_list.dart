@@ -99,10 +99,14 @@ class ReorderListComponent implements OnDestroy {
   @ViewChild('placeholder', read: ElementRef)
   ElementRef placeholder;
 
-  ReorderListComponent(
-      this._managedZone, @ContentChildren(ReorderItemDirective) this._items) {
+  ReorderListComponent(this._managedZone) {
     _subscriptions = new Map<HtmlElement, List<StreamSubscription>>();
     _dragSubscriptions = new Map<HtmlElement, StreamSubscription>();
+  }
+
+  @ContentChildren(ReorderItemDirective)
+  set items(QueryList<ReorderItemDirective> value) {
+    _items = value;
     _disposer
         .addStreamSubscription(_items.changes.listen((_) => _refreshItems()));
     _refreshItems();

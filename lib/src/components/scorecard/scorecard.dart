@@ -182,6 +182,7 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   /// Whether the selection state of the scorecard can be changed by clicking.
   @HostBinding('class.selectable')
   bool get selectable => _selectable;
+
   @Input()
   set selectable(selectable) {
     _selectable = getBool(selectable);

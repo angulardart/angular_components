@@ -18,8 +18,9 @@ class MaterialExpansionPanelSet implements OnDestroy {
   MaterialExpansionPanel _openPanel;
   QueryList<MaterialExpansionPanel> _panels;
 
-  MaterialExpansionPanelSet(
-      @ContentChildren(MaterialExpansionPanel) this._panels) {
+  @ContentChildren(MaterialExpansionPanel)
+  set panels(QueryList<MaterialExpansionPanel> value) {
+    _panels = value;
     _tearDownDisposer.addStreamSubscription(
         _panels.changes.listen((_) => _onPanelsChange()));
     _onPanelsChange();
@@ -47,6 +48,10 @@ class MaterialExpansionPanelSet implements OnDestroy {
           panel.close.listen((event) => _onPanelClose(panel, event)));
       _panelDisposer.addDisposable(
           panel.cancel.listen((event) => _onPanelClose(panel, event)));
+      if (panel.closeOnSave) {
+        _panelDisposer.addDisposable(
+            panel.save.listen((event) => _onPanelClose(panel, event)));
+      }
     });
   }
 
@@ -79,9 +84,9 @@ class MaterialExpansionPanelSet implements OnDestroy {
   }
 
   void _setOpenPanel(MaterialExpansionPanel panel) {
-    _panels.forEach((p) {
+    for (MaterialExpansionPanel p in _panels) {
       if (p != panel) p.anotherExpanded = (panel != null);
-    });
+    }
     _openPanel = panel;
   }
 }

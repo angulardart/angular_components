@@ -64,34 +64,10 @@ import '../../utils/disposer/disposer.dart';
 class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
   final _disposer = new Disposer.oneShot();
   final ManagedZone _managedZone;
+  final NgControl cd;
   List<MaterialRadioComponent> _children;
 
-  MaterialRadioGroupComponent(
-      this._managedZone,
-      @ContentChildren(MaterialRadioComponent) QueryList components,
-      @Self() @Optional() NgControl cd) {
-    _disposer.addStreamSubscription(components.changes.listen((_) {
-      _children = new List.from(components);
-      for (var child in _children) {
-        _disposer
-          ..addStreamSubscription(child.focusmove.listen(_moveFocus))
-          ..addStreamSubscription(child.selectionmove.listen(_moveSelection));
-      }
-      if (_preselectedValue != null) {
-        // Since this is updating children that were already dirty-checked,
-        // need to delay this change until next angular cycle.
-        _managedZone.onTurnDone.first.then((_) {
-          // Initialize preselect now, this will trigger tabIndex reset.
-          selected = _preselectedValue;
-          // The preselected value should be used only once.
-          _preselectedValue = null;
-        });
-      } else {
-        // Initialize tabIndex.
-        _resetTabIndex();
-      }
-    }));
-
+  MaterialRadioGroupComponent(this._managedZone, @Self() @Optional() this.cd) {
     _disposer.addStreamSubscription(componentSelection.selectionChanges
         .listen((List<SelectionChangeRecord<MaterialRadioComponent>> changes) {
       // Need to uncheck if selection change was made via user action.
@@ -121,9 +97,32 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
 
     // When NgControl is present on the host element, the component
     // participates in the Forms API.
-    if (cd != null) {
-      cd.valueAccessor = this;
-    }
+    cd?.valueAccessor = this;
+  }
+
+  @ContentChildren(MaterialRadioComponent)
+  set list(QueryList components) {
+    _disposer.addStreamSubscription(components.changes.listen((_) {
+      _children = new List.from(components);
+      for (var child in _children) {
+        _disposer
+          ..addStreamSubscription(child.focusmove.listen(_moveFocus))
+          ..addStreamSubscription(child.selectionmove.listen(_moveSelection));
+      }
+      if (_preselectedValue != null) {
+        // Since this is updating children that were already dirty-checked,
+        // need to delay this change until next angular cycle.
+        _managedZone.onTurnDone.first.then((_) {
+          // Initialize preselect now, this will trigger tabIndex reset.
+          selected = _preselectedValue;
+          // The preselected value should be used only once.
+          _preselectedValue = null;
+        });
+      } else {
+        // Initialize tabIndex.
+        _resetTabIndex();
+      }
+    }));
   }
 
   @override

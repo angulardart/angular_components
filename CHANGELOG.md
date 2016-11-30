@@ -1,3 +1,8 @@
+## 0.2.1
+
+* Rollup of recent changes
+* Includes fix for breaking change in Angular 2.2.0
+
 ## 0.2.0
 
 * Add a modal dialog window called material_dialog.

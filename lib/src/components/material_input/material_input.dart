@@ -251,4 +251,3 @@ class MaterialInputComponent extends BaseMaterialInput
     popupSourceEl = null;
   }
 }
-

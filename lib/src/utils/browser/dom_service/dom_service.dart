@@ -14,8 +14,6 @@ import '../../disposer/disposable_callback.dart';
 
 import '../../disposer/disposer.dart';
 
-// TODO(google): Consolidate this with RenderSync /Angular.
-
 /// A callback from [DomService.scheduleRead] or [DomService.scheduleWrite].
 typedef void DomReadWriteFn();
 
@@ -405,6 +403,17 @@ class DomService {
   @Deprecated("Use onLayoutChanged instead")
   StreamSubscription addLayoutObserver(void domReadCallback()) =>
       onLayoutChanged.listen((_) => domReadCallback());
+
+  String describeStability() {
+    return {
+      '_insideDigest': _insideDigest,
+      '_scheduledProcessQueue': _scheduledProcessQueue,
+      '_layoutObserveRead': _layoutObserveRead != null,
+      '_nextFrameFuture': _nextFrameFuture != null,
+      '_domReadQueue': _domReadQueue.length,
+      '_domWriteQueue': _domWriteQueue.length,
+    }.toString();
+  }
 
   /// Whether there is any pending update.
   bool get hasPendingUpdate =>
