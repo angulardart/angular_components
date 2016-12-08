@@ -22,6 +22,9 @@ typedef void IsStableCallback(bool didWork);
 @JS('frameworkStabilizers')
 external List get _frameworkStabilizersJs;
 
+@JS('frameworkStabilizers')
+external set _frameworkStabilizersJs(List values);
+
 /// Provides a set of helper functions for frameworks to register and deregister
 /// stabilizing functions. These functions will be called by tests, whenever
 /// they require the page to be stable before they can perform the next action.
@@ -31,9 +34,7 @@ class FrameworkStabilizers {
 
   static List get _frameworkStabilizers {
     if (_frameworkStabilizersJs == null) {
-      // TODO(google): switch this to
-      //     "_frameworkStabilizersJs = []" when bug is resolved.
-      context['frameworkStabilizers'] = new JsArray();
+      _frameworkStabilizersJs = [];
     }
     return _frameworkStabilizersJs;
   }

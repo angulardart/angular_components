@@ -24,7 +24,7 @@ possible.
 * ✓ `<acx-scorecard>`
 * ✓ `<material-input>`
 * ✓ `<material-dialog>`
-* ☐ `<material-popup>`
+* ✓ `<material-popup>`
 * ☐ `<material-tooltip>`
 * ☐ `<material-auto-suggest-input>`
 * ☐ `<material-date-range-picker>`
@@ -32,6 +32,7 @@ possible.
 * ☐ `<material-menu>`
 * many more, including a fast table
 
+**Officially Supported Browsers:** The last two versions of Chrome, Edge, Firefox, and Safari.
 
 ## Useful links
 
@@ -40,5 +41,3 @@ possible.
 * [AngularDart documentation](https://angulardart.org/)
 * [Material Design site](https://material.google.com/)
 * [Code Lab: AngularDart Components](https://webdev.dartlang.org/codelabs/angular2_components)
-
-
