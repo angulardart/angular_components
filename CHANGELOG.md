@@ -1,7 +1,15 @@
+## 0.2.2
+
+ * Add Material Popup, a basic popup component.
+ * Update Material Checkbox icon size.
+ * Cleanup framework stabilizers since [issue #24843](https://github.com/dart-lang/sdk/issues/24843) 
+   in the Dart SDK has been resolved.
+ * Remove unused files.
+
 ## 0.2.1
 
-* Rollup of recent changes
-* Includes fix for breaking change in Angular 2.2.0
+* Rollup of recent changes.
+* Includes fix for breaking change in Angular 2.2.0.
 
 ## 0.2.0
 

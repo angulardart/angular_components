@@ -31,6 +31,7 @@ const List<Type> materialDirectives = const [
   MaterialFabComponent,
   MaterialInputComponent,
   MaterialInputDefaultValueAccessor,
+  MaterialPopupComponent,
   MaterialProgressComponent,
   MaterialRadioComponent,
   MaterialRadioGroupComponent,
@@ -43,6 +44,7 @@ const List<Type> materialDirectives = const [
   MaterialMultilineInputComponent,
   ModalComponent,
   NgModel,
+  PopupSourceDirective,
   ReorderItemDirective,
   ReorderListComponent,
   ScorecardComponent,
@@ -50,6 +52,6 @@ const List<Type> materialDirectives = const [
 
 /// A convenience list of all providers exposed by this package.
 const List<List<Provider>> materialProviders = const <List<Provider>>[
+  popupBindings,
   rippleBindings,
-  overlayBindings,
 ];
