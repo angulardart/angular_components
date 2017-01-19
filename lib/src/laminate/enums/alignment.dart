@@ -208,8 +208,10 @@ class RelativePosition {
   static const InlinePositions = const [
     InlineBottom,
     InlineBottomLeft,
+    InlineBottomRight,
     InlineTop,
-    InlineTopLeft
+    InlineTopLeft,
+    InlineTopRight,
   ];
 
   /// A position that starts at the origin and flows downwards.
@@ -233,6 +235,17 @@ class RelativePosition {
       originX: Alignment.End,
       originY: Alignment.End,
       animationOrigin: _AnimationOrigins.UP_LEFT);
+
+  /// A position that starts at the origin and flows downwards and right
+  static const InlineBottomRight = const RelativePosition(
+      originX: Alignment.Start, animationOrigin: _AnimationOrigins.DOWN_RIGHT);
+
+  /// A position that starts at the origin and flows upwards and right
+  static const InlineTopRight = const RelativePosition(
+      contentY: Alignment.End,
+      originX: Alignment.Start,
+      originY: Alignment.End,
+      animationOrigin: _AnimationOrigins.UP_RIGHT);
 
   /// A set of [RelativePosition]s that are appropriate for offset-type menus
   /// that appear usually offset of one of the four points of the origin
@@ -452,11 +465,13 @@ class RelativePosition {
   }
 
   Alignment _flipAlignment(Alignment alignment) {
-    if (alignment == Alignment.Start) {
-      return Alignment.End;
-    } else if (alignment == Alignment.End) {
-      return Alignment.Start;
-    }
+    // Start/End
+    if (alignment == Alignment.Start) return Alignment.End;
+    if (alignment == Alignment.End) return Alignment.Start;
+    // Before/After
+    if (alignment == Alignment.Before) return Alignment.After;
+    if (alignment == Alignment.After) return Alignment.Before;
+
     return alignment;
   }
 

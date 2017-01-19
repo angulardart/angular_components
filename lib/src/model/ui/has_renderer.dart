@@ -66,6 +66,12 @@ abstract class HasComponentRenderer<T extends RendersValue, I> {
 
 String defaultItemRenderer(dynamic value) => '$value';
 
+/// An [ItemRenderer] that indicates that components should not render items.
+const ItemRenderer nullRenderer = _nullRenderer;
+
+String _nullRenderer(dynamic value) =>
+    throw new StateError("nullRenderer should never be called");
+
 abstract class SupportsRendering<T extends RendersValue, I>
     implements HasRenderer, HasComponentRenderer<T, I> {
   /// Sets the componentRenderer and itemRenderer based on whether the

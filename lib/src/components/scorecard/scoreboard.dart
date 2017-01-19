@@ -38,6 +38,16 @@ import 'src/scorecard_bar.dart';
 ///            changeType="negative">
 ///        </acx-scorecard>
 ///      </acx-scoreboard>
+///
+/// __Inputs:__
+///
+/// - `type: ScoreboardType` -- Type of scoreboard, e.g., standard, selectable,
+///   radio, toggle.
+/// - `enableUniformWidths: bool` -- Whether scorecards in the scoreboard
+///   should have uniform widths.
+/// - `scrollable: bool` -- Whether the scoreboard is scrollable.
+/// - `resetOnCardChanges` -- Whether to reset the card selection when there are
+///   card changes.
 @Component(
     selector: 'acx-scoreboard',
     directives: const [
@@ -69,6 +79,8 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   bool get atScorecardBarStart => _atScorecardBarStart;
   bool _atScorecardBarEnd = false;
   bool get atScorecardBarEnd => _atScorecardBarEnd;
+  String get backIconType => 'chevron_left';
+  String get forwardIconType => 'chevron_right';
 
   ScoreboardComponent(
       @Attribute('enableUniformWidths') String enableUniformWidths,
@@ -139,12 +151,12 @@ class ScoreboardComponent implements OnInit, OnDestroy {
     _resetOnCardChanges = getBool(resetOnCardChanges);
   }
 
-  void scrollScorecardBarLeft() {
-    _scorecardBar.scrollLeft();
+  void scrollBack() {
+    _scorecardBar.scrollBack();
   }
 
-  void scrollScorecardBarRight() {
-    _scorecardBar.scrollRight();
+  void scrollForward() {
+    _scorecardBar.scrollForward();
   }
 
   void selectionChange(ScorecardComponent selectedScorecard) {

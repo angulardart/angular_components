@@ -20,10 +20,20 @@
         </span>
       </div>
       <div>
-        <!-- This adds breaks for sizing the multiline input to grow
+        <!-- Invisible text for sizing the multiline input to grow
              with typing. -->
-        <div class="mirror-text" aria-hidden="true">
-          <br *ngFor="let value of heightForTextbox">
+        <div class="mirror-text"
+            aria-hidden="true"
+            [style.min-height.px]="minInputHeight"
+            [style.max-height.px]="maxInputHeight">
+          {{mirrorText}}
+        </div>
+
+        <!-- Invisible element for measuring line height of the input. -->
+        <div class="line-height-measure"
+            aria-hidden="true"
+            #lineHeightMeasure>
+          <br/>
         </div>
 
         <textarea #textareaEl

@@ -47,6 +47,9 @@ class MaterialButtonBase extends ButtonDirective {
   /// Whether button appears focused right now.
   bool get visualFocus => _focused;
 
+  /// Whether the mouse is currently pressed on the button.
+  bool get isMouseDown => _isMouseDown;
+
   /// The elevation the material-shadow component should show.
   ///
   /// When a button is pressed, this is increased.

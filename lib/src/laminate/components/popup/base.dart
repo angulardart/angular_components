@@ -236,8 +236,14 @@ abstract class PopupComposite implements PopupInterface {
     _trackLayoutChanges = value as bool;
   }
 
+  bool _visible = false;
+
+  bool get visible => _visible;
+
   @override
-  bool visible = false;
+  set visible(bool visible) {
+    _visible = visible;
+  }
 
   @override
   void toggle() {

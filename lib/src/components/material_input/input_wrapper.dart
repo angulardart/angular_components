@@ -9,6 +9,7 @@ class MaterialInputWrapper {
   Function checkValid;
   bool disabled = false;
   bool displayBottomPanel = true;
+  String error;
   bool floatingLabel = false;
   String hintText;
   String leadingText;
@@ -17,6 +18,12 @@ class MaterialInputWrapper {
   bool required = false;
   bool rightAlign = false;
   String trailingText;
+
+  /// Any persistent glyph to show before the input box.
+  String leadingGlyph;
+
+  /// Any persistent glyph to show at the end of the input box.
+  String trailingGlyph;
 
   String _label;
   String get label => _label;

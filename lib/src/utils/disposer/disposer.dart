@@ -65,9 +65,9 @@ class _SingleFunctionDisposable implements Disposable {
 /// This is very typical for Angular components where disposer.dispose() is
 /// called in ngOnDestroy.
 ///
-///     final disposer = new Disposer(oneShot : true);
+///     final disposer = new Disposer.oneShot()
 ///       ..addDisposable(() => print('Clean up');)
-///       ..addDisposable(stream.listen())
+///       ..addDisposable(stream.listen());
 ///
 ///     disposer.dispose();
 ///     // The following call will assert.
@@ -77,6 +77,9 @@ class _SingleFunctionDisposable implements Disposable {
 ///   [addEventSink]
 ///   [addFunction]
 ///   [addStreamSubscription]
+///
+/// Note that you should not rely on the disposal sequence for each added
+/// [disposable], just treat it random.
 class Disposer implements Disposable {
   List<DisposeFunction> _disposeFunctions;
   List<StreamSubscription> _disposeSubs;

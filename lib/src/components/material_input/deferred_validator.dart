@@ -14,26 +14,33 @@ typedef Map<String, dynamic> _ValidatorFn(AbstractControl c);
 /// set itself to [delegate] field.
 @Injectable()
 class DeferredValidator {
-  final Set<_ValidatorFn> _delegates = new Set.identity();
+  // Use list instead of set so that don't need to conver for the compose
+  // function.
+  final List<_ValidatorFn> _delegates = <_ValidatorFn>[];
   _ValidatorFn _validator;
 
   void add(_ValidatorFn validation) {
+    // Shouldn't add the same validator
+    assert(!_delegates.contains(validation));
     _delegates.add(validation);
-    _validator = Validators.compose(_delegates.toList());
+    _validator = null; // Reset the validator so that is is rebuilt.
   }
 
   void remove(_ValidatorFn validation) {
-    assert(_delegates.remove(validation)); // Makes sure a function is removed.
-    if (_delegates.isEmpty) {
-      _validator = null;
-    } else {
-      _validator = Validators.compose(_delegates.toList());
-    }
+    assert(_delegates.contains(validation)); // Should contain the validator
+    _delegates.remove(validation);
+    _validator = null; // Reset the validator so that is is rebuilt.
   }
 
   Map<String, dynamic> call(AbstractControl control) {
     if (_validator == null) {
-      return null; // Component was destroyed, but not cleaned up yet.
+      final numDelegates = _delegates.length;
+      if (numDelegates == 0) return null; // No validation needed
+      // Set _validator once right before it is needed instead of on
+      // every add/remove to increase performance. Also short circuit compose
+      // when there is only one value as that has a performance cost.
+      _validator =
+          numDelegates > 1 ? Validators.compose(_delegates) : _delegates.single;
     }
     return _validator(control);
   }

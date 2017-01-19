@@ -34,11 +34,11 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
   final DomService _domService;
 
   bool _isRtl;
-  int _clientWidth;
-  int _scrollWidth;
+  int _clientSize;
+  int _scrollSize;
   int _scrollingMove;
   int _transform = 0;
-  int _buttonWidth = 0;
+  int _buttonSize = 0;
 
   ScorecardBarDirective(this._domService, ElementRef elementRef)
       : _element = elementRef.nativeElement;
@@ -48,8 +48,8 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
     _isRtl = _element.getComputedStyle().direction == 'rtl';
     _disposer.addDisposable(_domService.scheduleRead(_readElement));
     _disposer.addDisposable(
-        _domService.trackLayoutChange(() => _element.parent.clientWidth, (_) {
-      _readElement();
+        _domService.trackLayoutChange(() => currentClientSize, (_) {
+      _readElement(windowResize: true);
       _refreshController.add(true);
     }, runInAngularZone: true));
   }
@@ -69,31 +69,44 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
 
   /// Whether the scoreboard is in a scrollable state.
   ///
-  /// Scoreboard is considered scrollable if the client width is less than the
-  /// scrollwidth.
+  /// Scoreboard is considered scrollable if the client size is less than the
+  /// scroll size.
   bool get isScrollable =>
-      _clientWidth != null &&
-      _scrollWidth != null &&
-      _clientWidth < _scrollWidth;
+      _clientSize != null && _scrollSize != null && _clientSize < _scrollSize;
 
   /// Whether the scoreboard is at its starting scroll state.
   bool get atStart => _transform == 0;
 
   /// Whether the scoreboard is at its end scroll state.
-  bool get atEnd => _clientWidth != null
-      ? _transform.abs() + _clientWidth >= _scrollWidth
+  bool get atEnd => _clientSize != null
+      ? _transform.abs() + _clientSize >= _scrollSize
       : false;
 
-  /// Scroll the scoreboard left.
+  /// The current size of the client.
+  ///
+  /// Depends upon orientation of scrollbar.
+  int get currentClientSize => _element.parent.clientWidth;
+
+  /// The current size of the scrollbar.
+  ///
+  /// Depends upon orientation of scrollbar.
+  int get currentScrollSize => _element.scrollWidth;
+
+  /// The axis upon which transforms should occur.
+  ///
+  /// Depends upon orientation of scrollbar.
+  String get transformAxis => 'X';
+
+  /// Scroll the scoreboard back.
   ///
   /// This should only be called when the scoreboard is not already in its
   /// start scroll state (e.g., [atStart] is false).
-  void scrollLeft() {
+  void scrollBack() {
     _disposer.addDisposable(_domService.scheduleRead(() {
       _readElement();
       var newValue = _scrollingMove;
-      assert(_buttonWidth > 0);
-      if (atEnd) newValue -= _buttonWidth;
+      assert(_buttonSize > 0);
+      if (atEnd) newValue -= _buttonSize;
       if (_transform.abs() - newValue < 0) {
         newValue = _transform.abs();
       }
@@ -102,18 +115,18 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
     }));
   }
 
-  /// Scroll the scoreboard right.
+  /// Scroll the scoreboard forward.
   ///
   /// This should only be called when the scoreboard is not already in its
   /// end scroll state (e.g., [atEnd] is false).
-  void scrollRight() {
+  void scrollForward() {
     _disposer.addDisposable(_domService.scheduleRead(() {
       _readElement();
       var newValue = _scrollingMove;
-      assert(_buttonWidth > 0);
-      if (atStart) newValue -= _buttonWidth;
-      if (_scrollWidth + _transform < newValue + _clientWidth) {
-        newValue = _scrollWidth + _transform - _clientWidth;
+      assert(_buttonSize > 0);
+      if (atStart) newValue -= _buttonSize;
+      if (_scrollSize + _transform < newValue + _clientSize) {
+        newValue = _scrollSize + _transform - _clientSize;
       }
       _transform -= newValue;
       _updateTransform();
@@ -134,38 +147,49 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
 
   void _updateTransform() {
     _disposer.addDisposable(_domService.scheduleWrite(() {
-      _element.style.transform = 'translateX(${_transform}px)';
+      _element.style.transform = 'translate$transformAxis(${_transform}px)';
       _refreshController.add(true);
     }));
   }
 
-  void _readElement() {
+  void _readElement({windowResize: false}) {
     assert(_domService.isReadingDom);
-    _clientWidth = _element.parent.clientWidth;
-    _scrollWidth = _element.scrollWidth;
-    // Get scroll button width.
-    if (_buttonWidth == 0) {
-      ElementList buttons =
-          _element.parent.querySelectorAll(':scope > material-button');
+    _clientSize = currentClientSize;
+    _scrollSize = currentScrollSize;
+
+    if (windowResize && !isScrollable && _transform != 0) {
+      // Window has been resized such that scrolling is not needed. Reset
+      // the transform shift so scoreboard moves back to original position.
+      reset();
+      return;
+    }
+
+    // Get scroll button size.
+    if (_buttonSize == 0) {
+      final buttons = _element.parent.querySelectorAll('.scroll-button');
       for (var button in buttons) {
-        var width = button.getComputedStyle().width;
-        if (width != 'auto') {
-          _buttonWidth = double
-              .parse(width.replaceAll(new RegExp('[^0-9.]'), ''), (_) => 0.0)
+        var size = _getButtonSize(button);
+        if (size != 'auto') {
+          _buttonSize = double
+              .parse(size.replaceAll(new RegExp('[^0-9.]'), ''), (_) => 0.0)
               .floor();
           break;
         }
       }
     }
 
-    if (_element.children.isNotEmpty && _scrollWidth > 0) {
-      // Find the average width of the cards. This assumes cards are of uniform
-      // width (as required in ACUX specs).
-      var avg = _scrollWidth / _element.children.length;
-      var temp = ((_clientWidth - _buttonWidth * 2) / avg).floor();
+    if (_element.children.isNotEmpty && _scrollSize > 0) {
+      // Find the average size of the cards. This assumes cards are of uniform
+      // size (as required in ACUX specs).
+      var avg = _scrollSize / _element.children.length;
+      var temp = ((_clientSize - _buttonSize * 2) / avg).floor();
       _scrollingMove = (temp * avg).floor();
     } else {
-      _scrollingMove = _clientWidth;
+      _scrollingMove = _clientSize;
     }
+  }
+
+  String _getButtonSize(Element button) {
+    return button.getComputedStyle().getPropertyValue('width');
   }
 }

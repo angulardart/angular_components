@@ -19,12 +19,15 @@ const white = const Color.rgb(255, 255, 255);
 const opacityStrong = 0.87; // Standard opacity unless otherwise listed.
 const opacityLight = 0.54;
 const opacityLighter = 0.38;
+const opacityLightest = 0.26;
 
 // Opacities to be used on a dark background
 const darkOpacityStrong = 1;
 const darkOpacityLight = 0.7;
 const darkOpacityLighter = 0.5;
+const darkOpacityLightest = 0.3;
 
+const rippleOpacity = 0.14;
 const dividerOpacity = 0.12;
 
 /// SemiTransparent black/white text as used in most material specs.
@@ -35,14 +38,17 @@ const lightTransparentWhite = const Color.rgba(255, 255, 255, darkOpacityLight);
 const lighterTransparentBlack = const Color.rgba(0, 0, 0, opacityLighter);
 const lighterTransparentWhite =
     const Color.rgba(255, 255, 255, darkOpacityLighter);
+const lightestTransparentBlack = const Color.rgba(0, 0, 0, opacityLightest);
+const lightestTransparentWhite =
+    const Color.rgba(255, 255, 255, darkOpacityLightest);
 
 /// Light and dark colors for `borderColor`.
 const borderLight = const Color.rgba(0, 0, 0, dividerOpacity);
 const borderDark = const Color.rgba(255, 255, 255, dividerOpacity);
-const borderDottedLight = const Color.rgba(0, 0, 0, 0.26);
+const borderDottedLight = lightestTransparentBlack;
 
 /// Common colors for scrollbars.
-const scrollbarThumb = const Color.rgba(0, 0, 0, 0.26);
+const scrollbarThumb = lightestTransparentBlack;
 const scrollbarBackground = const Color.rgba(0, 0, 0, 0);
 const scrollbarBackgroundHover = const Color.rgba(0, 0, 0, 0.12);
 

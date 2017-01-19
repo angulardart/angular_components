@@ -93,7 +93,7 @@ abstract class Modal {
   set hidden(bool hidden);
 }
 
-/// A transcluding component that hoists inner content in a centered overlay.
+/// A transcluding component that hosts inner content in a centered overlay.
 ///
 /// A `<modal>` that is created within the context of another `<modal>` (nested)
 /// automatically forms a LIFO-stack in-which the newest modal is shown and the

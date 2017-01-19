@@ -7,6 +7,7 @@ library angular2_components.laminate.overlay.src.render.overlay_dom_render_servi
 import 'dart:async';
 import 'dart:html';
 
+import '../../../enums/visibility.dart';
 import 'package:angular2/angular2.dart';
 
 import '../../../../css/acux/zindexer.dart';
@@ -106,6 +107,8 @@ class OverlayDomRenderService {
     if (state.captureEvents) {
       cssClasses.add('modal');
     }
+
+    if (state.visibility == Visibility.Visible) cssClasses.add('visible');
 
     // Write to the DOM.
     _domRuler.updateSync(pane,

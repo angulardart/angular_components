@@ -4,24 +4,22 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <div class="acx-scoreboard">
-  <material-button class="scroll-button scroll-left-button"
-                   (trigger)="scrollScorecardBarLeft()"
+  <material-button class="scroll-button scroll-back-button"
+                   (trigger)="scrollBack()"
                    [class.hide]="atScorecardBarStart"
                    *ngIf="isScrollable">
-    <glyph class="scroll-icon"
-           icon="chevron_left"
+    <glyph [icon]="backIconType"
            [attr.aria-label]="scrollScorecardBarBack">
     </glyph>
   </material-button>
   <div scorecardBar class="scorecard-bar">
     <ng-content></ng-content>
   </div>
-  <material-button class="scroll-button scroll-right-button"
-                   (trigger)="scrollScorecardBarRight()"
+  <material-button class="scroll-button scroll-forward-button"
+                   (trigger)="scrollForward()"
                    [class.hide]="atScorecardBarEnd"
                    *ngIf="isScrollable">
-    <glyph class="scroll-icon"
-           icon="chevron_right"
+    <glyph [icon]="forwardIconType"
            [attr.aria-label]="scrollScorecardBarForward">
     </glyph>
   </material-button>

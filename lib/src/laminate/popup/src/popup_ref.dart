@@ -566,17 +566,17 @@ class PopupRefImpl extends DelegatingPortalHost
 
   @override
   void setAutoDismiss(bool autoDismiss) {
-    state.autoDismiss = autoDismiss != false;
+    state.autoDismiss = autoDismiss ?? true;
   }
 
   @override
   void setEnforceSpaceConstraints(bool enforceSpaceConstraints) {
-    state.enforceSpaceConstraints = enforceSpaceConstraints != false;
+    state.enforceSpaceConstraints = enforceSpaceConstraints ?? true;
   }
 
   @override
   void setMatchSourceWidth(bool matchSourceWidth) {
-    state.matchSourceWidth = matchSourceWidth != false;
+    state.matchSourceWidth = matchSourceWidth ?? true;
   }
 
   @override

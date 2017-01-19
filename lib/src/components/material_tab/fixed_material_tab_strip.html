@@ -12,7 +12,7 @@
               (trigger)="switchTo(idx)"
               [id]="tabId(idx)"
               class="tab-button"
-              [class.active]="activeTabIndex == idx"
+              [active]="activeTabIndex == idx"
               [attr.aria-selected]="activeStr(idx)"
               [label]="tabLabel"
               focusItem>

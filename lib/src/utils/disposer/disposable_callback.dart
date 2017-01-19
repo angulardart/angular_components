@@ -19,6 +19,7 @@ typedef void CallbackSingleParamFn<T>(T value);
 class DisposableCallbackBase implements Disposable {
   Function _callback;
 
+  @override
   void dispose() {
     _callback = null;
   }

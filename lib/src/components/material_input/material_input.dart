@@ -7,6 +7,7 @@ import '../glyph/glyph.dart';
 import '../../utils/angular/reference/reference.dart';
 import 'package:angular2/angular2.dart';
 import 'package:quiver/strings.dart' show isNotEmpty;
+import '../../utils/angular/properties/properties.dart';
 
 import 'base_material_input.dart';
 import 'deferred_validator.dart';
@@ -23,6 +24,7 @@ export 'material_input_multiline.dart';
 const materialInputDirectives = const [
   MaterialInputComponent,
   MaterialInputDefaultValueAccessor,
+  MaterialInputBlurValueAccessor,
   MaterialMultilineInputComponent,
   NgModel
 ];
@@ -53,6 +55,9 @@ const String materialInputErrorKey = 'material-input-error';
 ///
 /// - `type` -- The type of the input. Defaults to "text". Other supported
 ///   values are "email", "password", "url", "number", "tel", and "search".
+/// - `multiple` -- Whether the user can enter multiple values, separated by
+///   commas. This attribute only applies when type = "email", otherwise it is
+///   ignored.
 ///
 /// __Inputs:__
 ///
@@ -132,8 +137,6 @@ const String materialInputErrorKey = 'material-input-error';
       'leadingGlyph',
       'trailingGlyph',
       'displayBottomPanel',
-      'rows',
-      'maxRows',
     ],
     outputs: const [
       'onKeypress: inputKeyPress',
@@ -196,6 +199,10 @@ class MaterialInputComponent extends BaseMaterialInput
   /// {"text", "email", "password", "url", "number", "tel", "search"}
   String type;
 
+  /// Whether the user can enter multiple values, separated by commas. Only
+  /// applies when type = "email", otherwise it is ignored.
+  bool multiple = false;
+
   /// Any persistent text to show before the input box.
   /// Available only for single line input.
   String leadingText;
@@ -222,6 +229,7 @@ class MaterialInputComponent extends BaseMaterialInput
 
   MaterialInputComponent(
       @Attribute('type') String type,
+      @Attribute('multiple') String multiple,
       @Self() @Optional() NgControl cd,
       ChangeDetectorRef changeDetector,
       DeferredValidator validator)
@@ -236,6 +244,9 @@ class MaterialInputComponent extends BaseMaterialInput
       this.type = 'text';
     } else {
       this.type = type;
+    }
+    if (multiple != null) {
+      this.multiple = getBool(multiple);
     }
   }
 

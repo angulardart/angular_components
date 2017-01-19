@@ -3,28 +3,61 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular2/angular2.dart';
+import 'package:meta/meta.dart';
 
 import '../../utils/disposer/disposer.dart';
 
 import 'base_material_input.dart';
 
-/// The default accessor for writing a [String] value and listening to changes
-/// that is used by [MaterialInputComponent].
-// TODO(google): add material-input:not([type]) once other value accessors are
-// implemented.
-@Directive(selector: 'material-input')
-class MaterialInputDefaultValueAccessor
+/// [ControlValueAccessor] for [MaterialInputComponent] that updates on
+/// keypress.
+// TODO(google): Migrate away from this being the default accessor.
+@Directive(selector: 'material-input:not([blurUpdate])')
+class MaterialInputDefaultValueAccessor extends BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
-  final _disposer = new Disposer.oneShot();
+  MaterialInputDefaultValueAccessor(
+      BaseMaterialInput input, @Self() @Optional() NgControl control)
+      : super(input, control);
 
-  final BaseMaterialInput _input;
+  @override
+  void registerOnChange(callback) {
+    disposer.addStreamSubscription(input.onKeypress.listen((value) {
+      callback(value);
+    }));
+  }
+}
+
+/// [ControlValueAccessor] to be used with a [MaterialInputComponent] that
+/// updates on blur.
+@Directive(selector: 'material-input[blurUpdate]')
+class MaterialInputBlurValueAccessor extends BaseMaterialInputValueAccessor
+    implements ControlValueAccessor, OnDestroy {
+  MaterialInputBlurValueAccessor(
+      BaseMaterialInput input, @Self() @Optional() NgControl control)
+      : super(input, control);
+
+  @override
+  void registerOnChange(callback) {
+    disposer.addStreamSubscription(
+        input.onBlur.listen((_) => callback(input.inputText)));
+  }
+}
+
+/// Common logic for a [ControlValueAccessor] for a
+/// [BaseMaterialInputComponent].
+abstract class BaseMaterialInputValueAccessor
+    implements ControlValueAccessor, OnDestroy {
+  @protected
+  final disposer = new Disposer.oneShot();
+  @protected
+  final BaseMaterialInput input;
   final NgControl _cd;
 
-  MaterialInputDefaultValueAccessor(this._input, @Self() @Optional() this._cd) {
+  BaseMaterialInputValueAccessor(this.input, @Self() @Optional() this._cd) {
     // To get around a circular dependency injection assign the valueAccessor
     // ourselves.
     _cd?.valueAccessor = this;
-    _disposer.addFunction(() {
+    disposer.addFunction(() {
       // Kill the control's handle on this accessor directive so that it can be
       // GC'ed.
       _cd?.valueAccessor = null;
@@ -33,24 +66,21 @@ class MaterialInputDefaultValueAccessor
 
   @override
   void writeValue(newValue) {
-    _input.inputText = newValue;
-  }
-
-  @override
-  void registerOnChange(callback) {
-    _disposer.addStreamSubscription(
-        _input.onKeypress.listen((value) => callback(value)));
+    input.inputText = newValue;
   }
 
   @override
   void registerOnTouched(callback) {
-    _disposer.addStreamSubscription(_input.onBlur.take(1).listen((_) {
+    var sub;
+    sub = input.onBlur.listen((_) {
+      sub.cancel(); // We only need the first event. Cancel the subscription.
       callback();
-    }));
+    });
+    disposer.addStreamSubscription(sub);
   }
 
   @override
   void ngOnDestroy() {
-    _disposer.dispose();
+    disposer.dispose();
   }
 }

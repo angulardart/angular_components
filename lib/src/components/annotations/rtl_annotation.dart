@@ -18,4 +18,6 @@ const rtlProvider =
     const Provider(rtlToken, useFactory: determineRtl, deps: const [Document]);
 
 @Injectable()
-bool determineRtl(Document document) => 'rtl' == document.documentElement.dir;
+bool determineRtl(Document document) =>
+    document.documentElement.dir == 'rtl' ||
+    (document as HtmlDocument).body.dir == 'rtl';

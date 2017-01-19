@@ -5,13 +5,12 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
-import 'package:intl/intl.dart';
-
 import '../material_button/material_button.dart';
 import '../material_spinner/material_spinner.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/async/async.dart';
+import 'package:angular2/angular2.dart';
+import 'package:intl/intl.dart';
 
 /// A component for the two buttons horizontally next to each other, like
 /// yes/no, save/cancel, agree/not agree, etc.
@@ -96,7 +95,7 @@ class MaterialYesNoButtonsComponent {
 
   /// Whether the buttons should be disabled.
   ///
-  /// Default value is `false`
+  /// Default value is `false`.
   bool get disabled => _disabled;
   @Input()
   set disabled(value) {
@@ -107,18 +106,29 @@ class MaterialYesNoButtonsComponent {
 
   /// Whether the yes button should be disabled.
   ///
-  /// Default value is `false`
+  /// Default value is `false`.
   bool get yesDisabled => _yesDisabled;
   @Input()
   set yesDisabled(value) {
     _yesDisabled = getBool(value);
   }
 
+  bool _yesDisplayed = true;
+
+  /// Whether the yes button should be displayed.
+  ///
+  /// Default value is `true`.
+  bool get yesDisplayed => _yesDisplayed;
+  @Input()
+  set yesDisplayed(value) {
+    _yesDisplayed = getBool(value);
+  }
+
   bool _noDisplayed = true;
 
-  /// Whether the no button is displayed.
+  /// Whether the no button should be displayed.
   ///
-  /// Default value is `true`
+  /// Default value is `true`.
   bool get noDisplayed => _noDisplayed;
   @Input()
   set noDisplayed(value) {

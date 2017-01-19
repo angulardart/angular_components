@@ -28,9 +28,9 @@ class Angular2ManagedZone extends ManagedZoneBase {
   Angular2ManagedZone(this._ngZone) {
     _ngZone.runOutsideAngular(() {
       outerZone = Zone.current;
-      _ngZone.onUnstable.listen(capturedTurnStart);
+      _ngZone.onTurnStart.listen(capturedTurnStart);
       _ngZone.onMicrotaskEmpty.listen(capturedTurnDone);
-      _ngZone.onStable.listen(capturedEventDone);
+      _ngZone.onTurnDone.listen(capturedEventDone);
     });
   }
 

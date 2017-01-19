@@ -2,9 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
+
 import 'package:angular2/angular2.dart';
 
+import '../../utils/browser/feature_detector/feature_detector.dart'
+    show supportsAnimationApi;
+
 const String ARIA_VALUENOW_ATTR = "aria-valuenow";
+const Map<String, double> _indeterminateTiming = const {
+  'duration': 2000.0,
+  'iterations': double.INFINITY
+};
 
 /// The progress bars are for situations where the percentage completed can be
 /// determined. They give users a quick sense of how much longer an operation
@@ -21,7 +30,9 @@ const String ARIA_VALUENOW_ATTR = "aria-valuenow";
     templateUrl: 'material_progress.html',
     styleUrls: const ['material_progress.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
-class MaterialProgressComponent {
+class MaterialProgressComponent implements AfterViewInit {
+  final HtmlElement _element;
+
   /// The current progress value.
   @Input()
   int activeProgress = 0;
@@ -43,6 +54,9 @@ class MaterialProgressComponent {
   @Input()
   bool indeterminate = false;
 
+  /// Whether to use the fallback indeterminate animation.
+  bool get useFallbackAnimation => indeterminate && !supportsAnimationApi;
+
   String get ariaValue => indeterminate ? null : '$activeProgress';
 
   String get primaryTransform => 'scaleX(${_calcRatio(activeProgress)})';
@@ -50,4 +64,45 @@ class MaterialProgressComponent {
   String get secondaryTransform => 'scaleX(${_calcRatio(secondaryProgress)})';
 
   double _calcRatio(int value) => (value.clamp(min, max) - min) / (max - min);
+
+  @ViewChild('primary')
+  set primary(ElementRef value) {
+    _primaryIndicator = value.nativeElement;
+  }
+
+  DivElement _primaryIndicator;
+
+  @ViewChild('secondary')
+  set secondary(ElementRef value) {
+    _secondaryIndicator = value.nativeElement;
+  }
+
+  DivElement _secondaryIndicator;
+
+  MaterialProgressComponent(ElementRef elementRef)
+      : this._element = elementRef.nativeElement;
+
+  @override
+  void ngAfterViewInit() {
+    if (!(indeterminate && supportsAnimationApi)) return;
+    final width = _element.getBoundingClientRect().width;
+    final primaryKeyframes = [
+      {'transform': 'translateX(0px) scaleX(0)'},
+      {'transform': 'translateX(0px) scaleX(0.5)', 'offset': 0.25},
+      {
+        'transform': 'translateX(${0.25 * width}px) scaleX(0.75)',
+        'offset': 0.5
+      },
+      {'transform': 'translateX(${width}px) scaleX(0)', 'offset': 0.75},
+      {'transform': 'translateX(${width}px) scaleX(0)'},
+    ];
+    final secondaryKeyframes = [
+      {'transform': 'translateX(0px) scaleX(0)'},
+      {'transform': 'translateX(0px) scaleX(0)', 'offset': 0.6},
+      {'transform': 'translateX(0px) scaleX(0.6)', 'offset': 0.8},
+      {'transform': 'translateX(${width}px) scaleX(0.1)'},
+    ];
+    _primaryIndicator.animate(primaryKeyframes, _indeterminateTiming);
+    _secondaryIndicator.animate(secondaryKeyframes, _indeterminateTiming);
+  }
 }

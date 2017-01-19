@@ -28,7 +28,7 @@ abstract class Ruler<E> {
   /// of absolute.
   ///
   /// Throws [StateError] if [element] is not within the live DOM.
-  Rectangle measureSync(E element);
+  Rectangle measureSync(E element, {bool offset: false});
 
   /// Returns a stream of bounding client rectangles for [element].
   ///

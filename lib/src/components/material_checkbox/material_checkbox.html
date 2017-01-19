@@ -3,7 +3,8 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<div class="icon-container">
+<div class="icon-container"
+     [class.focus]="showFocus">
   <glyph [style.color]="themeColor"
          [icon]="icon"
          class="icon"
@@ -11,10 +12,8 @@
          [class.filled]="checked || indeterminate">
   </glyph>
   <material-ripple [style.color]="rippleColor"
-                   *ngIf="!disabled"
-                   [focused]="showFocus"
-                   [class.filled]="checked"
-                   class="ripple">
+              *ngIf="!disabled"
+              class="ripple">
   </material-ripple>
 </div>
 <div class="content">

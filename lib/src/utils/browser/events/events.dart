@@ -140,15 +140,19 @@ bool anyParentHasTag(Element target, String componentTag) {
 /// scenarios.  For example, BaseLensEdit needs to ignore clicks on targets
 /// that have ancestors of class material-popup-content when deciding whether
 /// a click counts as a click out (for exiting the popup).
-bool anyParentHasClass(Element target, String className) {
+bool anyParentHasClass(Element target, String className) =>
+    closestWithClass(target, className) != null;
+
+/// This element or the closest of its ancestor with the given class.
+Element closestWithClass(Element target, String className) {
   while (target != null) {
     if (target.attributes.containsKey("class") &&
         target.classes.contains(className)) {
-      return true;
+      return target;
     }
     target = target.parent;
   }
-  return false;
+  return null;
 }
 
 /// Whether [element] is a parent of [node] in the dom tree.
