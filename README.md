@@ -1,16 +1,15 @@
-# AngularDart Components 
-## Preview Release 
- 
-These are the AngularDart components that Google uses to build many of its web 
-applications. 
- 
-These components are a productive and stable set of widgets, contributed to by 
-hundreds of Googlers. Being able to debug your apps across all layers in Dart, 
-supporting tree shaking for minimal code size, and strict latency policies make 
-them an excellent fit for AngularDart projects. 
+## Preview Release
 
-Only a small fragment of all the components is available right now. We want 
-developers to have an opportunity to play around with the package as soon as 
+These are the AngularDart components that Google uses to build many of its web
+applications.
+
+These components are a productive and stable set of widgets, contributed to by
+hundreds of Googlers. Being able to debug your apps across all layers in Dart,
+supporting tree shaking for minimal code size, and strict latency policies make
+them an excellent fit for AngularDart projects.
+
+Only a small fragment of all the components is available right now. We want
+developers to have an opportunity to play around with the package as soon as
 possible.
 
 * ✓ `<glyph>`
@@ -30,16 +29,16 @@ possible.
 * ✓ `<acx-scorecard>`
 * ✓ `<material-input>`
 * ✓ `<material-dialog>`
-* ✓ `<material-popup>` 
-* ✓ `<material-tooltip>` 
-* ☐ `<material-list>` 
-* ☐ `<material-select>` 
-* ☐ `<material-auto-suggest-input>` 
+* ✓ `<material-popup>`
+* ✓ `<material-tooltip>`
+* ☐ `<material-list>`
+* ☐ `<material-select>`
+* ☐ `<material-auto-suggest-input>`
 * ☐ `<material-date-range-picker>`
 * ☐ `<material-menu>`
 * many more, including a fast table
 
-At this time we are not taking pull requests but please file an issue and we will 
+At this time we are not taking pull requests but please file an issue and we will
 work with you.
 
 **Officially Supported Browsers:** The last two versions of Chrome, Edge, Firefox, and Safari.
