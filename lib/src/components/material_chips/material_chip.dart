@@ -78,7 +78,7 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
     _genLabel();
   }
 
-  ItemRenderer _itemRenderer;
+  ItemRenderer _itemRenderer = nullRenderer;
   @override
   ItemRenderer get itemRenderer => _itemRenderer;
 
@@ -99,7 +99,7 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
   void _genLabel() {
     if (_value == null) {
       _label = null;
-    } else if (itemRenderer != null) {
+    } else if (!identical(_itemRenderer, nullRenderer)) {
       _label = itemRenderer(_value);
     }
   }

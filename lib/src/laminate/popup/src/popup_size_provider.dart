@@ -39,3 +39,22 @@ class PercentagePopupSizeProvider implements PopupSizeProvider {
   num getMaxHeight(num _, num viewportHeight) =>
       viewportHeight * _maxHeightPercentage;
 }
+
+/// Provides a popup size with a fixed maximum width and height in pixels.
+///
+/// A null value for max width or max height indicates no limit.
+class FixedPopupSizeProvider implements PopupSizeProvider {
+  final num _maxWidth;
+  final num _maxHeight;
+
+  const FixedPopupSizeProvider(this._maxWidth, this._maxHeight);
+
+  @override
+  num getMaxWidth(num _, num __) => _maxWidth;
+
+  @override
+  num getMaxHeight(num _, num __) => _maxHeight;
+}
+
+/// A popup size provider of no maximum size.
+const unboundedPopupSize = const FixedPopupSizeProvider(null, null);

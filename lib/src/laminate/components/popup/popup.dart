@@ -96,12 +96,14 @@ class PopupComponent extends Object
     return component._resolvedPopupRef;
   }
 
+  final ChangeDetectorRef _changeDetector;
   final DomService _domService;
   final Disposer _disposer = new Disposer.oneShot();
   final NgZone _ngZone;
   final PopupService _popupService;
   bool _isRtl;
   PopupHierarchy _hierarchy;
+  ElementRef elementRef;
 
   PopupRef parentPopup;
 
@@ -119,7 +121,9 @@ class PopupComponent extends Object
       @Optional() @SkipSelf() PopupRef parentPopup,
       this._ngZone,
       this._popupService,
-      @Optional() @Inject(rtlToken) bool rtl) {
+      @Optional() @Inject(rtlToken) bool rtl,
+      this._changeDetector,
+      this.elementRef) {
     _isRtl = rtl ?? false;
   }
 
@@ -142,6 +146,7 @@ class PopupComponent extends Object
         _popupService.createSync(initialState: state, parent: parentPopup);
     _initPopupRef(_resolvedPopupRef);
     _viewInitialized = true;
+    _changeDetector.markForCheck();
   }
 
   @override
@@ -296,12 +301,7 @@ class _DeferredToggleable extends Toggleable {
 
   @override
   set isOn(bool state) {
-    if (_popupComponent.resolvedPopupRef == null) {
-      if (!state) return;
-      _popupComponent._initView();
-    }
-
-    _popupComponent.resolvedPopupRef.isOn = state;
+    _popupComponent.visible = state;
   }
 }
 

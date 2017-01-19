@@ -56,6 +56,7 @@ import 'material_button_base.dart';
     host: const {
       '[class.is-disabled]': 'disabled',
       '[class.is-raised]': 'raised',
+      '[class.is-focused]': 'visualFocus',
       '(mousedown)': r'onMouseDown($event)',
       '(mouseup)': r'onMouseUp($event)',
       '(click)': r'handleClick($event)',

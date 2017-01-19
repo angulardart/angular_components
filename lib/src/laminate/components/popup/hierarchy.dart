@@ -13,6 +13,9 @@ import 'package:angular2/angular2.dart';
 class PopupHierarchy {
   final _visiblePopupStack = <PopupHierarchyElement>[];
 
+  /// Parent pane of the first popup hierarchy element.
+  Element _rootPane;
+
   StreamSubscription _dismissListener;
 
   /// Closes every popup element present in the hierarchy.
@@ -26,6 +29,10 @@ class PopupHierarchy {
   }
 
   void _attach(PopupHierarchyElement child) {
+    if (_visiblePopupStack.isEmpty) {
+      _rootPane =
+          events.closestWithClass(child.elementRef.nativeElement, 'pane');
+    }
     _visiblePopupStack.add(child);
 
     if (_dismissListener == null) {
@@ -42,11 +49,23 @@ class PopupHierarchy {
 
   void _detach(PopupHierarchyElement child) {
     if (_visiblePopupStack.remove(child) && _visiblePopupStack.isEmpty) {
+      _rootPane = null;
       _disposeDismissListener();
     }
   }
 
   void _onTriggersOutside(Event event) {
+    // Find parent pane if any, done dynamically as the modal pane can be
+    // created by another app using ACX.
+    // TODO(google): Find a way to compute it only when needed and make it
+    // globally accessible.
+    var modalPanes =
+        document.querySelectorAll('.acx-overlay-container .pane.modal.visible');
+    if (modalPanes.isNotEmpty) {
+      // This assumes there is only one visible modal at the same time.
+      if (_rootPane != modalPanes.first) return;
+    }
+
     for (int i = _visiblePopupStack.length - 1; i >= 0; i--) {
       final current = _visiblePopupStack[i];
 
@@ -68,6 +87,8 @@ abstract class PopupHierarchyElement {
 
   /// The html element corresponding to the popup.
   Element get container;
+
+  ElementRef get elementRef => null;
 
   /// The outer element which should prevent the auto dismiss logic.
   List<Element> get autoDismissBlockers;

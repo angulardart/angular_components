@@ -367,7 +367,7 @@ class ReorderListComponent implements OnDestroy {
         // Make sure that element will be focused after digest cycle
         _managedZone.onTurnDone.first.then((_) {
           // TODO(google): Add support for multiselect keyboard actions.
-          // At the moment, only moves the last selected item. 
+          // At the moment, only moves the last selected item.
           var element = _reorderElements[newIndex];
           if (multiSelect) {
             _clearSelection();

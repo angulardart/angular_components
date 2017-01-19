@@ -60,6 +60,8 @@
 
     <material-yes-no-buttons
         *ngIf="showSaveCancel"
+        reverse
+        class="action-buttons"
         [pending]="activeSaveCancelAction"
         [yesText]="saveText"
         [noText]="cancelText"

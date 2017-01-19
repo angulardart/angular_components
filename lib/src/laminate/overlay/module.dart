@@ -28,8 +28,12 @@ export 'src/render/overlay_dom_render_service.dart'
 
 /// Either finds, or creates an "acx-overlay-container" div at the end of body.
 @Injectable()
-HtmlElement getDefaultContainer(@Inject(overlayContainerName) String name,
-    @Inject(overlayContainerParent) HtmlElement parent) {
+HtmlElement getDefaultContainer(
+    @Inject(overlayContainerName) String name,
+    @Inject(overlayContainerParent) HtmlElement parent,
+    @Optional() @SkipSelf() @Inject(overlayContainerToken) container) {
+  if (container != null) return container;
+
   var element = parent.querySelector('#default-acx-overlay-container');
   if (element == null) {
     element = new DivElement()
@@ -41,18 +45,25 @@ HtmlElement getDefaultContainer(@Inject(overlayContainerName) String name,
   return element;
 }
 
+@Injectable()
+String getDefaultContainerName(
+    @Optional() @SkipSelf() @Inject(overlayContainerName) containerName) {
+  return containerName ?? 'default';
+}
+
 /// Returns an overlay container with debugging aid enabled.
 @Injectable()
 HtmlElement getDebugContainer(@Inject(overlayContainerName) String name,
     @Inject(overlayContainerParent) HtmlElement parent) {
-  var element = getDefaultContainer(name, parent);
+  var element = getDefaultContainer(name, parent, null);
   element.classes.add('debug');
   return element;
 }
 
 @Injectable()
-HtmlElement getOverlayContainerParent(Document document) {
-  return document.querySelector('body');
+HtmlElement getOverlayContainerParent(Document document,
+    @Optional() @SkipSelf() @Inject(overlayContainerParent) containerParent) {
+  return containerParent ?? document.querySelector('body');
 }
 
 /// DI bindings for Overlay and its dependencies.
@@ -61,7 +72,7 @@ const overlayBindings = const [
   DomRuler,
   domServiceBinding,
   const Provider(ManagedZone, useClass: Angular2ManagedZone),
-  const Provider(overlayContainerName, useValue: 'default'),
+  const Provider(overlayContainerName, useFactory: getDefaultContainerName),
   const Provider(overlayContainerToken, useFactory: getDefaultContainer),
   const Provider(overlayContainerParent, useFactory: getOverlayContainerParent),
   // Applications may experimentally make this true to increase performance.

@@ -52,6 +52,25 @@ import 'package:angular2/angular2.dart';
 ///       <name>Estimated earnings <i>(NEW)</i></name>
 ///       <value><glyph icon="mode_edit"></glyph></value>
 ///     </acx-scorecard>
+///
+/// __Inputs:__
+///
+/// - `label: String` -- The title of the scorecard.
+/// - `value: String` -- The value of the scorecard.
+/// - `description: String` -- Short description of the scorecard.
+/// - `changeGlyph: bool` -- Whether to display a small change arrow glyph in
+///   the description.
+/// - `suggestionBefore: String` -- Suggestion text before the descrption.
+/// - `suggestionAfter: String` -- Suggestion text after the description.
+/// - `extraBig: bool` -- Wether to use a larger class style.
+/// - `changeType: String` -- The type of change: POSITIVE, NEGATIVE, NEUTRAL.
+/// - `selectable: bool` -- Whether a scorecard is selectable.
+/// - `selected: bool` -- Whether the scorecard is selected.
+/// - `selectedColor: Color` -- Color to apply to the selected scorecard.
+///
+/// __Outputs:__
+///
+/// - `selectedChange` -- Fired when selection state changes.
 @Component(
     selector: 'acx-scorecard',
     directives: const [MaterialRippleComponent, NgIf, GlyphComponent],
@@ -81,9 +100,11 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   bool _extraBig = false;
   bool _changeGlyph = false;
 
+  final ChangeDetectorRef _changeDetector;
   final ElementRef _ref;
   HtmlElement get element => _ref.nativeElement;
-  ScorecardComponent(ElementRef ref, DomService domService)
+  ScorecardComponent(
+      this._changeDetector, ElementRef ref, DomService domService)
       : this._ref = ref,
         super(ref, domService);
 
@@ -186,6 +207,12 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   @Input()
   set selectable(selectable) {
     _selectable = getBool(selectable);
+
+    // Normally OnPush will markForCheck() automatically when an input changes.
+    // However, that's only if the input changes within the Angular zone.
+    // Scoreboard changes this input outside of the Angular zone, so we
+    // explicitly markForCheck() here to cover that case.
+    _changeDetector.markForCheck();
   }
 
   /// The [Color] to apply to the scorecard background when it is selected.

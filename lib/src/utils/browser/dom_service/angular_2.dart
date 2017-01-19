@@ -17,14 +17,13 @@ import '../../disposer/disposer.dart';
 
 export './dom_service.dart';
 
-// WARNING EXPERIMENTAL DO NOT COPY THIS PATTERN without talking to
-// tsander@, matanl@, or ferhat@ first. This is an experimental pattern which
-// allows a singleton service to be shared in an application without binding the
-// service at the application level, while still allowing an application to
-// override a service if they so choose. This allows components to define the
-// service they need with reasonable defaults. It allows component and service
-// authors to add singleton services that require injectables. If you just need
-// a singleton pattern consider using dart's factory pattern.
+// This is a pattern which allows a singleton service to be shared in an
+// application without binding the service at the application level, while
+// still allowing an application to override a service if they so choose.
+// This allows components to define the service they need with reasonable
+// defaults. It allows component and service authors to add singleton services
+// that require injectables. If you just need a singleton pattern consider
+// using dart's factory pattern.
 
 /// Factory for [DomService].
 const domServiceBinding =

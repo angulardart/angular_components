@@ -17,6 +17,8 @@ import './tab_mixin.dart';
     outputs: const ['trigger'], // from [MaterialButtonBase]
     host: const {
       '[class.is-disabled]': 'disabled',
+      '[class.focus]': 'visualFocus',
+      '[class.active]': 'isActive || isMouseDown',
       '(mousedown)': r'onMouseDown($event)',
       '(mouseup)': r'onMouseUp($event)',
       '(click)': r'handleClick($event)',
@@ -31,10 +33,7 @@ import './tab_mixin.dart';
           <div class="content">
             {{label}}
           </div>
-          <material-ripple (mousedown)="onMouseDown($event)"
-                           (mouseup)="onMouseUp($event)"
-                           [focused]="visualFocus">
-          </material-ripple>
+          <material-ripple></material-ripple>
         ''',
     styleUrls: const ['tab_button.scss.css'],
     directives: const [MaterialRippleComponent])
@@ -47,4 +46,8 @@ class TabButtonComponent extends MaterialButtonBase with TabMixin {
 
   @override
   Element get nativeElement => _nativeElement;
+
+  /// Whether the tab represented by this button is currently active.
+  @Input('active')
+  bool isActive;
 }

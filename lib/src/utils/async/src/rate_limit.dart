@@ -45,14 +45,14 @@ class _RateLimitSink implements EventSink {
 
 /// A [StreamTransformer] to rate-limit streams with a given
 /// [RateLimitStrategy] and [Duration].
-class RateLimitTransformer implements StreamTransformer {
+class RateLimitTransformer<S, T> implements StreamTransformer<S, T> {
   final Duration _duration;
   final RateLimitStrategy _rateLimitStrategy;
 
   RateLimitTransformer(this._duration, this._rateLimitStrategy);
 
   @override
-  Stream bind(Stream stream) => new Stream.eventTransformed(
+  Stream<T> bind(Stream<S> stream) => new Stream.eventTransformed(
       stream,
       (EventSink sink) =>
           new _RateLimitSink(sink, _duration, _rateLimitStrategy));

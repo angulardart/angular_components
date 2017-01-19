@@ -186,7 +186,15 @@ class MaterialPopupComponent extends PopupComponent
   final OverlayService _overlayService;
 
   /// Optional handler for calculating popup sizes.
-  final PopupSizeProvider _popupSizeProvider;
+  PopupSizeProvider _popupSizeProvider;
+
+  /// Sets a provider for the popup size.
+  ///
+  /// Overrides the injected PopupSizeProvider.
+  @Input()
+  set popupSizeProvider(PopupSizeProvider value) {
+    _popupSizeProvider = value;
+  }
 
   /// The max height of the popup content provided by the PopupSizeProvider.
   num maxHeight;
@@ -233,8 +241,11 @@ class MaterialPopupComponent extends PopupComponent
       this._overlayService,
       @Optional() this._popupSizeProvider,
       @Optional() @Inject(rtlToken) bool rtl,
-      this._changeDetector)
-      : super(domService, hierarchy, parentPopup, ngZone, popupService, rtl);
+      ChangeDetectorRef changeDetector,
+      ElementRef elementRef)
+      : _changeDetector = changeDetector,
+        super(domService, hierarchy, parentPopup, ngZone, popupService, rtl,
+            changeDetector, elementRef);
 
   @override
   Stream<bool> get contentVisible => _onContentVisible.distinct();

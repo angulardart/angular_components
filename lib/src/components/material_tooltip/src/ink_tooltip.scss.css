@@ -1,0 +1,6 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+:host{position:absolute}.ink-container{display:-webkit-flex;display:flex;-webkit-justify-content:center;justify-content:center;-webkit-align-items:center;align-items:center;-moz-box-sizing:border-box;box-sizing:border-box;max-width:320px;min-height:32px;max-height:48px;padding:8px;font-size:12px;font-weight:500;line-height:16px;text-align:left}.ink-container.two-line{height:48px}.ink-container span{max-height:32px;overflow-y:hidden}/deep/ .aacmtit-ink-tooltip-shadow{margin:8px}

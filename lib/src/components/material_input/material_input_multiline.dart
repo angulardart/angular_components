@@ -2,8 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
+
 import '../focus/focus.dart';
+import '../../utils/angular/properties/properties.dart';
 import '../../utils/angular/reference/reference.dart';
+import '../../utils/browser/dom_service/angular_2.dart';
 import 'package:angular2/angular2.dart';
 
 import 'base_material_input.dart';
@@ -108,7 +112,10 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
           useExisting: MaterialMultilineInputComponent)
     ],
     templateUrl: 'material_input_multiline.html',
-    styleUrls: const ['material_input.scss.css'],
+    styleUrls: const [
+      'material_input.scss.css',
+      'material_input_multiline.scss.css'
+    ],
     directives: const [
       DefaultValueAccessor,
       FocusableDirective,
@@ -121,6 +128,9 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
     preserveWhitespace: false)
 class MaterialMultilineInputComponent extends BaseMaterialInput
     implements ReferenceDirective, AfterViewInit, OnDestroy {
+  final ChangeDetectorRef _changeDetector;
+  final DomService _domService;
+
   @ViewChild('textareaEl')
   ElementRef textareaEl;
 
@@ -132,9 +142,6 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
   /// back upstream. Feel free to contact acx-widgets@ for more guidance.
   ElementRef get inputRef => textareaEl;
 
-  // This list is used to size the multiline input.
-  List<String> _heightForTextArea = new List();
-
   /// The initial/minimum number of rows for multiline input.
   /// Default value is 1.
   int _rows = 1;
@@ -143,9 +150,16 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
   /// 0 means no maximum. Default Value is 0.
   int _maxRows = 0;
 
-  MaterialMultilineInputComponent(@Self() @Optional() NgControl cd,
-      ChangeDetectorRef changeDetector, DeferredValidator validator)
-      : super(cd, changeDetector, validator);
+  /// Line height of the textarea. This is updated at run time.
+  int _inputLineHeight = 16;
+
+  MaterialMultilineInputComponent(
+      @Self() @Optional() NgControl cd,
+      ChangeDetectorRef changeDetector,
+      DeferredValidator validator,
+      this._domService)
+      : _changeDetector = changeDetector,
+        super(cd, changeDetector, validator);
 
   /// TODO(google): The following values could be set in the base class, but
   /// there is currently no working way to set ViewChild values on the base
@@ -163,41 +177,43 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
   @override
   ElementRef get elementRef => popupSourceEl;
 
-  List<String> get heightForTextbox {
-    List<String> tokens = hasVisibleText ? inputText.split('\n') : const [''];
+  /// Text used to size the multiline textarea.
+  String get mirrorText => (inputText ?? '') + '\n';
 
-    // Enforce the min(default) and max heights for a multiline input.
-    if (rows > 0 && tokens.length < rows) {
-      // Set the min/default height.
-      _heightForTextArea.length = rows;
-    } else if (maxRows > 0 && tokens.length > maxRows) {
-      // Set the max height.
-      _heightForTextArea.length = maxRows;
-    } else {
-      // Let the textarea grow without bounds.
-      _heightForTextArea.length = tokens.length;
-    }
-    return _heightForTextArea;
+  @ViewChild('lineHeightMeasure')
+  set lineHeightMeasure(ElementRef value) {
+    // There's currently no strong use case of line height changing after it's
+    // been measured. So we only measure it once when the view is rendered.
+    _domService.scheduleRead(() {
+      var isDestroyed = textareaEl == null;
+      if (isDestroyed) return;
+
+      var height = (value.nativeElement as Element).clientHeight;
+      if (height != 0) {
+        _inputLineHeight = height;
+        _changeDetector
+          ..markForCheck()
+          // TODO(google): remove after the bug is fixed.
+          ..detectChanges();
+      }
+    });
   }
+
+  int get minInputHeight => rows * _inputLineHeight;
+  int get maxInputHeight => _maxRows > 0 ? _maxRows * _inputLineHeight : null;
 
   int get rows => _rows;
 
   set rows(dynamic value) {
-    if (value is int) {
-      _rows = value;
-    } else if (value is String) {
-      _rows = int.parse(value);
-    }
+    _rows = getInt(value);
+    _changeDetector.markForCheck();
   }
 
   int get maxRows => _maxRows;
 
   set maxRows(dynamic value) {
-    if (value is int) {
-      _maxRows = value;
-    } else if (value is String) {
-      _maxRows = int.parse(value);
-    }
+    _maxRows = getInt(value);
+    _changeDetector.markForCheck();
   }
 
   @override

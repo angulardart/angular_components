@@ -8,7 +8,7 @@
   <material-spinner></material-spinner>
 </div>
 <material-button #yesButton
-                 *ngIf="!pending"
+                 *ngIf="!pending && yesDisplayed"
                  class="btn btn-yes"
                  [raised]="yesRaised || raised"
                  [class.highlighted]="yesHighlighted"

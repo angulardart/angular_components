@@ -13,8 +13,6 @@ import 'package:angular2/angular2.dart';
 
 /// A styled container following the Material Spec for Dialogs.
 ///
-/// See <http://www.google.com/design/spec/components/dialogs.html>.
-///
 /// __Supported Content__:
 ///
 /// - `[header]` -- Header content for the dialog.
@@ -160,7 +158,7 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
         _changeDetector
           ..markForCheck()
           // This detectChanges() here is for updating the classes when the page
-          // initially loads .
+          // initially loads.
           ..detectChanges();
       }
     }));

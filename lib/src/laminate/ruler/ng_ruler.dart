@@ -87,7 +87,7 @@ class NgRuler implements Ruler<ElementRef> {
   }
 
   @override
-  Rectangle measureSync(ElementRef element) {
-    return _domRuler.measureSync(element.nativeElement);
+  Rectangle measureSync(ElementRef element, {bool offset: false}) {
+    return _domRuler.measureSync(element.nativeElement, offset: offset);
   }
 }
