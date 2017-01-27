@@ -1,7 +1,8 @@
 ## 0.3.1-alpha
 
 This code is considered production quality, but depends on angular2: 3.0.0-alpha.
-The alpha tag represents the evolving nature of the AngularDart api.
+The alpha tag represents the evolving nature of the AngularDart api, not
+code quality (3.0.0-alpha is used in production Google apps).
 
  * Add Material List.
  * Material Expansionpanel: Add `autoDismissable` directive.
