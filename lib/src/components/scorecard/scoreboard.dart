@@ -48,6 +48,8 @@ import 'src/scorecard_bar.dart';
 /// - `scrollable: bool` -- Whether the scoreboard is scrollable.
 /// - `resetOnCardChanges` -- Whether to reset the card selection when there are
 ///   card changes.
+/// - `isVertical: bool` -- Whether the scorecard is displayed vertically.
+///   Defaults to false.
 @Component(
     selector: 'acx-scoreboard',
     directives: const [
@@ -66,6 +68,7 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   final DomService _domService;
   bool _scrollable = false;
   bool _resetOnCardChanges = false;
+  bool _isVertical = false;
   SelectionModel _selectionModel;
   QueryList<ScorecardComponent> _scorecards;
   ScorecardBarDirective _scorecardBar;
@@ -75,12 +78,13 @@ class ScoreboardComponent implements OnInit, OnDestroy {
 
   bool get isScrollable =>
       _scrollable && (_scorecardBar?.isScrollable ?? false);
+  bool get isVertical => _isVertical;
   bool _atScorecardBarStart = false;
   bool get atScorecardBarStart => _atScorecardBarStart;
   bool _atScorecardBarEnd = false;
   bool get atScorecardBarEnd => _atScorecardBarEnd;
-  String get backIconType => 'chevron_left';
-  String get forwardIconType => 'chevron_right';
+  String get backIconType => isVertical ? 'expand_less' : 'chevron_left';
+  String get forwardIconType => isVertical ? 'expand_more' : 'chevron_right';
 
   ScoreboardComponent(
       @Attribute('enableUniformWidths') String enableUniformWidths,
@@ -149,6 +153,12 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   @Input()
   set resetOnCardChanges(resetOnCardChanges) {
     _resetOnCardChanges = getBool(resetOnCardChanges);
+  }
+
+  /// Whether the scorecard is displayed vertically. Defaults to false.
+  @Input()
+  set isVertical(isVertical) {
+    _isVertical = getBool(isVertical);
   }
 
   void scrollBack() {

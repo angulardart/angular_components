@@ -3,7 +3,9 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<div class="acx-scoreboard">
+<div class="acx-scoreboard"
+     [class.acx-scoreboard-horizontal]="!isVertical"
+     [class.acx-scoreboard-vertical]="isVertical">
   <material-button class="scroll-button scroll-back-button"
                    (trigger)="scrollBack()"
                    [class.hide]="atScorecardBarStart"
@@ -12,7 +14,7 @@
            [attr.aria-label]="scrollScorecardBarBack">
     </glyph>
   </material-button>
-  <div scorecardBar class="scorecard-bar">
+  <div scorecardBar class="scorecard-bar" [isVertical]="isVertical">
     <ng-content></ng-content>
   </div>
   <material-button class="scroll-button scroll-forward-button"

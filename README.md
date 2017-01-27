@@ -31,8 +31,9 @@ possible.
 * ✓ `<material-dialog>`
 * ✓ `<material-popup>`
 * ✓ `<material-tooltip>`
-* ☐ `<material-list>`
+* ✓ `<material-list>`
 * ☐ `<material-select>`
+* ☐ `<material-tree>`
 * ☐ `<material-auto-suggest-input>`
 * ☐ `<material-date-range-picker>`
 * ☐ `<material-menu>`

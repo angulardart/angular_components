@@ -1,3 +1,14 @@
+## 0.3.1-alpha
+
+This code is considered production quality, but depends on angular2: 3.0.0-alpha.
+The alpha tag represents the evolving nature of the AngularDart api.
+
+ * Add Material List.
+ * Material Expansionpanel: Add `autoDismissable` directive.
+ * Material Progress: Handle changes to "indeterminate" state.
+ * Scorecard: Add input to display vertically.
+ * Update styles to meet Material UI spec.
+
 ## 0.3.0-alpha
 
 This code is considered production quality, but depends on angular2: 3.0.0-alpha.

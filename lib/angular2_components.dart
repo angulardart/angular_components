@@ -35,6 +35,8 @@ const List<Type> materialDirectives = const [
   MaterialInkTooltipComponent,
   MaterialInputComponent,
   MaterialInputDefaultValueAccessor,
+  MaterialListComponent,
+  MaterialListItemComponent,
   MaterialMultilineInputComponent,
   MaterialPaperTooltipComponent,
   MaterialPopupComponent,

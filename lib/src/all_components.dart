@@ -33,6 +33,9 @@ export 'components/material_input/material_input.dart'
     hide materialInputErrorKey;
 export 'components/material_input/material_input_default_value_accessor.dart';
 export 'components/material_input/material_input_multiline.dart';
+export 'components/material_list/material_list.dart';
+export 'components/material_list/material_list_item.dart';
+export 'components/material_list/material_list_size.dart';
 export 'components/material_popup/material_popup.dart';
 export 'components/material_progress/material_progress.dart';
 export 'components/material_radio/material_radio.dart';
@@ -59,3 +62,4 @@ export 'laminate/components/modal/modal.dart';
 export 'laminate/overlay/module.dart';
 export 'laminate/popup/module.dart';
 export 'laminate/popup/popup.dart';
+export 'model/selection/selection_model.dart';
