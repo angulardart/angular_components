@@ -4,10 +4,10 @@
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
-
 import '../../utils/browser/feature_detector/feature_detector.dart'
     show supportsAnimationApi;
+import 'package:angular2/angular2.dart';
+import '../../utils/angular/properties/properties.dart';
 
 const String ARIA_VALUENOW_ATTR = "aria-valuenow";
 const Map<String, double> _indeterminateTiming = const {
@@ -52,7 +52,22 @@ class MaterialProgressComponent implements AfterViewInit {
 
   /// Boolean whether the progress bar is deterministic. Default `false`
   @Input()
-  bool indeterminate = false;
+  set indeterminate(b) {
+    _indeterminate = getBool(b);
+
+    if (indeterminate) {
+      _tryFancyAnimation();
+    } else {
+      _primaryAnimation?.cancel();
+      _secondaryAnimation?.cancel();
+    }
+  }
+
+  bool _indeterminate = false;
+  bool get indeterminate => _indeterminate;
+
+  // Whether or not the component's already initialized.
+  bool _isInitialized = false;
 
   /// Whether to use the fallback indeterminate animation.
   bool get useFallbackAnimation => indeterminate && !supportsAnimationApi;
@@ -71,6 +86,7 @@ class MaterialProgressComponent implements AfterViewInit {
   }
 
   DivElement _primaryIndicator;
+  Animation _primaryAnimation;
 
   @ViewChild('secondary')
   set secondary(ElementRef value) {
@@ -78,13 +94,23 @@ class MaterialProgressComponent implements AfterViewInit {
   }
 
   DivElement _secondaryIndicator;
+  Animation _secondaryAnimation;
 
   MaterialProgressComponent(ElementRef elementRef)
       : this._element = elementRef.nativeElement;
 
   @override
   void ngAfterViewInit() {
-    if (!(indeterminate && supportsAnimationApi)) return;
+    _isInitialized = true;
+    if (indeterminate) _tryFancyAnimation();
+  }
+
+  /// Sets up the "indeterminate" animation using the animation API.
+  void _tryFancyAnimation() {
+    // Only set this up if we support the animation API and if the component's
+    // already initialized.
+    if (!_isInitialized || !supportsAnimationApi) return;
+
     final width = _element.getBoundingClientRect().width;
     final primaryKeyframes = [
       {'transform': 'translateX(0px) scaleX(0)'},
@@ -102,7 +128,9 @@ class MaterialProgressComponent implements AfterViewInit {
       {'transform': 'translateX(0px) scaleX(0.6)', 'offset': 0.8},
       {'transform': 'translateX(${width}px) scaleX(0.1)'},
     ];
-    _primaryIndicator.animate(primaryKeyframes, _indeterminateTiming);
-    _secondaryIndicator.animate(secondaryKeyframes, _indeterminateTiming);
+    _primaryAnimation =
+        _primaryIndicator.animate(primaryKeyframes, _indeterminateTiming);
+    _secondaryAnimation =
+        _secondaryIndicator.animate(secondaryKeyframes, _indeterminateTiming);
   }
 }

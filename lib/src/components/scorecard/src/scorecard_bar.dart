@@ -34,6 +34,7 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
   final DomService _domService;
 
   bool _isRtl;
+  bool _isVertical;
   int _clientSize;
   int _scrollSize;
   int _scrollingMove;
@@ -67,6 +68,12 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
   // TODO(google):  Add support for ltr animated scrolling.
   bool get isRtl => _isRtl;
 
+  /// Whether the scrollbar is aligned vertically.
+  @Input()
+  set isVertical(value) {
+    _isVertical = value;
+  }
+
   /// Whether the scoreboard is in a scrollable state.
   ///
   /// Scoreboard is considered scrollable if the client size is less than the
@@ -85,17 +92,19 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
   /// The current size of the client.
   ///
   /// Depends upon orientation of scrollbar.
-  int get currentClientSize => _element.parent.clientWidth;
+  int get currentClientSize =>
+      _isVertical ? _element.parent.clientHeight : _element.parent.clientWidth;
 
   /// The current size of the scrollbar.
   ///
   /// Depends upon orientation of scrollbar.
-  int get currentScrollSize => _element.scrollWidth;
+  int get currentScrollSize =>
+      _isVertical ? _element.scrollHeight : _element.scrollWidth;
 
   /// The axis upon which transforms should occur.
   ///
   /// Depends upon orientation of scrollbar.
-  String get transformAxis => 'X';
+  String get transformAxis => _isVertical ? 'Y' : 'X';
 
   /// Scroll the scoreboard back.
   ///
@@ -190,6 +199,7 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
   }
 
   String _getButtonSize(Element button) {
-    return button.getComputedStyle().getPropertyValue('width');
+    var dimension = _isVertical ? 'height' : 'width';
+    return button.getComputedStyle().getPropertyValue(dimension);
   }
 }
