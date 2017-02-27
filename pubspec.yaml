@@ -1,12 +1,12 @@
 name: angular2_components
-version: 0.3.1-alpha
+version: 0.4.0-alpha
 description: >
   The official Material Design components for AngularDart. Used at Google
   in production apps.
 homepage: https://github.com/dart-lang/angular2_components
 author: Dart Team <misc@dartlang.org>
 environment:
-  sdk: '>=1.20.0 <2.0.0'
+  sdk: '>=1.22.0 <2.0.0'
 dependencies:
   angular2: 3.0.0-alpha
   intl: ^0.14.0

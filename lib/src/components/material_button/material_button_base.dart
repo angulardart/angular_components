@@ -9,10 +9,6 @@ import '../button_decorator/button_decorator.dart';
 import '../../utils/angular/properties/properties.dart';
 import 'package:angular2/angular2.dart';
 
-// TODO(google): Right now we use is-raised and isDisabled for CSS styling.
-// When Angular supports conditionally adding/removing an attribute, use.
-// See https://github.com/angular/angular/issues/2869.
-
 /// A base class from which to build buttons.
 ///
 /// __Expected Properties:__

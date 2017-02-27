@@ -5,6 +5,7 @@
 import 'dart:async';
 import 'dart:html';
 
+import '../annotations/rtl_annotation.dart';
 import '../glyph/glyph.dart';
 import '../material_button/material_button.dart';
 import '../../model/selection/selection_model.dart';
@@ -62,6 +63,8 @@ import 'src/scorecard_bar.dart';
     styleUrls: const ['scoreboard.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class ScoreboardComponent implements OnInit, OnDestroy {
+  static const chevronLeft = 'chevron_left';
+  static const chevronRight = 'chevron_right';
   final _disposer = new Disposer.oneShot();
   final _cardSelectionDisposer = new Disposer.multi();
   final ChangeDetectorRef _changeDetector;
@@ -72,6 +75,8 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   SelectionModel _selectionModel;
   QueryList<ScorecardComponent> _scorecards;
   ScorecardBarDirective _scorecardBar;
+  String chevronBack = chevronLeft;
+  String chevronForward = chevronRight;
 
   /// Whether to allow for uniform widths on scorecards.
   bool _enableUniformWidths;
@@ -83,14 +88,19 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   bool get atScorecardBarStart => _atScorecardBarStart;
   bool _atScorecardBarEnd = false;
   bool get atScorecardBarEnd => _atScorecardBarEnd;
-  String get backIconType => isVertical ? 'expand_less' : 'chevron_left';
-  String get forwardIconType => isVertical ? 'expand_more' : 'chevron_right';
+  String get backIconType => isVertical ? 'expand_less' : chevronBack;
+  String get forwardIconType => isVertical ? 'expand_more' : chevronForward;
 
   ScoreboardComponent(
       @Attribute('enableUniformWidths') String enableUniformWidths,
       this._domService,
-      this._changeDetector) {
+      this._changeDetector,
+      @Optional() @Inject(rtlToken) bool isRtl) {
     _enableUniformWidths = enableUniformWidths != 'false'; // Defaults to true
+    if (isRtl ?? false) {
+      chevronBack = chevronRight;
+      chevronForward = chevronLeft;
+    }
   }
 
   @ContentChildren(ScorecardComponent)

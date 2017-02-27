@@ -56,9 +56,8 @@ class ZonedFuture<T> extends _ZoneRunner implements Future<T> {
   }
 
   @override
-  Future/*<S>*/ then/*<S>*/(onValue(T value), {Function onError}) {
-    return _runInZone(
-        () => _innerFuture.then/*<S>*/(onValue, onError: onError));
+  Future<S> then<S>(FutureOr<S> onValue(T value), {Function onError}) {
+    return _runInZone(() => _innerFuture.then<S>(onValue, onError: onError));
   }
 
   @override

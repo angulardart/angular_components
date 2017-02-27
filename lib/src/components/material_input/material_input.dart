@@ -55,6 +55,7 @@ const String materialInputErrorKey = 'material-input-error';
 ///
 /// - `type` -- The type of the input. Defaults to "text". Other supported
 ///   values are "email", "password", "url", "number", "tel", and "search".
+///   (Inputs of type "number" also use [materialNumberInputDirectives])
 /// - `multiple` -- Whether the user can enter multiple values, separated by
 ///   commas. This attribute only applies when type = "email", otherwise it is
 ///   ignored.
@@ -64,7 +65,7 @@ const String materialInputErrorKey = 'material-input-error';
 /// - `error` -- The error to be shown on the input. Has a higher precedent than
 ///   all other errors.
 /// - `errorMsg` -- The error msg to be shown on the input if the max characters
-///   are hit or the msg for an invalid number in the case of type = "number"
+///   are hit.
 /// - `multiline: bool` -- Whether or not the input supports multiple lines.
 /// - `label: String` -- The label to give the input. This is the default text
 ///   that shows up if nothing's entered into the text box.
@@ -225,7 +226,11 @@ class MaterialInputComponent extends BaseMaterialInput
 
   /// Whether the input contents should be always right aligned.
   /// Default value is `false`.
-  bool rightAlign = false;
+  bool _rightAlign = false;
+  bool get rightAlign => _rightAlign;
+  set rightAlign(value) {
+    _rightAlign = getBool(value);
+  }
 
   MaterialInputComponent(
       @Attribute('type') String type,

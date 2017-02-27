@@ -4,13 +4,12 @@
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
-
 import '../glyph/glyph.dart';
 import '../material_ripple/material_ripple.dart';
 import '../../model/ui/icon.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
+import 'package:angular2/angular2.dart';
 
 const Icon uncheckedIcon = const Icon('check_box_outline_blank');
 const Icon checkedIcon = const Icon('check_box');
@@ -45,7 +44,7 @@ const indeterminateAriaState = 'mixed';
 /// - `themeColor: String` -- Color of the checkbox and ripple when checked.
 ///    Example: '#FF00FF'. By default it is $mat-blue-500.
 ///    Note that the themeColor is applied to the checkbox even when the box is
-///    unchecked, which deviates form the standard material spec. Use mixin to
+///    unchecked, which deviates from the standard material spec. Use mixin to
 ///    set themeColor unless you want this behavior.
 ///
 /// __Attributes:__
@@ -84,7 +83,7 @@ const indeterminateAriaState = 'mixed';
       '(blur)': r'handleBlur($event)',
       '[class.disabled]': 'disabled',
       '[attr.aria-disabled]': 'disabled',
-      '[attr.role]': 'role != null ? role : "checkbox"',
+      '[attr.role]': 'role',
       '[attr.tabindex]': 'tabIndex',
       '[attr.aria-label]': 'label',
     },
@@ -104,9 +103,10 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
       this._changeDetector,
       @Self() @Optional() NgControl cd,
       @Attribute('tabindex') String hostTabIndex,
-      @Attribute('role') this.role)
+      @Attribute('role') String role)
       : _defaultTabIndex =
-            hostTabIndex?.isNotEmpty ?? false ? hostTabIndex : "0" {
+            hostTabIndex?.isNotEmpty ?? false ? hostTabIndex : '0',
+        this.role = role ?? 'checkbox' {
     // When NgControl is present on the host element, the component
     // participates in the Forms API.
     if (cd != null) {

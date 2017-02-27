@@ -33,6 +33,8 @@ export 'components/material_input/material_input.dart'
     hide materialInputErrorKey;
 export 'components/material_input/material_input_default_value_accessor.dart';
 export 'components/material_input/material_input_multiline.dart';
+export 'components/material_input/material_number_accessor.dart';
+export 'components/material_input/material_number_validators.dart';
 export 'components/material_list/material_list.dart';
 export 'components/material_list/material_list_item.dart';
 export 'components/material_list/material_list_size.dart';

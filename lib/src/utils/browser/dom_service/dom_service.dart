@@ -6,7 +6,6 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math' show max, min;
 
-
 import '../../angular/managed_zone/interface.dart';
 import '../../async/async.dart';
 import '../../disposer/disposable_callback.dart';
@@ -89,6 +88,12 @@ class DomService {
           _inDispatchTurnDoneEvent = true;
           _window.dispatchEvent(new Event(_TURN_DONE_EVENT_TYPE));
           _inDispatchTurnDoneEvent = false;
+          // If dom has been mutated by angular, mark [_writeQueueChangedLayout]
+          // to true. So that [_scheduleOnLayoutChanged] will be called normally
+          // when there is a request to change layout.
+          if (isDomMutatedPredicate != null && isDomMutatedPredicate()) {
+            _writeQueueChangedLayout = true;
+          }
           if (resetIsDomMutated != null) {
             resetIsDomMutated();
           }

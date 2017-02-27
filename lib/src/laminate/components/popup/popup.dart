@@ -28,10 +28,6 @@ export 'src/popup_source_directive.dart';
 ///
 /// Source components may implement the [Toggler] API in order to directly
 /// control the popup.
-PopupComponent_getResolvedPopupRef(c) => PopupComponent.getResolvedPopupRef(c);
-
-PopupComponent_getHierarchy(c) => c.hierarchy;
-
 @Component(
     selector: 'popup',
     host: const {
@@ -54,12 +50,16 @@ PopupComponent_getHierarchy(c) => c.hierarchy;
     outputs: const ['onOpen: open', 'onClose: close', 'onVisible: visible'],
     providers: const [
       const Provider(DeferredContentAware, useExisting: PopupComponent),
-      const Provider(PopupHierarchy,
-          useFactory: PopupComponent_getHierarchy,
-          deps: const [PopupComponent]),
-      const Provider(PopupRef,
-          useFactory: PopupComponent_getResolvedPopupRef,
-          deps: const [PopupComponent])
+      const Provider(
+        PopupHierarchy,
+        useFactory: getHierarchy,
+        deps: const [PopupComponent],
+      ),
+      const Provider(
+        PopupRef,
+        useFactory: getResolvedPopupRef,
+        deps: const [PopupComponent],
+      )
     ],
     directives: const [PopupRefDirective],
     template: r'''
@@ -73,6 +73,7 @@ class PopupComponent extends Object
   /// Returns the created [PopupRef] for [component].
   ///
   /// If the internal future is still pending, throws [StateError].
+  @Injectable()
   static PopupRef getResolvedPopupRef(PopupComponent component) {
     if (component.resolvedPopupRef == null) {
       bool tryInitView = true;
@@ -289,6 +290,34 @@ class PopupComponent extends Object
 
   @override
   Element get container => _popupService.getContainerElement(_resolvedPopupRef);
+}
+
+@Injectable()
+PopupHierarchy getHierarchy(PopupComponent c) => c.hierarchy;
+
+@Injectable()
+PopupRef getResolvedPopupRef(PopupComponent component) {
+  if (component.resolvedPopupRef == null) {
+    bool tryInitView = true;
+    assert(() {
+      if (tryInitView) return true;
+      // There should not be a case where a child popup is visible before.
+      // If a popup child component requires PopupRef injection, ensure it is
+      // wrapped by [DeferredContentDirective] or
+      // [CachingDeferredContentDirective].
+      throw new StateError('No popup reference resolved yet: '
+          'Ensure you are using deferredContent on popup child component');
+    });
+    component._initView();
+    assert(() {
+      if (component._resolvedPopupRef == null) {
+        // There should not be a case where a child popup is visible before
+        throw new StateError('No popup reference resolved yet.');
+      }
+      return true;
+    });
+  }
+  return component._resolvedPopupRef;
 }
 
 class _DeferredToggleable extends Toggleable {

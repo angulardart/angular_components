@@ -71,9 +71,10 @@ class DisposableFuture<T> implements Future<T>, Disposable {
   }
 
   @override
-  DisposableFuture/*<S>*/ then/*<S>*/(onValue(T value), {Function onError}) {
+  DisposableFuture<S> then<S>(FutureOr<S> onValue(T value),
+      {Function onError}) {
     return new DisposableFuture(
-        _delegateFuture.then/*<S>*/((v) {
+        _delegateFuture.then<S>((v) {
           if (!_wasDisposed) {
             return onValue(v);
           }

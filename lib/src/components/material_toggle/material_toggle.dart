@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular2/angular2.dart';
@@ -30,26 +31,28 @@ import '../../utils/browser/events/events.dart';
     styleUrls: const ['material_toggle.scss.css'],
     preserveWhitespace: false,
     templateUrl: 'material_toggle.html',
-    directives: const [NgClass, NgIf],
+    directives: const [NgIf],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialToggleComponent {
-  /// Enables/disables the toggle button.
-  /// `true` is disabled and `false` is enabled.
   @Input()
   set disabled(value) {
     _disabled = getBool(value);
   }
 
+  /// Enables/disables the toggle button.
+  ///
+  /// `true` is disabled and `false` is enabled.
   bool get disabled => _disabled;
   bool _disabled = false;
 
-  /// Current state of the toggle button.
-  /// `true` is ON and `false` is OFF.
   @Input()
   set checked(value) {
     _checked = getBool(value);
   }
 
+  /// Current state of the toggle button.
+  ///
+  /// `true` is ON and `false` is OFF.
   bool get checked => _checked;
   bool _checked = false;
 
@@ -71,56 +74,6 @@ class MaterialToggleComponent {
 
   String get ariaLabel => _ariaLabel ?? label;
   String _ariaLabel;
-
-  /// The theme color to be used for this toggle button.
-  ///
-  /// The default color is `teal`.
-  ///
-  /// Available values are `red`, `pink`, `purple`, `deep-purple`, `indigo`,
-  /// `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`,
-  /// `yellow`, `google-yellow`, `orange`, `deep-orange`, `brown`, `grey`,
-  /// `blue-grey`, `vanilla-red`, `vanilla-green`, `vanilla-blue`, `amber`.
-  static const _validColors = const <String>[
-    'red',
-    'pink',
-    'purple',
-    'deep-purple',
-    'indigo',
-    'blue',
-    'light-blue',
-    'cyan',
-    'teal',
-    'green',
-    'light-green',
-    'lime',
-    'yellow',
-    'google-yellow',
-    'orange',
-    'deep-orange',
-    'brown',
-    'grey',
-    'blue-grey',
-    'vanilla-red',
-    'vanilla-green',
-    'vanilla-blue',
-    'amber'
-  ];
-  String _color;
-
-  /// The theme color to be used for this toggle button. The default is `teal`.
-  @Deprecated('Consider using "material-toggle-theme" mixin instead')
-  @Input()
-  set color(value) {
-    assert(_validColors.contains(value));
-    _color = value;
-    _themeClass = 'theme-$color';
-  }
-
-  String get color => _color;
-
-  String _themeClass = '';
-
-  String get themeClass => _themeClass;
 
   /// Sets the depth of the shadow
   int shadow_z = 1;

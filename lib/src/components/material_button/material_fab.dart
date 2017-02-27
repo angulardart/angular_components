@@ -7,10 +7,6 @@ import 'package:angular2/angular2.dart';
 
 import 'material_button_base.dart';
 
-// TODO(google): Right now we use is-raised and isDisabled for CSS styling.
-// When Angular supports conditionally adding/removing an attribute, use.
-// See https://github.com/angular/angular/issues/2869.
-
 /// Material FAB is a Floating Action Button. It is round, and behaves mostly
 /// the same as a MaterialButton.
 ///
@@ -54,8 +50,8 @@ import 'material_button_base.dart';
 @Component(
     selector: 'material-fab',
     host: const {
-      '[class.is-disabled]': 'disabled',
-      '[class.is-raised]': 'raised',
+      '[attr.disabled]': r'disabled ? "" : null',
+      '[attr.raised]': r'raised ? "" : null',
       '[class.is-focused]': 'visualFocus',
       '(mousedown)': r'onMouseDown($event)',
       '(mouseup)': r'onMouseUp($event)',

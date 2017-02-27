@@ -5,8 +5,6 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
-
 import '../focus/focus.dart';
 import '../glyph/glyph.dart';
 import './material_radio_group.dart';
@@ -15,6 +13,7 @@ import '../../model/ui/icon.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
 import '../../utils/disposer/disposer.dart';
+import 'package:angular2/angular2.dart';
 
 const Icon uncheckedIcon = const Icon('radio_button_unchecked');
 const Icon checkedIcon = const Icon('radio_button_checked');
@@ -40,7 +39,7 @@ const Icon checkedIcon = const Icon('radio_button_checked');
       '(keyup)': r'handleKeyUp($event)',
       '(focus)': r'onFocus()',
       '(blur)': r'onBlur()',
-      '[attr.role]': 'role != null ? role : "radio"',
+      '[attr.role]': 'role',
       '[class.disabled]': 'disabled',
       '[attr.tabindex]': 'tabIndex',
       '[attr.aria-disabled]': 'disabled',
@@ -63,8 +62,9 @@ class MaterialRadioComponent extends RootFocusable
       this._changeDetector,
       @Host() @Optional() this._group,
       @Self() @Optional() NgControl cd,
-      @Attribute('role') this.role)
+      @Attribute('role') String role)
       : this._root = element,
+        this.role = role ?? 'radio',
         super(element) {
     // participates in the Forms API.
     if (cd != null) {

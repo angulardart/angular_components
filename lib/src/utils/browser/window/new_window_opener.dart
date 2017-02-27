@@ -4,6 +4,14 @@
 
 import 'dart:html';
 
+import 'package:angular2/angular2.dart';
+
+/// Utility class to allow opening a URL in a new window.
+@Injectable()
+class NewWindowOpener {
+  void open(String url) => openInNewWindow(url);
+}
+
 /// Opens the given url in a new window.
 ///
 /// Gives a hint to Chrome that it should open the given link in a separate

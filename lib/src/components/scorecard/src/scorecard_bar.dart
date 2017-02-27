@@ -5,6 +5,7 @@
 import 'dart:async';
 import 'dart:html';
 
+import '../../annotations/rtl_annotation.dart';
 import '../../../utils/browser/dom_service/angular_2.dart';
 import '../../../utils/disposer/disposer.dart';
 import 'package:angular2/angular2.dart';
@@ -41,12 +42,14 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
   int _transform = 0;
   int _buttonSize = 0;
 
-  ScorecardBarDirective(this._domService, ElementRef elementRef)
-      : _element = elementRef.nativeElement;
+  ScorecardBarDirective(this._domService, ElementRef elementRef,
+      @Optional() @Inject(rtlToken) bool isRtl)
+      : _element = elementRef.nativeElement {
+    _isRtl = isRtl ?? false;
+  }
 
   @override
   void ngOnInit() {
-    _isRtl = _element.getComputedStyle().direction == 'rtl';
     _disposer.addDisposable(_domService.scheduleRead(_readElement));
     _disposer.addDisposable(
         _domService.trackLayoutChange(() => currentClientSize, (_) {
@@ -63,10 +66,6 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
   /// This includes after user has clicked on left or right buttons, and when
   /// the window has been resized.
   Stream<bool> get refreshStream => _refreshController.stream;
-
-  /// Whether the direction is right-to-left.
-  // TODO(google):  Add support for ltr animated scrolling.
-  bool get isRtl => _isRtl;
 
   /// Whether the scrollbar is aligned vertically.
   @Input()
@@ -119,7 +118,11 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
       if (_transform.abs() - newValue < 0) {
         newValue = _transform.abs();
       }
-      _transform += newValue;
+      if (_isVertical || !_isRtl) {
+        _transform += newValue;
+      } else {
+        _transform -= newValue;
+      }
       _updateTransform();
     }));
   }
@@ -137,7 +140,11 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
       if (_scrollSize + _transform < newValue + _clientSize) {
         newValue = _scrollSize + _transform - _clientSize;
       }
-      _transform -= newValue;
+      if (_isVertical || !_isRtl) {
+        _transform -= newValue;
+      } else {
+        _transform += newValue;
+      }
       _updateTransform();
     }));
   }

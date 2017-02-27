@@ -43,7 +43,6 @@
                   attr.aria-invalid="{{invalid}}"
                   [attr.aria-label]="ariaLabel"
                   [disabled]="disabled"
-                  [required]="required"
                   [ngModel]="inputText"
                   (blur)="inputBlurAction($event, textareaEl.validity.valid, textareaEl.validationMessage)"
                   (change)="inputChange(textareaEl.value, textareaEl.validity.valid, textareaEl.validationMessage);$event.stopPropagation()"

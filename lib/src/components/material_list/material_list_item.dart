@@ -4,8 +4,6 @@
 
 import 'dart:html' as dom;
 
-import 'package:angular2/angular2.dart';
-
 import '../button_decorator/button_decorator.dart';
 import '../mixins/has_tab_index.dart';
 import '../mixins/material_dropdown_base.dart';
@@ -13,6 +11,7 @@ import '../../model/a11y/active_item_mixin.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
+import 'package:angular2/angular2.dart';
 
 /// Material List Item is a block element intended for user interaction; it has
 /// `:hover` styling and emits and `trigger` event when the user clicks or
@@ -59,9 +58,9 @@ import '../../utils/disposer/disposer.dart';
       '(keypress)': r'handleKeyPress($event)',
       '[attr.aria-disabled]': 'disabledStr',
       '[attr.tabindex]': 'tabIndex',
+      '[attr.role]': 'role',
       '(mouseenter)': 'onMouseEnter()',
       '(mouseleave)': 'onMouseLeave()',
-      '[attr.role]': 'role != null ? role : "button"'
     },
     styleUrls: const ['material_list_item.scss.css'],
     template: '<ng-content></ng-content>',
@@ -89,8 +88,9 @@ class MaterialListItemComponent extends ButtonDirective
       this.domService,
       @Optional() this._dropdown,
       @Attribute('tabindex') this._hostTabIndex,
-      @Attribute('role') this.role)
-      : super(elementRef) {
+      @Attribute('role') String role)
+      : this.role = role ?? 'button',
+        super(elementRef) {
     if (_dropdown != null) {
       _disposer.addDisposable(trigger.listen(handleActivate));
     }

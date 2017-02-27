@@ -141,7 +141,27 @@ abstract class RulerBase<E> implements Ruler<E> {
         onCancel: () {
           subscription.cancel();
         });
-    return controller.stream.distinct();
+    return controller.stream.distinct((Rectangle previous, Rectangle next) {
+      if (previous == null || next == null) return identical(previous, next);
+
+      // We consider rectangles equal if their coordinates are within a
+      // small epsilon of each other.
+      // Under the right conditions, Chrome will return slightly different
+      // rectangles even though nothing has changed likely due to floating
+      // precision limitations combined with varying orders values are
+      // calculated by the browser.
+      // A delta of 0.01 pixels should never be user visible and is
+      // large enough to be safely outside the range of floating point
+      // errors for plausibly sized UIs. We could likely get away with 0.001
+      // pixels and still avoid round errors for plausible sized UIs. A more
+      // sophisticated approach would be to adjust the epsilon based on the
+      // magnitude of the inputs but that is overkill for this use case.
+      bool withinEpsilon(num a, num b) => (a - b).abs() < 0.01;
+      return withinEpsilon(previous.top, next.top) &&
+          withinEpsilon(previous.left, next.left) &&
+          withinEpsilon(previous.width, next.width) &&
+          withinEpsilon(previous.height, next.height);
+    });
   }
 
   @override
