@@ -4,8 +4,6 @@ This code is considered production quality, but depends on angular2: 3.0.0-alpha
 The alpha tag represents the evolving nature of the AngularDart api, not
 code quality (3.0.0-alpha is used in production Google apps).
 
-Component update rollup.
-
 ### Breaking Changes
  * Update for generic syntax and `FutureOr` type introduced in Dart SDK 1.22.0.
  * Material Toggle: Remove the deprecated `color` theme input.
