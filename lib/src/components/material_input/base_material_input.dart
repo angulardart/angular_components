@@ -134,7 +134,11 @@ class BaseMaterialInput extends FocusableMixin
   }
 
   /// Display error message and character counter below the input.
-  bool displayBottomPanel = true;
+  bool _displayBottomPanel = true;
+  bool get displayBottomPanel => _displayBottomPanel;
+  set displayBottomPanel(value) {
+    _displayBottomPanel = getBool(value);
+  }
 
   /// Custom character counter function to be used.
   CharacterCounter characterCounter;

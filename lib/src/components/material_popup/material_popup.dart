@@ -108,12 +108,14 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
       const Provider(PopupComponent, useExisting: MaterialPopupComponent),
       const Provider(DropdownHandle, useExisting: MaterialPopupComponent),
       const Provider(DeferredContentAware, useExisting: PopupComponent),
-      const Provider(PopupHierarchy,
-          useFactory: MaterialPopupComponent_getHierarchy,
-          deps: const [PopupComponent]),
-      const Provider(PopupRef,
-          useFactory: MaterialPopupComponent_getResolvedPopupRef,
-          deps: const [PopupComponent])
+      const Provider(
+        PopupHierarchy,
+        useFactory: getHierarchy,
+      ),
+      const Provider(
+        PopupRef,
+        useFactory: getResolvedPopupRef,
+      )
     ],
     directives: const [PopupRefDirective, NgClass],
     templateUrl: 'material_popup.html',
@@ -223,7 +225,8 @@ class MaterialPopupComponent extends PopupComponent
 
   /// Whether the popup panel has an enclosing box that wraps the content.
   ///
-  /// This gives the panel a shadow and background color.
+  /// This gives the panel a shadow and background color. When it's off, no
+  /// animation delayed is applied.
   bool _hasBox = true;
   @Input()
   set hasBox(value) {
@@ -319,7 +322,11 @@ class MaterialPopupComponent extends PopupComponent
     // If visibility has been flipped on, animate the popup opening.
     _popupReportsVisible = newVisibility;
     if (newVisibility) {
-      _animatePopupOpen();
+      if (hasBox) {
+        _animatePopupOpen();
+      } else {
+        _noAnimationPopupOpen();
+      }
     } else {
       // Once the popup is closed we want to reset the content width/height.
       // Otherwise when we try to re-open the popup the dimensions won't be
@@ -341,6 +348,12 @@ class MaterialPopupComponent extends PopupComponent
         onOpened.add(null);
       });
     });
+  }
+
+  void _noAnimationPopupOpen() {
+    showPopup = true;
+    _resetContentSize();
+    onOpened.add(null);
   }
 
   void _nextFrame(void fn()) {
@@ -379,12 +392,15 @@ class MaterialPopupComponent extends PopupComponent
     // Forward the event to any listeners.
     super.onPopupClosed(popupEvent);
 
-    // Wait for all listeners to have a chance to either defer or cancel this
-    // event - this is sort of a loose "almost completed". If the event was
-    // cancelled, then this will never complete -
-    // which is good - we don't want to close the popup anymore.
-    popupEvent.defer(popupEvent.onDefer.then(((_) => _afterAnimationDelay())));
-    await popupEvent.onDefer;
+    if (hasBox) {
+      // Wait for all listeners to have a chance to either defer or cancel this
+      // event - this is sort of a loose "almost completed". If the event was
+      // cancelled, then this will never complete -
+      // which is good - we don't want to close the popup anymore.
+      popupEvent
+          .defer(popupEvent.onDefer.then(((_) => _afterAnimationDelay())));
+      await popupEvent.onDefer;
+    }
 
     // Start closing the popup if we were not cancelled.
     //
@@ -414,8 +430,3 @@ class MaterialPopupComponent extends PopupComponent
   @Input()
   String shadowCssClass;
 }
-
-MaterialPopupComponent_getResolvedPopupRef(c) =>
-    PopupComponent.getResolvedPopupRef(c);
-
-MaterialPopupComponent_getHierarchy(c) => c.hierarchy;

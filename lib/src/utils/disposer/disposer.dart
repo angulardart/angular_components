@@ -2,14 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.utils.disposer.disposer;
-
 import 'dart:async';
 
-import 'package:logging/logging.dart';
-import 'package:stack_trace/stack_trace.dart';
-
-final Logger _logger = new Logger('angular2_components.utils.disposer');
 const String _oneShotDisposerMemoryLeakWarning =
     'Possible memory leak detected: A disposable should not be added to '
     'one shot disposers after the dispose() method has been called.';
@@ -153,12 +147,14 @@ class Disposer implements Disposable {
     return disposable;
   }
 
+  // In dev-mode, throws if a oneShot disposer was already disposed.
   void _checkIfAlreadyDisposed() {
-    if (_oneShot && _disposeCalled) {
-      _logger.severe(_oneShotDisposerMemoryLeakWarning, null /* error */,
-          new Trace.current());
-      assert(false); // For easy testing.
-    }
+    assert(() {
+      if (_oneShot && _disposeCalled) {
+        throw new UnsupportedError(_oneShotDisposerMemoryLeakWarning);
+      }
+      return true;
+    });
   }
 
   @override

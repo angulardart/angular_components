@@ -1,3 +1,38 @@
+## 0.4.0-alpha
+
+This code is considered production quality, but depends on angular2: 3.0.0-alpha.
+The alpha tag represents the evolving nature of the AngularDart api, not
+code quality (3.0.0-alpha is used in production Google apps).
+
+### Breaking Changes
+ * Update for generic syntax and `FutureOr` type introduced in Dart SDK 1.22.0.
+ * Material Toggle: Remove the deprecated `color` theme input.
+ * Material Button, Fab, Yes/No:
+   * Remove is-disabled and is-raised HTML classes used for styling.
+     Custom styles should now use `[disabled]` and `[raised]` instead of `.is-disabled` and
+     `.is-raised` when targeting buttons.
+   * Remove z-index of 0.
+
+### Other Changes
+ * Focus: Fix AX_ARIA_08 a11y issue.
+ * Material Chips: Use :host to remove need for wrapper div.
+ * Material Expansionpanel: Fix panel overflow issues.
+ * Material Input:
+   * Add new number accessors and validators.
+   * Fix AX_TEXT_01 a11y issue.
+ * Material List: Block pointer events for disabled list items.
+ * Material Popup: Disable animation delay when there is nothing to animate.
+ * Material Radio: Fix styling issue, flex for IE11.
+ * Material Tab Panel: Fix issue that prevents displaying tabs on initialization.
+ * Scorecard:
+   * Add support for RTL languages in scrollable scoreboards.
+   * Add support for themes.
+ * Compute the ARIA roles only once per instance.
+ * Fix dom update issues.
+ * Add proper types to injected providers.
+ * Add missing imports and remove unsupported Angular imports.
+ * Strong mode fixes.
+
 ## 0.3.1-alpha
 
 This code is considered production quality, but depends on angular2: 3.0.0-alpha.

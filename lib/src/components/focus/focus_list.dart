@@ -31,25 +31,26 @@ import '../../utils/disposer/disposer.dart';
 ///       <div focusItem>Item 3</div>
 ///     </div>
 ///
-@Directive(selector: '[focusList]', host: const {'role': 'list'})
+@Directive(selector: '[focusList]', host: const {'[attr.role]': 'role'})
 class FocusListDirective implements OnDestroy {
   final ManagedZone _managedZone;
-  final List<FocusableItem> _children = <FocusableItem>[];
+  final String role;
+  final _disposer = new Disposer.multi();
+  final _children = <FocusableItem>[];
   int get _length => _children.length;
-  Disposer _disposer = new Disposer.multi();
 
-  FocusListDirective(this._managedZone);
+  FocusListDirective(this._managedZone, @Attribute('role') String role)
+      : this.role = role ?? 'list';
 
   bool _loop = false;
 
   /// Whether focus movement loops from the end of the list to the beginning of
   /// the list. Default is `false`.
+  bool get loop => _loop;
   @Input()
   set loop(val) {
     _loop = getBool(val);
   }
-
-  bool get loop => _loop;
 
   @ContentChildren(FocusableItem)
   set listItems(QueryList<FocusableItem> listItems) {

@@ -4,8 +4,6 @@
 
 library angular2_components.laminate.popup.src.popup_size_provider;
 
-import 'package:angular2/angular2.dart';
-
 /// A handler that provides max width and max height of a popup based on its
 /// position and the current viewport size.
 abstract class PopupSizeProvider {

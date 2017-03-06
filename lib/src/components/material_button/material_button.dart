@@ -9,10 +9,6 @@ import 'package:angular2/angular2.dart';
 
 import 'material_button_base.dart';
 
-// TODO(google): Right now we use is-raised and isDisabled for CSS styling.
-// When Angular supports conditionally adding/removing an attribute, use.
-// See https://github.com/angular/angular/issues/2869.
-
 /// Material button is a button.
 ///
 /// When the user touches the button, a ripple effect emanates from the point of
@@ -61,6 +57,12 @@ import 'material_button_base.dart';
 /// __Attributes:__
 ///
 ///   Button
+/// - `disabled` -- Linked to the disabled property. If present, sets the
+///    disabled property to true. If the disabled property is true, this
+///    attribute will be present.
+/// - `raised` -- Linked to the raised property. If present, sets the raised
+///    property to true. If the raised property is true, this attribute will be
+///    present.
 /// - `icon` -- If present, removes the minimum width style of the button.
 /// - `no-ink` -- If present, removes the ripple effect from the button.
 /// - `clear-size` -- If present, removes both the min-width and margin from
@@ -70,8 +72,8 @@ import 'material_button_base.dart';
 @Component(
     selector: 'material-button',
     host: const {
-      '[class.is-disabled]': 'disabled',
-      '[class.is-raised]': 'raised',
+      '[attr.disabled]': r'disabled ? "" : null',
+      '[attr.raised]': r'raised ? "" : null',
       '[class.is-focused]': 'visualFocus',
       '(mousedown)': r'onMouseDown($event)',
       '(mouseup)': r'onMouseUp($event)',

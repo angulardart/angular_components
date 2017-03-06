@@ -24,14 +24,19 @@ import '../../utils/async/async.dart';
 ///
 @Directive(selector: '[focusItem]', host: const {
   '[attr.tabindex]': 'tabIndex',
-  '(keydown)': r'keydown($event)'
+  '[attr.role]': 'role',
+  '(keydown)': r'keydown($event)',
 }, providers: const [
   const Provider(FocusableItem, useExisting: FocusItemDirective)
 ])
 class FocusItemDirective extends RootFocusable implements FocusableItem {
-  FocusItemDirective(ElementRef element) : super(element);
+  final String role;
 
-  String tabIndex = "0";
+  FocusItemDirective(ElementRef element, @Attribute('role') String role)
+      : this.role = role ?? 'listitem',
+        super(element);
+
+  String tabIndex = '0';
 
   final _focusMoveCtrl =
       new LazyStreamController<FocusMoveEvent>.broadcast(sync: true);
@@ -47,6 +52,6 @@ class FocusItemDirective extends RootFocusable implements FocusableItem {
 
   @override
   set tabbable(bool value) {
-    tabIndex = value ? "0" : "-1";
+    tabIndex = value ? '0' : '-1';
   }
 }

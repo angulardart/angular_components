@@ -19,8 +19,8 @@
       {{leadingText}}
     </span>
 
-    <div class="input-container"
-         [class.floated-label]="floatingLabel">
+    <label class="input-container"
+           [class.floated-label]="floatingLabel">
       <div class="label"
            aria-hidden="true"
            [class.right-align]="rightAlign">
@@ -45,13 +45,12 @@
              attr.aria-invalid="{{invalid}}"
              [attr.aria-label]="ariaLabel"
              [disabled]="disabled"
-             [required]="required"
              [ngModel]="inputText"
              (blur)="inputBlurAction($event, inputEl.validity.valid, inputEl.validationMessage)"
              (change)="inputChange(inputEl.value, inputEl.validity.valid, inputEl.validationMessage);$event.stopPropagation()"
              (focus)="inputFocusAction($event)"
              (input)="inputKeypress(inputEl.value, inputEl.validity.valid, inputEl.validationMessage)">
-    </div>
+    </label>
     <span *ngIf="hasTrailingText"
           class="trailing-text"
           [class.floated-label]="floatingLabel">

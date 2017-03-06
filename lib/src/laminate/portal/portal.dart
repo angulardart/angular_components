@@ -8,7 +8,6 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular2/angular2.dart';
-import 'package:angular2/src/core/linker/view_ref.dart';
 
 import '../../utils/angular/imperative_view/imperative_view.dart';
 import '../../utils/disposer/disposer.dart';
@@ -173,9 +172,8 @@ abstract class BasePortalHost implements PortalHost {
 
   Future<Map<String, dynamic>> attachTemplatePortal(TemplatePortal portal);
 
-  static Map<String, dynamic> createLocalsMap(ViewRef viewRef) {
-    return (viewRef as ViewRefImpl).appView.locals;
-  }
+  @Deprecated('No longer supported')
+  static Map<String, dynamic> createLocalsMap(ViewRef viewRef) => {};
 
   @override
   Future detach() {

@@ -4,7 +4,6 @@
 
 import 'package:angular2/angular2.dart';
 
-import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/async/async.dart';
 
 import 'fixed_material_tab_strip.dart';
@@ -22,7 +21,7 @@ import 'tab_change_event.dart';
 ///         <my-tab-panel-component *deferredContent>
 ///           <!-- your tab content -->
 ///         </my-tab-panel>
-///       </my-panel>
+///       </material-tab>
 ///     </material-tab-panel>
 // TODO(google): Support Scrolling tab strip in addition to fixed with an
 // attribute.
@@ -34,7 +33,7 @@ import 'tab_change_event.dart';
     templateUrl: 'material_tab_panel.html',
     styleUrls: const ['material_tab_panel.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
-class MaterialTabPanelComponent implements AfterContentInit {
+class MaterialTabPanelComponent {
   final ChangeDetectorRef _changeDetector;
 
   /// Stream of [TabChangeEvent] instances, published before the tab has
@@ -48,8 +47,6 @@ class MaterialTabPanelComponent implements AfterContentInit {
   /// Stream of [TabChangeEvent] instances, published when the tab has changed.
   @Output()
   final tabChange = new LazyEventEmitter<TabChangeEvent>();
-
-  final ManagedZone _managedZone;
 
   /// Whether to center-align the tab buttons.
   ///
@@ -74,10 +71,17 @@ class MaterialTabPanelComponent implements AfterContentInit {
   int _activeTabIndex = 0;
   int get activeTabIndex => _activeTabIndex;
 
-  MaterialTabPanelComponent(this._managedZone, this._changeDetector);
+  MaterialTabPanelComponent(this._changeDetector);
 
   @ContentChildren(Tab)
-  QueryList<Tab> tabQuery;
+  set tabs(QueryList<Tab> tabQuery) {
+    _tabs = new List.from(tabQuery);
+    _tabLabels = _tabs.map((t) => t.label).toList();
+    _tabIds = _tabs.map((t) => t.tabId).toList();
+
+    _setActiveTab(_activeTabIndex, false);
+  }
+
   List<Tab> _tabs;
   Tab get _activeTab => _tabs[_activeTabIndex];
 
@@ -87,17 +91,6 @@ class MaterialTabPanelComponent implements AfterContentInit {
   List<String> _tabIds;
   List<String> get tabIds => _tabIds;
 
-  @override
-  void ngAfterContentInit() {
-    _managedZone.onTurnDone.first.then((_) {
-      _tabs = new List.from(tabQuery);
-      _tabLabels = _tabs.map((t) => t.label).toList();
-      _tabIds = _tabs.map((t) => t.tabId).toList();
-
-      _setActiveTab(_activeTabIndex, false);
-    });
-  }
-
   void _setActiveTab(int i, bool focusTab) {
     assert(i >= 0 && i < _tabs.length);
     _activeTab?.deactivate();
@@ -106,12 +99,7 @@ class MaterialTabPanelComponent implements AfterContentInit {
     _changeDetector.markForCheck();
 
     if (!focusTab) return;
-
-    /// Focus at the end of the turn, as the tab panel element is not
-    /// immediately available in the DOM to focus.
-    _managedZone.onTurnDone.first.then((_) {
-      _activeTab.focus();
-    });
+    _activeTab.focus();
   }
 
   /// Fires beforeTabChange event.

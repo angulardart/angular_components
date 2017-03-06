@@ -76,6 +76,7 @@ import 'package:angular2/angular2.dart';
     directives: const [MaterialRippleComponent, NgIf, GlyphComponent],
     templateUrl: 'scorecard.html',
     host: const {
+      'class': 'themeable',
       '[attr.tabindex]': 'selectable ? 0 : null',
       '[attr.role]': 'selectable ? "button" : null',
       '(keyup)':
