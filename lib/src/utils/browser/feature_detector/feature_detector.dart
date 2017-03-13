@@ -28,3 +28,9 @@ bool isHammerLoaded() => js.context.hasProperty('Hammer');
 final bool supportsAnimationApi =
     js_util.hasProperty(new DivElement(), 'animate') &&
         !js.context.hasProperty('__acxDisableWebAnimationsApi');
+
+/// Whether the current web browser is Firefox.
+final bool isFirefox = window.navigator.userAgent.contains('Firefox/');
+
+/// Whether the current web browser is MS Edge.
+final bool isEdge = window.navigator.userAgent.contains('Edge/');

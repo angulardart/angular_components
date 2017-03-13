@@ -28,6 +28,8 @@ const List<Type> materialNumberInputDirectives = const [
   UpperBoundValidator
 ];
 
+const checkIntegerErrorId = 'check-integer';
+
 /// [ControlValueAccessor] which will coerce an input into a [num].
 ///
 /// Accessor always sets the raw [String] value that is set from the input, but
@@ -42,15 +44,32 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
   final Stream _updateStream;
   final bool _checkInteger;
 
-  MaterialNumberValueAccessor(
+  factory MaterialNumberValueAccessor(
       BaseMaterialInput input,
       @Self() NgControl control,
-      @Attribute('keypressUpdate') String keypressUpdate,
-      @Attribute('checkInteger') String integer)
-      : _updateStream =
-            getBool(keypressUpdate ?? false) ? input.onKeypress : input.onBlur,
-        _checkInteger = getBool(integer ?? false),
-        super(input, control);
+      @Attribute('changeUpdate') String changeUpdateAttr,
+      @Attribute('keypressUpdate') String keypressUpdateAttr,
+      @Attribute('checkInteger') String integer) {
+    var updateStream;
+    final changeUpdate = getBool(changeUpdateAttr ?? false);
+    final keypressUpdate = getBool(keypressUpdateAttr ?? false);
+    assert(!(changeUpdate && keypressUpdate),
+        'Cannot update both on keypress and change.');
+    if (changeUpdate) {
+      updateStream = input.onChange;
+    } else if (keypressUpdate) {
+      updateStream = input.onKeypress;
+    } else {
+      updateStream = input.onBlur;
+    }
+    final checkInteger = getBool(integer ?? false);
+    return new MaterialNumberValueAccessor._(
+        updateStream, checkInteger, input, control);
+  }
+
+  MaterialNumberValueAccessor._(this._updateStream, this._checkInteger,
+      BaseMaterialInput input, NgControl control)
+      : super(input, control);
 
   @override
   void writeValue(newValue) {
@@ -101,7 +120,7 @@ class MaterialNumberValidator implements Validator {
     // If the control doesn't have a value, but had a value from the input then
     // it is considered an error. Producing error here as accessors can't easily
     // add errors themselves, but validators can.
-    if (control.value == null && !isEmpty((control as Control).rawValue)) {
+    if (control.value == null && !isBlank((control as Control).rawValue)) {
       return {'material-input-number-error': inputIsNotNumberMsg()};
     }
     return null;
@@ -127,8 +146,8 @@ class CheckIntegerValidator implements Validator {
     assert(abstractControl is Control, 'Can only be used with a Control');
     final control = abstractControl as Control;
     // Handled by accessor validator or value set by forms system
-    if (control.value == null && !isEmpty(control.rawValue)) {
-      return {'check-integer': numberIsNotIntegerMsg()};
+    if (control.value == null && !isBlank(control.rawValue)) {
+      return {checkIntegerErrorId: numberIsNotIntegerMsg()};
     }
     return null;
   }

@@ -12,6 +12,8 @@ class Denomination {
   static const Thousands = const Denomination._(1000, 'k', 1000);
   static const Millions = const Denomination._(1000000, 'M', 1000000);
   static const Billions = const Denomination._(1000000000, 'B', 1000000000);
+  static const Trillions =
+      const Denomination._(1000000000000, 'T', 1000000000000);
 
   /// The minimum value to gain the attached suffix
   final num minValue;
@@ -31,6 +33,8 @@ class Denomination {
       return Millions;
     } else if (Billions.suffix == suffix) {
       return Billions;
+    } else if (Trillions.suffix == suffix) {
+      return Trillions;
     } else {
       return null;
     }
@@ -47,8 +51,10 @@ class Denomination {
       return Thousands;
     } else if (value < Billions.minValue || max == Millions) {
       return Millions;
-    } else {
+    } else if (value < Trillions.minValue || max == Billions) {
       return Billions;
+    } else {
+      return Trillions;
     }
   }
 
