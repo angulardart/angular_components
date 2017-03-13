@@ -7,7 +7,6 @@ library angular2_components.utils.browser.dom_service.angular_2;
 import 'dart:html';
 
 import 'package:angular2/angular2.dart';
-import 'package:angular2/src/core/di.dart' show Injector, Injectable;
 import 'package:angular2/src/core/linker/app_view.dart'
     show domRootRendererIsDirty;
 import '../../angular/managed_zone/interface.dart';

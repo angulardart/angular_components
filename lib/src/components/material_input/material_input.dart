@@ -122,6 +122,7 @@ const String materialInputErrorKey = 'material-input-error';
       'error',
       'errorMsg',
       'label',
+      'errorRenderer',
       'floatingLabel',
       'hintText',
       'showHintOnlyOnFocus',

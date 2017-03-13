@@ -2,9 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
+
 import 'package:angular2/angular2.dart';
 
 import '../../model/ui/icon.dart';
+
+/// Icons that should be horizontally flipped when the direction is RTL.
+///
+/// Please add to this list as needed.
+const List<String> _flippedIcons = const [
+  'chevron_left',
+  'chevron_right',
+  'navigate_before',
+  'navigate_next',
+];
 
 /// A component that creates a material style icon. Currently only font icons
 /// are supported and
@@ -21,11 +33,18 @@ import '../../model/ui/icon.dart';
 /// <link rel="stylesheet" type="text/css"
 ///     href="https://fonts.googleapis.com/icon?family=Material+Icons">
 /// ```
+///
+/// Make sure to take RTL into account. Specifically, use the [flip] attribute
+/// if the icon should be flipped for RTL UIs. Read [these
+/// guidelines](https://material.io/guidelines/usability/bidirectionality.html#bidirectionality-rtl-mirroring-guidelines)
+/// for advice on when and when not to flip the icon.
+///
 /// __Attributes:__
 ///
 /// - `size: string {x-small, small, medium, large, x-large}` -- Sizes names for
 ///   the icon, corresponding to 12px, 13px, 16px, 18px, and 20px, respectively.
 ///   If no size is specified, the default of 24px is used.
+/// - `flip` -- Whether the icon should be flipped for RTL languages.
 @Component(
     selector: 'glyph',
     templateUrl: 'glyph.html',
@@ -39,7 +58,15 @@ class GlyphComponent {
   /// [https://www.google.com/design/icons/](https://goo.gl/YKrYlu) for
   /// available icons.
   @Input()
-  var icon;
+  set icon(dynamic value) {
+    _icon = value;
+    if (_flippedIcons.contains(iconName)) {
+      _element.setAttribute('flip', '');
+    }
+  }
+
+  dynamic get icon => _icon;
+  var _icon;
 
   bool get _isIconModel => icon is Icon;
 
@@ -62,6 +89,10 @@ class GlyphComponent {
   bool _useMaterialIconsExtended = true;
 
   bool get useMaterialIconsExtended => _useMaterialIconsExtended;
+
+  final HtmlElement _element;
+
+  GlyphComponent(ElementRef elementRef) : _element = elementRef.nativeElement;
 }
 
 /// Size names which can be used on the glyph icon.

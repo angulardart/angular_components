@@ -185,6 +185,20 @@ class MaterialSaveCancelButtonsDirective {
       meaning: 'Text on cancel button.');
 }
 
+@Directive(selector: 'material-yes-no-buttons[submitCancel]')
+class MaterialSubmitCancelButtonsDirective
+    extends MaterialSaveCancelButtonsDirective {
+  MaterialSubmitCancelButtonsDirective(MaterialYesNoButtonsComponent yesNo)
+      : super(yesNo) {
+    yesNo.yesText = _msgSubmit;
+  }
+
+  static String get _msgSubmit => Intl.message('Submit',
+      name: '_msgSubmit',
+      desc: 'Text on submit button.',
+      meaning: 'Text on submit button.');
+}
+
 /// Base implementation of directive to listen to keyup events.
 ///
 /// By default it listens only on the element itself, but if an ancestor has the

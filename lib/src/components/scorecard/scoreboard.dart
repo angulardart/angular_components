@@ -245,9 +245,12 @@ class ScoreboardComponent implements OnInit, OnDestroy {
       }
       _disposer.addDisposable(_domService.scheduleRead(() {
         for (var element in scorecardsElem) {
-          var elemWidth = element.getComputedStyle().width;
+          var elemWidth = element
+              .getComputedStyle()
+              .width
+              .replaceAll(new RegExp('[^0-9.]'), '');
           var elemWidthValue =
-              double.parse(elemWidth.replaceAll(new RegExp('[^0-9.]'), ''));
+              elemWidth.isEmpty ? 0.0 : double.parse(elemWidth);
           if (elemWidthValue > width) width = elemWidthValue;
         }
         // Add 1 pixel to handle approximation errors when resetting widths.

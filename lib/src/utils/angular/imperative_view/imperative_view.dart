@@ -8,7 +8,6 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular2/angular2.dart';
-import 'package:angular2/src/core/linker/view_ref.dart';
 
 import '../../browser/dom_service/dom_service.dart';
 import '../../disposer/disposer.dart';

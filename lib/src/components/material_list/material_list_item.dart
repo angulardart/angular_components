@@ -5,7 +5,6 @@
 import 'dart:html' as dom;
 
 import '../button_decorator/button_decorator.dart';
-import '../mixins/has_tab_index.dart';
 import '../mixins/material_dropdown_base.dart';
 import '../../model/a11y/active_item_mixin.dart';
 import '../../utils/angular/properties/properties.dart';
@@ -66,7 +65,7 @@ import 'package:angular2/angular2.dart';
     template: '<ng-content></ng-content>',
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialListItemComponent extends ButtonDirective
-    with HasTabIndex, ActiveItemMixin
+    with ActiveItemMixin
     implements OnDestroy {
   final _disposer = new Disposer.oneShot();
   final DropdownHandle _dropdown;

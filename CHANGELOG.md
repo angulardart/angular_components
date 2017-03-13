@@ -1,8 +1,8 @@
 ## 0.4.0-alpha
 
-This code is considered production quality, but depends on angular2: 3.0.0-alpha.
+This code is considered production quality, but depends on angular2: 3.0.0-alpha+1.
 The alpha tag represents the evolving nature of the AngularDart api, not
-code quality (3.0.0-alpha is used in production Google apps).
+code quality (3.0.0-alpha+1 is used in production Google apps).
 
 ### Breaking Changes
  * Update for generic syntax and `FutureOr` type introduced in Dart SDK 1.22.0.
@@ -15,18 +15,24 @@ code quality (3.0.0-alpha is used in production Google apps).
 
 ### Other Changes
  * Focus: Fix AX_ARIA_08 a11y issue.
+ * Glyph: Option to horizontally flip glyphs when the direction is RTL.
  * Material Chips: Use :host to remove need for wrapper div.
  * Material Expansionpanel: Fix panel overflow issues.
  * Material Input:
    * Add new number accessors and validators.
+   * Add ability to override/specify error messages.
    * Fix AX_TEXT_01 a11y issue.
- * Material List: Block pointer events for disabled list items.
+ * Material List: 
+   * Block pointer events for disabled list items.
+   * Remove duplicate mixin.
  * Material Popup: Disable animation delay when there is nothing to animate.
  * Material Radio: Fix styling issue, flex for IE11.
  * Material Tab Panel: Fix issue that prevents displaying tabs on initialization.
+ * Material Yes/No Buttons: Add submit/cancel buttons.
  * Scorecard:
    * Add support for RTL languages in scrollable scoreboards.
    * Add support for themes.
+   * Prevent exceptions during width calculations when scorecard width is `auto`.
  * Compute the ARIA roles only once per instance.
  * Fix dom update issues.
  * Add proper types to injected providers.

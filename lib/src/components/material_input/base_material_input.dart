@@ -21,6 +21,7 @@ const String materialInputErrorKey = 'material-input-error';
 
 typedef String ValidityCheck(String inputText);
 typedef int CharacterCounter(String inputText);
+typedef Map<String, dynamic> ErrorFn(Map<String, dynamic> errors);
 
 /// Represents which label should be shown in the BottomPanel
 enum BottomPanelState {
@@ -139,6 +140,13 @@ class BaseMaterialInput extends FocusableMixin
   set displayBottomPanel(value) {
     _displayBottomPanel = getBool(value);
   }
+
+  /// A function which takes in an error map, and returns another map, replacing
+  /// errors with human readable text.
+  ///
+  /// WARNING: The API of this mechanism is still in flux and there will be
+  /// breaking changes. Be careful relying on it.
+  ErrorFn errorRenderer;
 
   /// Custom character counter function to be used.
   CharacterCounter characterCounter;
@@ -294,6 +302,7 @@ class BaseMaterialInput extends FocusableMixin
     // error map
     if (_cd != null && _cd.control?.errors != null) {
       Map<String, dynamic> errorMap = _cd.control.errors;
+      if (errorRenderer != null) errorMap = errorRenderer(errorMap);
       var stringValue = errorMap.values.firstWhere(
           ((v) => (v is String) && v.isNotEmpty),
           orElse: () => null);

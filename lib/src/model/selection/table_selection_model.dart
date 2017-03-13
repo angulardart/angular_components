@@ -153,13 +153,15 @@ class _TableSelectionModelImpl<T> extends Observable
 
   @override
   Iterable<T> get selectedValues {
-    if (supportsMultiplePageSelection &&
-        allAcrossPagesSelected &&
-        _selectedCount != totalEntitiesCount()) {
-      // If we are selecting all across multiple pages, we don't actually know
-      // the full set of selected entities.
-      throw new StateError("AllAcrossPagesSelected");
-    }
+    // If we are selecting all across multiple pages, we don't actually know
+    // the full set of selected entities.
+    var totalCount = totalEntitiesCount();
+    assert(
+        !(supportsMultiplePageSelection &&
+            allAcrossPagesSelected &&
+            _selectedCount != totalCount),
+        'AllAcrossPagesSelected. selectedCount is $_selectedCount and '
+        'totalEntitiesCount() is $totalCount. _allSelected is $_allSelected');
     return _backingModel.selectedValues;
   }
 

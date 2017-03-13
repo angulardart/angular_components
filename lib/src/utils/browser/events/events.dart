@@ -30,7 +30,7 @@ bool modifierKeyUsed(dynamic /* MouseEvent | KeyboardEvent */ event) {
 
 typedef bool Predicate<T>(T value);
 
-Predicate<Predicate> not(Predicate predicate) => (value) => !predicate(value);
+Predicate<T> not<T>(Predicate<T> predicate) => (value) => !predicate(value);
 
 /// A stream of click, mouseup or focus events outside a given element.
 Stream<Event> triggersOutside(dynamic /* Element | ElementRef */ element) {
