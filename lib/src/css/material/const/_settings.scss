@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+// #############################################################################
+//
+// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
+//
+// #############################################################################
+
+// Options that can be set before importing
+$mat-option-inline-icons: false !default;
+$mat-option-export-classes: false !default;
+$mat-option-export-partials: false !default;
+
+// Animation
+$mat-transition: 218ms;
+$mat-transition-slow: $mat-transition * 2;
+$mat-transition-fast: 130ms;
+
+// Used because of an intermittent transition bug that sometimes causes opacity
+// transitions to not execute properly if opacity starts at exactly zero.
+$almost-zero: .0001;
+$almost-one: 1 - $almost-zero;
+
+// Material timing curves, fast-slow is the main one.
+// https://material.io/guidelines/motion/material-motion.html
+$mat-transition-fast-slow: cubic-bezier(.4, 0, .2, 1);
+$mat-transition-linear-slow: cubic-bezier(0, 0, .2, 1);
+$mat-transition-fast-linear: cubic-bezier(.4, 0, 1, 1);
+
+// Icon opacity
+$mat-icon-opacity: $mat-opacity-light;
+$mat-icon-opacity-disabled: .38;
+$mat-icon-opacity-hover: $mat-opacity-strong;
+
+$mat-icon-dark-opacity: 1;
+$mat-icon-dark-opacity-disabled: .30;
+$mat-icon-dark-opacity-hover: 1;
+
+// Grid
+$mat-grid: 8px;
+$mat-grid-type: 4px;
