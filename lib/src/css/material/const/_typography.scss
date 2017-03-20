@@ -1,0 +1,89 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+// #############################################################################
+//
+// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
+//
+// #############################################################################
+
+// Font sizes
+// https://material.io/guidelines/style/typography.html
+$mat-display-4-font-size:   112px;
+$mat-display-3-font-size:   56px;
+$mat-display-2-font-size:   45px;
+$mat-display-1-font-size:   34px;
+$mat-headline-font-size:    24px;
+$mat-title-font-size:       20px;
+$mat-subhead-font-size:     15px;
+$mat-button-font-size:      14px;
+$mat-body-font-size:        13px;
+$mat-caption-font-size:     12px;
+
+
+// Font weights
+$mat-font-weight-thin:     100;
+$mat-font-weight-light:    300;
+$mat-font-weight-regular:  400;
+$mat-font-weight-medium:   500;
+$mat-font-weight-bold:     700;
+$mat-font-weight-black:    900;
+
+
+@mixin mat-type-display-4() {
+  font-size: $mat-display-4-font-size;
+  font-weight: $mat-font-weight-light;
+}
+
+@mixin mat-type-display-3() {
+  font-size: $mat-display-3-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-display-2() {
+  font-size: $mat-display-2-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-display-1() {
+  font-size: $mat-display-1-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-headline() {
+  font-size: $mat-headline-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-title() {
+  font-size: $mat-title-font-size;
+  font-weight: $mat-font-weight-medium;
+}
+
+@mixin mat-type-subhead() {
+  font-size: $mat-subhead-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-button() {
+  font-size: $mat-button-font-size;
+  font-weight: $mat-font-weight-medium;
+  text-transform: uppercase;
+}
+
+@mixin mat-type-body() {
+  font-size: $mat-body-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-body-2() {
+  font-size: $mat-body-font-size;
+  font-weight: $mat-font-weight-medium;
+}
+
+@mixin mat-type-caption() {
+  font-size: $mat-caption-font-size;
+  font-weight: $mat-font-weight-regular;
+}

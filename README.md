@@ -39,10 +39,11 @@ possible.
 * ☐ `<material-menu>`
 * many more, including a fast table
 
-At this time we are not taking pull requests but please file an issue and we will
-work with you.
+At this time we are not taking pull requests but please file an issue and we
+will work with you.
 
-**Officially Supported Browsers:** The last two versions of Chrome, Edge, Firefox, and Safari.
+**Officially Supported Browsers:** The last two versions of Chrome, Edge,
+Firefox, and Safari.
 
 ## Useful links
 
@@ -51,3 +52,15 @@ work with you.
 * [AngularDart documentation](https://angulardart.org/)
 * [Material Design site](https://material.google.com/)
 * [Code Lab: AngularDart Components](https://webdev.dartlang.org/codelabs/angular2_components)
+
+## Custom Component Styles
+
+Get access to the core Material Design SASS files used to style these components
+by copying them and importing
+[lib/src/css/_mixins.scss](https://github.com/dart-lang/angular2_components/blob/master/lib/src/css/_mixins.scss)
+in your SASS files.
+
+
+> NOTE: These .scss files are not used during the build step but we are planning
+> to add this support. See
+> [issue #45](https://github.com/dart-lang/angular2_components/issues/45).
