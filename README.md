@@ -51,3 +51,13 @@ work with you.
 * [AngularDart documentation](https://angulardart.org/)
 * [Material Design site](https://material.google.com/)
 * [Code Lab: AngularDart Components](https://webdev.dartlang.org/codelabs/angular2_components)
+
+## Custom Component Styles
+
+Get access to the core Material Design SASS files used to style these components by copying them 
+and importing [lib/src/css/_mixins.scss](https://github.com/dart-lang/angular2_components/blob/master/lib/src/css/_mixins.scss)
+in your SASS files.
+
+
+> NOTE: These .scss files are not used during the build step but we are planning to add this 
+> support. See [Meta issue: Expose our SASS theming API to end-users](https://github.com/dart-lang/angular2_components/issues/45).

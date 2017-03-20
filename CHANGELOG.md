@@ -1,3 +1,11 @@
+## 0.4.1-alpha
+
+This code is considered production quality, but depends on angular2: 3.0.0-alpha+1.
+The alpha tag represents the evolving nature of the AngularDart api, not
+code quality (3.0.0-alpha+1 is used in production Google apps).
+
+ * Add code Material Design .scss files as a reference. Currently not used during build.
+
 ## 0.4.0-alpha
 
 This code is considered production quality, but depends on angular2: 3.0.0-alpha+1.
