@@ -3,6 +3,9 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
+<div class="left-icon" *ngIf="hasLeftIcon">
+  <ng-content select="[left-icon]"></ng-content>
+</div>
 <div class="content" [id]="uuid">
   {{label}}
   <ng-content></ng-content>

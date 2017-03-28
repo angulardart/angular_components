@@ -19,6 +19,8 @@ import '../../utils/id_generator/id_generator.dart';
 ///
 /// The delete button is only shown when a selectionModel is set on the widget
 /// or a removable property is true.
+/// When hasLeftIcon is true, the left-icon content should be set to a Glyph
+/// component or to an SVG image.
 /// Chip components are rendered in a `material-chips` component.
 ///
 /// __Example usage:__
@@ -63,6 +65,10 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
   /// Whether the chip should show remove button, default to true.
   @Input()
   bool removable = true;
+
+  /// Whether the chip should show the custom icon, default to false.
+  @Input()
+  bool hasLeftIcon = false;
 
   /// An [ItemRenderer] function (takes an object and returns a string).
   ///

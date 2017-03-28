@@ -244,6 +244,10 @@ class PopupRefImpl extends DelegatingPortalHost
     final tried = new Set();
 
     for (var position in positions) {
+      if (state.source.isRtl == true) {
+        position = position.flipRelativePosition();
+      }
+
       if (!tried.add(position)) continue;
 
       // Build up a tentative position for the popup. These numbers are all
@@ -311,6 +315,7 @@ class PopupRefImpl extends DelegatingPortalHost
       Rectangle<num> contentClientRect, Rectangle<num> sourceClientRect) async {
     RelativePosition position;
     var viewportRect = await _viewportBoundsFn();
+    final isRtl = state.source.isRtl == true;
 
     // Must be set first so contentSizeFuture is correct.
     if (state.matchSourceWidth) {
@@ -335,13 +340,18 @@ class PopupRefImpl extends DelegatingPortalHost
       position = new RelativePosition(
           originX: state.source.alignOriginX,
           originY: state.source.alignOriginY);
+      if (isRtl) {
+        position = position.flipRelativePosition();
+      }
     }
     // Find the size of the content, and move the overlay as an offset based
     // on the calculated position.
+    final offsetX = isRtl
+        ? max(viewportRect.left, 0) - state.offsetX
+        : state.offsetX - max(viewportRect.left, 0);
     _overlayRef.state
       ..left = position.originX.calcLeft(sourceClientRect, contentClientRect) +
-          state.offsetX -
-          max(viewportRect.left, 0)
+          offsetX
       ..top = position.originY.calcTop(sourceClientRect, contentClientRect) +
           state.offsetY -
           max(viewportRect.top, 0)

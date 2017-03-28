@@ -63,6 +63,8 @@ import 'package:intl/intl.dart';
 ///
 /// __Inputs:__
 ///
+///  - `alwaysShowExpandIcon: bool` -- If true, the expand icon is always
+///    visible regardless of the expanded state or whether custom icon is used.
 ///  - `closeOnSave: bool` -- If true, after a successful save, the panel will
 ///    attempt to close.
 ///  - `expanded: bool` -- Determines whether the panel is expanded by default.
@@ -218,10 +220,15 @@ class MaterialExpansionPanel
   @Input()
   set expandIcon(String expandIcon) => _expandIcon = expandIcon;
 
+  /// If true, the expand icon should always be visible regardless whether a
+  /// custom icon is used.
+  @Input()
+  bool alwaysShowExpandIcon = false;
+
   bool get hasCustomExpandIcon => expandIcon != _defaultExpandIcon;
 
   bool get shouldShowExpandIcon =>
-      (hasCustomExpandIcon && isExpanded) ? false : !disabled;
+      (hasCustomExpandIcon && isExpanded) ? alwaysShowExpandIcon : !disabled;
 
   bool get shouldFlipExpandIcon => hasCustomExpandIcon ? false : !isExpanded;
 

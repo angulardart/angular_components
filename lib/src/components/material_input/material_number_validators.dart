@@ -6,6 +6,8 @@ import '../../utils/angular/properties/properties.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
 
+import 'material_input_error_keys.dart';
+
 /// [Validator] which will validate a number input is positive > 0.
 @Directive(selector: '[checkPositive]', providers: const [
   const Provider(NG_VALIDATORS, useExisting: PositiveNumValidator, multi: true)
@@ -16,7 +18,7 @@ class PositiveNumValidator implements Validator {
     if (control.value == null) return null; // Handled by accessor validator
     assert(control.value is Comparable, 'Value needs to be comparable');
     if (control.value <= 0) {
-      return {'positive-number': numberIsNotPositiveMsg()};
+      return {positiveIntegerRequiredErrorKey: numberIsNotPositiveMsg()};
     }
     return null;
   }
@@ -45,10 +47,14 @@ class CheckNonNegativeValidator implements Validator {
     if (!_enabled || control.value == null) return null;
     assert(control.value is Comparable, 'Value needs to be comparable');
     if (control.value < 0) {
-      return {'non-negative': null};
+      return {nonNegativeIntegerRequiredErrorKey: numberIsNegativeMsg()};
     }
     return null;
   }
+
+  static String numberIsNegativeMsg() =>
+      Intl.message('Enter a number that is not negative',
+          desc: 'Error message when input number is not positive or 0.');
 }
 
 /// [Validator] which will validate a number input is greater than [lowerBound].
@@ -65,7 +71,7 @@ class LowerBoundValidator implements Validator {
     assert(control.value is num); // Should be using number accessor
     final value = control.value as num;
     if (value < lowerBound) {
-      return {'lower-bound-number': numberIsTooSmallMsg(lowerBound)};
+      return {numberBelowLowerBoundErrorKey: numberIsTooSmallMsg(lowerBound)};
     }
     return null;
   }
@@ -92,7 +98,7 @@ class UpperBoundValidator implements Validator {
     assert(control.value is num); // Should be using number accessor
     final value = control.value as num;
     if (value > upperBound) {
-      return {'upper-bound-number': numberIsTooLargeMsg(upperBound)};
+      return {numberAboveUpperBoundErrorKey: numberIsTooLargeMsg(upperBound)};
     }
     return null;
   }

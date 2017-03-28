@@ -1,0 +1,22 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div *ngIf="!supportsMultiSelect && isSelected"
+     class="selected-accent"
+     [attr.aria-label]="selectedMessage">
+</div>
+<material-checkbox *ngIf="supportsMultiSelect"
+                   tabindex="-1"
+                   [checked]="isSelected"
+                   [disabled]="disabled"
+                   [attr.aria-label]="isSelected ? selectedMessage : notSelectedMessage">
+</material-checkbox>
+<span *ngIf="valueHasLabel" class="label">{{valueLabel}}</span>
+<dynamic-component *ngIf="componentType != null"
+    class="dynamic-item"
+    [componentType]="componentType"
+    [value]="value">
+</dynamic-component>
+<ng-content></ng-content>

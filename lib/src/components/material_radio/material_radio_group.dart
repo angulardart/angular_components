@@ -199,12 +199,7 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
   set selected(dynamic newValue) {
     if (_children != null) {
       for (var child in _children) {
-        if (child.value == newValue) {
-          // Note unchecking of other children is done in [componentSelection]
-          // listener, because selection could also done by other means.
-          child.checked = true;
-          return;
-        }
+        child.checked = (child.value == newValue);
       }
     } else {
       _preselectedValue = newValue;

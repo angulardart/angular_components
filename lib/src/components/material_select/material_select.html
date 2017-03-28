@@ -1,0 +1,23 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<material-list [width]="width">
+  <ng-content></ng-content>
+  <div class="options-wrapper" *ngIf="options != null">
+    <div *ngFor="let group of options.optionGroups trackBy trackByIndexFn" group
+         [class.empty]="group.isEmpty">
+      <template [ngIf]="group.isNotEmpty">
+        <span *ngIf="group.hasLabel" label>{{group.uiDisplayName}}</span>
+        <material-select-item *ngFor="let item of group"
+                              [itemRenderer]="itemRenderer"
+                              [disabled]="disabled"
+                              [componentRenderer]="componentRenderer"
+                              [selection]="selection"
+                              [value]="item">
+        </material-select-item>
+      </template>
+    </div>
+  </div>
+</material-list>

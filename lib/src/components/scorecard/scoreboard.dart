@@ -5,7 +5,6 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../annotations/rtl_annotation.dart';
 import '../glyph/glyph.dart';
 import '../material_button/material_button.dart';
 import '../../model/selection/selection_model.dart';
@@ -94,13 +93,8 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   ScoreboardComponent(
       @Attribute('enableUniformWidths') String enableUniformWidths,
       this._domService,
-      this._changeDetector,
-      @Optional() @Inject(rtlToken) bool isRtl) {
+      this._changeDetector) {
     _enableUniformWidths = enableUniformWidths != 'false'; // Defaults to true
-    if (isRtl ?? false) {
-      chevronBack = chevronRight;
-      chevronForward = chevronLeft;
-    }
   }
 
   @ContentChildren(ScorecardComponent)

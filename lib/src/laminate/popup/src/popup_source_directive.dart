@@ -81,6 +81,9 @@ class PopupSourceDirective
     return _popupSource.onDimensionsChanged(track: track).distinct();
   }
 
+  @override
+  bool get isRtl => _popupSource.isRtl;
+
   void _updateSource() {
     _popupSource = _domPopupSourceFactory.create(
       _elementRef.nativeElement,

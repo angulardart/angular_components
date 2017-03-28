@@ -10,6 +10,7 @@ import 'dart:math';
 
 import 'package:angular2/angular2.dart';
 
+import '../../../components/annotations/rtl_annotation.dart';
 import '../../enums/alignment.dart';
 import './popup_source.dart';
 import '../../ruler/dom_ruler.dart';
@@ -59,6 +60,8 @@ class DomPopupSourceFactory {
 
 /// An implementation of [PopupSource] that lives on the UI layer.
 class DomPopupSource implements PopupSource {
+  static final bool _isRtl = determineRtl(document);
+
   final AsyncMeasureSize<Element> _asyncMeasureSize;
   final Element _sourceElement;
 
@@ -87,6 +90,9 @@ class DomPopupSource implements PopupSource {
   Stream<Rectangle<num>> onDimensionsChanged({bool track: false}) {
     return _asyncMeasureSize(_sourceElement, track: track);
   }
+
+  @override
+  bool get isRtl => _isRtl;
 
   @override
   String toString() =>

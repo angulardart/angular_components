@@ -60,6 +60,9 @@ class PopupSourceDirective implements PopupSource, OnInit {
     return _delegatePopupSource.onDimensionsChanged(track: track);
   }
 
+  @override
+  bool get isRtl => _delegatePopupSource.isRtl;
+
   void _updateSource() {
     _delegatePopupSource = _domPopupSourceFactory.create(
         _elementRef.nativeElement,

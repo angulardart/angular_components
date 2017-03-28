@@ -53,6 +53,9 @@ abstract class PopupSource {
   /// is false, the stream will only update when [alignOriginX] or
   /// [alignOriginY] change.
   Stream<Rectangle> onDimensionsChanged({bool track: false});
+
+  /// Whether the source direction is RTL.
+  bool get isRtl;
 }
 
 /// An [PopupSource] that's based on an element.
@@ -80,4 +83,7 @@ class _RectanglePopupSource implements PopupSource {
     // can be supported.
     return new Stream<Rectangle>.fromIterable([this._predefinedRectangle]);
   }
+
+  @override
+  final bool isRtl = false;
 }
