@@ -1,0 +1,19 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div buttonDecorator
+     keyboardOnlyFocusIndicator
+     class="button"
+     (focus)="onFocus($event)"
+     (blur)="onBlur($event)"
+     [attr.aria-label]="buttonAriaLabel"
+     [class.border]="buttonText != null"
+     [disabled]="disabled">
+  <span class="button-text" *ngIf="buttonText != null">{{buttonText}}</span>
+  <ng-content></ng-content>
+  <glyph *ngIf="buttonIcon != null"
+         class="icon"
+         [icon]="buttonIcon"></glyph>
+</div>

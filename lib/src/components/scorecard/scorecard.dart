@@ -113,15 +113,6 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   @Input()
   String label;
 
-  /// The title of the scorecard.
-  @Deprecated('Use label instead')
-  String get title => label;
-  @Deprecated('Use label instead')
-  @Input()
-  set title(String value) {
-    label = value;
-  }
-
   /// The value displayed to the user.
   @Input()
   String value;

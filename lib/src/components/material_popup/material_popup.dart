@@ -5,7 +5,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import '../annotations/rtl_annotation.dart';
 import '../content/deferred_content_aware.dart';
 import '../mixins/material_dropdown_base.dart';
 import '../../laminate/components/popup/hierarchy.dart';
@@ -243,11 +242,10 @@ class MaterialPopupComponent extends PopupComponent
       PopupService popupService,
       this._overlayService,
       @Optional() this._popupSizeProvider,
-      @Optional() @Inject(rtlToken) bool rtl,
       ChangeDetectorRef changeDetector,
       ElementRef elementRef)
       : _changeDetector = changeDetector,
-        super(domService, hierarchy, parentPopup, ngZone, popupService, rtl,
+        super(domService, hierarchy, parentPopup, ngZone, popupService,
             changeDetector, elementRef);
 
   @override

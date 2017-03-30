@@ -7,7 +7,6 @@ library angular2_components.laminate.components.popup.popup;
 import 'dart:async';
 import 'dart:html';
 
-import '../../../components/annotations/rtl_annotation.dart';
 import '../../../components/content/deferred_content_aware.dart';
 import './base.dart';
 import './hierarchy.dart';
@@ -102,7 +101,6 @@ class PopupComponent extends Object
   final Disposer _disposer = new Disposer.oneShot();
   final NgZone _ngZone;
   final PopupService _popupService;
-  bool _isRtl;
   PopupHierarchy _hierarchy;
   ElementRef elementRef;
 
@@ -122,11 +120,8 @@ class PopupComponent extends Object
       @Optional() @SkipSelf() PopupRef parentPopup,
       this._ngZone,
       this._popupService,
-      @Optional() @Inject(rtlToken) bool rtl,
       this._changeDetector,
-      this.elementRef) {
-    _isRtl = rtl ?? false;
-  }
+      this.elementRef);
 
   /// The popup visible hierarchy.
   PopupHierarchy get hierarchy {
@@ -211,30 +206,6 @@ class PopupComponent extends Object
 
   /// The unique ID of the popup pane, which is added to the DOM for testing.
   String get uniqueId => _resolvedPopupRef?.uniqueId;
-
-  /// Sets preferred positions of material popup and flips preferred positions
-  /// for RTL languages.
-  @override
-  set preferredPositions(Iterable preferredPositions) {
-    if (_isRtl) {
-      // If [_isRtl] is true flip preferred positions for RTL languages.
-      super.preferredPositions = _flipPositions(preferredPositions);
-    } else {
-      super.preferredPositions = preferredPositions;
-    }
-  }
-
-  Iterable _flipPositions(Iterable preferredPositions) {
-    var flippedPositions = [];
-    for (var position in preferredPositions) {
-      if (position is Iterable) {
-        flippedPositions.add(_flipPositions(position));
-      } else {
-        flippedPositions.add(position.flipRelativePosition());
-      }
-    }
-    return flippedPositions;
-  }
 
   @override
   set visible(bool visible) {

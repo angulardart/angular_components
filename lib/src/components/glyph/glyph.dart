@@ -16,6 +16,10 @@ const List<String> _flippedIcons = const [
   'chevron_right',
   'navigate_before',
   'navigate_next',
+  'last_page',
+  'first_page',
+  'open_in_new',
+  'exit_to_app',
 ];
 
 /// A component that creates a material style icon. Currently only font icons

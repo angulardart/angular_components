@@ -4,8 +4,21 @@ This code is considered production quality, but depends on angular2:
 3.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
 api, not code quality (3.0.0-alpha+1 is used in production Google apps).
 
- * Add code Material Design .scss files as a reference. Currently not used
+ * Add Dynamic Component.
+ * Add Material Select.
+ * Add core Material Design .scss files as a reference. Currently not used
    during build.
+ * Material Chip: Add option for icon on the left.
+ * Material Expansionpanel: Add option to always display expansion icon.
+ * Material Input:
+   * Add an optional errorRenderer that will allow clients to override/specify
+     their own error messages.
+   * Add percent input directive.
+ * Material Multiline Input: Fix 'hint' typo in inputs list.
+ * Material Radio Group: Support deselecting all radio buttons for unmatched
+   value. 
+ * Material Tooltip: Reduce delay.
+ * i18l improvements.
 
 ## 0.4.0-alpha
 

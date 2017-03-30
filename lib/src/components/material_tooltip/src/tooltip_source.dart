@@ -10,7 +10,7 @@ import '../../../laminate/popup/popup.dart'
 import '../../../model/action/delayed_action.dart';
 import '../../../model/ui/toggle.dart';
 
-const tooltipDelay = const Duration(milliseconds: 800);
+const tooltipDelay = const Duration(milliseconds: 600);
 const tooltipCloseDelay = const Duration(milliseconds: 1744);
 
 /// An implementation of [PopupSource] which opens and closes the popup on

@@ -83,7 +83,7 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
       'label',
       'errorRenderer',
       'floatingLabel',
-      'hint',
+      'hintText',
       'showHintOnlyOnFocus',
       'required',
       'requiredErrorMsg',

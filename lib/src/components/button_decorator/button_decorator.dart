@@ -70,7 +70,6 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
     _hostTabIndex = value;
   }
 
-
   /// Triggers if not disabled.
   void handleClick(MouseEvent mouseEvent) {
     if (_disabled) return;
@@ -87,5 +86,4 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
       keyboardEvent.preventDefault();
     }
   }
-
 }

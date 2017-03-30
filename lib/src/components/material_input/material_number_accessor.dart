@@ -13,6 +13,7 @@ import 'base_material_input.dart';
 import 'material_input.dart';
 import 'material_input_default_value_accessor.dart';
 import 'material_number_validators.dart';
+import 'material_input_error_keys.dart';
 
 export 'material_number_validators.dart';
 export 'material_input.dart' show MaterialInputComponent;
@@ -27,8 +28,6 @@ const List<Type> materialNumberInputDirectives = const [
   CheckNonNegativeValidator,
   UpperBoundValidator
 ];
-
-const checkIntegerErrorId = 'check-integer';
 
 /// [ControlValueAccessor] which will coerce an input into a [num].
 ///
@@ -121,7 +120,7 @@ class MaterialNumberValidator implements Validator {
     // it is considered an error. Producing error here as accessors can't easily
     // add errors themselves, but validators can.
     if (control.value == null && !isBlank((control as Control).rawValue)) {
-      return {'material-input-number-error': inputIsNotNumberMsg()};
+      return {inputNotNumberErrorKey: inputIsNotNumberMsg()};
     }
     return null;
   }
@@ -147,7 +146,7 @@ class CheckIntegerValidator implements Validator {
     final control = abstractControl as Control;
     // Handled by accessor validator or value set by forms system
     if (control.value == null && !isBlank(control.rawValue)) {
-      return {checkIntegerErrorId: numberIsNotIntegerMsg()};
+      return {checkIntegerErrorKey: numberIsNotIntegerMsg()};
     }
     return null;
   }
