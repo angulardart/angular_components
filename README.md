@@ -32,7 +32,7 @@ possible.
 * ✓ `<material-popup>`
 * ✓ `<material-tooltip>`
 * ✓ `<material-list>`
-* ☐ `<material-select>`
+* ✓ `<material-select>`
 * ☐ `<material-tree>`
 * ☐ `<material-auto-suggest-input>`
 * ☐ `<material-date-range-picker>`
