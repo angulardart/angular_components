@@ -9,8 +9,11 @@ environment:
   sdk: '>=1.22.0 <2.0.0'
 dependencies:
   angular2: '>=3.0.0-alpha+1 <4.0.0'
+  collection: ^1.14.0
+  fixnum: ^0.10.5
   intl: ^0.14.0
   js: ^0.6.1
+  logging: ^0.11.2
   meta: ^1.0.4
   observable: '>=0.14.0+1 <0.21.0'
   perf_api: ^0.1.0
