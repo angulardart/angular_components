@@ -1,3 +1,7 @@
+## 0.4.1-beta
+
+ * Updated dependencies on `pkg/quiver` and `pkg/intl`.
+
 ## 0.4.1-alpha
 
 This code is considered production quality, but depends on angular2:
