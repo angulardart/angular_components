@@ -108,7 +108,7 @@ class MaterialTooltipDirective extends TooltipTarget
 
   bool _twoLine = false;
 
-  /// Shows the tooltip if [_show] is true, initializing and loading it into
+  /// Shows the tooltip if `_show` is true, initializing and loading it into
   /// the view it if is not already.
   void openTooltip() {
     if (!_show || !_closing) return;
