@@ -10,7 +10,7 @@
 /// - `MaterialPaperTooltipComponent`
 /// - `MaterialTooltipSourceDirective`
 ///
-/// see [module.dart](https://github.com/dart-lang/angular2_components/blob/master/lib/src/components/material_tooltip/lib/module.dart)
+/// see [module.dart](https://github.com/dart-lang/angular_components/blob/master/lib/src/components/material_tooltip/lib/module.dart)
 /// for bindings which must be provided in app which use any Material Tooltip
 /// component.
 

@@ -57,10 +57,10 @@ Firefox, and Safari.
 
 Get access to the core Material Design SASS files used to style these components
 by copying them and importing
-[lib/src/css/_mixins.scss](https://github.com/dart-lang/angular2_components/blob/master/lib/src/css/_mixins.scss)
+[lib/src/css/_mixins.scss](https://github.com/dart-lang/angular_components/blob/master/lib/src/css/_mixins.scss)
 in your SASS files.
 
 
 > NOTE: These .scss files are not used during the build step but we are planning
 > to add this support. See
-> [issue #45](https://github.com/dart-lang/angular2_components/issues/45).
+> [issue #45](https://github.com/dart-lang/angular_components/issues/45).

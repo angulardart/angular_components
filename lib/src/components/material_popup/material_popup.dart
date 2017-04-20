@@ -27,7 +27,7 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 /// - Popups closing and opening are automatically delayed to add animations
 /// - An additional event, `animationComplete`, is available.
 /// - Take advantage of enforceSpaceConstraints defined in
-/// [PopupInterface](https://github.com/dart-lang/angular2_components/tree/master/lib/src/laminate/components/popup/src/base.dart).
+/// [PopupInterface](https://github.com/dart-lang/angular_components/tree/master/lib/src/laminate/components/popup/src/base.dart).
 ///
 /// This is useful if content size is such that adds scroll to the page.
 /// - Even though this component supports [ChangeDetectionStrategy.OnPush]
