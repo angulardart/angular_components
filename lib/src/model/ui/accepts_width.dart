@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.model.ui.accepts_width;
+library angular_components.model.ui.accepts_width;
 
 /// Interface for setting widgets programatically.
 /// Preset width, 1 through 5. By default, width #2 is used.

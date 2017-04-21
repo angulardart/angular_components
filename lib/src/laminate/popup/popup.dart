@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.laminate.popup.popup;
+library angular_components.laminate.popup.popup;
 
 // TODO(google): Move this to another exported library.
 export 'src/dom_popup_source.dart';

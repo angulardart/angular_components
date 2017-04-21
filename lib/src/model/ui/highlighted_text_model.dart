@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.model.ui.highlighted_text_model;
+library angular_components.model.ui.highlighted_text_model;
 
 import 'dart:math' show max;
 
@@ -34,7 +34,7 @@ class HighlightedTextSegment {
   String toString() => isHighlighted ? "*$text*" : text;
 }
 
-final Logger _logger = new Logger('angular2_components.module.ui.highlighted_text_model');
+final Logger _logger = new Logger('angular_components.module.ui.highlighted_text_model');
 
 /// A class to highlight the occurrences of a list of tokens within a string.
 /// By default, matches are only highlighted at the start of words,

@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @JS()
-library angular2_components.css.acux.zindexer;
+library angular_components.css.acux.zindexer;
 
 import 'package:angular2/angular2.dart';
 import 'package:js/js.dart';

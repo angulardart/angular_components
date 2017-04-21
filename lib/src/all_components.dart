@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.all_components;
+library angular_components.all_components;
 
 export 'components/annotations/rtl_annotation.dart';
 export 'components/auto_dismiss/auto_dismiss.dart';

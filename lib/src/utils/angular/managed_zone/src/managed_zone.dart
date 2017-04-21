@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.utils.angular.managed_zone.src.managed_zone;
+library angular_components.utils.angular.managed_zone.src.managed_zone;
 
 import 'dart:async';
 

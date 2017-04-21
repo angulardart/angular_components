@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.model.ui.icon;
+library angular_components.model.ui.icon;
 
 /// Designates a model class which has a canonical _icon_ field.
 abstract class HasIcon {
