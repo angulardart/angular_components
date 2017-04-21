@@ -1,13 +1,21 @@
-## 0.5.0-beta  
- 
-This code is considered production quality, but depends on angular2:  
-^3.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart  
-api, not code quality (3.0.0-beta+1 is used in production Google apps).  
-  
+## 0.5.0-beta+1
+
+This code is considered production quality, but depends on angular2:
+^3.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
+api, not code quality (3.0.0-beta+1 is used in production Google apps).
+
+ * Fix link in CHANGELOG to old pub package.
+
+## 0.5.0-beta
+
+This code is considered production quality, but depends on angular2:
+^3.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
+api, not code quality (3.0.0-beta+1 is used in production Google apps).
+
  * Rename library to angular_components.
-   
-> All previous versions were published as the 
-> [Pub Package](https://pub.dartlang.org/packages/angular_components) named 
+
+> All previous versions were published as the
+> [Pub Package](https://pub.dartlang.org/packages/angular2_components) named
 > `angular2_components`.
 
 ## 0.4.1-beta
@@ -32,7 +40,7 @@ api, not code quality (3.0.0-alpha+1 is used in production Google apps).
    * Add percent input directive.
  * Material Multiline Input: Fix 'hint' typo in inputs list.
  * Material Radio Group: Support deselecting all radio buttons for unmatched
-   value. 
+   value.
  * Material Tooltip: Reduce delay.
  * i18l improvements.
 
@@ -130,7 +138,7 @@ api.
  * Add Material Popup, a basic popup component.
  * Update Material Checkbox icon size.
  * Cleanup framework stabilizers since
-   [issue #24843](https://github.com/dart-lang/sdk/issues/24843) in the Dart 
+   [issue #24843](https://github.com/dart-lang/sdk/issues/24843) in the Dart
    SDK has been resolved.
  * Remove unused files.
 
