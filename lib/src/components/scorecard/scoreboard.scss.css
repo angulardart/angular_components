@@ -1,7 +1,0 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-.acx-scoreboard{display:block;overflow:hidden;position:relative}.acx-scoreboard .scroll-button{display:-webkit-flex;display:flex;-webkit-flex-shrink:0;flex-shrink:0;background:rgba(255,255,255,0.87);color:rgba(0,0,0,0.54);margin:0;padding:0 8px;position:absolute;z-index:1}.acx-scoreboard .scroll-button.hide{display:none}.acx-scoreboard .scroll-button:not([icon]){border-radius:0;min-width:inherit}.scorecard-bar{display:inline-block;margin:0;padding:0;position:relative;transition:transform cubic-bezier(0.4, 0, 0.2, 1) 436ms;white-space:nowrap}.acx-scoreboard-horizontal .scroll-button{height:100%;min-width:inherit;top:0}.acx-scoreboard-horizontal .scroll-forward-button{right:0}.acx-scoreboard-horizontal .scroll-back-button{left:0}.acx-scoreboard-vertical{display:inline-block;height:100%}.acx-scoreboard-vertical .scroll-button{-webkit-justify-content:center;justify-content:center;width:100%}.acx-scoreboard-vertical .scroll-forward-button{bottom:0}.acx-scoreboard-vertical .scroll-back-button{top:0}.acx-scoreboard-vertical .scorecard-bar{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column}
-
