@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.laminate.components.modal.src.modal_controller_directive;
+library angular_components.laminate.components.modal.src.modal_controller_directive;
 
 import 'package:angular2/angular2.dart';
 

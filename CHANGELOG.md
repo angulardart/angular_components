@@ -1,3 +1,15 @@
+## 0.5.0-beta  
+ 
+This code is considered production quality, but depends on angular2:  
+^3.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart  
+api, not code quality (3.0.0-beta+1 is used in production Google apps).  
+  
+ * Rename library to angular_components.
+   
+> All previous versions were published as the 
+> [Pub Package](https://pub.dartlang.org/packages/angular_components) named 
+> `angular2_components`.
+
 ## 0.4.1-beta
 
  * Updated dependencies on `pkg/quiver` and `pkg/intl`.

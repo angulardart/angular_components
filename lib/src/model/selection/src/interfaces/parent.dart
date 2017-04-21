@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// **NOTE**: This library is currently unused and will replace select.dart.
-library angular2_components.model.selection.src.interfaces.parent;
+library angular_components.model.selection.src.interfaces.parent;
 
 import 'dart:async';
 

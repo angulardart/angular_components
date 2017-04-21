@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.model.collection.labeled_list;
+library angular_components.model.collection.labeled_list;
 
 import 'package:collection/collection.dart' as collection;
 

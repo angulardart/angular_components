@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @JS()
-library angular2_components.framework_stabilizers.framework_stabilizers;
+library angular_components.framework_stabilizers.framework_stabilizers;
 
 import 'dart:js';
 

@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular2_components.utils.angular.properties.properties;
+library angular_components.utils.angular.properties.properties;
 
 // These are alternative to Angular 2.0 pipes that are lighter weight and typed.
 // However, ideally Angular should help with these.

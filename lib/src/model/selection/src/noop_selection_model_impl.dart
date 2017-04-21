@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-part of angular2_components.model.selection.selection_model;
+part of angular_components.model.selection.selection_model;
 
 /// Returned internally as a blank selection model.
 class _NoopSelectionModelImpl<T> implements SelectionModel<T> {
