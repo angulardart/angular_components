@@ -7,8 +7,7 @@ import './material_input_error_keys.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
 
-export './material_number_accessor.dart'
-    show materialNumberInputDirectives;
+export './material_number_accessor.dart' show materialNumberInputDirectives;
 
 /// Directive to control `material-input` to accept percentage values.
 ///

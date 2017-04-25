@@ -34,7 +34,8 @@ class HighlightedTextSegment {
   String toString() => isHighlighted ? "*$text*" : text;
 }
 
-final Logger _logger = new Logger('angular_components.module.ui.highlighted_text_model');
+final Logger _logger =
+    new Logger('angular_components.module.ui.highlighted_text_model');
 
 /// A class to highlight the occurrences of a list of tokens within a string.
 /// By default, matches are only highlighted at the start of words,

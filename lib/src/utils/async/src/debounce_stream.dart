@@ -6,8 +6,7 @@ library angular_components.utils.async.src.debounce_stream;
 
 import 'dart:async';
 
-import '../../rate_limit_utils/rate_limit_utils.dart'
-    show debounce;
+import '../../rate_limit_utils/rate_limit_utils.dart' show debounce;
 
 import 'rate_limit.dart';
 

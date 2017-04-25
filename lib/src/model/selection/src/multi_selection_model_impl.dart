@@ -15,7 +15,8 @@ class _MultiSelectionModelImpl<T> extends Observable
       Iterable<T> initialSelection, KeyProvider<T> keyProvider)
       : selectedValues = new LinkedHashSet<T>(
             equals: (a, b) => keyProvider(a) == keyProvider(b),
-            hashCode: (o) => keyProvider(o).hashCode)..addAll(initialSelection);
+            hashCode: (o) => keyProvider(o).hashCode)
+          ..addAll(initialSelection);
 
   @override
   void clear() {

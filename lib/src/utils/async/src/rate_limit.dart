@@ -6,8 +6,7 @@ library angular_components.utils.async.src.rate_limit;
 
 import 'dart:async';
 
-import '../../rate_limit_utils/rate_limit_utils.dart'
-    show RateLimitStrategy;
+import '../../rate_limit_utils/rate_limit_utils.dart' show RateLimitStrategy;
 
 typedef void _AddEventFn(event);
 

@@ -4,5 +4,4 @@
 
 library angular_components.utils.angular.managed_zone.interface;
 
-export 'src/managed_zone.dart'
-    show ManagedZone, ManagedZoneBase;
+export 'src/managed_zone.dart' show ManagedZone, ManagedZoneBase;
