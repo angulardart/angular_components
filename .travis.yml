@@ -6,10 +6,6 @@ dart:
   - 1.23.0
 dart_task:
   - dartanalyzer: --fatal-warnings .
-  # Sadly, this is a no-op now.
-  # https://github.com/travis-ci/travis-ci/issues/7632
-  # https://github.com/travis-ci/travis-ci/issues/7639
-  # Leaving it here so it'll kick in when the above is fixed
   - dartfmt
 cache:
   directories:

@@ -1,8 +1,8 @@
-## 0.5.0-beta 
+## 0.5.0
 
 __Rename library to `angular_components`.__
- 
-This package now exports `angular_components`. See the new 
+
+This package now exports `angular_components`. See the new
 [Pub Package](https://pub.dartlang.org/packages/angular_components) for future
 updates.
 

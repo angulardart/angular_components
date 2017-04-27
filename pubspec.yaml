@@ -1,15 +1,15 @@
 name: angular2_components
-version: 0.5.0-beta
+version: 0.5.0
 description: >
-  RENAMED: Update your dependency to use `angular_components` (without the "2")
+  DEPRECATED: Update your dependency to `angular_components` (without the "2")
   instead.
 homepage: https://github.com/dart-lang/angular_components
 author: Dart Team <misc@dartlang.org>
 environment:
-  sdk: '>=1.22.0 <2.0.0'
+  sdk: '>=1.23.0 <2.0.0'
 dependencies:
-  angular2: '>=3.0.0-alpha+1 <4.0.0'
-  angular_components: 0.5.0-beta+1
+  angular2: '>=3.0.0 <4.0.0'
+  angular_components: 0.5.0
 transformers:
 - angular2:
     resolved_identifiers:
