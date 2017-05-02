@@ -140,7 +140,7 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   /// Whether allow scrolling the scoreboard via scroll buttons.
   ///
   /// Scrollable property can be set dynamically during app runtime -- will add
-  /// or remove window resize listener depending on state of [_scrollable].
+  /// or remove window resize listener depending on state of `_scrollable`.
   @Input()
   set scrollable(scrollable) {
     var value = getBool(scrollable);

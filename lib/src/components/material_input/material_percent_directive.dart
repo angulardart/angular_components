@@ -52,7 +52,7 @@ class MaterialPercentInputDirective {
 
   static Map<String, String> _errorOverrides = {
     nonNegativeIntegerRequiredErrorKey: _negativePercentageErrMsg,
-    numberBelowLowerBoundErrorKey: _percentTooLargeErrMsg,
+    numberBelowLowerBoundErrorKey: _percentTooSmallErrMsg,
     numberAboveUpperBoundErrorKey: _percentTooLargeErrMsg,
   };
 
@@ -60,6 +60,13 @@ class MaterialPercentInputDirective {
       'Percentages must be positive',
       desc: 'Validation error message when input precentage is negative, it '
           'must be a positive number.');
+
+  static String get _percentTooSmallErrMsg =>
+      Intl.message('Enter a larger number',
+          desc: 'Validation error message for when the input percentage is too '
+              'small',
+          meaning: 'Validation error message for when the input percentage is '
+              'too small');
 
   static String get _percentTooLargeErrMsg =>
       Intl.message('Enter a smaller number',

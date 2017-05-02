@@ -275,13 +275,20 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
 
   MaterialButtonComponent get yesButton => _yesNo.yesButton;
   MaterialButtonComponent get noButton => _yesNo.noButton;
+  bool _enterAccepts = true;
 
   EnterAcceptsDirective(this._yesNo, ElementRef element,
       @Optional() KeyUpBoundaryDirective boundary)
       : super(element, boundary);
 
+  /// Enables the EnterAccepts directive to be conditionally applied by
+  /// effectively short circuiting it's implementation using [_enterAccepts]
+  @Input()
+  set enterAccepts(value) => _enterAccepts = getBool(value);
+
   @override
   bool _isKeyUpMatching(KeyboardEvent event) {
+    if (!_enterAccepts) return false;
     if (event.keyCode != KeyCode.ENTER) return false;
     // Make sure the yes button is visible and enabled
     if (yesButton == null || yesButton.disabled) return false;

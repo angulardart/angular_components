@@ -27,7 +27,7 @@ import '../mixins/material_dropdown_base.dart';
 ///
 ///     <material-list>
 ///       <material-list-item (trigger)="select(1)">Item 1</material-list-item>
-///       <material-list-item (trigger)="select(2)">Item 2/material-list-item>
+///       <material-list-item (trigger)="select(2)">Item 2</material-list-item>
 ///     </material-list>
 ///
 /// __Properties:__

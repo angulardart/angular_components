@@ -12,16 +12,15 @@ import '../../../laminate/components/popup/popup.dart'
 import '../../../laminate/popup/popup.dart' show DomPopupSourceFactory;
 import '../../../model/action/delayed_action.dart';
 import '../../../utils/angular/reference/reference.dart';
-import '../../../utils/async/async.dart';
 import '../../../utils/browser/events/events.dart';
 import './tooltip_controller.dart';
-import 'tooltip_source.dart' show tooltipDelay;
+import 'tooltip_source.dart' show tooltipShowDelay;
 
-/// A directive which marks the source of a tooltip and handles activating and
-/// deactivating a tooltip on mouse-hover, click, enter, and space.
+/// A directive that marks the target of a tooltip and handles showing and
+/// hiding a tooltip on hover, click, enter, and space.
 ///
 /// This directive is used in conjunction with a [Tooltip] Component. Currently
-/// the only stand-alone tooltip component is the [MaterialInkTooltipComponent]
+/// the only stand-alone tooltip component is the [MaterialInkTooltipComponent],
 /// which gives full control over the content of a simple tooltip.
 ///
 /// __Example Usage:__
@@ -37,9 +36,9 @@ import 'tooltip_source.dart' show tooltipDelay;
 @Directive(selector: '[tooltipTarget]', exportAs: 'tooltipTarget', host: const {
   '(mouseover)': 'onMouseOver()',
   '(mouseleave)': 'onMouseLeave()',
-  '(click)': 'closeTooltip()',
-  '(blur)': 'closeTooltip()',
-  '(keyup)': 'openTooltipWithDelay()',
+  '(click)': 'hideTooltip()',
+  '(blur)': 'hideTooltip()',
+  '(keyup)': 'showTooltipWithDelay()',
 })
 class MaterialTooltipTargetDirective extends TooltipBehavior
     implements OnInit, OnDestroy {
@@ -61,12 +60,12 @@ class MaterialTooltipTargetDirective extends TooltipBehavior
   }
 }
 
-/// Class encorporating the common behavior for a [Directive] that marks the
-/// source of a tooltip.
+/// Class incorporating the common behavior of a [Directive] that marks the
+/// target of a tooltip.
 abstract class TooltipBehavior extends TooltipTarget {
-  final _tooltipActivate = new LazyStreamController<bool>.broadcast(sync: true);
+  final _tooltipActivate = new StreamController<bool>.broadcast(sync: true);
   final ChangeDetectorRef _changeDetector;
-  DelayedAction _open;
+  DelayedAction _show;
 
   // Whether the mouse is currently inside the component.
   bool _isMouseInside = false;
@@ -79,22 +78,22 @@ abstract class TooltipBehavior extends TooltipTarget {
       ElementRef elementRef,
       this._changeDetector)
       : super(domPopupSourceFactory, viewContainerRef, elementRef) {
-    _open = new DelayedAction(tooltipDelay, openTooltip);
+    _show = new DelayedAction(tooltipShowDelay, showTooltip);
   }
 
-  void openTooltipWithDelay() {
-    _open.start();
+  void showTooltipWithDelay() {
+    _show.start();
   }
 
-  void openTooltip() {
-    _open.cancel(); // Cancel any pending actions if tooltip is opened early.
+  void showTooltip() {
+    _show.cancel(); // Cancel any pending actions if tooltip is shown early.
     _changeDetector.markForCheck();
     _tooltipActivate.add(true);
     _tooltip?.activate();
   }
 
-  void closeTooltip({bool immediate: false}) {
-    _open.cancel(); // Cancel any pending actions if tooltip is closed early.
+  void hideTooltip({bool immediate: false}) {
+    _show.cancel(); // Cancel any pending actions if tooltip is hidden early.
     _tooltipActivate.add(false);
     _tooltip?.deactivate(immediate: immediate);
   }
@@ -102,23 +101,23 @@ abstract class TooltipBehavior extends TooltipTarget {
   void onMouseOver() {
     if (_isMouseInside) return;
     _isMouseInside = true;
-    openTooltipWithDelay();
+    showTooltipWithDelay();
   }
 
   void onMouseLeave() {
     _isMouseInside = false;
-    closeTooltip();
+    hideTooltip();
   }
 }
 
-/// A directive which marks the source of a tooltip and handles activating on
+/// A directive that marks the target of a tooltip and handles activating on
 /// mouse over (with delay), click, enter, and space.
 ///
 /// This directive is slightly different from [MaterialTooltipTargetDirective]
-/// as click and key events open tooltips with no delay.
+/// as click and key events make tooltips appear with no delay.
 ///
 /// This directive is used in conjunction with a [Tooltip] Component. Currently
-/// the only stand-alone tooltip component is the [MaterialInkTooltipComponent]
+/// the only stand-alone tooltip component is the [MaterialInkTooltipComponent],
 /// which gives full control over the content of a simple tooltip.
 ///
 /// __Example Usage:__
@@ -164,16 +163,16 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
   }
 
   void onBlur(FocusEvent event) {
-    // Don't close the tooltip if the user clicked an empty area on the page.
+    // Don't hide the tooltip if the user clicked an empty area on the page.
     if (event.relatedTarget == null) return;
 
-    // Don't close the tooltip if focus went to an element inside the tooltip.
+    // Don't hide the tooltip if focus went to an element inside the tooltip.
     HtmlElement el;
     for (el = event.relatedTarget; el.parent != null; el = el.parent) {
       if (el.className == "acx-overlay-container") return;
     }
 
-    closeTooltip(immediate: true);
+    hideTooltip(immediate: true);
   }
 
   void onClick() {
@@ -182,9 +181,9 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
 
   void _toggleVisibility() {
     if (_tooltipVisible) {
-      closeTooltip(immediate: true);
+      hideTooltip(immediate: true);
     } else {
-      openTooltip();
+      showTooltip();
     }
   }
 
@@ -203,10 +202,10 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
   }
 }
 
-/// Base class for Tooltip Target components/directives.
+/// Base class for tooltip targets.
 ///
-/// A tooltip target component is the source of alignment for and the object
-/// responsible for controlling a tooltip.
+/// This component is the target of alignment for a tooltip and
+/// the object responsible for controlling a tooltip.
 abstract class TooltipTarget extends PopupSourceDirective
     implements ReferenceDirective {
   Tooltip _tooltip;

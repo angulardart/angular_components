@@ -52,7 +52,6 @@ abstract class PopupController implements OnDestroy {
   StreamSubscription _onCloseSubscription;
 
   // Lazily loaded.
-  // TODO(google): Add LazyStreamController to ads/acx2/async to simplify.
   StreamController<PopupEvent<Rectangle>> _onOpenEmitter;
   StreamController<PopupEvent<bool>> _onCloseEmitter;
   StreamController<bool> _onVisibleEmitter;

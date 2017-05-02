@@ -10,7 +10,6 @@ import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
 
 import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import '../../utils/disposer/disposer.dart';
 import '../focus/focus.dart';
 import '../mixins/focusable_mixin.dart';
@@ -243,19 +242,18 @@ class BaseMaterialInput extends FocusableMixin
   }
 
   final _keypressController =
-      new LazyStreamController<String>.broadcast(sync: true);
+      new StreamController<String>.broadcast(sync: true);
 
   /// Publishes events whenever input text changes (each keypress).
   Stream<String> get onKeypress => _keypressController.stream;
 
-  final _changeController =
-      new LazyStreamController<String>.broadcast(sync: true);
+  final _changeController = new StreamController<String>.broadcast(sync: true);
 
   /// Publishes events when a change event is fired. (On enter, or on blur.)
   Stream<String> get onChange => _changeController.stream;
 
   final _blurController =
-      new LazyStreamController<FocusEvent>.broadcast(sync: true);
+      new StreamController<FocusEvent>.broadcast(sync: true);
 
   /// Publishes events when a blur event is fired.
   Stream<FocusEvent> get onBlur => _blurController.stream;

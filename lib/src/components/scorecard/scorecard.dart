@@ -8,7 +8,6 @@ import 'dart:html';
 import 'package:angular2/angular2.dart';
 
 import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/browser/events/events.dart';
 import '../../utils/color/color.dart';
@@ -93,7 +92,7 @@ import '../material_ripple/material_ripple.dart';
     changeDetection: ChangeDetectionStrategy.OnPush)
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   final StreamController<bool> _selectionController =
-      new LazyStreamController<bool>.broadcast(sync: true);
+      new StreamController<bool>.broadcast(sync: true);
 
   bool _isChangePositive = false;
   bool _isChangeNegative = false;

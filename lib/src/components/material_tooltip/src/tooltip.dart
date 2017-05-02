@@ -9,13 +9,12 @@ import 'package:angular2/angular2.dart';
 import '../../../laminate/enums/alignment.dart';
 import '../../../laminate/popup/popup.dart' show DomPopupSourceFactory;
 import '../../../model/action/delayed_action.dart';
-import '../../../utils/angular/properties/properties.dart';
 import '../../../utils/browser/feature_detector/feature_detector.dart';
 import '../../../utils/disposer/disposer.dart';
 import '../module.dart';
 import 'ink_tooltip.dart';
 import 'tooltip_controller.dart';
-import 'tooltip_source.dart' show tooltipDelay;
+import 'tooltip_source.dart' show tooltipShowDelay;
 import 'tooltip_target.dart';
 
 /// An ink-based tooltip which can be attached to any element.
@@ -31,10 +30,10 @@ class MaterialTooltipDirective extends TooltipTarget
   String _lastText;
   bool _isInitialized = false;
   Tooltip _tooltip;
-  bool _show = true;
-  bool _closing = true;
+  bool _canShow = true;
+  bool _isShown = false;
   MaterialInkTooltipComponent _inkTooltip;
-  DelayedAction _open;
+  DelayedAction _delayedActivate;
   ElementRef elementRef;
   bool inLongPress;
   bool _hostListenersAttached = false;
@@ -51,7 +50,7 @@ class MaterialTooltipDirective extends TooltipTarget
       : this.elementRef = elementRef,
         super(domPopupSourceFactory, viewContainerRef, elementRef) {
     inLongPress = false;
-    _open = new DelayedAction(tooltipDelay, _activate);
+    _delayedActivate = new DelayedAction(tooltipShowDelay, _activate);
   }
 
   void _attachHostListeners() {
@@ -60,20 +59,20 @@ class MaterialTooltipDirective extends TooltipTarget
 
     html.HtmlElement element = elementRef.nativeElement;
     _disposer.addStreamSubscription(element.onClick.listen((_) {
-      closeTooltip(true);
+      hide(true);
     }));
     _disposer.addStreamSubscription(element.onBlur.listen((_) {
-      closeTooltip(true);
+      hide(true);
     }));
     _disposer.addStreamSubscription(element.onFocus.listen((_) {
-      openTooltip();
+      show();
     }));
     if (supportsHover(_window)) {
       _disposer.addStreamSubscription(element.onMouseOver.listen((_) {
-        openTooltip();
+        show();
       }));
       _disposer.addStreamSubscription(element.onMouseLeave.listen((_) {
-        closeTooltip();
+        hide();
       }));
     }
     if (isHammerLoaded()) {
@@ -85,7 +84,7 @@ class MaterialTooltipDirective extends TooltipTarget
 
   void handleLongPress(html.Event _) {
     inLongPress = true;
-    openTooltip();
+    show();
   }
 
   void endLongPress(html.TouchEvent event) {
@@ -95,31 +94,23 @@ class MaterialTooltipDirective extends TooltipTarget
       event.preventDefault();
 
       inLongPress = false;
-      closeTooltip(true);
+      hide(true);
     }
   }
 
-  /// Styles the tooltip as needed for two-line text.
-  @Input()
-  set twoLineTooltip(b) {
-    _twoLine = getBool(b);
-  }
-
-  bool _twoLine = false;
-
-  /// Shows the tooltip if [_show] is true, initializing and loading it into
+  /// Shows the tooltip if `_canShow` is true, initializing and loading it into
   /// the view it if is not already.
-  void openTooltip() {
-    if (!_show || !_closing) return;
-    _closing = false;
+  void show() {
+    if (_isShown || !_canShow) return;
+    _isShown = true;
     _maybeLoadTooltip();
-    _open.start();
+    _delayedActivate.start();
   }
 
-  void closeTooltip([bool immediate = false]) {
-    if (_closing) return;
-    _closing = true;
-    _open.cancel();
+  void hide([bool immediate = false]) {
+    if (!_isShown) return;
+    _isShown = false;
+    _delayedActivate.cancel();
     _tooltip?.deactivate(immediate: immediate);
     _inkTooltip?.deactivate();
   }
@@ -135,13 +126,12 @@ class MaterialTooltipDirective extends TooltipTarget
         .then((ComponentRef componentRef) {
       _componentRef = componentRef;
 
-      // Track the tooltip as [_inkTooltip] so we can set the text later.
+      // Track the tooltip as `_inkTooltip` so we can set the text later.
       _inkTooltip = _componentRef.instance as MaterialInkTooltipComponent;
       _disposer.addDisposable(_componentRef.destroy);
 
       _inkTooltip
         ..text = _lastText
-        ..twoLine = _twoLine
         ..tooltipRef = this;
       if (positions != null) {
         _inkTooltip.positions = positions;
@@ -155,7 +145,7 @@ class MaterialTooltipDirective extends TooltipTarget
     // We could have activated in the [onMouseOver] method when the DCL
     // resolves, however, we want to call activate/deactivate on the [Tooltip]
     // handle that the component presents (as it might be a proxy).
-    if (_tooltip == null) _open.start();
+    if (_tooltip == null) _delayedActivate.start();
     _tooltip = tooltip;
   }
 
@@ -175,15 +165,15 @@ class MaterialTooltipDirective extends TooltipTarget
   ///
   /// Defaults to true.
   @Input('showTooltipIf')
-  set show(bool value) {
-    if (value == _show) return;
+  set canShow(bool value) {
+    if (value == _canShow) return;
     if (value) {
       _attachHostListeners();
     } else {
       _tooltip?.deactivate(immediate: true);
-      _open.cancel();
+      _delayedActivate.cancel();
     }
-    _show = value;
+    _canShow = value;
   }
 
   /// Positions that the tooltip should try to show.
@@ -193,13 +183,13 @@ class MaterialTooltipDirective extends TooltipTarget
   @override
   void ngOnInit() {
     super.ngOnInit();
-    if (_show) _attachHostListeners();
+    if (_canShow) _attachHostListeners();
   }
 
   @override
   void ngOnDestroy() {
     _tooltip?.deactivate(immediate: true);
-    _open.cancel();
+    _delayedActivate.cancel();
     _disposer.dispose();
   }
 }

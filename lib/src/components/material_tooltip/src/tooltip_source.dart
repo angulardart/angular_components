@@ -10,15 +10,13 @@ import '../../../laminate/popup/popup.dart'
 import '../../../model/action/delayed_action.dart';
 import '../../../model/ui/toggle.dart';
 
-const tooltipDelay = const Duration(milliseconds: 600);
-const tooltipCloseDelay = const Duration(milliseconds: 1744);
+const tooltipShowDelay = const Duration(milliseconds: 600);
 
-/// An implementation of [PopupSource] which opens and closes the popup on
-/// keyboard and mouse events.
+/// An implementation of [PopupSourceDirective] that shows and hides the popup
+/// on keyboard and mouse events.
 ///
-/// The popup is opened after a delay on mouseover and keyboard focus, closed
-/// after a delay from opening, and closed immediately on mouseleave and
-/// keyboard blur.
+/// The popup is shown after a delay on mouseover and keyboard focus. It is
+/// hidden immediately on mouseleave and keyboard blur.
 ///
 /// This directive makes use of the [Toggler] interface in order to get a
 /// reference to the [PopupRef].
@@ -39,7 +37,7 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
     implements Toggler, AfterViewInit, OnDestroy {
   final tooltipLabel = _tooltipLabel;
   final ElementRef elementRef;
-  DelayedAction _open;
+  DelayedAction _show;
 
   // Whether the mouse is currently inside the component.
   bool _isMouseInside = false;
@@ -48,22 +46,17 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
       DomPopupSourceFactory domPopupSourceFactory, ElementRef elementRef)
       : this.elementRef = elementRef,
         super(domPopupSourceFactory, elementRef, null) {
-    _open = new DelayedAction(tooltipDelay, activate);
+    _show = new DelayedAction(tooltipShowDelay, activate);
   }
 
-  /// Activates the tooltip.
+  /// Makes the tooltip appear.
   void activate() {
     _popupRef.isOn = true;
   }
 
-  /// Activates the tooltip after a delay.
-  void delayedActivate() {
-    _open.start();
-  }
-
-  /// Deactivates the tooltip.
+  /// Makes the tooltip disappear.
   void deactivate() {
-    _open.cancel();
+    _show.cancel();
     if (_popupRef.isOn) _popupRef.isOn = false;
   }
 
@@ -87,7 +80,7 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
   void onMouseOver() {
     if (_isMouseInside) return;
     _isMouseInside = true;
-    delayedActivate();
+    _show.start();
   }
 
   void onMouseLeave() {

@@ -21,7 +21,7 @@ export 'material_list_size.dart';
 /// __Example usage:__
 ///     <material-list size="medium">
 ///       <material-list-item>Item 1</material-list-item>
-///       <material-list-item>Item 2/material-list-item>
+///       <material-list-item>Item 2</material-list-item>
 ///     </material-list>
 ///
 /// ## List Item Grouping

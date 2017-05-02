@@ -114,7 +114,8 @@ class MaterialRadioComponent extends RootFocusable
 
   /// Published when the radio selection state changes.
   @Output('checkedChange')
-  final onChecked = new LazyEventEmitter<bool>.broadcast(sync: false);
+  Stream<bool> get onChecked => _onChecked.stream;
+  final _onChecked = new StreamController<bool>.broadcast();
 
   /// Whether the radio should be preselected.
   @Input()
@@ -136,7 +137,7 @@ class MaterialRadioComponent extends RootFocusable
 
     _checked = newValue;
     _syncAriaChecked();
-    onChecked.add(_checked);
+    _onChecked.add(_checked);
   }
 
   bool get checked => _checked;

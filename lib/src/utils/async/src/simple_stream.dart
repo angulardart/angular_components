@@ -175,7 +175,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
       var sub = listeners[i];
       var callback = sub._onError;
       // Cancel first in case something goes wrong in the callback.
-      if (sub._cancelOnError) {
+      if (sub._cancelOnError == true) {
         sub._closeSubscription();
       }
       if (callback != null) {

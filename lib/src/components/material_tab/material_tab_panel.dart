@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:angular2/angular2.dart';
 
 import '../../utils/async/async.dart';
@@ -78,7 +80,11 @@ class MaterialTabPanelComponent {
     _tabLabels = _tabs.map((t) => t.label).toList();
     _tabIds = _tabs.map((t) => t.tabId).toList();
 
-    _setActiveTab(_activeTabIndex, false);
+    // Setting the active tab needs to happen in the next turn as it is changing
+    // the state of the tab.
+    scheduleMicrotask(() {
+      _setActiveTab(_activeTabIndex, false);
+    });
   }
 
   List<Tab> _tabs;

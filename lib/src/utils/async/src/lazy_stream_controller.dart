@@ -17,6 +17,7 @@ typedef StreamController<T> StreamControllerFactory<T>();
 /// when a few other methods are called - such as [done], [addStream], [sink].
 /// If these end up being common use cases, it may make sense to make them lazy
 /// as well.
+@Deprecated('Use StreamController instead. Which is more performant.')
 class LazyStreamController<T> implements StreamController<T> {
   final StreamControllerFactory<T> _streamControllerFactory;
 

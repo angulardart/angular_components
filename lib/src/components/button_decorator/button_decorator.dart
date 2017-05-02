@@ -50,7 +50,7 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
   /// Is the button disabled.
   bool get disabled => _disabled;
   @Input()
-  set disabled(value) {
+  set disabled(dynamic value) {
     _disabled = getBool(value);
   }
 

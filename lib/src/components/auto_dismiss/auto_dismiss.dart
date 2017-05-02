@@ -46,7 +46,7 @@ class AutoDismissDirective {
     // If a click set autoDismissable to `true`, then we don't want the same
     // click to dismiss right away. Stop listening for clicks until we see a
     // click event, or until the next event loop.
-    _ignoreClicks = b;
+    _ignoreClicks = _autoDismissable;
     _click.first.then(_listenForClicks);
     // Run the timer outside of Angular so that it doesn't trigger a new digest
     // cycle.

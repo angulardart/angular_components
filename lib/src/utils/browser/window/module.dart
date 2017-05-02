@@ -33,3 +33,18 @@ const windowBindings = const [
   const Provider(Document, useFactory: getDocument),
   const Provider(Window, useFactory: getWindow)
 ];
+
+/// Returns the current [Window]'s location.
+///
+/// This mainly exists so that components can change the location without
+/// requiring a mock [Window] in tests, which can be limiting since the [Window]
+/// is used for much more than changing the location.
+///
+/// Visible for transformer only.
+@Injectable()
+Location getLocation(Window window) => window.location;
+
+/// Provides [Location] bound for use within Angular.
+const locationBindings = const [
+  const Provider(Location, useFactory: getLocation),
+];

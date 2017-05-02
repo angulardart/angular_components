@@ -41,7 +41,7 @@ abstract class DropdownHandle {
 ///   content.
 class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   final visibleStream = new LazyEventEmitter<bool>.broadcast();
-  final _contentVisible = new LazyStreamController<bool>.broadcast(sync: true);
+  final _contentVisible = new StreamController<bool>.broadcast(sync: true);
 
   bool _enforceSpaceConstraints = false;
   bool get enforceSpaceConstraints => _enforceSpaceConstraints;

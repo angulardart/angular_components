@@ -8,6 +8,7 @@ import 'dart:math';
 import 'package:angular2/angular2.dart';
 
 import '../../utils/angular/properties/properties.dart';
+import '../../utils/browser/events/events.dart';
 import '../../utils/browser/feature_detector/feature_detector.dart'
     show supportsAnimationApi;
 import '../../utils/color/material.dart' show rippleOpacity;
@@ -40,11 +41,10 @@ Map<String, dynamic> _transformTiming;
 
 // This is outside of the class because it causes dart2js to inline this
 // function and use faster variable access patterns.
-void _createRipple(MouseEvent e, HtmlElement container, bool center) {
+void _createRipple(
+    int clientX, int clientY, HtmlElement container, bool center) {
   // All of the DOM reads occur before the DOM writes.
   final rect = container.getBoundingClientRect();
-  final clientX = e.client.x;
-  final clientY = e.client.y;
 
   // Create a ripple or grab one from the pool.
   var ripple;
@@ -160,6 +160,7 @@ void _applyFallbackAnimation(
 class MaterialRippleComponent implements OnDestroy {
   final HtmlElement _element;
   EventListener _onMouseDown;
+  EventListener _onKeyDown;
 
   MaterialRippleComponent(ElementRef elementRef)
       : _element = elementRef.nativeElement {
@@ -194,12 +195,20 @@ class MaterialRippleComponent implements OnDestroy {
     _onMouseDown = (e) {
       // This is inlined by dart2js so we aren't incurring an additional
       // function call here.
-      _createRipple(e, _element, _center);
+      final clientX = (e as MouseEvent).client.x;
+      final clientY = (e as MouseEvent).client.y;
+      _createRipple(clientX, clientY, _element, _center);
+    };
+    _onKeyDown = (e) {
+      if (!isKeyboardTrigger(e)) return;
+      // Ripples created by a keypress are always centered.
+      _createRipple(0, 0, _element, true);
     };
     // This is about 5x faster than _element.onMouseDown.listen or Angular
     // (mousedown) because this compiles directly to addEventListener, whereas
     // the streams approach adds several layers of slow indirection.
     _element.addEventListener('mousedown', _onMouseDown);
+    _element.addEventListener('keydown', _onKeyDown);
   }
 
   /// Whether the ripple should start from the center of the container.
@@ -212,5 +221,6 @@ class MaterialRippleComponent implements OnDestroy {
   @override
   void ngOnDestroy() {
     _element.removeEventListener('mousedown', _onMouseDown);
+    _element.removeEventListener('keydown', _onKeyDown);
   }
 }

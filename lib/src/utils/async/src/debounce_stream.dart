@@ -27,5 +27,5 @@ import 'rate_limit.dart';
 /// keypress stream with a duration of 1s, and there are three events
 /// at t=0s, t=0.1s, at t=0.2s, the first two events will be discarded
 /// and the last event will be triggered at t=1.2s.
-StreamTransformer debounceStream(Duration duration) =>
-    new RateLimitTransformer(duration, debounce);
+StreamTransformer<S, T> debounceStream<S, T>(Duration duration) =>
+    new RateLimitTransformer<S, T>(duration, debounce);

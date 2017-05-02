@@ -7,6 +7,7 @@ library angular_components.model.ui.highlighted_text_model;
 import 'dart:math' show max;
 
 import 'package:logging/logging.dart';
+import 'package:meta/meta.dart';
 import 'package:quiver/core.dart' show hash2;
 
 /// Produces a list of [HighlightedTextSegment] instances for the given [query]
@@ -48,15 +49,22 @@ class TextHighlighter {
       {this.caseSensitive: false, this.matchFromStartOfWord: true});
 
   List<HighlightedTextSegment> highlight(String text, List<String> tokens) =>
-      _applyMarkers(text, _getMarkers(text, tokens));
+      _applyMarkers(text, getMarkers(text, tokens));
 
   /// Mark the start of each occurrence of each token with a number equal to
-  /// the length of the token. This can be thought of as the amount of "ink"
-  /// that the highlighter should have when starting from this point.
+  /// the length of the token.
+  ///
+  /// This can be thought of as the amount of "ink" that the highlighter should
+  /// have when starting from this point.
+  ///
   /// e.g. For the text `"abc def"` with [tokens] `["ab", "de"]`
   /// the marker array will be `[2,0,0,0,2,0,0]`, and the highlighted
   /// segments of the string will be computed as `[*ab*,c ,*de*,f]`
-  List<int> _getMarkers(String text, List<String> tokens) {
+  ///
+  /// Subclasses of [TextHighlighter] can override this method to provide custom
+  /// text highlighting behavior.
+  @protected
+  List<int> getMarkers(String text, List<String> tokens) {
     var _matchText = caseSensitive ? text : text.toLowerCase();
     List<int> markers = new List.filled(_matchText.length, 0);
 

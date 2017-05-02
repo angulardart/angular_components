@@ -29,7 +29,7 @@ class PopupState extends Observable {
       bool autoDismiss: true,
       bool enforceSpaceConstraints: false,
       bool matchSourceWidth: false,
-      bool matchMinSourceWidth: true,
+      bool matchMinSourceWidth: false,
       int offsetX: 0,
       int offsetY: 0,
       Iterable preferredPositions: const [],

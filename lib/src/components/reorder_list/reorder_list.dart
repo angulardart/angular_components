@@ -13,6 +13,9 @@ import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/async/async.dart';
 import '../../utils/disposer/disposer.dart';
 import '../../utils/keyboard/keyboard.dart';
+import './reorder_events.dart';
+
+export 'reorder_events.dart';
 
 /// Provides a list that can reorder it's children using html5 drag&drop.
 /// A vertical reorder-list will use any component in its <ng-content>
@@ -385,6 +388,7 @@ class ReorderListComponent implements OnDestroy {
             e.keyCode == KeyCode.NUM_DELETE ||
             e.keyCode == KeyCode.BACKSPACE) &&
         modifiersKeysFor(e)) {
+      if ((e.target as HtmlElement) != element) return;
       int index = _getIndex(element);
       if (index == -1) {
         return;
@@ -576,37 +580,9 @@ class ReorderListComponent implements OnDestroy {
 
 typedef void ReorderListHandler(int sourceIndex, int destIndex);
 
-/// An event data emitted after single drag element is dropped.
-class ReorderEvent {
-  final int sourceIndex;
-  final int destIndex;
-
-  ReorderEvent(this.sourceIndex, this.destIndex);
-}
-
-/// An event data emitted when [multiSelect] is set to true.
-///
-/// (Even if only one item is dragged).
-class MultiReorderEvent extends ReorderEvent {
-  /// All the selected items indexes before their repositioning.
-  final List<int> sourceIndexes;
-
-  MultiReorderEvent(List<int> sourceIndexes, int destIndex)
-      : sourceIndexes = sourceIndexes,
-        super(sourceIndexes[0], destIndex);
-}
-
-/// An event to represent each selection change.
-class ItemSelectionEvent {
-  /// The newly selected indexes.
-  final List<int> selectedIndexes;
-
-  ItemSelectionEvent(List<int> indexes)
-      : selectedIndexes = new List<int>.unmodifiable(indexes);
-}
-
 /// Indicates that a child will participate in reorder operation inside a
 /// reorder-list component. See ReorderListComponent for usage.
+// TODO(google): Add back in host value once b/22432233 is fixed.
 @Directive(
     selector: '[reorderItem]',
     host: const {'draggable': 'true', 'role': 'listitem', 'tabindex': '0'})
