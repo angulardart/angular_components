@@ -5,15 +5,16 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../focus/focus.dart';
-import '../glyph/glyph.dart';
-import './material_radio_group.dart';
-import '../material_ripple/material_ripple.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../model/ui/icon.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
 import '../../utils/disposer/disposer.dart';
-import 'package:angular2/angular2.dart';
+import '../focus/focus.dart';
+import '../glyph/glyph.dart';
+import '../material_ripple/material_ripple.dart';
+import './material_radio_group.dart';
 
 const Icon uncheckedIcon = const Icon('radio_button_unchecked');
 const Icon checkedIcon = const Icon('radio_button_checked');

@@ -4,13 +4,12 @@
 
 import 'package:angular2/angular2.dart';
 
-import '../../content/deferred_content.dart';
-import '../../material_popup/material_popup.dart';
-import '../module.dart';
 import '../../../laminate/enums/alignment.dart';
 import '../../../laminate/popup/popup.dart' show PopupSource;
 import '../../../utils/angular/properties/properties.dart';
-
+import '../../content/deferred_content.dart';
+import '../../material_popup/material_popup.dart';
+import '../module.dart';
 import 'tooltip_controller.dart';
 import 'tooltip_target.dart';
 

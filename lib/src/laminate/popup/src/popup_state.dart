@@ -9,9 +9,9 @@ import 'dart:async';
 import 'package:observable/observable.dart';
 import 'package:quiver/core.dart';
 
+import '../../../utils/angular/properties/properties.dart';
 import '../../enums/alignment.dart';
 import './popup_source.dart';
-import '../../../utils/angular/properties/properties.dart';
 
 /// The internal state (model) of a popup.
 ///

@@ -4,8 +4,8 @@
 
 import 'package:angular2/angular2.dart';
 
-import 'src/tooltip_controller.dart';
 import '../../utils/disposer/disposer.dart';
+import 'src/tooltip_controller.dart';
 
 const materialTooltipBindings = const [TooltipController];
 

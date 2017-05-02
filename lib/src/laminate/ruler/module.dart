@@ -6,11 +6,11 @@ library angular_components.laminate.ruler.module;
 
 import 'package:angular2/angular2.dart';
 
-import './dom_ruler.dart';
-import './ng_ruler.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/browser/dom_service/angular_2.dart';
 import '../../utils/browser/window/module.dart';
+import './dom_ruler.dart';
+import './ng_ruler.dart';
 
 /// Providers for using the ruler service.
 const rulerBindings = const [

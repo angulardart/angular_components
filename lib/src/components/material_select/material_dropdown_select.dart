@@ -5,21 +5,8 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../../utils/async/async.dart';
-import '../annotations/rtl_annotation.dart';
-import '../content/deferred_content.dart';
-import '../content/deferred_content_aware.dart';
-import '../focus/keyboard_only_focus_indicator.dart';
-import '../material_list/material_list.dart';
-import '../material_popup/material_popup.dart';
-import './activation_handler.dart';
-import './dropdown_button.dart';
-import './material_select_base.dart';
-import './material_select_dropdown_item.dart';
-import './shift_click_selection.dart';
-import '../mixins/button_wrapper.dart';
-import '../mixins/material_dropdown_base.dart';
-import '../mixins/track_layout_changes.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../laminate/enums/alignment.dart';
 import '../../laminate/popup/popup.dart';
 import '../../model/a11y/active_item.dart';
@@ -30,8 +17,22 @@ import '../../model/selection/selection_model.dart';
 import '../../model/selection/selection_options.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../model/ui/template_support.dart';
+import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
-import 'package:angular2/angular2.dart';
+import '../annotations/rtl_annotation.dart';
+import '../content/deferred_content.dart';
+import '../content/deferred_content_aware.dart';
+import '../focus/keyboard_only_focus_indicator.dart';
+import '../material_list/material_list.dart';
+import '../material_popup/material_popup.dart';
+import '../mixins/button_wrapper.dart';
+import '../mixins/material_dropdown_base.dart';
+import '../mixins/track_layout_changes.dart';
+import './activation_handler.dart';
+import './dropdown_button.dart';
+import './material_select_base.dart';
+import './material_select_dropdown_item.dart';
+import './shift_click_selection.dart';
 
 /// Material Dropdown Select is a button-triggered dropdown.
 ///

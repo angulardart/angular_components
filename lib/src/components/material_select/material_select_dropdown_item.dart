@@ -4,15 +4,16 @@
 
 import 'dart:html';
 
-import '../dynamic_component/dynamic_component.dart';
-import '../material_checkbox/material_checkbox.dart';
-import './activation_handler.dart';
-import './material_select_item.dart';
-import '../mixins/material_dropdown_base.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../model/selection/selection_container.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
-import 'package:angular2/angular2.dart';
+import '../dynamic_component/dynamic_component.dart';
+import '../material_checkbox/material_checkbox.dart';
+import '../mixins/material_dropdown_base.dart';
+import './activation_handler.dart';
+import './material_select_item.dart';
 
 /// Container for a single item selected in a dropdown.
 ///

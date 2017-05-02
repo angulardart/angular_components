@@ -7,6 +7,7 @@ import 'package:angular2/angular2.dart';
 import '../../model/ui/accepts_width.dart';
 import '../../utils/angular/properties/properties.dart';
 import 'material_list_size.dart';
+
 export 'material_list_size.dart';
 
 /// Material List is a container component for a set of items with which the

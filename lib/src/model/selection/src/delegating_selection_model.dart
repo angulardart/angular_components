@@ -4,8 +4,9 @@
 
 import 'dart:async';
 
-import '../selection_model.dart';
 import 'package:observable/observable.dart';
+
+import '../selection_model.dart';
 
 /// A delegating implementation of [SelectionModel].
 class DelegatingSelectionModel<T> implements SelectionModel<T> {

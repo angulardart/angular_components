@@ -2,10 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import './material_input.dart';
-import './material_input_error_keys.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
+
+import './material_input.dart';
+import './material_input_error_keys.dart';
 
 export './material_number_accessor.dart' show materialNumberInputDirectives;
 

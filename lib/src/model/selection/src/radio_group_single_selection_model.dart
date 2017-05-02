@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import '../selection_model.dart';
-
 import 'delegating_selection_model.dart';
 
 /// Single selection model that always has a value selected

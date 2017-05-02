@@ -4,6 +4,7 @@
 
 import 'dart:html';
 import 'dart:js' as js;
+
 import 'package:js/js_util.dart' as js_util;
 
 /// Provides information of current browser features.

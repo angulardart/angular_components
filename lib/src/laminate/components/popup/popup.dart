@@ -7,15 +7,16 @@ library angular_components.laminate.components.popup.popup;
 import 'dart:async';
 import 'dart:html';
 
+import 'package:angular2/angular2.dart';
+
 import '../../../components/content/deferred_content_aware.dart';
-import './base.dart';
-import './hierarchy.dart';
-import '../../popup/popup.dart';
-import '../../portal/portal.dart';
 import '../../../model/ui/toggle.dart';
 import '../../../utils/browser/dom_service/dom_service.dart';
 import '../../../utils/disposer/disposer.dart';
-import 'package:angular2/angular2.dart';
+import '../../popup/popup.dart';
+import '../../portal/portal.dart';
+import './base.dart';
+import './hierarchy.dart';
 
 export 'src/popup_source_directive.dart';
 

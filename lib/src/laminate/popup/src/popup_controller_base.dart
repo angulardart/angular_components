@@ -9,15 +9,15 @@ import 'dart:math';
 
 import 'package:angular2/angular2.dart';
 
+import '../../../utils/angular/properties/properties.dart';
+import '../../../utils/disposer/disposer.dart';
 import '../../enums/alignment.dart';
+import '../../portal/portal.dart';
 import './dom_popup_source.dart';
 import './popup_event.dart';
 import './popup_ref.dart';
 import './popup_service.dart';
 import './popup_source.dart';
-import '../../portal/portal.dart';
-import '../../../utils/angular/properties/properties.dart';
-import '../../../utils/disposer/disposer.dart';
 
 /// Base class with constructor for [ExperimentalPopupController] to extend.
 abstract class PopupControllerBase extends PopupController {

@@ -4,11 +4,10 @@
 
 import 'package:angular2/angular2.dart';
 
+import '../../utils/async/async.dart';
 import '../annotations/rtl_annotation.dart';
 import '../focus/focus_item.dart';
 import '../focus/focus_list.dart';
-import '../../utils/async/async.dart';
-
 import 'src/tab_button.dart';
 import 'tab_change_event.dart';
 

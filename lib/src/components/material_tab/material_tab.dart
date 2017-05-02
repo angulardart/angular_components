@@ -6,10 +6,10 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 
-import '../content/deferred_content_aware.dart';
-import '../focus/focus.dart';
 import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
+import '../content/deferred_content_aware.dart';
+import '../focus/focus.dart';
 
 /// Basic interface for a Tab.
 abstract class Tab extends Focusable {

@@ -9,8 +9,8 @@ import 'dart:html';
 import 'dart:math';
 
 import '../../enums/visibility.dart';
-import './overlay_state.dart';
 import '../../portal/portal.dart';
+import './overlay_state.dart';
 
 /// A handle to manipulate an existing overlay pane.
 abstract class OverlayRef implements PortalHost {

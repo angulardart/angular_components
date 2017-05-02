@@ -2,13 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../focus/focus.dart';
-import '../glyph/glyph.dart';
-import '../../utils/angular/reference/reference.dart';
 import 'package:angular2/angular2.dart';
 import 'package:quiver/strings.dart' show isNotEmpty;
-import '../../utils/angular/properties/properties.dart';
 
+import '../../utils/angular/properties/properties.dart';
+import '../../utils/angular/reference/reference.dart';
+import '../focus/focus.dart';
+import '../glyph/glyph.dart';
 import 'base_material_input.dart';
 import 'deferred_validator.dart';
 import 'material_input_default_value_accessor.dart';

@@ -4,9 +4,10 @@
 
 import 'dart:async';
 
+import 'package:angular2/angular2.dart';
+
 import '../../model/ui/has_renderer.dart';
 import '../../utils/async/async.dart';
-import 'package:angular2/angular2.dart';
 
 /// Dynamically renders another component, setting the [value] field on the
 /// dynamic component if it implements [RendersValue] (and not if the component

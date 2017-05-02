@@ -5,8 +5,8 @@
 import 'dart:async';
 import 'dart:math';
 
-import '../content/deferred_content_aware.dart';
-import '../mixins/material_dropdown_base.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../laminate/components/popup/hierarchy.dart';
 import '../../laminate/components/popup/popup.dart';
 import '../../laminate/overlay/overlay.dart';
@@ -15,7 +15,8 @@ import '../../laminate/popup/popup.dart'
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
-import 'package:angular2/angular2.dart';
+import '../content/deferred_content_aware.dart';
+import '../mixins/material_dropdown_base.dart';
 
 export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 

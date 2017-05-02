@@ -4,9 +4,10 @@
 
 import 'dart:collection';
 
+import 'package:collection/collection.dart';
+
 import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
-import 'package:collection/collection.dart';
 
 /// Manages a pointer to an item in a list.
 ///

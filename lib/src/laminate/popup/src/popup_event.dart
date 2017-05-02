@@ -7,8 +7,8 @@ library angular_components.laminate.popup.src.popup_event;
 import 'dart:async';
 import 'dart:math';
 
-import './popup_ref.dart';
 import '../../../model/action/async_action.dart';
+import './popup_ref.dart';
 
 /// An event fired from a popup instance.
 abstract class PopupEvent<V> implements AsyncAction<V> {

@@ -4,9 +4,9 @@
 
 import 'dart:async';
 
-import './select.dart';
 import 'package:observable/observable.dart';
 
+import './select.dart';
 import 'selection_model.dart';
 
 typedef bool IsIndeterminate(var entity);

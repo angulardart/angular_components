@@ -5,9 +5,10 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../button_decorator/button_decorator.dart';
-import '../../utils/angular/properties/properties.dart';
 import 'package:angular2/angular2.dart';
+
+import '../../utils/angular/properties/properties.dart';
+import '../button_decorator/button_decorator.dart';
 
 /// A base class from which to build buttons.
 ///

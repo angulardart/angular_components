@@ -9,10 +9,11 @@ import 'dart:html';
 import 'package:angular2/angular2.dart';
 import 'package:angular2/src/core/linker/app_view.dart'
     show domRootRendererIsDirty;
+
 import '../../angular/managed_zone/interface.dart';
+import '../../disposer/disposer.dart';
 import './dom_service.dart';
 import './dom_service_webdriver_testability.dart';
-import '../../disposer/disposer.dart';
 
 export './dom_service.dart';
 

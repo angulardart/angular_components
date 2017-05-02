@@ -9,9 +9,9 @@ import 'dart:math';
 
 import 'package:angular2/angular2.dart';
 
+import '../../../../utils/async/async.dart';
 import '../../../enums/alignment.dart';
 import '../../../popup/popup.dart' show DomPopupSourceFactory, PopupSource;
-import '../../../../utils/async/async.dart';
 
 /// A directive that exposes the [PopupSource] interface as `popupSource`:
 ///

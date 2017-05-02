@@ -8,15 +8,15 @@ import 'dart:async';
 import 'dart:math';
 
 import '../../../css/acux/zindexer.dart';
-import '../../enums/alignment.dart';
-import '../../enums/visibility.dart';
-import '../../overlay/overlay.dart';
-import './popup_event.dart';
-import './popup_state.dart';
-import '../../portal/portal.dart';
 import '../../../model/action/async_action.dart';
 import '../../../model/ui/toggle.dart';
 import '../../../utils/disposer/disposer.dart';
+import '../../enums/alignment.dart';
+import '../../enums/visibility.dart';
+import '../../overlay/overlay.dart';
+import '../../portal/portal.dart';
+import './popup_event.dart';
+import './popup_state.dart';
 
 /// A handle to manipulate an existing popup.
 abstract class PopupRef implements PortalHost, Toggleable {

@@ -4,19 +4,20 @@
 
 import 'dart:async';
 
-import '../button_decorator/button_decorator.dart';
-import '../content/deferred_content_aware.dart';
-import '../focus/focus.dart';
-import '../glyph/glyph.dart';
-import '../material_yes_no_buttons/material_yes_no_buttons.dart';
+import 'package:angular2/angular2.dart';
+import 'package:intl/intl.dart';
+
 import '../../model/action/async_action.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
-import 'package:angular2/angular2.dart';
-import 'package:intl/intl.dart';
+import '../button_decorator/button_decorator.dart';
+import '../content/deferred_content_aware.dart';
+import '../focus/focus.dart';
+import '../glyph/glyph.dart';
+import '../material_yes_no_buttons/material_yes_no_buttons.dart';
 
 /// A material-styled expansion-panel.
 ///

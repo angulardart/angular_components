@@ -5,12 +5,13 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../material_button/material_button.dart';
-import '../material_spinner/material_spinner.dart';
-import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
+
+import '../../utils/angular/properties/properties.dart';
+import '../../utils/async/async.dart';
+import '../material_button/material_button.dart';
+import '../material_spinner/material_spinner.dart';
 
 /// A component for the two buttons horizontally next to each other, like
 /// yes/no, save/cancel, agree/not agree, etc.

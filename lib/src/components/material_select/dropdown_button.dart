@@ -6,11 +6,11 @@ import 'dart:html';
 
 import 'package:angular2/angular2.dart';
 
+import '../../utils/async/async.dart';
 import '../button_decorator/button_decorator.dart';
 import '../focus/keyboard_only_focus_indicator.dart';
 import '../glyph/glyph.dart';
 import '../mixins/button_wrapper.dart';
-import '../../utils/async/async.dart';
 
 /// A button styled specifically for dropdowns.
 ///

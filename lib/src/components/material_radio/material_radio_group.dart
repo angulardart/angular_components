@@ -4,12 +4,12 @@
 
 import 'package:angular2/angular2.dart';
 
-import '../focus/focus.dart';
-import './material_radio.dart';
 import '../../model/selection/selection_model.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/async/async.dart';
 import '../../utils/disposer/disposer.dart';
+import '../focus/focus.dart';
+import './material_radio.dart';
 
 /// Group containing multiple material radio buttons, enforcing that only one
 /// value in the group is selected.

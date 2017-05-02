@@ -5,7 +5,6 @@
 import 'package:angular2/angular2.dart';
 
 import '../../utils/async/async.dart';
-
 import 'fixed_material_tab_strip.dart';
 import 'material_tab.dart';
 import 'tab_change_event.dart';

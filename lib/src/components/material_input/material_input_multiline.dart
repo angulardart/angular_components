@@ -4,12 +4,12 @@
 
 import 'dart:html';
 
-import '../focus/focus.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/angular/reference/reference.dart';
 import '../../utils/browser/dom_service/angular_2.dart';
-import 'package:angular2/angular2.dart';
-
+import '../focus/focus.dart';
 import 'base_material_input.dart';
 import 'deferred_validator.dart';
 

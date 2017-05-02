@@ -10,8 +10,8 @@ import 'dart:math';
 
 import 'package:angular2/angular2.dart';
 
-import 'src/ruler_interface.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
+import 'src/ruler_interface.dart';
 
 /// An implementation of ruler that uses raw DOM access and [Element]s.
 ///

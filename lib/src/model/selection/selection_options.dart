@@ -6,10 +6,10 @@ library angular_components.model.selection.selection_options;
 
 import 'dart:async';
 
-import '../collection/labeled_list.dart';
-import '../observable/observable.dart';
 import '../../utils/async/async.dart';
 import '../../utils/disposer/disposer.dart';
+import '../collection/labeled_list.dart';
+import '../observable/observable.dart';
 
 part 'src/future_selection_options_impl.dart';
 part 'src/stream_selection_options_impl.dart';

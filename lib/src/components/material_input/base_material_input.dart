@@ -5,15 +5,15 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../focus/focus.dart';
-import '../mixins/focusable_mixin.dart';
-import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
-import '../../utils/disposer/disposer.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
 
+import '../../utils/angular/properties/properties.dart';
+import '../../utils/async/async.dart';
+import '../../utils/disposer/disposer.dart';
+import '../focus/focus.dart';
+import '../mixins/focusable_mixin.dart';
 import 'deferred_validator.dart';
 
 /// Key used in the Control's error map, when there is an error.

@@ -4,12 +4,13 @@
 
 import 'dart:html';
 
-import '../glyph/glyph.dart';
-import '../material_ripple/material_ripple.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../model/ui/icon.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
-import 'package:angular2/angular2.dart';
+import '../glyph/glyph.dart';
+import '../material_ripple/material_ripple.dart';
 
 const Icon uncheckedIcon = const Icon('check_box_outline_blank');
 const Icon checkedIcon = const Icon('check_box');

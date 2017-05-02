@@ -4,12 +4,9 @@
 
 import 'dart:html';
 
-import '../button_decorator/button_decorator.dart';
-import '../dynamic_component/dynamic_component.dart';
-import '../glyph/glyph.dart';
-import '../material_checkbox/material_checkbox.dart';
-import './activation_handler.dart';
-import '../mixins/material_dropdown_base.dart';
+import 'package:angular2/angular2.dart';
+import 'package:intl/intl.dart';
+
 import '../../model/a11y/active_item_mixin.dart';
 import '../../model/selection/selection_container.dart';
 import '../../model/selection/selection_model.dart';
@@ -17,8 +14,12 @@ import '../../model/ui/has_renderer.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
-import 'package:angular2/angular2.dart';
-import 'package:intl/intl.dart';
+import '../button_decorator/button_decorator.dart';
+import '../dynamic_component/dynamic_component.dart';
+import '../glyph/glyph.dart';
+import '../material_checkbox/material_checkbox.dart';
+import '../mixins/material_dropdown_base.dart';
+import './activation_handler.dart';
 
 /// Material Select Item is a special kind of list item which can be selected.
 @Component(

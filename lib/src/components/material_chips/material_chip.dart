@@ -5,13 +5,13 @@
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
 
-import '../button_decorator/button_decorator.dart';
-import '../focus/focus.dart';
-import '../glyph/glyph.dart';
 import '../../model/selection/selection_model.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
+import '../button_decorator/button_decorator.dart';
+import '../focus/focus.dart';
+import '../glyph/glyph.dart';
 
 /// A "chip" widget renders an object in the 'chip' format - a rounded box with
 /// a shadow, typically used in a horizontal list. Any object implementing the

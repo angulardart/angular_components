@@ -6,7 +6,6 @@ import 'package:angular2/angular2.dart';
 
 import '../../model/action/async_action.dart';
 import '../../utils/disposer/disposer.dart';
-
 import 'material_expansionpanel.dart';
 
 /// A directive which will turn a set of expansion panels into an accordian

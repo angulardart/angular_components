@@ -6,12 +6,13 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math';
 
+import 'package:angular2/angular2.dart';
+import 'package:quiver/iterables.dart' show range;
+
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/async/async.dart';
 import '../../utils/disposer/disposer.dart';
 import '../../utils/keyboard/keyboard.dart';
-import 'package:angular2/angular2.dart';
-import 'package:quiver/iterables.dart' show range;
 
 /// Provides a list that can reorder it's children using html5 drag&drop.
 /// A vertical reorder-list will use any component in its <ng-content>

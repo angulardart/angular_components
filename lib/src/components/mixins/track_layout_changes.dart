@@ -2,8 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../../utils/angular/properties/properties.dart';
 import 'package:angular2/angular2.dart';
+
+import '../../utils/angular/properties/properties.dart';
 
 /**
  * Mixin for trackLayoutChanges property pass through to material popup to

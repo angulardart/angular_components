@@ -4,14 +4,14 @@
 
 import 'dart:async';
 
-import '../material_list/material_list.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../model/selection/selection_container.dart';
 import '../../model/selection/selection_model.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../model/ui/template_support.dart';
 import '../../utils/angular/properties/properties.dart';
-import 'package:angular2/angular2.dart';
-
+import '../material_list/material_list.dart';
 import 'material_select_base.dart';
 import 'material_select_item.dart';
 

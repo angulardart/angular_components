@@ -4,8 +4,9 @@
 
 library angular_components.laminate.popup.src.popup_size_provider_directive;
 
-import './popup_size_provider.dart';
 import 'package:angular2/angular2.dart';
+
+import './popup_size_provider.dart';
 
 /// Directive to provide maximum sizes to a popup from html.
 ///

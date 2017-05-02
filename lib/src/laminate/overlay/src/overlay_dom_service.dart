@@ -8,14 +8,15 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math';
 
+import 'package:angular2/angular2.dart'
+    show Inject, Injectable, NgZone, SkipSelf, Optional;
+import 'package:logging/logging.dart';
+
 import './overlay_ref.dart';
 import './overlay_service.dart';
 import './overlay_state.dart';
 import 'render/overlay_dom_ref.dart';
 import 'render/overlay_dom_render_service.dart';
-import 'package:angular2/angular2.dart'
-    show Inject, Injectable, NgZone, SkipSelf, Optional;
-import 'package:logging/logging.dart';
 
 // This file exists, versus putting everything in overlay_service.dart, to avoid
 // having dart:html references in the core interfaces, something that will be

@@ -7,7 +7,6 @@ import 'dart:html';
 
 import 'package:angular2/angular2.dart';
 
-import './tooltip_controller.dart';
 import '../../../laminate/components/popup/popup.dart'
     show PopupSourceDirective;
 import '../../../laminate/popup/popup.dart' show DomPopupSourceFactory;
@@ -15,7 +14,7 @@ import '../../../model/action/delayed_action.dart';
 import '../../../utils/angular/reference/reference.dart';
 import '../../../utils/async/async.dart';
 import '../../../utils/browser/events/events.dart';
-
+import './tooltip_controller.dart';
 import 'tooltip_source.dart' show tooltipDelay;
 
 /// A directive which marks the source of a tooltip and handles activating and

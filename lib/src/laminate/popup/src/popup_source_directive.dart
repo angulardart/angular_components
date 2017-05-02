@@ -9,10 +9,10 @@ import 'dart:math';
 
 import 'package:angular2/angular2.dart';
 
+import '../../../utils/angular/reference/reference.dart';
 import '../../enums/alignment.dart';
 import './dom_popup_source.dart';
 import './popup_source.dart';
-import '../../../utils/angular/reference/reference.dart';
 
 /// A directive that exposes the [PopupSource] interface as `popupSource`:
 ///

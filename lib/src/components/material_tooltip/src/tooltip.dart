@@ -6,14 +6,13 @@ import 'dart:html' as html;
 
 import 'package:angular2/angular2.dart';
 
-import '../module.dart';
 import '../../../laminate/enums/alignment.dart';
 import '../../../laminate/popup/popup.dart' show DomPopupSourceFactory;
 import '../../../model/action/delayed_action.dart';
 import '../../../utils/angular/properties/properties.dart';
 import '../../../utils/browser/feature_detector/feature_detector.dart';
 import '../../../utils/disposer/disposer.dart';
-
+import '../module.dart';
 import 'ink_tooltip.dart';
 import 'tooltip_controller.dart';
 import 'tooltip_source.dart' show tooltipDelay;

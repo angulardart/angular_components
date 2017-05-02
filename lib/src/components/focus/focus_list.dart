@@ -4,10 +4,10 @@
 
 import 'package:angular2/angular2.dart';
 
-import './focus.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/disposer/disposer.dart';
+import './focus.dart';
 
 /// `FocusListDirective`, used in conjunction with [FocusItemDirective] or
 /// other directive implementing [FocusableItem], to provide a means to move

@@ -4,19 +4,19 @@
 
 import 'dart:async';
 
-import '../../utils/angular/properties/properties.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart';
 
+import '../../utils/angular/properties/properties.dart';
 import 'base_material_input.dart';
 import 'material_input.dart';
 import 'material_input_default_value_accessor.dart';
-import 'material_number_validators.dart';
 import 'material_input_error_keys.dart';
+import 'material_number_validators.dart';
 
-export 'material_number_validators.dart';
 export 'material_input.dart' show MaterialInputComponent;
+export 'material_number_validators.dart';
 
 const List<Type> materialNumberInputDirectives = const [
   CheckIntegerValidator,

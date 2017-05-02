@@ -4,12 +4,13 @@
 
 import 'dart:html';
 
-import '../focus/focus_trap.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../laminate/components/modal/modal.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
-import 'package:angular2/angular2.dart';
+import '../focus/focus_trap.dart';
 
 /// A styled container following the Material Spec for Dialogs.
 ///

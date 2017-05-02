@@ -7,10 +7,10 @@ library angular_components.laminate.components.popup.base;
 import 'dart:async';
 import 'dart:math';
 
-import '../../enums/alignment.dart';
-import '../../popup/popup.dart';
 import '../../../utils/angular/properties/properties.dart';
 import '../../../utils/async/async.dart';
+import '../../enums/alignment.dart';
+import '../../popup/popup.dart';
 
 /// A reusable interface for something that is or delegates to [PopupComponent].
 abstract class PopupInterface {

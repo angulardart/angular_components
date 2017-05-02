@@ -4,11 +4,12 @@
 
 library angular_components.model.selection.string_selection_options;
 
+import 'package:meta/meta.dart';
+
+import '../../utils/async/async.dart';
+import '../ui/has_renderer.dart';
 import './select.dart';
 import './selection_options.dart';
-import '../ui/has_renderer.dart';
-import '../../utils/async/async.dart';
-import 'package:meta/meta.dart';
 
 /// Format string to be insensitive on case and spaces.
 String _stringFormatSuggestion/*<T>*/(/*=T*/ Object value) =>

@@ -6,14 +6,13 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 
+import '../../../laminate/enums/alignment.dart';
+import '../../../laminate/popup/popup.dart' show PopupSource;
+import '../../../utils/async/async.dart';
 import '../../content/deferred_content.dart';
 import '../../content/deferred_content_aware.dart';
 import '../../material_popup/material_popup.dart';
 import '../module.dart';
-import '../../../laminate/enums/alignment.dart';
-import '../../../laminate/popup/popup.dart' show PopupSource;
-import '../../../utils/async/async.dart';
-
 import 'tooltip_controller.dart';
 import 'tooltip_target.dart';
 
