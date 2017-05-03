@@ -4,20 +4,20 @@
 
 import 'dart:html';
 
-import '../dynamic_component/dynamic_component.dart';
-import '../material_checkbox/material_checkbox.dart';
-import './activation_handler.dart';
-import './material_select_item.dart';
-import '../mixins/material_dropdown_base.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../model/selection/selection_container.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
-import 'package:angular2/angular2.dart';
+import '../dynamic_component/dynamic_component.dart';
+import '../glyph/glyph.dart';
+import '../mixins/material_dropdown_base.dart';
+import './activation_handler.dart';
+import './material_select_item.dart';
 
 /// Container for a single item selected in a dropdown.
 ///
-/// This should only be used in select dropdowns.  The spec for this
-/// component is at https://aw-next-spec.googleplex.com/#/pickers
+/// This should only be used in select dropdowns.
 @Component(
     selector: 'material-select-dropdown-item',
     inputs: const [
@@ -54,7 +54,7 @@ import 'package:angular2/angular2.dart';
           useExisting: MaterialSelectDropdownItemComponent)
     ],
     styleUrls: const ['material_select_dropdown_item.scss.css'],
-    directives: const [DynamicComponent, MaterialCheckboxComponent, NgIf],
+    directives: const [DynamicComponent, GlyphComponent, NgIf],
     templateUrl: 'material_select_dropdown_item.html')
 class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
     implements OnDestroy {

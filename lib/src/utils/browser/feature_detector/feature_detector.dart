@@ -4,6 +4,7 @@
 
 import 'dart:html';
 import 'dart:js' as js;
+
 import 'package:js/js_util.dart' as js_util;
 
 /// Provides information of current browser features.
@@ -13,8 +14,8 @@ import 'package:js/js_util.dart' as js_util;
 /// Nexus 9 is a special case here because it does not match the
 /// "(hover: none)" media query.
 bool supportsHover(Window window) =>
-    !window.matchMedia("(hover: none)").matches &&
-    !window.navigator.userAgent.contains("Nexus 9");
+    !((window.matchMedia("(hover: none)")?.matches ?? false) ||
+        window.navigator.userAgent.contains("Nexus 9"));
 
 /// Returns true if Hammer.js is loaded in the current browser.
 ///

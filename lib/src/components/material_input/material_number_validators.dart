@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../../utils/angular/properties/properties.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
 
+import '../../utils/angular/properties/properties.dart';
 import 'material_input_error_keys.dart';
 
 /// [Validator] which will validate a number input is positive > 0.

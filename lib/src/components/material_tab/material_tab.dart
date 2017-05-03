@@ -6,10 +6,9 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 
+import '../../utils/id_generator/id_generator.dart';
 import '../content/deferred_content_aware.dart';
 import '../focus/focus.dart';
-import '../../utils/async/async.dart';
-import '../../utils/id_generator/id_generator.dart';
 
 /// Basic interface for a Tab.
 abstract class Tab extends Focusable {
@@ -68,7 +67,7 @@ abstract class Tab extends Focusable {
 class MaterialTabComponent extends RootFocusable
     implements Tab, DeferredContentAware {
   final String _uuid;
-  final _visible = new LazyStreamController<bool>.broadcast(sync: true);
+  final _visible = new StreamController<bool>.broadcast(sync: true);
 
   MaterialTabComponent(ElementRef element, @Optional() IdGenerator idGenerator)
       : _uuid = (idGenerator ?? new SequentialIdGenerator.fromUUID()).nextId(),

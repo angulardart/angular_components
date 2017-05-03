@@ -4,22 +4,19 @@
 
 import 'package:angular2/angular2.dart';
 
+import '../../../laminate/enums/alignment.dart';
+import '../../../laminate/popup/popup.dart' show PopupSource;
 import '../../content/deferred_content.dart';
 import '../../material_popup/material_popup.dart';
 import '../module.dart';
-import '../../../laminate/enums/alignment.dart';
-import '../../../laminate/popup/popup.dart' show PopupSource;
-import '../../../utils/angular/properties/properties.dart';
-
 import 'tooltip_controller.dart';
 import 'tooltip_target.dart';
 
 /// An ink-based overlay meant to deliver contextual information about the
 /// element it targets.
 ///
-/// It is a "small" tooltip in that it is one or two lines, at most, and has a
-/// maximum width of `160`. Note: add the attribute `twoLine` if your
-/// tooltip content is longer than one line.
+/// It is a "small" tooltip in that it ought to be one or two lines, at most,
+/// and has a maximum width of `320px`.
 ///
 /// Typically, the tooltips are associated with an icon or a button and provide
 /// a label or brief helper text about that element. This component should be
@@ -56,10 +53,8 @@ import 'tooltip_target.dart';
                         [preferredPositions]="positions"
                         [source]="popupSource"
                         [visible]="showPopup">
-          <div *deferredContent
-               [class.two-line]="twoLine"
-               class="ink-container">
-            <span>{{text}}<ng-content></ng-content></span>
+          <div *deferredContent class="ink-container">
+            {{text}}<ng-content></ng-content>
           </div>
         </material-popup>''',
     styleUrls: const ['ink_tooltip.scss.css'],
@@ -81,15 +76,6 @@ class MaterialInkTooltipComponent implements Tooltip {
 
   bool _showPopup = false;
   bool get showPopup => _showPopup;
-
-  /// Styles the tooltip to accommodate wrapped tooltip messages.
-  @Input()
-  set twoLine(b) {
-    _twoLine = getBool(b);
-  }
-
-  bool _twoLine = false;
-  bool get twoLine => _twoLine;
 
   /// Text content of the tooltip.
   @Input()

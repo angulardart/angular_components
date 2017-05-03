@@ -7,9 +7,9 @@ library angular_components.laminate.overlay.src.render.overlay_dom_ref;
 import 'dart:async';
 import 'dart:html';
 
+import '../../../portal/portal.dart';
 import '../overlay_ref.dart';
 import '../overlay_state.dart';
-import '../../../portal/portal.dart';
 
 /// An implementation of [OverlayRef] that uses a DOM [HtmlElement] as a container.
 class OverlayDomRef extends BaseOverlayRef<HtmlElement> {

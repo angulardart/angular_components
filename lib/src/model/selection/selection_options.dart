@@ -6,10 +6,9 @@ library angular_components.model.selection.selection_options;
 
 import 'dart:async';
 
+import '../../utils/disposer/disposer.dart';
 import '../collection/labeled_list.dart';
 import '../observable/observable.dart';
-import '../../utils/async/async.dart';
-import '../../utils/disposer/disposer.dart';
 
 part 'src/future_selection_options_impl.dart';
 part 'src/stream_selection_options_impl.dart';
@@ -67,7 +66,7 @@ abstract class GroupedOptions<T> implements Disposable {
 class SelectionOptions<T> extends GroupedOptions<T>
     implements ObserveAware<List<OptionGroup<T>>> {
   final _controller =
-      new LazyStreamController<List<OptionGroup<T>>>.broadcast(sync: true);
+      new StreamController<List<OptionGroup<T>>>.broadcast(sync: true);
 
   List<T> _flattenedList;
   List<OptionGroup<T>> _optionGroups;

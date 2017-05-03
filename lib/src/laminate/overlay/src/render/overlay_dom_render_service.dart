@@ -7,16 +7,16 @@ library angular_components.laminate.overlay.src.render.overlay_dom_render_servic
 import 'dart:async';
 import 'dart:html';
 
-import '../../../enums/visibility.dart';
 import 'package:angular2/angular2.dart';
 
 import '../../../../css/acux/zindexer.dart';
-import '../overlay_state.dart';
-import './overlay_style_config.dart';
-import '../../../portal/portal.dart';
-import '../../../ruler/dom_ruler.dart';
 import '../../../../utils/angular/imperative_view/imperative_view.dart';
 import '../../../../utils/browser/dom_service/dom_service.dart';
+import '../../../enums/visibility.dart';
+import '../../../portal/portal.dart';
+import '../../../ruler/dom_ruler.dart';
+import '../overlay_state.dart';
+import './overlay_style_config.dart';
 
 /// An opaque token for the name of the overlay container, if any.
 const overlayContainerName = const OpaqueToken('overlayContainerName');

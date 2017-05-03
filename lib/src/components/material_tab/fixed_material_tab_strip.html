@@ -3,11 +3,8 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<div class="navi-bar"
-     focusList>
-  <div class="tab-indicator"
-       [style.transform]="tabIndicatorTransform">
-  </div>
+<div class="navi-bar" focusList role="tablist">
+  <div class="tab-indicator" [style.transform]="tabIndicatorTransform"></div>
   <tab-button *ngFor="let tabLabel of tabLabels; let idx = index"
               (trigger)="switchTo(idx)"
               [id]="tabId(idx)"
@@ -15,6 +12,7 @@
               [active]="activeTabIndex == idx"
               [attr.aria-selected]="activeStr(idx)"
               [label]="tabLabel"
-              focusItem>
+              focusItem
+              role="tab">
   </tab-button>
 </div>

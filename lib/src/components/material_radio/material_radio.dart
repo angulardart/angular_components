@@ -5,15 +5,16 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../focus/focus.dart';
-import '../glyph/glyph.dart';
-import './material_radio_group.dart';
-import '../material_ripple/material_ripple.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../model/ui/icon.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
 import '../../utils/disposer/disposer.dart';
-import 'package:angular2/angular2.dart';
+import '../focus/focus.dart';
+import '../glyph/glyph.dart';
+import '../material_ripple/material_ripple.dart';
+import './material_radio_group.dart';
 
 const Icon uncheckedIcon = const Icon('radio_button_unchecked');
 const Icon checkedIcon = const Icon('radio_button_checked');
@@ -113,7 +114,8 @@ class MaterialRadioComponent extends RootFocusable
 
   /// Published when the radio selection state changes.
   @Output('checkedChange')
-  final onChecked = new LazyEventEmitter<bool>.broadcast(sync: false);
+  Stream<bool> get onChecked => _onChecked.stream;
+  final _onChecked = new StreamController<bool>.broadcast();
 
   /// Whether the radio should be preselected.
   @Input()
@@ -135,7 +137,7 @@ class MaterialRadioComponent extends RootFocusable
 
     _checked = newValue;
     _syncAriaChecked();
-    onChecked.add(_checked);
+    _onChecked.add(_checked);
   }
 
   bool get checked => _checked;

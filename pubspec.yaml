@@ -1,5 +1,5 @@
 name: angular_components
-version: 0.5.0
+version: 0.5.1
 description: >
   The official Material Design components for AngularDart. Used at Google
   in production apps.
@@ -23,6 +23,7 @@ transformers:
 - angular2:
     resolved_identifiers:
       Document: 'dart:html'
+      Location: 'dart:html'
       Observable: 'package:observable/observable.dart'
       Profiler: 'package:perf_api/perf_api.dart'
       Window: 'dart:html'

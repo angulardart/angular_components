@@ -7,6 +7,7 @@ import 'package:angular2/angular2.dart';
 import '../../model/ui/accepts_width.dart';
 import '../../utils/angular/properties/properties.dart';
 import 'material_list_size.dart';
+
 export 'material_list_size.dart';
 
 /// Material List is a container component for a set of items with which the
@@ -20,7 +21,7 @@ export 'material_list_size.dart';
 /// __Example usage:__
 ///     <material-list size="medium">
 ///       <material-list-item>Item 1</material-list-item>
-///       <material-list-item>Item 2/material-list-item>
+///       <material-list-item>Item 2</material-list-item>
 ///     </material-list>
 ///
 /// ## List Item Grouping

@@ -2,14 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:angular2/angular2.dart';
 
-import '../focus/focus.dart';
-import './material_radio.dart';
 import '../../model/selection/selection_model.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
-import '../../utils/async/async.dart';
 import '../../utils/disposer/disposer.dart';
+import '../focus/focus.dart';
+import './material_radio.dart';
 
 /// Group containing multiple material radio buttons, enforcing that only one
 /// value in the group is selected.
@@ -87,7 +88,7 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
       if (valueSelection != null) {
         valueSelection.select(_selected);
       }
-      onChange.add(_selected);
+      _onChange.add(_selected);
     }));
 
     _disposer.addStreamSubscription(
@@ -177,7 +178,8 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
 
   /// Published when selection changes
   @Output('selectedChange')
-  final onChange = new LazyEventEmitter<Object>.broadcast(sync: false);
+  Stream<Object> get onChange => _onChange.stream;
+  final _onChange = new StreamController<Object>.broadcast();
 
   /// Selection model containing value object.
   @Input('selectionModel')

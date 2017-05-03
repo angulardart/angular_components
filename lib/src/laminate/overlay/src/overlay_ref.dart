@@ -9,8 +9,8 @@ import 'dart:html';
 import 'dart:math';
 
 import '../../enums/visibility.dart';
-import './overlay_state.dart';
 import '../../portal/portal.dart';
+import './overlay_state.dart';
 
 /// A handle to manipulate an existing overlay pane.
 abstract class OverlayRef implements PortalHost {
@@ -84,9 +84,6 @@ abstract class BaseOverlayRef<E> implements OverlayRef {
 
   bool _lastVisible = false;
 
-  // Tracks whenever the content size has changed.
-  final Set<StreamController<Rectangle>> _sizeControllers =
-      new Set<StreamController<Rectangle>>();
   StreamController<bool> _onVisibleController;
 
   // Tracks whenever [OverlayRef.onUpdate] changes.
@@ -124,10 +121,6 @@ abstract class BaseOverlayRef<E> implements OverlayRef {
 
   @override
   void dispose() {
-    for (final controller in _sizeControllers) {
-      controller.close();
-    }
-    _sizeControllers.clear();
     if (_onVisibleController != null) {
       _onVisibleController.close();
     }

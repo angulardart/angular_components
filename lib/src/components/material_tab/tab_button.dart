@@ -6,8 +6,8 @@ import 'dart:html';
 
 import 'package:angular2/angular2.dart';
 
-import '../../material_button/material_button_base.dart';
-import '../../material_ripple/material_ripple.dart';
+import '../material_button/material_button_base.dart';
+import '../material_ripple/material_ripple.dart';
 import './tab_mixin.dart';
 
 /// A specialized button component used only by the tab strip.

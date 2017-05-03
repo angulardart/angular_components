@@ -7,8 +7,9 @@ library angular_components.laminate.popup.src.popup_source;
 import 'dart:async';
 import 'dart:math';
 
-import '../../enums/alignment.dart';
 import 'package:angular2/angular2.dart';
+
+import '../../enums/alignment.dart';
 
 /// The source of where a popup will be created from.
 ///

@@ -2,14 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
+import 'package:angular2/angular2.dart';
+
+import '../../model/ui/icon.dart';
+import '../../utils/browser/events/events.dart';
 import '../glyph/glyph.dart';
 import '../material_ripple/material_ripple.dart';
-import '../../model/ui/icon.dart';
-import '../../utils/async/async.dart';
-import '../../utils/browser/events/events.dart';
-import 'package:angular2/angular2.dart';
 
 const Icon uncheckedIcon = const Icon('check_box_outline_blank');
 const Icon checkedIcon = const Icon('check_box');
@@ -57,8 +58,6 @@ const indeterminateAriaState = 'mixed';
 /// - `checked: bool` -- Published when the check state changes.
 /// - `indeterminate: bool` -- Published when the indeterminate state changes.
 ///
-/// TODO(google): restore example usage (latest ng2 tries to eval example code)
-///
 @Component(
     selector: 'material-checkbox',
     inputs: const [
@@ -68,11 +67,6 @@ const indeterminateAriaState = 'mixed';
       'indeterminateToChecked',
       'label',
       'themeColor'
-    ],
-    outputs: const [
-      'onChange: change',
-      'onChecked: checkedChange',
-      'onIndeterminate: indeterminateChange'
     ],
     host: const {
       'class': 'themeable',
@@ -135,14 +129,20 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
 
   /// Fired when checkbox is checked or unchecked, but not when set
   /// indeterminate. Sends the state of [checked].
-  final onChecked = new LazyEventEmitter.broadcast(sync: false);
+  @Output('checkedChange')
+  Stream get onChecked => _onChecked.stream;
+  final _onChecked = new StreamController.broadcast();
 
   /// Fired when checkbox goes in and out of indeterminate state, but not when
   /// set to checked. Sends the state of [indeterminate];
-  final onIndeterminate = new LazyEventEmitter();
+  @Output('indeterminateChange')
+  Stream get onIndeterminate => _onIndeterminate.stream;
+  final _onIndeterminate = new StreamController.broadcast();
 
   /// Fired when checkbox state changes, sends [checkedStr], i.e. ARIA state.
-  final onChange = new LazyEventEmitter();
+  @Output('change')
+  Stream get onChange => _onChange.stream;
+  final _onChange = new StreamController.broadcast();
 
   /// Determines the state to go into when [indeterminate] state is toggled.
   /// `true` will go to checked and `false` will go to unchecked.
@@ -211,16 +211,16 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
         : _checked ? checkedIcon : uncheckedIcon;
 
     if (_checked != prevChecked) {
-      onChecked.add(_checked);
+      _onChecked.add(_checked);
     }
 
     if (_indeterminate != prevIndeterminate) {
-      onIndeterminate.add(_indeterminate);
+      _onIndeterminate.add(_indeterminate);
     }
 
     if (_checkedStr != prevState) {
       _syncAriaChecked();
-      onChange.add(_checkedStr);
+      _onChange.add(_checkedStr);
     }
   }
 

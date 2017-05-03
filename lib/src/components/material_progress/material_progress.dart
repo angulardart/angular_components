@@ -4,10 +4,11 @@
 
 import 'dart:html';
 
+import 'package:angular2/angular2.dart';
+
+import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/feature_detector/feature_detector.dart'
     show supportsAnimationApi;
-import 'package:angular2/angular2.dart';
-import '../../utils/angular/properties/properties.dart';
 
 const String ARIA_VALUENOW_ATTR = "aria-valuenow";
 const Map<String, double> _indeterminateTiming = const {

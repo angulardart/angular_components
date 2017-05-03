@@ -5,7 +5,9 @@
 library angular_components;
 
 import 'package:angular2/angular2.dart' show Provider;
+
 import 'src/all_components.dart';
+
 export 'src/all_components.dart';
 
 /// A convenience list of all Directives exposed by this package.

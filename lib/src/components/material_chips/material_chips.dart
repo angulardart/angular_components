@@ -4,10 +4,10 @@
 
 import 'package:angular2/angular2.dart';
 
-import './material_chip.dart';
 import '../../model/selection/selection_model.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../utils/disposer/disposer.dart';
+import './material_chip.dart';
 
 /// A __chips__ collection widget, displaying a list of objects as Chips.
 ///

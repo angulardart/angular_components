@@ -4,8 +4,9 @@
 
 library angular_components.model.ui.display_name;
 
-import '../formatters/formatter.dart';
 import 'package:quiver/core.dart';
+
+import '../formatters/formatter.dart';
 
 /// Designates a model class which has a canonical _display name_ (label) field.
 abstract class HasUIDisplayName {

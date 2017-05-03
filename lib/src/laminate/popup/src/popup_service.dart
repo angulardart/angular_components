@@ -7,13 +7,14 @@ library angular_components.laminate.popup.src.popup_service;
 import 'dart:async';
 import 'dart:html';
 
+import 'package:angular2/angular2.dart';
+
 import '../../../css/acux/zindexer.dart';
+import '../../../utils/browser/events/events.dart';
 import '../../enums/alignment.dart';
 import '../../overlay/overlay.dart';
 import './popup_ref.dart';
 import './popup_state.dart';
-import '../../../utils/browser/events/events.dart';
-import 'package:angular2/angular2.dart';
 
 /// A token representing a [List] of [RelativePosition]s to use when popup auto
 /// positioning is set (`enforceSpaceConstraints`) but no custom positions

@@ -1,3 +1,27 @@
+## 0.5.1
+
+ * Glyph: Add baseline attribute.
+ * Material Expansionpanel:
+   * Allow programmatic `expand` and `collapse` requests even if the panel is
+     `disabled`.
+   * Change `preserveWhitespace` default to false.
+   * Add `enterAccepts` flag.
+ * Material Input:
+   * Show counter regardless of focus.
+   * Add error message to `MaterialPercentInputDirective`.
+ * Material List: Allow pointer events when disabled.
+ * Material Popup: Fix positioning when `matchMinSourceWidth` is true.
+ * Material Ripple: Show a centered ripple on keypress.
+ * Material Select:
+   * Only display underline when border is also set.
+   * Add `useCheckMarks` to use check marks instead of checkboxes.
+ * Material Tooltips: Resize to fit contents.
+ * Material Yes/No Buttons: Add `enterAccepts` flag.
+ * Deprecate LazyStreamController and migrate to StreamController.
+ * Migrate use of LazyEventController to StreamController.
+ * Documentation fixes.
+ * Strong mode fixes.
+
 ## 0.5.0
 
  * Rename library to angular_components.

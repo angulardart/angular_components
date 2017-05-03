@@ -8,15 +8,15 @@ import 'dart:async';
 import 'dart:math';
 
 import '../../../css/acux/zindexer.dart';
-import '../../enums/alignment.dart';
-import '../../enums/visibility.dart';
-import '../../overlay/overlay.dart';
-import './popup_event.dart';
-import './popup_state.dart';
-import '../../portal/portal.dart';
 import '../../../model/action/async_action.dart';
 import '../../../model/ui/toggle.dart';
 import '../../../utils/disposer/disposer.dart';
+import '../../enums/alignment.dart';
+import '../../enums/visibility.dart';
+import '../../overlay/overlay.dart';
+import '../../portal/portal.dart';
+import './popup_event.dart';
+import './popup_state.dart';
 
 /// A handle to manipulate an existing popup.
 abstract class PopupRef implements PortalHost, Toggleable {
@@ -323,9 +323,22 @@ class PopupRefImpl extends DelegatingPortalHost
     } else {
       _overlayRef.state.width = null;
     }
-    if (state.matchMinSourceWidth == true) {
+    if (state.matchMinSourceWidth) {
       _overlayRef.state.minWidth = sourceClientRect.width;
     }
+
+    // Immediately update contentClientRect width (if applicable) since
+    // _overlayRef.state.width/_overlay.state.minWidth updates are applied
+    // asynchronously, and are thus not accounted for in the position
+    // calculations.
+    if (state.matchSourceWidth) {
+      contentClientRect =
+          _resizeRectangle(contentClientRect, width: sourceClientRect.width);
+    } else if (state.matchMinSourceWidth) {
+      contentClientRect = _resizeRectangle(contentClientRect,
+          width: max(sourceClientRect.width, contentClientRect.width));
+    }
+
     if (state.enforceSpaceConstraints) {
       // Instead of using user-provided positioning, try to determine what
       // would be the best positioning given the viewport bounds and the size
@@ -359,6 +372,10 @@ class PopupRefImpl extends DelegatingPortalHost
 
     _alignmentPosition = position;
   }
+
+  Rectangle _resizeRectangle(Rectangle rect, {num width, num height}) =>
+      new Rectangle(
+          rect.left, rect.top, width ?? rect.width, height ?? rect.height);
 
   @override
   void dispose() {
@@ -448,8 +465,7 @@ class PopupRefImpl extends DelegatingPortalHost
           _onVisibleController?.add(true);
           initialData.complete(layoutRects[0]);
         }
-        _schedulePositionUpdate(
-            layoutRects[0] as Rectangle<num>, layoutRects[1] as Rectangle<num>);
+        _schedulePositionUpdate(layoutRects[0], layoutRects[1]);
       }
     });
     return initialData.future;
@@ -459,11 +475,11 @@ class PopupRefImpl extends DelegatingPortalHost
   //
   // Returns a Stream of responses based on responses from all streams given,
   // which may be `null` if no response was received from a stream.
-  static Stream<List> _mergeStreams(List<Stream> streams) {
-    var streamSubscriptions = new List<StreamSubscription>(streams.length);
-    var cachedResults = new List(streams.length);
-    StreamController<List> streamController;
-    streamController = new StreamController.broadcast(
+  static Stream<List<T>> _mergeStreams<T>(List<Stream<T>> streams) {
+    var streamSubscriptions = new List<StreamSubscription<T>>(streams.length);
+    var cachedResults = new List<T>(streams.length);
+    StreamController<List<T>> streamController;
+    streamController = new StreamController<List<T>>.broadcast(
         sync: true,
         onListen: () {
           var i = 0;
@@ -552,8 +568,7 @@ class PopupRefImpl extends DelegatingPortalHost
   @override
   Stream<bool> get onVisibleChanged {
     if (_onVisibleController == null) {
-      _onVisibleController = _onVisibleController =
-          new StreamController<bool>.broadcast(sync: true);
+      _onVisibleController = new StreamController<bool>.broadcast(sync: true);
     }
     return _onVisibleController.stream;
   }

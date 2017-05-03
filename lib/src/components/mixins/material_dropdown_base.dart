@@ -4,10 +4,10 @@
 
 import 'dart:async';
 
-import '../content/deferred_content_aware.dart';
 import '../../laminate/enums/alignment.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/async/async.dart';
+import '../content/deferred_content_aware.dart';
 
 /// A simple handle for Dropdown components.
 /// Components wishing to control an ancestral dropdown can have this interface
@@ -41,7 +41,7 @@ abstract class DropdownHandle {
 ///   content.
 class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   final visibleStream = new LazyEventEmitter<bool>.broadcast();
-  final _contentVisible = new LazyStreamController<bool>.broadcast(sync: true);
+  final _contentVisible = new StreamController<bool>.broadcast(sync: true);
 
   bool _enforceSpaceConstraints = false;
   bool get enforceSpaceConstraints => _enforceSpaceConstraints;

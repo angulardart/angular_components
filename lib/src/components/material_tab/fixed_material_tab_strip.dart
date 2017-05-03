@@ -4,12 +4,11 @@
 
 import 'package:angular2/angular2.dart';
 
+import '../../utils/async/async.dart';
 import '../annotations/rtl_annotation.dart';
 import '../focus/focus_item.dart';
 import '../focus/focus_list.dart';
-import '../../utils/async/async.dart';
-
-import 'src/tab_button.dart';
+import 'tab_button.dart';
 import 'tab_change_event.dart';
 
 /// A tab strip component with Tab-styled buttons and active tab indicator.
@@ -30,8 +29,6 @@ import 'tab_change_event.dart';
     ],
     host: const {
       'class': 'themeable',
-      'role': 'tablist',
-      'aria-multiselectable': 'false'
     },
     preserveWhitespace: false,
     templateUrl: 'fixed_material_tab_strip.html',

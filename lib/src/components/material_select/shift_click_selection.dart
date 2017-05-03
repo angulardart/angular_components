@@ -2,12 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:math';
 import 'dart:html';
+import 'dart:math';
 
-import './activation_handler.dart';
 import '../../model/selection/selection_model.dart';
 import '../../model/selection/selection_options.dart';
+import './activation_handler.dart';
 
 /// Handles toggling selection of a range of options when shift is held down
 /// while clicking on the end value.

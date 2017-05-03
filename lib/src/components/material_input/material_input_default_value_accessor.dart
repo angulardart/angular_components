@@ -6,7 +6,6 @@ import 'package:angular2/angular2.dart';
 import 'package:meta/meta.dart';
 
 import '../../utils/disposer/disposer.dart';
-
 import 'base_material_input.dart';
 
 /// [ControlValueAccessor] for [MaterialInputComponent] that updates on

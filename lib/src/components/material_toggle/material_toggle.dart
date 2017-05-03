@@ -8,7 +8,6 @@ import 'dart:html';
 import 'package:angular2/angular2.dart';
 
 import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
 
 /// `material-toggle` is a button that can be either ON or OFF.
@@ -56,7 +55,7 @@ class MaterialToggleComponent {
   bool get checked => _checked;
   bool _checked = false;
 
-  final _controller = new LazyStreamController<bool>();
+  final _controller = new StreamController<bool>.broadcast();
 
   /// Event that is fired when the toggle is checked.
   @Output('checkedChange')

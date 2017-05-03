@@ -2,10 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import './material_input.dart';
-import './material_input_error_keys.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
+
+import './material_input.dart';
+import './material_input_error_keys.dart';
 
 export './material_number_accessor.dart' show materialNumberInputDirectives;
 
@@ -51,7 +52,7 @@ class MaterialPercentInputDirective {
 
   static Map<String, String> _errorOverrides = {
     nonNegativeIntegerRequiredErrorKey: _negativePercentageErrMsg,
-    numberBelowLowerBoundErrorKey: _percentTooLargeErrMsg,
+    numberBelowLowerBoundErrorKey: _percentTooSmallErrMsg,
     numberAboveUpperBoundErrorKey: _percentTooLargeErrMsg,
   };
 
@@ -59,6 +60,13 @@ class MaterialPercentInputDirective {
       'Percentages must be positive',
       desc: 'Validation error message when input precentage is negative, it '
           'must be a positive number.');
+
+  static String get _percentTooSmallErrMsg =>
+      Intl.message('Enter a larger number',
+          desc: 'Validation error message for when the input percentage is too '
+              'small',
+          meaning: 'Validation error message for when the input percentage is '
+              'too small');
 
   static String get _percentTooLargeErrMsg =>
       Intl.message('Enter a smaller number',

@@ -8,7 +8,6 @@ import 'package:angular2/angular2.dart';
 
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/disposer/disposer.dart';
-
 import 'deferred_content_aware.dart';
 
 /// When put on an element B, this directive creates B each time the nearest

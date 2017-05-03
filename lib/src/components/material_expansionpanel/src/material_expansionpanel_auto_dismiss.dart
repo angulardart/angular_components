@@ -7,8 +7,8 @@ import 'dart:html';
 
 import 'package:angular2/angular2.dart';
 
-import '../material_expansionpanel.dart';
 import '../../../laminate/overlay/module.dart' show overlayContainerToken;
+import '../material_expansionpanel.dart';
 
 /// A directive that automatically collapses [MaterialExpansionPanel].
 ///

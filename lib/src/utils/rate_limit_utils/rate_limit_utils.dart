@@ -9,6 +9,7 @@ import 'package:meta/meta.dart';
 /// A function that can be throttled or debounced.
 typedef UnaryFunction(argument);
 typedef Future DebouncedFunction(argument);
+typedef Future DebouncedNullaryFunction();
 
 /// A function that rate-limits a delegate function. Helper typedef for
 /// consumers.
@@ -36,6 +37,12 @@ DebouncedFunction debounce(UnaryFunction delegate, Duration delay) {
     });
     return completer.future;
   };
+}
+
+/// Wraps [debounce] so that it can be called without any arguments
+DebouncedNullaryFunction debounceNullary(void callback(), Duration delay) {
+  var function = debounce((_) => callback(), delay);
+  return () => function(null);
 }
 
 /// Returns a wrapper function that, when called with x, executes delegate(x)

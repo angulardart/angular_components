@@ -8,11 +8,11 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 
+import '../../portal/portal.dart';
 import './dom_popup_source.dart';
 import './popup_controller_base.dart';
 import './popup_ref.dart';
 import './popup_service.dart';
-import '../../portal/portal.dart';
 
 /// An Angular directive that declaratively uses [PopupService].
 ///

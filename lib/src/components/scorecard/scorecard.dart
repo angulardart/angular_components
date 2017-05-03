@@ -5,16 +5,16 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../focus/keyboard_only_focus_indicator.dart';
-import '../glyph/glyph.dart';
-import '../material_ripple/material_ripple.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/browser/events/events.dart';
 import '../../utils/color/color.dart';
 import '../../utils/color/palette.dart';
-import 'package:angular2/angular2.dart';
+import '../focus/keyboard_only_focus_indicator.dart';
+import '../glyph/glyph.dart';
+import '../material_ripple/material_ripple.dart';
 
 /// ACUX standalone scorecard component.
 ///
@@ -92,7 +92,7 @@ import 'package:angular2/angular2.dart';
     changeDetection: ChangeDetectionStrategy.OnPush)
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   final StreamController<bool> _selectionController =
-      new LazyStreamController<bool>.broadcast(sync: true);
+      new StreamController<bool>.broadcast(sync: true);
 
   bool _isChangePositive = false;
   bool _isChangeNegative = false;

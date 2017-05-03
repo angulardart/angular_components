@@ -25,7 +25,7 @@ $almost-zero: .0001;
 $almost-one: 1 - $almost-zero;
 
 // Material timing curves, fast-slow is the main one.
-// https://material.io/guidelines/motion/material-motion.html
+// https://material.io/guidelines/motion/duration-easing.html#duration-easing-natural-easing-curves
 $mat-transition-fast-slow: cubic-bezier(.4, 0, .2, 1);
 $mat-transition-linear-slow: cubic-bezier(0, 0, .2, 1);
 $mat-transition-fast-linear: cubic-bezier(.4, 0, 1, 1);

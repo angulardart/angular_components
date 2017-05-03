@@ -4,19 +4,20 @@
 
 import 'dart:async';
 
-import '../button_decorator/button_decorator.dart';
-import '../content/deferred_content_aware.dart';
-import '../focus/focus.dart';
-import '../glyph/glyph.dart';
-import '../material_yes_no_buttons/material_yes_no_buttons.dart';
+import 'package:angular2/angular2.dart';
+import 'package:intl/intl.dart';
+
 import '../../model/action/async_action.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
-import 'package:angular2/angular2.dart';
-import 'package:intl/intl.dart';
+import '../button_decorator/button_decorator.dart';
+import '../content/deferred_content_aware.dart';
+import '../focus/focus.dart';
+import '../glyph/glyph.dart';
+import '../material_yes_no_buttons/material_yes_no_buttons.dart';
 
 /// A material-styled expansion-panel.
 ///
@@ -84,6 +85,7 @@ import 'package:intl/intl.dart';
 ///  - `cancelText: String` -- The text to be shown on the cancel button (e.g.
 ///    "dismiss", "not now"). The default text is "cancel".
 ///  - `saveDisabled: bool` -- If true, the save button is disabled.
+///  - `enterAccepts: bool` -- If true, enterAccepts is enabled.
 ///
 /// __Events:__
 ///
@@ -108,12 +110,15 @@ import 'package:intl/intl.dart';
       MaterialSaveCancelButtonsDirective,
       MaterialYesNoButtonsComponent,
       NgIf,
+      EnterAcceptsDirective,
+      KeyUpBoundaryDirective
     ],
     providers: const [
       const Provider(DeferredContentAware, useExisting: MaterialExpansionPanel)
     ],
     templateUrl: 'material_expansionpanel.html',
     styleUrls: const ['material_expansionpanel.scss.css'],
+    preserveWhitespace: false,
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialExpansionPanel
     implements DeferredContentAware, OnInit, OnDestroy {
@@ -239,6 +244,15 @@ class MaterialExpansionPanel
   @Input()
   bool showSaveCancel = true;
 
+  bool _enterAccepts = false;
+  @Input()
+  set enterAccepts(value) {
+    _enterAccepts = getBool(value);
+  }
+
+  /// Flag for enabling the EnterAcceptsDirective directive.
+  bool get enterAccepts => _enterAccepts;
+
   /// The text to be shown on the save button.
   ///
   /// For example: "Ok", "Apply", etc. Default value is "Save".
@@ -288,13 +302,13 @@ class MaterialExpansionPanel
           examples: const {'panelName': 'Conversions'});
 
   final _openController =
-      new LazyStreamController<AsyncAction<bool>>.broadcast(sync: true);
+      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
   final _closeController =
-      new LazyStreamController<AsyncAction<bool>>.broadcast(sync: true);
+      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
   final _saveController =
-      new LazyStreamController<AsyncAction<bool>>.broadcast(sync: true);
+      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
   final _cancelController =
-      new LazyStreamController<AsyncAction<bool>>.broadcast(sync: true);
+      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
 
   /// Event fired when panel is trying to close.
   ///
@@ -348,12 +362,12 @@ class MaterialExpansionPanel
   }
 
   Future<bool> expand({bool byUserAction: true}) {
-    if (disabled) return new Future.value(false);
+    if (disabled && byUserAction) return new Future.value(false);
     return changeState(true, byUserAction, _openController);
   }
 
   Future<bool> collapse({bool byUserAction: true}) {
-    if (disabled) return new Future.value(false);
+    if (disabled && byUserAction) return new Future.value(false);
     return changeState(false, byUserAction, _closeController);
   }
 

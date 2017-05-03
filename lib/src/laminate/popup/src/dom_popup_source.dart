@@ -12,8 +12,8 @@ import 'package:angular2/angular2.dart';
 
 import '../../../components/annotations/rtl_annotation.dart';
 import '../../enums/alignment.dart';
-import './popup_source.dart';
 import '../../ruler/dom_ruler.dart';
+import './popup_source.dart';
 
 /// A handler to return the position and size of the *content* of [element].
 ///

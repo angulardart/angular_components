@@ -7,8 +7,9 @@ library angular_components.model.collection.list_tracker;
 import 'dart:async';
 import 'dart:collection';
 
-import '../../utils/disposer/disposer.dart';
 import 'package:observable/observable.dart';
+
+import '../../utils/disposer/disposer.dart';
 
 class LazyListTracker<S, T> extends Object
     with ListMixin<T>

@@ -5,12 +5,13 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../material_button/material_button.dart';
-import '../material_spinner/material_spinner.dart';
-import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
+
+import '../../utils/angular/properties/properties.dart';
+import '../../utils/async/async.dart';
+import '../material_button/material_button.dart';
+import '../material_spinner/material_spinner.dart';
 
 /// A component for the two buttons horizontally next to each other, like
 /// yes/no, save/cancel, agree/not agree, etc.
@@ -274,13 +275,20 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
 
   MaterialButtonComponent get yesButton => _yesNo.yesButton;
   MaterialButtonComponent get noButton => _yesNo.noButton;
+  bool _enterAccepts = true;
 
   EnterAcceptsDirective(this._yesNo, ElementRef element,
       @Optional() KeyUpBoundaryDirective boundary)
       : super(element, boundary);
 
+  /// Enables the EnterAccepts directive to be conditionally applied by
+  /// effectively short circuiting it's implementation using [_enterAccepts]
+  @Input()
+  set enterAccepts(value) => _enterAccepts = getBool(value);
+
   @override
   bool _isKeyUpMatching(KeyboardEvent event) {
+    if (!_enterAccepts) return false;
     if (event.keyCode != KeyCode.ENTER) return false;
     // Make sure the yes button is visible and enabled
     if (yesButton == null || yesButton.disabled) return false;

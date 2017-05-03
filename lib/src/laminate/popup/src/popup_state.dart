@@ -9,9 +9,9 @@ import 'dart:async';
 import 'package:observable/observable.dart';
 import 'package:quiver/core.dart';
 
+import '../../../utils/angular/properties/properties.dart';
 import '../../enums/alignment.dart';
 import './popup_source.dart';
-import '../../../utils/angular/properties/properties.dart';
 
 /// The internal state (model) of a popup.
 ///
@@ -29,7 +29,7 @@ class PopupState extends Observable {
       bool autoDismiss: true,
       bool enforceSpaceConstraints: false,
       bool matchSourceWidth: false,
-      bool matchMinSourceWidth: true,
+      bool matchMinSourceWidth: false,
       int offsetX: 0,
       int offsetY: 0,
       Iterable preferredPositions: const [],

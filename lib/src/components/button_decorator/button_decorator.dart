@@ -4,12 +4,13 @@
 
 import 'dart:html';
 
-import '../focus/focus.dart';
-import '../mixins/has_tab_index.dart';
+import 'package:angular2/angular2.dart';
+
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
-import 'package:angular2/angular2.dart';
+import '../focus/focus.dart';
+import '../mixins/has_tab_index.dart';
 
 /// ButtonDirective adds all basic required a11y functional for any element,
 /// that are designed to work as a button (clickable icon, etc.)
@@ -49,7 +50,7 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
   /// Is the button disabled.
   bool get disabled => _disabled;
   @Input()
-  set disabled(value) {
+  set disabled(dynamic value) {
     _disabled = getBool(value);
   }
 

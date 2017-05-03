@@ -9,15 +9,15 @@ import 'dart:math';
 
 import 'package:angular2/angular2.dart';
 
+import '../../../utils/angular/properties/properties.dart';
+import '../../../utils/disposer/disposer.dart';
 import '../../enums/alignment.dart';
+import '../../portal/portal.dart';
 import './dom_popup_source.dart';
 import './popup_event.dart';
 import './popup_ref.dart';
 import './popup_service.dart';
 import './popup_source.dart';
-import '../../portal/portal.dart';
-import '../../../utils/angular/properties/properties.dart';
-import '../../../utils/disposer/disposer.dart';
 
 /// Base class with constructor for [ExperimentalPopupController] to extend.
 abstract class PopupControllerBase extends PopupController {
@@ -52,7 +52,6 @@ abstract class PopupController implements OnDestroy {
   StreamSubscription _onCloseSubscription;
 
   // Lazily loaded.
-  // TODO(google): Add LazyStreamController to ads/acx2/async to simplify.
   StreamController<PopupEvent<Rectangle>> _onOpenEmitter;
   StreamController<PopupEvent<bool>> _onCloseEmitter;
   StreamController<bool> _onVisibleEmitter;
