@@ -266,8 +266,8 @@ class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
   void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.no.add(true);
 }
 
-/// If attached to the yes-no buttons it will listen for enter`keyup` event
-/// and trigger [yes] action on it.
+/// If attached to yes-no buttons, it will listen for Enter `keyup` events
+/// and trigger the `yes` action on them.
 @Directive(selector: 'material-yes-no-buttons[enterAccepts]')
 class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
     implements OnDestroy {
@@ -281,8 +281,7 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
       @Optional() KeyUpBoundaryDirective boundary)
       : super(element, boundary);
 
-  /// Enables the EnterAccepts directive to be conditionally applied by
-  /// effectively short circuiting it's implementation using [_enterAccepts]
+  /// Enables the directive to be conditionally applied.
   @Input()
   set enterAccepts(value) => _enterAccepts = getBool(value);
 
