@@ -1,16 +1,14 @@
 ## Preview Release
 
-These are the AngularDart components that Google uses to build many of its web
-applications.
+These are the AngularDart components that Google uses to build the sophisticated,
+mission-critical apps that bring in much of Google’s revenue.
 
-These components are a productive and stable set of widgets, contributed to by
-hundreds of Googlers. Being able to debug your apps across all layers in Dart,
-supporting tree shaking for minimal code size, and strict latency policies make
-them an excellent fit for AngularDart projects.
+This productive and stable set of widgets, contributed to by hundreds of Googlers,
+make debugging and deploying your app easier. Strict latency and testing policies
+make these widgets an excellent fit for AngularDart projects.
 
 Only a small fragment of all the components is available right now. We want
-developers to have an opportunity to play around with the package as soon as
-possible.
+developers to be able to use the package as soon as possible.
 
 * ✓ `<glyph>`
 * ✓ `<material-button>`
@@ -39,21 +37,26 @@ possible.
 * ☐ `<material-menu>`
 * many more, including a fast table
 
-At this time we are not taking pull requests but please file an issue and we
-will work with you.
+At this time we are not taking pull requests, but please
+[file an issue](https://github.com/dart-lang/angular_components/issues)
+and we will work with you.
 
-**Officially Supported Browsers:** The last two versions of Chrome, Edge,
+**Officially supported browsers:** The last two versions of Chrome, Edge,
 Firefox, and Safari.
 
 ## Useful links
 
 * **[Example gallery](https://dart-lang.github.io/angular_components_example/)**
-* [AngularDart pub package](https://pub.dartlang.org/packages/angular2)
-* [AngularDart documentation](https://angulardart.org/)
-* [Material Design site](https://material.google.com/)
-* [Code Lab: AngularDart Components](https://webdev.dartlang.org/codelabs/angular2_components)
+* [AngularDart Components documentation](https://webdev.dartlang.org/components):
+  * [API reference](https://webdev.dartlang.org/components/api)
+  * [Codelab: AngularDart Components](https://webdev.dartlang.org/codelabs/angular2_components)
+* [Google I/O 2017 codelab: Write a Material Design AngularDart Web App](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app)
+* AngularDart resources:
+  * [AngularDart documentation](https://webdev.dartlang.org/angular/guide)
+  * [angular2 pub package](https://pub.dartlang.org/packages/angular2)
+* [Material Design site](https://material.io)
 
-## Custom Component Styles
+## Custom component styles
 
 Get access to the core Material Design SASS files used to style these components
 by copying them and importing
@@ -61,6 +64,6 @@ by copying them and importing
 in your SASS files.
 
 
-> NOTE: These .scss files are not used during the build step but we are planning
+> NOTE: These .scss files are not used during the build step, but we are planning
 > to add this support. See
 > [issue #45](https://github.com/dart-lang/angular_components/issues/45).
