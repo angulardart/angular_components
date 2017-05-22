@@ -1,3 +1,19 @@
+## 0.6.0
+
+ * ___Breaking Change:___ Remove `NoopStream` in favor of `Stream.empty()` as
+   provided by the SDK.
+ * Material Select: 
+   * Unified template files (deleted material_select_dropdown_item.html).
+   * Add support for `Selectable` `SelectionOptions`.
+   * Create a `ControlValueAccessor`.
+ * Add backspace and delete keys to `KeyboardHandlerMixin`.
+ * Add `selectedValue` getter to `RadioGroupSingleSelectionModel`.
+ * Add null check to `ObservableComposite`'s `register` method.
+ * Add `totalEntitiesCountChange` getter to table selection models.
+ * Add `isStandardMouseEvent` utility to test for clicks without modifier keys.
+ * Migrate use of LazyEventController to StreamController.
+ * Strong mode fixes.
+
 ## 0.5.1
 
  * Glyph: Add baseline attribute.

@@ -13,7 +13,7 @@
                  [raised]="yesRaised || raised"
                  [class.highlighted]="yesHighlighted"
                  [disabled]="yesDisabled || disabled"
-                 (trigger)="yes.add($event)">
+                 (trigger)="onYes($event)">
   {{yesText}}
 </material-button>
 <material-button #noButton
@@ -21,6 +21,6 @@
                  class="btn btn-no"
                  [raised]="raised"
                  [disabled]="disabled"
-                 (trigger)="no.add($event)">
+                 (trigger)="onNo($event)">
   {{noText}}
 </material-button>

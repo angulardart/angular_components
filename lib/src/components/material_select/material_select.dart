@@ -6,6 +6,7 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 
+import '../../model/selection/select.dart';
 import '../../model/selection/selection_container.dart';
 import '../../model/selection/selection_model.dart';
 import '../../model/ui/has_renderer.dart';
@@ -67,6 +68,16 @@ class MaterialSelectComponent extends MaterialSelectBase implements OnDestroy {
 
   @override
   SelectionModel get selection => super.selection;
+
+  /// If selectionOptions implements Selectable, it is called to decided
+  /// whether an item is disabled.
+  bool isOptionDisabled(Object item) {
+    if (options is Selectable) {
+      return (options as Selectable).getSelectable(item) !=
+          SelectableOption.Selectable;
+    }
+    return false;
+  }
 
   @Input()
   set disabled(value) {

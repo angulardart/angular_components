@@ -10,7 +10,6 @@ import 'package:intl/intl.dart';
 import '../../model/action/async_action.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
 import '../button_decorator/button_decorator.dart';
@@ -159,13 +158,17 @@ class MaterialExpansionPanel
   }
 
   @Output('expandedChange')
-  final isExpandedChange = new LazyEventEmitter<bool>.broadcast();
+  Stream<bool> get isExpandedChange => _isExpandedChange.stream;
+  final _isExpandedChange = new StreamController<bool>.broadcast(sync: true);
 
   @Output('expandedChangeByUser')
-  final isExpandedChangeByUserAction = new LazyEventEmitter<bool>.broadcast();
+  Stream<bool> get isExpandedChangeByUserAction =>
+      _isExpandedChangeByUserAction.stream;
+  final _isExpandedChangeByUserAction =
+      new StreamController<bool>.broadcast(sync: true);
 
   @override
-  LazyEventEmitter<bool> get contentVisible => isExpandedChange;
+  Stream<bool> get contentVisible => isExpandedChange;
 
   /// Whether a different panel in the set is currently expanded.
   ///
@@ -379,8 +382,8 @@ class MaterialExpansionPanel
     actionCtrl.execute(() {
       if (closeOnSave) {
         _isExpanded = false;
-        isExpandedChange.add(false);
-        isExpandedChangeByUserAction.add(false);
+        _isExpandedChange.add(false);
+        _isExpandedChangeByUserAction.add(false);
         _changeDetector.markForCheck();
       }
       return true;
@@ -399,8 +402,8 @@ class MaterialExpansionPanel
     _changeDetector.markForCheck();
     actionCtrl.execute(() {
       _isExpanded = false;
-      isExpandedChange.add(false);
-      isExpandedChangeByUserAction.add(false);
+      _isExpandedChange.add(false);
+      _isExpandedChangeByUserAction.add(false);
       _changeDetector.markForCheck();
       return true;
     }, valueOnCancel: false);
@@ -424,8 +427,8 @@ class MaterialExpansionPanel
     stream.add(actionCtrl.action);
     actionCtrl.execute(() {
       _isExpanded = expand;
-      isExpandedChange.add(expand);
-      if (byUserAction) isExpandedChangeByUserAction.add(expand);
+      _isExpandedChange.add(expand);
+      if (byUserAction) _isExpandedChangeByUserAction.add(expand);
       _changeDetector.markForCheck();
       if (expand && autoFocusChild != null) {
         _domService.scheduleWrite(() {

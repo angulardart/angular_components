@@ -6,11 +6,11 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
-
 import '../../content/deferred_content_aware.dart';
 import '../../focus/keyboard_only_focus_indicator.dart';
 import '../../glyph/glyph.dart';
 import '../../theme/dark_theme.dart';
+
 import 'paper_tooltip.dart';
 import 'tooltip_target.dart';
 

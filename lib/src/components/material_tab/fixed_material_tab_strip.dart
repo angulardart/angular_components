@@ -2,12 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:angular2/angular2.dart';
+import 'dart:async';
 
-import '../../utils/async/async.dart';
+import 'package:angular2/angular2.dart';
 import '../annotations/rtl_annotation.dart';
 import '../focus/focus_item.dart';
 import '../focus/focus_list.dart';
+
 import 'tab_button.dart';
 import 'tab_change_event.dart';
 
@@ -47,11 +48,14 @@ class FixedMaterialTabStripComponent {
   /// Calling [TabChangeEvent#preventDefault] will prevent the tab from
   /// changing.
   @Output()
-  final beforeTabChange = new LazyEventEmitter<TabChangeEvent>();
+  Stream<TabChangeEvent> get beforeTabChange => _beforeTabChange.stream;
+  final _beforeTabChange =
+      new StreamController<TabChangeEvent>.broadcast(sync: true);
 
   /// Stream of [TabChangeEvent] instances, published when the tab has changed.
   @Output()
-  final tabChange = new LazyEventEmitter<TabChangeEvent>();
+  Stream<TabChangeEvent> get tabChange => _tabChange.stream;
+  final _tabChange = new StreamController<TabChangeEvent>.broadcast(sync: true);
 
   /// Index of the active panel, 0-based.
   ///
@@ -95,10 +99,10 @@ class FixedMaterialTabStripComponent {
   void switchTo(int index) {
     if (index == activeTabIndex) return;
     var event = new TabChangeEvent(activeTabIndex, index);
-    beforeTabChange.add(event);
+    _beforeTabChange.add(event);
     if (event.defaultPrevented) return;
     activeTabIndex = index;
-    tabChange.add(event);
+    _tabChange.add(event);
   }
 
   String activeStr(int index) {

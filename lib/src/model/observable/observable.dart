@@ -234,6 +234,7 @@ class ObservableComposite extends ChangeNotificationProvider {
   /// Starts listening on value changes (if not already doing so).
   ObserveAware register(ObserveAware value,
       {ObserveAware replaces, bool initialNotification: true}) {
+    if (value == null) return null;
     Stream replacesStream = (replaces == null) ? null : replaces.stream;
     registerStream(value.stream,
         replaces: replacesStream, initialNotification: initialNotification);

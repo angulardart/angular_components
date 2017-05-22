@@ -73,9 +73,12 @@ class AcxImperativeViewUtils {
   /// [angularComponentType], once it is inserted [intoDomElement], within the
   /// injection hierarchy of [viewContainer].
   Future<ComponentRef> insertAngularComponent(Type angularComponentType,
-      ViewContainerRef viewContainer, HtmlElement intoDomElement) async {
+      ViewContainerRef viewContainer, HtmlElement intoDomElement,
+      {Injector injector}) async {
     ComponentRef ref = await _componentLoader.loadNextToLocation(
-        angularComponentType, viewContainer, viewContainer.parentInjector);
+        angularComponentType,
+        viewContainer,
+        injector ?? viewContainer.parentInjector);
     await _domService.onWrite();
     final rootNodes = (ref.hostView as EmbeddedViewRef).rootNodes;
     intoDomElement.append(rootNodes.first);

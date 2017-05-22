@@ -16,4 +16,7 @@ class RadioGroupSingleSelectionModel<T> extends DelegatingSelectionModel<T> {
 
   @override
   bool deselect(T value) => false;
+
+  /// The selected value, or null if no value has been selected.
+  T get selectedValue => selectedValues.isEmpty ? null : selectedValues.first;
 }

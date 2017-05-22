@@ -17,7 +17,6 @@ import '../../model/selection/selection_model.dart';
 import '../../model/selection/selection_options.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../model/ui/template_support.dart';
-import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
 import '../annotations/rtl_annotation.dart';
 import '../content/deferred_content.dart';
@@ -199,17 +198,21 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   @Output()
-  LazyEventEmitter<FocusEvent> focus = new LazyEventEmitter<FocusEvent>();
+  Stream<FocusEvent> get focus => _focus.stream;
+  StreamController<FocusEvent> _focus =
+      new StreamController<FocusEvent>.broadcast(sync: true);
 
   @Output()
-  LazyEventEmitter<FocusEvent> blur = new LazyEventEmitter<FocusEvent>();
+  Stream<FocusEvent> get blur => _blur.stream;
+  StreamController<FocusEvent> _blur =
+      new StreamController<FocusEvent>.broadcast(sync: true);
 
   void onFocus(FocusEvent event) {
-    focus.add(event);
+    _focus.add(event);
   }
 
   void onBlur(FocusEvent event) {
-    blur.add(event);
+    _blur.add(event);
   }
 
   @override

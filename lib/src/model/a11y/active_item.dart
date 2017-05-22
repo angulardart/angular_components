@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:collection';
 
 import 'package:collection/collection.dart';
 
-import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
 
 /// Manages a pointer to an item in a list.
@@ -40,7 +40,8 @@ class ActiveItemModel<T> {
   }
 
   /// Stream of model change events
-  final modelChanged = new LazyEventEmitter.broadcast();
+  Stream get modelChanged => _modelChanged.stream;
+  final _modelChanged = new StreamController.broadcast(sync: true);
 
   /// ID of currently active item.
   String get activeId => id(activeItem);
@@ -68,7 +69,7 @@ class ActiveItemModel<T> {
       }
     }
     _activeIndex = 0;
-    modelChanged.add(null);
+    _modelChanged.add(null);
   }
 
   /// Currently active item.
@@ -85,7 +86,7 @@ class ActiveItemModel<T> {
     } else if (_loop) {
       _activeIndex = 0;
     }
-    modelChanged.add(null);
+    _modelChanged.add(null);
   }
 
   /// Returns the next possible active item as if activeNext was called.
@@ -109,26 +110,26 @@ class ActiveItemModel<T> {
     } else if (_loop) {
       _activeIndex = _items.length - 1;
     }
-    modelChanged.add(null);
+    _modelChanged.add(null);
   }
 
   /// Activates first element in the list.
   void activateFirst() {
     _activeIndex = _items.isEmpty ? -1 : 0;
-    modelChanged.add(null);
+    _modelChanged.add(null);
   }
 
   /// Activates last element in the list.
   void activateLast() {
     _activeIndex = _items.isEmpty ? -1 : _items.length - 1;
-    modelChanged.add(null);
+    _modelChanged.add(null);
   }
 
   /// Activates [value].
   /// If [value] is not found, the active pointer is set to none.
   void activate(T value) {
     _activeIndex = _items.indexOf(value);
-    modelChanged.add(null);
+    _modelChanged.add(null);
   }
 
   /// Returns an unique id for [item].

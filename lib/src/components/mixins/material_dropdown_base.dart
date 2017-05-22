@@ -77,7 +77,7 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   }
 
   /// Preferred positions for alignment when enforceSpaceConstraints is true
-  var preferredPositions = RelativePosition.InlinePositions;
+  List<dynamic> preferredPositions = RelativePosition.InlinePositions;
 
   void onVisible(bool vis) {
     visibleStream.add(vis);

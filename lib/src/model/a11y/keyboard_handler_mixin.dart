@@ -85,6 +85,12 @@ class KeyboardHandlerMixin {
       case KeyCode.END:
         handleEndKey(event);
         break;
+      case KeyCode.BACKSPACE:
+        handleBackspaceKey(event);
+        break;
+      case KeyCode.DELETE:
+        handleDeleteKey(event);
+        break;
     }
   }
 
@@ -118,6 +124,10 @@ class KeyboardHandlerMixin {
   void handleHomeKey(KeyboardEvent event) {}
 
   void handleEndKey(KeyboardEvent event) {}
+
+  void handleBackspaceKey(KeyboardEvent event) {}
+
+  void handleDeleteKey(KeyboardEvent event) {}
 
   void handleCharCodeKey(KeyboardEvent event) {}
 }
