@@ -15,7 +15,7 @@ abstract class HasTabIndex {
   String get hostTabIndex;
   bool get disabled;
 
-  String _tabIndex = null;
+  String _tabIndex;
 
   /// Use this method if you want to manually compute and cache the tab index.
   void updateTabIndex() {
