@@ -26,6 +26,7 @@ export 'components/material_chips/material_chip.dart';
 export 'components/material_chips/material_chips.dart';
 export 'components/material_dialog/material_dialog.dart';
 export 'components/material_expansionpanel/material_expansionpanel.dart';
+export 'components/material_expansionpanel/material_expansionpanel_auto_dismiss.dart';
 export 'components/material_expansionpanel/material_expansionpanel_set.dart';
 export 'components/material_input/base_material_input.dart';
 export 'components/material_input/deferred_validator.dart';

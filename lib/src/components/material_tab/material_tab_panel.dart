@@ -6,7 +6,6 @@ import 'dart:async';
 
 import 'package:angular2/angular2.dart';
 
-import '../../utils/async/async.dart';
 import 'fixed_material_tab_strip.dart';
 import 'material_tab.dart';
 import 'tab_change_event.dart';
@@ -43,11 +42,14 @@ class MaterialTabPanelComponent {
   /// Calling [TabChangeEvent#preventDefault] will prevent the tab from
   /// changing.
   @Output()
-  final beforeTabChange = new LazyEventEmitter<TabChangeEvent>();
+  Stream<TabChangeEvent> get beforeTabChange => _beforeTabChange.stream;
+  final _beforeTabChange =
+      new StreamController<TabChangeEvent>.broadcast(sync: true);
 
   /// Stream of [TabChangeEvent] instances, published when the tab has changed.
   @Output()
-  final tabChange = new LazyEventEmitter<TabChangeEvent>();
+  Stream<TabChangeEvent> get tabChange => _tabChange.stream;
+  final _tabChange = new StreamController<TabChangeEvent>.broadcast(sync: true);
 
   /// Whether to center-align the tab buttons.
   ///
@@ -109,12 +111,12 @@ class MaterialTabPanelComponent {
 
   /// Fires beforeTabChange event.
   void onBeforeTabChange(TabChangeEvent e) {
-    beforeTabChange.add(e);
+    _beforeTabChange.add(e);
   }
 
   /// Fires tabChange event.
   void onTabChange(TabChangeEvent e) {
     activeTabIndex = e.newIndex;
-    tabChange.add(e);
+    _tabChange.add(e);
   }
 }

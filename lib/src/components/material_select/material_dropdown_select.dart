@@ -17,7 +17,6 @@ import '../../model/selection/selection_model.dart';
 import '../../model/selection/selection_options.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../model/ui/template_support.dart';
-import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
 import '../annotations/rtl_annotation.dart';
 import '../content/deferred_content.dart';
@@ -90,6 +89,8 @@ import './shift_click_selection.dart';
 ///   as wide as the select width.
 /// - `slide: String` -- Direction of popup scaling. Valid values are `x`, `y`,
 ///   or `null`.
+/// - `deselectLabel: String` -- Text label for select item that deselects
+///   the current selection.
 @Component(
     selector: 'material-dropdown-select',
     inputs: const [
@@ -168,6 +169,10 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   /// instead of the implementation of this class.
   final PopupSizeProvider _popupSizeDelegate;
 
+  /// Text label for select item that deselects the current selection.
+  @Input()
+  String deselectLabel;
+
   MaterialDropdownSelectComponent(
       @Optional() IdGenerator idGenerator,
       @Optional() @SkipSelf() this._popupSizeDelegate,
@@ -188,28 +193,32 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   set options(SelectionOptions newOptions) {
     super.options = newOptions;
 
-    activeModel.items = options?.optionsList ?? [];
+    _updateActiveModel();
     _setInitialActiveItem();
 
     _optionsListener?.cancel();
     _optionsListener = options?.stream?.listen((_) {
-      activeModel.items = options.optionsList;
+      _updateActiveModel();
       _setInitialActiveItem();
     });
   }
 
   @Output()
-  LazyEventEmitter<FocusEvent> focus = new LazyEventEmitter<FocusEvent>();
+  Stream<FocusEvent> get focus => _focus.stream;
+  StreamController<FocusEvent> _focus =
+      new StreamController<FocusEvent>.broadcast(sync: true);
 
   @Output()
-  LazyEventEmitter<FocusEvent> blur = new LazyEventEmitter<FocusEvent>();
+  Stream<FocusEvent> get blur => _blur.stream;
+  StreamController<FocusEvent> _blur =
+      new StreamController<FocusEvent>.broadcast(sync: true);
 
   void onFocus(FocusEvent event) {
-    focus.add(event);
+    _focus.add(event);
   }
 
   void onBlur(FocusEvent event) {
-    blur.add(event);
+    _blur.add(event);
   }
 
   @override
@@ -226,6 +235,14 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
         activeModel.activate(added);
       }
     });
+  }
+
+  void _updateActiveModel() {
+    var items = options?.optionsList?.toList() ?? [];
+    if (showDeselectItem) {
+      items.insert(0, deselectLabel);
+    }
+    activeModel.items = items;
   }
 
   void _setInitialActiveItem() {
@@ -289,7 +306,9 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     } else {
       var item = activeModel.activeItem;
       if (item != null && selection != null) {
-        if (selection.isSelected(item)) {
+        if (item == deselectLabel) {
+          deselectCurrentSelection();
+        } else if (selection.isSelected(item)) {
           selection.deselect(item);
         } else {
           selection.select(item);
@@ -371,6 +390,18 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
           SelectableOption.Selectable;
     }
     return false;
+  }
+
+  /// Whether to show select item that deselects the current selection.
+  bool get showDeselectItem =>
+      !isMultiSelect && deselectLabel?.isNotEmpty == true;
+
+  bool get isDeselectItemSelected => selection.isEmpty;
+
+  void deselectCurrentSelection() {
+    if (selection.isNotEmpty) {
+      selection.deselect(selection.selectedValues.single);
+    }
   }
 }
 

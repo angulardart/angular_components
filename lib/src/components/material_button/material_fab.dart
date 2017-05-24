@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular2/angular2.dart';
-
 import '../material_ripple/material_ripple.dart';
+
 import 'material_button_base.dart';
 
 /// Material FAB is a Floating Action Button. It is round, and behaves mostly

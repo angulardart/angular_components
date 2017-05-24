@@ -130,19 +130,30 @@ class MaterialSelectItemComponent extends ButtonDirective
   @override
   ComponentRenderer componentRenderer;
 
-  bool get useCheckMarks => _useCheckMarks;
-
   /// If true, check marks are used instead of checkboxes to indicate whether or
   /// not the item is selected for multi-select items.
   ///
   /// This particular style is used in material menu dropdown for multi-select
   /// menu item groups.
+  bool get useCheckMarks => _useCheckMarks;
+
   @Input()
   set useCheckMarks(value) {
     _useCheckMarks = getBool(value);
   }
 
   bool _useCheckMarks = false;
+
+  /// If true, triggering this item component will select the [value] within the
+  /// [selection]; if false, triggering this item component will do nothing.
+  bool get selectOnActivate => _selectOnActivate;
+
+  @Input()
+  set selectOnActivate(bool value) {
+    _selectOnActivate = getBool(value);
+  }
+
+  bool _selectOnActivate = true;
 
   // Generates and stashes the item's label.
   void _genLabel() {
@@ -206,7 +217,7 @@ class MaterialSelectItemComponent extends ButtonDirective
     }
 
     if (_activationHandler?.handle(e, value) ?? false) return;
-    if (_selection != null && value != null) {
+    if (selectOnActivate && _selection != null && value != null) {
       if (_selection.isSelected(value)) {
         _selection.deselect(value);
       } else {

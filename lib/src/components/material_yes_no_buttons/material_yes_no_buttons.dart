@@ -9,7 +9,6 @@ import 'package:angular2/angular2.dart';
 import 'package:intl/intl.dart';
 
 import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import '../material_button/material_button.dart';
 import '../material_spinner/material_spinner.dart';
 
@@ -39,13 +38,15 @@ class MaterialYesNoButtonsComponent {
   ///
   /// Published events are either KeyboardEvent or MouseEvent
   @Output()
-  final yes = new LazyEventEmitter();
+  Stream<UIEvent> get yes => _yes.stream;
+  final _yes = new StreamController<UIEvent>.broadcast();
 
   /// The callback that is to be invoked, when no button is pressed.
   ///
   /// Published events are either KeyboardEvent or MouseEvent
   @Output()
-  final no = new LazyEventEmitter();
+  Stream<UIEvent> get no => _no.stream;
+  final _no = new StreamController<UIEvent>.broadcast();
 
   /// The text to be shown on the save button.
   ///
@@ -157,6 +158,14 @@ class MaterialYesNoButtonsComponent {
   @ViewChild('noButton')
   MaterialButtonComponent noButton;
 
+  void onYes(UIEvent event) {
+    _yes.add(event);
+  }
+
+  void onNo(UIEvent event) {
+    _no.add(event);
+  }
+
   static String get _msgYes => Intl.message('Yes',
       name: '_msgYes',
       desc: 'Text on yes button.',
@@ -263,11 +272,11 @@ class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
   }
 
   @override
-  void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.no.add(true);
+  void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.onNo(event);
 }
 
-/// If attached to the yes-no buttons it will listen for enter`keyup` event
-/// and trigger [yes] action on it.
+/// If attached to yes-no buttons, it will listen for Enter `keyup` events and
+/// trigger the `yes` action on them.
 @Directive(selector: 'material-yes-no-buttons[enterAccepts]')
 class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
     implements OnDestroy {
@@ -281,8 +290,7 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
       @Optional() KeyUpBoundaryDirective boundary)
       : super(element, boundary);
 
-  /// Enables the EnterAccepts directive to be conditionally applied by
-  /// effectively short circuiting it's implementation using [_enterAccepts]
+  /// Enables the directive to be conditionally applied.
   @Input()
   set enterAccepts(value) => _enterAccepts = getBool(value);
 
@@ -300,7 +308,7 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
   }
 
   @override
-  void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.yes.add(true);
+  void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.onYes(event);
 }
 
 /// Returns the [Stream] of `keyup` [KeyboardEvent]s of the given [element].

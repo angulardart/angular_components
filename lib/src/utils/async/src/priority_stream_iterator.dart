@@ -9,7 +9,8 @@ import 'package:collection/collection.dart';
 /// A [StreamIterator] that accumulates the [Stream]'s values into a priority
 /// queue and selects the one with the most priority (the least one by
 /// comparison) of all accumulated values at each [moveNext] call.
-class PriorityStreamIterator<T> implements StreamIterator<T> {
+class PriorityStreamIterator<T extends Comparable>
+    implements StreamIterator<T> {
   final StreamIterator<T> _iterator;
   final PriorityQueue<T> _queue;
 
@@ -21,7 +22,7 @@ class PriorityStreamIterator<T> implements StreamIterator<T> {
   /// Comparable<T>.
   PriorityStreamIterator(Stream<T> stream, [int comparison(T a, T b)])
       : _iterator = new StreamIterator(stream),
-        _queue = new _StablePriorityQueue(comparison) {
+        _queue = new _StablePriorityQueue<T>(comparison) {
     _accumulateValues();
   }
 
@@ -81,12 +82,9 @@ class PriorityStreamIterator<T> implements StreamIterator<T> {
 ///
 /// Takes an optional [Comparator] parameter that should be used instead of the
 /// default [Comparable.compare].
-class _StablePriorityQueue<T> extends HeapPriorityQueue<T> {
-  static final _defaultComparator = (a, b) => (a as Comparable).compareTo(b);
-
+class _StablePriorityQueue<T extends Comparable> extends HeapPriorityQueue<T> {
   _StablePriorityQueue([Comparator<T> comparison])
-      : super(new _OrderedComparator(
-            comparison ?? _defaultComparator as Comparator<T>));
+      : super(new _OrderedComparator(comparison ?? _defaultComparator<T>()));
 
   _OrderedComparator<T> get comparator => comparison as _OrderedComparator<T>;
 
@@ -130,9 +128,12 @@ class _StablePriorityQueue<T> extends HeapPriorityQueue<T> {
   }
 }
 
+Comparator<T> _defaultComparator<T extends Comparable>() =>
+    (T a, T b) => a.compareTo(b);
+
 /// A [Comparator] that allows registering elements and uses the order of
 /// registration to resolve the cases when elements compare as equal.
-class _OrderedComparator<T> implements Function {
+class _OrderedComparator<T extends Comparable> implements Function {
   static const RENUMERATE_THRESHOLD = 1000000;
 
   final Comparator<T> _comparison;

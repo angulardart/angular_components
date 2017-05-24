@@ -10,7 +10,6 @@ import 'package:angular2/angular2.dart';
 import 'package:quiver/iterables.dart' show range;
 
 import '../../utils/angular/managed_zone/angular_2.dart';
-import '../../utils/async/async.dart';
 import '../../utils/disposer/disposer.dart';
 import '../../utils/keyboard/keyboard.dart';
 import './reorder_events.dart';
@@ -49,20 +48,27 @@ class ReorderListComponent implements OnDestroy {
 
   /// Will emit [ReorderEvent] after reordering has finished.
   @Output()
-  final reorder = new LazyEventEmitter<ReorderEvent>();
+  Stream<ReorderEvent> get reorder => _reorder.stream;
+  final _reorder = new StreamController<ReorderEvent>.broadcast(sync: true);
 
   /// Will emit [ReorderEvent] when the prospective reordering position has
   /// changed.
   @Output()
-  final reorderAttempt = new LazyEventEmitter<ReorderEvent>();
+  Stream<ReorderEvent> get reorderAttempt => _reorderAttempt.stream;
+  final _reorderAttempt =
+      new StreamController<ReorderEvent>.broadcast(sync: true);
 
   /// Will emit [int] index of element to delete when delete is triggered.
   @Output()
-  final delete = new LazyEventEmitter<int>();
+  Stream<int> get delete => _delete.stream;
+  final _delete = new StreamController<int>.broadcast(sync: true);
 
   /// Will emit [ItemSelectionEvent] indexes of the newly selected elements.
   @Output()
-  final itemSelectionChanged = new LazyEventEmitter<ItemSelectionEvent>();
+  Stream<ItemSelectionEvent> get itemSelectionChanged =>
+      _itemSelectionChanged.stream;
+  final _itemSelectionChanged =
+      new StreamController<ItemSelectionEvent>.broadcast(sync: true);
 
   final ManagedZone _managedZone;
 
@@ -224,7 +230,7 @@ class ReorderListComponent implements OnDestroy {
         ..top = "${e.offset.top}px"
         ..left = "${left}px";
     }
-    reorderAttempt.add(_createReorderEvent(_moveSourceIndex, toIndex));
+    _reorderAttempt.add(_createReorderEvent(_moveSourceIndex, toIndex));
   }
 
   int _horizontalTransformHandler(HtmlElement e, Element prev, int offset,
@@ -337,7 +343,7 @@ class ReorderListComponent implements OnDestroy {
     _reorderActive = false;
     _resetChildren();
 
-    reorder.add(_createReorderEvent(_moveSourceIndex, _currentMoveIndex));
+    _reorder.add(_createReorderEvent(_moveSourceIndex, _currentMoveIndex));
     if (multiSelect) {
       _clearSelection();
       _notifySelectionChange();
@@ -367,7 +373,7 @@ class ReorderListComponent implements OnDestroy {
       int newIndex = _getNewIndex(e.keyCode, index);
 
       if (newIndex != index) {
-        reorder.add(_createReorderEvent(index, newIndex));
+        _reorder.add(_createReorderEvent(index, newIndex));
         // Make sure that element will be focused after digest cycle
         _managedZone.onTurnDone.first.then((_) {
           // TODO(google): Add support for multiselect keyboard actions.
@@ -421,7 +427,7 @@ class ReorderListComponent implements OnDestroy {
   }
 
   void removeAt(int index) {
-    delete.add(index);
+    _delete.add(index);
     // Wait for digest and focus new element
     _managedZone.onTurnDone.first.then((_) {
       if (index < _reorderElements.length) {
@@ -436,7 +442,7 @@ class ReorderListComponent implements OnDestroy {
   void _notifySelectionChange() {
     var sources = new List<int>.from(_selectedElementIndexes);
     sources.sort();
-    itemSelectionChanged.add(new ItemSelectionEvent(sources));
+    _itemSelectionChanged.add(new ItemSelectionEvent(sources));
   }
 
   // Handles Ctrl|Metakey key selection when onClick event is fired.

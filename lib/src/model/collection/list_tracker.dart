@@ -23,6 +23,13 @@ class LazyListTracker<S, T> extends Object
   Function _onInsert;
   Function _onChange;
 
+  /// A callback function for performing a backward pass over inserted ranges
+  /// of items.
+  ///
+  /// For an example on how this callback can be used to implement grouping,
+  /// see the "LazyListTracker grouping" test group.
+  Function _onInsertBackpass;
+
   StreamSubscription _subscription;
 
   LazyListTracker(List<S> source, T mapSource(int index, S object),
@@ -30,6 +37,7 @@ class LazyListTracker<S, T> extends Object
       {List<T> target,
       void onRemove(int index, S source, T target),
       T onInsert(int index, S source, T target),
+      T onInsertBackpass(int index, S source, T target),
       void onChange()})
       : _source = source,
         _target = target,
@@ -37,6 +45,7 @@ class LazyListTracker<S, T> extends Object
         _lookupSource = lookupSource,
         _onRemove = onRemove,
         _onInsert = onInsert,
+        _onInsertBackpass = onInsertBackpass,
         _onChange = onChange;
 
   @override
@@ -204,7 +213,27 @@ class LazyListTracker<S, T> extends Object
 
   void _notifyInsert(ListChangeRecord record) {
     if (_onInsert != null) {
-      for (int i = 0; i < record.addedCount; i++) {
+      var end = record.addedCount - 1;
+
+      // Consumers can optionally provide an [_onInsertBackpass] callback, which
+      // will cause entities to be visited in reverse order until this callback
+      // returns null. This can be useful for propagating information backward
+      // from the mapped value that immediately follows the inserted range.
+      if (_onInsertBackpass != null) {
+        for (; end >= 0; end--) {
+          int index = record.index + end;
+          T object =
+              _onInsertBackpass(index, record.object[index], _target[index])
+                  as T;
+          if (object == null) {
+            break;
+          } else {
+            _target[index] = object;
+          }
+        }
+      }
+
+      for (int i = 0; i <= end; i++) {
         int index = record.index + i;
         T object = _onInsert(index, record.object[index], _target[index]) as T;
         if (object != null) {

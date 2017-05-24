@@ -1,3 +1,24 @@
+## 0.5.2
+
+ * Material Progress: Cleanup animations on destroy to prevent memory leaks.
+ * Material Select: 
+   * Support deselect item in Material dropdown select with single selection 
+     model.
+   * Unified template files (deleted material_select_dropdown_item.html).
+   * Add support for `Selectable` `SelectionOptions`.
+   * Create a `ControlValueAccessor`.
+ * Add backspace and delete keys to `KeyboardHandlerMixin`.
+ * Add `selectedValue` getter to `RadioGroupSingleSelectionModel`.
+ * Add null check to `ObservableComposite`'s `register` method.
+ * Add `totalEntitiesCountChange` getter to table selection models.
+ * Add `isStandardMouseEvent` utility to test for clicks without modifier keys.
+ * Add string selection sanitizing options.
+ * Remove `NoopStream` in favor of `Stream.empty()` as provided by the SDK.
+ * Migrate use of LazyEventController to StreamController.
+ * Fix bug in lazy group creation that would cause multiple groups to be 
+   created.
+ * Strong mode fixes.
+
 ## 0.5.1
 
  * Glyph: Add baseline attribute.

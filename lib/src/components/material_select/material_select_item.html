@@ -4,29 +4,31 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <div *ngIf="!supportsMultiSelect && isSelected"
-     class="selected-accent"
-     [attr.aria-label]="selectedMessage">
+    class="selected-accent"
+    [attr.aria-label]="selectedMessage">
 </div>
-<material-checkbox *ngIf="supportsMultiSelect && !useCheckMarks"
-                   tabindex="-1"
-                   [checked]="isSelected"
-                   [disabled]="disabled"
-                   [attr.aria-label]=
-                       "isSelected ? selectedMessage : notSelectedMessage">
-</material-checkbox>
-<span *ngIf="supportsMultiSelect && useCheckMarks"
+<template [ngIf]="supportsMultiSelect && !hideCheckbox">
+  <material-checkbox *ngIf="!useCheckMarks"
+      tabindex="-1"
+      [checked]="isSelected"
+      [disabled]="disabled"
+      [attr.aria-label]=
+          "isSelected ? selectedMessage : notSelectedMessage">
+  </material-checkbox>
+  <span *ngIf="useCheckMarks"
       class="check-container"
       [attr.aria-label]="isSelected ? selectedMessage : notSelectedMessage">
-  <glyph *ngIf="isSelected"
-         baseline
-         class="check"
-         icon="check">
-  </glyph>
-</span>
+    <glyph *ngIf="isSelected"
+        baseline
+        class="check"
+        icon="check">
+    </glyph>
+  </span>
+</template>
 <span *ngIf="valueHasLabel" class="label">{{valueLabel}}</span>
 <dynamic-component *ngIf="componentType != null"
-                   class="dynamic-item"
-                   [componentType]="componentType"
-                   [value]="value">
+    class="dynamic-item"
+    [componentType]="componentType"
+    [value]="value">
 </dynamic-component>
 <ng-content></ng-content>

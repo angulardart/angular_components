@@ -31,7 +31,7 @@ const Map<String, double> _indeterminateTiming = const {
     templateUrl: 'material_progress.html',
     styleUrls: const ['material_progress.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
-class MaterialProgressComponent implements AfterViewInit {
+class MaterialProgressComponent implements AfterViewInit, OnDestroy {
   final HtmlElement _element;
 
   /// The current progress value.
@@ -104,6 +104,16 @@ class MaterialProgressComponent implements AfterViewInit {
   void ngAfterViewInit() {
     _isInitialized = true;
     if (indeterminate) _tryFancyAnimation();
+  }
+
+  @override
+  void ngOnDestroy() {
+    _primaryAnimation?.cancel();
+    _secondaryAnimation?.cancel();
+    _primaryAnimation = null;
+    _secondaryAnimation = null;
+    _primaryIndicator = null;
+    _secondaryIndicator = null;
   }
 
   /// Sets up the "indeterminate" animation using the animation API.

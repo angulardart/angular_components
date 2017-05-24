@@ -54,6 +54,10 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   /// [filterOption] method.
   StringSuggestionFilter _suggestionFilter;
 
+  /// The itemRenderer is used for sanitizing options and queries before
+  /// filtering.
+  ItemRenderer _sanitizeString;
+
   bool _shouldSort = false;
 
   /// The list of options and optionally a function to convert the option
@@ -68,22 +72,26 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   StringSelectionOptions(List<T> options,
       {ItemRenderer<T> toFilterableString,
       StringSuggestionFilter suggestionFilter,
+      ItemRenderer sanitizeString: _stringFormatSuggestion,
       bool shouldSort: false})
       : this.withOptionGroups([new OptionGroup(options)],
             toFilterableString: toFilterableString,
             suggestionFilter: suggestionFilter,
+            sanitizeString: sanitizeString,
             shouldSort: shouldSort);
 
   StringSelectionOptions.withOptionGroups(List<OptionGroup<T>> optionGroups,
       {ItemRenderer<T> toFilterableString,
       StringSuggestionFilter suggestionFilter,
+      ItemRenderer sanitizeString: _stringFormatSuggestion,
       bool shouldSort: false})
       : _toFilterableString = toFilterableString ??
-            new CachingItemRenderer<T>(_stringFormatSuggestion).call,
+            new CachingItemRenderer<T>(sanitizeString).call,
         _shouldSort = shouldSort,
         super(optionGroups) {
     _suggestionFilter =
         suggestionFilter != null ? suggestionFilter : filterOption;
+    _sanitizeString = sanitizeString;
   }
 
   /// Accepts a string query and limit and applies the filter to the options.
@@ -110,7 +118,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
     List<OptionGroup<T>> filtered = [];
     int count = 0;
     String filterQuery =
-        _currentQuery == null ? '' : _stringFormatSuggestion(_currentQuery);
+        _currentQuery == null ? '' : _sanitizeString(_currentQuery);
     for (var group in _optionGroups) {
       if (count >= currentLimit) break;
       var filteredGroup =
@@ -149,8 +157,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   bool filterOption(T option, String filterQuery) {
     // StringFormatSuggestion is used to eliminate spaces to make the
     // pattern matching a simple contains as opposed to a regex.
-    return _stringFormatSuggestion(_toFilterableString(option))
-        .contains(filterQuery);
+    return _sanitizeString(_toFilterableString(option)).contains(filterQuery);
   }
 
   @override

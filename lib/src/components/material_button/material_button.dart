@@ -3,10 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular2/angular2.dart';
-
 import '../button_decorator/button_decorator.dart';
 import '../material_ripple/material_ripple.dart';
 import '../theme/dark_theme.dart';
+
 import 'material_button_base.dart';
 
 /// Material button is a button.

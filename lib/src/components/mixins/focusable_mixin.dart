@@ -2,15 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
-import '../../utils/async/async.dart';
 import '../focus/focus.dart';
 
 /// Assistant for focusing an element.
 class FocusableMixin implements Focusable {
-  final LazyEventEmitter<FocusEvent> onFocus =
-      new LazyEventEmitter<FocusEvent>.broadcast();
+  Stream<FocusEvent> get onFocus => _onFocus.stream;
+  final StreamController<FocusEvent> _onFocus =
+      new StreamController<FocusEvent>.broadcast(sync: true);
 
   Focusable _focusable;
   bool _focusPending = false;
@@ -33,6 +34,6 @@ class FocusableMixin implements Focusable {
   }
 
   void handleFocus(FocusEvent event) {
-    onFocus.add(event);
+    _onFocus.add(event);
   }
 }

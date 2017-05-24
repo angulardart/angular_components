@@ -12,7 +12,7 @@
         <span *ngIf="group.hasLabel" label>{{group.uiDisplayName}}</span>
         <material-select-item *ngFor="let item of group"
                               [itemRenderer]="itemRenderer"
-                              [disabled]="disabled"
+                              [disabled]="disabled || isOptionDisabled(item)"
                               [componentRenderer]="componentRenderer"
                               [selection]="selection"
                               [value]="item">

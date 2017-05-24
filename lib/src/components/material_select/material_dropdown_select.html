@@ -18,17 +18,17 @@
     (trigger)="handleClick($event)"
     popupSource
     #source="popupSource">
-   <ng-content select="[buttonContent]"></ng-content>
+  <ng-content select="[buttonContent]"></ng-content>
 </dropdown-button>
 <material-popup enforceSpaceConstraints
-                [preferredPositions]="preferredPositions"
-                [matchMinSourceWidth]="popupMatchInputWidth"
-                [slide]="slide"
-                [source]="source"
-                [autoDismiss]="autoDismiss"
-                [trackLayoutChanges]="trackLayoutChanges"
-                [visible]="visible"
-                (visibleChange)="onVisible($event)">
+    [preferredPositions]="preferredPositions"
+    [matchMinSourceWidth]="popupMatchInputWidth"
+    [slide]="slide"
+    [source]="source"
+    [autoDismiss]="autoDismiss"
+    [trackLayoutChanges]="trackLayoutChanges"
+    [visible]="visible"
+    (visibleChange)="onVisible($event)">
   <div header
       (keydown)="onKeyDown($event)"
       (keypress)="onKeyPress($event)"
@@ -46,21 +46,33 @@
       (mouseout)="activeModel.activate(null)">
     <ng-content></ng-content>
     <div class="options-wrapper" *ngIf="options != null">
-      <div *ngFor="let group of options.optionGroups trackBy trackByIndexFn" group
-           [class.empty]="group.isEmpty && !group.hasEmptyLabel">
+      <material-select-dropdown-item
+          *ngIf="showDeselectItem"
+          [class.empty]="options.optionGroups.length == 1"
+          keyboardOnlyFocusIndicator
+          [selected]="isDeselectItemSelected"
+          [value]="deselectLabel"
+          (trigger)="deselectCurrentSelection()"
+          [active]="activeModel.isActive(deselectLabel)"
+          [attr.id]="activeModel.id(deselectLabel)"
+          (mouseenter)="activeModel.activate(deselectLabel)">
+      </material-select-dropdown-item>
+      <div *ngFor="let group of options.optionGroups trackBy trackByIndexFn"
+          group
+          [class.empty]="group.isEmpty && !group.hasEmptyLabel">
         <template [ngIf]="group.isNotEmpty || group.hasEmptyLabel">
           <span *ngIf="group.hasLabel" label>{{group.uiDisplayName}}</span>
           <template [ngIf]="group.isNotEmpty">
             <material-select-dropdown-item *ngFor="let item of group"
-               keyboardOnlyFocusIndicator
-               [itemRenderer]="itemRenderer"
-               [componentRenderer]="componentRenderer"
-               [selection]="selection"
-               [disabled]="isOptionDisabled(item)"
-               [value]="item"
-               [active]="activeModel.isActive(item)"
-               [attr.id]="activeModel.id(item)"
-               (mouseenter)="activeModel.activate(item)">
+                keyboardOnlyFocusIndicator
+                [itemRenderer]="itemRenderer"
+                [componentRenderer]="componentRenderer"
+                [selection]="selection"
+                [disabled]="isOptionDisabled(item)"
+                [value]="item"
+                [active]="activeModel.isActive(item)"
+                [attr.id]="activeModel.id(item)"
+                (mouseenter)="activeModel.activate(item)">
             </material-select-dropdown-item>
           </template>
           <material-select-dropdown-item

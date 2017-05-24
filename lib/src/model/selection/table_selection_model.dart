@@ -18,6 +18,13 @@ abstract class BaseTableSelectionModel<T> implements SelectionModel<T> {
   /// the pages.
   CountGetter totalEntitiesCount;
 
+  /// Stream for [totalEntitiesCount] changes.
+  ///
+  /// If count getter does not always return the same value, the subclass
+  /// should explicitly add the count getter to the stream when the value of the
+  /// getter changes.
+  Stream<CountGetter> get totalEntitiesCountChange;
+
   /// Number of selectable entries.
   CountGetter entitiesOnPageCount;
 
@@ -111,8 +118,23 @@ class _SingleTableSelectionModelImpl<T> extends Observable
 
   bool deselectOnRemove;
 
+  CountGetter _totalEntitiesCount = () => -1;
+
   @override
-  CountGetter totalEntitiesCount = () => -1;
+  CountGetter get totalEntitiesCount => _totalEntitiesCount;
+
+  @override
+  set totalEntitiesCount(CountGetter value) {
+    _totalEntitiesCount = value;
+    _totalEntitiesCountController.add(value);
+  }
+
+  StreamController<CountGetter> _totalEntitiesCountController =
+      new StreamController.broadcast();
+
+  @override
+  Stream<CountGetter> get totalEntitiesCountChange =>
+      _totalEntitiesCountController.stream;
 
   @override
   CountGetter entitiesOnPageCount = () => -1;
@@ -198,8 +220,23 @@ class _TableSelectionModelImpl<T> extends Observable
 
   bool _allSelected = false;
 
+  CountGetter _totalEntitiesCount = () => -1;
+
   @override
-  CountGetter totalEntitiesCount = () => -1;
+  CountGetter get totalEntitiesCount => _totalEntitiesCount;
+
+  @override
+  set totalEntitiesCount(CountGetter value) {
+    _totalEntitiesCount = value;
+    _totalEntitiesCountController.add(value);
+  }
+
+  StreamController<CountGetter> _totalEntitiesCountController =
+      new StreamController.broadcast();
+
+  @override
+  Stream<CountGetter> get totalEntitiesCountChange =>
+      _totalEntitiesCountController.stream;
 
   @override
   CountGetter entitiesOnPageCount = () => -1;
