@@ -47,10 +47,11 @@ Firefox, and Safari.
 ## Useful links
 
 * **[Example gallery](https://dart-lang.github.io/angular_components_example/)**
-* [AngularDart Components documentation](https://webdev.dartlang.org/components):
+* AngularDart Components resources:
+  * [About AngularDart Components](https://webdev.dartlang.org/components)
+  * [Google I/O 2017 codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app)
+  * [Dart Summit 2016 codelab](https://webdev.dartlang.org/codelabs/angular2_components)
   * [API reference](https://webdev.dartlang.org/components/api)
-  * [Codelab: AngularDart Components](https://webdev.dartlang.org/codelabs/angular2_components)
-* [Google I/O 2017 codelab: Write a Material Design AngularDart Web App](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app)
 * AngularDart resources:
   * [AngularDart documentation](https://webdev.dartlang.org/angular/guide)
   * [angular2 pub package](https://pub.dartlang.org/packages/angular2)
