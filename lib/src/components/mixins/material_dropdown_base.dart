@@ -6,7 +6,6 @@ import 'dart:async';
 
 import '../../laminate/enums/alignment.dart';
 import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import '../content/deferred_content_aware.dart';
 
 /// A simple handle for Dropdown components.
@@ -40,7 +39,8 @@ abstract class DropdownHandle {
 /// - `DeferredContentAware` -- Provides a means to lazily create/attach
 ///   content.
 class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
-  final visibleStream = new LazyEventEmitter<bool>.broadcast();
+  Stream<bool> get visibleStream => _visibleStream.stream;
+  final _visibleStream = new StreamController<bool>.broadcast(sync: true);
   final _contentVisible = new StreamController<bool>.broadcast(sync: true);
 
   bool _enforceSpaceConstraints = false;
@@ -80,7 +80,7 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   List<dynamic> preferredPositions = RelativePosition.InlinePositions;
 
   void onVisible(bool vis) {
-    visibleStream.add(vis);
+    _visibleStream.add(vis);
     visible = vis;
 
     // Hide content after popup is closed.

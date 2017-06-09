@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 import 'dart:math';
 
 import 'package:angular2/angular2.dart';
@@ -13,7 +14,6 @@ import '../../laminate/overlay/overlay.dart';
 import '../../laminate/popup/popup.dart'
     show PopupEvent, PopupRef, PopupService, PopupSizeProvider;
 import '../../utils/angular/properties/properties.dart';
-import '../../utils/async/async.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../content/deferred_content_aware.dart';
 import '../mixins/material_dropdown_base.dart';
@@ -97,12 +97,8 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
       'z'
     ],
     outputs: const [
-      'onAnimationComplete: animationComplete',
       'onOpen: open',
-      // TODO(google): See if we can refactor this out (from old component).
-      'onOpened: opened',
       'onClose: close',
-      'visibleChange',
     ],
     providers: const [
       const Provider(PopupComponent, useExisting: MaterialPopupComponent),
@@ -125,10 +121,15 @@ class MaterialPopupComponent extends PopupComponent
   // Visible for testing.
   static const Duration SLIDE_DELAY = const Duration(milliseconds: 218);
 
-  final LazyEventEmitter onAnimationComplete = new LazyEventEmitter();
-  final LazyEventEmitter onOpened = new LazyEventEmitter();
-  final LazyEventEmitter<bool> _onContentVisible =
-      new LazyEventEmitter<bool>.broadcast();
+  @Output('animationComplete')
+  Stream get onAnimationComplete => _onAnimationComplete.stream;
+  final StreamController _onAnimationComplete =
+      new StreamController.broadcast(sync: true);
+  @Output('opened')
+  Stream get onOpened => _onOpened.stream;
+  final StreamController _onOpened = new StreamController.broadcast(sync: true);
+  final StreamController<bool> _onContentVisible =
+      new StreamController<bool>.broadcast(sync: true);
   final ChangeDetectorRef _changeDetector;
 
   // Used to have a maximum of one timer to wait for CSS animations.
@@ -169,6 +170,7 @@ class MaterialPopupComponent extends PopupComponent
   int z = 2;
 
   /// Output stream that supports [(visible)] syntax.
+  @Output()
   Stream<bool> get visibleChange => onVisible;
 
   /// The CSS transform origin based on configuration.
@@ -250,7 +252,7 @@ class MaterialPopupComponent extends PopupComponent
             changeDetector, elementRef);
 
   @override
-  Stream<bool> get contentVisible => _onContentVisible.distinct();
+  Stream<bool> get contentVisible => _onContentVisible.stream.distinct();
 
   // Returns a future that completes after a short duration that an animation
   // may occur (in this case, via CSS). If a pending animation is already in
@@ -270,7 +272,7 @@ class MaterialPopupComponent extends PopupComponent
         _animationTimer = null;
         _onAnimationCompleter = null;
         completer.complete();
-        onAnimationComplete.add(null);
+        _onAnimationComplete.add(null);
         _changeDetector.markForCheck();
       });
     }
@@ -344,7 +346,7 @@ class MaterialPopupComponent extends PopupComponent
       _animateContentSize();
       _afterAnimationDelay().then((_) {
         _resetContentSize();
-        onOpened.add(null);
+        _onOpened.add(null);
       });
     });
   }
@@ -352,7 +354,7 @@ class MaterialPopupComponent extends PopupComponent
   void _noAnimationPopupOpen() {
     showPopup = true;
     _resetContentSize();
-    onOpened.add(null);
+    _onOpened.add(null);
   }
 
   void _nextFrame(void fn()) {
@@ -373,7 +375,8 @@ class MaterialPopupComponent extends PopupComponent
     // Initializes the maximum size and content size based on the viewport size
     // before popup position is populated.
     if (_popupSizeProvider != null) {
-      _viewportSize = await _overlayService.measureContainer();
+      _viewportSize =
+          new Rectangle(0, 0, window.innerWidth, window.innerHeight);
       contentHeight =
           maxHeight = _popupSizeProvider.getMaxHeight(0, _viewportSize.height);
       contentWidth =

@@ -1,3 +1,16 @@
+## 0.5.3
+
+ * Add Material Tree component.
+ * Material Dialog: Add `shouldShowScrollStrokes` option for displaying
+   stroke lines when the content is scrollable.
+ * Material Dropdown Select: Avoid checking isSelected with deselectLabel.
+ * Material Input: UpperBoundsValidator, and LowerBoundsValidator now use
+   `Comparable` instead of `num`.
+ * Material Popup: Use the real viewport (aka window) size.
+ * Scorecard: Add `ng-content` area for a description.
+ * Adjust positioning algorithm to account for scrolling within elements.
+ * Migrate use of LazyEventController to StreamController.
+
 ## 0.5.2
 
  * Material Progress: Cleanup animations on destroy to prevent memory leaks.
@@ -15,7 +28,7 @@
  * Add string selection sanitizing options.
  * Remove `NoopStream` in favor of `Stream.empty()` as provided by the SDK.
  * Migrate use of LazyEventController to StreamController.
- * Fix bug in lazy group creation that would cause multiple groups to be 
+ * Fix bug in lazy group creation that would cause multiple groups to be
    created.
  * Strong mode fixes.
 

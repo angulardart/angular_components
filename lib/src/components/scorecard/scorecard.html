@@ -13,6 +13,6 @@
          [icon]="changeGlyphIcon"
          size="small">
   </glyph>
-  {{description}}</span>
+  {{description}}<ng-content select="description"></ng-content></span>
 <span *ngIf="suggestionAfter != null" class="suggestion after">{{suggestionAfter}}</span>
 <ng-content></ng-content>

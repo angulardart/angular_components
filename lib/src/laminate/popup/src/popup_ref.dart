@@ -294,7 +294,7 @@ class PopupRefImpl extends DelegatingPortalHost
       }
 
       // Otherwise try to minimize unscrollable overflow, then horiz overflow,
-      // then vert ovewrflow.
+      // then vert overflow.
       if (better(unscrollableOverflow, horizOverflow, vertOverflow)) {
         bestPosition = position;
         bestUnscrollableOverflow = unscrollableOverflow;
@@ -360,14 +360,14 @@ class PopupRefImpl extends DelegatingPortalHost
     // Find the size of the content, and move the overlay as an offset based
     // on the calculated position.
     final offsetX = isRtl
-        ? max(viewportRect.left, 0) - state.offsetX
-        : state.offsetX - max(viewportRect.left, 0);
+        ? viewportRect.left - state.offsetX
+        : state.offsetX - viewportRect.left;
+    final offsetY = state.offsetY - viewportRect.top;
     _overlayRef.state
       ..left = position.originX.calcLeft(sourceClientRect, contentClientRect) +
           offsetX
       ..top = position.originY.calcTop(sourceClientRect, contentClientRect) +
-          state.offsetY -
-          max(viewportRect.top, 0)
+          offsetY
       ..visibility = Visibility.Visible;
 
     _alignmentPosition = position;
@@ -509,6 +509,9 @@ class PopupRefImpl extends DelegatingPortalHost
         final event = new AsyncPopupEvent<bool>.close(eventController.action,
             this, () => _overlayRef.onSizeChanged().first);
 
+        _layoutInternalSub?.cancel();
+        _layoutChangeSub?.cancel();
+
         _onCloseController?.add(event);
 
         // Wait until the event could have been cancelled.
@@ -520,8 +523,6 @@ class PopupRefImpl extends DelegatingPortalHost
       });
 
   bool _onPopupClosed() {
-    _layoutInternalSub?.cancel();
-    _layoutChangeSub?.cancel();
     // Update the visibility.
     _overlayRef.state.visibility = Visibility.None;
     _isVisible = false;

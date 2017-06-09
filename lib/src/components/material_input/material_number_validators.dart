@@ -68,9 +68,8 @@ class LowerBoundValidator implements Validator {
   @override
   Map<String, dynamic> validate(AbstractControl control) {
     if (control.value == null || lowerBound == null) return null;
-    assert(control.value is num); // Should be using number accessor
-    final value = control.value as num;
-    if (value < lowerBound) {
+    assert(control.value is Comparable, 'Value needs to be Comparable');
+    if (control.value < lowerBound) {
       return {numberBelowLowerBoundErrorKey: numberIsTooSmallMsg(lowerBound)};
     }
     return null;
@@ -95,9 +94,8 @@ class UpperBoundValidator implements Validator {
   @override
   Map<String, dynamic> validate(AbstractControl control) {
     if (control.value == null) return null; // Handled by accessor validator
-    assert(control.value is num); // Should be using number accessor
-    final value = control.value as num;
-    if (value > upperBound) {
+    assert(control.value is Comparable, 'Value needs to be Comparable');
+    if (control.value > upperBound) {
       return {numberAboveUpperBoundErrorKey: numberIsTooLargeMsg(upperBound)};
     }
     return null;

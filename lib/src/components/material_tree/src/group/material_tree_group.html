@@ -1,0 +1,70 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<ul>
+  <li *ngFor="let option of group"
+      buttonDecorator
+      keyboardOnlyFocusIndicator
+      (trigger)="handleSelectionOrExpansion($event, option)"
+      [class.selected]="isSelected(option)"
+      [class.selectable]="isSelectable(option)"
+      class="material-tree-option">
+    <div class="material-tree-item"
+         role="treeitem"
+         attr.aria-selected="{{isSelected(option)}}"
+         [style.padding-left]="getPadding(option)">
+      <div
+        *ngIf="showCheckbox(option)"
+        class="tree-selection-state">
+        <material-checkbox
+          *ngIf="isMultiSelect"
+          class="tree-selection-state"
+          [checked]="isSelected(option)"
+          [disabled]="isReadOnly">
+        </material-checkbox>
+        <glyph
+            *ngIf="!isMultiSelect && isSelected(option)"
+            class="tree-selection-state"
+            icon="check">
+        </glyph>
+      </div>
+      <!-- /SELECTION STATE -->
+      <!-- LABEL OR COMPONENT -->
+      <dynamic-component
+        *ngIf="useComponentRenderer"
+        class="item component"
+        [componentType]="getComponentType(option)"
+        [value]="option">
+      </dynamic-component>
+      <span
+        *ngIf="!useComponentRenderer"
+        class="item text">
+        {{getOptionAsText(option)}}
+      </span>
+      <!-- /LABEL OR COMPONENT -->
+      <!-- EXPANSION STATE -->
+      <glyph
+        *ngIf="hasChildren(option)"
+        buttonDecorator
+        class="tree-expansion-state"
+        [class.expanded]="isExpanded(option)"
+        [icon]="isExpanded(option) ? 'expand_less' : 'expand_more'"
+        (trigger)="handleExpansion($event, option)">
+      </glyph>
+    </div>
+    <!-- /EXPANSION STATE -->
+    <!-- SUB ITEMS -->
+    <material-tree-group
+            *ngFor="let subGroup of getChildGroups(option)"
+            class="child-tree"
+            [expandAll]="expandAll"
+            [group]="subGroup"
+            [level]="level + 1"
+            [parentHasCheckbox]="showCheckbox(option)">
+    </material-tree-group>
+    <!-- /SUB ITEMS -->
+  </li>
+</ul>
+

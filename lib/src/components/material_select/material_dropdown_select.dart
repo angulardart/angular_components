@@ -249,6 +249,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     if (selection == null || selection.selectedValues.isEmpty) {
       activeModel.activate(null);
     } else if (activeModel.activeItem == null ||
+        (showDeselectItem && activeModel.activeItem == deselectLabel) ||
         !selection.isSelected(activeModel.activeItem)) {
       // If the current active item is not selected, activate the first selected
       // item.

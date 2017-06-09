@@ -58,6 +58,11 @@ class OverlayStyleConfig {
 
     /* TODO(google): Pull out into a .fixed class instead. */
     position: fixed;
+
+    /* Promote the .modal element to its own layer to fix scrolling issues.
+       will-change: transform is preferred, but not yet supported by Edge. */
+    -webkit-backface-visibility: hidden;  /* Safari 9/10 */
+    backface-visibility: hidden;
   }
 
   /* TODO(google): This only makes sense when it's flex column (default).

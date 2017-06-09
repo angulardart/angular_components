@@ -27,6 +27,10 @@ class TabChangeEvent {
     defaultPrevented = true;
   }
 
+  /// Returns whether the event is to or from a de-emphasized tab.
+  bool get isDeEmphasizedTabChange =>
+      oldSubIndex != noSelectionIndex || newSubIndex != noSelectionIndex;
+
   @override
   String toString() =>
       'TabChangeEvent: [$oldIndex:$oldSubIndex] => [$newIndex:$newSubIndex]';

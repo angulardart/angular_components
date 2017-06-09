@@ -34,7 +34,7 @@ class PopupState extends Observable {
       int offsetY: 0,
       Iterable preferredPositions: const [],
       PopupSource source,
-      bool trackLayoutChanges: false}) {
+      bool trackLayoutChanges: true}) {
     return new PopupState._(new ObservableMap<Symbol, dynamic>.from({
       #alignContentX: alignContentX,
       #alignContentY: alignContentY,
