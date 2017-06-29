@@ -9,7 +9,7 @@ import './highlighted_text_model.dart';
 
 /// Maintains a reference to the highlighter and a cache of highlighted data.
 class HighlightAssistant {
-  static RegExp _separatorRegex = new RegExp(r'[,\s]+');
+  static final RegExp _separatorRegex = new RegExp(r'[,\s]+');
 
   // Cache highlight segments.
   final _highlightCache =
