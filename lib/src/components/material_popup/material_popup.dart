@@ -27,8 +27,7 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 /// Caveats:
 /// - Popups closing and opening are automatically delayed to add animations
 /// - An additional event, `animationComplete`, is available.
-/// - Take advantage of enforceSpaceConstraints defined in
-/// [PopupInterface](https://github.com/dart-lang/angular_components/tree/master/lib/src/laminate/components/popup/src/base.dart).
+/// - Take advantage of enforceSpaceConstraints defined in [PopupInterface].
 ///
 /// This is useful if content size is such that adds scroll to the page.
 /// - Even though this component supports [ChangeDetectionStrategy.OnPush]
@@ -42,9 +41,11 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 ///  [trackLayoutChanges] which is also defined in [PopupInterface].
 ///
 /// __Events__:
+/// 
 /// - `animationComplete`: Triggers after an open or close animation finishes.
 ///
 /// __Example use__:
+/// 
 ///     <button (click)="showPopup = !showPopup"
 ///             popupSource
 ///             #source="popupSource">
@@ -55,6 +56,7 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 ///     </material-popup>
 ///
 /// Material popup also supports deferred/lazy-loaded content:
+/// 
 ///     <material-popup [visible]="showPopup" [source]="source">
 ///       <expensive-component *deferredContent></expensive-component>
 ///     </material-popup>
