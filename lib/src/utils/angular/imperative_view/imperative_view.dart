@@ -16,7 +16,7 @@ import '../../disposer/disposer.dart';
 /// 2 code. This allows easier refactoring and migration of approaches as the
 /// Angular team iterates and a standard API for AngularDart components to use.
 ///
-/// Example use (see imperative_view_test as wel):
+/// Example use (see imperative_view_test as well):
 ///     @Component(
 ///       selector: 'imperative-list',
 ///       properties: const [
