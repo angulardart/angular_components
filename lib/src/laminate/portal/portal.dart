@@ -322,14 +322,15 @@ typedef void OnTemplatePortalReady(TemplatePortal portal);
 ///     </template>
 @Directive(selector: '[portal]', outputs: const ['ready'])
 class TemplatePortalDirective extends TemplatePortal {
-  final ready = new EventEmitter();
+  Stream<TemplatePortalDirective> get ready => _ready.stream;
+  final _ready = new StreamController.broadcast();
 
   TemplatePortalDirective(
       TemplateRef templateRef, ViewContainerRef viewContainerRef)
       : super(templateRef, viewContainerRef) {
     // TODO(google): Consider a better or standard pattern for this.
     scheduleMicrotask(() {
-      ready.add(this);
+      _ready.add(this);
     });
   }
 }

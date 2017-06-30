@@ -1,0 +1,49 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div class="button"
+     [class.border]="!supportsFiltering"
+     popupSource
+     #button="popupSource"
+     (focus)="visible = true"
+     (click)="visible = !visible"
+     keyboardOnlyFocusIndicator>
+  <span
+    *ngIf="!supportsFiltering"
+    class="button-text">
+      {{placeholder}}
+  </span>
+  <glyph
+    *ngIf="!supportsFiltering"
+    class="icon"
+    icon="arrow_drop_down">
+  </glyph>
+  <material-tree-filter
+    #materialTreeFilter
+    *ngIf="supportsFiltering"
+    (filter)="visible = true"
+    [filterable]="filterableOptions"
+    [placeholder]="placeholder">
+  </material-tree-filter>
+</div>
+<material-popup
+  enforceSpaceConstraints
+  trackLayoutChanges
+  [matchSourceWidth]="false"
+  [preferredPositions]="popupPositions"
+  [source]="button"
+  [(visible)]="visible">
+  <div header>
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <material-tree
+    *deferredContent
+    [componentRenderer]="componentRenderer"
+    [expandAll]="expandAll"
+    [itemRenderer]="itemRenderer"
+    [options]="options"
+    [selection]="selection">
+  </material-tree>
+</material-popup>

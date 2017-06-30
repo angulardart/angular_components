@@ -1,0 +1,37 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<template [ngIf]="supportsHierarchy">
+  <material-tree-group
+    *ngFor="let group of options.optionGroups"
+    [expandAll]="expandAll"
+    [group]="group">
+  </material-tree-group>
+</template>
+<template [ngIf]="!supportsHierarchy">
+  <!-- No hierarchy, no selection -->
+  <template [ngIf]="showFlatList">
+    <material-tree-group-flat-list
+      *ngFor="let group of options.optionGroups"
+      [group]="group">
+    </material-tree-group-flat-list>
+  </template>
+
+  <!-- No hierarchy, single selection -->
+  <template [ngIf]="showFlatRadio">
+    <material-tree-group-flat-radio
+      *ngFor="let group of options.optionGroups"
+      [group]="group">
+    </material-tree-group-flat-radio>
+  </template>
+
+  <!-- No hierarchy, multi selection -->
+  <template [ngIf]="showFlatCheck">
+    <material-tree-group-flat-check
+      *ngFor="let group of options.optionGroups"
+      [group]="group">
+    </material-tree-group-flat-check>
+  </template>
+</template>

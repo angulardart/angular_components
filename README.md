@@ -31,7 +31,7 @@ developers to be able to use the package as soon as possible.
 * ✓ `<material-tooltip>`
 * ✓ `<material-list>`
 * ✓ `<material-select>`
-* ☐ `<material-tree>`
+* ✓ `<material-tree>`
 * ☐ `<material-auto-suggest-input>`
 * ☐ `<material-date-range-picker>`
 * ☐ `<material-menu>`

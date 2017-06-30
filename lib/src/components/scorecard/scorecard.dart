@@ -45,12 +45,14 @@ import '../material_ripple/material_ripple.dart';
 ///     <acx-scorecard class="right-align"></acx-scorecard>
 ///
 /// Content projection can also be used with the <name> element to insert custom
-/// content into the label area, or with <value> to insert custom content into
-/// the value area:
+/// content into the label area, with <value> to insert custom content into
+/// the value area, or with <description> to insert custom content into the
+/// description area:
 ///
 ///     <acx-scorecard ...>
 ///       <name>Estimated earnings <i>(NEW)</i></name>
 ///       <value><glyph icon="mode_edit"></glyph></value>
+///       <description><b>On track</b></description>
 ///     </acx-scorecard>
 ///
 /// __Inputs:__

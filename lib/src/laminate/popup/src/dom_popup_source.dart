@@ -44,17 +44,10 @@ class DomPopupSourceFactory {
   /// the measurement changes.
   Stream<Rectangle> _asyncMeasureSize(Element element, {bool track: false}) {
     if (track) {
-      return _domRuler.track(element).map(_withOffset);
+      return _domRuler.track(element);
     } else {
-      return _domRuler.measure(element).asStream().map(_withOffset);
+      return _domRuler.measure(element).asStream();
     }
-  }
-
-  /// Offsets [clientRect] with the current scrolling position.
-  Rectangle _withOffset(Rectangle clientRect) {
-    // TODO(google): Consider using ScrollHost instead.
-    return new Rectangle(_window.scrollX + clientRect.left,
-        _window.scrollY + clientRect.top, clientRect.width, clientRect.height);
   }
 }
 

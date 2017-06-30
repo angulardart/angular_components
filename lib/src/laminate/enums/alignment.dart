@@ -102,13 +102,13 @@ class Alignment implements ElementStyleEnum {
     if (requiresContentSizeToPosition && contentRect == null) {
       throw new ArgumentError.notNull('contentRect');
     }
-    var left = sourceRect.top;
+    var top = sourceRect.top;
     if (this == Center) {
-      left += sourceRect.height / 2 - contentRect.height / 2;
+      top += sourceRect.height / 2 - contentRect.height / 2;
     } else if (this == End) {
-      left += sourceRect.height - contentRect.height;
+      top += sourceRect.height - contentRect.height;
     }
-    return left;
+    return top;
   }
 
   /// Returns a common CSS class in the format of 'align-x-{{name}}'.

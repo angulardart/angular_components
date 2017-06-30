@@ -1,0 +1,28 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<material-radio-group
+  [selectionModel]="selectionModel">
+  <material-radio
+    *ngFor="let option of group"
+    class="material-tree-option tree-selection-state"
+    [class.selected]="isSelected(option)"
+    [class.selectable]="isSelectable(option)"
+    [disabled]="isReadOnly"
+    [value]="option"
+    role="option">
+      <dynamic-component
+        *ngIf="useComponentRenderer"
+        class="item component"
+        [componentType]="getComponentType(option)"
+        [value]="option">
+      </dynamic-component>
+    <span
+      *ngIf="!useComponentRenderer"
+      class="item text">
+      {{getOptionAsText(option)}}
+    </span>
+  </material-radio>
+</material-radio-group>

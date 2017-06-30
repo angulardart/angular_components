@@ -112,6 +112,7 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   HtmlElement _mainElement;
   bool _shouldShowHeader = true;
   bool _shouldShowFooter = true;
+  bool _shouldShowScrollStrokes = true;
   bool shouldShowTopScrollStroke = false;
   bool shouldShowBottomScrollStroke = false;
 
@@ -142,9 +143,14 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
 
   bool get shouldShowFooter => _shouldShowFooter;
 
+  @Input()
+  set shouldShowScrollStrokes(shouldShowScrollStrokes) =>
+      _shouldShowScrollStrokes = getBool(shouldShowScrollStrokes);
+
   void onScroll() => _setHeaderFooterScrollBorder();
 
   void _setHeaderFooterScrollBorder() {
+    if (!_shouldShowScrollStrokes) return;
     _disposer.addDisposable(_domService.scheduleRead(() {
       var shouldShowTopScrollStroke =
           _mainElement.scrollTop > 0 && error == null;

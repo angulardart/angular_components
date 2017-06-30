@@ -9,6 +9,8 @@ import './highlighted_text_model.dart';
 
 /// Maintains a reference to the highlighter and a cache of highlighted data.
 class HighlightAssistant {
+  static final RegExp _separatorRegex = new RegExp(r'[,\s]+');
+
   // Cache highlight segments.
   final _highlightCache =
       new Map<String, Map<dynamic, List<HighlightedTextSegment>>>();
@@ -31,7 +33,8 @@ class HighlightAssistant {
     if (value == null) {
       value = (_optionHighlighter != null
           ? _optionHighlighter(_lastQuery, item)
-          : _textHighlighter.highlight(itemRenderer(item), [_lastQuery]));
+          : _textHighlighter.highlight(
+              itemRenderer(item), _lastQuery.split(_separatorRegex)));
       _queryHighlightCache[item] = value;
     }
     return value;
