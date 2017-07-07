@@ -1,0 +1,88 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+@import 'lib/src/css/shared/compass_polyfills';
+@import 'compass/css3/flexbox';
+
+$icon-size: $mat-grid * 3;
+
+:host {
+  @include display-flex(inline-flex);
+  @include flex(1);
+  min-height: $icon-size;
+  overflow: hidden;
+}
+
+.button {
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(space-between);
+  @include flex(1);
+  line-height: initial;
+  overflow: hidden;
+
+  &.border {
+    border-bottom: 1px solid $mat-border-light;
+
+    // Throw some padding-bottom here so that the underline aligns with that of
+    // material-input.
+    padding-bottom: $mat-grid;
+
+    &.is-disabled {
+      border-bottom-style: dotted;
+    }
+  }
+
+  &.is-disabled {
+    color: $mat-lighter-transparent-black;
+  }
+
+  .button-text {
+    @include flex(1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+// OK, so here's the thing. The dropdown arrow icon is actually pretty small,
+// but it still takes up 24x24px as far as the DOM is concerned. This isn't an
+// issue normally because it's all whitespace, so it looks fine.
+//
+// But in Chrome, the actual shape will be revealed if you tab into the dropdown
+// button, and it's pretty ugly. Setting overflow:hidden on the button will fix
+// that -- but then that breaks baseline alignment in Firefox!
+//
+// So here's a ridiculous hack to make it look nice in both Chrome and Firefox.
+@mixin icon-focus-highlight-hack {
+  // First let's set a smaller size on the glyph for the purposes of layout.
+  // The icon will still be visible thanks to a visible overflow.
+  $hacked-height: $icon-size / 2;
+  height: $hacked-height;
+
+  /deep/ i.material-icons-extended {
+    // Finally let's adjust the position of the glyph itself to compensate for
+    // the smaller size of the glyph element. (This assumes center alignment)
+    position: relative;
+    top: -($icon-size - $hacked-height) / 2;
+  }
+}
+
+.icon {
+  @include icon-focus-highlight-hack;
+
+  opacity: $mat-icon-opacity;
+  margin-top: -$icon-size / 2;
+  margin-bottom: -$icon-size / 2;
+}

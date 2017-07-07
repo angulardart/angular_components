@@ -1,0 +1,136 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/components/material_popup/mixins';
+
+// Sass mixins for customizing material-input
+
+/// Changes the material-input's label which is defined by $selector
+/// to be $color
+@mixin input-label-color($selector, $color) {
+  #{$selector} /deep/ .top-section > .input-container > .label > .label-text {
+    color: $color;
+  }
+}
+
+@mixin input-leading-glyph-color($selector, $color) {
+  #{$selector} /deep/ .glyph {
+    color: $color;
+  }
+}
+
+/// Changes the padding of the top section (without underline) of material
+/// input.
+@mixin input-top-section-padding($padding) {
+  /deep/ .top-section {
+    padding: $padding;
+  }
+}
+
+/// Changes the margin of the top section (without underline) of material
+/// input.
+@mixin input-top-section-margin($margin) {
+  /deep/ .top-section {
+    margin: $margin;
+  }
+}
+
+/// Changes the line-height of the top section (without underline) of material
+/// input.
+@mixin input-top-section-line-height($line-height) {
+  /deep/ .top-section {
+    line-height: $line-height;
+  }
+}
+
+/// Hides the bottom section of material input.
+@mixin input-hide-bottom-section() {
+  /deep/ .bottom-section {
+    display: none;
+  }
+}
+
+/// Changes the padding of the leading text.
+@mixin material-input-leading-text-padding($padding) {
+  /deep/ .leading-text {
+    padding: $padding;
+  }
+}
+
+/// Changes the `$primary-color`in the material-input which includes the label
+/// text and underline.
+///
+/// Optionally specify a `$selector`. Example usage:
+///     @include material-input-theme(
+///         $primary-color: $mat-teal-500,
+///         $selector: '.custom-area');
+@mixin material-input-theme($primary-color, $selector: '') {
+  #{$selector} /deep/ material-input.themeable .focused.label-text {
+    color: $primary-color;
+  }
+
+  #{$selector} /deep/ material-input.themeable .cursor {
+    background-color: $primary-color;
+  }
+
+  #{$selector} /deep/ material-input.themeable {
+    @include material-input-focused-underline-color($primary-color);
+  }
+}
+
+/// Changes the bottom section of the material input to not wrap.
+@mixin error-text-nowrap() {
+  /deep/ .error-text {
+    white-space: nowrap;
+  }
+}
+
+@mixin material-input-no-underline() {
+  /deep/ .underline {
+    display: none;
+  }
+}
+
+@mixin input-enforce-ltr() {
+  /deep/ {
+    .input,
+    .textarea {
+      /*! @noflip */
+      direction: ltr;
+
+      :host-context([dir="rtl"]) & {
+        /*! @noflip */
+        text-align: right;
+      }
+    }
+  }
+}
+
+@mixin material-input-display-focused-underline() {
+  /deep/ .focused-underline {
+    transform: scale(1);
+    visibility: visible;
+  }
+}
+
+@mixin material-input-focused-underline-color($color) {
+  /deep/ .focused-underline {
+    background-color: $color;
+  }
+}
+
+@mixin material-input-disabled-input-color($color) {
+  /deep/ .disabledInput {
+    color: $color;
+  }
+}

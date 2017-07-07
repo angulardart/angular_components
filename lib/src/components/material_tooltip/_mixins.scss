@@ -11,17 +11,20 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
+/// Exposes the glyph color of <material-icon-tooltip>.
+@mixin material-icon-tooltip-theme($primary-color,
+  $active-color: $primary-color) {
 
-// Global material imports, settings, variables, mixins and functions.
+  /deep/ material-icon-tooltip {
+    glyph {
+      color: $primary-color;
+    }
 
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+    &:hover,
+    &:focus {
+      glyph {
+        color: $active-color;
+      }
+    }
+  }
+}

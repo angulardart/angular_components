@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+/// Changes the `$off-btn-color` and `$primary-color` of <material-toggle>s.
+///
+/// Optionally specify a `$selector`. Example use:
+///     @include material-toggle-theme(
+///         $primary-color: $mat-teal-500,
+///         $off-btn-color: $mat-teal-500,
+///         $selector: '.custom-area');
+@mixin material-toggle-theme($primary-color, $off-btn-color: null, $selector: '') {
+  @if $off-btn-color != null {
+    /deep/ #{$selector} material-toggle.themeable .material-toggle .tgl-btn {
+      background-color: $off-btn-color;
+    }
+  }
+
+  /deep/ #{$selector} material-toggle.themeable .material-toggle.checked .tgl-bar {
+    background-color: $primary-color;
+  }
+
+  /deep/ #{$selector} material-toggle.themeable .material-toggle.checked .tgl-btn {
+    background-color: $primary-color;
+  }
+}

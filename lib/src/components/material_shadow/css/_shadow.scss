@@ -1,0 +1,122 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+// A common set of SASS styles to apply MD shadows.
+// Evolved from
+// https://github.com/PolymerElements/paper-styles/blob/master/shadow.html
+
+
+// Applies a standard transition style for box-shadow to box-shadow.
+@mixin shadow-transition() {
+  transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+}
+
+// Disables box-shadow.
+@mixin shadow-none {
+  box-shadow: none;
+}
+
+// Some opacity values that are common here. Maybe pull this out too?
+$keyUmbraOpacity: .2;
+$keyPenumbraOpacity: .14;
+$ambientShadowOpacity: .12;
+
+/// Applies a standard shadow to the selected element(s).
+///
+/// This rule is great for things that need a static shadow. If the elevation
+/// of the shadow needs to be changed dynamically, use the `material-shadow`
+/// rule below.
+///
+/// Valid values: 2, 3, 4, 6, 8, 16, 24
+@mixin shadow-elevation($dp: 2) {
+  @if $dp == 2 {
+    /*! @noflip */
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $keyPenumbraOpacity),
+                0 3px 1px -2px rgba(0, 0, 0, $ambientShadowOpacity),
+                0 1px 5px 0 rgba(0, 0, 0, $keyUmbraOpacity);
+  } @else if $dp == 3 {
+    /*! @noflip */
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $keyPenumbraOpacity),
+                0 3px 3px -2px rgba(0, 0, 0, $ambientShadowOpacity),
+                0 1px 8px 0 rgba(0, 0, 0, $keyUmbraOpacity);
+  } @else if $dp == 4 {
+    /*! @noflip */
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, $keyPenumbraOpacity),
+                0 1px 10px 0 rgba(0, 0, 0, $ambientShadowOpacity),
+                0 2px 4px -1px rgba(0, 0, 0, $keyUmbraOpacity);
+  } @else if $dp == 6 {
+    /*! @noflip */
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $keyPenumbraOpacity),
+                0 1px 18px 0 rgba(0, 0, 0, $ambientShadowOpacity),
+                0 3px 5px -1px rgba(0, 0, 0, $keyUmbraOpacity);
+  } @else if $dp == 8 {
+    /*! @noflip */
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, $keyPenumbraOpacity),
+                0 3px 14px 2px rgba(0, 0, 0, $ambientShadowOpacity),
+                0 5px 5px -3px rgba(0, 0, 0, $keyUmbraOpacity);
+  } @else if $dp == 16 {
+    /*! @noflip */
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, $keyPenumbraOpacity),
+                0  6px 30px 5px rgba(0, 0, 0, $ambientShadowOpacity),
+                0  8px 10px -5px rgba(0, 0, 0, $keyUmbraOpacity);
+  } @else if $dp == 24 {
+    /*! @noflip */
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, $keyPenumbraOpacity),
+                0  9px 46px 8px rgba(0, 0, 0, $ambientShadowOpacity),
+                0  11px 15px -7px rgba(0, 0, 0, $keyUmbraOpacity);
+  }
+}
+
+/// Applies the Material Shadow styles to the selected element.
+///
+/// Use the attributes below to control the shadow.
+///
+/// - `animated` -- Whether to animate the shadow transition.
+/// - `elevation` -- Z-elevation of shadow. Valid Values: 1,2,3,4,5
+///
+/// Example:
+///
+///     .shadow-box {
+///       @include material-shadow();
+///     }
+///
+///     <div class="shadow-box" animated elevation="3">...</div>
+@mixin material-shadow() {
+  &[animated] {
+    @include shadow-transition();
+  }
+
+  &[elevation="1"] {
+    @include shadow-elevation(2);
+  }
+
+  &[elevation="2"] {
+    @include shadow-elevation(4);
+  }
+
+  &[elevation="3"] {
+    @include shadow-elevation(6);
+  }
+
+  &[elevation="4"] {
+    @include shadow-elevation(8);
+  }
+
+  &[elevation="5"] {
+    @include shadow-elevation(16);
+  }
+
+  &[elevation="6"] {
+    @include shadow-elevation(24);
+  }
+}

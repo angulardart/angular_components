@@ -1,0 +1,91 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+@import 'lib/src/components/material_shadow/css/shadow';
+
+@mixin material-dialog-header-color($color) {
+  /deep/ .wrapper > header,
+  &[headered] /deep/ .wrapper > header {
+    background-color: $color;
+  }
+}
+
+@mixin material-dialog-header-shadow() {
+  /deep/ .wrapper > header {
+    @include shadow-elevation;
+  }
+}
+
+@mixin material-dialog-header-padding($padding: 0) {
+  /deep/ .wrapper > header {
+    padding: $padding;
+  }
+}
+
+@mixin material-dialog-body-padding($padding: 0) {
+  /deep/ .wrapper > main {
+    padding: $padding;
+  }
+}
+
+@mixin material-dialog-footer-padding($padding: 0) {
+  /deep/ .wrapper > footer {
+    padding: $padding;
+  }
+}
+
+@mixin material-dialog-footer-border-top($border) {
+  /deep/ .wrapper > footer {
+    border-top: $border;
+  }
+}
+
+@mixin material-dialog-header() {
+  @include box-sizing(border-box);
+  padding: $mat-grid * 3 $mat-grid * 3 0;
+  width: 100%;
+
+  /deep/ h3 {
+    @include mat-type-title;
+    margin: 0 0 $mat-grid;
+  }
+
+  /deep/ p {
+    @include mat-type-caption;
+    margin: 0;
+  }
+}
+
+@mixin material-dialog-headered-header() {
+  @include material-dialog-header;
+  background: $mat-gray-700;
+  padding-bottom: $mat-grid * 2;
+
+  /deep/ h3 {
+    color: $mat-white;
+    margin-bottom: $mat-grid / 2;
+  }
+
+  /deep/ p {
+    color: $mat-transparent-white;
+  }
+}
+
+
+@mixin material-dialog-main-flex($flow) {
+  /deep/ .wrapper > main {
+    @include display-flex();
+    @include flex-flow($flow);
+  }
+}

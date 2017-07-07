@@ -11,17 +11,9 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
+@import 'lib/src/css/material/material';
+@import 'compass/css3/animation';
 
-// Global material imports, settings, variables, mixins and functions.
-
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+$tooltip-border-radius: 2px;
+$off-page-offset: $mat-grid * -64;
+$tooltip-font-size: 12px;

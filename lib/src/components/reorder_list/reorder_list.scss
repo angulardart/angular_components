@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'compass/css3/user-interface';
+@import 'mixins';
+
+:host {
+  display: block;
+
+  &.vertical {
+    position: relative;
+  }
+
+  // Prevent selecting text inside dragging area.
+  > [draggable] {
+    // Required for old WebKit
+    -webkit-user-drag: element;
+    @include user-select(none);
+  }
+
+  &.multiselect {
+    .item-selected {
+      outline: none;
+      border: $item-border-width $item-border-style $item-border-color;
+    }
+  }
+}
+
+.reorder-list-dragging-active {
+  cursor: move;
+}
+
+.placeholder {
+  position: absolute;
+  z-index: -1;
+
+  &.hidden {
+    display: none;
+  }
+}

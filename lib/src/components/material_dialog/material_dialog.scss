@@ -1,0 +1,127 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+@import 'lib/src/css/shared/compass_polyfills';
+@import 'lib/src/components/material_shadow/css/shadow';
+@import 'compass/css3/box-sizing';
+@import 'compass/css3/flexbox';
+@import 'mixins';
+
+:host {
+  @include shadow-elevation(24);
+  background: $mat-white;
+  border-radius: $mat-grid-type / 2;
+  display: block;
+  height: auto;
+  overflow: hidden;
+}
+
+focus-trap {
+  height: inherit;
+  max-height: inherit;
+  width: 100%;
+}
+
+.wrapper {
+  @include flexbox((
+    display: flex,
+    flex-direction: column
+  ));
+  height: inherit;
+  max-height: inherit;
+}
+
+.error {
+  @include box-sizing(border-box);
+  @include flex-shrink(0);
+  @include mat-type-body;
+  background: $mat-gray-200;
+  color: $mat-red-700;
+  padding: 0 $mat-grid * 3;
+  transition: padding $mat-transition $mat-transition-fast-slow 0s;
+  width: 100%;
+
+  &.expanded {
+    border-bottom: 1px $mat-gray-300 solid;
+    border-top: 1px $mat-gray-300 solid;
+    padding: $mat-grid $mat-grid * 3;
+  }
+}
+
+main {
+  @include box-sizing(border-box);
+  @include flex-grow(1);
+  @include mat-type-body;
+  color: $mat-transparent-black;
+  overflow: auto;
+  padding: 0 $mat-grid * 3;
+  width: 100%;
+
+  &.top-scroll-stroke {
+    border-top: 1px $mat-gray-300 solid;
+  }
+
+  &.bottom-scroll-stroke {
+    border-bottom: 1px $mat-gray-300 solid;
+  }
+}
+
+footer {
+  @include box-sizing(border-box);
+  @include flex-shrink(0);
+  padding: 0 $mat-grid $mat-grid;
+  width: 100%;
+}
+
+:host .wrapper {
+  > header {
+    @include material-dialog-header;
+    @include flex-shrink(0);
+  }
+
+  > footer /deep/ [footer] {
+    @include flexbox((
+      display: flex,
+      flex-shrink: 0,
+      justify-content: flex-end
+    ));
+  }
+}
+
+:host[headered] .wrapper {
+  > header {
+    @include material-dialog-headered-header;
+  }
+
+  > main {
+    padding-top: $mat-grid;
+  }
+}
+
+:host[info] .wrapper {
+  > header {
+    /deep/ h3 {
+      line-height: $mat-grid * 5;
+      margin: 0;
+    }
+
+    /deep/ material-button {
+      float: right;
+    }
+  }
+
+  > footer {
+    padding-bottom: $mat-grid * 3;
+  }
+}

@@ -1,0 +1,85 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+@import 'lib/src/css/shared/compass_polyfills';
+@import 'compass/css3/flexbox';
+
+// Adjust margin to keep icon and ripple centered.
+$ripple-left: -$mat-grid;
+$ripple-top: -$mat-grid;
+
+:host {
+  @include align-items(baseline);
+  cursor: pointer;
+  @include display-flex(inline-flex);
+  margin: $mat-grid;
+
+  &[no-ink] .ripple {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // Radio is disabled.
+  &.disabled {
+    color: $mat-lightest-transparent-black;
+    cursor: not-allowed;
+  }
+}
+
+.icon-container {
+  @include flex(none);
+  height: $mat-grid * 3;
+  position: relative;
+  color: $mat-light-transparent-black;
+
+  &.checked {
+    color: $mat-blue-500;
+  }
+
+  &.disabled {
+    color: $mat-lightest-transparent-black;
+  }
+
+  .icon {
+    display: inline-block;
+    vertical-align: -$mat-grid;
+  }
+
+  &.focus::after,
+  .ripple {
+    $size: $mat-grid * 5;
+    border-radius: $size / 2;
+    height: $size;
+    left: $ripple-left;
+    position: absolute;
+    top: $ripple-top;
+    width: $size;
+  }
+
+  &.focus::after {
+    content: '';
+    display: block;
+    background-color: currentColor;
+    opacity: $mat-divider-opacity;
+  }
+}
+
+.content {
+  @include align-items(center);
+  @include flex(auto);
+  margin-left: $mat-grid;
+}

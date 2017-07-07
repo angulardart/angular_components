@@ -11,17 +11,17 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
+/// Consider using button-base or material-button instead from:
+///     lib/src/components/material_button/_mixins.scss
+/// These mixins provide more of the typical values used in buttons.
+///
 
-// Global material imports, settings, variables, mixins and functions.
+/// Default styles that should be provided for all elements that use
+/// the buttonDecorator directive.
+[buttonDecorator] {
+  cursor: pointer;
 
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+}

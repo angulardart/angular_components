@@ -1,0 +1,98 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/shared/compass_polyfills';
+@import 'lib/src/css/material/material';
+@import 'lib/src/components/glyph/mixins';
+@import 'compass/css3';
+
+.acx-scoreboard {
+  display: block;
+  overflow: hidden;
+  position: relative;
+
+  .scroll-button {
+    @include display-flex();
+    @include flex-shrink(0);
+
+    &.hide {
+      display: none;
+    }
+
+    &:not([icon]) {
+      border-radius: 0;
+      min-width: inherit;
+    }
+
+    background: rgba($mat-white, $mat-opacity-strong);
+    color: $mat-light-transparent-black;
+    margin: 0;
+    padding: 0 $mat-grid;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.scorecard-bar {
+  // TODO(google): Use flexbox for horizontal displays as well as vertical ones.
+  // "inline-block" counts whitespace as content in HTML, resulting in gaps
+  // between scorecards.
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  transition: transform $mat-transition-fast-slow $mat-transition-slow;
+  white-space: nowrap;
+}
+
+.acx-scoreboard-horizontal {
+  .scroll-button {
+    height: 100%;
+    min-width: inherit;
+    top: 0;
+  }
+
+  .scroll-forward-button {
+    right: 0;
+  }
+
+  .scroll-back-button {
+    left: 0;
+  }
+}
+
+.acx-scoreboard-vertical {
+  display: inline-block;
+  height: 100%;
+
+  .scroll-button {
+    @include justify-content(center);
+    width: 100%;
+  }
+
+  .scroll-forward-button {
+    bottom: 0;
+  }
+
+  .scroll-back-button {
+    top: 0;
+  }
+
+  .scorecard-bar {
+    // TODO(google): Use flexbox for horizontal displays as well as vertical
+    // ones. "inline-block" counts whitespace as content in HTML, resulting in
+    // gaps between scorecards.
+    @include display-flex();
+    @include flex-direction(column);
+  }
+}

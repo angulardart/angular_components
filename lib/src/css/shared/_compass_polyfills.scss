@@ -1,0 +1,221 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+// Polyfills of Compass builtin functions for SassC compatibility.
+//
+// (SassC is a C++ port of Ruby Sass, roughly 20x faster)
+//
+// Note: unfortunately, we cannot define a function inside a
+// `@if not function-exists(prefix-usage)` branch, which means we can't have
+// transparently-defined polyfills included in both Compass & SassC contexts.
+
+/// Whether a given capability should be prefixed for evergreen browsers.
+$_capability-needs-prefixing: (
+  // http://shouldiprefix.com/#animations
+  css-animation: (
+    -moz: true,
+    -webkit: true,
+  ),
+  // http://shouldiprefix.com/#box-shadow
+  css-boxshadow: (
+    -moz: true,
+    -webkit: true,
+  ),
+  // http://shouldiprefix.com/#filters
+  css-filters: (
+    -webkit: true,
+  ),
+  // http://shouldiprefix.com/#placeholder
+  css-placeholder: (
+    -moz: true,
+    -ms: true,
+    -webkit: true,
+  ),
+  // http://shouldiprefix.com/#transitions
+  css-transitions: (
+    -moz: true,
+    -o: true,
+    -webkit: true,
+  ),
+  // http://shouldiprefix.com/#box-sizing
+  css3-boxsizing: (
+    -moz: true,
+    -webkit: true,
+  ),
+  // http://shouldiprefix.com/#flexbox
+  flexbox: (
+    -webkit: true,
+  ),
+  // http://shouldiprefix.com/#transforms
+  transforms2d: (
+    -moz: true,
+    -ms: true,
+    -webkit: true,
+  ),
+  transforms3d: (
+    -moz: true,
+    -webkit: true,
+  ),
+  // http://caniuse.com/#feat=user-select-none
+  user-select-none: (
+    -moz: true,
+    -ms: true,
+    -webkit: true,
+  ),
+);
+
+/// The percent of users relying on a particular prefix (between 0 and 1).
+///
+/// This is used by Compass' vendor-specific prefix heuristics.
+///
+/// (see compass/core/sass_extensions/functions/cross_browser_support.rb)
+@function prefix-usage($prefix, $capability, $capability-options) {
+  $needs: map-get($_capability-needs-prefixing, $capability);
+  @if not $needs {
+    @error 'TODO: please hard-code prefix-usage for #{$capability}.';
+  }
+  @return if(map-get($needs, $prefix), 1, 0);
+}
+
+$_prefixes-by-browser: (
+  android: -webkit,
+  android-chrome: -webkit,
+  android-firefox: -moz,
+  blackberry: -webkit,
+  chrome: -webkit,
+  firefox: -moz,
+  ie: -ms,
+  ie-mobile: -ms,
+  ios-safari: -webkit,
+  opera: (-o, -webkit),
+  opera-mini: -o,
+  opera-mobile: (-o, -webkit),
+  safari: -webkit,
+);
+
+/// Note: this is trivial to get from $_prefixes-by-browser, but we try and keep
+/// the computational cost of these polyfills to a minimum.
+$browsers-by-prefix: (
+  -moz: (android-firefox, firefox),
+  -ms: (ie, ie-mobile),
+  -o: (opera, opera-mini, opera-mobile),
+  -webkit: (android, android-chrome, blackberry, chrome, ios-safari, opera, opera-mobile, safari),
+);
+
+/// The known browsers.
+///
+/// If prefix is given, limits the returned browsers to those using the specified prefix.
+///
+/// (see compass/core/sass_extensions/functions/cross_browser_support.rb)
+@function browsers($prefix: '') {
+  @if $prefix == '' {
+    @return map-keys($_prefixes-by-browser);
+  } @else {
+    @return map-get($browsers-by-prefix, $prefix);
+  }
+}
+
+@function _unique-values($list, $sorting-order: ()) {
+  $set: ();
+  @each $value in $list {
+    $set: map-merge($set, ($value: true));
+  }
+  $result: ();
+  @each $value in $sorting-order {
+    @if map-has-key($set, $value) {
+      $result: append($result, $value, comma);
+      $set: map-remove($set, $value);
+    }
+  }
+  @return join($result, map-keys($set), comma);
+}
+
+/// The prefixes used by the given browsers.
+///
+/// We sort the resulting prefixes to make testing easier
+///
+/// (see compass/core/sass_extensions/functions/cross_browser_support.rb)
+@function browser-prefixes($browsers) {
+  $values: ();
+  @each $browser in $browsers {
+    $values: join($values, map-get($_prefixes-by-browser, $browser), comma);
+  }
+  @return _unique-values($values, map-keys($browsers-by-prefix));
+}
+
+/// Returns a new list after removing any non-true values.
+///
+/// (see compass/core/sass_extensions/functions/lists.rb)
+@function compact($args...) {
+  $result: ();
+  @each $arg in $args {
+    @if $arg {
+      $result: append($result, $arg, comma);
+    }
+  }
+  @return $result;
+}
+
+$_min-supported-browser-version: (
+  android: 0,
+  // Fine-tuned for inline-block support
+  // (see compass-core/stylesheets/compass/css3/_inline-block.scss).
+  firefox: 3,
+  ie: 0,
+);
+
+$_digits-to-numbers: ("0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9);
+
+/// Dirty string -> number parsing. This is slow, only handles positive ints, etc.
+@function to-number($s) {
+  $l: str_length($s);
+  @if $l == 0 {
+    @return 0;
+  } @else {
+    $d: map-get($_digits-to-numbers, str_slice($s, $l, $l));
+    @if $l == 1 {
+      @return $d;
+    } @else {
+      @return $d + 10 * to-number(str_slice($s, 1, $l - 1));
+    }
+  }
+}
+
+/// How many users would be omitted if support for the given browser starts
+/// with the given version.
+///
+/// (see compass/core/lib/compass/core/caniuse.rb)
+@function omitted-usage($browser, $min_version, $max_version: nil) {
+  $min_supported_versions: map-get($_min-supported-browser-version, $browser);
+  @if not $min_supported_versions {
+    @error 'TODO: please hard-code min-supported-browser-version for #{$browser}.';
+  }
+  @return if(to-number($min_version) >= $min_supported_versions, 1, 0);
+}
+
+/// Fallbacks for using linear-gradient with SassC and Compass stylesheets.
+///
+/// compass/core/stylesheets/compass/css3/_images.scss defines SassScript
+/// function @linear-gradient that depends on Ruby code providing
+/// _linear-gradient_legacy and _linear-gradient functions. When using SassC
+/// using linear-gradient would result in generating invalid CSS instead.
+///
+/// Having simple SassScript implementation of these does not give prefixed
+/// cross-browser functionality but stops SassC from generating garbage.
+@function _linear-gradient_legacy($angle, $arguments...) {
+  @return #{'linear-gradient(#{$angle}, #{$arguments})'};
+}
+
+@function _linear-gradient($angle, $arguments...) {
+  @return #{'linear-gradient(#{$angle}, #{$arguments})'};
+}

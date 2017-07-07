@@ -11,17 +11,13 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
+@import 'lib/src/css/material/material';
 
-// Global material imports, settings, variables, mixins and functions.
+$list-item-primary-width: $mat-grid * 5;
+$list-item-height: $mat-grid * 4;
+$list-item-padding: $mat-grid * 3;
 
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+$sublist-icon-size: $mat-grid * 2;
+
+$list-width-unit: 64px;
+

@@ -11,17 +11,13 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
+.mirror-text {
+  visibility: hidden;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
 
-// Global material imports, settings, variables, mixins and functions.
-
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+.line-height-measure {
+  visibility: hidden;
+  position: absolute;
+}

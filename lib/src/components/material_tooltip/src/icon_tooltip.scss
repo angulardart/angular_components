@@ -11,17 +11,32 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
+@import 'lib/src/css/material/material';
+@import 'lib/src/components/theme/mixins';
 
-// Global material imports, settings, variables, mixins and functions.
+:host {
+  &:hover,
+  &:focus {
+    glyph {
+      color: $mat-blue-700;
+    }
+  }
 
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+  glyph {
+    color: $mat-light-transparent-black;
+    cursor: pointer;
+  }
+
+  @include acx-theme-dark {
+    &:hover,
+    &:focus {
+      glyph {
+        color: $mat-white;
+      }
+    }
+
+    glyph {
+      color: $mat-white;
+    }
+  }
+}

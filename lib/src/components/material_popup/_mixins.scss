@@ -1,0 +1,57 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+@import 'lib/src/css/mixins';
+
+$popup-border-radius: 2px;
+$bg-color: $mat-white;
+$bg-color-ink: $mat-grey-700;
+
+/// Applies custom border radius on <material-popup>.
+///
+/// Example Usage:
+///     <material-popup shadowCssClass="my-selector" ...>
+///     </material-popup>
+///
+///     @include popup-border-radius('.my-selector', 4px, 4px, 4px, 4px);
+@mixin popup-border-radius($selector: '',
+                           $top-right: $popup-border-radius,
+                           $top-left: $popup-border-radius,
+                           $bottom-right: $popup-border-radius,
+                           $bottom-left: $popup-border-radius) {
+  /deep/ .popup-wrapper.mixin#{$selector} {
+    border-radius: $top-left $top-right $bottom-right $bottom-left;
+  }
+}
+
+/// Applies custom background-color on <material-popup>.
+///
+/// Example Usage:
+///     <material-popup shadowCssClass="my-selector" ...>
+///     </material-popup>
+///
+///     @include popup-background-color('.my-selector', $mat-green);
+@mixin popup-background-color($selector, $bg-color) {
+  /deep/ .popup-wrapper.mixin#{$selector}.shadow {
+    background: $bg-color;
+  }
+}
+
+/// Themes the primary color for all material-popup, only used for scrollbar
+/// thumb so far.
+@mixin material-popup-theme($primary-color) {
+  /deep/ material-popup {
+    @include material-scrollbar-theme($primary-color);
+  }
+}

@@ -1,0 +1,99 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/components/material_shadow/css/shadow';
+@import 'lib/src/css/material/material';
+@import 'compass/css3/flexbox';
+@import 'lib/src/css/mixins';
+@import 'mixins';
+
+/// To get proper Material styling, the DOM of the component must have a
+/// `.shadow` element and toggle the class `visible`.
+.shadow {
+  @include material-shadow;
+  background: $bg-color;
+  border-radius: $popup-border-radius;
+  transition: transform $mat-transition $mat-transition-fast-linear;
+  /*! @noflip */
+  transform-origin: top left;
+  transform: scale3d(0, 0, 1);
+  will-change: transform;
+
+  &[slide=x] {
+    /*! @noflip */
+    transform: scale3d(0, 1, 1);
+  }
+
+  &[slide=y] {
+    /*! @noflip */
+    transform: scale3d(1, 0, 1);
+  }
+
+  &.visible {
+    transition: transform $mat-transition $mat-transition-linear-slow;
+    transform: scale3d(1, 1, 1);
+  }
+
+  &.ink {
+    background: $bg-color-ink;
+    color: $mat-white;
+  }
+
+  &.full-width {
+    @include flex-grow(1);
+    @include flex-shrink(1);
+    // Need auto to work in IE.
+    @include flex-basis(auto);
+  }
+
+  .popup {
+    border-radius: $popup-border-radius;
+    @include flex-grow(1);
+    @include flex-shrink(1);
+    // Need auto to work in IE.
+    @include flex-basis(auto);
+    overflow: hidden;
+    transition: inherit;
+  }
+
+  &.visible .popup {
+    visibility: initial;
+  }
+
+  header,
+  footer {
+    display: block;
+  }
+
+  main {
+    @include display-flex();
+    @include flex-direction(column);
+    overflow: auto;
+  }
+}
+
+:host {
+  @include material-scrollbar-theme($mat-blue);
+}
+
+.material-popup-content {
+  max-width: inherit;
+  max-height: inherit;
+  position: relative;
+  @include display-flex();
+  @include flex-direction(column);
+}
+
+.popup-wrapper {
+  width: 100%;
+}

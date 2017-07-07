@@ -1,0 +1,106 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+@import 'compass/css3/flexbox';
+
+$mat-option-inline-icons: true;
+
+$chip-height: $mat-grid * 4;
+$chip-border-radius: $chip-height / 2;
+
+$main-bg-color: $mat-gray-300;
+
+$emphasis-bg-color: $mat-blue-500;
+
+:host {
+  @include display-flex();
+  @include align-items(center);
+  border-radius: $chip-border-radius;
+  height: $chip-height;
+  margin: $mat-grid / 2;
+  overflow: hidden;
+}
+
+.content {
+  margin: 0 $mat-grid * 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+$delete-icon-size: 19px;
+// https://b.corp.google.com/issues/26877587
+$clickable-size: 25px;
+$delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
+
+.left-icon {
+  @include display-flex();
+  // The margin between chip content and icon should be 4px (that is 12px - 8px)
+  margin-right: -$mat-grid;
+  margin-left: $mat-grid-type;
+  padding: $delete-icon-padding;
+}
+
+.delete-icon {
+  @include display-flex();
+  background-size: $delete-icon-size $delete-icon-size;
+  border: 0;
+  cursor: pointer;
+  height: $delete-icon-size;
+  // The margin between chip content and icon should be 4px (that is 12px - 8px)
+  margin-left: -$mat-grid;
+  margin-right: $mat-grid-type;
+  min-width: $delete-icon-size;
+  padding: $delete-icon-padding;
+  width: $delete-icon-size;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// rules splitted on purpose, as those below only deal with colors
+:host {
+  background-color: $main-bg-color;
+  color: $mat-black;
+
+  .left-icon {
+    // make it easy to use either <svg> or <glyph>
+    color: $mat-gray-500;
+    fill: $mat-gray-500;
+  }
+
+  .delete-icon {
+    fill: $mat-gray-500;
+
+    &:focus {
+      fill: $mat-white;
+    }
+  }
+}
+
+// emphasis colors
+:host[emphasis] {
+  background-color: $emphasis-bg-color;
+  color: $mat-white;
+
+  .left-icon {
+    color: $mat-white;
+    fill: $mat-white;
+  }
+
+  .delete-icon {
+    fill: $mat-white;
+  }
+}

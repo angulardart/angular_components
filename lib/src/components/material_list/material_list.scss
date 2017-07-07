@@ -1,0 +1,115 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+@import 'compass/css3/transition',
+        'compass/css3/flexbox';
+
+@import 'mixins';
+
+$border-size: 1px;
+
+/// Multipliers for list widths.
+$x-small: 1.5;
+$small: 3;
+$medium: 5;
+$large: 6;
+$x-large: 7;
+
+/// Sets the width style.
+@mixin _list-size($multiplier) {
+  width: $list-width-unit * $multiplier;
+}
+
+/// Sets the min-width.
+@mixin _list-min-size($multiplier) {
+  min-width: $list-width-unit * $multiplier;
+}
+
+:host {
+  display: block;
+  background: $mat-white;
+  margin: 0;
+  padding: $mat-grid * 2 0;
+  white-space: nowrap;
+
+  &[size="x-small"] {
+    @include _list-size($x-small);
+  }
+
+  &[size="small"] {
+    @include _list-size($small);
+  }
+
+  &[size="medium"] {
+    @include _list-size($medium);
+  }
+
+  &[size="large"] {
+    @include _list-size($large);
+  }
+
+  &[size="x-large"] {
+    @include _list-size($x-large);
+  }
+
+  &[min-size="x-small"] {
+    @include _list-min-size($x-small);
+  }
+
+  &[min-size="small"] {
+    @include _list-min-size($small);
+  }
+
+  &[min-size="medium"] {
+    @include _list-min-size($medium);
+  }
+
+  &[min-size="large"] {
+    @include _list-min-size($large);
+  }
+
+  &[min-size="x-large"] {
+    @include _list-min-size($x-large);
+  }
+
+  // TODO(google): Move these styles into mixins. b2/35765850
+  /deep/ {
+    // Note: script tags bookend content in CSS shimmed deployment.
+    [group]:not(.empty) + *:not(script):not(template):not(.empty),
+    :not([group]):not(script):not(template):not(.empty) + [group]:not(.empty) {
+      border-top: $border-size solid $mat-grey-300;
+      margin-top: $mat-grid - $border-size;
+      padding-top: $mat-grid;
+    }
+
+    [group]:not(.empty) + *:not(script):not(template):not(.empty) {
+      // Padding makes the hover background too large, so we draw over it to
+      // compensate.
+      box-shadow: inset 0 $mat-grid 0 0 $mat-white;
+    }
+
+    [separator='present'] {
+      background: $mat-grey-300;
+      cursor: default;
+      height: $border-size;
+      margin: $mat-grid 0;
+    }
+
+    [label] {
+      @include list-item-base();
+      color: $mat-grey-500;
+      @include mat-type-caption();
+    }
+  }
+}

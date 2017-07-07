@@ -1,0 +1,70 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'compass/css3';
+@import 'lib/src/css/material/material';
+
+$min-ripple-size: 32px;
+$ripple-size: 256px;
+$max-ripple-size: 1024px;
+
+$min-ripple-opacity: 0;
+$max-ripple-opacity: $mat-ripple-opacity;
+
+material-ripple {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  contain: strict;
+
+  // Create a new stacking context so that ripples are contained within
+  // non-rectangular containers.
+  transform: translateX(0);
+}
+
+.__acx-ripple {
+  position: absolute;
+  width: $ripple-size;
+  height: $ripple-size;
+  background-color: currentColor;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: opacity, transform;
+  opacity: $min-ripple-opacity;
+
+  &.fallback {
+    @include animation(__acx-ripple $mat-transition-slow linear);
+    @include transform(translateZ(0));
+  }
+}
+
+@include keyframes(__acx-ripple) {
+  from {
+    opacity: $min-ripple-opacity;
+    @include transform(translateZ(0) scale($min-ripple-size / $ripple-size));
+  }
+
+  20%, 40% {
+    opacity: $max-ripple-opacity;
+  }
+
+  to {
+    opacity: $min-ripple-opacity;
+    @include transform(translateZ(0) scale($max-ripple-size / $ripple-size));
+  }
+}
