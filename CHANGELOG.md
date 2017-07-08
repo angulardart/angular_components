@@ -7,7 +7,6 @@
 > corresponding .css files in a separate process. We are working on a solution
 > to include CSS generation from SASS files during the build process.
 
-
 ## 0.5.3
 
  * Add Material Tree component.
