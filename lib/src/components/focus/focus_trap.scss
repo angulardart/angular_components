@@ -11,17 +11,21 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
+:host {
+  display: block
+}
 
-// Global material imports, settings, variables, mixins and functions.
-
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+// These styles allow the contents within the focus-trap component to inherit
+// the height and max-height of the focus-trap component if the height and
+// max-height are set like so:
+//
+// focus-trap {
+//   height: 100px;
+//   max-height: 100px;
+// }
+//
+// These styles are needed by the material-dialog component, which uses the focus-trap component.
+[focusContentWrapper] {
+  height: inherit;
+  max-height: inherit;
+}

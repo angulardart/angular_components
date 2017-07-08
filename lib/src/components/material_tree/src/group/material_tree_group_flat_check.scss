@@ -11,17 +11,8 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
+@import 'lib/src/components/material_list/mixins';
 
-// Global material imports, settings, variables, mixins and functions.
-
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+material-checkbox {
+  @include list-item-button;
+}

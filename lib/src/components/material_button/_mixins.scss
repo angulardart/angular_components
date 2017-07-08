@@ -1,0 +1,237 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material',
+'compass/css3',
+'lib/src/components/glyph/mixins',
+'lib/src/components/theme/mixins';
+
+@import 'lib/src/components/material_shadow/css/shadow';
+$fab-size: $mat-grid * 7;
+$fab-mini-size: $mat-grid * 5;
+$fab-icon-size: $mat-grid * 3;
+
+$button-horizontal-padding: .57em;
+$button-vertical-padding: .7em;
+
+// From spec http://www.google.com/design/spec/components/buttons.html#buttons-flat-raised-buttons
+$button-disabled-color: rgba(0, 0, 0, $mat-opacity-lightest);
+$button-disabled-background: rgba(0, 0, 0, $mat-divider-opacity);
+
+$button-hovered-background: rgba(158, 158, 158, .20);
+
+$button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
+
+// These styles are based on the 1.0 paper-button styles in
+// https://github.com/PolymerElements/paper-button/blob/master/paper-button.html
+
+// TODO(google): Conform to lint, use shared styles/material colors.
+
+@mixin button-base {
+  @include acx-theme-dark {
+    color: $mat-white;
+
+    &[raised] {
+      background-color: $mat-blue;
+    }
+  }
+
+  @include mat-type-button;
+  @include material-shadow;
+  @include user-select(none);
+
+  background: transparent;
+  border-radius: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: .01em;
+  line-height: normal;
+  outline: none;
+  position: relative;
+  text-align: center;
+
+  &:not([icon]) {
+    margin: 0 .29em;
+  }
+
+  &[dense] {
+    height: $mat-grid * 4;
+    font-size: $mat-body-font-size;
+  }
+
+  &[disabled] {
+    @include acx-theme-dark {
+      color: $button-disabled-color-dark;
+    }
+
+    color: $button-disabled-color;
+    cursor: not-allowed;
+
+    >* {
+      pointer-events: none;
+    }
+
+    &[raised] {
+      background: $button-disabled-background;
+
+      @include acx-theme-dark {
+        background: $mat-blue;
+      }
+    }
+  }
+
+  &:not([raised]):not([disabled]):not([icon]):hover {
+    background-color: $button-hovered-background;
+  }
+
+  &.is-focused::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: currentColor;
+    opacity: $mat-divider-opacity;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  &:not([raised]),
+  &[disabled][raised] {
+    @include shadow-none;
+  }
+
+  &[no-ink] material-ripple {
+    display: none;
+  }
+
+  &[clear-size] {
+    margin: 0;
+  }
+
+  .content {
+    @include display-flex(inline-flex);
+    @include align-items(center);
+  }
+}
+
+@mixin material-button {
+  @include button-base;
+
+  &:not([icon]) {
+    border-radius: 2px;
+    min-width: 5.14em;
+
+    .content {
+      padding: $button-vertical-padding $button-horizontal-padding;
+    }
+  }
+
+  &[icon] {
+    border-radius: 50%;
+
+    .content {
+      padding: $mat-grid;
+    }
+  }
+
+  &[clear-size] {
+    min-width: 0;
+  }
+}
+
+@mixin fab-base($size) {
+  @include button-base;
+  border-radius: $size / 2;
+
+  .content {
+    @include justify-content(center);
+    height: $size;
+    width: $size;
+  }
+}
+
+@mixin fab {
+  @include fab-base($fab-size);
+}
+
+@mixin fab-mini {
+  @include fab-base($fab-mini-size);
+}
+
+// Allow customized size and icon-size on fab button.
+@mixin fab-custom-size($size, $icon-size: $fab-icon-size) {
+  border-radius: $size / 2;
+
+  /deep/ {
+    .content {
+      height: $size;
+      width: $size;
+    }
+
+    glyph {
+      @include glyph-size($icon-size);
+    }
+  }
+}
+
+// TODO(google): support dark theme in mixins.
+// Apply button color to a button matching the selector.
+//
+// The color given is not applied to disabled button, as it could otherwise look
+// as an enabled button.
+@mixin button-color($selector, $color, $hover-color: $color) {
+  /deep/ #{$selector} {
+    &:not([disabled]) {
+      > .content {
+        color: $color;
+      }
+
+      &:hover > .content {
+        color: $hover-color;
+      }
+    }
+  }
+}
+
+@mixin button-background-color($selector, $background-color) {
+  /deep/ #{$selector} {
+    &:not([disabled]) {
+      background-color: $background-color;
+    }
+  }
+}
+
+/// Applies letter-spacing to the text of <material-button>.
+@mixin button-letter-spacing($selector, $letter-spacing) {
+  /deep/ #{$selector} div {
+    letter-spacing: $letter-spacing;
+  }
+}
+
+@mixin icon-button-color($selector, $color, $hover-color: $color) {
+  /deep/ #{$selector} {
+    &:not([disabled]) {
+      > .content > glyph {
+        color: $color;
+      }
+
+      &:hover > .content > glyph {
+        color: $hover-color;
+      }
+    }
+  }
+}

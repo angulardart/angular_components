@@ -1,0 +1,77 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'compass/css3/flexbox';
+@import 'lib/src/css/material/material';
+
+/// Shared styles for material-select-item and material-select-dropdown-item.
+@mixin select-item-base {
+  padding: 0 (2 * $mat-grid);
+
+  &:hover,
+  &.active {
+    background: $mat-grey-100;
+  }
+
+  &:not(.multiselect).selected {
+    background: $mat-grey-200;
+  }
+
+  .selected-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    background: $mat-grey-500;
+  }
+
+  material-checkbox {
+    margin: 0;
+  }
+}
+
+/// Hides underline for button text from dropdown-button widget and override
+/// icon opacity. This makes the dropdown button appears as a button rather
+/// than an input.
+@mixin button-look {
+  /deep/ .button.border {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  /deep/ .button .icon {
+    opacity: initial;
+  }
+}
+
+/// Adds spacing between text and icon in dropdown button.
+@mixin dropdown-icon-spacing($spacing) {
+  /deep/ .icon {
+    margin-left: $spacing;
+  }
+}
+
+/// Allow the button text to wrap instead of ellipsis.
+@mixin button-text-wrap {
+  /deep/ .button.border .button-text {
+    white-space: normal;
+  }
+}
+
+/// Allow the icon to be shown without truncated.
+@mixin icon-overflow-visible {
+  /deep/ .icon {
+    overflow: visible;
+  }
+}

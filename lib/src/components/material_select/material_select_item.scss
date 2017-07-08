@@ -11,17 +11,22 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
-
-// Global material imports, settings, variables, mixins and functions.
-
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
+@import 'lib/src/css/shared/compass_polyfills';
+@import 'lib/src/components/material_list/mixins';
+@import 'compass/css3/flexbox';
 @import 'mixins';
-@import 'typography';
+
+:host {
+  @include list-item-button();
+  @include select-item-base();
+  outline: none;
+}
+
+.check-container {
+  display: inline-block;
+  width: $mat-grid * 5;
+}
+
+.dynamic-item {
+  @include flex-grow(1);
+}

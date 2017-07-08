@@ -11,17 +11,24 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
 
-// Global material imports, settings, variables, mixins and functions.
-
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+/// Nests styles for dark theme inside the dark theme class.
+///
+/// Use in conjunction with [AcxTheme#theme]:
+///
+/// code:
+///
+///     acxTheme.theme(myElementRef);
+///
+/// sass:
+///
+///    :host {
+///      @include acx-theme-dark {
+///        # set styles for dark theme
+///      }
+///    }
+@mixin acx-theme-dark() {
+  &.acx-theme-dark {
+    @content
+  }
+}

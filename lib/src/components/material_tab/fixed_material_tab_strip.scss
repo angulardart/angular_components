@@ -1,0 +1,53 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+@import 'compass/css3/flexbox';
+@import 'compass/css3/transform';
+
+// TODO(google): Extract and share values with scrolling tab strip.
+$tab-indicator-height: $mat-grid * .25;
+$navi-bar-margin: -1 * $tab-indicator-height;
+
+:host {
+  @include display-flex();
+  @include flex-shrink(0);
+  width: 100%;
+}
+
+.navi-bar {
+  @include display-flex();
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
+  width: 100%;
+
+  .tab-button {
+    @include flex(1);
+    overflow: hidden;
+    margin: 0;
+  }
+}
+
+.tab-indicator {
+  @include transform-origin(left, center);
+  background: $mat-blue-500;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $tab-indicator-height;
+  position: absolute;
+  transition: transform $mat-transition-fast-slow $mat-transition-slow;
+}

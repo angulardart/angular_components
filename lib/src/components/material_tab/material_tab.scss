@@ -11,17 +11,24 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
-//
-// #############################################################################
+@import 'compass/css3/flexbox';
+@import 'lib/src/components/material_shadow/css/shadow';
+@import 'lib/src/css/material/material';
 
-// Global material imports, settings, variables, mixins and functions.
+:host {
+  @include display-flex;
+}
 
-@import 'functions';
-@import 'color';
-@import 'palette';
-@import 'settings';
-@import 'mixins';
-@import 'typography';
+:host:focus {
+  outline: none;
+}
+
+:host(.material-tab) {
+  padding: $mat-grid * 2;
+  @include shadow-elevation();
+}
+
+.tab-content {
+  @include display-flex();
+  @include flex(0 0 100%);
+}

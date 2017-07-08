@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+/// Changes the `$indeterminate-, @active- and $seconday-color` of <material-progress>s.
+///
+/// Example use: @include material-progress-theme(
+///     $indeterminate-color: $mat-teal-100,
+///     $active-color: $mat-blue-500,
+//      $secondary-color: $mat-blue-200);
+@mixin material-progress-theme($indeterminate-color, $active-color, $secondary-color) {
+  // Use component's selector with the themeable class to increase theme
+  // selector's priority.
+  /deep/ material-progress {
+    .progress-container.indeterminate {
+      background-color: $indeterminate-color;
+    }
+
+    .progress-container.indeterminate > .secondary-progress {
+      background-color: $active-color;
+    }
+
+    .active-progress {
+      background-color: $active-color;
+    }
+
+    .secondary-progress {
+      background-color: $secondary-color;
+    }
+  }
+}

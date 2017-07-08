@@ -1,0 +1,49 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+/// Change the size of a glyph icon.
+///
+/// Only use this mixin if your UI calls for an icon size which is not one of
+/// the presets: {12px, 13px, 16px, 20px, and 24px).
+///
+/// The font-icon CSS has a default font size of 24px, therefore, one must
+/// be more specific to override the default.
+/// Note: The should be scoped to a shimmed selector outside.
+@mixin glyph-size($size) {
+  /deep/ i {
+    font-size: $size;
+    height: 1em;
+    line-height: 1em;
+    width: 1em;
+  }
+}
+
+/// Change the size of a font-icon.
+///
+/// Only use this mixin if your UI calls for an icon size which is not one of
+/// the presets: {12px, 13px, 16px, 20px, and 24px).
+///
+/// The font-icon CSS has a default font size of 24px, therefore, one must
+/// be more specific to override the default.
+/// Please use a very specific selector to avoid collisions ex:
+/// @include glyph-icon-size('material-chip > .delete-icon', 10px);
+/// Note: The selector must select to the `glyph` element.
+/// @Deprecated. Use glyph-size mixin instead.
+@mixin glyph-icon-size($selector, $value) {
+  /deep/ #{$selector} i {
+    font-size: $value;
+    height: 1em;
+    line-height: 1em;
+    width: 1em;
+  }
+}

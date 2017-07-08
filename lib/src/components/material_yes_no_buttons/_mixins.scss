@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+/// Change the color of the yes no buttons.
+/// WARNING: be sure to pick a unique selector for the selector argument, as
+/// this will be applied to all material-yes-no-buttons that match the given
+/// selector.
+
+/// Change the color of the yes button
+@mixin material-yes-button-color($selector, $value) {
+  /deep/ material-yes-no-buttons#{$selector} .btn-yes[raised],
+  /deep/ material-yes-no-buttons#{$selector} .btn-yes.btn:not([disabled]).highlighted[raised] {
+    background-color: $value;
+  }
+}
+
+/// Change the color of text in the yes button
+@mixin material-yes-button-text-color($selector, $value) {
+  /deep/ material-yes-no-buttons#{$selector} .btn-yes {
+    color: $value;
+  }
+}
+
+/// Change the color of the no button
+@mixin material-no-button-color($selector, $value) {
+  /deep/ material-yes-no-buttons#{$selector} .btn-no[raised] {
+    background-color: $value;
+  }
+}
+
+/// Change the color of text in the no button
+@mixin material-no-button-text-color($selector, $value) {
+  /deep/ material-yes-no-buttons#{$selector} .btn-no {
+    color: $value;
+  }
+}
