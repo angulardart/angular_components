@@ -10,3 +10,8 @@ dart_task:
 cache:
   directories:
     - $HOME/.pub-cache
+matrix:
+  allow_failures:
+  - dart: dev
+    dart_task: dartfmt
+
