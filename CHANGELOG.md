@@ -1,11 +1,12 @@
 ## 0.5.3+1
 
-* Add SASS files.
-
 > NOTE: SASS files are not used during the build step of this package and are
 > provided as reference only. These .scss files were used to generate the
 > corresponding .css files in a separate process. We are working on a solution
 > to include CSS generation from SASS files during the build process.
+
+* Add SASS files.
+* Rename .analysis_options -> analysis_options.yaml
 
 ## 0.5.3
 
