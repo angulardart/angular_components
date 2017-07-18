@@ -8,7 +8,7 @@ author: Dart Team <misc@dartlang.org>
 environment:
   sdk: '>=1.24.0 <2.0.0-dev.infinity'
 dependencies:
-  angular: ^4.0.0-alpha
+  angular: '4.0.0-alpha'
   collection: ^1.14.0
   fixnum: ^0.10.5
   intl: '>=0.14.0 <0.16.0'
