@@ -6,9 +6,8 @@ library angular_components.utils.browser.dom_service.angular_2;
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
-import 'package:angular2/src/core/linker/app_view.dart'
-    show domRootRendererIsDirty;
+import 'package:angular/angular.dart';
+import 'package:angular/experimental.dart';
 
 import '../../angular/managed_zone/interface.dart';
 import '../../disposer/disposer.dart';
@@ -60,11 +59,7 @@ DomService createDomService(@Optional() @SkipSelf() DomService service,
 // to send layout change notifications only if dom has been mutated by angular.
 void setupAcxRootDomRenderer(Injector appInjector) {
   appInjector.get(DomService)
-    ..isDomMutatedPredicate = () {
-      return domRootRendererIsDirty;
-    }
-    ..resetIsDomMutated = () {
-      domRootRendererIsDirty = false;
-    }
+    ..isDomMutatedPredicate = isDomRenderDirty
+    ..resetIsDomMutated = resetDomRenderDirty
     ..init();
 }

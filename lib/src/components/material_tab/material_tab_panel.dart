@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import 'fixed_material_tab_strip.dart';
 import 'material_tab.dart';

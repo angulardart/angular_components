@@ -8,7 +8,7 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../../components/annotations/rtl_annotation.dart';
 import '../../enums/alignment.dart';

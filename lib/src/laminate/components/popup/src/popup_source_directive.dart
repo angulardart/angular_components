@@ -7,7 +7,7 @@ library angular_components.laminate.components.popup.src.popup_source_directive;
 import 'dart:async';
 import 'dart:math';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../../../utils/async/async.dart';
 import '../../../enums/alignment.dart';

@@ -7,7 +7,7 @@ library angular_components.utils.angular.imperative_view.imperative_view;
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../browser/dom_service/dom_service.dart';
 import '../../disposer/disposer.dart';

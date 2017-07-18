@@ -5,7 +5,7 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../model/ui/icon.dart';
 import '../../utils/browser/events/events.dart';

@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../model/selection/selection_model.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';

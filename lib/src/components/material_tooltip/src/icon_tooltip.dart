@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import '../../content/deferred_content_aware.dart';
 import '../../focus/keyboard_only_focus_indicator.dart';

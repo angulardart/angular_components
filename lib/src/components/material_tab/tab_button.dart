@@ -4,7 +4,7 @@
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../material_button/material_button_base.dart';
 import '../material_ripple/material_ripple.dart';

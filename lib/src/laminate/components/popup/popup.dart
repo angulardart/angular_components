@@ -7,7 +7,7 @@ library angular_components.laminate.components.popup.popup;
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../../components/content/deferred_content_aware.dart';
 import '../../../model/ui/toggle.dart';

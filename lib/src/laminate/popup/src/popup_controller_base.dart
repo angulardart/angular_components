@@ -7,7 +7,7 @@ library angular_components.laminate.popup.src.popup_controller_base;
 import 'dart:async';
 import 'dart:math';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../../utils/angular/properties/properties.dart';
 import '../../../utils/disposer/disposer.dart';

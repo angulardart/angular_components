@@ -4,7 +4,7 @@
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../utils/async/async.dart';
 import '../button_decorator/button_decorator.dart';

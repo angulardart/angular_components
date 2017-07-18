@@ -3,7 +3,6 @@ sudo: false
 dart:
   - dev
   - stable
-  - 1.23.0
 dart_task:
   - dartanalyzer: --fatal-warnings .
   - dartfmt
@@ -14,4 +13,3 @@ matrix:
   allow_failures:
   - dart: dev
     dart_task: dartfmt
-

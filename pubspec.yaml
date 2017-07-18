@@ -1,14 +1,14 @@
 name: angular_components
-version: 0.5.3+1
+version: 0.6.0-alpha
 description: >
   The official Material Design components for AngularDart. Used at Google
   in production apps.
 homepage: https://github.com/dart-lang/angular_components
 author: Dart Team <misc@dartlang.org>
 environment:
-  sdk: '>=1.23.0 <2.0.0'
+  sdk: '>=1.24.0 <2.0.0-dev.infinity'
 dependencies:
-  angular2: '>=3.0.0 <4.0.0'
+  angular: ^4.0.0-alpha
   collection: ^1.14.0
   fixnum: ^0.10.5
   intl: '>=0.14.0 <0.16.0'
@@ -20,10 +20,4 @@ dependencies:
   quiver: '>=0.22.0 <0.26.0'
   uuid: ^0.5.3
 transformers:
-- angular2:
-    resolved_identifiers:
-      Document: 'dart:html'
-      Location: 'dart:html'
-      Observable: 'package:observable/observable.dart'
-      Profiler: 'package:perf_api/perf_api.dart'
-      Window: 'dart:html'
+- angular

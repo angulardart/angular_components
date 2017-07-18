@@ -6,7 +6,7 @@ library angular_components.laminate.overlay.src.render.overlay_style_config;
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 /// Adds CSS to the `document.head` location in order to use overlays.
 ///

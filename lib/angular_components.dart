@@ -4,7 +4,7 @@
 
 library angular_components;
 
-import 'package:angular2/angular2.dart' show Provider;
+import 'package:angular/angular.dart' show Provider;
 
 import 'src/all_components.dart';
 

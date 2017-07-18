@@ -4,7 +4,7 @@
 
 import 'dart:html' as dom;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../model/a11y/active_item_mixin.dart';
 import '../../utils/angular/properties/properties.dart';

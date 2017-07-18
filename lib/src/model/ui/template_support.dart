@@ -4,7 +4,7 @@
 
 library angular_components.model.ui.template_support;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 /// Function for use by NgFor for optionGroup to avoid recreating the
 /// DOM for the optionGroup.

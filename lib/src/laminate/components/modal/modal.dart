@@ -7,7 +7,7 @@ library angular_components.laminate.components.modal.modal;
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../../components/content/deferred_content_aware.dart';
 import '../../../model/action/async_action.dart';

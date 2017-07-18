@@ -1,3 +1,16 @@
+## 0.6.0-alpha 
+    
+   This code is considered production quality, but depends on angular: 
+   4.0.0-alpha. The alpha tag represents the evolving nature of the AngularDart 
+   api, not code quality (4.0.0-alpha is used in production Google apps). 
+    
+ * Update dependency to `angular: 4.0.0-alpha`.
+ * Update SDK dependencies.
+ 
+### Known Issues
+ * Warnings are present when building with dart2js. Specifically:
+   _Method type variables are treated as `dynamic` in `as` expressions._
+
 ## 0.5.3+1
 
 > NOTE: SASS files are not used during the build step of this package and are

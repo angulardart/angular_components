@@ -6,7 +6,7 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../laminate/components/popup/hierarchy.dart';
 import '../../laminate/components/popup/popup.dart';

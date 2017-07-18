@@ -5,7 +5,7 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../../utils/browser/dom_service/angular_2.dart';
 import '../../../utils/disposer/disposer.dart';

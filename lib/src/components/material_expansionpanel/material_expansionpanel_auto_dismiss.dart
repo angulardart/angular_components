@@ -5,7 +5,7 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../laminate/overlay/module.dart' show overlayContainerToken;
 import './material_expansionpanel.dart';

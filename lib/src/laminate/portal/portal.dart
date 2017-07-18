@@ -7,7 +7,7 @@ library angular_components.laminate.portal.portal;
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../utils/angular/imperative_view/imperative_view.dart';
 import '../../utils/disposer/disposer.dart';

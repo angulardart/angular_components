@@ -4,7 +4,7 @@
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 /// Annotation bound to a boolean which is used to indicate that a complete
 /// web page is RTL.

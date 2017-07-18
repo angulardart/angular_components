@@ -6,7 +6,7 @@ library angular_components.utils.angular.managed_zone.angular_2;
 
 import 'dart:async';
 
-import 'package:angular2/di.dart';
+import 'package:angular/di.dart';
 
 import 'src/managed_zone.dart';
 

@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../model/ui/has_renderer.dart';
 import '../../utils/async/async.dart';

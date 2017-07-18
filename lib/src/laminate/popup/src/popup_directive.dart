@@ -6,7 +6,7 @@ library angular_components.laminate.popup.src.popup_directive;
 
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../portal/portal.dart';
 import './dom_popup_source.dart';

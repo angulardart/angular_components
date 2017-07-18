@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../utils/id_generator/id_generator.dart';
 import '../content/deferred_content_aware.dart';
