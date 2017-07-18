@@ -4,7 +4,7 @@
 
 import 'dart:html' as html;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../../laminate/enums/alignment.dart';
 import '../../../laminate/popup/popup.dart' show DomPopupSourceFactory;

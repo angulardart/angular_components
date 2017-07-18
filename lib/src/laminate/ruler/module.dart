@@ -4,7 +4,7 @@
 
 library angular_components.laminate.ruler.module;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/browser/dom_service/angular_2.dart';

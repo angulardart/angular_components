@@ -15,27 +15,27 @@ class Alignment implements ElementStyleEnum {
   /// Align content before a container.
   ///
   /// This is *not* equivalent to any CSS positioning model.
-  static const Before = const _BeforeCustomAlignment();
+  static const Before = const BeforeCustomAlignment();
 
   /// Align content to the start of a container.
   ///
   /// This is equivalent to 'flex-start'.
-  static const Start = const Alignment._('Start', 'flex-start');
+  static const Start = const Alignment('Start', 'flex-start');
 
   /// Align content to the center of a container.
   ///
   /// This is equivalent to 'center'.
-  static const Center = const Alignment._('Center', 'center');
+  static const Center = const Alignment('Center', 'center');
 
   /// Align content to the end of a container.
   ///
   /// This is equivalent to 'flex-end'.
-  static const End = const Alignment._('End', 'flex-end');
+  static const End = const Alignment('End', 'flex-end');
 
   /// Align content after a container.
   ///
   /// This is *not* equivalent to any CSS positioning model.
-  static const After = const _AfterCustomAlignment();
+  static const After = const AfterCustomAlignment();
 
   final String _displayName;
   final String _cssPropertyValue;
@@ -64,7 +64,7 @@ class Alignment implements ElementStyleEnum {
     }
   }
 
-  const Alignment._(this._displayName, this._cssPropertyValue);
+  const Alignment(this._displayName, this._cssPropertyValue);
 
   @override
   void apply(SetPropertyFn setProperty) {
@@ -122,7 +122,7 @@ class Alignment implements ElementStyleEnum {
 }
 
 abstract class _CustomAlignment extends Alignment {
-  const _CustomAlignment(String displayName) : super._(displayName, null);
+  const _CustomAlignment(String displayName) : super(displayName, null);
 
   @override
   void apply(SetPropertyFn setProperty) {
@@ -136,8 +136,8 @@ abstract class _CustomAlignment extends Alignment {
   final cssClassY = '';
 }
 
-class _BeforeCustomAlignment extends _CustomAlignment {
-  const _BeforeCustomAlignment() : super('Before');
+class BeforeCustomAlignment extends _CustomAlignment {
+  const BeforeCustomAlignment() : super('Before');
 
   @override
   final requiresContentSizeToPosition = true;
@@ -153,8 +153,8 @@ class _BeforeCustomAlignment extends _CustomAlignment {
   }
 }
 
-class _AfterCustomAlignment extends _CustomAlignment {
-  const _AfterCustomAlignment() : super('After');
+class AfterCustomAlignment extends _CustomAlignment {
+  const AfterCustomAlignment() : super('After');
 
   @override
   final requiresContentSizeToPosition = false;

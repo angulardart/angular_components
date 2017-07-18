@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:quiver/strings.dart' show isNotEmpty;
 
 import '../../utils/angular/properties/properties.dart';
@@ -14,7 +14,7 @@ import 'deferred_validator.dart';
 import 'material_input_default_value_accessor.dart';
 import 'material_input_multiline.dart';
 
-export 'package:angular2/angular2.dart' show NgModel;
+export 'package:angular/angular.dart' show NgModel;
 
 export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 export 'material_input_default_value_accessor.dart';

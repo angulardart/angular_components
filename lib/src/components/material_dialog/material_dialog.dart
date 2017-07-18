@@ -4,7 +4,7 @@
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../laminate/components/modal/modal.dart';
 import '../../utils/angular/properties/properties.dart';

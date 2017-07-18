@@ -6,7 +6,7 @@ library angular_components.utils.browser.window.module;
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 // These are necessary because 'const' functions don't yet exist within Dart.
 

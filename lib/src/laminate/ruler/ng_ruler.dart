@@ -7,7 +7,7 @@ library angular_components.laminate.ruler.ng_ruler;
 import 'dart:async';
 import 'dart:math';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../enums/position.dart';
 import '../enums/visibility.dart';

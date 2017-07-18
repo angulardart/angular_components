@@ -6,7 +6,7 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:quiver/iterables.dart' show range;
 
 import '../../utils/angular/managed_zone/angular_2.dart';

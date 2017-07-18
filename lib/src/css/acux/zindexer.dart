@@ -5,7 +5,7 @@
 @JS()
 library angular_components.css.acux.zindexer;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:js/js.dart';
 
 import 'acux_css_const.dart';

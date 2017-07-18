@@ -4,7 +4,7 @@
 
 library angular_components.laminate.popup.module;
 
-import 'package:angular2/di.dart';
+import 'package:angular/di.dart';
 
 import '../enums/alignment.dart';
 import '../overlay/module.dart';

@@ -4,7 +4,7 @@
 
 library angular_components.laminate.popup.src.popup_size_provider_directive;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import './popup_size_provider.dart';
 

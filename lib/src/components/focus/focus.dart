@@ -5,7 +5,7 @@
 import 'dart:async';
 import 'dart:html' show KeyCode, KeyboardEvent, Element;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../laminate/components/modal/modal.dart';
 import '../../laminate/popup/popup.dart';

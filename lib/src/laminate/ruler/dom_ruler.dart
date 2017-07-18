@@ -8,7 +8,7 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../utils/browser/dom_service/dom_service.dart';
 import 'src/ruler_interface.dart';

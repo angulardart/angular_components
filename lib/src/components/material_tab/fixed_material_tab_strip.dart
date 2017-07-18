@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import '../annotations/rtl_annotation.dart';
 import '../focus/focus_item.dart';
 import '../focus/focus_list.dart';

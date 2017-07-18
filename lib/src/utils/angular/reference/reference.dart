@@ -4,7 +4,7 @@
 
 library angular_components.utils.angular.reference.reference;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 // TODO(google): Remove this once use of '#' in a template is either
 // consistent, or has a way to declare specifically what you want - e.g. the

@@ -7,7 +7,7 @@ library angular_components.utils.browser.events.events;
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 /// Determines if the space key was pressed in a [KeyboardEvent].
 ///

@@ -4,7 +4,7 @@
 
 library angular_components.laminate.components.modal.src.modal_controller_directive;
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../../overlay/overlay.dart';
 import '../../../portal/portal.dart';

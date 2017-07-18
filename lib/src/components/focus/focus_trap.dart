@@ -4,7 +4,7 @@
 
 import 'dart:html';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 import '../../utils/browser/dom_iterator/dom_iterator.dart';
 import '../../utils/disposer/disposer.dart';
