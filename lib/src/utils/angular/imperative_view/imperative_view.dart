@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.utils.angular.imperative_view.imperative_view;
-
 import 'dart:async';
 import 'dart:html';
 
@@ -16,7 +14,7 @@ import '../../disposer/disposer.dart';
 /// 2 code. This allows easier refactoring and migration of approaches as the
 /// Angular team iterates and a standard API for AngularDart components to use.
 ///
-/// Example use (see imperative_view_test as wel):
+/// Example use (see imperative_view_test as well):
 ///     @Component(
 ///       selector: 'imperative-list',
 ///       properties: const [

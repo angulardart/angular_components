@@ -20,7 +20,7 @@
 @mixin material-progress-theme($indeterminate-color, $active-color, $secondary-color) {
   // Use component's selector with the themeable class to increase theme
   // selector's priority.
-  /deep/ material-progress {
+  ::ng-deep material-progress {
     .progress-container.indeterminate {
       background-color: $indeterminate-color;
     }

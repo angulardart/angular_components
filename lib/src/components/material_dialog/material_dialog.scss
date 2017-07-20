@@ -49,7 +49,7 @@ focus-trap {
   background: $mat-gray-200;
   color: $mat-red-700;
   padding: 0 $mat-grid * 3;
-  transition: padding $mat-transition $mat-transition-fast-slow 0s;
+  transition: padding $mat-transition $mat-transition-standard 0s;
   width: 100%;
 
   &.expanded {
@@ -90,7 +90,7 @@ footer {
     @include flex-shrink(0);
   }
 
-  > footer /deep/ [footer] {
+  > footer ::ng-deep [footer] {
     @include flexbox((
       display: flex,
       flex-shrink: 0,
@@ -111,12 +111,12 @@ footer {
 
 :host[info] .wrapper {
   > header {
-    /deep/ h3 {
+    ::ng-deep h3 {
       line-height: $mat-grid * 5;
       margin: 0;
     }
 
-    /deep/ material-button {
+    ::ng-deep material-button {
       float: right;
     }
   }

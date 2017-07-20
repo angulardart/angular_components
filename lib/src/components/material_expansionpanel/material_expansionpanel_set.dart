@@ -3,9 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
 import '../../model/action/async_action.dart';
 import '../../utils/disposer/disposer.dart';
+
 import 'material_expansionpanel.dart';
 
 /// A directive which will turn a set of expansion panels into an accordian

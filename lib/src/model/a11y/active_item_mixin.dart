@@ -4,6 +4,8 @@
 
 import 'dart:html' as dom;
 
+import 'package:angular/angular.dart';
+
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 
@@ -22,7 +24,10 @@ abstract class ActiveItemMixin {
   bool _active;
 
   /// Whether the element is active.
+  @HostBinding('class.active')
   bool get active => _active ?? false;
+
+  @Input()
   set active(value) {
     value = getBool(value);
     if (value == _active) return;
@@ -37,10 +42,12 @@ abstract class ActiveItemMixin {
   /// Whether the element has hover.
   bool _hasHover = false;
 
+  @HostListener('mouseenter')
   void onMouseEnter() {
     _hasHover = true;
   }
 
+  @HostListener('mouseleave')
   void onMouseLeave() {
     _hasHover = false;
   }

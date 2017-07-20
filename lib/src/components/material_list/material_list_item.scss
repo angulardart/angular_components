@@ -18,3 +18,8 @@
   @include list-item-button();
   outline: none;
 }
+
+
+:host-context(body[dir="rtl"]) {
+  @include list-item-base-rtl;
+}

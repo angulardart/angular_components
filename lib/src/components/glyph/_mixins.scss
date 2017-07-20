@@ -20,7 +20,7 @@
 /// be more specific to override the default.
 /// Note: The should be scoped to a shimmed selector outside.
 @mixin glyph-size($size) {
-  /deep/ i {
+  ::ng-deep i {
     font-size: $size;
     height: 1em;
     line-height: 1em;
@@ -40,7 +40,7 @@
 /// Note: The selector must select to the `glyph` element.
 /// @Deprecated. Use glyph-size mixin instead.
 @mixin glyph-icon-size($selector, $value) {
-  /deep/ #{$selector} i {
+  ::ng-deep #{$selector} i {
     font-size: $value;
     height: 1em;
     line-height: 1em;

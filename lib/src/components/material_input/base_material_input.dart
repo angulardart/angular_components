@@ -12,15 +12,17 @@ import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/disposer/disposer.dart';
 import '../focus/focus.dart';
+import '../forms/error_renderer.dart' show ErrorFn;
 import '../mixins/focusable_mixin.dart';
 import 'deferred_validator.dart';
+
+export '../forms/error_renderer.dart' show ErrorFn;
 
 /// Key used in the Control's error map, when there is an error.
 const String materialInputErrorKey = 'material-input-error';
 
 typedef String ValidityCheck(String inputText);
 typedef int CharacterCounter(String inputText);
-typedef Map<String, dynamic> ErrorFn(Map<String, dynamic> errors);
 
 /// Represents which label should be shown in the BottomPanel
 enum BottomPanelState {
@@ -63,6 +65,7 @@ class BaseMaterialInput extends FocusableMixin
   /// Error message to be displayed in case of invalid input.
   String _errorMsg;
   String get errorMsg => _errorMsg;
+  @Input()
   set errorMsg(String msg) {
     _errorMsg = msg;
     updateBottomPanelState();
@@ -73,26 +76,31 @@ class BaseMaterialInput extends FocusableMixin
   /// Higher precendent than all other errors which may be on this input.
   String _error;
   String get error => _error;
+  @Input()
   set error(String error) {
     _error = error;
     updateBottomPanelState();
   }
 
   /// The label for this input. It disappears when user inputs text.
+  @Input()
   String label;
 
   /// The hint text to be shown on the input. Not shown during an error.
   String _hintText;
   String get hintText => _hintText;
+  @Input()
   set hintText(value) {
     _hintText = value;
     updateBottomPanelState();
   }
 
   /// Custom error message to show when the field is required and blank.
+  @Input()
   String requiredErrorMsg = defaultEmptyMessage;
 
   /// Maximum allowed characters for character counting input box.
+  @Input()
   int maxCount;
 
   /// Custom validation function to be used to validate input.
@@ -102,6 +110,7 @@ class BaseMaterialInput extends FocusableMixin
   ValidityCheck _checkValid;
   ValidityCheck get checkValid => _checkValid;
   @Deprecated('Use angular2 forms API instead')
+  @Input()
   set checkValid(ValidityCheck validFn) {
     if (validFn == _checkValid) return; // Identical doesn't work on functions
     _checkValid = validFn;
@@ -120,22 +129,14 @@ class BaseMaterialInput extends FocusableMixin
   String get inputText => _inputText;
   set inputText(String value) {
     _inputText = value;
-
-    // Update the text length.
-    if (_inputText == null) {
-      _inputTextLength = 0;
-    } else {
-      _inputTextLength = characterCounter != null
-          ? characterCounter(_inputText)
-          : _inputText.length;
-    }
-
+    updateInputTextLength();
     _changeDetector.markForCheck();
   }
 
   /// Display error message and character counter below the input.
   bool _displayBottomPanel = true;
   bool get displayBottomPanel => _displayBottomPanel;
+  @Input()
   set displayBottomPanel(value) {
     _displayBottomPanel = getBool(value);
   }
@@ -145,10 +146,26 @@ class BaseMaterialInput extends FocusableMixin
   ///
   /// WARNING: The API of this mechanism is still in flux and there will be
   /// breaking changes. Be careful relying on it.
+  @Input()
   ErrorFn errorRenderer;
 
   /// Custom character counter function to be used.
-  CharacterCounter characterCounter;
+  CharacterCounter _characterCounter;
+  @Input()
+  set characterCounter(CharacterCounter counterFn) {
+    _characterCounter = counterFn;
+    updateInputTextLength();
+  }
+
+  void updateInputTextLength() {
+    if (_inputText == null) {
+      _inputTextLength = 0;
+    } else {
+      _inputTextLength = _characterCounter != null
+          ? _characterCounter(_inputText)
+          : _inputText.length;
+    }
+  }
 
   BaseMaterialInput(@Self() @Optional() this._cd, this._changeDetector,
       DeferredValidator validator) {
@@ -211,12 +228,14 @@ class BaseMaterialInput extends FocusableMixin
 
   /// The label will "float" above the text input instead of disappearing.
   bool get floatingLabel => _floatingLabel;
+  @Input()
   set floatingLabel(isFloating) {
     _floatingLabel = isFloating != false && isFloating != null;
   }
 
   /// Whether or not this input is disabled.
   bool get disabled => _disabled;
+  @Input()
   set disabled(value) {
     _disabled = getBool(value);
   }
@@ -224,6 +243,7 @@ class BaseMaterialInput extends FocusableMixin
   /// Whether or not the hint text will be displayed when the input is not
   /// focused.
   bool get showHintOnlyOnFocus => _showHintOnlyOnFocus;
+  @Input()
   set showHintOnlyOnFocus(value) {
     _showHintOnlyOnFocus = getBool(value);
     updateBottomPanelState();
@@ -231,6 +251,7 @@ class BaseMaterialInput extends FocusableMixin
 
   /// Input is a required field if attribute is present.
   bool get required => _required;
+  @Input()
   set required(required) {
     var prev = _required;
     _required = getBool(required);
@@ -245,17 +266,20 @@ class BaseMaterialInput extends FocusableMixin
       new StreamController<String>.broadcast(sync: true);
 
   /// Publishes events whenever input text changes (each keypress).
+  @Output('inputKeyPress')
   Stream<String> get onKeypress => _keypressController.stream;
 
   final _changeController = new StreamController<String>.broadcast(sync: true);
 
   /// Publishes events when a change event is fired. (On enter, or on blur.)
+  @Output('change')
   Stream<String> get onChange => _changeController.stream;
 
   final _blurController =
       new StreamController<FocusEvent>.broadcast(sync: true);
 
   /// Publishes events when a blur event is fired.
+  @Output('blur')
   Stream<FocusEvent> get onBlur => _blurController.stream;
 
   /// Whether the input box is focused.
@@ -387,7 +411,7 @@ class BaseMaterialInput extends FocusableMixin
       name: 'BaseMaterialInput_msgCharacterCounter',
       args: [currentCount, maxCount],
       desc: 'Character counter shown below a text box in the format "12 / 25"',
-      examples: {'currentCount': 12, 'maxCount': 25});
+      examples: const {'currentCount': 12, 'maxCount': 25});
 
   static String get defaultEmptyMessage => Intl.message('Enter a value',
       desc: 'Error message when the input is empty and required.');

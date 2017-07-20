@@ -13,7 +13,6 @@
 
 @import 'lib/src/css/shared/compass_polyfills';
 @import 'lib/src/css/material/material';
-@import 'lib/src/components/glyph/mixins';
 @import 'compass/css3';
 
 .acx-scoreboard {
@@ -51,7 +50,7 @@
   margin: 0;
   padding: 0;
   position: relative;
-  transition: transform $mat-transition-fast-slow $mat-transition-slow;
+  transition: transform $mat-transition-standard $mat-transition-slow;
   white-space: nowrap;
 }
 

@@ -4,4 +4,5 @@
 
 export 'src/group/material_tree_group.dart' show materialTreeLeftPaddingToken;
 export 'src/material_tree_dropdown.dart';
+export 'src/material_tree_expand_state.dart';
 export 'src/material_tree_impl.dart';

@@ -47,7 +47,11 @@ export 'src/popup_source_directive.dart';
       'trackLayoutChanges',
       'visible'
     ],
-    outputs: const ['onOpen: open', 'onClose: close', 'onVisible: visible'],
+    outputs: const [
+      'onOpen: open',
+      'onClose: close',
+      'onVisible: visibleChange'
+    ],
     providers: const [
       const Provider(DeferredContentAware, useExisting: PopupComponent),
       const Provider(

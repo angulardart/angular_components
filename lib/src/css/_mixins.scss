@@ -24,7 +24,7 @@
     $thumb-hover-color,
     $scrollbar-size: $mat-grid-type,
     $thumb-min-size: 6 * $mat-grid) {
-  /deep/ ::-webkit-scrollbar {
+  ::ng-deep ::-webkit-scrollbar {
     background-color: $mat-scrollbar-background;
 
     // Height only applies to horizontal scrollbars.
@@ -38,7 +38,7 @@
     }
   }
 
-  /deep/ ::-webkit-scrollbar-thumb {
+  ::ng-deep ::-webkit-scrollbar-thumb {
     background-color: $mat-scrollbar-thumb;
 
     // min-height only applies to vertical scrollbar thumbs.
@@ -52,7 +52,7 @@
     }
   }
 
-  /deep/ ::-webkit-scrollbar-button {
+  ::ng-deep ::-webkit-scrollbar-button {
     width: 0;
     height: 0;
   }

@@ -13,6 +13,8 @@
 
 @import 'lib/src/css/material/material';
 
+$left-icon-width: $mat-grid * 4;
+
 /// Changes the colors of <material-chip>s.
 ///
 /// Available theme options are color and background color of the chip in its
@@ -28,9 +30,10 @@
     $primary-color-selected: $mat-white,
     $primary-bgcolor-selected: $mat-blue-900,
     $delete-icon-color: $mat-white,
+    $left-icon-bgcolor: null,
     $max-chip-width: null,
     $selector: '') {
-  /deep/ #{$selector} material-chip.themeable#{$chip-selector} {
+  ::ng-deep #{$selector} material-chip.themeable#{$chip-selector} {
     background-color: $primary-bgcolor;
     color: $primary-color;
     @if $max-chip-width {
@@ -58,13 +61,28 @@
     .delete-icon {
       fill: $delete-icon-color;
     }
+
+    @if ($left-icon-bgcolor) {
+      .left-icon {
+        background-color: $left-icon-bgcolor;
+        border-radius: 50%;
+        height: $left-icon-width;
+        margin-left: 0;
+        // The margin between chip content and icon should be 8px, so need to
+        // move right margin -4px to account for content left-padding (12px).
+        margin-right: -($mat-grid / 2);
+        min-width: $left-icon-width;
+        padding: 0;
+        width: $left-icon-width;
+      }
+    }
   }
 }
 
 /// Applies a max-width to the material chips. If the max-width exceeded,
 /// content will be elided.
 @mixin material-chip-max-width($max-chip-width: null) {
-  /deep/ material-chip {
+  ::ng-deep material-chip {
     @if $max-chip-width {
       max-width: $max-chip-width;
     }
@@ -79,7 +97,7 @@ $emphasis-selected-bg-color: $mat-blue-900;
 
 /// Use this mixin to align the chips container.
 @mixin material-chips-margin($margin: 0) {
-  /deep/ .material-chips-root {
+  ::ng-deep .material-chips-root {
     margin: $margin;
   }
 }
@@ -107,7 +125,7 @@ $emphasis-selected-bg-color: $mat-blue-900;
       color: $mat-white;
       outline: none;
 
-      /deep/ .delete-icon {
+      ::ng-deep .delete-icon {
         fill: $mat-white;
       }
     }
@@ -116,7 +134,7 @@ $emphasis-selected-bg-color: $mat-blue-900;
       background-color: $main-hover-bg-color;
       color: $mat-white;
 
-      /deep/ .delete-icon {
+      ::ng-deep .delete-icon {
         fill: $mat-white;
       }
     }

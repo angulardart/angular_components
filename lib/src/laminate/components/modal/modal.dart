@@ -129,27 +129,27 @@ abstract class Modal {
 ///     `preventInteraction`: Set to false to allow interaction with your app.
 ///     `visible`: Set in order to change visibility. This will trigger an open
 ///                and close interaction cycle that allows users to cancel.
-@Component(selector: 'modal', inputs: const [
-  'preventInteraction',
-  'visible'
-], outputs: const [
-  'shieldClick',
-  'onOpen: open',
-  'onClose: close',
-  'onVisibleChanged: visibleChange'
-], host: const {
-  '[attr.pane-id]': 'uniquePaneId'
-}, providers: const [
-  const Provider(DeferredContentAware, useExisting: ModalComponent),
-  const Provider(Modal, useExisting: ModalComponent)
-])
-@View(
-    directives: const [ModalControllerDirective],
-    template: r'''
+@Component(
+  selector: 'modal',
+  inputs: const ['preventInteraction', 'visible'],
+  outputs: const [
+    'shieldClick',
+    'onOpen: open',
+    'onClose: close',
+    'onVisibleChanged: visibleChange'
+  ],
+  host: const {'[attr.pane-id]': 'uniquePaneId'},
+  providers: const [
+    const Provider(DeferredContentAware, useExisting: ModalComponent),
+    const Provider(Modal, useExisting: ModalComponent)
+  ],
+  directives: const [ModalControllerDirective],
+  template: r'''
     <template [modalController]="resolvedOverlayRef">
       <ng-content></ng-content>
     </template>
-  ''')
+  ''',
+)
 class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
   final Modal _parentModal;
   final GlobalModalStack _stack;

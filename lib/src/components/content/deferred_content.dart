@@ -5,9 +5,9 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/disposer/disposer.dart';
+
 import 'deferred_content_aware.dart';
 
 /// When put on an element B, this directive creates B each time the nearest
@@ -73,7 +73,7 @@ class DeferredContentDirective implements OnDestroy {
       if (_preserveDimensions) {
         // Add the placeholder so the parent's size doesn't change.
         var container = _viewContainer.element?.nativeElement;
-        if (container != null) {
+        if (container?.parentNode != null) {
           container.parentNode.insertBefore(_placeholder, container);
         }
       }

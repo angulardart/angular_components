@@ -36,7 +36,7 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
 
 /// Sets the width of the tab-strip within a tab panel.
 @mixin tab-panel-tab-strip-width($selector, $tab-width) {
-  #{$selector} /deep/ material-tab-strip {
+  #{$selector} ::ng-deep material-tab-strip {
     width: $tab-width;
   }
 }
@@ -88,35 +88,35 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
 
 // Sets the default tab color
 @mixin tab-strip-tab-color($selector, $color) {
-  /deep/ #{$selector} #{$_fixedStripNaviBar} #{$_tabBtnSel} {
+  ::ng-deep #{$selector} #{$_fixedStripNaviBar} #{$_tabBtnSel} {
     color: $color;
   }
 
-  /deep/ #{$selector} #{$_scrollingStripNaviBar} #{$_tabBtnSel} {
+  ::ng-deep #{$selector} #{$_scrollingStripNaviBar} #{$_tabBtnSel} {
     color: $color;
   }
 }
 
 // Sets the selected tab color
 @mixin tab-strip-selected-tab-color($selector, $color) {
-  /deep/ #{$selector} #{$_fixedStripNaviBar} #{$_activeTabBtnSel},
-  /deep/ #{$selector} #{$_fixedStripNaviBar} #{$_focusTabBtnSel} {
+  ::ng-deep #{$selector} #{$_fixedStripNaviBar} #{$_activeTabBtnSel},
+  ::ng-deep #{$selector} #{$_fixedStripNaviBar} #{$_focusTabBtnSel} {
     color: $color;
   }
 
-  /deep/ #{$selector} #{$_scrollingStripNaviBar} #{$_activeTabBtnSel},
-  /deep/ #{$selector} #{$_scrollingStripNaviBar} #{$_focusTabBtnSel} {
+  ::ng-deep #{$selector} #{$_scrollingStripNaviBar} #{$_activeTabBtnSel},
+  ::ng-deep #{$selector} #{$_scrollingStripNaviBar} #{$_focusTabBtnSel} {
     color: $color;
   }
 }
 
 // Sets the selected tab indicator color
 @mixin tab-strip-indicator-color($selector, $accent-color) {
-  /deep/ #{$selector} #{$_fixedStripNaviBar} .tab-indicator {
+  ::ng-deep #{$selector} #{$_fixedStripNaviBar} .tab-indicator {
     background: $accent-color;
   }
 
-  /deep/ #{$selector} #{$_scrollingStripNaviBar} .tab-indicator {
+  ::ng-deep #{$selector} #{$_scrollingStripNaviBar} .tab-indicator {
     background: $accent-color;
   }
 }

@@ -38,6 +38,11 @@ $ripple-top: -$mat-grid;
     color: $mat-lightest-transparent-black;
     cursor: not-allowed;
   }
+
+  // Left margin is removed.
+  &.radio-no-left-margin {
+    margin-left: -2px;
+  }
 }
 
 .icon-container {

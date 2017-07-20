@@ -29,27 +29,34 @@
     pointer-events: none;
   }
 
-  // TODO(google): Move /deep/ up to material_list_item.scss. b2/35765850
-  /deep/ .material-list-item-primary {
+  // TODO(google): Move ::ng-deep up to material_list_item.scss.
+  ::ng-deep .material-list-item-primary {
     color: $mat-light-transparent-black;
     width: $list-item-primary-width;
   }
 
-  &.disabled /deep/ .material-list-item-primary {
+  &.disabled ::ng-deep .material-list-item-primary {
     color: $mat-lighter-transparent-black;
   }
 
-  /deep/ .material-list-item-secondary {
+  ::ng-deep .material-list-item-secondary {
     color: $mat-light-transparent-black;
     margin-left: auto;
   }
 
-  &.disabled /deep/ .material-list-item-secondary {
+  &.disabled ::ng-deep .material-list-item-secondary {
     color: $mat-lighter-transparent-black;
   }
 
-  /deep/ .submenu-icon {
+  ::ng-deep .submenu-icon {
     transform: rotate(-90deg);
+  }
+}
+
+// Include this inside :host-context(body[dir="rtl"])
+@mixin list-item-base-rtl {
+  /deep/ .submenu-icon {
+    transform: rotate(90deg);
   }
 }
 
@@ -87,7 +94,7 @@
 
 /// Remove the background on hover for material-list-item.
 @mixin flat-material-list() {
-  /deep/ material-list {
+  ::ng-deep material-list {
     .item:hover {
       @include material-item-background(none);
     }
@@ -95,15 +102,22 @@
 }
 
 @mixin material-item-background($background) {
-  /deep/ {
+  ::ng-deep {
     background: $background !important;
   }
 }
 
 /// Sets the padding of the material-list element.
 @mixin material-list-padding($padding) {
-  /deep/ material-list {
+  ::ng-deep material-list {
     padding: $padding;
+  }
+}
+
+/// Sets the max-width of the material-list element.
+@mixin material-list-max-width($max-width) {
+  ::ng-deep material-list {
+    max-width: $max-width;
   }
 }
 

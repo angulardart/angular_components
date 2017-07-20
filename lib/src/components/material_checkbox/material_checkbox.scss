@@ -90,5 +90,9 @@ $ripple-top: -$mat-grid;
   @include flex-shrink(1);
   // Need auto to work in IE.
   @include flex-basis(auto);
+
   margin-left: $mat-grid;
+  overflow-x: hidden;
+  padding: 1px 0; // for content that has border, like an underline
+  text-overflow: ellipsis;
 }

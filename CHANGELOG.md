@@ -1,12 +1,69 @@
-## 0.6.0-alpha 
-    
-   This code is considered production quality, but depends on angular: 
-   4.0.0-alpha. The alpha tag represents the evolving nature of the AngularDart 
-   api, not code quality (4.0.0-alpha is used in production Google apps). 
-    
+## 0.6.0-alpha+1
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 4.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (4.0.0-alpha is used in production Google apps).
+
+ * Add Material Icon.
+ * Deprecate `GlyphComponent` in favor of `MaterialIconComponent`.
+ * Update dependency to angular: 4.0.0-alpha+1.
+ * Material Checkbox: Add mixin for checkbox with no left margin.
+ * Material Chips: Add ability to specify background color for left icon.
+ * Material Expansionpanel: Add mixin to allow changes to panels without
+   affecting nested panels.
+ * Material Input:
+   * Add upper and lower bounds validators.
+   * Re-calculate text length when custom character counter is set.
+   * Prevent mirror-text overflow in multiline material input.
+   * Remove unnecessary selector argument from mixins.
+ * Material Popup: Only set content removed if the popup is still not visible
+   when the timer is finished.
+ * Material Radio:
+   * Add mixin for radio button with no left margin.
+   * Fix mixin to respect disabled status when a theme is applied.
+ * Material Select:
+   * Fix `MaterialSelectItemComponent` to not cache the label.
+   * Add input to material-dropdown-select to define custom a renderer for group
+     labels.
+   * Fix checkbox display handling and label padding in dropdown.
+ * Material Toggle: Set the attribute instead of the property to fix a bug with
+   incorrect type, and not setting the right property.
+ * Material Tree:
+   * Add ability to preserve expansion state.
+   * Fix indentation of first child group.
+   * Add input `showDisabledCheckboxes`.
+   * Add a max-height mixin.
+ * Reorder List:
+   * Update to recommended syntax for ngFor.
+   * Migrate from ManagedZone to NgZone.
+ * Scorecard:
+   * Replace deprecated Glyph with Material Icon.
+   * Invoke inherited click handler from derived click handler.
+ * Avoid adding placeholder for deferred content if the element is detached.
+ * Selection Models:
+   * Add deselect all option.
+   * Add a limited filtering model.
+   * Fix `selectAll` to only trigger a selection change event for the values
+     that were added.
+   * Add comparator as optional param to tree selection options for custom
+     sorting.
+ * Updates to use metadata inheritance.
+ * Migrate away from comment-style generic syntax.
+ * Migrate stylesheet combinators `/deep/` and `>>>` to `::ng-deep`.
+ * Migrate away from use of angular's `@View`.
+ * Update animations to new Material specs.
+ * Update documentation.
+ * Remove unused library statements.
+
+## 0.6.0-alpha
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 4.0.0-alpha. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (4.0.0-alpha is used in production Google apps).
+
  * Update dependency to `angular: 4.0.0-alpha`.
  * Update SDK dependencies.
- 
+
 ### Known Issues
  * Warnings are present when building with dart2js. Specifically:
    _Method type variables are treated as `dynamic` in `as` expressions._
@@ -18,8 +75,8 @@
 > corresponding .css files in a separate process. We are working on a solution
 > to include CSS generation from SASS files during the build process.
 
-* Add SASS files.
-* Rename .analysis_options -> analysis_options.yaml
+ * Add SASS files.
+ * Rename .analysis_options -> analysis_options.yaml
 
 ## 0.5.3
 
@@ -37,8 +94,8 @@
 ## 0.5.2
 
  * Material Progress: Cleanup animations on destroy to prevent memory leaks.
- * Material Select: 
-   * Support deselect item in Material dropdown select with single selection 
+ * Material Select:
+   * Support deselect item in Material dropdown select with single selection
      model.
    * Unified template files (deleted material_select_dropdown_item.html).
    * Add support for `Selectable` `SelectionOptions`.

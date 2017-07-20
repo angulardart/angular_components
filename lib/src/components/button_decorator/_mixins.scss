@@ -12,7 +12,7 @@
  */
 
 @mixin disabled-cursor($cursor-style) {
-  /deep/ [buttonDecorator].is-disabled {
+  ::ng-deep [buttonDecorator].is-disabled {
     cursor: $cursor-style;
   }
 }

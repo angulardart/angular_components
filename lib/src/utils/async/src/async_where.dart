@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.utils.async.src.async_where;
-
 import 'dart:async';
 
 /// Returns a single-subscription stream of the [items] for which the [filter]
@@ -12,8 +10,7 @@ import 'dart:async';
 /// all previous items have completed.
 ///
 /// Example: familyBlackSheep = asyncWhere(children, growsUpRotten);
-Stream/*<T>*/ asyncWhere/*<T>*/(
-    List/*<T>*/ items, Future<bool> filter(/*=T*/ item)) async* {
+Stream<T> asyncWhere<T>(List<T> items, Future<bool> filter(T item)) async* {
   for (var item in items) {
     if (await filter(item)) {
       yield item;
@@ -31,10 +28,10 @@ Stream/*<T>*/ asyncWhere/*<T>*/(
 /// completes with the return value of [orElse].
 ///
 /// Example: newKing = asyncFirst(sons, survivesToMaturity);
-Future/*<T>*/ asyncFirst/*<T>*/(
-        List/*<T>*/ items, Future<bool> filter(/*=T*/ item), {orElse()}) =>
-    asyncWhere/*<T>*/(items, filter)
-        .firstWhere((_) => true, defaultValue: orElse) as dynamic/*=Future<T>*/;
+Future<T> asyncFirst<T>(List<T> items, Future<bool> filter(T item),
+        {orElse()}) =>
+    asyncWhere<T>(items, filter).firstWhere((_) => true, defaultValue: orElse)
+        as Future<T>;
 
 /// Returns a future that completes with the unique item in [items] for which
 /// [filter] returns a future that completes with true.  It completes with an
@@ -44,6 +41,5 @@ Future/*<T>*/ asyncFirst/*<T>*/(
 /// and all the ones before them complete), then it completes with an error.
 ///
 /// Example: prisonersDilemmaWinner = asyncSingle(prisoners, defects);
-Future/*<T>*/ asyncSingle/*<T>*/(
-        List/*<T>*/ items, Future<bool> filter(/*=T*/ item)) =>
-    asyncWhere/*<T>*/(items, filter).single;
+Future<T> asyncSingle<T>(List<T> items, Future<bool> filter(T item)) =>
+    asyncWhere<T>(items, filter).single;

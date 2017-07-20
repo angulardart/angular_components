@@ -67,13 +67,31 @@ class _MultiSelectionModelImpl<T> extends Observable
     if (values == null) {
       throw new ArgumentError();
     }
+    final toAdd = values.where((v) => !selectedValues.contains(v)).toList();
+    if (toAdd.isEmpty) return;
     bool wasEmpty = isEmpty;
-    selectedValues.addAll(values);
+    selectedValues.addAll(toAdd);
     if (wasEmpty && isNotEmpty) {
       notifyPropertyChange(#isEmpty, true, false);
       notifyPropertyChange(#isNotEmpty, false, true);
     }
-    notifySelectionChange(added: values);
+    notifySelectionChange(added: toAdd);
+  }
+
+  @override
+  void deselectAll(Iterable<T> values) {
+    if (values == null) {
+      throw new ArgumentError();
+    }
+    final toRemove = values.where((v) => selectedValues.contains(v)).toList();
+    if (toRemove.isEmpty) return;
+    final wasNotEmpty = isNotEmpty;
+    selectedValues.removeAll(toRemove);
+    if (wasNotEmpty && isEmpty) {
+      notifyPropertyChange(#isEmpty, false, true);
+      notifyPropertyChange(#isNotEmpty, true, false);
+    }
+    notifySelectionChange(removed: toRemove);
   }
 
   @override

@@ -33,7 +33,7 @@ $stroke-width: 3px;
 }
 
 .spinner {
-  @include animation(fill-unfill-rotate 5332ms $mat-transition-fast-slow infinite both);
+  @include animation(fill-unfill-rotate 5332ms $mat-transition-standard infinite both);
   border-color: inherit;
   height: 100%;
   display: flex;
@@ -66,13 +66,13 @@ $stroke-width: 3px;
   }
 
   &.left::before {
-    @include animation(left-spin 1333ms $mat-transition-fast-slow infinite both);
+    @include animation(left-spin 1333ms $mat-transition-standard infinite both);
     border-right-color: transparent;
     transform: rotate(129deg);
   }
 
   &.right::before {
-    @include animation(right-spin 1333ms $mat-transition-fast-slow infinite both);
+    @include animation(right-spin 1333ms $mat-transition-standard infinite both);
     border-left-color: transparent;
     left: -100%;
     transform: rotate(-129deg);

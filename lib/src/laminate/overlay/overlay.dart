@@ -7,3 +7,5 @@ library angular_components.laminate.overlay.overlay;
 export 'src/overlay_ref.dart' show BaseOverlayRef, OverlayRef;
 export 'src/overlay_service.dart' show OverlayService;
 export 'src/overlay_state.dart' show OverlayState, MutableOverlayState;
+export 'src/render/overlay_dom_render_service.dart'
+    show OverlayDomRenderService;

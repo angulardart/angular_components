@@ -41,3 +41,8 @@
 .dynamic-item {
   @include flex-grow(1);
 }
+
+:host-context(body[dir="rtl"]) {
+  @include list-item-base-rtl;
+}
+

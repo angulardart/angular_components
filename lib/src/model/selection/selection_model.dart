@@ -103,7 +103,15 @@ abstract class MultiSelectionModel<T> extends SelectionModel<T> {
         allowMulti: true);
   }
 
+  /// Adds all [values] to the list of selected items that were not previously
+  /// selected. Will only emit a [changes] event for values that were actually
+  /// added.
   void selectAll(Iterable<T> values);
+
+  /// Removes all [values] from the list of selected items that were previously
+  /// selected. Will only emit a [changes] event for values that were actually
+  /// removed.
+  void deselectAll(Iterable<T> values);
 }
 
 /// A change record for [SelectionModel.selectionChanges].

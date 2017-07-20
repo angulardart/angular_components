@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.utils.id_generator.id_generator;
-
 import 'package:uuid/uuid.dart';
 
 /// Generator generates ids that are probably unique.
@@ -36,5 +34,6 @@ class SequentialIdGenerator implements IdGenerator {
   /// disadvantage: long ids
   SequentialIdGenerator.fromUUID() : this(_uuid.v4());
 
+  @override
   String nextId() => "$_prefix--${_seq++}";
 }

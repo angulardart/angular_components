@@ -1,16 +1,16 @@
 ## Preview Release
 
-These are the AngularDart components that Google uses to build the sophisticated,
-mission-critical apps that bring in much of Google’s revenue.
+These are the AngularDart components that Google uses to build the
+sophisticated, mission-critical apps that bring in much of Google’s revenue.
 
-This productive and stable set of widgets, contributed to by hundreds of Googlers,
-make debugging and deploying your app easier. Strict latency and testing policies
-make these widgets an excellent fit for AngularDart projects.
+This productive and stable set of widgets, contributed to by hundreds of
+Googlers, make debugging and deploying your app easier. Strict latency and
+testing policies make these widgets an excellent fit for AngularDart projects.
 
 Only a small fragment of all the components is available right now. We want
 developers to be able to use the package as soon as possible.
 
-* ✓ `<glyph>`
+* ✓ `<material-icon>`
 * ✓ `<material-button>`
 * ✓ `<material-fab>`
 * ✓ `<material-checkbox>`
@@ -65,6 +65,6 @@ by copying them and importing
 in your SASS files.
 
 
-> NOTE: These .scss files are not used during the build step, but we are planning
-> to add this support. See
+> NOTE: These .scss files are not used during the build step, but we are
+> planning to add this support. See
 > [issue #45](https://github.com/dart-lang/angular_components/issues/45).

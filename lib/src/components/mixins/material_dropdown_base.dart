@@ -4,6 +4,8 @@
 
 import 'dart:async';
 
+import 'package:angular/angular.dart';
+
 import '../../laminate/enums/alignment.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../content/deferred_content_aware.dart';
@@ -18,6 +20,7 @@ abstract class DropdownHandle {
   void toggle();
   bool _autoDismiss;
   bool get autoDismiss => _autoDismiss;
+  @Input()
   set autoDismiss(value) {
     _autoDismiss = getBool(value);
   }
@@ -39,12 +42,14 @@ abstract class DropdownHandle {
 /// - `DeferredContentAware` -- Provides a means to lazily create/attach
 ///   content.
 class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
+  @Output('visibleChange')
   Stream<bool> get visibleStream => _visibleStream.stream;
   final _visibleStream = new StreamController<bool>.broadcast(sync: true);
   final _contentVisible = new StreamController<bool>.broadcast(sync: true);
 
   bool _enforceSpaceConstraints = false;
   bool get enforceSpaceConstraints => _enforceSpaceConstraints;
+  @Input()
   set enforceSpaceConstraints(value) {
     _enforceSpaceConstraints = getBool(value);
   }
@@ -52,11 +57,13 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   /// Whether or not the popup width is at least as wide as the select width.
   bool _popupMatchInputWidth = true;
   bool get popupMatchInputWidth => _popupMatchInputWidth;
+  @Input()
   set popupMatchInputWidth(value) {
     _popupMatchInputWidth = getBool(value);
   }
 
   /// Direction of popup scaling.
+  @Input()
   String slide;
 
   bool _autoDismiss = true;
@@ -67,6 +74,7 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
 
   bool _visible = false;
   bool get visible => _visible;
+  @Input()
   set visible(value) {
     bool vis = getBool(value);
     // Make the content visible if visible is being set to true.
@@ -77,6 +85,7 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   }
 
   /// Preferred positions for alignment when enforceSpaceConstraints is true
+  @Input()
   List<dynamic> preferredPositions = RelativePosition.InlinePositions;
 
   void onVisible(bool vis) {

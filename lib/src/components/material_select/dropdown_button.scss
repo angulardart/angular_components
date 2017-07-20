@@ -71,7 +71,7 @@ $icon-size: $mat-grid * 3;
   $hacked-height: $icon-size / 2;
   height: $hacked-height;
 
-  /deep/ i.material-icons-extended {
+  ::ng-deep i.material-icons-extended {
     // Finally let's adjust the position of the glyph itself to compensate for
     // the smaller size of the glyph element. (This assumes center alignment)
     position: relative;

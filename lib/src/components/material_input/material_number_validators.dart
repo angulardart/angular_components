@@ -4,8 +4,8 @@
 
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
-
 import '../../utils/angular/properties/properties.dart';
+
 import 'material_input_error_keys.dart';
 
 /// [Validator] which will validate a number input is positive > 0.
@@ -57,11 +57,13 @@ class CheckNonNegativeValidator implements Validator {
           desc: 'Error message when input number is not positive or 0.');
 }
 
-/// [Validator] which will validate a number input is greater than [lowerBound].
+/// [Validator] which validates that a number input is greater or equal
+/// than [lowerBound].
 @Directive(selector: '[lowerBound]', providers: const [
   const Provider(NG_VALIDATORS, useExisting: LowerBoundValidator, multi: true)
 ])
 class LowerBoundValidator implements Validator {
+  /// Smallest allowed value.
   @Input()
   num lowerBound;
 
@@ -83,11 +85,13 @@ class LowerBoundValidator implements Validator {
           examples: const {'_lowerBound': 42});
 }
 
-/// [Validator] which will validate a number input is less than [upperBound].
+/// [Validator] which validates that a number input is less or equal
+/// than [upperBound].
 @Directive(selector: '[upperBound]', providers: const [
   const Provider(NG_VALIDATORS, useExisting: UpperBoundValidator, multi: true)
 ])
 class UpperBoundValidator implements Validator {
+  /// Largest allowed value.
   @Input()
   num upperBound;
 

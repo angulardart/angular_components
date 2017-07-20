@@ -20,16 +20,16 @@
 ///         $selector: '.custom-area');
 @mixin material-toggle-theme($primary-color, $off-btn-color: null, $selector: '') {
   @if $off-btn-color != null {
-    /deep/ #{$selector} material-toggle.themeable .material-toggle .tgl-btn {
+    ::ng-deep #{$selector} material-toggle.themeable .material-toggle .tgl-btn {
       background-color: $off-btn-color;
     }
   }
 
-  /deep/ #{$selector} material-toggle.themeable .material-toggle.checked .tgl-bar {
+  ::ng-deep #{$selector} material-toggle.themeable .material-toggle.checked .tgl-bar {
     background-color: $primary-color;
   }
 
-  /deep/ #{$selector} material-toggle.themeable .material-toggle.checked .tgl-btn {
+  ::ng-deep #{$selector} material-toggle.themeable .material-toggle.checked .tgl-btn {
     background-color: $primary-color;
   }
 }

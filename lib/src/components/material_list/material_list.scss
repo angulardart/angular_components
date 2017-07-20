@@ -83,8 +83,8 @@ $x-large: 7;
     @include _list-min-size($x-large);
   }
 
-  // TODO(google): Move these styles into mixins. b2/35765850
-  /deep/ {
+  // TODO(google): Move these styles into mixins.
+  ::ng-deep {
     // Note: script tags bookend content in CSS shimmed deployment.
     [group]:not(.empty) + *:not(script):not(template):not(.empty),
     :not([group]):not(script):not(template):not(.empty) + [group]:not(.empty) {
@@ -107,9 +107,16 @@ $x-large: 7;
     }
 
     [label] {
-      @include list-item-base();
+      @include list-item-base;
       color: $mat-grey-500;
       @include mat-type-caption();
     }
   }
 }
+
+:host-context(body[dir="rtl"]) {
+  /deep/ [label] {
+    @include list-item-base-rtl;
+  }
+}
+

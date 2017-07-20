@@ -34,7 +34,7 @@ $item-border-style: dashed;
     $selected-border-style: $item-border-style
     ) {
 
-  #{$selector} /deep/ reorder-list.themeable {
+  #{$selector} ::ng-deep reorder-list.themeable {
     >[draggable] {
       outline: none;
     }

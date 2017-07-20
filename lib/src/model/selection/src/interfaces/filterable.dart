@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// **NOTE**: This library is currently unused and will replace select.dart.
-library angular_components.model.selection.src.interfaces.filterable;
 
 import 'dart:async';
 

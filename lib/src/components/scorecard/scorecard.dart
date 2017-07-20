@@ -13,7 +13,7 @@ import '../../utils/browser/events/events.dart';
 import '../../utils/color/color.dart';
 import '../../utils/color/palette.dart';
 import '../focus/keyboard_only_focus_indicator.dart';
-import '../glyph/glyph.dart';
+import '../material_icon/material_icon.dart';
 import '../material_ripple/material_ripple.dart';
 
 /// ACUX standalone scorecard component.
@@ -62,9 +62,9 @@ import '../material_ripple/material_ripple.dart';
 /// - `description: String` -- Short description of the scorecard.
 /// - `changeGlyph: bool` -- Whether to display a small change arrow glyph in
 ///   the description.
-/// - `suggestionBefore: String` -- Suggestion text before the descrption.
+/// - `suggestionBefore: String` -- Suggestion text before the description.
 /// - `suggestionAfter: String` -- Suggestion text after the description.
-/// - `extraBig: bool` -- Wether to use a larger class style.
+/// - `extraBig: bool` -- Whether to use a larger class style.
 /// - `changeType: String` -- The type of change: POSITIVE, NEGATIVE, NEUTRAL.
 /// - `selectable: bool` -- Whether a scorecard is selectable.
 /// - `selected: bool` -- Whether the scorecard is selected.
@@ -75,7 +75,7 @@ import '../material_ripple/material_ripple.dart';
 /// - `selectedChange` -- Fired when selection state changes.
 @Component(
     selector: 'acx-scorecard',
-    directives: const [MaterialRippleComponent, NgIf, GlyphComponent],
+    directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
     templateUrl: 'scorecard.html',
     host: const {
       'class': 'themeable',
@@ -87,12 +87,14 @@ import '../material_ripple/material_ripple.dart';
           'resetOutline()', // handled by [KeyboardOnlyFocusIndicatorDirective]
       '(mousedown)':
           'hideOutline()', // handled by [KeyboardOnlyFocusIndicatorDirective]
-      '(click)':
-          'hideOutline()', // handled by [KeyboardOnlyFocusIndicatorDirective]
     },
     styleUrls: const ['scorecard.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
+  static const changeTypePositive = 'POSITIVE';
+  static const changeTypeNegative = 'NEGATIVE';
+  static const changeTypeNeutral = 'NEUTRAL';
+
   final StreamController<bool> _selectionController =
       new StreamController<bool>.broadcast(sync: true);
 
@@ -157,14 +159,14 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   set changeType(String changeType) {
     // Reset the flags.
     _isChangePositive = _isChangeNegative = _isChangeNeutral = false;
-    switch ((changeType ?? 'NEUTRAL').toUpperCase()) {
-      case 'POSITIVE':
+    switch ((changeType ?? changeTypeNeutral).toUpperCase()) {
+      case changeTypePositive:
         _isChangePositive = true;
         break;
-      case 'NEGATIVE':
+      case changeTypeNegative:
         _isChangeNegative = true;
         break;
-      case 'NEUTRAL':
+      case changeTypeNeutral:
         _isChangeNeutral = true;
         break;
       default:
@@ -225,6 +227,7 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
 
   @HostListener('click')
   void handleClick() {
+    hideOutline();
     if (selectable) {
       selected = !selected;
       _selectionController.add(selected);

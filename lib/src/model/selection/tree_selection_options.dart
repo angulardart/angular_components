@@ -12,30 +12,37 @@ export './tree_selection_mixin.dart';
 /// A [SelectionOptions] implementation that supports hierarchy.
 ///
 /// TODO(google): add filtering and search options.
+/// TODO(google): improve the performance of the defaultComaprator.
+/// It is doing 2 * O(n log n) string conversions (which might be cheap
+/// if itemRenderer is just returning a string or expensive).
 class TreeSelectionOptions<T> extends SelectionOptions<T>
     with TreeSelectionMixin<T> {
   Map<T, List<OptionGroup<T>>> _parentToChildrenMap;
   final Map<T, TreeSelectionOptionData<T>> _itemsOptions;
 
   final ItemRenderer<T> _itemRenderer;
+  Comparator<T> _comparator;
 
   TreeSelectionOptions()
       : _itemRenderer = defaultItemRenderer,
         _itemsOptions = {},
-        super(const []);
+        super(const []) {
+    _comparator = _defaultComparator;
+  }
 
   TreeSelectionOptions.fromList(List<TreeSelectionOptionData<T>> listOfOptions,
-      {ItemRenderer<T> itemRenderer})
+      {ItemRenderer<T> itemRenderer, Comparator<T> comparator})
       : _itemRenderer = itemRenderer ?? defaultItemRenderer,
         _itemsOptions = new Map<T, TreeSelectionOptionData<T>>.fromIterable(
             listOfOptions,
             key: (TreeSelectionOptionData<T> item) => item.value),
         super(const []) {
+    _comparator = comparator ?? _defaultComparator;
     List<T> rootOptions = [];
     var parentToChildrenMap = _generateEntitiesOptionsMap(rootOptions);
 
     /// Sets the actual options to start from.
-    optionGroups = [new OptionGroup<T>(rootOptions)];
+    optionGroups = [new OptionGroup<T>(rootOptions..sort(_comparator))];
 
     /// Will save all the options per Entity.
     this.parentToChildrenMap = parentToChildrenMap;
@@ -86,8 +93,7 @@ class TreeSelectionOptions<T> extends SelectionOptions<T>
           .toList(growable: false)
             ..sort((TreeSelectionOptionData<T> item1,
                     TreeSelectionOptionData<T> item2) =>
-                _itemRenderer(item1.value)
-                    .compareTo(_itemRenderer(item2.value)));
+                _comparator(item1.value, item2.value));
     }
 
     if (childrenEntities.length > 0) {
@@ -98,6 +104,9 @@ class TreeSelectionOptions<T> extends SelectionOptions<T>
       return [];
     }
   }
+
+  int _defaultComparator(T value1, T value2) =>
+      _itemRenderer(value1).compareTo(_itemRenderer(value2));
 }
 
 /// A [TreeSelectionOptionData] class is used as data to the selection options

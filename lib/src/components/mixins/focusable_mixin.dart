@@ -5,10 +5,13 @@
 import 'dart:async';
 import 'dart:html';
 
+import 'package:angular/angular.dart';
+
 import '../focus/focus.dart';
 
 /// Assistant for focusing an element.
 class FocusableMixin implements Focusable {
+  @Output('focus')
   Stream<FocusEvent> get onFocus => _onFocus.stream;
   final StreamController<FocusEvent> _onFocus =
       new StreamController<FocusEvent>.broadcast(sync: true);

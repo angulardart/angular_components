@@ -18,29 +18,29 @@
 
 /// Change the color of the yes button
 @mixin material-yes-button-color($selector, $value) {
-  /deep/ material-yes-no-buttons#{$selector} .btn-yes[raised],
-  /deep/ material-yes-no-buttons#{$selector} .btn-yes.btn:not([disabled]).highlighted[raised] {
+  ::ng-deep material-yes-no-buttons#{$selector} .btn-yes[raised],
+  ::ng-deep material-yes-no-buttons#{$selector} .btn-yes.btn:not([disabled]).highlighted[raised] {
     background-color: $value;
   }
 }
 
 /// Change the color of text in the yes button
 @mixin material-yes-button-text-color($selector, $value) {
-  /deep/ material-yes-no-buttons#{$selector} .btn-yes {
+  ::ng-deep material-yes-no-buttons#{$selector} .btn-yes {
     color: $value;
   }
 }
 
 /// Change the color of the no button
 @mixin material-no-button-color($selector, $value) {
-  /deep/ material-yes-no-buttons#{$selector} .btn-no[raised] {
+  ::ng-deep material-yes-no-buttons#{$selector} .btn-no[raised] {
     background-color: $value;
   }
 }
 
 /// Change the color of text in the no button
 @mixin material-no-button-text-color($selector, $value) {
-  /deep/ material-yes-no-buttons#{$selector} .btn-no {
+  ::ng-deep material-yes-no-buttons#{$selector} .btn-no {
     color: $value;
   }
 }

@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.utils.async.src.zoned_async;
-
 import 'dart:async';
 
 /// Runs [fn] within a zone.
@@ -13,7 +11,7 @@ typedef RunInZoneFn(fn());
 abstract class _ZoneRunner {
   RunInZoneFn get _runInZoneFn;
 
-  /*=S*/ _runInZone/*<S>*/(/*=S*/ fn()) => _runInZoneFn(fn) as dynamic/*=S*/;
+  S _runInZone<S>(S fn()) => _runInZoneFn(fn) as S;
 }
 
 /// A wrapper around an existing [Future] that processes all events received

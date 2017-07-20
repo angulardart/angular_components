@@ -10,6 +10,8 @@ import '../../utils/disposer/disposer.dart';
 import '../collection/labeled_list.dart';
 import '../observable/observable.dart';
 
+export 'src/delegating_selection_options.dart';
+
 part 'src/future_selection_options_impl.dart';
 part 'src/stream_selection_options_impl.dart';
 

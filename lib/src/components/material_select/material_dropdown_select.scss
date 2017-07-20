@@ -15,12 +15,13 @@
 @import 'lib/src/css/shared/compass_polyfills';
 @import 'lib/src/components/material_list/mixins';
 @import 'compass/css3/flexbox';
+@import 'mixins';
 
 :host {
   @include display-flex(inline-flex);
 }
 
-/deep/ material-dropdown-select material-list // deep required
+::ng-deep material-dropdown-select material-list // deep required
   material-list-item-dropdown material-list-item > [list-item] {
   // offset labels for cascade parent items so that they align with normal
   // select items, which have a 36px wide glyph "in front" of their label
@@ -34,5 +35,9 @@
 
   .options-wrapper {
     @include flex-direction(column);
+
+    [label] {
+      @include select-item-padding;
+    }
   }
 }

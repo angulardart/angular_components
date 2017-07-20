@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+
+/// Applies a max height to the <material-tree> of a <material-tree-dropdown>.
+///
+/// This mixin is only used to set the max-height attribute of a <material-tree> within a
+/// <material-tree-dropdown> component. If <material-tree> is being used directly, please refrain
+/// from using this mixin and set its max-height attribute directly.
+@mixin material-tree-dropdown-max-height($max-height) {
+  ::ng-deep material-tree {
+    max-height: $max-height;
+  }
+}

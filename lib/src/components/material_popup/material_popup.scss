@@ -23,7 +23,7 @@
   @include material-shadow;
   background: $bg-color;
   border-radius: $popup-border-radius;
-  transition: transform $mat-transition $mat-transition-fast-linear;
+  transition: transform $mat-transition $mat-transition-acceleration;
   /*! @noflip */
   transform-origin: top left;
   transform: scale3d(0, 0, 1);
@@ -40,7 +40,7 @@
   }
 
   &.visible {
-    transition: transform $mat-transition $mat-transition-linear-slow;
+    transition: transform $mat-transition $mat-transition-deceleration;
     transform: scale3d(1, 1, 1);
   }
 

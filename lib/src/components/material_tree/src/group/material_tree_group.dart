@@ -37,11 +37,11 @@ const materialTreeLeftPaddingToken = const OpaqueToken(
       NgIf
     ],
     host: const {'role': 'group'},
-    inputs: const ['expandAll', 'group', 'level', 'parentSelectionDisplayed'],
+    inputs: const ['expandAll', 'group', 'level', 'parentHasCheckbox'],
     preserveWhitespace: false,
     templateUrl: 'material_tree_group.html',
     styleUrls: const ['material_tree_group.scss.css'])
-class MaterialTreeGroupComponent extends MaterialTreeNode {
+class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   static final defaultConstantLeftPadding = 24;
   static final baseGridStep = 8; // Based on $mat-grid
   static final rowIndentationStep =
@@ -66,7 +66,9 @@ class MaterialTreeGroupComponent extends MaterialTreeNode {
   @HostBinding('class.material-tree-group')
   final bool isMaterialTreeGroup = true;
 
-  bool showCheckbox(option) => showSelectionState && isSelectable(option);
+  bool showCheckbox(option) =>
+      showSelectionState &&
+      (isSelectable(option) || showDisabledCheckbox(option));
 
   // This returns the item padding based on it's level.
   // Level 0 means it's the higher parent in the hierarchy, and it gets
@@ -99,5 +101,10 @@ class MaterialTreeGroupComponent extends MaterialTreeNode {
       toggleExpansion(option);
     }
     e.stopPropagation();
+  }
+
+  @override
+  ngOnDestroy() {
+    onDestroy();
   }
 }

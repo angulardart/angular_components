@@ -26,6 +26,7 @@ abstract class Testability {
   void register();
   void whenStable(IsStableCallback fn);
   bool get isStable;
+  String get name;
 }
 
 /// Tesability base class that implements some of the rules for calling the
@@ -68,9 +69,9 @@ abstract class AbstractTestability implements Testability {
       }
 
       new Future(() {
-        if (newCallback != null) newCallback(false);
+        if (newCallback != null) newCallback(false, name);
         while (_callbacks.isNotEmpty) {
-          (_callbacks.removeLast())(true);
+          (_callbacks.removeLast())(true, name);
         }
       });
     });
@@ -79,6 +80,12 @@ abstract class AbstractTestability implements Testability {
   /// Returns true if the framework is in a stable state, false otherwise.
   @override
   bool get isStable;
+
+  /// Name of the testability. Defaults to the runtimeType.
+  ///
+  /// Subclasses should redefine this. runtimeType is obsfucated when compiled.
+  @override
+  String get name => this.runtimeType.toString();
 }
 
 /// A placeholder testability that does not perform any action. Can be injected
@@ -91,11 +98,16 @@ class NullTestability implements Testability {
 
   @override
   void whenStable(IsStableCallback fn) {
-    throw new UnsupportedError('not supported by NoopTestability');
+    throw new UnsupportedError('not supported by NullTestability');
   }
 
   @override
   bool get isStable {
-    throw new UnsupportedError('not supported by NoopTestability');
+    throw new UnsupportedError('not supported by NullTestability');
+  }
+
+  @override
+  String get name {
+    throw new UnsupportedError('not supported by NullTestability');
   }
 }

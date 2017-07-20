@@ -4,8 +4,8 @@
 
 import 'package:angular/angular.dart';
 import 'package:meta/meta.dart';
-
 import '../../utils/disposer/disposer.dart';
+
 import 'base_material_input.dart';
 
 /// [ControlValueAccessor] for [MaterialInputComponent] that updates on
@@ -37,8 +37,9 @@ class MaterialInputBlurValueAccessor extends BaseMaterialInputValueAccessor
 
   @override
   void registerOnChange(callback) {
-    disposer.addStreamSubscription(
-        input.onBlur.listen((_) => callback(input.inputText)));
+    disposer.addStreamSubscription(input.onBlur.listen((_) {
+      if (input != null) callback(input.inputText);
+    }));
   }
 }
 

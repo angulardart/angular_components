@@ -15,38 +15,39 @@
 @import 'lib/src/components/material_shadow/css/shadow';
 
 @mixin material-dialog-header-color($color) {
-  /deep/ .wrapper > header,
-  &[headered] /deep/ .wrapper > header {
+  ::ng-deep .wrapper > header,
+  &[headered] ::ng-deep .wrapper > header {
     background-color: $color;
   }
 }
 
 @mixin material-dialog-header-shadow() {
-  /deep/ .wrapper > header {
+  ::ng-deep .wrapper > header {
     @include shadow-elevation;
   }
 }
 
 @mixin material-dialog-header-padding($padding: 0) {
-  /deep/ .wrapper > header {
+  ::ng-deep .wrapper > header {
     padding: $padding;
   }
 }
 
 @mixin material-dialog-body-padding($padding: 0) {
-  /deep/ .wrapper > main {
+  ::ng-deep .wrapper > main,
+  &[headered] ::ng-deep .wrapper > main {
     padding: $padding;
   }
 }
 
 @mixin material-dialog-footer-padding($padding: 0) {
-  /deep/ .wrapper > footer {
+  ::ng-deep .wrapper > footer {
     padding: $padding;
   }
 }
 
 @mixin material-dialog-footer-border-top($border) {
-  /deep/ .wrapper > footer {
+  ::ng-deep .wrapper > footer {
     border-top: $border;
   }
 }
@@ -56,12 +57,12 @@
   padding: $mat-grid * 3 $mat-grid * 3 0;
   width: 100%;
 
-  /deep/ h3 {
+  ::ng-deep h3 {
     @include mat-type-title;
     margin: 0 0 $mat-grid;
   }
 
-  /deep/ p {
+  ::ng-deep p {
     @include mat-type-caption;
     margin: 0;
   }
@@ -72,19 +73,19 @@
   background: $mat-gray-700;
   padding-bottom: $mat-grid * 2;
 
-  /deep/ h3 {
+  ::ng-deep h3 {
     color: $mat-white;
     margin-bottom: $mat-grid / 2;
   }
 
-  /deep/ p {
+  ::ng-deep p {
     color: $mat-transparent-white;
   }
 }
 
 
 @mixin material-dialog-main-flex($flow) {
-  /deep/ .wrapper > main {
+  ::ng-deep .wrapper > main {
     @include display-flex();
     @include flex-flow($flow);
   }

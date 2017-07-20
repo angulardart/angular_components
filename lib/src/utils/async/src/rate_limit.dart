@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.utils.async.src.rate_limit;
-
 import 'dart:async';
 
 import '../../rate_limit_utils/rate_limit_utils.dart' show RateLimitStrategy;
