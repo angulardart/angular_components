@@ -14,9 +14,14 @@
 @import 'compass/css3/flexbox';
 @import 'lib/src/css/material/material';
 
+/// Default padding material-select-item and material-select-dropdown-item.
+@mixin select-item-padding {
+  padding: 0 (2 * $mat-grid);
+}
+
 /// Shared styles for material-select-item and material-select-dropdown-item.
 @mixin select-item-base {
-  padding: 0 (2 * $mat-grid);
+  @include select-item-padding;
 
   &:hover,
   &.active {
@@ -45,33 +50,33 @@
 /// icon opacity. This makes the dropdown button appears as a button rather
 /// than an input.
 @mixin button-look {
-  /deep/ .button.border {
+  ::ng-deep .button.border {
     border-bottom: 0;
     padding-bottom: 0;
   }
 
-  /deep/ .button .icon {
+  ::ng-deep .button .icon {
     opacity: initial;
   }
 }
 
 /// Adds spacing between text and icon in dropdown button.
 @mixin dropdown-icon-spacing($spacing) {
-  /deep/ .icon {
+  ::ng-deep .icon {
     margin-left: $spacing;
   }
 }
 
 /// Allow the button text to wrap instead of ellipsis.
 @mixin button-text-wrap {
-  /deep/ .button.border .button-text {
+  ::ng-deep .button.border .button-text {
     white-space: normal;
   }
 }
 
 /// Allow the icon to be shown without truncated.
 @mixin icon-overflow-visible {
-  /deep/ .icon {
+  ::ng-deep .icon {
     overflow: visible;
   }
 }

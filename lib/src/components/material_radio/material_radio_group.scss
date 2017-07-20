@@ -18,3 +18,9 @@
   outline: none;
   @include align-items(flex-start);
 }
+
+// We ignored this warning to create a mixin using ::ng-deep in order to
+// avoid exposing mixin library to the users when it is not needed.
+:host(.no-left-margin) ::ng-deep material-radio {
+  margin-left: -2px;
+}

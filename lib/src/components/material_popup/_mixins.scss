@@ -30,7 +30,7 @@ $bg-color-ink: $mat-grey-700;
                            $top-left: $popup-border-radius,
                            $bottom-right: $popup-border-radius,
                            $bottom-left: $popup-border-radius) {
-  /deep/ .popup-wrapper.mixin#{$selector} {
+  ::ng-deep .popup-wrapper.mixin#{$selector} {
     border-radius: $top-left $top-right $bottom-right $bottom-left;
   }
 }
@@ -43,7 +43,7 @@ $bg-color-ink: $mat-grey-700;
 ///
 ///     @include popup-background-color('.my-selector', $mat-green);
 @mixin popup-background-color($selector, $bg-color) {
-  /deep/ .popup-wrapper.mixin#{$selector}.shadow {
+  ::ng-deep .popup-wrapper.mixin#{$selector}.shadow {
     background: $bg-color;
   }
 }
@@ -51,7 +51,7 @@ $bg-color-ink: $mat-grey-700;
 /// Themes the primary color for all material-popup, only used for scrollbar
 /// thumb so far.
 @mixin material-popup-theme($primary-color) {
-  /deep/ material-popup {
+  ::ng-deep material-popup {
     @include material-scrollbar-theme($primary-color);
   }
 }

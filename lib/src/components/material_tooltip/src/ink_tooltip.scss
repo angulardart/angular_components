@@ -36,6 +36,6 @@ $tooltip-line-height: $tooltip-font-size + $mat-grid-type;
 }
 
 // deep required to style shadow css class in material-popup.
-/deep/ .aacmtit-ink-tooltip-shadow { // deep required
+::ng-deep .aacmtit-ink-tooltip-shadow { // deep required
   margin: $mat-grid;
 }

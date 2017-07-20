@@ -12,6 +12,8 @@ import '../../../model/selection/selection_model.dart';
 import '../../../model/selection/selection_options.dart';
 import '../../../model/ui/has_renderer.dart';
 import '../../../utils/async/async.dart';
+import '../../../utils/disposer/disposer.dart';
+import './material_tree_expand_state.dart';
 import './material_tree_root.dart';
 
 /// Returns whether [option] should be shown as expandable.
@@ -24,6 +26,7 @@ class MaterialTreeNode<T> {
   final OptionGroup<T> _EMPTY_OPTION_GROUP = new OptionGroup<T>(const []);
 
   final Map<T, Iterable<OptionGroup<T>>> _expandedNodes;
+  Disposer _disposer;
   final MaterialTreeRoot<T> _root;
   final ChangeDetectorRef _changeDetector;
 
@@ -40,7 +43,8 @@ class MaterialTreeNode<T> {
   /// May specify a custom [isExpandable].
   MaterialTreeNode(this._root, this._changeDetector,
       {IsExpandable<T> isExpandable})
-      : _expandedNodes = new HashMap<T, Iterable<OptionGroup<T>>>() {
+      : _expandedNodes = new HashMap<T, Iterable<OptionGroup<T>>>(),
+        _disposer = new Disposer.multi() {
     _group = _EMPTY_OPTION_GROUP;
     if (!_root.supportsHierarchy) {
       _isExpandable = (_) => false;
@@ -66,19 +70,37 @@ class MaterialTreeNode<T> {
   /// The current node.
   OptionGroup<T> get group => _group;
   set group(OptionGroup<T> group) {
+    _disposer.dispose();
     _group = group;
-    if (expandAll) {
-      for (var key in group) {
+    if (!expandAll) {
+      _expandedNodes.clear();
+    }
+    for (var key in group) {
+      bool manualExpand = false;
+      if (key is MaterialTreeExpandState) {
+        manualExpand = key.expanded;
+        // When we receive an expansion state change event, update the option
+        _disposer.addStreamSubscription(key.expandEvents.listen((bool newVal) {
+          if (newVal == _expandedNodes.containsKey(key)) return;
+          if (newVal)
+            expandOption(key);
+          else
+            closeOption(key);
+        }));
+      }
+      if (expandAll || manualExpand) {
         expandOption(key);
       }
-    } else {
-      clearExpansions();
     }
+    _changeDetector.markForCheck();
   }
 
   /// Collapses all options.
   void clearExpansions() {
     _expandedNodes.clear();
+    for (T option in group) {
+      setExpandedState(option, false);
+    }
     _changeDetector.markForCheck();
   }
 
@@ -119,6 +141,11 @@ class MaterialTreeNode<T> {
             _selectable.getSelectable(option) == SelectableOption.Selectable;
   }
 
+  /// Whether a disabled checkbox should be rendered for this option.
+  bool showDisabledCheckbox(option) =>
+      _selectable.getSelectable(option) == SelectableOption.Disabled &&
+      !hasChildren(option);
+
   /// Returns whether [option] is selected.
   bool isSelected(T option) => _root.selection.isSelected(option);
 
@@ -132,6 +159,7 @@ class MaterialTreeNode<T> {
   Future<Iterable<OptionGroup<T>>> expandOption(T option) async {
     Iterable<OptionGroup<T>> childGroups = await _parent.childrenOf(option);
 
+    setExpandedState(option, true);
     if (expandAll && childGroups != null) {
       for (var group in childGroups) {
         for (var option in group) {
@@ -143,16 +171,34 @@ class MaterialTreeNode<T> {
     return _expandedNodes[option] = childGroups;
   }
 
+  /// Closes the given [option], if it is open.
+  ///
+  /// Returns whether the option was open.
+  bool closeOption(T option) {
+    var previousState = _expandedNodes.remove(option);
+    setExpandedState(option, false);
+    _changeDetector.markForCheck();
+    return previousState != null;
+  }
+
+  /// Sets the expansion state of [option] to [state].
+  ///
+  /// No-op if [option] is not a [MaterialTreeExpandState].
+  void setExpandedState(T option, bool state) {
+    if (option is MaterialTreeExpandState) {
+      option.expanded = state;
+    }
+  }
+
   /// Toggles the expansion state of [option].
   ///
   /// Returns a [Future] that completes when the children are available when
   /// expansion is triggered, otherwise immediately returns [Future<Null>].
   Future<Iterable<OptionGroup<T>>> toggleExpansion(T option) {
-    var previousState = _expandedNodes.remove(option);
-    if (previousState == null) {
+    bool didClose = closeOption(option);
+    if (!didClose) {
       return expandOption(option);
     }
-    _changeDetector.markForCheck();
     return new Future<Iterable<OptionGroup<T>>>.value();
   }
 
@@ -181,6 +227,15 @@ class MaterialTreeNode<T> {
   String getOptionAsText(T option) {
     var itemRenderer = _root.itemRenderer ?? defaultItemRenderer;
     return itemRenderer(option);
+  }
+
+  /// Cleans up the node. Disposes subscriptions to [MaterialTreeExpandState].
+  ///
+  /// Currently a no-op if T doesn't implement [MaterialTreeExpandState].
+  void onDestroy() {
+    _disposer.dispose();
+    // Cause a NPE if we attempt to use the disposer after being destroyed
+    _disposer = null;
   }
 }
 

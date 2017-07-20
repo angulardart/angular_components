@@ -24,22 +24,11 @@ import './activation_handler.dart';
 /// Material Select Item is a special kind of list item which can be selected.
 @Component(
     selector: 'material-select-item',
-    inputs: const [
-      'disabled', // Is item disabled. Inherited from [ButtonDirective]
-      'active', // from ActiveItemMixin
-    ],
-    outputs: const ['trigger'],
     host: const {
       'class': 'item',
       '[class.disabled]': 'disabled',
-      '[class.active]': 'active',
       '[class.selected]': 'isSelected',
       '[class.multiselect]': 'supportsMultiSelect',
-      '(click)': r'handleClick($event)',
-      '(keypress)': r'handleKeyPress($event)',
-      '[attr.aria-disabled]': 'disabledStr',
-      '(mouseenter)': 'onMouseEnter()',
-      '(mouseleave)': 'onMouseLeave()',
       'tabindex': '0',
       'role': 'option'
     },
@@ -87,7 +76,6 @@ class MaterialSelectItemComponent extends ButtonDirective
   @override
   set value(val) {
     _value = val;
-    _genLabel();
   }
 
   dynamic _value;
@@ -118,7 +106,6 @@ class MaterialSelectItemComponent extends ButtonDirective
   @override
   set itemRenderer(ItemRenderer value) {
     _itemRenderer = value;
-    _genLabel();
   }
 
   ItemRenderer _itemRenderer = nullRenderer;
@@ -155,19 +142,16 @@ class MaterialSelectItemComponent extends ButtonDirective
 
   bool _selectOnActivate = true;
 
-  // Generates and stashes the item's label.
-  void _genLabel() {
+  bool get valueHasLabel => valueLabel != null && componentRenderer == null;
+  String get valueLabel {
     if (_value == null) {
-      _label = null;
+      return null;
     } else if (componentRenderer == null &&
         !identical(itemRenderer, nullRenderer)) {
-      _label = itemRenderer(_value);
+      return itemRenderer(_value);
     }
+    return null;
   }
-
-  String _label;
-  bool get valueHasLabel => _label != null && componentRenderer == null;
-  String get valueLabel => _label;
 
   /// Selection model to update with changes.
   @override
@@ -212,7 +196,8 @@ class MaterialSelectItemComponent extends ButtonDirective
       value != null && (_selection?.isSelected(value) ?? false);
 
   void handleActivate(UIEvent e) {
-    if (closeOnActivate && _selection is! MultiSelectionModel) {
+    var hasCheckbox = supportsMultiSelect && !hideCheckbox;
+    if (closeOnActivate && !hasCheckbox) {
       _dropdown?.close();
     }
 

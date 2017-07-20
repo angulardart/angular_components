@@ -24,12 +24,6 @@ import '../focus/focus_trap.dart';
 ///  - `headered` -- Adds a gray background to the dialog header.
 ///  - `info` -- Styles the dialog as an info dialog.
 ///
-/// __Inputs__:
-///
-///  - `error: String` -- Error to show up in the error section of the dialog.
-///  - `hideHeader: String or bool` -- Whether to hide the dialog header.
-///  - `hideFooter: String or bool` -- Whether to hide the dialog footer.
-///
 /// __Basic Dialog__:
 ///
 /// This should be used in a directive that knows to move content to an overlay.
@@ -128,13 +122,16 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
     }));
   }
 
+  /// Error to show up in the error section of the dialog.
   @Input()
   String error;
 
+  /// Whether to hide the dialog header.
   @Input()
   set hideHeader(shouldHideHeader) =>
       _shouldShowHeader = !getBool(shouldHideHeader);
 
+  /// Whether to hide the dialog footer.
   @Input()
   set hideFooter(shouldHideFooter) =>
       _shouldShowFooter = !getBool(shouldHideFooter);
@@ -143,6 +140,9 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
 
   bool get shouldShowFooter => _shouldShowFooter;
 
+  /// Whether to show the top/bottom borders on the <main> part of the dialog to
+  /// indicate whether there is more content that the user can reach by
+  /// scrolling.
   @Input()
   set shouldShowScrollStrokes(shouldShowScrollStrokes) =>
       _shouldShowScrollStrokes = getBool(shouldShowScrollStrokes);

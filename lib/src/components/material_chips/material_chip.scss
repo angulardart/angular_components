@@ -46,6 +46,8 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
 
 .left-icon {
   @include display-flex();
+  @include align-items(center);
+  @include justify-content(center);
   // The margin between chip content and icon should be 4px (that is 12px - 8px)
   margin-right: -$mat-grid;
   margin-left: $mat-grid-type;

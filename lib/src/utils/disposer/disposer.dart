@@ -99,7 +99,7 @@ class Disposer implements Disposable {
   ///   [addEventSink]
   ///   [addStreamSubscription]
   ///   [addFunction]
-  dynamic/*=T*/ addDisposable/*<T>*/(/*=T*/ disposable) {
+  T addDisposable<T>(T disposable) {
     // TODO(google): `disposable_` is a workaround to make this code
     // strong-clean. We should be able to get rid of it once dartbug.com/26439
     // is addressed in the language.
@@ -122,8 +122,8 @@ class Disposer implements Disposable {
   }
 
   /// Registers [disposable].
-  StreamSubscription/*<T>*/ addStreamSubscription/*<T>*/(
-      StreamSubscription/*<T>*/ disposable) {
+  StreamSubscription<T> addStreamSubscription<T>(
+      StreamSubscription<T> disposable) {
     _disposeSubs ??= [];
     _disposeSubs.add(disposable);
     _checkIfAlreadyDisposed();
@@ -131,7 +131,7 @@ class Disposer implements Disposable {
   }
 
   /// Registers [disposable].
-  EventSink/*<T>*/ addEventSink/*<T>*/(EventSink/*<T>*/ disposable) {
+  EventSink<T> addEventSink<T>(EventSink<T> disposable) {
     _disposeSinks ??= [];
     _disposeSinks.add(disposable);
     _checkIfAlreadyDisposed();

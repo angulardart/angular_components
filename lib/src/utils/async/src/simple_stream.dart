@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.utils.async.src.simple_stream;
-
 import 'dart:async';
 
 typedef void StreamCallContextFunc(dynamic func());
@@ -179,7 +177,11 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
         sub._closeSubscription();
       }
       if (callback != null) {
-        callback(errorEvent);
+        if (callback is ZoneBinaryCallback) {
+          callback(errorEvent, stackTrace);
+        } else if (callback is ZoneUnaryCallback) {
+          callback(errorEvent);
+        }
       }
     }
   }
@@ -397,7 +399,7 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
   }
 
   @override
-  Future/*<S>*/ asFuture/*<S>*/([/*=S*/ futureValue]) {
+  Future<S> asFuture<S>([S futureValue]) {
     throw new UnsupportedError('Not supported.');
   }
 }

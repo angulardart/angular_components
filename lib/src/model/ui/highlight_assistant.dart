@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.model.ui.highlight_assistant;
-
 import './has_renderer.dart';
 import './highlighted_text_model.dart';
 
@@ -21,10 +19,18 @@ class HighlightAssistant {
   TextHighlighter __textHighlighter;
 
   /// Gets the default text highlighter, creating a cached instance if needed.
-  TextHighlighter get _textHighlighter =>
-      __textHighlighter ??= new TextHighlighter(matchFromStartOfWord: false);
+  TextHighlighter get _textHighlighter => __textHighlighter ??=
+      new TextHighlighter(matchFromStartOfWord: _matchFromStartOfWord);
 
-  HighlightAssistant(this._optionHighlighter);
+  /// Whether matches should only highlight at the start of words.
+  bool _matchFromStartOfWord;
+
+  /// Creates new HighlightAssistant, using provided [optionHighlighter] or
+  /// TextHighlighter if no value is provided.
+  HighlightAssistant(
+      {Highlighter optionHighlighter, bool matchFromStartOfWord: false})
+      : _optionHighlighter = optionHighlighter,
+        _matchFromStartOfWord = matchFromStartOfWord;
 
   List<HighlightedTextSegment> highlightOption(
       String _lastQuery, dynamic item, ItemRenderer itemRenderer) {

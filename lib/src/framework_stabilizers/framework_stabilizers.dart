@@ -16,7 +16,7 @@ typedef void FrameworkStabilizer(IsStableCallback callback);
 /// Function invoked by a framework when it has reached a stable state. The
 /// `didWork` parameter indicates, if the framework did any work between
 /// callback registration and callback invocation.
-typedef void IsStableCallback(bool didWork);
+typedef void IsStableCallback(bool didWork, String name);
 
 // frameworkStabilizers is a property of the window object.
 @JS('frameworkStabilizers')

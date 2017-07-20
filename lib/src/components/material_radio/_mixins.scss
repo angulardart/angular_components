@@ -18,11 +18,12 @@
 ///         $primary-color: $mat-teal-500,
 ///         $selector: '.custom-area');
 @mixin material-radio-theme($primary-color, $selector: '') {
-  /deep/ #{$selector} material-radio.themeable .icon-container.checked {
-    .icon,
-    .ripple {
-      color: $primary-color;
+  ::ng-deep #{$selector} material-radio.themeable:not(.disabled) {
+    .icon-container.checked {
+      .icon,
+      .ripple {
+        color: $primary-color;
+      }
     }
   }
 }
-

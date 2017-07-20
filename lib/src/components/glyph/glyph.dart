@@ -49,6 +49,7 @@ const List<String> _flippedIcons = const [
 ///   the icon, corresponding to 12px, 13px, 16px, 18px, and 20px, respectively.
 ///   If no size is specified, the default of 24px is used.
 /// - `flip` -- Whether the icon should be flipped for RTL languages.
+@Deprecated('Use MaterialIconComponent instead')
 @Component(
     selector: 'glyph',
     templateUrl: 'glyph.html',
@@ -58,7 +59,7 @@ const List<String> _flippedIcons = const [
 class GlyphComponent {
   static const String _materialIconsExtended = 'material-icons-extended';
 
-  /// `Icon` model (/model/ui/icon.dart) or Icon identifier - see
+  /// `Icon` model (lib/src/model/ui/icon.dart) or Icon identifier - see
   /// [https://www.google.com/design/icons/](https://goo.gl/YKrYlu) for
   /// available icons.
   @Input()

@@ -45,22 +45,10 @@ import '../mixins/material_dropdown_base.dart';
 // TODO(google): should activate/deactive on mouse hover
 @Component(
     selector: 'material-list-item',
-    inputs: const [
-      'disabled',
-      'active', // from ActiveItemMixin
-    ],
-    outputs: const ['trigger'],
     host: const {
       'class': 'item',
-      '[class.active]': 'active',
       '[class.disabled]': 'disabled',
-      '(click)': r'handleClick($event)',
-      '(keypress)': r'handleKeyPress($event)',
-      '[attr.aria-disabled]': 'disabledStr',
-      '[attr.tabindex]': 'tabIndex',
       '[attr.role]': 'role',
-      '(mouseenter)': 'onMouseEnter()',
-      '(mouseleave)': 'onMouseLeave()',
     },
     styleUrls: const ['material_list_item.scss.css'],
     template: '<ng-content></ng-content>',

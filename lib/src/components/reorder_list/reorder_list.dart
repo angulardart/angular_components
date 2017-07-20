@@ -9,7 +9,6 @@ import 'dart:math';
 import 'package:angular/angular.dart';
 import 'package:quiver/iterables.dart' show range;
 
-import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/disposer/disposer.dart';
 import '../../utils/keyboard/keyboard.dart';
 import './reorder_events.dart';
@@ -24,7 +23,7 @@ export 'reorder_events.dart';
 /// Typical use:
 /// '''
 /// <reorder-list (reorder)="onReorder($event)">
-///   <div *ngFor="#item of items" reorderItem>
+///   <div *ngFor="let item of items" reorderItem>
 ///     {{item}}
 ///   </div>
 /// </reorder-list>
@@ -70,7 +69,7 @@ class ReorderListComponent implements OnDestroy {
   final _itemSelectionChanged =
       new StreamController<ItemSelectionEvent>.broadcast(sync: true);
 
-  final ManagedZone _managedZone;
+  final NgZone _ngZone;
 
   /// If true (default), items are aligned vertically.
   @HostBinding('class.vertical')
@@ -109,7 +108,7 @@ class ReorderListComponent implements OnDestroy {
   @ViewChild('placeholder', read: ElementRef)
   ElementRef placeholder;
 
-  ReorderListComponent(this._managedZone) {
+  ReorderListComponent(this._ngZone) {
     _subscriptions = new Map<HtmlElement, List<StreamSubscription>>();
     _dragSubscriptions = new Map<HtmlElement, StreamSubscription>();
   }
@@ -375,7 +374,7 @@ class ReorderListComponent implements OnDestroy {
       if (newIndex != index) {
         _reorder.add(_createReorderEvent(index, newIndex));
         // Make sure that element will be focused after digest cycle
-        _managedZone.onTurnDone.first.then((_) {
+        _ngZone.onEventDone.first.then((_) {
           // TODO(google): Add support for multiselect keyboard actions.
           // At the moment, only moves the last selected item.
           var element = _reorderElements[newIndex];
@@ -429,7 +428,7 @@ class ReorderListComponent implements OnDestroy {
   void removeAt(int index) {
     _delete.add(index);
     // Wait for digest and focus new element
-    _managedZone.onTurnDone.first.then((_) {
+    _ngZone.onEventDone.first.then((_) {
       if (index < _reorderElements.length) {
         _reorderElements[index].focus();
       } else if (_reorderElements.isNotEmpty) {

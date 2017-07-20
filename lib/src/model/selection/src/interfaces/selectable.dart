@@ -2,6 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+/// Enum that specifies checkbox state for selectable item.
+///
+/// - Selectable - checkbox is visible and enabled.
+/// - Disabled - the item is not selectable, checkbox is visible but disabled
+///              (ideally with explanation in the tooltip).
+/// - Hidden - the item is not selectable, and no checkbox is present.
 enum SelectableOption { Selectable, Disabled, Hidden }
 
 typedef SelectableOption SelectableGetter(var entity);

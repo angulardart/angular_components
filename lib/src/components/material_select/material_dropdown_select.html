@@ -61,7 +61,14 @@
           group
           [class.empty]="group.isEmpty && !group.hasEmptyLabel">
         <template [ngIf]="group.isNotEmpty || group.hasEmptyLabel">
-          <span *ngIf="group.hasLabel" label>{{group.uiDisplayName}}</span>
+          <span *ngIf="group.hasLabel && labelRenderer == null" label>
+            {{group.uiDisplayName}}
+          </span>
+          <dynamic-component
+              *ngIf="labelRenderer != null"
+              [componentType]="labelRenderer(group)"
+              [value]="group">
+          </dynamic-component>
           <template [ngIf]="group.isNotEmpty">
             <material-select-dropdown-item *ngFor="let item of group"
                 keyboardOnlyFocusIndicator

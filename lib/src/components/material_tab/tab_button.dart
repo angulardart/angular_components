@@ -13,20 +13,9 @@ import './tab_mixin.dart';
 /// A specialized button component used only by the tab strip.
 @Component(
     selector: 'tab-button',
-    inputs: const ['label'],
-    outputs: const ['trigger'], // from [MaterialButtonBase]
     host: const {
-      '[class.is-disabled]': 'disabled',
       '[class.focus]': 'visualFocus',
       '[class.active]': 'isActive || isMouseDown',
-      '(mousedown)': r'onMouseDown($event)',
-      '(mouseup)': r'onMouseUp($event)',
-      '(click)': r'handleClick($event)',
-      '(keypress)': r'handleKeyPress($event)',
-      '(focus)': r'onFocus($event)',
-      '(blur)': r'onBlur($event)',
-      '[attr.aria-disabled]': 'disabledStr',
-      '[attr.tabindex]': 'tabIndex',
       'role': 'tab'
     },
     template: r'''

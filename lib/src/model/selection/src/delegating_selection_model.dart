@@ -53,8 +53,7 @@ class DelegatingSelectionModel<T> implements SelectionModel<T> {
   }
 
   @override
-  /*=T*/ notifyPropertyChange/*<T>*/(
-      Symbol field, /*=T*/ oldValue, /*=T*/ newValue) {
+  T notifyPropertyChange<T>(Symbol field, T oldValue, T newValue) {
     _delegateModel.notifyPropertyChange(field, oldValue, newValue);
     return newValue;
   }
@@ -97,5 +96,10 @@ class DelegatingMultiSelectionModel<T> extends DelegatingSelectionModel<T>
   @override
   void selectAll(Iterable<T> values) {
     (_delegateModel as MultiSelectionModel<T>).selectAll(values);
+  }
+
+  @override
+  void deselectAll(Iterable<T> values) {
+    (_delegateModel as MultiSelectionModel<T>).deselectAll(values);
   }
 }

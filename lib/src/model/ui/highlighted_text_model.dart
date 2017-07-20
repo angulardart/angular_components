@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.model.ui.highlighted_text_model;
-
 import 'dart:math' show max;
 
 import 'package:logging/logging.dart';

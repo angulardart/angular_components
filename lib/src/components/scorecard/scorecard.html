@@ -8,11 +8,13 @@
 <h2>{{value}}<ng-content select="value"></ng-content></h2>
 <span *ngIf="suggestionBefore != null" class="suggestion before">{{suggestionBefore}}</span>
 <span *ngIf="description != null" class="description">
-  <glyph *ngIf="changeGlyph && description != '' && !isChangeNeutral"
-         class="change-glyph"
-         [icon]="changeGlyphIcon"
-         size="small">
-  </glyph>
-  {{description}}<ng-content select="description"></ng-content></span>
+  <material-icon *ngIf="changeGlyph && description != '' && !isChangeNeutral"
+                 class="change-glyph"
+                 [icon]="changeGlyphIcon"
+                 size="small">
+  </material-icon>
+  {{description}}
+  <ng-content select="description"></ng-content>
+</span>
 <span *ngIf="suggestionAfter != null" class="suggestion after">{{suggestionAfter}}</span>
 <ng-content></ng-content>

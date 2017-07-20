@@ -28,7 +28,7 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 /// - Popups closing and opening are automatically delayed to add animations
 /// - An additional event, `animationComplete`, is available.
 /// - Take advantage of enforceSpaceConstraints defined in
-/// [PopupInterface](https://github.com/dart-lang/angular_components/tree/master/lib/src/laminate/components/popup/src/base.dart).
+/// [PopupInterface].
 ///
 /// This is useful if content size is such that adds scroll to the page.
 /// - Even though this component supports [ChangeDetectionStrategy.OnPush]
@@ -42,9 +42,11 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 ///  [trackLayoutChanges] which is also defined in [PopupInterface].
 ///
 /// __Events__:
+///
 /// - `animationComplete`: Triggers after an open or close animation finishes.
 ///
 /// __Example use__:
+///
 ///     <button (click)="showPopup = !showPopup"
 ///             popupSource
 ///             #source="popupSource">
@@ -55,6 +57,7 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 ///     </material-popup>
 ///
 /// Material popup also supports deferred/lazy-loaded content:
+///
 ///     <material-popup [visible]="showPopup" [source]="source">
 ///       <expensive-component *deferredContent></expensive-component>
 ///     </material-popup>
@@ -82,7 +85,6 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
     inputs: const [
       'alignContentX',
       'alignContentY',
-      'autoDismiss',
       'enforceSpaceConstraints',
       // Deprecated
       'matchSourceWidth',
@@ -168,10 +170,6 @@ class MaterialPopupComponent extends PopupComponent
 
   /// The z-elevation of the border effect.
   int z = 2;
-
-  /// Output stream that supports [(visible)] syntax.
-  @Output()
-  Stream<bool> get visibleChange => onVisible;
 
   /// The CSS transform origin based on configuration.
   String get transformOrigin =>
@@ -411,7 +409,16 @@ class MaterialPopupComponent extends PopupComponent
     if (!popupEvent.cancelled) {
       _contentSize = popupEvent.size();
       showPopup = false;
-      _onContentVisible.add(false);
+      // Delay removing deferred content until the popup has finished animating.
+      if (hasBox) {
+        _afterAnimationDelay().then((_) {
+          // Only remove content if the popup is still not showing after delay.
+          // User may have quickly opened the popup again.
+          if (showPopup == false) _onContentVisible.add(false);
+        });
+      } else {
+        _onContentVisible.add(false);
+      }
       _changeDetector.markForCheck();
       return _animateContentSize();
     }

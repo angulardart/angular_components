@@ -313,6 +313,9 @@ class _TableSelectionModelImpl<T> extends Observable
   void selectAll(Iterable<T> rows) => _backingModel.selectAll(rows);
 
   @override
+  void deselectAll(Iterable<T> rows) => _backingModel.deselectAll(rows);
+
+  @override
   Iterable<T> get selectedValues {
     // If we are selecting all across multiple pages, we don't actually know
     // the full set of selected entities.

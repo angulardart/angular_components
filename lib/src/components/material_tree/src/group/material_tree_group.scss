@@ -36,6 +36,10 @@ ul {
       width: $list-item-primary-width;
     }
 
+    .disabled-item {
+      color: $mat-gray;
+    }
+
     glyph {
       opacity: $mat-opacity-light;
     }

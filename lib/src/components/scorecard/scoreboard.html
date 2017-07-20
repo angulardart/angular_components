@@ -10,9 +10,9 @@
                    (trigger)="scrollBack()"
                    [class.hide]="atScorecardBarStart"
                    *ngIf="isScrollable">
-    <glyph [icon]="backIconType"
-           [attr.aria-label]="scrollScorecardBarBack">
-    </glyph>
+    <material-icon [icon]="backIconType"
+                   [attr.aria-label]="scrollScorecardBarBack">
+    </material-icon>
   </material-button>
   <div scorecardBar class="scorecard-bar" [isVertical]="isVertical">
     <ng-content></ng-content>
@@ -21,8 +21,8 @@
                    (trigger)="scrollForward()"
                    [class.hide]="atScorecardBarEnd"
                    *ngIf="isScrollable">
-    <glyph [icon]="forwardIconType"
-           [attr.aria-label]="scrollScorecardBarForward">
-    </glyph>
+    <material-icon [icon]="forwardIconType"
+                   [attr.aria-label]="scrollScorecardBarForward">
+    </material-icon>
   </material-button>
 </div>

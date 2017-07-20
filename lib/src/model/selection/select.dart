@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.model.selection.select;
-
 import '../../utils/async/async.dart';
 
 // TODO(google): Slowly change to use the refined interfaces in src/interfaces.

@@ -21,7 +21,7 @@
   @include shadow-elevation;
   background-color: $mat-white;
   margin: 0;
-  transition: margin $mat-transition-slow $mat-transition-fast-slow;
+  transition: margin $mat-transition-slow $mat-transition-standard;
   width: inherit;
 }
 
@@ -38,7 +38,7 @@
   @include shadow-elevation;
   background-color: $mat-white;
   margin: 0 $mat-grid * 3;
-  transition: margin $mat-transition-slow $mat-transition-fast-slow;
+  transition: margin $mat-transition-slow $mat-transition-standard;
 }
 
 .panel.open,
@@ -59,7 +59,7 @@
   @include user-select(none);
   color: $mat-lighter-transparent-black;
   cursor: pointer;
-  transition: transform $mat-transition-slow $mat-transition-fast-slow;
+  transition: transform $mat-transition-slow $mat-transition-standard;
 
   &.expand-more {
     transform: rotate(180deg);
@@ -77,7 +77,7 @@ header {
   min-height: $mat-grid * 6;
   outline: none;
   padding: 0 $mat-grid * 3;
-  transition: min-height $mat-transition-slow $mat-transition-fast-slow;
+  transition: min-height $mat-transition-slow $mat-transition-standard;
 
   &.closed {
     &:hover,
@@ -174,7 +174,7 @@ main {
   width: 100%;
 }
 
-.toolbelt /deep/ [toolbelt] {
+.toolbelt ::ng-deep [toolbelt] {
   @extend %toolbelt;
 }
 

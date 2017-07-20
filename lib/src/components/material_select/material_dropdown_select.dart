@@ -21,6 +21,7 @@ import '../../utils/id_generator/id_generator.dart';
 import '../annotations/rtl_annotation.dart';
 import '../content/deferred_content.dart';
 import '../content/deferred_content_aware.dart';
+import '../dynamic_component/dynamic_component.dart';
 import '../focus/keyboard_only_focus_indicator.dart';
 import '../material_list/material_list.dart';
 import '../material_popup/material_popup.dart';
@@ -59,6 +60,16 @@ import './shift_click_selection.dart';
 ///
 /// See ads/acx2/components/material_select/examples for example usage.
 ///
+/// __Example Usage:__
+///
+///     <material-dropdown-select
+///       [buttonText]="buttonText"
+///       [selection]="singleSelectModel"
+///       [options]="options"
+///       [itemRenderer]="itemRenderer"
+///       [preferredPositions]="preferredPositions">
+///     </material-dropdown-select>
+///
 /// __Properties:__
 ///
 /// - `selection: SelectionModel` -- The selection model this component
@@ -85,12 +96,21 @@ import './shift_click_selection.dart';
 ///
 /// - `autoDismiss: bool` -- Whether the popup should close when the document
 ///   pressed.
+///
 /// - `popupMatchInputWidth: bool` -- Whether or not the popup width is at least
 ///   as wide as the select width.
+///
+/// - `preferredPositions: List` -- A manual list of preferred auto-alignments
+///   for the dropdown popup.
+///
 /// - `slide: String` -- Direction of popup scaling. Valid values are `x`, `y`,
 ///   or `null`.
+///
 /// - `deselectLabel: String` -- Text label for select item that deselects
 ///   the current selection.
+///
+/// - `labelRenderer: ComponentRenderer` -- Function that returns a component
+///   to be used for rendering group labels.
 @Component(
     selector: 'material-dropdown-select',
     inputs: const [
@@ -100,12 +120,6 @@ import './shift_click_selection.dart';
       'options',
       'selection',
       'width',
-      // Dropdown Base
-      'autoDismiss',
-      'popupMatchInputWidth',
-      'preferredPositions',
-      'slide',
-      'visible',
       // ButtonWrapper
       'buttonText',
       'buttonAriaLabel',
@@ -115,7 +129,6 @@ import './shift_click_selection.dart';
       // TrackLayoutChanges
       'trackLayoutChanges',
     ],
-    outputs: const ['visibleStream: visibleChange'],
     providers: const [
       const Provider(DropdownHandle,
           useExisting: MaterialDropdownSelectComponent),
@@ -132,6 +145,7 @@ import './shift_click_selection.dart';
     directives: const [
       DeferredContentDirective,
       DropdownButtonComponent,
+      DynamicComponent,
       KeyboardOnlyFocusIndicatorDirective,
       MaterialListComponent,
       MaterialPopupComponent,
@@ -172,6 +186,9 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   /// Text label for select item that deselects the current selection.
   @Input()
   String deselectLabel;
+
+  @Input()
+  ComponentRenderer labelRenderer;
 
   MaterialDropdownSelectComponent(
       @Optional() IdGenerator idGenerator,

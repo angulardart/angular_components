@@ -20,11 +20,21 @@
 @mixin material-checkbox-theme($primary-color, $selector: '') {
   // Use component's selector with the themeable class to increase theme
   // selector's priority.
-  /deep/ #{$selector} material-checkbox.themeable .icon-container .icon.filled {
+  ::ng-deep #{$selector} material-checkbox.themeable .icon-container .icon.filled {
     color: $primary-color;
   }
 
-  /deep/ #{$selector} material-checkbox .icon-container .ripple.filled {
+  ::ng-deep #{$selector} material-checkbox .icon-container .ripple.filled {
     color: $primary-color;
+  }
+}
+
+
+/// Removes left margin of <material-checkbox>s
+///
+/// Example use: @include checkbox-no-left-margin
+@mixin checkbox-no-left-margin {
+  ::ng-deep {
+    margin-left: -3px;
   }
 }

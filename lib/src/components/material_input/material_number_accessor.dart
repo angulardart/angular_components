@@ -7,8 +7,8 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart';
-
 import '../../utils/angular/properties/properties.dart';
+
 import 'base_material_input.dart';
 import 'material_input.dart';
 import 'material_input_default_value_accessor.dart';
@@ -82,6 +82,7 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
   @override
   void registerOnChange(callback) {
     disposer.addStreamSubscription(_updateStream.listen((_) {
+      if (input == null) return; // Input is no longer valid
       final rawValue = input.inputText;
       final value = _parseNumber(rawValue);
       // Pass the rawValue and the num value. This allows validators to process

@@ -26,7 +26,6 @@ import '../mixins/has_tab_index.dart';
 @Directive(selector: '[buttonDecorator]', host: const {
   '(click)': r'handleClick($event)',
   '(keypress)': r'handleKeyPress($event)',
-  '[tabindex]': 'tabIndex',
   'role': 'button',
   '[attr.aria-disabled]': 'disabledStr',
   '[class.is-disabled]': 'disabled',

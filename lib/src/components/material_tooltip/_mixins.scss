@@ -15,7 +15,7 @@
 @mixin material-icon-tooltip-theme($primary-color,
   $active-color: $primary-color) {
 
-  /deep/ material-icon-tooltip {
+  ::ng-deep material-icon-tooltip {
     glyph {
       color: $primary-color;
     }

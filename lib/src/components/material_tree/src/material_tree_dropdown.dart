@@ -28,8 +28,6 @@ import 'material_tree_impl.dart';
       'itemRenderer',
       'options',
       'selection',
-      // DropdownHandle
-      'autoDismiss',
     ],
     directives: const [
       DeferredContentDirective,

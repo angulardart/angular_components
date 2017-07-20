@@ -49,5 +49,5 @@ $navi-bar-margin: -1 * $tab-indicator-height;
   right: 0;
   height: $tab-indicator-height;
   position: absolute;
-  transition: transform $mat-transition-fast-slow $mat-transition-slow;
+  transition: transform $mat-transition-standard $mat-transition-slow;
 }

@@ -15,7 +15,8 @@ import '../button_decorator/button_decorator.dart';
 /// __Expected Properties:__
 ///
 /// - `disabled: bool` -- Whether the button should not respond to events, and
-///   have a style that suggests that interaction is not allowed.
+///   have a style that suggests that interaction is not allowed. Note: only
+///   stops the trigger event, not native events.
 /// - `raised: bool` -- Whether to have a box-shadow that makes the button look
 ///   raised.
 ///
@@ -34,6 +35,7 @@ class MaterialButtonBase extends ButtonDirective {
 
   /// Whether the button should be raised.
   bool get raised => _raised;
+  @Input()
   set raised(value) {
     _raised = getBool(value);
   }
@@ -70,23 +72,27 @@ class MaterialButtonBase extends ButtonDirective {
   void focusedStateChanged() {}
 
   /// Triggered on a mouse press.
+  @HostListener('mousedown', const [r'$event'])
   void onMouseDown(_) {
     _clickFocused = true;
     _isMouseDown = true;
   }
 
   /// Triggered on a mouse release.
+  @HostListener('mouseup', const [r'$event'])
   void onMouseUp(_) {
     _isMouseDown = false;
   }
 
   /// Triggered on focus.
+  @HostListener('focus', const [r'$event'])
   void onFocus(UIEvent event) {
     if (_clickFocused) return;
     _setFocused(true);
   }
 
   /// Triggered on blur.
+  @HostListener('blur', const [r'$event'])
   void onBlur(UIEvent event) {
     if (_clickFocused) _clickFocused = false;
     // Always ensure that focused is false.

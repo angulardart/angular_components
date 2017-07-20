@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.utils.angular.managed_zone.src.managed_zone;
-
 import 'dart:async';
 
 import '../../../disposer/disposer.dart';
@@ -54,12 +52,12 @@ abstract class ManagedZone implements Disposable {
   /// calling. [onTurnStart] may be executed *after* executing [fn].
   ///
   /// If [inInnerZone] is true, [fn] is just called normally.
-  /*=T*/ runInside/*<T>*/(/*=T*/ fn());
+  T runInside<T>(T fn());
 
   /// Runs the code within [fn] outside of this zone.
   ///
   /// If [inOuterZone] is true, [fn] is just called normally.
-  /*=T*/ runOutside/*<T>*/(/*=T*/ fn());
+  T runOutside<T>(T fn());
 }
 
 /// A partial implementation of [ManagedZone] without bindings to Angular.
@@ -129,7 +127,7 @@ abstract class ManagedZoneBase extends ManagedZone {
   }
 
   @override
-  /*=T*/ runInside/*<T>*/(/*=T*/ fn()) {
+  T runInside<T>(T fn()) {
     if (inInnerZone) {
       return fn();
     } else {
@@ -138,7 +136,7 @@ abstract class ManagedZoneBase extends ManagedZone {
   }
 
   @override
-  /*=T*/ runOutside/*<T>*/(/*=T*/ fn()) {
+  T runOutside<T>(T fn()) {
     if (inOuterZone) {
       return fn();
     } else {

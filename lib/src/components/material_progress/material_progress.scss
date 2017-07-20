@@ -57,7 +57,7 @@ $indeterminate-duration: 2000ms;
 
   position: absolute;
   top: 0;
-  transition: transform $mat-transition $mat-transition-fast-slow;
+  transition: transform $mat-transition $mat-transition-standard;
   right: 0;
   bottom: 0;
   left: 0;

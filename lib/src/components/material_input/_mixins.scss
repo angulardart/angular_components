@@ -15,16 +15,15 @@
 
 // Sass mixins for customizing material-input
 
-/// Changes the material-input's label which is defined by $selector
-/// to be $color
-@mixin input-label-color($selector, $color) {
-  #{$selector} /deep/ .top-section > .input-container > .label > .label-text {
+/// Changes the material-input's label to be $color
+@mixin input-label-color($color) {
+  ::ng-deep .top-section > .input-container > .label > .label-text {
     color: $color;
   }
 }
 
-@mixin input-leading-glyph-color($selector, $color) {
-  #{$selector} /deep/ .glyph {
+@mixin input-leading-glyph-color($color) {
+  ::ng-deep .glyph {
     color: $color;
   }
 }
@@ -32,7 +31,7 @@
 /// Changes the padding of the top section (without underline) of material
 /// input.
 @mixin input-top-section-padding($padding) {
-  /deep/ .top-section {
+  ::ng-deep .top-section {
     padding: $padding;
   }
 }
@@ -40,7 +39,7 @@
 /// Changes the margin of the top section (without underline) of material
 /// input.
 @mixin input-top-section-margin($margin) {
-  /deep/ .top-section {
+  ::ng-deep .top-section {
     margin: $margin;
   }
 }
@@ -48,61 +47,63 @@
 /// Changes the line-height of the top section (without underline) of material
 /// input.
 @mixin input-top-section-line-height($line-height) {
-  /deep/ .top-section {
+  ::ng-deep .top-section {
     line-height: $line-height;
   }
 }
 
 /// Hides the bottom section of material input.
 @mixin input-hide-bottom-section() {
-  /deep/ .bottom-section {
+  ::ng-deep .bottom-section {
     display: none;
+  }
+}
+
+/// Changes the bottom section padding of material input.
+@mixin input-bottom-section-padding($padding) {
+  ::ng-deep .bottom-section {
+    padding: $padding;
   }
 }
 
 /// Changes the padding of the leading text.
 @mixin material-input-leading-text-padding($padding) {
-  /deep/ .leading-text {
+  ::ng-deep .leading-text {
     padding: $padding;
   }
 }
 
 /// Changes the `$primary-color`in the material-input which includes the label
 /// text and underline.
-///
-/// Optionally specify a `$selector`. Example usage:
-///     @include material-input-theme(
-///         $primary-color: $mat-teal-500,
-///         $selector: '.custom-area');
-@mixin material-input-theme($primary-color, $selector: '') {
-  #{$selector} /deep/ material-input.themeable .focused.label-text {
-    color: $primary-color;
-  }
-
-  #{$selector} /deep/ material-input.themeable .cursor {
-    background-color: $primary-color;
-  }
-
-  #{$selector} /deep/ material-input.themeable {
+@mixin material-input-theme($primary-color) {
+  ::ng-deep material-input.themeable {
     @include material-input-focused-underline-color($primary-color);
+
+    .cursor {
+      background-color: $primary-color;
+    }
+
+    .focused.label-text {
+      color: $primary-color;
+    }
   }
 }
 
 /// Changes the bottom section of the material input to not wrap.
 @mixin error-text-nowrap() {
-  /deep/ .error-text {
+  ::ng-deep .error-text {
     white-space: nowrap;
   }
 }
 
 @mixin material-input-no-underline() {
-  /deep/ .underline {
+  ::ng-deep .underline {
     display: none;
   }
 }
 
 @mixin input-enforce-ltr() {
-  /deep/ {
+  ::ng-deep {
     .input,
     .textarea {
       /*! @noflip */
@@ -117,20 +118,20 @@
 }
 
 @mixin material-input-display-focused-underline() {
-  /deep/ .focused-underline {
+  ::ng-deep .focused-underline {
     transform: scale(1);
     visibility: visible;
   }
 }
 
 @mixin material-input-focused-underline-color($color) {
-  /deep/ .focused-underline {
+  ::ng-deep .focused-underline {
     background-color: $color;
   }
 }
 
 @mixin material-input-disabled-input-color($color) {
-  /deep/ .disabledInput {
+  ::ng-deep .disabledInput {
     color: $color;
   }
 }

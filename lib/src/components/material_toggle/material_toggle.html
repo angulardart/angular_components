@@ -14,7 +14,7 @@
      (mouseenter)="isHovered=true"
      (mouseleave)="isHovered=false"
      role="button"
-     [tabindex]="disabled ? '-1': '0'">
+     [attr.tabindex]="disabled ? '-1': '0'">
   <div class="tgl-lbl" *ngIf="hasLabel">{{label}}</div>
   <div class="tgl-container">
     <div class="tgl-bar" animated attr.elevation="{{shadow_z}}"></div>

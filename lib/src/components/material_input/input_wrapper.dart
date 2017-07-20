@@ -16,6 +16,7 @@ class MaterialInputWrapper {
   int maxCount;
   bool showHintOnlyOnFocus = false;
   bool required = false;
+  String requiredErrorMsg;
   bool rightAlign = false;
   String trailingText;
 

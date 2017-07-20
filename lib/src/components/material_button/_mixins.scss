@@ -176,7 +176,7 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 @mixin fab-custom-size($size, $icon-size: $fab-icon-size) {
   border-radius: $size / 2;
 
-  /deep/ {
+  ::ng-deep {
     .content {
       height: $size;
       width: $size;
@@ -194,44 +194,38 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 // The color given is not applied to disabled button, as it could otherwise look
 // as an enabled button.
 @mixin button-color($selector, $color, $hover-color: $color) {
-  /deep/ #{$selector} {
-    &:not([disabled]) {
-      > .content {
-        color: $color;
-      }
+  ::ng-deep #{$selector}:not([disabled]) {
+    > .content {
+      color: $color;
+    }
 
-      &:hover > .content {
-        color: $hover-color;
-      }
+    &:hover > .content {
+      color: $hover-color;
     }
   }
 }
 
 @mixin button-background-color($selector, $background-color) {
-  /deep/ #{$selector} {
-    &:not([disabled]) {
-      background-color: $background-color;
-    }
+  ::ng-deep #{$selector}:not([disabled]) {
+    background-color: $background-color;
   }
 }
 
 /// Applies letter-spacing to the text of <material-button>.
 @mixin button-letter-spacing($selector, $letter-spacing) {
-  /deep/ #{$selector} div {
+  ::ng-deep #{$selector} div {
     letter-spacing: $letter-spacing;
   }
 }
 
 @mixin icon-button-color($selector, $color, $hover-color: $color) {
-  /deep/ #{$selector} {
-    &:not([disabled]) {
-      > .content > glyph {
-        color: $color;
-      }
+  ::ng-deep #{$selector}:not([disabled]) {
+    > .content > glyph {
+      color: $color;
+    }
 
-      &:hover > .content > glyph {
-        color: $hover-color;
-      }
+    &:hover > .content > glyph {
+      color: $hover-color;
     }
   }
 }

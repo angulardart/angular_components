@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.model.selection.string_selection_options;
-
 import 'package:meta/meta.dart';
 
 import '../../utils/async/async.dart';
@@ -11,14 +9,15 @@ import '../ui/has_renderer.dart';
 import './select.dart';
 import './selection_options.dart';
 
-/// Format string to be insensitive on case and spaces.
-String _stringFormatSuggestion/*<T>*/(/*=T*/ Object value) =>
+/// Formats [value] as a lowercase string without spaces.
+String _stringFormatSuggestion<T>(T value) =>
     '$value'.replaceAll(' ', '').toLowerCase();
 
 typedef StringSuggestionFilter(suggestion, String filterQuery);
 
-/// The class is meant to be used in areas where a selection can be
-/// represented as a string.
+/// The class is meant to be used in areas where a selection can be represented
+/// as a string.
+///
 /// Ex:
 /// class Color {
 ///   final int colorId;
@@ -29,43 +28,40 @@ typedef StringSuggestionFilter(suggestion, String filterQuery);
 ///
 /// var options = new StringSelectionOptions<Color>(
 ///     // list of colors
-///     [new Color (1, 'Red'), new Color(2, 'Blue'), new Color(3, Purple)],
+///     [new Color (1, 'Red'), new Color(2, 'Blue'), new Color(3, 'Purple')],
 ///     // converts color object to string for filtering.
 ///     (Color color) => color.displayName.toLowerCase());
-///
 class StringSelectionOptions<T> extends SelectionOptions<T>
     implements Filterable {
   /// Unlimited large value to support no limit for filtering.
   static const int UNLIMITED = 9007199254740992;
 
-  /// Store the last query passed to filter.
+  /// The last query passed to [filter].
   String _currentQuery;
 
   /// The current limit for the filter being applied.
   int _currentLimit = -1;
 
-  /// List of options.
   List<OptionGroup<T>> _optionGroups;
 
-  /// The itemRenderer is used for filtering the options.
+  /// A function that converts a single option to a filterable string.
   ItemRenderer<T> _toFilterableString;
 
   /// Function for filtering a single suggestion/option, defaults to
   /// [filterOption] method.
   StringSuggestionFilter _suggestionFilter;
 
-  /// The itemRenderer is used for sanitizing options and queries before
-  /// filtering.
+  /// The [ItemRenderer] that sanitizes options and queries before filtering.
   ItemRenderer _sanitizeString;
 
   bool _shouldSort = false;
 
-  /// The list of options and optionally a function to convert the option
-  /// into a string that can be used for filtering the list.
+  /// The list of options and optionally a function to convert the option into a
+  /// string that can be used for filtering the list.
   ///
   /// The options must be either strings or convertible to strings using an
-  /// optional [ItemRenderer] that is passed in.  If no [ItemRenderer] is
-  /// passed in, [_stringFormatSuggestion] will be used.
+  /// optional [ItemRenderer] that is passed in.  If no [ItemRenderer] is passed
+  /// in, [_stringFormatSuggestion] will be used.
   ///
   /// If the data needs to be sorted, it should be passed in sorted, options
   /// .sort() is a simple way apply the default sorting rules.
@@ -96,12 +92,11 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
 
   /// Accepts a string query and limit and applies the filter to the options.
   ///
-  /// If the limit is 0 or negative, it will return all possible options
-  /// that match the query.
+  /// If the limit is 0 or negative, it will return all possible options that
+  /// match the query.
   ///
   /// TODO(google): In a followup CL, refactor the reusable portions of this code
   /// into a generic filter.
-  ///
   @override
   DisposableFuture<bool> filter(Object query, {int limit: -1}) {
     _currentLimit = limit < 1 ? UNLIMITED : limit;
@@ -129,8 +124,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
     super.optionGroups = filtered;
   }
 
-  /// Filter a single OptionGroup.
-  /// Method is exposed to allow override.
+  @protected
   OptionGroup<T> filterOptionGroup(
       OptionGroup<T> group, String filterQuery, int limit) {
     Iterable<T> list;
@@ -152,13 +146,20 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
     return filteredGroup;
   }
 
-  /// Filters a single option.
-  /// Method is exposed to allow override.
+  @protected
   bool filterOption(T option, String filterQuery) {
     // StringFormatSuggestion is used to eliminate spaces to make the
     // pattern matching a simple contains as opposed to a regex.
     return _sanitizeString(_toFilterableString(option)).contains(filterQuery);
   }
+
+  @override
+  Object get currentQuery => _currentQuery;
+
+  @override
+  int get currentLimit => _currentLimit;
+
+  List<OptionGroup<T>> get unfilteredOptionGroups => _optionGroups;
 
   @override
   set optionGroups(List<OptionGroup<T>> value) {
@@ -178,13 +179,4 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
 
   int _sortFn(T a, T b) =>
       _toFilterableString(a).compareTo(_toFilterableString(b));
-
-  @override
-  Object get currentQuery => _currentQuery;
-
-  @override
-  int get currentLimit => _currentLimit;
-
-  /// Returns the unfiltered list of option groups.
-  List<OptionGroup<T>> get unfilteredOptionGroups => _optionGroups;
 }

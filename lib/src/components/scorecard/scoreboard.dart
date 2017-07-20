@@ -13,8 +13,8 @@ import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/angular_2.dart';
 import '../../utils/color/palette.dart';
 import '../../utils/disposer/disposer.dart';
-import '../glyph/glyph.dart';
 import '../material_button/material_button.dart';
+import '../material_icon/material_icon.dart';
 import 'scorecard.dart';
 import 'src/scorecard_bar.dart';
 
@@ -53,10 +53,10 @@ import 'src/scorecard_bar.dart';
 @Component(
     selector: 'acx-scoreboard',
     directives: const [
-      GlyphComponent,
       MaterialButtonComponent,
+      MaterialIconComponent,
+      NgIf,
       ScorecardBarDirective,
-      NgIf
     ],
     templateUrl: 'scoreboard.html',
     styleUrls: const ['scoreboard.scss.css'],

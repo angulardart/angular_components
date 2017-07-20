@@ -188,9 +188,9 @@ input[type=number] {
 
 .animated,
 .reset {
-  transition: opacity $mat-transition $mat-transition-fast-slow,
-              transform $mat-transition $mat-transition-fast-slow,
-              font-size $mat-transition $mat-transition-fast-slow;
+  transition: opacity $mat-transition $mat-transition-standard,
+              transform $mat-transition $mat-transition-standard,
+              font-size $mat-transition $mat-transition-standard;
 }
 
 .animated.label-text {
