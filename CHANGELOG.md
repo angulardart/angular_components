@@ -6,7 +6,7 @@
 
  * Add Material Icon.
  * Deprecate `GlyphComponent` in favor of `MaterialIconComponent`.
- * Update dependency to angular: 4.0.0-alpha+1. 
+ * Update dependency to angular: 4.0.0-alpha+1.
  * Material Checkbox: Add mixin for checkbox with no left margin.
  * Material Chips: Add ability to specify background color for left icon.
  * Material Expansionpanel: Add mixin to allow changes to panels without
@@ -94,8 +94,8 @@
 ## 0.5.2
 
  * Material Progress: Cleanup animations on destroy to prevent memory leaks.
- * Material Select: 
-   * Support deselect item in Material dropdown select with single selection 
+ * Material Select:
+   * Support deselect item in Material dropdown select with single selection
      model.
    * Unified template files (deleted material_select_dropdown_item.html).
    * Add support for `Selectable` `SelectionOptions`.
