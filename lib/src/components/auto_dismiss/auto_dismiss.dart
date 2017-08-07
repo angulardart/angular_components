@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
 
@@ -31,7 +32,7 @@ class AutoDismissDirective {
   final Stream _click;
   final NgZone _zone;
 
-  AutoDismissDirective(ElementRef element, this._zone)
+  AutoDismissDirective(HtmlElement element, this._zone)
       : _click = triggersOutside(element);
 
   bool _ignoreClicks = false;

@@ -125,7 +125,7 @@ class MaterialTreeNode<T> {
   bool isExpandable(T option) => _isExpandable(option);
 
   /// Whether [option] should be shown expanded in the UI.
-  bool isExpanded(T option) => expandAll || _expandedNodes.containsKey(option);
+  bool isExpanded(T option) => _expandedNodes.containsKey(option);
 
   /// Whether no selection is possible but the item is normally selectable.
   bool get isReadOnly => _root.selection == const SelectionModel();
@@ -208,6 +208,37 @@ class MaterialTreeNode<T> {
       return !_root.selection.deselect(option);
     } else {
       return _root.selection.select(option);
+    }
+  }
+
+  /// Selects or deselects two nodes and all the siblings in between.
+  void toggleSelectionRangeInclusive(
+      T firstNode, T lastNode, bool isSelection) {
+    // Only proceeds if both nodes are siblings of the same group.
+    if (!group.contains(firstNode) || !group.contains(lastNode)) return;
+
+    // Using a for loop instead of a lazy iterable (e.g., takeWhile) because
+    // it's better for performance.
+    var isCurrentlyToggling = false;
+    for (var node in group) {
+      // Skip over if the node is not within the range of 2 terminal nodes.
+      if (node != firstNode && node != lastNode && !isCurrentlyToggling) {
+        continue;
+      }
+
+      if (isSelection) {
+        _root.selection.select(node);
+      } else {
+        _root.selection.deselect(node);
+      }
+
+      if (node == firstNode || node == lastNode) {
+        if (!isCurrentlyToggling) {
+          isCurrentlyToggling = true;
+        } else {
+          break;
+        }
+      }
     }
   }
 

@@ -57,10 +57,9 @@ class MaterialSelectItemComponent extends ButtonDirective
   @override
   final DomService domService;
 
-  MaterialSelectItemComponent(ElementRef elementRef, this.domService,
+  MaterialSelectItemComponent(this.element, this.domService,
       @Optional() this._dropdown, @Optional() this._activationHandler)
-      : element = elementRef.nativeElement,
-        super(elementRef) {
+      : super(element) {
     _disposer.addStreamSubscription(trigger.listen(handleActivate));
   }
 

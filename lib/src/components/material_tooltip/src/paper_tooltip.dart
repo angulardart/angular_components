@@ -55,7 +55,6 @@ getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
     template: '''
 <material-popup *ngIf="popupSource != null"
                 [visible]="showPopup"
-                matchSourceWidth="false"
                 enforceSpaceConstraints
                 trackLayoutChanges
                 [preferredPositions]="preferredPositions"

@@ -217,9 +217,9 @@ abstract class BoundaryAwareKeyUpDirective implements OnDestroy {
   StreamSubscription _subscription;
 
   BoundaryAwareKeyUpDirective(
-      ElementRef element, @Optional() KeyUpBoundaryDirective boundary) {
+      Element element, @Optional() KeyUpBoundaryDirective boundary) {
     final Stream<KeyboardEvent> keyUpStream =
-        boundary?.keyUpStream ?? _keyUpEventStream(element);
+        boundary?.keyUpStream ?? Element.keyUpEvent.forElement(element);
     _subscription =
         keyUpStream.where(_isKeyUpMatching).listen(_onMatchingKeyUp);
   }
@@ -245,8 +245,8 @@ class KeyUpBoundaryDirective {
   /// Stream of `keyup` [KeyboardEvent]s of the DOM subtree.
   final Stream<KeyboardEvent> keyUpStream;
 
-  KeyUpBoundaryDirective(ElementRef element)
-      : keyUpStream = _keyUpEventStream(element);
+  KeyUpBoundaryDirective(Element element)
+      : keyUpStream = Element.keyUpEvent.forElement(element);
 }
 
 /// If attached to the yes-no buttons it will listen for escape `keyup` event
@@ -258,8 +258,8 @@ class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
 
   MaterialButtonComponent get noButton => _yesNo.noButton;
 
-  EscapeCancelsDirective(this._yesNo, ElementRef element,
-      @Optional() KeyUpBoundaryDirective boundary)
+  EscapeCancelsDirective(
+      this._yesNo, Element element, @Optional() KeyUpBoundaryDirective boundary)
       : super(element, boundary);
 
   @override
@@ -286,8 +286,8 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
   MaterialButtonComponent get noButton => _yesNo.noButton;
   bool _enterAccepts = true;
 
-  EnterAcceptsDirective(this._yesNo, ElementRef element,
-      @Optional() KeyUpBoundaryDirective boundary)
+  EnterAcceptsDirective(
+      this._yesNo, Element element, @Optional() KeyUpBoundaryDirective boundary)
       : super(element, boundary);
 
   /// Enables the directive to be conditionally applied.
@@ -310,7 +310,3 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
   @override
   void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.onYes(event);
 }
-
-/// Returns the [Stream] of `keyup` [KeyboardEvent]s of the given [element].
-Stream<KeyboardEvent> _keyUpEventStream(ElementRef element) =>
-    Element.keyUpEvent.forElement(element.nativeElement);

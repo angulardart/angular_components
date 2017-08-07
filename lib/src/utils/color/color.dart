@@ -32,12 +32,12 @@ class Color {
   /// Color channels.
   ///
   /// Should be between 0 and 255, inclusive.
-  final int _r, _g, _b;
+  final int red, green, blue;
 
   /// Alpha channel.
   ///
   /// Should be between 0 and 1, inclusive.
-  final num _a;
+  final num alpha;
 
   /// RGB color.
   ///
@@ -48,7 +48,31 @@ class Color {
   ///
   /// Each color channel should be between 0 and 255, inclusive. The alpha
   /// channel should be between 0 and 1, inclusive.
-  const Color.rgba(this._r, this._g, this._b, this._a);
+  const Color.rgba(this.red, this.green, this.blue, this.alpha);
+
+  /// Linearly interpolate between two numbers.
+  ///
+  /// Returns [a] when t = 0 and [b] when t = 1, without floating point errors.
+  static num _lerpNum(num a, num b, double t) {
+    if (t < 0.0 || t > 1.0) throw new ArgumentError.value(t, 't');
+    return a * (1.0 - t) + b * t;
+  }
+
+  /// Linearly interpolates between two colors.
+  ///
+  /// [t] is the fraction of interpolation from [a] to [b]; between 0 and 1.
+  ///
+  /// If one color is null, a transparent instance of the other color is used.
+  static Color lerp(Color a, Color b, num t) {
+    if (a == null && b == null) return null;
+    if (a == null) return b.withAlpha(_lerpNum(0, b.alpha, t));
+    if (b == null) return a.withAlpha(_lerpNum(a.alpha, 0, t));
+    return new Color.rgba(
+        _lerpNum(a.red, b.red, t).toInt(),
+        _lerpNum(a.green, b.green, t).toInt(),
+        _lerpNum(a.blue, b.blue, t).toInt(),
+        _lerpNum(a.alpha, b.alpha, t));
+  }
 
   static void _checkValues(int r, int g, int b, num a, [String s]) {
     if (r < 0 ||
@@ -114,14 +138,16 @@ class Color {
   /// Creates a copy of this, with the given alpha channel value.
   Color withAlpha(num a) {
     assert(a >= 0 && a <= 1);
-    return new Color.rgba(_r, _g, _b, a);
+    return new Color.rgba(red, green, blue, a);
   }
 
-  String get _alphaString => _a < _alphaThreshold ? '0' : _a.toStringAsFixed(2);
+  String get _alphaString =>
+      alpha < _alphaThreshold ? '0' : alpha.toStringAsFixed(2);
 
   /// Returns this as a string in rgb() or rgba() functional notation.
-  String get rgbString =>
-      _a == 1 ? 'rgb($_r,$_g,$_b)' : 'rgba($_r,$_g,$_b,$_alphaString)';
+  String get rgbString => alpha == 1
+      ? 'rgb($red,$green,$blue)'
+      : 'rgba($red,$green,$blue,$_alphaString)';
 
   /// Returns a 2-character hex representation of an int between 0 and 255.
   static String _toHex(num value) =>
@@ -129,8 +155,8 @@ class Color {
 
   /// Returns this as a string in #rrggbb or #rrggbbaa hex notation.
   String get hexString =>
-      '#${_toHex(_r)}${_toHex(_g)}${_toHex(_b)}' +
-      (_a == 1 ? '' : '${_toHex(255 * _a)}');
+      '#${_toHex(red)}${_toHex(green)}${_toHex(blue)}' +
+      (alpha == 1 ? '' : '${_toHex(255 * alpha)}');
 
   @override
   String toString() => rgbString;
@@ -139,11 +165,11 @@ class Color {
   bool operator ==(o) =>
       identical(this, o) ||
       o is Color &&
-          _r == o._r &&
-          _g == o._g &&
-          _b == o._b &&
-          (_a - o._a).abs() < _alphaThreshold;
+          red == o.red &&
+          green == o.green &&
+          blue == o.blue &&
+          (alpha - o.alpha).abs() < _alphaThreshold;
 
   @override
-  int get hashCode => hash4(_r, _g, _b, _a);
+  int get hashCode => hash4(red, green, blue, alpha);
 }

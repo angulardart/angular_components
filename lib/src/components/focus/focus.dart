@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:html' show KeyCode, KeyboardEvent, Element;
+import 'dart:html' show KeyCode, KeyboardEvent, Element, HtmlElement;
 
 import 'package:angular/angular.dart';
 
@@ -24,22 +24,21 @@ abstract class Focusable {
 /// An abstract class for components to extend if their programmatic focus
 /// should simply put focus on root element.
 abstract class RootFocusable implements Focusable, Disposable {
-  ElementRef _root;
+  Element _root;
   RootFocusable(this._root);
 
   @override
   void focus() {
     if (_root == null) return;
-    Element element = _root.nativeElement;
     // if element does not have positive tab index attribute already specified
     // or is native element.
     // NOTE: even for elements with tab index unspecified it will return
     // tabIndex as "-1" and we have to set it to "-1"
     // to actually make it focusable.
-    if (element.tabIndex < 0) {
-      element.tabIndex = -1;
+    if (_root.tabIndex < 0) {
+      _root.tabIndex = -1;
     }
-    element.focus();
+    _root.focus();
   }
 
   @override
@@ -59,11 +58,11 @@ abstract class ProjectedFocus implements Focusable {
       return;
     }
     focusDelegate.then((delegate) {
-      assert(delegate is Focusable || delegate is ElementRef);
+      assert(delegate is Focusable || delegate is Element);
       if (delegate is Focusable) {
         _resolvedFocusable = delegate;
       } else {
-        _resolvedFocusable = new _FocusableElement(delegate as ElementRef);
+        _resolvedFocusable = new _FocusableElement(delegate);
       }
       _resolvedFocusable.focus();
     });
@@ -71,7 +70,7 @@ abstract class ProjectedFocus implements Focusable {
 }
 
 class _FocusableElement extends RootFocusable {
-  _FocusableElement(ElementRef element) : super(element);
+  _FocusableElement(HtmlElement element) : super(element);
 }
 
 /// A focusable component that can publish to the
@@ -140,7 +139,7 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
   PopupRef _popupRef;
 
   AutoFocusDirective(
-      ElementRef node,
+      HtmlElement node,
       this._domService,
       @Optional() this._focusable,
       @Optional() this._modal,
@@ -203,5 +202,5 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
 /// This directive is used to [ViewChild] focusable element in your view.
 @Directive(selector: '[focusableElement]', exportAs: 'focusableElement')
 class FocusableDirective extends RootFocusable {
-  FocusableDirective(ElementRef node) : super(node);
+  FocusableDirective(HtmlElement node) : super(node);
 }

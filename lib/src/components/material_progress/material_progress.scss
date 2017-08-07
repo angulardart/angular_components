@@ -17,6 +17,7 @@
 // Leading zeros avoid confusion in the keyframes.
 // scss-lint:disable LeadingZero
 
+@import 'lib/src/css/shared/compass_polyfills';
 @import
 'lib/src/css/material/material',
 'compass/css3/animation',

@@ -18,10 +18,10 @@ $tab-button-height: $mat-grid * 6;
 
 :host {
   @include button-base();
-  @include display-flex(inline-flex);
-  @include justify-content(center);
-  @include align-items(center);
 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   height: $tab-button-height;
   font-weight: $mat-font-weight-medium;
   color: $mat-gray-700;

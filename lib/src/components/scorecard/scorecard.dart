@@ -81,12 +81,6 @@ import '../material_ripple/material_ripple.dart';
       'class': 'themeable',
       '[attr.tabindex]': 'selectable ? 0 : null',
       '[attr.role]': 'selectable ? "button" : null',
-      '(keyup)':
-          'resetOutline()', // handled by [KeyboardOnlyFocusIndicatorDirective]
-      '(blur)':
-          'resetOutline()', // handled by [KeyboardOnlyFocusIndicatorDirective]
-      '(mousedown)':
-          'hideOutline()', // handled by [KeyboardOnlyFocusIndicatorDirective]
     },
     styleUrls: const ['scorecard.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
@@ -106,12 +100,9 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   bool _changeGlyph = false;
 
   final ChangeDetectorRef _changeDetector;
-  final ElementRef _ref;
-  HtmlElement get element => _ref.nativeElement;
-  ScorecardComponent(
-      this._changeDetector, ElementRef ref, DomService domService)
-      : this._ref = ref,
-        super(ref, domService);
+  final HtmlElement element;
+  ScorecardComponent(this._changeDetector, this.element, DomService domService)
+      : super(element, domService);
 
   /// The title of the scorecard.
   @Input()

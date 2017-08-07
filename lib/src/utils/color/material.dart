@@ -47,6 +47,30 @@ const borderLight = const Color.rgba(0, 0, 0, dividerOpacity);
 const borderDark = const Color.rgba(255, 255, 255, dividerOpacity);
 const borderDottedLight = lightestTransparentBlack;
 
+// Text colors.
+// https://material.io/guidelines/style/color.html#color-usability
+const textPrimary = transparentBlack;
+const textSecondary = lightTransparentBlack;
+const textHint = lighterTransparentBlack;
+const textDisabled = lighterTransparentBlack;
+const textDivider = borderLight;
+
+const textDarkPrimary = transparentWhite;
+const textDarkSecondary = lightTransparentWhite;
+const textDarkHint = lighterTransparentWhite;
+const textDarkDisabled = lighterTransparentWhite;
+const textDarkDivider = borderDark;
+
+// Icon colors.
+// https://material.io/guidelines/style/icons.html
+const iconFocused = transparentBlack;
+const icon = lightTransparentBlack;
+const iconInactive = lighterTransparentBlack;
+
+const iconDarkFocused = transparentWhite;
+const iconDark = lightTransparentWhite;
+const iconDarkInactive = lighterTransparentWhite;
+
 /// Common colors for scrollbars.
 const scrollbarThumb = lightestTransparentBlack;
 const scrollbarBackground = const Color.rgba(0, 0, 0, 0);

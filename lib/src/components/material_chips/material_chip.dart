@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 
@@ -11,7 +13,6 @@ import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
 import '../button_decorator/button_decorator.dart';
 import '../focus/focus.dart';
-import '../glyph/glyph.dart';
 
 /// A "chip" widget renders an object in the 'chip' format - a rounded box with
 /// a shadow, typically used in a horizontal list. Any object implementing the
@@ -19,8 +20,8 @@ import '../glyph/glyph.dart';
 ///
 /// The delete button is only shown when a selectionModel is set on the widget
 /// or a removable property is true.
-/// When hasLeftIcon is true, the left-icon content should be set to a Glyph
-/// component or to an SVG image.
+/// When hasLeftIcon is true, the left-icon content should be set to a
+/// `MaterialIconComponent` or an SVG image.
 /// Chip components are rendered in a `material-chips` component.
 ///
 /// __Example usage:__
@@ -42,10 +43,10 @@ import '../glyph/glyph.dart';
     preserveWhitespace: false,
     templateUrl: 'material_chip.html',
     styleUrls: const ['material_chip.scss.css'],
-    directives: const [GlyphComponent, ButtonDirective, NgIf],
+    directives: const [ButtonDirective, NgIf],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialChipComponent extends RootFocusable implements HasRenderer {
-  MaterialChipComponent(ElementRef root) : super(root);
+  MaterialChipComponent(Element root) : super(root);
 
   String get chipDeleteButtonMessage => Intl.message('Delete',
       name: 'chipDeleteButtonMessage',

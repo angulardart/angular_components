@@ -2,15 +2,17 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.components.popup.base;
-
 import 'dart:async';
 import 'dart:math';
+
+import 'package:angular/angular.dart';
 
 import '../../../utils/angular/properties/properties.dart';
 import '../../../utils/async/async.dart';
 import '../../enums/alignment.dart';
-import '../../popup/popup.dart';
+import './popup_event.dart';
+import './popup_source.dart';
+import './popup_state.dart';
 
 /// A reusable interface for something that is or delegates to [PopupComponent].
 abstract class PopupInterface {
@@ -20,51 +22,50 @@ abstract class PopupInterface {
   /// completes - for an example, to wait for an opening animation to finish.
   ///
   /// The *proposed* size of the popup is also provided as a [Rectangle].
+  @Output('open')
   Stream<PopupEvent> get onOpen;
 
   /// Fires an asynchronous event when the popup is being closed.
   ///
   /// The event can be cancelled (prevented) or deferred until a future
   /// completes - for an example, to wait for a closing animation to finish.
+  @Output('close')
   Stream<PopupEvent> get onClose;
-
-  /// Fires whenever the *content* size of the popup changes.
-  ///
-  /// **WARNING**: Listening to this stream requires listening to app-wide
-  /// notifications that the DOM may have been modified, and is potentially
-  /// expensive.
-  Stream<Rectangle> get onSize;
 
   /// A synchronous event that fires when the [visible] property of the popup
   /// changes (e.g. either from `false` to `true` or `true` to `false`).
   ///
   /// Unlike [onOpen] and [onClose], this occurs *after* the event completes.
+  @Output('visibleChange')
   Stream<bool> get onVisible;
 
   /// Sets the x-axis *content* alignment of the popup.
+  @Input()
   set alignContentX(String alignContentX);
 
   /// Sets the y-axis *content* alignment of the popup.
+  @Input()
   set alignContentY(String alignContentY);
 
   /// Sets whether the popup should dismiss (close) itself on document press.
+  @Input()
   set autoDismiss(dynamic autoDismiss);
 
   /// Sets whether the popup should automatically reposition itself based on
   /// space available relative to the viewport.
+  @Input()
   set enforceSpaceConstraints(dynamic enforceSpaceConstraints);
 
-  /// Sets whether popup should resize to width of the [source].
-  @Deprecated('Use `matchMinSourceWidth` or hardcode width on your contents')
-  set matchSourceWidth(dynamic matchSourceWidth);
-
   /// Sets whether popup should set a minimum width to the width of [source].
+  @Input()
   set matchMinSourceWidth(dynamic matchMinSourceWidth);
 
   /// Sets the x-offset to where the popup will be positioned ultimately.
+  @Input()
   set offsetX(int offsetX);
 
   /// Sets the y-offset to where the popup will be positioned ultimately.
+  @Input()
   set offsetY(int offsetY);
 
   /// Sets what positions should be tried when [enforceSpaceConstraints] is set.
@@ -72,17 +73,21 @@ abstract class PopupInterface {
   /// Similarly to Angular providers, this supports nested lists of preferred
   /// positions. The popup will flatten out the list of positions and choose the
   /// first one that fits on screen.
+  @Input()
   set preferredPositions(Iterable preferredPositions);
 
   /// Sets the source the popup should be created relative to.
+  @Input()
   set source(PopupSource source);
 
   /// Sets whether the [source] should be tracked for changes.
+  @Input()
   set trackLayoutChanges(dynamic trackLayoutChanges);
 
   /// Sets whether the popup should be shown.
   ///
   /// If [visible] is not the current state, this may close or open the popup.
+  @Input()
   set visible(bool visible);
 
   /// Toggles the visibility of the popup
@@ -99,8 +104,6 @@ abstract class PopupEvents {
 
   final LazyEventEmitter<PopupEvent> onClose =
       new LazyEventEmitter<PopupEvent>();
-
-  final LazyEventEmitter<Rectangle> onSize = new LazyEventEmitter<Rectangle>();
 
   final LazyEventEmitter<bool> onVisible =
       new LazyEventEmitter<bool>.broadcast();
@@ -129,11 +132,6 @@ abstract class PopupBase implements PopupInterface {
   @override
   set enforceSpaceConstraints(dynamic enforceSpaceConstraints) {
     state.enforceSpaceConstraints = getBool(enforceSpaceConstraints);
-  }
-
-  @override
-  set matchSourceWidth(dynamic matchSourceWidth) {
-    state.matchSourceWidth = getBool(matchSourceWidth);
   }
 
   @override
@@ -195,15 +193,6 @@ abstract class PopupComposite implements PopupInterface {
   @override
   set enforceSpaceConstraints(value) {
     _enforceSpaceConstraints = getBool(value);
-  }
-
-  bool _matchSourceWidth = false;
-
-  bool get matchSourceWidth => _matchSourceWidth;
-
-  @override
-  set matchSourceWidth(value) {
-    _matchSourceWidth = getBool(value);
   }
 
   bool _matchMinSourceWidth = true;

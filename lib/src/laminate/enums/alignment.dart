@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.enums.alignment;
-
 import 'dart:math';
 
 import 'src/base.dart';

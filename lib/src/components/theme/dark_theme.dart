@@ -42,6 +42,12 @@ class AcxDarkTheme {
     }
   }
 
+  void themeElement(HtmlElement element) {
+    if (_darkTheme) {
+      element.classes.add(darkThemeClass);
+    }
+  }
+
   bool get isDarkTheme => _darkTheme;
 }
 

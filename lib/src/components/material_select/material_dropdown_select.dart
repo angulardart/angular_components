@@ -187,6 +187,10 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   @Input()
   String deselectLabel;
 
+  /// An error displayed below the dropdown button.
+  @Input()
+  String error;
+
   @Input()
   ComponentRenderer labelRenderer;
 

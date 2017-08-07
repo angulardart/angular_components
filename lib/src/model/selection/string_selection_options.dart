@@ -18,7 +18,8 @@ typedef StringSuggestionFilter(suggestion, String filterQuery);
 /// The class is meant to be used in areas where a selection can be represented
 /// as a string.
 ///
-/// Ex:
+/// __Example usage:__
+/// ```dart
 /// class Color {
 ///   final int colorId;
 ///   final String displayName;
@@ -31,6 +32,7 @@ typedef StringSuggestionFilter(suggestion, String filterQuery);
 ///     [new Color (1, 'Red'), new Color(2, 'Blue'), new Color(3, 'Purple')],
 ///     // converts color object to string for filtering.
 ///     (Color color) => color.displayName.toLowerCase());
+/// ```
 class StringSelectionOptions<T> extends SelectionOptions<T>
     implements Filterable {
   /// Unlimited large value to support no limit for filtering.
@@ -63,8 +65,8 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   /// optional [ItemRenderer] that is passed in.  If no [ItemRenderer] is passed
   /// in, [_stringFormatSuggestion] will be used.
   ///
-  /// If the data needs to be sorted, it should be passed in sorted, options
-  /// .sort() is a simple way apply the default sorting rules.
+  /// If the data needs to be sorted, it should be passed in sorted. The option
+  /// [shouldSort] is a simple way to apply the default sorting rules.
   StringSelectionOptions(List<T> options,
       {ItemRenderer<T> toFilterableString,
       StringSuggestionFilter suggestionFilter,

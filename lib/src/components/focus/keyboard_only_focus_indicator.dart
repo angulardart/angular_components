@@ -21,20 +21,20 @@ import '../../utils/browser/dom_service/dom_service.dart';
     },
     exportAs: 'keyboardOnlyFocusIndicator')
 class KeyboardOnlyFocusIndicatorDirective {
-  final ElementRef _element;
+  final HtmlElement _element;
   final DomService _domService;
 
   KeyboardOnlyFocusIndicatorDirective(this._element, this._domService);
 
   void resetOutline() {
     _domService.scheduleWrite(() {
-      _element.nativeElement.style.outline = '';
+      _element.style.outline = '';
     });
   }
 
   void hideOutline() {
     _domService.scheduleWrite(() {
-      _element.nativeElement.style.outline = 'none';
+      _element.style.outline = 'none';
     });
   }
 
@@ -55,7 +55,7 @@ class KeyboardOnlyFocusIndicatorDirective {
   /// response to keypresses on the button.
   void focus([UIEvent event]) {
     _domService.scheduleWrite(() {
-      _element.nativeElement.focus();
+      _element.focus();
     });
     if (event is MouseEvent) {
       hideOutline();

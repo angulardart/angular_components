@@ -29,9 +29,7 @@ import './tab_mixin.dart';
 class TabButtonComponent extends MaterialButtonBase with TabMixin {
   final Element _nativeElement;
 
-  TabButtonComponent(ElementRef element)
-      : _nativeElement = element.nativeElement as Element,
-        super(element);
+  TabButtonComponent(this._nativeElement) : super(_nativeElement);
 
   @override
   Element get nativeElement => _nativeElement;

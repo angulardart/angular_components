@@ -7,9 +7,7 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../../laminate/components/popup/popup.dart'
-    show PopupSourceDirective;
-import '../../../laminate/popup/popup.dart' show DomPopupSourceFactory;
+import '../../../laminate/popup/popup.dart';
 import '../../../model/action/delayed_action.dart';
 import '../../../utils/angular/reference/reference.dart';
 import '../../../utils/browser/events/events.dart';
@@ -41,7 +39,7 @@ import 'tooltip_source.dart' show tooltipShowDelay;
   '(keyup)': 'showTooltipWithDelay()',
 })
 class MaterialTooltipTargetDirective extends TooltipBehavior
-    implements OnInit, OnDestroy {
+    implements AfterViewInit, OnDestroy {
   ElementRef elementRef;
 
   MaterialTooltipTargetDirective(
@@ -144,7 +142,7 @@ abstract class TooltipBehavior extends TooltipTarget {
       "tooltipActivate" /*From [TooltipBehavior]*/
     ])
 class ClickableTooltipTargetDirective extends TooltipBehavior
-    implements OnInit, OnDestroy {
+    implements AfterViewInit, OnDestroy {
   StreamSubscription _tooltipSubscription;
   ElementRef elementRef;
   bool _tooltipVisible = false;
@@ -213,7 +211,7 @@ abstract class TooltipTarget extends PopupSourceDirective
 
   TooltipTarget(DomPopupSourceFactory domPopupSourceFactory,
       this.viewContainerRef, ElementRef elementRef)
-      : super(domPopupSourceFactory, elementRef);
+      : super(domPopupSourceFactory, elementRef, /* referenceDirective */ null);
 
   /// Sets the tooltip associated with this target.
   void setTooltip(Tooltip component) {

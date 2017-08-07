@@ -37,6 +37,8 @@ const indeterminateAriaState = 'mixed';
 /// - `checked: bool` -- Whether the checkbox should be selected.
 /// - `disabled: bool` -- Whether the checkbox should not respond to events, and
 ///   have a style that suggests that interaction is not allowed.
+/// - `readOnly: bool` -- Whether the checkbox can be changed by user
+///   interaction.
 /// - `indeterminate: bool` -- Whether the checkbox should be set to mixed
 ///   state.
 /// - `indeterminateToChecked: bool` -- Whether the checkbox should go to
@@ -63,6 +65,7 @@ const indeterminateAriaState = 'mixed';
     inputs: const [
       'checked',
       'disabled',
+      'readOnly',
       'indeterminate',
       'indeterminateToChecked',
       'label',
@@ -74,6 +77,7 @@ const indeterminateAriaState = 'mixed';
       '(keypress)': r'handleKeyPress($event)',
       '(keyup)': r'handleKeyUp($event)',
       '(focus)': r'handleFocus($event)',
+      '(mousedown)': r'handleMouseDown($event)',
       '(blur)': r'handleBlur($event)',
       '[class.disabled]': 'disabled',
       '[attr.aria-disabled]': 'disabled',
@@ -88,7 +92,7 @@ const indeterminateAriaState = 'mixed';
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialCheckboxComponent implements ControlValueAccessor {
   final ChangeDetectorRef _changeDetector;
-  final ElementRef _root;
+  final HtmlElement _root;
   final String _defaultTabIndex;
   final String role;
 
@@ -166,6 +170,9 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
   bool get checked => _checked;
   bool _checked = false;
 
+  @Input()
+  bool readOnly = false;
+
   var _focused = false;
   var _isKeyboardEvent = false;
 
@@ -225,9 +232,8 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
   }
 
   void _syncAriaChecked() {
-    Element elm = _root?.nativeElement;
-    if (elm == null) return;
-    elm.attributes['aria-checked'] = _checkedStr;
+    if (_root == null) return;
+    _root.attributes['aria-checked'] = _checkedStr;
     _changeDetector?.markForCheck();
   }
 
@@ -252,7 +258,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
   /// [indeterminateToChecked].
   // Visible for testing.
   void toggleChecked() {
-    if (disabled) return;
+    if (disabled || readOnly) return;
     if (!indeterminate && !checked) {
       _setStates(checked: true);
     } else if (checked) {
@@ -265,7 +271,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
 
   // Capture keyup when we are the target of event.
   void handleKeyUp(KeyboardEvent event) {
-    if (event.target != _root.nativeElement) return;
+    if (event.target != _root) return;
     _isKeyboardEvent = true;
   }
 
@@ -275,9 +281,16 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
     toggleChecked();
   }
 
+  void handleMouseDown(MouseEvent mouseEvent) {
+    // This removes the text selection behavior of mousedown.
+    if (readOnly) {
+      mouseEvent.preventDefault();
+    }
+  }
+
   void handleKeyPress(KeyboardEvent event) {
     if (disabled) return;
-    if (event.target != _root.nativeElement) return;
+    if (event.target != _root) return;
     if (isSpaceKey(event)) {
       // Required to prevent window from scrolling.
       event.preventDefault();

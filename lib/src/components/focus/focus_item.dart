@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:html' show KeyboardEvent;
+import 'dart:html' show KeyboardEvent, HtmlElement;
 
 import 'package:angular/angular.dart';
 
@@ -32,7 +32,7 @@ import './focus.dart';
 class FocusItemDirective extends RootFocusable implements FocusableItem {
   final String role;
 
-  FocusItemDirective(ElementRef element, @Attribute('role') String role)
+  FocusItemDirective(HtmlElement element, @Attribute('role') String role)
       : this.role = role ?? 'listitem',
         super(element);
 

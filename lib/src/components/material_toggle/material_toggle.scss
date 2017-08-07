@@ -12,9 +12,6 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'compass/css3/flexbox';
-@import 'compass/css3/transform';
-@import 'compass/css3/transition';
 @import 'lib/src/components/material_shadow/css/shadow';
 
 $default-on-color: $mat-teal-500;
@@ -34,9 +31,9 @@ $vertical-space: $mat-grid * .25;
 }
 
 .material-toggle {
-  @include display-flex(inline-flex);
-  @include align-items(center);
-  @include justify-content(flex-end);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
 
   cursor: pointer;
   outline: none;
@@ -57,9 +54,9 @@ $vertical-space: $mat-grid * .25;
 }
 
 .tgl-bar {
-  @include transition(
-      background-color $mat-transition-fast $mat-transition-standard,
-      opacity $mat-transition-fast $mat-transition-standard);
+  transition: background-color $mat-transition-fast $mat-transition-standard;
+  transition: opacity $mat-transition-fast $mat-transition-standard;
+
   @include material-shadow;
 
   background-color: $off-bar-color;
@@ -75,9 +72,9 @@ $vertical-space: $mat-grid * .25;
 }
 
 .tgl-btn-container {
-  @include display-flex(inline-flex);
-  @include justify-content(flex-end);
-  @include transition(width $mat-transition-fast $mat-transition-standard);
+  display: inline-flex;
+  justify-content: flex-end;
+  transition: width $mat-transition-fast $mat-transition-standard;
   margin-top: -2px;
   position: absolute;
   top: 0;
@@ -89,8 +86,8 @@ $vertical-space: $mat-grid * .25;
 }
 
 .tgl-btn {
-  @include
-    transition(background-color $mat-transition-fast $mat-transition-standard);
+  transition: background-color $mat-transition-fast $mat-transition-standard;
+
   @include material-shadow;
 
   background-color: $off-btn-color;
@@ -105,7 +102,7 @@ $vertical-space: $mat-grid * .25;
 }
 
 .tgl-lbl {
-  @include flex-grow(1);
+  flex-grow: 1;
   display: inline-block;
   padding: $vertical-space $mat-grid $vertical-space 0;
   position: relative;

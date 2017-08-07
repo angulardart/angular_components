@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.components.modal.modal;
-
 import 'dart:async';
 import 'dart:html';
 
@@ -59,7 +57,8 @@ abstract class Modal {
 
   /// Events that fires before making [visible] `false`.
   ///
-  /// See [AsyncAction] for the API for deferring or cancelling the event.
+  /// See [AsyncAction] for the API for deferring or cancelling the event.\
+  @Output('close')
   Stream<AsyncAction> get onClose;
 
   /// Attempts to open the modal.
@@ -70,11 +69,13 @@ abstract class Modal {
   /// Events that fire before making [visible] `true`.
   ///
   /// See [AsyncAction] for the API for deferring or cancelling the event.
+  @Output('open')
   Stream<AsyncAction> get onOpen;
 
   /// A stream of click events on the modal.
   ///
   /// Only is active if [preventInteraction] is `true`.
+  @Output()
   Stream get shieldClick;
 
   /// Whether the modal is visible in the DOM.
@@ -84,6 +85,7 @@ abstract class Modal {
   bool get visible;
 
   /// Events that fire when [visible] changes.
+  @Output('visibleChange')
   Stream<bool> get onVisibleChanged;
 
   /// Whether the modal is temporarily hidden.
@@ -132,12 +134,6 @@ abstract class Modal {
 @Component(
   selector: 'modal',
   inputs: const ['preventInteraction', 'visible'],
-  outputs: const [
-    'shieldClick',
-    'onOpen: open',
-    'onClose: close',
-    'onVisibleChanged: visibleChange'
-  ],
   host: const {'[attr.pane-id]': 'uniquePaneId'},
   providers: const [
     const Provider(DeferredContentAware, useExisting: ModalComponent),
@@ -178,7 +174,8 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
 
   ModalComponent(OverlayService overlayService,
       @Optional() @SkipSelf() this._parentModal, @Optional() this._stack) {
-    _createdOverlayRef(overlayService.createSync(OverlayState.Dialog));
+    _createdOverlayRef(
+        overlayService.createOverlayRefSync(OverlayState.Dialog));
   }
 
   set preventInteraction(bool preventInteraction) {

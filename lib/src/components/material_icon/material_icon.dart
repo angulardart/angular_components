@@ -54,8 +54,9 @@ const List<String> _flippedIcons = const [
 ///
 /// __Inputs:__
 ///
-/// - `icon: Icon|String` -- The `Icon` model (lib/src/model/ui/icon.dart) or icon
-///   identifier (String) this component should display.
+/// - `icon: Icon|String` -- The `Icon` model
+///   (lib/src/model/ui/icon.dart) or icon identifier (String) this
+///   component should display.
 @Component(
     selector: 'material-icon',
     templateUrl: 'material_icon.html',
@@ -63,8 +64,8 @@ const List<String> _flippedIcons = const [
     changeDetection: ChangeDetectionStrategy.OnPush,
     preserveWhitespace: false)
 class MaterialIconComponent {
-  /// The `Icon` model (lib/src/model/ui/icon.dart) or icon identifier (String) this
-  /// component should display.
+  /// The `Icon` model (lib/src/model/ui/icon.dart) or icon
+  /// identifier (String) this component should display.
   ///
   /// See [https://www.google.com/design/icons/](https://goo.gl/YKrYlu) for
   /// available icons.
@@ -83,8 +84,7 @@ class MaterialIconComponent {
 
   final HtmlElement _element;
 
-  MaterialIconComponent(ElementRef elementRef)
-      : _element = elementRef.nativeElement;
+  MaterialIconComponent(this._element);
 }
 
 /// The values that can be used as sizes for a [MaterialIconComponent].

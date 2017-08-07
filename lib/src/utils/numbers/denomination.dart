@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.utils.numbers.denomination;
-
 import 'package:fixnum/fixnum.dart';
 
 /// A denomination type for defining how large values are mapped to [suffix]es

@@ -55,18 +55,17 @@ class MaterialRadioComponent extends RootFocusable
   final ChangeDetectorRef _changeDetector;
   final Disposer _disposer = new Disposer.oneShot();
   final MaterialRadioGroupComponent _group;
-  final ElementRef _root;
+  final HtmlElement _root;
   final String role;
 
   MaterialRadioComponent(
-      ElementRef element,
+      this._root,
       this._changeDetector,
       @Host() @Optional() this._group,
       @Self() @Optional() NgControl cd,
       @Attribute('role') String role)
-      : this._root = element,
-        this.role = role ?? 'radio',
-        super(element) {
+      : this.role = role ?? 'radio',
+        super(_root) {
     // participates in the Forms API.
     if (cd != null) {
       cd.valueAccessor = this;
@@ -175,7 +174,7 @@ class MaterialRadioComponent extends RootFocusable
 
   // Capture keydown to forward event to radio group when cycling focus.
   void handleKeyDown(KeyboardEvent event) {
-    if (event.target != _root.nativeElement) return;
+    if (event.target != _root) return;
     var focusEvent = new FocusMoveEvent.fromKeyboardEvent(this, event);
     if (focusEvent != null) {
       if (event.ctrlKey) {
@@ -190,7 +189,7 @@ class MaterialRadioComponent extends RootFocusable
 
   // Capture keyup when we are the target of event.
   void handleKeyUp(KeyboardEvent event) {
-    if (event.target != _root.nativeElement) return;
+    if (event.target != _root) return;
     _isKeyboardEvent = true;
   }
 
@@ -226,7 +225,7 @@ class MaterialRadioComponent extends RootFocusable
   }
 
   void handleKeyPress(KeyboardEvent event) {
-    if (event.target != _root.nativeElement) return;
+    if (event.target != _root) return;
     if (isSpaceKey(event)) {
       // Required to prevent window from scrolling.
       event.preventDefault();
@@ -238,8 +237,7 @@ class MaterialRadioComponent extends RootFocusable
   String get _ariaChecked => checked is bool ? '$checked' : 'mixed';
 
   void _syncAriaChecked() {
-    Element elm = _root?.nativeElement;
-    if (elm == null) return;
-    elm.attributes['aria-checked'] = _ariaChecked;
+    if (_root == null) return;
+    _root.attributes['aria-checked'] = _ariaChecked;
   }
 }

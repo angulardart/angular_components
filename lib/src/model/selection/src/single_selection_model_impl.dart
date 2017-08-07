@@ -4,7 +4,7 @@
 
 part of angular_components.model.selection.selection_model;
 
-class _SingleSelectionModelImpl<T> extends Observable
+class _SingleSelectionModelImpl<T> extends Observable<ChangeRecord>
     with SelectionChangeNotifier<T>
     implements SelectionModel<T> {
   final KeyProvider<T> _keyOf;

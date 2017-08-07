@@ -58,6 +58,14 @@ class DropdownButtonComponent extends Object with MaterialButtonWrapper {
   @ViewChild(ButtonDirective)
   ButtonDirective button;
 
+  /// An error displayed below the button.
+  ///
+  /// The button also gets a red underline when this is set.
+  @Input()
+  String error;
+
+  bool get invalid => error != null;
+
   @Output()
   LazyEventEmitter<FocusEvent> blur = new LazyEventEmitter<FocusEvent>();
 

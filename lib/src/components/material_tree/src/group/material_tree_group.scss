@@ -31,7 +31,7 @@ ul {
     }
 
     .tree-selection-state {
-      @include display-flex(inline-flex);
+      display: inline-flex;
       vertical-align: middle;
       width: $list-item-primary-width;
     }

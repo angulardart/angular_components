@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.utils.strings.string_utils;
-
 final RegExp _camelCaseSplitter = new RegExp('([a-z])([A-Z])');
 
 final RegExp _capitalLetter = new RegExp('[A-Z]');

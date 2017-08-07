@@ -113,9 +113,9 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   MaterialDialogComponent(
       this._domService, this._changeDetector, @Optional() this._modal);
 
-  @ViewChild('main')
-  set main(ElementRef elementRef) {
-    _mainElement = elementRef.nativeElement;
+  @ViewChild('main', read: HtmlElement)
+  set main(HtmlElement element) {
+    _mainElement = element;
     if (_modal == null) return;
     _disposer.addStreamSubscription(_modal.onOpen.listen((_) {
       _setHeaderFooterScrollBorder();

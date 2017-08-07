@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.popup.src.popup_event;
-
 import 'dart:async';
 import 'dart:math';
 
@@ -43,9 +41,6 @@ class AsyncPopupEvent<V> extends DelegatingAsyncAction<V>
   /// A callback that can return the popup content's size, asynchronously, in
   /// the next DOM read queue.
   final AsyncMeasureSize _asyncMeasureSize;
-
-  /// The size of the content. Will be non-null if not cancelled and [isOpen].
-  final onSizeCompleter = new Completer<Rectangle>.sync();
 
   /// Create a new open event.
   AsyncPopupEvent.open(this.delegate, this.source, this._asyncMeasureSize)

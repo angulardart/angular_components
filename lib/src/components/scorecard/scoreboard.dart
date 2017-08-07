@@ -167,10 +167,12 @@ class ScoreboardComponent implements OnInit, OnDestroy {
 
   void scrollBack() {
     _scorecardBar.scrollBack();
+    _resetTabIndex();
   }
 
   void scrollForward() {
     _scorecardBar.scrollForward();
+    _resetTabIndex();
   }
 
   void selectionChange(ScorecardComponent selectedScorecard) {
@@ -189,7 +191,46 @@ class ScoreboardComponent implements OnInit, OnDestroy {
       _atScorecardBarStart = _scorecardBar?.atStart ?? false;
       _atScorecardBarEnd = _scorecardBar?.atEnd ?? false;
       _changeDetector.markForCheck();
+      if (_scrollable) {
+        _resetTabIndex();
+      }
     }
+  }
+
+  /// Updates each scorecards' [HtmlElement.tabIndex] based on whether the
+  /// element is viewable.
+  ///
+  /// An element is viewable if it's relative offset is within the range of:
+  /// (current scrollbar transform, current scrollbar transform + current scroll
+  /// bar width). A tabIndex value of any non-negative number means it is
+  /// hoverable through tabs.
+  void _resetTabIndex() {
+    for (ScorecardComponent component in _scorecards) {
+      var offset = _scorecardOffset(component.element);
+      var scoreCardBarEndPosition = _scorecardBar.currentTransformSize +
+          _scorecardBar.currentClientSize -
+          _scorecardBar.currentButtonSize;
+      if (offset < scoreCardBarEndPosition &&
+          offset > _scorecardBar.currentTransformSize) {
+        component.element.tabIndex = 0;
+      } else {
+        component.element.tabIndex = -1;
+      }
+    }
+  }
+
+  /// Returns the relative bottom or left of a scorecard, depending on the
+  /// orientation of the scorecard.
+  ///
+  /// We need this to determine where in the list of scorecards the current
+  /// scorecard is located. When the scorecards are loaded left to right, if
+  /// the end of the scorecard overlaps with the scroll arrow, it'll hover over
+  /// the scorecard without affecting the transform. This is not the case for
+  /// vertical score cards, therefore we need to look for the bottom.
+  int _scorecardOffset(HtmlElement element) {
+    return isVertical
+        ? element.offsetTop + element.offsetHeight
+        : element.offsetLeft;
   }
 
   void _onScorecardsChange() {

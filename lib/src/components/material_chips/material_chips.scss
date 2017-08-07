@@ -13,15 +13,13 @@
 
 @import 'lib/src/css/material/material';
 
-@import 'compass/css3/flexbox';
-
 :host {
-  @include display-flex();
-  @include flex-wrap(wrap);
-  @include justify-content(flex-start);
-  @include flex-direction(row);
-  @include align-items(center);
-  @include align-content(space-around);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-around;
 
   margin: 0;
   padding: 0;

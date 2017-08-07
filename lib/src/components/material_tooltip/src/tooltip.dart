@@ -21,9 +21,9 @@ import 'tooltip_target.dart';
 @Directive(
     selector: '[materialTooltip]', providers: const [tooltipControllerBinding])
 class MaterialTooltipDirective extends TooltipTarget
-    implements OnDestroy, OnInit {
+    implements OnDestroy, OnInit, AfterViewInit {
   final _disposer = new Disposer.multi();
-  final DynamicComponentLoader _viewLoader;
+  final SlowComponentLoader _viewLoader;
   final ChangeDetectorRef _changeDetector;
   final html.Window _window;
 
@@ -182,7 +182,6 @@ class MaterialTooltipDirective extends TooltipTarget
 
   @override
   void ngOnInit() {
-    super.ngOnInit();
     if (_canShow) _attachHostListeners();
   }
 

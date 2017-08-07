@@ -21,6 +21,7 @@
         <material-checkbox
           *ngIf="isMultiSelect"
           class="tree-selection-state"
+          [readOnly]="true"
           [checked]="isSelected(option)"
           [disabled]="isReadOnly || showDisabledCheckbox(option)">
         </material-checkbox>

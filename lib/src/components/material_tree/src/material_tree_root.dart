@@ -26,4 +26,7 @@ abstract class MaterialTreeRoot<T>
   /// recommended use case and is provided for graceful failure. If you intend
   /// to use a flat data set consider [MaterialSelect].
   bool get supportsHierarchy => options is Parent;
+
+  /// The previously toggled node.
+  T previouslyToggledNode;
 }

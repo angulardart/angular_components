@@ -162,8 +162,7 @@ class MaterialRippleComponent implements OnDestroy {
   EventListener _onMouseDown;
   EventListener _onKeyDown;
 
-  MaterialRippleComponent(ElementRef elementRef)
-      : _element = elementRef.nativeElement {
+  MaterialRippleComponent(this._element) {
     // These are initialized here instead of when they're declared because
     // dart2js would otherwise wait to initialize them until they are used.
     _ripplePool ??= new List<DivElement>(_maxRipples);

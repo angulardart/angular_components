@@ -42,7 +42,7 @@ import '../mixins/material_dropdown_base.dart';
 /// - `trigger:MouseEvent|KeyboardEvent` -- fired when either mouse is clicked
 ///   or __enter__ or __space__ keys are pressed.
 ///
-// TODO(google): should activate/deactive on mouse hover
+// TODO(google): should activate/deactivate on mouse hover
 @Component(
     selector: 'material-list-item',
     host: const {
@@ -72,17 +72,16 @@ class MaterialListItemComponent extends ButtonDirective
   DomService domService;
 
   MaterialListItemComponent(
-      ElementRef elementRef,
+      this.element,
       this.domService,
       @Optional() this._dropdown,
       @Attribute('tabindex') this._hostTabIndex,
       @Attribute('role') String role)
       : this.role = role ?? 'button',
-        super(elementRef) {
+        super(element) {
     if (_dropdown != null) {
       _disposer.addDisposable(trigger.listen(handleActivate));
     }
-    this.element = elementRef.nativeElement;
   }
 
   bool _closeOnActivate = true;

@@ -14,7 +14,7 @@ import './material_chip.dart';
 /// __Example usage:__
 ///
 ///     <!-- Selection Model -->
-///     <material-chips selectionModel="mySelectedChips">
+///     <material-chips [selectionModel]="mySelectedChips">
 ///     </material-chips>
 ///
 ///
@@ -24,6 +24,13 @@ import './material_chip.dart';
 ///       <material-chip>Another Chip</material-chip>
 ///     </material-chips>
 ///
+/// __Inputs:__
+///
+/// - `itemRenderer: ItemRenderer` -- A rendering function to render selection
+///    models as a string.
+/// - `removeable` -- Whether the chips can be removed.
+/// - `selectionModel: SelectionModel` -- The selection model this component
+///   controls.
 @Component(
     selector: 'material-chips',
     providers: const [

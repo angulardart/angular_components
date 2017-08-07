@@ -30,7 +30,7 @@ class MaterialExpansionPanelAutoDismiss implements OnDestroy {
   ///
   /// E.g. modal, dialog, popups.
   final Element _overlayContainerToken;
-  final ElementRef _element;
+  final HtmlElement _element;
 
   StreamController<Event> _clicksOutsideController;
   StreamSubscription<Event> _clicksOutsideSubscription;
@@ -69,7 +69,7 @@ class MaterialExpansionPanelAutoDismiss implements OnDestroy {
     var node = e.target as Element;
     while (node != null) {
       var tagName = node.tagName.toLowerCase();
-      if (node == this._element.nativeElement) {
+      if (node == this._element) {
         // Excludes elements belonging to this panel.
         return;
       } else if (node == _overlayContainerToken) {

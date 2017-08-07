@@ -14,7 +14,7 @@ abstract class TabMixin {
   /// The host element.
   Element get nativeElement;
 
-  /// Tha tab label.
+  /// The tab label.
   ///
   /// When it's being set, it also resets the text width for re-calculation
   /// subsequently.

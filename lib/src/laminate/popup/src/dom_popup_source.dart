@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.popup.src.dom_popup_source;
-
 import 'dart:async';
 import 'dart:html';
 import 'dart:math';
@@ -30,7 +28,7 @@ class DomPopupSourceFactory {
   DomPopupSourceFactory(this._window, this._domRuler);
 
   /// Returns a new [DomPopupSource] from [sourceElement].
-  DomPopupSource create(Element sourceElement,
+  DomPopupSource createPopupSource(HtmlElement sourceElement,
       {Alignment alignOriginX: Alignment.Start,
       Alignment alignOriginY: Alignment.Start}) {
     return new DomPopupSource(_asyncMeasureSize, sourceElement,
@@ -42,7 +40,8 @@ class DomPopupSourceFactory {
   ///
   /// If [track] is set, will wait for DOM update notifications and respond if
   /// the measurement changes.
-  Stream<Rectangle> _asyncMeasureSize(Element element, {bool track: false}) {
+  Stream<Rectangle> _asyncMeasureSize(HtmlElement element,
+      {bool track: false}) {
     if (track) {
       return _domRuler.track(element);
     } else {
@@ -55,8 +54,8 @@ class DomPopupSourceFactory {
 class DomPopupSource implements PopupSource {
   static final bool _isRtl = determineRtl(document);
 
-  final AsyncMeasureSize<Element> _asyncMeasureSize;
-  final Element _sourceElement;
+  final AsyncMeasureSize<HtmlElement> _asyncMeasureSize;
+  final HtmlElement _sourceElement;
 
   /// Creates a new source from a measure function and source DOM element.
   ///
@@ -83,6 +82,9 @@ class DomPopupSource implements PopupSource {
   Stream<Rectangle<num>> onDimensionsChanged({bool track: false}) {
     return _asyncMeasureSize(_sourceElement, track: track);
   }
+
+  @override
+  Rectangle get dimensions => _sourceElement.getBoundingClientRect();
 
   @override
   bool get isRtl => _isRtl;

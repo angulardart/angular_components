@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.overlay.module;
-
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -14,7 +12,6 @@ import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/browser/dom_service/angular_2.dart';
 import '../../utils/browser/window/module.dart';
 import '../ruler/dom_ruler.dart';
-import 'src/overlay_dom_service.dart';
 import 'src/overlay_service.dart';
 import 'src/render/overlay_dom_render_service.dart';
 import 'src/render/overlay_style_config.dart';
@@ -24,6 +21,7 @@ export 'src/render/overlay_dom_render_service.dart'
         overlayContainerName,
         overlayContainerParent,
         overlayContainerToken,
+        overlayRepositionLoop,
         overlaySyncDom;
 
 /// Either finds, or creates an "acx-overlay-container" div at the end of body.
@@ -77,9 +75,10 @@ const overlayBindings = const [
   const Provider(overlayContainerParent, useFactory: getOverlayContainerParent),
   // Applications may experimentally make this true to increase performance.
   const Provider(overlaySyncDom, useValue: true),
+  const Provider(overlayRepositionLoop, useValue: false),
   OverlayDomRenderService,
   OverlayStyleConfig,
-  const Provider(OverlayService, useClass: OverlayDomService),
+  OverlayService,
   windowBindings,
   ZIndexer
 ];

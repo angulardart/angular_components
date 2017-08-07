@@ -59,8 +59,8 @@ const List<String> _flippedIcons = const [
 class GlyphComponent {
   static const String _materialIconsExtended = 'material-icons-extended';
 
-  /// `Icon` model (lib/src/model/ui/icon.dart) or Icon identifier - see
-  /// [https://www.google.com/design/icons/](https://goo.gl/YKrYlu) for
+  /// `Icon` model (lib/src/model/ui/icon.dart) or Icon identifier -
+  /// see [https://www.google.com/design/icons/](https://goo.gl/YKrYlu) for
   /// available icons.
   @Input()
   set icon(dynamic value) {
@@ -97,7 +97,7 @@ class GlyphComponent {
 
   final HtmlElement _element;
 
-  GlyphComponent(ElementRef elementRef) : _element = elementRef.nativeElement;
+  GlyphComponent(this._element);
 }
 
 /// Size names which can be used on the glyph icon.

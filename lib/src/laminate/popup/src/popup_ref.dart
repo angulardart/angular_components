@@ -2,10 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.popup.src.popup_ref;
-
 import 'dart:async';
+import 'dart:html';
 import 'dart:math';
+
+import 'package:angular/angular.dart';
 
 import '../../../css/acux/zindexer.dart';
 import '../../../model/action/async_action.dart';
@@ -60,13 +61,6 @@ abstract class PopupRef implements PortalHost, Toggleable {
   /// and were not cancelled.
   Stream<bool> get onVisibleChanged;
 
-  /// An event stream that fires when the popup [isVisible] and the size of
-  /// interior content changes.
-  ///
-  /// **NOTE**: Listening to this stream has performance impacts and should
-  /// only be used sparingly.
-  Stream<Rectangle> get onSizeChanged;
-
   /// The current state of the popup.
   ///
   /// Changes to the state are applied asynchronously in the next DOM write.
@@ -90,11 +84,6 @@ abstract class PopupRef implements PortalHost, Toggleable {
   ///
   /// Since an Angular setter can be null, null is considered true here.
   void setEnforceSpaceConstraints(bool enforceSpaceConstraints);
-
-  /// Sets [matchSourceWidth].
-  ///
-  /// Since an Angular setter can be null, null is considered true here.
-  void setMatchSourceWidth(bool matchSourceWidth);
 
   /// Sets the different [preferredPositions] to use when
   /// [setEnforceSpaceConstraints] == `true` is used.
@@ -145,6 +134,8 @@ class PopupRefImpl extends DelegatingPortalHost
   final OverlayRef _overlayRef;
   final _disposer = new Disposer.oneShot();
   final ViewportBoundsGetter _viewportBoundsFn;
+  final NgZone _ngZone;
+  final bool _useRepositionLoop;
 
   @override
   final PopupState state;
@@ -164,15 +155,22 @@ class PopupRefImpl extends DelegatingPortalHost
   bool _isVisible = false;
   RelativePosition _alignmentPosition;
 
-  PopupRefImpl(OverlayRef overlayRef, this._zIndexer,
+  Rectangle _initialSourceDimensions;
+  int _repositionOffsetX = 0;
+  int _repositionOffsetY = 0;
+  int _repositionLoopId;
+
+  PopupRefImpl(OverlayRef overlayRef, this._zIndexer, this._ngZone,
       {List<RelativePosition> defaultPreferredPositions: const [],
       PopupState state,
       ViewportBoundsGetter viewportFn,
-      Future<PopupRef> parent})
+      Future<PopupRef> parent,
+      bool useRepositionLoop: false})
       : _defaultPreferredPositions = defaultPreferredPositions,
         _overlayRef = overlayRef,
         _viewportBoundsFn = viewportFn,
         this.state = state ?? new PopupState(),
+        _useRepositionLoop = useRepositionLoop,
         super(overlayRef) {
     // Also destroy the overlay.
     _disposer.addFunction(_overlayRef.dispose);
@@ -318,11 +316,7 @@ class PopupRefImpl extends DelegatingPortalHost
     final isRtl = state.source.isRtl == true;
 
     // Must be set first so contentSizeFuture is correct.
-    if (state.matchSourceWidth) {
-      _overlayRef.state.width = sourceClientRect.width;
-    } else {
-      _overlayRef.state.width = null;
-    }
+    _overlayRef.state.width = null;
     if (state.matchMinSourceWidth) {
       _overlayRef.state.minWidth = sourceClientRect.width;
     }
@@ -331,10 +325,7 @@ class PopupRefImpl extends DelegatingPortalHost
     // _overlayRef.state.width/_overlay.state.minWidth updates are applied
     // asynchronously, and are thus not accounted for in the position
     // calculations.
-    if (state.matchSourceWidth) {
-      contentClientRect =
-          _resizeRectangle(contentClientRect, width: sourceClientRect.width);
-    } else if (state.matchMinSourceWidth) {
+    if (state.matchMinSourceWidth) {
       contentClientRect = _resizeRectangle(contentClientRect,
           width: max(sourceClientRect.width, contentClientRect.width));
     }
@@ -426,7 +417,7 @@ class PopupRefImpl extends DelegatingPortalHost
         // Create an event, and give listeners a chance to cancel it.
         final event = new AsyncPopupEvent<Rectangle<num>>.open(
             eventController.action, this, () {
-          return _overlayRef.onSizeChanged().first;
+          return _overlayRef.measureSizeChanges().first;
         });
 
         _onOpenController?.add(event);
@@ -444,12 +435,12 @@ class PopupRefImpl extends DelegatingPortalHost
     // Start listening to both the popup and the source's layout.
     var initialData = new Completer<Rectangle>();
     var popupContentsLayoutStream =
-        _overlayRef.onSizeChanged().asBroadcastStream(onCancel: (sub) {
+        _overlayRef.measureSizeChanges().asBroadcastStream(onCancel: (sub) {
       _layoutInternalSub = sub;
     });
-    var popupSourceLayoutStream =
-        state.source.onDimensionsChanged(track: state.trackLayoutChanges);
-    if (!state.trackLayoutChanges) {
+    var popupSourceLayoutStream = state.source.onDimensionsChanged(
+        track: state.trackLayoutChanges && !_useRepositionLoop);
+    if (!state.trackLayoutChanges || _useRepositionLoop) {
       popupContentsLayoutStream = popupContentsLayoutStream.take(1);
     }
 
@@ -464,6 +455,9 @@ class PopupRefImpl extends DelegatingPortalHost
           _isVisible = true;
           _onVisibleController?.add(true);
           initialData.complete(layoutRects[0]);
+          if (state.trackLayoutChanges && _useRepositionLoop) {
+            _startRepositionLoop();
+          }
         }
         _schedulePositionUpdate(layoutRects[0], layoutRects[1]);
       }
@@ -507,10 +501,14 @@ class PopupRefImpl extends DelegatingPortalHost
 
         // Create an event, and give listeners a chance to cancel it.
         final event = new AsyncPopupEvent<bool>.close(eventController.action,
-            this, () => _overlayRef.onSizeChanged().first);
+            this, () => _overlayRef.measureSizeChanges().first);
 
         _layoutInternalSub?.cancel();
         _layoutChangeSub?.cancel();
+
+        if (_repositionLoopId != null) {
+          _stopRepositionLoop();
+        }
 
         _onCloseController?.add(event);
 
@@ -530,6 +528,51 @@ class PopupRefImpl extends DelegatingPortalHost
     // Update the stream if there are listeners.
     _onVisibleController?.add(false);
     return true;
+  }
+
+  Rectangle get _sourceDimensions {
+    var sourceDimensions = state.source?.dimensions;
+    if (sourceDimensions == null) return null;
+    var containerRect = _overlayRef.containerElement?.getBoundingClientRect();
+    if (containerRect == null) return null;
+    return new Rectangle(
+        (sourceDimensions.left - containerRect.left).round(),
+        (sourceDimensions.top - containerRect.top).round(),
+        sourceDimensions.width.round(),
+        sourceDimensions.height.round());
+  }
+
+  void _startRepositionLoop() {
+    _ngZone.runOutsideAngular(() {
+      _initialSourceDimensions = _sourceDimensions;
+      _repositionLoopId = window.requestAnimationFrame(_reposition);
+    });
+  }
+
+  void _stopRepositionLoop() {
+    window.cancelAnimationFrame(_repositionLoopId);
+    _repositionLoopId = null;
+
+    if (_repositionOffsetX != 0 || _repositionOffsetY != 0) {
+      // Prevent later overlay state changes from resetting the reposition
+      // transform.
+      _overlayRef.state
+        ..left += _repositionOffsetX
+        ..top += _repositionOffsetY;
+      _repositionOffsetX = _repositionOffsetY = 0;
+    }
+  }
+
+  void _reposition(_) {
+    _repositionLoopId = window.requestAnimationFrame(_reposition);
+    var sourceDimensions = _sourceDimensions;
+    if (sourceDimensions == null) return;
+    _repositionOffsetX =
+        (sourceDimensions.left - _initialSourceDimensions.left).round();
+    _repositionOffsetY =
+        (sourceDimensions.top - _initialSourceDimensions.top).round();
+    _overlayRef.overlayElement.style.transform =
+        'translate(${_repositionOffsetX}px, ${_repositionOffsetY}px)';
   }
 
   Future _debounceSetVisibilityFunction(
@@ -574,9 +617,6 @@ class PopupRefImpl extends DelegatingPortalHost
     return _onVisibleController.stream;
   }
 
-  @override
-  Stream<Rectangle> get onSizeChanged => _overlayRef.onSizeChanged();
-
   /// The underlying Overlay instance, visible internally only.
   OverlayRef get overlay => _overlayRef;
 
@@ -598,11 +638,6 @@ class PopupRefImpl extends DelegatingPortalHost
   @override
   void setEnforceSpaceConstraints(bool enforceSpaceConstraints) {
     state.enforceSpaceConstraints = enforceSpaceConstraints ?? true;
-  }
-
-  @override
-  void setMatchSourceWidth(bool matchSourceWidth) {
-    state.matchSourceWidth = matchSourceWidth ?? true;
   }
 
   @override
