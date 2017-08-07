@@ -71,6 +71,30 @@ $mat-border-light: rgba($mat-black, $mat-divider-opacity);
 $mat-border-dark: rgba($mat-white, $mat-divider-opacity);
 $mat-border-dotted-light: $mat-lightest-transparent-black;
 
+// Text colors
+// https://material.googleplex.com/style/color.html#color-usability
+$mat-text-primary: $mat-transparent-black;
+$mat-text-secondary: $mat-light-transparent-black;
+$mat-text-hint: $mat-lighter-transparent-black;
+$mat-text-disabled: $mat-lighter-transparent-black;
+$mat-text-divider: $mat-border-light;
+
+$mat-text-dark-primary: $mat-transparent-white;
+$mat-text-dark-secondary: $mat-light-transparent-white;
+$mat-text-dark-hint: $mat-lighter-transparent-white;
+$mat-text-dark-disabled: $mat-lighter-transparent-white;
+$mat-text-dark-divider: $mat-border-dark;
+
+// Icon colors
+// https://material.googleplex.com/style/icons.html
+$mat-icon-focused: $mat-transparent-black;
+$mat-icon: $mat-light-transparent-black;
+$mat-icon-inactive: $mat-lighter-transparent-black;
+
+$mat-icon-dark-focused: $mat-transparent-white;
+$mat-icon-dark: $mat-light-transparent-white;
+$mat-icon-dark-inactive: $mat-lighter-transparent-white;
+
 /// Common colors for scrollbars.
 /// Note: Prefer using @mixin material-scrollbars(...).
 $mat-scrollbar-thumb: $mat-lightest-transparent-black;

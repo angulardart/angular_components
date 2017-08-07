@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.overlay.src.render.overlay_dom_render_service;
-
 import 'dart:async';
 import 'dart:html';
 
@@ -40,6 +38,13 @@ const overlayContainerParent = const OpaqueToken('overlayContainerParent');
 /// latency issues.
 const overlaySyncDom = const OpaqueToken('overlaySyncDom');
 
+/// Flag whether to reposition popups on every frame when trackLayoutChanges is
+/// true.
+///
+/// This allows popups to scroll with the page if the overlay container is not
+/// part of the scrolling container.
+const overlayRepositionLoop = const OpaqueToken('overlayRepositionLoop');
+
 /// A DOM implementation of the components needed for [OverlayService].
 ///
 /// In multi-threaded applications that use web workers, this will live on the
@@ -50,12 +55,13 @@ class OverlayDomRenderService {
   static const _defaultConfig = const OverlayState();
   static const _paneClassName = 'pane';
 
-  final HtmlElement _containerElement;
+  final HtmlElement containerElement;
   final String _containerName;
   final DomRuler _domRuler;
   final DomService _domService;
   final AcxImperativeViewUtils _imperativeViewUtils;
   final bool _useDomSynchronously;
+  final bool _useRepositionLoop;
   final ZIndexer _zIndexer;
 
   /// Track the last z-index used by an overlay. When updating an overlay,
@@ -69,14 +75,15 @@ class OverlayDomRenderService {
 
   OverlayDomRenderService(
       OverlayStyleConfig styleConfig,
-      @Inject(overlayContainerToken) this._containerElement,
+      @Inject(overlayContainerToken) this.containerElement,
       @Inject(overlayContainerName) this._containerName,
       this._domRuler,
       this._domService,
       this._imperativeViewUtils,
       @Inject(overlaySyncDom) this._useDomSynchronously,
+      @Inject(overlayRepositionLoop) this._useRepositionLoop,
       this._zIndexer) {
-    _containerElement.attributes['name'] = _containerName;
+    containerElement.attributes['name'] = _containerName;
     styleConfig.registerStyles();
     _lastZIndex = _zIndexer.peek();
   }
@@ -120,7 +127,8 @@ class OverlayDomRenderService {
         bottom: state.bottom,
         right: state.right,
         visibility: state.visibility,
-        position: state.position);
+        position: state.position,
+        useCssTransform: !_useRepositionLoop);
 
     // This is intentionally not in the ruler.
     if (state.minWidth != null) {
@@ -174,10 +182,10 @@ class OverlayDomRenderService {
     if (!_useDomSynchronously) {
       return _domService
           .onWrite()
-          .then((_) => _containerElement.getBoundingClientRect());
+          .then((_) => containerElement.getBoundingClientRect());
     } else {
       return new Future<Rectangle>.value(
-          _containerElement.getBoundingClientRect());
+          containerElement.getBoundingClientRect());
     }
   }
 
@@ -197,11 +205,11 @@ class OverlayDomRenderService {
 
     if (!_useDomSynchronously) {
       return _domService.onWrite().then((_) {
-        _containerElement.append(pane);
+        containerElement.append(pane);
         return pane;
       });
     } else {
-      _containerElement.append(pane);
+      containerElement.append(pane);
       return new Future.value(pane);
     }
   }
@@ -217,7 +225,7 @@ class OverlayDomRenderService {
     // state properties to the detached element (we do not need to use a DOM
     // write queue because it is not attached).
     applyStateSync(state, pane);
-    _containerElement.append(pane);
+    containerElement.append(pane);
     return pane;
   }
 

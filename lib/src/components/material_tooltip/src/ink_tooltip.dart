@@ -46,7 +46,6 @@ import 'tooltip_target.dart';
                         ink
                         autoDismiss="false"
                         enforceSpaceConstraints
-                        matchSourceWidth="false"
                         matchMinSourceWidth="false"
                         shadowCssClass="aacmtit-ink-tooltip-shadow"
                         trackLayoutChanges

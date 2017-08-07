@@ -55,7 +55,7 @@ class MaterialButtonBase extends ButtonDirective {
   int get zElevation =>
       _isMouseDown || _focused ? mediumElevation : lowElevation;
 
-  MaterialButtonBase(ElementRef element) : super(element);
+  MaterialButtonBase(HtmlElement element) : super(element);
 
   // Set _focused in a microtask to avoid triggering changes during a change
   // detection cycle, which is illegal. This avoids 'AST has changed' errors.

@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.popup.src.popup_service;
-
 import 'dart:async';
 import 'dart:html';
 
@@ -12,6 +10,7 @@ import 'package:angular/angular.dart';
 import '../../../css/acux/zindexer.dart';
 import '../../../utils/browser/events/events.dart';
 import '../../enums/alignment.dart';
+import '../../overlay/module.dart';
 import '../../overlay/overlay.dart';
 import './popup_ref.dart';
 import './popup_state.dart';
@@ -27,9 +26,15 @@ class PopupService {
   final List<RelativePosition> _defaultPreferredPositions;
   final OverlayService _overlayService;
   final ZIndexer _zIndexer;
+  final NgZone _ngZone;
+  final bool _useRepositionLoop;
 
-  PopupService(@Inject(defaultPopupPositions) this._defaultPreferredPositions,
-      this._overlayService, this._zIndexer);
+  PopupService(
+      @Inject(defaultPopupPositions) this._defaultPreferredPositions,
+      this._overlayService,
+      this._zIndexer,
+      this._ngZone,
+      @Inject(overlayRepositionLoop) this._useRepositionLoop);
 
   /// Creates a managed overlay pane within the registered container.
   ///
@@ -37,13 +42,15 @@ class PopupService {
   /// immediately on creation, versus waiting for the future to resolve.
   ///
   /// The returned future completes with a reference to the popup.
-  Future<PopupRef> create({PopupState initialState, Future<PopupRef> parent}) {
-    return _overlayService.create().then((overlayRef) {
-      return new PopupRefImpl(overlayRef, _zIndexer,
+  Future<PopupRef> createPopupRef(
+      {PopupState initialState, Future<PopupRef> parent}) {
+    return _overlayService.createOverlayRef().then((overlayRef) {
+      return new PopupRefImpl(overlayRef, _zIndexer, _ngZone,
           defaultPreferredPositions: _defaultPreferredPositions,
           state: initialState,
           parent: parent,
-          viewportFn: _measureViewportSize);
+          viewportFn: _measureViewportSize,
+          useRepositionLoop: _useRepositionLoop);
     });
   }
 
@@ -52,12 +59,14 @@ class PopupService {
   /// If [initialState] is not specified, defaults to `new PopupState()`.
   ///
   /// Returns instantly with a reference to the popup.
-  PopupRef createSync({PopupState initialState, PopupRef parent}) {
-    return new PopupRefImpl(_overlayService.createSync(), _zIndexer,
+  PopupRef createPopupRefSync({PopupState initialState, PopupRef parent}) {
+    return new PopupRefImpl(
+        _overlayService.createOverlayRefSync(), _zIndexer, _ngZone,
         defaultPreferredPositions: _defaultPreferredPositions,
         state: initialState,
         parent: new Future<PopupRef>.value(parent),
-        viewportFn: _measureViewportSize);
+        viewportFn: _measureViewportSize,
+        useRepositionLoop: _useRepositionLoop);
   }
 
   Future<Rectangle<num>> _measureViewportSize() =>
@@ -66,12 +75,12 @@ class PopupService {
   /// Returns a stream that fires when the document is pressed or when focus is
   /// changed *but* [popup] is not in the parent chain of elements that received
   /// the event.
-  Stream<MouseEvent> onTriggerOutsideOf(PopupRef popup) {
+  Stream<Event> onTriggerOutsideOf(PopupRef popup) {
     assert(popup != null);
 
     // Get a handle to the underlying element/elementRef.
     PopupRefImpl popupInternal = popup;
-    var overlayElement = (popupInternal.overlay as BaseOverlayRef).elementRef;
+    var overlayElement = popupInternal.overlay.overlayElement;
     return triggersOutside(overlayElement);
   }
 
@@ -79,13 +88,13 @@ class PopupService {
   bool isTriggerInside(Event e, PopupRef popup) {
     // Get a handle to the underlying element/elementRef.
     PopupRefImpl popupInternal = popup;
-    var overlayElement = (popupInternal.overlay as BaseOverlayRef).elementRef;
+    var overlayElement = popupInternal.overlay.overlayElement;
     return isParentOf(overlayElement, e.target as Node);
   }
 
   /// Get a handle to the underlying element/elementRef.
   Element getContainerElement(PopupRef popup) {
     PopupRefImpl popupInternal = popup;
-    return (popupInternal.overlay as BaseOverlayRef).elementRef;
+    return popupInternal.overlay.overlayElement;
   }
 }

@@ -29,7 +29,7 @@
     pointer-events: none;
   }
 
-  // TODO(google): Move ::ng-deep up to material_list_item.scss.
+  // TODO(google): Move ::ng-deep up to material_list_item.scss. b2/35765850
   ::ng-deep .material-list-item-primary {
     color: $mat-light-transparent-black;
     width: $list-item-primary-width;

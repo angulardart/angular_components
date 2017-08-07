@@ -2,9 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:angular/angular.dart';
-import '../material_ripple/material_ripple.dart';
+import 'dart:html';
 
+import 'package:angular/angular.dart';
+
+import '../material_ripple/material_ripple.dart';
 import 'material_button_base.dart';
 
 /// Material FAB is a Floating Action Button. It is round, and behaves mostly
@@ -15,7 +17,7 @@ import 'material_button_base.dart';
 /// __Example usage:__
 ///     <!-- A Floating Action Button (FAB). -->
 ///     <material-fab aria-label="add">
-///       <glyph icon="add"></glyph>
+///       <material-icon icon="add"></material-icon>
 ///     </material-fab>
 ///
 /// __Properties:__
@@ -63,7 +65,7 @@ import 'material_button_base.dart';
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialFabComponent extends MaterialButtonBase {
   final ChangeDetectorRef _changeDetector;
-  MaterialFabComponent(ElementRef element, this._changeDetector)
+  MaterialFabComponent(HtmlElement element, this._changeDetector)
       : super(element);
 
   @override

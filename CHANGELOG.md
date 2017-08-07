@@ -1,3 +1,34 @@
+## 0.6.0-alpha+2
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 4.0.0-alpha+2. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (4.0.0-alpha is used in production Google apps).
+
+ * Dynamic Component: Add ability to use `ComponentFactory` instead of a `Type`.
+ * Material Dialog: Fix header mixin.
+ * Material Checkbox: Add ability to make readonly.
+ * Material Input: Make local required errors to make controls invalid even when
+   the control has not been interacted with.
+ * Material Popup:
+   * Add an option to reposition visible popups every frame with
+     `trackLayoutChanges`.
+   * Merge laminate/components/popup into Material Popup.
+ * Material Select: Allow dropdown to display an error while it's closed.
+ * Material Tree:
+   * Added shift selection/deselection.
+   * Fix glyphs always shown expanded when `expandAll = true`.
+ * Material Yes/No Buttons: Add dense style.
+ * Scorecard: Update tab index to prevent scroll errors when going through
+   buttons with tabs.
+ * Add new color utils.
+ * Migrate uses of `GlyphComponent` to `MaterialIconComponent`.
+ * Migrate uses of `ElementRef` to `Element`.
+ * Remove duplicate PopupSourceDirective.
+ * Remove deprecated popup `matchSourceWidth` options.
+ * Updates to use metadata inheritance.
+ * Remove unused library statements.
+ * Update documentation.
+
 ## 0.6.0-alpha+1
 
 > NOTE: This code is considered production quality, but depends on angular:

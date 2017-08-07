@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 import '../button_decorator/button_decorator.dart';
 import '../material_ripple/material_ripple.dart';
@@ -21,7 +23,7 @@ import 'material_button_base.dart';
 ///     <material-button disabled>Disabled</material-button>
 ///     <!-- With an icon -->
 ///     <material-button icon>
-///       <glyph icon="check"></glyph>
+///       <material-icon icon="check"></material-icon>
 ///     </material-button>
 ///
 /// __Properties:__
@@ -96,10 +98,10 @@ class MaterialButtonComponent extends MaterialButtonBase {
   }
 
   MaterialButtonComponent(
-      ElementRef element, AcxDarkTheme darktheme, this._changeDetector)
+      HtmlElement element, AcxDarkTheme darktheme, this._changeDetector)
       : super(element) {
     if (_changeDetector == null)
       throw new Exception('Expecting change detector');
-    darktheme.theme(element);
+    darktheme.themeElement(element);
   }
 }

@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
@@ -51,7 +52,7 @@ import 'tooltip_target.dart';
       MaterialPaperTooltipComponent
     ])
 class MaterialIconTooltipComponent implements DeferredContentAware {
-  ElementRef elementRef;
+  HtmlElement element;
 
   /// Icon identifier for [GlyphComponent]. See
   /// [https://www.google.com/design/icons/] for available icons.
@@ -60,7 +61,7 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
   /// Size of the icon. Must be a valid size for [GlyphComponent].
   final String iconSize;
 
-  MaterialIconTooltipComponent(AcxDarkTheme darkTheme, ElementRef elementRef,
+  MaterialIconTooltipComponent(AcxDarkTheme darkTheme, HtmlElement element,
       @Attribute('type') String type, @Attribute('size') String size)
       : icon = '${type ?? "help"}_outline',
         iconSize = size ?? 'medium' {
@@ -71,8 +72,8 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
         iconSize == 'large' ||
         iconSize == 'x-large' ||
         iconSize == '');
-    this.elementRef = elementRef;
-    darkTheme.theme(elementRef);
+    this.element = element;
+    darkTheme.themeElement(element);
   }
 
   @ViewChild('tooltipRef')

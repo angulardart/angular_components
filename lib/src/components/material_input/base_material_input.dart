@@ -96,8 +96,17 @@ class BaseMaterialInput extends FocusableMixin
   }
 
   /// Custom error message to show when the field is required and blank.
+  String _requiredErrorMsg = defaultEmptyMessage;
+  String get requiredErrorMsg => _requiredErrorMsg;
   @Input()
-  String requiredErrorMsg = defaultEmptyMessage;
+  set requiredErrorMsg(String value) {
+    _requiredErrorMsg = value;
+    if (_cd?.control != null) {
+      // Validator was changed. Rerun validation as required message may
+      // have changed.
+      _cd.control.updateValueAndValidity();
+    }
+  }
 
   /// Maximum allowed characters for character counting input box.
   @Input()
@@ -194,15 +203,18 @@ class BaseMaterialInput extends FocusableMixin
   // Angular2 Forms API methods.
   // Act as forms validator (previously NgValidator)
   Map<String, dynamic> call(AbstractControl _) {
-    return _isLocallyValid();
+    return _isLocallyValid(true);
   }
 
-  Map<String, dynamic> _isLocallyValid() {
+  Map<String, dynamic> _isLocallyValid(bool fromFormsApi) {
     // Do local validation here. This simply counts as ONE OF the Validators
     // attached to this component. If there is a Control then it will use this
     // one and maybe others.
 
-    if (required && isEmpty(inputText) && !_pristine) {
+    // In forms API we always have an error but it is not always shown,
+    // for non-forms input we preserve the previous functionality.
+    // TODO(google): Cleanup when using forms API everywhere.
+    if (required && isEmpty(inputText) && (fromFormsApi || !_pristine)) {
       _localValidationMessage = requiredErrorMsg;
       return {materialInputErrorKey: _localValidationMessage};
     }
@@ -309,7 +321,7 @@ class BaseMaterialInput extends FocusableMixin
       return !_cd.valid && (_cd.touched || _cd.dirty);
     }
     // otherwise, just do our local validation
-    return _isLocallyValid() != null;
+    return _isLocallyValid(false) != null;
   }
 
   bool get hasVisibleText => inputText?.isNotEmpty ?? false;

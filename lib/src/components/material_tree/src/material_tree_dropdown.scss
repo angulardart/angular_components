@@ -12,21 +12,19 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'compass/css3/flexbox';
 @import 'lib/src/components/glyph/mixins';
 @import 'lib/src/components/material_list/mixins';
 
 $icon-size: $mat-grid * 3;
 
 :host {
-  @include display-flex(inline-flex);
+  display: inline-flex;
 }
 
 .button {
-  @include display-flex;
-  @include align-items(center);
-  @include flex-grow(1);
-
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
   cursor: pointer;
 
   // The icon is absolutely-positioned so that it doesn't factor into layout, so

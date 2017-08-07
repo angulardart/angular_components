@@ -12,10 +12,7 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'lib/src/css/shared/compass_polyfills';
 @import 'lib/src/components/material_shadow/css/shadow';
-@import 'compass/css3/box-sizing';
-@import 'compass/css3/flexbox';
 @import 'mixins';
 
 :host {
@@ -34,18 +31,16 @@ focus-trap {
 }
 
 .wrapper {
-  @include flexbox((
-    display: flex,
-    flex-direction: column
-  ));
+  display: flex;
+  flex-direction: column;
   height: inherit;
   max-height: inherit;
 }
 
 .error {
-  @include box-sizing(border-box);
-  @include flex-shrink(0);
   @include mat-type-body;
+  box-sizing: border-box;
+  flex-shrink: 0;
   background: $mat-gray-200;
   color: $mat-red-700;
   padding: 0 $mat-grid * 3;
@@ -60,9 +55,9 @@ focus-trap {
 }
 
 main {
-  @include box-sizing(border-box);
-  @include flex-grow(1);
   @include mat-type-body;
+  box-sizing: border-box;
+  flex-grow: 1;
   color: $mat-transparent-black;
   overflow: auto;
   padding: 0 $mat-grid * 3;
@@ -78,8 +73,8 @@ main {
 }
 
 footer {
-  @include box-sizing(border-box);
-  @include flex-shrink(0);
+  box-sizing: border-box;
+  flex-shrink: 0;
   padding: 0 $mat-grid $mat-grid;
   width: 100%;
 }
@@ -87,15 +82,13 @@ footer {
 :host .wrapper {
   > header {
     @include material-dialog-header;
-    @include flex-shrink(0);
+    flex-shrink: 0;
   }
 
   > footer ::ng-deep [footer] {
-    @include flexbox((
-      display: flex,
-      flex-shrink: 0,
-      justify-content: flex-end
-    ));
+    display: flex;
+    flex-shrink: 0;
+    justify-content: flex-end;
   }
 }
 

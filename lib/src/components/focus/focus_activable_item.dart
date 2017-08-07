@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 
 import './focus.dart';
@@ -20,7 +22,7 @@ class FocusActivableItemDirective extends RootFocusable
   @override
   String key;
 
-  FocusActivableItemDirective(ElementRef root) : super(root);
+  FocusActivableItemDirective(HtmlElement root) : super(root);
 }
 
 /// A focusable component with a matching [key].

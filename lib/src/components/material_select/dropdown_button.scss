@@ -16,10 +16,13 @@
 @import 'compass/css3/flexbox';
 
 $icon-size: $mat-grid * 3;
+$error-color: $mat-red-700;
+$error-text-color: #d34336;
 
 :host {
   @include display-flex(inline-flex);
   @include flex(1);
+  @include flex-direction(column);
   min-height: $icon-size;
   overflow: hidden;
 }
@@ -42,6 +45,10 @@ $icon-size: $mat-grid * 3;
     &.is-disabled {
       border-bottom-style: dotted;
     }
+
+    &.invalid {
+      border-bottom-color: $error-color;
+    }
   }
 
   &.is-disabled {
@@ -54,6 +61,11 @@ $icon-size: $mat-grid * 3;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+}
+
+.error-text {
+  color: $error-text-color;
+  font-size: $mat-caption-font-size;
 }
 
 // OK, so here's the thing. The dropdown arrow icon is actually pretty small,

@@ -28,7 +28,8 @@
 }
 
 @mixin material-dialog-header-padding($padding: 0) {
-  ::ng-deep .wrapper > header {
+  ::ng-deep .wrapper > header,
+  &[headered] ::ng-deep .wrapper > header {
     padding: $padding;
   }
 }

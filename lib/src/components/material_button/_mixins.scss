@@ -11,12 +11,13 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/material/material',
-'compass/css3',
-'lib/src/components/glyph/mixins',
-'lib/src/components/theme/mixins';
-
+@import 'lib/src/css/material/material';
 @import 'lib/src/components/material_shadow/css/shadow';
+// TODO(google): Remove once glyph has been replaced with material-icon.
+@import 'lib/src/components/glyph/mixins';
+@import 'third_party/dart_src/acx/material_icon/lib/mixins';
+@import 'lib/src/components/theme/mixins';
+
 $fab-size: $mat-grid * 7;
 $fab-mini-size: $mat-grid * 5;
 $fab-icon-size: $mat-grid * 3;
@@ -37,6 +38,11 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 
 // TODO(google): Conform to lint, use shared styles/material colors.
 
+@mixin button-dense {
+  height: $mat-grid * 4;
+  font-size: $mat-body-font-size;
+}
+
 @mixin button-base {
   @include acx-theme-dark {
     color: $mat-white;
@@ -48,8 +54,8 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 
   @include mat-type-button;
   @include material-shadow;
-  @include user-select(none);
 
+  user-select: none;
   background: transparent;
   border-radius: inherit;
   box-sizing: border-box;
@@ -66,8 +72,7 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
   }
 
   &[dense] {
-    height: $mat-grid * 4;
-    font-size: $mat-body-font-size;
+    @include button-dense;
   }
 
   &[disabled] {
@@ -123,8 +128,8 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
   }
 
   .content {
-    @include display-flex(inline-flex);
-    @include align-items(center);
+    display: inline-flex;
+    align-items: center;
   }
 }
 
@@ -158,7 +163,7 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
   border-radius: $size / 2;
 
   .content {
-    @include justify-content(center);
+    justify-content: center;
     height: $size;
     width: $size;
   }
@@ -182,6 +187,11 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
       width: $size;
     }
 
+    material-icon {
+      @include material-icon-size($icon-size);
+    }
+
+    // TODO(google): Remove once glyph has been replaced with material-icon.
     glyph {
       @include glyph-size($icon-size);
     }
@@ -220,10 +230,14 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 
 @mixin icon-button-color($selector, $color, $hover-color: $color) {
   ::ng-deep #{$selector}:not([disabled]) {
+    > .content > material-icon,
+    // TODO(google): Remove once glyph has been replaced with material-icon.
     > .content > glyph {
       color: $color;
     }
 
+    &:hover > .content > material-icon,
+    // TODO(google): Remove once glyph has been replaced with material-icon.
     &:hover > .content > glyph {
       color: $hover-color;
     }

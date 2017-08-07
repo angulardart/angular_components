@@ -29,7 +29,7 @@ import '../../annotations/rtl_annotation.dart';
 /// partially covered by the scroll buttons, regardless of how the user
 /// scrolled.
 @Directive(selector: '[scorecardBar]')
-class ScorecardBarDirective implements OnInit, OnDestroy {
+class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
   final _refreshController = new StreamController<bool>.broadcast();
   final _disposer = new Disposer.oneShot();
   final HtmlElement _element;
@@ -61,6 +61,11 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
 
   @override
   void ngOnDestroy() => _disposer.dispose();
+
+  @override
+  void ngAfterViewChecked() {
+    _getButtonSize();
+  }
 
   /// Stream to indicate when the scoreboard arrows should be refreshed.
   ///
@@ -105,6 +110,12 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
   ///
   /// Depends upon orientation of scrollbar.
   String get transformAxis => _isVertical ? 'Y' : 'X';
+
+  /// Get the current transform of scorecard bar in pixels.
+  int get currentTransformSize => _transform.abs();
+
+  /// Returns the size of the current buttons
+  int get currentButtonSize => _buttonSize;
 
   /// Scroll the scoreboard back.
   ///
@@ -181,19 +192,7 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
       return;
     }
 
-    // Get scroll button size.
-    if (_buttonSize == 0) {
-      final buttons = _element.parent.querySelectorAll('.scroll-button');
-      for (var button in buttons) {
-        var size = _getButtonSize(button);
-        if (size != 'auto') {
-          _buttonSize = double
-              .parse(size.replaceAll(new RegExp('[^0-9.]'), ''), (_) => 0.0)
-              .floor();
-          break;
-        }
-      }
-    }
+    _getButtonSize();
 
     if (_element.children.isNotEmpty && _scrollSize > 0) {
       // Find the average size of the cards. This assumes cards are of uniform
@@ -206,8 +205,22 @@ class ScorecardBarDirective implements OnInit, OnDestroy {
     }
   }
 
-  String _getButtonSize(Element button) {
-    var dimension = _isVertical ? 'height' : 'width';
-    return button.getComputedStyle().getPropertyValue(dimension);
+  /// Sets the value of _buttonSize to an integer representation of the height
+  /// or width depending on the scrollbar orientation.
+  void _getButtonSize() {
+    // Get scroll button size.
+    if (_buttonSize == 0) {
+      final buttons = _element.parent.querySelectorAll('.scroll-button');
+      for (var button in buttons) {
+        var dimension = _isVertical ? 'height' : 'width';
+        var size = button.getComputedStyle().getPropertyValue(dimension);
+        if (size != 'auto') {
+          _buttonSize = double
+              .parse(size.replaceAll(new RegExp('[^0-9.]'), ''), (_) => 0.0)
+              .floor();
+          break;
+        }
+      }
+    }
   }
 }

@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.portal.portal;
-
 import 'dart:async';
 import 'dart:html';
 
@@ -230,7 +228,7 @@ class DelegatingPortalHost implements PortalHost {
 ///     <template portalHost="portal"></template>
 @Directive(selector: '[portalHost]', inputs: const ['portal: portalHost'])
 class PortalHostDirective extends BasePortalHost {
-  final DynamicComponentLoader _dynamicComponentLoader;
+  final SlowComponentLoader _dynamicComponentLoader;
   final ViewContainerRef _viewContainerRef;
 
   PortalHostDirective(this._dynamicComponentLoader, this._viewContainerRef);

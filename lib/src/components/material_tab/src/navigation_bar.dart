@@ -15,8 +15,7 @@ class NaviBarDirective {
   final HtmlElement _element;
   bool _isRtl = false;
 
-  NaviBarDirective(ElementRef elementRef, @Optional() DomService domService)
-      : _element = elementRef.nativeElement {
+  NaviBarDirective(this._element, @Optional() DomService domService) {
     if (domService != null) {
       domService.scheduleRead(() {
         _isRtl = _element.getComputedStyle().direction == 'rtl';

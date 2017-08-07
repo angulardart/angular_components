@@ -63,8 +63,6 @@ abstract class GroupedOptions<T> implements Disposable {
 /// it will not detect if the contents of the List or the individual
 /// [OptionGroup]s changed.
 ///
-/// For a guide on how to use [SelectionOptions] in a component, see
-/// http://g3doc/ads/acx2/model/selection/g3doc/selection_options.md.
 class SelectionOptions<T> extends GroupedOptions<T>
     implements ObserveAware<List<OptionGroup<T>>> {
   final _controller =

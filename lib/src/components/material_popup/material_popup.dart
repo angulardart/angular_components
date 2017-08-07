@@ -8,21 +8,18 @@ import 'dart:math';
 
 import 'package:angular/angular.dart';
 
-import '../../laminate/components/popup/hierarchy.dart';
-import '../../laminate/components/popup/popup.dart';
-import '../../laminate/overlay/overlay.dart';
-import '../../laminate/popup/popup.dart'
-    show PopupEvent, PopupRef, PopupService, PopupSizeProvider;
+import '../../laminate/popup/popup.dart';
+import '../../model/ui/toggle.dart';
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
+import '../../utils/disposer/disposer.dart';
 import '../content/deferred_content_aware.dart';
 import '../mixins/material_dropdown_base.dart';
+import 'src/popup_ref_directive.dart';
 
 export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 
-/// A styled alternative to [PopupComponent] with material design look-and-feel.
-///
-/// It delegates and has an API equivalent to using [PopupComponent].
+/// A popup component with material design look-and-feel.
 ///
 /// Caveats:
 /// - Popups closing and opening are automatically delayed to add animations
@@ -82,30 +79,10 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 @Component(
     selector: 'material-popup',
     host: const {'[attr.pane-id]': 'uniqueId'},
-    inputs: const [
-      'alignContentX',
-      'alignContentY',
-      'enforceSpaceConstraints',
-      // Deprecated
-      'matchSourceWidth',
-      'matchMinSourceWidth',
-      'offsetX',
-      'offsetY',
-      'preferredPositions',
-      'slide',
-      'source',
-      'trackLayoutChanges',
-      'visible',
-      'z'
-    ],
-    outputs: const [
-      'onOpen: open',
-      'onClose: close',
-    ],
+    inputs: const ['slide', 'z'],
     providers: const [
-      const Provider(PopupComponent, useExisting: MaterialPopupComponent),
+      const Provider(DeferredContentAware, useExisting: MaterialPopupComponent),
       const Provider(DropdownHandle, useExisting: MaterialPopupComponent),
-      const Provider(DeferredContentAware, useExisting: PopupComponent),
       const Provider(
         PopupHierarchy,
         useFactory: getHierarchy,
@@ -118,8 +95,9 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
     directives: const [PopupRefDirective, NgClass],
     templateUrl: 'material_popup.html',
     styleUrls: const ['material_popup.scss.css'])
-class MaterialPopupComponent extends PopupComponent
-    implements OnDestroy, DropdownHandle {
+class MaterialPopupComponent extends Object
+    with PopupBase, PopupEvents, PopupHierarchyElement
+    implements PopupInterface, DeferredContentAware, OnDestroy, DropdownHandle {
   // Visible for testing.
   static const Duration SLIDE_DELAY = const Duration(milliseconds: 218);
 
@@ -132,7 +110,24 @@ class MaterialPopupComponent extends PopupComponent
   final StreamController _onOpened = new StreamController.broadcast(sync: true);
   final StreamController<bool> _onContentVisible =
       new StreamController<bool>.broadcast(sync: true);
+
   final ChangeDetectorRef _changeDetector;
+  final DomService _domService;
+  final Disposer _disposer = new Disposer.oneShot();
+  final NgZone _ngZone;
+  final PopupService _popupService;
+  PopupHierarchy _hierarchy;
+
+  // Needed to implement the PopupHierarchyElement interface.
+  @override
+  final ElementRef elementRef;
+
+  PopupRef parentPopup;
+
+  PopupRef _resolvedPopupRef;
+
+  bool _viewInitialized = false;
+  bool _isDisposed = false;
 
   // Used to have a maximum of one timer to wait for CSS animations.
   Timer _animationTimer;
@@ -150,8 +145,6 @@ class MaterialPopupComponent extends PopupComponent
   // Used to avoid events occurring after detached from the DOM.
   bool _isDestroyed = false;
 
-  // PopupComponent has the setter, but we need the getter to satisfy the
-  // [DropdownHandle] interface.
   @override
   bool get autoDismiss => state.autoDismiss;
 
@@ -184,8 +177,6 @@ class MaterialPopupComponent extends PopupComponent
     _slide = (value?.isNotEmpty ?? false) ? value : null;
     assert(_slide == null || (slide == 'x' || slide == 'y'));
   }
-
-  final OverlayService _overlayService;
 
   /// Optional handler for calculating popup sizes.
   PopupSizeProvider _popupSizeProvider;
@@ -236,21 +227,23 @@ class MaterialPopupComponent extends PopupComponent
   bool get hasBox => _hasBox;
 
   MaterialPopupComponent(
-      DomService domService,
-      @Optional() @SkipSelf() PopupHierarchy hierarchy,
+      this._domService,
+      @Optional() @SkipSelf() this._hierarchy,
       @Optional() @SkipSelf() PopupRef parentPopup,
-      NgZone ngZone,
-      PopupService popupService,
-      this._overlayService,
+      this._ngZone,
+      this._popupService,
       @Optional() this._popupSizeProvider,
-      ChangeDetectorRef changeDetector,
-      ElementRef elementRef)
-      : _changeDetector = changeDetector,
-        super(domService, hierarchy, parentPopup, ngZone, popupService,
-            changeDetector, elementRef);
+      this._changeDetector,
+      this.elementRef);
 
   @override
   Stream<bool> get contentVisible => _onContentVisible.stream.distinct();
+
+  /// The popup visible hierarchy.
+  PopupHierarchy get hierarchy {
+    _hierarchy = _hierarchy ?? new PopupHierarchy();
+    return _hierarchy;
+  }
 
   // Returns a future that completes after a short duration that an animation
   // may occur (in this case, via CSS). If a pending animation is already in
@@ -279,7 +272,10 @@ class MaterialPopupComponent extends PopupComponent
 
   @override
   void ngOnDestroy() {
-    super.ngOnDestroy();
+    _resolvedPopupRef?.dispose();
+    detachFromVisibleHierarchy();
+    _disposer.dispose();
+    _isDisposed = true;
     _animationTimer?.cancel();
     _isDestroyed = true;
   }
@@ -308,9 +304,8 @@ class MaterialPopupComponent extends PopupComponent
     contentWidth = maxWidth;
   }
 
-  @override
   void onVisibleChanged(bool newVisibility) {
-    super.onVisibleChanged(newVisibility);
+    onVisible.add(newVisibility);
     _onContentVisible.add(newVisibility);
 
     // Avoid extraneous events.
@@ -321,18 +316,26 @@ class MaterialPopupComponent extends PopupComponent
     // If visibility has been flipped on, animate the popup opening.
     _popupReportsVisible = newVisibility;
     if (newVisibility) {
+      attachToVisibleHierarchy();
       if (hasBox) {
         _animatePopupOpen();
       } else {
         _noAnimationPopupOpen();
       }
     } else {
+      detachFromVisibleHierarchy();
       // Once the popup is closed we want to reset the content width/height.
       // Otherwise when we try to re-open the popup the dimensions won't be
       // read properly by the popup infrastructure.
       _resetContentSize();
     }
   }
+
+  @override
+  final PopupState state = new PopupState();
+
+  /// The unique ID of the popup pane, which is added to the DOM for testing.
+  String get uniqueId => _resolvedPopupRef?.uniqueId;
 
   // Start visible, but at 0px dimensions.
   //
@@ -363,9 +366,8 @@ class MaterialPopupComponent extends PopupComponent
     });
   }
 
-  @override
   Future onPopupOpened(PopupEvent popupEvent) async {
-    super.onPopupOpened(popupEvent);
+    onOpen.add(popupEvent);
 
     // Wait for all listeners to have a chance to either defer or cancel this.
     await popupEvent.onDefer;
@@ -387,10 +389,9 @@ class MaterialPopupComponent extends PopupComponent
     _changeDetector.markForCheck();
   }
 
-  @override
   Future onPopupClosed(PopupEvent popupEvent) async {
     // Forward the event to any listeners.
-    super.onPopupClosed(popupEvent);
+    onClose.add(popupEvent);
 
     if (hasBox) {
       // Wait for all listeners to have a chance to either defer or cancel this
@@ -424,6 +425,56 @@ class MaterialPopupComponent extends PopupComponent
     }
   }
 
+  void _initView() {
+    assert(_viewInitialized == false);
+
+    _resolvedPopupRef = _popupService.createPopupRefSync(
+        initialState: state, parent: parentPopup);
+    _initPopupRef(_resolvedPopupRef);
+    _viewInitialized = true;
+    _changeDetector.markForCheck();
+  }
+
+  /// A reference to the popup instance created and managed by the component.
+  PopupRef get resolvedPopupRef => _resolvedPopupRef;
+
+  // Once the popup instance was created, listen to events.
+  void _initPopupRef(PopupRef popupRef) {
+    _resolvedPopupRef = popupRef;
+    _disposer
+      ..addStreamSubscription(popupRef.onOpen.listen(onPopupOpened))
+      ..addStreamSubscription(popupRef.onClose.listen(onPopupClosed))
+      ..addStreamSubscription(
+          popupRef.onVisibleChanged.listen(onVisibleChanged));
+  }
+
+  @override
+  set visible(bool visible) {
+    if (visible) {
+      // If visibility is immediately true, we need to wait until the end of the
+      // VM turn to ensure our popup contents are first captured.
+      if (!_viewInitialized) {
+        _initView();
+
+        _domService.nextFrame.then((_) {
+          _ngZone.run(() {
+            // This check is necessary to prevent a race condition.
+            if (!_isDisposed) _resolvedPopupRef.open();
+          });
+        });
+      } else {
+        _resolvedPopupRef.open();
+      }
+    } else {
+      _resolvedPopupRef?.close();
+    }
+  }
+
+  @override
+  void toggle() {
+    visible = !(_resolvedPopupRef?.isVisible ?? false);
+  }
+
   @override
   void open() {
     visible = true;
@@ -438,4 +489,89 @@ class MaterialPopupComponent extends PopupComponent
   // TODO(google): clean this up with more sophisticated solution.
   @Input()
   String shadowCssClass;
+
+  @override
+  Element get container => _popupService.getContainerElement(_resolvedPopupRef);
+
+  @override
+  set source(PopupSource source) {
+    super.source = source;
+
+    // This component supports direct control over the [PopupRef] by way
+    // of the Toggle library. Here, we register the [PopupRef] as a
+    // [Toggleable] iff [source] uses the library.
+    if (source is Toggler) {
+      (source as Toggler).toggleable = new _DeferredToggleable(this);
+    }
+  }
+
+  @override
+  List<Element> get autoDismissBlockers {
+    // If the popup source is based on an element, exclude the source element
+    // from the auto dismiss logic, i.e. clicking on the source element does
+    // not trigger auto dismiss.
+    var sourceElement = state.source is ElementPopupSource
+        ? (state.source as ElementPopupSource).sourceElement
+        : null;
+    return sourceElement?.nativeElement != null
+        ? <Element>[sourceElement.nativeElement]
+        : <Element>[];
+  }
+
+  // TODO(google): Move dismiss logic to PopupRef once old component removed
+  @override
+  void onDismiss() {
+    // Wait until the VM turn to allow capture logic on other places on the UI
+    // to act (e.g. close or hide the popup via something like a button).
+    _domService.nextFrame.then((_) {
+      // Re-enter Angular if we are closing the popup.
+      if (_resolvedPopupRef.isVisible) {
+        _ngZone.run(_resolvedPopupRef.close);
+      }
+    });
+  }
+}
+
+@Injectable()
+PopupHierarchy getHierarchy(MaterialPopupComponent c) => c.hierarchy;
+
+/// Creates the popup view eagerly if a child requires [PopupRef] injection (and
+/// the view hasn't already been created).
+@Injectable()
+PopupRef getResolvedPopupRef(MaterialPopupComponent component) {
+  if (component.resolvedPopupRef == null) {
+    bool tryInitView = true;
+    assert(() {
+      if (tryInitView) return true;
+      // There should not be a case where a child popup is visible before.
+      // If a popup child component requires PopupRef injection, ensure it is
+      // wrapped by [DeferredContentDirective] or
+      // [CachingDeferredContentDirective].
+      throw new StateError('No popup reference resolved yet: '
+          'Ensure you are using deferredContent on popup child component');
+    });
+    component._initView();
+    assert(() {
+      if (component._resolvedPopupRef == null) {
+        // There should not be a case where a child popup is visible before
+        throw new StateError('No popup reference resolved yet.');
+      }
+      return true;
+    });
+  }
+  return component._resolvedPopupRef;
+}
+
+class _DeferredToggleable extends Toggleable {
+  final MaterialPopupComponent _popupComponent;
+
+  _DeferredToggleable(this._popupComponent);
+
+  @override
+  bool get isOn => _popupComponent.resolvedPopupRef?.isOn ?? false;
+
+  @override
+  set isOn(bool state) {
+    _popupComponent.visible = state;
+  }
 }

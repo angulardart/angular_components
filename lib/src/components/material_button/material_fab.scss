@@ -16,6 +16,11 @@
 :host {
   @include fab;
 
+  material-icon {
+    @include material-icon-size($fab-icon-size);
+  }
+
+  // TODO(google): Remove once glyph has been replaced with material-icon.
   glyph {
     @include glyph-size($fab-icon-size);
   }

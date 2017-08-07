@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.popup.src.popup_source;
-
 import 'dart:async';
 import 'dart:math';
 
@@ -55,6 +53,9 @@ abstract class PopupSource {
   /// [alignOriginY] change.
   Stream<Rectangle> onDimensionsChanged({bool track: false});
 
+  /// The size of the source and its position relative to the viewport.
+  Rectangle get dimensions;
+
   /// Whether the source direction is RTL.
   bool get isRtl;
 }
@@ -62,6 +63,10 @@ abstract class PopupSource {
 /// An [PopupSource] that's based on an element.
 abstract class ElementPopupSource implements PopupSource {
   ElementRef get sourceElement;
+
+  @override
+  Rectangle get dimensions =>
+      sourceElement.nativeElement.getBoundingClientRect();
 }
 
 /// An immutable [PopupSource] implementation based on a predefined polygon.
@@ -82,8 +87,11 @@ class _RectanglePopupSource implements PopupSource {
     // Track is ignored for this type, as it's assumed that the Rectangle is
     // immutable. If in the future we have an ObservableRectangle, then track
     // can be supported.
-    return new Stream<Rectangle>.fromIterable([this._predefinedRectangle]);
+    return new Stream<Rectangle>.fromIterable([_predefinedRectangle]);
   }
+
+  @override
+  Rectangle get dimensions => _predefinedRectangle;
 
   @override
   final bool isRtl = false;

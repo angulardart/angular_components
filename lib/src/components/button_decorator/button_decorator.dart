@@ -41,7 +41,7 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
 
   String _hostTabIndex;
 
-  ButtonDirective(ElementRef element) : super(element);
+  ButtonDirective(Element element) : super(element);
 
   /// String value to be passed to aria-disabled.
   String get disabledStr => '$_disabled';

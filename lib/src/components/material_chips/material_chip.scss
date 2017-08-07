@@ -12,7 +12,6 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'compass/css3/flexbox';
 
 $mat-option-inline-icons: true;
 
@@ -24,8 +23,8 @@ $main-bg-color: $mat-gray-300;
 $emphasis-bg-color: $mat-blue-500;
 
 :host {
-  @include display-flex();
-  @include align-items(center);
+  display: flex;
+  align-items: center;
   border-radius: $chip-border-radius;
   height: $chip-height;
   margin: $mat-grid / 2;
@@ -40,14 +39,15 @@ $emphasis-bg-color: $mat-blue-500;
 }
 
 $delete-icon-size: 19px;
-// https://b.corp.google.com/issues/26877587
+// Increased clickable area to match the spec.
+// https://material.googleplex.com/components/chips.html#chips-specs
 $clickable-size: 25px;
 $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
 
 .left-icon {
-  @include display-flex();
-  @include align-items(center);
-  @include justify-content(center);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   // The margin between chip content and icon should be 4px (that is 12px - 8px)
   margin-right: -$mat-grid;
   margin-left: $mat-grid-type;
@@ -55,7 +55,7 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
 }
 
 .delete-icon {
-  @include display-flex();
+  display: flex;
   background-size: $delete-icon-size $delete-icon-size;
   border: 0;
   cursor: pointer;
@@ -78,7 +78,7 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
   color: $mat-black;
 
   .left-icon {
-    // make it easy to use either <svg> or <glyph>
+    // make it easy to use either <svg> or <material-icon>
     color: $mat-gray-500;
     fill: $mat-gray-500;
   }

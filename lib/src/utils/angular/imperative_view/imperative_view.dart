@@ -62,7 +62,7 @@ import '../../disposer/disposer.dart';
 ///     }
 @Injectable()
 class AcxImperativeViewUtils {
-  final DynamicComponentLoader _componentLoader;
+  final SlowComponentLoader _componentLoader;
   final DomService _domService;
 
   AcxImperativeViewUtils(this._componentLoader, this._domService);

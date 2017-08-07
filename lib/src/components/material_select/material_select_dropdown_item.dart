@@ -65,7 +65,7 @@ import './material_select_item.dart';
 class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
     implements OnDestroy {
   MaterialSelectDropdownItemComponent(
-      ElementRef element,
+      HtmlElement element,
       DomService domService,
       @Optional() DropdownHandle dropdown,
       @Optional() ActivationHandler activationHandler)

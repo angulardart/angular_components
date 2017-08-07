@@ -12,8 +12,6 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'compass/css3/flexbox';
 
 // Adjust margin to keep icon and ripple centered.
 $margin-top: -1px;
@@ -21,9 +19,9 @@ $ripple-left: -$mat-grid;
 $ripple-top: -$mat-grid;
 
 :host {
-  @include align-items(center);
+  align-items: center;
   cursor: pointer;
-  @include display-flex(inline-flex);
+  display: inline-flex;
   margin: $mat-grid;
 
   &[no-ink] material-ripple {
@@ -49,7 +47,7 @@ $ripple-top: -$mat-grid;
 }
 
 .icon-container {
-  @include display-flex();
+  display: flex;
   position: relative;
 
   &.focus::after,
@@ -85,11 +83,10 @@ $ripple-top: -$mat-grid;
 }
 
 .content {
-  @include align-items(center);
-  @include flex-grow(1);
-  @include flex-shrink(1);
-  // Need auto to work in IE.
-  @include flex-basis(auto);
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
 
   margin-left: $mat-grid;
   overflow-x: hidden;

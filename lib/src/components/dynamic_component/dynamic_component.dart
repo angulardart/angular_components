@@ -17,19 +17,16 @@ import '../../utils/async/async.dart';
 ///
 ///     ... *ngFor="item in items">
 ///       <dynamic-component
-///           [componentType]="aTypeThatMayNotRenderValue"
+///           [componentFactory]="aFactoryThatMayNotRenderValue"
 ///           [value]="item">
 ///       </dynamic-component>
 ///
 @Component(
     selector: 'dynamic-component',
-// #marker variable is used to refer to the <div> tag later when calling
-// DynamicComponentLoader.loadNextToLocation. The tag does not have to be
-// <span>. It can be anything. In this case, we simply needed something
-// that's not visible, and <span> does the job perfectly.
-    template: '''<span #marker></span>''')
+    template: '''<template #marker></template>''')
 class DynamicComponent implements OnDestroy {
-  final DynamicComponentLoader _componentLoader;
+  final SlowComponentLoader _slowComponentLoader;
+  final ComponentLoader _componentLoader;
   final ChangeDetectorRef _changeDetectorRef;
   final _onLoadController = new LazyStreamController<ComponentRef>();
 
@@ -47,6 +44,7 @@ class DynamicComponent implements OnDestroy {
 
   ComponentRef _childComponent;
   Type _componentType;
+  ComponentFactory _componentFactory;
   Object _value;
 
   /// Fired when component is loaded allowing clients to get a handle on the
@@ -54,7 +52,8 @@ class DynamicComponent implements OnDestroy {
   @Output()
   Stream<ComponentRef> get onLoad => _onLoadController.stream;
 
-  DynamicComponent(this._componentLoader, this._changeDetectorRef);
+  DynamicComponent(this._slowComponentLoader, this._changeDetectorRef,
+      this._componentLoader);
 
   /// Returns the loaded dynamic component reference.
   ComponentRef get childComponent => _childComponent;
@@ -71,6 +70,7 @@ class DynamicComponent implements OnDestroy {
   }
 
   /// The type of component to dynamically render.
+  @Deprecated('Use componentFactory instead as it is more tree-shakable')
   @Input()
   set componentType(Type dartType) {
     _disposeChildComponent();
@@ -85,24 +85,51 @@ class DynamicComponent implements OnDestroy {
     }
   }
 
+  /// The type of component to dynamically render.
+  @Input()
+  set componentFactory(ComponentFactory component) {
+    _disposeChildComponent();
+    _componentFactory = component;
+    if (component == null) {
+      return;
+    }
+    if (_viewContainerRef != null) {
+      _initialize();
+    } else {
+      _loadDeferred = true;
+    }
+  }
+
   void _initialize() {
-    Type loadType = _componentType;
-    _componentLoader
-        .loadNextToLocation(loadType, _viewContainerRef)
-        .then((ComponentRef componentRef) {
-      if (loadType != _componentType) {
-        // During the load time, the component type has changed,
-        // and the type we just loaded is no longer valid.
-        componentRef.destroy();
-        return;
-      }
+    if (_componentFactory != null) {
       if (_childComponent != null) {
         throw 'Attempting to overwrite a dynamic component';
       }
-      _childComponent = componentRef;
-      _onLoadController.add(componentRef);
+
+      _childComponent = _componentLoader.loadNextToLocation(
+          _componentFactory, _viewContainerRef);
+      _onLoadController.add(_childComponent);
       _updateChildComponent();
-    });
+    } else {
+      // TODO(google): Remove this code once componentType is no longer used.
+      Type loadType = _componentType;
+      _slowComponentLoader
+          .loadNextToLocation(loadType, _viewContainerRef)
+          .then((ComponentRef componentRef) {
+        if (loadType != _componentType) {
+          // During the load time, the component type has changed,
+          // and the type we just loaded is no longer valid.
+          componentRef.destroy();
+          return;
+        }
+        if (_childComponent != null) {
+          throw 'Attempting to overwrite a dynamic component';
+        }
+        _childComponent = componentRef;
+        _onLoadController.add(componentRef);
+        _updateChildComponent();
+      });
+    }
   }
 
   /// The value to set on the component if the component implements

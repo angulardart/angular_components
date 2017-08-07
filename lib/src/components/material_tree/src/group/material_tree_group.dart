@@ -51,16 +51,17 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   final int _constantLeftPadding;
   int level = 0;
   bool parentHasCheckbox = false;
+  final MaterialTreeRoot _root;
 
   MaterialTreeGroupComponent(
-      MaterialTreeRoot root,
+      this._root,
       ChangeDetectorRef changeDetector,
       [@Optional()
           this._dropdownHandle,
       @Optional()
       @Inject(materialTreeLeftPaddingToken)
           this._constantLeftPadding])
-      : super(root, changeDetector);
+      : super(_root, changeDetector);
 
   // This is only used to standardize all the different group components.
   @HostBinding('class.material-tree-group')
@@ -92,7 +93,19 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   void handleSelectionOrExpansion(Event e, Object option) {
     if (!isExpandable(option) && isSelectable(option) ||
         (isMultiSelect && isSelectable(option))) {
+      final previouslyToggledNode = _root.previouslyToggledNode;
+      _root.previouslyToggledNode = option;
+
       toggleSelection(option);
+
+      // Handle shift + select behavior for multi-selection.
+      if (isMultiSelect &&
+          previouslyToggledNode != null &&
+          (e is MouseEvent && e.shiftKey)) {
+        toggleSelectionRangeInclusive(
+            previouslyToggledNode, option, isSelected(previouslyToggledNode));
+      }
+
       // For single select, within a dropdown, close the dropdown on toggle.
       if (!isMultiSelect) {
         _dropdownHandle?.close();

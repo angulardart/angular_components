@@ -27,11 +27,11 @@ $mat-option-export-partials: false !default;
 $almost-zero: .0001;
 $almost-one: 1 - $almost-zero;
 
-// Icon opacity
+// Deprecated; use icon colors, in _color.scss.
+// TODO(google): remove.
 $mat-icon-opacity: $mat-opacity-light;
 $mat-icon-opacity-disabled: .38;
 $mat-icon-opacity-hover: $mat-opacity-strong;
-
 $mat-icon-dark-opacity: 1;
 $mat-icon-dark-opacity-disabled: .30;
 $mat-icon-dark-opacity-hover: 1;

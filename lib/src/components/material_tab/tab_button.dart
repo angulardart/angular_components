@@ -11,27 +11,24 @@ import '../material_ripple/material_ripple.dart';
 import './tab_mixin.dart';
 
 /// A specialized button component used only by the tab strip.
-@Component(
-    selector: 'tab-button',
-    host: const {
-      '[class.focus]': 'visualFocus',
-      '[class.active]': 'isActive || isMouseDown',
-      'role': 'tab'
-    },
-    template: r'''
+@Component(selector: 'tab-button', host: const {
+  '[class.focus]': 'visualFocus',
+  '[class.active]': 'isActive || isMouseDown',
+  'role': 'tab'
+}, template: r'''
           <div class="content">
             {{label}}
           </div>
           <material-ripple></material-ripple>
-        ''',
-    styleUrls: const ['tab_button.scss.css'],
-    directives: const [MaterialRippleComponent])
+        ''', styleUrls: const [
+  'tab_button.scss.css'
+], directives: const [
+  MaterialRippleComponent
+])
 class TabButtonComponent extends MaterialButtonBase with TabMixin {
   final Element _nativeElement;
 
-  TabButtonComponent(ElementRef element)
-      : _nativeElement = element.nativeElement as Element,
-        super(element);
+  TabButtonComponent(this._nativeElement) : super(_nativeElement);
 
   @override
   Element get nativeElement => _nativeElement;

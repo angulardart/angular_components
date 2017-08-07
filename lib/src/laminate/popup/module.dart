@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.popup.module;
-
 import 'package:angular/di.dart';
 
 import '../enums/alignment.dart';
@@ -13,7 +11,7 @@ import 'src/popup_service.dart';
 
 const inlinePositions = RelativePosition.InlinePositions;
 
-/// DI bindings for Popups and it's dependencies.
+/// DI bindings for Popups and its dependencies.
 ///
 /// Should be included at most once per the injection chain.
 const popupBindings = const [
@@ -23,7 +21,7 @@ const popupBindings = const [
   PopupService
 ];
 
-/// DI bindings for Popups and it's dependencies with debugging enabled.
+/// DI bindings for Popups and its dependencies with debugging enabled.
 ///
 /// Should be included at most once per the injection chain.
 const popupDebugBindings = const [

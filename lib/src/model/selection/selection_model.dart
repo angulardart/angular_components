@@ -34,7 +34,8 @@ Object _defaultKeyProvider(Object o) => o;
 /// Provides pattern to manage a collection of selected values.
 /// This is used in model-view architecture to notify interested parties of
 /// [changes] to selection.
-abstract class SelectionModel<T> implements Observable, SelectionObservable<T> {
+abstract class SelectionModel<T>
+    implements Observable<ChangeRecord>, SelectionObservable<T> {
   /// Returns an immutable, constant model.
   const factory SelectionModel() = _NoopSelectionModelImpl<T>;
 
@@ -87,10 +88,6 @@ abstract class SelectionModel<T> implements Observable, SelectionObservable<T> {
 
   /// Returns ordered list of selected values.
   Iterable<T> get selectedValues;
-
-  /// A stream that returns changes to selected elements.
-  @override
-  Stream<List<SelectionChangeRecord<T>>> get selectionChanges;
 }
 
 abstract class MultiSelectionModel<T> extends SelectionModel<T> {

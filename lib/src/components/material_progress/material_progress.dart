@@ -81,24 +81,23 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
 
   double _calcRatio(int value) => (value.clamp(min, max) - min) / (max - min);
 
-  @ViewChild('primary')
-  set primary(ElementRef value) {
-    _primaryIndicator = value.nativeElement;
+  @ViewChild('primary', read: HtmlElement)
+  set primary(HtmlElement value) {
+    _primaryIndicator = value;
   }
 
   DivElement _primaryIndicator;
   Animation _primaryAnimation;
 
-  @ViewChild('secondary')
-  set secondary(ElementRef value) {
-    _secondaryIndicator = value.nativeElement;
+  @ViewChild('secondary', read: HtmlElement)
+  set secondary(HtmlElement value) {
+    _secondaryIndicator = value;
   }
 
   DivElement _secondaryIndicator;
   Animation _secondaryAnimation;
 
-  MaterialProgressComponent(ElementRef elementRef)
-      : this._element = elementRef.nativeElement;
+  MaterialProgressComponent(this._element);
 
   @override
   void ngAfterViewInit() {

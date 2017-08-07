@@ -111,7 +111,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   bool get visible => _visible;
 
   @Input()
-  void set visible(bool val) {
+  set visible(bool val) {
     if (_visible != val) {
       _visible = val;
       if (supportsFiltering) {

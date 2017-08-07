@@ -12,7 +12,6 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'compass/css3';
 
 $error-color: $mat-red-700;
 
@@ -20,8 +19,8 @@ $error-color: $mat-red-700;
 $default-input-width: $mat-grid * 22;
 
 :host {
-  @include display-flex(inline-flex);
-  @include flex-direction(column);
+  display: inline-flex;
+  flex-direction: column;
   outline: none;
   padding: $mat-grid 0;
   text-align: inherit;
@@ -35,8 +34,8 @@ $default-input-width: $mat-grid * 22;
   //
   // [1]http://stackoverflow.com/a/26567760
   // [2]http://kizu.ru/en/blog/flex-baseline/
-  @include display-flex(inline-flex);
-  @include flex-direction(column);
+  display: inline-flex;
+  flex-direction: column;
 
   // But if someone overrode the input to be display:block instead, then handle
   // that too. (Otherwise this div will shrink to fit the content)
@@ -46,7 +45,7 @@ $default-input-width: $mat-grid * 22;
   // of the textarea grows but the height of the host element is limited by its
   // parent.
   :host([multiline]) & {
-    @include flex-shrink(0);
+    flex-shrink: 0;
   }
 }
 
@@ -60,9 +59,9 @@ $default-input-width: $mat-grid * 22;
 }
 
 .top-section {
-  @include display-flex;
-  @include flex-direction(row);
-  @include align-items(baseline);
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
   margin-bottom: $mat-grid;
 }
 
@@ -70,8 +69,8 @@ $default-input-width: $mat-grid * 22;
   // Grow/shrink the input really aggressively so that we never crowd out the
   // padding around leading/trailing text when the input's stuffed into a space
   // narrower than the default width.
-  @include flex-grow(100);
-  @include flex-shrink(100);
+  flex-grow: 100;
+  flex-shrink: 100;
   width: 100%;
   position: relative;
 }
@@ -194,7 +193,7 @@ input[type=number] {
 }
 
 .animated.label-text {
-  @include transform(translateY(-100%) translateY(-$mat-grid));
+  transform: translateY(-100%) translateY(-$mat-grid);
   font-size: $mat-caption-font-size;
 }
 
@@ -215,7 +214,7 @@ input[type=number] {
 }
 
 .label-text {
-  @include transform-origin(0%, 0%);
+  transform-origin: 0%, 0%;
   color: $mat-light-transparent-black;
   overflow: hidden;
   display: inline-block;
@@ -248,20 +247,20 @@ input[type=number] {
 }
 
 .focused-underline {
-  @include transform(none);
+  transform: none;
   height: 2px;
   position: relative;
   top: -3px;
 }
 
 .focused-underline.invisible {
-  @include scale3d(0, 1, 1);
+  transform: scale3d(0, 1, 1);
 }
 
 .bottom-section {
-  @include display-flex;
-  @include flex-direction(row);
-  @include justify-content(space-between);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: $mat-grid / 2;
 }
 
@@ -273,7 +272,7 @@ input[type=number] {
 }
 
 .spaceholder {
-  @include flex-grow(1);
+  flex-grow: 1;
   outline: none;
 }
 

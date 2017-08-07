@@ -24,9 +24,7 @@ abstract class HasTabIndex {
   }
 
   @HostBinding('tabindex')
-  String get tabIndex {
-    return _tabIndex != null ? _tabIndex : _computeTabIndex();
-  }
+  String get tabIndex => _tabIndex ?? _computeTabIndex();
 
   String _computeTabIndex() {
     if (disabled) {

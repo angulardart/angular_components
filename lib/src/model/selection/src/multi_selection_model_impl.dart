@@ -4,7 +4,7 @@
 
 part of angular_components.model.selection.selection_model;
 
-class _MultiSelectionModelImpl<T> extends Observable
+class _MultiSelectionModelImpl<T> extends Observable<ChangeRecord>
     with SelectionChangeNotifier<T>
     implements MultiSelectionModel<T> {
   // Intentionally using a linked hash set so we can maintain selection order.

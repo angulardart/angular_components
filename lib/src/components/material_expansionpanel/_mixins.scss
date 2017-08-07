@@ -12,7 +12,6 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'compass/css3/flexbox';
 
 /// Mixins for Material ExpansionPanel. These mixins should be applied with
 /// standard Sass scoping logic, such as:
@@ -117,7 +116,7 @@ $_panel: 'div.panel.themeable';
 
 @mixin expansionpanel-left-align-action-buttons() {
   ::ng-deep material-yes-no-buttons {
-    @include flex-direction(row);
+    flex-direction: row;
   }
 }
 

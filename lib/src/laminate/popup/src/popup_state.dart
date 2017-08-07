@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.popup.src.popup_state;
-
 import 'dart:async';
 
 import 'package:observable/observable.dart';
@@ -28,7 +26,6 @@ class PopupState extends Observable {
       Alignment alignContentY: Alignment.Start,
       bool autoDismiss: true,
       bool enforceSpaceConstraints: false,
-      bool matchSourceWidth: false,
       bool matchMinSourceWidth: false,
       int offsetX: 0,
       int offsetY: 0,
@@ -40,7 +37,6 @@ class PopupState extends Observable {
       #alignContentY: alignContentY,
       #autoDismiss: autoDismiss,
       #enforceSpaceConstraints: enforceSpaceConstraints,
-      #matchSourceWidth: matchSourceWidth,
       #matchMinSourceWidth: matchMinSourceWidth,
       #offsetX: offsetX,
       #offsetY: offsetY,
@@ -104,14 +100,6 @@ class PopupState extends Observable {
     _backingMap[#enforceSpaceConstraints] = getBool(enforceSpaceConstraints);
   }
 
-  /// If true, the popup will automatically resize to the width of [source].
-  ///
-  /// **NOTE**: This will only happen on initial construction.
-  bool get matchSourceWidth => _backingMap[#matchSourceWidth];
-  set matchSourceWidth(bool matchSourceWidth) {
-    _backingMap[#matchSourceWidth] = matchSourceWidth;
-  }
-
   /// If true, the popup will set a min-width to the width of [source].
   bool get matchMinSourceWidth => _backingMap[#matchMinSourceWidth];
   set matchMinSourceWidth(bool matchMinSourceWidth) {
@@ -164,7 +152,6 @@ class PopupState extends Observable {
       o.alignContentY == alignContentY &&
       o.autoDismiss == autoDismiss &&
       o.enforceSpaceConstraints == enforceSpaceConstraints &&
-      o.matchSourceWidth == matchSourceWidth &&
       o.matchMinSourceWidth == matchMinSourceWidth &&
       o.source == source &&
       o.offsetX == offsetX &&
@@ -178,7 +165,6 @@ class PopupState extends Observable {
         alignContentY,
         autoDismiss,
         enforceSpaceConstraints,
-        matchSourceWidth,
         matchMinSourceWidth,
         source,
         offsetX,

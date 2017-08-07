@@ -13,9 +13,6 @@
 
 @import 'lib/src/css/material/material';
 @import 'lib/src/components/material_shadow/css/shadow';
-@import 'compass/css3/box-sizing';
-@import 'compass/css3/flexbox';
-@import 'compass/css3/user-interface';
 
 .panel {
   @include shadow-elevation;
@@ -56,7 +53,7 @@
 }
 
 .expand-button {
-  @include user-select(none);
+  user-select: none;
   color: $mat-lighter-transparent-black;
   cursor: pointer;
   transition: transform $mat-transition-slow $mat-transition-standard;
@@ -67,10 +64,8 @@
 }
 
 header {
-  @include flexbox((
-    align-items: center,
-    display: flex
-  ));
+  align-items: center;
+  display: flex;
   @include mat-type-subhead;
   color: $mat-transparent-black;
   cursor: pointer;
@@ -116,7 +111,7 @@ header {
 }
 
 .panel-description {
-  @include flex-grow(1);
+  flex-grow: 1;
   color: $mat-light-transparent-black;
   overflow: hidden;
   padding-right: $mat-grid * 2;
@@ -140,7 +135,7 @@ main {
 }
 
 .content-wrapper {
-  @include display-flex;
+  display: flex;
   margin: 0 $mat-grid * 3 $mat-grid * 2;
 
   &.hidden-header {
@@ -148,10 +143,8 @@ main {
   }
 
   > .expand-button {
-    @include flexbox((
-      align-self: flex-start,
-      flex-shrink: 0
-    ));
+    align-self: flex-start;
+    flex-shrink: 0;
     margin-left: $mat-grid * 2;
 
     &:focus {
@@ -161,14 +154,13 @@ main {
 }
 
 .content {
-  @include flex-grow(1);
-
+  flex-grow: 1;
   overflow: hidden;
   width: 100%;
 }
 
 %toolbelt {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   border-top: 1px $mat-border-light solid;
   padding: $mat-grid * 2 0;
   width: 100%;

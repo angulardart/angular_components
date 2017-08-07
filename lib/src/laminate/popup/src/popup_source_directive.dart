@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library angular_components.laminate.popup.src.popup_source_directive;
-
 import 'dart:async';
 import 'dart:math';
 
@@ -82,10 +80,13 @@ class PopupSourceDirective
   }
 
   @override
+  Rectangle get dimensions => _popupSource?.dimensions;
+
+  @override
   bool get isRtl => _popupSource.isRtl;
 
   void _updateSource() {
-    _popupSource = _domPopupSourceFactory.create(
+    _popupSource = _domPopupSourceFactory.createPopupSource(
       _elementRef.nativeElement,
       alignOriginX: _alignOriginX,
       alignOriginY: _alignOriginY,

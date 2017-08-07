@@ -11,8 +11,10 @@
  * to include CSS generation from SASS files during the build process.
  */
 
+@import 'lib/src/css/shared/compass_polyfills';
 @import 'lib/src/css/material/material';
 @import 'compass/css3';
+@import 'lib/src/components/material_button/mixins';
 
 $button-height: 9 * $mat-grid-type;
 $button-min-width: 11 * $mat-grid;
@@ -67,5 +69,12 @@ $button-min-width: 11 * $mat-grid;
 
   .spinner {
     @include justify-content(flex-end);
+  }
+}
+
+:host[dense] {
+  .btn.btn-yes,
+  .btn.btn-no {
+    @include button-dense;
   }
 }

@@ -5,8 +5,8 @@
 import 'dart:async';
 
 import 'package:observable/observable.dart';
-
 import './select.dart';
+
 import 'selection_model.dart';
 
 typedef bool IsIndeterminate(var entity);
@@ -109,7 +109,7 @@ abstract class TableSelectionModel<T> extends BaseTableSelectionModel<T>
 }
 
 /// Single-select implementation of table selection model.
-class _SingleTableSelectionModelImpl<T> extends Observable
+class _SingleTableSelectionModelImpl<T> extends Observable<ChangeRecord>
     implements
         SelectableWithComposition<T>,
         BaseTableSelectionModel<T>,
@@ -205,7 +205,7 @@ class _SingleTableSelectionModelImpl<T> extends Observable
 }
 
 /// Multi-select implementation of table selection model.
-class _TableSelectionModelImpl<T> extends Observable
+class _TableSelectionModelImpl<T> extends Observable<ChangeRecord>
     implements TableSelectionModel<T> {
   _TableSelectionModelImpl(
       {KeyProvider<T> keyProvider, this.getSelectable, this.deselectOnRemove})
