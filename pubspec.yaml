@@ -3,7 +3,7 @@ version: 0.6.0-alpha+2
 description: >
   The official Material Design components for AngularDart. Used at Google
   in production apps.
-homepage: https://github.com/dart-lang/angular_components
+homepage: https://webdev.dartlang.org/components
 author: Dart Team <misc@dartlang.org>
 environment:
   sdk: '>=1.24.0 <2.0.0-dev.infinity'
