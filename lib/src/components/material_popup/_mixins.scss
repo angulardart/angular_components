@@ -12,46 +12,66 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'lib/src/css/mixins';
 
 $popup-border-radius: 2px;
 $bg-color: $mat-white;
 $bg-color-ink: $mat-grey-700;
 
-/// Applies custom border radius on <material-popup>.
-///
-/// Example Usage:
-///     <material-popup shadowCssClass="my-selector" ...>
-///     </material-popup>
-///
-///     @include popup-border-radius('.my-selector', 4px, 4px, 4px, 4px);
-@mixin popup-border-radius($selector: '',
-                           $top-right: $popup-border-radius,
-                           $top-left: $popup-border-radius,
-                           $bottom-right: $popup-border-radius,
-                           $bottom-left: $popup-border-radius) {
-  ::ng-deep .popup-wrapper.mixin#{$selector} {
-    border-radius: $top-left $top-right $bottom-right $bottom-left;
+// Applies custom border radius on <material-popup>.
+//
+// NOTE: As with most mixins, you MUST scope the mixin or it will apply to all
+// material-popups on the page.
+//
+// Example Usage:
+//     <material-popup class="my-popup" ...>
+//     </material-popup>
+//
+//     .my-popup {
+//       @include material-popup-border-radius(4px 8px);
+//     }
+@mixin material-popup-border-radius($border-radius: $popup-border-radius) {
+  @include material-popup-style {
+    border-radius: $border-radius;
   }
 }
 
-/// Applies custom background-color on <material-popup>.
-///
-/// Example Usage:
-///     <material-popup shadowCssClass="my-selector" ...>
-///     </material-popup>
-///
-///     @include popup-background-color('.my-selector', $mat-green);
-@mixin popup-background-color($selector, $bg-color) {
-  ::ng-deep .popup-wrapper.mixin#{$selector}.shadow {
-    background: $bg-color;
+// Applies custom background-color on <material-popup>.
+//
+// NOTE: As with most mixins, you MUST scope the mixin or it will apply to all
+// material-popups on the page.
+//
+// Example Usage:
+//     <material-popup class="my-popup" ...>
+//     </material-popup>
+//
+//     .my-popup {
+//       @include material-popup-background-color($mat-green);
+//     }
+@mixin material-popup-background-color($bg-color) {
+  @include material-popup-style {
+    &.shadow {
+      background: $bg-color;
+    }
   }
 }
 
-/// Themes the primary color for all material-popup, only used for scrollbar
-/// thumb so far.
-@mixin material-popup-theme($primary-color) {
-  ::ng-deep material-popup {
-    @include material-scrollbar-theme($primary-color);
+// Applies the given CSS to the material-popup .popup-wrapper element.
+//
+// NOTE: As with most mixins, you MUST scope the mixin or it will apply to all
+// material-popups on the page.
+//
+// Example:
+//
+//     <material-popup class="my-popup" ...>
+//     </material-popup>
+//
+//     .my-popup {
+//        @include material-popup-style {
+//          border-radius: 2px;
+//        }
+//      }
+@mixin material-popup-style {
+  ::ng-deep .popup-wrapper.mixin {
+    @content;
   }
 }

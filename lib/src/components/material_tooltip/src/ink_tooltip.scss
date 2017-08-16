@@ -12,6 +12,8 @@
  */
 
 @import 'lib/src/css/material/material';
+@import 'lib/src/components/material_popup/mixins';
+
 @import 'constants';
 
 $tooltip-line-height: $tooltip-font-size + $mat-grid-type;
@@ -36,6 +38,8 @@ $tooltip-line-height: $tooltip-font-size + $mat-grid-type;
 }
 
 // deep required to style shadow css class in material-popup.
-::ng-deep .aacmtit-ink-tooltip-shadow { // deep required
-  margin: $mat-grid;
+.aacmtit-ink-tooltip-shadow {
+  @include material-popup-style {
+    margin: $mat-grid;
+  }
 }

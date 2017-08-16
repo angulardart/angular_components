@@ -20,56 +20,60 @@ import './material_select_item.dart';
 ///
 /// This should only be used in select dropdowns.
 @Component(
-    selector: 'material-select-dropdown-item',
-    inputs: const [
-      'active',
-      'closeOnActivate',
-      'componentRenderer',
-      'disabled', // Is item disabled. Inherited from [ButtonDirective]
-      'hideCheckbox',
-      'itemRenderer',
-      'selected',
-      'selection',
-      'value'
-    ],
-    outputs: const ['trigger'],
-    host: const {
-      'class': 'item',
-      '[class.disabled]': 'disabled',
-      '[class.active]': 'active',
-      '[class.selected]': 'isSelected',
-      '[class.multiselect]': 'supportsMultiSelect',
-      '(click)': r'handleClick($event)',
-      '(keypress)': r'handleKeyPress($event)',
-      '(mousedown)': r'preventTextSelectionIfShiftKey($event)',
-      '(mouseenter)': 'onMouseEnter()',
-      '(mouseleave)': 'onMouseLeave()',
-      '[attr.aria-disabled]': 'disabledStr',
-      'tabindex': '0',
-      'role': 'button'
-    },
-    providers: const [
-      const Provider(SelectionItem,
-          useExisting: MaterialSelectDropdownItemComponent),
-      const Provider(HasRenderer,
-          useExisting: MaterialSelectDropdownItemComponent)
-    ],
-    styleUrls: const ['material_select_dropdown_item.scss.css'],
-    directives: const [
-      DynamicComponent,
-      GlyphComponent,
-      MaterialCheckboxComponent,
-      NgIf
-    ],
-    templateUrl: 'material_select_item.html')
+  selector: 'material-select-dropdown-item',
+  // TODO(google).
+  inputs: const [
+    'active',
+    'closeOnActivate',
+    'componentRenderer',
+    'disabled', // Is item disabled. Inherited from [ButtonDirective]
+    'hideCheckbox',
+    'itemRenderer',
+    'selected',
+    'selection',
+    'value'
+  ],
+  // TODO(google).
+  outputs: const ['trigger'],
+  host: const {
+    'class': 'item',
+    '[class.disabled]': 'disabled',
+    '[class.active]': 'active',
+    '[class.selected]': 'isSelected',
+    '[class.multiselect]': 'supportsMultiSelect',
+    '(click)': r'handleClick($event)',
+    '(keypress)': r'handleKeyPress($event)',
+    '(mousedown)': r'preventTextSelectionIfShiftKey($event)',
+    '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()',
+    '[attr.aria-disabled]': 'disabledStr',
+    'tabindex': '0',
+    'role': 'button'
+  },
+  providers: const [
+    const Provider(SelectionItem,
+        useExisting: MaterialSelectDropdownItemComponent),
+    const Provider(HasRenderer,
+        useExisting: MaterialSelectDropdownItemComponent)
+  ],
+  styleUrls: const ['material_select_dropdown_item.scss.css'],
+  directives: const [
+    DynamicComponent,
+    GlyphComponent,
+    MaterialCheckboxComponent,
+    NgIf
+  ],
+  templateUrl: 'material_select_item.html',
+)
 class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
     implements OnDestroy {
   MaterialSelectDropdownItemComponent(
       HtmlElement element,
       DomService domService,
       @Optional() DropdownHandle dropdown,
-      @Optional() ActivationHandler activationHandler)
-      : super(element, domService, dropdown, activationHandler) {
+      @Optional() ActivationHandler activationHandler,
+      ChangeDetectorRef cdRef)
+      : super(element, domService, dropdown, activationHandler, cdRef) {
     this.itemRenderer = defaultItemRenderer;
   }
 

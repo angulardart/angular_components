@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart';
 import '../../utils/angular/properties/properties.dart';

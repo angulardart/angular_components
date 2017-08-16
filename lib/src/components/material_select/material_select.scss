@@ -11,18 +11,15 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'compass/css3/flexbox';
-
 :host,
 material-list,
 .options-wrapper,
 div[group] {
-  @include display-flex(inline-flex);
+  display: inline-flex;
 }
 
 material-list,
 div[group] {
-  @include flex-grow(1);
-  @include flex-direction(column);
+  flex-grow: 1;
+  flex-direction: column;
 }

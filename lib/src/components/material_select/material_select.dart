@@ -33,22 +33,24 @@ import 'material_select_item.dart';
 ///  - `disabled: bool` - Whether the select should be shown as disabled.
 ///    Optional. Defaults to false.
 @Component(
-    selector: 'material-select',
-    host: const {'role': 'listbox', '[attr.aria-disabled]': 'disabledStr'},
-    // Inputs for [MaterialSelectBase]
-    inputs: const ['options', 'width', 'itemRenderer', 'componentRenderer'],
-    providers: const [
-      const Provider(HasRenderer, useExisting: MaterialSelectComponent),
-      const Provider(SelectionContainer, useExisting: MaterialSelectComponent)
-    ],
-    directives: const [
-      MaterialListComponent,
-      MaterialSelectItemComponent,
-      NgIf,
-      NgFor
-    ],
-    templateUrl: 'material_select.html',
-    styleUrls: const ['material_select.scss.css'])
+  selector: 'material-select',
+  host: const {'role': 'listbox', '[attr.aria-disabled]': 'disabledStr'},
+  // Inputs for [MaterialSelectBase]
+  // TODO(google).
+  inputs: const ['options', 'width', 'componentRenderer'],
+  providers: const [
+    const Provider(HasRenderer, useExisting: MaterialSelectComponent),
+    const Provider(SelectionContainer, useExisting: MaterialSelectComponent)
+  ],
+  directives: const [
+    MaterialListComponent,
+    MaterialSelectItemComponent,
+    NgIf,
+    NgFor
+  ],
+  templateUrl: 'material_select.html',
+  styleUrls: const ['material_select.scss.css'],
+)
 class MaterialSelectComponent extends MaterialSelectBase implements OnDestroy {
   QueryList<SelectionItem> _selectItems;
   StreamSubscription _selectItemsSub;
@@ -91,6 +93,8 @@ class MaterialSelectComponent extends MaterialSelectBase implements OnDestroy {
   @override
   ItemRenderer get itemRenderer => _itemRenderer;
   ItemRenderer _itemRenderer;
+
+  @Input()
   set itemRenderer(ItemRenderer value) {
     _itemRenderer = value;
     _refreshItems();

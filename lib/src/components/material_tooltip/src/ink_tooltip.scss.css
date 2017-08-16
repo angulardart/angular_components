@@ -3,5 +3,5 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-:host{position:absolute}.ink-container{box-sizing:border-box;overflow:hidden;max-width:320px;padding:8px;font-size:12px;font-weight:500;line-height:16px;text-align:left;text-overflow:ellipsis}::ng-deep .aacmtit-ink-tooltip-shadow{margin:8px}
+:host{position:absolute}.ink-container{box-sizing:border-box;overflow:hidden;max-width:320px;padding:8px;font-size:12px;font-weight:500;line-height:16px;text-align:left;text-overflow:ellipsis}.aacmtit-ink-tooltip-shadow ::ng-deep .popup-wrapper.mixin{margin:8px}
 

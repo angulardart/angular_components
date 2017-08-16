@@ -11,9 +11,7 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
 @import 'lib/src/css/material/material';
-@import 'compass/css3/animation';
 
 // These styles are based on the Polymer paper spinner:
 // https://github.com/Polymer/paper-spinner/blob/master/paper-spinner.css
@@ -23,7 +21,7 @@ $spinner-width: 28px;
 $stroke-width: 3px;
 
 :host {
-  @include animation(rotate 1568ms linear infinite);
+  animation: rotate 1568ms linear infinite;
   border-color: $spinner-color;
   display: inline-block;
   height: $spinner-width;
@@ -33,7 +31,7 @@ $stroke-width: 3px;
 }
 
 .spinner {
-  @include animation(fill-unfill-rotate 5332ms $mat-transition-standard infinite both);
+  animation: fill-unfill-rotate 5332ms $mat-transition-standard infinite both;
   border-color: inherit;
   height: 100%;
   display: flex;
@@ -66,13 +64,13 @@ $stroke-width: 3px;
   }
 
   &.left::before {
-    @include animation(left-spin 1333ms $mat-transition-standard infinite both);
+    animation: left-spin 1333ms $mat-transition-standard infinite both;
     border-right-color: transparent;
     transform: rotate(129deg);
   }
 
   &.right::before {
-    @include animation(right-spin 1333ms $mat-transition-standard infinite both);
+    animation: right-spin 1333ms $mat-transition-standard infinite both;
     border-left-color: transparent;
     left: -100%;
     transform: rotate(-129deg);
@@ -93,11 +91,11 @@ $stroke-width: 3px;
   }
 }
 
-@include keyframes(rotate) {
+@keyframes rotate {
   to { transform: rotate(360deg); }
 }
 
-@include keyframes(fill-unfill-rotate) {
+@keyframes fill-unfill-rotate {
   12.5% { transform: rotate(135deg); }
   25% { transform: rotate(270deg); }
   37.5% { transform: rotate(405deg); }
@@ -108,13 +106,13 @@ $stroke-width: 3px;
   to { transform: rotate(1080deg); }
 }
 
-@include keyframes(left-spin) {
+@keyframes left-spin {
   from { transform: rotate(130deg); }
   50% { transform: rotate(-5deg); }
   to { transform: rotate(130deg); }
 }
 
-@include keyframes(right-spin) {
+@keyframes right-spin {
   from { transform: rotate(-130deg); }
   50% { transform: rotate(5deg); }
   to { transform: rotate(-130deg); }

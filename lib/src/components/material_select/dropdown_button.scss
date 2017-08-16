@@ -12,26 +12,24 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'compass/css3/flexbox';
 
 $icon-size: $mat-grid * 3;
 $error-color: $mat-red-700;
 $error-text-color: #d34336;
 
 :host {
-  @include display-flex(inline-flex);
-  @include flex(1);
-  @include flex-direction(column);
+  display: inline-flex;
+  flex: 1;
+  flex-direction: column;
   min-height: $icon-size;
   overflow: hidden;
 }
 
 .button {
-  @include display-flex;
-  @include align-items(center);
-  @include justify-content(space-between);
-  @include flex(1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
   line-height: initial;
   overflow: hidden;
 
@@ -56,7 +54,7 @@ $error-text-color: #d34336;
   }
 
   .button-text {
-    @include flex(1);
+    flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

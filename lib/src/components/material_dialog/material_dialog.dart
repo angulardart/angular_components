@@ -7,7 +7,6 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 
 import '../../laminate/components/modal/modal.dart';
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
 import '../focus/focus_trap.dart';
@@ -106,7 +105,6 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   HtmlElement _mainElement;
   bool _shouldShowHeader = true;
   bool _shouldShowFooter = true;
-  bool _shouldShowScrollStrokes = true;
   bool shouldShowTopScrollStroke = false;
   bool shouldShowBottomScrollStroke = false;
 
@@ -128,13 +126,13 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
 
   /// Whether to hide the dialog header.
   @Input()
-  set hideHeader(shouldHideHeader) =>
-      _shouldShowHeader = !getBool(shouldHideHeader);
+  set hideHeader(bool shouldHideHeader) =>
+      _shouldShowHeader = !shouldHideHeader;
 
   /// Whether to hide the dialog footer.
   @Input()
-  set hideFooter(shouldHideFooter) =>
-      _shouldShowFooter = !getBool(shouldHideFooter);
+  set hideFooter(bool shouldHideFooter) =>
+      _shouldShowFooter = !shouldHideFooter;
 
   bool get shouldShowHeader => _shouldShowHeader;
 
@@ -144,13 +142,12 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   /// indicate whether there is more content that the user can reach by
   /// scrolling.
   @Input()
-  set shouldShowScrollStrokes(shouldShowScrollStrokes) =>
-      _shouldShowScrollStrokes = getBool(shouldShowScrollStrokes);
+  bool shouldShowScrollStrokes = true;
 
   void onScroll() => _setHeaderFooterScrollBorder();
 
   void _setHeaderFooterScrollBorder() {
-    if (!_shouldShowScrollStrokes) return;
+    if (!shouldShowScrollStrokes) return;
     _disposer.addDisposable(_domService.scheduleRead(() {
       var shouldShowTopScrollStroke =
           _mainElement.scrollTop > 0 && error == null;

@@ -5,6 +5,7 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 import '../../utils/angular/properties/properties.dart';
 import '../../utils/angular/reference/reference.dart';

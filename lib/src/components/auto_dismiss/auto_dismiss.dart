@@ -7,7 +7,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/events/events.dart';
 
 /// A directive that publishes a (dismiss) event when the user clicks outside of
@@ -41,8 +40,8 @@ class AutoDismissDirective {
 
   /// Boolean indicating if the dismiss event be published.
   @Input()
-  set autoDismissable(b) {
-    _autoDismissable = getBool(b);
+  set autoDismissable(bool b) {
+    _autoDismissable = b;
 
     // If a click set autoDismissable to `true`, then we don't want the same
     // click to dismiss right away. Stop listening for clicks until we see a

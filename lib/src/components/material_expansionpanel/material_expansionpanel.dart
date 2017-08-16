@@ -9,7 +9,6 @@ import 'package:intl/intl.dart';
 
 import '../../model/action/async_action.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
 import '../button_decorator/button_decorator.dart';
@@ -186,8 +185,8 @@ class MaterialExpansionPanel
   /// If true, the panel will remain in the collapsed state with no way to
   /// expand it, or if expanded by default, it will stay in expanded state.
   @Input()
-  set disabled(value) {
-    _disabled = getBool(value);
+  set disabled(bool value) {
+    _disabled = value;
     _changeDetector.markForCheck();
   }
 
@@ -247,14 +246,8 @@ class MaterialExpansionPanel
   @Input()
   bool showSaveCancel = true;
 
-  bool _enterAccepts = false;
   @Input()
-  set enterAccepts(value) {
-    _enterAccepts = getBool(value);
-  }
-
-  /// Flag for enabling the EnterAcceptsDirective directive.
-  bool get enterAccepts => _enterAccepts;
+  bool enterAccepts = false;
 
   /// The text to be shown on the save button.
   ///

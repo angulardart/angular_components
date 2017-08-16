@@ -6,7 +6,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
 import '../focus/focus.dart';
@@ -36,29 +35,20 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
   final LazyEventEmitter<UIEvent> trigger =
       new LazyEventEmitter<UIEvent>.broadcast();
 
-  bool _disabled = false;
-  bool _tabbable = true;
-
   String _hostTabIndex;
 
   ButtonDirective(Element element) : super(element);
 
   /// String value to be passed to aria-disabled.
-  String get disabledStr => '$_disabled';
+  String get disabledStr => '$disabled';
 
   /// Is the button disabled.
-  bool get disabled => _disabled;
   @Input()
-  set disabled(dynamic value) {
-    _disabled = getBool(value);
-  }
+  bool disabled = false;
 
   /// Is the button tabbable.
-  bool get tabbable => _tabbable;
   @Input()
-  set tabbable(value) {
-    _tabbable = getBool(value);
-  }
+  bool tabbable = true;
 
   String get hostTabIndex => tabbable && !disabled ? _hostTabIndex : '-1';
 
@@ -72,13 +62,13 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
 
   /// Triggers if not disabled.
   void handleClick(MouseEvent mouseEvent) {
-    if (_disabled) return;
+    if (disabled) return;
     trigger.add(mouseEvent);
   }
 
   /// Triggers on enter and space if not disabled.
   void handleKeyPress(KeyboardEvent keyboardEvent) {
-    if (_disabled) return;
+    if (disabled) return;
     int keyCode = keyboardEvent.keyCode;
     if (keyCode == KeyCode.ENTER || isSpaceKey(keyboardEvent)) {
       trigger.add(keyboardEvent);

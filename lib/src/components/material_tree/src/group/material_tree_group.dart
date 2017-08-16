@@ -34,7 +34,8 @@ const materialTreeLeftPaddingToken = const OpaqueToken(
       MaterialCheckboxComponent,
       MaterialTreeGroupComponent,
       NgFor,
-      NgIf
+      NgIf,
+      NgClass
     ],
     host: const {'role': 'group'},
     inputs: const ['expandAll', 'group', 'level', 'parentHasCheckbox'],
@@ -53,6 +54,9 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   bool parentHasCheckbox = false;
   final MaterialTreeRoot _root;
 
+  /// The constant padding for every row.
+  final String fixedPadding;
+
   MaterialTreeGroupComponent(
       this._root,
       ChangeDetectorRef changeDetector,
@@ -61,7 +65,9 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
       @Optional()
       @Inject(materialTreeLeftPaddingToken)
           this._constantLeftPadding])
-      : super(_root, changeDetector);
+      : fixedPadding =
+            '${_constantLeftPadding ?? defaultConstantLeftPadding}px',
+        super(_root, changeDetector);
 
   // This is only used to standardize all the different group components.
   @HostBinding('class.material-tree-group')
@@ -71,11 +77,11 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
       showSelectionState &&
       (isSelectable(option) || showDisabledCheckbox(option));
 
-  // This returns the item padding based on it's level.
+  // This returns the item identation based on it's level.
   // Level 0 means it's the higher parent in the hierarchy, and it gets
   // a constant definition.
-  String getPadding(option) {
-    int padding = _constantLeftPadding ?? defaultConstantLeftPadding;
+  String getIndent(option) {
+    int padding = 0;
     if (level > 0) {
       padding += (level - 1) * rowIndentationStep;
       if (!showCheckbox(option) || parentHasCheckbox) {

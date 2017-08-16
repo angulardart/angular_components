@@ -6,10 +6,10 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
 
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/disposer/disposer.dart';
 import '../focus/focus.dart';
 import '../forms/error_renderer.dart' show ErrorFn;
@@ -48,9 +48,7 @@ class BaseMaterialInput extends FocusableMixin
   // Error message resulting from local validation.
   String _localValidationMessage;
 
-  bool _floatingLabel = false;
   bool _required = false;
-  bool _disabled = false;
   bool _showHintOnlyOnFocus = false;
 
   /// Enable native validation (e.g. for type="url").
@@ -143,12 +141,8 @@ class BaseMaterialInput extends FocusableMixin
   }
 
   /// Display error message and character counter below the input.
-  bool _displayBottomPanel = true;
-  bool get displayBottomPanel => _displayBottomPanel;
   @Input()
-  set displayBottomPanel(value) {
-    _displayBottomPanel = getBool(value);
-  }
+  bool displayBottomPanel = true;
 
   /// A function which takes in an error map, and returns another map, replacing
   /// errors with human readable text.
@@ -239,34 +233,28 @@ class BaseMaterialInput extends FocusableMixin
   }
 
   /// The label will "float" above the text input instead of disappearing.
-  bool get floatingLabel => _floatingLabel;
   @Input()
-  set floatingLabel(isFloating) {
-    _floatingLabel = isFloating != false && isFloating != null;
-  }
+  bool floatingLabel = false;
 
   /// Whether or not this input is disabled.
-  bool get disabled => _disabled;
   @Input()
-  set disabled(value) {
-    _disabled = getBool(value);
-  }
+  bool disabled = false;
 
   /// Whether or not the hint text will be displayed when the input is not
   /// focused.
   bool get showHintOnlyOnFocus => _showHintOnlyOnFocus;
   @Input()
-  set showHintOnlyOnFocus(value) {
-    _showHintOnlyOnFocus = getBool(value);
+  set showHintOnlyOnFocus(bool value) {
+    _showHintOnlyOnFocus = value;
     updateBottomPanelState();
   }
 
   /// Input is a required field if attribute is present.
   bool get required => _required;
   @Input()
-  set required(required) {
+  set required(bool required) {
     var prev = _required;
-    _required = getBool(required);
+    _required = required;
     if (prev != _required && _cd != null) {
       // Required value changed and we are using a control. Force revalidation
       // on the control.

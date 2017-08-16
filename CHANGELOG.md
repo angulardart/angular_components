@@ -1,3 +1,29 @@
+## 0.6.0-alpha+3
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 4.0.0-alpha+3. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (4.0.0-alpha is used in production Google apps).
+
+ * Add Application Layout styles and directives.
+ * Add Material Select Searchbox component.
+ * Material Expansionpanel: Add high density mixin.
+ * Material Icon: Add back and forward arrows to the list of flipped icons.
+ * Material Input: Add leading text color mixin.
+ * Material Popup:
+   * Integrate with Angular CSS shimming and remove `shadowCssClass`.
+   * Material design scrollbars by default (instead of the native scrollbars).
+   * Add ARIA attributes.
+ * Material Select: Fix selectable menu item property functionality.
+ * Material Tree:
+   * Add optional row separator borders.
+   * Fix dropdown closing on toggle issue.
+ * Material Tooltips: Add ARIA attributes.
+ * Improve performance of `TreeSelectionOptions` constructor from O(n^2) to O(n)
+   in the size of `listOfOptions`.
+ * Remove uses of 'getBool' in boolean typed inputs.
+ * Remove use of Compass in SASS files.
+ * Refactor Angular annotations to inline versions.
+
 ## 0.6.0-alpha+2
 
 > NOTE: This code is considered production quality, but depends on angular:

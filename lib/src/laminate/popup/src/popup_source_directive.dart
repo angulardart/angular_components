@@ -37,6 +37,7 @@ class PopupSourceDirective
   Alignment _alignOriginY = Alignment.Start;
 
   PopupSource _popupSource;
+  String _popupId;
 
   PopupSourceDirective(this._domPopupSourceFactory, this._elementRef,
       @Optional() this._referenceDirective);
@@ -85,11 +86,21 @@ class PopupSourceDirective
   @override
   bool get isRtl => _popupSource.isRtl;
 
+  @override
+  set popupId(String id) {
+    _popupId = id;
+    _popupSource?.popupId = id;
+  }
+
   void _updateSource() {
     _popupSource = _domPopupSourceFactory.createPopupSource(
       _elementRef.nativeElement,
       alignOriginX: _alignOriginX,
       alignOriginY: _alignOriginY,
     );
+
+    if (_popupId != null) {
+      _popupSource.popupId = _popupId;
+    }
   }
 }

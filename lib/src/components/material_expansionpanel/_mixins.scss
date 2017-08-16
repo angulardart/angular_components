@@ -164,3 +164,26 @@ $_panel: 'div.panel.themeable';
     margin-top: -$offset-px;
   }
 }
+
+@mixin expansionpanel-dense-theme() {
+  ::ng-deep #{$_panel} {
+
+    header,
+    &.open > header {
+      min-height: $mat-grid * 4;
+    }
+
+    .action-buttons {
+      padding: $mat-grid 0;
+    }
+
+    .panel-name {
+      margin: $mat-grid 0;
+      line-height: $mat-grid * 2;
+    }
+
+    .content-wrapper {
+      margin: 0 $mat-grid * 3 $mat-grid;
+    }
+  }
+}

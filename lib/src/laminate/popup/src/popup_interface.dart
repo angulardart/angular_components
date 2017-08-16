@@ -7,7 +7,6 @@ import 'dart:math';
 
 import 'package:angular/angular.dart';
 
-import '../../../utils/angular/properties/properties.dart';
 import '../../../utils/async/async.dart';
 import '../../enums/alignment.dart';
 import './popup_event.dart';
@@ -49,16 +48,16 @@ abstract class PopupInterface {
 
   /// Sets whether the popup should dismiss (close) itself on document press.
   @Input()
-  set autoDismiss(dynamic autoDismiss);
+  set autoDismiss(bool autoDismiss);
 
   /// Sets whether the popup should automatically reposition itself based on
   /// space available relative to the viewport.
   @Input()
-  set enforceSpaceConstraints(dynamic enforceSpaceConstraints);
+  set enforceSpaceConstraints(bool enforceSpaceConstraints);
 
   /// Sets whether popup should set a minimum width to the width of [source].
   @Input()
-  set matchMinSourceWidth(dynamic matchMinSourceWidth);
+  set matchMinSourceWidth(bool matchMinSourceWidth);
 
   /// Sets the x-offset to where the popup will be positioned ultimately.
   @Input()
@@ -82,7 +81,7 @@ abstract class PopupInterface {
 
   /// Sets whether the [source] should be tracked for changes.
   @Input()
-  set trackLayoutChanges(dynamic trackLayoutChanges);
+  set trackLayoutChanges(bool trackLayoutChanges);
 
   /// Sets whether the popup should be shown.
   ///
@@ -125,18 +124,18 @@ abstract class PopupBase implements PopupInterface {
   }
 
   @override
-  set autoDismiss(dynamic autoDismiss) {
-    state.autoDismiss = getBool(autoDismiss);
+  set autoDismiss(bool autoDismiss) {
+    state.autoDismiss = autoDismiss;
   }
 
   @override
-  set enforceSpaceConstraints(dynamic enforceSpaceConstraints) {
-    state.enforceSpaceConstraints = getBool(enforceSpaceConstraints);
+  set enforceSpaceConstraints(bool enforceSpaceConstraints) {
+    state.enforceSpaceConstraints = enforceSpaceConstraints;
   }
 
   @override
-  set matchMinSourceWidth(dynamic matchMinSourceWidth) {
-    state.matchMinSourceWidth = getBool(matchMinSourceWidth);
+  set matchMinSourceWidth(bool matchMinSourceWidth) {
+    state.matchMinSourceWidth = matchMinSourceWidth;
   }
 
   @override
@@ -160,8 +159,8 @@ abstract class PopupBase implements PopupInterface {
   }
 
   @override
-  set trackLayoutChanges(dynamic trackLayoutChanges) {
-    state.trackLayoutChanges = getBool(trackLayoutChanges);
+  set trackLayoutChanges(bool trackLayoutChanges) {
+    state.trackLayoutChanges = trackLayoutChanges;
   }
 }
 
@@ -177,32 +176,14 @@ abstract class PopupComposite implements PopupInterface {
   @override
   String alignContentY = 'start';
 
-  bool _autoDismiss = true;
-
-  bool get autoDismiss => _autoDismiss;
+  @override
+  bool autoDismiss = true;
 
   @override
-  set autoDismiss(value) {
-    _autoDismiss = getBool(value);
-  }
-
-  bool _enforceSpaceConstraints = false;
-
-  bool get enforceSpaceConstraints => _enforceSpaceConstraints;
+  bool enforceSpaceConstraints = false;
 
   @override
-  set enforceSpaceConstraints(value) {
-    _enforceSpaceConstraints = getBool(value);
-  }
-
-  bool _matchMinSourceWidth = true;
-
-  bool get matchMinSourceWidth => _matchMinSourceWidth;
-
-  @override
-  set matchMinSourceWidth(value) {
-    _matchMinSourceWidth = getBool(value);
-  }
+  bool matchMinSourceWidth = true;
 
   @override
   int offsetX = 0;
@@ -216,23 +197,11 @@ abstract class PopupComposite implements PopupInterface {
   @override
   PopupSource source;
 
-  bool _trackLayoutChanges = true;
-
-  bool get trackLayoutChanges => _trackLayoutChanges;
+  @override
+  bool trackLayoutChanges = true;
 
   @override
-  set trackLayoutChanges(value) {
-    _trackLayoutChanges = value as bool;
-  }
-
-  bool _visible = false;
-
-  bool get visible => _visible;
-
-  @override
-  set visible(bool visible) {
-    _visible = visible;
-  }
+  bool visible = false;
 
   @override
   void toggle() {

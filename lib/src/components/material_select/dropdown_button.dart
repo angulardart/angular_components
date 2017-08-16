@@ -30,26 +30,28 @@ import '../mixins/button_wrapper.dart';
 /// - `trigger: Event` -- Published when the button is activated via click or
 ///   keypress.
 @Component(
-    selector: 'dropdown-button',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: 'dropdown_button.html',
-    inputs: const [
-      'buttonText',
-      'buttonAriaLabel',
-      'disabled',
-      'icon',
-      'iconName',
-    ],
-    styleUrls: const [
-      '../button_decorator/button_decorator.scss.css',
-      'dropdown_button.scss.css'
-    ],
-    directives: const [
-      ButtonDirective,
-      GlyphComponent,
-      KeyboardOnlyFocusIndicatorDirective,
-      NgIf,
-    ])
+  selector: 'dropdown-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: 'dropdown_button.html',
+  // TODO(google).
+  inputs: const [
+    'buttonText',
+    'buttonAriaLabel',
+    'disabled',
+    'icon',
+    'iconName',
+  ],
+  styleUrls: const [
+    '../button_decorator/button_decorator.scss.css',
+    'dropdown_button.scss.css'
+  ],
+  directives: const [
+    ButtonDirective,
+    GlyphComponent,
+    KeyboardOnlyFocusIndicatorDirective,
+    NgIf,
+  ],
+)
 class DropdownButtonComponent extends Object with MaterialButtonWrapper {
   DropdownButtonComponent() {
     iconName = 'arrow_drop_down';

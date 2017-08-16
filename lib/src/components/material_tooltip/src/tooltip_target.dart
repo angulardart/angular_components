@@ -208,13 +208,22 @@ abstract class TooltipTarget extends PopupSourceDirective
     implements ReferenceDirective {
   Tooltip _tooltip;
   final ViewContainerRef viewContainerRef;
+  final ElementRef _elementRef;
 
   TooltipTarget(DomPopupSourceFactory domPopupSourceFactory,
-      this.viewContainerRef, ElementRef elementRef)
-      : super(domPopupSourceFactory, elementRef, /* referenceDirective */ null);
+      this.viewContainerRef, this._elementRef)
+      : super(
+            domPopupSourceFactory, _elementRef, /* referenceDirective */ null);
 
   /// Sets the tooltip associated with this target.
   void setTooltip(Tooltip component) {
     _tooltip = component;
+  }
+
+  @override
+  set popupId(String id) {
+    super.popupId = id;
+    if (id == null) return;
+    _elementRef.nativeElement.setAttribute('aria-describedby', id);
   }
 }

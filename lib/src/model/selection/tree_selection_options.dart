@@ -38,14 +38,11 @@ class TreeSelectionOptions<T> extends SelectionOptions<T>
             key: (TreeSelectionOptionData<T> item) => item.value),
         super(const []) {
     _comparator = comparator ?? _defaultComparator;
-    List<T> rootOptions = [];
-    var parentToChildrenMap = _generateEntitiesOptionsMap(rootOptions);
+    _parentToChildrenMap = _generateParentToChildrenMap(listOfOptions);
 
     /// Sets the actual options to start from.
-    optionGroups = [new OptionGroup<T>(rootOptions..sort(_comparator))];
-
-    /// Will save all the options per Entity.
-    this.parentToChildrenMap = parentToChildrenMap;
+    optionGroups =
+        _parentToChildrenMap.remove(null) ?? [new OptionGroup<T>([])];
   }
 
   @override
@@ -60,49 +57,28 @@ class TreeSelectionOptions<T> extends SelectionOptions<T>
   @override
   Map<T, List<OptionGroup<T>>> getHierarchyMap() => _parentToChildrenMap;
 
-  set parentToChildrenMap(Map<T, List<OptionGroup<T>>> value) {
-    _parentToChildrenMap = value;
-  }
-
   @override
   T getParent(T child) {
     return _itemsOptions[child]?.parent;
   }
 
-  Map<T, List<OptionGroup>> _generateEntitiesOptionsMap(List<T> rootOptions) {
-    Map<T, List<OptionGroup>> itemOptionsMap = {};
+  Map<T, List<OptionGroup>> _generateParentToChildrenMap(
+      List<TreeSelectionOptionData<T>> options) {
+    final parentToChildrenMap = <T, List<OptionGroup<T>>>{};
 
-    _itemsOptions.values.forEach((item) =>
-        _generateItemOptionsMapInternal(item, itemOptionsMap, rootOptions));
-    return itemOptionsMap;
-  }
-
-  void _generateItemOptionsMapInternal(TreeSelectionOptionData<T> parent,
-      Map<T, List<OptionGroup<T>>> itemOptionsMap, List<T> rootOptions) {
-    itemOptionsMap[parent.value] = _createOptionGroups(parent);
-    if (_itemsOptions[parent.value].parent == null) {
-      rootOptions.add(parent.value);
-    }
-  }
-
-  List<OptionGroup<T>> _createOptionGroups(TreeSelectionOptionData<T> parent) {
-    List<TreeSelectionOptionData<T>> childrenEntities = const [];
-    if (parent != null) {
-      childrenEntities = _itemsOptions.values
-          .where((child) => parent.value == child.parent)
-          .toList(growable: false)
-            ..sort((TreeSelectionOptionData<T> item1,
-                    TreeSelectionOptionData<T> item2) =>
-                _comparator(item1.value, item2.value));
+    for (var option in options) {
+      // Put all children in a single option group.
+      parentToChildrenMap
+          .putIfAbsent(option.parent, () => [new OptionGroup<T>([])])
+          .single
+          .add(option.value);
     }
 
-    if (childrenEntities.length > 0) {
-      return [
-        new OptionGroup<T>(childrenEntities.map((item) => item.value).toList())
-      ];
-    } else {
-      return [];
+    for (var groupList in parentToChildrenMap.values) {
+      groupList.single.sort(_comparator);
     }
+
+    return parentToChildrenMap;
   }
 
   int _defaultComparator(T value1, T value2) =>

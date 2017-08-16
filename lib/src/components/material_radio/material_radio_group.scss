@@ -11,12 +11,9 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'compass/css3/flexbox';
-
 :host {
   outline: none;
-  @include align-items(flex-start);
+  align-items: flex-start;
 }
 
 // We ignored this warning to create a mixin using ::ng-deep in order to

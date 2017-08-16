@@ -105,11 +105,4 @@ class MaterialTreeGroupFlatCheckComponent extends MaterialTreeNode {
   // This is only used to standardize all the different group components.
   @HostBinding('class.material-tree-group')
   final bool isMaterialTreeGroup = true;
-
-  @override
-  bool toggleSelection(option) {
-    var retVal = super.toggleSelection(option);
-    _dropdownHandle?.close();
-    return retVal;
-  }
 }

@@ -7,7 +7,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../utils/angular/properties/properties.dart';
 import '../button_decorator/button_decorator.dart';
 
 /// A base class from which to build buttons.
@@ -28,17 +27,13 @@ class MaterialButtonBase extends ButtonDirective {
   static const lowElevation = 1;
   static const mediumElevation = 2;
 
-  bool _raised = false;
   bool _focused = false;
   bool _clickFocused = false;
   bool _isMouseDown = false;
 
   /// Whether the button should be raised.
-  bool get raised => _raised;
   @Input()
-  set raised(value) {
-    _raised = getBool(value);
-  }
+  bool raised = false;
 
   /// Whether button is focused right now.
   bool get focused => _focused || _clickFocused;

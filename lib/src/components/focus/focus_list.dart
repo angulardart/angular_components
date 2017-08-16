@@ -5,7 +5,6 @@
 import 'package:angular/angular.dart';
 
 import '../../utils/angular/managed_zone/angular_2.dart';
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/disposer/disposer.dart';
 import './focus.dart';
 
@@ -42,15 +41,10 @@ class FocusListDirective implements OnDestroy {
   FocusListDirective(this._managedZone, @Attribute('role') String role)
       : this.role = role ?? 'list';
 
-  bool _loop = false;
-
   /// Whether focus movement loops from the end of the list to the beginning of
   /// the list. Default is `false`.
-  bool get loop => _loop;
   @Input()
-  set loop(val) {
-    _loop = getBool(val);
-  }
+  bool loop = false;
 
   @ContentChildren(FocusableItem)
   set listItems(QueryList<FocusableItem> listItems) {

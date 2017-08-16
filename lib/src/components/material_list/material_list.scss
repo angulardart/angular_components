@@ -84,7 +84,7 @@ $x-large: 7;
     @include _list-min-size($x-large);
   }
 
-  // TODO(google): Move these styles into mixins. b2/35765850
+  // TODO(google): Move these styles into mixins.
   ::ng-deep {
     // Note: script tags bookend content in CSS shimmed deployment.
     [group]:not(.empty) + *:not(script):not(template):not(.empty),

@@ -1,0 +1,78 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+@import 'lib/src/css/material/material';
+@import 'lib/src/components/material_shadow/css/shadow';
+
+@import 'material_drawer';
+
+// Nested in host to workaround legacy style encapsulation.
+//
+// Without use of :host, Angular will insert more encapsulation classes into the
+// selector, e.g.:
+//   `:host .foo .bar` will become `._nghost-abc-1 .foo .bar`
+//   `.foo .bar` will become `.foo._ngcontent-abc-1 .bar._ngcontent-abc-1`
+// Mixing these two behaviours can change the selector ordering so -- since use
+// of :host is required for some rules -- using :host for all prevents this.
+:host {
+  @include fit;
+
+  background-color: transparent;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+:host(.mat-drawer-expanded) {
+  pointer-events: auto;
+}
+
+:host([overlay].mat-drawer-expanded) {
+  background-color: $mat-lighter-transparent-black;
+  transition-duration: $mat-transition-mobile-entering;
+}
+
+:host([overlay]) {
+  background-color: transparent;
+  transition: background-color $mat-transition-mobile-leaving $mat-transition-standard;
+}
+
+:host .drawer-content {
+  @include material-drawer-common;
+  @include shadow-none;
+
+  left: -$mat-drawer-width;
+  pointer-events: auto;
+  transition-property: left, box-shadow;
+  transition-duration: $mat-transition-mobile-leaving;
+  transition-timing-function: $mat-transition-sharp;
+}
+
+:host(.mat-drawer-expanded) .drawer-content {
+  @include shadow-elevation(16);
+
+  left: 0;
+  transition-duration: $mat-transition-mobile-entering;
+  transition-timing-function: $mat-transition-deceleration;
+}
+
+:host([end]) .drawer-content {
+  transition-property: right, box-shadow;
+
+  left: initial;
+  right: -$mat-drawer-width;
+}
+
+:host([end].mat-drawer-expanded) .drawer-content {
+  right: 0;
+}

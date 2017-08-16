@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -49,6 +50,7 @@ class MaterialSelectItemComponent extends ButtonDirective
     implements OnDestroy, SelectionItem, HasRenderer, HasComponentRenderer {
   final _disposer = new Disposer.oneShot();
   final ActivationHandler _activationHandler;
+  final ChangeDetectorRef _cdRef;
   final DropdownHandle _dropdown;
 
   @override
@@ -57,10 +59,18 @@ class MaterialSelectItemComponent extends ButtonDirective
   @override
   final DomService domService;
 
-  MaterialSelectItemComponent(this.element, this.domService,
-      @Optional() this._dropdown, @Optional() this._activationHandler)
+  StreamSubscription _selectionChangeStreamSub;
+
+  MaterialSelectItemComponent(
+      this.element,
+      this.domService,
+      @Optional() this._dropdown,
+      @Optional() this._activationHandler,
+      this._cdRef)
       : super(element) {
-    _disposer.addStreamSubscription(trigger.listen(handleActivate));
+    _disposer
+      ..addStreamSubscription(trigger.listen(handleActivate))
+      ..addFunction(() => _selectionChangeStreamSub?.cancel());
   }
 
   /// The value this selection item represents.
@@ -160,6 +170,14 @@ class MaterialSelectItemComponent extends ButtonDirective
   set selection(SelectionModel sel) {
     _selection = sel;
     _supportsMultiSelect = sel is MultiSelectionModel;
+
+    // Eventually change this component to onpush. This should be step in that
+    // direction to support onpush components that use this component. There may
+    // be other mutable state that needs to trigger change detection.
+    _selectionChangeStreamSub?.cancel();
+    _selectionChangeStreamSub = sel.selectionChanges.listen((_) {
+      _cdRef.markForCheck();
+    });
   }
 
   SelectionModel _selection;

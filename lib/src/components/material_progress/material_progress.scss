@@ -12,16 +12,12 @@
  */
 
 // These styles are based on the original material progress styles in
-// go/spec https://spec.googleplex.com/quantum/components/progress-activity.html
+// https://material.io/guidelines/components/progress-activity.html
 
 // Leading zeros avoid confusion in the keyframes.
 // scss-lint:disable LeadingZero
 
-@import 'lib/src/css/shared/compass_polyfills';
-@import
-'lib/src/css/material/material',
-'compass/css3/animation',
-'compass/css3/transform';
+@import 'lib/src/css/material/material';
 
 $indeterminate-duration: 2000ms;
 
@@ -53,9 +49,8 @@ $indeterminate-duration: 2000ms;
 /*! @noflip */
 .active-progress,
 .secondary-progress {
-  @include transform-origin(left, center);
-  @include transform(scaleX(0));
-
+  transform-origin: left center;
+  transform: scaleX(0);
   position: absolute;
   top: 0;
   transition: transform $mat-transition $mat-transition-standard;
@@ -74,32 +69,32 @@ $indeterminate-duration: 2000ms;
 }
 
 .progress-container.indeterminate.fallback > .active-progress {
-  @include animation-name(indeterminate-active-progress);
-  @include animation-duration($indeterminate-duration);
-  @include animation-iteration-count(infinite);
-  @include animation-timing-function(linear);
+  animation-name: indeterminate-active-progress;
+  animation-duration: $indeterminate-duration;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .progress-container.indeterminate.fallback > .secondary-progress {
-  @include animation-name(indeterminate-secondary-progress);
-  @include animation-duration($indeterminate-duration);
-  @include animation-iteration-count(infinite);
-  @include animation-timing-function(linear);
+  animation-name: indeterminate-secondary-progress;
+  animation-duration: $indeterminate-duration;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 /*! @noflip */
-@include keyframes(indeterminate-active-progress) {
-  0% { @include transform(translate(0%) scaleX(0)); }
-  25% { @include transform(translate(0%) scaleX(0.5)); }
-  50% { @include transform(translate(25%) scaleX(0.75)); }
-  75% { @include transform(translate(100%) scaleX(0)); }
-  100% { @include transform(translate(100%) scaleX(0)); }
+@keyframes indeterminate-active-progress {
+  0% { transform: translate(0%) scaleX(0); }
+  25% { transform: translate(0%) scaleX(0.5); }
+  50% { transform: translate(25%) scaleX(0.75); }
+  75% { transform: translate(100%) scaleX(0); }
+  100% { transform: translate(100%) scaleX(0); }
 }
 
 /*! @noflip */
-@include keyframes(indeterminate-secondary-progress) {
-  0% { @include transform(translate(0%) scaleX(0)); }
-  60% { @include transform(translate(0%) scaleX(0)); }
-  80% { @include transform(translate(0%) scaleX(0.6)); }
-  100% { @include transform(translate(100%) scaleX(0.1)); }
+@keyframes indeterminate-secondary-progress {
+  0% { transform: translate(0%) scaleX(0); }
+  60% { transform: translate(0%) scaleX(0); }
+  80% { transform: translate(0%) scaleX(0.6); }
+  100% { transform: translate(100%) scaleX(0.1); }
 }

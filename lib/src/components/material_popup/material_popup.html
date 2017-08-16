@@ -5,6 +5,8 @@
 -->
 <template [popupRef]="resolvedPopupRef">
   <div [attr.elevation]="z"
+       id="{{uniqueId}}"
+       attr.role="{{role}}"
        class="popup-wrapper mixin"
        [class.shadow]="hasBox"
        [class.full-width]="matchMinSourceWidth"
@@ -12,8 +14,7 @@
        [attr.slide]="slide"
        [attr.z-index]="zIndex"
        [style.transform-origin]="transformOrigin"
-       [class.visible]="showPopup"
-       [ngClass]="shadowCssClass">
+       [class.visible]="showPopup">
       <div class="popup"
            [style.max-height.px]="contentHeight"
            [style.max-width.px]="contentWidth">

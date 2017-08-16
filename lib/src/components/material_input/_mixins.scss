@@ -73,6 +73,13 @@
   }
 }
 
+/// Changes the color of the leading text.
+@mixin material-input-leading-text-color($color) {
+  ::ng-deep .leading-text {
+    color: $color;
+  }
+}
+
 /// Changes the `$primary-color`in the material-input which includes the label
 /// text and underline.
 @mixin material-input-theme($primary-color) {

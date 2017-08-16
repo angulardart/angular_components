@@ -58,7 +58,7 @@ import './shift_click_selection.dart';
 /// The material-select has a fixed max height and auto overflow. We can add a
 /// property for custom max height once there's a use case.
 ///
-/// See ads/acx2/components/material_select/examples for example usage.
+/// See third_party/dart_src/acx/material_select/examples for example usage.
 ///
 /// __Example Usage:__
 ///
@@ -112,50 +112,51 @@ import './shift_click_selection.dart';
 /// - `labelRenderer: ComponentRenderer` -- Function that returns a component
 ///   to be used for rendering group labels.
 @Component(
-    selector: 'material-dropdown-select',
-    inputs: const [
-      // Select Base.
-      'componentRenderer',
-      'itemRenderer',
-      'options',
-      'selection',
-      'width',
-      // ButtonWrapper
-      'buttonText',
-      'buttonAriaLabel',
-      'disabled',
-      'icon',
-      'iconName',
-      // TrackLayoutChanges
-      'trackLayoutChanges',
-    ],
-    providers: const [
-      const Provider(DropdownHandle,
-          useExisting: MaterialDropdownSelectComponent),
-      const Provider(HasRenderer, useExisting: MaterialDropdownSelectComponent),
-      const Provider(DeferredContentAware,
-          useExisting: MaterialDropdownSelectComponent),
-      const Provider(SelectionContainer,
-          useExisting: MaterialDropdownSelectComponent),
-      const Provider(PopupSizeProvider,
-          useExisting: MaterialDropdownSelectComponent),
-      const Provider(ActivationHandler,
-          useExisting: MaterialDropdownSelectComponent),
-    ],
-    directives: const [
-      DeferredContentDirective,
-      DropdownButtonComponent,
-      DynamicComponent,
-      KeyboardOnlyFocusIndicatorDirective,
-      MaterialListComponent,
-      MaterialPopupComponent,
-      MaterialSelectDropdownItemComponent,
-      NgFor,
-      NgIf,
-      PopupSourceDirective,
-    ],
-    templateUrl: 'material_dropdown_select.html',
-    styleUrls: const ['material_dropdown_select.scss.css'])
+  selector: 'material-dropdown-select',
+  // TODO(google).
+  inputs: const [
+    // Select Base.
+    'componentRenderer',
+    'itemRenderer',
+
+    'width',
+    // ButtonWrapper
+    'buttonText',
+    'buttonAriaLabel',
+    'disabled',
+    'icon',
+    'iconName',
+    // TrackLayoutChanges
+    'trackLayoutChanges',
+  ],
+  providers: const [
+    const Provider(DropdownHandle,
+        useExisting: MaterialDropdownSelectComponent),
+    const Provider(HasRenderer, useExisting: MaterialDropdownSelectComponent),
+    const Provider(DeferredContentAware,
+        useExisting: MaterialDropdownSelectComponent),
+    const Provider(SelectionContainer,
+        useExisting: MaterialDropdownSelectComponent),
+    const Provider(PopupSizeProvider,
+        useExisting: MaterialDropdownSelectComponent),
+    const Provider(ActivationHandler,
+        useExisting: MaterialDropdownSelectComponent),
+  ],
+  directives: const [
+    DeferredContentDirective,
+    DropdownButtonComponent,
+    DynamicComponent,
+    KeyboardOnlyFocusIndicatorDirective,
+    MaterialListComponent,
+    MaterialPopupComponent,
+    MaterialSelectDropdownItemComponent,
+    NgFor,
+    NgIf,
+    PopupSourceDirective,
+  ],
+  templateUrl: 'material_dropdown_select.html',
+  styleUrls: const ['material_dropdown_select.scss.css'],
+)
 class MaterialDropdownSelectComponent extends MaterialSelectBase
     with
         MaterialDropdownBase,
@@ -210,6 +211,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     resetEnteredKeys();
   }
 
+  @Input()
   @override
   set options(SelectionOptions newOptions) {
     super.options = newOptions;
@@ -242,6 +244,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     _blur.add(event);
   }
 
+  @Input()
   @override
   set selection(SelectionModel newSelection) {
     super.selection = newSelection;
@@ -259,7 +262,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   void _updateActiveModel() {
-    var items = options?.optionsList?.toList() ?? [];
+    var items = new List<dynamic>.from(options?.optionsList ?? []);
     if (showDeselectItem) {
       items.insert(0, deselectLabel);
     }

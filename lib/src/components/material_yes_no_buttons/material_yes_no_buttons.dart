@@ -8,7 +8,6 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 
-import '../../utils/angular/properties/properties.dart';
 import '../material_button/material_button.dart';
 import '../material_spinner/material_spinner.dart';
 
@@ -60,84 +59,47 @@ class MaterialYesNoButtonsComponent {
   @Input()
   String noText = _msgNo;
 
-  bool _yesHighlighted = false;
-
   /// Whether the yes button should be highlighted.
   ///
   /// Default value is `false`.
-  bool get yesHighlighted => _yesHighlighted;
   @Input()
-  set yesHighlighted(value) {
-    _yesHighlighted = getBool(value);
-  }
-
-  bool _raised = false;
+  bool yesHighlighted = false;
 
   /// Whether the buttons should be raised.
   ///
   /// Default value is `false`.
-  bool get raised => _raised;
   @Input()
-  set raised(value) {
-    _raised = getBool(value);
-  }
-
-  bool _yesRaised = false;
+  bool raised = false;
 
   /// Whether the yes button should be raised.
   ///
   /// Default value is `false`.
-  bool get yesRaised => _yesRaised;
   @Input()
-  set yesRaised(value) {
-    _yesRaised = getBool(value);
-  }
-
-  bool _disabled = false;
+  bool yesRaised = false;
 
   /// Whether the buttons should be disabled.
   ///
   /// Default value is `false`.
-  bool get disabled => _disabled;
   @Input()
-  set disabled(value) {
-    _disabled = getBool(value);
-  }
-
-  bool _yesDisabled = false;
+  bool disabled = false;
 
   /// Whether the yes button should be disabled.
   ///
   /// Default value is `false`.
-  bool get yesDisabled => _yesDisabled;
   @Input()
-  set yesDisabled(value) {
-    _yesDisabled = getBool(value);
-  }
-
-  bool _yesDisplayed = true;
+  bool yesDisabled = false;
 
   /// Whether the yes button should be displayed.
   ///
   /// Default value is `true`.
-  bool get yesDisplayed => _yesDisplayed;
   @Input()
-  set yesDisplayed(value) {
-    _yesDisplayed = getBool(value);
-  }
-
-  bool _noDisplayed = true;
+  bool yesDisplayed = true;
 
   /// Whether the no button should be displayed.
   ///
   /// Default value is `true`.
-  bool get noDisplayed => _noDisplayed;
   @Input()
-  set noDisplayed(value) {
-    _noDisplayed = getBool(value);
-  }
-
-  bool _pending = false;
+  bool noDisplayed = true;
 
   /// When pending is `true`, the yes and no buttons are
   /// hidden, and a spinner is shown.
@@ -146,11 +108,8 @@ class MaterialYesNoButtonsComponent {
   /// validating input.
   ///
   /// Default value is `false`
-  bool get pending => _pending;
   @Input()
-  set pending(value) {
-    _pending = getBool(value);
-  }
+  bool pending = false;
 
   @ViewChild('yesButton')
   MaterialButtonComponent yesButton;
@@ -284,7 +243,6 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
 
   MaterialButtonComponent get yesButton => _yesNo.yesButton;
   MaterialButtonComponent get noButton => _yesNo.noButton;
-  bool _enterAccepts = true;
 
   EnterAcceptsDirective(
       this._yesNo, Element element, @Optional() KeyUpBoundaryDirective boundary)
@@ -292,11 +250,11 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
 
   /// Enables the directive to be conditionally applied.
   @Input()
-  set enterAccepts(value) => _enterAccepts = getBool(value);
+  bool enterAccepts = true;
 
   @override
   bool _isKeyUpMatching(KeyboardEvent event) {
-    if (!_enterAccepts) return false;
+    if (!enterAccepts) return false;
     if (event.keyCode != KeyCode.ENTER) return false;
     // Make sure the yes button is visible and enabled
     if (yesButton == null || yesButton.disabled) return false;
