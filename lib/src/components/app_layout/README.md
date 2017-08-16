@@ -89,10 +89,10 @@ CSS. To have a permanent drawer add the `permanent` attribute to the
 
 ```html
 <material-drawer permanent>
-  <!-- Drawer content here --!>
+  <!-- Drawer content here -->
 </material-drawer>
 <material-content>
-  <!-- Content goes here --!>
+  <!-- Content goes here -->
 </material-content>
 ```
 
