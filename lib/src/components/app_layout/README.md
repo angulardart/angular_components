@@ -30,22 +30,20 @@ class MyComponent {}
 An app bar has the following classes which can be used together to create a
 header:
 
+<!-- mdformat off(Basic table formatting for Github markdown compatibility) -->
+
 Class                   | Description
 ----------------------- | ------------------------------------------------------
-**material-header**     | Container element for the header
-shadow                  | Modifier on material-header to apply a shadow to the
-:                       : header
-dense-header            | Makes the App Bar denser for interfaces that
-:                       : primarily use mouse and keyboard.
-**material-header-row** | A row within the header
-material-drawer-button  | A button within the row that is placed on the left and
-:                       : is used for navigation
-material-header-title   | A title for the header
-material-spacer         | Consumes space between the title and any navigation
-:                       : links. Needs to be placed after the title and before
-:                       : any navigation elements
-material-navigation     | Navigation elements which will be displayed on the
-:                       : left side of the header
+**material-header**     | Container element for the header.
+shadow                  | Modifier on material-header to apply a shadow to the <br>header.
+dense-header            | Makes the App Bar denser for interfaces that primarily <br>use mouse and keyboard.
+**material-header-row** | A row within the header.
+material-drawer-button  | A button within the row that is placed on the left and <br>is used for navigation.
+material-header-title   | A title for the header.
+material-spacer         | Consumes space between the title and any navigation <br>links. Needs to be placed after the title and before <br>any navigation elements.
+material-navigation     | Navigation elements which will be displayed on the <br>left side of the header.
+
+<!-- mdformat on -->
 
 Here is an example:
 
