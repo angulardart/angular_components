@@ -90,6 +90,14 @@ class DomPopupSource implements PopupSource {
   bool get isRtl => _isRtl;
 
   @override
+  set popupId(String id) {
+    if (id == null) return;
+    _sourceElement
+      ..setAttribute('aria-owns', id)
+      ..setAttribute('aria-haspopup', 'true');
+  }
+
+  @override
   String toString() =>
       'DomPopupSource ' +
       {'alignOriginX': alignOriginX, 'alignOriginY': alignOriginY}.toString();

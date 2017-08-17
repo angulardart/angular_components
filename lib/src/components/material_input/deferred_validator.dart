@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 typedef Map<String, dynamic> _ValidatorFn(AbstractControl c);
 

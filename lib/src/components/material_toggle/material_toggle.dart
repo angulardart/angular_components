@@ -7,7 +7,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/events/events.dart';
 
 /// `material-toggle` is a button that can be either ON or OFF.
@@ -33,27 +32,17 @@ import '../../utils/browser/events/events.dart';
     directives: const [NgIf],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialToggleComponent {
-  @Input()
-  set disabled(value) {
-    _disabled = getBool(value);
-  }
-
   /// Enables/disables the toggle button.
   ///
   /// `true` is disabled and `false` is enabled.
-  bool get disabled => _disabled;
-  bool _disabled = false;
-
   @Input()
-  set checked(value) {
-    _checked = getBool(value);
-  }
+  bool disabled = false;
 
   /// Current state of the toggle button.
   ///
   /// `true` is ON and `false` is OFF.
-  bool get checked => _checked;
-  bool _checked = false;
+  @Input()
+  bool checked = false;
 
   final _controller = new StreamController<bool>.broadcast();
 

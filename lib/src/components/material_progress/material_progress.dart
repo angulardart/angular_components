@@ -6,7 +6,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/feature_detector/feature_detector.dart'
     show supportsAnimationApi;
 
@@ -53,8 +52,8 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
 
   /// Boolean whether the progress bar is deterministic. Default `false`
   @Input()
-  set indeterminate(b) {
-    _indeterminate = getBool(b);
+  set indeterminate(bool b) {
+    _indeterminate = b;
 
     if (indeterminate) {
       _tryFancyAnimation();

@@ -11,14 +11,11 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/material/material';
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'lib/src/components/material_list/mixins';
-@import 'compass/css3/flexbox';
 @import 'mixins';
+@import 'lib/src/components/material_list/mixins';
 
 :host {
-  @include display-flex(inline-flex);
+  display: inline-flex;
 }
 
 ::ng-deep material-dropdown-select material-list // deep required
@@ -29,12 +26,12 @@
 }
 
 .options-list {
-  @include display-flex();
-  @include flex-direction(column);
-  @include flex(1 0 auto);
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
 
   .options-wrapper {
-    @include flex-direction(column);
+    flex-direction: column;
 
     [label] {
       @include select-item-padding;

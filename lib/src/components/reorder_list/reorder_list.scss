@@ -11,8 +11,6 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'compass/css3/user-interface';
 @import 'mixins';
 
 :host {
@@ -26,7 +24,7 @@
   > [draggable] {
     // Required for old WebKit
     -webkit-user-drag: element;
-    @include user-select(none);
+    user-select: none;
   }
 
   &.multiselect {

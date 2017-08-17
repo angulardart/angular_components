@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:intl/intl.dart';
-import '../../utils/angular/properties/properties.dart';
 
 import 'material_input_error_keys.dart';
 
@@ -34,17 +34,13 @@ class PositiveNumValidator implements Validator {
       useExisting: CheckNonNegativeValidator, multi: true)
 ])
 class CheckNonNegativeValidator implements Validator {
-  bool _enabled = true;
-
   /// Boolean value allowing the validator to be turned on/off as needed.
-  @Input()
-  set checkNotNegative(value) {
-    _enabled = getBool(value);
-  }
+  @Input('checkNotNegative')
+  bool enabled = true;
 
   @override
   Map<String, dynamic> validate(AbstractControl control) {
-    if (!_enabled || control.value == null) return null;
+    if (!enabled || control.value == null) return null;
     assert(control.value is Comparable, 'Value needs to be comparable');
     if (control.value < 0) {
       return {nonNegativeIntegerRequiredErrorKey: numberIsNegativeMsg()};

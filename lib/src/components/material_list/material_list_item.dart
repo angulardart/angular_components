@@ -7,7 +7,6 @@ import 'dart:html' as dom;
 import 'package:angular/angular.dart';
 
 import '../../model/a11y/active_item_mixin.dart';
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
 import '../button_decorator/button_decorator.dart';
@@ -84,15 +83,10 @@ class MaterialListItemComponent extends ButtonDirective
     }
   }
 
-  bool _closeOnActivate = true;
-
   /// Whether the encompassing dropdown should be close on selecting
   /// this item.
-  bool get closeOnActivate => _closeOnActivate;
   @Input()
-  set closeOnActivate(value) {
-    _closeOnActivate = getBool(value);
-  }
+  bool closeOnActivate = true;
 
   @override
   void ngOnDestroy() {

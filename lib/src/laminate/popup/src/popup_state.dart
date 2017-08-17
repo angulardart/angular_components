@@ -7,7 +7,6 @@ import 'dart:async';
 import 'package:observable/observable.dart';
 import 'package:quiver/core.dart';
 
-import '../../../utils/angular/properties/properties.dart';
 import '../../enums/alignment.dart';
 import './popup_source.dart';
 
@@ -96,8 +95,8 @@ class PopupState extends Observable {
   /// positioning and layout depending on the size of the inner content and the
   /// distance to the viewport edges.
   bool get enforceSpaceConstraints => _backingMap[#enforceSpaceConstraints];
-  set enforceSpaceConstraints(enforceSpaceConstraints) {
-    _backingMap[#enforceSpaceConstraints] = getBool(enforceSpaceConstraints);
+  set enforceSpaceConstraints(bool enforceSpaceConstraints) {
+    _backingMap[#enforceSpaceConstraints] = enforceSpaceConstraints;
   }
 
   /// If true, the popup will set a min-width to the width of [source].

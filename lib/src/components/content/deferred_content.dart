@@ -5,7 +5,6 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/disposer/disposer.dart';
 
 import 'deferred_content_aware.dart';
@@ -34,12 +33,8 @@ class DeferredContentDirective implements OnDestroy {
   /// Create a placeholder element to maintain content size when hidden.
   ///
   /// Used like *deferredContent="true".
-  bool _preserveDimensions = false;
   @Input('deferredContent')
-  set preserveDimensions(value) {
-    // If it's just *deferredContent, default to false.
-    _preserveDimensions = getBool(value ?? false);
-  }
+  bool preserveDimensions = false;
 
   // Keep around the current state.
   bool _visible = false;
@@ -47,13 +42,13 @@ class DeferredContentDirective implements OnDestroy {
   void _setVisible(bool value) {
     if (value == _visible) return;
     if (value) {
-      if (_preserveDimensions) {
+      if (preserveDimensions) {
         // Remove the placeholder and add the deferred content.
         _placeholder.remove();
       }
       _viewRef = _viewContainer.createEmbeddedView(_template);
     } else {
-      if (_preserveDimensions) {
+      if (preserveDimensions) {
         // Save the dimensions of the deferred content.
         var rootNodes = _viewRef?.rootNodes ?? [];
         var content = rootNodes.length > 0 ? rootNodes.first : null;
@@ -70,7 +65,7 @@ class DeferredContentDirective implements OnDestroy {
       // Remove the deferred content.
       _viewContainer.clear();
 
-      if (_preserveDimensions) {
+      if (preserveDimensions) {
         // Add the placeholder so the parent's size doesn't change.
         var container = _viewContainer.element?.nativeElement;
         if (container?.parentNode != null) {

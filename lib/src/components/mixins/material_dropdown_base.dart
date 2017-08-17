@@ -7,7 +7,6 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 
 import '../../laminate/enums/alignment.dart';
-import '../../utils/angular/properties/properties.dart';
 import '../content/deferred_content_aware.dart';
 
 /// A simple handle for Dropdown components.
@@ -18,12 +17,7 @@ abstract class DropdownHandle {
   void open();
   void close();
   void toggle();
-  bool _autoDismiss;
-  bool get autoDismiss => _autoDismiss;
-  @Input()
-  set autoDismiss(value) {
-    _autoDismiss = getBool(value);
-  }
+  bool autoDismiss;
 }
 
 /// Base class for Material Dropdown components.
@@ -47,36 +41,24 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   final _visibleStream = new StreamController<bool>.broadcast(sync: true);
   final _contentVisible = new StreamController<bool>.broadcast(sync: true);
 
-  bool _enforceSpaceConstraints = false;
-  bool get enforceSpaceConstraints => _enforceSpaceConstraints;
   @Input()
-  set enforceSpaceConstraints(value) {
-    _enforceSpaceConstraints = getBool(value);
-  }
+  bool enforceSpaceConstraints = false;
 
   /// Whether or not the popup width is at least as wide as the select width.
-  bool _popupMatchInputWidth = true;
-  bool get popupMatchInputWidth => _popupMatchInputWidth;
   @Input()
-  set popupMatchInputWidth(value) {
-    _popupMatchInputWidth = getBool(value);
-  }
+  bool popupMatchInputWidth = true;
 
   /// Direction of popup scaling.
   @Input()
   String slide;
 
-  bool _autoDismiss = true;
-  bool get autoDismiss => _autoDismiss;
-  set autoDismiss(value) {
-    _autoDismiss = getBool(value);
-  }
+  bool autoDismiss = true;
 
   bool _visible = false;
   bool get visible => _visible;
   @Input()
-  set visible(value) {
-    bool vis = getBool(value);
+  set visible(bool value) {
+    bool vis = value;
     // Make the content visible if visible is being set to true.
     if (vis && _visible != vis) {
       _contentVisible.add(true);

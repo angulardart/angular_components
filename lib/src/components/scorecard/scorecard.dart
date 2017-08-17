@@ -7,7 +7,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/browser/events/events.dart';
 import '../../utils/color/color.dart';
@@ -96,8 +95,6 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   bool _isChangeNegative = false;
   bool _isChangeNeutral = true;
   bool _selectable = false;
-  bool _extraBig = false;
-  bool _changeGlyph = false;
 
   final ChangeDetectorRef _changeDetector;
   final HtmlElement element;
@@ -114,11 +111,8 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
 
   /// Whether to display a small change arrow glyph in the description;
   /// optional.
-  bool get changeGlyph => _changeGlyph;
   @Input()
-  set changeGlyph(bool value) {
-    _changeGlyph = getBool(value);
-  }
+  bool changeGlyph = false;
 
   /// A piece of suggestion text before the description; optional.
   @Input()
@@ -134,11 +128,8 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
 
   /// Whether to use the "big" class style for scorecards; optional.
   @HostBinding('class.extra-big')
-  get extraBig => _extraBig;
   @Input()
-  set extraBig(value) {
-    _extraBig = getBool(value);
-  }
+  bool extraBig = false;
 
   /// Set the type of change depicted by scorecard.
   ///
@@ -192,8 +183,8 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   bool get selectable => _selectable;
 
   @Input()
-  set selectable(selectable) {
-    _selectable = getBool(selectable);
+  set selectable(bool selectable) {
+    _selectable = selectable;
 
     // Normally OnPush will markForCheck() automatically when an input changes.
     // However, that's only if the input changes within the Angular zone.

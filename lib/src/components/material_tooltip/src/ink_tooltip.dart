@@ -44,10 +44,11 @@ import 'tooltip_target.dart';
     template: r'''
         <material-popup *ngIf="popupSource != null"
                         ink
-                        autoDismiss="false"
+                        role="tooltip"
+                        [autoDismiss]="false"
                         enforceSpaceConstraints
-                        matchMinSourceWidth="false"
-                        shadowCssClass="aacmtit-ink-tooltip-shadow"
+                        [matchMinSourceWidth]="false"
+                        class="aacmtit-ink-tooltip-shadow"
                         trackLayoutChanges
                         [preferredPositions]="positions"
                         [source]="popupSource"

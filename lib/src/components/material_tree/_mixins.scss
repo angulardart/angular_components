@@ -23,3 +23,43 @@
     max-height: $max-height;
   }
 }
+
+/// Selects border separators between rows in the material tree.
+///
+/// This has higher specificity than the default styling.
+@mixin material-tree-border {
+  ::ng-deep .material-tree-item > .material-tree-shift > .material-tree-border {
+    @content;
+  }
+}
+/// Additionally indents separators within the material tree.
+@mixin material-tree-border-indent($dist) {
+  @include material-tree-border {
+    margin-left: $dist;
+  }
+}
+/// Displays separators above expanded parent nodes. Also applies @content styling to them.
+@mixin material-tree-border-expanded {
+  @include material-tree-border {
+    &.is-parent.is-expanded {
+      display: block;
+      @content;
+    }
+  }
+}
+/// Displays separators above expanded nodes. Also applies @content styling to them.
+@mixin material-tree-border-parent {
+  @include material-tree-border {
+    &.is-parent {
+      display: block;
+      @content;
+    }
+  }
+}
+/// Displays separators above all nodes. Also applies @content styling to them.
+@mixin material-tree-border-all {
+  @include material-tree-border {
+    display: block;
+    @content;
+  }
+}

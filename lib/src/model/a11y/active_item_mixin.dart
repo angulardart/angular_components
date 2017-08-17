@@ -6,7 +6,6 @@ import 'dart:html' as dom;
 
 import 'package:angular/angular.dart';
 
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 
 /// Mixin for elements able to be activated through mouse or keyboard, like
@@ -21,15 +20,14 @@ abstract class ActiveItemMixin {
   /// An instance of DomService, used to coordinate scrolling.
   DomService get domService;
 
-  bool _active;
+  bool _active = false;
 
   /// Whether the element is active.
   @HostBinding('class.active')
-  bool get active => _active ?? false;
+  bool get active => _active;
 
   @Input()
-  set active(value) {
-    value = getBool(value);
+  set active(bool value) {
     if (value == _active) return;
     _active = value;
     if (_active && !_hasHover) {

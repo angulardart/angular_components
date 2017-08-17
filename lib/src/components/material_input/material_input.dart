@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:quiver/strings.dart' show isNotEmpty;
 
 import '../../utils/angular/properties/properties.dart';
@@ -14,7 +15,7 @@ import 'deferred_validator.dart';
 import 'material_input_default_value_accessor.dart';
 import 'material_input_multiline.dart';
 
-export 'package:angular/angular.dart' show NgModel;
+export 'package:angular_forms/angular_forms.dart' show NgModel;
 
 export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 export 'material_input_default_value_accessor.dart';
@@ -119,7 +120,6 @@ const String materialInputErrorKey = 'material-input-error';
     selector: 'material-input:not(material-input[multiline])',
     changeDetection: ChangeDetectionStrategy.OnPush,
     inputs: const [
-      'rightAlign',
       'leadingText',
       'trailingText',
       'leadingGlyph',
@@ -206,11 +206,8 @@ class MaterialInputComponent extends BaseMaterialInput
 
   /// Whether the input contents should be always right aligned.
   /// Default value is `false`.
-  bool _rightAlign = false;
-  bool get rightAlign => _rightAlign;
-  set rightAlign(value) {
-    _rightAlign = getBool(value);
-  }
+  @Input()
+  bool rightAlign = false;
 
   MaterialInputComponent(
       @Attribute('type') String type,

@@ -10,9 +10,9 @@ import 'package:angular/angular.dart';
 
 import '../../laminate/popup/popup.dart';
 import '../../model/ui/toggle.dart';
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
+import '../../utils/id_generator/id_generator.dart';
 import '../content/deferred_content_aware.dart';
 import '../mixins/material_dropdown_base.dart';
 import 'src/popup_ref_directive.dart';
@@ -78,7 +78,6 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 /// or `null`.
 @Component(
     selector: 'material-popup',
-    host: const {'[attr.pane-id]': 'uniqueId'},
     inputs: const ['slide', 'z'],
     providers: const [
       const Provider(DeferredContentAware, useExisting: MaterialPopupComponent),
@@ -97,7 +96,12 @@ export '../../laminate/popup/popup.dart' show PopupSourceDirective;
     styleUrls: const ['material_popup.scss.css'])
 class MaterialPopupComponent extends Object
     with PopupBase, PopupEvents, PopupHierarchyElement
-    implements PopupInterface, DeferredContentAware, OnDestroy, DropdownHandle {
+    implements
+        PopupInterface,
+        DeferredContentAware,
+        AfterViewInit,
+        OnDestroy,
+        DropdownHandle {
   // Visible for testing.
   static const Duration SLIDE_DELAY = const Duration(milliseconds: 218);
 
@@ -121,6 +125,10 @@ class MaterialPopupComponent extends Object
   // Needed to implement the PopupHierarchyElement interface.
   @override
   final ElementRef elementRef;
+
+  final String role;
+  static final _idGenerator = new SequentialIdGenerator.fromUUID();
+  final _uniqueId = _idGenerator.nextId();
 
   PopupRef parentPopup;
 
@@ -201,40 +209,32 @@ class MaterialPopupComponent extends Object
   bool get matchMinSourceWidth => _matchMinSourceWidth;
 
   @override
-  set matchMinSourceWidth(var value) {
-    _matchMinSourceWidth = super.matchMinSourceWidth = getBool(value);
+  set matchMinSourceWidth(bool value) {
+    _matchMinSourceWidth = super.matchMinSourceWidth = value;
   }
 
   /// Sets the background color of the popup to be ink (`$mat-grey-700`).
   @Input('ink')
-  set inkBackground(value) {
-    _inkBackground = getBool(value);
-  }
-
-  bool _inkBackground = false;
-  bool get inkBackground => _inkBackground;
+  bool inkBackground = false;
 
   /// Whether the popup panel has an enclosing box that wraps the content.
   ///
   /// This gives the panel a shadow and background color. When it's off, no
   /// animation delayed is applied.
-  bool _hasBox = true;
   @Input()
-  set hasBox(value) {
-    _hasBox = getBool(value);
-  }
-
-  bool get hasBox => _hasBox;
+  bool hasBox = true;
 
   MaterialPopupComponent(
       this._domService,
       @Optional() @SkipSelf() this._hierarchy,
       @Optional() @SkipSelf() PopupRef parentPopup,
+      @Attribute('role') String role,
       this._ngZone,
       this._popupService,
       @Optional() this._popupSizeProvider,
       this._changeDetector,
-      this.elementRef);
+      this.elementRef)
+      : this.role = role ?? 'dialog';
 
   @override
   Stream<bool> get contentVisible => _onContentVisible.stream.distinct();
@@ -268,6 +268,19 @@ class MaterialPopupComponent extends Object
       });
     }
     return completer.future;
+  }
+
+  @override
+  void ngAfterViewInit() {
+    _updateOverlayCssClass();
+  }
+
+  void _updateOverlayCssClass() {
+    var overlay = _resolvedPopupRef?.overlay;
+    if (overlay == null) return;
+    // Copy host CSS classes for integration with Angular CSS shimming.
+    var hostClassName = elementRef.nativeElement.className;
+    overlay.overlayElement.className += ' $hostClassName';
   }
 
   @override
@@ -334,8 +347,12 @@ class MaterialPopupComponent extends Object
   @override
   final PopupState state = new PopupState();
 
-  /// The unique ID of the popup pane, which is added to the DOM for testing.
-  String get uniqueId => _resolvedPopupRef?.uniqueId;
+  /// The popup pane ID, which is added to the DOM (as pane-id) for testing.
+  @HostBinding('attr.pane-id')
+  String get paneId => _resolvedPopupRef?.uniqueId;
+
+  /// The unique DOM ID assigned to the popup element.
+  String get uniqueId => _uniqueId;
 
   // Start visible, but at 0px dimensions.
   //
@@ -428,9 +445,8 @@ class MaterialPopupComponent extends Object
   void _initView() {
     assert(_viewInitialized == false);
 
-    _resolvedPopupRef = _popupService.createPopupRefSync(
-        initialState: state, parent: parentPopup);
-    _initPopupRef(_resolvedPopupRef);
+    _initPopupRef(_popupService.createPopupRefSync(
+        initialState: state, parent: parentPopup));
     _viewInitialized = true;
     _changeDetector.markForCheck();
   }
@@ -446,6 +462,7 @@ class MaterialPopupComponent extends Object
       ..addStreamSubscription(popupRef.onClose.listen(onPopupClosed))
       ..addStreamSubscription(
           popupRef.onVisibleChanged.listen(onVisibleChanged));
+    _updateOverlayCssClass();
   }
 
   @override
@@ -485,17 +502,15 @@ class MaterialPopupComponent extends Object
     visible = false;
   }
 
-  /// Custom css class to be set on material-shadow inside the popup.
-  // TODO(google): clean this up with more sophisticated solution.
-  @Input()
-  String shadowCssClass;
-
   @override
   Element get container => _popupService.getContainerElement(_resolvedPopupRef);
 
   @override
   set source(PopupSource source) {
     super.source = source;
+
+    // Set the popup ID on the source for ARIA attributes.
+    source.popupId = uniqueId;
 
     // This component supports direct control over the [PopupRef] by way
     // of the Toggle library. Here, we register the [PopupRef] as a

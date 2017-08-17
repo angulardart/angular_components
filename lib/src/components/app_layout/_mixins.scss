@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * for details. All rights reserved. Use of this source code is governed by a
+ * BSD-style license that can be found in the LICENSE file.
+ */
+
+/*
+ * NOTE: SASS files are not used during the build step of this package and are
+ * provided as reference only. These .scss files were used to generate the
+ * corresponding .css files in a separate process. We are working on a solution
+ * to include CSS generation from SASS files during the build process.
+ */
+
+/// Sets width of MaterialTemporaryDrawerComponent.
+///
+/// Must be applied to the component itself, e.g.:
+///
+/// ```
+/// material-drawer[temporary] {
+///   @include mat-temporary-drawer-width(512px);
+/// }
+/// ```
+@mixin mat-temporary-drawer-width($width) {
+  ::ng-deep .drawer-content {
+    width: $width;
+  }
+
+  &:not([end]):not(.mat-drawer-expanded) ::ng-deep .drawer-content {
+    left: -$width;
+  }
+
+  &[end]:not(.mat-drawer-expanded) ::ng-deep .drawer-content {
+    right: -$width;
+  }
+}

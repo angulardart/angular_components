@@ -11,8 +11,6 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'compass/css3/flexbox';
 @import 'lib/src/css/material/material';
 
 /// Default padding material-select-item and material-select-dropdown-item.

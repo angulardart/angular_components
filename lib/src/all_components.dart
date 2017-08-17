@@ -5,6 +5,9 @@
 library angular_components.all_components;
 
 export 'components/annotations/rtl_annotation.dart';
+export 'components/app_layout/material_drawer_base.dart';
+export 'components/app_layout/material_persistent_drawer.dart';
+export 'components/app_layout/material_temporary_drawer.dart';
 export 'components/auto_dismiss/auto_dismiss.dart';
 export 'components/button_decorator/button_decorator.dart';
 export 'components/content/deferred_content.dart';
@@ -57,6 +60,7 @@ export 'components/material_select/material_select.dart';
 export 'components/material_select/material_select_base.dart';
 export 'components/material_select/material_select_dropdown_item.dart';
 export 'components/material_select/material_select_item.dart';
+export 'components/material_select/material_select_searchbox.dart';
 export 'components/material_select/shift_click_selection.dart';
 export 'components/material_spinner/material_spinner.dart';
 export 'components/material_tab/fixed_material_tab_strip.dart';

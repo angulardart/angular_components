@@ -115,6 +115,9 @@ abstract class PopupRef implements PortalHost, Toggleable {
 
   /// The top position of the popup relative to the container viewport.
   num get top;
+
+  /// The underlying [OverlayRef] instance.
+  OverlayRef get overlay;
 }
 
 /// A function that will return the bounds of the current viewport.
@@ -617,7 +620,7 @@ class PopupRefImpl extends DelegatingPortalHost
     return _onVisibleController.stream;
   }
 
-  /// The underlying Overlay instance, visible internally only.
+  @override
   OverlayRef get overlay => _overlayRef;
 
   @override

@@ -16,6 +16,22 @@
 
 $tree-item-right-padding: $mat-grid * 2;
 
+// Hide the very top border. Doesn't separate anything - may be unwanted,
+// and is easy for users to add themselves if desired
+:host:first-of-type li:first-of-type .root-border {
+  opacity: 0;
+}
+// Low specificity selector to style the border
+.material-tree-border {
+  display: none;
+  position: absolute;
+  background: $mat-grey-300;
+  pointer-events: none;
+  height: 1px;
+  right: 0;
+  left: 0;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -24,6 +40,21 @@ ul {
   .material-tree-item {
     @include list-item-button;
     padding-right: $tree-item-right-padding;
+
+    > .material-tree-shift {
+      position: relative;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      // Prevent widest elements from shrinking
+      > * {
+        flex-shrink: 0;
+      }
+
+      .tree-selection-state + .material-tree-border {
+        left: $list-item-primary-width;
+      }
+    }
 
     .tree-expansion-state {
       display: inline-flex;

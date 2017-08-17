@@ -58,6 +58,11 @@ abstract class PopupSource {
 
   /// Whether the source direction is RTL.
   bool get isRtl;
+
+  /// Set the DOM ID of the popup controlled by this source.
+  ///
+  /// Setting this ensures that popups get ARIA a11y attributes.
+  set popupId(String id);
 }
 
 /// An [PopupSource] that's based on an element.
@@ -95,4 +100,9 @@ class _RectanglePopupSource implements PopupSource {
 
   @override
   final bool isRtl = false;
+
+  @override
+  set popupId(String id) {
+    // There's no DOM element, so ARIA attributes aren't applicable.
+  }
 }

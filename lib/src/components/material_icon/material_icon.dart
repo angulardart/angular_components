@@ -12,6 +12,8 @@ import '../../model/ui/icon.dart';
 ///
 /// Please add to this list as needed.
 const List<String> _flippedIcons = const [
+  'arrow_back',
+  'arrow_forward',
   'chevron_left',
   'chevron_right',
   'navigate_before',

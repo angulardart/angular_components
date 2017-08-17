@@ -7,7 +7,6 @@ import 'dart:math';
 
 import 'package:angular/angular.dart';
 
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/events/events.dart';
 import '../../utils/browser/feature_detector/feature_detector.dart'
     show supportsAnimationApi;
@@ -196,7 +195,7 @@ class MaterialRippleComponent implements OnDestroy {
       // function call here.
       final clientX = (e as MouseEvent).client.x;
       final clientY = (e as MouseEvent).client.y;
-      _createRipple(clientX, clientY, _element, _center);
+      _createRipple(clientX, clientY, _element, center);
     };
     _onKeyDown = (e) {
       if (!isKeyboardTrigger(e)) return;
@@ -211,11 +210,8 @@ class MaterialRippleComponent implements OnDestroy {
   }
 
   /// Whether the ripple should start from the center of the container.
-  bool _center = false;
-  @Input('center')
-  set center(value) {
-    _center = getBool(value);
-  }
+  @Input()
+  bool center = false;
 
   @override
   void ngOnDestroy() {

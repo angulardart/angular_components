@@ -9,7 +9,6 @@ import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 
 import '../../model/selection/selection_model.dart';
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/angular_2.dart';
 import '../../utils/color/palette.dart';
 import '../../utils/disposer/disposer.dart';
@@ -68,9 +67,6 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   final _cardSelectionDisposer = new Disposer.multi();
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
-  bool _scrollable = false;
-  bool _resetOnCardChanges = false;
-  bool _isVertical = false;
   SelectionModel _selectionModel;
   QueryList<ScorecardComponent> _scorecards;
   ScorecardBarDirective _scorecardBar;
@@ -80,9 +76,7 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   /// Whether to allow for uniform widths on scorecards.
   bool _enableUniformWidths;
 
-  bool get isScrollable =>
-      _scrollable && (_scorecardBar?.isScrollable ?? false);
-  bool get isVertical => _isVertical;
+  bool get isScrollable => scrollable && (_scorecardBar?.isScrollable ?? false);
   bool _atScorecardBarStart = false;
   bool get atScorecardBarStart => _atScorecardBarStart;
   bool _atScorecardBarEnd = false;
@@ -140,14 +134,9 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   /// Whether allow scrolling the scoreboard via scroll buttons.
   ///
   /// Scrollable property can be set dynamically during app runtime -- will add
-  /// or remove window resize listener depending on state of `_scrollable`.
+  /// or remove window resize listener depending on state of `scrollable`.
   @Input()
-  set scrollable(scrollable) {
-    var value = getBool(scrollable);
-    if (value != _scrollable) {
-      _scrollable = value;
-    }
-  }
+  bool scrollable = false;
 
   /// Whether to reset the card selection when there are card changes.
   ///
@@ -155,15 +144,11 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   /// cards will be deselected. For [ScoreboardType.radio], the first card will
   /// be selected.
   @Input()
-  set resetOnCardChanges(resetOnCardChanges) {
-    _resetOnCardChanges = getBool(resetOnCardChanges);
-  }
+  bool resetOnCardChanges = false;
 
   /// Whether the scorecard is displayed vertically. Defaults to false.
   @Input()
-  set isVertical(isVertical) {
-    _isVertical = getBool(isVertical);
-  }
+  bool isVertical = false;
 
   void scrollBack() {
     _scorecardBar.scrollBack();
@@ -187,11 +172,11 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   }
 
   void _refreshArrows() {
-    if (_scrollable) {
+    if (scrollable) {
       _atScorecardBarStart = _scorecardBar?.atStart ?? false;
       _atScorecardBarEnd = _scorecardBar?.atEnd ?? false;
       _changeDetector.markForCheck();
-      if (_scrollable) {
+      if (scrollable) {
         _resetTabIndex();
       }
     }
@@ -241,21 +226,21 @@ class ScoreboardComponent implements OnInit, OnDestroy {
           ? scorecard.selectable
           : type != ScoreboardType.standard;
       // Select for initial scorecards selection on page load.
-      if (!_resetOnCardChanges && scorecard.selected) {
+      if (!resetOnCardChanges && scorecard.selected) {
         _selectionModel.select(scorecard);
       }
       _cardSelectionDisposer.addDisposable(
           scorecard.selectedChange.listen((_) => selectionChange(scorecard)));
     }
 
-    if (_resetOnCardChanges) _selectionModel.clear();
+    if (resetOnCardChanges) _selectionModel.clear();
     if (type == ScoreboardType.radio && _selectionModel.isEmpty) {
       _selectionModel.select(_scorecards.first);
     }
     _updatedSelected();
 
     // Refresh scoreboard scrolling on card changes.
-    if (_scrollable) _scorecardBar?.reset();
+    if (scrollable) _scorecardBar?.reset();
 
     if (type == ScoreboardType.selectable) {
       int i = 0;

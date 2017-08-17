@@ -11,18 +11,17 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'lib/src/components/material_list/mixins';
-@import 'compass/css3/flexbox';
+@import 'lib/src/css/material/material';
 @import 'mixins';
+@import 'lib/src/components/material_list/mixins';
 
 :host {
   @include list-item-base();
   @include select-item-base();
-  @include display-flex;
-  @include align-items(center);
-  @include transition(background);
 
+  display: flex;
+  align-items: center;
+  transition: background;
   color: $mat-transparent-black;
   cursor: pointer;
 
@@ -39,7 +38,7 @@
 }
 
 .dynamic-item {
-  @include flex-grow(1);
+  flex-grow: 1;
 }
 
 :host-context(body[dir="rtl"]) {

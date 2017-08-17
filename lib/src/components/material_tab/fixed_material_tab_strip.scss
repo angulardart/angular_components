@@ -11,23 +11,20 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
 @import 'lib/src/css/material/material';
-@import 'compass/css3/flexbox';
-@import 'compass/css3/transform';
 
 // TODO(google): Extract and share values with scrolling tab strip.
 $tab-indicator-height: $mat-grid * .25;
 $navi-bar-margin: -1 * $tab-indicator-height;
 
 :host {
-  @include display-flex();
-  @include flex-shrink(0);
+  display: flex;
+  flex-shrink: 0;
   width: 100%;
 }
 
 .navi-bar {
-  @include display-flex();
+  display: flex;
   margin: 0;
   overflow: hidden;
   padding: 0;
@@ -36,14 +33,14 @@ $navi-bar-margin: -1 * $tab-indicator-height;
   width: 100%;
 
   .tab-button {
-    @include flex(1);
+    flex: 1;
     overflow: hidden;
     margin: 0;
   }
 }
 
 .tab-indicator {
-  @include transform-origin(left, center);
+  transform-origin: left center;
   background: $mat-blue-500;
   bottom: 0;
   left: 0;

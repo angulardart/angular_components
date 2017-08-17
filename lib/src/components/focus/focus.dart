@@ -9,7 +9,6 @@ import 'package:angular/angular.dart';
 
 import '../../laminate/components/modal/modal.dart';
 import '../../laminate/popup/popup.dart';
-import '../../utils/angular/properties/properties.dart';
 import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
 
@@ -170,9 +169,9 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
   ///
   /// This value should not change during the component's life.
   @Input()
-  set autoFocus(value) {
+  set autoFocus(bool value) {
     assert(_autoFocus == null);
-    _autoFocus = getBool(value);
+    _autoFocus = value;
   }
 
   @override
