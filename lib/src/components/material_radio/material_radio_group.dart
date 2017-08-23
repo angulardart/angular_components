@@ -37,23 +37,25 @@ import './material_radio.dart';
 ///
 /// Checked status is set on individual radio, only listen to selection at
 /// group level.
-///   <material-radio-group [selectionModel]="mySingleSelectionModel">
-///     <material-radio [checked]="true"
-///                     [value]="option0">default choice
-///     </material-radio>
-///     <material-radio [checked]="false"
-///                     [value]="option1">alternative choice
-///     </material-radio>
-///   </material-radio-group>
+///
+///     <material-radio-group [selectionModel]="mySingleSelectionModel">
+///       <material-radio [checked]="true"
+///                       [value]="option0">default choice
+///       </material-radio>
+///       <material-radio [checked]="false"
+///                       [value]="option1">alternative choice
+///       </material-radio>
+///     </material-radio-group>
 ///
 /// Selection of the value is done at group level, can also be done
 /// via [ngModel].
-///   <material-radio-group [(selected)]="selectedOption">
-///     <material-radio [value]="option0">default choice
-///     </material-radio>
-///     <material-radio [value]="option1">alternative choice
-///     </material-radio>
-///   </material-radio-group>
+///
+///     <material-radio-group [(selected)]="selectedOption">
+///       <material-radio [value]="option0">default choice
+///       </material-radio>
+///       <material-radio [value]="option1">alternative choice
+///       </material-radio>
+///     </material-radio-group>
 @Component(
     selector: 'material-radio-group',
     host: const {
