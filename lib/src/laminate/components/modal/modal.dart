@@ -9,7 +9,6 @@ import 'package:angular/angular.dart';
 
 import '../../../components/content/deferred_content_aware.dart';
 import '../../../model/action/async_action.dart';
-import '../../../utils/async/async.dart';
 import '../../../utils/disposer/disposer.dart';
 import '../../overlay/overlay.dart';
 import 'src/modal_controller_directive.dart';
@@ -133,7 +132,6 @@ abstract class Modal {
 ///                and close interaction cycle that allows users to cancel.
 @Component(
   selector: 'modal',
-  inputs: const ['preventInteraction', 'visible'],
   host: const {'[attr.pane-id]': 'uniquePaneId'},
   providers: const [
     const Provider(DeferredContentAware, useExisting: ModalComponent),
@@ -151,16 +149,16 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
   final GlobalModalStack _stack;
 
   @override
-  final LazyEventEmitter<AsyncAction> onOpen =
-      new LazyEventEmitter<AsyncAction>.broadcast();
+  Stream<AsyncAction> get onOpen => _onOpen.stream;
+  final _onOpen = new StreamController<AsyncAction>.broadcast(sync: true);
 
   @override
-  final LazyEventEmitter<AsyncAction> onClose =
-      new LazyEventEmitter<AsyncAction>.broadcast();
+  Stream<AsyncAction> get onClose => _onClose.stream;
+  final _onClose = new StreamController<AsyncAction>.broadcast(sync: true);
 
   @override
-  final LazyEventEmitter<bool> onVisibleChanged =
-      new LazyEventEmitter<bool>.broadcast();
+  Stream<bool> get onVisibleChanged => _onVisibleChanged.stream;
+  final _onVisibleChanged = new StreamController<bool>.broadcast(sync: true);
 
   final Disposer _disposer = new Disposer.oneShot();
 
@@ -178,6 +176,7 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
         overlayService.createOverlayRefSync(OverlayState.Dialog));
   }
 
+  @Input()
   set preventInteraction(bool preventInteraction) {
     _resolvedOverlayRef.state.captureEvents = preventInteraction != false;
   }
@@ -205,7 +204,7 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
   // A callback received when the overlay reports a visibility change.
   void _onOverlayVisibleChanged(bool isVisible) {
     _isVisible = isVisible;
-    onVisibleChanged.add(_isVisible);
+    _onVisibleChanged.add(_isVisible);
   }
 
   @override
@@ -256,7 +255,7 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
         _pendingOpen = null;
         return completed;
       });
-      onOpen.add(controller.action);
+      _onOpen.add(controller.action);
     }
     return _pendingOpen;
   }
@@ -270,13 +269,14 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
         _pendingClose = null;
         return completed;
       });
-      onClose.add(controller.action);
+      _onClose.add(controller.action);
     }
     return _pendingClose;
   }
 
   @override
   bool get visible => _isVisible;
+  @Input()
   set visible(bool visible) {
     if (_isVisible == visible || _isDestroyed) return;
     if (visible == true) {

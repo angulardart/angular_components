@@ -75,9 +75,9 @@ Here is an example:
 
 There are three kinds of drawers that are available: _permanent_, _persistent_,
 and _temporary_. All drawers are instantiated by the `material-drawer` element.
-These drawers are implemented differently to provide the best performance
-for each. For the main content outside of the drawer wrap it in a
-`material-content` element, or a element with the class `material-content`.
+These drawers are implemented differently to provide the best performance for
+each. For the main content outside of the drawer wrap it in a `material-content`
+element, or a element with the class `material-content`.
 
 ### Permanent Drawers
 
@@ -98,12 +98,13 @@ CSS. To have a permanent drawer add the `permanent` attribute to the
 
 Persistent drawers are drawers which can be open and closed by an action, such
 as a button trigger. These drawers reposition the content to fit in with the
-flow of the drawer. To use a persistent drawer add the `persistent` attribute
-to the `material-drawer` element, and add the
-`MaterialPersistentDrawerDirective` to the parent's directives list.
+flow of the drawer. To use a persistent drawer add the `persistent` attribute to
+the `material-drawer` element, and add the `MaterialPersistentDrawerDirective`
+to the parent's directives list.
 
 Lastly, connect the open/close drawer action to the drawer. This is most easily
-done using the [reference variable](https://webdev.dartlang.org/angular/guide/template-syntax#!#ref-vars)
+done using the [reference
+variable](https://webdev.dartlang.org/angular/guide/template-syntax#!#ref-vars)
 syntax. The persistent drawer directive exports itself as `drawer` this allows
 it to be used easily by other actions. `toggle()` can be used to open/close the
 drawer. The drawer supports the `deferredConent` directive allowing a developer
@@ -141,8 +142,8 @@ other drawers. To use a temporary drawer add the `temporary` attribute to the
 `material-drawer` element, and add `MaterialTemporaryDrawerComponent` to the
 parent's directive list.
 
-The temporary drawer has an optional `overlay` attribute which can be used
-to show a transparent overlay above non-drawer content while the drawer is open.
+The temporary drawer has an optional `overlay` attribute which can be used to
+show a transparent overlay above non-drawer content while the drawer is open.
 
 Here is an example:
 
@@ -183,10 +184,10 @@ Example:
 
 ### App Bar and Drawer interaction
 
-The app bar and the drawer work in tandem to provide an overal app layout for
-an application. The app bar can live both inside, or outside of
-`material-content`. If it is inside of `material-content` it will live with the
-content and if applicable be repositioned with the content. If it is on top of
+The app bar and the drawer work in tandem to provide an overal app layout for an
+application. The app bar can live both inside, or outside of `material-content`.
+If it is inside of `material-content` it will live with the content and if
+applicable be repositioned with the content. If it is on top of
 `material-content` the drawer and content will be positioned below the app bar
 for the `permanent` and `persistent` drawers.
 

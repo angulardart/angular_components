@@ -7,7 +7,6 @@ import 'dart:async';
 import 'package:quiver/core.dart';
 
 import '../../../utils/async/async.dart';
-import '../../enums/alignment.dart';
 import '../../enums/position.dart';
 import '../../enums/visibility.dart';
 
@@ -16,9 +15,7 @@ import '../../enums/visibility.dart';
 // It exists here to be re-used across implementations without inheritance.
 bool _stateEquals(OverlayState a, OverlayState b) {
   if (identical(a, b)) return true;
-  return a.alignX == b.alignX &&
-      a.alignY == b.alignY &&
-      a.captureEvents == b.captureEvents &&
+  return a.captureEvents == b.captureEvents &&
       a.left == b.left &&
       a.top == b.top &&
       a.right == b.right &&
@@ -35,8 +32,6 @@ bool _stateEquals(OverlayState a, OverlayState b) {
 // It exists here to be re-used across implementations without inheritance.
 int _stateHashCode(OverlayState a) {
   return hashObjects([
-    a.alignX,
-    a.alignY,
     a.captureEvents,
     a.left,
     a.top,
@@ -55,18 +50,10 @@ abstract class OverlayState {
   /// An overlay pane that centers its content both on the x and y-axis and
   /// captures events, preventing interaction with underlying content.
   static const Dialog = const OverlayState(
-      alignX: Alignment.Center,
-      alignY: Alignment.Center,
-      captureEvents: true,
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0);
+      captureEvents: true, top: 0, bottom: 0, left: 0, right: 0);
 
   const factory OverlayState(
-      {Alignment alignX,
-      Alignment alignY,
-      bool captureEvents,
+      {bool captureEvents,
       num left,
       num top,
       num right,
@@ -77,12 +64,6 @@ abstract class OverlayState {
       int zIndex,
       Position position,
       Visibility visibility}) = _ImmutableOverlayState;
-
-  /// How to align content within the overlay on the x-axis.
-  Alignment get alignX;
-
-  /// How to align content within the overlay on the y-axis.
-  Alignment get alignY;
 
   /// Whether to capture mouse and touch events on the pane itself.
   ///
@@ -132,12 +113,6 @@ abstract class OverlayState {
 /// The state of an overlay pane.
 class _ImmutableOverlayState implements OverlayState {
   @override
-  final Alignment alignX;
-
-  @override
-  final Alignment alignY;
-
-  @override
   final bool captureEvents;
 
   @override
@@ -171,9 +146,7 @@ class _ImmutableOverlayState implements OverlayState {
   final Position position;
 
   const _ImmutableOverlayState(
-      {this.alignX: Alignment.Start,
-      this.alignY: Alignment.Start,
-      this.captureEvents: false,
+      {this.captureEvents: false,
       this.left,
       this.top,
       this.right,
@@ -199,8 +172,6 @@ class _ImmutableOverlayState implements OverlayState {
   String toString() =>
       'ImmutableOverlayState ' +
       {
-        'alignX': alignX,
-        'alignY': alignY,
         'captureEvents': captureEvents,
         'left': left,
         'top': top,
@@ -221,8 +192,6 @@ class MutableOverlayState implements OverlayState {
   // Fires a single notification once per microtask queue.
   final _asyncScheduler = new AsyncUpdateScheduler();
 
-  Alignment _alignX;
-  Alignment _alignY;
   bool _captureEvents;
   num _left;
   num _top;
@@ -240,8 +209,6 @@ class MutableOverlayState implements OverlayState {
     if (other == null) return new MutableOverlayState();
     if (other is MutableOverlayState) return other;
     return new MutableOverlayState(
-        alignX: other.alignX,
-        alignY: other.alignY,
         captureEvents: other.captureEvents,
         left: other.left,
         top: other.top,
@@ -256,9 +223,7 @@ class MutableOverlayState implements OverlayState {
   }
 
   MutableOverlayState(
-      {Alignment alignX: Alignment.Start,
-      Alignment alignY: Alignment.Start,
-      bool captureEvents: false,
+      {bool captureEvents: false,
       num left,
       num top,
       num right,
@@ -269,8 +234,6 @@ class MutableOverlayState implements OverlayState {
       int zIndex,
       Visibility visibility: Visibility.None,
       Position position}) {
-    _alignX = alignX;
-    _alignY = alignY;
     _captureEvents = captureEvents;
     _left = left;
     _top = top;
@@ -291,24 +254,6 @@ class MutableOverlayState implements OverlayState {
 
   @override
   Stream get onUpdate => _asyncScheduler.onUpdate;
-
-  @override
-  Alignment get alignX => _alignX;
-  set alignX(Alignment alignX) {
-    if (_alignX != alignX) {
-      _alignX = alignX;
-      _asyncScheduler.scheduleUpdate();
-    }
-  }
-
-  @override
-  Alignment get alignY => _alignY;
-  set alignY(Alignment alignY) {
-    if (_alignY != alignY) {
-      _alignY = alignY;
-      _asyncScheduler.scheduleUpdate();
-    }
-  }
 
   @override
   bool get captureEvents => _captureEvents;
@@ -413,8 +358,6 @@ class MutableOverlayState implements OverlayState {
   String toString() =>
       'MutableOverlayState ' +
       {
-        'alignX': alignX,
-        'alignY': alignY,
         'captureEvents': captureEvents,
         'left': left,
         'top': top,

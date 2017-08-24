@@ -61,3 +61,7 @@ $icon-size: $mat-grid * 3;
   // padding-bottom on the button div.
   top: calc(50% - #{$icon-size / 2 + 1px});
 }
+
+.search-box {
+  width: 100%;
+}

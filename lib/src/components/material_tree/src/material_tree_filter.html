@@ -6,6 +6,8 @@
 <material-input
   #materialInput
   *ngIf="hasFilterable"
+  style="width: 100%;"
+  [leadingGlyph]="leadingGlyph"
   [displayBottomPanel]="false"
   (focus)="handleFocus()"
   (inputKeyPress)="inputText = $event"

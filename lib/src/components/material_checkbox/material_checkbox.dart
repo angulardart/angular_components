@@ -63,15 +63,6 @@ const indeterminateAriaState = 'mixed';
 ///
 @Component(
     selector: 'material-checkbox',
-    inputs: const [
-      'checked',
-      'disabled',
-      'readOnly',
-      'indeterminate',
-      'indeterminateToChecked',
-      'label',
-      'themeColor'
-    ],
     host: const {
       'class': 'themeable',
       '(click)': r'handleClick($event)',
@@ -151,8 +142,10 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
 
   /// Determines the state to go into when [indeterminate] state is toggled.
   /// `true` will go to checked and `false` will go to unchecked.
+  @Input()
   bool indeterminateToChecked = false;
 
+  @Input()
   bool disabled = false;
 
   // Current tab index
@@ -162,6 +155,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
   /// [toggleChecked()], so when checked, the [indeterminate] state gets
   /// cleared.
   /// `true` is CHECKED and `false` is not.
+  @Input()
   set checked(bool newValue) {
     if (_checked == newValue) return;
     _setStates(checked: newValue);
@@ -188,6 +182,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
   /// [checked] and [indeterminate], only one can be true, though both can be
   /// false.
   /// `true` is INDETERMINATE and `false` is not.
+  @Input()
   set indeterminate(bool newValue) {
     if (_indeterminate == newValue) return;
     _setStates(indeterminate: newValue);
@@ -243,6 +238,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
   Icon _icon = uncheckedIcon;
 
   /// Color of the checkbox.
+  @Input()
   String themeColor;
 
   /// Color of the ripple.
@@ -252,6 +248,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
   String get rippleColor => checked ? themeColor : '';
 
   /// Label for the checkbox.
+  @Input()
   String label;
 
   /// Toggles checkbox via user action. When it is indeterminate, toggle

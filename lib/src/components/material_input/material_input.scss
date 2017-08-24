@@ -166,6 +166,7 @@ textarea:invalid {
   box-shadow: none;
 }
 
+.label-text.disabled,
 .disabledInput {
   color: $mat-lighter-transparent-black;
 }

@@ -3,5 +3,5 @@
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
-:host{display:block}[focusContentWrapper]{height:inherit;max-height:inherit}
+:host{display:block}[focusContentWrapper]{height:inherit;max-height:inherit;min-height:inherit}
 

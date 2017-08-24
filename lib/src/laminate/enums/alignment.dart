@@ -171,7 +171,6 @@ class AfterCustomAlignment extends _CustomAlignment {
 /// A position relative to another point in a 2-dimensional plane.
 ///
 /// A pair [originX] and [originY] defines how to align relative to the point.
-/// A pair [contentX] and [contentY] defines how to align content.
 class RelativePosition {
   /// A set of [RelativePosition]s that are covering the point.
   static const overlapAlignments = const [
@@ -189,12 +188,10 @@ class RelativePosition {
         originY: Alignment.End,
         animationOrigin: _AnimationOrigins.UP_LEFT),
     const RelativePosition(
-        contentX: Alignment.Center,
         originX: Alignment.Center,
         originY: Alignment.Start,
         animationOrigin: _AnimationOrigins.DOWN),
     const RelativePosition(
-        contentX: Alignment.Center,
         originX: Alignment.Center,
         originY: Alignment.End,
         animationOrigin: _AnimationOrigins.UP),
@@ -218,10 +215,7 @@ class RelativePosition {
 
   /// A position that starts at the origin and flows upwards.
   static const InlineTop = const RelativePosition(
-      contentY: Alignment.End,
-      originY: Alignment.End,
-      contentX: Alignment.End,
-      animationOrigin: _AnimationOrigins.UP);
+      originY: Alignment.End, animationOrigin: _AnimationOrigins.UP);
 
   /// A position that starts at the origin and flows downwards and left
   static const InlineBottomLeft = const RelativePosition(
@@ -229,7 +223,6 @@ class RelativePosition {
 
   /// A position that starts at the origin and flows upwards and left
   static const InlineTopLeft = const RelativePosition(
-      contentY: Alignment.End,
       originX: Alignment.End,
       originY: Alignment.End,
       animationOrigin: _AnimationOrigins.UP_LEFT);
@@ -240,7 +233,6 @@ class RelativePosition {
 
   /// A position that starts at the origin and flows upwards and right
   static const InlineTopRight = const RelativePosition(
-      contentY: Alignment.End,
       originX: Alignment.Start,
       originY: Alignment.End,
       animationOrigin: _AnimationOrigins.UP_RIGHT);
@@ -265,7 +257,6 @@ class RelativePosition {
   /// A position that starts at the origin's bottom left point and flows
   /// downwards and to the left.
   static const OffsetBottomLeft = const RelativePosition(
-      contentX: Alignment.End,
       originX: Alignment.Before,
       originY: Alignment.After,
       animationOrigin: _AnimationOrigins.DOWN_LEFT);
@@ -273,7 +264,6 @@ class RelativePosition {
   /// A position that starts at the origin's top right point and flows upwards
   /// and to the right.
   static const OffsetTopRight = const RelativePosition(
-      contentY: Alignment.End,
       originX: Alignment.After,
       originY: Alignment.Before,
       animationOrigin: _AnimationOrigins.UP_RIGHT);
@@ -281,8 +271,6 @@ class RelativePosition {
   /// A position that starts at the origin's top left point and flows upwards
   /// and to the left.
   static const OffsetTopLeft = const RelativePosition(
-      contentX: Alignment.End,
-      contentY: Alignment.End,
       originX: Alignment.Before,
       originY: Alignment.Before,
       animationOrigin: _AnimationOrigins.UP_LEFT);
@@ -404,7 +392,6 @@ class RelativePosition {
     AdjacentBottomRight
   ];
   static const AdjacentBottomRight = const RelativePosition(
-      contentX: Alignment.End,
       originX: Alignment.End,
       originY: Alignment.After,
       animationOrigin: _AnimationOrigins.DOWN_LEFT);
@@ -440,23 +427,17 @@ class RelativePosition {
       originY: Alignment.Start,
       animationOrigin: _AnimationOrigins.DOWN_LEFT);
 
-  final Alignment contentX;
-  final Alignment contentY;
   final Alignment originX;
   final Alignment originY;
   final String animationOrigin;
 
   const RelativePosition(
-      {this.contentX: Alignment.Start,
-      this.contentY: Alignment.Start,
-      this.originX: Alignment.Start,
+      {this.originX: Alignment.Start,
       this.originY: Alignment.Start,
       this.animationOrigin: _AnimationOrigins.DOWN_RIGHT});
 
   RelativePosition flipRelativePosition() {
     return new RelativePosition(
-        contentX: _flipAlignment(this.contentX),
-        contentY: this.contentY,
         originX: _flipAlignment(this.originX),
         originY: this.originY,
         animationOrigin: _flipAnimation(this.animationOrigin));
@@ -480,13 +461,7 @@ class RelativePosition {
 
   @override
   String toString() =>
-      'RelativePosition ' +
-      {
-        'contentX': contentX,
-        'contentY': contentY,
-        'originX': originX,
-        'originY': originY
-      }.toString();
+      'RelativePosition ' + {'originX': originX, 'originY': originY}.toString();
 }
 
 /// Origins for Material animation directions.

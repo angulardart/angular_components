@@ -77,6 +77,12 @@ class MaterialTreeDropdownComponent extends SelectionContainer
     _expandAll = value;
   }
 
+  @Input()
+  bool showFilterInsidePopup = false;
+
+  bool get showFilterInsideButton =>
+      supportsFiltering && !showFilterInsidePopup;
+
   Filterable get filterableOptions => options is Filterable
       ? options as Filterable
       : throw new StateError(
@@ -105,7 +111,9 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   }
 
   List /*RelativePosition | List<RelativePosition>*/ get popupPositions {
-    return supportsFiltering ? _popupPositionsOffset : _popupPositionsInline;
+    return showFilterInsideButton
+        ? _popupPositionsOffset
+        : _popupPositionsInline;
   }
 
   bool get visible => _visible;

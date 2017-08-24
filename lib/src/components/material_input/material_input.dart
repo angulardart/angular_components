@@ -119,12 +119,6 @@ const String materialInputErrorKey = 'material-input-error';
 @Component(
     selector: 'material-input:not(material-input[multiline])',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    inputs: const [
-      'leadingText',
-      'trailingText',
-      'leadingGlyph',
-      'trailingGlyph',
-    ],
     host: const {'class': 'themeable', '(focus)': 'focus()', 'tabIndex': '-1'},
     providers: const [
       DeferredValidator,
@@ -186,21 +180,25 @@ class MaterialInputComponent extends BaseMaterialInput
 
   /// Any persistent text to show before the input box.
   /// Available only for single line input.
+  @Input()
   String leadingText;
   bool get hasLeadingText => isNotEmpty(leadingText);
 
   /// Any persistent glyph to show before the input box.
   /// Available only for single line input.
+  @Input()
   String leadingGlyph;
   bool get hasLeadingGlyph => isNotEmpty(leadingGlyph);
 
   /// Any persistent text to show after the input box.
   /// Available only for single line input.
+  @Input()
   String trailingText;
   bool get hasTrailingText => isNotEmpty(trailingText);
 
   /// Any persistent glyph to show after the input box.
   /// Available only for single line input.
+  @Input()
   String trailingGlyph;
   bool get hasTrailingGlyph => isNotEmpty(trailingGlyph);
 

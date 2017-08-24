@@ -1,3 +1,18 @@
+## 0.6.0-beta
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 4.0.0-beta. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (4.0.0-beta is used in production Google apps).
+
+ * Material Dialog: Support a minimum height.
+ * Material Input: Fix disabled color.
+ * Material Popup: Additional merges to prepare for final refactoring.
+ * Material Tree: Update positioning options and borders.
+ * Deprecate LazyEventEmitter and migrate uses to the StreamController model.
+ * Remove use of Compass in SASS files.
+ * Remove unused alignment parameters.
+ * Refactor Angular annotations to inline versions.
+
 ## 0.6.0-alpha+3
 
 > NOTE: This code is considered production quality, but depends on angular:

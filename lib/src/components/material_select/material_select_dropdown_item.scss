@@ -11,8 +11,8 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/material/material';
 @import 'mixins';
+@import 'lib/src/css/material/material';
 @import 'lib/src/components/material_list/mixins';
 
 :host {

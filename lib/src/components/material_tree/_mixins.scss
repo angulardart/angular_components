@@ -63,3 +63,15 @@
     @content;
   }
 }
+
+/// Fills in the right side padding of rows with the border.
+///
+/// Turns out some clients (probably unintentionally) use the right side
+/// padding of material tree rows to occupy the scroll bar. To workaround,
+/// we had to avoid putting the border in this area. If you know your scrollbar
+/// doesn't behave this way, that area can be filled in with this mixin.
+@mixin material-tree-border-fill-right {
+  @include material-tree-border {
+    margin-right: -$mat-grid * 2;
+  }
+}

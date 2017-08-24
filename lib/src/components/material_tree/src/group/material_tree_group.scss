@@ -23,13 +23,14 @@ $tree-item-right-padding: $mat-grid * 2;
 }
 // Low specificity selector to style the border
 .material-tree-border {
-  display: none;
-  position: absolute;
   background: $mat-grey-300;
-  pointer-events: none;
+  display: none;
   height: 1px;
-  right: 0;
   left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 ul {

@@ -5,7 +5,7 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:angular/angular.dart';
+import 'package:angular/angular.dart' hide Visibility;
 
 import '../../../../css/acux/zindexer.dart';
 import '../../../../utils/angular/imperative_view/imperative_view.dart';
@@ -107,8 +107,7 @@ class OverlayDomRenderService {
 
   /// Like [applyState], but is done synchronously.
   void applyStateSync(OverlayState state, HtmlElement pane) {
-    // Apply the content alignment CSS classes.
-    var cssClasses = <String>[state.alignX.cssClassX, state.alignY.cssClassY];
+    var cssClasses = <String>[];
 
     // Optionally, make the overlay "modal" style.
     if (state.captureEvents) {

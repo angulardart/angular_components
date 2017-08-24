@@ -7,8 +7,6 @@ import 'dart:math';
 
 import 'package:angular/angular.dart';
 
-import '../../../utils/async/async.dart';
-import '../../enums/alignment.dart';
 import './popup_event.dart';
 import './popup_source.dart';
 import './popup_state.dart';
@@ -37,14 +35,6 @@ abstract class PopupInterface {
   /// Unlike [onOpen] and [onClose], this occurs *after* the event completes.
   @Output('visibleChange')
   Stream<bool> get onVisible;
-
-  /// Sets the x-axis *content* alignment of the popup.
-  @Input()
-  set alignContentX(String alignContentX);
-
-  /// Sets the y-axis *content* alignment of the popup.
-  @Input()
-  set alignContentY(String alignContentY);
 
   /// Sets whether the popup should dismiss (close) itself on document press.
   @Input()
@@ -97,31 +87,26 @@ abstract class PopupInterface {
 ///
 /// __Example use__:
 ///     class MyPopupComponent extends PopupEvents implements PopupInterface {}
+// TODO(google): Consider moving these into material_popup as there aren't
+// any other users of these streams.
 abstract class PopupEvents {
-  final LazyEventEmitter<PopupEvent> onOpen =
-      new LazyEventEmitter<PopupEvent>();
+  Stream<PopupEvent> get onOpen => onOpenController.stream;
+  final StreamController<PopupEvent> onOpenController =
+      new StreamController<PopupEvent>.broadcast(sync: true);
 
-  final LazyEventEmitter<PopupEvent> onClose =
-      new LazyEventEmitter<PopupEvent>();
+  Stream<PopupEvent> get onClose => onCloseController.stream;
+  final StreamController<PopupEvent> onCloseController =
+      new StreamController<PopupEvent>.broadcast(sync: true);
 
-  final LazyEventEmitter<bool> onVisible =
-      new LazyEventEmitter<bool>.broadcast();
+  Stream<bool> get onVisible => onVisibleController.stream;
+  final StreamController<bool> onVisibleController =
+      new StreamController<bool>.broadcast(sync: true);
 }
 
 /// A partial that implements the setters of [PopupBase] by writing to [state].
 abstract class PopupBase implements PopupInterface {
   /// The state of the [PopupRef] that is manipulated by this component.
   PopupState get state;
-
-  @override
-  set alignContentX(String alignContentX) {
-    state.alignContentX = new Alignment.parse(alignContentX);
-  }
-
-  @override
-  set alignContentY(String alignContentY) {
-    state.alignContentY = new Alignment.parse(alignContentY);
-  }
 
   @override
   set autoDismiss(bool autoDismiss) {
@@ -170,12 +155,6 @@ abstract class PopupBase implements PopupInterface {
 /// An obvious use case is for testing and for composing parent components that
 /// want the same properties as a popup without the verbosity of re-typing.
 abstract class PopupComposite implements PopupInterface {
-  @override
-  String alignContentX = 'start';
-
-  @override
-  String alignContentY = 'start';
-
   @override
   bool autoDismiss = true;
 

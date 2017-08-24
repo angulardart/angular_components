@@ -4,20 +4,20 @@
 
 import 'package:angular/angular.dart';
 
-import '../../../laminate/popup/popup.dart';
 import '../../../laminate/portal/portal.dart';
 
 /// Works with the portal system to indicate where the popup contents should be
 /// attached.
-@Directive(selector: '[popupRef]')
-class PopupRefDirective extends TemplatePortal {
-  PopupRefDirective(TemplateRef templateRef, ViewContainerRef viewContainerRef)
+@Directive(selector: '[popupPortal]')
+class PopupPortalDirective extends TemplatePortal {
+  PopupPortalDirective(
+      TemplateRef templateRef, ViewContainerRef viewContainerRef)
       : super(templateRef, viewContainerRef);
 
   @Input()
-  set popupRef(PopupRef popupRef) {
-    if (popupRef != null) {
-      popupRef.attach(this);
+  set popupPortal(PortalHost portalHost) {
+    if (portalHost != null) {
+      portalHost.attach(this);
     } else if (isAttached) {
       detach();
     }

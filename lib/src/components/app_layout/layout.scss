@@ -14,11 +14,10 @@
 /// Styles provided to more easily layout an application.
 /// This includes:
 ///   material-drawer (persistent and permanent)
-@import 'lib/src/css/material/material';
 @import 'lib/src/components/material_shadow/css/shadow';
-@import 'lib/src/components/material_list/mixins';
-
 @import 'material_drawer';
+@import 'lib/src/css/material/material';
+@import 'lib/src/components/material_list/mixins';
 
 $mat-drawer-border: 1px solid $mat-border-light;
 

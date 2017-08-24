@@ -11,8 +11,6 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'compass/css3';
 @import 'lib/src/css/material/material';
 
 $min-ripple-size: 32px;
@@ -49,15 +47,15 @@ material-ripple {
   opacity: $min-ripple-opacity;
 
   &.fallback {
-    @include animation(__acx-ripple $mat-transition-slow linear);
-    @include transform(translateZ(0));
+    animation: __acx-ripple $mat-transition-slow linear;
+    transform: translateZ(0);
   }
 }
 
-@include keyframes(__acx-ripple) {
+@keyframes __acx-ripple {
   from {
     opacity: $min-ripple-opacity;
-    @include transform(translateZ(0) scale($min-ripple-size / $ripple-size));
+    transform: translateZ(0) scale($min-ripple-size / $ripple-size);
   }
 
   20%, 40% {
@@ -66,6 +64,6 @@ material-ripple {
 
   to {
     opacity: $min-ripple-opacity;
-    @include transform(translateZ(0) scale($max-ripple-size / $ripple-size));
+    transform: translateZ(0) scale($max-ripple-size / $ripple-size);
   }
 }

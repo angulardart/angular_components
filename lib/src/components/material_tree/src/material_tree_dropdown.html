@@ -4,25 +4,25 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <div class="button"
-     [class.border]="!supportsFiltering"
+     [class.border]="!showFilterInsideButton"
      popupSource
      #button="popupSource"
      (focus)="visible = true"
      (click)="visible = !visible"
      keyboardOnlyFocusIndicator>
   <span
-    *ngIf="!supportsFiltering"
+    *ngIf="!showFilterInsideButton"
     class="button-text">
       {{placeholder}}
   </span>
   <glyph
-    *ngIf="!supportsFiltering"
+    *ngIf="!showFilterInsideButton"
     class="icon"
     icon="arrow_drop_down">
   </glyph>
   <material-tree-filter
     #materialTreeFilter
-    *ngIf="supportsFiltering"
+    *ngIf="showFilterInsideButton"
     (filter)="visible = true"
     [filterable]="filterableOptions"
     [placeholder]="placeholder">
@@ -36,6 +36,14 @@
   [(visible)]="visible">
   <div header>
     <ng-content select="[header]"></ng-content>
+    <material-tree-filter
+        *ngIf="supportsFiltering && showFilterInsidePopup"
+        class="search-box"
+        (filter)="visible = true"
+        [filterable]="filterableOptions"
+        leadingGlyph="search"
+        [placeholder]="placeholder">
+    </material-tree-filter>
   </div>
   <material-tree
     *deferredContent

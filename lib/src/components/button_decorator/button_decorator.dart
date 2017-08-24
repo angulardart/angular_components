@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../utils/async/async.dart';
 import '../../utils/browser/events/events.dart';
 import '../focus/focus.dart';
 import '../mixins/has_tab_index.dart';
@@ -32,8 +32,9 @@ import '../mixins/has_tab_index.dart';
 class ButtonDirective extends RootFocusable with HasTabIndex {
   /// Will emit Event on mouse click or keyboard activation.
   @Output()
-  final LazyEventEmitter<UIEvent> trigger =
-      new LazyEventEmitter<UIEvent>.broadcast();
+  Stream<UIEvent> get trigger => _trigger.stream;
+
+  final _trigger = new StreamController<UIEvent>.broadcast(sync: true);
 
   String _hostTabIndex;
 
@@ -63,7 +64,7 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
   /// Triggers if not disabled.
   void handleClick(MouseEvent mouseEvent) {
     if (disabled) return;
-    trigger.add(mouseEvent);
+    _trigger.add(mouseEvent);
   }
 
   /// Triggers on enter and space if not disabled.
@@ -71,7 +72,7 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
     if (disabled) return;
     int keyCode = keyboardEvent.keyCode;
     if (keyCode == KeyCode.ENTER || isSpaceKey(keyboardEvent)) {
-      trigger.add(keyboardEvent);
+      _trigger.add(keyboardEvent);
       // Required to prevent window from scrolling.
       keyboardEvent.preventDefault();
     }
