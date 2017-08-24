@@ -47,22 +47,24 @@ abstract class Tab extends Focusable {
 ///         </template>
 ///       </material-tab>
 ///     </material-tab-panel>
-@Component(selector: 'material-tab', host: const {
-  'role': 'tabpanel',
-  '[attr.id]': 'panelId',
-  '[attr.aria-labelledby]': 'tabId',
-  '[class.material-tab]': 'active',
-}, providers: const [
-  const Provider(Tab, useExisting: MaterialTabComponent),
-  const Provider(DeferredContentAware, useExisting: MaterialTabComponent)
-], template: '''
+@Component(
+    selector: 'material-tab',
+    host: const {
+      'role': 'tabpanel',
+      '[attr.id]': 'panelId',
+      '[attr.aria-labelledby]': 'tabId',
+      '[class.material-tab]': 'active',
+    },
+    providers: const [
+      const Provider(Tab, useExisting: MaterialTabComponent),
+      const Provider(DeferredContentAware, useExisting: MaterialTabComponent)
+    ],
+    template: '''
         <div class="tab-content" *ngIf="active">
           <ng-content></ng-content>
-        </div>''', styleUrls: const [
-  'material_tab.scss.css'
-], directives: const [
-  NgIf
-])
+        </div>''',
+    styleUrls: const ['material_tab.scss.css'],
+    directives: const [NgIf])
 class MaterialTabComponent extends RootFocusable
     implements Tab, DeferredContentAware {
   final String _uuid;
