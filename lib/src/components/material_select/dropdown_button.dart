@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../utils/async/async.dart';
 import '../button_decorator/button_decorator.dart';
 import '../focus/keyboard_only_focus_indicator.dart';
 import '../glyph/glyph.dart';
@@ -69,19 +69,21 @@ class DropdownButtonComponent extends Object with MaterialButtonWrapper {
   bool get invalid => error != null;
 
   @Output()
-  LazyEventEmitter<FocusEvent> blur = new LazyEventEmitter<FocusEvent>();
+  Stream<FocusEvent> get blur => _blur.stream;
+  final _blur = new StreamController<FocusEvent>(sync: true);
 
   void onBlur(FocusEvent event) {
-    blur.add(event);
+    _blur.add(event);
   }
 
   @Output()
-  LazyEventEmitter<FocusEvent> focus = new LazyEventEmitter<FocusEvent>();
+  Stream<FocusEvent> get focus => _focus.stream;
+  final _focus = new StreamController<FocusEvent>(sync: true);
 
   void onFocus(FocusEvent event) {
-    focus.add(event);
+    _focus.add(event);
   }
 
   @Output()
-  LazyEventEmitter<UIEvent> get trigger => button.trigger;
+  Stream<UIEvent> get trigger => button.trigger;
 }

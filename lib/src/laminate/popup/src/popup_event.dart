@@ -26,7 +26,7 @@ abstract class PopupEvent<V> implements AsyncAction<V> {
 }
 
 /// Returns the size.
-typedef Future<Rectangle> AsyncMeasureSize();
+typedef Future<Rectangle> _AsyncMeasureSize();
 
 /// An implementation of [PopupEvent] that should not be publicly exported.
 class AsyncPopupEvent<V> extends DelegatingAsyncAction<V>
@@ -40,7 +40,7 @@ class AsyncPopupEvent<V> extends DelegatingAsyncAction<V>
 
   /// A callback that can return the popup content's size, asynchronously, in
   /// the next DOM read queue.
-  final AsyncMeasureSize _asyncMeasureSize;
+  final _AsyncMeasureSize _asyncMeasureSize;
 
   /// Create a new open event.
   AsyncPopupEvent.open(this.delegate, this.source, this._asyncMeasureSize)

@@ -587,7 +587,8 @@ typedef void ReorderListHandler(int sourceIndex, int destIndex);
 
 /// Indicates that a child will participate in reorder operation inside a
 /// reorder-list component. See ReorderListComponent for usage.
-// TODO(google): Add back in host value once b/22432233 is fixed.
+// TODO(google): Add back in host value once host attribute bug
+// is fixed.
 @Directive(
     selector: '[reorderItem]',
     host: const {'draggable': 'true', 'role': 'listitem', 'tabindex': '0'})

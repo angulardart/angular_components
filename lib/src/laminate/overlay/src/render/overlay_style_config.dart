@@ -51,6 +51,8 @@ class OverlayStyleConfig {
   .acx-overlay-container > .pane > * { pointer-events: auto; }
 
   .acx-overlay-container > .pane.modal {
+    justify-content: center;
+    align-items: center;
     background: rgba(33,33,33,.4);
     pointer-events: auto;
 
@@ -63,47 +65,8 @@ class OverlayStyleConfig {
     backface-visibility: hidden;
   }
 
-  /* TODO(google): This only makes sense when it's flex column (default).
-     Consider either just using the CSS names directly, or another name. */
-
-  .acx-overlay-container > .pane.align-x-start,
-  .acx-overlay-container > .pane.align-x-start > * {
-    justify-content: flex-start;
-    display: flex;
-    display: -ms-flexbox;
-  }
-
-  .acx-overlay-container > .pane.align-x-center,
-  .acx-overlay-container > .pane.align-x-center > * {
-    justify-content: center;
-    display: flex;
-    display: -ms-flexbox;
-  }
-
-  .acx-overlay-container > .pane.align-x-end,
-  .acx-overlay-container > .pane.align-x-end > *  {
-    justify-content: flex-end;
-    display: flex;
-    display: -ms-flexbox;
-  }
-
-  .acx-overlay-container > .pane.align-y-start,
-  .acx-overlay-container > .pane.align-y-start > * {
-    align-items: flex-start;
-    display: flex;
-    display: -ms-flexbox;
-  }
-
-  .acx-overlay-container > .pane.align-y-center,
-  .acx-overlay-container > .pane.align-y-center > * {
-    align-items: center;
-    display: flex;
-    display: -ms-flexbox;
-  }
-
-  .acx-overlay-container > .pane.align-y-end,
-  .acx-overlay-container > .pane.align-y-end > * {
-    align-items: flex-end;
+  .acx-overlay-container > .pane,
+  .acx-overlay-container > .pane > * {
     display: flex;
     display: -ms-flexbox;
   }

@@ -48,6 +48,10 @@ class MaterialTreeFilterComponent {
     }
   }
 
+  /// Any symbol to show at the leading edge of the input
+  @Input()
+  String leadingGlyph;
+
   /// Set a handle to a [Filterable] interface to use.
   @Input()
   set filterable(Filterable filterable) {

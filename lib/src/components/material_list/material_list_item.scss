@@ -11,14 +11,13 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/material/material';
 @import 'mixins';
+@import 'lib/src/css/material/material';
 
 :host {
   @include list-item-button();
   outline: none;
 }
-
 
 :host-context(body[dir="rtl"]) {
   @include list-item-base-rtl;

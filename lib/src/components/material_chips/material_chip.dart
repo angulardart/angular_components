@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -9,7 +10,6 @@ import 'package:intl/intl.dart';
 
 import '../../model/selection/selection_model.dart';
 import '../../model/ui/has_renderer.dart';
-import '../../utils/async/async.dart';
 import '../../utils/id_generator/id_generator.dart';
 import '../button_decorator/button_decorator.dart';
 import '../focus/focus.dart';
@@ -116,11 +116,12 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
 
   /// Event fired when the chip is removed which returns the value of the chip.
   @Output()
-  final remove = new LazyEventEmitter();
+  Stream get remove => _remove.stream;
+  final _remove = new StreamController<dynamic>(sync: true);
 
   void removeChip(/* MouseEvent | KeyboardEvent */ event) {
     selectionModel?.deselect(value);
-    remove.add(value);
+    _remove.add(value);
     event.preventDefault();
     event.stopPropagation();
   }

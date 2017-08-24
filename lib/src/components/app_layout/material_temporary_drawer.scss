@@ -11,19 +11,10 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/material/material';
 @import 'lib/src/components/material_shadow/css/shadow';
-
 @import 'material_drawer';
+@import 'lib/src/css/material/material';
 
-// Nested in host to workaround legacy style encapsulation.
-//
-// Without use of :host, Angular will insert more encapsulation classes into the
-// selector, e.g.:
-//   `:host .foo .bar` will become `._nghost-abc-1 .foo .bar`
-//   `.foo .bar` will become `.foo._ngcontent-abc-1 .bar._ngcontent-abc-1`
-// Mixing these two behaviours can change the selector ordering so -- since use
-// of :host is required for some rules -- using :host for all prevents this.
 :host {
   @include fit;
 
@@ -47,7 +38,7 @@
   transition: background-color $mat-transition-mobile-leaving $mat-transition-standard;
 }
 
-:host .drawer-content {
+.drawer-content {
   @include material-drawer-common;
   @include shadow-none;
 

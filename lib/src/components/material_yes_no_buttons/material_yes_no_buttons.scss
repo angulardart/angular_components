@@ -11,16 +11,14 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
 @import 'lib/src/css/material/material';
-@import 'compass/css3';
 @import 'lib/src/components/material_button/mixins';
 
 $button-height: 9 * $mat-grid-type;
 $button-min-width: 11 * $mat-grid;
 
 :host {
-  @include display-flex();
+  display: flex;
 }
 
 // Use two classes to increase specificity to override material-buttons values
@@ -43,11 +41,8 @@ $button-min-width: 11 * $mat-grid;
 }
 
 .spinner {
-  @include flexbox((
-    align-items: center,
-    display: flex
-  ));
-
+  align-items: center;
+  display: flex;
   margin-right: 3 * $mat-grid;
   min-width: 2 * $button-min-width;
 }
@@ -65,10 +60,10 @@ $button-min-width: 11 * $mat-grid;
 }
 
 :host[reverse] {
-  @include flex-direction(row-reverse);
+  flex-direction: row-reverse;
 
   .spinner {
-    @include justify-content(flex-end);
+    justify-content: flex-end;
   }
 }
 

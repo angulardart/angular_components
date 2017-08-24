@@ -2,14 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:angular/di.dart';
+import 'package:angular/angular.dart';
 
 import '../enums/alignment.dart';
 import '../overlay/module.dart';
 import 'src/dom_popup_source.dart';
-import 'src/popup_service.dart';
 
 const inlinePositions = RelativePosition.InlinePositions;
+
+/// A token representing a [List] of [RelativePosition]s to use when popup auto
+/// positioning is set (`enforceSpaceConstraints`) but no custom positions
+/// (`preferredPositions`) are set.
+const OpaqueToken defaultPopupPositions =
+    const OpaqueToken('defaultPopupPositions');
 
 /// DI bindings for Popups and its dependencies.
 ///
@@ -18,7 +23,6 @@ const popupBindings = const [
   const Provider(defaultPopupPositions, useValue: inlinePositions),
   overlayBindings,
   DomPopupSourceFactory,
-  PopupService
 ];
 
 /// DI bindings for Popups and its dependencies with debugging enabled.
@@ -28,5 +32,4 @@ const popupDebugBindings = const [
   const Provider(defaultPopupPositions, useValue: inlinePositions),
   overlayDebugBindings,
   DomPopupSourceFactory,
-  PopupService
 ];

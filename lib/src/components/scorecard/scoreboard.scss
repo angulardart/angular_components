@@ -11,9 +11,7 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
 @import 'lib/src/css/material/material';
-@import 'compass/css3';
 
 .acx-scoreboard {
   display: block;
@@ -21,8 +19,8 @@
   position: relative;
 
   .scroll-button {
-    @include display-flex();
-    @include flex-shrink(0);
+    display: flex;
+    flex-shrink: 0;
 
     &.hide {
       display: none;
@@ -75,7 +73,7 @@
   height: 100%;
 
   .scroll-button {
-    @include justify-content(center);
+    justify-content: center;
     width: 100%;
   }
 
@@ -91,7 +89,7 @@
     // TODO(google): Use flexbox for horizontal displays as well as vertical
     // ones. "inline-block" counts whitespace as content in HTML, resulting in
     // gaps between scorecards.
-    @include display-flex();
-    @include flex-direction(column);
+    display: flex;
+    flex-direction: column;
   }
 }

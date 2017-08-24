@@ -11,9 +11,7 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
 @import 'lib/src/css/material/material';
-@import 'compass/css3/flexbox';
 
 .paper-container {
   background-color: $mat-white;
@@ -23,8 +21,8 @@
   min-width: $mat-grid * 20;
   padding: $mat-grid * 3;
 
-  @include display-flex;
-  @include flex-direction(column);
+  display: flex;
+  flex-direction: column;
 
   /// Styles for the tooltip content.
   .header:not(:empty) {
@@ -34,7 +32,7 @@
   }
 
   .body {
-    @include flex-grow(1);
+    flex-grow: 1;
   }
 
   .footer {

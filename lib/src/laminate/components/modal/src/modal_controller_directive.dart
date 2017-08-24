@@ -8,8 +8,7 @@ import '../../../overlay/overlay.dart';
 import '../../../portal/portal.dart';
 
 /// An internal directive that is used by the modal component to hoist content.
-@Directive(
-    selector: '[modalController]', inputs: const ['overlay: modalController'])
+@Directive(selector: '[modalController]')
 class ModalControllerDirective extends TemplatePortal implements OnDestroy {
   ModalControllerDirective(
       TemplateRef templateRef, ViewContainerRef viewContainerRef)
@@ -23,6 +22,7 @@ class ModalControllerDirective extends TemplatePortal implements OnDestroy {
   }
 
   /// Attaches content to the provided [overlayRef].
+  @Input('modalController')
   set overlay(OverlayRef overlayRef) {
     if (overlayRef == null) {
       if (isAttached) {

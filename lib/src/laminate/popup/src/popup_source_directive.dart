@@ -21,10 +21,7 @@ import './popup_source.dart';
 ///          #source="popupSource">
 ///     </div>
 ///     <template popup [relativeTo]="source"></template>
-@Directive(
-    selector: '[popupSource]',
-    inputs: const ['alignX: alignPositionX', 'alignY: alignPositionY'],
-    exportAs: 'popupSource')
+@Directive(selector: '[popupSource]', exportAs: 'popupSource')
 // TODO(google): Deprecate use of `relativeTo` with an Element, use instead.
 // TODO(google): Move the setting of alignOriginX and Y into DomPopupSource.
 class PopupSourceDirective
@@ -62,6 +59,7 @@ class PopupSourceDirective
   @override
   Alignment get alignOriginX => _popupSource.alignOriginX;
 
+  @Input('alignPositionX')
   set alignX(String align) {
     _alignOriginX = new Alignment.parse(align);
     _updateSource();
@@ -70,6 +68,7 @@ class PopupSourceDirective
   @override
   Alignment get alignOriginY => _popupSource.alignOriginY;
 
+  @Input('alignPositionY')
   set alignY(String align) {
     _alignOriginY = new Alignment.parse(align);
     _updateSource();

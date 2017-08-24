@@ -11,10 +11,8 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/css/shared/compass_polyfills';
-@import 'lib/src/css/material/material';
-@import 'compass/css3';
 @import 'mixins';
+@import 'lib/src/css/material/material';
 
 // Colors.
 // --------
@@ -28,9 +26,6 @@ $font-size-heading: 32px;
 $font-size-heading-big: $mat-display-1-font-size;
 
 :host {
-  @include display-flex();
-  @include flex-direction(column);
-
   color: $mat-transparent-black;
   display: inline-block;
   font-size: $font-size-app;

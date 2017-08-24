@@ -226,7 +226,7 @@ class DelegatingPortalHost implements PortalHost {
 ///
 /// For example:
 ///     <template portalHost="portal"></template>
-@Directive(selector: '[portalHost]', inputs: const ['portal: portalHost'])
+@Directive(selector: '[portalHost]')
 class PortalHostDirective extends BasePortalHost {
   final SlowComponentLoader _dynamicComponentLoader;
   final ViewContainerRef _viewContainerRef;
@@ -259,6 +259,7 @@ class PortalHostDirective extends BasePortalHost {
     return new Future.value(BasePortalHost.createLocalsMap(viewRef));
   }
 
+  @Input('portalHost')
   set portal(Portal portal) {
     if (hasAttached) {
       detach().then((_) {
@@ -318,8 +319,9 @@ typedef void OnTemplatePortalReady(TemplatePortal portal);
 ///     <template portal (ready)="onReady($event)">
 ///       Hello {{name}}!
 ///     </template>
-@Directive(selector: '[portal]', outputs: const ['ready'])
+@Directive(selector: '[portal]')
 class TemplatePortalDirective extends TemplatePortal {
+  @Output()
   Stream<TemplatePortalDirective> get ready => _ready.stream;
   final _ready = new StreamController.broadcast();
 
