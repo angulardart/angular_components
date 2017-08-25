@@ -231,7 +231,8 @@ class MaterialSelectItemComponent extends ButtonDirective
 
     if (_activationHandler?.handle(e, value) ?? false) return;
     if (selectOnActivate && _selection != null && value != null) {
-      if (allowDeselect && _selection.isSelected(value)) {
+      if (_selection.isSelected(value)) {
+        if (!allowDeselect) return;
         _selection.deselect(value);
       } else {
         _selection.select(value);
