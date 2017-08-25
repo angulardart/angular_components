@@ -202,6 +202,17 @@ class MaterialSelectItemComponent extends ButtonDirective
 
   bool _closeOnActivate = true;
 
+  /// Whether to allow deselecting an already selected item.
+  ///
+  /// True by default.
+  bool get allowDeselect => _allowDeselect;
+  @Input()
+  set allowDeselect(value) {
+    _allowDeselect = getBool(value);
+  }
+
+  bool _allowDeselect = true;
+
   Type get componentType =>
       componentRenderer != null ? componentRenderer(value) : null;
 
@@ -220,7 +231,7 @@ class MaterialSelectItemComponent extends ButtonDirective
 
     if (_activationHandler?.handle(e, value) ?? false) return;
     if (selectOnActivate && _selection != null && value != null) {
-      if (_selection.isSelected(value)) {
+      if (allowDeselect && _selection.isSelected(value)) {
         _selection.deselect(value);
       } else {
         _selection.select(value);
