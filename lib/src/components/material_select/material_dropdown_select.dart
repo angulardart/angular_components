@@ -17,6 +17,7 @@ import '../../model/selection/selection_model.dart';
 import '../../model/selection/selection_options.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../model/ui/template_support.dart';
+import '../../utils/angular/properties/properties.dart';
 import '../../utils/id_generator/id_generator.dart';
 import '../annotations/rtl_annotation.dart';
 import '../content/deferred_content.dart';
@@ -260,6 +261,17 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
       }
     });
   }
+
+  /// Whether to allow deselecting an already selected item.
+  ///
+  /// True by default.
+  bool get allowDeselect => _allowDeselect;
+  @Input()
+  set allowDeselect(value) {
+    _allowDeselect = getBool(value);
+  }
+
+  bool _allowDeselect = true;
 
   void _updateActiveModel() {
     var items = new List<dynamic>.from(options?.optionsList ?? []);
