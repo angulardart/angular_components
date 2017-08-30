@@ -58,7 +58,6 @@ import './shift_click_selection.dart';
 /// The material-select has a fixed max height and auto overflow. We can add a
 /// property for custom max height once there's a use case.
 ///
-/// See third_party/dart_src/acx/material_select/examples for example usage.
 ///
 /// __Example Usage:__
 ///

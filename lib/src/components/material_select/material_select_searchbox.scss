@@ -12,7 +12,7 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'third_party/dart_src/acx/material_input/lib/mixins';
+@import 'lib/src/components/material_input/lib/mixins';
 
 .searchbox-input {
   @include input-leading-glyph-color($mat-grey-400);

@@ -111,8 +111,9 @@ $x-large: 7;
   }
 }
 
+// TODO(google): Move these styles into mixins.
 :host-context(body[dir="rtl"]) {
-  /deep/ [label] {
+  ::ng-deep [label] {
     @include list-item-base-rtl;
   }
 }

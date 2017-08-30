@@ -21,20 +21,6 @@ import './material_select_item.dart';
 /// This should only be used in select dropdowns.
 @Component(
   selector: 'material-select-dropdown-item',
-  // TODO(google).
-  inputs: const [
-    'active',
-    'closeOnActivate',
-    'componentRenderer',
-    'disabled', // Is item disabled. Inherited from [ButtonDirective]
-    'hideCheckbox',
-    'itemRenderer',
-    'selected',
-    'selection',
-    'value'
-  ],
-  // TODO(google).
-  outputs: const ['trigger'],
   host: const {
     'class': 'item',
     '[class.disabled]': 'disabled',

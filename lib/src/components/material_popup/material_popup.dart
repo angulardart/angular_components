@@ -23,7 +23,6 @@ import '../../utils/disposer/disposer.dart';
 import '../../utils/id_generator/id_generator.dart';
 import '../content/deferred_content_aware.dart';
 import '../mixins/material_dropdown_base.dart';
-import 'src/popup_portal_directive.dart';
 
 export '../../laminate/popup/popup.dart' show PopupSourceDirective;
 
@@ -33,7 +32,6 @@ typedef Future _DebouncedVisibilitySetter();
 ///
 /// Caveats:
 /// - Popups closing and opening are automatically delayed to add animations
-/// - An additional event, `animationComplete`, is available.
 /// - Take advantage of enforceSpaceConstraints defined in
 /// [PopupInterface].
 ///
@@ -47,10 +45,6 @@ typedef Future _DebouncedVisibilitySetter();
 ///
 /// - If the contents change and need to readjust position use
 ///  [trackLayoutChanges] which is also defined in [PopupInterface].
-///
-/// __Events__:
-///
-/// - `animationComplete`: Triggers after an open or close animation finishes.
 ///
 /// __Example use__:
 ///
@@ -100,7 +94,6 @@ typedef Future _DebouncedVisibilitySetter();
         useFactory: getResolvedPopupRef,
       ),
     ],
-    directives: const [PopupPortalDirective, NgClass],
     templateUrl: 'material_popup.html',
     styleUrls: const ['material_popup.scss.css'])
 class MaterialPopupComponent extends Object
@@ -114,10 +107,6 @@ class MaterialPopupComponent extends Object
   // Visible for testing.
   static const Duration SLIDE_DELAY = const Duration(milliseconds: 218);
 
-  @Output('animationComplete')
-  Stream get onAnimationComplete => _onAnimationComplete.stream;
-  final StreamController _onAnimationComplete =
-      new StreamController.broadcast(sync: true);
   @Output('opened')
   Stream get onOpened => _onOpened.stream;
   final StreamController _onOpened = new StreamController.broadcast(sync: true);
@@ -125,6 +114,7 @@ class MaterialPopupComponent extends Object
       new StreamController<bool>.broadcast(sync: true);
 
   final ChangeDetectorRef _changeDetector;
+  final ViewContainerRef _viewContainer;
   final DomService _domService;
   final Disposer _disposer = new Disposer.oneShot();
   final NgZone _ngZone;
@@ -138,7 +128,6 @@ class MaterialPopupComponent extends Object
   StreamSubscription _layoutInternalSub;
 
   OverlayRef _overlayRef;
-  OverlayRef get overlayRef => _overlayRef;
 
   // Needed to implement the PopupHierarchyElement interface.
   @override
@@ -161,7 +150,7 @@ class MaterialPopupComponent extends Object
   Future<Rectangle> _contentSize;
 
   // The last known size of the viewport.
-  Rectangle _viewportSize;
+  Rectangle _viewportRect;
 
   // Used to avoid multiple events with the same visibility.
   bool _popupReportsVisible = false;
@@ -270,6 +259,7 @@ class MaterialPopupComponent extends Object
       @Inject(overlayRepositionLoop) this._useRepositionLoop,
       @Optional() this._popupSizeProvider,
       this._changeDetector,
+      this._viewContainer,
       this.elementRef)
       : this.role = role ?? 'dialog' {
     // Internal event listeners for popup events. Subscriptions are created in
@@ -316,7 +306,6 @@ class MaterialPopupComponent extends Object
         _animationTimer = null;
         _onAnimationCompleter = null;
         completer.complete();
-        _onAnimationComplete.add(null);
         _changeDetector.markForCheck();
       });
     }
@@ -356,11 +345,11 @@ class MaterialPopupComponent extends Object
     var contentSize = await _contentSize;
     // Recompute the max size based on the viewport size as well as the popup
     // position.
-    if (_popupSizeProvider != null && _viewportSize != null) {
+    if (_popupSizeProvider != null && _viewportRect != null) {
       maxHeight = _popupSizeProvider.getMaxHeight(
-          _overlayRef.state.top, _viewportSize.height);
+          _overlayRef.state.top, _viewportRect.height);
       maxWidth = _popupSizeProvider.getMaxWidth(
-          _overlayRef.state.left, _viewportSize.width);
+          _overlayRef.state.left, _viewportRect.width);
     }
     contentHeight =
         maxHeight != null ? min(contentSize.height, maxHeight) : null;
@@ -445,12 +434,12 @@ class MaterialPopupComponent extends Object
     // Initializes the maximum size and content size based on the viewport size
     // before popup position is populated.
     if (_popupSizeProvider != null) {
-      _viewportSize =
+      _viewportRect =
           new Rectangle(0, 0, window.innerWidth, window.innerHeight);
       contentHeight =
-          maxHeight = _popupSizeProvider.getMaxHeight(0, _viewportSize.height);
+          maxHeight = _popupSizeProvider.getMaxHeight(0, _viewportRect.height);
       contentWidth =
-          maxWidth = _popupSizeProvider.getMaxWidth(0, _viewportSize.width);
+          maxWidth = _popupSizeProvider.getMaxWidth(0, _viewportRect.width);
     }
 
     // Trigger *deferredContent to create a little early so we can measure it.
@@ -492,38 +481,27 @@ class MaterialPopupComponent extends Object
     }
   }
 
+  @ViewChild('template')
+  TemplateRef templateRef;
+
   void _initView() {
     assert(_viewInitialized == false);
 
-    _initOverlayRef(_overlayService.createOverlayRefSync());
-    _viewInitialized = true;
-    _changeDetector.markForCheck();
-  }
-
-  // Once the popup instance was created, listen to events.
-  void _initOverlayRef(OverlayRef overlayRef) {
-    _overlayRef = overlayRef;
+    _overlayRef = _overlayService.createOverlayRefSync();
     _disposer.addFunction(_overlayRef.dispose);
+    var view = _viewContainer.createEmbeddedView(templateRef);
+    view.rootNodes.forEach(_overlayRef.overlayElement.append);
     _updateOverlayCssClass();
+    _viewInitialized = true;
   }
 
   @override
   set visible(bool visible) {
     if (visible) {
-      // If visibility is immediately true, we need to wait until the end of the
-      // VM turn to ensure our popup contents are first captured.
-      if (!_viewInitialized) {
-        _initView();
-
-        _domService.nextFrame.then((_) {
-          _ngZone.run(() {
-            // This check is necessary to prevent a race condition.
-            if (!_isDisposed) _open();
-          });
-        });
-      } else {
-        _open();
-      }
+      // If visibility is immediately true, we need to create the view before
+      // opening the popup.
+      if (!_viewInitialized) _initView();
+      _open();
     } else if (_viewInitialized) {
       _close();
     }
@@ -592,7 +570,7 @@ class MaterialPopupComponent extends Object
 
   Future _open() => _debounceSetVisibilityFunction(() async {
         _maybeSetZIndex();
-        if (!_overlayRef.hasAttached) {
+        if (!_viewInitialized) {
           throw new StateError('No content is attached.');
         } else if (state.source == null) {
           throw new StateError('Cannot open popup: no source set.');
@@ -723,10 +701,28 @@ class MaterialPopupComponent extends Object
     _repositionLoopId = window.requestAnimationFrame(_reposition);
     var sourceDimensions = _sourceDimensions;
     if (sourceDimensions == null) return;
-    _repositionOffsetX =
+
+    int newOffsetX =
         (sourceDimensions.left - _initialSourceDimensions.left).round();
-    _repositionOffsetY =
+    int newOffsetY =
         (sourceDimensions.top - _initialSourceDimensions.top).round();
+    int scrollShiftX = newOffsetX - _repositionOffsetX;
+    int scrollShiftY = newOffsetY - _repositionOffsetY;
+    _repositionOffsetX = newOffsetX;
+    _repositionOffsetY = newOffsetY;
+
+    if (state.enforceSpaceConstraints) {
+      // If necessary, move the popup to fit within the viewport.
+      _viewportRect ??=
+          new Rectangle(0, 0, window.innerWidth, window.innerHeight);
+      var popupRect = _overlayRef.overlayElement.getBoundingClientRect();
+      popupRect =
+          _shiftRectangle(popupRect, left: scrollShiftX, top: scrollShiftY);
+      var viewportShift = _shiftRectangleToFitWithin(popupRect, _viewportRect);
+      _repositionOffsetX += viewportShift.left;
+      _repositionOffsetY += viewportShift.top;
+    }
+
     _overlayRef.overlayElement.style.transform =
         'translate(${_repositionOffsetX}px, ${_repositionOffsetY}px)';
   }
@@ -993,6 +989,29 @@ Iterable _flatten(Iterable nested) sync* {
 Rectangle _resizeRectangle(Rectangle rect, {num width, num height}) =>
     new Rectangle(
         rect.left, rect.top, width ?? rect.width, height ?? rect.height);
+
+Rectangle _shiftRectangle(Rectangle rect, {num top: 0, num left: 0}) =>
+    new Rectangle(rect.left + left, rect.top + top, rect.width, rect.height);
+
+/// Returns a transformation which, when applied to [rect], will cause [rect] to
+/// be entirely within [container].
+///
+/// Currently only handles translation, not scale.
+Rectangle _shiftRectangleToFitWithin(Rectangle rect, Rectangle container) {
+  num x = 0;
+  num y = 0;
+  if (rect.left < container.left) {
+    x = container.left - rect.left;
+  } else if (rect.right > container.right) {
+    x = container.right - rect.right;
+  }
+  if (rect.top < container.top) {
+    y = container.top - rect.top;
+  } else if (rect.bottom > container.bottom) {
+    y = container.bottom - rect.bottom;
+  }
+  return new Rectangle(x.round(), y.round(), 0, 0);
+}
 
 /// The size of something.
 ///

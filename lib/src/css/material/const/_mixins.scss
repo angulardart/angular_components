@@ -13,7 +13,8 @@
 
 // #############################################################################
 //
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF LIB/SRC/CSS/MATERIAL
+// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF
+// LIB/SRC/CSS/MATERIAL
 //
 // #############################################################################
 
@@ -32,8 +33,15 @@
 // clearfix forces the containing element to contain and be the same height as
 // the floated child elements.
 @mixin clearfix() {
-  &:before, &:after { content: ' '; display: table; }
-  &:after { clear: both; }
+  &::before,
+  &::after {
+    content: ' ';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
 }
 
 @mixin box-sizing($type:border-box) {
@@ -63,7 +71,7 @@
   width: $button-size;
 
   // Icon is in after pseudo element to isolate opacity fiddling.
-  &:after {
+  &::after {
     @include icon-background($icon-url, $button-size, $icon-size);
     content: '';
     display: block;
@@ -75,29 +83,29 @@
   }
 
   // Light theme - default
-  &:focus:after,
-  &:hover:after,
-  &:active:after {
+  &:focus::after,
+  &:hover::after,
+  &:active::after {
     opacity: $mat-icon-opacity-hover;
   }
 
-  &:disabled:after {
+  &:disabled::after {
     opacity: $mat-icon-opacity-disabled;
   }
 
   // Dark theme
-  &.dark:after {
+  &.dark::after {
     opacity: $mat-icon-dark-opacity;
   }
 
-  &.dark:focus:after,
-  &.dark:hover:after,
-  &.dark:active:after {
+  &.dark:focus::after,
+  &.dark:hover::after,
+  &.dark:active::after {
     opacity: $mat-icon-dark-opacity-hover;
     outline: none;
   }
 
-  &.dark:disabled:after {
+  &.dark:disabled::after {
     opacity: $mat-icon-dark-opacity-disabled;
   }
 }

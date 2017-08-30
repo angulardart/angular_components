@@ -11,7 +11,7 @@ import 'src/all_components.dart';
 export 'src/all_components.dart';
 
 /// A convenience list of all Directives exposed by this package.
-const List<Type> materialDirectives = const [
+const List<dynamic> materialDirectives = const [
   AutoDismissDirective,
   AutoFocusDirective,
   CachingDeferredContentDirective,
@@ -35,6 +35,7 @@ const List<Type> materialDirectives = const [
   MaterialExpansionPanel,
   MaterialExpansionPanelSet,
   MaterialFabComponent,
+  MaterialIconComponent,
   MaterialIconTooltipComponent,
   MaterialInkTooltipComponent,
   MaterialInputComponent,
@@ -43,6 +44,8 @@ const List<Type> materialDirectives = const [
   MaterialListItemComponent,
   MaterialMultilineInputComponent,
   MaterialPaperTooltipComponent,
+  MaterialPersistentDrawerDirective,
+  MaterialTemporaryDrawerComponent,
   MaterialPopupComponent,
   MaterialProgressComponent,
   MaterialRadioComponent,
@@ -50,6 +53,7 @@ const List<Type> materialDirectives = const [
   MaterialRippleComponent,
   MaterialSelectComponent,
   MaterialSelectItemComponent,
+  MaterialSelectSearchboxComponent,
   MaterialSpinnerComponent,
   MaterialTabComponent,
   MaterialTabPanelComponent,
