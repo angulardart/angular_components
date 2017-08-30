@@ -1,138 +1,80 @@
 ## 0.6.0
 
  * Update dependency to angular: ^4.0.0.
+ * Update SDK dependencies.
+ * Add Material Select Searchbox component.
+ * Add Application Layout styles and directives.
+ * Add Material Icon.
+   * Deprecate `GlyphComponent` in favor of `MaterialIconComponent`.
  * App Layout: Fix margins for header icons/links.
+ * Dynamic Component: Add ability to use `ComponentFactory` instead of a `Type`.
  * Material Button: Refactor raised styling so it can be used in a mixin.
- * Material Input: Add support for material dark theme.
+ * Material Checkbox:
+   * Add ability to make readonly.
+   * Add mixin for checkbox with no left margin.
+ * Material Chips: Add ability to specify background color for left icon.
+ * Material Dialog:
+   * Support a minimum height.
+   * Fix header mixin.
+ * Material Expansionpanel:
+   * Add high density mixin.
+   * Add mixin to allow changes to panels without affecting nested panels.
+ * Material Icon: Add back and forward arrows to the list of flipped icons.
+ * Material Input:
+   * Add support for material dark theme.
+   * Fix disabled color.
+   * Add leading text color mixin.
+   * Make local required errors to make controls invalid even when the control
+     has not been interacted with.
+   * Add upper and lower bounds validators.
+   * Re-calculate text length when custom character counter is set.
+   * Prevent mirror-text overflow in multiline material input.
+   * Remove unnecessary selector argument from mixins.
  * Material Popup:
    * Constrain popups to the viewport if both `enforceSpaceConstraints` and
      `overlayRepositionLoop` are enabled.
    * Create the material-popup view synchronously.
    * Remove `animationComplete` event.
- * Add missing `MaterialIconComponent`, `MaterialPersistentDrawerDirective`,
-   `MaterialTemporaryDrawerDirective`, and `MaterialSelectSearchboxComponent` to
-   `materialDirectives`.
- * Change DisplayNameDirective to a functional directive.
- * Additional styling cleanup to support `ng-deep`.
- * Reduce visibility of common directives/components for smaller code size and
-   better performance.
- * Refactor Angular annotations to inline versions.
- * Update documentation.
-
-## 0.6.0-beta
-
-> NOTE: This code is considered production quality, but depends on angular:
-> 4.0.0-beta. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (4.0.0-beta is used in production Google apps).
-
- * Material Dialog: Support a minimum height.
- * Material Input: Fix disabled color.
- * Material Popup: Additional merges to prepare for final refactoring.
- * Material Tree: Update positioning options and borders.
- * Deprecate LazyEventEmitter and migrate uses to the StreamController model.
- * Remove use of Compass in SASS files.
- * Remove unused alignment parameters.
- * Refactor Angular annotations to inline versions.
-
-## 0.6.0-alpha+3
-
-> NOTE: This code is considered production quality, but depends on angular:
-> 4.0.0-alpha+3. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (4.0.0-alpha is used in production Google apps).
-
- * Add Application Layout styles and directives.
- * Add Material Select Searchbox component.
- * Material Expansionpanel: Add high density mixin.
- * Material Icon: Add back and forward arrows to the list of flipped icons.
- * Material Input: Add leading text color mixin.
- * Material Popup:
    * Integrate with Angular CSS shimming and remove `shadowCssClass`.
    * Material design scrollbars by default (instead of the native scrollbars).
    * Add ARIA attributes.
- * Material Select: Fix selectable menu item property functionality.
- * Material Tree:
-   * Add optional row separator borders.
-   * Fix dropdown closing on toggle issue.
- * Material Tooltips: Add ARIA attributes.
- * Improve performance of `TreeSelectionOptions` constructor from O(n^2) to O(n)
-   in the size of `listOfOptions`.
- * Remove uses of 'getBool' in boolean typed inputs.
- * Remove use of Compass in SASS files.
- * Refactor Angular annotations to inline versions.
-
-## 0.6.0-alpha+2
-
-> NOTE: This code is considered production quality, but depends on angular:
-> 4.0.0-alpha+2. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (4.0.0-alpha is used in production Google apps).
-
- * Dynamic Component: Add ability to use `ComponentFactory` instead of a `Type`.
- * Material Dialog: Fix header mixin.
- * Material Checkbox: Add ability to make readonly.
- * Material Input: Make local required errors to make controls invalid even when
-   the control has not been interacted with.
- * Material Popup:
    * Add an option to reposition visible popups every frame with
      `trackLayoutChanges`.
    * Merge laminate/components/popup into Material Popup.
- * Material Select: Allow dropdown to display an error while it's closed.
- * Material Tree:
-   * Added shift selection/deselection.
-   * Fix glyphs always shown expanded when `expandAll = true`.
- * Material Yes/No Buttons: Add dense style.
- * Scorecard: Update tab index to prevent scroll errors when going through
-   buttons with tabs.
- * Add new color utils.
- * Migrate uses of `GlyphComponent` to `MaterialIconComponent`.
- * Migrate uses of `ElementRef` to `Element`.
- * Remove duplicate PopupSourceDirective.
- * Remove deprecated popup `matchSourceWidth` options.
- * Updates to use metadata inheritance.
- * Remove unused library statements.
- * Update documentation.
-
-## 0.6.0-alpha+1
-
-> NOTE: This code is considered production quality, but depends on angular:
-> 4.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (4.0.0-alpha is used in production Google apps).
-
- * Add Material Icon.
- * Deprecate `GlyphComponent` in favor of `MaterialIconComponent`.
- * Update dependency to angular: 4.0.0-alpha+1.
- * Material Checkbox: Add mixin for checkbox with no left margin.
- * Material Chips: Add ability to specify background color for left icon.
- * Material Expansionpanel: Add mixin to allow changes to panels without
-   affecting nested panels.
- * Material Input:
-   * Add upper and lower bounds validators.
-   * Re-calculate text length when custom character counter is set.
-   * Prevent mirror-text overflow in multiline material input.
-   * Remove unnecessary selector argument from mixins.
- * Material Popup: Only set content removed if the popup is still not visible
-   when the timer is finished.
+   * Only set content removed if the popup is still not visible when the timer
+     is finished.
  * Material Radio:
    * Add mixin for radio button with no left margin.
    * Fix mixin to respect disabled status when a theme is applied.
  * Material Select:
+   * Fix selectable menu item property functionality.
+   * Allow dropdown to display an error while it's closed.
    * Fix `MaterialSelectItemComponent` to not cache the label.
    * Add input to material-dropdown-select to define custom a renderer for group
      labels.
    * Fix checkbox display handling and label padding in dropdown.
  * Material Toggle: Set the attribute instead of the property to fix a bug with
    incorrect type, and not setting the right property.
+ * Material Tooltips: Add ARIA attributes.
  * Material Tree:
+   * Update positioning options and borders.
+   * Add optional row separator borders.
+   * Fix dropdown closing on toggle issue.
+   * Added shift selection/deselection.
+   * Fix glyphs always shown expanded when `expandAll = true`.
    * Add ability to preserve expansion state.
    * Fix indentation of first child group.
    * Add input `showDisabledCheckboxes`.
    * Add a max-height mixin.
+ * Material Yes/No Buttons: Add dense style.
  * Reorder List:
    * Update to recommended syntax for ngFor.
    * Migrate from ManagedZone to NgZone.
  * Scorecard:
+   * Update tab index to prevent scroll errors when going through
+     buttons with tabs.
    * Replace deprecated Glyph with Material Icon.
    * Invoke inherited click handler from derived click handler.
- * Avoid adding placeholder for deferred content if the element is detached.
  * Selection Models:
    * Add deselect all option.
    * Add a limited filtering model.
@@ -140,22 +82,33 @@
      that were added.
    * Add comparator as optional param to tree selection options for custom
      sorting.
+ * Avoid adding placeholder for deferred content if the element is detached.
+ * Add new color utils.
+ * Update animations to new Material specs.
+ * Migrate uses of `GlyphComponent` to `MaterialIconComponent`.
+ * Migrate uses of `ElementRef` to `Element`.
+ * Remove duplicate PopupSourceDirective.
+ * Remove deprecated popup `matchSourceWidth` options.
+ * Add missing `MaterialIconComponent`, `MaterialPersistentDrawerDirective`,
+   `MaterialTemporaryDrawerDirective`, and `MaterialSelectSearchboxComponent` to
+   `materialDirectives`.
+ * Improve performance of `TreeSelectionOptions` constructor from O(n^2) to O(n)
+    in the size of `listOfOptions`.
+ * Change DisplayNameRenderDirective to a functional directive.
+ * Deprecate LazyEventEmitter and migrate uses to the StreamController model.
+ * Additional styling cleanup to support `ng-deep`.
+ * Reduce visibility of common directives/components for smaller code size and
+   better performance.
+ * Remove use of Compass in SASS files.
+ * Remove uses of `getBool` in boolean typed inputs.
+ * Remove unused alignment parameters.
  * Updates to use metadata inheritance.
  * Migrate away from comment-style generic syntax.
  * Migrate stylesheet combinators `/deep/` and `>>>` to `::ng-deep`.
  * Migrate away from use of angular's `@View`.
- * Update animations to new Material specs.
- * Update documentation.
  * Remove unused library statements.
-
-## 0.6.0-alpha
-
-> NOTE: This code is considered production quality, but depends on angular:
-> 4.0.0-alpha. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (4.0.0-alpha is used in production Google apps).
-
- * Update dependency to `angular: 4.0.0-alpha`.
- * Update SDK dependencies.
+ * Refactor Angular annotations to inline versions.
+ * Update documentation.
 
 ### Known Issues
  * Warnings are present when building with dart2js. Specifically:
