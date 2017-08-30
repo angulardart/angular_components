@@ -33,10 +33,23 @@ $button-hovered-background: rgba(158, 158, 158, .20);
 
 $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 
-// These styles are based on the 1.0 paper-button styles in
-// https://github.com/PolymerElements/paper-button/blob/master/paper-button.html
+// Private used for external mixin, and button-base only.
+@mixin _button-raised {
+  @include material-shadow;
 
-// TODO(google): Conform to lint, use shared styles/material colors.
+  @include acx-theme-dark {
+    background-color: $mat-blue;
+  }
+
+  &[disabled] {
+    background: $button-disabled-background;
+    @include shadow-none;
+
+    @include acx-theme-dark {
+      background: $mat-blue;
+    }
+  }
+}
 
 @mixin button-dense {
   height: $mat-grid * 4;
@@ -46,14 +59,9 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 @mixin button-base {
   @include acx-theme-dark {
     color: $mat-white;
-
-    &[raised] {
-      background-color: $mat-blue;
-    }
   }
 
   @include mat-type-button;
-  @include material-shadow;
 
   user-select: none;
   background: transparent;
@@ -86,16 +94,10 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
     >* {
       pointer-events: none;
     }
-
-    &[raised] {
-      background: $button-disabled-background;
-
-      @include acx-theme-dark {
-        background: $mat-blue;
-      }
-    }
   }
 
+  // We specify raised here specifically instead of the mixin to satisfy the
+  // case where a mixin is not used to specify the background color.
   &:not([raised]):not([disabled]):not([icon]):hover {
     background-color: $button-hovered-background;
   }
@@ -114,9 +116,8 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
     pointer-events: none;
   }
 
-  &:not([raised]),
-  &[disabled][raised] {
-    @include shadow-none;
+  &[raised] {
+    @include _button-raised;
   }
 
   &[no-ink] material-ripple {
@@ -217,6 +218,10 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 
 @mixin button-background-color($selector, $background-color) {
   ::ng-deep #{$selector}:not([disabled]) {
+    background-color: $background-color;
+  }
+
+  ::ng-deep #{$selector}:not([disabled]):hover {
     background-color: $background-color;
   }
 }

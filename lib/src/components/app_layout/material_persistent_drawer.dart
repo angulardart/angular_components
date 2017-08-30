@@ -11,8 +11,9 @@ import 'material_drawer_base.dart';
 
 /// A persistent drawer that can be pinned open or closed.
 ///
-/// Need to include package:third_party.dart_src.acx.app_layout/layout.scss.css
-/// in the list of styleUrls of the containing component.
+/// Need to include
+/// package:angular_components/src/components/app_layout/layout.scss.css in the
+/// list of styleUrls of the containing component.
 ///
 /// Works with deferred content.
 /// __Example usage:__

@@ -53,7 +53,7 @@
 
 // Include this inside :host-context(body[dir="rtl"])
 @mixin list-item-base-rtl {
-  /deep/ .submenu-icon {
+  ::ng-deep .submenu-icon {
     transform: rotate(90deg);
   }
 }

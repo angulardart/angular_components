@@ -137,6 +137,20 @@
   }
 }
 
+/// Changes the underline color when not in focus.
+@mixin material-input-unfocused-underline-color($color) {
+  ::ng-deep .unfocused-underline {
+    background-color: $color;
+  }
+}
+
+/// Changes the disabled dotted underline color.
+@mixin material-input-disabled-underline-color($color) {
+  ::ng-deep .disabled-underline {
+    border-color: $color;
+  }
+}
+
 @mixin material-input-disabled-input-color($color) {
   ::ng-deep .disabledInput {
     color: $color;

@@ -10,9 +10,9 @@ the material spec.
 ## Setup
 
 The styles are provided by
-`package:third_party.dart_src.acx.app_layout/layout.scss.css`. To use these
-styles in an angular component simply add it as a `styleUrls` value in your
-`Component` annotation. It is suggested that the style is added before any
+`package:angular_components/src/components/app_layout/layout.scss.css`. To use 
+these styles in an angular component simply add it as a `styleUrls` value in 
+your `Component` annotation. It is suggested that the style is added before any
 component specific styling so you can easily override style values as needed.
 
 ```dart
@@ -20,7 +20,7 @@ component specific styling so you can easily override style values as needed.
     selector: 'my-component',
     templateUrl: 'my_component.html',
     styleUrls: const [
-      'package:third_party.dart_src.acx.app_layout/layout.scss.css',
+      'package:angular_components/src/components/app_layout/layout.scss.css',
       'my_component.scss.css'])
 class MyComponent {}
 ```
@@ -41,7 +41,7 @@ dense-header            | Makes the App Bar denser for interfaces that primarily
 material-drawer-button  | A button within the row that is placed on the left and <br>is used for navigation.
 material-header-title   | A title for the header.
 material-spacer         | Consumes space between the title and any navigation <br>links. Needs to be placed after the title and before <br>any navigation elements.
-material-navigation     | Navigation elements which will be displayed on the <br>left side of the header.
+material-navigation     | Navigation elements which will be displayed on the <br>left side of the header. Only use with anchor tags, <br>material-button have there own styling built in.
 
 <!-- mdformat on -->
 

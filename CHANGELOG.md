@@ -1,3 +1,24 @@
+## 0.6.0
+
+ * Update dependency to angular: ^4.0.0.
+ * App Layout: Fix margins for header icons/links.
+ * Material Button: Refactor raised styling so it can be used in a mixin.
+ * Material Input: Add support for material dark theme.
+ * Material Popup:
+   * Constrain popups to the viewport if both `enforceSpaceConstraints` and
+     `overlayRepositionLoop` are enabled.
+   * Create the material-popup view synchronously.
+   * Remove `animationComplete` event.
+ * Add missing `MaterialIconComponent`, `MaterialPersistentDrawerDirective`,
+   `MaterialTemporaryDrawerDirective`, and `MaterialSelectSearchboxComponent` to
+   `materialDirectives`.
+ * Change DisplayNameDirective to a functional directive.
+ * Additional styling cleanup to support `ng-deep`.
+ * Reduce visibility of common directives/components for smaller code size and
+   better performance.
+ * Refactor Angular annotations to inline versions.
+ * Update documentation.
+
 ## 0.6.0-beta
 
 > NOTE: This code is considered production quality, but depends on angular:

@@ -19,7 +19,12 @@
 @import 'lib/src/css/material/material';
 @import 'lib/src/components/material_list/mixins';
 
+$mat-toolbar-mobile-breakpoint: 599px;
 $mat-drawer-border: 1px solid $mat-border-light;
+// Desktop spec calls for 24px margins have each element contribute half.
+$mat-desktop-drawer-margin: 3 * $mat-grid / 2;
+// Mobile spec calls for 16px margins have each element contribute half.
+$mat-mobile-drawer-margin: $mat-grid;
 
 material-drawer[persistent],
 material-drawer[permanent] {
@@ -168,16 +173,18 @@ $mat-header-dense-height: 48px;
   flex-shrink: 0;
   flex-wrap: nowrap;
   height: $mat-header-height;
-  margin: 0;
-  padding: 0 $mat-grid;
+  margin: 0 $mat-desktop-drawer-margin;
   // Allow title, and drawer button to be positioned absolutely.
   position: relative;
+
+  @media (max-width: $mat-toolbar-mobile-breakpoint) {
+    margin: 0 $mat-mobile-drawer-margin;
+  }
 
   // Special drawer button used to open/close the drawer.
   // Positioned at the start of the header.
   > .material-drawer-button {
     cursor: pointer;
-    margin-left: $mat-grid;
   }
 
   /// Class uses for the title inside of a header.
@@ -204,11 +211,20 @@ $mat-header-dense-height: 48px;
   }
 
   material-button {
-    margin: 0 $mat-grid;
+    // drawer margin - margin from button for ripple.
+    margin: 0 $mat-desktop-drawer-margin - $mat-grid;
+
+    @media (max-width: $mat-toolbar-mobile-breakpoint) {
+      margin: 0 $mat-mobile-drawer-margin - $mat-grid;
+    }
   }
 
   .material-navigation {
-    margin: 0 $mat-grid * 3;
+    margin: 0 $mat-desktop-drawer-margin;
+
+    @media (max-width: $mat-toolbar-mobile-breakpoint) {
+      margin: 0 $mat-mobile-drawer-margin;
+    }
   }
 
   > * {

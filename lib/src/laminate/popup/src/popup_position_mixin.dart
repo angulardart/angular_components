@@ -4,6 +4,8 @@
 
 import 'dart:math';
 
+import 'package:angular/angular.dart';
+
 import '../../enums/alignment.dart';
 import './popup_size_provider.dart';
 
@@ -48,6 +50,7 @@ class PopupPositionMixin implements PopupSizeProvider {
 
   List<RelativePosition> get popupPositions => _popupPositions;
 
+  @Input()
   set popupPosition(String position) {
     _popupPosition = position;
     switch (_popupPosition) {

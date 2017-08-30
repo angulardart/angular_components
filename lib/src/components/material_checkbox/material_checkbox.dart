@@ -81,7 +81,8 @@ const indeterminateAriaState = 'mixed';
     preserveWhitespace: false,
     templateUrl: 'material_checkbox.html',
     styleUrls: const ['material_checkbox.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    visibility: Visibility.none)
 class MaterialCheckboxComponent implements ControlValueAccessor {
   final ChangeDetectorRef _changeDetector;
   final HtmlElement _root;
