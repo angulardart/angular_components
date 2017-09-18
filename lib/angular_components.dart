@@ -18,7 +18,7 @@ const List<dynamic> materialDirectives = const [
   ClickableTooltipTargetDirective,
   DarkThemeDirective,
   DeferredContentDirective,
-  DisplayNameRendererDirective,
+  displayNameRendererDirective,
   FixedMaterialTabStripComponent,
   FocusActivableItemDirective,
   FocusItemDirective,

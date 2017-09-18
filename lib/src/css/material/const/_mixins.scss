@@ -44,11 +44,6 @@
   }
 }
 
-@mixin box-sizing($type:border-box) {
-  -moz-box-sizing: $type; // Firefox < 29
-  box-sizing: $type;      // Chrome, IE 8+, Opera, Safari 5.1
-}
-
 // Styles text that is used as a floating label over a material component.
 @mixin mat-input-header() {
   color: $mat-gray-600;
@@ -224,3 +219,8 @@
     height: 0;
   }
 }
+
+// *** Deprecated
+// The following functions are deprecated.
+// The equivalent native CSS is available in all supported browsers.
+

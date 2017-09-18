@@ -143,6 +143,8 @@ abstract class Modal {
       <ng-content></ng-content>
     </template>
   ''',
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
 )
 class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
   final Modal _parentModal;

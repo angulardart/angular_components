@@ -78,6 +78,7 @@ class MaterialTabPanelComponent {
 
   @ContentChildren(Tab)
   set tabs(QueryList<Tab> tabQuery) {
+    final previousActiveTab = (_tabs != null) ? _activeTab : null;
     _tabs = new List.from(tabQuery);
     _tabLabels = _tabs.map((t) => t.label).toList();
     _tabIds = _tabs.map((t) => t.tabId).toList();
@@ -85,7 +86,19 @@ class MaterialTabPanelComponent {
     // Setting the active tab needs to happen in the next turn as it is changing
     // the state of the tab.
     scheduleMicrotask(() {
-      _setActiveTab(_activeTabIndex, false);
+      _changeDetector.markForCheck(); // call early so we can return early.
+      // Look for the previously active tab.
+      if (previousActiveTab != null) {
+        _activeTabIndex = _tabs.indexOf(previousActiveTab);
+        if (_activeTabIndex == -1) {
+          // Couldn't find previous tab. Just activate the first tab.
+          _activeTabIndex = 0;
+        } else {
+          // The previous tab was found. No need to activate it as it is active.
+          return;
+        }
+      }
+      _activeTab.activate();
     });
   }
 

@@ -3,31 +3,21 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:math';
 
 import 'package:angular/angular.dart';
 
-import './popup_event.dart';
 import './popup_source.dart';
 import './popup_state.dart';
 
 /// A reusable interface for something that is or delegates to [PopupComponent].
 abstract class PopupInterface {
   /// Fires an asynchronous event when the popup is being opened.
-  ///
-  /// The event can be cancelled (prevented) or deferred until a future
-  /// completes - for an example, to wait for an opening animation to finish.
-  ///
-  /// The *proposed* size of the popup is also provided as a [Rectangle].
   @Output('open')
-  Stream<PopupEvent> get onOpen;
+  Stream<Null> get onOpen;
 
   /// Fires an asynchronous event when the popup is being closed.
-  ///
-  /// The event can be cancelled (prevented) or deferred until a future
-  /// completes - for an example, to wait for a closing animation to finish.
   @Output('close')
-  Stream<PopupEvent> get onClose;
+  Stream<Null> get onClose;
 
   /// A synchronous event that fires when the [visible] property of the popup
   /// changes (e.g. either from `false` to `true` or `true` to `false`).
@@ -90,13 +80,13 @@ abstract class PopupInterface {
 // TODO(google): Consider moving these into material_popup as there aren't
 // any other users of these streams.
 abstract class PopupEvents {
-  Stream<PopupEvent> get onOpen => onOpenController.stream;
-  final StreamController<PopupEvent> onOpenController =
-      new StreamController<PopupEvent>.broadcast(sync: true);
+  Stream<Null> get onOpen => onOpenController.stream;
+  final StreamController<Null> onOpenController =
+      new StreamController<Null>.broadcast(sync: true);
 
-  Stream<PopupEvent> get onClose => onCloseController.stream;
-  final StreamController<PopupEvent> onCloseController =
-      new StreamController<PopupEvent>.broadcast(sync: true);
+  Stream<Null> get onClose => onCloseController.stream;
+  final StreamController<Null> onCloseController =
+      new StreamController<Null>.broadcast(sync: true);
 
   Stream<bool> get onVisible => onVisibleController.stream;
   final StreamController<bool> onVisibleController =

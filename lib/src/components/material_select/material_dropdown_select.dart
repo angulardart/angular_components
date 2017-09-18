@@ -112,22 +112,6 @@ import './shift_click_selection.dart';
 ///   to be used for rendering group labels.
 @Component(
   selector: 'material-dropdown-select',
-  // TODO(google).
-  inputs: const [
-    // Select Base.
-    'componentRenderer',
-    'itemRenderer',
-
-    'width',
-    // ButtonWrapper
-    'buttonText',
-    'buttonAriaLabel',
-    'disabled',
-    'icon',
-    'iconName',
-    // TrackLayoutChanges
-    'trackLayoutChanges',
-  ],
   providers: const [
     const Provider(DropdownHandle,
         useExisting: MaterialDropdownSelectComponent),
@@ -155,6 +139,8 @@ import './shift_click_selection.dart';
   ],
   templateUrl: 'material_dropdown_select.html',
   styleUrls: const ['material_dropdown_select.scss.css'],
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
 )
 class MaterialDropdownSelectComponent extends MaterialSelectBase
     with
@@ -202,6 +188,24 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     isRtl = rtl;
     preferredPositions = RelativePosition.overlapAlignments;
     iconName = 'arrow_drop_down';
+  }
+
+  @Input()
+  @override
+  set componentRenderer(ComponentRenderer value) {
+    super.componentRenderer = value;
+  }
+
+  @Input()
+  @override
+  set itemRenderer(ItemRenderer value) {
+    super.itemRenderer = value;
+  }
+
+  @Input()
+  @override
+  set width(value) {
+    super.width = value;
   }
 
   @override

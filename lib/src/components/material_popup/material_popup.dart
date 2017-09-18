@@ -9,24 +9,20 @@ import 'dart:math';
 import 'package:angular/angular.dart' hide Visibility;
 import 'package:meta/meta.dart';
 
-import '../../css/acux/zindexer.dart';
 import '../../laminate/enums/alignment.dart';
 import '../../laminate/enums/visibility.dart';
 import '../../laminate/overlay/module.dart';
 import '../../laminate/overlay/overlay.dart';
+import '../../laminate/overlay/zindexer.dart';
 import '../../laminate/popup/module.dart';
 import '../../laminate/popup/popup.dart';
-import '../../model/action/async_action.dart';
 import '../../model/ui/toggle.dart';
-import '../../utils/browser/dom_service/dom_service.dart';
 import '../../utils/disposer/disposer.dart';
 import '../../utils/id_generator/id_generator.dart';
 import '../content/deferred_content_aware.dart';
 import '../mixins/material_dropdown_base.dart';
 
 export '../../laminate/popup/popup.dart' show PopupSourceDirective;
-
-typedef Future _DebouncedVisibilitySetter();
 
 /// A popup component with material design look-and-feel.
 ///
@@ -81,21 +77,24 @@ typedef Future _DebouncedVisibilitySetter();
 /// - `slide: String` -- Direction of popup scaling. Valid values are `x`, `y`,
 /// or `null`.
 @Component(
-    selector: 'material-popup',
-    providers: const [
-      const Provider(DeferredContentAware, useExisting: MaterialPopupComponent),
-      const Provider(DropdownHandle, useExisting: MaterialPopupComponent),
-      const Provider(
-        PopupHierarchy,
-        useFactory: getHierarchy,
-      ),
-      const Provider(
-        PopupRef,
-        useFactory: getResolvedPopupRef,
-      ),
-    ],
-    templateUrl: 'material_popup.html',
-    styleUrls: const ['material_popup.scss.css'])
+  selector: 'material-popup',
+  providers: const [
+    const Provider(DeferredContentAware, useExisting: MaterialPopupComponent),
+    const Provider(DropdownHandle, useExisting: MaterialPopupComponent),
+    const Provider(
+      PopupHierarchy,
+      useFactory: getHierarchy,
+    ),
+    const Provider(
+      PopupRef,
+      useFactory: getResolvedPopupRef,
+    ),
+  ],
+  templateUrl: 'material_popup.html',
+  styleUrls: const ['material_popup.scss.css'],
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class MaterialPopupComponent extends Object
     with PopupBase, PopupEvents, PopupHierarchyElement
     implements
@@ -107,15 +106,17 @@ class MaterialPopupComponent extends Object
   // Visible for testing.
   static const Duration SLIDE_DELAY = const Duration(milliseconds: 218);
 
+  /// Stream on which an event is fired after the popup has finished opening.
   @Output('opened')
-  Stream get onOpened => _onOpened.stream;
-  final StreamController _onOpened = new StreamController.broadcast(sync: true);
+  Stream<Null> get onOpened => _onOpened.stream;
+  final StreamController<Null> _onOpened =
+      new StreamController<Null>.broadcast(sync: true);
+
   final StreamController<bool> _onContentVisible =
       new StreamController<bool>.broadcast(sync: true);
 
   final ChangeDetectorRef _changeDetector;
   final ViewContainerRef _viewContainer;
-  final DomService _domService;
   final Disposer _disposer = new Disposer.oneShot();
   final NgZone _ngZone;
   final OverlayService _overlayService;
@@ -140,11 +141,9 @@ class MaterialPopupComponent extends Object
   PopupRef _resolvedPopupRef;
 
   bool _viewInitialized = false;
-  bool _isDisposed = false;
 
   // Used to have a maximum of one timer to wait for CSS animations.
   Timer _animationTimer;
-  Completer _onAnimationCompleter;
 
   // The last known size of the popup content.
   Future<Rectangle> _contentSize;
@@ -152,8 +151,16 @@ class MaterialPopupComponent extends Object
   // The last known size of the viewport.
   Rectangle _viewportRect;
 
-  // Used to avoid multiple events with the same visibility.
-  bool _popupReportsVisible = false;
+  // Whether the popup is in the process of opening (or has finished opening).
+  //
+  // If true, then the popup is in the process of opening, or is already open.
+  // This means that [_open] has already been called, and subsequent calls to
+  // [_open] should be a no-op.
+  //
+  // If false, then the popup is in the process of closing, or is already
+  // closed. This means that [_close] has already been called, and subsequent
+  // calls to [_close] should be a no-op.
+  bool _isOpening = false;
 
   // Used to avoid events occurring after detached from the DOM.
   bool _isDestroyed = false;
@@ -165,22 +172,8 @@ class MaterialPopupComponent extends Object
   int _repositionOffsetY = 0;
   int _repositionLoopId;
 
-  // Variables for [_debounceSetVisibilityFunction].
-  Future _setVisibilityCompleted;
-  _DebouncedVisibilitySetter _lastVisibilitySetter;
-
   @override
   bool get autoDismiss => state.autoDismiss;
-
-  /// The height of the inner-content.
-  ///
-  /// If null, the height is automatic (e.g. similar to no style="height:...").
-  num contentHeight;
-
-  /// The width of the inner-content.
-  ///
-  /// If null, the width is automatic (e.g. similar to no style="width:...").
-  num contentWidth;
 
   /// Whether the underlying popup should be content visible.
   bool showPopup = false;
@@ -195,10 +188,6 @@ class MaterialPopupComponent extends Object
   int get zIndex => _zIndex;
   int _zIndex;
   final ZIndexer _zIndexer;
-
-  void _maybeSetZIndex() {
-    _zIndex ??= _zIndexer.pop();
-  }
 
   /// Direction of popup scaling.
   String _slide;
@@ -248,7 +237,6 @@ class MaterialPopupComponent extends Object
   bool hasBox = true;
 
   MaterialPopupComponent(
-      this._domService,
       @Optional() @SkipSelf() this._hierarchy,
       @Optional() @SkipSelf() MaterialPopupComponent parentPopup,
       @Attribute('role') String role,
@@ -262,14 +250,6 @@ class MaterialPopupComponent extends Object
       this._viewContainer,
       this.elementRef)
       : this.role = role ?? 'dialog' {
-    // Internal event listeners for popup events. Subscriptions are created in
-    // the constructor so that the component can respond to these events before
-    // external listeners.
-    _disposer
-      ..addStreamSubscription(onOpen.listen(onPopupOpened))
-      ..addStreamSubscription(onClose.listen(onPopupClosed))
-      ..addStreamSubscription(onVisible.listen(onVisibleChanged));
-
     // Close popup if parent closes.
     if (parentPopup != null) {
       parentPopup.onClose.listen((_) => close());
@@ -286,30 +266,6 @@ class MaterialPopupComponent extends Object
   PopupHierarchy get hierarchy {
     _hierarchy = _hierarchy ?? new PopupHierarchy();
     return _hierarchy;
-  }
-
-  // Returns a future that completes after a short duration that an animation
-  // may occur (in this case, via CSS). If a pending animation is already in
-  // progress, we wait until it is done before scheduling another delay.
-  Future _afterAnimationDelay() async {
-    // If there is already a pending animation, wait for it to be done first.
-    if (_onAnimationCompleter != null) {
-      await _onAnimationCompleter.future;
-      return _afterAnimationDelay();
-    }
-
-    // Schedule an animation.
-    assert(_animationTimer == null);
-    var completer = _onAnimationCompleter = new Completer.sync();
-    if (!_isDestroyed) {
-      _animationTimer = new Timer(SLIDE_DELAY, () {
-        _animationTimer = null;
-        _onAnimationCompleter = null;
-        completer.complete();
-        _changeDetector.markForCheck();
-      });
-    }
-    return completer.future;
   }
 
   @override
@@ -331,61 +287,11 @@ class MaterialPopupComponent extends Object
     }
     _layoutInternalSub?.cancel();
     _layoutChangeSub?.cancel();
-    onVisibleController.add(false);
     _disposer.dispose();
-    _isDisposed = true;
     _animationTimer?.cancel();
     _isDestroyed = true;
-  }
-
-  // Set the dimensions to the size previously reported in order to have CSS
-  // animate. If popupSizeProvider is available, restrict the content size to be
-  // below the calculated maximum size.
-  Future _animateContentSize() async {
-    var contentSize = await _contentSize;
-    // Recompute the max size based on the viewport size as well as the popup
-    // position.
-    if (_popupSizeProvider != null && _viewportRect != null) {
-      maxHeight = _popupSizeProvider.getMaxHeight(
-          _overlayRef.state.top, _viewportRect.height);
-      maxWidth = _popupSizeProvider.getMaxWidth(
-          _overlayRef.state.left, _viewportRect.width);
-    }
-    contentHeight =
-        maxHeight != null ? min(contentSize.height, maxHeight) : null;
-    contentWidth = maxWidth != null ? min(contentSize.width, maxWidth) : null;
-  }
-
-  // Reset the content size to the maximum size (flow automatically).
-  void _resetContentSize() {
-    contentHeight = maxHeight;
-    contentWidth = maxWidth;
-  }
-
-  void onVisibleChanged(bool newVisibility) {
-    _onContentVisible.add(newVisibility);
-
-    // Avoid extraneous events.
-    if (_popupReportsVisible == newVisibility) {
-      return;
-    }
-
-    // If visibility has been flipped on, animate the popup opening.
-    _popupReportsVisible = newVisibility;
-    if (newVisibility) {
-      attachToVisibleHierarchy();
-      if (hasBox) {
-        _animatePopupOpen();
-      } else {
-        _noAnimationPopupOpen();
-      }
-    } else {
-      detachFromVisibleHierarchy();
-      // Once the popup is closed we want to reset the content width/height.
-      // Otherwise when we try to re-open the popup the dimensions won't be
-      // read properly by the popup infrastructure.
-      _resetContentSize();
-    }
+    _isVisible = false;
+    onVisibleController.add(false);
   }
 
   @override
@@ -398,89 +304,6 @@ class MaterialPopupComponent extends Object
   /// The unique DOM ID assigned to the popup element.
   String get uniqueId => _uniqueId;
 
-  // Start visible, but at 0px dimensions.
-  //
-  // Then, in the next frame, set the dimensions to the size previously reported
-  // in order to have CSS animate. After the CSS animation, just reset (flow).
-  void _animatePopupOpen() {
-    showPopup = true;
-    _nextFrame(() {
-      _animateContentSize();
-      _afterAnimationDelay().then((_) {
-        _resetContentSize();
-        _onOpened.add(null);
-      });
-    });
-  }
-
-  void _noAnimationPopupOpen() {
-    showPopup = true;
-    _resetContentSize();
-    _onOpened.add(null);
-  }
-
-  void _nextFrame(void fn()) {
-    Timer.run(() {
-      if (!_isDestroyed) {
-        fn();
-      }
-    });
-  }
-
-  Future onPopupOpened(PopupEvent popupEvent) async {
-    // Wait for all listeners to have a chance to either defer or cancel this.
-    await popupEvent.onDefer;
-
-    // Initializes the maximum size and content size based on the viewport size
-    // before popup position is populated.
-    if (_popupSizeProvider != null) {
-      _viewportRect =
-          new Rectangle(0, 0, window.innerWidth, window.innerHeight);
-      contentHeight =
-          maxHeight = _popupSizeProvider.getMaxHeight(0, _viewportRect.height);
-      contentWidth =
-          maxWidth = _popupSizeProvider.getMaxWidth(0, _viewportRect.width);
-    }
-
-    // Trigger *deferredContent to create a little early so we can measure it.
-    _onContentVisible.add(true);
-    _contentSize = popupEvent.size();
-    _changeDetector.markForCheck();
-  }
-
-  Future onPopupClosed(PopupEvent popupEvent) async {
-    if (hasBox) {
-      // Wait for all listeners to have a chance to either defer or cancel this
-      // event - this is sort of a loose "almost completed". If the event was
-      // cancelled, then this will never complete -
-      // which is good - we don't want to close the popup anymore.
-      popupEvent
-          .defer(popupEvent.onDefer.then(((_) => _afterAnimationDelay())));
-      await popupEvent.onDefer;
-    }
-
-    // Start closing the popup if we were not cancelled.
-    //
-    // This probably has faulty logic if you defer and then cancel at a later
-    // time but since this is probably an extreme edge case it is fine for now.
-    if (!popupEvent.cancelled) {
-      _contentSize = popupEvent.size();
-      showPopup = false;
-      // Delay removing deferred content until the popup has finished animating.
-      if (hasBox) {
-        _afterAnimationDelay().then((_) {
-          // Only remove content if the popup is still not showing after delay.
-          // User may have quickly opened the popup again.
-          if (showPopup == false) _onContentVisible.add(false);
-        });
-      } else {
-        _onContentVisible.add(false);
-      }
-      _changeDetector.markForCheck();
-      return _animateContentSize();
-    }
-  }
-
   @ViewChild('template')
   TemplateRef templateRef;
 
@@ -489,6 +312,7 @@ class MaterialPopupComponent extends Object
 
     _overlayRef = _overlayService.createOverlayRefSync();
     _disposer.addFunction(_overlayRef.dispose);
+    _zIndex = _zIndexer.pop();
     var view = _viewContainer.createEmbeddedView(templateRef);
     view.rootNodes.forEach(_overlayRef.overlayElement.append);
     _updateOverlayCssClass();
@@ -498,16 +322,21 @@ class MaterialPopupComponent extends Object
   @override
   set visible(bool visible) {
     if (visible) {
-      // If visibility is immediately true, we need to create the view before
-      // opening the popup.
-      if (!_viewInitialized) _initView();
-      _open();
+      // If visibility is immediately true, we need to create the view and wait
+      // for other Angular @Inputs to be processed before opening the popup.
+      if (!_viewInitialized) {
+        _initView();
+        scheduleMicrotask(_open);
+      } else {
+        _open();
+      }
     } else if (_viewInitialized) {
       _close();
     }
   }
 
-  bool get isVisible => _popupReportsVisible;
+  bool get isVisible => _isVisible;
+  bool _isVisible = false;
 
   @override
   void toggle() {
@@ -555,47 +384,46 @@ class MaterialPopupComponent extends Object
         : <Element>[];
   }
 
-  // TODO(google): Move dismiss logic to PopupRef once old component removed
   @override
-  void onDismiss() {
-    // Wait until the VM turn to allow capture logic on other places on the UI
-    // to act (e.g. close or hide the popup via something like a button).
-    _domService.nextFrame.then((_) {
-      // Re-enter Angular if we are closing the popup.
-      if (isVisible) {
-        _ngZone.run(_close);
-      }
-    });
-  }
+  void onDismiss() => close();
 
-  Future _open() => _debounceSetVisibilityFunction(() async {
-        _maybeSetZIndex();
-        if (!_viewInitialized) {
-          throw new StateError('No content is attached.');
-        } else if (state.source == null) {
-          throw new StateError('Cannot open popup: no source set.');
-        }
+  /// Open the popup.
+  ///
+  /// Returns a [Future] which resolves once the popup has started opening.
+  Future _open() {
+    // Avoid duplicate events.
+    if (_isOpening) return new Future.value();
+    _isOpening = true;
 
-        if (isVisible) return;
+    // Cancel pending animation timer callback if it exists.
+    _animationTimer?.cancel();
 
-        final eventController = new AsyncActionController<Rectangle>();
-        // Create an event, and give listeners a chance to cancel it.
-        final event = new AsyncPopupEvent<Rectangle<num>>.open(
-            eventController.action, _resolvedPopupRef, () {
-          return _overlayRef.measureSizeChanges().first;
-        });
+    // Notify listeners that the popup is being opened.
+    onOpenController.add(null);
 
-        onOpenController.add(event);
-        eventController.execute(_onPopupOpened, onCancel: () {
-          // Revert the visible property back to false.
-          onVisibleController.add(false);
-        });
-        await eventController.action.onDone;
-      });
+    // If the event was cancelled, exit early.
+    if (!_isOpening) return new Future.value();
 
-  Future<Rectangle> _onPopupOpened() async {
+    if (!_viewInitialized) {
+      throw new StateError('No content is attached.');
+    } else if (state.source == null) {
+      throw new StateError('Cannot open popup: no source set.');
+    }
+
+    // Initialize the maximum size and content size based on the viewport size
+    // before popup position is populated.
+    _viewportRect = new Rectangle(0, 0, window.innerWidth, window.innerHeight);
+    _updatePopupMaxSize();
+
     // Put the overlay in the live DOM so we can measure its size.
     _overlayRef.state.visibility = Visibility.Hidden;
+    _overlayRef.overlayElement.style
+      ..display = ''
+      ..visibility = 'hidden';
+
+    // Trigger *deferredContent.
+    _onContentVisible.add(true);
+    _changeDetector.markForCheck();
 
     // Start listening to both the popup and the source's layout.
     var initialData = new Completer<Rectangle>();
@@ -616,52 +444,118 @@ class MaterialPopupComponent extends Object
       // Ignore partial results.
       if (layoutRects.every((r) => r != null)) {
         if (!initialData.isCompleted) {
-          onVisibleController.add(true);
-          initialData.complete(layoutRects[0]);
-          if (state.trackLayoutChanges && _useRepositionLoop) {
-            _startRepositionLoop();
-          }
+          _onPopupOpened();
+          initialData.complete(null);
         }
         _schedulePositionUpdate(layoutRects[0], layoutRects[1]);
       }
     });
+
+    // Resolve when the popup has started opening.
     return initialData.future;
   }
 
-  Future _close() => _debounceSetVisibilityFunction(() async {
-        if (!isVisible) return;
+  // Callback triggered when the popup has started opening.
+  void _onPopupOpened() {
+    // Double-check that the popup should still be opened.
+    //
+    // This is necessary because there is an async gap between [_open()] and
+    // [_onPopupOpened()].
+    if (!_isOpening) return;
 
-        final eventController = new AsyncActionController<bool>();
+    // Start the opening animation.
+    showPopup = true;
+    _changeDetector.markForCheck();
 
-        // Create an event, and give listeners a chance to cancel it.
-        final event = new AsyncPopupEvent<bool>.close(eventController.action,
-            _resolvedPopupRef, () => _overlayRef.measureSizeChanges().first);
+    // Start the reposition loop (if enabled).
+    if (state.trackLayoutChanges && _useRepositionLoop) {
+      _startRepositionLoop();
+    }
 
-        _layoutInternalSub?.cancel();
-        _layoutChangeSub?.cancel();
+    // Start listening to autodismiss triggers.
+    attachToVisibleHierarchy();
 
-        if (_repositionLoopId != null) {
-          _stopRepositionLoop();
-        }
-
-        onCloseController.add(event);
-
-        // Wait until the event could have been cancelled.
-        eventController.execute(_onPopupClosed, onCancel: () {
-          // Revert the visible property back to true.
-          onVisibleController.add(true);
-        });
-        await eventController.action.onDone;
+    if (hasBox) {
+      // If animating, wait until the animation has finished before notifying
+      // listeners.
+      _animationTimer = new Timer(SLIDE_DELAY, () {
+        // No need to check whether the popup has been closed in the meantime,
+        // since this callback will not fire in that case (clearTimeout).
+        _animationTimer = null;
+        _isVisible = true;
+        onVisibleController.add(true);
+        _onOpened.add(null);
       });
+    } else {
+      // No animation, but still need to wait for *deferredContent to render.
+      Timer.run(() {
+        if (!_isOpening) return;
+        _isVisible = true;
+        onVisibleController.add(true);
+        _onOpened.add(null);
+      });
+    }
+  }
 
-  bool _onPopupClosed() {
-    // Update the visibility.
+  /// Close the popup.
+  void _close() {
+    // Avoid duplicate events.
+    if (!_isOpening) return;
+    _isOpening = false;
+
+    // Cancel pending animation timer callback if it exists.
+    _animationTimer?.cancel();
+
+    // Notify listeners that the popup is being closed.
+    onCloseController.add(null);
+
+    // If the event was cancelled, exit early.
+    if (_isOpening) return;
+
+    // Stop listening to popup layout changes.
+    _layoutInternalSub?.cancel();
+    _layoutChangeSub?.cancel();
+
+    // Stop the reposition loop (if it's running).
+    if (_repositionLoopId != null) {
+      _stopRepositionLoop();
+    }
+
+    // Stop listening to autodismiss triggers.
+    detachFromVisibleHierarchy();
+
+    // Start the closing animation.
+    showPopup = false;
+    _changeDetector.markForCheck();
+
+    if (hasBox) {
+      // If animating, wait until the animation has finished before removing
+      // popup contents.
+      _animationTimer = new Timer(SLIDE_DELAY, () {
+        // No need to check whether the popup has been opened in the meantime,
+        // since this callback will not fire in that case (clearTimeout).
+        _animationTimer = null;
+        _onPopupClosed();
+      });
+    } else {
+      // No animation; remove popup contents immediately.
+      _onPopupClosed();
+    }
+  }
+
+  // Callback triggered when the popup has finished closing.
+  void _onPopupClosed() {
+    // Hide the deferred content.
+    _onContentVisible.add(false);
+    _changeDetector.markForCheck();
+
+    // Set the overlay .pane to display: none.
     _overlayRef.state.visibility = Visibility.None;
+    _overlayRef.overlayElement.style..display = 'none';
 
-    // Update the stream if there are listeners.
+    // Notify listeners that the popup is not visible.
+    _isVisible = false;
     onVisibleController.add(false);
-
-    return true;
   }
 
   Rectangle get _sourceDimensions {
@@ -727,20 +621,12 @@ class MaterialPopupComponent extends Object
         'translate(${_repositionOffsetX}px, ${_repositionOffsetY}px)';
   }
 
-  Future _debounceSetVisibilityFunction(
-      _DebouncedVisibilitySetter visibilitySetter) async {
-    _lastVisibilitySetter = visibilitySetter;
-    if (_setVisibilityCompleted != null) await _setVisibilityCompleted;
-    if (visibilitySetter != _lastVisibilitySetter) return;
-
-    final setVisibilityCompleter = new Completer();
-    _setVisibilityCompleted = setVisibilityCompleter.future;
-    try {
-      await visibilitySetter();
-    } finally {
-      _setVisibilityCompleted = null;
-      setVisibilityCompleter.complete();
-    }
+  void _updatePopupMaxSize() {
+    if (_popupSizeProvider == null || _viewportRect == null) return;
+    maxHeight = _popupSizeProvider.getMaxHeight(
+        _overlayRef.state.top ?? 0, _viewportRect.height);
+    maxWidth = _popupSizeProvider.getMaxWidth(
+        _overlayRef.state.left ?? 0, _viewportRect.width);
   }
 
   Iterable get _preferredPositions {
@@ -905,8 +791,14 @@ class MaterialPopupComponent extends Object
       ..top = position.originY.calcTop(sourceClientRect, contentClientRect) +
           offsetY
       ..visibility = Visibility.Visible;
+    _overlayRef.overlayElement.style
+      ..visibility = 'visible'
+      ..display = '';
 
     _alignmentPosition = position;
+
+    // Update the max size now that the popup has been positioned.
+    _updatePopupMaxSize();
   }
 }
 

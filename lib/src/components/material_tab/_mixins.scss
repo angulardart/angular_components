@@ -120,3 +120,19 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
     background: $accent-color;
   }
 }
+
+// Completely hide the scroll buttons when they aren't needed, instead of
+// making them invisible and leaving a blank space.
+@mixin tab-strip-hide-scroll-buttons() {
+  ::ng-deep .scroll-button.hide {
+    display: none;
+  }
+}
+
+// Allow the text inside the tab to break into lines.
+@mixin allow-text-wrap {
+  ::ng-deep > .content {
+    text-overflow: initial;
+    white-space: initial;
+  }
+}

@@ -43,15 +43,18 @@ import '../mixins/material_dropdown_base.dart';
 ///
 // TODO(google): should activate/deactivate on mouse hover
 @Component(
-    selector: 'material-list-item',
-    host: const {
-      'class': 'item',
-      '[class.disabled]': 'disabled',
-      '[attr.role]': 'role',
-    },
-    styleUrls: const ['material_list_item.scss.css'],
-    template: '<ng-content></ng-content>',
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'material-list-item',
+  host: const {
+    'class': 'item',
+    '[class.disabled]': 'disabled',
+    '[attr.role]': 'role',
+  },
+  styleUrls: const ['material_list_item.scss.css'],
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class MaterialListItemComponent extends ButtonDirective
     with ActiveItemMixin
     implements OnDestroy {

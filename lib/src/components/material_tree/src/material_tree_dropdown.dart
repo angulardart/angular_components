@@ -8,9 +8,11 @@ import '../../../laminate/enums/alignment.dart';
 import '../../../model/selection/select.dart';
 import '../../../model/selection/selection_container.dart';
 import '../../../model/selection/selection_model.dart';
+import '../../../model/selection/selection_options.dart';
 import '../../../model/ui/has_renderer.dart';
 import '../../../utils/browser/dom_service/dom_service.dart';
 import '../../content/deferred_content.dart';
+import '../../focus/focus.dart';
 import '../../focus/keyboard_only_focus_indicator.dart';
 import '../../glyph/glyph.dart';
 import '../../material_popup/material_popup.dart';
@@ -22,13 +24,6 @@ import 'material_tree_impl.dart';
 /// A button-triggered dropdown containing a [MaterialTreeComponent].
 @Component(
     selector: 'material-tree-dropdown',
-    inputs: const [
-      // SelectionContainer
-      'componentRenderer',
-      'itemRenderer',
-      'options',
-      'selection',
-    ],
     directives: const [
       DeferredContentDirective,
       GlyphComponent,
@@ -39,7 +34,8 @@ import 'material_tree_impl.dart';
       NgIf,
       PopupSourceDirective
     ],
-    viewProviders: const [
+    providers: const [
+      const Provider(Focusable, useExisting: MaterialTreeDropdownComponent),
       const Provider(MaterialTreeRoot,
           useExisting: MaterialTreeDropdownComponent)
     ],
@@ -48,7 +44,7 @@ import 'material_tree_impl.dart';
     styleUrls: const ['material_tree_dropdown.scss.css'])
 class MaterialTreeDropdownComponent extends SelectionContainer
     with DropdownHandle, MaterialTreeRoot
-    implements OnInit {
+    implements OnInit, Focusable {
   // Popup positioning to use when filtering is enabled.
   static const List /*RelativePosition | List<RelativePosition>*/
       _popupPositionsOffset = const [
@@ -106,6 +102,30 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   }
 
   @Input()
+  @override
+  set componentRenderer(ComponentRenderer value) {
+    super.componentRenderer = value;
+  }
+
+  @Input()
+  @override
+  set itemRenderer(ItemRenderer value) {
+    super.itemRenderer = value;
+  }
+
+  @Input()
+  @override
+  set options(SelectionOptions value) {
+    super.options = value;
+  }
+
+  @Input()
+  @override
+  set selection(SelectionModel value) {
+    super.selection = value;
+  }
+
+  @Input()
   set placeholder(String placeholder) {
     _placeholder = placeholder ?? _DEFAULT_PLACEHOLDER;
   }
@@ -150,5 +170,10 @@ class MaterialTreeDropdownComponent extends SelectionContainer
         materialTreeFilterComponent?.focus();
       });
     }
+  }
+
+  @override
+  void focus() {
+    open();
   }
 }

@@ -33,14 +33,6 @@ import '../mixins/button_wrapper.dart';
   selector: 'dropdown-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'dropdown_button.html',
-  // TODO(google).
-  inputs: const [
-    'buttonText',
-    'buttonAriaLabel',
-    'disabled',
-    'icon',
-    'iconName',
-  ],
   styleUrls: const [
     '../button_decorator/button_decorator.scss.css',
     'dropdown_button.scss.css'
@@ -51,6 +43,8 @@ import '../mixins/button_wrapper.dart';
     KeyboardOnlyFocusIndicatorDirective,
     NgIf,
   ],
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
 )
 class DropdownButtonComponent extends Object with MaterialButtonWrapper {
   DropdownButtonComponent() {

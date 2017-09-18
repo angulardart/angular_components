@@ -13,14 +13,11 @@
 
 @import 'lib/src/css/material/material';
 
-// Custom ACX colors
-// TODO(google): Migrate to colors from the material spec.
-$acx-positive-increase-color: #3d9400;
-$acx-positive-decrease-color: #3d9400;
-$acx-negative-increase-color: #dd4b39;
-$acx-negative-decrease-color: #dd4b39;
-$acx-neutral-increase-color: #63656a;
-$acx-neutral-decrease-color: #7a6e67;
+$acx-positive-increase-color: $mat-green-500;
+$acx-positive-decrease-color: $mat-green-500;
+$acx-negative-increase-color: $mat-red-500;
+$acx-negative-decrease-color: $mat-red-500;
+$acx-neutral-increase-color: $mat-light-transparent-black;
 
 // An optional mixin that instead of applying the red/green style of colors on
 // the secondary text (as-per the spec on acux-material/components/scorecard) it

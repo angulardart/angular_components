@@ -44,7 +44,8 @@ import '../focus/focus.dart';
     templateUrl: 'material_chip.html',
     styleUrls: const ['material_chip.scss.css'],
     directives: const [ButtonDirective, NgIf],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    visibility: Visibility.none)
 class MaterialChipComponent extends RootFocusable implements HasRenderer {
   MaterialChipComponent(Element root) : super(root);
 

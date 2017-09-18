@@ -69,6 +69,7 @@ class MaterialTreeNode<T> {
 
   /// The current node.
   OptionGroup<T> get group => _group;
+  @Input()
   set group(OptionGroup<T> group) {
     _disposer.dispose();
     _group = group;
@@ -202,9 +203,10 @@ class MaterialTreeNode<T> {
     return new Future<Iterable<OptionGroup<T>>>.value();
   }
 
-  /// Toggles the [isSelected] state of [option] and returns the result.
-  bool toggleSelection(T option) {
-    if (isSelected(option)) {
+  /// Sets the [isSelected] state of [option] and returns the result.
+  bool setSelectionState(T option, bool state) {
+    if (isSelected(option) == state) return state;
+    if (!state) {
       return !_root.selection.deselect(option);
     } else {
       return _root.selection.select(option);

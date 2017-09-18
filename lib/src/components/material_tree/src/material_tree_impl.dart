@@ -8,6 +8,7 @@ import '../../../model/selection/select.dart';
 import '../../../model/selection/selection_container.dart';
 import '../../../model/selection/selection_model.dart';
 import '../../../model/selection/selection_options.dart';
+import '../../../model/ui/has_renderer.dart';
 import './material_tree_root.dart';
 import 'group/material_tree_group.dart';
 import 'group/material_tree_group_flat.dart';
@@ -61,8 +62,6 @@ import 'group/material_tree_group_flat.dart';
       '[attr.aria-multiselectable]': 'showFlatCheck ? "true" : "false"',
       '[attr.aria-readonly]': 'showFlatList ? "true" : "false"',
     },
-    // Inherit setters in HasComponentRenderer and SelectionContainer.
-    inputs: const ['componentRenderer', 'itemRenderer', 'options', 'selection'],
     viewProviders: const [
       const Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
     ],
@@ -75,6 +74,30 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   MaterialTreeComponent(@Optional() @SkipSelf() MaterialTreeRoot parentTreeRoot)
       : optimizeForDropdown = parentTreeRoot?.optimizeForDropdown == true {
     selection = const SelectionModel();
+  }
+
+  @Input()
+  @override
+  set componentRenderer(ComponentRenderer value) {
+    super.componentRenderer = value;
+  }
+
+  @Input()
+  @override
+  set itemRenderer(ItemRenderer value) {
+    super.itemRenderer = value;
+  }
+
+  @Input()
+  @override
+  set options(SelectionOptions value) {
+    super.options = value;
+  }
+
+  @Input()
+  @override
+  set selection(SelectionModel value) {
+    super.selection = value;
   }
 
   @Input('expandAll')

@@ -40,13 +40,14 @@ const List<Type> materialNumberInputDirectives = const [
 @Directive(selector: 'material-input[type=number],material-input[type=percent]')
 class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
-  final NumberFormat _numberFormat = new NumberFormat.decimalPattern();
+  final NumberFormat _numberFormat;
   final Stream _updateStream;
   final bool _checkInteger;
 
   factory MaterialNumberValueAccessor(
       BaseMaterialInput input,
       @Self() NgControl control,
+      @Optional() NumberFormat numberFormat,
       @Attribute('changeUpdate') String changeUpdateAttr,
       @Attribute('keypressUpdate') String keypressUpdateAttr,
       @Attribute('checkInteger') String integer) {
@@ -62,13 +63,14 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
     } else {
       updateStream = input.onBlur;
     }
+    numberFormat ??= new NumberFormat.decimalPattern();
     final checkInteger = getBool(integer ?? false);
     return new MaterialNumberValueAccessor._(
-        updateStream, checkInteger, input, control);
+        updateStream, checkInteger, numberFormat, input, control);
   }
 
   MaterialNumberValueAccessor._(this._updateStream, this._checkInteger,
-      BaseMaterialInput input, NgControl control)
+      this._numberFormat, BaseMaterialInput input, NgControl control)
       : super(input, control);
 
   @override

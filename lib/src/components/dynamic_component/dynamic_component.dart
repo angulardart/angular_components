@@ -22,8 +22,11 @@ import '../../utils/async/async.dart';
 ///       </dynamic-component>
 ///
 @Component(
-    selector: 'dynamic-component',
-    template: '''<template #marker></template>''')
+  selector: 'dynamic-component',
+  template: '''<template #marker></template>''',
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class DynamicComponent implements OnDestroy {
   final SlowComponentLoader _slowComponentLoader;
   final ComponentLoader _componentLoader;

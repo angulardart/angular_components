@@ -61,14 +61,17 @@ import './material_radio.dart';
 ///   </material-radio-group>
 /// ```
 @Component(
-    selector: 'material-radio-group',
-    host: const {
-      'role': 'radiogroup',
-      'tabindex': '-1',
-    },
-    template: '<ng-content></ng-content>',
-    styleUrls: const ['material_radio_group.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'material-radio-group',
+  host: const {
+    'role': 'radiogroup',
+    'tabindex': '-1',
+  },
+  template: '<ng-content></ng-content>',
+  styleUrls: const ['material_radio_group.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
   final _disposer = new Disposer.oneShot();
   final ManagedZone _managedZone;
@@ -92,7 +95,7 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
               ? null
               : componentSelection.selectedValues.first;
       _selected = selectedComponent == null ? null : selectedComponent.value;
-      if (valueSelection != null) {
+      if (valueSelection != null && _selected != null) {
         valueSelection.select(_selected);
       }
       _onChange.add(_selected);

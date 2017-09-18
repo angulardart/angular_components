@@ -12,9 +12,9 @@
  */
 
 @import 'lib/src/components/material_shadow/css/shadow';
-@import 'lib/src/css/mixins';
 @import 'mixins';
 @import 'lib/src/css/material/material';
+@import 'lib/src/css/material/mixins';
 
 /// To get proper Material styling, the DOM of the component must have a
 /// `.shadow` element and toggle the class `visible`.

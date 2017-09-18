@@ -6,12 +6,12 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 
-import '../../css/acux/zindexer.dart';
 import '../../utils/angular/imperative_view/imperative_view.dart';
 import '../../utils/angular/managed_zone/angular_2.dart';
 import '../../utils/browser/dom_service/angular_2.dart';
 import '../../utils/browser/window/module.dart';
 import '../ruler/dom_ruler.dart';
+import './zindexer.dart';
 import 'src/overlay_service.dart';
 import 'src/render/overlay_dom_render_service.dart';
 import 'src/render/overlay_style_config.dart';

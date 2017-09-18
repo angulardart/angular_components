@@ -525,3 +525,13 @@ $mat-amber-A200: #ffd740;
 $mat-amber-A400: #ffc400;
 $mat-amber-A700: #ffab00;
 $mat-amber: $mat-amber-500;
+
+// Link colors
+//
+// Prefer the mat-link mixin in _typography.scss.
+//
+// Based on discussion at go/mat-link-colors.
+$mat-link-default: $mat-blue-700;
+$mat-link-visited: $mat-deep-purple-500;
+$mat-link-hover: $mat-blue-900;
+$mat-link-active: $mat-red-700;
