@@ -1,4 +1,4 @@
-## 0.6.0+1
+## 0.7.0
  
  * Material Button: Add raised mixin so that buttons can be made to be raised 
    without using the attribute.
@@ -8,6 +8,7 @@
    * Remove `PopupEvent` and reduce asynchrony.
    * Update PopupSizeProvider max-width/height once the popup has been
      positioned.
+   * Remove unused `contenWidth` and `contentHeight`.
  * Material Radio: Avoid selecting null when the new selected value is not found
    in the options.
  * Material Tab:
