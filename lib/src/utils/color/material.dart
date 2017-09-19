@@ -490,8 +490,6 @@ const amberA700 = const Color.rgb(255, 171, 0);
 const amber = amber500;
 
 // Link colors.
-//
-// Based on discussion at go/mat-link-colors.
 const linkDefault = blue700;
 const linkVisited = deepPurple500;
 const linkHover = blue900;
