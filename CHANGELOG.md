@@ -1,3 +1,40 @@
+## 0.7.0
+ 
+ * Material Button: Add raised mixin so that buttons can be made to be raised 
+   without using the attribute.
+ * Material Expansionpanel: Add header minimum height mixin.
+ * Material Input: Add support for custom number formatters.
+ * Material Popup:
+   * Remove `PopupEvent` and reduce asynchrony.
+   * Update PopupSizeProvider max-width/height once the popup has been
+     positioned.
+   * Remove unused `contenWidth` and `contentHeight`.
+ * Material Radio: Avoid selecting null when the new selected value is not found
+   in the options.
+ * Material Tab:
+   * Fix logic for the active tab when tabs themselves are changed. Before logic
+     was activating/deactivating based on index, but when tabs change the index
+     has probably changed.
+   * Make mixin to allow text wrapping.
+ * Material Tree:
+   * Fix bug where state of material tree option cannot be changed by selection
+     model.
+   * Fix bug where tree_dropdown_select did not auto open correctly using focus.
+ * Scorecard: Update colors to match material spec.
+ * Deprecate obsolete box-sizing style mixin.
+ * Add link color styles and mixin.
+ * Add typography style mixins.
+ * Set preserveWhitespace: true in preparation for angular flipping the default
+   to false.
+ * Make functional directive name lowercase to conform with Dart style guide.
+ * Replaces deprecated inputs and outputs with inline annotations.
+ * Update visibility for provider resolution fix.
+ * Update documentation.
+
+### Known Issues
+ * Warnings are present when building with dart2js. Specifically:
+   _Method type variables are treated as `dynamic` in `as` expressions._
+
 ## 0.6.0
 
  * Update dependency to angular: ^4.0.0.

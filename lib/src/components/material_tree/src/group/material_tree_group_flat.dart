@@ -21,7 +21,6 @@ import '../material_tree_root.dart';
 @Component(
     selector: 'material-tree-group-flat-list',
     directives: const [DynamicComponent, NgFor, NgIf],
-    inputs: const ['group'],
     preserveWhitespace: false,
     templateUrl: 'material_tree_group_flat_list.html',
     styleUrls: const ['material_tree_group_flat_list.scss.css'])
@@ -49,7 +48,6 @@ class MaterialTreeGroupFlatListComponent extends MaterialTreeNode {
       NgFor,
       NgIf
     ],
-    inputs: const ['group'],
     preserveWhitespace: false,
     templateUrl: 'material_tree_group_flat_radio.html',
     styleUrls: const ['material_tree_group_flat_radio.scss.css'])
@@ -70,8 +68,8 @@ class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
   final bool isMaterialTreeGroup = true;
 
   @override
-  bool toggleSelection(option) {
-    var retVal = super.toggleSelection(option);
+  bool setSelectionState(option, bool state) {
+    var retVal = super.setSelectionState(option, state);
     _dropdownHandle?.close();
     return retVal;
   }
@@ -90,7 +88,6 @@ class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
       NgFor,
       NgIf
     ],
-    inputs: const ['group'],
     preserveWhitespace: false,
     templateUrl: 'material_tree_group_flat_check.html',
     styleUrls: const ['material_tree_group_flat_check.scss.css'])

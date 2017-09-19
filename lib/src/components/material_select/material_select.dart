@@ -9,6 +9,7 @@ import 'package:angular/angular.dart';
 import '../../model/selection/select.dart';
 import '../../model/selection/selection_container.dart';
 import '../../model/selection/selection_model.dart';
+import '../../model/selection/selection_options.dart';
 import '../../model/ui/has_renderer.dart';
 import '../../model/ui/template_support.dart';
 import '../../utils/angular/properties/properties.dart';
@@ -35,9 +36,6 @@ import 'material_select_item.dart';
 @Component(
   selector: 'material-select',
   host: const {'role': 'listbox', '[attr.aria-disabled]': 'disabledStr'},
-  // Inputs for [MaterialSelectBase]
-  // TODO(google).
-  inputs: const ['options', 'width', 'componentRenderer'],
   providers: const [
     const Provider(HasRenderer, useExisting: MaterialSelectComponent),
     const Provider(SelectionContainer, useExisting: MaterialSelectComponent)
@@ -50,6 +48,8 @@ import 'material_select_item.dart';
   ],
   templateUrl: 'material_select.html',
   styleUrls: const ['material_select.scss.css'],
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
 )
 class MaterialSelectComponent extends MaterialSelectBase implements OnDestroy {
   QueryList<SelectionItem> _selectItems;
@@ -61,8 +61,27 @@ class MaterialSelectComponent extends MaterialSelectBase implements OnDestroy {
 
   bool _disabled = false;
 
+  @Input()
+  @override
+  set options(SelectionOptions value) {
+    super.options = value;
+  }
+
+  @Input()
+  @override
+  set width(value) {
+    super.width = value;
+  }
+
+  @Input()
+  @override
+  set componentRenderer(ComponentRenderer value) {
+    super.componentRenderer = value;
+  }
+
   /// The [SelectionModel] for this container.
   @Input()
+  @override
   set selection(value) {
     super.selection = value;
     _refreshItems();

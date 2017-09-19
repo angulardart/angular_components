@@ -38,7 +38,6 @@ const materialTreeLeftPaddingToken = const OpaqueToken(
       NgClass
     ],
     host: const {'role': 'group'},
-    inputs: const ['expandAll', 'group', 'level', 'parentHasCheckbox'],
     preserveWhitespace: false,
     templateUrl: 'material_tree_group.html',
     styleUrls: const ['material_tree_group.scss.css'])
@@ -50,7 +49,9 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   static final checkboxWidth = baseGridStep * 5; // DUPLICATION of _size.scss
   final DropdownHandle _dropdownHandle;
   final int _constantLeftPadding;
+  @Input()
   int level = 0;
+  @Input()
   bool parentHasCheckbox = false;
   final MaterialTreeRoot _root;
 
@@ -68,6 +69,12 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
       : fixedPadding =
             '${_constantLeftPadding ?? defaultConstantLeftPadding}px',
         super(_root, changeDetector);
+
+  @Input()
+  @override
+  set expandAll(bool value) {
+    super.expandAll = value;
+  }
 
   // This is only used to standardize all the different group components.
   @HostBinding('class.material-tree-group')
@@ -102,7 +109,7 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
       final previouslyToggledNode = _root.previouslyToggledNode;
       _root.previouslyToggledNode = option;
 
-      toggleSelection(option);
+      setSelectionState(option, !isSelected(option));
 
       // Handle shift + select behavior for multi-selection.
       if (isMultiSelect &&

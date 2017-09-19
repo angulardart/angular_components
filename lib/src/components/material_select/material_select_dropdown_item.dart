@@ -50,6 +50,8 @@ import './material_select_item.dart';
     NgIf
   ],
   templateUrl: 'material_select_item.html',
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
 )
 class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
     implements OnDestroy {

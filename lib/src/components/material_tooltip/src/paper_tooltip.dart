@@ -44,15 +44,15 @@ getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
 /// - `footer`
 /// - `*` - Non header/footer content is given the tooltip body style.
 @Component(
-    selector: 'material-tooltip-card',
-    providers: const [
-      tooltipControllerBinding,
-      const Provider(Tooltip, useFactory: getTooltipHandle),
-      const Provider(DeferredContentAware,
-          useExisting: MaterialPaperTooltipComponent)
-    ],
-    directives: const [DeferredContentDirective, NgIf, MaterialPopupComponent],
-    template: '''
+  selector: 'material-tooltip-card',
+  providers: const [
+    tooltipControllerBinding,
+    const Provider(Tooltip, useFactory: getTooltipHandle),
+    const Provider(DeferredContentAware,
+        useExisting: MaterialPaperTooltipComponent)
+  ],
+  directives: const [DeferredContentDirective, NgIf, MaterialPopupComponent],
+  template: '''
 <material-popup *ngIf="popupSource != null"
                 [visible]="showPopup"
                 enforceSpaceConstraints
@@ -71,8 +71,11 @@ getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
     <div class="footer"><ng-content select="footer"></ng-content></div>
   </div>
 </material-popup>''',
-    styleUrls: const ['paper_tooltip.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  styleUrls: const ['paper_tooltip.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
   PopupSource _tooltipSource;
   PopupSource get popupSource => _tooltipSource;

@@ -65,12 +65,15 @@ export 'material_list_size.dart';
 /// - `min-size: string {x-small, small, medium, large, x-large}` Minimum size
 ///   for the list, resulting in the width at least the specified width.
 @Component(
-    selector: 'material-list',
-    styleUrls: const ['material_list.scss.css'],
-    directives: const [NgClass],
-    host: const {'[attr.size]': 'size'},
-    template: '<ng-content></ng-content>',
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'material-list',
+  styleUrls: const ['material_list.scss.css'],
+  directives: const [NgClass],
+  host: const {'[attr.size]': 'size'},
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class MaterialListComponent implements AcceptsWidth {
   @Input()
   String size = MaterialListSize.auto;

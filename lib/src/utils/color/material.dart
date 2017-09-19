@@ -488,3 +488,9 @@ const amberA200 = const Color.rgb(255, 215, 64);
 const amberA400 = const Color.rgb(255, 196, 0);
 const amberA700 = const Color.rgb(255, 171, 0);
 const amber = amber500;
+
+// Link colors.
+const linkDefault = blue700;
+const linkVisited = deepPurple500;
+const linkHover = blue900;
+const linkActive = red700;

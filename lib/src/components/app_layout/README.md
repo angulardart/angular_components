@@ -10,8 +10,8 @@ the material spec.
 ## Setup
 
 The styles are provided by
-`package:angular_components/src/components/app_layout/layout.scss.css`. To use 
-these styles in an angular component simply add it as a `styleUrls` value in 
+`package:angular_components/src/components/app_layout/layout.scss.css`. To use
+these styles in an angular component simply add it as a `styleUrls` value in
 your `Component` annotation. It is suggested that the style is added before any
 component specific styling so you can easily override style values as needed.
 
@@ -215,5 +215,52 @@ Example:
 </material-content>
 ```
 
-<!-- TODO(tsander): Add documentation for navigation. Add images for examples
--->
+## Navigation Styles
+
+Navigation element styles within the drawer are also provided by app_layout.
+This is accomplished using the standard `material-list` component, and some
+special CSS classes.
+
+The top level drawer content should be a `MaterialListComponent` with optional
+group elements which are specified by the `group` attribute on an element.
+
+The `mat-drawer-spacer` CSS class is optional and ensures that if the header is
+inside of `material-content` then the drawer content will start at the bottom of
+the header.
+
+Use `MaterialListItemComponent`s for the items in your drawer. For each group if
+you need a label on the group use the `label` attribute on a block element
+directly inside of your group element.
+
+Here is an example:
+
+```html
+<material-drawer permanent>
+  <material-list *deferredContent>
+    <!-- Position the start of the drawer content correctly -->
+    <div group class="mat-drawer-spacer"></div>
+    <!-- Here is a group without a label -->
+    <div group>
+      <material-list-item>
+        <material-icon icon="inbox"></material-icon>Inbox
+      </material-list-item>
+      <material-list-item>
+        <material-icon icon="star"></material-icon>Star
+      </material-list-item>
+      <material-list-item>
+        <material-icon icon="send"></material-icon>Sent Mail
+      </material-list-item>
+      <material-list-item>
+        <material-icon icon="drafts"></material-icon>Drafts
+      </material-list-item>
+    </div>
+    <!-- This group has a label -->
+    <div group>
+      <div label>Tags</div>
+      <material-list-item>
+        <material-icon icon="star"></material-icon>Favorites
+      </material-list-item>
+    </div>
+  </material-list>
+</material-drawer>
+```

@@ -12,20 +12,23 @@ import './tab_mixin.dart';
 
 /// A specialized button component used only by the tab strip.
 @Component(
-    selector: 'tab-button',
-    host: const {
-      '[class.focus]': 'visualFocus',
-      '[class.active]': 'isActive || isMouseDown',
-      'role': 'tab'
-    },
-    template: r'''
+  selector: 'tab-button',
+  host: const {
+    '[class.focus]': 'visualFocus',
+    '[class.active]': 'isActive || isMouseDown',
+    'role': 'tab'
+  },
+  template: r'''
           <div class="content">
             {{label}}
           </div>
           <material-ripple></material-ripple>
         ''',
-    styleUrls: const ['tab_button.scss.css'],
-    directives: const [MaterialRippleComponent])
+  styleUrls: const ['tab_button.scss.css'],
+  directives: const [MaterialRippleComponent],
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class TabButtonComponent extends MaterialButtonBase with TabMixin {
   final Element _nativeElement;
 

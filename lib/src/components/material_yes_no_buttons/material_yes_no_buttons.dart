@@ -22,16 +22,19 @@ import '../material_spinner/material_spinner.dart';
 ///
 /// To display buttons in reversed order add a `reverse` attribute.
 @Component(
-    selector: 'material-yes-no-buttons',
-    directives: const [
-      MaterialButtonComponent,
-      MaterialSpinnerComponent,
-      NgClass,
-      NgIf,
-    ],
-    templateUrl: 'material_yes_no_buttons.html',
-    styleUrls: const ['material_yes_no_buttons.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'material-yes-no-buttons',
+  directives: const [
+    MaterialButtonComponent,
+    MaterialSpinnerComponent,
+    NgClass,
+    NgIf,
+  ],
+  templateUrl: 'material_yes_no_buttons.html',
+  styleUrls: const ['material_yes_no_buttons.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class MaterialYesNoButtonsComponent {
   /// The callback that is to be invoked, when yes button is pressed.
   ///

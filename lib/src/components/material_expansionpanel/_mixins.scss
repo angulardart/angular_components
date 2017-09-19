@@ -138,6 +138,18 @@ $_panel: 'div.panel.themeable';
   }
 }
 
+@mixin expansionpanel-header-min-height($min-height, $open-min-height) {
+  ::ng-deep #{$_panel} {
+    header {
+      min-height: $min-height;
+    }
+
+    &.open > header {
+      min-height: $open-min-height;
+    }
+  }
+}
+
 @mixin expansionpanel-header-padding($padding) {
   ::ng-deep #{$_panel} > header {
     padding: $padding;

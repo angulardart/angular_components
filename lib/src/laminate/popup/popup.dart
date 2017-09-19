@@ -4,7 +4,6 @@
 
 // TODO(google): Move this to another exported library.
 export 'src/dom_popup_source.dart';
-export 'src/popup_event.dart';
 export 'src/popup_hierarchy.dart';
 export 'src/popup_interface.dart';
 export 'src/popup_position_mixin.dart';

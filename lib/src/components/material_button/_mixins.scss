@@ -221,7 +221,9 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
     background-color: $background-color;
   }
 
-  ::ng-deep #{$selector}:not([disabled]):hover {
+  // Not selectors are used for specificity. Default hover selector is very
+  // specific add a psuedo not value to overide default specificity.
+  ::ng-deep #{$selector}:not([disabled]):not([icon]):not([raised]):not(.xyzxyz):hover {
     background-color: $background-color;
   }
 }
@@ -246,5 +248,29 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
     &:hover > .content > glyph {
       color: $hover-color;
     }
+  }
+}
+
+/// Mixin to create a raised button taking an optional color of the button.
+///
+/// Should be scopped to the specific button needed to make raised.
+///   Example:
+///   ```Sass
+///   material-button.my-raised {
+///     @include raised-button($mat-blue);
+///   }
+///   ```
+@mixin raised-button($color: null) {
+  ::ng-deep & {
+    @include _button-raised;
+  }
+
+  @if $color {
+    @include button-background-color('&', $color);
+    @include button-color('&', $mat-white);
+  } @else {
+    // Specifically set raised buttons to transparent. This ensures hover,
+    // and other colors are correct.
+    @include button-background-color('&', transparent);
   }
 }

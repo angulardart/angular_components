@@ -151,12 +151,15 @@ void _applyFallbackAnimation(
 ///
 /// By default, the ripple is centered on the point of contact.
 @Component(
-    selector: 'material-ripple',
-    template: '',
-    encapsulation: ViewEncapsulation.None,
-    styleUrls: const ['material_ripple.scss.css'],
-    changeDetection: ChangeDetectionStrategy.Detached,
-    visibility: Visibility.none)
+  selector: 'material-ripple',
+  template: '',
+  encapsulation: ViewEncapsulation.None,
+  styleUrls: const ['material_ripple.scss.css'],
+  changeDetection: ChangeDetectionStrategy.Detached,
+  visibility: Visibility.none,
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class MaterialRippleComponent implements OnDestroy {
   final HtmlElement _element;
   EventListener _onMouseDown;

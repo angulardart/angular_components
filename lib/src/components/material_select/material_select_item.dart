@@ -24,27 +24,30 @@ import './activation_handler.dart';
 
 /// Material Select Item is a special kind of list item which can be selected.
 @Component(
-    selector: 'material-select-item',
-    host: const {
-      'class': 'item',
-      '[class.disabled]': 'disabled',
-      '[class.selected]': 'isSelected',
-      '[class.multiselect]': 'supportsMultiSelect',
-      'tabindex': '0',
-      'role': 'option'
-    },
-    providers: const [
-      const Provider(SelectionItem, useExisting: MaterialSelectItemComponent),
-      const Provider(HasRenderer, useExisting: MaterialSelectItemComponent)
-    ],
-    styleUrls: const ['material_select_item.scss.css'],
-    directives: const [
-      GlyphComponent,
-      MaterialCheckboxComponent,
-      NgIf,
-      DynamicComponent
-    ],
-    templateUrl: 'material_select_item.html')
+  selector: 'material-select-item',
+  host: const {
+    'class': 'item',
+    '[class.disabled]': 'disabled',
+    '[class.selected]': 'isSelected',
+    '[class.multiselect]': 'supportsMultiSelect',
+    'tabindex': '0',
+    'role': 'option'
+  },
+  providers: const [
+    const Provider(SelectionItem, useExisting: MaterialSelectItemComponent),
+    const Provider(HasRenderer, useExisting: MaterialSelectItemComponent)
+  ],
+  styleUrls: const ['material_select_item.scss.css'],
+  directives: const [
+    GlyphComponent,
+    MaterialCheckboxComponent,
+    NgIf,
+    DynamicComponent
+  ],
+  templateUrl: 'material_select_item.html',
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class MaterialSelectItemComponent extends ButtonDirective
     with ActiveItemMixin
     implements OnDestroy, SelectionItem, HasRenderer, HasComponentRenderer {

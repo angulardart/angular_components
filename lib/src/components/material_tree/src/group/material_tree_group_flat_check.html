@@ -9,7 +9,7 @@
   [class.selected]="isSelected(option)"
   [class.selectable]="isSelectable(option)"
   [checked]="isSelected(option)"
-  (checkedChange)="toggleSelection(option)"
+  (checkedChange)="setSelectionState(option, $event)"
   [disabled]="isReadOnly || showDisabledCheckbox(option)"
   role="option">
     <dynamic-component

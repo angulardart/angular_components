@@ -16,8 +16,8 @@
        [style.transform-origin]="transformOrigin"
        [class.visible]="showPopup">
       <div class="popup"
-           [style.max-height.px]="contentHeight"
-           [style.max-width.px]="contentWidth">
+           [style.max-height.px]="maxHeight"
+           [style.max-width.px]="maxWidth">
           <div class="material-popup-content content">
               <header>
                   <ng-content select="[header]"></ng-content>
