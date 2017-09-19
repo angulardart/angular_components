@@ -10,9 +10,9 @@ the material spec.
 ## Setup
 
 The styles are provided by
-`package:third_party.dart_src.acx.app_layout/layout.scss.css`. To use these
-styles in an angular component simply add it as a `styleUrls` value in your
-`Component` annotation. It is suggested that the style is added before any
+`package:angular_components/src/components/app_layout/layout.scss.css`. To use
+these styles in an angular component simply add it as a `styleUrls` value in
+your `Component` annotation. It is suggested that the style is added before any
 component specific styling so you can easily override style values as needed.
 
 ```dart
@@ -20,7 +20,7 @@ component specific styling so you can easily override style values as needed.
     selector: 'my-component',
     templateUrl: 'my_component.html',
     styleUrls: const [
-      'package:third_party.dart_src.acx.app_layout/layout.scss.css',
+      'package:angular_components/src/components/app_layout/layout.scss.css',
       'my_component.scss.css'])
 class MyComponent {}
 ```
