@@ -72,7 +72,7 @@ For icons to appear, add the following icon font download to your page.
 
 Get access to the core Material Design SASS files used to style these components
 by copying them and importing
-[lib/src/css/_mixins.scss](https://github.com/dart-lang/angular_components/blob/master/lib/src/css/material/_mixins.scss)
+[lib/src/css/material/_mixins.scss](https://github.com/dart-lang/angular_components/blob/master/lib/src/css/material/_mixins.scss)
 in your SASS files.
 
 
