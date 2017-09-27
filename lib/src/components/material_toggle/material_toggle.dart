@@ -30,8 +30,7 @@ import '../../utils/browser/events/events.dart';
     preserveWhitespace: false,
     templateUrl: 'material_toggle.html',
     directives: const [NgIf],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.none)
+    changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialToggleComponent {
   /// Enables/disables the toggle button.
   ///

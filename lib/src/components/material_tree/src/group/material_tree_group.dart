@@ -48,7 +48,6 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
       baseGridStep * 5; // DUPLICATION of _size.scss
   static final checkboxWidth = baseGridStep * 5; // DUPLICATION of _size.scss
   final DropdownHandle _dropdownHandle;
-  final int _constantLeftPadding;
   @Input()
   int level = 0;
   @Input()
@@ -65,9 +64,8 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
           this._dropdownHandle,
       @Optional()
       @Inject(materialTreeLeftPaddingToken)
-          this._constantLeftPadding])
-      : fixedPadding =
-            '${_constantLeftPadding ?? defaultConstantLeftPadding}px',
+          int constantLeftPadding])
+      : fixedPadding = '${constantLeftPadding ?? defaultConstantLeftPadding}px',
         super(_root, changeDetector);
 
   @Input()

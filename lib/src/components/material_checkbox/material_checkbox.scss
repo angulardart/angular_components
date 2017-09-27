@@ -40,8 +40,8 @@ $ripple-top: -$mat-grid;
       color: $mat-light-transparent-black;
     }
 
-    > .icon-container {
-      opacity: $mat-icon-opacity-disabled;
+    > .icon-container > .icon {
+      color: $mat-lightest-transparent-black;
     }
   }
 }

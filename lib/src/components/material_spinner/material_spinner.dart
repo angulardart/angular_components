@@ -23,6 +23,5 @@ import 'package:angular/angular.dart';
     preserveWhitespace: false,
     templateUrl: 'material_spinner.html',
     styleUrls: const ['material_spinner.scss.css'],
-    changeDetection: ChangeDetectionStrategy.Detached,
-    visibility: Visibility.none)
+    changeDetection: ChangeDetectionStrategy.Detached)
 class MaterialSpinnerComponent {}

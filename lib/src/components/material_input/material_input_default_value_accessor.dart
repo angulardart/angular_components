@@ -12,7 +12,7 @@ import 'base_material_input.dart';
 /// [ControlValueAccessor] for [MaterialInputComponent] that updates on
 /// keypress.
 // TODO(google): Migrate away from this being the default accessor.
-@Directive(selector: 'material-input:not([blurUpdate])')
+@Directive(selector: 'material-input:not([blurUpdate]):not([changeUpdate]))')
 class MaterialInputDefaultValueAccessor extends BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
   MaterialInputDefaultValueAccessor(
@@ -39,6 +39,23 @@ class MaterialInputBlurValueAccessor extends BaseMaterialInputValueAccessor
   @override
   void registerOnChange(callback) {
     disposer.addStreamSubscription(input.onBlur.listen((_) {
+      if (input != null) callback(input.inputText);
+    }));
+  }
+}
+
+/// [ControlValueAccessor] to be used with a [MaterialInputComponent] that
+/// updates on change.
+@Directive(selector: 'material-input[changeUpdate]')
+class MaterialInputChangeValueAccessor extends BaseMaterialInputValueAccessor
+    implements ControlValueAccessor, OnDestroy {
+  MaterialInputChangeValueAccessor(
+      BaseMaterialInput input, @Self() @Optional() NgControl control)
+      : super(input, control);
+
+  @override
+  void registerOnChange(callback) {
+    disposer.addStreamSubscription(input.onChange.listen((_) {
       if (input != null) callback(input.inputText);
     }));
   }

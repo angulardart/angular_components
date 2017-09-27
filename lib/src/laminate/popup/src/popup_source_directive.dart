@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
@@ -27,7 +28,7 @@ import './popup_source.dart';
 class PopupSourceDirective
     implements ElementPopupSource, AfterViewInit, OnDestroy {
   final DomPopupSourceFactory _domPopupSourceFactory;
-  ElementRef _elementRef;
+  HtmlElement _element;
   ReferenceDirective _referenceDirective;
 
   Alignment _alignOriginX = Alignment.Start;
@@ -36,12 +37,12 @@ class PopupSourceDirective
   PopupSource _popupSource;
   String _popupId;
 
-  PopupSourceDirective(this._domPopupSourceFactory, this._elementRef,
+  PopupSourceDirective(this._domPopupSourceFactory, this._element,
       @Optional() this._referenceDirective);
 
   @override
   ngOnDestroy() {
-    _elementRef = null;
+    _element = null;
     _popupSource = null;
     _referenceDirective = null;
   }
@@ -49,12 +50,12 @@ class PopupSourceDirective
   @override
   void ngAfterViewInit() {
     // We have to wait until the view is inited to have elementRef
-    _elementRef = _referenceDirective?.elementRef ?? _elementRef;
+    _element = _referenceDirective?.elementRef?.nativeElement ?? _element;
     _updateSource();
   }
 
   @override
-  ElementRef get sourceElement => _elementRef;
+  HtmlElement get sourceElement => _element;
 
   @override
   Alignment get alignOriginX => _popupSource.alignOriginX;
@@ -93,7 +94,7 @@ class PopupSourceDirective
 
   void _updateSource() {
     _popupSource = _domPopupSourceFactory.createPopupSource(
-      _elementRef.nativeElement,
+      _element,
       alignOriginX: _alignOriginX,
       alignOriginY: _alignOriginY,
     );

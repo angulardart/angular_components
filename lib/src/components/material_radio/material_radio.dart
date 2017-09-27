@@ -50,8 +50,7 @@ const Icon checkedIcon = const Icon('radio_button_checked');
     templateUrl: 'material_radio.html',
     styleUrls: const ['material_radio.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    preserveWhitespace: false,
-    visibility: Visibility.none)
+    preserveWhitespace: false)
 class MaterialRadioComponent extends RootFocusable
     implements ControlValueAccessor, FocusableItem, OnDestroy {
   final ChangeDetectorRef _changeDetector;

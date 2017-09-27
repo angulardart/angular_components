@@ -28,13 +28,13 @@ import 'tooltip_target.dart';
 /// glyph (a circled "?"). The other supported value is "info" for
 /// "info_outline" (a circled "i").
 @Component(
-  selector: 'material-icon-tooltip',
-  providers: const [
-    AcxDarkTheme,
-    const Provider(DeferredContentAware,
-        useExisting: MaterialIconTooltipComponent)
-  ],
-  template: r'''
+    selector: 'material-icon-tooltip',
+    providers: const [
+      AcxDarkTheme,
+      const Provider(DeferredContentAware,
+          useExisting: MaterialIconTooltipComponent)
+    ],
+    template: r'''
     <glyph [icon]="icon" [attr.size]="iconSize"
         tabindex="0" [attr.aria-label]="helpTooltipLabel"
         keyboardOnlyFocusIndicator
@@ -43,17 +43,16 @@ import 'tooltip_target.dart';
     <material-tooltip-card [for]="tooltipRef">
       <ng-content></ng-content>
     </material-tooltip-card>''',
-  styleUrls: const ['icon_tooltip.scss.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: const [
-    ClickableTooltipTargetDirective,
-    GlyphComponent,
-    KeyboardOnlyFocusIndicatorDirective,
-    MaterialPaperTooltipComponent
-  ],
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
-)
+    styleUrls: const ['icon_tooltip.scss.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    directives: const [
+      ClickableTooltipTargetDirective,
+      GlyphComponent,
+      KeyboardOnlyFocusIndicatorDirective,
+      MaterialPaperTooltipComponent
+    ],
+    // TODO(google): Change preserveWhitespace to false to improve codesize.
+    preserveWhitespace: true)
 class MaterialIconTooltipComponent implements DeferredContentAware {
   HtmlElement element;
 

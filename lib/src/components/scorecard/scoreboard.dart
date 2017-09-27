@@ -50,19 +50,18 @@ import 'src/scorecard_bar.dart';
 /// - `isVertical: bool` -- Whether the scorecard is displayed vertically.
 ///   Defaults to false.
 @Component(
-  selector: 'acx-scoreboard',
-  directives: const [
-    MaterialButtonComponent,
-    MaterialIconComponent,
-    NgIf,
-    ScorecardBarDirective,
-  ],
-  templateUrl: 'scoreboard.html',
-  styleUrls: const ['scoreboard.scss.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
-)
+    selector: 'acx-scoreboard',
+    directives: const [
+      MaterialButtonComponent,
+      MaterialIconComponent,
+      NgIf,
+      ScorecardBarDirective,
+    ],
+    templateUrl: 'scoreboard.html',
+    styleUrls: const ['scoreboard.scss.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    // TODO(google): Change preserveWhitespace to false to improve codesize.
+    preserveWhitespace: true)
 class ScoreboardComponent implements OnInit, OnDestroy {
   static const chevronLeft = 'chevron_left';
   static const chevronRight = 'chevron_right';
@@ -107,6 +106,7 @@ class ScoreboardComponent implements OnInit, OnDestroy {
     switch (type) {
       case ScoreboardType.toggle:
       case ScoreboardType.radio:
+      case ScoreboardType.custom:
         _selectionModel = new SelectionModel.withList();
         break;
       case ScoreboardType.selectable:

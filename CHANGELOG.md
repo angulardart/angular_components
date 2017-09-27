@@ -1,3 +1,42 @@
+## 0.7.1
+
+ * Add Material Auto Suggest Input component.
+ * Material Checkbox: Fix disabled state to match material-spec which is a light
+   grey not a certain opacity of the checkbox.
+ * Material Chips: Add high density mixin.
+ * Material Input:
+   * Add selectAll function for calling the underlying input element's select
+     method that focuses the input and selects all its content.
+   * Add ability to update the data on a change instead of keypress or blur for
+     the standard Material Input.
+   * Remove error color from floating label to conform to material spec.
+ * Material Popup:
+   * Fix mismatch between the variable used as a reference point for
+     repositioning the popup and the variable used to initially set the popup's
+     position. This caused issues when the tab was in the background because
+     these variables could have changed significantly before the next animation
+     frame fired (since requestAnimationFrame is throttled when the tab isn't
+     visible).
+   * Use `_sourceDimensions` instead of `layoutRects[1]` to take overlay
+     container offset into account. Using popupSourceLayoutStream directly
+     caused issues when the .acx-overlay-container offset was not (0, 0).
+ * Material Select: Fix orientation when groups are used.
+ * Scorecard:
+   * Fix styling for extra-big cards.
+   * Fix to allow selectable scorecards in a "custom" scoreboard.
+   * Add a tooltip field enabling scenarios where more information about the
+     value can be displayed.
+ * Theme: Prepare dark theme for upcoming Visibility.None change.
+ * Cleanup unused fields.
+ * Update default material scrollbar width to 8px. This is easier to use with a
+   mouse or touch input compared to the previous default of 4px.
+ * Cleanup unused styles and reorganize `.scss` files.
+ * Remove link hover style.
+ * Migrate uses of `ElementRef` to `Element`.
+ * Remove `visibility: Visibility.none` from all components since compatibility
+   is not yet fully supported. Will be added in an upcoming release.
+ * Update documentation.
+
 ## 0.7.0
  
  * Material Button: Add raised mixin so that buttons can be made to be raised 

@@ -1,0 +1,130 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<material-input popupSource
+    alignPositionY="after"
+    #input="popupSource"
+    [id]="inputId"
+    [label]="label"
+    [ngModel]="inputText"
+    [hintText]="hintText"
+    [showHintOnlyOnFocus]="showHintOnlyOnFocus"
+    (ngModelChange)="inputText = $event; showPopup = true"
+    (click)="showPopup = true; $event.stopPropagation()"
+    (focus)="handleFocus($event)"
+    (blur)="handleBlur($event)"
+    [characterCounter]="characterCounter"
+    [checkValid]="checkValid"
+    [disabled]="disabled"
+    [displayBottomPanel]="displayBottomPanel"
+    [error]="errorText"
+    [floatingLabel]="floatingLabel"
+    [leadingText]="leadingText"
+    [leadingGlyph]="leadingGlyph"
+    [maxCount]="maxCount"
+    [required]="required"
+    [requiredErrorMsg]="requiredErrorMsg"
+    [rightAlign]="rightAlign"
+    [trailingGlyph]="trailingGlyph"
+    [trailingText]="trailingText"
+    [attr.aria-owns]="popupId"
+    [attr.aria-activedescendant]="activeModel.activeId"
+    [attr.aria-expanded]="showPopup"
+    aria-autocomplete="list"
+    role="combobox"
+    (keydown)="onKeyDown($event)"
+    (keypress)="onKeyPress($event)"
+    (keyup)="onKeyUp($event)">
+  <span trailing>
+    <glyph
+        *ngIf="showClearIcon"
+        icon="clear"
+        buttonDecorator
+        keyboardOnlyFocusIndicator
+        stopPropagation
+        class="clear-icon"
+        (trigger)="onClearIcon()">
+    </glyph>
+    <ng-content select="[trailing]"></ng-content>
+  </span>
+</material-input>
+<material-popup enforceSpaceConstraints
+    trackLayoutChanges
+    class="{{popupShadowCssClass}}"
+    [autoDismiss]="autoDismiss"
+    [matchMinSourceWidth]="popupMatchInputWidth"
+    [preferredPositions]="popupPositions"
+    [slide]="slide"
+    [source]="input"
+    [visible]="showPopup"
+    (visibleChange)="showPopup = $event">
+  <div header
+      keyboardOnlyFocusIndicator
+      tabIndex="-1">
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <!-- Prevent child content from being created too early. -->
+  <template cachedDeferredContent>
+    <div *ngIf="showLoadingSpinner" class="loading">
+      <material-spinner></material-spinner>
+    </div>
+    <div *ngIf="showEmptyPlaceholder" class="empty">
+      {{emptyPlaceholder}}
+    </div>
+    <material-list *ngIf="hasOptions"
+        [attr.aria-multiselectable]="isMultiSelect"
+        [attr.aria-labelledby]="inputId"
+        role="listbox"
+        class="suggestion-list"
+        keyboardOnlyFocusIndicator
+        tabIndex="-1"
+        [id]="popupId"
+        [width]="width"
+        (mouseleave)="activeModel.activate(null)">
+      <div
+          *ngFor="let suggestionGroup of visibleSuggestionGroups trackBy trackByIndexFn"
+          group
+          class="list-group">
+        <span *ngIf="suggestionGroup.hasLabel && labelRenderer == null"
+            label
+            class="list-group-label"
+            (mouseenter)="activeModel.activate(null)">
+          {{suggestionGroup.uiDisplayName}}
+        </span>
+        <dynamic-component *ngIf="labelRenderer != null"
+            [componentType]="labelRenderer(suggestionGroup)"
+            [value]="suggestionGroup"
+            (mouseenter)="activeModel.activate(null)">
+        </dynamic-component>
+        <material-select-dropdown-item
+            *ngIf="suggestionGroup.isEmpty && suggestionGroup.hasEmptyLabel"
+            keyboardOnlyFocusIndicator
+            [disabled]="true"
+            [value]="suggestionGroup.emptyLabel">
+        </material-select-dropdown-item>
+        <material-select-dropdown-item
+            *ngFor="let suggestion of suggestionGroup"
+            class="list-item"
+            keyboardOnlyFocusIndicator
+            [itemRenderer]="itemRenderer"
+            [componentRenderer]="componentRenderer"
+            [selection]="selection"
+            [disabled]="isOptionDisabled(suggestion)"
+            [value]="suggestion"
+            [closeOnActivate]="closeOnActivate"
+            [hideCheckbox]="hideCheckbox"
+            [active]="activeModel.isActive(suggestion)"
+            [attr.id]="activeModel.id(suggestion)"
+            (mouseenter)="activeModel.activate(suggestion)">
+        </material-select-dropdown-item>
+      </div>
+    </material-list>
+  </template>
+  <div footer
+      keyboardOnlyFocusIndicator
+      tabIndex="-1">
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</material-popup>

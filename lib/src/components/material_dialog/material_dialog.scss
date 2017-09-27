@@ -11,9 +11,9 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/components/material_shadow/css/shadow';
 @import 'mixins';
 @import 'lib/src/css/material/material';
+@import 'lib/src/css/material/shadow';
 
 :host {
   @include shadow-elevation(24);

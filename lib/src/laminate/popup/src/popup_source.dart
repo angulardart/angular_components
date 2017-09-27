@@ -3,9 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 import 'dart:math';
-
-import 'package:angular/angular.dart';
 
 import '../../enums/alignment.dart';
 
@@ -67,11 +66,10 @@ abstract class PopupSource {
 
 /// An [PopupSource] that's based on an element.
 abstract class ElementPopupSource implements PopupSource {
-  ElementRef get sourceElement;
+  HtmlElement get sourceElement;
 
   @override
-  Rectangle get dimensions =>
-      sourceElement.nativeElement.getBoundingClientRect();
+  Rectangle get dimensions => sourceElement.getBoundingClientRect();
 }
 
 /// An immutable [PopupSource] implementation based on a predefined polygon.

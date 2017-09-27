@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 
@@ -36,16 +38,16 @@ const tooltipShowDelay = const Duration(milliseconds: 600);
 class MaterialTooltipSourceDirective extends PopupSourceDirective
     implements Toggler, AfterViewInit, OnDestroy {
   final tooltipLabel = _tooltipLabel;
-  final ElementRef elementRef;
+  final HtmlElement element;
   DelayedAction _show;
 
   // Whether the mouse is currently inside the component.
   bool _isMouseInside = false;
 
   MaterialTooltipSourceDirective(
-      DomPopupSourceFactory domPopupSourceFactory, ElementRef elementRef)
-      : this.elementRef = elementRef,
-        super(domPopupSourceFactory, elementRef, null) {
+      DomPopupSourceFactory domPopupSourceFactory, HtmlElement element)
+      : this.element = element,
+        super(domPopupSourceFactory, element, null) {
     _show = new DelayedAction(tooltipShowDelay, activate);
   }
 

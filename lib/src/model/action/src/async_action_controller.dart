@@ -114,7 +114,7 @@ class AsyncActionController<V> {
     }
   }
 
-  void _attachFuture(Future future) {
+  void _attachFuture(Future<V> future) {
     future
         .then(_executeCompleter.complete)
         .catchError(_executeCompleter.completeError);

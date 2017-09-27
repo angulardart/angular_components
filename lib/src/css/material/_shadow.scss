@@ -15,7 +15,6 @@
 // Evolved from
 // https://github.com/PolymerElements/paper-styles/blob/master/shadow.html
 
-
 // Applies a standard transition style for box-shadow to box-shadow.
 @mixin shadow-transition() {
   transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);

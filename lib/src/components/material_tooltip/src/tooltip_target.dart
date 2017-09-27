@@ -9,7 +9,6 @@ import 'package:angular/angular.dart';
 
 import '../../../laminate/popup/popup.dart';
 import '../../../model/action/delayed_action.dart';
-import '../../../utils/angular/reference/reference.dart';
 import '../../../utils/browser/events/events.dart';
 import './tooltip_controller.dart';
 import 'tooltip_source.dart' show tooltipShowDelay;
@@ -40,21 +39,21 @@ import 'tooltip_source.dart' show tooltipShowDelay;
 })
 class MaterialTooltipTargetDirective extends TooltipBehavior
     implements AfterViewInit, OnDestroy {
-  ElementRef elementRef;
+  HtmlElement element;
 
   MaterialTooltipTargetDirective(
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
-      ElementRef elementRef,
+      HtmlElement element,
       ChangeDetectorRef changeDetector)
-      : super(domPopupSourceFactory, viewContainerRef, elementRef,
-            changeDetector) {
-    this.elementRef = elementRef;
+      : super(
+            domPopupSourceFactory, viewContainerRef, element, changeDetector) {
+    this.element = element;
   }
 
   @override
   void ngOnDestroy() {
-    elementRef = null;
+    element = null;
   }
 }
 
@@ -74,9 +73,9 @@ abstract class TooltipBehavior extends TooltipTarget {
   TooltipBehavior(
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
-      ElementRef elementRef,
+      HtmlElement element,
       this._changeDetector)
-      : super(domPopupSourceFactory, viewContainerRef, elementRef) {
+      : super(domPopupSourceFactory, viewContainerRef, element) {
     _show = new DelayedAction(tooltipShowDelay, showTooltip);
   }
 
@@ -143,17 +142,17 @@ abstract class TooltipBehavior extends TooltipTarget {
 class ClickableTooltipTargetDirective extends TooltipBehavior
     implements AfterViewInit, OnDestroy {
   StreamSubscription _tooltipSubscription;
-  ElementRef elementRef;
+  HtmlElement element;
   bool _tooltipVisible = false;
 
   ClickableTooltipTargetDirective(
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
-      ElementRef elementRef,
+      HtmlElement element,
       ChangeDetectorRef changeDetector)
-      : super(domPopupSourceFactory, viewContainerRef, elementRef,
-            changeDetector) {
-    this.elementRef = elementRef;
+      : super(
+            domPopupSourceFactory, viewContainerRef, element, changeDetector) {
+    this.element = element;
     _tooltipSubscription = tooltipActivate.listen((visible) {
       _tooltipVisible = visible;
     });
@@ -194,7 +193,7 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
 
   @override
   void ngOnDestroy() {
-    elementRef = null;
+    element = null;
     _tooltipSubscription.cancel();
   }
 }
@@ -203,16 +202,14 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
 ///
 /// This component is the target of alignment for a tooltip and
 /// the object responsible for controlling a tooltip.
-abstract class TooltipTarget extends PopupSourceDirective
-    implements ReferenceDirective {
+abstract class TooltipTarget extends PopupSourceDirective {
   Tooltip _tooltip;
   final ViewContainerRef viewContainerRef;
-  final ElementRef _elementRef;
+  final HtmlElement _element;
 
   TooltipTarget(DomPopupSourceFactory domPopupSourceFactory,
-      this.viewContainerRef, this._elementRef)
-      : super(
-            domPopupSourceFactory, _elementRef, /* referenceDirective */ null);
+      this.viewContainerRef, this._element)
+      : super(domPopupSourceFactory, _element, /* referenceDirective */ null);
 
   /// Sets the tooltip associated with this target.
   void setTooltip(Tooltip component) {
@@ -223,6 +220,6 @@ abstract class TooltipTarget extends PopupSourceDirective
   set popupId(String id) {
     super.popupId = id;
     if (id == null) return;
-    _elementRef.nativeElement.setAttribute('aria-describedby', id);
+    _element.setAttribute('aria-describedby', id);
   }
 }

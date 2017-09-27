@@ -16,10 +16,11 @@ material-list,
 .options-wrapper,
 div[group] {
   display: inline-flex;
+  flex-direction: column;
 }
 
 material-list,
 div[group] {
-  flex-grow: 1;
+  flex: 1 0 auto;
   flex-direction: column;
 }

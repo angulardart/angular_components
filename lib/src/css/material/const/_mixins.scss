@@ -185,19 +185,14 @@
     background-color: $mat-scrollbar-background;
 
     // Height only applies to horizontal scrollbars
-    height: $mat-grid-type;
+    height: $mat-grid;
 
     // Width only applies to vertical scrollbars
-    width: $mat-grid-type;
+    width: $mat-grid;
   }
 
   ::ng-deep #{$selector} ::-webkit-scrollbar:hover {
     background-color: $mat-scrollbar-background-hover;
-
-    // Spec wants scrollbars to enlarge on hover, but Chrome doesn't recompute
-    // the scrollbar styles frequently enough to make this work as expected.
-    //height: $mat-grid;
-    //width: $mat-grid;
   }
 
   ::ng-deep #{$selector} ::-webkit-scrollbar-thumb {
@@ -223,4 +218,9 @@
 // *** Deprecated
 // The following functions are deprecated.
 // The equivalent native CSS is available in all supported browsers.
+
+@mixin box-sizing($type:border-box) {
+  -moz-box-sizing: $type; // Firefox < 29
+  box-sizing: $type;      // Chrome, IE 8+, Opera, Safari 5.1
+}
 

@@ -145,9 +145,6 @@ class MaterialPopupComponent extends Object
   // Used to have a maximum of one timer to wait for CSS animations.
   Timer _animationTimer;
 
-  // The last known size of the popup content.
-  Future<Rectangle> _contentSize;
-
   // The last known size of the viewport.
   Rectangle _viewportRect;
 
@@ -161,9 +158,6 @@ class MaterialPopupComponent extends Object
   // closed. This means that [_close] has already been called, and subsequent
   // calls to [_close] should be a no-op.
   bool _isOpening = false;
-
-  // Used to avoid events occurring after detached from the DOM.
-  bool _isDestroyed = false;
 
   // Variables for the requestAnimationFrame reposition loop.
   final bool _useRepositionLoop;
@@ -289,7 +283,6 @@ class MaterialPopupComponent extends Object
     _layoutChangeSub?.cancel();
     _disposer.dispose();
     _animationTimer?.cancel();
-    _isDestroyed = true;
     _isVisible = false;
     onVisibleController.add(false);
   }
@@ -379,9 +372,7 @@ class MaterialPopupComponent extends Object
     var sourceElement = state.source is ElementPopupSource
         ? (state.source as ElementPopupSource).sourceElement
         : null;
-    return sourceElement?.nativeElement != null
-        ? <Element>[sourceElement.nativeElement]
-        : <Element>[];
+    return sourceElement != null ? <Element>[sourceElement] : <Element>[];
   }
 
   @override
@@ -444,6 +435,7 @@ class MaterialPopupComponent extends Object
       // Ignore partial results.
       if (layoutRects.every((r) => r != null)) {
         if (!initialData.isCompleted) {
+          _initialSourceDimensions = _sourceDimensions;
           _onPopupOpened();
           initialData.complete(null);
         }
@@ -572,7 +564,6 @@ class MaterialPopupComponent extends Object
 
   void _startRepositionLoop() {
     _ngZone.runOutsideAngular(() {
-      _initialSourceDimensions = _sourceDimensions;
       _repositionLoopId = window.requestAnimationFrame(_reposition);
     });
   }

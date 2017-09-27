@@ -492,5 +492,4 @@ const amber = amber500;
 // Link colors.
 const linkDefault = blue700;
 const linkVisited = deepPurple500;
-const linkHover = blue900;
 const linkActive = red700;
