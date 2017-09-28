@@ -75,6 +75,8 @@ import './shift_click_selection.dart';
 ///   controls.
 /// - `options: SelectionOptions` -- The options to use for this selection
 ///   model.
+/// - `componentRenderer: ComponentRenderer` -- Function that returns a
+///   component to render the Item. The component must implement RendersValue.
 /// - `itemRenderer: ItemRenderer` -- Function to convert an option object to
 ///   string.
 /// - `width: int` -- Width of the dropdown/list, default none, valid values are

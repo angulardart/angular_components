@@ -140,3 +140,23 @@ $emphasis-selected-bg-color: $mat-blue-900;
     }
   }
 }
+
+@mixin chips-dense-theme() {
+  ::ng-deep material-chip {
+    height: $mat-grid * 3;
+    border-radius: ($mat-grid * 3) / 2;
+    margin: $mat-grid-type;
+
+    .content {
+      font-size: $mat-font-size-body;
+    }
+
+    .delete-icon {
+      margin-right: 0;
+    }
+
+    .left-icon {
+      margin-left: 0;
+    }
+  }
+}

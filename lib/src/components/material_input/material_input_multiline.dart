@@ -118,6 +118,7 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
   /// may be building new functionality that all ACX users could benefit
   /// from! If that's the case, please consider contributing your changes
   /// back upstream. Feel free to contact acx-widgets@ for more guidance.
+  @override
   ElementRef get inputRef => textareaEl;
 
   /// The initial/minimum number of rows for multiline input.

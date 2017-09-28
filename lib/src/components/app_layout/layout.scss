@@ -14,9 +14,9 @@
 /// Styles provided to more easily layout an application.
 /// This includes:
 ///   material-drawer (persistent and permanent)
-@import 'lib/src/components/material_shadow/css/shadow';
 @import 'material_drawer';
 @import 'lib/src/css/material/material';
+@import 'lib/src/css/material/shadow';
 @import 'lib/src/components/material_list/mixins';
 
 $mat-toolbar-mobile-breakpoint: 599px;

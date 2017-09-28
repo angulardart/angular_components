@@ -73,19 +73,18 @@ import '../material_ripple/material_ripple.dart';
 ///
 /// - `selectedChange` -- Fired when selection state changes.
 @Component(
-  selector: 'acx-scorecard',
-  directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
-  templateUrl: 'scorecard.html',
-  host: const {
-    'class': 'themeable',
-    '[attr.tabindex]': 'selectable ? 0 : null',
-    '[attr.role]': 'selectable ? "button" : null',
-  },
-  styleUrls: const ['scorecard.scss.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
-)
+    selector: 'acx-scorecard',
+    directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
+    templateUrl: 'scorecard.html',
+    host: const {
+      'class': 'themeable',
+      '[attr.tabindex]': 'selectable ? 0 : null',
+      '[attr.role]': 'selectable ? "button" : null',
+    },
+    styleUrls: const ['scorecard.scss.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    // TODO(google): Change preserveWhitespace to false to improve codesize.
+    preserveWhitespace: true)
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   static const changeTypePositive = 'POSITIVE';
   static const changeTypeNegative = 'NEGATIVE';

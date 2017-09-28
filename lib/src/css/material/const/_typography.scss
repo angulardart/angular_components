@@ -170,14 +170,10 @@ $mat-font-leading-body-1: 20px;
   cursor: pointer;
   text-decoration: none;
 
-  // Before hover and active, to prevent overriding.
+  // Order of link states must be `visited`, `hover` & `focus`, then `active`.
+
   &:visited {
     color: $mat-link-visited;
-  }
-
-  &:hover,
-  &:focus {
-    color: $mat-link-hover;
   }
 
   &:active {

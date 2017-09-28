@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:html' as html;
+import 'dart:html';
 
 import 'package:angular/angular.dart';
 
@@ -19,15 +19,13 @@ import 'tooltip_target.dart';
 
 /// An ink-based tooltip which can be attached to any element.
 @Directive(
-    selector: '[materialTooltip]',
-    providers: const [tooltipControllerBinding],
-    visibility: Visibility.none)
+    selector: '[materialTooltip]', providers: const [tooltipControllerBinding])
 class MaterialTooltipDirective extends TooltipTarget
     implements OnDestroy, OnInit, AfterViewInit {
   final _disposer = new Disposer.multi();
   final SlowComponentLoader _viewLoader;
   final ChangeDetectorRef _changeDetector;
-  final html.Window _window;
+  final Window _window;
 
   String _lastText;
   bool _isInitialized = false;
@@ -36,7 +34,7 @@ class MaterialTooltipDirective extends TooltipTarget
   bool _isShown = false;
   MaterialInkTooltipComponent _inkTooltip;
   DelayedAction _delayedActivate;
-  ElementRef elementRef;
+  HtmlElement element;
   bool inLongPress;
   bool _hostListenersAttached = false;
 
@@ -45,12 +43,12 @@ class MaterialTooltipDirective extends TooltipTarget
   MaterialTooltipDirective(
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
-      ElementRef elementRef,
+      HtmlElement element,
       this._viewLoader,
       this._changeDetector,
       this._window)
-      : this.elementRef = elementRef,
-        super(domPopupSourceFactory, viewContainerRef, elementRef) {
+      : this.element = element,
+        super(domPopupSourceFactory, viewContainerRef, element) {
     inLongPress = false;
     _delayedActivate = new DelayedAction(tooltipShowDelay, _activate);
   }
@@ -58,7 +56,6 @@ class MaterialTooltipDirective extends TooltipTarget
   void _attachHostListeners() {
     if (_hostListenersAttached) return;
     _hostListenersAttached = true;
-    html.HtmlElement element = elementRef.nativeElement;
     _disposer.addStreamSubscription(element.onClick.listen((_) {
       hide(true);
     }));
@@ -83,12 +80,12 @@ class MaterialTooltipDirective extends TooltipTarget
     }
   }
 
-  void handleLongPress(html.Event _) {
+  void handleLongPress(Event _) {
     inLongPress = true;
     show();
   }
 
-  void endLongPress(html.TouchEvent event) {
+  void endLongPress(TouchEvent event) {
     if (inLongPress) {
       // Mouse events always follow the touch events from a single touch.
       // This prevents the mouse events that fire after a press.

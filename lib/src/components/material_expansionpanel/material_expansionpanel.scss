@@ -11,8 +11,8 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/components/material_shadow/css/shadow';
 @import 'lib/src/css/material/material';
+@import 'lib/src/css/material/shadow';
 
 .panel {
   @include shadow-elevation;

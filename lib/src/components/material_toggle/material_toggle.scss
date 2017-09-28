@@ -11,8 +11,8 @@
  * to include CSS generation from SASS files during the build process.
  */
 
-@import 'lib/src/components/material_shadow/css/shadow';
 @import 'lib/src/css/material/material';
+@import 'lib/src/css/material/shadow';
 
 $default-on-color: $mat-teal-500;
 $off-btn-color: $mat-grey-50;

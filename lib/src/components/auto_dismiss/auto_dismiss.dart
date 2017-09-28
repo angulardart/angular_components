@@ -26,9 +26,7 @@ import '../../utils/browser/events/events.dart';
 ///       <button (click)="disclaimerVisible = true">Confirm</button>
 ///     </div>
 ///
-@Directive(
-    selector: '[autoDismissable]:not(material-expansionpanel)',
-    visibility: Visibility.none)
+@Directive(selector: '[autoDismissable]:not(material-expansionpanel)')
 class AutoDismissDirective {
   final Stream _click;
   final NgZone _zone;

@@ -51,17 +51,17 @@ class DomPopupSourceFactory {
 }
 
 /// An implementation of [PopupSource] that lives on the UI layer.
-class DomPopupSource implements PopupSource {
+class DomPopupSource implements ElementPopupSource {
   static final bool _isRtl = determineRtl(document);
 
   final AsyncMeasureSize<HtmlElement> _asyncMeasureSize;
-  final HtmlElement _sourceElement;
+  final HtmlElement sourceElement;
 
   /// Creates a new source from a measure function and source DOM element.
   ///
   /// Setting [alignOriginX] and [alignOriginY] is used for calculating what
   /// the x and y position should be.
-  DomPopupSource(this._asyncMeasureSize, this._sourceElement,
+  DomPopupSource(this._asyncMeasureSize, this.sourceElement,
       {Alignment alignOriginX: Alignment.Start,
       Alignment alignOriginY: Alignment.Start,
       Point transform: const Point(0, 0)}) {
@@ -80,11 +80,11 @@ class DomPopupSource implements PopupSource {
 
   @override
   Stream<Rectangle<num>> onDimensionsChanged({bool track: false}) {
-    return _asyncMeasureSize(_sourceElement, track: track);
+    return _asyncMeasureSize(sourceElement, track: track);
   }
 
   @override
-  Rectangle get dimensions => _sourceElement.getBoundingClientRect();
+  Rectangle get dimensions => sourceElement.getBoundingClientRect();
 
   @override
   bool get isRtl => _isRtl;
@@ -92,7 +92,7 @@ class DomPopupSource implements PopupSource {
   @override
   set popupId(String id) {
     if (id == null) return;
-    _sourceElement
+    sourceElement
       ..setAttribute('aria-owns', id)
       ..setAttribute('aria-haspopup', 'true');
   }

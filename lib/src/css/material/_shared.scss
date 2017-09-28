@@ -35,21 +35,8 @@
   cursor: grabbing;
 }
 
-@mixin cursor-zoom-in() { // Note: currently unsupported in IE
-  cursor: -webkit-zoom-in;
-  cursor: -moz-zoom-in;
-  cursor: zoom-in;
-}
-
-@mixin cursor-zoom-out() { // Note: currently unsupported in IE
-  cursor: -webkit-zoom-out;
-  cursor: -moz-zoom-out;
-  cursor: zoom-out;
-}
-
 @mixin button-bar-layout() {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
-

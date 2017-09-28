@@ -64,8 +64,7 @@ const List<String> _flippedIcons = const [
     templateUrl: 'material_icon.html',
     styleUrls: const ['material_icon.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    preserveWhitespace: false,
-    visibility: Visibility.none)
+    preserveWhitespace: false)
 class MaterialIconComponent {
   /// The `Icon` model (lib/src/model/ui/icon.dart) or icon
   /// identifier (String) this component should display.

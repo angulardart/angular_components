@@ -12,22 +12,27 @@
  */
 
 @import 'lib/src/css/material/material';
-@import 'lib/src/css/material/shadow';
 
 :host {
-  display: flex;
+  display: inline-flex;
 }
 
-:host:focus {
-  outline: none;
+.clear-icon {
+  opacity: $mat-icon-opacity;
+  cursor: pointer;
+  transform: translateY($mat-grid);
+  margin: 0 $mat-grid-type 0 ($mat-grid-type * 3);
 }
 
-:host(.material-tab) {
-  padding: $mat-grid * 2;
-  @include shadow-elevation();
+.list-group .list-group-label {
+  padding: 0 (2 * $mat-grid);
 }
 
-.tab-content {
-  display: flex;
-  flex: 0 0 100%;
+.loading {
+  margin: 2 * $mat-grid;
+}
+
+.empty {
+  margin: 2 * $mat-grid;
+  font-style: italic;
 }

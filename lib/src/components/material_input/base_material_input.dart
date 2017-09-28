@@ -349,6 +349,16 @@ class BaseMaterialInput extends FocusableMixin
     return _localValidationMessage ?? '';
   }
 
+  /// The underlying input element.
+  ///
+  /// Exact type will vary based on the implementation.
+  ///
+  /// If you find the need to use this element in application code, you
+  /// may be building new functionality that all ACX users could benefit
+  /// from! If that's the case, please consider contributing your changes
+  /// back upstream. Feel free to contact acx-widgets@ for more guidance.
+  ElementRef get inputRef => null;
+
   @override
   void ngOnDestroy() {
     _disposer.dispose();
@@ -404,6 +414,11 @@ class BaseMaterialInput extends FocusableMixin
     if (oldState != bottomPanelState) {
       _changeDetector.markForCheck();
     }
+  }
+
+  /// Selects all of the input's content.
+  void selectAll() {
+    inputRef.nativeElement.select();
   }
 
   String msgCharacterCounter(int currentCount, int maxCount) => Intl.message(

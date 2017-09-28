@@ -11,66 +11,86 @@ import '../theme/dark_theme.dart';
 
 import 'material_button_base.dart';
 
-/// Material button is a button.
+/// A flat or raised button with an optional ripple effect.
 ///
-/// When the user touches the button, a ripple effect emanates from the point of
-/// contact. It may be flat or raised. A raised button is styled with a shadow.
+/// ```html
+/// <!-- A button with both icon and text -->
+/// <material-button (trigger)="generateNames()">
+///     <material-icon icon="lightbulb_outline"></material-icon>
+///     Get new ideas
+/// </material-button>
+/// ```
 ///
-/// __Example usage:__
-///     <material-button>Flat button</material-button>
-///     <material-button raised>Raised button</material-button>
-///     <material-button no-ink>No ripple effect</material-button>
-///     <material-button disabled>Disabled</material-button>
-///     <!-- With an icon -->
-///     <material-button icon>
-///       <material-icon icon="check"></material-icon>
-///     </material-button>
+/// ## Attributes
 ///
-/// __Properties:__
+/// The following attributes are commonly used with `<material-button>`:
 ///
-/// - `disabled: bool` -- Whether the button should not respond to events, and
-///   have a style that suggests that interaction is not allowed.
-/// - `raised: bool` -- Whether to have a box-shadow that makes the button look
-///   raised.
+/// - `disabled`: If present, sets the [disabled] property to true. If the
+///   `disabled` property is true, this attribute is present.
+/// - `raised`:  If present, sets the [raised] property to true. If the
+///   `raised` property is true, this attribute is present.
+/// - `icon`: If present, removes the minimum width style of the button.
+///   To specify the actual icon in the button, use a `<glyph>`,
+/// `<material-icon>`, or `<img>`.
+/// - `no-ink`: If present, removes the ripple effect from the button.
+/// - `clear-size`: If present, removes both `min-width` and `margin` from
+///   the button.
+/// - `dense`: If present, reduces `font-size` to 13px and button height to
+///   32px.
 ///
-/// __Events:__
+/// ## Properties
 ///
-/// - `trigger: Event` -- Published when the button is activated via click or
-///   keypress.
+/// The following MaterialButtonComponent properties are frequently used:
 ///
-/// __Styling:__
+/// - [disabled]: True if the button should not respond to events, and
+///   should have a style that suggests that interaction is not allowed.
+/// - [raised]: True if the button should have a box shadow that makes the
+///   button look raised.
 ///
-/// Style the button with CSS as you would a normal DOM element.
-///     /* Make #myButton green with yellow text */
-///     #myButton {
-///       background: green;
-///       color: yellow;
-///     }
+/// ## Events
+///
+/// To react to button clicks, handle the trigger event:
+///
+/// - [trigger]: Fired when the button is activated via click, tap, or
+///   key press.
+///
+/// ## Styling
+///
+/// Style the button with CSS as you would a normal DOM element:
+///
+/// ```
+/// /* Make #myButton green with yellow text */
+/// #myButton {
+///   background: green;
+///   color: yellow;
+/// }
+/// ```
 ///
 /// By default the ripple is the same color as the foreground at 25% opacity.
-/// You may customize the color using this selector:
-///     /* Make #myButton use a blue ripple instead of foreground color */
-///     #myButton gpu-ripple {
-///       color: blue;
-///     }
+/// To customize the color, use the `gpu-ripple` selector:
+///
+/// ```
+/// /* Make #myButton use a blue ripple instead of foreground color */
+/// #myButton gpu-ripple {
+///   color: blue;
+/// }
+/// ```
 ///
 /// The opacity of the ripple is not customizable via CSS.
 ///
-/// __Attributes:__
+/// ## See also
 ///
-///   Button
-/// - `disabled` -- Linked to the disabled property. If present, sets the
-///    disabled property to true. If the disabled property is true, this
-///    attribute will be present.
-/// - `raised` -- Linked to the raised property. If present, sets the raised
-///    property to true. If the raised property is true, this attribute will be
-///    present.
-/// - `icon` -- If present, removes the minimum width style of the button.
-/// - `no-ink` -- If present, removes the ripple effect from the button.
-/// - `clear-size` -- If present, removes both the min-width and margin from
-///   the button.
-/// - `dense` -- If present, font-size is reduced to 13px and button height to
-///   32px.
+/// Examples:
+///
+/// * [material_button_demo example](https://github.com/dart-lang/angular_components_example/tree/master/lib/src/material_button_demo)
+/// * [demo_app/demo_app.html](https://github.com/dart-lang/angular_components_example/blob/master/lib/src/demo_app/demo_app.html)
+/// * [dart-lang/io_2017_components_codelab repo](https://github.com/dart-lang/io_2017_components_codelab/tree/master)
+///
+/// Other resources:
+/// * [Material design codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/)
+///
+// NOTE: CSS code above doesn't use ```css due to
+// https://github.com/dart-lang/dartdoc/issues/1484.
 @Component(
     selector: 'material-button',
     host: const {

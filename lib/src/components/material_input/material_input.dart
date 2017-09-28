@@ -26,6 +26,7 @@ const materialInputDirectives = const [
   MaterialInputComponent,
   MaterialInputDefaultValueAccessor,
   MaterialInputBlurValueAccessor,
+  MaterialInputChangeValueAccessor,
   MaterialMultilineInputComponent,
   NgModel
 ];
@@ -168,6 +169,7 @@ class MaterialInputComponent extends BaseMaterialInput
   /// may be building new functionality that all ACX users could benefit
   /// from! If that's the case, please consider contributing your changes
   /// back upstream. Feel free to contact acx-widgets@ for more guidance.
+  @override
   ElementRef get inputRef => inputEl;
 
   /// Type of input. It can be one of the following:

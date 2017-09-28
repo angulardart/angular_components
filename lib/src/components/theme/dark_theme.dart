@@ -31,24 +31,22 @@ const darkThemeClass = 'acx-theme-dark';
 ///    }
 @Injectable()
 class AcxDarkTheme {
-  final bool _darkTheme;
+  final bool isDarkTheme;
 
   AcxDarkTheme(@Inject(darkThemeToken) @Optional() bool dark)
-      : _darkTheme = dark ?? false;
+      : isDarkTheme = dark ?? false;
 
   void theme(ElementRef element) {
-    if (_darkTheme) {
+    if (isDarkTheme) {
       (element.nativeElement as HtmlElement).classes.add(darkThemeClass);
     }
   }
 
   void themeElement(HtmlElement element) {
-    if (_darkTheme) {
+    if (isDarkTheme) {
       element.classes.add(darkThemeClass);
     }
   }
-
-  bool get isDarkTheme => _darkTheme;
 }
 
 /// Sets the dark theme value for a subtree.
