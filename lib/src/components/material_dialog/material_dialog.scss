@@ -1,19 +1,10 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-
-/*
- * NOTE: SASS files are not used during the build step of this package and are
- * provided as reference only. These .scss files were used to generate the
- * corresponding .css files in a separate process. We are working on a solution
- * to include CSS generation from SASS files during the build process.
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 @import 'mixins';
-@import 'lib/src/css/material/material';
-@import 'lib/src/css/material/shadow';
+@import 'package:angular_components/src/css/material/material';
+@import 'package:angular_components/src/css/material/shadow';
 
 :host {
   @include shadow-elevation(24);
@@ -81,20 +72,20 @@ footer {
   width: 100%;
 }
 
-:host .wrapper {
+:host ::ng-deep .wrapper {
   > header {
     @include material-dialog-header;
     flex-shrink: 0;
   }
 
-  > footer ::ng-deep [footer] {
+  > footer [footer] {
     display: flex;
     flex-shrink: 0;
     justify-content: flex-end;
   }
 }
 
-:host[headered] .wrapper {
+:host[headered] ::ng-deep .wrapper {
   > header {
     @include material-dialog-headered-header;
   }
@@ -104,7 +95,7 @@ footer {
   }
 }
 
-:host[info] .wrapper {
+:host[info] ::ng-deep .wrapper {
   > header {
     ::ng-deep h3 {
       line-height: $mat-grid * 5;

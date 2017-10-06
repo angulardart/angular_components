@@ -1,7 +1,0 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-:host{display:inline-flex}:host[light]{opacity:.54}:host ::ng-deep .material-icon-i{font-size:24px}:host[size="x-small"] ::ng-deep .material-icon-i{font-size:12px}:host[size="small"] ::ng-deep .material-icon-i{font-size:13px}:host[size="medium"] ::ng-deep .material-icon-i{font-size:16px}:host[size="large"] ::ng-deep .material-icon-i{font-size:18px}:host[size="x-large"] ::ng-deep .material-icon-i{font-size:20px}.material-icon-i{height:1em;line-height:1;width:1em}:host-context([dir="rtl"])[flip] .material-icon-i{transform:scaleX(-1)}:host[baseline]{align-items:center}:host[baseline]::before{content:'-';display:inline-block;width:0;visibility:hidden}:host[baseline] .material-icon-i{margin-bottom:.1em}
-

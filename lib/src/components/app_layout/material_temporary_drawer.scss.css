@@ -1,7 +1,0 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-:host{bottom:0;left:0;position:absolute;right:0;top:0;background-color:transparent;overflow:hidden;pointer-events:none;z-index:1}:host(.mat-drawer-expanded){pointer-events:auto}:host([overlay].mat-drawer-expanded){background-color:rgba(0,0,0,0.38);transition-duration:225ms}:host([overlay]){background-color:transparent;transition:background-color 195ms cubic-bezier(0.4, 0, 0.2, 1)}.drawer-content{background-color:#fff;bottom:0;box-sizing:border-box;display:flex;flex-direction:column;flex-wrap:nowrap;left:0;overflow:hidden;position:absolute;top:0;width:256px;box-shadow:none;left:-256px;pointer-events:auto;transition-property:left, box-shadow;transition-duration:195ms;transition-timing-function:cubic-bezier(0.4, 0, 0.6, 1)}:host(.mat-drawer-expanded) .drawer-content{/*! @noflip */box-shadow:0 16px 24px 2px rgba(0,0,0,0.14),0 6px 30px 5px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,0,0,0.2);left:0;transition-duration:225ms;transition-timing-function:cubic-bezier(0, 0, 0.2, 1)}:host([end]) .drawer-content{transition-property:right, box-shadow;left:initial;right:-256px}:host([end].mat-drawer-expanded) .drawer-content{right:0}
-

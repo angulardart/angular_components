@@ -1,7 +1,0 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-:host{display:block;font-family:inherit;font-size:15px;line-height:32px;padding:0 24px;position:relative;white-space:nowrap;display:flex;align-items:center;color:rgba(0,0,0,0.87);cursor:pointer;padding:0 16px;outline:none}:host.disabled{pointer-events:none}:host ::ng-deep .material-list-item-primary{color:rgba(0,0,0,0.54);width:40px}:host.disabled ::ng-deep .material-list-item-primary{color:rgba(0,0,0,0.38)}:host ::ng-deep .material-list-item-secondary{color:rgba(0,0,0,0.54);margin-left:auto}:host.disabled ::ng-deep .material-list-item-secondary{color:rgba(0,0,0,0.38)}:host ::ng-deep .submenu-icon{transform:rotate(-90deg)}:host:not([separator="present"]):hover,:host:not([separator="present"]):focus,:host:not([separator="present"]).active{background:#eee}:host:not([separator="present"]).disabled{background:none;color:rgba(0,0,0,0.38);cursor:default;pointer-events:all}:host:hover,:host.active{background:#f5f5f5}:host:not(.multiselect).selected{background:#eee}:host .selected-accent{position:absolute;top:0;left:0;bottom:0;width:3px;background:#9e9e9e}:host material-checkbox{margin:0}.check-container{display:inline-block;width:40px}.dynamic-item{flex-grow:1}
-
