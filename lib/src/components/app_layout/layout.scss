@@ -1,23 +1,14 @@
-/*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
- * for details. All rights reserved. Use of this source code is governed by a
- * BSD-style license that can be found in the LICENSE file.
- */
-
-/*
- * NOTE: SASS files are not used during the build step of this package and are
- * provided as reference only. These .scss files were used to generate the
- * corresponding .css files in a separate process. We are working on a solution
- * to include CSS generation from SASS files during the build process.
- */
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
 /// Styles provided to more easily layout an application.
 /// This includes:
 ///   material-drawer (persistent and permanent)
 @import 'material_drawer';
-@import 'lib/src/css/material/material';
-@import 'lib/src/css/material/shadow';
-@import 'lib/src/components/material_list/mixins';
+@import 'package:angular_components/src/css/material/material';
+@import 'package:angular_components/src/css/material/shadow';
+@import 'package:angular_components/src/components/material_list/mixins';
 
 $mat-toolbar-mobile-breakpoint: 599px;
 $mat-drawer-border: 1px solid $mat-border-light;

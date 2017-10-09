@@ -1,5 +1,5 @@
 name: angular_components
-version: 0.7.1
+version: 0.8.0-dev
 description: >
   The official Material Design components for AngularDart. Used at Google
   in production apps.
@@ -19,6 +19,9 @@ dependencies:
   observable: '>=0.14.0+1 <0.21.0'
   perf_api: ^0.1.0
   quiver: '>=0.22.0 <0.26.0'
+  sass_builder: ^1.0.0
   uuid: ^0.5.3
 transformers:
+- sass_builder:
+    outputExtension: .scss.css
 - angular

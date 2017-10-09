@@ -69,16 +69,37 @@ For icons to appear, add the following icon font download to your page.
 ```
 
 ## Custom component styles
+The styles of these components can be customized via sass mixins.
 
-Get access to the core Material Design SASS files used to style these components
-by copying them and importing
-[lib/src/css/material/_mixins.scss](https://github.com/dart-lang/angular_components/blob/master/lib/src/css/material/_mixins.scss)
-in your SASS files.
+1. Add a dependency on the
+[sass_builder](https://pub.dartlang.org/packages/sass_builder) package and add
+the transformer.
 
+  In your `pubspec.yaml`:
 
-> NOTE: These .scss files are not used during the build step, but we are
-> planning to add this support. See
-> [issue #45](https://github.com/dart-lang/angular_components/issues/45).
+  ```yaml
+  dependencies:
+    sass_builder ^1.0.0 # update for the latest version
+  transformers:
+  - sass_builder
+  - angular
+  ```
+
+  > NOTE: Be sure you add the `sass_builder` transformer before the `angular`
+  > transformer.
+
+2. Now you can import styles and mixins from this package via dart style package
+imports in your sass files.
+
+  In your `.scss` files:
+
+  ```scss
+  @import 'package:angular_components/src/css/material/material';
+
+  .blue {
+    color: $mat-blue;
+  }
+  ```
 
 ## Project Roadmap
 

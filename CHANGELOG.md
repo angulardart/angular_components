@@ -1,3 +1,9 @@
+## 0.8.0-dev
+
+  * Remove all precompiled .css files.
+  * Update all import statements in .scss files to use dart style package imports.
+  * Add dependency on sass_builder package to compile .css files.
+
 ## 0.7.1
 
  * Add Material Auto Suggest Input component.
@@ -38,8 +44,8 @@
  * Update documentation.
 
 ## 0.7.0
- 
- * Material Button: Add raised mixin so that buttons can be made to be raised 
+
+ * Material Button: Add raised mixin so that buttons can be made to be raised
    without using the attribute.
  * Material Expansionpanel: Add header minimum height mixin.
  * Material Input: Add support for custom number formatters.
