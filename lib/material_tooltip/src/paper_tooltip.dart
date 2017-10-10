@@ -10,8 +10,7 @@ import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_tooltip/module.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
-import 'package:angular_components/laminate/popup/popup.dart'
-    show PopupSource;
+import 'package:angular_components/laminate/popup/popup.dart' show PopupSource;
 
 import 'tooltip_controller.dart';
 import 'tooltip_target.dart';

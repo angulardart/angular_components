@@ -34,8 +34,7 @@ import 'material_expansionpanel/material_expansionpanel_auto_dismiss.dart';
 import 'material_expansionpanel/material_expansionpanel_set.dart';
 import 'material_icon/material_icon.dart';
 import 'material_input/material_auto_suggest_input.dart';
-import 'material_input/material_input.dart'
-    hide materialInputErrorKey;
+import 'material_input/material_input.dart' hide materialInputErrorKey;
 import 'material_input/material_input_default_value_accessor.dart';
 import 'material_input/material_input_multiline.dart';
 import 'material_input/material_number_accessor.dart';
@@ -108,8 +107,7 @@ export 'material_input/base_material_input.dart';
 export 'material_input/deferred_validator.dart';
 export 'material_input/input_wrapper.dart';
 export 'material_input/material_auto_suggest_input.dart';
-export 'material_input/material_input.dart'
-    hide materialInputErrorKey;
+export 'material_input/material_input.dart' hide materialInputErrorKey;
 export 'material_input/material_input_default_value_accessor.dart';
 export 'material_input/material_input_error_keys.dart';
 export 'material_input/material_input_multiline.dart';
