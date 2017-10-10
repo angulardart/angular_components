@@ -54,7 +54,7 @@ Firefox, and Safari.
   * [API reference](https://webdev.dartlang.org/components/api)
 * AngularDart resources:
   * [AngularDart documentation](https://webdev.dartlang.org/angular/guide)
-  * [angular2 pub package](https://pub.dartlang.org/packages/angular2)
+  * [angular pub package](https://pub.dartlang.org/packages/angular)
 * [Material Design site](https://material.io)
 
 ## Required Icon Font
