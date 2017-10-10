@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import './highlighted_text_model.dart';
+import 'package:angular_components/src/model/ui/highlighted_text_model.dart';
 
 abstract class HighlightProvider {
   List<HighlightedTextSegment> highlightOption(Object value);

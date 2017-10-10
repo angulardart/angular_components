@@ -3,9 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/utils/angular/properties/properties.dart'
+    show getInt;
 import 'package:quiver/strings.dart' show isBlank;
-
-import '../../utils/angular/properties/properties.dart' show getInt;
 
 /// Provides computation of tabindex for components which actively maintain
 /// a tab index.

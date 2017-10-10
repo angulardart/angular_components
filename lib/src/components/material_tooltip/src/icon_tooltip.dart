@@ -6,11 +6,11 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/content/deferred_content_aware.dart';
+import 'package:angular_components/src/components/focus/keyboard_only_focus_indicator.dart';
+import 'package:angular_components/src/components/glyph/glyph.dart';
+import 'package:angular_components/src/components/theme/dark_theme.dart';
 import 'package:intl/intl.dart';
-import '../../content/deferred_content_aware.dart';
-import '../../focus/keyboard_only_focus_indicator.dart';
-import '../../glyph/glyph.dart';
-import '../../theme/dark_theme.dart';
 
 import 'paper_tooltip.dart';
 import 'tooltip_target.dart';

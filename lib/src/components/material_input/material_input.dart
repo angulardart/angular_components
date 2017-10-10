@@ -3,13 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
+import 'package:angular_components/src/components/glyph/glyph.dart';
+import 'package:angular_components/src/utils/angular/properties/properties.dart';
+import 'package:angular_components/src/utils/angular/reference/reference.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:quiver/strings.dart' show isNotEmpty;
 
-import '../../utils/angular/properties/properties.dart';
-import '../../utils/angular/reference/reference.dart';
-import '../focus/focus.dart';
-import '../glyph/glyph.dart';
 import 'base_material_input.dart';
 import 'deferred_validator.dart';
 import 'material_input_default_value_accessor.dart';

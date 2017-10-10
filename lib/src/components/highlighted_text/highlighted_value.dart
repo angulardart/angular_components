@@ -3,11 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../model/ui/has_renderer.dart';
-import '../../model/ui/highlight_provider.dart';
-import '../../model/ui/highlighted_text_model.dart';
-import './highlighted_text.dart';
+import 'package:angular_components/src/components/highlighted_text/highlighted_text.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
+import 'package:angular_components/src/model/ui/highlight_provider.dart';
+import 'package:angular_components/src/model/ui/highlighted_text_model.dart';
 
 /// An alternate api to [HighlightedTextComponent] that uses a highlighter
 /// and accepts a value that it converts to text segments using a

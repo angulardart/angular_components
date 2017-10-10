@@ -4,10 +4,9 @@
 
 import 'dart:collection';
 
+import 'package:angular_components/src/model/selection/select.dart';
+import 'package:angular_components/src/model/selection/selection_options.dart';
 import 'package:meta/meta.dart';
-
-import './select.dart';
-import './selection_options.dart';
 
 /// A mixin created to support tree-based selection options.
 ///

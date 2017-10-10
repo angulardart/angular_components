@@ -4,7 +4,8 @@
 
 import 'dart:async';
 
-import '../../rate_limit_utils/rate_limit_utils.dart' show RateLimitStrategy;
+import 'package:angular_components/src/utils/rate_limit_utils/rate_limit_utils.dart'
+    show RateLimitStrategy;
 
 typedef void _AddEventFn(event);
 

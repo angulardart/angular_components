@@ -6,14 +6,13 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../utils/browser/dom_service/dom_service.dart';
-import '../../utils/browser/events/events.dart';
-import '../../utils/color/color.dart';
-import '../../utils/color/palette.dart';
-import '../focus/keyboard_only_focus_indicator.dart';
-import '../material_icon/material_icon.dart';
-import '../material_ripple/material_ripple.dart';
+import 'package:angular_components/src/components/focus/keyboard_only_focus_indicator.dart';
+import 'package:angular_components/src/components/material_icon/material_icon.dart';
+import 'package:angular_components/src/components/material_ripple/material_ripple.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/src/utils/browser/events/events.dart';
+import 'package:angular_components/src/utils/color/color.dart';
+import 'package:angular_components/src/utils/color/palette.dart';
 
 /// ACUX standalone scorecard component.
 ///

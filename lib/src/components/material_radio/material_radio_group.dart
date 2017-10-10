@@ -5,13 +5,12 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
+import 'package:angular_components/src/components/material_radio/material_radio.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/utils/angular/managed_zone/angular_2.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 import 'package:angular_forms/angular_forms.dart';
-
-import '../../model/selection/selection_model.dart';
-import '../../utils/angular/managed_zone/angular_2.dart';
-import '../../utils/disposer/disposer.dart';
-import '../focus/focus.dart';
-import './material_radio.dart';
 
 /// Group containing multiple material radio buttons, enforcing that only one
 /// value in the group is selected.

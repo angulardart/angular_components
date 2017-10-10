@@ -2,12 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../../utils/async/async.dart';
+import 'package:angular_components/src/utils/async/async.dart';
 
 // TODO(google): Slowly change to use the refined interfaces in src/interfaces.
 // - interfaces/filterable.dart will replace Filterable
 // - interfaces/parent.dart will replace Parent.
-export 'src/interfaces/selectable.dart';
+export 'package:angular_components/src/model/selection/src/interfaces/selectable.dart';
 
 typedef int CountGetter();
 typedef bool Predicate<T>(T item);

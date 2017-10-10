@@ -4,7 +4,7 @@
 
 import 'dart:html';
 
-import '../../utils/browser/events/events.dart';
+import 'package:angular_components/src/utils/browser/events/events.dart';
 
 /// Base class for handling common key events implementing accessibility best
 /// practices.

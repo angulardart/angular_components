@@ -6,15 +6,14 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart' hide Visibility;
-
-import '../../../../utils/angular/imperative_view/imperative_view.dart';
-import '../../../../utils/browser/dom_service/dom_service.dart';
-import '../../../enums/visibility.dart';
-import '../../../portal/portal.dart';
-import '../../../ruler/dom_ruler.dart';
-import '../../zindexer.dart';
-import '../overlay_state.dart';
-import './overlay_style_config.dart';
+import 'package:angular_components/src/laminate/enums/visibility.dart';
+import 'package:angular_components/src/laminate/overlay/src/overlay_state.dart';
+import 'package:angular_components/src/laminate/overlay/src/render/overlay_style_config.dart';
+import 'package:angular_components/src/laminate/overlay/zindexer.dart';
+import 'package:angular_components/src/laminate/portal/portal.dart';
+import 'package:angular_components/src/laminate/ruler/dom_ruler.dart';
+import 'package:angular_components/src/utils/angular/imperative_view/imperative_view.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
 
 /// An opaque token for the name of the overlay container, if any.
 const overlayContainerName = const OpaqueToken('overlayContainerName');

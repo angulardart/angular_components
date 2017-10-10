@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import '../../disposer/disposer.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 /// A future that is [disposable], which cancels the underlying operation, if
 /// any. Even if the operation finishes, [then] will not be fired if [dispose]

@@ -3,9 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../../overlay/overlay.dart';
-import '../../../portal/portal.dart';
+import 'package:angular_components/src/laminate/overlay/overlay.dart';
+import 'package:angular_components/src/laminate/portal/portal.dart';
 
 /// An internal directive that is used by the modal component to hoist content.
 @Directive(selector: '[modalController]')

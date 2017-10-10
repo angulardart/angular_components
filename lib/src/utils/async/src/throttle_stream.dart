@@ -4,8 +4,9 @@
 
 import 'dart:async';
 
-import '../../rate_limit_utils/rate_limit_utils.dart'
+import 'package:angular_components/src/utils/rate_limit_utils/rate_limit_utils.dart'
     show throttle, throttleGuaranteeLast;
+
 import 'rate_limit.dart';
 
 /// Throttles a stream, triggering events at most once per [duration].

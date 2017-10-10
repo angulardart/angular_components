@@ -6,11 +6,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:angular/angular.dart' hide Visibility;
-
-import '../enums/position.dart';
-import '../enums/visibility.dart';
-import './dom_ruler.dart';
-import 'src/ruler_interface.dart';
+import 'package:angular_components/src/laminate/enums/position.dart';
+import 'package:angular_components/src/laminate/enums/visibility.dart';
+import 'package:angular_components/src/laminate/ruler/dom_ruler.dart';
+import 'package:angular_components/src/laminate/ruler/src/ruler_interface.dart';
 
 /// An implementation of ruler that works on Angular [ElementRef] objects.
 @Injectable()

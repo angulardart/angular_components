@@ -6,9 +6,8 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../browser/dom_service/dom_service.dart';
-import '../../disposer/disposer.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 /// A single entrypoint library for working with highly dynamic views in Angular
 /// 2 code. This allows easier refactoring and migration of approaches as the

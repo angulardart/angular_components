@@ -6,11 +6,10 @@ import 'dart:async';
 import 'dart:html' show KeyCode, KeyboardEvent, Element, HtmlElement;
 
 import 'package:angular/angular.dart';
-
-import '../../laminate/components/modal/modal.dart';
-import '../../laminate/popup/popup.dart';
-import '../../utils/browser/dom_service/dom_service.dart';
-import '../../utils/disposer/disposer.dart';
+import 'package:angular_components/src/laminate/components/modal/modal.dart';
+import 'package:angular_components/src/laminate/popup/popup.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 /// A component or directive that can be programmatically focused.
 /// Directive can manage if it means to put focus on root of itself

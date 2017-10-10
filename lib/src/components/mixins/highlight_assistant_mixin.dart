@@ -3,14 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../model/selection/select.dart';
-import '../../model/selection/selection_container.dart';
-import '../../model/ui/has_renderer.dart';
-import '../../model/ui/highlight_assistant.dart';
-import '../../model/ui/highlight_provider.dart';
-import '../../model/ui/highlighted_text_model.dart';
-import '../highlighted_text/highlighted_value.dart';
+import 'package:angular_components/src/components/highlighted_text/highlighted_value.dart';
+import 'package:angular_components/src/model/selection/select.dart';
+import 'package:angular_components/src/model/selection/selection_container.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
+import 'package:angular_components/src/model/ui/highlight_assistant.dart';
+import 'package:angular_components/src/model/ui/highlight_provider.dart';
+import 'package:angular_components/src/model/ui/highlighted_text_model.dart';
 
 /// Assistant to support highlighting in a SelectionContainer.
 abstract class HighlightAssistantMixin

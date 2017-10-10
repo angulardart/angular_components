@@ -6,8 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../focus/focus.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
 
 /// Assistant for focusing an element.
 class FocusableMixin implements Focusable {

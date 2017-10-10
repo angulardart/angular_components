@@ -3,10 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../enums/alignment.dart';
-import '../overlay/module.dart';
-import 'src/dom_popup_source.dart';
+import 'package:angular_components/src/laminate/enums/alignment.dart';
+import 'package:angular_components/src/laminate/overlay/module.dart';
+import 'package:angular_components/src/laminate/popup/src/dom_popup_source.dart';
 
 const inlinePositions = RelativePosition.InlinePositions;
 

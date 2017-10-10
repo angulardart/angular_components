@@ -5,8 +5,8 @@
 import 'dart:async';
 import 'dart:math';
 
-import '../../enums/position.dart';
-import '../../enums/visibility.dart';
+import 'package:angular_components/src/laminate/enums/position.dart';
+import 'package:angular_components/src/laminate/enums/visibility.dart';
 
 /// A ruler is an interface for querying and manipulating element positions
 /// and size through asynchronous APIs, and with integration with internal

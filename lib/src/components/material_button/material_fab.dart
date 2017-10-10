@@ -5,8 +5,8 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/material_ripple/material_ripple.dart';
 
-import '../material_ripple/material_ripple.dart';
 import 'material_button_base.dart';
 
 /// Material FAB is a Floating Action Button. It is round, and behaves mostly

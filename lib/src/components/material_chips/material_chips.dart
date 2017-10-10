@@ -3,11 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../model/selection/selection_model.dart';
-import '../../model/ui/has_renderer.dart';
-import '../../utils/disposer/disposer.dart';
-import './material_chip.dart';
+import 'package:angular_components/src/components/material_chips/material_chip.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 /// A __chips__ collection widget, displaying a list of objects as Chips.
 ///

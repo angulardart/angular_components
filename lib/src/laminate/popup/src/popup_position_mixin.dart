@@ -5,9 +5,8 @@
 import 'dart:math';
 
 import 'package:angular/angular.dart';
-
-import '../../enums/alignment.dart';
-import './popup_size_provider.dart';
+import 'package:angular_components/src/laminate/enums/alignment.dart';
+import 'package:angular_components/src/laminate/popup/src/popup_size_provider.dart';
 
 class PopupPosition {
   static const String AUTO = '';

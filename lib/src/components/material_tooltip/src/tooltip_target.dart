@@ -6,11 +6,11 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/material_tooltip/src/tooltip_controller.dart';
+import 'package:angular_components/src/laminate/popup/popup.dart';
+import 'package:angular_components/src/model/action/delayed_action.dart';
+import 'package:angular_components/src/utils/browser/events/events.dart';
 
-import '../../../laminate/popup/popup.dart';
-import '../../../model/action/delayed_action.dart';
-import '../../../utils/browser/events/events.dart';
-import './tooltip_controller.dart';
 import 'tooltip_source.dart' show tooltipShowDelay;
 
 /// A directive that marks the target of a tooltip and handles showing and

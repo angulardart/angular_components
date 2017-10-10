@@ -5,8 +5,7 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../../utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
 
 // Private directive that catches the navi bar element of the tab panel.
 // Also provides convenient methods for handling scrolling on it.

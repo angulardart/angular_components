@@ -2,11 +2,11 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../../model/selection/selection_container.dart';
-import '../../model/selection/selection_model.dart';
-import '../../model/ui/accepts_width.dart';
-import '../../model/ui/has_renderer.dart';
-import '../../utils/angular/properties/properties.dart';
+import 'package:angular_components/src/model/selection/selection_container.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/model/ui/accepts_width.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
+import 'package:angular_components/src/utils/angular/properties/properties.dart';
 
 /// A [SelectionContainer] implementation with an additional option for setting
 /// the rendered list's `width`.

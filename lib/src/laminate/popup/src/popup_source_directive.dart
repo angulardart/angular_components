@@ -7,11 +7,10 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
-
-import '../../../utils/angular/reference/reference.dart';
-import '../../enums/alignment.dart';
-import './dom_popup_source.dart';
-import './popup_source.dart';
+import 'package:angular_components/src/laminate/enums/alignment.dart';
+import 'package:angular_components/src/laminate/popup/src/dom_popup_source.dart';
+import 'package:angular_components/src/laminate/popup/src/popup_source.dart';
+import 'package:angular_components/src/utils/angular/reference/reference.dart';
 
 /// A directive that exposes the [PopupSource] interface as `popupSource`:
 ///

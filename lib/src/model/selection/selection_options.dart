@@ -6,11 +6,11 @@ library angular_components.model.selection.selection_options;
 
 import 'dart:async';
 
-import '../../utils/disposer/disposer.dart';
-import '../collection/labeled_list.dart';
-import '../observable/observable.dart';
+import 'package:angular_components/src/model/collection/labeled_list.dart';
+import 'package:angular_components/src/model/observable/observable.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
-export 'src/delegating_selection_options.dart';
+export 'package:angular_components/src/model/selection/src/delegating_selection_options.dart';
 
 part 'src/future_selection_options_impl.dart';
 part 'src/stream_selection_options_impl.dart';

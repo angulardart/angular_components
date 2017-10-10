@@ -6,11 +6,11 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
-
-import '../../utils/browser/events/events.dart';
-import '../../utils/browser/feature_detector/feature_detector.dart'
+import 'package:angular_components/src/utils/browser/events/events.dart';
+import 'package:angular_components/src/utils/browser/feature_detector/feature_detector.dart'
     show supportsAnimationApi;
-import '../../utils/color/material.dart' show rippleOpacity;
+import 'package:angular_components/src/utils/color/material.dart'
+    show rippleOpacity;
 
 // The ripple size is 256x256 for optimal performance (power-of-two texture)
 // while maintaining smooth ripple edges (since the texture is being scaled on

@@ -3,10 +3,9 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../utils/angular/managed_zone/angular_2.dart';
-import '../../utils/disposer/disposer.dart';
-import './focus.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
+import 'package:angular_components/src/utils/angular/managed_zone/angular_2.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 /// `FocusListDirective`, used in conjunction with [FocusItemDirective] or
 /// other directive implementing [FocusableItem], to provide a means to move

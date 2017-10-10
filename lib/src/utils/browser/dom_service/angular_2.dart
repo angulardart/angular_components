@@ -6,13 +6,12 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular/experimental.dart';
+import 'package:angular_components/src/utils/angular/managed_zone/interface.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service_webdriver_testability.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
-import '../../angular/managed_zone/interface.dart';
-import '../../disposer/disposer.dart';
-import './dom_service.dart';
-import './dom_service_webdriver_testability.dart';
-
-export './dom_service.dart';
+export 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
 
 // This is a pattern which allows a singleton service to be shared in an
 // application without binding the service at the application level, while

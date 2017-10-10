@@ -6,11 +6,10 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../button_decorator/button_decorator.dart';
-import '../focus/keyboard_only_focus_indicator.dart';
-import '../glyph/glyph.dart';
-import '../mixins/button_wrapper.dart';
+import 'package:angular_components/src/components/button_decorator/button_decorator.dart';
+import 'package:angular_components/src/components/focus/keyboard_only_focus_indicator.dart';
+import 'package:angular_components/src/components/glyph/glyph.dart';
+import 'package:angular_components/src/components/mixins/button_wrapper.dart';
 
 /// A button styled specifically for dropdowns.
 ///
@@ -34,7 +33,7 @@ import '../mixins/button_wrapper.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'dropdown_button.html',
   styleUrls: const [
-    '../button_decorator/button_decorator.scss.css',
+    'package:third_party.dart_src.acx.button_decorator/button_decorator.scss.css',
     'dropdown_button.scss.css'
   ],
   directives: const [

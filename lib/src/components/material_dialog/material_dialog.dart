@@ -5,11 +5,10 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../laminate/components/modal/modal.dart';
-import '../../utils/browser/dom_service/dom_service.dart';
-import '../../utils/disposer/disposer.dart';
-import '../focus/focus_trap.dart';
+import 'package:angular_components/src/components/focus/focus_trap.dart';
+import 'package:angular_components/src/laminate/components/modal/modal.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 /// A styled container following the Material Spec for Dialogs.
 ///

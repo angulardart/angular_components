@@ -6,7 +6,7 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math';
 
-import '../../enums/alignment.dart';
+import 'package:angular_components/src/laminate/enums/alignment.dart';
 
 /// The source of where a popup will be created from.
 ///

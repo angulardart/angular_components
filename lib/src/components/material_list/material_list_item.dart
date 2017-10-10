@@ -5,12 +5,11 @@
 import 'dart:html' as dom;
 
 import 'package:angular/angular.dart';
-
-import '../../model/a11y/active_item_mixin.dart';
-import '../../utils/browser/dom_service/dom_service.dart';
-import '../../utils/disposer/disposer.dart';
-import '../button_decorator/button_decorator.dart';
-import '../mixins/material_dropdown_base.dart';
+import 'package:angular_components/src/components/button_decorator/button_decorator.dart';
+import 'package:angular_components/src/components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/src/model/a11y/active_item_mixin.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 /// Material List Item is a block element intended for user interaction; it has
 /// `:hover` styling and emits and `trigger` event when the user clicks or

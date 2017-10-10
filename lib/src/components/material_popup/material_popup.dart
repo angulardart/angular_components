@@ -7,22 +7,23 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart' hide Visibility;
+import 'package:angular_components/src/components/content/deferred_content_aware.dart';
+import 'package:angular_components/src/components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/src/laminate/enums/alignment.dart';
+import 'package:angular_components/src/laminate/enums/visibility.dart';
+import 'package:angular_components/src/laminate/overlay/module.dart';
+import 'package:angular_components/src/laminate/overlay/overlay.dart';
+import 'package:angular_components/src/laminate/overlay/zindexer.dart';
+import 'package:angular_components/src/laminate/popup/module.dart';
+import 'package:angular_components/src/laminate/popup/popup.dart';
+import 'package:angular_components/src/model/ui/toggle.dart';
+import 'package:angular_components/src/utils/async/async.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
+import 'package:angular_components/src/utils/id_generator/id_generator.dart';
 import 'package:meta/meta.dart';
 
-import '../../laminate/enums/alignment.dart';
-import '../../laminate/enums/visibility.dart';
-import '../../laminate/overlay/module.dart';
-import '../../laminate/overlay/overlay.dart';
-import '../../laminate/overlay/zindexer.dart';
-import '../../laminate/popup/module.dart';
-import '../../laminate/popup/popup.dart';
-import '../../model/ui/toggle.dart';
-import '../../utils/disposer/disposer.dart';
-import '../../utils/id_generator/id_generator.dart';
-import '../content/deferred_content_aware.dart';
-import '../mixins/material_dropdown_base.dart';
-
-export '../../laminate/popup/popup.dart' show PopupSourceDirective;
+export 'package:angular_components/src/laminate/popup/popup.dart'
+    show PopupSourceDirective;
 
 /// A popup component with material design look-and-feel.
 ///

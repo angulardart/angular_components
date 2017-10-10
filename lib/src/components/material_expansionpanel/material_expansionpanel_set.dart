@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import '../../model/action/async_action.dart';
-import '../../utils/disposer/disposer.dart';
+import 'package:angular_components/src/model/action/async_action.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 import 'material_expansionpanel.dart';
 

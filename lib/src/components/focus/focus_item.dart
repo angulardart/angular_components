@@ -6,9 +6,8 @@ import 'dart:async';
 import 'dart:html' show KeyboardEvent, HtmlElement;
 
 import 'package:angular/angular.dart';
-
-import '../../utils/async/async.dart';
-import './focus.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
+import 'package:angular_components/src/utils/async/async.dart';
 
 /// `FocusItemDirective`, used in conjunction with [FocusListDirective],
 /// provides a means to move focus between a list of components (or elements)

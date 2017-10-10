@@ -7,11 +7,10 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
-
-import '../../../components/annotations/rtl_annotation.dart';
-import '../../enums/alignment.dart';
-import '../../ruler/dom_ruler.dart';
-import './popup_source.dart';
+import 'package:angular_components/src/components/annotations/rtl_annotation.dart';
+import 'package:angular_components/src/laminate/enums/alignment.dart';
+import 'package:angular_components/src/laminate/popup/src/popup_source.dart';
+import 'package:angular_components/src/laminate/ruler/dom_ruler.dart';
 
 /// A handler to return the position and size of the *content* of [element].
 ///

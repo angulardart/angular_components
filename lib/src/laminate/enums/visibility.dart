@@ -2,9 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'src/base.dart';
+import 'package:angular_components/src/laminate/enums/src/base.dart';
 
-export 'src/base.dart';
+export 'package:angular_components/src/laminate/enums/src/base.dart';
 
 /// Enum for browser visibility options.
 class Visibility implements ElementStyleEnum {

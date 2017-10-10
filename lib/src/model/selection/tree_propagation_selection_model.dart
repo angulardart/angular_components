@@ -2,8 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import './selection_model.dart';
-import './tree_selection_options.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/model/selection/tree_selection_options.dart';
 
 /// A [MultiSelectionModel] implementation that supports
 /// propagation selections to it children,

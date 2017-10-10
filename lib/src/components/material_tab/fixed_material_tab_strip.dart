@@ -5,9 +5,9 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
-import '../annotations/rtl_annotation.dart';
-import '../focus/focus_item.dart';
-import '../focus/focus_list.dart';
+import 'package:angular_components/src/components/annotations/rtl_annotation.dart';
+import 'package:angular_components/src/components/focus/focus_item.dart';
+import 'package:angular_components/src/components/focus/focus_list.dart';
 
 import 'tab_button.dart';
 import 'tab_change_event.dart';

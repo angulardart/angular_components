@@ -6,8 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../utils/browser/events/events.dart';
+import 'package:angular_components/src/utils/browser/events/events.dart';
 
 /// `material-toggle` is a button that can be either ON or OFF.
 /// User can tap the toggle button to change the state.

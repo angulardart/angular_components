@@ -6,16 +6,15 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
+import 'package:angular_components/src/components/glyph/glyph.dart';
+import 'package:angular_components/src/components/material_radio/material_radio_group.dart';
+import 'package:angular_components/src/components/material_ripple/material_ripple.dart';
+import 'package:angular_components/src/model/ui/icon.dart';
+import 'package:angular_components/src/utils/async/async.dart';
+import 'package:angular_components/src/utils/browser/events/events.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 import 'package:angular_forms/angular_forms.dart';
-
-import '../../model/ui/icon.dart';
-import '../../utils/async/async.dart';
-import '../../utils/browser/events/events.dart';
-import '../../utils/disposer/disposer.dart';
-import '../focus/focus.dart';
-import '../glyph/glyph.dart';
-import '../material_ripple/material_ripple.dart';
-import './material_radio_group.dart';
 
 const Icon uncheckedIcon = const Icon('radio_button_unchecked');
 const Icon checkedIcon = const Icon('radio_button_checked');

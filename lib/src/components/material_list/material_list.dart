@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import '../../model/ui/accepts_width.dart';
-import '../../utils/angular/properties/properties.dart';
+import 'package:angular_components/src/model/ui/accepts_width.dart';
+import 'package:angular_components/src/utils/angular/properties/properties.dart';
 
 import 'material_list_size.dart';
 

@@ -3,8 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../model/ui/highlighted_text_model.dart';
+import 'package:angular_components/src/model/ui/highlighted_text_model.dart';
 
 /// A component that presents a list of [HighlightedTextSegment]s.
 ///

@@ -7,11 +7,10 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/reorder_list/reorder_events.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
+import 'package:angular_components/src/utils/keyboard/keyboard.dart';
 import 'package:quiver/iterables.dart' show range;
-
-import '../../utils/disposer/disposer.dart';
-import '../../utils/keyboard/keyboard.dart';
-import './reorder_events.dart';
 
 export 'reorder_events.dart';
 

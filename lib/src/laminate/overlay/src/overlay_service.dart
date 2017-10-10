@@ -7,11 +7,10 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/laminate/overlay/src/overlay_ref.dart';
+import 'package:angular_components/src/laminate/overlay/src/overlay_state.dart';
+import 'package:angular_components/src/laminate/overlay/src/render/overlay_dom_render_service.dart';
 import 'package:logging/logging.dart';
-
-import './overlay_ref.dart';
-import './overlay_state.dart';
-import 'render/overlay_dom_render_service.dart';
 
 /// A low-level service which exists to be able to manage the overlay
 /// container and overlay panes.

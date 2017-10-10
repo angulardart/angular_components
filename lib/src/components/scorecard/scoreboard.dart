@@ -6,14 +6,14 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/material_button/material_button.dart';
+import 'package:angular_components/src/components/material_icon/material_icon.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/utils/browser/dom_service/angular_2.dart';
+import 'package:angular_components/src/utils/color/palette.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 import 'package:intl/intl.dart';
 
-import '../../model/selection/selection_model.dart';
-import '../../utils/browser/dom_service/angular_2.dart';
-import '../../utils/color/palette.dart';
-import '../../utils/disposer/disposer.dart';
-import '../material_button/material_button.dart';
-import '../material_icon/material_icon.dart';
 import 'scorecard.dart';
 import 'src/scorecard_bar.dart';
 

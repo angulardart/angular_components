@@ -3,9 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../utils/disposer/disposer.dart';
-import 'src/tooltip_controller.dart';
+import 'package:angular_components/src/components/material_tooltip/src/tooltip_controller.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 const materialTooltipBindings = const [TooltipController];
 

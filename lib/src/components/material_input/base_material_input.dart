@@ -6,17 +6,19 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
+import 'package:angular_components/src/components/forms/error_renderer.dart'
+    show ErrorFn;
+import 'package:angular_components/src/components/mixins/focusable_mixin.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
 
-import '../../utils/disposer/disposer.dart';
-import '../focus/focus.dart';
-import '../forms/error_renderer.dart' show ErrorFn;
-import '../mixins/focusable_mixin.dart';
 import 'deferred_validator.dart';
 
-export '../forms/error_renderer.dart' show ErrorFn;
+export 'package:angular_components/src/components/forms/error_renderer.dart'
+    show ErrorFn;
 
 /// Key used in the Control's error map, when there is an error.
 const String materialInputErrorKey = 'material-input-error';

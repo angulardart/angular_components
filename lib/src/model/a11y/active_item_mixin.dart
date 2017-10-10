@@ -5,8 +5,7 @@
 import 'dart:html' as dom;
 
 import 'package:angular/angular.dart';
-
-import '../../utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
 
 /// Mixin for elements able to be activated through mouse or keyboard, like
 /// list elements.

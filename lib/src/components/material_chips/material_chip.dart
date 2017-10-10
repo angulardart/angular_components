@@ -6,13 +6,12 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/button_decorator/button_decorator.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
+import 'package:angular_components/src/utils/id_generator/id_generator.dart';
 import 'package:intl/intl.dart';
-
-import '../../model/selection/selection_model.dart';
-import '../../model/ui/has_renderer.dart';
-import '../../utils/id_generator/id_generator.dart';
-import '../button_decorator/button_decorator.dart';
-import '../focus/focus.dart';
 
 /// A "chip" widget renders an object in the 'chip' format - a rounded box with
 /// a shadow, typically used in a horizontal list. Any object implementing the

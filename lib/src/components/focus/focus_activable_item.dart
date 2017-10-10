@@ -5,8 +5,7 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import './focus.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
 
 /// This directive is used to [ViewChild] focusable element in your view.
 ///

@@ -3,8 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../model/ui/icon.dart';
+import 'package:angular_components/src/model/ui/icon.dart';
 
 /// Properties for a component which wants to expose typical options for a
 /// button: `buttonText`, `buttonAriaLabel`, `disabled`, `icon` and `raised`.

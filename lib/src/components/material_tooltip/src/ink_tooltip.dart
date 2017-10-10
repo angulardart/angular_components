@@ -3,12 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/content/deferred_content.dart';
+import 'package:angular_components/src/components/material_popup/material_popup.dart';
+import 'package:angular_components/src/components/material_tooltip/module.dart';
+import 'package:angular_components/src/laminate/enums/alignment.dart';
+import 'package:angular_components/src/laminate/popup/popup.dart'
+    show PopupSource;
 
-import '../../../laminate/enums/alignment.dart';
-import '../../../laminate/popup/popup.dart' show PopupSource;
-import '../../content/deferred_content.dart';
-import '../../material_popup/material_popup.dart';
-import '../module.dart';
 import 'tooltip_controller.dart';
 import 'tooltip_target.dart';
 

@@ -3,22 +3,22 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/content/deferred_content.dart';
+import 'package:angular_components/src/components/focus/focus.dart';
+import 'package:angular_components/src/components/focus/keyboard_only_focus_indicator.dart';
+import 'package:angular_components/src/components/glyph/glyph.dart';
+import 'package:angular_components/src/components/material_popup/material_popup.dart';
+import 'package:angular_components/src/components/material_tree/src/material_tree_filter.dart';
+import 'package:angular_components/src/components/material_tree/src/material_tree_root.dart';
+import 'package:angular_components/src/components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/src/laminate/enums/alignment.dart';
+import 'package:angular_components/src/model/selection/select.dart';
+import 'package:angular_components/src/model/selection/selection_container.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/model/selection/selection_options.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
 
-import '../../../laminate/enums/alignment.dart';
-import '../../../model/selection/select.dart';
-import '../../../model/selection/selection_container.dart';
-import '../../../model/selection/selection_model.dart';
-import '../../../model/selection/selection_options.dart';
-import '../../../model/ui/has_renderer.dart';
-import '../../../utils/browser/dom_service/dom_service.dart';
-import '../../content/deferred_content.dart';
-import '../../focus/focus.dart';
-import '../../focus/keyboard_only_focus_indicator.dart';
-import '../../glyph/glyph.dart';
-import '../../material_popup/material_popup.dart';
-import '../../mixins/material_dropdown_base.dart';
-import './material_tree_filter.dart';
-import './material_tree_root.dart';
 import 'material_tree_impl.dart';
 
 /// A button-triggered dropdown containing a [MaterialTreeComponent].

@@ -5,9 +5,9 @@
 import 'dart:html';
 import 'dart:math';
 
-import '../../model/selection/selection_model.dart';
-import '../../model/selection/selection_options.dart';
-import './activation_handler.dart';
+import 'package:angular_components/src/components/material_select/activation_handler.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/model/selection/selection_options.dart';
 
 /// Handles toggling selection of a range of options when shift is held down
 /// while clicking on the end value.

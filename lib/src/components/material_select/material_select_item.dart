@@ -6,21 +6,20 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/button_decorator/button_decorator.dart';
+import 'package:angular_components/src/components/dynamic_component/dynamic_component.dart';
+import 'package:angular_components/src/components/glyph/glyph.dart';
+import 'package:angular_components/src/components/material_checkbox/material_checkbox.dart';
+import 'package:angular_components/src/components/material_select/activation_handler.dart';
+import 'package:angular_components/src/components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/src/model/a11y/active_item_mixin.dart';
+import 'package:angular_components/src/model/selection/selection_container.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
+import 'package:angular_components/src/utils/angular/properties/properties.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 import 'package:intl/intl.dart';
-
-import '../../model/a11y/active_item_mixin.dart';
-import '../../model/selection/selection_container.dart';
-import '../../model/selection/selection_model.dart';
-import '../../model/ui/has_renderer.dart';
-import '../../utils/angular/properties/properties.dart';
-import '../../utils/browser/dom_service/dom_service.dart';
-import '../../utils/disposer/disposer.dart';
-import '../button_decorator/button_decorator.dart';
-import '../dynamic_component/dynamic_component.dart';
-import '../glyph/glyph.dart';
-import '../material_checkbox/material_checkbox.dart';
-import '../mixins/material_dropdown_base.dart';
-import './activation_handler.dart';
 
 /// Material Select Item is a special kind of list item which can be selected.
 @Component(

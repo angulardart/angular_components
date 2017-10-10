@@ -2,9 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import '../../../model/selection/select.dart';
-import '../../../model/selection/selection_container.dart';
-import '../../../model/ui/has_renderer.dart';
+import 'package:angular_components/src/model/selection/select.dart';
+import 'package:angular_components/src/model/selection/selection_container.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
 
 /// An limited interface for child groups to use to access the tree.
 abstract class MaterialTreeRoot<T>

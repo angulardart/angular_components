@@ -7,9 +7,8 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
-
-import '../../utils/browser/dom_service/dom_service.dart';
-import 'src/ruler_interface.dart';
+import 'package:angular_components/src/laminate/ruler/src/ruler_interface.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
 
 /// An implementation of ruler that uses raw DOM access and [Element]s.
 ///

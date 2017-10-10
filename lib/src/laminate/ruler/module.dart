@@ -3,12 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../utils/angular/managed_zone/angular_2.dart';
-import '../../utils/browser/dom_service/angular_2.dart';
-import '../../utils/browser/window/module.dart';
-import './dom_ruler.dart';
-import './ng_ruler.dart';
+import 'package:angular_components/src/laminate/ruler/dom_ruler.dart';
+import 'package:angular_components/src/laminate/ruler/ng_ruler.dart';
+import 'package:angular_components/src/utils/angular/managed_zone/angular_2.dart';
+import 'package:angular_components/src/utils/browser/dom_service/angular_2.dart';
+import 'package:angular_components/src/utils/browser/window/module.dart';
 
 /// Providers for using the ruler service.
 const rulerBindings = const [

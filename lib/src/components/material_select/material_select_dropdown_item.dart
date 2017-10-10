@@ -5,16 +5,15 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../model/selection/selection_container.dart';
-import '../../model/ui/has_renderer.dart';
-import '../../utils/browser/dom_service/dom_service.dart';
-import '../dynamic_component/dynamic_component.dart';
-import '../glyph/glyph.dart';
-import '../material_checkbox/material_checkbox.dart';
-import '../mixins/material_dropdown_base.dart';
-import './activation_handler.dart';
-import './material_select_item.dart';
+import 'package:angular_components/src/components/dynamic_component/dynamic_component.dart';
+import 'package:angular_components/src/components/glyph/glyph.dart';
+import 'package:angular_components/src/components/material_checkbox/material_checkbox.dart';
+import 'package:angular_components/src/components/material_select/activation_handler.dart';
+import 'package:angular_components/src/components/material_select/material_select_item.dart';
+import 'package:angular_components/src/components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/src/model/selection/selection_container.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
+import 'package:angular_components/src/utils/browser/dom_service/dom_service.dart';
 
 /// Container for a single item selected in a dropdown.
 ///

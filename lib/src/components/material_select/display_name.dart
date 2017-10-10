@@ -3,9 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../model/ui/display_name.dart';
-import '../../model/ui/has_renderer.dart';
+import 'package:angular_components/src/model/ui/display_name.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
 
 /// Add this directive to any [SelectionContainer] or [SelectionItem]
 /// component to render [HasUIDisplayName] objects.

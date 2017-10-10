@@ -3,15 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
-import '../../../model/selection/select.dart';
-import '../../../model/selection/selection_container.dart';
-import '../../../model/selection/selection_model.dart';
-import '../../../model/selection/selection_options.dart';
-import '../../../model/ui/has_renderer.dart';
-import './material_tree_root.dart';
-import 'group/material_tree_group.dart';
-import 'group/material_tree_group_flat.dart';
+import 'package:angular_components/src/components/material_tree/src/group/material_tree_group.dart';
+import 'package:angular_components/src/components/material_tree/src/group/material_tree_group_flat.dart';
+import 'package:angular_components/src/components/material_tree/src/material_tree_root.dart';
+import 'package:angular_components/src/model/selection/select.dart';
+import 'package:angular_components/src/model/selection/selection_container.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/model/selection/selection_options.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
 
 /// A material selection component that supports a tree of options.
 ///
@@ -41,10 +40,6 @@ import 'group/material_tree_group_flat.dart';
 ///       [options]="selectionOptions"
 ///       [selection]="selectionModel">
 ///     </material-tree>
-///
-/// ACUX spec: https://aw-next-spec.googleplex.com/#/pickers
-///
-/// __NOTE__: First time users should consult the examples/ directory and g3doc.
 @Component(
     selector: 'material-tree',
     directives: const [

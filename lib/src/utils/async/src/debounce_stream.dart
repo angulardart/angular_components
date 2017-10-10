@@ -4,7 +4,9 @@
 
 import 'dart:async';
 
-import '../../rate_limit_utils/rate_limit_utils.dart' show debounce;
+import 'package:angular_components/src/utils/rate_limit_utils/rate_limit_utils.dart'
+    show debounce;
+
 import 'rate_limit.dart';
 
 /// Debounces a stream, preventing it from triggering until [duration]

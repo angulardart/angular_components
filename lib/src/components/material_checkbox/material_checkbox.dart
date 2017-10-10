@@ -6,12 +6,11 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/glyph/glyph.dart';
+import 'package:angular_components/src/components/material_ripple/material_ripple.dart';
+import 'package:angular_components/src/model/ui/icon.dart';
+import 'package:angular_components/src/utils/browser/events/events.dart';
 import 'package:angular_forms/angular_forms.dart';
-
-import '../../model/ui/icon.dart';
-import '../../utils/browser/events/events.dart';
-import '../glyph/glyph.dart';
-import '../material_ripple/material_ripple.dart';
 
 const Icon uncheckedIcon = const Icon('check_box_outline_blank');
 const Icon checkedIcon = const Icon('check_box');

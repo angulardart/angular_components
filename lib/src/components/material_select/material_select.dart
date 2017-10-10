@@ -5,15 +5,15 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/material_list/material_list.dart';
+import 'package:angular_components/src/model/selection/select.dart';
+import 'package:angular_components/src/model/selection/selection_container.dart';
+import 'package:angular_components/src/model/selection/selection_model.dart';
+import 'package:angular_components/src/model/selection/selection_options.dart';
+import 'package:angular_components/src/model/ui/has_renderer.dart';
+import 'package:angular_components/src/model/ui/template_support.dart';
+import 'package:angular_components/src/utils/angular/properties/properties.dart';
 
-import '../../model/selection/select.dart';
-import '../../model/selection/selection_container.dart';
-import '../../model/selection/selection_model.dart';
-import '../../model/selection/selection_options.dart';
-import '../../model/ui/has_renderer.dart';
-import '../../model/ui/template_support.dart';
-import '../../utils/angular/properties/properties.dart';
-import '../material_list/material_list.dart';
 import 'material_select_base.dart';
 import 'material_select_item.dart';
 

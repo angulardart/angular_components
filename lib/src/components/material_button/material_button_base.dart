@@ -6,8 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../button_decorator/button_decorator.dart';
+import 'package:angular_components/src/components/button_decorator/button_decorator.dart';
 
 /// A base class from which to build buttons.
 ///

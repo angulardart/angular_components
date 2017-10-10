@@ -6,10 +6,9 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../../utils/browser/dom_service/angular_2.dart';
-import '../../../utils/disposer/disposer.dart';
-import '../../annotations/rtl_annotation.dart';
+import 'package:angular_components/src/components/annotations/rtl_annotation.dart';
+import 'package:angular_components/src/utils/browser/dom_service/angular_2.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
 /// Private directive that catches the scorecard bar element of the scoreboard.
 ///

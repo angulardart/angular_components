@@ -5,13 +5,14 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/material_tooltip/module.dart';
+import 'package:angular_components/src/laminate/enums/alignment.dart';
+import 'package:angular_components/src/laminate/popup/popup.dart'
+    show DomPopupSourceFactory;
+import 'package:angular_components/src/model/action/delayed_action.dart';
+import 'package:angular_components/src/utils/browser/feature_detector/feature_detector.dart';
+import 'package:angular_components/src/utils/disposer/disposer.dart';
 
-import '../../../laminate/enums/alignment.dart';
-import '../../../laminate/popup/popup.dart' show DomPopupSourceFactory;
-import '../../../model/action/delayed_action.dart';
-import '../../../utils/browser/feature_detector/feature_detector.dart';
-import '../../../utils/disposer/disposer.dart';
-import '../module.dart';
 import 'ink_tooltip.dart';
 import 'tooltip_controller.dart';
 import 'tooltip_source.dart' show tooltipShowDelay;

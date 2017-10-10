@@ -6,8 +6,8 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../../utils/browser/events/events.dart' as events;
+import 'package:angular_components/src/utils/browser/events/events.dart'
+    as events;
 
 /// Tracks a hierarchy of visible popup and provides it closing logic.
 @Injectable()

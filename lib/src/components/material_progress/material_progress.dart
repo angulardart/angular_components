@@ -5,8 +5,7 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../utils/browser/feature_detector/feature_detector.dart'
+import 'package:angular_components/src/utils/browser/feature_detector/feature_detector.dart'
     show supportsAnimationApi;
 
 const String ARIA_VALUENOW_ATTR = "aria-valuenow";

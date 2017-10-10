@@ -6,8 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-
-import '../../utils/browser/events/events.dart';
+import 'package:angular_components/src/utils/browser/events/events.dart';
 
 /// A directive that publishes a (dismiss) event when the user clicks outside of
 /// it.

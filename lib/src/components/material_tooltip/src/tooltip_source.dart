@@ -5,12 +5,11 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:intl/intl.dart';
-
-import '../../../laminate/popup/popup.dart'
+import 'package:angular_components/src/laminate/popup/popup.dart'
     show DomPopupSourceFactory, PopupSourceDirective, PopupRef;
-import '../../../model/action/delayed_action.dart';
-import '../../../model/ui/toggle.dart';
+import 'package:angular_components/src/model/action/delayed_action.dart';
+import 'package:angular_components/src/model/ui/toggle.dart';
+import 'package:intl/intl.dart';
 
 const tooltipShowDelay = const Duration(milliseconds: 600);
 

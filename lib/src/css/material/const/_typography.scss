@@ -70,7 +70,7 @@ $mat-font-leading-body-1: 20px;
 //   * nowrap (for styles that should "exist as single lines")
 //
 // "/" in CSS font property has to be specified with #{} interpolation to
-// prevent the sass compiler from trying to perform division (go/sass-slash).
+// prevent the sass compiler from trying to perform division (goo.gl/H76dyp).
 
 @mixin mat-font-display-4 {
   @include nowrap;

@@ -7,12 +7,11 @@ library angular_components.model.selection.selection_model;
 import 'dart:async';
 import 'dart:collection';
 
+import 'package:angular_components/src/model/selection/src/interfaces/selectable.dart';
 import 'package:observable/observable.dart';
 
-import 'src/interfaces/selectable.dart';
-
-export 'src/delegating_selection_model.dart';
-export 'src/radio_group_single_selection_model.dart';
+export 'package:angular_components/src/model/selection/src/delegating_selection_model.dart';
+export 'package:angular_components/src/model/selection/src/radio_group_single_selection_model.dart';
 
 part 'src/multi_selection_model_impl.dart';
 part 'src/noop_selection_model_impl.dart';

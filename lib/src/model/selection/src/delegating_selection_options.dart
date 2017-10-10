@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import '../selection_options.dart';
+import 'package:angular_components/src/model/selection/selection_options.dart';
 
 /// A [SelectionOptions] implementation that delegates.
 class DelegatingSelectionOptions<T> implements SelectionOptions<T> {
