@@ -1,0 +1,89 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+$icon-size: $mat-grid * 3;
+$error-color: $mat-red-700;
+$error-text-color: #d34336;
+
+:host {
+  display: inline-flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: $icon-size;
+  overflow: hidden;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  line-height: initial;
+  overflow: hidden;
+
+  &.border {
+    border-bottom: 1px solid $mat-border-light;
+
+    // Throw some padding-bottom here so that the underline aligns with that of
+    // material-input.
+    padding-bottom: $mat-grid;
+
+    &.is-disabled {
+      border-bottom-style: dotted;
+    }
+
+    &.invalid {
+      border-bottom-color: $error-color;
+    }
+  }
+
+  &.is-disabled {
+    color: $mat-lighter-transparent-black;
+  }
+
+  .button-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.error-text {
+  color: $error-text-color;
+  font-size: $mat-caption-font-size;
+}
+
+// OK, so here's the thing. The dropdown arrow icon is actually pretty small,
+// but it still takes up 24x24px as far as the DOM is concerned. This isn't an
+// issue normally because it's all whitespace, so it looks fine.
+//
+// But in Chrome, the actual shape will be revealed if you tab into the dropdown
+// button, and it's pretty ugly. Setting overflow:hidden on the button will fix
+// that -- but then that breaks baseline alignment in Firefox!
+//
+// So here's a ridiculous hack to make it look nice in both Chrome and Firefox.
+@mixin icon-focus-highlight-hack {
+  // First let's set a smaller size on the glyph for the purposes of layout.
+  // The icon will still be visible thanks to a visible overflow.
+  $hacked-height: $icon-size / 2;
+  height: $hacked-height;
+
+  ::ng-deep i.material-icons-extended {
+    // Finally let's adjust the position of the glyph itself to compensate for
+    // the smaller size of the glyph element. (This assumes center alignment)
+    position: relative;
+    top: -($icon-size - $hacked-height) / 2;
+  }
+}
+
+.icon {
+  @include icon-focus-highlight-hack;
+
+  opacity: $mat-icon-opacity;
+  margin-top: -$icon-size / 2;
+  margin-bottom: -$icon-size / 2;
+}

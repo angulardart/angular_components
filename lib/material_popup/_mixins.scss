@@ -1,0 +1,68 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+$popup-border-radius: 2px;
+$bg-color: $mat-white;
+$bg-color-ink: $mat-grey-700;
+
+// Applies custom border radius on <material-popup>.
+//
+// NOTE: As with most mixins, you MUST scope the mixin or it will apply to all
+// material-popups on the page.
+//
+// Example Usage:
+//     <material-popup class="my-popup" ...>
+//     </material-popup>
+//
+//     .my-popup {
+//       @include material-popup-border-radius(4px 8px);
+//     }
+@mixin material-popup-border-radius($border-radius: $popup-border-radius) {
+  @include material-popup-style {
+    border-radius: $border-radius;
+  }
+}
+
+// Applies custom background-color on <material-popup>.
+//
+// NOTE: As with most mixins, you MUST scope the mixin or it will apply to all
+// material-popups on the page.
+//
+// Example Usage:
+//     <material-popup class="my-popup" ...>
+//     </material-popup>
+//
+//     .my-popup {
+//       @include material-popup-background-color($mat-green);
+//     }
+@mixin material-popup-background-color($bg-color) {
+  @include material-popup-style {
+    &.shadow {
+      background: $bg-color;
+    }
+  }
+}
+
+// Applies the given CSS to the material-popup .popup-wrapper element.
+//
+// NOTE: As with most mixins, you MUST scope the mixin or it will apply to all
+// material-popups on the page.
+//
+// Example:
+//
+//     <material-popup class="my-popup" ...>
+//     </material-popup>
+//
+//     .my-popup {
+//        @include material-popup-style {
+//          border-radius: 2px;
+//        }
+//      }
+@mixin material-popup-style {
+  ::ng-deep .popup-wrapper.mixin {
+    @content;
+  }
+}

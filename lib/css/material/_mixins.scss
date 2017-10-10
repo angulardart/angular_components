@@ -1,0 +1,50 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+/// Style all scrollbars within the scope to material spec.
+///
+/// $thumb-hover-color should be a Material color matching your app's theme.
+/// $scrollbar-size defines the height of horizontal scrollbars and the width of
+/// vertical scrollbars.
+/// $thumb-min-size defines the min height of vertical scrollbar thumbs and the
+/// min width of horizontal scrollbar thumbs.
+@mixin material-scrollbar-theme(
+    $thumb-hover-color,
+    $scrollbar-size: $mat-grid-type,
+    $thumb-min-size: 6 * $mat-grid) {
+  ::ng-deep ::-webkit-scrollbar {
+    background-color: $mat-scrollbar-background;
+
+    // Height only applies to horizontal scrollbars.
+    height: $scrollbar-size;
+
+    // Width only applies to vertical scrollbars.
+    width: $scrollbar-size;
+
+    &:hover {
+      background-color: $mat-scrollbar-background-hover;
+    }
+  }
+
+  ::ng-deep ::-webkit-scrollbar-thumb {
+    background-color: $mat-scrollbar-thumb;
+
+    // min-height only applies to vertical scrollbar thumbs.
+    min-height: $thumb-min-size;
+
+    // min-width only applies to horizontal scrollbar thumbs.
+    min-width: $thumb-min-size;
+
+    &:hover {
+      background-color: $thumb-hover-color;
+    }
+  }
+
+  ::ng-deep ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+}

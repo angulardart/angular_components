@@ -1,0 +1,110 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+// These styles are based on the Polymer paper spinner:
+// https://github.com/Polymer/paper-spinner/blob/master/paper-spinner.css
+
+$spinner-color: $mat-blue;
+$spinner-width: 28px;
+$stroke-width: 3px;
+
+:host {
+  animation: rotate 1568ms linear infinite;
+  border-color: $spinner-color;
+  display: inline-block;
+  height: $spinner-width;
+  position: relative;
+  vertical-align: middle;
+  width: $spinner-width;
+}
+
+.spinner {
+  animation: fill-unfill-rotate 5332ms $mat-transition-standard infinite both;
+  border-color: inherit;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  width: 100%;
+}
+
+.circle {
+  border-color: inherit;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 50%;
+
+  &::before {
+    border-bottom-color: transparent !important;
+    border-color: inherit;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: $stroke-width;
+    bottom: 0;
+    box-sizing: border-box;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200%;
+  }
+
+  &.left::before {
+    animation: left-spin 1333ms $mat-transition-standard infinite both;
+    border-right-color: transparent;
+    transform: rotate(129deg);
+  }
+
+  &.right::before {
+    animation: right-spin 1333ms $mat-transition-standard infinite both;
+    border-left-color: transparent;
+    left: -100%;
+    transform: rotate(-129deg);
+  }
+
+  &.gap {
+    height: 50%;
+    left: 45%;
+    position: absolute;
+    top: 0;
+    width: 10%;
+
+    &::before {
+      height: 200%;
+      left: -450%;
+      width: 1000%;
+    }
+  }
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fill-unfill-rotate {
+  12.5% { transform: rotate(135deg); }
+  25% { transform: rotate(270deg); }
+  37.5% { transform: rotate(405deg); }
+  50% { transform: rotate(540deg); }
+  62.5% { transform: rotate(675deg); }
+  75% { transform: rotate(810deg); }
+  87.5% { transform: rotate(945deg); }
+  to { transform: rotate(1080deg); }
+}
+
+@keyframes left-spin {
+  from { transform: rotate(130deg); }
+  50% { transform: rotate(-5deg); }
+  to { transform: rotate(130deg); }
+}
+
+@keyframes right-spin {
+  from { transform: rotate(-130deg); }
+  50% { transform: rotate(5deg); }
+  to { transform: rotate(-130deg); }
+}

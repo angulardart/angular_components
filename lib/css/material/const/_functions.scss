@@ -1,0 +1,43 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// #############################################################################
+//
+// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF
+// LIB/CSS/MATERIAL
+//
+// #############################################################################
+
+
+// It is not possible to place @imports within control statements. So we control
+// what css classes and extendable classes are visible through this directive
+// and a list.
+//
+// Usage for acx-example.scss:
+//
+//     $variable: "Does not have to be within export-once";
+//     @mixin also-can-be-outside() { }
+//
+//     @include export-once('acx-unique-string-name') {
+//       .class-you-only-want-imported-once { }
+//       %partial-you-only-want-imported-once { }
+//     }
+$export-list: () !default;
+
+@mixin export-once($export-name) {
+  @if (index($export-list, $export-name) == false) {
+    $export-list: append($export-list, $export-name);
+    @content;
+  }
+}
+
+// Creates a reference for the given file in either data or package url format,
+// depending on the value of the global variable $mat-option-inline-icons.
+@function mat-icon-image($file) {
+  @if $mat-option-inline-icons {
+    @return inline-image($file)
+  } @else {
+    @return url("package:#{$file}")
+  }
+}

@@ -1,0 +1,245 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// #############################################################################
+//
+// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF
+// LIB/CSS/MATERIAL
+//
+// #############################################################################
+
+// Typography constants
+// https://material.io/guidelines/style/typography.html
+
+// Roboto font stack.
+$mat-font-family: Roboto, Noto, sans-serif;
+
+// Font sizes
+$mat-font-size-display-4: 112px;
+$mat-font-size-display-3: 56px;
+$mat-font-size-display-2: 45px;
+$mat-font-size-display-1: 34px;
+$mat-font-size-headline: 24px;
+$mat-font-size-title: 20px;
+$mat-font-size-subhead: 15px;
+$mat-font-size-button: 14px;
+$mat-font-size-body: 13px;
+$mat-font-size-caption: 12px;
+
+// Font weights
+$mat-font-weight-thin: 100;
+$mat-font-weight-light: 300;
+$mat-font-weight-regular: 400;
+$mat-font-weight-medium: 500;
+$mat-font-weight-bold: 700;
+$mat-font-weight-black: 900;
+
+// Line heights
+$mat-font-leading-display-2: 48px;
+$mat-font-leading-display-1: 40px;
+$mat-font-leading-headline: 32px;
+$mat-font-leading-subhead-2: 28px;
+$mat-font-leading-subhead-1: 24px;
+$mat-font-leading-body-2: 24px;
+$mat-font-leading-body-1: 20px;
+
+// Converts tracking to letter-spacing.
+@function font-tracking($tracking) {
+  @return ($tracking / 1000) * 1em;
+}
+
+// Prevents text from wrapping.
+@mixin nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Typography styles.
+//
+// Each style mixin specifies at least:
+//   * color
+//   * font-family
+//   * font-size
+//   * font-style (reset to normal)
+//   * font-variant (reset to normal)
+//   * font-weight
+//   * letter-spacing
+//   * line-height
+//   * nowrap (for styles that should "exist as single lines")
+//
+// "/" in CSS font property has to be specified with #{} interpolation to
+// prevent the sass compiler from trying to perform division (goo.gl/H76dyp).
+
+@mixin mat-font-display-4 {
+  @include nowrap;
+
+  color: $mat-text-secondary;
+  font: $mat-font-weight-light $mat-font-size-display-4 #{"/"} 1em $mat-font-family;
+  letter-spacing: font-tracking(-10);
+}
+
+@mixin mat-font-display-3 {
+  @include nowrap;
+
+  color: $mat-text-secondary;
+  font: $mat-font-weight-regular $mat-font-size-display-3 #{"/"} 1em $mat-font-family;
+  letter-spacing: font-tracking(-5);
+}
+
+@mixin mat-font-display-2 {
+  color: $mat-text-secondary;
+  font: $mat-font-weight-regular $mat-font-size-display-2 #{"/"} $mat-font-leading-display-2 $mat-font-family;
+  letter-spacing: font-tracking(0);
+}
+
+@mixin mat-font-display-1 {
+  color: $mat-text-secondary;
+  font: $mat-font-weight-regular $mat-font-size-display-1 #{"/"} $mat-font-leading-display-1 $mat-font-family;
+  letter-spacing: font-tracking(0);
+}
+
+@mixin mat-font-headline {
+  color: $mat-text-primary;
+  font: $mat-font-weight-regular $mat-font-size-headline #{"/"} $mat-font-leading-headline $mat-font-family;
+  letter-spacing: font-tracking(0);
+}
+
+@mixin mat-font-title {
+  @include nowrap;
+
+  color: $mat-text-primary;
+  font: $mat-font-weight-medium $mat-font-size-title #{"/"} 1em $mat-font-family;
+  letter-spacing: font-tracking(5);
+}
+
+@mixin mat-font-subhead-2 {
+  color: $mat-text-primary;
+  font: $mat-font-weight-regular $mat-font-size-subhead #{"/"} $mat-font-leading-subhead-2 $mat-font-family;
+  letter-spacing: font-tracking(10);
+}
+
+@mixin mat-font-subhead {
+  color: $mat-text-primary;
+  font: $mat-font-weight-regular $mat-font-size-subhead #{"/"} $mat-font-leading-subhead-1 $mat-font-family;
+  letter-spacing: font-tracking(10);
+}
+
+@mixin mat-font-body-2 {
+  color: $mat-text-primary;
+  font: $mat-font-weight-medium $mat-font-size-body #{"/"} $mat-font-leading-body-2 $mat-font-family;
+  letter-spacing: font-tracking(10);
+}
+
+@mixin mat-font-body {
+  color: $mat-text-primary;
+  font: $mat-font-weight-regular $mat-font-size-body #{"/"} $mat-font-leading-body-1 $mat-font-family;
+  letter-spacing: font-tracking(10);
+}
+
+@mixin mat-font-caption {
+  @include nowrap;
+
+  color: $mat-text-secondary;
+  font: $mat-font-weight-regular $mat-font-size-caption #{"/"} 1em $mat-font-family;
+  letter-spacing: font-tracking(20);
+}
+
+@mixin mat-font-button {
+  @include nowrap;
+
+  color: $mat-text-primary;
+  font: $mat-font-weight-medium $mat-font-size-button #{"/"} 1em $mat-font-family;
+  letter-spacing: font-tracking(10);
+  text-transform: uppercase;
+}
+
+// Set link colors and styling.
+@mixin mat-link {
+  color: $mat-link-default;
+  cursor: pointer;
+  text-decoration: none;
+
+  // Order of link states must be `visited`, `hover` & `focus`, then `active`.
+
+  &:visited {
+    color: $mat-link-visited;
+  }
+
+  &:active {
+    color: $mat-link-active;
+  }
+}
+
+// Deprecated: use $mat-font-size-STYLE instead.
+// TODO(google): remove.
+$mat-display-4-font-size: $mat-font-size-display-4;
+$mat-display-3-font-size: $mat-font-size-display-3;
+$mat-display-2-font-size: $mat-font-size-display-2;
+$mat-display-1-font-size: $mat-font-size-display-1;
+$mat-headline-font-size: $mat-font-size-headline;
+$mat-title-font-size: $mat-font-size-title;
+$mat-subhead-font-size: $mat-font-size-subhead;
+$mat-button-font-size: $mat-font-size-button;
+$mat-body-font-size: $mat-font-size-body;
+$mat-caption-font-size: $mat-font-size-caption;
+
+// Deprecated: use the extended mixins, above.
+// TODO(google): remove.
+
+@mixin mat-type-display-4() {
+  font-size: $mat-display-4-font-size;
+  font-weight: $mat-font-weight-light;
+}
+
+@mixin mat-type-display-3() {
+  font-size: $mat-display-3-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-display-2() {
+  font-size: $mat-display-2-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-display-1() {
+  font-size: $mat-display-1-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-headline() {
+  font-size: $mat-headline-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-title() {
+  font-size: $mat-title-font-size;
+  font-weight: $mat-font-weight-medium;
+}
+
+@mixin mat-type-subhead() {
+  font-size: $mat-subhead-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-button() {
+  font-size: $mat-button-font-size;
+  font-weight: $mat-font-weight-medium;
+  text-transform: uppercase;
+}
+
+@mixin mat-type-body() {
+  font-size: $mat-body-font-size;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin mat-type-body-2() {
+  font-size: $mat-body-font-size;
+  font-weight: $mat-font-weight-medium;
+}
+
+@mixin mat-type-caption() {
+  font-size: $mat-caption-font-size;
+  font-weight: $mat-font-weight-regular;
+}

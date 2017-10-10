@@ -1,0 +1,91 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'mixins';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+@import 'package:angular_components/css/material/mixins';
+
+/// To get proper Material styling, the DOM of the component must have a
+/// `.shadow` element and toggle the class `visible`.
+.shadow {
+  @include material-shadow;
+  background: $bg-color;
+  border-radius: $popup-border-radius;
+  transition: transform $mat-transition $mat-transition-acceleration;
+  /*! @noflip */
+  transform-origin: top left;
+  transform: scale3d(0, 0, 1);
+  will-change: transform;
+
+  &[slide=x] {
+    /*! @noflip */
+    transform: scale3d(0, 1, 1);
+  }
+
+  &[slide=y] {
+    /*! @noflip */
+    transform: scale3d(1, 0, 1);
+  }
+
+  &.visible {
+    transition: transform $mat-transition $mat-transition-deceleration;
+    transform: scale3d(1, 1, 1);
+  }
+
+  &.ink {
+    background: $bg-color-ink;
+    color: $mat-white;
+  }
+
+  &.full-width {
+    flex-grow: 1;
+    flex-shrink: 1;
+    // Need auto to work in IE.
+    flex-basis: auto;
+  }
+
+  .popup {
+    border-radius: $popup-border-radius;
+    flex-grow: 1;
+    flex-shrink: 1;
+    // Need auto to work in IE.
+    flex-basis: auto;
+    overflow: hidden;
+    transition: inherit;
+  }
+
+  &.visible .popup {
+    visibility: initial;
+  }
+
+  header,
+  footer {
+    display: block;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+}
+
+:host {
+  @include material-scrollbar-theme($mat-blue);
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.material-popup-content {
+  max-width: inherit;
+  max-height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-wrapper {
+  width: 100%;
+}

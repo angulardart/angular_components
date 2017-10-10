@@ -94,7 +94,7 @@ imports in your sass files.
   In your `.scss` files:
 
   ```scss
-  @import 'package:angular_components/src/css/material/material';
+  @import 'package:angular_components/css/material/material';
 
   .blue {
     color: $mat-blue;

@@ -1,0 +1,19 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// #############################################################################
+//
+// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF
+// LIB/CSS/MATERIAL
+//
+// #############################################################################
+
+// Global material imports, settings, variables, mixins and functions.
+
+@import 'functions';
+@import 'color';
+@import 'palette';
+@import 'settings';
+@import 'mixins';
+@import 'typography';

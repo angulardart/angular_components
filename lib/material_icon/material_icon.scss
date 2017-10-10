@@ -1,0 +1,86 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'mixins';
+@import 'package:angular_components/css/material/material';
+
+$x-small: 12px;
+$small: 13px;
+$medium: 16px;
+$large: 18px;
+$x-large: 20px;
+$default: 24px;
+
+:host {
+  display: inline-flex;
+
+  &[light] {
+    opacity: $mat-icon-opacity;
+  }
+
+  @include material-icon-size($default);
+
+  &[size="x-small"] {
+    @include material-icon-size($x-small);
+  }
+
+  &[size="small"] {
+    @include material-icon-size($small);
+  }
+
+  &[size="medium"] {
+    @include material-icon-size($medium);
+  }
+
+  &[size="large"] {
+    @include material-icon-size($large);
+  }
+
+  &[size="x-large"] {
+    @include material-icon-size($x-large);
+  }
+}
+
+.material-icon-i {
+  height: 1em;
+  line-height: 1;
+  width: 1em;
+}
+
+:host-context([dir="rtl"])[flip] .material-icon-i {
+  transform: scaleX(-1);
+}
+
+// Add the `baseline` attribute on the icon element if the icon needs to be
+// aligned to the baseline.
+//
+// E.g. <material-icon baseline icon="add"></material-icon>
+//
+// In a flex or inline layout, the baseline of this element by default is
+// the bottom margin since the element doesn't have any displayed text to
+// calculate the baseline from. Thus, the icon is always positioned too high
+// relative to other baseline-positioned elements. Adding the `baseline`
+// attribute to the icon HTML element will insert a shim text element that will
+// implicitly set the icon baseline to the slightly below the center of the
+// icon.
+//
+// This issue arises because the material icons extended font sets a descent
+// value of 0, which means the baseline is set to the bottom of the icon.
+:host[baseline] {
+  align-items: center;
+
+  &::before {
+    content: '-';
+    display: inline-block;
+    width: 0;
+    visibility: hidden;
+  }
+
+  .material-icon-i {
+    // Set a bottom margin so icon baseline is near the expected position of a
+    // font rather than through the middle. Use `em` to be icon
+    // font-size-independent.
+    margin-bottom: .1em;
+  }
+}

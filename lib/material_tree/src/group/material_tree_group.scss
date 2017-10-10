@@ -1,0 +1,70 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_list/mixins';
+
+$tree-item-right-padding: $mat-grid * 2;
+
+// Hide the very top border. Doesn't separate anything - may be unwanted,
+// and is easy for users to add themselves if desired
+:host:first-of-type li:first-of-type .root-border {
+  opacity: 0;
+}
+// Low specificity selector to style the border
+.material-tree-border {
+  background: $mat-grey-300;
+  display: none;
+  height: 1px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .material-tree-item {
+    @include list-item-button;
+    padding-right: $tree-item-right-padding;
+
+    > .material-tree-shift {
+      position: relative;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      // Prevent widest elements from shrinking
+      > * {
+        flex-shrink: 0;
+      }
+
+      .tree-selection-state + .material-tree-border {
+        left: $list-item-primary-width;
+      }
+    }
+
+    .tree-expansion-state {
+      display: inline-flex;
+      margin-left: auto;
+    }
+
+    .tree-selection-state {
+      display: inline-flex;
+      vertical-align: middle;
+      width: $list-item-primary-width;
+    }
+
+    .disabled-item {
+      color: $mat-gray;
+    }
+
+    glyph {
+      opacity: $mat-opacity-light;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// SASS mixins that deal with the material tab panel.
+
+@import 'package:angular_components/css/material/material';
+
+// Allows users of the tab panel component to define the width and tab
+// colors(selected and unselected) for the tabs in the panel.
+//
+// Example usage:
+//
+// @include tab-panel-tab-width('component', $tab-width);
+// @include tab-panel-color('component', $color, $accent-color);
+
+$_panelNaviBar: 'material-tab-panel.themeable .navi-bar';
+$_naviBtn: 'material-button.navi-button';
+$_naviBtnSel: 'material-button[aria-selected=true].navi-button';
+
+$_fixedStripNaviBar: 'material-tab-strip.themeable .navi-bar';
+$_scrollingStripNaviBar:
+    'scrolling-material-tab-strip.themeable .navi-bar';
+$_tabBtnSel: '.tab-button';
+$_activeTabBtnSel: $_tabBtnSel + '.active';
+$_focusTabBtnSel: $_tabBtnSel + '.focus';
+
+/// Sets the width of the tab-strip within a tab panel.
+@mixin tab-panel-tab-strip-width($selector, $tab-width) {
+  #{$selector} ::ng-deep material-tab-strip {
+    width: $tab-width;
+  }
+}
+
+// Tab Panel
+// Sets the dafault color, selected tab color and selected tab indicator color
+// @Deprecated: use tab-strip-color directly instead.
+@mixin tab-panel-color($selector, $color, $accent-color) {
+  @include tab-panel-tab-color($selector, $color);
+  @include tab-panel-accent-color($selector, $accent-color);
+}
+
+// Sets the selected tab color and selected tab indicator color
+// @Deprecated: use tab-strip-accent-color directly.
+@mixin tab-panel-accent-color($selector, $accent-color) {
+  @include tab-strip-accent-color($selector, $accent-color);
+}
+
+// Sets the default tab color
+// @Deprecated: use tab-strip-tab-color directly.
+@mixin tab-panel-tab-color($selector, $color) {
+  @include tab-strip-tab-color($selector, $color);
+}
+
+// Sets the selected tab color
+// @Deprecated: use tab-strip-selected-tab-color directly.
+@mixin tab-panel-selected-tab-color($selector, $color) {
+  @include tab-strip-selected-tab-color($selector, $color);
+}
+
+// Sets the selected tab indicator color
+// @Deprecated: use tab-strip-indicator-color directly.
+@mixin tab-panel-indicator-color($selector, $accent-color) {
+  @include tab-strip-indicator-color($selector, $accent-color);
+}
+
+// Tab Strip
+// Sets the dafault color, selected tab color and selected tab indicator color
+@mixin tab-strip-color($selector, $color, $accent-color) {
+  @include tab-strip-tab-color($selector, $color);
+  @include tab-strip-accent-color($selector, $accent-color);
+}
+
+// Sets the selected tab color and selected tab indicator color
+@mixin tab-strip-accent-color($selector, $accent-color) {
+  @include tab-strip-selected-tab-color($selector, $accent-color);
+  @include tab-strip-indicator-color($selector, $accent-color);
+}
+
+// Sets the default tab color
+@mixin tab-strip-tab-color($selector, $color) {
+  ::ng-deep #{$selector} #{$_fixedStripNaviBar} #{$_tabBtnSel} {
+    color: $color;
+  }
+
+  ::ng-deep #{$selector} #{$_scrollingStripNaviBar} #{$_tabBtnSel} {
+    color: $color;
+  }
+}
+
+// Sets the selected tab color
+@mixin tab-strip-selected-tab-color($selector, $color) {
+  ::ng-deep #{$selector} #{$_fixedStripNaviBar} #{$_activeTabBtnSel},
+  ::ng-deep #{$selector} #{$_fixedStripNaviBar} #{$_focusTabBtnSel} {
+    color: $color;
+  }
+
+  ::ng-deep #{$selector} #{$_scrollingStripNaviBar} #{$_activeTabBtnSel},
+  ::ng-deep #{$selector} #{$_scrollingStripNaviBar} #{$_focusTabBtnSel} {
+    color: $color;
+  }
+}
+
+// Sets the selected tab indicator color
+@mixin tab-strip-indicator-color($selector, $accent-color) {
+  ::ng-deep #{$selector} #{$_fixedStripNaviBar} .tab-indicator {
+    background: $accent-color;
+  }
+
+  ::ng-deep #{$selector} #{$_scrollingStripNaviBar} .tab-indicator {
+    background: $accent-color;
+  }
+}
+
+// Completely hide the scroll buttons when they aren't needed, instead of
+// making them invisible and leaving a blank space.
+@mixin tab-strip-hide-scroll-buttons() {
+  ::ng-deep .scroll-button.hide {
+    display: none;
+  }
+}
+
+// Allow the text inside the tab to break into lines.
+@mixin allow-text-wrap {
+  ::ng-deep > .content {
+    text-overflow: initial;
+    white-space: initial;
+  }
+}

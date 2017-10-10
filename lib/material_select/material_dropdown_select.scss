@@ -1,0 +1,31 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'mixins';
+@import 'package:angular_components/material_list/mixins';
+
+:host {
+  display: inline-flex;
+}
+
+::ng-deep material-dropdown-select material-list // deep required
+  material-list-item-dropdown material-list-item > [list-item] {
+  // offset labels for cascade parent items so that they align with normal
+  // select items, which have a 36px wide glyph "in front" of their label
+  margin-left: $list-item-primary-width;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+
+  .options-wrapper {
+    flex-direction: column;
+
+    [label] {
+      @include select-item-padding;
+    }
+  }
+}

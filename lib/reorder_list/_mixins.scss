@@ -1,0 +1,38 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+$item-border-width: 1px;
+$item-border-color: $mat-teal-500;
+$item-border-style: dashed;
+
+/// Changes the `item-selected` in the reorder-list.
+///
+/// Optionally specify a `$selector`. Example usage:
+///     @include reorder-list-theme(
+///          $selector: 'table-view',
+///          $item-selected-border-color: $mat-teal-500,
+///          $item-selected-border-width: 2px,
+///          $item-selected-border-style: solid
+///         );
+
+@mixin reorder-list-multiselect-theme(
+    $selector: '',
+    $selected-border-color: $item-border-color,
+    $selected-border-width: $item-border-width,
+    $selected-border-style: $item-border-style
+    ) {
+
+  #{$selector} ::ng-deep reorder-list.themeable {
+    >[draggable] {
+      outline: none;
+    }
+
+    .item-selected {
+      border: $selected-border-width $selected-border-style $selected-border-color;
+      user-select: none;
+    }
+  }
+}

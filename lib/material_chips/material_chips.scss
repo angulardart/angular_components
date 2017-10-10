@@ -1,0 +1,23 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-around;
+
+  margin: 0;
+  padding: 0;
+  position: relative;
+  vertical-align: top;
+}
+
+material-chip:last-of-type {
+  margin-right: $mat-grid * 2;
+}

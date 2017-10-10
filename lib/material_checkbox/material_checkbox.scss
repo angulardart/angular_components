@@ -1,0 +1,86 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+// Adjust margin to keep icon and ripple centered.
+$margin-top: -1px;
+$ripple-left: -$mat-grid;
+$ripple-top: -$mat-grid;
+
+:host {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  margin: $mat-grid;
+
+  &[no-ink] material-ripple {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // Checkbox is disabled.
+  &.disabled {
+    cursor: not-allowed;
+
+    > .content {
+      color: $mat-light-transparent-black;
+    }
+
+    > .icon-container > .icon {
+      color: $mat-lightest-transparent-black;
+    }
+  }
+}
+
+.icon-container {
+  display: flex;
+  position: relative;
+
+  &.focus::after,
+  .ripple {
+    color: $mat-grey-500;
+    $size: $mat-grid * 5;
+    border-radius: $size / 2;
+    height: $size;
+    left: $ripple-left;
+    position: absolute;
+    top: $ripple-top;
+    width: $size;
+  }
+
+  &.focus::after {
+    content: '';
+    display: block;
+    background-color: currentColor;
+    opacity: $mat-divider-opacity;
+  }
+}
+
+.icon {
+  opacity: $mat-icon-opacity;
+  margin-top: $margin-top;
+
+  // Checked & indeterminate icon styling
+  &.filled {
+    color: $mat-blue-500;
+    opacity: $mat-opacity-strong;
+    margin-top: $margin-top;
+  }
+}
+
+.content {
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+
+  margin-left: $mat-grid;
+  overflow-x: hidden;
+  padding: 1px 0; // for content that has border, like an underline
+  text-overflow: ellipsis;
+}

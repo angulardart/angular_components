@@ -1,0 +1,114 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'mixins';
+@import 'package:angular_components/css/material/material';
+
+// Colors.
+// --------
+// 6% Black.
+$color-hover-grey: rgba(0, 0, 0, .06);
+
+// Fonts.
+$font-size-app: $mat-body-font-size;
+$font-size-app-big: $mat-button-font-size;
+$font-size-heading: 32px;
+$font-size-heading-big: $mat-display-1-font-size;
+
+:host {
+  color: $mat-transparent-black;
+  display: inline-block;
+  font-size: $font-size-app;
+  padding: $mat-grid * 3;
+  position: relative;
+
+  &:hover {
+    &.selectable {
+      cursor: pointer;
+    }
+
+    &:not(.selected) {
+      background: $color-hover-grey;
+    }
+  }
+
+  &:not(.selected) {
+    &.is-change-positive {
+      .description {
+        color: $acx-positive-increase-color;
+      }
+    }
+
+    &.is-change-negative {
+      .description {
+        color: $acx-negative-decrease-color;
+      }
+    }
+  }
+
+  &.selected {
+    color: $mat-white;
+
+    .description,
+    .suggestion {
+      color: $mat-white;
+    }
+  }
+
+  &.right-align {
+    text-align: right;
+  }
+
+  &.extra-big {
+    margin: 0;
+    padding: $mat-grid * 3;
+
+    h3 {
+      font-size: $font-size-app-big;
+      padding-bottom: $mat-grid / 2;
+    }
+
+    h2 {
+      font-size: $font-size-heading-big;
+    }
+
+    .description {
+      padding-top: $mat-grid / 2;
+      font-size: $font-size-app-big;
+      display: block;
+    }
+  }
+}
+
+h3,
+h2 {
+  clear: both;
+  color: inherit;
+  font-weight: normal;
+  line-height: initial;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+h3 {
+  font-size: $font-size-app;
+  padding-bottom: $mat-grid;
+}
+
+h2 {
+  font-size: $font-size-heading;
+}
+
+.description,
+.suggestion {
+  color: $mat-light-transparent-black;
+  padding-top: $mat-grid;
+}
+
+.change-glyph {
+  color: $acx-neutral-increase-color;
+  display: inline-block;
+}

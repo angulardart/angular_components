@@ -1,0 +1,527 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// #############################################################################
+//
+// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF
+// LIB/CSS/MATERIAL
+//
+// #############################################################################
+
+
+/// Material color definitions are based on a "Pantone" scale of light to dark.
+/// 50 is the lightest, while 900 is about the darkest a color can be. In most
+/// cases a color without a weight value will be the 500 weight variant.
+///
+/// Examples and variants:
+///
+///       / Material prefix
+///      |         / Color
+///      |        |      / Weight (50-900)
+///     $mat-light-blue-500
+///
+///                      / Accent weight variant
+///     $mat-light-blue-A500
+///
+/// Detailed color palettes are here. See the FAQ and more info sections for
+/// more information on the AA and AAA W3 readability terminology.
+///
+/// * https://material.io/guidelines/style/color.html
+
+$mat-black: #000;
+$mat-white: #fff;
+
+// Opacities to be used on a light background
+$mat-opacity-strong: .87; // Standard opacity unless otherwise listed.
+$mat-opacity-light: .54;
+$mat-opacity-lighter: .38;
+$mat-opacity-lightest: .26;
+
+// Opacities to be used on a dark background
+$mat-dark-opacity-strong: 1;
+$mat-dark-opacity-light: .7;
+$mat-dark-opacity-lighter: .5;
+$mat-dark-opacity-lightest: .3;
+
+$mat-ripple-opacity: .14;
+$mat-divider-opacity: .12;
+
+/// Semi-transparent black/white text as used in most material specs.
+// note: those rgba is sass function that is translated to browser rgba.
+$mat-transparent-black: rgba($mat-black, $mat-opacity-strong);
+$mat-transparent-white: rgba($mat-white, $mat-dark-opacity-strong);
+$mat-light-transparent-black: rgba($mat-black, $mat-opacity-light);
+$mat-light-transparent-white: rgba($mat-white, $mat-dark-opacity-light);
+$mat-lighter-transparent-black: rgba($mat-black, $mat-opacity-lighter);
+$mat-lighter-transparent-white: rgba($mat-white, $mat-dark-opacity-lighter);
+$mat-lightest-transparent-black: rgba($mat-black, $mat-opacity-lightest);
+$mat-lightest-transparent-white: rgba($mat-white, $mat-dark-opacity-lightest);
+
+/// Light and dark colors for `border-color`.
+$mat-border-light: rgba($mat-black, $mat-divider-opacity);
+$mat-border-dark: rgba($mat-white, $mat-divider-opacity);
+$mat-border-dotted-light: $mat-lightest-transparent-black;
+
+// Text colors
+// https://material.io/guidelines/style/color.html#color-usability
+$mat-text-primary: $mat-transparent-black;
+$mat-text-secondary: $mat-light-transparent-black;
+$mat-text-hint: $mat-lighter-transparent-black;
+$mat-text-disabled: $mat-lighter-transparent-black;
+$mat-text-divider: $mat-border-light;
+
+$mat-text-dark-primary: $mat-transparent-white;
+$mat-text-dark-secondary: $mat-light-transparent-white;
+$mat-text-dark-hint: $mat-lighter-transparent-white;
+$mat-text-dark-disabled: $mat-lighter-transparent-white;
+$mat-text-dark-divider: $mat-border-dark;
+
+// Icon colors
+// https://material.io/guidelines/style/icons.html
+$mat-icon-focused: $mat-transparent-black;
+$mat-icon: $mat-light-transparent-black;
+$mat-icon-inactive: $mat-lighter-transparent-black;
+
+$mat-icon-dark-focused: $mat-transparent-white;
+$mat-icon-dark: $mat-light-transparent-white;
+$mat-icon-dark-inactive: $mat-lighter-transparent-white;
+
+/// Common colors for scrollbars.
+/// Note: Prefer using @mixin material-scrollbars(...).
+$mat-scrollbar-thumb: $mat-lightest-transparent-black;
+$mat-scrollbar-background: rgba($mat-black, 0);
+$mat-scrollbar-background-hover: rgba($mat-black, .12);
+
+/// Google Red
+$mat-red-50: #fbe9e7;
+$mat-red-100: #f4c7c3;
+$mat-red-200: #eda29b;
+$mat-red-300: #e67c73;
+$mat-red-400: #e06055;
+$mat-red-500: #db4437;
+$mat-red-600: #d23f31;
+$mat-red-700: #c53929;
+$mat-red-800: #b93221;
+$mat-red-900: #a52714;
+
+$mat-red-A100: #ff8a80;
+$mat-red-A200: #ff5252;
+$mat-red-A400: #ff1744;
+$mat-red-A700: #d50000;
+$mat-red: $mat-red-500;
+
+/// Pinks
+$mat-pink-50: #fce4ec;
+$mat-pink-100: #f8bbd0;
+$mat-pink-200: #f48fb1;
+$mat-pink-300: #f06292;
+$mat-pink-400: #ec407a;
+$mat-pink-500: #e91e63;
+$mat-pink-600: #d81b60;
+$mat-pink-700: #c2185b;
+$mat-pink-800: #ad1457;
+$mat-pink-900: #880e4f;
+
+$mat-pink-A100: #ff80ab;
+$mat-pink-A200: #ff4081;
+$mat-pink-A400: #f50057;
+$mat-pink-A700: #c51162;
+$mat-pink: $mat-pink-500;
+
+/// Purples
+$mat-purple-50: #f3e5f5;
+$mat-purple-100: #e1bee7;
+$mat-purple-200: #ce93d8;
+$mat-purple-300: #ba68c8;
+$mat-purple-400: #ab47bc;
+$mat-purple-500: #9c27b0;
+$mat-purple-600: #8e24aa;
+$mat-purple-700: #7b1fa2;
+$mat-purple-800: #6a1b9a;
+$mat-purple-900: #4a148c;
+
+$mat-purple-A100: #ea80fc;
+$mat-purple-A200: #e040fb;
+$mat-purple-A400: #d500f9;
+$mat-purple-A700: #aa00ff;
+$mat-purple: $mat-purple-500;
+
+
+/// Deep Purples
+$mat-deep-purple-50: #ede7f6;
+$mat-deep-purple-100: #d1c4e9;
+$mat-deep-purple-200: #b39ddb;
+$mat-deep-purple-300: #9575cd;
+$mat-deep-purple-400: #7e57c2;
+$mat-deep-purple-500: #673ab7;
+$mat-deep-purple-600: #5e35b1;
+$mat-deep-purple-700: #512da8;
+$mat-deep-purple-800: #4527a0;
+$mat-deep-purple-900: #311b92;
+
+$mat-deep-purple-A100: #b388ff;
+$mat-deep-purple-A200: #7c4dff;
+$mat-deep-purple-A400: #651fff;
+$mat-deep-purple-A700: #6200ea;
+$mat-deep-purple: $mat-deep-purple-500;
+
+
+/// Indigo
+$mat-indigo-50: #e8eaf6;
+$mat-indigo-100: #c5cae9;
+$mat-indigo-200: #9fa8da;
+$mat-indigo-300: #7986cb;
+$mat-indigo-400: #5c6bc0;
+$mat-indigo-500: #3f51b5;
+$mat-indigo-600: #3949ab;
+$mat-indigo-700: #303f9f;
+$mat-indigo-800: #283593;
+$mat-indigo-900: #1a237e;
+
+$mat-indigo-A100: #8c9eff;
+$mat-indigo-A200: #536dfe;
+$mat-indigo-A400: #3d5afe;
+$mat-indigo-A700: #304ffe;
+$mat-indigo: $mat-indigo-500;
+
+
+/// Google Blue
+$mat-blue-50: #e8f0fe;
+$mat-blue-100: #c6dafc;
+$mat-blue-200: #a1c2fa;
+$mat-blue-300: #7baaf7;
+$mat-blue-400: #5e97f6;
+$mat-blue-500: #4285f4;
+$mat-blue-600: #3b78e7;
+$mat-blue-700: #3367d6;
+$mat-blue-800: #2a56c6;
+$mat-blue-900: #1c3aa9;
+
+$mat-blue-A100: #82b1ff;
+$mat-blue-A200: #448aff;
+$mat-blue-A400: #2979ff;
+$mat-blue-A700: #2962ff;
+$mat-blue: $mat-blue-500;
+
+
+/// Light Blues
+$mat-light-blue-50: #e1f5fe;
+$mat-light-blue-100: #b3e5fc;
+$mat-light-blue-200: #81d4fa;
+$mat-light-blue-300: #4fc3f7;
+$mat-light-blue-400: #29b6f6;
+$mat-light-blue-500: #03a9f4;
+$mat-light-blue-600: #039be5;
+$mat-light-blue-700: #0288d1;
+$mat-light-blue-800: #0277bd;
+$mat-light-blue-900: #01579b;
+
+$mat-light-blue-A100: #80d8ff;
+$mat-light-blue-A200: #40c4ff;
+$mat-light-blue-A400: #00b0ff;
+$mat-light-blue-A700: #0091ea;
+$mat-light-blue: $mat-light-blue-500;
+
+
+/// Cyan
+$mat-cyan-50: #e0f7fa;
+$mat-cyan-100: #b2ebf2;
+$mat-cyan-200: #80deea;
+$mat-cyan-300: #4dd0e1;
+$mat-cyan-400: #26c6da;
+$mat-cyan-500: #00bcd4;
+$mat-cyan-600: #00acc1;
+$mat-cyan-700: #0097a7;
+$mat-cyan-800: #00838f;
+$mat-cyan-900: #006064;
+
+$mat-cyan-A100: #84ffff;
+$mat-cyan-A200: #18ffff;
+$mat-cyan-A400: #00e5ff;
+$mat-cyan-A700: #00b8d4;
+$mat-cyan: $mat-cyan-500;
+
+
+/// Teals
+$mat-teal-50: #e0f2f1;
+$mat-teal-100: #b2dfdb;
+$mat-teal-200: #80cbc4;
+$mat-teal-300: #4db6ac;
+$mat-teal-400: #26a69a;
+$mat-teal-500: #009688;
+$mat-teal-600: #00897b;
+$mat-teal-700: #00796b;
+$mat-teal-800: #00695c;
+$mat-teal-900: #004d40;
+
+$mat-teal-A100: #a7ffeb;
+$mat-teal-A200: #64ffda;
+$mat-teal-A400: #1de9b6;
+$mat-teal-A700: #00bfa5;
+$mat-teal: $mat-teal-500;
+
+
+/// Google Green
+$mat-green-50: #e2f3eb;
+$mat-green-100: #b7e1cd;
+$mat-green-200: #87ceac;
+$mat-green-300: #57bb8a;
+$mat-green-400: #33ac71;
+$mat-green-500: #0f9d58;
+$mat-green-600: #0d904f;
+$mat-green-700: #0b8043;
+$mat-green-800: #097138;
+$mat-green-900: #055524;
+
+$mat-green-A100: #b9f6ca;
+$mat-green-A200: #69f0ae;
+$mat-green-A400: #00e676;
+$mat-green-A700: #00c853;
+$mat-green: $mat-green-500;
+
+
+
+/// Light Greens
+$mat-light-green-50: #f1f8e9;
+$mat-light-green-100: #dcedc8;
+$mat-light-green-200: #c5e1a5;
+$mat-light-green-300: #aed581;
+$mat-light-green-400: #9ccc65;
+$mat-light-green-500: #8bc34a;
+$mat-light-green-600: #7cb342;
+$mat-light-green-700: #689f38;
+$mat-light-green-800: #558b2f;
+$mat-light-green-900: #33691e;
+
+$mat-light-green-A100: #ccff90;
+$mat-light-green-A200: #b2ff59;
+$mat-light-green-A400: #76ff03;
+$mat-light-green-A700: #64dd17;
+$mat-light-green: $mat-light-green-500;
+
+/// Limes
+$mat-lime-50: #f9fbe7;
+$mat-lime-100: #f0f4c3;
+$mat-lime-200: #e6ee9c;
+$mat-lime-300: #dce775;
+$mat-lime-400: #d4e157;
+$mat-lime-500: #cddc39;
+$mat-lime-600: #c0ca33;
+$mat-lime-700: #afb42b;
+$mat-lime-800: #9e9d24;
+$mat-lime-900: #827717;
+
+$mat-lime-A100: #f4ff81;
+$mat-lime-A200: #eeff41;
+$mat-lime-A400: #c6ff00;
+$mat-lime-A700: #aeea00;
+$mat-lime: $mat-lime-500;
+
+/// Yellows
+$mat-yellow-50: #fffde7;
+$mat-yellow-100: #fff9c4;
+$mat-yellow-200: #fff59d;
+$mat-yellow-300: #fff176;
+$mat-yellow-400: #ffee58;
+$mat-yellow-500: #ffeb3b;
+$mat-yellow-600: #fdd835;
+$mat-yellow-700: #fbc02d;
+$mat-yellow-800: #f9a825;
+$mat-yellow-900: #f57f17;
+
+$mat-yellow-A100: #ffff8d;
+$mat-yellow-A200: #ffff00;
+$mat-yellow-A400: #ffea00;
+$mat-yellow-A700: #ffd600;
+$mat-yellow: $mat-yellow-500;
+
+/// Google Yellow
+$mat-google-yellow-50: #fef6e0;
+$mat-google-yellow-100: #fce8b2;
+$mat-google-yellow-200: #fada80;
+$mat-google-yellow-300: #f7cb4d;
+$mat-google-yellow-400: #f6bf26;
+$mat-google-yellow-500: #f4b400;
+$mat-google-yellow-600: #f2a600;
+$mat-google-yellow-700: #f09300;
+$mat-google-yellow-800: #ee8100;
+$mat-google-yellow-900: #ea6100;
+
+$mat-google-yellow-A100: #ffde80;
+$mat-google-yellow-A200: #ffcd40;
+$mat-google-yellow-A400: #ffbc00;
+$mat-google-yellow-A700: #ff9e00;
+$mat-google-yellow: $mat-google-yellow-500;
+
+/// Oranges
+$mat-orange-50: #fff3e0;
+$mat-orange-100: #ffe0b2;
+$mat-orange-200: #ffcc80;
+$mat-orange-300: #ffb74d;
+$mat-orange-400: #ffa726;
+$mat-orange-500: #ff9800;
+$mat-orange-600: #fb8c00;
+$mat-orange-700: #f57c00;
+$mat-orange-800: #ef6c00;
+$mat-orange-900: #e65100;
+
+$mat-orange-A100: #ffd180;
+$mat-orange-A200: #ffab40;
+$mat-orange-A400: #ff9100;
+$mat-orange-A700: #ff6d00;
+$mat-orange: $mat-orange-500;
+
+/// Deep Oranges
+$mat-deep-orange-50: #fbe9e7;
+$mat-deep-orange-100: #ffccbc;
+$mat-deep-orange-200: #ffab91;
+$mat-deep-orange-300: #ff8a65;
+$mat-deep-orange-400: #ff7043;
+$mat-deep-orange-500: #ff5722;
+$mat-deep-orange-600: #f4511e;
+$mat-deep-orange-700: #e64a19;
+$mat-deep-orange-800: #d84315;
+$mat-deep-orange-900: #bf360c;
+
+$mat-deep-orange-A100: #ff9e80;
+$mat-deep-orange-A200: #ff6e40;
+$mat-deep-orange-A400: #ff3d00;
+$mat-deep-orange-A700: #dd2c00;
+$mat-deep-orange: $mat-deep-orange-500;
+
+/// Browns
+$mat-brown-50: #efebe9;
+$mat-brown-100: #d7ccc8;
+$mat-brown-200: #bcaaa4;
+$mat-brown-300: #a1887f;
+$mat-brown-400: #8d6e63;
+$mat-brown-500: #795548;
+$mat-brown-600: #6d4c41;
+$mat-brown-700: #5d4037;
+$mat-brown-800: #4e342e;
+$mat-brown-900: #3e2723;
+$mat-brown: $mat-brown-500;
+
+/// Greys
+$mat-grey-50: #fafafa;
+$mat-grey-100: #f5f5f5;
+$mat-grey-200: #eeeeee;
+$mat-grey-300: #e0e0e0;
+$mat-grey-400: #bdbdbd;
+$mat-grey-500: #9e9e9e;
+$mat-grey-600: #757575;
+$mat-grey-700: #616161;
+$mat-grey-800: #424242;
+$mat-grey-900: #212121;
+$mat-grey: $mat-grey-500;
+
+$mat-gray-50: $mat-grey-50;
+$mat-gray-100: $mat-grey-100;
+$mat-gray-200: $mat-grey-200;
+$mat-gray-300: $mat-grey-300;
+$mat-gray-400: $mat-grey-400;
+$mat-gray-500: $mat-grey-500;
+$mat-gray-600: $mat-grey-600;
+$mat-gray-700: $mat-grey-700;
+$mat-gray-800: $mat-grey-800;
+$mat-gray-900: $mat-grey-900;
+$mat-gray: $mat-gray-500;
+
+
+/// Blue Greys
+$mat-blue-grey-50: #eceff1;
+$mat-blue-grey-100: #cfd8dc;
+$mat-blue-grey-200: #b0bec5;
+$mat-blue-grey-300: #90a4ae;
+$mat-blue-grey-400: #78909c;
+$mat-blue-grey-500: #607d8b;
+$mat-blue-grey-600: #546e7a;
+$mat-blue-grey-700: #455a64;
+$mat-blue-grey-800: #37474f;
+$mat-blue-grey-900: #263238;
+$mat-blue-grey: $mat-blue-grey-500;
+
+
+/// Vanilla colors listed in external facing spec
+
+/// Reds
+$mat-vanilla-red-50: #fde0dc;
+$mat-vanilla-red-100: #f9bdbb;
+$mat-vanilla-red-200: #f69988;
+$mat-vanilla-red-300: #f36c60;
+$mat-vanilla-red-400: #e84e40;
+$mat-vanilla-red-500: #e51c23;
+$mat-vanilla-red-600: #dd191d;
+$mat-vanilla-red-700: #d01716;
+$mat-vanilla-red-800: #c41411;
+$mat-vanilla-red-900: #b0120a;
+
+$mat-vanilla-red-A100: #ff7997;
+$mat-vanilla-red-A200: #ff5177;
+$mat-vanilla-red-A400: #ff2d6f;
+$mat-vanilla-red-A700: #e00032;
+$mat-vanilla-red: $mat-vanilla-red-500;
+
+/// Greens
+$mat-vanilla-green-50: #d0f8ce;
+$mat-vanilla-green-100: #a3e9a4;
+$mat-vanilla-green-200: #72d572;
+$mat-vanilla-green-300: #42bd41;
+$mat-vanilla-green-400: #2baf2b;
+$mat-vanilla-green-500: #259b24;
+$mat-vanilla-green-600: #0a8f08;
+$mat-vanilla-green-700: #0a7e07;
+$mat-vanilla-green-800: #056f00;
+$mat-vanilla-green-900: #0d5302;
+
+$mat-vanilla-green-A100: #a2f78d;
+$mat-vanilla-green-A200: #5af158;
+$mat-vanilla-green-A400: #14e715;
+$mat-vanilla-green-A700: #12c700;
+$mat-vanilla-green: $mat-vanilla-green-500;
+
+/// Blues
+$mat-vanilla-blue-50: #e7e9fd;
+$mat-vanilla-blue-100: #d0d9ff;
+$mat-vanilla-blue-200: #afbfff;
+$mat-vanilla-blue-300: #91a7ff;
+$mat-vanilla-blue-400: #738ffe;
+$mat-vanilla-blue-500: #5677fc;
+$mat-vanilla-blue-600: #4e6cef;
+$mat-vanilla-blue-700: #455ede;
+$mat-vanilla-blue-800: #3b50ce;
+$mat-vanilla-blue-900: #2a36b1;
+
+$mat-vanilla-blue-A100: #a6baff;
+$mat-vanilla-blue-A200: #6889ff;
+$mat-vanilla-blue-A400: #4d73ff;
+$mat-vanilla-blue-A700: #4d69ff;
+$mat-vanilla-blue: $mat-vanilla-blue-500;
+
+/// Ambers
+$mat-amber-50: #fff8e1;
+$mat-amber-100: #ffecb3;
+$mat-amber-200: #ffe082;
+$mat-amber-300: #ffd54f;
+$mat-amber-400: #ffca28;
+$mat-amber-500: #ffc107;
+$mat-amber-600: #ffb300;
+$mat-amber-700: #ffa000;
+$mat-amber-800: #ff8f00;
+$mat-amber-900: #ff6f00;
+
+$mat-amber-A100: #ffe57f;
+$mat-amber-A200: #ffd740;
+$mat-amber-A400: #ffc400;
+$mat-amber-A700: #ffab00;
+$mat-amber: $mat-amber-500;
+
+// Link colors
+//
+// Prefer the mat-link mixin in _typography.scss.
+//
+// Based on discussion at go/mat-link-colors.
+$mat-link-default: $mat-blue-700;
+$mat-link-visited: $mat-deep-purple-500;
+$mat-link-active: $mat-red-700;

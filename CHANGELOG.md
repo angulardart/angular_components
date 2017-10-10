@@ -1,7 +1,11 @@
 ## 0.8.0-dev
 
+  * Move all files out of lib/src/ directory. Files considered to be private to
+    the package are within a src/ directory further down the hierarchy. For
+    example: `lib/material_tab/src/`.
   * Remove all precompiled .css files.
-  * Update all import statements in .scss files to use dart style package imports.
+  * Update all import statements in .scss files to use dart style package
+    imports.
   * Add dependency on sass_builder package to compile .css files.
 
 ## 0.7.1

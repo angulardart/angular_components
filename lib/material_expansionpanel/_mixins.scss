@@ -1,0 +1,192 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+/// Mixins for Material ExpansionPanel. These mixins should be applied with
+/// standard Sass scoping logic, such as:
+///
+/// ```scss
+/// .dark {
+///   @include expansionpanel-dark-theme;
+/// }
+/// ```
+
+// The "styled" class is required to improve specificity of all selectors.
+$_panel: 'div.panel.themeable';
+
+/// A Dark theme mixin. Applies dark theme colors.
+@mixin expansionpanel-dark-theme {
+  @include expansionpanel-colors($mat-grey-800, $mat-white);
+  @include expansionpanel-focused-colors($mat-grey-900, $mat-white);
+}
+
+/// A mixin to override the default color scheme.
+///
+/// The [$background-color] and [$text-color] must be specified. If
+/// [$header-text-color] is not specified, it will default to [$text-color] at
+/// 87% opacity ($mat-opacity-strong).
+///
+/// This mixin should probably be used in conjunction with
+/// [expansionpanel-focused-colors].
+@mixin expansionpanel-colors(
+    $background-color,
+    $text-color,
+    $header-text-color: rgba($text-color, $mat-opacity-strong),
+    $secondary-text-color: rgba($text-color, $mat-opacity-light),
+    $expand-button-text-color: rgba($text-color, $mat-opacity-strong)) {
+  @include expansionpanel-background-color($background-color);
+  @include expansionpanel-text-color($text-color);
+  @include expansionpanel-header-text-color($header-text-color);
+  @include expansionpanel-secondary-text-color($secondary-text-color);
+  @include expansionpanel-expand-button-text-color($expand-button-text-color);
+}
+
+/// A mixin to override the color scheme of a focused or hovered expansionpanel.
+@mixin expansionpanel-focused-colors(
+    $background-color,
+    $text-color) {
+  @include expansionpanel-focused-background-color($background-color);
+  @include expansionpanel-focused-text-color($text-color);
+}
+
+@mixin expansionpanel-focused-background-color($color) {
+  ::ng-deep #{$_panel} > header.closed {
+    &:hover,
+    &:focus {
+      background-color: $color;
+    }
+  }
+}
+
+@mixin expansionpanel-focused-text-color($color) {
+  ::ng-deep #{$_panel} > header.closed {
+    &:hover,
+    &:focus {
+      color: $color;
+    }
+  }
+}
+
+@mixin expansionpanel-background-color($color) {
+  ::ng-deep #{$_panel} {
+    background-color: $color;
+  }
+}
+
+@mixin expansionpanel-text-color($color) {
+  ::ng-deep #{$_panel} {
+    color: $color;
+  }
+}
+
+@mixin expansionpanel-header-text-color($color) {
+  ::ng-deep #{$_panel} > header {
+    color: $color;
+  }
+}
+
+@mixin expansionpanel-secondary-text-color($color) {
+  ::ng-deep #{$_panel} > header p.secondary-text {
+    color: $color;
+  }
+}
+
+@mixin expansionpanel-panel-name-max-width($max-width) {
+  ::ng-deep > #{$_panel} > header > .panel-name {
+    max-width: $max-width;
+  }
+}
+
+@mixin expansionpanel-expand-button-text-color($color) {
+  ::ng-deep #{$_panel} glyph.expand-button {
+    color: $color;
+  }
+}
+
+@mixin expansionpanel-left-align-action-buttons() {
+  ::ng-deep material-yes-no-buttons {
+    flex-direction: row;
+  }
+}
+
+@mixin expansionpanel-open-border-width($border-width) {
+  ::ng-deep .panel.open {
+    border-width: $border-width;
+  }
+}
+
+@mixin expansionpanel-border-width($border-width) {
+  ::ng-deep .panel {
+    border-width: $border-width;
+  }
+}
+
+@mixin expansionpanel-no-content-margin() {
+  ::ng-deep .panel .content-wrapper {
+    margin: 0;
+  }
+}
+
+@mixin expansionpanel-header-min-height($min-height, $open-min-height) {
+  ::ng-deep #{$_panel} {
+    header {
+      min-height: $min-height;
+    }
+
+    &.open > header {
+      min-height: $open-min-height;
+    }
+  }
+}
+
+@mixin expansionpanel-header-padding($padding) {
+  ::ng-deep #{$_panel} > header {
+    padding: $padding;
+  }
+}
+
+// Disables the header expansion effect when the panel is opened.
+@mixin expansionpanel-no-expansion() {
+  ::ng-deep #{$_panel} {
+    transition: none;
+
+    &.open > header {
+      // Need to override the min-height increase which happens by default.
+      min-height: $mat-grid * 6;
+    }
+  }
+}
+
+// Allows applying a vertical offset to an open panel to account for
+// a border that is applied. This prevents the header text from
+// suddenly jumping due to the extra border.
+@mixin expansionpanel-open-panel-offset($offset-px) {
+  ::ng-deep #{$_panel}.open {
+    margin-top: -$offset-px;
+  }
+}
+
+@mixin expansionpanel-dense-theme() {
+  ::ng-deep #{$_panel} {
+
+    header,
+    &.open > header {
+      min-height: $mat-grid * 4;
+    }
+
+    .action-buttons {
+      padding: $mat-grid 0;
+    }
+
+    .panel-name {
+      margin: $mat-grid 0;
+      line-height: $mat-grid * 2;
+    }
+
+    .content-wrapper {
+      margin: 0 $mat-grid * 3 $mat-grid;
+    }
+  }
+}

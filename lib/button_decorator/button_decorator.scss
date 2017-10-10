@@ -1,0 +1,18 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// Consider using button-base or material-button instead from:
+///     lib/material_button/_mixins.scss
+/// These mixins provide more of the typical values used in buttons.
+///
+
+/// Default styles that should be provided for all elements that use
+/// the buttonDecorator directive.
+[buttonDecorator] {
+  cursor: pointer;
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+}

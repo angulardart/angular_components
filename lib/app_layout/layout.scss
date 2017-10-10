@@ -1,0 +1,264 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// Styles provided to more easily layout an application.
+/// This includes:
+///   material-drawer (persistent and permanent)
+@import 'material_drawer';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+@import 'package:angular_components/material_list/mixins';
+
+$mat-toolbar-mobile-breakpoint: 599px;
+$mat-drawer-border: 1px solid $mat-border-light;
+// Desktop spec calls for 24px margins have each element contribute half.
+$mat-desktop-drawer-margin: 3 * $mat-grid / 2;
+// Mobile spec calls for 16px margins have each element contribute half.
+$mat-mobile-drawer-margin: $mat-grid;
+
+material-drawer[persistent],
+material-drawer[permanent] {
+  @include material-drawer-common;
+
+  border-right: $mat-drawer-border;
+
+  &[end] {
+    border-left: $mat-drawer-border;
+    border-right: initial;
+    left: initial;
+    right: 0;
+  }
+}
+
+material-drawer[persistent] {
+  transition: left $mat-transition-desktop $mat-transition-standard;
+
+  &.mat-drawer-collapsed {
+    left: -$mat-drawer-width;
+  }
+
+  &[end] {
+    transition-property: right;
+  }
+
+  &[end].mat-drawer-collapsed {
+    right: -$mat-drawer-width;
+  }
+}
+
+material-content,
+.material-content {
+  display: block;
+  min-height: 100%; // Allow content to expand the page.
+  position: relative; // Prevent content from overlaying drawers in x, y, or z.
+  z-index: 0;
+
+  material-drawer[persistent] + &,
+  material-drawer[permanent] + & {
+    margin-left: $mat-drawer-width;
+  }
+
+  material-drawer[persistent][end] + &,
+  material-drawer[permanent][end] + & {
+    margin-left: initial;
+    margin-right: $mat-drawer-width;
+  }
+
+  material-drawer[persistent] + & {
+    transition: margin-left $mat-transition-desktop $mat-transition-standard;
+  }
+
+  // If the drawer is collapsed, which needs to be the element directly before
+  // the content, set the content to the left edge.
+  material-drawer[persistent].mat-drawer-collapsed + & {
+    margin-left: 0;
+  }
+
+  material-drawer[persistent][end] + & {
+    transition-property: margin-right;
+  }
+
+  // [end] drawer is positioned on the opposite side
+  material-drawer[persistent][end].mat-drawer-collapsed + & {
+    margin-right: 0;
+  }
+}
+
+/// Material header styles
+
+$mat-header-height: 64px;
+$mat-header-dense-height: 48px;
+
+/// Header styling. This is used in your component directly.
+// TODO(google) Add support for multiple rows.
+// TODO(google) Consider adding support for waterfall headers.
+.material-header {
+  background-color: $mat-indigo-500;
+  border: 0;
+  box-sizing: border-box;
+  color: $mat-white;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  height: $mat-header-height;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 0;
+  position: relative; // Prevent content from overlaying drawers in x, y, or z.
+  width: 100%;
+  z-index: 0;
+
+  // Dense header spec for desktop and mouse heavy interfaces.
+  &.dense-header {
+    height: $mat-header-dense-height;
+
+    .material-header-row {
+      height: $mat-header-dense-height;
+    }
+  }
+
+  // Add shadow to the header
+  &.shadow {
+    @include shadow-elevation(4);
+  }
+
+  // Header is taking the full top row.
+  + material-drawer {
+    // Position the drawer lower to fit the header.
+    &[permanent],
+    &[persistent] {
+      top: $mat-header-height;
+    }
+
+    // Reduce the min size of the content.
+    + material-content,
+    + .material-content {
+      min-height: calc(100% - #{$mat-header-height});
+    }
+  }
+
+  // Dense header is taking the full top row.
+  &.dense-header + material-drawer {
+    &[permanent],
+    &[persistent] {
+      top: $mat-header-dense-height;
+    }
+
+    // Reduce the min size of the content.
+    + material-content,
+    + .material-content {
+      min-height: calc(100% - #{$mat-header-dense-height});
+    }
+  }
+}
+
+// A row within the header.
+.material-header-row {
+  align-items: center;
+  align-self: stretch;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  height: $mat-header-height;
+  margin: 0 $mat-desktop-drawer-margin;
+  // Allow title, and drawer button to be positioned absolutely.
+  position: relative;
+
+  @media (max-width: $mat-toolbar-mobile-breakpoint) {
+    margin: 0 $mat-mobile-drawer-margin;
+  }
+
+  // Special drawer button used to open/close the drawer.
+  // Positioned at the start of the header.
+  > .material-drawer-button {
+    cursor: pointer;
+  }
+
+  /// Class uses for the title inside of a header.
+  .material-header-title {
+    bottom: 0;
+    box-sizing: border-box;
+    display: block;
+    height: $mat-title-font-size;
+    left: $mat-grid * 10;
+    line-height: 1;
+    // Set the bottom/top 0 and bottom/top margins to auto so that we can
+    // vertically align the title.
+    margin-bottom: auto;
+    margin-top: auto;
+    // Used so that we can position an exact amount from start.
+    position: absolute;
+    top: 0;
+    @include mat-type-title();
+  }
+
+  /// Class used to take up the rest of the space in a header
+  .material-spacer {
+    flex-grow: 1;
+  }
+
+  material-button {
+    // drawer margin - margin from button for ripple.
+    margin: 0 $mat-desktop-drawer-margin - $mat-grid;
+
+    @media (max-width: $mat-toolbar-mobile-breakpoint) {
+      margin: 0 $mat-mobile-drawer-margin - $mat-grid;
+    }
+  }
+
+  .material-navigation {
+    margin: 0 $mat-desktop-drawer-margin;
+
+    @media (max-width: $mat-toolbar-mobile-breakpoint) {
+      margin: 0 $mat-mobile-drawer-margin;
+    }
+  }
+
+  > * {
+    flex-shrink: 0;
+  }
+}
+
+// A spacer used to reserve height for the header height when the header is
+// not above the drawer.
+.mat-drawer-spacer {
+  // TODO(google) Remove padding offset when material-list padding is
+  // removed
+  height: $mat-header-height - $mat-grid; // Remove the content padding size
+}
+
+// Changes to material-list when used inside of the drawer.
+material-drawer {
+  material-list {
+    // Remove the padding on the default list component when it is used in the
+    // drawer.
+    padding: 0;
+  }
+
+  // Use the label attribute from material-list but ensure the style is right
+  // for the drawer.
+  [label] {
+    @include list-item-base;
+    align-items: center;
+    // TODO(google) Remove once material-list uses the right color value.
+    color: $mat-light-transparent-black;
+    display: flex;
+  }
+
+  material-list-item,
+  [label] {
+    font-weight: $mat-font-weight-medium;
+    // The default size/padding for list item is incorrect for the drawer spec.
+    height: $mat-grid * 6;
+    padding: 0 $mat-grid * 2;
+
+    material-icon {
+      color: $mat-light-transparent-black;
+      margin-right: $mat-grid * 4;
+    }
+  }
+}
