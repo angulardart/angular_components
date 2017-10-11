@@ -5,10 +5,10 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/material_tooltip/module.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart'
     show DomPopupSourceFactory;
+import 'package:angular_components/material_tooltip/module.dart';
 import 'package:angular_components/model/action/delayed_action.dart';
 import 'package:angular_components/utils/browser/feature_detector/feature_detector.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';

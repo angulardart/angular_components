@@ -9,9 +9,8 @@ import 'dart:math' show max, min;
 import 'package:angular_components/utils/angular/managed_zone/interface.dart';
 import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/disposer/disposable_callback.dart';
-// TODO(google): Consolidate this with RenderSync /Angular.
-
 import 'package:angular_components/utils/disposer/disposer.dart';
+// TODO(google): Consolidate this with RenderSync /Angular.
 
 /// A callback from [DomService.scheduleRead] or [DomService.scheduleWrite].
 typedef void DomReadWriteFn();

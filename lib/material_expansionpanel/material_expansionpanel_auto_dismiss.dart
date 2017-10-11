@@ -6,9 +6,9 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/material_expansionpanel/material_expansionpanel.dart';
 import 'package:angular_components/laminate/overlay/module.dart'
     show overlayContainerToken;
+import 'package:angular_components/material_expansionpanel/material_expansionpanel.dart';
 
 /// A directive that automatically collapses [MaterialExpansionPanel].
 ///

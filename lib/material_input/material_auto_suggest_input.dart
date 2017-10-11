@@ -12,6 +12,8 @@ import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/glyph/glyph.dart';
+import 'package:angular_components/laminate/enums/alignment.dart';
+import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_input/input_wrapper.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
@@ -20,9 +22,6 @@ import 'package:angular_components/material_select/material_select_dropdown_item
 import 'package:angular_components/material_spinner/material_spinner.dart';
 import 'package:angular_components/mixins/highlight_assistant_mixin.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
-import 'package:angular_components/stop_propagation/stop_propagation.dart';
-import 'package:angular_components/laminate/enums/alignment.dart';
-import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/model/a11y/active_item.dart';
 import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/selection/select.dart';
@@ -33,6 +32,7 @@ import 'package:angular_components/model/selection/string_selection_options.dart
 import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/highlight_provider.dart';
 import 'package:angular_components/model/ui/template_support.dart';
+import 'package:angular_components/stop_propagation/stop_propagation.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
