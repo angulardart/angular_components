@@ -10,9 +10,9 @@ import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/material_checkbox/material_checkbox.dart';
+import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/src/material_tree/material_tree_node.dart';
 import 'package:angular_components/src/material_tree/material_tree_root.dart';
-import 'package:angular_components/mixins/material_dropdown_base.dart';
 
 const materialTreeLeftPaddingToken = const OpaqueToken(
     'MaterialTreeGroupComponent_materialTreeLeftPaddingToken');

@@ -6,10 +6,10 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/src/material_tooltip/tooltip_controller.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_tooltip/src/tooltip_controller.dart';
 import 'package:angular_components/model/action/delayed_action.dart';
+import 'package:angular_components/src/material_tooltip/tooltip_controller.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 
 import 'tooltip_source.dart' show tooltipShowDelay;

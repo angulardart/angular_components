@@ -9,13 +9,13 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
+import 'package:angular_components/src/scorecard/scorecard_bar.dart';
 import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
 import 'package:angular_components/utils/color/palette.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:intl/intl.dart';
 
 import 'scorecard.dart';
-import 'package:angular_components/src/scorecard/scorecard_bar.dart';
 
 /// ACUX Scoreboard component
 ///

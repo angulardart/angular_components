@@ -8,7 +8,6 @@ import 'dart:math';
 
 import 'package:angular/angular.dart' hide Visibility;
 import 'package:angular_components/content/deferred_content_aware.dart';
-import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/enums/visibility.dart';
 import 'package:angular_components/laminate/overlay/module.dart';
@@ -16,6 +15,7 @@ import 'package:angular_components/laminate/overlay/overlay.dart';
 import 'package:angular_components/laminate/overlay/zindexer.dart';
 import 'package:angular_components/laminate/popup/module.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
+import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/ui/toggle.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';

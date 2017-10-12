@@ -7,8 +7,8 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular_components/laminate/enums/visibility.dart';
-import 'package:angular_components/src/laminate/overlay/overlay_state.dart';
 import 'package:angular_components/laminate/portal/portal.dart';
+import 'package:angular_components/src/laminate/overlay/overlay_state.dart';
 
 /// A handler to apply [state] to an existing [element].
 ///
