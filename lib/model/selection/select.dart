@@ -7,7 +7,7 @@ import 'package:angular_components/utils/async/async.dart';
 // TODO(google): Slowly change to use the refined interfaces in src/interfaces.
 // - interfaces/filterable.dart will replace Filterable
 // - interfaces/parent.dart will replace Parent.
-export 'package:angular_components/model/selection/src/interfaces/selectable.dart';
+export 'package:angular_components/src/model/selection/interfaces/selectable.dart';
 
 typedef int CountGetter();
 typedef bool Predicate<T>(T item);

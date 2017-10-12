@@ -158,7 +158,6 @@ export 'mixins/track_layout_changes.dart';
 export 'model/selection/select.dart';
 export 'model/selection/selection_model.dart';
 export 'model/selection/selection_options.dart';
-export 'model/selection/src/interfaces/selectable.dart';
 export 'model/selection/string_selection_options.dart';
 export 'model/ui/display_name.dart';
 export 'model/ui/has_renderer.dart';

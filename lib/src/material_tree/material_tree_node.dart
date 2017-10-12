@@ -6,8 +6,8 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/material_tree/src/material_tree_expand_state.dart';
-import 'package:angular_components/material_tree/src/material_tree_root.dart';
+import 'package:angular_components/src/material_tree/material_tree_expand_state.dart';
+import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';

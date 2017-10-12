@@ -7,17 +7,17 @@ library angular_components.model.selection.selection_model;
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:angular_components/model/selection/src/interfaces/selectable.dart';
+import 'package:angular_components/src/model/selection/interfaces/selectable.dart';
 import 'package:observable/observable.dart';
 
-export 'package:angular_components/model/selection/src/delegating_selection_model.dart';
-export 'package:angular_components/model/selection/src/radio_group_single_selection_model.dart';
+export 'package:angular_components/src/model/selection/delegating_selection_model.dart';
+export 'package:angular_components/src/model/selection/radio_group_single_selection_model.dart';
 
-part 'src/multi_selection_model_impl.dart';
-part 'src/noop_selection_model_impl.dart';
-part 'src/selectable_change_notifier.dart';
-part 'src/selection_change_notifier.dart';
-part 'src/single_selection_model_impl.dart';
+part 'package:angular_components/src/model/selection/multi_selection_model_impl.dart';
+part 'package:angular_components/src/model/selection/noop_selection_model_impl.dart';
+part 'package:angular_components/src/model/selection/selectable_change_notifier.dart';
+part 'package:angular_components/src/model/selection/selection_change_notifier.dart';
+part 'package:angular_components/src/model/selection/single_selection_model_impl.dart';
 
 /// Returns a key-able object from [o].
 ///

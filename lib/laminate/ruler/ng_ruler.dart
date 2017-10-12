@@ -9,7 +9,7 @@ import 'package:angular/angular.dart' hide Visibility;
 import 'package:angular_components/laminate/enums/position.dart';
 import 'package:angular_components/laminate/enums/visibility.dart';
 import 'package:angular_components/laminate/ruler/dom_ruler.dart';
-import 'package:angular_components/laminate/ruler/src/ruler_interface.dart';
+import 'package:angular_components/src/laminate/ruler/ruler_interface.dart';
 
 /// An implementation of ruler that works on Angular [ElementRef] objects.
 @Injectable()

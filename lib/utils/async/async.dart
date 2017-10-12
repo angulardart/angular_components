@@ -2,13 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-export 'package:angular_components/utils/async/src/async_update_scheduler.dart';
-export 'package:angular_components/utils/async/src/async_where.dart';
-export 'package:angular_components/utils/async/src/debounce_stream.dart';
-export 'package:angular_components/utils/async/src/disposable_future.dart';
-export 'package:angular_components/utils/async/src/lazy_event_emitter.dart';
-export 'package:angular_components/utils/async/src/lazy_stream_controller.dart';
-export 'package:angular_components/utils/async/src/priority_stream_iterator.dart';
-export 'package:angular_components/utils/async/src/simple_stream.dart';
-export 'package:angular_components/utils/async/src/throttle_stream.dart';
-export 'package:angular_components/utils/async/src/zoned_async.dart';
+export 'package:angular_components/src/utils/async/async_update_scheduler.dart';
+export 'package:angular_components/src/utils/async/async_where.dart';
+export 'package:angular_components/src/utils/async/debounce_stream.dart';
+export 'package:angular_components/src/utils/async/disposable_future.dart';
+export 'package:angular_components/src/utils/async/lazy_event_emitter.dart';
+export 'package:angular_components/src/utils/async/lazy_stream_controller.dart';
+export 'package:angular_components/src/utils/async/priority_stream_iterator.dart';
+export 'package:angular_components/src/utils/async/simple_stream.dart';
+export 'package:angular_components/src/utils/async/throttle_stream.dart';
+export 'package:angular_components/src/utils/async/zoned_async.dart';

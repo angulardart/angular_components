@@ -10,10 +10,10 @@ import 'package:angular_components/model/collection/labeled_list.dart';
 import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-export 'package:angular_components/model/selection/src/delegating_selection_options.dart';
+export 'package:angular_components/src/model/selection/delegating_selection_options.dart';
 
-part 'src/future_selection_options_impl.dart';
-part 'src/stream_selection_options_impl.dart';
+part 'package:angular_components/src/model/selection/future_selection_options_impl.dart';
+part 'package:angular_components/src/model/selection/stream_selection_options_impl.dart';
 
 /// A collection of options with an optional label.
 class OptionGroup<T> extends LabeledList<T> {

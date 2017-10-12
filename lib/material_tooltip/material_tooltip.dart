@@ -14,10 +14,10 @@
 /// for bindings which must be provided in app which use any Material Tooltip
 /// component.
 
-export 'src/icon_tooltip.dart' show MaterialIconTooltipComponent;
-export 'src/ink_tooltip.dart';
-export 'src/paper_tooltip.dart' show MaterialPaperTooltipComponent;
-export 'src/tooltip.dart';
-export 'src/tooltip_controller.dart' show Tooltip;
-export 'src/tooltip_source.dart';
-export 'src/tooltip_target.dart';
+export 'package:angular_components/src/material_tooltip/icon_tooltip.dart' show MaterialIconTooltipComponent;
+export 'package:angular_components/src/material_tooltip/ink_tooltip.dart';
+export 'package:angular_components/src/material_tooltip/paper_tooltip.dart' show MaterialPaperTooltipComponent;
+export 'package:angular_components/src/material_tooltip/tooltip.dart';
+export 'package:angular_components/src/material_tooltip/tooltip_controller.dart' show Tooltip;
+export 'package:angular_components/src/material_tooltip/tooltip_source.dart';
+export 'package:angular_components/src/material_tooltip/tooltip_target.dart';

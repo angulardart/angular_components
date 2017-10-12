@@ -9,7 +9,7 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/material_input/material_input.dart';
-import 'package:angular_components/material_tree/src/material_tree_root.dart';
+import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/model/selection/select.dart';
 
 /// A simple component that maps an input box to the [Filterable] interface.

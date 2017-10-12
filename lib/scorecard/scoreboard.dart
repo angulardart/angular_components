@@ -15,7 +15,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:intl/intl.dart';
 
 import 'scorecard.dart';
-import 'src/scorecard_bar.dart';
+import 'package:angular_components/src/scorecard/scorecard_bar.dart';
 
 /// ACUX Scoreboard component
 ///
