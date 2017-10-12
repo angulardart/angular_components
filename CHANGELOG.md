@@ -1,6 +1,6 @@
 ## 0.8.0-dev
 
- * Move entry points to all components all out of the lib/src/ directory.
+ * Move entry points to all components out of the lib/src/ directory.
  * Remove all precompiled .css files.
  * Update all import statements in .scss files to use dart style package
    imports.
