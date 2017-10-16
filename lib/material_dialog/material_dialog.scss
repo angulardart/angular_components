@@ -1,0 +1,113 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'mixins';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+
+:host {
+  @include shadow-elevation(24);
+  background: $mat-white;
+  border-radius: $mat-grid-type / 2;
+  display: block;
+  height: auto;
+  overflow: hidden;
+}
+
+focus-trap {
+  height: inherit;
+  max-height: inherit;
+  min-height: inherit;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  max-height: inherit;
+  min-height: inherit;
+}
+
+.error {
+  @include mat-type-body;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  background: $mat-gray-200;
+  color: $mat-red-700;
+  padding: 0 $mat-grid * 3;
+  transition: padding $mat-transition $mat-transition-standard 0s;
+  width: 100%;
+
+  &.expanded {
+    border-bottom: 1px $mat-gray-300 solid;
+    border-top: 1px $mat-gray-300 solid;
+    padding: $mat-grid $mat-grid * 3;
+  }
+}
+
+main {
+  @include mat-type-body;
+  box-sizing: border-box;
+  flex-grow: 1;
+  color: $mat-transparent-black;
+  overflow: auto;
+  padding: 0 $mat-grid * 3;
+  width: 100%;
+
+  &.top-scroll-stroke {
+    border-top: 1px $mat-gray-300 solid;
+  }
+
+  &.bottom-scroll-stroke {
+    border-bottom: 1px $mat-gray-300 solid;
+  }
+}
+
+footer {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  padding: 0 $mat-grid $mat-grid;
+  width: 100%;
+}
+
+:host ::ng-deep .wrapper {
+  > header {
+    @include material-dialog-header;
+    flex-shrink: 0;
+  }
+
+  > footer [footer] {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: flex-end;
+  }
+}
+
+:host[headered] ::ng-deep .wrapper {
+  > header {
+    @include material-dialog-headered-header;
+  }
+
+  > main {
+    padding-top: $mat-grid;
+  }
+}
+
+:host[info] ::ng-deep .wrapper {
+  > header {
+    ::ng-deep h3 {
+      line-height: $mat-grid * 5;
+      margin: 0;
+    }
+
+    ::ng-deep material-button {
+      float: right;
+    }
+  }
+
+  > footer {
+    padding-bottom: $mat-grid * 3;
+  }
+}

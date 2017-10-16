@@ -1,0 +1,84 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+
+@mixin material-dialog-header-color($color) {
+  ::ng-deep .wrapper > header,
+  &[headered] ::ng-deep .wrapper > header {
+    background-color: $color;
+  }
+}
+
+@mixin material-dialog-header-shadow() {
+  ::ng-deep .wrapper > header {
+    @include shadow-elevation;
+  }
+}
+
+@mixin material-dialog-header-padding($padding: 0) {
+  ::ng-deep .wrapper > header,
+  &[headered] ::ng-deep .wrapper > header {
+    padding: $padding;
+  }
+}
+
+@mixin material-dialog-body-padding($padding: 0) {
+  ::ng-deep .wrapper > main,
+  &[headered] ::ng-deep .wrapper > main {
+    padding: $padding;
+  }
+}
+
+@mixin material-dialog-footer-padding($padding: 0) {
+  ::ng-deep .wrapper > footer {
+    padding: $padding;
+  }
+}
+
+@mixin material-dialog-footer-border-top($border) {
+  ::ng-deep .wrapper > footer {
+    border-top: $border;
+  }
+}
+
+@mixin material-dialog-header() {
+  @include box-sizing(border-box);
+  padding: $mat-grid * 3 $mat-grid * 3 0;
+  width: 100%;
+
+  ::ng-deep h3 {
+    @include mat-type-title;
+    margin: 0 0 $mat-grid;
+  }
+
+  ::ng-deep p {
+    @include mat-type-caption;
+    margin: 0;
+  }
+}
+
+@mixin material-dialog-headered-header() {
+  @include material-dialog-header;
+  background: $mat-gray-700;
+  padding-bottom: $mat-grid * 2;
+
+  ::ng-deep h3 {
+    color: $mat-white;
+    margin-bottom: $mat-grid / 2;
+  }
+
+  ::ng-deep p {
+    color: $mat-transparent-white;
+  }
+}
+
+
+@mixin material-dialog-main-flex($flow) {
+  ::ng-deep .wrapper > main {
+    @include display-flex();
+    @include flex-flow($flow);
+  }
+}

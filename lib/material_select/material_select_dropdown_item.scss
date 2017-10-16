@@ -1,0 +1,38 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'mixins';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_list/mixins';
+
+:host {
+  @include list-item-base();
+  @include select-item-base();
+
+  display: flex;
+  align-items: center;
+  transition: background;
+  color: $mat-transparent-black;
+  cursor: pointer;
+
+  &.disabled {
+    background: none;
+    color: $mat-lighter-transparent-black;
+    cursor: default;
+  }
+}
+
+.check-container {
+  display: inline-block;
+  width: $mat-grid * 5;
+}
+
+.dynamic-item {
+  flex-grow: 1;
+}
+
+:host-context(body[dir="rtl"]) {
+  @include list-item-base-rtl;
+}
+

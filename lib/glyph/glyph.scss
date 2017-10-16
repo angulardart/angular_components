@@ -1,0 +1,77 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'mixins';
+@import 'package:angular_components/css/material/material';
+
+$x-small: $mat-grid-type * 3;  // 12px
+$small: $mat-body-font-size;   // 13px
+$medium: $mat-grid-type * 4;   // 16px
+$large: $mat-grid-type * 4.5;  // 18px
+$x-large: $mat-grid-type * 5;  // 20px
+
+:host {
+  display: inline-flex;
+
+  &[light] {
+    opacity: $mat-icon-opacity;
+  }
+
+  &[size="x-small"] {
+    @include glyph-size($x-small);
+  }
+
+  &[size="small"] {
+    @include glyph-size($small);
+  }
+
+  &[size="medium"] {
+    @include glyph-size($medium);
+  }
+
+  &[size="large"] {
+    @include glyph-size($large);
+  }
+
+  &[size="x-large"] {
+    @include glyph-size($x-large);
+  }
+}
+
+:host-context([dir="rtl"])[flip] .glyph-i {
+  transform: scaleX(-1);
+}
+
+// Add the `baseline` attribute on the glyph element if the glyph needs to be
+// aligned to the baseline.
+//
+// E.g. <glyph baseline icon='add'></glyph>
+//
+// In a flex or inline layout, the baseline of this element by default is
+// the bottom margin since the element doesn't have any displayed text to
+// calculate the baseline from. Thus, the glyph is always positioned too high
+// relative to other baseline-positioned elements. Adding the `baseline`
+// attribute to the glyph HTML element will insert a shim text element that will
+// implicitly set the icon baseline to the slightly below the center of the
+// icon.
+//
+// This issue arises because the material icons extended font sets a descent
+// value of 0, which means the baseline is set to the bottom of the icon.
+:host[baseline] {
+  align-items: center;
+
+  &::before {
+    content: '-';
+    display: inline-block;
+    width: 0;
+    visibility: hidden;
+  }
+
+  .glyph-i {
+    // Set a bottom margin so glyph baseline is near the expected position of a
+    // font rather than through the middle. Use `em` to be glyph
+    // font-size-independent.
+    margin-bottom: .1em;
+  }
+}

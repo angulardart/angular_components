@@ -1,0 +1,34 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+.paper-container {
+  background-color: $mat-white;
+  font-size: $mat-body-font-size;
+  max-height: $mat-grid * 50;
+  max-width: $mat-grid * 50;
+  min-width: $mat-grid * 20;
+  padding: $mat-grid * 3;
+
+  display: flex;
+  flex-direction: column;
+
+  /// Styles for the tooltip content.
+  .header:not(:empty) {
+    display: block;
+    font-weight: bold;
+    margin-bottom: $mat-grid;
+  }
+
+  .body {
+    flex-grow: 1;
+  }
+
+  .footer {
+    material-button {
+      margin: 0;
+    }
+  }
+}

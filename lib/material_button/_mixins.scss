@@ -1,0 +1,267 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+// TODO(google): Remove once glyph has been replaced with material-icon.
+@import 'package:angular_components/glyph/mixins';
+@import 'package:angular_components/material_icon/mixins';
+@import 'package:angular_components/theme/mixins';
+
+$fab-size: $mat-grid * 7;
+$fab-mini-size: $mat-grid * 5;
+$fab-icon-size: $mat-grid * 3;
+
+$button-horizontal-padding: .57em;
+$button-vertical-padding: .7em;
+
+// From spec http://www.google.com/design/spec/components/buttons.html#buttons-flat-raised-buttons
+$button-disabled-color: rgba(0, 0, 0, $mat-opacity-lightest);
+$button-disabled-background: rgba(0, 0, 0, $mat-divider-opacity);
+
+$button-hovered-background: rgba(158, 158, 158, .20);
+
+$button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
+
+// Private used for external mixin, and button-base only.
+@mixin _button-raised {
+  @include material-shadow;
+
+  @include acx-theme-dark {
+    background-color: $mat-blue;
+  }
+
+  &[disabled] {
+    background: $button-disabled-background;
+    @include shadow-none;
+
+    @include acx-theme-dark {
+      background: $mat-blue;
+    }
+  }
+}
+
+@mixin button-dense {
+  height: $mat-grid * 4;
+  font-size: $mat-body-font-size;
+}
+
+@mixin button-base {
+  @include acx-theme-dark {
+    color: $mat-white;
+  }
+
+  @include mat-type-button;
+
+  user-select: none;
+  background: transparent;
+  border-radius: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: .01em;
+  line-height: normal;
+  outline: none;
+  position: relative;
+  text-align: center;
+
+  &:not([icon]) {
+    margin: 0 .29em;
+  }
+
+  &[dense] {
+    @include button-dense;
+  }
+
+  &[disabled] {
+    @include acx-theme-dark {
+      color: $button-disabled-color-dark;
+    }
+
+    color: $button-disabled-color;
+    cursor: not-allowed;
+
+    >* {
+      pointer-events: none;
+    }
+  }
+
+  // We specify raised here specifically instead of the mixin to satisfy the
+  // case where a mixin is not used to specify the background color.
+  &:not([raised]):not([disabled]):not([icon]):hover {
+    background-color: $button-hovered-background;
+  }
+
+  &.is-focused::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: currentColor;
+    opacity: $mat-divider-opacity;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  &[raised] {
+    @include _button-raised;
+  }
+
+  &[no-ink] material-ripple {
+    display: none;
+  }
+
+  &[clear-size] {
+    margin: 0;
+  }
+
+  .content {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+@mixin material-button {
+  @include button-base;
+
+  &:not([icon]) {
+    border-radius: 2px;
+    min-width: 5.14em;
+
+    .content {
+      padding: $button-vertical-padding $button-horizontal-padding;
+    }
+  }
+
+  &[icon] {
+    border-radius: 50%;
+
+    .content {
+      padding: $mat-grid;
+    }
+  }
+
+  &[clear-size] {
+    min-width: 0;
+  }
+}
+
+@mixin fab-base($size) {
+  @include button-base;
+  border-radius: $size / 2;
+
+  .content {
+    justify-content: center;
+    height: $size;
+    width: $size;
+  }
+}
+
+@mixin fab {
+  @include fab-base($fab-size);
+}
+
+@mixin fab-mini {
+  @include fab-base($fab-mini-size);
+}
+
+// Allow customized size and icon-size on fab button.
+@mixin fab-custom-size($size, $icon-size: $fab-icon-size) {
+  border-radius: $size / 2;
+
+  ::ng-deep {
+    .content {
+      height: $size;
+      width: $size;
+    }
+
+    material-icon {
+      @include material-icon-size($icon-size);
+    }
+
+    // TODO(google): Remove once glyph has been replaced with material-icon.
+    glyph {
+      @include glyph-size($icon-size);
+    }
+  }
+}
+
+// TODO(google): support dark theme in mixins.
+// Apply button color to a button matching the selector.
+//
+// The color given is not applied to disabled button, as it could otherwise look
+// as an enabled button.
+@mixin button-color($selector, $color, $hover-color: $color) {
+  ::ng-deep #{$selector}:not([disabled]) {
+    > .content {
+      color: $color;
+    }
+
+    &:hover > .content {
+      color: $hover-color;
+    }
+  }
+}
+
+@mixin button-background-color($selector, $background-color) {
+  ::ng-deep #{$selector}:not([disabled]) {
+    background-color: $background-color;
+  }
+
+  // Not selectors are used for specificity. Default hover selector is very
+  // specific add a psuedo not value to overide default specificity.
+  ::ng-deep #{$selector}:not([disabled]):not([icon]):not([raised]):not(.xyzxyz):hover {
+    background-color: $background-color;
+  }
+}
+
+/// Applies letter-spacing to the text of <material-button>.
+@mixin button-letter-spacing($selector, $letter-spacing) {
+  ::ng-deep #{$selector} div {
+    letter-spacing: $letter-spacing;
+  }
+}
+
+@mixin icon-button-color($selector, $color, $hover-color: $color) {
+  ::ng-deep #{$selector}:not([disabled]) {
+    > .content > material-icon,
+    // TODO(google): Remove once glyph has been replaced with material-icon.
+    > .content > glyph {
+      color: $color;
+    }
+
+    &:hover > .content > material-icon,
+    // TODO(google): Remove once glyph has been replaced with material-icon.
+    &:hover > .content > glyph {
+      color: $hover-color;
+    }
+  }
+}
+
+/// Mixin to create a raised button taking an optional color of the button.
+///
+/// Should be scopped to the specific button needed to make raised.
+///   Example:
+///   ```Sass
+///   material-button.my-raised {
+///     @include raised-button($mat-blue);
+///   }
+///   ```
+@mixin raised-button($color: null) {
+  ::ng-deep & {
+    @include _button-raised;
+  }
+
+  @if $color {
+    @include button-background-color('&', $color);
+    @include button-color('&', $mat-white);
+  } @else {
+    // Specifically set raised buttons to transparent. This ensures hover,
+    // and other colors are correct.
+    @include button-background-color('&', transparent);
+  }
+}

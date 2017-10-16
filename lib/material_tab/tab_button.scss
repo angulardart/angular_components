@@ -1,0 +1,45 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_button/mixins';
+
+$tab-button-height: $mat-grid * 6;
+
+:host {
+  @include button-base();
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: $tab-button-height;
+  font-weight: $mat-font-weight-medium;
+  color: $mat-gray-700;
+
+  &.active,
+  &.focus {
+    color: $mat-blue-500;
+  }
+
+  &.focus::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: currentColor;
+    opacity: $mat-ripple-opacity;
+    pointer-events: none;
+  }
+}
+
+.content {
+  display: inline-block;
+  overflow: hidden;
+  padding: $mat-grid;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,153 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+$left-icon-width: $mat-grid * 4;
+
+/// Changes the colors of <material-chip>s.
+///
+/// Available theme options are color and background color of the chip in its
+/// native state, hover state, and selected state. Also available is coloring
+/// of the delete icon, and max-width for the chip (if it's exceeded, content
+/// will be elided)
+@mixin material-chip-theme(
+    $chip-selector: '',
+    $primary-color : $mat-white,
+    $primary-bgcolor: $mat-blue-500,
+    $primary-color-hover: $mat-white,
+    $primary-bgcolor-hover: $mat-blue-700,
+    $primary-color-selected: $mat-white,
+    $primary-bgcolor-selected: $mat-blue-900,
+    $delete-icon-color: $mat-white,
+    $left-icon-bgcolor: null,
+    $max-chip-width: null,
+    $selector: '') {
+  ::ng-deep #{$selector} material-chip.themeable#{$chip-selector} {
+    background-color: $primary-bgcolor;
+    color: $primary-color;
+    @if $max-chip-width {
+      max-width: $max-chip-width;
+    }
+
+    &:hover {
+      background-color: $primary-bgcolor-hover;
+      color: $primary-color-hover;
+    }
+
+    &:focus {
+      background-color: $primary-bgcolor-selected;
+      color: $primary-color-selected;
+    }
+
+    &[emphasis]:hover {
+      background-color: $primary-bgcolor-hover;
+    }
+
+    &[emphasis]:focus {
+      background-color: $primary-bgcolor-selected;
+    }
+
+    .delete-icon {
+      fill: $delete-icon-color;
+    }
+
+    @if ($left-icon-bgcolor) {
+      .left-icon {
+        background-color: $left-icon-bgcolor;
+        border-radius: 50%;
+        height: $left-icon-width;
+        margin-left: 0;
+        // The margin between chip content and icon should be 8px, so need to
+        // move right margin -4px to account for content left-padding (12px).
+        margin-right: -($mat-grid / 2);
+        min-width: $left-icon-width;
+        padding: 0;
+        width: $left-icon-width;
+      }
+    }
+  }
+}
+
+/// Applies a max-width to the material chips. If the max-width exceeded,
+/// content will be elided.
+@mixin material-chip-max-width($max-chip-width: null) {
+  ::ng-deep material-chip {
+    @if $max-chip-width {
+      max-width: $max-chip-width;
+    }
+  }
+}
+
+$main-hover-bg-color: $mat-gray-400;
+$main-selected-bg-color: $mat-gray-600;
+
+$emphasis-hover-bg-color: $mat-blue-700;
+$emphasis-selected-bg-color: $mat-blue-900;
+
+/// Use this mixin to align the chips container.
+@mixin material-chips-margin($margin: 0) {
+  ::ng-deep .material-chips-root {
+    margin: $margin;
+  }
+}
+
+/// Use this mixin when chips are clickable for cursor, hover, and focus
+/// styling.
+///
+/// Note: Use [ButtonDecorator] (or similar) to ensure role, tabindex, and a
+/// label is set on your clickable chips.
+@mixin material-chips-clickable() {
+
+  material-chip {
+    cursor: pointer;
+
+    &[emphasis]:hover {
+      background-color: $emphasis-hover-bg-color;
+    }
+
+    &[emphasis]:focus {
+      background-color: $emphasis-selected-bg-color;
+    }
+
+    &:focus {
+      background-color: $main-selected-bg-color;
+      color: $mat-white;
+      outline: none;
+
+      ::ng-deep .delete-icon {
+        fill: $mat-white;
+      }
+    }
+
+    &:hover {
+      background-color: $main-hover-bg-color;
+      color: $mat-white;
+
+      ::ng-deep .delete-icon {
+        fill: $mat-white;
+      }
+    }
+  }
+}
+
+@mixin chips-dense-theme() {
+  ::ng-deep material-chip {
+    height: $mat-grid * 3;
+    border-radius: ($mat-grid * 3) / 2;
+    margin: $mat-grid-type;
+
+    .content {
+      font-size: $mat-font-size-body;
+    }
+
+    .delete-icon {
+      margin-right: 0;
+    }
+
+    .left-icon {
+      margin-left: 0;
+    }
+  }
+}

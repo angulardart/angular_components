@@ -50,7 +50,7 @@ Firefox, and Safari.
 * AngularDart Components resources:
   * [About AngularDart Components](https://webdev.dartlang.org/components)
   * [Google I/O 2017 codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app)
-  * [Dart Summit 2016 codelab](https://webdev.dartlang.org/codelabs/angular2_components)
+  * [Dart Summit 2016 codelab](https://webdev.dartlang.org/codelabs/angular_components)
   * [API reference](https://webdev.dartlang.org/components/api)
 * AngularDart resources:
   * [AngularDart documentation](https://webdev.dartlang.org/angular/guide)
@@ -94,7 +94,7 @@ imports in your sass files.
   In your `.scss` files:
 
   ```scss
-  @import 'package:angular_components/src/css/material/material';
+  @import 'package:angular_components/css/material/material';
 
   .blue {
     color: $mat-blue;

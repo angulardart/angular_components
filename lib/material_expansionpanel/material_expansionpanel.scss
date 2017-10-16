@@ -1,0 +1,167 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+
+.panel {
+  @include shadow-elevation;
+  background-color: $mat-white;
+  margin: 0;
+  transition: margin $mat-transition-slow $mat-transition-standard;
+  width: inherit;
+}
+
+:host:not([hidden]) {
+  display: block;
+}
+
+:host[flat] .panel {
+  box-shadow: none;
+  border: 1px solid $mat-border-light;
+}
+
+:host[wide] .panel {
+  @include shadow-elevation;
+  background-color: $mat-white;
+  margin: 0 $mat-grid * 3;
+  transition: margin $mat-transition-slow $mat-transition-standard;
+}
+
+.panel.open,
+:host[wide] .panel.open {
+  @include shadow-elevation;
+  background-color: $mat-white;
+  // When opened, add vertical margins, and remove any horizontal margins. This
+  // produces the expansion effect.
+  margin: $mat-grid * 2 0;
+}
+
+:host[flat] .panel.open {
+  box-shadow: none;
+  margin: 0;
+}
+
+.expand-button {
+  user-select: none;
+  color: $mat-lighter-transparent-black;
+  cursor: pointer;
+  transition: transform $mat-transition-slow $mat-transition-standard;
+
+  &.expand-more {
+    transform: rotate(180deg);
+  }
+}
+
+header {
+  align-items: center;
+  display: flex;
+  @include mat-type-subhead;
+  color: $mat-transparent-black;
+  cursor: pointer;
+  min-height: $mat-grid * 6;
+  outline: none;
+  padding: 0 $mat-grid * 3;
+  transition: min-height $mat-transition-slow $mat-transition-standard;
+
+  &.closed {
+    &:hover,
+    &:focus {
+      background-color: $mat-grey-200;
+    }
+  }
+
+  &.disable-header-expansion {
+    cursor: default;
+  }
+}
+
+.panel.open > header {
+  min-height: $mat-grid * 8;
+}
+
+.background,
+:host[wide] .background {
+  background-color: $mat-grey-100;
+}
+
+.panel-name {
+  padding-right: $mat-grid * 2;
+  min-width: 20%;
+
+  .primary-text {
+    margin: 0;
+  }
+
+  .secondary-text {
+    @include mat-type-caption;
+    color: $mat-light-transparent-black;
+    margin: 0;
+  }
+}
+
+.panel-description {
+  flex-grow: 1;
+  color: $mat-light-transparent-black;
+  overflow: hidden;
+  padding-right: $mat-grid * 2;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+main {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.panel.open > main {
+  max-height: 100%;
+  opacity: 1;
+  width: 100%;
+}
+
+.content-wrapper {
+  display: flex;
+  margin: 0 $mat-grid * 3 $mat-grid * 2;
+
+  &.hidden-header {
+    margin-top: $mat-grid * 2;
+  }
+
+  > .expand-button {
+    align-self: flex-start;
+    flex-shrink: 0;
+    margin-left: $mat-grid * 2;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.content {
+  flex-grow: 1;
+  overflow: hidden;
+  width: 100%;
+}
+
+%toolbelt {
+  box-sizing: border-box;
+  border-top: 1px $mat-border-light solid;
+  padding: $mat-grid * 2 0;
+  width: 100%;
+}
+
+.toolbelt ::ng-deep [toolbelt] {
+  @extend %toolbelt;
+}
+
+.action-buttons {
+  @extend %toolbelt;
+  color: $mat-blue;
+}

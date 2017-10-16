@@ -1,0 +1,42 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+// TODO(google): Extract and share values with scrolling tab strip.
+$tab-indicator-height: $mat-grid * .25;
+$navi-bar-margin: -1 * $tab-indicator-height;
+
+:host {
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.navi-bar {
+  display: flex;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
+  width: 100%;
+
+  .tab-button {
+    flex: 1;
+    overflow: hidden;
+    margin: 0;
+  }
+}
+
+.tab-indicator {
+  transform-origin: left center;
+  background: $mat-blue-500;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $tab-indicator-height;
+  position: absolute;
+  transition: transform $mat-transition-standard $mat-transition-slow;
+}

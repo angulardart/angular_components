@@ -1,0 +1,152 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+$acx-positive-increase-color: $mat-green-500;
+$acx-positive-decrease-color: $mat-green-500;
+$acx-negative-increase-color: $mat-red-500;
+$acx-negative-decrease-color: $mat-red-500;
+$acx-neutral-increase-color: $mat-light-transparent-black;
+
+// An optional mixin that instead of applying the red/green style of colors on
+// the secondary text (as-per the spec on acux-material/components/scorecard) it
+// applies the color on the primary text.
+//
+// May optionally specify a $selector to only affect a certain area, e.g.:
+//     @include acx-scorecard-apply-change-color-on-primary($selector: '.area');
+@mixin acx-scorecard-apply-change-color-on-primary($selector: '') {
+  ::ng-deep #{$selector} {
+
+    // Change the description always to be black/neutral colored.
+    acx-scorecard .description {
+      color: $mat-light-transparent-black !important;
+    }
+
+    // For positive scorecards, change the <h2> to positive style.
+    acx-scorecard.is-change-positive h2 {
+      color: $acx-positive-increase-color;
+    }
+
+    // For negative scorecards, change the <h2> to negative style.
+    acx-scorecard.is-change-negative h2 {
+      color: $acx-negative-decrease-color;
+    }
+  }
+}
+
+// A mixin for applying styles to the title of a scorecard.
+@mixin acx-scorecard-title($selector: '') {
+  ::ng-deep #{$selector} {
+    acx-scorecard h3 {
+      @content;
+    }
+  }
+}
+
+// A mixin for applying styles to the value of a scorecard.
+@mixin acx-scorecard-value($selector: '') {
+  ::ng-deep #{$selector} {
+    acx-scorecard h2 {
+      @content;
+    }
+  }
+}
+
+// A mixin for applying customized color to the description of a scorecard.
+// Optionally specify a '$glyph-color' and a `$text-color`.
+@mixin acx-scorecard-description-color($glyph-color: null, $text-color: null, $selector: '') {
+  ::ng-deep #{$selector} {
+    @if ($glyph-color != null) {
+      acx-scorecard .change-glyph {
+        color: $glyph-color;
+      }
+    }
+
+    @if ($text-color != null) {
+      // Adding specific css selector to make sure it's not overwritten by other
+      // classes.
+      acx-scorecard:not(.selected).themeable .description {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+// A mixin for customizing the colors used for positive and negative styles.
+@mixin acx-scorecard-description-positive-negative-colors(
+    $positive-color: null,
+    $negative-color: null,
+    $selector: '') {
+  ::ng-deep #{$selector} {
+    @if ($positive-color != null) {
+      acx-scorecard:not(.selected).themeable.is-change-positive .description {
+        color: $positive-color;
+      }
+    }
+
+    @if ($negative-color != null) {
+      acx-scorecard:not(.selected).themeable.is-change-negative .description {
+        color: $negative-color;
+      }
+    }
+  }
+}
+
+// A mixin for applying customized color to the suggestion of a scorecard.
+@mixin acx-scorecard-suggestion-color($color, $selector: '') {
+  ::ng-deep #{$selector} {
+    acx-scorecard .suggestion {
+      color: $color;
+    }
+  }
+}
+
+// A mixin for setting the suggestion of a scorecard on a separate line than the
+// description.
+@mixin acx-scorecard-suggestion-to-separate-line($selector: '') {
+  ::ng-deep #{$selector} {
+    acx-scorecard .suggestion {
+      display: block;
+    }
+  }
+}
+
+// A mixin for changing the padding of a scorecard.
+@mixin acx-scorecard-padding($top: null, $right: null, $bottom: null, $left: null) {
+  :host ::ng-deep acx-scorecard {
+    @if ($top != null) {
+      padding-top: $top;
+    }
+    @if ($right != null) {
+      padding-right: $right;
+    }
+    @if ($bottom != null) {
+      padding-bottom: $bottom;
+    }
+    @if ($left != null) {
+      padding-left: $left;
+    }
+  }
+}
+
+// A mixin for adding vertical alignment to scorecards.
+@mixin acx-scorecard-vertical-align($vertical-align, $selector: '') {
+  ::ng-deep #{$selector} {
+    acx-scorecard {
+      vertical-align: $vertical-align;
+    }
+  }
+}
+
+// A mixin for applying a min height on the description to allow for empty
+// space.
+@mixin acx-scorecard-description-min-height($min-height, $selector: '') {
+  ::ng-deep #{$selector} {
+    .description {
+      display: block;
+      min-height: $min-height;
+    }
+  }
+}

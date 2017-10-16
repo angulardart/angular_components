@@ -1,0 +1,89 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+$mat-option-inline-icons: true;
+
+$chip-height: $mat-grid * 4;
+$chip-border-radius: $chip-height / 2;
+
+$main-bg-color: $mat-gray-300;
+
+$emphasis-bg-color: $mat-blue-500;
+
+:host {
+  background-color: $main-bg-color;
+  color: $mat-black;
+
+  display: flex;
+  align-items: center;
+  border-radius: $chip-border-radius;
+  height: $chip-height;
+  margin: $mat-grid / 2;
+  overflow: hidden;
+}
+
+.content {
+  margin: 0 $mat-grid * 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+$delete-icon-size: 19px;
+// Increased clickable area to match the spec.
+// https://material.io/guidelines/components/chips.html#chips-specs
+$clickable-size: 25px;
+$delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
+
+.left-icon {
+  // make it easy to use either <svg> or <material-icon>
+  color: $mat-gray-500;
+  fill: $mat-gray-500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // The margin between chip content and icon should be 4px (that is 12px - 8px)
+  margin-right: -$mat-grid;
+  margin-left: $mat-grid-type;
+  padding: $delete-icon-padding;
+}
+
+.delete-icon {
+  display: flex;
+  background-size: $delete-icon-size $delete-icon-size;
+  border: 0;
+  cursor: pointer;
+  height: $delete-icon-size;
+  // The margin between chip content and icon should be 4px (that is 12px - 8px)
+  margin-left: -$mat-grid;
+  margin-right: $mat-grid-type;
+  min-width: $delete-icon-size;
+  padding: $delete-icon-padding;
+  width: $delete-icon-size;
+
+  fill: $mat-gray-500;
+
+  &:focus {
+    fill: $mat-white;
+    outline: none;
+  }
+}
+
+// emphasis colors
+:host[emphasis] {
+  background-color: $emphasis-bg-color;
+  color: $mat-white;
+
+  .left-icon {
+    color: $mat-white;
+    fill: $mat-white;
+  }
+
+  .delete-icon {
+    fill: $mat-white;
+  }
+}

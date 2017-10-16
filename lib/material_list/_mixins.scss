@@ -1,0 +1,136 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'size';
+@import 'package:angular_components/css/material/material';
+
+@mixin list-item-base {
+  display: block;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: $list-item-height;
+  padding: 0 $list-item-padding;
+  position: relative;
+  white-space: nowrap;
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  // TODO(google): Move ::ng-deep up to material_list_item.scss.
+  ::ng-deep .material-list-item-primary {
+    color: $mat-light-transparent-black;
+    width: $list-item-primary-width;
+  }
+
+  &.disabled ::ng-deep .material-list-item-primary {
+    color: $mat-lighter-transparent-black;
+  }
+
+  ::ng-deep .material-list-item-secondary {
+    color: $mat-light-transparent-black;
+    margin-left: auto;
+  }
+
+  &.disabled ::ng-deep .material-list-item-secondary {
+    color: $mat-lighter-transparent-black;
+  }
+
+  ::ng-deep .submenu-icon {
+    transform: rotate(-90deg);
+  }
+}
+
+// Include this inside :host-context(body[dir="rtl"])
+@mixin list-item-base-rtl {
+  ::ng-deep .submenu-icon {
+    transform: rotate(90deg);
+  }
+}
+
+@mixin list-item-button {
+  @include list-item-base();
+
+  display: flex;
+  align-items: center;
+  color: $mat-transparent-black;
+  cursor: pointer;
+
+  &:not([separator="present"]) {
+    &:hover,
+    &:focus,
+    &.active {
+      background: $mat-grey-200;
+    }
+
+    &.disabled {
+      background: none;
+      color: $mat-lighter-transparent-black;
+      cursor: default;
+      pointer-events: all;
+    }
+  }
+}
+
+/// Makes the material-list under the passed $selector display with inline
+/// properties.
+@mixin inline-material-list($selector: '') {
+  #{$selector} material-list {
+    display: inline-block;
+  }
+}
+
+/// Remove the background on hover for material-list-item.
+@mixin flat-material-list() {
+  ::ng-deep material-list {
+    .item:hover {
+      @include material-item-background(none);
+    }
+  }
+}
+
+@mixin material-item-background($background) {
+  ::ng-deep {
+    background: $background !important;
+  }
+}
+
+/// Sets the padding of the material-list element.
+@mixin material-list-padding($padding) {
+  ::ng-deep material-list {
+    padding: $padding;
+  }
+}
+
+/// Sets the max-width of the material-list element.
+@mixin material-list-max-width($max-width) {
+  ::ng-deep material-list {
+    max-width: $max-width;
+  }
+}
+
+/// Applies the list-size-n class to the material list. This mixin can also be
+/// used in situations where a parent element is required to have matching
+/// width, e.g. select-suggest-input.
+@mixin list-sizes {
+  &.list-size-1 {
+    width: $list-width-unit * 1.5;
+  }
+
+  &.list-size-2 {
+    width: $list-width-unit * 3;
+  }
+
+  &.list-size-3 {
+    width: $list-width-unit * 5;
+  }
+
+  &.list-size-4 {
+    width: $list-width-unit * 6;
+  }
+
+  &.list-size-5 {
+    width: $list-width-unit * 7;
+  }
+}

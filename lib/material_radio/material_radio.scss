@@ -1,0 +1,79 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+// Adjust margin to keep icon and ripple centered.
+$ripple-left: -$mat-grid;
+$ripple-top: -$mat-grid;
+
+:host {
+  align-items: baseline;
+  cursor: pointer;
+  display: inline-flex;
+  margin: $mat-grid;
+
+  &[no-ink] .ripple {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // Radio is disabled.
+  &.disabled {
+    color: $mat-lightest-transparent-black;
+    cursor: not-allowed;
+  }
+
+  // Left margin is removed.
+  &.radio-no-left-margin {
+    margin-left: -2px;
+  }
+}
+
+.icon-container {
+  flex: none;
+  height: $mat-grid * 3;
+  position: relative;
+  color: $mat-light-transparent-black;
+
+  &.checked {
+    color: $mat-blue-500;
+  }
+
+  &.disabled {
+    color: $mat-lightest-transparent-black;
+  }
+
+  .icon {
+    display: inline-block;
+    vertical-align: -$mat-grid;
+  }
+
+  &.focus::after,
+  .ripple {
+    $size: $mat-grid * 5;
+    border-radius: $size / 2;
+    height: $size;
+    left: $ripple-left;
+    position: absolute;
+    top: $ripple-top;
+    width: $size;
+  }
+
+  &.focus::after {
+    content: '';
+    display: block;
+    background-color: currentColor;
+    opacity: $mat-divider-opacity;
+  }
+}
+
+.content {
+  align-items: center;
+  flex: auto;
+  margin-left: $mat-grid;
+}

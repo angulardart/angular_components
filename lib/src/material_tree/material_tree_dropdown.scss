@@ -1,0 +1,58 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/glyph/mixins';
+@import 'package:angular_components/material_list/mixins';
+
+$icon-size: $mat-grid * 3;
+
+:host {
+  display: inline-flex;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  cursor: pointer;
+
+  // The icon is absolutely-positioned so that it doesn't factor into layout, so
+  // we need to account for it here.
+  padding-right: $icon-size * 2;
+  position: relative;
+
+  &.border {
+    border-bottom: 1px solid $mat-border-light;
+
+    // 1px bottom padding so that the underline here matches the underline on
+    // material-input. (material-input's underline is actually a separate div
+    // instead of a border, so it's 1px below where it'd otherwise be)
+    padding-bottom: 1px;
+  }
+}
+
+.icon {
+  opacity: $mat-icon-opacity;
+
+  // Positioning hacks to keep the dropselect from being taller than the
+  // material-input.
+  //
+  // The icon "has" to be at its normal 24x24 size, but that's too big for the
+  // dropselect -- and we know ahead of time that it's mostly empty space
+  // anyway. Absolutely-positioning it removes it from the layout flow, and
+  // keeps it from vertically stretching the dropselect.
+  position: absolute;
+  right: 0;
+
+  // Because it's absolutely-positioned, we don't get flex centering anymore.
+  // We can do it ourselves, assuming we know the height of the icon ahead of
+  // time. We have to bump it up an extra pixel to account for the 1px of
+  // padding-bottom on the button div.
+  top: calc(50% - #{$icon-size / 2 + 1px});
+}
+
+.search-box {
+  width: 100%;
+}

@@ -1,0 +1,91 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// These styles are based on the original material progress styles in
+// https://material.io/guidelines/components/progress-activity.html
+
+// Leading zeros avoid confusion in the keyframes.
+// scss-lint:disable LeadingZero
+
+@import 'package:angular_components/css/material/material';
+
+$indeterminate-duration: 2000ms;
+
+:host {
+  display: inline-block;
+  width: 100%;
+  height: $mat-grid-type;
+}
+
+.progress-container {
+  position: relative;
+  height: 100%;
+  background-color: $mat-grey-300;
+  overflow: hidden;
+
+  :host-context([dir="rtl"]) & {
+    transform: scaleX(-1);
+  }
+}
+
+.progress-container.indeterminate {
+  background-color: $mat-blue-100;
+}
+
+.progress-container.indeterminate > .secondary-progress {
+  background-color: $mat-blue-500;
+}
+
+/*! @noflip */
+.active-progress,
+.secondary-progress {
+  transform-origin: left center;
+  transform: scaleX(0);
+  position: absolute;
+  top: 0;
+  transition: transform $mat-transition $mat-transition-standard;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.active-progress {
+  background-color: $mat-blue-500;
+}
+
+.secondary-progress {
+  background-color: $mat-blue-200;
+}
+
+.progress-container.indeterminate.fallback > .active-progress {
+  animation-name: indeterminate-active-progress;
+  animation-duration: $indeterminate-duration;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.progress-container.indeterminate.fallback > .secondary-progress {
+  animation-name: indeterminate-secondary-progress;
+  animation-duration: $indeterminate-duration;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/*! @noflip */
+@keyframes indeterminate-active-progress {
+  0% { transform: translate(0%) scaleX(0); }
+  25% { transform: translate(0%) scaleX(0.5); }
+  50% { transform: translate(25%) scaleX(0.75); }
+  75% { transform: translate(100%) scaleX(0); }
+  100% { transform: translate(100%) scaleX(0); }
+}
+
+/*! @noflip */
+@keyframes indeterminate-secondary-progress {
+  0% { transform: translate(0%) scaleX(0); }
+  60% { transform: translate(0%) scaleX(0); }
+  80% { transform: translate(0%) scaleX(0.6); }
+  100% { transform: translate(100%) scaleX(0.1); }
+}

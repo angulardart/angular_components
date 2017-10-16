@@ -1,0 +1,282 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+$error-color: $mat-red-700;
+
+/// Default input width; chosen arbitrarily.
+$default-input-width: $mat-grid * 22;
+
+:host {
+  display: inline-flex;
+  flex-direction: column;
+  outline: none;
+  padding: $mat-grid 0;
+  text-align: inherit;
+  width: $default-input-width;
+  line-height: initial;
+}
+
+.baseline {
+  // On Firefox, we can't have a baseline-aligned inline-flex element unless the
+  // contents are also inline-flex. Context[1][2].
+  //
+  // [1]http://stackoverflow.com/a/26567760
+  // [2]http://kizu.ru/en/blog/flex-baseline/
+  display: inline-flex;
+  flex-direction: column;
+
+  // But if someone overrode the input to be display:block instead, then handle
+  // that too. (Otherwise this div will shrink to fit the content)
+  width: 100%;
+
+  // Prevent div.underline from overlapping with div.top-section when the height
+  // of the textarea grows but the height of the host element is limited by its
+  // parent.
+  :host([multiline]) & {
+    flex-shrink: 0;
+  }
+}
+
+.focused.label-text {
+  color: $mat-blue-500;
+}
+
+.focused-underline,
+.cursor {
+  background-color: $mat-blue-500;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: $mat-grid;
+}
+
+.input-container {
+  // Grow/shrink the input really aggressively so that we never crowd out the
+  // padding around leading/trailing text when the input's stuffed into a space
+  // narrower than the default width.
+  flex-grow: 100;
+  flex-shrink: 100;
+  width: 100%;
+  position: relative;
+}
+
+// Disable the clear button which only appears in IE and Edge.
+// https://developer.mozilla.org/en-US/docs/Web/CSS/::-ms-clear
+.input::-ms-clear {
+  display: none;
+}
+
+.invalid.counter,
+.error-text,
+.focused.error-icon {
+  color: $error-color;
+}
+
+.invalid.unfocused-underline,
+.invalid.focused-underline,
+.invalid.cursor {
+  background-color: $error-color;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.leading-text,
+.trailing-text {
+  padding: 0 $mat-grid-type;
+  white-space: nowrap;
+}
+
+.glyph {
+  transform: translateY($mat-grid);
+
+  &.leading {
+    margin-right: $mat-grid;
+  }
+
+  &.trailing {
+    margin-left: $mat-grid;
+  }
+
+  &[disabled = true] {
+    opacity: $mat-icon-dark-opacity-disabled;
+  }
+}
+
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  width: 100%;
+}
+
+input[type="text"] {
+  // More specific version of above rule; needed to override AW3 styles for
+  // dart apps embedded in AW3.
+  border: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+textarea {
+  // fit to the container for auto-resizing
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  resize: none;
+  height: 100%;
+}
+
+input:hover,
+textarea:hover {
+  cursor: text;
+  box-shadow: none;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: none;
+}
+
+input:invalid,
+textarea:invalid {
+  box-shadow: none;
+}
+
+.label-text.disabled,
+.disabledInput {
+  color: $mat-lighter-transparent-black;
+}
+
+// Hide the spinner in webkit based browsers.
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+// Hide the spinner in moz based browsers.
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.animated,
+.reset {
+  transition: opacity $mat-transition $mat-transition-standard,
+              transform $mat-transition $mat-transition-standard,
+              font-size $mat-transition $mat-transition-standard;
+}
+
+.animated.label-text {
+  transform: translateY(-100%) translateY(-$mat-grid);
+  font-size: $mat-caption-font-size;
+}
+
+.leading-text.floated-label,
+.trailing-text.floated-label,
+.input-container.floated-label {
+  margin-top: $mat-grid * 2;
+}
+
+.label {
+  background: transparent;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.label-text {
+  transform-origin: 0%, 0%;
+  color: $mat-light-transparent-black;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 100%;
+
+  &:not(.multiline) {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.underline {
+  height: 1px;
+  overflow: visible;
+}
+
+.disabled-underline {
+  @include box-sizing;
+  height: 1px;
+  border-bottom: 1px dashed;
+  color: $mat-border-light;
+}
+
+.unfocused-underline {
+  height: 1px;
+  background: $mat-border-light;
+  border-bottom-color: $mat-border-light;
+  position: relative;
+  top: -1px;
+}
+
+.focused-underline {
+  transform: none;
+  height: 2px;
+  position: relative;
+  top: -3px;
+}
+
+.focused-underline.invisible {
+  transform: scale3d(0, 1, 1);
+}
+
+.bottom-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: $mat-grid / 2;
+}
+
+.counter,
+.error-text,
+.hint-text,
+.spaceholder {
+  font-size: $mat-caption-font-size;
+}
+
+.spaceholder {
+  flex-grow: 1;
+  outline: none;
+}
+
+.counter {
+  color: $mat-light-transparent-black;
+  white-space: nowrap;
+}
+
+.hint-text {
+  color: $mat-light-transparent-black;
+}
+
+.error-icon {
+  height: 20px;
+  width: 20px;
+}

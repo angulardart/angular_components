@@ -1,0 +1,68 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+/// Applies a max height to the <material-tree> of a <material-tree-dropdown>.
+///
+/// This mixin is only used to set the max-height attribute of a <material-tree> within a
+/// <material-tree-dropdown> component. If <material-tree> is being used directly, please refrain
+/// from using this mixin and set its max-height attribute directly.
+@mixin material-tree-dropdown-max-height($max-height) {
+  ::ng-deep material-tree {
+    max-height: $max-height;
+  }
+}
+
+/// Selects border separators between rows in the material tree.
+///
+/// This has higher specificity than the default styling.
+@mixin material-tree-border {
+  ::ng-deep .material-tree-item > .material-tree-shift > .material-tree-border {
+    @content;
+  }
+}
+/// Additionally indents separators within the material tree.
+@mixin material-tree-border-indent($dist) {
+  @include material-tree-border {
+    margin-left: $dist;
+  }
+}
+/// Displays separators above expanded parent nodes. Also applies @content styling to them.
+@mixin material-tree-border-expanded {
+  @include material-tree-border {
+    &.is-parent.is-expanded {
+      display: block;
+      @content;
+    }
+  }
+}
+/// Displays separators above expanded nodes. Also applies @content styling to them.
+@mixin material-tree-border-parent {
+  @include material-tree-border {
+    &.is-parent {
+      display: block;
+      @content;
+    }
+  }
+}
+/// Displays separators above all nodes. Also applies @content styling to them.
+@mixin material-tree-border-all {
+  @include material-tree-border {
+    display: block;
+    @content;
+  }
+}
+
+/// Fills in the right side padding of rows with the border.
+///
+/// Turns out some clients (probably unintentionally) use the right side
+/// padding of material tree rows to occupy the scroll bar. To workaround,
+/// we had to avoid putting the border in this area. If you know your scrollbar
+/// doesn't behave this way, that area can be filled in with this mixin.
+@mixin material-tree-border-fill-right {
+  @include material-tree-border {
+    margin-right: -$mat-grid * 2;
+  }
+}

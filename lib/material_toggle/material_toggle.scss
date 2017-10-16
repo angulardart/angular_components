@@ -1,0 +1,117 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+
+$default-on-color: $mat-teal-500;
+$off-btn-color: $mat-grey-50;
+$off-bar-color: rgba(0, 0, 0, .26);
+$disabled-btn-color: $mat-grey-400;
+$disabled-bar-color: rgba(0, 0, 0, .12);
+
+$container-size: $mat-grid * 4.5;
+$button-size: $mat-grid * 2.5;
+$bar-height: $mat-grid * 1.75;
+$vertical-space: $mat-grid * .25;
+
+:host {
+  display: inline-block;
+  text-align: initial;
+}
+
+.material-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+
+.material-toggle.disabled {
+  pointer-events: none;
+}
+
+.tgl-container {
+  display: inline-block;
+  min-width: $container-size;
+  position: relative;
+  vertical-align: middle;
+  width: $container-size;
+
+}
+
+.tgl-bar {
+  transition: background-color $mat-transition-fast $mat-transition-standard;
+  transition: opacity $mat-transition-fast $mat-transition-standard;
+
+  @include material-shadow;
+
+  background-color: $off-bar-color;
+  border-radius: $mat-grid;
+  height: $bar-height;
+  margin: $vertical-space 0;
+  width: 100%;
+}
+
+.material-toggle.checked .tgl-bar {
+  background-color: $default-on-color;
+  opacity: .5;
+}
+
+.tgl-btn-container {
+  display: inline-flex;
+  justify-content: flex-end;
+  transition: width $mat-transition-fast $mat-transition-standard;
+  margin-top: -2px;
+  position: absolute;
+  top: 0;
+  width: $button-size;
+}
+
+.material-toggle.checked .tgl-btn-container {
+  width: $container-size;
+}
+
+.tgl-btn {
+  transition: background-color $mat-transition-fast $mat-transition-standard;
+
+  @include material-shadow;
+
+  background-color: $off-btn-color;
+  border-radius: 50%;
+  height: $button-size;
+  position: relative;
+  width: $button-size;
+}
+
+.material-toggle.checked .tgl-btn {
+  background-color: $default-on-color;
+}
+
+.tgl-lbl {
+  flex-grow: 1;
+  display: inline-block;
+  padding: $vertical-space $mat-grid $vertical-space 0;
+  position: relative;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+.material-toggle.disabled .tgl-lbl {
+  opacity: $mat-opacity-light;
+}
+
+
+.material-toggle.disabled .tgl-btn,
+.material-toggle.checked.disabled .tgl-btn {
+  background-color: $disabled-btn-color;
+}
+
+.material-toggle.disabled .tgl-bar,
+.material-toggle.checked.disabled .tgl-bar {
+  background-color: $disabled-bar-color;
+}

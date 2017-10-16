@@ -1,0 +1,36 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_popup/mixins';
+
+@import 'constants';
+
+$tooltip-line-height: $tooltip-font-size + $mat-grid-type;
+
+:host {
+  // The element shouldn't take up any space.
+  position: absolute;
+}
+
+.ink-container {
+  box-sizing: border-box;
+  overflow: hidden;
+  max-width: $mat-grid * 40;
+  padding: $mat-grid;
+  font-size: $tooltip-font-size;
+  font-weight: $mat-font-weight-medium;
+  line-height: $tooltip-line-height;
+  text-align: left;
+
+  // For non-breakable strings, truncate with an ellipsis.
+  text-overflow: ellipsis;
+}
+
+// deep required to style shadow css class in material-popup.
+.aacmtit-ink-tooltip-shadow {
+  @include material-popup-style {
+    margin: $mat-grid;
+  }
+}

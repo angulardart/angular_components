@@ -1,0 +1,29 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+:host {
+  display: inline-flex;
+}
+
+.clear-icon {
+  opacity: $mat-icon-opacity;
+  cursor: pointer;
+  transform: translateY($mat-grid);
+  margin: 0 $mat-grid-type 0 ($mat-grid-type * 3);
+}
+
+.list-group .list-group-label {
+  padding: 0 (2 * $mat-grid);
+}
+
+.loading {
+  margin: 2 * $mat-grid;
+}
+
+.empty {
+  margin: 2 * $mat-grid;
+  font-style: italic;
+}
