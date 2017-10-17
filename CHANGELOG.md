@@ -1,4 +1,4 @@
-## 0.8.0-dev
+## 0.8.0
 
  * Move entry points to all components out of the lib/src/ directory.
  * Remove all precompiled .css files.
