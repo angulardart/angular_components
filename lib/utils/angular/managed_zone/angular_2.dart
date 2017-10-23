@@ -10,6 +10,7 @@ import 'package:angular_components/src/utils/angular/managed_zone/managed_zone.d
 export 'package:angular_components/src/utils/angular/managed_zone/managed_zone.dart';
 
 /// An implementation of [ManagedZone] that uses Angular 2's [NgZone].
+@Deprecated('Use NgZone directly instead')
 @Injectable()
 class Angular2ManagedZone extends ManagedZoneBase {
   final NgZone _ngZone;

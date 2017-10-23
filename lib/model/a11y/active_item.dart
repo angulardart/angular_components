@@ -5,8 +5,8 @@
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:angular_components/utils/id_generator/id_generator.dart';
 import 'package:collection/collection.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 /// Manages a pointer to an item in a list.
 ///

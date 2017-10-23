@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html' as html;
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
@@ -36,7 +37,6 @@ import 'package:angular_components/stop_propagation/stop_propagation.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
-import 'package:angular_forms/angular_forms.dart';
 
 import 'material_input.dart';
 
@@ -534,7 +534,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   void handleBlur(html.FocusEvent event) {
     _isFocused = false;
-    if (!showPopup || !hasOptions) {
+    if ((!showPopup || !hasOptions) && _onBlur != null) {
       _onBlur.add(null);
     }
   }

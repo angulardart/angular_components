@@ -21,13 +21,17 @@ import 'package:angular_components/utils/async/async.dart';
 ///       <div focusItem>Item 3</div>
 ///     </div>
 ///
-@Directive(selector: '[focusItem]', host: const {
-  '[attr.tabindex]': 'tabIndex',
-  '[attr.role]': 'role',
-  '(keydown)': r'keydown($event)',
-}, providers: const [
-  const Provider(FocusableItem, useExisting: FocusItemDirective)
-])
+@Directive(
+    selector: '[focusItem]',
+    host: const {
+      '[attr.tabindex]': 'tabIndex',
+      '[attr.role]': 'role',
+      '(keydown)': r'keydown($event)',
+    },
+    providers: const [
+      const Provider(FocusableItem, useExisting: FocusItemDirective)
+    ],
+    visibility: Visibility.none)
 class FocusItemDirective extends RootFocusable implements FocusableItem {
   final String role;
 

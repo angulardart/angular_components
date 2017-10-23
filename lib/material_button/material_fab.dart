@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:html';
-
 import 'package:angular/angular.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 
@@ -62,7 +61,8 @@ import 'material_button_base.dart';
     preserveWhitespace: false,
     templateUrl: 'material_button.html',
     styleUrls: const ['material_fab.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    visibility: Visibility.none)
 class MaterialFabComponent extends MaterialButtonBase {
   final ChangeDetectorRef _changeDetector;
   MaterialFabComponent(HtmlElement element, this._changeDetector)

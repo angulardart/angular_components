@@ -2,7 +2,19 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:math' as math;
+
 import 'package:quiver/core.dart';
+
+/// Minimum contrast ratio for text recommended by the W3C.
+///
+/// https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html
+const minimumTextContrast = 4.5;
+
+/// Minimum contrast ratio for large text recommended by the W3C.
+///
+/// https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html
+const minimumLargeTextContrast = 3;
 
 /// A color utility class.
 ///
@@ -50,10 +62,40 @@ class Color {
   /// channel should be between 0 and 1, inclusive.
   const Color.rgba(this.red, this.green, this.blue, this.alpha);
 
+  /// A transformation used in the calculation of [_relativeLuminance].
+  static double _luminanceChannel(double v) =>
+      (v <= 0.03928) ? v / 12.92 : math.pow((v + 0.055) / 1.055, 2.4);
+
+  /// The relative luminance of the color, as specified by
+  /// https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef.
+  ///
+  /// Only valid for opaque colors; use [withBackground] first if necessary.
+  num get _relativeLuminance =>
+      _luminanceChannel(red / 255) * 0.2126 +
+      _luminanceChannel(green / 255) * 0.7152 +
+      _luminanceChannel(blue / 255) * 0.0722;
+
+  /// The contrast ratio against a background color, as specified by
+  /// https://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef.
+  ///
+  /// Return value will be in the range [1, 21].
+  ///
+  /// The background must be opaque.
+  num contrastRatio(Color background) {
+    if (background.alpha != 1) {
+      throw new ArgumentError.value(background, 'background',
+          'Cannot calculate contrast against non-opaque backgrounds.');
+    }
+    final a = alpha == 1 ? this : withBackground(background);
+    final la = a._relativeLuminance;
+    final lb = background._relativeLuminance;
+    return (math.max(la, lb) + 0.05) / (math.min(la, lb) + 0.05);
+  }
+
   /// Linearly interpolate between two numbers.
   ///
   /// Returns [a] when t = 0 and [b] when t = 1, without floating point errors.
-  static num _lerpNum(num a, num b, double t) {
+  static num _lerpNum(num a, num b, num t) {
     if (t < 0.0 || t > 1.0) throw new ArgumentError.value(t, 't');
     return a * (1.0 - t) + b * t;
   }
@@ -135,11 +177,22 @@ class Color {
     throw new FormatException('Invalid color format', s);
   }
 
-  /// Creates a copy of this, with the given alpha channel value.
+  /// Creates a copy with the given alpha channel value.
   Color withAlpha(num a) {
     assert(a >= 0 && a <= 1);
     return new Color.rgba(red, green, blue, a);
   }
+
+  /// Resolves against a background color.
+  ///
+  /// If [background] is opaque, the returned color will also be opaque.
+  Color withBackground(Color background) => alpha == 1
+      ? this
+      : new Color.rgba(
+          _lerpNum(background.red, red, alpha).toInt(),
+          _lerpNum(background.green, green, alpha).toInt(),
+          _lerpNum(background.blue, blue, alpha).toInt(),
+          _lerpNum(background.alpha, 1, alpha));
 
   String get _alphaString =>
       alpha < _alphaThreshold ? '0' : alpha.toStringAsFixed(2);

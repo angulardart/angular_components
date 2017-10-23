@@ -3,16 +3,16 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
+import 'package:angular_components/utils/disposer/disposer.dart';
 
 import 'base_material_input.dart';
 
 /// [ControlValueAccessor] for [MaterialInputComponent] that updates on
 /// keypress.
 // TODO(google): Migrate away from this being the default accessor.
-@Directive(selector: 'material-input:not([blurUpdate]):not([changeUpdate]))')
+@Directive(selector: 'material-input:not([blurUpdate]):not([changeUpdate])')
 class MaterialInputDefaultValueAccessor extends BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
   MaterialInputDefaultValueAccessor(

@@ -6,16 +6,16 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:intl/intl.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
-import 'package:angular_components/src/scorecard/scorecard_bar.dart';
 import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
 import 'package:angular_components/utils/color/palette.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
-import 'package:intl/intl.dart';
 
 import 'scorecard.dart';
+import 'package:angular_components/src/scorecard/scorecard_bar.dart';
 
 /// ACUX Scoreboard component
 ///
@@ -50,18 +50,20 @@ import 'scorecard.dart';
 /// - `isVertical: bool` -- Whether the scorecard is displayed vertically.
 ///   Defaults to false.
 @Component(
-    selector: 'acx-scoreboard',
-    directives: const [
-      MaterialButtonComponent,
-      MaterialIconComponent,
-      NgIf,
-      ScorecardBarDirective,
-    ],
-    templateUrl: 'scoreboard.html',
-    styleUrls: const ['scoreboard.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    // TODO(google): Change preserveWhitespace to false to improve codesize.
-    preserveWhitespace: true)
+  selector: 'acx-scoreboard',
+  directives: const [
+    MaterialButtonComponent,
+    MaterialIconComponent,
+    NgIf,
+    ScorecardBarDirective,
+  ],
+  templateUrl: 'scoreboard.html',
+  styleUrls: const ['scoreboard.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+  visibility: Visibility.none,
+)
 class ScoreboardComponent implements OnInit, OnDestroy {
   static const chevronLeft = 'chevron_left';
   static const chevronRight = 'chevron_right';

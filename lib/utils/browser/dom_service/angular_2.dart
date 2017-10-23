@@ -6,7 +6,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular/experimental.dart';
-import 'package:angular_components/utils/angular/managed_zone/interface.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service_webdriver_testability.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
@@ -26,7 +25,7 @@ const domServiceBinding =
     const Provider(DomService, useFactory: createDomService, deps: const [
   const [DomService, const Optional(), const SkipSelf()],
   const [Disposer, const Optional()],
-  ManagedZone,
+  NgZone,
   Window
 ]);
 
@@ -35,7 +34,7 @@ DomService _singletonService;
 
 @Injectable()
 DomService createDomService(@Optional() @SkipSelf() DomService service,
-    @Optional() Disposer disposer, ManagedZone zone, Window window) {
+    @Optional() Disposer disposer, NgZone zone, Window window) {
   // If DomService was bound higher up the tree use that instance. This allows
   // an application to override the service at root.
   if (service != null) return service;

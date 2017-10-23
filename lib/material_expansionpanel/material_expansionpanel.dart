@@ -3,18 +3,18 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:intl/intl.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/material_yes_no_buttons/material_yes_no_buttons.dart';
 import 'package:angular_components/model/action/async_action.dart';
-import 'package:angular_components/utils/angular/managed_zone/angular_2.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
-import 'package:intl/intl.dart';
 
 /// A material-styled expansion-panel.
 ///
@@ -115,18 +115,18 @@ import 'package:intl/intl.dart';
     ],
     templateUrl: 'material_expansionpanel.html',
     styleUrls: const ['material_expansionpanel.scss.css'],
-    preserveWhitespace: false,
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialExpansionPanel
     implements DeferredContentAware, OnInit, OnDestroy {
-  final ManagedZone _managedZone;
+  final NgZone _ngZone;
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
   final _disposer = new Disposer.oneShot();
   final _defaultExpandIcon = 'expand_less';
 
-  MaterialExpansionPanel(
-      this._managedZone, this._changeDetector, this._domService);
+  bool initialized = false;
+
+  MaterialExpansionPanel(this._ngZone, this._changeDetector, this._domService);
 
   /// Set the auto focus child so that we can focus on it when the panel opens.
   ///
@@ -136,6 +136,24 @@ class MaterialExpansionPanel
   /// will get focused instead of the [AutoFocusDirective] inside the .content.
   @ContentChild(AutoFocusDirective)
   AutoFocusDirective autoFocusChild;
+
+  HtmlElement _mainPanel;
+  @ViewChild('mainPanel')
+  set mainPanel(ElementRef ref) {
+    _mainPanel = ref.nativeElement;
+    _disposer.addStreamSubscription(_mainPanel.onTransitionEnd.listen((_) {
+      // Clear height override so it will match the active child's height.
+      _mainPanel.style.height = '';
+    }));
+  }
+
+  HtmlElement _mainContent;
+  @ViewChild('mainContent')
+  set mainContent(ElementRef ref) => _mainContent = ref.nativeElement;
+
+  HtmlElement _contentWrapper;
+  @ViewChild('contentWrapper')
+  set contentWrapper(ElementRef ref) => _contentWrapper = ref.nativeElement;
 
   /// If true, after a successful save, the panel will attempt to close.
   @Input()
@@ -340,10 +358,11 @@ class MaterialExpansionPanel
     _disposer.addStreamSubscription(isExpandedChangeByUserAction.listen((_) {
       // Wait for the button reference to be set after change detection is done
       // and buttonDirective is created.
-      _managedZone.onTurnDone.first.then(([_]) {
+      _ngZone.onEventDone.first.then(([_]) {
         _expandCollapseButton?.focus();
       });
     }));
+    initialized = true;
   }
 
   /// Button that expands or collapses the panel.
@@ -417,6 +436,7 @@ class MaterialExpansionPanel
     }
     var actionCtrl = new AsyncActionController<bool>();
     stream.add(actionCtrl.action);
+    var stateWasInitialized = initialized;
     actionCtrl.execute(() {
       _isExpanded = expand;
       _isExpandedChange.add(expand);
@@ -427,9 +447,54 @@ class MaterialExpansionPanel
           autoFocusChild.focus();
         });
       }
+      if (stateWasInitialized) _transitionHeightChange(expand);
       return true;
     }, valueOnCancel: false);
     return actionCtrl.action.onDone;
+  }
+
+  /// Sets necessary explicit heights to allow CSS transitions when expanding
+  /// or collapsing.
+  void _transitionHeightChange(bool expand) {
+    // Make current height explicit as a starting point for animation.
+    _mainPanel.style.height = '${_mainPanel.scrollHeight}px';
+
+    // On next frame, set target height for animation.
+    if (expand) {
+      _readExpandedPanelHeight().then((expandedPanelHeight) {
+        _mainPanel.style.height = expandedPanelHeight;
+      });
+    } else {
+      _domService.nextFrame.then((_) => _mainPanel.style.height = '');
+    }
+  }
+
+  /// Reads the DOM state to calculate the height of the "expanded" panel in its
+  /// current condition.
+  ///
+  /// This defined end point will be used to animate expansion.
+  Future<String> _readExpandedPanelHeight() {
+    var completeExpandedHeight = new Completer<String>();
+
+    _domService.scheduleRead(() {
+      var contentHeight = _mainContent.scrollHeight;
+      var expandedPanelHeight = '';
+
+      var mainPanelStyle = _mainPanel.getComputedStyle();
+      // Do our best to make sure that onTransitionEnd will fire later.
+      var hasHeightTransition =
+          contentHeight > 0 && mainPanelStyle.transition.contains('height');
+
+      if (hasHeightTransition) {
+        // If the content-wrapper has a top margin, it is not reflected in the
+        // scroll height.
+        var topMargin = _contentWrapper.getComputedStyle().marginTop;
+        expandedPanelHeight = 'calc(${contentHeight}px + ${topMargin})';
+      }
+      completeExpandedHeight.complete(expandedPanelHeight);
+    });
+
+    return completeExpandedHeight.future;
   }
 
   @override

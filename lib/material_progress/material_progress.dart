@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -30,7 +31,9 @@ const Map<String, double> _indeterminateTiming = const {
     styleUrls: const ['material_progress.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialProgressComponent implements AfterViewInit, OnDestroy {
+  final ChangeDetectorRef _changeDetector;
   final HtmlElement _element;
+  bool _useFancyAnimation;
 
   /// The current progress value.
   @Input()
@@ -69,7 +72,8 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
   bool _isInitialized = false;
 
   /// Whether to use the fallback indeterminate animation.
-  bool get useFallbackAnimation => indeterminate && !supportsAnimationApi;
+  bool get useFallbackAnimation =>
+      indeterminate && (!_useFancyAnimation || !supportsAnimationApi);
 
   String get ariaValue => indeterminate ? null : '$activeProgress';
 
@@ -95,7 +99,11 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
   DivElement _secondaryIndicator;
   Animation _secondaryAnimation;
 
-  MaterialProgressComponent(this._element);
+  MaterialProgressComponent(
+      @Attribute('disable-fancy-animation') String disableFancyAnimation,
+      this._changeDetector,
+      this._element)
+      : _useFancyAnimation = disableFancyAnimation == null;
 
   @override
   void ngAfterViewInit() {
@@ -113,16 +121,28 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
     _secondaryIndicator = null;
   }
 
-  /// Sets up the "indeterminate" animation using the animation API.
+  /// Sets up 'fancy' animation using the animation API.
   void _tryFancyAnimation() {
-    // Only set this up if we support the animation API and if the component's
-    // already initialized.
-    if (!_isInitialized || !supportsAnimationApi) return;
+    if (!indeterminate ||
+        !_useFancyAnimation ||
+        !_isInitialized ||
+        !supportsAnimationApi) return;
 
     final width = _element.getBoundingClientRect().width;
+    if (width == 0) {
+      // Fall back to the non-optimized animation if the host element does not
+      // yet have a width. The non-optimized animation will automatically adjust
+      // when the host element width changes.
+      _useFancyAnimation = false;
+
+      // To avoid 'expression has changed after it was checked'.
+      scheduleMicrotask(_changeDetector.markForCheck);
+      return;
+    }
+
     final primaryKeyframes = [
-      {'transform': 'translateX(0px) scaleX(0)'},
-      {'transform': 'translateX(0px) scaleX(0.5)', 'offset': 0.25},
+      const {'transform': 'translateX(0px) scaleX(0)'},
+      const {'transform': 'translateX(0px) scaleX(0.5)', 'offset': 0.25},
       {
         'transform': 'translateX(${0.25 * width}px) scaleX(0.75)',
         'offset': 0.5
@@ -131,9 +151,9 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
       {'transform': 'translateX(${width}px) scaleX(0)'},
     ];
     final secondaryKeyframes = [
-      {'transform': 'translateX(0px) scaleX(0)'},
-      {'transform': 'translateX(0px) scaleX(0)', 'offset': 0.6},
-      {'transform': 'translateX(0px) scaleX(0.6)', 'offset': 0.8},
+      const {'transform': 'translateX(0px) scaleX(0)'},
+      const {'transform': 'translateX(0px) scaleX(0)', 'offset': 0.6},
+      const {'transform': 'translateX(0px) scaleX(0.6)', 'offset': 0.8},
       {'transform': 'translateX(${width}px) scaleX(0.1)'},
     ];
     _primaryAnimation =

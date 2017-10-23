@@ -90,7 +90,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///
 @Component(
     selector: 'material-dialog',
-    preserveWhitespace: false,
     templateUrl: 'material_dialog.html',
     styleUrls: const ['material_dialog.scss.css'],
     directives: const [FocusTrapComponent, NgIf],

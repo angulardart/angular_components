@@ -4,8 +4,8 @@
 
 import 'dart:async';
 
-import 'package:angular_components/model/selection/select.dart';
 import 'package:observable/observable.dart';
+import 'package:angular_components/model/selection/select.dart';
 
 import 'selection_model.dart';
 

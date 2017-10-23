@@ -5,12 +5,11 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/material_radio/material_radio.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
-import 'package:angular_components/utils/angular/managed_zone/angular_2.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
-import 'package:angular_forms/angular_forms.dart';
 
 /// Group containing multiple material radio buttons, enforcing that only one
 /// value in the group is selected.
@@ -68,16 +67,14 @@ import 'package:angular_forms/angular_forms.dart';
   template: '<ng-content></ng-content>',
   styleUrls: const ['material_radio_group.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
   final _disposer = new Disposer.oneShot();
-  final ManagedZone _managedZone;
+  final NgZone _ngZone;
   final NgControl cd;
   List<MaterialRadioComponent> _children;
 
-  MaterialRadioGroupComponent(this._managedZone, @Self() @Optional() this.cd) {
+  MaterialRadioGroupComponent(this._ngZone, @Self() @Optional() this.cd) {
     _disposer.addStreamSubscription(componentSelection.selectionChanges
         .listen((List<SelectionChangeRecord<MaterialRadioComponent>> changes) {
       // Need to uncheck if selection change was made via user action.
@@ -122,7 +119,7 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
       if (_preselectedValue != null) {
         // Since this is updating children that were already dirty-checked,
         // need to delay this change until next angular cycle.
-        _managedZone.onTurnDone.first.then((_) {
+        _ngZone.onEventDone.first.then((_) {
           // Initialize preselect now, this will trigger tabIndex reset.
           selected = _preselectedValue;
           // The preselected value should be used only once.
@@ -160,7 +157,7 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
   void _resetTabIndex() {
     // Since this is updating children that were already dirty-checked,
     // need to delay this change until next angular cycle.
-    _managedZone.onTurnDone.first.then((_) {
+    _ngZone.onEventDone.first.then((_) {
       // Disable everything first.
       for (var child in _children) {
         child.tabbable = false;

@@ -156,6 +156,7 @@ void _applyFallbackAnimation(
   encapsulation: ViewEncapsulation.None,
   styleUrls: const ['material_ripple.scss.css'],
   changeDetection: ChangeDetectionStrategy.Detached,
+  visibility: Visibility.none,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
 )

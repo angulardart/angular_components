@@ -11,12 +11,11 @@
 @mixin material-checkbox-theme($primary-color, $selector: '') {
   // Use component's selector with the themeable class to increase theme
   // selector's priority.
-  ::ng-deep #{$selector} material-checkbox.themeable .icon-container .icon.filled {
-    color: $primary-color;
-  }
-
-  ::ng-deep #{$selector} material-checkbox .icon-container .ripple.filled {
-    color: $primary-color;
+  ::ng-deep #{$selector} material-checkbox {
+    &.themeable:not(.disabled) .icon-container .icon.filled,
+    &:not(.disabled) .icon-container .ripple.filled {
+      color: $primary-color;
+    }
   }
 }
 
@@ -25,7 +24,5 @@
 ///
 /// Example use: @include checkbox-no-left-margin
 @mixin checkbox-no-left-margin {
-  ::ng-deep {
-    margin-left: -3px;
-  }
+  margin-left: -3px;
 }

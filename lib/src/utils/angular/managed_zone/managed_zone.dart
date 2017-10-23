@@ -9,6 +9,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// A generic implementation of managed zone that has no dependencies directly
 /// on a framework like Angular. This makes it more testable than the VmTurnZone
 /// provided by Angular.
+@Deprecated('Use NgZone directly instead')
 abstract class ManagedZone implements Disposable {
   /// Whether we are currently executing in the inner zone. This can be used by
   /// clients to optimize and call [runOutside] when needed.

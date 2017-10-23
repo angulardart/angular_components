@@ -20,7 +20,9 @@ import 'tooltip_target.dart';
 
 /// An ink-based tooltip which can be attached to any element.
 @Directive(
-    selector: '[materialTooltip]', providers: const [tooltipControllerBinding])
+    selector: '[materialTooltip]',
+    providers: const [tooltipControllerBinding],
+    visibility: Visibility.none)
 class MaterialTooltipDirective extends TooltipTarget
     implements OnDestroy, OnInit, AfterViewInit {
   final _disposer = new Disposer.multi();

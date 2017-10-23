@@ -4,10 +4,10 @@
 
 import 'dart:async';
 
+import 'package:quiver/core.dart';
 import 'package:angular_components/laminate/enums/position.dart';
 import 'package:angular_components/laminate/enums/visibility.dart';
 import 'package:angular_components/utils/async/async.dart';
-import 'package:quiver/core.dart';
 
 // The default implementation of OverlayState's '==' operator.
 //

@@ -57,7 +57,6 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// The material-select has a fixed max height and auto overflow. We can add a
 /// property for custom max height once there's a use case.
 ///
-///
 /// __Example Usage:__
 ///
 ///     <material-dropdown-select
@@ -85,6 +84,9 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// - `buttonText: String` -- Text on trigger button.
 ///
 /// - `buttonAriaLabel: String` -- Aria label for trigger button.
+///
+///  - `showButtonBorder: bool` - Whether to show the bottom border of the
+///   dropdown button.
 ///
 /// - `iconName: String` -- Icon to use on button, `arrow_drop_down` by default.
 ///
@@ -177,6 +179,10 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   /// An error displayed below the dropdown button.
   @Input()
   String error;
+
+  /// Whether to show the bottom border of the dropdown button.
+  @Input()
+  bool showButtonBorder;
 
   @Input()
   ComponentRenderer labelRenderer;

@@ -5,9 +5,9 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:intl/intl.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/material_input/material_input_error_keys.dart';
-import 'package:intl/intl.dart';
 
 export 'package:angular_components/material_input/material_number_accessor.dart'
     show materialNumberInputDirectives;

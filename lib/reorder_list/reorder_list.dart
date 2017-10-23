@@ -7,10 +7,10 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
+import 'package:quiver/iterables.dart' show range;
 import 'package:angular_components/reorder_list/reorder_events.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:angular_components/utils/keyboard/keyboard.dart';
-import 'package:quiver/iterables.dart' show range;
 
 export 'reorder_events.dart';
 
@@ -18,6 +18,10 @@ export 'reorder_events.dart';
 /// A vertical reorder-list will use any component in its <ng-content>
 /// marked with 'reorderPlaceholder' attribute as a placeholder when moving
 /// items.
+///
+/// __Attention:__ This component is not an implementation of the Material List
+/// reorder control from the Material Spec. There is currently no support for
+/// interactions on a mobile device.
 ///
 /// Typical use:
 /// '''
@@ -586,8 +590,7 @@ typedef void ReorderListHandler(int sourceIndex, int destIndex);
 
 /// Indicates that a child will participate in reorder operation inside a
 /// reorder-list component. See ReorderListComponent for usage.
-// TODO(google): Add back in host value once host attribute bug
-// is fixed.
+// TODO(google): Add back in host value once attribute bug is fixed.
 @Directive(
     selector: '[reorderItem]',
     host: const {'draggable': 'true', 'role': 'listitem', 'tabindex': '0'})

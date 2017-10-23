@@ -95,7 +95,7 @@ class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
   bool get showPopup => _showPopup;
 
   final StreamController<bool> _visibleCtrl =
-      new StreamController<bool>.broadcast(sync: true);
+      new StreamController<bool>.broadcast();
   @override
   Stream<bool> get contentVisible => _visibleCtrl.stream;
 

@@ -10,10 +10,10 @@ the material spec.
 ## Setup
 
 The styles are provided by
-`package:angular_components/app_layout/layout.scss.css`. To use
-these styles in an angular component simply add it as a `styleUrls` value in
-your `Component` annotation. It is suggested that the style is added before any
-component specific styling so you can easily override style values as needed.
+`package:angular_components/app_layout/layout.scss.css`. To use these styles in
+an angular component simply add it as a `styleUrls` value in your `Component`
+annotation. It is suggested that the style is added before any component
+specific styling so you can easily override style values as needed.
 
 ```dart
 @Component(
@@ -263,4 +263,18 @@ Here is an example:
     </div>
   </material-list>
 </material-drawer>
+```
+
+If the list content isn't going to be directly in the drawer but instead will be
+wrapped in another component you will have to provide the above styles using a
+mixin, due to style encapsulation.
+
+Example scss drawer content component:
+
+```scss
+@import 'third_party/dart_src/acx/app_layout/lib/mixins';
+
+:host {
+  @include mat-drawer-list-items;
+}
 ```

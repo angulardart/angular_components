@@ -61,6 +61,6 @@ $button-min-width: 11 * $mat-grid;
 :host[dense] {
   .btn.btn-yes,
   .btn.btn-no {
-    @include button-dense;
+    @include button-dense-theme('');
   }
 }

@@ -4,10 +4,10 @@
 
 import 'dart:async';
 
-import 'package:angular_components/laminate/enums/alignment.dart';
-import 'package:angular_components/src/laminate/popup/popup_source.dart';
 import 'package:observable/observable.dart';
 import 'package:quiver/core.dart';
+import 'package:angular_components/laminate/enums/alignment.dart';
+import 'package:angular_components/src/laminate/popup/popup_source.dart';
 
 /// The internal state (model) of a popup.
 ///

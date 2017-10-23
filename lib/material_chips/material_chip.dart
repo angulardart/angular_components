@@ -6,12 +6,12 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:intl/intl.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
-import 'package:intl/intl.dart';
 
 /// A "chip" widget renders an object in the 'chip' format - a rounded box with
 /// a shadow, typically used in a horizontal list. Any object implementing the
@@ -43,7 +43,8 @@ import 'package:intl/intl.dart';
     templateUrl: 'material_chip.html',
     styleUrls: const ['material_chip.scss.css'],
     directives: const [ButtonDirective, NgIf],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    visibility: Visibility.none)
 class MaterialChipComponent extends RootFocusable implements HasRenderer {
   MaterialChipComponent(Element root) : super(root);
 

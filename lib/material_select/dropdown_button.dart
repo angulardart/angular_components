@@ -22,6 +22,8 @@ import 'package:angular_components/mixins/button_wrapper.dart';
 ///  - `icon: Icon` -- `Icon` model instance.
 ///  - `buttonText: String` -- Text on the button.
 ///  - `buttonAriaLabel: String` - Optional aria label for the button.
+///  - `showButtonBorder: bool` - Whether to show the bottom border of the
+///   dropdown button.
 ///  - `disabled: bool` - Whether the button should be disabled.
 ///
 /// __Events:__
@@ -60,6 +62,21 @@ class DropdownButtonComponent extends Object with MaterialButtonWrapper {
   String error;
 
   bool get invalid => error != null;
+
+  /// Whether to show the bottom border of the dropdown button.
+  @Input()
+  set showButtonBorder(bool value) {
+    _showButtonBorder = value;
+  }
+
+  bool get showButtonBorder {
+    if (_showButtonBorder != null) return _showButtonBorder;
+    // If the input field is not specified, maitain backwards compatible
+    // behavior, which decides based on whether the text is null.
+    return buttonText != null;
+  }
+
+  bool _showButtonBorder;
 
   @Output()
   Stream<FocusEvent> get blur => _blur.stream;

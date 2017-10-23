@@ -6,9 +6,9 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:intl/intl.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_spinner/material_spinner.dart';
-import 'package:intl/intl.dart';
 
 /// A component for the two buttons horizontally next to each other, like
 /// yes/no, save/cancel, agree/not agree, etc.

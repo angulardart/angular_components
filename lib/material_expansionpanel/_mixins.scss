@@ -93,6 +93,12 @@ $_panel: 'div.panel.themeable';
   }
 }
 
+@mixin expansionpanel-panel-name-min-width($min-width) {
+  ::ng-deep > #{$_panel} > header > .panel-name {
+    min-width: $min-width;
+  }
+}
+
 @mixin expansionpanel-panel-name-max-width($max-width) {
   ::ng-deep > #{$_panel} > header > .panel-name {
     max-width: $max-width;

@@ -20,9 +20,13 @@ $button-vertical-padding: .7em;
 $button-disabled-color: rgba(0, 0, 0, $mat-opacity-lightest);
 $button-disabled-background: rgba(0, 0, 0, $mat-divider-opacity);
 
+// Deprecated
+// No longer used by material buttons. Hover color is now based on the button
+// color.
 $button-hovered-background: rgba(158, 158, 158, .20);
 
 $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
+$button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 
 // Private used for external mixin, and button-base only.
 @mixin _button-raised {
@@ -37,12 +41,14 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
     @include shadow-none;
 
     @include acx-theme-dark {
-      background: $mat-blue;
+      background: $button-disabled-background-dark;
     }
   }
 }
 
-@mixin button-dense {
+/// Mixin used for styling dense buttons local to a view. Private to this
+/// file.
+@mixin _button-dense {
   height: $mat-grid * 4;
   font-size: $mat-body-font-size;
 }
@@ -71,7 +77,7 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
   }
 
   &[dense] {
-    @include button-dense;
+    @include _button-dense;
   }
 
   &[disabled] {
@@ -87,12 +93,7 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
     }
   }
 
-  // We specify raised here specifically instead of the mixin to satisfy the
-  // case where a mixin is not used to specify the background color.
-  &:not([raised]):not([disabled]):not([icon]):hover {
-    background-color: $button-hovered-background;
-  }
-
+  &:not([disabled]):not([icon]):hover::after,
   &.is-focused::after {
     content: '';
     display: block;
@@ -190,31 +191,20 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
   }
 }
 
-// TODO(google): support dark theme in mixins.
 // Apply button color to a button matching the selector.
 //
 // The color given is not applied to disabled button, as it could otherwise look
 // as an enabled button.
+//
+// TODO(google): Remove $hover-color argument since it is no longer used.
 @mixin button-color($selector, $color, $hover-color: $color) {
-  ::ng-deep #{$selector}:not([disabled]) {
-    > .content {
-      color: $color;
-    }
-
-    &:hover > .content {
-      color: $hover-color;
-    }
+  ::ng-deep #{$selector}:not([disabled]):not([icon]) {
+    color: $color;
   }
 }
 
 @mixin button-background-color($selector, $background-color) {
   ::ng-deep #{$selector}:not([disabled]) {
-    background-color: $background-color;
-  }
-
-  // Not selectors are used for specificity. Default hover selector is very
-  // specific add a psuedo not value to overide default specificity.
-  ::ng-deep #{$selector}:not([disabled]):not([icon]):not([raised]):not(.xyzxyz):hover {
     background-color: $background-color;
   }
 }
@@ -226,18 +216,17 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
   }
 }
 
+// TODO(google): Remove $hover-color argument since it is no longer used.
 @mixin icon-button-color($selector, $color, $hover-color: $color) {
-  ::ng-deep #{$selector}:not([disabled]) {
+  ::ng-deep #{$selector}[icon]:not([disabled]) {
+    // Set the color here to be found by the ripple
+    color: $color;
+
     > .content > material-icon,
     // TODO(google): Remove once glyph has been replaced with material-icon.
     > .content > glyph {
+      // And here for the icon itself.
       color: $color;
-    }
-
-    &:hover > .content > material-icon,
-    // TODO(google): Remove once glyph has been replaced with material-icon.
-    &:hover > .content > glyph {
-      color: $hover-color;
     }
   }
 }
@@ -247,21 +236,39 @@ $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 /// Should be scopped to the specific button needed to make raised.
 ///   Example:
 ///   ```Sass
-///   material-button.my-raised {
-///     @include raised-button($mat-blue);
+///   :host {
+///     @include raised-button('material-button.my-raised', $mat-blue);
 ///   }
 ///   ```
-@mixin raised-button($color: null) {
-  ::ng-deep & {
+@mixin raised-button($selector, $color: null) {
+  ::ng-deep #{$selector} {
     @include _button-raised;
   }
 
   @if $color {
-    @include button-background-color('&', $color);
-    @include button-color('&', $mat-white);
+    @include button-background-color($selector, $color);
+    @include button-color($selector, $mat-white);
   } @else {
     // Specifically set raised buttons to transparent. This ensures hover,
     // and other colors are correct.
-    @include button-background-color('&', transparent);
+    @include button-background-color($selector, transparent);
+  }
+}
+
+/// Mixin to create a dense button. Use this mixin enable dense buttons
+/// to all components below the given scope. Do not provide a scope if all
+/// all buttons or all buttons of a certain selector on the page should be
+/// dense.
+///
+/// Should be scopped unless all buttons on the page should be dense.
+///   Example:
+///   ```Sass
+///   :host {
+///     @include button-dense-theme('material-button.dense', $mat-blue);
+///   }
+///   ```
+@mixin button-dense-theme($selector) {
+  ::ng-deep #{$selector} {
+    @include _button-dense;
   }
 }

@@ -6,11 +6,11 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/model/ui/icon.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
-import 'package:angular_forms/angular_forms.dart';
 
 const Icon uncheckedIcon = const Icon('check_box_outline_blank');
 const Icon checkedIcon = const Icon('check_box');
@@ -57,7 +57,7 @@ const indeterminateAriaState = 'mixed';
 /// __Events:__
 ///
 /// - `change: String` -- Published when state changes, i.e. icon changes.
-/// - `checked: bool` -- Published when the check state changes.
+/// - `checkedChange: bool` -- Published when the check state changes.
 /// - `indeterminate: bool` -- Published when the indeterminate state changes.
 ///
 @Component(
@@ -80,12 +80,14 @@ const indeterminateAriaState = 'mixed';
     preserveWhitespace: false,
     templateUrl: 'material_checkbox.html',
     styleUrls: const ['material_checkbox.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    visibility: Visibility.none)
 class MaterialCheckboxComponent implements ControlValueAccessor {
   final ChangeDetectorRef _changeDetector;
   final HtmlElement _root;
   final String _defaultTabIndex;
   final String role;
+  Function _onTouched;
 
   MaterialCheckboxComponent(
       this._root,
@@ -116,10 +118,9 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
     onChecked.listen((checked) => callback(checked));
   }
 
-  // onTouched API is not supported for now.
   @override
   void registerOnTouched(callback) {
-    // not implemented
+    _onTouched = callback;
   }
 
   /// Fired when checkbox is checked or unchecked, but not when set
@@ -302,7 +303,8 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
   }
 
   // Triggered on blur.
-  void handleBlur(_) {
+  void handleBlur(Event event) {
     _focused = false;
+    _onTouched?.call();
   }
 }
