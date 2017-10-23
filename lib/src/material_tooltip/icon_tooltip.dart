@@ -6,11 +6,11 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:intl/intl.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/theme/dark_theme.dart';
-import 'package:intl/intl.dart';
 
 import 'paper_tooltip.dart';
 import 'tooltip_target.dart';
@@ -28,13 +28,13 @@ import 'tooltip_target.dart';
 /// glyph (a circled "?"). The other supported value is "info" for
 /// "info_outline" (a circled "i").
 @Component(
-    selector: 'material-icon-tooltip',
-    providers: const [
-      AcxDarkTheme,
-      const Provider(DeferredContentAware,
-          useExisting: MaterialIconTooltipComponent)
-    ],
-    template: r'''
+  selector: 'material-icon-tooltip',
+  providers: const [
+    AcxDarkTheme,
+    const Provider(DeferredContentAware,
+        useExisting: MaterialIconTooltipComponent)
+  ],
+  template: r'''
     <glyph [icon]="icon" [attr.size]="iconSize"
         tabindex="0" [attr.aria-label]="helpTooltipLabel"
         keyboardOnlyFocusIndicator
@@ -43,16 +43,18 @@ import 'tooltip_target.dart';
     <material-tooltip-card [for]="tooltipRef">
       <ng-content></ng-content>
     </material-tooltip-card>''',
-    styleUrls: const ['icon_tooltip.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    directives: const [
-      ClickableTooltipTargetDirective,
-      GlyphComponent,
-      KeyboardOnlyFocusIndicatorDirective,
-      MaterialPaperTooltipComponent
-    ],
-    // TODO(google): Change preserveWhitespace to false to improve codesize.
-    preserveWhitespace: true)
+  styleUrls: const ['icon_tooltip.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  directives: const [
+    ClickableTooltipTargetDirective,
+    GlyphComponent,
+    KeyboardOnlyFocusIndicatorDirective,
+    MaterialPaperTooltipComponent
+  ],
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+  visibility: Visibility.none,
+)
 class MaterialIconTooltipComponent implements DeferredContentAware {
   HtmlElement element;
 

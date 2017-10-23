@@ -6,11 +6,12 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math' show max, min;
 
-import 'package:angular_components/utils/angular/managed_zone/interface.dart';
+import 'package:angular/angular.dart';
 import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/disposer/disposable_callback.dart';
-import 'package:angular_components/utils/disposer/disposer.dart';
 // TODO(google): Consolidate this with RenderSync /Angular.
+
+import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// A callback from [DomService.scheduleRead] or [DomService.scheduleWrite].
 typedef void DomReadWriteFn();
@@ -34,7 +35,7 @@ class DomService {
 
   final _domReadQueue = new List<DomReadWriteFn>();
   final _domWriteQueue = new List<DomReadWriteFn>();
-  final ManagedZone _managedZone;
+  final NgZone _ngZone;
   final Window _window;
 
   Zone _rootZone = Zone.ROOT;
@@ -70,18 +71,18 @@ class DomService {
   Function resetIsDomMutated;
   bool _writeQueueChangedLayout = false;
 
-  /// Creates an instance that automatically runs outside of [managedZone], and
+  /// Creates an instance that automatically runs outside of [ngZone], and
   /// uses the browser-supplied ([Window]) for animation frames and resizing
   /// checks.
-  DomService(this._managedZone, this._window);
+  DomService(this._ngZone, this._window);
 
   /// Initializes the DomService to send window events, in order to coordinate
   /// layout checks across apps on the same page.
   void init() {
     if (_crossAppInitialized) return;
     _crossAppInitialized = true;
-    _managedZone.runOutside(() {
-      _managedZone.onTurnDone.listen((_) {
+    _ngZone.runOutsideAngular(() {
+      _ngZone.onEventDone.listen((_) {
         if (isDomMutatedPredicate == null || isDomMutatedPredicate()) {
           // Sending an event to DomService in other apps on the same page.
           _inDispatchTurnDoneEvent = true;
@@ -136,6 +137,8 @@ class DomService {
   /// ONLY FOR TESTING!
   /// DO NOT CALL THIS METHOD IN PRODUCTION CODE!
   void leap({num highResTimer, steps: 1}) {
+    // Force a angular turn to make sure layout calls are scheduled.
+    _ngZone.run(() {});
     while (steps > 0) {
       if (_nextFrameFuture == null) return;
       if (highResTimer == null) {
@@ -160,7 +163,7 @@ class DomService {
       assert(_nextFrameCompleter == null);
       final completer = new Completer<num>.sync();
       _nextFrameCompleter = completer;
-      _managedZone.runOutside(() {
+      _ngZone.runOutsideAngular(() {
         // Delayed initialization of the cross-app event sending.
         // TODO(google): figure out a better way to initialize this earlier
         init();
@@ -175,7 +178,7 @@ class DomService {
         });
       });
       _nextFrameFuture =
-          new ZonedFuture(completer.future, _managedZone.runOutside);
+          new ZonedFuture(completer.future, _ngZone.runOutsideAngular);
     }
     return _nextFrameFuture;
   }
@@ -191,7 +194,7 @@ class DomService {
           sync: true, onListen: _resetIdleTimer, onCancel: _resetIdleTimer);
       // TODO(google): consider scoping it to be inside the managed zone:
       _onIdleStream =
-          new ZonedStream(_onIdleController.stream, _managedZone.runOutside);
+          new ZonedStream(_onIdleController.stream, _ngZone.runOutsideAngular);
       // TODO(google): integrate with Chrome's new idle detection API
     }
     return _onIdleStream;
@@ -244,14 +247,14 @@ class DomService {
   Future onRead() {
     final completer = new Completer.sync();
     scheduleRead(completer.complete);
-    return new ZonedFuture(completer.future, _managedZone.runOutside);
+    return new ZonedFuture(completer.future, _ngZone.runOutsideAngular);
   }
 
   /// A future-based API version of [scheduleWrite].
   Future onWrite() {
     final completer = new Completer.sync();
     scheduleWrite(completer.complete);
-    return new ZonedFuture(completer.future, _managedZone.runOutside);
+    return new ZonedFuture(completer.future, _ngZone.runOutsideAngular);
   }
 
   void _processQueues() {
@@ -309,7 +312,7 @@ class DomService {
     if (_onQueuesProcessedStream == null) {
       _onQueuesProcessedController = new StreamController.broadcast(sync: true);
       _onQueuesProcessedStream = new ZonedStream(
-          _onQueuesProcessedController.stream, _managedZone.runOutside);
+          _onQueuesProcessedController.stream, _ngZone.runOutsideAngular);
     }
     return _onQueuesProcessedStream;
   }
@@ -324,15 +327,15 @@ class DomService {
     if (_onLayoutChangedStream == null) {
       _onLayoutChangedController = new StreamController.broadcast(sync: true);
       _onLayoutChangedStream = new ZonedStream(
-          _onLayoutChangedController.stream, _managedZone.runOutside);
-      _managedZone.runOutside(() {
+          _onLayoutChangedController.stream, _ngZone.runOutsideAngular);
+      _ngZone.runOutsideAngular(() {
         // Capture events from Angular
-        _managedZone.onTurnStart.listen((_) {
+        _ngZone.onTurnStart.listen((_) {
           if (_state != DomServiceState.Idle) return;
           _insideDigest = true;
         });
         // Trigger a layout check after the digest.
-        _managedZone.onTurnDone.listen((_) {
+        _ngZone.onEventDone.listen((_) {
           if (_state != DomServiceState.Idle) return;
           _insideDigest = false;
           // Reduce layout checks to only those zone turns that mutated DOM.
@@ -385,7 +388,7 @@ class DomService {
     Function trackerCallback = callback;
     if (runInAngularZone) {
       trackerCallback = (value) {
-        _managedZone.runInside(() => callback(value));
+        _ngZone.run(() => callback(value));
       };
     }
     var tracker =

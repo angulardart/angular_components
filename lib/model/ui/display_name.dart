@@ -2,8 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:angular_components/model/formatters/formatter.dart';
 import 'package:quiver/core.dart';
+import 'package:angular_components/model/formatters/formatter.dart';
 
 /// Designates a model class which has a canonical _display name_ (label) field.
 abstract class HasUIDisplayName {

@@ -72,18 +72,20 @@ import 'package:angular_components/utils/color/palette.dart';
 ///
 /// - `selectedChange` -- Fired when selection state changes.
 @Component(
-    selector: 'acx-scorecard',
-    directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
-    templateUrl: 'scorecard.html',
-    host: const {
-      'class': 'themeable',
-      '[attr.tabindex]': 'selectable ? 0 : null',
-      '[attr.role]': 'selectable ? "button" : null',
-    },
-    styleUrls: const ['scorecard.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    // TODO(google): Change preserveWhitespace to false to improve codesize.
-    preserveWhitespace: true)
+  selector: 'acx-scorecard',
+  directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
+  templateUrl: 'scorecard.html',
+  host: const {
+    'class': 'themeable',
+    '[attr.tabindex]': 'selectable ? 0 : null',
+    '[attr.role]': 'selectable ? "button" : null',
+  },
+  styleUrls: const ['scorecard.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+  visibility: Visibility.none,
+)
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   static const changeTypePositive = 'POSITIVE';
   static const changeTypeNegative = 'NEGATIVE';
@@ -109,6 +111,10 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   /// The value displayed to the user.
   @Input()
   String value;
+
+  /// The value displayed in a tooltip when the users hovers over the value.
+  @Input()
+  String tooltip;
 
   /// Whether to display a small change arrow glyph in the description;
   /// optional.

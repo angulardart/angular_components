@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+@import 'package:angular_components/material_list/mixins';
+
 /// Sets width of MaterialTemporaryDrawerComponent.
 ///
 /// Must be applied to the component itself, e.g.:
@@ -22,5 +24,38 @@
 
   &[end]:not(.mat-drawer-expanded) ::ng-deep .drawer-content {
     right: -$width;
+  }
+}
+
+/// Adds the mixins that apply the correct styles for material-list items inside
+/// of material-drawer.
+@mixin mat-drawer-list-items() {
+  material-list {
+    // Remove the padding on the default list component when it is used in the
+    // drawer.
+    padding: 0;
+  }
+
+  // Use the label attribute from material-list but ensure the style is right
+  // for the drawer.
+  [label] {
+    @include list-item-base;
+    align-items: center;
+    // TODO(google) Remove once material-list uses the right color value.
+    color: $mat-light-transparent-black;
+    display: flex;
+  }
+
+  material-list-item,
+  [label] {
+    font-weight: $mat-font-weight-medium;
+    // The default size/padding for list item is incorrect for the drawer spec.
+    height: $mat-grid * 6;
+    padding: 0 $mat-grid * 2;
+
+    material-icon {
+      color: $mat-light-transparent-black;
+      margin-right: $mat-grid * 4;
+    }
   }
 }

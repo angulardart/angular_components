@@ -9,14 +9,14 @@ import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
+import 'package:angular_components/src/material_tree/material_tree_filter.dart';
+import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
-import 'package:angular_components/src/material_tree/material_tree_filter.dart';
-import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 import 'material_tree_impl.dart';
@@ -65,7 +65,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   String _placeholder = _DEFAULT_PLACEHOLDER;
   bool _visible = false;
 
-  @ViewChild('materialTreeFilter')
+  @ViewChild(MaterialTreeFilterComponent)
   MaterialTreeFilterComponent materialTreeFilterComponent;
 
   @Input()
@@ -144,6 +144,9 @@ class MaterialTreeDropdownComponent extends SelectionContainer
       _visible = val;
       if (supportsFiltering) {
         materialTreeFilterComponent?.focus();
+      }
+      if (showFilterInsidePopup && !_visible) {
+        materialTreeFilterComponent?.clear();
       }
     }
   }

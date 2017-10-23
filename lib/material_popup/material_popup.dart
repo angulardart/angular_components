@@ -7,6 +7,7 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart' hide Visibility;
+import 'package:meta/meta.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/enums/visibility.dart';
@@ -17,9 +18,9 @@ import 'package:angular_components/laminate/popup/module.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/ui/toggle.dart';
+import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
-import 'package:meta/meta.dart';
 
 export 'package:angular_components/laminate/popup/popup.dart'
     show PopupSourceDirective;
@@ -127,6 +128,7 @@ class MaterialPopupComponent extends Object
 
   StreamSubscription _layoutChangeSub;
   StreamSubscription _layoutInternalSub;
+  StreamSubscription _windowResizeSub;
 
   OverlayRef _overlayRef;
 
@@ -146,7 +148,15 @@ class MaterialPopupComponent extends Object
   Timer _animationTimer;
 
   // The last known size of the viewport.
-  Rectangle _viewportRect;
+  //
+  // The top/left of this [Rectangle] is always (0, 0). A Rectangle returned by
+  // getBoundingClientRect() will be positioned relative to this point (i.e.
+  // will be in the viewport vector space).
+  static MutableRectangle _viewportRect;
+
+  // The window.resize event is throttled because it can occur at a high
+  // frequency (> 20 times per second).
+  static const _resizeThrottleDuration = const Duration(milliseconds: 100);
 
   // Whether the popup is in the process of opening (or has finished opening).
   //
@@ -251,6 +261,27 @@ class MaterialPopupComponent extends Object
 
     // Create the PopupRef for the ACX focus library.
     _resolvedPopupRef = new MaterialPopupRef(this);
+
+    // Start the shared window.resize listener (if it hasn't been already).
+    _initViewportRect();
+  }
+
+  void _initViewportRect() {
+    if (_viewportRect != null) return;
+    // The reason a separate variable is maintained instead of using
+    // window.innerWidth/window.innerHeight directly is because accessing
+    // window.innerWidth/window.innerHeight can cause reflows.
+    _viewportRect =
+        new MutableRectangle(0, 0, window.innerWidth, window.innerHeight);
+    _ngZone.runOutsideAngular(() {
+      window.onResize
+          .transform(
+              throttleStream(_resizeThrottleDuration, guaranteeLast: true))
+          .listen((_) {
+        _viewportRect.width = window.innerWidth;
+        _viewportRect.height = window.innerHeight;
+      });
+    });
   }
 
   @override
@@ -281,6 +312,7 @@ class MaterialPopupComponent extends Object
     }
     _layoutInternalSub?.cancel();
     _layoutChangeSub?.cancel();
+    _windowResizeSub?.cancel();
     _disposer.dispose();
     _animationTimer?.cancel();
     _isVisible = false;
@@ -403,7 +435,6 @@ class MaterialPopupComponent extends Object
 
     // Initialize the maximum size and content size based on the viewport size
     // before popup position is populated.
-    _viewportRect = new Rectangle(0, 0, window.innerWidth, window.innerHeight);
     _updatePopupMaxSize();
 
     // Put the overlay in the live DOM so we can measure its size.
@@ -422,9 +453,9 @@ class MaterialPopupComponent extends Object
         _overlayRef.measureSizeChanges().asBroadcastStream(onCancel: (sub) {
       _layoutInternalSub = sub;
     });
-    var popupSourceLayoutStream = state.source.onDimensionsChanged(
-        track: state.trackLayoutChanges && !_useRepositionLoop);
-    if (!state.trackLayoutChanges || _useRepositionLoop) {
+    var popupSourceLayoutStream =
+        state.source.onDimensionsChanged(track: state.trackLayoutChanges);
+    if (!state.trackLayoutChanges) {
       popupContentsLayoutStream = popupContentsLayoutStream.take(1);
     }
 
@@ -435,13 +466,21 @@ class MaterialPopupComponent extends Object
       // Ignore partial results.
       if (layoutRects.every((r) => r != null)) {
         if (!initialData.isCompleted) {
-          _initialSourceDimensions = _sourceDimensions;
           _onPopupOpened();
           initialData.complete(null);
         }
+        _initialSourceDimensions = null;
         _schedulePositionUpdate(layoutRects[0], layoutRects[1]);
       }
     });
+
+    if (_popupSizeProvider != null) {
+      _windowResizeSub = window.onResize
+          .transform(debounceStream(const Duration(milliseconds: 200)))
+          .listen((_) {
+        _updatePopupMaxSize();
+      });
+    }
 
     // Resolve when the popup has started opening.
     return initialData.future;
@@ -507,6 +546,7 @@ class MaterialPopupComponent extends Object
     // Stop listening to popup layout changes.
     _layoutInternalSub?.cancel();
     _layoutChangeSub?.cancel();
+    _windowResizeSub?.cancel();
 
     // Stop the reposition loop (if it's running).
     if (_repositionLoopId != null) {
@@ -584,8 +624,10 @@ class MaterialPopupComponent extends Object
 
   void _reposition(_) {
     _repositionLoopId = window.requestAnimationFrame(_reposition);
+
     var sourceDimensions = _sourceDimensions;
     if (sourceDimensions == null) return;
+    _initialSourceDimensions ??= sourceDimensions;
 
     int newOffsetX =
         (sourceDimensions.left - _initialSourceDimensions.left).round();
@@ -598,8 +640,6 @@ class MaterialPopupComponent extends Object
 
     if (state.enforceSpaceConstraints) {
       // If necessary, move the popup to fit within the viewport.
-      _viewportRect ??=
-          new Rectangle(0, 0, window.innerWidth, window.innerHeight);
       var popupRect = _overlayRef.overlayElement.getBoundingClientRect();
       popupRect =
           _shiftRectangle(popupRect, left: scrollShiftX, top: scrollShiftY);
@@ -613,7 +653,7 @@ class MaterialPopupComponent extends Object
   }
 
   void _updatePopupMaxSize() {
-    if (_popupSizeProvider == null || _viewportRect == null) return;
+    if (_popupSizeProvider == null) return;
     maxHeight = _popupSizeProvider.getMaxHeight(
         _overlayRef.state.top ?? 0, _viewportRect.height);
     maxWidth = _popupSizeProvider.getMaxWidth(
@@ -628,20 +668,20 @@ class MaterialPopupComponent extends Object
 
   /// Returns the best possible alignment from preferred positions.
   RelativePosition _getBestPosition(
-      Rectangle contentRect, Rectangle sourceRect, Rectangle viewportRect) {
+      Rectangle contentRect, Rectangle sourceRect, Rectangle containerRect) {
     // This should only be used when space constraints is enforced.
     assert(state.enforceSpaceConstraints);
 
-    // ViewportRect kind of conflates the screen and the container together, so
+    // ContainerRect kind of conflates the screen and the container together, so
     // let's pull it apart some. The top-left of the rectangle is actually how
     // much the container is offset from the screen.
     //
     // E.g. if the user has a 1024x768 screen, and has scrolled down 500px, then
-    // viewportRect is (0, -500) 1024x768.
+    // containerRect is (0, -500) 1024x768.
     //
     // Hopefully this'll make things easier to understand.
-    var screenSize = new _Size.fromRect(viewportRect);
-    var containerOffset = viewportRect.topLeft;
+    var screenSize = new _Size.fromRect(containerRect);
+    var containerOffset = containerRect.topLeft;
 
     // Determine best fit.
     final positions = _flatten(_preferredPositions);
@@ -737,7 +777,7 @@ class MaterialPopupComponent extends Object
       Rectangle<num> contentClientRect, Rectangle<num> sourceClientRect) async {
     RelativePosition position;
 
-    var viewportRect = await _overlayService.measureContainer();
+    var containerRect = await _overlayService.measureContainer();
     final isRtl = state.source.isRtl == true;
 
     // Must be set first so contentSizeFuture is correct.
@@ -760,7 +800,7 @@ class MaterialPopupComponent extends Object
       // would be the best positioning given the viewport bounds and the size
       // of the content being popped-up.
       position =
-          _getBestPosition(contentClientRect, sourceClientRect, viewportRect);
+          _getBestPosition(contentClientRect, sourceClientRect, containerRect);
     }
     if (position == null) {
       position = new RelativePosition(
@@ -773,9 +813,9 @@ class MaterialPopupComponent extends Object
     // Find the size of the content, and move the overlay as an offset based
     // on the calculated position.
     final offsetX = isRtl
-        ? viewportRect.left - state.offsetX
-        : state.offsetX - viewportRect.left;
-    final offsetY = state.offsetY - viewportRect.top;
+        ? containerRect.left - state.offsetX
+        : state.offsetX - containerRect.left;
+    final offsetY = state.offsetY - containerRect.top;
     _overlayRef.state
       ..left = position.originX.calcLeft(sourceClientRect, contentClientRect) +
           offsetX

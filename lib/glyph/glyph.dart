@@ -54,7 +54,8 @@ const List<String> _flippedIcons = const [
     templateUrl: 'glyph.html',
     styleUrls: const ['glyph.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    preserveWhitespace: false)
+    preserveWhitespace: false,
+    visibility: Visibility.none)
 class GlyphComponent {
   static const String _materialIconsExtended = 'material-icons-extended';
 

@@ -9,7 +9,7 @@
      (focus)="onFocus($event)"
      (blur)="onBlur($event)"
      [attr.aria-label]="buttonAriaLabel"
-     [class.border]="buttonText != null"
+     [class.border]="showButtonBorder"
      [class.invalid]="invalid"
      [disabled]="disabled">
   <span class="button-text" *ngIf="buttonText != null">{{buttonText}}</span>

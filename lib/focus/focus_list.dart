@@ -4,7 +4,7 @@
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/focus/focus.dart';
-import 'package:angular_components/utils/angular/managed_zone/angular_2.dart';
+
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// `FocusListDirective`, used in conjunction with [FocusItemDirective] or
@@ -31,13 +31,13 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///
 @Directive(selector: '[focusList]', host: const {'[attr.role]': 'role'})
 class FocusListDirective implements OnDestroy {
-  final ManagedZone _managedZone;
+  final NgZone _ngZone;
   final String role;
   final _disposer = new Disposer.multi();
   final _children = <FocusableItem>[];
   int get _length => _children.length;
 
-  FocusListDirective(this._managedZone, @Attribute('role') String role)
+  FocusListDirective(this._ngZone, @Attribute('role') String role)
       : this.role = role ?? 'list';
 
   /// Whether focus movement loops from the end of the list to the beginning of
@@ -55,7 +55,7 @@ class FocusListDirective implements OnDestroy {
     });
     // Since this is updating children that were already dirty-checked,
     // need to delay this change until next angular cycle.
-    _managedZone.onTurnDone.first.then((_) {
+    _ngZone.onEventDone.first.then((_) {
       _children.forEach((c) {
         c.tabbable = false;
       });

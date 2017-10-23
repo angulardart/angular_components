@@ -3,14 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/src/material_tree/group/material_tree_group.dart';
+import 'package:angular_components/src/material_tree/group/material_tree_group_flat.dart';
+import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
-import 'package:angular_components/src/material_tree/group/material_tree_group.dart';
-import 'package:angular_components/src/material_tree/group/material_tree_group_flat.dart';
-import 'package:angular_components/src/material_tree/material_tree_root.dart';
 
 /// A material selection component that supports a tree of options.
 ///

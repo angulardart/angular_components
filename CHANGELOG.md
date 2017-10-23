@@ -1,3 +1,48 @@
+## 0.9.0-alpha
+
+ * Application Layout: Provide list-item changes as a mixin to be used in
+   components that wrap drawer contents.
+ * Material Auto Suggest Input: Protect against method being called after it is
+    destroyed.
+ * Material Button:
+   * Update hover, focus, and disabled styles to be inline with Material Spec.
+   * Update mixin names and fix to prevent styles leaking outside of the
+     component.
+ * Material Checkbox:
+   * Implement onTouched logic.
+   * Fix disabled state to match Material Spec which is a light grey not a
+     certain opacity of the checkbox.
+ * Material Dialog:
+   * Remove `preserveWhitespace: false`.
+ * Material Expansionpanel:
+   * Smooth appearance/disappearance of expansion panel contents.
+   * Add mixin to allow change the panel name min width.
+   * Remove `preserveWhitespace: false`.
+ * Material Input: Fix unexpected `)` in selector for
+   `MaterialInputDefaultValueAccessor`.
+ * Material Popup:
+   * Listen to DomService.trackLayoutChange streams for overlayRepositionLoop
+     popups.
+ * Material Progress: Fall back to the non-optimized animation if the width is 0
+   after view init.
+ * Material Select:
+   * Add `showButtonBorder` input to Material Dropdown Select component.
+   * Cleanup unused styles.
+ * Material Tabs: Increase space between labels.
+ * Material Tooltip: Fix material-paper-tooltip content that are change detected
+   and using deferred content by having the visible property be set in an async
+   manner so that the value isn't added in the middle of a change detection
+   loop.
+ * Material Tree: Clear filter inside the popup when MaterialTreeDropdown
+   closes.
+ * Scorecard: Add a tooltip field.
+ * Add color contrast ratio utility.
+ * Remove deprecated box-sizing styles.
+ * Deprecate `ManagedZone` and replace with `NgZone`.
+ * Remove unnecessary uses of `::ng-deep`.
+ * Add `visibility: Visibility.none` to most components for reduced code size.
+ * Update documentation.
+
 ## 0.8.0
 
  * Move entry points to all components out of the lib/src/ directory.

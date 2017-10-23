@@ -3,10 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:collection';
+import 'package:meta/meta.dart';
 
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:meta/meta.dart';
 
 /// A mixin created to support tree-based selection options.
 ///

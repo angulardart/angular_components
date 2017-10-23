@@ -21,7 +21,6 @@
     icon="arrow_drop_down">
   </glyph>
   <material-tree-filter
-    #materialTreeFilter
     *ngIf="showFilterInsideButton"
     (filter)="visible = true"
     [filterable]="filterableOptions"
@@ -39,7 +38,6 @@
     <material-tree-filter
         *ngIf="supportsFiltering && showFilterInsidePopup"
         class="search-box"
-        (filter)="visible = true"
         [filterable]="filterableOptions"
         leadingGlyph="search"
         [placeholder]="placeholder">

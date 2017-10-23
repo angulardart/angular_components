@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/material_radio/material_radio_group.dart';
@@ -14,7 +15,6 @@ import 'package:angular_components/model/ui/icon.dart';
 import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
-import 'package:angular_forms/angular_forms.dart';
 
 const Icon uncheckedIcon = const Icon('radio_button_unchecked');
 const Icon checkedIcon = const Icon('radio_button_checked');
@@ -49,7 +49,8 @@ const Icon checkedIcon = const Icon('radio_button_checked');
     templateUrl: 'material_radio.html',
     styleUrls: const ['material_radio.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    preserveWhitespace: false)
+    preserveWhitespace: false,
+    visibility: Visibility.none)
 class MaterialRadioComponent extends RootFocusable
     implements ControlValueAccessor, FocusableItem, OnDestroy {
   final ChangeDetectorRef _changeDetector;
