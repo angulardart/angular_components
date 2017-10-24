@@ -48,7 +48,7 @@ abstract class BaseTableSelectionModel<T> implements SelectionModel<T> {
   /// be selected at a time and the select-all control is not available.
   factory BaseTableSelectionModel.single(
           {KeyProvider<T> keyProvider,
-          SelectableGetter getSelectable,
+          SelectableGetter<T> getSelectable,
           bool deselectOnRemove: true}) =>
       new _SingleTableSelectionModelImpl(
           keyProvider: keyProvider,
@@ -61,7 +61,7 @@ abstract class BaseTableSelectionModel<T> implements SelectionModel<T> {
   /// tool cell for selecting table entries.
   factory BaseTableSelectionModel.multi(
       {KeyProvider<T> keyProvider,
-      SelectableGetter getSelectable,
+      SelectableGetter<T> getSelectable,
       bool deselectOnRemove: true}) {
     return new _TableSelectionModelImpl(
         keyProvider: keyProvider,
@@ -74,10 +74,10 @@ abstract class BaseTableSelectionModel<T> implements SelectionModel<T> {
 /// user intent to do bulk action on all entries (even those not currently
 /// visible in a given context).
 abstract class TableSelectionModel<T> extends BaseTableSelectionModel<T>
-    implements SelectableWithComposition, MultiSelectionModel<T> {
+    implements SelectableWithComposition<T>, MultiSelectionModel<T> {
   factory TableSelectionModel(
       {KeyProvider<T> keyProvider,
-      SelectableGetter getSelectable,
+      SelectableGetter<T> getSelectable,
       bool deselectOnRemove: true}) {
     return new _TableSelectionModelImpl(
         keyProvider: keyProvider,
@@ -86,7 +86,7 @@ abstract class TableSelectionModel<T> extends BaseTableSelectionModel<T>
   }
 
   @override
-  SelectableGetter getSelectable;
+  SelectableGetter<T> getSelectable;
 
   /// If the table supports selection over multiple pages.
   bool supportsMultiplePageSelection;
@@ -143,7 +143,7 @@ class _SingleTableSelectionModelImpl<T> extends Observable<ChangeRecord>
   IsIndeterminate isIndeterminate;
 
   @override
-  SelectableGetter getSelectable;
+  SelectableGetter<T> getSelectable;
 
   _SingleTableSelectionModelImpl(
       {KeyProvider<T> keyProvider,
@@ -245,7 +245,7 @@ class _TableSelectionModelImpl<T> extends Observable<ChangeRecord>
   bool supportsMultiplePageSelection = true;
 
   @override
-  SelectableGetter getSelectable;
+  SelectableGetter<T> getSelectable;
 
   /// Returns number of items selected in the model.
   int get _selectedCount => _backingModel.selectedValues.length;
