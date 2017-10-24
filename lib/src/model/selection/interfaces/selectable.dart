@@ -10,7 +10,7 @@
 /// - Hidden - the item is not selectable, and no checkbox is present.
 enum SelectableOption { Selectable, Disabled, Hidden }
 
-typedef SelectableOption SelectableGetter(var entity);
+typedef SelectableOption SelectableGetter<T>(T entity);
 
 /// Interface for determining if an entity [T] should be shown as selectable.
 ///
@@ -34,7 +34,7 @@ abstract class Selectable<T> {
 ///     class MySelectionOptions = SelectionOptions with SelectableWithComposition;
 abstract class SelectableWithComposition<T> {
   /// Whether [item] should be shown as selectable.
-  SelectableGetter getSelectable = (T item) => SelectableOption.Selectable;
+  SelectableGetter<T> getSelectable = (T item) => SelectableOption.Selectable;
 }
 
 /// An optional interface for describing why an item is/is not selectable.
