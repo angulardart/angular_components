@@ -2,36 +2,39 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// Change the color of the yes no buttons.
-/// WARNING: be sure to pick a unique selector for the selector argument, as
-/// this will be applied to all material-yes-no-buttons that match the given
-/// selector.
-
-/// Change the color of the yes button
-@mixin material-yes-button-color($selector, $value) {
-  ::ng-deep material-yes-no-buttons#{$selector} .btn-yes[raised],
-  ::ng-deep material-yes-no-buttons#{$selector} .btn-yes.btn:not([disabled]).highlighted[raised] {
+// Change the color of the yes button.
+//
+// Apply directly to the <material-yes-no-buttons> element.
+@mixin material-yes-button-color($value) {
+  ::ng-deep .btn-yes[raised],
+  ::ng-deep .btn-yes.btn:not([disabled]).highlighted[raised] {
     background-color: $value;
   }
 }
 
-/// Change the color of text in the yes button
-@mixin material-yes-button-text-color($selector, $value) {
-  ::ng-deep material-yes-no-buttons#{$selector} .btn-yes {
+// Change the color of text in the yes button.
+//
+// Apply directly to the <material-yes-no-buttons> element.
+@mixin material-yes-button-text-color($value) {
+  ::ng-deep .btn-yes {
     color: $value;
   }
 }
 
-/// Change the color of the no button
-@mixin material-no-button-color($selector, $value) {
-  ::ng-deep material-yes-no-buttons#{$selector} .btn-no[raised] {
+// Change the color of the no button.
+//
+// Apply directly to the <material-yes-no-buttons> element.
+@mixin material-no-button-color($value) {
+  ::ng-deep .btn-no[raised] {
     background-color: $value;
   }
 }
 
-/// Change the color of text in the no button
-@mixin material-no-button-text-color($selector, $value) {
-  ::ng-deep material-yes-no-buttons#{$selector} .btn-no {
+// Change the color of text in the no button.
+//
+// Apply directly to the <material-yes-no-buttons> element.
+@mixin material-no-button-text-color($value) {
+  ::ng-deep .btn-no {
     color: $value;
   }
 }
