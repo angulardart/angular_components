@@ -4,7 +4,6 @@
 
 import 'dart:math' show max;
 
-import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:quiver/core.dart' show hash2;
 
@@ -32,9 +31,6 @@ class HighlightedTextSegment {
   @override
   String toString() => isHighlighted ? "*$text*" : text;
 }
-
-final Logger _logger =
-    new Logger('angular_components.module.ui.highlighted_text_model');
 
 /// A class to highlight the occurrences of a list of tokens within a string.
 /// By default, matches are only highlighted at the start of words,
