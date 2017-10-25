@@ -265,9 +265,9 @@ Here is an example:
 </material-drawer>
 ```
 
-If the list content isn't going to be directly in the drawer but instead will be
-wrapped in another component you will have to provide the above styles using a
-mixin, due to style encapsulation.
+Due to style encapsulation, if the list content isn't directly in a drawer (that
+is, it's wrapped in another component) you'll have to provide the styles above
+using a mixin.
 
 Example scss drawer content component:
 
