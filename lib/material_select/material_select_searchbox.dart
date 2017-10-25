@@ -23,7 +23,6 @@ import 'package:angular_components/utils/browser/events/events.dart';
       const Provider(Focusable, useExisting: MaterialSelectSearchboxComponent)
     ],
     styleUrls: const ['material_select_searchbox.scss.css'],
-    preserveWhitespace: false,
     templateUrl: 'material_select_searchbox.html')
 class MaterialSelectSearchboxComponent extends FocusableMixin
     implements OnDestroy {
