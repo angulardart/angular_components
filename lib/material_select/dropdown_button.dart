@@ -44,8 +44,6 @@ import 'package:angular_components/mixins/button_wrapper.dart';
     KeyboardOnlyFocusIndicatorDirective,
     NgIf,
   ],
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class DropdownButtonComponent extends Object with MaterialButtonWrapper {
   DropdownButtonComponent() {
