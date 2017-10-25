@@ -164,8 +164,56 @@ class ChangeNotificationProvider<T> implements ChangeAware<T>, Disposable {
 
 /// A read-only 'view' of something. Allows getting the current value and
 /// listening for values and changes.
-abstract class ObservableView<T> extends ChangeAware<T> {
+abstract class ObservableView<T> extends ChangeAware<T> implements Disposable {
   T get value;
+
+  /// Returns a new [ObservableView] which is created by lazily calling [mapper]
+  /// on this view's [value], [stream], and [changes] properties.
+  ///
+  /// Disposing of the mapped view doesn't affect this view in any way.
+  ObservableView<M> map<M>(M Function(T) mapper);
+
+  /// An [ObservableView] of the most-recently-published value on the given
+  /// [stream].
+  factory ObservableView.fromStream(Stream<T> stream, {T initialValue}) =>
+      new ObservableReference(initialValue)..listen(stream);
+}
+
+/// Implements methods of [ObservableView] in terms of the basic [value] and
+/// [stream] properties.
+abstract class ObservableViewMixin<T> implements ObservableView<T> {
+  @override
+  Stream<Change<T>> get changes {
+    var last = value;
+    // Want to do this using stream.map so that the `changes` stream has the
+    // same broadcastness/syncness as the `stream` stream.
+    return stream.map((v) {
+      var change = new Change(last, v);
+      last = v;
+      return change;
+    });
+  }
+
+  @override
+  ObservableView<M> map<M>(M Function(T) mapper) =>
+      new _MappedView<T, M>(this, mapper);
+}
+
+/// An [ObservableView] that just points at an existing [ObservableView] and
+/// passes it through a mapping function.
+class _MappedView<I, O> extends ObservableViewMixin<O> {
+  final ObservableView<I> _delegate;
+  final O Function(I) _mapper;
+  _MappedView(this._delegate, this._mapper);
+
+  @override
+  O get value => _mapper(_delegate.value);
+
+  @override
+  Stream<O> get stream => _delegate.stream.map(_mapper);
+
+  @override
+  void dispose() {}
 }
 
 /// A mutable object holder that allows listening on a stream of changes.
@@ -173,11 +221,12 @@ abstract class ObservableView<T> extends ChangeAware<T> {
 /// Changes to the value using `value=` are added to a broadcast stream. If the
 /// new value is equivalent to the current value, nothing's added to the stream.
 class ObservableReference<T> extends ChangeNotificationProvider<T>
-    implements ObservableView<T>, ObserveAware<T>, Disposable {
+    with ObservableViewMixin<T> {
   static bool _defaultEq(a, b) => a == b;
 
+  final EqualsFn _equalsFn;
+  StreamSubscription _listenSub;
   T _value;
-  EqualsFn _equalsFn;
 
   /// Creates a listenable value holder, starting with the given value.
   /// Optionally takes custom equality function.
@@ -200,9 +249,23 @@ class ObservableReference<T> extends ChangeNotificationProvider<T>
     notifyChange(previous, value);
   }
 
+  /// Listens to the given stream and sets the reference's value to whatever is
+  /// emitted on the stream.
+  ///
+  /// Returns a [Future] that completes when the stream is done, analogous to
+  /// `StreamController.addStream`.
+  Future listen(Stream<T> stream) {
+    _listenSub?.cancel();
+    _listenSub = stream.listen((v) {
+      value = v;
+    });
+    return _listenSub.asFuture();
+  }
+
   @override
   void dispose() {
     super.dispose();
+    _listenSub?.cancel();
     _value = null;
   }
 }

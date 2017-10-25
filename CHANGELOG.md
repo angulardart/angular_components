@@ -42,8 +42,6 @@
    loop.
  * Material Tree: Clear filter inside the popup when MaterialTreeDropdown
    closes.
- * Material Yes/No Buttons: Update material-yes-no-buttons mixins to use CSS
-   shimming.
  * Scorecard: Add a tooltip field.
  * Use generic type for table selection model `SelectableGetter`.
  * Add color contrast ratio utility.
