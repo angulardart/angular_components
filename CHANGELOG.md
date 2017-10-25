@@ -1,5 +1,12 @@
 ## 0.9.0-alpha
 
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (5.0.0-alpha is used in production Google apps).
+
+ * Update dependencies to alpha versions.
+   * angular: 5.0.0-alpha
+   * angular_forms: 1.0.1-alpha
  * Application Layout: Provide list-item changes as a mixin to be used in
    components that wrap drawer contents.
  * Material Auto Suggest Input: Protect against method being called after it is
@@ -35,7 +42,10 @@
    loop.
  * Material Tree: Clear filter inside the popup when MaterialTreeDropdown
    closes.
+ * Material Yes/No Buttons: Update material-yes-no-buttons mixins to use CSS
+   shimming.
  * Scorecard: Add a tooltip field.
+ * Use generic type for table selection model `SelectableGetter`.
  * Add color contrast ratio utility.
  * Remove deprecated box-sizing styles.
  * Deprecate `ManagedZone` and replace with `NgZone`.
