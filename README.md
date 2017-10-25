@@ -69,7 +69,8 @@ For icons to appear, add the following icon font download to your page.
 ```
 
 ## Custom component styles
-The styles of these components can be customized via sass mixins.
+The styles of these components can be customized via
+[Sass mixins](http://sass-lang.com/guide#topic-6).
 
 1. Add a dependency on the
 [sass_builder](https://pub.dartlang.org/packages/sass_builder) package and add
@@ -89,7 +90,7 @@ the transformer.
   > transformer.
 
 2. Now you can import styles and mixins from this package via dart style package
-imports in your sass files.
+imports in your Sass files.
 
   In your `.scss` files:
 
