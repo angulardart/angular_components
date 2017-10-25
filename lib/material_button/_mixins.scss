@@ -235,7 +235,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 ///
 /// Should be scopped to the specific button needed to make raised.
 ///   Example:
-///   ```Sass
+///   ```scss
 ///   :host {
 ///     @include raised-button('material-button.my-raised', $mat-blue);
 ///   }
@@ -262,7 +262,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 ///
 /// Should be scopped unless all buttons on the page should be dense.
 ///   Example:
-///   ```Sass
+///   ```scss
 ///   :host {
 ///     @include button-dense-theme('material-button.dense', $mat-blue);
 ///   }
