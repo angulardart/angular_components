@@ -322,11 +322,17 @@ class ObservableComposite extends ChangeNotificationProvider {
       // nothing to do, already listening
       return stream;
     }
-    unregisterStream(stream);
-    var stackTrace;
-    if (_withStackTrace) {
-      stackTrace = StackTrace.current;
+    if (replaces != null) {
+      unregisterStream(replaces);
     }
+    StackTrace stackTrace;
+    assert(() {
+      // stackTrace is only used in debugging
+      if (_withStackTrace) {
+        stackTrace = StackTrace.current;
+      }
+      return true;
+    });
     _subscriptions[stream] = stream.listen((_) {
       if (stackTrace != null) {
         print("Coalescer notified from $stackTrace");
