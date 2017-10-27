@@ -17,10 +17,11 @@ import 'deferred_content_aware.dart';
 /// This directive can be used to avoid the cost of eagerly instantiating
 /// invisible content and the cost of change-detection on invisible content.
 ///
-/// Example:
-/// <modal [(visible)]="visible">
-///   <expensive-content *deferredContent></expensive-content>
-/// </modal>
+/// __Example usage__:
+///
+///     <modal [(visible)]="visible">
+///         <expensive-content *deferredContent></expensive-content>
+///     </modal>
 @Directive(selector: '[deferredContent]', visibility: Visibility.none)
 class DeferredContentDirective implements OnDestroy {
   final _disposer = new Disposer.oneShot();
