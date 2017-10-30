@@ -1,0 +1,63 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'material_drawer';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+
+:host {
+  @include fit;
+
+  background-color: transparent;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+:host(.mat-drawer-expanded) {
+  pointer-events: auto;
+}
+
+:host([overlay].mat-drawer-expanded) {
+  background-color: $mat-lighter-transparent-black;
+  transition-duration: $mat-transition-mobile-entering;
+}
+
+:host([overlay]) {
+  background-color: transparent;
+  transition: background-color $mat-transition-mobile-leaving $mat-transition-standard;
+}
+
+.drawer-content {
+  @include material-drawer-common;
+  @include shadow-none;
+
+  transform: translateX(0);
+  left: -$mat-drawer-width;
+  pointer-events: auto;
+  transition-property: transform, box-shadow, width;
+  transition-duration: $mat-transition-mobile-leaving;
+  transition-timing-function: $mat-transition-sharp;
+}
+
+:host(.mat-drawer-expanded) > .drawer-content {
+  @include shadow-elevation(16);
+
+  transform: translateX($mat-drawer-width);
+  transition-duration: $mat-transition-mobile-entering;
+  transition-timing-function: $mat-transition-deceleration;
+}
+
+// We can't change the transform when the component is right aligned
+// since that'll cause it to animate from the left to the right (and back)
+// so we keep same transform for both alignments and rely on
+// the left and right attributes to position the content properly.
+:host([end]) > .drawer-content {
+  left: initial;
+  right: -$mat-drawer-width;
+}
+
+:host([end].mat-drawer-expanded) > .drawer-content {
+  transform: translateX(-$mat-drawer-width);
+}
