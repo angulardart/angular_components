@@ -4,7 +4,8 @@
 
 @import 'package:angular_components/material_list/mixins';
 
-/// Sets width of MaterialTemporaryDrawerComponent.
+/// Sets width of MaterialTemporaryDrawerComponent and
+/// MaterialStackableDrawerComponent
 ///
 /// Must be applied to the component itself, e.g.:
 ///
@@ -14,15 +15,15 @@
 /// }
 /// ```
 @mixin mat-temporary-drawer-width($width) {
-  ::ng-deep .drawer-content {
+  ::ng-deep > .drawer-content {
     width: $width;
   }
 
-  &:not([end]):not(.mat-drawer-expanded) ::ng-deep .drawer-content {
+  &:not([end]):not(.mat-drawer-expanded) ::ng-deep > .drawer-content {
     left: -$width;
   }
 
-  &[end]:not(.mat-drawer-expanded) ::ng-deep .drawer-content {
+  &[end]:not(.mat-drawer-expanded) ::ng-deep > .drawer-content {
     right: -$width;
   }
 }

@@ -7,7 +7,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 
 // When deferred content should be removed. Needs to be longer than the longest
 // animation.
@@ -24,8 +23,7 @@ class MaterialDrawerBase implements DeferredContentAware, OnInit {
   bool get visible => _visible;
 
   @Input()
-  set visible(Object o) {
-    final value = getBool(o);
+  set visible(bool value) {
     if (value == _visible) return;
     _visible = value;
 
