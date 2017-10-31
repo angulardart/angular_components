@@ -157,8 +157,6 @@ void _applyFallbackAnimation(
   styleUrls: const ['material_ripple.scss.css'],
   changeDetection: ChangeDetectionStrategy.Detached,
   visibility: Visibility.none,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialRippleComponent implements OnDestroy {
   final HtmlElement _element;
