@@ -29,7 +29,6 @@ import 'tab_change_event.dart';
     selector: 'material-tab-panel',
     directives: const [FixedMaterialTabStripComponent],
     host: const {'class': 'themeable'},
-    preserveWhitespace: false,
     templateUrl: 'material_tab_panel.html',
     styleUrls: const ['material_tab_panel.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)

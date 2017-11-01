@@ -118,30 +118,29 @@ const String materialInputErrorKey = 'material-input-error';
 /// - `blur: FocusEvent` -- Fired when this input loses focus.
 ///
 @Component(
-    selector: 'material-input:not(material-input[multiline])',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    host: const {'class': 'themeable', '(focus)': 'focus()', 'tabIndex': '-1'},
-    providers: const [
-      DeferredValidator,
-      const Provider(NG_VALIDATORS,
-          useExisting: DeferredValidator, multi: true),
-      const Provider(ReferenceDirective, useExisting: MaterialInputComponent),
-      const Provider(Focusable, useExisting: MaterialInputComponent),
-      const Provider(BaseMaterialInput, useExisting: MaterialInputComponent)
-    ],
-    templateUrl: 'material_input.html',
-    styleUrls: const ['material_input.scss.css'],
-    directives: const [
-      DefaultValueAccessor,
-      FocusableDirective,
-      GlyphComponent,
-      NgFor,
-      NgIf,
-      NgModel,
-      NgSwitch,
-      NgSwitchWhen,
-    ],
-    preserveWhitespace: false)
+  selector: 'material-input:not(material-input[multiline])',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: const {'class': 'themeable', '(focus)': 'focus()', 'tabIndex': '-1'},
+  providers: const [
+    DeferredValidator,
+    const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
+    const Provider(ReferenceDirective, useExisting: MaterialInputComponent),
+    const Provider(Focusable, useExisting: MaterialInputComponent),
+    const Provider(BaseMaterialInput, useExisting: MaterialInputComponent)
+  ],
+  templateUrl: 'material_input.html',
+  styleUrls: const ['material_input.scss.css'],
+  directives: const [
+    DefaultValueAccessor,
+    FocusableDirective,
+    GlyphComponent,
+    NgFor,
+    NgIf,
+    NgModel,
+    NgSwitch,
+    NgSwitchWhen,
+  ],
+)
 class MaterialInputComponent extends BaseMaterialInput
     implements Focusable, ReferenceDirective, AfterViewInit, OnDestroy {
   /// TODO(google): The following value could be set in the base class, but

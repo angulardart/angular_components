@@ -20,7 +20,6 @@ import 'package:angular_components/model/selection/selection_model.dart';
 @Component(
     selector: 'material-tree-group-flat-list',
     directives: const [DynamicComponent, NgFor, NgIf],
-    preserveWhitespace: false,
     templateUrl: 'material_tree_group_flat_list.html',
     styleUrls: const ['material_tree_group_flat_list.scss.css'])
 class MaterialTreeGroupFlatListComponent extends MaterialTreeNode {
@@ -47,7 +46,6 @@ class MaterialTreeGroupFlatListComponent extends MaterialTreeNode {
       NgFor,
       NgIf
     ],
-    preserveWhitespace: false,
     templateUrl: 'material_tree_group_flat_radio.html',
     styleUrls: const ['material_tree_group_flat_radio.scss.css'])
 class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
@@ -87,7 +85,6 @@ class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
       NgFor,
       NgIf
     ],
-    preserveWhitespace: false,
     templateUrl: 'material_tree_group_flat_check.html',
     styleUrls: const ['material_tree_group_flat_check.scss.css'])
 class MaterialTreeGroupFlatCheckComponent extends MaterialTreeNode {

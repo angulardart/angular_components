@@ -37,7 +37,6 @@ const materialTreeLeftPaddingToken = const OpaqueToken(
       NgClass
     ],
     host: const {'role': 'group'},
-    preserveWhitespace: false,
     templateUrl: 'material_tree_group.html',
     styleUrls: const ['material_tree_group.scss.css'])
 class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {

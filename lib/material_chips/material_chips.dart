@@ -35,7 +35,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     providers: const [
       const Provider(HasRenderer, useExisting: MaterialChipsComponent)
     ],
-    preserveWhitespace: false,
     templateUrl: 'material_chips.html',
     styleUrls: const ['material_chips.scss.css'],
     directives: const [MaterialChipComponent, NgFor],

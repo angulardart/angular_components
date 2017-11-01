@@ -58,7 +58,6 @@ import 'material_button_base.dart';
       'animated': 'true'
     },
     directives: const [MaterialRippleComponent],
-    preserveWhitespace: false,
     templateUrl: 'material_button.html',
     styleUrls: const ['material_fab.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
