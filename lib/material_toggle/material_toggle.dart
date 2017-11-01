@@ -26,7 +26,6 @@ import 'package:angular_components/utils/browser/events/events.dart';
       '(keypress)': r'handleKeyPress($event)'
     },
     styleUrls: const ['material_toggle.scss.css'],
-    preserveWhitespace: false,
     templateUrl: 'material_toggle.html',
     directives: const [NgIf],
     changeDetection: ChangeDetectionStrategy.OnPush,

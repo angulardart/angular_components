@@ -13,7 +13,6 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
 /// [HighlightProvider].
 @Component(
     selector: 'highlight-value',
-    preserveWhitespace: false,
     templateUrl: 'highlighted_text.html',
     styleUrls: const ['highlighted_text.scss.css'],
     directives: const [NgFor])

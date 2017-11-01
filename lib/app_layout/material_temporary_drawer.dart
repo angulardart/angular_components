@@ -35,7 +35,6 @@ import 'material_drawer_base.dart';
   },
   templateUrl: 'material_temporary_drawer.html',
   styleUrls: const ['material_temporary_drawer.scss.css'],
-  preserveWhitespace: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialTemporaryDrawerComponent extends MaterialDrawerBase {

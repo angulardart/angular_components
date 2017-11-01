@@ -41,7 +41,6 @@ export 'reorder_events.dart';
 @Component(
     selector: 'reorder-list',
     host: const {'role': 'list', 'class': 'themeable'},
-    preserveWhitespace: false,
     templateUrl: 'reorder_list.html',
     styleUrls: const ['reorder_list.scss.css'])
 class ReorderListComponent implements OnDestroy {

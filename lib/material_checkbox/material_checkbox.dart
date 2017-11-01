@@ -77,7 +77,6 @@ const indeterminateAriaState = 'mixed';
       '[attr.aria-label]': 'label',
     },
     directives: const [GlyphComponent, MaterialRippleComponent, NgIf],
-    preserveWhitespace: false,
     templateUrl: 'material_checkbox.html',
     styleUrls: const ['material_checkbox.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
