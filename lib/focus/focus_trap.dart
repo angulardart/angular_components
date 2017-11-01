@@ -21,7 +21,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///     </focus-trap>
 @Component(
     selector: 'focus-trap',
-    preserveWhitespace: false,
     templateUrl: 'focus_trap.html',
     styleUrls: const ['focus_trap.scss.css'],
     directives: const [FocusContentWrapper, AutoFocusDirective],

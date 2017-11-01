@@ -20,7 +20,6 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
 /// providing segments as required by this component.
 @Component(
     selector: 'highlighted-text',
-    preserveWhitespace: false,
     templateUrl: 'highlighted_text.html',
     styleUrls: const ['highlighted_text.scss.css'],
     directives: const [NgFor],

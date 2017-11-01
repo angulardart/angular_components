@@ -26,7 +26,6 @@ const Map<String, double> _indeterminateTiming = const {
 ///
 @Component(
     selector: 'material-progress',
-    preserveWhitespace: false,
     templateUrl: 'material_progress.html',
     styleUrls: const ['material_progress.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
