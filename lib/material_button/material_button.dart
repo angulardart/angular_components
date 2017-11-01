@@ -92,23 +92,23 @@ import 'material_button_base.dart';
 // NOTE: CSS code above doesn't use ```css due to
 // https://github.com/dart-lang/dartdoc/issues/1484.
 @Component(
-    selector: 'material-button',
-    host: const {
-      '[attr.disabled]': r'disabled ? "" : null',
-      '[attr.raised]': r'raised ? "" : null',
-      '[class.is-focused]': 'visualFocus',
-      '[attr.elevation]': 'zElevation',
-      'animated': 'true'
-    },
-    directives: const [MaterialRippleComponent],
-    templateUrl: 'material_button.html',
-    providers: const [
-      AcxDarkTheme,
-      const Provider(ButtonDirective, useExisting: MaterialButtonComponent)
-    ],
-    styleUrls: const ['material_button.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    preserveWhitespace: false)
+  selector: 'material-button',
+  host: const {
+    '[attr.disabled]': r'disabled ? "" : null',
+    '[attr.raised]': r'raised ? "" : null',
+    '[class.is-focused]': 'visualFocus',
+    '[attr.elevation]': 'zElevation',
+    'animated': 'true'
+  },
+  directives: const [MaterialRippleComponent],
+  templateUrl: 'material_button.html',
+  providers: const [
+    AcxDarkTheme,
+    const Provider(ButtonDirective, useExisting: MaterialButtonComponent)
+  ],
+  styleUrls: const ['material_button.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+)
 class MaterialButtonComponent extends MaterialButtonBase {
   final ChangeDetectorRef _changeDetector;
 

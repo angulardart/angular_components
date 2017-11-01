@@ -102,7 +102,6 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
     NgSwitch,
     NgSwitchWhen,
   ],
-  preserveWhitespace: false,
 )
 class MaterialMultilineInputComponent extends BaseMaterialInput
     implements ReferenceDirective, AfterViewInit, OnDestroy {

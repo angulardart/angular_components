@@ -60,7 +60,6 @@ import 'package:angular_components/model/ui/has_renderer.dart';
     viewProviders: const [
       const Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
     ],
-    preserveWhitespace: false,
     templateUrl: 'material_tree_impl.html')
 class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   @override

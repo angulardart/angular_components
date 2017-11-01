@@ -144,7 +144,6 @@ typedef String _InputChangeCallback(String inputText);
     NgIf,
     StopPropagationDirective,
   ],
-  preserveWhitespace: false,
   templateUrl: 'material_auto_suggest_input.html',
   styleUrls: const [
     'material_auto_suggest_input.scss.css',

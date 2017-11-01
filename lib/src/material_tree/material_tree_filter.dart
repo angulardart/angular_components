@@ -16,7 +16,6 @@ import 'package:angular_components/model/selection/select.dart';
 @Component(
     selector: 'material-tree-filter',
     directives: const [materialInputDirectives, NgIf],
-    preserveWhitespace: false,
     templateUrl: 'material_tree_filter.html',
     visibility: Visibility.none)
 class MaterialTreeFilterComponent {

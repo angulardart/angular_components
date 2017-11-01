@@ -31,7 +31,6 @@ import 'tab_change_event.dart';
     host: const {
       'class': 'themeable',
     },
-    preserveWhitespace: false,
     templateUrl: 'fixed_material_tab_strip.html',
     styleUrls: const ['fixed_material_tab_strip.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)

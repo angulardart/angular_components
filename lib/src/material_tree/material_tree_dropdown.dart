@@ -39,7 +39,6 @@ import 'material_tree_impl.dart';
       const Provider(MaterialTreeRoot,
           useExisting: MaterialTreeDropdownComponent)
     ],
-    preserveWhitespace: false,
     templateUrl: 'material_tree_dropdown.html',
     styleUrls: const ['material_tree_dropdown.scss.css'])
 class MaterialTreeDropdownComponent extends SelectionContainer
