@@ -55,6 +55,24 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
+/// Private mixin for styling the highlight when a button is hovered or focused.
+@mixin _button-hover {
+  &:not([disabled]):not([icon]):hover::after,
+  &.is-focused::after {
+    @content
+  }
+}
+
+/// Mixin to remove the highlight when a button is hovered or focused.
+@mixin no-button-hover($selector) {
+  ::ng-deep #{$selector} {
+    @include _button-hover {
+      display: none;
+    }
+  }
+}
+
+
 @mixin button-base {
   @include acx-theme-dark {
     color: $mat-white;
@@ -95,8 +113,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
     }
   }
 
-  &:not([disabled]):not([icon]):hover::after,
-  &.is-focused::after {
+  @include _button-hover {
     content: '';
     display: block;
     position: absolute;
