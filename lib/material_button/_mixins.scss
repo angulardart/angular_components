@@ -170,14 +170,21 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
-@mixin fab-base($size) {
-  @include button-base;
+@mixin fab-size($size) {
   border-radius: $size / 2;
 
   .content {
-    justify-content: center;
     height: $size;
     width: $size;
+  }
+}
+
+@mixin fab-base($size) {
+  @include button-base;
+  @include fab-size($size);
+
+  .content {
+    justify-content: center;
   }
 }
 
