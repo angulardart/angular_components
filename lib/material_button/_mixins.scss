@@ -49,8 +49,10 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 /// Mixin used for styling dense buttons local to a view. Private to this
 /// file.
 @mixin _button-dense {
-  height: $mat-grid * 4;
-  font-size: $mat-body-font-size;
+  &:not([icon]) {
+    height: $mat-grid * 4;
+    font-size: $mat-body-font-size;
+  }
 }
 
 @mixin button-base {
