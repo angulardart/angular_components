@@ -13,9 +13,14 @@ import 'material_input_error_keys.dart';
   const Provider(NG_VALIDATORS, useExisting: PositiveNumValidator, multi: true)
 ])
 class PositiveNumValidator implements Validator {
+  /// Boolean value allowing the validator to be turned on/off as needed.
+  @Input('checkPositive')
+  bool enabled = true;
+
   @override
   Map<String, dynamic> validate(AbstractControl control) {
-    if (control.value == null) return null; // Handled by accessor validator
+    if (!enabled || control.value == null)
+      return null; // Handled by accessor validator
     assert(control.value is Comparable, 'Value needs to be comparable');
     if (control.value <= 0) {
       return {positiveIntegerRequiredErrorKey: numberIsNotPositiveMsg()};
@@ -35,7 +40,7 @@ class PositiveNumValidator implements Validator {
 ])
 class CheckNonNegativeValidator implements Validator {
   /// Boolean value allowing the validator to be turned on/off as needed.
-  @Input('checkNotNegative')
+  @Input('checkNonNegative')
   bool enabled = true;
 
   @override
