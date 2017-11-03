@@ -32,8 +32,8 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
     '(mouseenter)': 'onMouseEnter()',
     '(mouseleave)': 'onMouseLeave()',
     '[attr.aria-disabled]': 'disabledStr',
+    '[attr.role]': 'role',
     'tabindex': '0',
-    'role': 'button'
   },
   providers: const [
     const Provider(SelectionItem,
@@ -54,13 +54,17 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 )
 class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
     implements OnDestroy {
+  final String role;
+
   MaterialSelectDropdownItemComponent(
       HtmlElement element,
       DomService domService,
+      @Attribute('role') String role,
       @Optional() DropdownHandle dropdown,
       @Optional() ActivationHandler activationHandler,
       ChangeDetectorRef cdRef)
-      : super(element, domService, dropdown, activationHandler, cdRef) {
+      : this.role = role ?? 'button',
+        super(element, domService, dropdown, activationHandler, cdRef) {
     this.itemRenderer = defaultItemRenderer;
   }
 
