@@ -48,8 +48,6 @@ import 'material_select_item.dart';
   ],
   templateUrl: 'material_select.html',
   styleUrls: const ['material_select.scss.css'],
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialSelectComponent extends MaterialSelectBase implements OnDestroy {
   QueryList<SelectionItem> _selectItems;

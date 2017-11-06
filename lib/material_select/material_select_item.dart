@@ -44,8 +44,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     DynamicComponent
   ],
   templateUrl: 'material_select_item.html',
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialSelectItemComponent extends ButtonDirective
     with ActiveItemMixin

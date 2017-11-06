@@ -142,8 +142,6 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
   ],
   templateUrl: 'material_dropdown_select.html',
   styleUrls: const ['material_dropdown_select.scss.css'],
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialDropdownSelectComponent extends MaterialSelectBase
     with

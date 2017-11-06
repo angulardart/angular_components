@@ -7,6 +7,7 @@
     class="selected-accent"
     [attr.aria-label]="selectedMessage">
 </div>
+&ngsp;
 <template [ngIf]="supportsMultiSelect && !hideCheckbox">
   <material-checkbox *ngIf="!useCheckMarks"
       tabindex="-1"
@@ -15,6 +16,7 @@
       [attr.aria-label]=
           "isSelected ? selectedMessage : notSelectedMessage">
   </material-checkbox>
+  &ngsp;
   <span *ngIf="useCheckMarks"
       class="check-container"
       [attr.aria-label]="isSelected ? selectedMessage : notSelectedMessage">
@@ -25,7 +27,9 @@
     </glyph>
   </span>
 </template>
+&ngsp;
 <span *ngIf="valueHasLabel" class="label">{{valueLabel}}</span>
+&ngsp;
 <dynamic-component *ngIf="componentType != null"
     class="dynamic-item"
     [componentType]="componentType"
