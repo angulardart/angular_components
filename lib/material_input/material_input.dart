@@ -143,6 +143,8 @@ const String materialInputErrorKey = 'material-input-error';
 )
 class MaterialInputComponent extends BaseMaterialInput
     implements Focusable, ReferenceDirective, AfterViewInit, OnDestroy {
+  ChangeDetectorRef _changeDetector;
+
   /// TODO(google): The following value could be set in the base class, but
   /// there is currently no working way to set ViewChild values on the base
   /// class.
@@ -171,50 +173,74 @@ class MaterialInputComponent extends BaseMaterialInput
   @override
   ElementRef get inputRef => inputEl;
 
-  /// Type of input. It can be one of the following:
+  /// Type of input.
+  ///
+  /// It can be one of the following:
   /// {"text", "email", "password", "url", "number", "tel", "search"}
   String type;
 
-  /// Whether the user can enter multiple values, separated by commas. Only
-  /// applies when type = "email", otherwise it is ignored.
+  /// Whether the user can enter multiple values, separated by commas.
+  ///
+  /// Only applies when type = "email", otherwise it is ignored.
   bool multiple = false;
 
   /// Any persistent text to show before the input box.
-  /// Available only for single line input.
-  @Input()
-  String leadingText;
+  String get leadingText => _leadingText;
+  String _leadingText;
   bool get hasLeadingText => isNotEmpty(leadingText);
 
+  @Input()
+  set leadingText(String value) {
+    _leadingText = value;
+    // Possibly set by a directive and not a template. So default change
+    // detection doesn't work without calling markForCheck.
+    _changeDetector.markForCheck();
+  }
+
   /// Any persistent glyph to show before the input box.
-  /// Available only for single line input.
   @Input()
   String leadingGlyph;
   bool get hasLeadingGlyph => isNotEmpty(leadingGlyph);
 
   /// Any persistent text to show after the input box.
-  /// Available only for single line input.
-  @Input()
-  String trailingText;
+  String get trailingText => _trailingText;
+  String _trailingText;
   bool get hasTrailingText => isNotEmpty(trailingText);
 
+  @Input()
+  set trailingText(String value) {
+    _trailingText = value;
+    // Possibly set by a directive and not a template. So default change
+    // detection doesn't work without calling markForCheck.
+    _changeDetector.markForCheck();
+  }
+
   /// Any persistent glyph to show after the input box.
-  /// Available only for single line input.
   @Input()
   String trailingGlyph;
   bool get hasTrailingGlyph => isNotEmpty(trailingGlyph);
 
   /// Whether the input contents should be always right aligned.
+  ///
   /// Default value is `false`.
+  bool get rightAlign => _rightAlign;
+  bool _rightAlign = false;
+
   @Input()
-  bool rightAlign = false;
+  set rightAlign(bool value) {
+    _rightAlign = value;
+    // Possibly set by a directive and not a template. So default change
+    // detection doesn't work without calling markForCheck.
+    _changeDetector.markForCheck();
+  }
 
   MaterialInputComponent(
       @Attribute('type') String type,
       @Attribute('multiple') String multiple,
       @Self() @Optional() NgControl cd,
-      ChangeDetectorRef changeDetector,
+      this._changeDetector,
       DeferredValidator validator)
-      : super(cd, changeDetector, validator) {
+      : super(cd, _changeDetector, validator) {
     if (type == null) {
       this.type = 'text';
     } else if (const ['number', 'tel'].contains(type)) {
