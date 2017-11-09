@@ -70,3 +70,12 @@
     overflow: visible;
   }
 }
+
+/// Sets the color of the "selected" accent on the selected item.
+///
+/// Apply to <material-select> or <material-select-item>.
+@mixin material-select-selected-color($color) {
+  ::ng-deep .selected-accent.mixin {
+    background-color: $color;
+  }
+}
