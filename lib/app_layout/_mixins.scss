@@ -35,28 +35,28 @@
     // Remove the padding on the default list component when it is used in the
     // drawer.
     padding: 0;
-  }
 
-  // Use the label attribute from material-list but ensure the style is right
-  // for the drawer.
-  [label] {
-    @include list-item-base;
-    align-items: center;
-    // TODO(google) Remove once material-list uses the right color value.
-    color: $mat-light-transparent-black;
-    display: flex;
-  }
-
-  material-list-item,
-  [label] {
-    font-weight: $mat-font-weight-medium;
-    // The default size/padding for list item is incorrect for the drawer spec.
-    height: $mat-grid * 6;
-    padding: 0 $mat-grid * 2;
-
-    material-icon {
+    // Use the label attribute from material-list but ensure the style is right
+    // for the drawer.
+    [label] {
+      @include list-item-base;
+      align-items: center;
+      // TODO(google) Remove once material-list uses the right color value.
       color: $mat-light-transparent-black;
-      margin-right: $mat-grid * 4;
+      display: flex;
+    }
+
+    material-list-item,
+    [label] {
+      font-weight: $mat-font-weight-medium;
+      // The default size/padding for list item is incorrect for the drawer spec.
+      height: $mat-grid * 6;
+      padding: 0 $mat-grid * 2;
+
+      material-icon {
+        color: $mat-light-transparent-black;
+        margin-right: $mat-grid * 4;
+      }
     }
   }
 }
