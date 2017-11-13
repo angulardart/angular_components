@@ -155,7 +155,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     implements
         ControlValueAccessor,
         Focusable,
-        OnChanges,
+        AfterChanges,
         OnDestroy,
         HasRenderer,
         HasComponentRenderer,
@@ -196,6 +196,9 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   bool _focusPending = false;
   MaterialInputComponent _input;
   _InputChangeCallback _callback;
+  bool _sorted = true;
+  List _suggestions = [];
+  bool _refreshOptions = false;
 
   /// The current text being displayed.
   String _inputText = '';
@@ -268,7 +271,12 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// The list of all possible suggestions.
   @deprecated
   @Input()
-  List suggestions = [];
+  set suggestions(List value) {
+    _suggestions = value;
+    _refreshOptions = true;
+  }
+
+  List get suggestion => _suggestions;
 
   // Override renderer here to just add the @Input annotation and keep the
   // angular dependency out of models.
@@ -286,7 +294,12 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Sort the suggestions.
   @Deprecated('Caller should call .sort() instead.')
   @Input()
-  bool sorted = true;
+  set sorted(bool value) {
+    _sorted = value;
+    _refreshOptions = true;
+  }
+
+  bool get sorted => _sorted;
 
   /// Function for use by NgFor for optionGroup to avoid recreating the
   /// DOM for the optionGroup.
@@ -341,16 +354,17 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   }
 
   @override
-  ngOnChanges(Map<String, SimpleChange> changes) {
+  ngAfterChanges() {
     // If either the suggestions were changed or the value of sort was changed,
     // rebuild the list of options.
-    if (changes.containsKey('suggestions') || changes.containsKey('sorted')) {
-      var optionsList = new List.from(suggestions);
-      if (sorted) {
+    if (_refreshOptions) {
+      var optionsList = new List.from(_suggestions);
+      if (_sorted) {
         optionsList.sort();
       }
       options = new StringSelectionOptions(optionsList,
           toFilterableString: itemRenderer);
+      _refreshOptions = false;
     }
   }
 
