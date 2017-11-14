@@ -79,3 +79,9 @@
     background-color: $color;
   }
 }
+
+@mixin enable-pointer-events-for-disabled-items {
+  ::ng-deep material-select-dropdown-item.item.disabled {
+    pointer-events: all;
+  }
+}
