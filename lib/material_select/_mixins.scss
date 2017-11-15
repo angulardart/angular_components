@@ -85,3 +85,10 @@
     pointer-events: all;
   }
 }
+
+@mixin material-select-item-padding($padding) {
+  ::ng-deep material-select-item {
+    padding: $padding;
+  }
+}
+
