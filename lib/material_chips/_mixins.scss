@@ -136,7 +136,7 @@ $emphasis-selected-bg-color: $mat-blue-900;
   ::ng-deep material-chip {
     height: $mat-grid * 3;
     border-radius: ($mat-grid * 3) / 2;
-    margin: $mat-grid-type;
+    margin: $mat-grid-type / 2 $mat-grid-type;
 
     .content {
       font-size: $mat-font-size-body;
