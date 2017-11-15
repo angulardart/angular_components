@@ -80,8 +80,12 @@
   }
 }
 
-@mixin enable-pointer-events-for-disabled-items {
-  ::ng-deep material-select-dropdown-item.item.disabled {
+/// Enables pointer events on disabled MaterialSelectDropdownItems
+///
+/// This can be scoped to a specific selector in cases where
+/// MaterialSelectDropdownItems are placed in an overlay.
+@mixin enable-pointer-events-for-disabled-items($selector: '') {
+  ::ng-deep #{$selector} material-select-dropdown-item.item.disabled {
     pointer-events: all;
   }
 }
