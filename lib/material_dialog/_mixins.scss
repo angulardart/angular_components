@@ -82,3 +82,9 @@
     @include flex-flow($flow);
   }
 }
+
+@mixin simple-dialog-min-width($min-width) {
+  ::ng-deep .modal material-dialog.simple-dialog {
+    min-width: $min-width;
+  }
+}
