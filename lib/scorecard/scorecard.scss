@@ -100,6 +100,10 @@ h3 {
 
 h2 {
   font-size: $font-size-heading;
+
+  value {
+    line-height: 1;
+  }
 }
 
 .description,
