@@ -257,6 +257,12 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
+@mixin icon-button-padding($selector, $padding) {
+  #{$selector}[icon] ::ng-deep .content {
+    padding: $padding;
+  }
+}
+
 /// Mixin to create a raised button taking an optional color of the button.
 ///
 /// Should be scopped to the specific button needed to make raised.
