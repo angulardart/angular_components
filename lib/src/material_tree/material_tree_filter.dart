@@ -11,6 +11,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/model/selection/select.dart';
+import 'package:angular_components/utils/async/async.dart';
 
 /// A simple component that maps an input box to the [Filterable] interface.
 @Component(
@@ -30,6 +31,9 @@ class MaterialTreeFilterComponent {
 
   Filterable _filterable;
   String _inputText = '';
+
+  // A Future that represents the most recent filtering computation.
+  DisposableFuture _lastFilterFuture;
 
   /// If created within a [MaterialTreeRoot], automatically setup.
   MaterialTreeFilterComponent(@Optional() this._treeRoot) {
@@ -90,7 +94,8 @@ class MaterialTreeFilterComponent {
   String placeholder;
 
   void _updateVisibleItems() {
-    _filterable.filter(_inputText.isNotEmpty ? _inputText : '');
+    _lastFilterFuture?.dispose();
+    _lastFilterFuture = _filterable.filter(_inputText);
     _treeRoot.isFiltered = _inputText.isNotEmpty;
     _onFilteredController.add(null);
   }
