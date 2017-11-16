@@ -202,7 +202,7 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
 
   /// The [Color] to apply to the scorecard background when it is selected.
   @Input()
-  Color selectedColor = chartingPalette[0];
+  Color selectedColor;
 
   /// Fired when the selection state changes.
   @Output()
@@ -212,7 +212,9 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   ///
   /// A [selected] and [selectable] scorecard uses [selectedColor].
   @HostBinding('style.background')
-  String get backgroundStyle => selected ? selectedColor.hexString : 'inherit';
+  String get backgroundStyle => selected
+      ? selectedColor?.hexString ?? chartingPalette[0].hexString
+      : 'inherit';
 
   @HostListener('click')
   void handleClick() {

@@ -250,7 +250,7 @@ class ScoreboardComponent implements OnInit, OnDestroy {
     if (type == ScoreboardType.selectable) {
       int i = 0;
       for (ScorecardComponent scorecard in _scorecards) {
-        scorecard.selectedColor = chartingPalette[i % chartingPalette.length];
+        scorecard.selectedColor ??= chartingPalette[i % chartingPalette.length];
         i++;
       }
     }
