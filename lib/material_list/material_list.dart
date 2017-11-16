@@ -71,8 +71,6 @@ export 'material_list_size.dart';
   host: const {'[attr.size]': 'size'},
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialListComponent implements AcceptsWidth {
   @Input()
