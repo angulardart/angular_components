@@ -12,8 +12,8 @@ $error-text-color: #d34336;
   display: inline-flex;
   flex: 1;
   flex-direction: column;
+  max-width: 100%;
   min-height: $icon-size;
-  overflow: hidden;
 }
 
 .button {
