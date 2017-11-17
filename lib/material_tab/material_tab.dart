@@ -64,8 +64,6 @@ abstract class Tab extends Focusable {
         </div>''',
   styleUrls: const ['material_tab.scss.css'],
   directives: const [NgIf],
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialTabComponent extends RootFocusable
     implements Tab, DeferredContentAware {

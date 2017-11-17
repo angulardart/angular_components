@@ -25,8 +25,6 @@ import 'package:angular_components/material_tab/tab_mixin.dart';
         ''',
   styleUrls: const ['tab_button.scss.css'],
   directives: const [MaterialRippleComponent],
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class TabButtonComponent extends MaterialButtonBase with TabMixin {
   final Element _nativeElement;
