@@ -67,11 +67,11 @@ import 'material_button_base.dart';
 /// ```
 ///
 /// By default the ripple is the same color as the foreground at 25% opacity.
-/// To customize the color, use the `gpu-ripple` selector:
+/// To customize the color, use the `material-ripple` selector:
 ///
 /// ```
 /// /* Make #myButton use a blue ripple instead of foreground color */
-/// #myButton gpu-ripple {
+/// #myButton material-ripple {
 ///   color: blue;
 /// }
 /// ```
