@@ -1,0 +1,22 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<material-popup enforceSpaceConstraints
+    [(visible)]="isExpanded"
+    [source]="popupSource"
+    [preferredPositions]="preferredPositions">
+  <ng-content></ng-content>
+  <material-list
+      *deferredContent="true"
+      class="item-group-list"
+      [width]="width">
+    <menu-item-groups
+        [menu]="menu"
+        menu-root
+        autoFocus
+        preventCloseOnPressLeft>
+    </menu-item-groups>
+  </material-list>
+</material-popup>

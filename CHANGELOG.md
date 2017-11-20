@@ -4,6 +4,7 @@
 > 5.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
 > api, not code quality (5.0.0-alpha+1 is used in production Google apps).
 
+ * Add Material Menu component.
  * Material Auto Suggest Input: Replace ngOnChanges(\_) with ngAfterChanges.
  * Material Button:
    * Update dense mixin to only apply to non-icon buttons.

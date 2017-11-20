@@ -1,0 +1,65 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'mixins';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+@import 'package:angular_components/material_button/mixins';
+@import 'package:angular_components/material_popup/mixins';
+
+material-fab {
+
+  &.invisible {
+    opacity: 0;
+  }
+}
+
+.close-menu {
+  height: $mat-grid * 7;
+  background-color: $mat-scrollbar-background-hover;
+}
+
+.menu-content {
+  @include material-shadow();
+  background: $bg-color;
+  border-radius: 50%;
+  height: $fab-size;
+  overflow: hidden;
+  transition: background-color $mat-transition-fast $mat-transition-standard;
+  transition: border-radius $mat-transition-fast $mat-transition-standard;
+  transition: width $mat-transition $mat-transition-deceleration;
+  transition: height $mat-transition $mat-transition-deceleration;
+  width: $fab-size;
+
+  &.visible {
+    border-radius: $popup-border-radius;
+  }
+
+  &.closing {
+    transition: background-color $mat-transition $mat-transition-deceleration;
+    transition: border-radius $mat-transition $mat-transition-deceleration;
+    transition: width $mat-transition-fast $mat-transition-standard;
+    transition: height $mat-transition-fast $mat-transition-standard;
+  }
+}
+
+.content-wrapper {
+  @include item-height('menu-item-groups', $mat-grid * 7);
+
+  display: inline-block;
+  opacity: 0;
+  transition: opacity $mat-transition $mat-transition-deceleration;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &.closing {
+    transition: opacity $mat-transition-fast $mat-transition-standard;
+  }
+}
+
+.menu-groups {
+  padding: $mat-grid 0;
+}

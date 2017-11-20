@@ -1,0 +1,88 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_list/mixins';
+@import 'mixins';
+
+$menu-item-selector: '.menu-item';
+
+:host {
+  display: block;
+  outline: none;
+}
+
+.group-label {
+  @include list-item-base();
+  @include mat-type-caption();
+
+  color: $mat-light-transparent-black;
+  height: $mat-grid * 3;
+  line-height: $mat-grid * 3;
+}
+
+#{$menu-item-selector} {
+  @include list-item-button();
+  outline: none;
+
+  glyph.disabled {
+    color: $mat-lighter-transparent-black;
+  }
+}
+
+:host-context(body[dir="rtl"]) {
+  .group-label, #{$menu-item-selector} {
+    @include list-item-base-rtl;
+  }
+}
+
+#{$menu-item-selector}.active {
+  @include menu-item-affix-hover;
+}
+
+.mouse-driven {
+  #{$menu-item-selector}:not(:hover) {
+    background-color: inherit;
+  }
+
+  // When the menu is mouse-drive there is a delay until the .active class is
+  // assigned to the hovered item. To make the UI more snappy we also change
+  // the visibility of the icon instantly on hover.
+  #{$menu-item-selector}:hover {
+    @include menu-item-affix-hover;
+  }
+}
+
+.keyboard-driven {
+  #{$menu-item-selector} {
+    &:not(.active) {
+      background-color: inherit;
+    }
+
+    &.is-menu-parent {
+      background: $mat-grey-200;
+    }
+  }
+}
+
+// Group separator
+.group {
+  &:not(.empty):not(:first-child) {
+    border-top: 1px solid $mat-grey-300;
+    margin-top: $mat-grid - 1px;
+    padding-top: $mat-grid;
+  }
+}
+
+.menu-item-label {
+  flex: 1;
+}
+
+.item-group-list {
+  padding: $mat-grid 0;
+}
+
+.suffix-list {
+  margin-left: $mat-grid * 3;
+}

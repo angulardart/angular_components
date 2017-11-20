@@ -1,0 +1,32 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'mixins';
+
+:host {
+  display: block;
+
+  &:hover {
+    @include menu-item-affix-hover;
+  }
+}
+
+.material-list-item-primary.caption-text {
+  margin: 0 $mat-grid;
+}
+
+.material-list-item-primary.secondary-icon {
+  transition: color $mat-transition $mat-transition-standard;
+  width: $mat-grid * 3;
+
+  &:not(.disabled):hover {
+    color: $mat-transparent-black;
+  }
+}
+
+.secondary-icon.hover-icon {
+  opacity: 0;
+  transition: opacity $mat-transition $mat-transition-standard;
+}

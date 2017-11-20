@@ -1,0 +1,47 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<material-fab popupSource
+              #source="popupSource"
+              raised
+              [disabled]="!isFabEnabled"
+              [class.invisible]="isFabHidden"
+              [materialTooltip]="tooltip"
+              [showTooltipIf]="hasTooltip"
+              [tooltipPositions]="tooltipPositions"
+              [attr.aria-label]="ariaLabel"
+              [attr.navi-id]="naviId"
+              (trigger)="trigger()">
+  <glyph [icon]="glyph"></glyph>
+</material-fab>
+<material-popup *ngIf="hasMenu"
+                [visible]="showPopup"
+                (opened)="onPopupOpened()"
+                (close)="onPopupClosed()"
+                [hasBox]="false"
+                [source]="source"
+                enforceSpaceConstraints
+                autoDismiss
+                [trackLayoutChanges]="trackLayoutChanges"
+                [preferredPositions]="preferredPopupPositions">
+  <div #content
+       class="menu-content"
+       *deferredContent="true"
+       [class.visible]="menuVisible"
+       [class.closing]="closing"
+       elevation="2">
+    <div class="content-wrapper" [class.visible]="menuVisible" [class.closing]="closing">
+      <material-list-item (trigger)="hideMenu()" class="close-menu" [closeOnActivate]="false">
+        <glyph class="material-list-item-primary" icon="close"></glyph>
+      </material-list-item>
+      <menu-item-groups [menu]="menuItem.subMenu"
+                        class="menu-groups"
+                        autoFocus
+                        menu-root
+                        preventCloseOnPressLeft>
+      </menu-item-groups>
+    </div>
+  </div>
+</material-popup>
