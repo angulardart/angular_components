@@ -1,17 +1,34 @@
 ## 0.9.0-alpha+1
 
 > NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-alpha. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha is used in production Google apps).
+> 5.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (5.0.0-alpha+1 is used in production Google apps).
 
+ * Material Auto Suggest Input: Replace ngOnChanges(\_) with ngAfterChanges.
  * Material Button:
    * Update dense mixin to only apply to non-icon buttons.
    * Add mixins for no hover highlight.
+   * Add mixins to set icon button padding.
+ * Material Chips: Update margin on dense theme.
  * Material Fab: Update size mixin.
- * Material Select: Allow customization of Material Dropdown Select's role.
- * Add @input to number validators
+ * Material Input: Use markForChanges on inputs since they are being set by a
+   directive and not the template and so change detection doesn't happen
+   automatically.
+ * Material Select:
+   * Add mixin to set select item padding.
+   * Add mixin to set selected item color.
+   * Allow customization of Material Dropdown Select's role.
+   * Add mixin for pointer events on Material Dropdown Select Items.
+   * Fix baseline alignment of dropdown-button in Firefox.
+ * Material Tree: Improve latency of `MaterialTreeFilter`.
+ * Scoreboard:
+   * Fix misalignment on OS X with hl=ja.
+   * Selected color input overrides default color value in a selectable
+     scoreboard.
+ * Avoid reliance on dynamic typing to access properties.
+ * Add @input to number validators.
  * Cleanup unneeded `preserveWhitespace: false` and `preserveWhitespace: true`
-   When components manage spacing around themselves.
+   when components manage spacing around themselves.
  * Add Observable utilities.
  * Update documentation.
 
