@@ -1,0 +1,43 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/material_button/mixins';
+@import 'package:angular_components/material_select/mixins';
+
+/// Sets the height of menu-item
+@mixin item-height($selector, $height) {
+  #{$selector} ::ng-deep .menu-item {
+    height: $height;
+  }
+}
+
+/// Hides underline for button text from dropdown-button widget.
+@mixin dropdown-menu-nounderline {
+  ::ng-deep dropdown-button {
+    @include button-look;
+  }
+}
+
+@mixin dropdown-menu-nounderline-no-opacity {
+  ::ng-deep dropdown-button {
+    .button.border {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+@mixin menu-item-affix-hover {
+  ::ng-deep .secondary-icon.hover-icon {
+    opacity: inherit;
+  }
+}
+
+@mixin material-fab-menu-icon-size($size) {
+  ::ng-deep material-fab-menu.toolbelt-fab material-fab {
+    @include fab-size($size);
+
+    top: -($mat-grid * 4) - $size / 2;
+  }
+}

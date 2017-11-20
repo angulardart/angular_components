@@ -1,0 +1,22 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<dropdown-button
+    (trigger)="isExpanded=true"
+    [buttonText]="buttonText"
+    [disabled]="disabled"
+    popupSource
+    #toggle="popupSource">
+  <ng-content select="[button-content]"></ng-content>
+</dropdown-button>
+<menu-popup
+    [(isExpanded)]="isExpanded"
+    [menu]="menu"
+    [popupSource]="toggle"
+    [preferredPositions]="preferredPositions"
+    [visible]="isExpanded"
+    [width]="width">
+  <ng-content></ng-content>
+</menu-popup>
