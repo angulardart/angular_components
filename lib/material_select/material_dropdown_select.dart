@@ -185,14 +185,38 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   @Input()
   ComponentRenderer labelRenderer;
 
+  /// CSS classes from the root element, passed to the popup to allow scoping of
+  /// mixins.
+  ///
+  /// Only visible for the template.
+  final String popupClassName;
+
   MaterialDropdownSelectComponent(
       @Optional() IdGenerator idGenerator,
       @Optional() @SkipSelf() this._popupSizeDelegate,
-      @Optional() @Inject(rtlToken) bool rtl)
-      : activeModel = new ActiveItemModel(idGenerator) {
+      @Optional() @Inject(rtlToken) bool rtl,
+      @Attribute('popupClass') String popupClass,
+      HtmlElement element)
+      : activeModel = new ActiveItemModel(idGenerator),
+        popupClassName =
+            _constructEncapsulatedCss(popupClass, element.classes) {
     isRtl = rtl;
     preferredPositions = RelativePosition.overlapAlignments;
     iconName = 'arrow_drop_down';
+  }
+
+  /// Return a string representing the encapsulated classes from [classes]
+  /// combined with the classes from [className].
+  // TODO(google): Move this somewhere more common if this becomes common
+  // practice.
+  static String _constructEncapsulatedCss(
+      String className, CssClassSet classes) {
+    var result = className ?? '';
+    for (var i in classes) {
+      // Add encapsulation classes from host
+      if (i.startsWith('_')) result += ' $i';
+    }
+    return result;
   }
 
   @Input()
