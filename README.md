@@ -7,6 +7,20 @@ This productive and stable set of widgets, contributed to by hundreds of
 Googlers, make debugging and deploying your app easier. Strict latency and
 testing policies make these widgets an excellent fit for AngularDart projects.
 
+**NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
+are **required**:
+
+```yaml
+dependency_overrides:
+  analyzer: ^0.31.0-alpha.1
+```
+
+This is because Angular is starting to use and support the Dart 2.0.0 SDK, which
+is evolving. We expect to no longer require overrides once we are at a beta
+release, but this is unlikely until sometime in early 2018.
+
+[dep_overrides]: https://www.dartlang.org/tools/pub/dependencies#dependency-overrides
+
 Only a small fragment of all the components is available right now. We want
 developers to be able to use the package as soon as possible.
 
@@ -33,8 +47,8 @@ developers to be able to use the package as soon as possible.
 * ✓ `<material-select>`
 * ✓ `<material-tree>`
 * ✓ `<material-auto-suggest-input>`
+* ✓ `<material-menu>`
 * ☐ `<material-date-range-picker>`
-* ☐ `<material-menu>`
 * many more, including a fast table
 
 At this time we are not taking pull requests, but please
@@ -105,4 +119,4 @@ imports in your Sass files.
 ## Project Roadmap
 
 Our current work is summarized in
-[issue 142](https://github.com/dart-lang/angular_components/issues/142).
+[issue 142](https://github.com/dart-lang/angular_components/issues/193).

@@ -4,6 +4,20 @@
 > 5.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
 > api, not code quality (5.0.0-alpha+1 is used in production Google apps).
 
+**NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
+are **required**:
+
+```yaml
+dependency_overrides:
+  analyzer: ^0.31.0-alpha.1
+```
+
+This is because Angular is starting to use and support the Dart 2.0.0 SDK, which
+is evolving. We expect to no longer require overrides once we are at a beta
+release, but this is unlikely until sometime in early 2018.
+
+[dep_overrides]: https://www.dartlang.org/tools/pub/dependencies#dependency-overrides
+
  * Add Material Menu component.
  * Material Auto Suggest Input: Replace ngOnChanges(\_) with ngAfterChanges.
  * Material Button:
@@ -12,9 +26,10 @@
    * Add mixins to set icon button padding.
  * Material Chips: Update margin on dense theme.
  * Material Fab: Update size mixin.
- * Material Input: Use markForChanges on inputs since they are being set by a
-   directive and not the template and so change detection doesn't happen
-   automatically.
+ * Material Input:
+   * Use markForChanges on inputs since they are being set by a directive and
+     not the template and so change detection doesn't happen automatically.
+   * Allow numerical values to be internationalized in number validators.
  * Material Select:
    * Add mixin to set select item padding.
    * Add mixin to set selected item color.
