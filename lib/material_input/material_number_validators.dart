@@ -64,6 +64,11 @@ class CheckNonNegativeValidator implements Validator {
   const Provider(NG_VALIDATORS, useExisting: LowerBoundValidator, multi: true)
 ])
 class LowerBoundValidator implements Validator {
+  final NumberFormat _numberFormat;
+
+  LowerBoundValidator(@Optional() NumberFormat format)
+      : _numberFormat = format ?? new NumberFormat.decimalPattern();
+
   /// Smallest allowed value.
   @Input()
   num lowerBound;
@@ -73,12 +78,13 @@ class LowerBoundValidator implements Validator {
     if (control.value == null || lowerBound == null) return null;
     assert(control.value is Comparable, 'Value needs to be Comparable');
     if (control.value < lowerBound) {
-      return {numberBelowLowerBoundErrorKey: numberIsTooSmallMsg(lowerBound)};
+      final lowerText = _numberFormat.format(lowerBound);
+      return {numberBelowLowerBoundErrorKey: numberIsTooSmallMsg(lowerText)};
     }
     return null;
   }
 
-  static String numberIsTooSmallMsg(num _lowerBound) =>
+  static String numberIsTooSmallMsg(String _lowerBound) =>
       Intl.message('Enter a number $_lowerBound or greater',
           name: 'LowerBoundValidator_numberIsTooSmallMsg',
           args: [_lowerBound],
@@ -92,6 +98,11 @@ class LowerBoundValidator implements Validator {
   const Provider(NG_VALIDATORS, useExisting: UpperBoundValidator, multi: true)
 ])
 class UpperBoundValidator implements Validator {
+  final NumberFormat _numberFormat;
+
+  UpperBoundValidator(@Optional() NumberFormat format)
+      : _numberFormat = format ?? new NumberFormat.decimalPattern();
+
   /// Largest allowed value.
   @Input()
   num upperBound;
@@ -101,12 +112,13 @@ class UpperBoundValidator implements Validator {
     if (control.value == null) return null; // Handled by accessor validator
     assert(control.value is Comparable, 'Value needs to be Comparable');
     if (control.value > upperBound) {
-      return {numberAboveUpperBoundErrorKey: numberIsTooLargeMsg(upperBound)};
+      final upperText = _numberFormat.format(upperBound);
+      return {numberAboveUpperBoundErrorKey: numberIsTooLargeMsg(upperText)};
     }
     return null;
   }
 
-  static String numberIsTooLargeMsg(num _upperBound) =>
+  static String numberIsTooLargeMsg(String _upperBound) =>
       Intl.message('Enter a number $_upperBound or smaller',
           name: 'UpperBoundValidator_numberIsTooLargeMsg',
           args: [_upperBound],
