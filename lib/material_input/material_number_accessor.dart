@@ -37,6 +37,7 @@ const List<Type> materialNumberInputDirectives = const [
 ///
 /// `keypressUpdate` attribute has the value update on every keypress while
 /// the default is the value only updating on a blur event.
+/// `blurFormat` attribute causes the input to be formatted on blur events.
 @Directive(selector: 'material-input[type=number],material-input[type=percent]')
 class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
@@ -50,7 +51,8 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
       @Optional() NumberFormat numberFormat,
       @Attribute('changeUpdate') String changeUpdateAttr,
       @Attribute('keypressUpdate') String keypressUpdateAttr,
-      @Attribute('checkInteger') String integer) {
+      @Attribute('checkInteger') String integer,
+      @Attribute('blurFormat') String blurFormat) {
     var updateStream;
     final changeUpdate = getBool(changeUpdateAttr ?? false);
     final keypressUpdate = getBool(keypressUpdateAttr ?? false);
@@ -65,13 +67,27 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
     }
     numberFormat ??= new NumberFormat.decimalPattern();
     final checkInteger = getBool(integer ?? false);
-    return new MaterialNumberValueAccessor._(
-        updateStream, checkInteger, numberFormat, input, control);
+    return new MaterialNumberValueAccessor._(updateStream, checkInteger,
+        numberFormat, input, control, getBool(blurFormat ?? false));
   }
 
-  MaterialNumberValueAccessor._(this._updateStream, this._checkInteger,
-      this._numberFormat, BaseMaterialInput input, NgControl control)
-      : super(input, control);
+  MaterialNumberValueAccessor._(
+      this._updateStream,
+      this._checkInteger,
+      this._numberFormat,
+      BaseMaterialInput input,
+      NgControl control,
+      bool blurFormat)
+      : super(input, control) {
+    if (blurFormat) {
+      disposer.addStreamSubscription(input.onBlur.listen((_) {
+        // If the value parses, it's a number so format it as such.
+        if (_parseNumber(input.inputText) != null) {
+          super.writeValue(_numberFormat.format(_parseNumber(input.inputText)));
+        }
+      }));
+    }
+  }
 
   @override
   void writeValue(newValue) {
