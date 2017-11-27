@@ -22,9 +22,6 @@ import 'package:angular_components/model/observable/observable.dart';
 
 import 'menu_item_groups.dart';
 
-// Prevent menu from showing instantly after closing
-const _menuVisibilityGracePeriod = const Duration(milliseconds: 400);
-
 /// A fab menu item with optional sub menu.
 @Component(
   selector: 'material-fab-menu',
