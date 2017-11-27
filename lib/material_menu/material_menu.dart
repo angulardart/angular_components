@@ -21,6 +21,7 @@ import 'package:angular_components/model/menu/menu.dart';
 /// is selected or a region outside the dropdown is clicked.
 ///
 /// __Example usage:__
+///
 ///     <material-menu [menu]="menuModel">
 ///     </material-menu>
 @Component(
