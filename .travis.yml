@@ -11,5 +11,4 @@ cache:
     - $HOME/.pub-cache
 matrix:
   allow_failures:
-  - dart: dev
-    dart_task: dartfmt
+  - dart: stable

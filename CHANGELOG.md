@@ -19,6 +19,7 @@ release, but this is unlikely until sometime in early 2018.
 [dep_overrides]: https://www.dartlang.org/tools/pub/dependencies#dependency-overrides
 
  * Add Material Menu component.
+ * Update SDK lower bound to 2.0.0-dev.3.0, matching Angular.
  * Material Auto Suggest Input: Replace ngOnChanges(\_) with ngAfterChanges.
  * Material Button:
    * Update dense mixin to only apply to non-icon buttons.
@@ -30,6 +31,8 @@ release, but this is unlikely until sometime in early 2018.
    * Use markForChanges on inputs since they are being set by a directive and
      not the template and so change detection doesn't happen automatically.
    * Allow numerical values to be internationalized in number validators.
+   * Add option to have a material number input component format its contents on
+     blur.
  * Material Select:
    * Add mixin to set select item padding.
    * Add mixin to set selected item color.
