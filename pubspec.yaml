@@ -10,6 +10,7 @@ environment:
 dependencies:
   angular: 5.0.0-alpha+1
   angular_forms: 1.0.1-alpha+1
+  built_collection: ^1.6.0
   collection: ^1.14.0
   fixnum: ^0.10.5
   intl: '>=0.14.0 <0.16.0'
