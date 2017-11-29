@@ -60,7 +60,7 @@
           [attr.id]="activeModel.id(deselectLabel)"
           (mouseenter)="activeModel.activate(deselectLabel)">
       </material-select-dropdown-item>
-      <div *ngFor="let group of options.optionGroups trackBy trackByIndexFn"
+      <div *ngFor="let group of options.optionGroups; trackBy: trackByIndexFn"
           group
           [class.empty]="group.isEmpty && !group.hasEmptyLabel">
         <template [ngIf]="group.isNotEmpty || group.hasEmptyLabel">
