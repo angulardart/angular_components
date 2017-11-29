@@ -6,7 +6,7 @@
 <material-list [width]="width">
   <ng-content></ng-content>
   <div class="options-wrapper" *ngIf="options != null">
-    <div *ngFor="let group of options.optionGroups trackBy trackByIndexFn" group
+    <div *ngFor="let group of options.optionGroups; trackBy: trackByIndexFn" group
          [class.empty]="group.isEmpty">
       <template [ngIf]="group.isNotEmpty">
         <span *ngIf="group.hasLabel" label>{{group.uiDisplayName}}</span>
