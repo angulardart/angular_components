@@ -84,7 +84,7 @@
         [width]="width"
         (mouseleave)="activeModel.activate(null)">
       <div
-          *ngFor="let suggestionGroup of visibleSuggestionGroups trackBy trackByIndexFn"
+          *ngFor="let suggestionGroup of visibleSuggestionGroups; trackBy: trackByIndexFn"
           group
           class="list-group">
         <span *ngIf="suggestionGroup.hasLabel && labelRenderer == null"
