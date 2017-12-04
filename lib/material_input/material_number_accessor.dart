@@ -81,9 +81,11 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
       : super(input, control) {
     if (blurFormat) {
       disposer.addStreamSubscription(input.onBlur.listen((_) {
+        if (input == null) return; // Input is no longer valid
+        final parsedNumber = _parseNumber(input.inputText);
         // If the value parses, it's a number so format it as such.
-        if (_parseNumber(input.inputText) != null) {
-          super.writeValue(_numberFormat.format(_parseNumber(input.inputText)));
+        if (parsedNumber != null) {
+          super.writeValue(_numberFormat.format(parsedNumber));
         }
       }));
     }
