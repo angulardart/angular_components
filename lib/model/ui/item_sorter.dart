@@ -6,14 +6,16 @@ import 'dart:collection';
 
 import 'package:angular_components/model/ui/has_renderer.dart';
 
-/// Sorts a list of items using the ItemRenderer to obtain a string
-/// representation.
-List<String> sortItems(ItemRenderer itemRenderer, Iterable entities,
+/// Returns a new list of items sorted according to the string obtained from
+/// [itemRenderer].
+///
+/// [itemRenderer] should return a unique string representation for each item.
+List<T> sortItems<T>(ItemRenderer<T> itemRenderer, Iterable<T> items,
     {bool ignoreCase: false}) {
   if (ignoreCase) {
-    return new SplayTreeMap<dynamic, String>.fromIterable(entities,
-        key: (Object c) => itemRenderer(c).toLowerCase()).values.toList();
+    return new SplayTreeMap<String, T>.fromIterable(items,
+        key: (T item) => itemRenderer(item).toLowerCase()).values.toList();
   }
-  return new SplayTreeMap<dynamic, String>.fromIterable(entities,
-      key: (Object c) => itemRenderer(c)).values.toList();
+  return new SplayTreeMap<String, T>.fromIterable(items,
+      key: (T item) => itemRenderer(item)).values.toList();
 }
