@@ -64,7 +64,7 @@ class AcxImperativeViewUtils {
   final SlowComponentLoader _componentLoader;
   final DomService _domService;
 
-  AcxImperativeViewUtils(this._componentLoader, this._domService);
+  AcxImperativeViewUtils(@Optional() this._componentLoader, this._domService);
 
   /// Returns a future that completes with a new instance of
   /// [angularComponentType], once it is inserted [intoDomElement], within the
@@ -72,6 +72,7 @@ class AcxImperativeViewUtils {
   Future<ComponentRef> insertAngularComponent(Type angularComponentType,
       ViewContainerRef viewContainer, HtmlElement intoDomElement,
       {Injector injector}) async {
+    assert(_componentLoader != null, 'No $SlowComponentLoader was provided');
     ComponentRef ref = await _componentLoader.loadNextToLocation(
         angularComponentType,
         viewContainer,
