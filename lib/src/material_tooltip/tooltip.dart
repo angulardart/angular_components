@@ -13,7 +13,7 @@ import 'package:angular_components/model/action/delayed_action.dart';
 import 'package:angular_components/utils/browser/feature_detector/feature_detector.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-import 'ink_tooltip.dart';
+import 'ink_tooltip.template.dart';
 import 'tooltip_controller.dart';
 import 'tooltip_source.dart' show tooltipShowDelay;
 import 'tooltip_target.dart';
@@ -26,7 +26,7 @@ import 'tooltip_target.dart';
 class MaterialTooltipDirective extends TooltipTarget
     implements OnDestroy, OnInit, AfterViewInit {
   final _disposer = new Disposer.multi();
-  final SlowComponentLoader _viewLoader;
+  final ComponentLoader _viewLoader;
   final ChangeDetectorRef _changeDetector;
   final Window _window;
 
@@ -122,22 +122,19 @@ class MaterialTooltipDirective extends TooltipTarget
     // Create the view for the first time
     // Note: We also support loading components that contain one <ng-content>,
     // so we provide an empty slot for them.
-    _viewLoader
-        .loadNextToLocation(MaterialInkTooltipComponent, viewContainerRef)
-        .then((ComponentRef componentRef) {
-      _componentRef = componentRef;
+    _componentRef = _viewLoader.loadNextToLocation(
+        MaterialInkTooltipComponentNgFactory, viewContainerRef);
 
-      // Track the tooltip as `_inkTooltip` so we can set the text later.
-      _inkTooltip = _componentRef.instance as MaterialInkTooltipComponent;
-      _disposer.addDisposable(_componentRef.destroy);
+    // Track the tooltip as `_inkTooltip` so we can set the text later.
+    _inkTooltip = _componentRef.instance;
+    _disposer.addDisposable(_componentRef.destroy);
 
-      _inkTooltip
-        ..text = _lastText
-        ..tooltipRef = this;
-      if (positions != null) {
-        _inkTooltip.positions = positions;
-      }
-    });
+    _inkTooltip
+      ..text = _lastText
+      ..tooltipRef = this;
+    if (positions != null) {
+      _inkTooltip.positions = positions;
+    }
   }
 
   @override
