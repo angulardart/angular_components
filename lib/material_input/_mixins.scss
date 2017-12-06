@@ -94,6 +94,13 @@
   }
 }
 
+@mixin error-text-width($width) {
+  ::ng-deep .error-text {
+    position: absolute;
+    width: $width;
+  }
+}
+
 @mixin material-input-no-underline() {
   ::ng-deep .underline {
     display: none;
