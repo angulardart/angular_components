@@ -196,3 +196,11 @@ $_panel: 'div.panel.themeable';
     }
   }
 }
+
+// A theme that applies flat style on collapse but keep elevated style when the
+// panel is expanded.
+@mixin expansionpanel-flat-on-collapse-theme() {
+  ::ng-deep #{$_panel}:not(.open) {
+    box-shadow: 0 0 1px 1px $mat-border-light;
+  }
+}
