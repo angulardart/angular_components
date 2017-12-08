@@ -5,8 +5,8 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/material_button/material_button.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_menu/menu_popup.dart';
 import 'package:angular_components/material_menu/menu_popup_wrapper.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
@@ -27,8 +27,8 @@ import 'package:angular_components/model/menu/menu.dart';
 @Component(
   selector: 'material-menu',
   directives: const [
-    GlyphComponent,
     MaterialButtonComponent,
+    MaterialIconComponent,
     MaterialTooltipDirective,
     MenuPopupComponent,
     NgIf,
