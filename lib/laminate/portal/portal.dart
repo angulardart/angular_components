@@ -61,12 +61,16 @@ class ComponentPortal<T> extends Portal<T> {
   /// origin, instead, you want it to be some other location in your app.
   final ViewContainerRef origin;
 
+  /// The factory to create the component.
+  final ComponentFactory componentFactory;
+
   // TODO(google): Document and better explain when/when not to set origin.
   // TODO(google): Add optional `onInitialize` callback/future.
-  ComponentPortal([this.origin]);
+  ComponentPortal(this.componentFactory, {this.origin});
 
   @override
-  ComponentPortal<T> clone() => new ComponentPortal<T>(origin);
+  ComponentPortal<T> clone() =>
+      new ComponentPortal<T>(componentFactory, origin: origin);
 
   /// The type of component that will be created.
   Type get component => T;
@@ -227,10 +231,10 @@ class DelegatingPortalHost implements PortalHost {
 ///     <template portalHost="portal"></template>
 @Directive(selector: '[portalHost]')
 class PortalHostDirective extends BasePortalHost {
-  final SlowComponentLoader _dynamicComponentLoader;
+  final ComponentLoader _componentLoader;
   final ViewContainerRef _viewContainerRef;
 
-  PortalHostDirective(this._dynamicComponentLoader, this._viewContainerRef);
+  PortalHostDirective(this._componentLoader, this._viewContainerRef);
 
   @override
   Future<ComponentRef> attachComponentPortal(ComponentPortal portal) {
@@ -241,12 +245,11 @@ class PortalHostDirective extends BasePortalHost {
     if (portal.origin != null) {
       viewContainerRef = portal.origin;
     }
-    return _dynamicComponentLoader
-        .loadNextToLocation(portal.component, viewContainerRef)
-        .then((ref) {
-      setPortalDisposer(ref.destroy);
-      return ref.instance;
-    });
+    final ref = _componentLoader.loadNextToLocation(
+        portal.componentFactory, viewContainerRef);
+    setPortalDisposer(ref.destroy);
+    // TODO(google): This is no longer async remove the future if possible.
+    return new Future.value(ref.instance);
   }
 
   @override
