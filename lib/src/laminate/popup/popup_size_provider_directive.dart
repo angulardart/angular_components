@@ -22,8 +22,8 @@ class PopupSizeProviderDirective implements PopupSizeProvider {
   PopupSizeProvider _parentPopupSizeProvider;
 
   PopupSizeProviderDirective(
-      @Attribute('popupMaxHeight') maxHeight,
-      @Attribute('popupMaxWidth') maxWidth,
+      @Attribute('popupMaxHeight') String maxHeight,
+      @Attribute('popupMaxWidth') String maxWidth,
       @Optional() @SkipSelf() this._parentPopupSizeProvider) {
     _maxHeight =
         maxHeight == null ? null : new _SizeDefinition.fromString(maxHeight);
