@@ -294,7 +294,7 @@ class DomPortalHost extends BasePortalHost {
           'is not an Angular component.');
     }
     return _imperativeViewUtils
-        .insertAngularComponent(portal.component, portal.origin, _hostElement)
+        .insertComponent(portal.componentFactory, portal.origin, _hostElement)
         .then((ref) {
       setPortalDisposer(ref.destroy);
       return ref.instance;

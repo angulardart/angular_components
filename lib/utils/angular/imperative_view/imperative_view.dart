@@ -61,31 +61,10 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///     }
 @Injectable()
 class AcxImperativeViewUtils {
-  final SlowComponentLoader _slowComponentLoader;
   final ComponentLoader _componentLoader;
   final DomService _domService;
 
-  AcxImperativeViewUtils(this._componentLoader,
-      @Optional() this._slowComponentLoader, this._domService);
-
-  /// Returns a future that completes with a new instance of
-  /// [angularComponentType], once it is inserted [intoDomElement], within the
-  /// injection hierarchy of [viewContainer].
-  @Deprecated('Use insertComponent instead')
-  Future<ComponentRef> insertAngularComponent(Type angularComponentType,
-      ViewContainerRef viewContainer, HtmlElement intoDomElement,
-      {Injector injector}) async {
-    assert(
-        _slowComponentLoader != null, 'No $SlowComponentLoader was provided');
-    ComponentRef ref = await _slowComponentLoader.loadNextToLocation(
-        angularComponentType,
-        viewContainer,
-        injector ?? viewContainer.parentInjector);
-    await _domService.onWrite();
-    final rootNodes = (ref.hostView as EmbeddedViewRef).rootNodes;
-    intoDomElement.append(rootNodes.first);
-    return ref;
-  }
+  AcxImperativeViewUtils(this._componentLoader, this._domService);
 
   /// Returns a future that completes with a new instance created by
   /// [componentFactory], once it is inserted [intoDomElement].
