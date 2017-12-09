@@ -5,7 +5,6 @@
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
-import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/material_menu/menu_item_groups.dart';
@@ -20,7 +19,6 @@ import 'package:angular_components/model/menu/menu.dart';
   directives: const [
     AutoFocusDirective,
     DeferredContentDirective,
-    GlyphComponent,
     MaterialListComponent,
     MaterialPopupComponent,
     MenuItemGroupsComponent,
