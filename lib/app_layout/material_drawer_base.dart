@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
@@ -13,9 +12,7 @@ import 'package:angular_components/content/deferred_content_aware.dart';
 const animationDuration = const Duration(milliseconds: 500);
 
 class MaterialDrawerBase implements DeferredContentAware, OnInit {
-  MaterialDrawerBase(this._element, {bool visible = true}) : _visible = visible;
-
-  final HtmlElement _element;
+  MaterialDrawerBase({bool visible = true}) : _visible = visible;
 
   bool _visible;
 
@@ -30,7 +27,7 @@ class MaterialDrawerBase implements DeferredContentAware, OnInit {
     if (!_visible) {
       // Wait until after the animation to remove the content
       new Timer(animationDuration, () {
-        // Make sure we are still not visible incase the drawer was toggled
+        // Make sure we are still not visible in case the drawer was toggled
         // quickly before the animation was done.
         if (!_visible) _visibleChange.add(_visible);
       });
@@ -42,7 +39,7 @@ class MaterialDrawerBase implements DeferredContentAware, OnInit {
 
   final _visibleChange = new StreamController<bool>.broadcast(sync: true);
 
-  /// Event fired when the visibilty of the drawer changes.
+  /// Event fired when the visibility of the drawer changes.
   ///
   /// Note: does not fire until after the animation is complete.
   @Output('visibleChange')

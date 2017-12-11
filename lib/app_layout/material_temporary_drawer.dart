@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:html';
-
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 
@@ -38,6 +36,5 @@ import 'material_drawer_base.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialTemporaryDrawerComponent extends MaterialDrawerBase {
-  MaterialTemporaryDrawerComponent(HtmlElement element)
-      : super(element, visible: false);
+  MaterialTemporaryDrawerComponent() : super(visible: false);
 }
