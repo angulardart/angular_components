@@ -18,7 +18,7 @@ import 'package:angular_components/utils/async/async.dart';
     selector: 'material-tree-filter',
     directives: const [materialInputDirectives, NgIf],
     templateUrl: 'material_tree_filter.html',
-    visibility: Visibility.none)
+    visibility: Visibility.local)
 class MaterialTreeFilterComponent {
   final StreamController _onFocusController =
       new StreamController.broadcast(sync: true);

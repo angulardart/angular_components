@@ -43,7 +43,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     styleUrls: const ['material_chip.scss.css'],
     directives: const [ButtonDirective, NgIf],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.none)
+    visibility: Visibility.local)
 class MaterialChipComponent extends RootFocusable implements HasRenderer {
   MaterialChipComponent(Element root) : super(root);
 

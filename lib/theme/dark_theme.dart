@@ -52,5 +52,5 @@ class AcxDarkTheme {
 @Directive(
     selector: '[darkTheme]',
     providers: const [const Provider(darkThemeToken, useValue: true)],
-    visibility: Visibility.none)
+    visibility: Visibility.local)
 class DarkThemeDirective {}

@@ -31,7 +31,7 @@ import 'package:angular_components/utils/async/async.dart';
     providers: const [
       const Provider(FocusableItem, useExisting: FocusItemDirective)
     ],
-    visibility: Visibility.none)
+    visibility: Visibility.local)
 class FocusItemDirective extends RootFocusable implements FocusableItem {
   final String role;
 
