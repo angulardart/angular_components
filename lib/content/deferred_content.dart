@@ -22,7 +22,7 @@ import 'deferred_content_aware.dart';
 ///     <modal [(visible)]="visible">
 ///         <expensive-content *deferredContent></expensive-content>
 ///     </modal>
-@Directive(selector: '[deferredContent]', visibility: Visibility.none)
+@Directive(selector: '[deferredContent]', visibility: Visibility.local)
 class DeferredContentDirective implements OnDestroy {
   final _disposer = new Disposer.oneShot();
   final _placeholder = new DivElement();
@@ -96,7 +96,7 @@ class DeferredContentDirective implements OnDestroy {
 /// This directive is not recommended as it will cause Angular to change-detect
 /// the contents even when hidden. If your hidden content has push-detection
 /// enabled, go for it.
-@Directive(selector: '[cachedDeferredContent]', visibility: Visibility.none)
+@Directive(selector: '[cachedDeferredContent]', visibility: Visibility.local)
 class CachingDeferredContentDirective implements OnDestroy {
   ViewContainerRef _viewContainer;
   TemplateRef _template;

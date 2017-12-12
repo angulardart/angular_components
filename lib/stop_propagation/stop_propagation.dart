@@ -13,7 +13,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
 /// Events will trigger on the target component but will be prevented from
 /// bubbling up to parent elements.
 /// https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-flow-bubbling
-@Directive(selector: '[stopPropagation]', visibility: Visibility.none)
+@Directive(selector: '[stopPropagation]', visibility: Visibility.local)
 class StopPropagationDirective implements OnDestroy {
   StreamSubscription _clickSubscription, _keyDownSubscription;
 

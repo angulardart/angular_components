@@ -39,7 +39,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     styleUrls: const ['material_chips.scss.css'],
     directives: const [MaterialChipComponent, NgFor],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.none)
+    visibility: Visibility.local)
 class MaterialChipsComponent implements HasRenderer, OnDestroy {
   final ChangeDetectorRef _changeDetector;
   final Disposer _disposer = new Disposer.multi();

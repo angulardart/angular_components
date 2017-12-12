@@ -29,7 +29,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
     templateUrl: 'material_toggle.html',
     directives: const [NgIf],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.none)
+    visibility: Visibility.local)
 class MaterialToggleComponent {
   /// Enables/disables the toggle button.
   ///
