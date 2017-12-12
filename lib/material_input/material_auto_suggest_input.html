@@ -45,6 +45,8 @@
         keyboardOnlyFocusIndicator
         stopPropagation
         class="clear-icon"
+        [materialTooltip]="clearIconTooltip"
+        [showTooltipIf]="hasClearIconTooltip"
         (trigger)="onClearIcon()">
     </glyph>
     <ng-content select="[trailing]"></ng-content>
