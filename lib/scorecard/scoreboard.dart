@@ -62,7 +62,7 @@ import 'package:angular_components/src/scorecard/scorecard_bar.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
-  visibility: Visibility.none,
+  visibility: Visibility.local,
 )
 class ScoreboardComponent implements OnInit, OnDestroy {
   static const chevronLeft = 'chevron_left';

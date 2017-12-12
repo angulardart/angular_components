@@ -84,7 +84,7 @@ import 'package:angular_components/utils/color/palette.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
-  visibility: Visibility.none,
+  visibility: Visibility.local,
 )
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   static const changeTypePositive = 'POSITIVE';
