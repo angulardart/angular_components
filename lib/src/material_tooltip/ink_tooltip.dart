@@ -62,7 +62,7 @@ import 'tooltip_target.dart';
     directives: const [DeferredContentDirective, NgIf, MaterialPopupComponent],
     // TODO(google): Change preserveWhitespace to false to improve codesize.
     preserveWhitespace: true,
-    visibility: Visibility.none)
+    visibility: Visibility.local)
 class MaterialInkTooltipComponent implements Tooltip {
   final TooltipController _tooltipController;
   final ChangeDetectorRef _changeDetector;

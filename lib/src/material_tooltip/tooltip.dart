@@ -22,7 +22,7 @@ import 'tooltip_target.dart';
 @Directive(
     selector: '[materialTooltip]',
     providers: const [tooltipControllerBinding],
-    visibility: Visibility.none)
+    visibility: Visibility.local)
 class MaterialTooltipDirective extends TooltipTarget
     implements OnDestroy, OnInit, AfterViewInit {
   final _disposer = new Disposer.multi();
