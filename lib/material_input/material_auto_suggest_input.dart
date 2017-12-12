@@ -21,6 +21,7 @@ import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_select/material_select_base.dart';
 import 'package:angular_components/material_select/material_select_dropdown_item.dart';
 import 'package:angular_components/material_spinner/material_spinner.dart';
+import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/mixins/highlight_assistant_mixin.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/a11y/active_item.dart';
@@ -90,6 +91,7 @@ typedef String _InputChangeCallback(String inputText);
 ///   (default) uses a single selection model.
 /// - `showClearIcon: bool` -- Show or hide the trailing close icon to clear the
 ///   input and hide the popup.
+/// - `clearIconTooltip: String` -- Tooltip shown on clear icon.
 /// - `slide: String` -- Direction of popup scaling. Valid values are `x`, `y`,
 ///   or `null`.
 /// - `loading: bool` -- When turned on and no suggestions available, show
@@ -139,6 +141,7 @@ typedef String _InputChangeCallback(String inputText);
     MaterialSelectDropdownItemComponent,
     MaterialPopupComponent,
     MaterialSpinnerComponent,
+    MaterialTooltipDirective,
     PopupSourceDirective,
     NgFor,
     NgIf,
@@ -261,6 +264,12 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Clicking on the icon clears the input text and hides the popup.
   @Input()
   bool showClearIcon = false;
+
+  /// Tooltip shown on clear icon.
+  @Input()
+  String clearIconTooltip;
+
+  bool get hasClearIconTooltip => clearIconTooltip?.isNotEmpty ?? false;
 
   /// Text to show if the options list is empty and not loading.
   @Input()
