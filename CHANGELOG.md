@@ -1,3 +1,32 @@
+## 0.9.0-alpha+2
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (5.0.0-alpha+1 is used in production Google apps).
+
+**NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
+are **required**:
+
+```yaml
+dependency_overrides:
+  analyzer: ^0.31.0-alpha.1
+```
+
+ * Material Expansionpanel: Add mixin for flat on collapse.
+ * Material Input:
+   * Protected against input being destroyed and blur event still happening.
+   * Add mixin for fixed width error text.
+ * Material Menu:
+   * Migrate from Glyph to Material Icon.
+ * Material Toggle: Add mixin to display label on the right.
+ * Add directives for Material Menu to `materialDirectives`.
+ * Remove `MaterialButtonBase` from `materialDirectives`.
+ * Generic type fixes.
+ * Continue migration from `ComponentLoader` to `SlowComponentLoader`.
+ * Cleanup Angular static analysis warnings.
+ * Rename `Visibility.none` to `Visibility.local`.
+ * Add optional punctuation around trackBy functions.
+
 ## 0.9.0-alpha+1
 
 > NOTE: This code is considered production quality, but depends on angular:
