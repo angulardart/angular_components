@@ -25,7 +25,6 @@ import 'laminate/components/modal/modal.dart';
 import 'laminate/popup/module.dart';
 import 'laminate/popup/popup.dart';
 import 'material_button/material_button.dart';
-import 'material_button/material_button_base.dart';
 import 'material_button/material_fab.dart';
 import 'material_checkbox/material_checkbox.dart'
     show MaterialCheckboxComponent;
@@ -45,6 +44,13 @@ import 'material_input/material_number_validators.dart';
 import 'material_input/material_percent_directive.dart';
 import 'material_list/material_list.dart';
 import 'material_list/material_list_item.dart';
+import 'material_menu/dropdown_menu.dart';
+import 'material_menu/material_fab_menu.dart';
+import 'material_menu/material_menu.dart';
+import 'material_menu/menu_item_affix_list.dart';
+import 'material_menu/menu_item_groups.dart';
+import 'material_menu/menu_popup.dart';
+import 'material_menu/menu_root.dart';
 import 'material_popup/material_popup.dart';
 import 'material_progress/material_progress.dart';
 import 'material_radio/material_radio.dart';
@@ -122,6 +128,13 @@ export 'material_input/material_percent_directive.dart';
 export 'material_list/material_list.dart';
 export 'material_list/material_list_item.dart';
 export 'material_list/material_list_size.dart';
+export 'material_menu/dropdown_menu.dart';
+export 'material_menu/material_fab_menu.dart';
+export 'material_menu/material_menu.dart';
+export 'material_menu/menu_item_affix_list.dart';
+export 'material_menu/menu_item_groups.dart';
+export 'material_menu/menu_popup.dart';
+export 'material_menu/menu_popup_wrapper.dart';
 export 'material_popup/material_popup.dart';
 export 'material_progress/material_progress.dart';
 export 'material_radio/material_radio.dart';
@@ -183,6 +196,7 @@ const List<dynamic> materialDirectives = const [
   DeferredContentDirective,
   displayNameRendererDirective,
   DropdownButtonComponent,
+  DropdownMenuComponent,
   DynamicComponent,
   FixedMaterialTabStripComponent,
   FocusActivableItemDirective,
@@ -197,7 +211,6 @@ const List<dynamic> materialDirectives = const [
   LowerBoundValidator,
   MaterialAutoSuggestInputComponent,
   MaterialButtonComponent,
-  MaterialButtonBase,
   MaterialCheckboxComponent,
   MaterialChipComponent,
   MaterialChipsComponent,
@@ -207,13 +220,17 @@ const List<dynamic> materialDirectives = const [
   MaterialExpansionPanelAutoDismiss,
   MaterialExpansionPanelSet,
   MaterialFabComponent,
+  MaterialFabMenuComponent,
   MaterialIconComponent,
   MaterialIconTooltipComponent,
   MaterialInkTooltipComponent,
   MaterialInputComponent,
   MaterialInputDefaultValueAccessor,
+  MenuItemAffixListComponent,
+  MenuItemGroupsComponent,
   MaterialListComponent,
   MaterialListItemComponent,
+  MaterialMenuComponent,
   MaterialMultilineInputComponent,
   MaterialPaperTooltipComponent,
   MaterialPercentInputDirective,
@@ -238,6 +255,8 @@ const List<dynamic> materialDirectives = const [
   MaterialTooltipSourceDirective,
   MaterialTooltipTargetDirective,
   MaterialYesNoButtonsComponent,
+  MenuPopupComponent,
+  MenuRootDirective,
   ModalComponent,
   NgModel,
   PositiveNumValidator,
