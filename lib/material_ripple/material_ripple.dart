@@ -156,7 +156,7 @@ void _applyFallbackAnimation(
   encapsulation: ViewEncapsulation.None,
   styleUrls: const ['material_ripple.scss.css'],
   changeDetection: ChangeDetectionStrategy.Detached,
-  visibility: Visibility.none,
+  visibility: Visibility.local,
 )
 class MaterialRippleComponent implements OnDestroy {
   final HtmlElement _element;
