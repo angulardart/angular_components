@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+@import 'package:angular_components/css/material/material';
+
 /// Changes the `$off-btn-color` and `$primary-color` of <material-toggle>s.
 ///
 /// Optionally specify a `$selector`. Example use:
@@ -22,5 +24,16 @@
 
   ::ng-deep #{$selector} material-toggle.themeable .material-toggle.checked .tgl-btn {
     background-color: $primary-color;
+  }
+}
+
+/// Displays the toggle label to the right of the toggle.
+@mixin flip-toggle-label-position() {
+  ::ng-deep .material-toggle {
+    flex-direction: row-reverse;
+  }
+
+  ::ng-deep .material-toggle .tgl-lbl {
+    padding-left: $mat-grid;
   }
 }
