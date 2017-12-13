@@ -2,11 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+@import 'size';
 @import 'package:angular_components/css/material/material';
 
 /// Default padding material-select-item and material-select-dropdown-item.
 @mixin select-item-padding {
-  padding: 0 (2 * $mat-grid);
+  padding: 0 $select-item-padding;
 }
 
 /// Shared styles for material-select-item and material-select-dropdown-item.
@@ -96,3 +97,9 @@
   }
 }
 
+/// Sets the padding on MaterialSelectDropdownItems.
+@mixin material-select-dropdown-item-padding($padding, $selector: '') {
+  ::ng-deep #{$selector} material-select-dropdown-item {
+    padding: $padding;
+  }
+}
