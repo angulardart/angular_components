@@ -249,7 +249,7 @@ class PortalHostDirective extends BasePortalHost {
         portal.componentFactory, viewContainerRef);
     setPortalDisposer(ref.destroy);
     // TODO(google): This is no longer async remove the future if possible.
-    return new Future.value(ref.instance);
+    return new Future.value(ref);
   }
 
   @override
@@ -297,7 +297,7 @@ class DomPortalHost extends BasePortalHost {
         .insertComponent(portal.componentFactory, portal.origin, _hostElement)
         .then((ref) {
       setPortalDisposer(ref.destroy);
-      return ref.instance;
+      return ref;
     });
   }
 
