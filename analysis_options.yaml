@@ -1,7 +1,8 @@
 analyzer:
   strong-mode: true
   errors:
+    dead_code: warning
     unused_element: warning
     unused_import: warning
     unused_local_variable: warning
-    dead_code: warning
+    uri_has_not_been_generated: ignore

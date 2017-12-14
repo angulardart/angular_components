@@ -13,7 +13,8 @@ import 'package:angular_components/model/action/delayed_action.dart';
 import 'package:angular_components/utils/browser/feature_detector/feature_detector.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-import 'ink_tooltip.template.dart';
+import 'ink_tooltip.dart';
+import 'ink_tooltip.template.dart' as ng;
 import 'tooltip_controller.dart';
 import 'tooltip_source.dart' show tooltipShowDelay;
 import 'tooltip_target.dart';
@@ -123,7 +124,7 @@ class MaterialTooltipDirective extends TooltipTarget
     // Note: We also support loading components that contain one <ng-content>,
     // so we provide an empty slot for them.
     _componentRef = _viewLoader.loadNextToLocation(
-        MaterialInkTooltipComponentNgFactory, viewContainerRef);
+        ng.MaterialInkTooltipComponentNgFactory, viewContainerRef);
 
     // Track the tooltip as `_inkTooltip` so we can set the text later.
     _inkTooltip = _componentRef.instance;
