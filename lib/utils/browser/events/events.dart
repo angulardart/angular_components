@@ -55,7 +55,7 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
         assert(clickListener == null);
         assert(mouseUpListener == null);
 
-        var lastEvent = null;
+        Event lastEvent;
 
         listener = (Event e) {
           lastEvent = e;
