@@ -7,7 +7,6 @@ import 'dart:html' show KeyboardEvent, HtmlElement;
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/focus/focus.dart';
-import 'package:angular_components/utils/async/async.dart';
 
 /// `FocusItemDirective`, used in conjunction with [FocusListDirective],
 /// provides a means to move focus between a list of components (or elements)
@@ -42,7 +41,7 @@ class FocusItemDirective extends RootFocusable implements FocusableItem {
   String tabIndex = '0';
 
   final _focusMoveCtrl =
-      new LazyStreamController<FocusMoveEvent>.broadcast(sync: true);
+      new StreamController<FocusMoveEvent>.broadcast(sync: true);
   @override
   Stream<FocusMoveEvent> get focusmove => _focusMoveCtrl.stream;
 
