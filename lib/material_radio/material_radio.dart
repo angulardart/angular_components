@@ -12,7 +12,6 @@ import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/material_radio/material_radio_group.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/model/ui/icon.dart';
-import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
@@ -164,9 +163,9 @@ class MaterialRadioComponent extends RootFocusable
   }
 
   final _focusMoveCtrl =
-      new LazyStreamController<FocusMoveEvent>.broadcast(sync: true);
+      new StreamController<FocusMoveEvent>.broadcast(sync: true);
   final _selectionMoveCtrl =
-      new LazyStreamController<FocusMoveEvent>.broadcast(sync: true);
+      new StreamController<FocusMoveEvent>.broadcast(sync: true);
 
   @override
   Stream<FocusMoveEvent> get focusmove => _focusMoveCtrl.stream;

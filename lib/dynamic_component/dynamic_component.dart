@@ -6,7 +6,6 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
-import 'package:angular_components/utils/async/async.dart';
 
 /// Dynamically renders another component, setting the [value] field on the
 /// dynamic component if it implements [RendersValue] (and not if the component
@@ -28,7 +27,7 @@ class DynamicComponent implements OnDestroy {
   final SlowComponentLoader _slowComponentLoader;
   final ComponentLoader _componentLoader;
   final ChangeDetectorRef _changeDetectorRef;
-  final _onLoadController = new LazyStreamController<ComponentRef>();
+  final _onLoadController = new StreamController<ComponentRef>();
 
   ViewContainerRef _viewContainerRef;
   bool _loadDeferred = false;
