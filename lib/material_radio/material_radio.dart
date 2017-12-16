@@ -8,7 +8,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/focus/focus.dart';
-import 'package:angular_components/glyph/glyph.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_radio/material_radio_group.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/model/ui/icon.dart';
@@ -44,7 +44,7 @@ const Icon checkedIcon = const Icon('radio_button_checked');
       '[attr.tabindex]': 'tabIndex',
       '[attr.aria-disabled]': 'disabled',
     },
-    directives: const [GlyphComponent, MaterialRippleComponent, NgIf],
+    directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
     templateUrl: 'material_radio.html',
     styleUrls: const ['material_radio.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
