@@ -68,15 +68,8 @@ class DynamicComponent implements OnDestroy {
     _childComponent = null;
   }
 
-  /// The type of component to dynamically render.
-  @Deprecated('Use componentFactory instead as it is more tree-shakable')
-  @Input()
-  set componentType(Type dartType) {
+  void _checkAndInitialize() {
     _disposeChildComponent();
-    _componentType = dartType;
-    if (dartType == null) {
-      return;
-    }
     if (_viewContainerRef != null) {
       _initialize();
     } else {
@@ -85,17 +78,37 @@ class DynamicComponent implements OnDestroy {
   }
 
   /// The type of component to dynamically render.
+  ///
+  /// If something other than a null or Type is passed in, it will
+  /// be ignored.
+  @Deprecated('Use componentFactory instead as it is more tree-shakable')
   @Input()
-  set componentFactory(ComponentFactory component) {
-    _disposeChildComponent();
-    _componentFactory = component;
-    if (component == null) {
-      return;
+  set componentType(Object dartType) {
+    // Ignore unsupported type.
+    if (dartType == null) {
+      _disposeChildComponent();
+    } else if (dartType is Type) {
+      _componentFactory = null;
+      _componentType = dartType;
+      _checkAndInitialize();
     }
-    if (_viewContainerRef != null) {
-      _initialize();
-    } else {
-      _loadDeferred = true;
+  }
+
+  /// The ComponentFactory of component to dynamically render.
+  ///
+  /// If something other than a null or ComponentFactory is passed in, it will
+  /// be ignored. Note: This only temporarially supports Object to allow for
+  /// an easier transition of code. This does make this code slightly slower,
+  /// but will be changed to [ComponentFactory] when [componentType] is
+  /// removed.
+  @Input()
+  set componentFactory(Object component) {
+    if (component == null) {
+      _disposeChildComponent();
+    } else if (component is ComponentFactory) {
+      _componentType = null;
+      _componentFactory = component;
+      _checkAndInitialize();
     }
   }
 
