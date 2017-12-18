@@ -106,7 +106,7 @@ $_panel: 'div.panel.themeable';
 }
 
 @mixin expansionpanel-expand-button-text-color($color) {
-  ::ng-deep #{$_panel} glyph.expand-button {
+  ::ng-deep #{$_panel} material-icon.expand-button {
     color: $color;
   }
 }

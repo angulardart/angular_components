@@ -30,13 +30,13 @@
       <ng-content select="[value]"></ng-content>
     </div>
 
-    <glyph buttonDecorator
-           *ngIf="shouldShowExpandIcon"
-           class="expand-button"
-           [icon]="expandIcon"
-           [class.expand-more]="shouldFlipExpandIcon"
-           (trigger)="handleExpandIconClick()">
-    </glyph>
+    <material-icon buttonDecorator
+                   *ngIf="shouldShowExpandIcon"
+                   class="expand-button"
+                   [icon]="expandIcon"
+                   [class.expand-more]="shouldFlipExpandIcon"
+                   (trigger)="handleExpandIconClick()">
+    </material-icon>
   </header>
 
   <!-- Expanded section -->
@@ -46,14 +46,14 @@
         <div class="content">
           <ng-content></ng-content>
         </div>
-        <glyph *ngIf="shouldShowHiddenHeaderExpandIcon"
-               #expandCollapseButton
-               [icon]="expandIcon"
-               class="expand-button"
-               buttonDecorator
-               (trigger)="collapse()"
-               [attr.aria-label]="closePanelMsg">
-        </glyph>
+        <material-icon *ngIf="shouldShowHiddenHeaderExpandIcon"
+                       #expandCollapseButton
+                       [icon]="expandIcon"
+                       class="expand-button"
+                       buttonDecorator
+                       (trigger)="collapse()"
+                       [attr.aria-label]="closePanelMsg">
+        </material-icon>
       </div>
       <div *ngIf="!showSaveCancel" class="toolbelt">
         <ng-content select="[toolbelt]"></ng-content>
