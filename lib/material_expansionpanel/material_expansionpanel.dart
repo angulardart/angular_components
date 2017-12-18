@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/focus/focus.dart';
-import 'package:angular_components/glyph/glyph.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_yes_no_buttons/material_yes_no_buttons.dart';
 import 'package:angular_components/model/action/async_action.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
@@ -103,7 +103,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     selector: 'material-expansionpanel',
     directives: const [
       ButtonDirective,
-      GlyphComponent,
+      MaterialIconComponent,
       MaterialSaveCancelButtonsDirective,
       MaterialYesNoButtonsComponent,
       NgIf,
@@ -233,8 +233,7 @@ class MaterialExpansionPanel
   @Input()
   String secondaryText;
 
-  /// An optional glyph icon name to replace the expand arrows with a custom
-  /// icon.
+  /// An optional icon name to replace the expand arrows with a custom icon.
   ///
   /// If a custom icon is used, then the icon disappears when the panel is
   /// expanded. By default, the expand icon is "expand_less."
@@ -367,7 +366,7 @@ class MaterialExpansionPanel
 
   /// Button that expands or collapses the panel.
   ///
-  /// It's either the header or the glyph icon in the content if
+  /// It's either the header or the icon in the content if
   /// [hideExpandedHeader] is set to `true`.
   ButtonDirective _expandCollapseButton;
   @ViewChild('expandCollapseButton', read: ButtonDirective)
