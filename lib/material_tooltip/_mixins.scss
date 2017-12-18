@@ -2,18 +2,18 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// Exposes the glyph color of <material-icon-tooltip>.
+/// Exposes the material-icon color of <material-icon-tooltip>.
 @mixin material-icon-tooltip-theme($primary-color,
   $active-color: $primary-color) {
 
   ::ng-deep material-icon-tooltip {
-    glyph {
+    material-icon {
       color: $primary-color;
     }
 
     &:hover,
     &:focus {
-      glyph {
+      material-icon {
         color: $active-color;
       }
     }
