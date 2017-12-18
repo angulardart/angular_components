@@ -12,9 +12,9 @@ import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
-import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_input/input_wrapper.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
@@ -134,8 +134,8 @@ typedef String _InputChangeCallback(String inputText);
     ButtonDirective,
     CachingDeferredContentDirective,
     DynamicComponent,
-    GlyphComponent,
     KeyboardOnlyFocusIndicatorDirective,
+    MaterialIconComponent,
     materialInputDirectives,
     MaterialListComponent,
     MaterialSelectDropdownItemComponent,

@@ -6,7 +6,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:quiver/strings.dart' show isNotEmpty;
 import 'package:angular_components/focus/focus.dart';
-import 'package:angular_components/glyph/glyph.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/reference/reference.dart';
 
@@ -133,7 +133,7 @@ const String materialInputErrorKey = 'material-input-error';
   directives: const [
     DefaultValueAccessor,
     FocusableDirective,
-    GlyphComponent,
+    MaterialIconComponent,
     NgFor,
     NgIf,
     NgModel,
