@@ -76,7 +76,13 @@ class TextHighlighter {
           break;
         } else {
           if (!matchFromStartOfWord ||
-              (index == 0 || _matchText[index - 1] == " ")) {
+              (index == 0 ||
+                  // Some suggestions will have an alternate label appended to
+                  // the end of the suggestion and enclosed in parenthesis. We
+                  // want to highlight matches to words that are wrapped in
+                  // parenthesis so we add this check here.
+                  _matchText[index - 1] == "(" ||
+                  _matchText[index - 1] == " ")) {
             markers[index] = max(markers[index], token.length);
           }
           index += token.length;
