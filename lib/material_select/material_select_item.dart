@@ -16,7 +16,7 @@ import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/a11y/active_item_mixin.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
@@ -47,7 +47,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 )
 class MaterialSelectItemComponent extends ButtonDirective
     with ActiveItemMixin
-    implements OnDestroy, SelectionItem, HasRenderer, HasComponentRenderer {
+    implements
+        OnDestroy,
+        SelectionItem,
+        HasRenderer,
+        HasComponentRenderer,
+        HasFactoryRenderer {
   final _disposer = new Disposer.oneShot();
   final ActivationHandler _activationHandler;
   final ChangeDetectorRef _cdRef;
@@ -124,7 +129,13 @@ class MaterialSelectItemComponent extends ButtonDirective
   /// Use instead of manual label or item renderer.
   @Input()
   @override
+  @Deprecated('Use factoryrenderer instead as it will produce more '
+      'tree-shakeable code.')
   ComponentRenderer componentRenderer;
+
+  @Input()
+  @override
+  FactoryRenderer factoryRenderer;
 
   /// If true, check marks are used instead of checkboxes to indicate whether or
   /// not the item is selected for multi-select items.
@@ -202,8 +213,12 @@ class MaterialSelectItemComponent extends ButtonDirective
 
   bool _closeOnActivate = true;
 
+  // TODO(google): Remove after migration from ComponentRenderer is complete
   Type get componentType =>
       componentRenderer != null ? componentRenderer(value) : null;
+
+  ComponentFactory get componentFactory =>
+      factoryRenderer != null ? factoryRenderer(value) : null;
 
   /// Whether this item should be marked as selected.
   bool get isSelected => _isMarkedSelected || _isSelectedInSelectionModel;

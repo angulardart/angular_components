@@ -11,7 +11,7 @@ import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
@@ -244,7 +244,10 @@ class MaterialTreeNode<T> {
   }
 
   /// Whether to use a dynamic component to render an option.
-  bool get useComponentRenderer => _root.componentRenderer != null;
+  // TODO(google): Rename this is to control whether to use dynamic component
+  // loader.
+  bool get useComponentRenderer =>
+      _root.factoryRenderer != null || _root.componentRenderer != null;
 
   /// Whether to use a simple text formatter to render an option.
   bool get useItemRenderer => !useComponentRenderer;
@@ -253,7 +256,12 @@ class MaterialTreeNode<T> {
   bool get showSelectionState => isMultiSelect || !_root.optimizeForDropdown;
 
   /// Converts [T] into a component type (requires [useComponentRenderer]).
-  Type getComponentType(option) => _root.componentRenderer(option);
+  Type getComponentType(option) =>
+      _root.componentRenderer != null ? _root.componentRenderer(option) : null;
+
+  /// Converts [T] into a component factory (requires [factoryRenderer]).
+  ComponentFactory getComponentFactory(option) =>
+      _root.factoryRenderer != null ? _root.factoryRenderer(option) : null;
 
   /// Converts [T] into a text equivalent (requires [useItemRenderer]).
   String getOptionAsText(T option) {

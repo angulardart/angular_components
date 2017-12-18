@@ -68,8 +68,9 @@
             {{group.uiDisplayName}}
           </span>
           <dynamic-component
-              *ngIf="labelRenderer != null"
-              [componentType]="labelRenderer(group)"
+              *ngIf="labelRenderer != null || labelFactory != null"
+              [componentType]="labelRenderer != null ? labelRenderer(group) : null"
+              [componentFactory]="labelFactory != null ? labelFactory(group) : null"
               [value]="group">
           </dynamic-component>
           <template [ngIf]="group.isNotEmpty">

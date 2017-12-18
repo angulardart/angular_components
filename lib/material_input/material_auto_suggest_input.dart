@@ -31,7 +31,7 @@ import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/selection/string_selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/model/ui/highlight_provider.dart';
 import 'package:angular_components/model/ui/template_support.dart';
 import 'package:angular_components/stop_propagation/stop_propagation.dart';
@@ -437,8 +437,13 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   bool get showLoadingSpinner => loading && options.optionsList.isEmpty;
 
   /// Custom renderer for suggestion labels.
+  @Deprecated('Use labelFactory instead.')
   @Input()
   ComponentRenderer labelRenderer;
+
+  /// Custom factory for rendering suggestion labels.
+  @Input()
+  FactoryRenderer labelFactory;
 
   /// An option is disabled if the options implements Selectable, but the [item]
   /// is not selectable.

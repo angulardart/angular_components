@@ -29,7 +29,7 @@ import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/model/ui/template_support.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
 
@@ -183,7 +183,13 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   bool showButtonBorder;
 
   @Input()
+  @Deprecated(
+      'Use labelFactory instead it allows for better tree-shakable code.')
   ComponentRenderer labelRenderer;
+
+  /// Factory used to create labels for the dropdown.
+  @Input()
+  FactoryRenderer labelFactory;
 
   /// CSS classes from the root element, passed to the popup to allow scoping of
   /// mixins.
