@@ -8,12 +8,12 @@
 :host {
   &:hover,
   &:focus {
-    glyph {
+    material-icon {
       color: $mat-blue-700;
     }
   }
 
-  glyph {
+  material-icon {
     color: $mat-light-transparent-black;
     cursor: pointer;
   }
@@ -21,12 +21,12 @@
   @include acx-theme-dark {
     &:hover,
     &:focus {
-      glyph {
+      material-icon {
         color: $mat-white;
       }
     }
 
-    glyph {
+    material-icon {
       color: $mat-white;
     }
   }

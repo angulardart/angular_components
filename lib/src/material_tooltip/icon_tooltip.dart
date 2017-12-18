@@ -9,7 +9,7 @@ import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
-import 'package:angular_components/glyph/glyph.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/theme/dark_theme.dart';
 
 import 'paper_tooltip.dart';
@@ -19,13 +19,13 @@ import 'tooltip_target.dart';
 /// space, and focus.
 ///
 /// This is essentially the same as showing [MaterialTooltipCard] on a
-/// [GlyphComponent], except that it shows tooltip on click (as opposed to
-/// [MaterialTooltipTarget], which does not have click trigger).
+/// [MaterialIconComponent], except that it shows tooltip on click (as
+/// opposed to [MaterialTooltipTarget], which does not have click trigger).
 ///
 /// __Attributes:__
 ///
 /// - `type` -- The type of the icon. Defaults to "help" to show "help_outline"
-/// glyph (a circled "?"). The other supported value is "info" for
+/// icon (a circled "?"). The other supported value is "info" for
 /// "info_outline" (a circled "i").
 @Component(
   selector: 'material-icon-tooltip',
@@ -35,11 +35,11 @@ import 'tooltip_target.dart';
         useExisting: MaterialIconTooltipComponent)
   ],
   template: r'''
-    <glyph [icon]="icon" [attr.size]="iconSize"
+    <material-icon [icon]="icon" [attr.size]="iconSize"
         tabindex="0" [attr.aria-label]="helpTooltipLabel"
         keyboardOnlyFocusIndicator
         clickableTooltipTarget #tooltipRef="tooltipTarget">
-    </glyph>
+    </material-icon>
     <material-tooltip-card [for]="tooltipRef">
       <ng-content></ng-content>
     </material-tooltip-card>''',
@@ -47,7 +47,7 @@ import 'tooltip_target.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
   directives: const [
     ClickableTooltipTargetDirective,
-    GlyphComponent,
+    MaterialIconComponent,
     KeyboardOnlyFocusIndicatorDirective,
     MaterialPaperTooltipComponent
   ],
@@ -58,11 +58,11 @@ import 'tooltip_target.dart';
 class MaterialIconTooltipComponent implements DeferredContentAware {
   HtmlElement element;
 
-  /// Icon identifier for [GlyphComponent]. See
+  /// Icon identifier for [MaterialIconComponent]. See
   /// [https://www.google.com/design/icons/] for available icons.
   final String icon;
 
-  /// Size of the icon. Must be a valid size for [GlyphComponent].
+  /// Size of the icon. Must be a valid size for [MaterialIconComponent].
   final String iconSize;
 
   MaterialIconTooltipComponent(AcxDarkTheme darkTheme, HtmlElement element,
