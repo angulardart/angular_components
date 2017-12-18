@@ -38,7 +38,7 @@
     (keypress)="onKeyPress($event)"
     (keyup)="onKeyUp($event)">
   <span trailing>
-    <glyph
+    <material-icon
         *ngIf="showClearIcon"
         icon="clear"
         buttonDecorator
@@ -48,7 +48,7 @@
         [materialTooltip]="clearIconTooltip"
         [showTooltipIf]="hasClearIconTooltip"
         (trigger)="onClearIcon()">
-    </glyph>
+    </material-icon>
     <ng-content select="[trailing]"></ng-content>
   </span>
 </material-input>

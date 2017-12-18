@@ -8,10 +8,10 @@
     <span *ngIf="hasLeadingGlyph"
           class="leading-text"
           [class.floated-label]="floatingLabel">
-      <glyph class="glyph leading"
-             icon="{{leadingGlyph}}"
-             [attr.disabled]="disabled">
-      </glyph>
+      <material-icon class="glyph leading"
+                     icon="{{leadingGlyph}}"
+                     [attr.disabled]="disabled">
+      </material-icon>
     </span>
     <span *ngIf="hasLeadingText"
           class="leading-text"
@@ -60,10 +60,10 @@
     <span *ngIf="hasTrailingGlyph"
           class="trailing-text"
           [class.floated-label]="floatingLabel">
-      <glyph class="glyph trailing"
-             icon="{{trailingGlyph}}"
-             [attr.disabled]="disabled">
-      </glyph>
+      <material-icon class="glyph trailing"
+                     icon="{{trailingGlyph}}"
+                     [attr.disabled]="disabled">
+      </material-icon>
     </span>
     <ng-content select="[trailing]"></ng-content>
   </div>
