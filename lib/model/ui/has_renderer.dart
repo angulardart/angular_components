@@ -54,10 +54,12 @@ abstract class RendersValue<T> {
 
 /// Defines a method that returns a component to render the Item.  The
 /// component must implement RendersValue.
+@Deprecated('Use FactoryRenderer instead as it allows for treeshaking')
 typedef Type ComponentRenderer<T extends RendersValue, I>(I item);
 
 /// HasComponentRenderer defines a method that takes in an item and returns the
 /// type to use to render the item.
+@Deprecated('Use HasFactoryRenderer instead as it allows for treeshaking')
 abstract class HasComponentRenderer<T extends RendersValue, I> {
   ComponentRenderer<T, I> componentRenderer;
 }
@@ -69,30 +71,3 @@ const ItemRenderer nullRenderer = _nullRenderer;
 
 String _nullRenderer(dynamic value) =>
     throw new StateError("nullRenderer should never be called");
-
-abstract class SupportsRendering<T extends RendersValue, I>
-    implements HasRenderer, HasComponentRenderer<T, I> {
-  /// Sets the componentRenderer and itemRenderer based on whether the
-  /// renderer implements the appropriate interfaces.
-  @Deprecated('Set componentRenderer or itemRenderer directly')
-  set renderer(Object renderer) {
-    if (renderer is HasRenderer) {
-      itemRenderer = renderer.itemRenderer;
-    } else {
-      // Provide a default.
-      itemRenderer = defaultItemRenderer;
-    }
-    if (renderer is HasComponentRenderer<T, I>) {
-      componentRenderer = renderer.componentRenderer;
-    }
-  }
-
-  @override
-  ComponentRenderer<T, I> componentRenderer;
-
-  /// This item renderer is used to convert list items into a string that for
-  /// the user of the UI.
-  /// Ex: itemRenderer(0) returns 'black';
-  @override
-  ItemRenderer itemRenderer = defaultItemRenderer;
-}

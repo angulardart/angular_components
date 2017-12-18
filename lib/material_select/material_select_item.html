@@ -30,9 +30,10 @@
 &ngsp;
 <span *ngIf="valueHasLabel" class="label">{{valueLabel}}</span>
 &ngsp;
-<dynamic-component *ngIf="componentType != null"
+<dynamic-component *ngIf="componentType != null || componentFactory != null"
     class="dynamic-item"
     [componentType]="componentType"
+    [componentFactory]="componentFactory"
     [value]="value">
 </dynamic-component>
 <ng-content></ng-content>

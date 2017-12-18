@@ -1,0 +1,22 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// This file is separate from has_renderer so it doesn't add in the angular
+// dependency and so 'dart:html' which stops tests from running as a simple
+// dart_test.
+import 'package:angular/angular.dart' show ComponentFactory;
+
+import 'has_renderer.dart';
+
+export 'has_renderer.dart';
+
+/// Defines a method that returns a factory to render the Item.  The
+/// component created must implement [RendersValue].
+typedef ComponentFactory FactoryRenderer<T extends RendersValue, I>(I item);
+
+/// HasFactoryRenderer defines a method that takes in an item and returns the
+/// factory to use to render the item.
+abstract class HasFactoryRenderer<T extends RendersValue, I> {
+  FactoryRenderer<T, I> factoryRenderer;
+}

@@ -10,7 +10,7 @@ import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/has_factory.dart';
 
 /// A material selection component that supports a tree of options.
 ///
@@ -74,6 +74,12 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   @override
   set componentRenderer(ComponentRenderer value) {
     super.componentRenderer = value;
+  }
+
+  @Input()
+  @override
+  set factoryRenderer(FactoryRenderer value) {
+    super.factoryRenderer = value;
   }
 
   @Input()

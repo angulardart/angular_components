@@ -4,12 +4,12 @@
 
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/has_factory.dart';
 
 /// A type of component which renders items from a `SelectionModel` and may
 /// show options from a `SelectionOptions` model.
 abstract class SelectionContainer<T>
-    implements HasRenderer<T>, HasComponentRenderer {
+    implements HasRenderer<T>, HasComponentRenderer, HasFactoryRenderer {
   /// The selection model this container represents.
   SelectionModel<T> _selection;
   SelectionModel<T> get selection => _selection;
@@ -40,8 +40,20 @@ abstract class SelectionContainer<T>
   @override
   ComponentRenderer get componentRenderer => _componentRenderer;
   @override
+  @Deprecated(
+      'Use factoryRenderer instead it provides more tree-shakeable code')
   set componentRenderer(ComponentRenderer value) {
     _componentRenderer = value;
+  }
+
+  /// Specifies the factoryRenderer to use to determine the factory for
+  /// rendering an item.
+  FactoryRenderer _factoryRenderer;
+  @override
+  FactoryRenderer get factoryRenderer => _factoryRenderer;
+  @override
+  set factoryRenderer(FactoryRenderer value) {
+    _factoryRenderer = value;
   }
 }
 

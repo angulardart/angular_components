@@ -17,6 +17,7 @@
         *ngIf="useComponentRenderer"
         class="item component"
         [componentType]="getComponentType(option)"
+        [componentFactory]="getComponentFactory(option)"
         [value]="option">
       </dynamic-component>
     <span

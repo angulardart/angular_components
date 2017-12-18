@@ -4,11 +4,11 @@
 
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/has_factory.dart';
 
 /// An limited interface for child groups to use to access the tree.
 abstract class MaterialTreeRoot<T>
-    implements SelectionContainer<T>, HasComponentRenderer {
+    implements SelectionContainer<T>, HasComponentRenderer, HasFactoryRenderer {
   /// Whether a filter is currently applied.
   bool isFiltered = false;
 
