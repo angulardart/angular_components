@@ -126,6 +126,8 @@ typedef String _InputChangeCallback(String inputText);
         useExisting: MaterialAutoSuggestInputComponent),
     const Provider(HasComponentRenderer,
         useExisting: MaterialAutoSuggestInputComponent),
+    const Provider(HasFactoryRenderer,
+        useExisting: MaterialAutoSuggestInputComponent),
     const Provider(Focusable, useExisting: MaterialAutoSuggestInputComponent),
     const Provider(PopupSizeProvider,
         useExisting: MaterialAutoSuggestInputComponent)
@@ -162,6 +164,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
         OnDestroy,
         HasRenderer,
         HasComponentRenderer,
+        HasFactoryRenderer,
         DropdownHandle,
         PopupSizeProvider {
   /// How to automatically position the dropdown popup by default.
@@ -297,8 +300,14 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   // angular dependency out of models.
   @override
   @Input()
+  @Deprecated('Use factoryRenderer instead as it is tree shakeable.')
   set componentRenderer(ComponentRenderer value) =>
       super.componentRenderer = value;
+
+  // [FactoryRenderer] used to display the item.
+  @override
+  @Input()
+  set factoryRenderer(FactoryRenderer value) => super.factoryRenderer = value;
 
   /// Sort the suggestions.
   @Deprecated('Caller should call .sort() instead.')
@@ -458,10 +467,18 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   bool highlightOptions = true;
 
   @override
-  ComponentRenderer get componentRenderer =>
-      highlightOptions && super.componentRenderer == null
-          ? highlightComponentRenderer
-          : super.componentRenderer;
+  ComponentRenderer get componentRenderer => highlightOptions &&
+          super.componentRenderer == null &&
+          super.factoryRenderer == null
+      ? highlightComponentRenderer
+      : super.componentRenderer;
+
+  @override
+  FactoryRenderer get factoryRenderer => highlightOptions &&
+          super.factoryRenderer == null &&
+          super.componentRenderer == null
+      ? highlightFactoryRenderer
+      : super.factoryRenderer;
 
   final _showPopupController = new StreamController<bool>.broadcast(sync: true);
 

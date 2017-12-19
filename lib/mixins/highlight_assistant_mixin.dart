@@ -4,9 +4,11 @@
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/highlighted_text/highlighted_value.dart';
+import 'package:angular_components/highlighted_text/highlighted_value.template.dart'
+    as highlight;
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/model/ui/highlight_assistant.dart';
 import 'package:angular_components/model/ui/highlight_provider.dart';
 import 'package:angular_components/model/ui/highlighted_text_model.dart';
@@ -14,8 +16,11 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
 /// Assistant to support highlighting in a SelectionContainer.
 abstract class HighlightAssistantMixin
     implements SelectionContainer, HighlightProvider {
+  @Deprecated('Use highlightFactoryRenderer instead as it allows tree-shaking.')
   final ComponentRenderer highlightComponentRenderer =
       (_) => HighlightedValueComponent;
+  final FactoryRenderer highlightFactoryRenderer =
+      (_) => highlight.HighlightedValueComponentNgFactory;
 
   HighlightAssistant _highlightAssistant;
 
