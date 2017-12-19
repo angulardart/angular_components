@@ -8,8 +8,8 @@ author: Dart Team <misc@dartlang.org>
 environment:
   sdk: '>=2.0.0-dev.3.0 <2.0.0'
 dependencies:
-  angular: 5.0.0-alpha+1
-  angular_forms: 1.0.1-alpha+1
+  angular: 5.0.0-alpha+2
+  angular_forms: 1.0.1-alpha+2
   built_collection: ^1.6.0
   collection: ^1.14.0
   fixnum: ^0.10.5
@@ -20,7 +20,7 @@ dependencies:
   observable: '>=0.17.0+1 <0.21.0'
   perf_api: ^0.1.0
   quiver: '>=0.24.0 <0.26.0'
-  sass_builder: ^1.0.1
+  sass_builder: ^1.1.0
   uuid: ^0.5.3
 transformers:
 - sass_builder:

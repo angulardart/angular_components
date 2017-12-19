@@ -1,8 +1,8 @@
 ## 0.9.0-alpha+2
 
 > NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha+1 is used in production Google apps).
+> 5.0.0-alpha+2. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (5.0.0-alpha+2 is used in production Google apps).
 
 **NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
 are **required**:
@@ -12,17 +12,24 @@ dependency_overrides:
   analyzer: ^0.31.0-alpha.1
 ```
 
+ * Material Auto-Suggest Input: Add ability to give a tooltip for the clear
+   icon.
  * Material Expansionpanel: Add mixin for flat on collapse.
  * Material Input:
    * Protected against input being destroyed and blur event still happening.
    * Add mixin for fixed width error text.
- * Material Menu:
-   * Migrate from Glyph to Material Icon.
+ * Material Menu: Add mixin for lowercase button text.
  * Material Toggle: Add mixin to display label on the right.
+ * Material Select: Add mixin to change `material-select-dropdown-item` padding.
+ * Allow `material-scrollbar` mixin to be used in global css (without angular).
  * Add directives for Material Menu to `materialDirectives`.
  * Remove `MaterialButtonBase` from `materialDirectives`.
+ * Migrate from Glyph to Material Icon.
+ * Provide a path to use Component Factories when using code that was previously
+   using the `ComponentRenderer` pattern.
  * Generic type fixes.
- * Continue migration from `ComponentLoader` to `SlowComponentLoader`.
+ * Continue migration from `SlowComponentLoader` to `ComponentLoader`.
+ * Continue migration from `LazyStreamController` to `StreamController`.
  * Cleanup Angular static analysis warnings.
  * Rename `Visibility.none` to `Visibility.local`.
  * Add optional punctuation around trackBy functions.
