@@ -15,7 +15,21 @@
     $thumb-hover-color,
     $scrollbar-size: $mat-grid-type,
     $thumb-min-size: 6 * $mat-grid) {
-  ::ng-deep ::-webkit-scrollbar {
+  ::ng-deep {
+    @include material-scrollbar(
+      $thumb-hover-color, $scrollbar-size, $thumb-min-size);
+  }
+}
+
+/// Style all scrollbars within the scope to material spec.
+///
+/// Note: This is the same as material-scrollbar-theme expect it can be used
+/// globally outside the context angular components.
+@mixin material-scrollbar(
+    $thumb-hover-color,
+    $scrollbar-size: $mat-grid-type,
+    $thumb-min-size: 6 * $mat-grid) {
+  ::-webkit-scrollbar {
     background-color: $mat-scrollbar-background;
 
     // Height only applies to horizontal scrollbars.
@@ -29,7 +43,7 @@
     }
   }
 
-  ::ng-deep ::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background-color: $mat-scrollbar-thumb;
 
     // min-height only applies to vertical scrollbar thumbs.
@@ -43,7 +57,7 @@
     }
   }
 
-  ::ng-deep ::-webkit-scrollbar-button {
+  ::-webkit-scrollbar-button {
     width: 0;
     height: 0;
   }
