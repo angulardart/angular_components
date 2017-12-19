@@ -28,6 +28,12 @@
   }
 }
 
+@mixin material-menu-trigger-no-uppercase {
+  ::ng-deep .trigger-button {
+    text-transform: inherit;
+  }
+}
+
 @mixin menu-item-affix-hover {
   ::ng-deep .secondary-icon.hover-icon {
     opacity: inherit;
