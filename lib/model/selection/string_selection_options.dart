@@ -12,7 +12,7 @@ import 'package:angular_components/utils/async/async.dart';
 String _stringFormatSuggestion<T>(T value) =>
     '$value'.replaceAll(' ', '').toLowerCase();
 
-typedef StringSuggestionFilter(suggestion, String filterQuery);
+typedef bool StringSuggestionFilter<T>(T suggestion, String filterQuery);
 
 /// The class is meant to be used in areas where a selection can be represented
 /// as a string.
@@ -50,7 +50,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
 
   /// Function for filtering a single suggestion/option, defaults to
   /// [filterOption] method.
-  StringSuggestionFilter _suggestionFilter;
+  StringSuggestionFilter<T> _suggestionFilter;
 
   /// The [ItemRenderer] that sanitizes options and queries before filtering.
   ItemRenderer _sanitizeString;
@@ -68,7 +68,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   /// [shouldSort] is a simple way to apply the default sorting rules.
   StringSelectionOptions(List<T> options,
       {ItemRenderer<T> toFilterableString,
-      StringSuggestionFilter suggestionFilter,
+      StringSuggestionFilter<T> suggestionFilter,
       ItemRenderer sanitizeString: _stringFormatSuggestion,
       bool shouldSort: false})
       : this.withOptionGroups([new OptionGroup(options)],
@@ -79,7 +79,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
 
   StringSelectionOptions.withOptionGroups(List<OptionGroup<T>> optionGroups,
       {ItemRenderer<T> toFilterableString,
-      StringSuggestionFilter suggestionFilter,
+      StringSuggestionFilter<T> suggestionFilter,
       ItemRenderer sanitizeString: _stringFormatSuggestion,
       bool shouldSort: false})
       : _toFilterableString = toFilterableString ??
