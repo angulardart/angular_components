@@ -27,6 +27,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   host: const {
     'class': 'item',
     '[class.disabled]': 'disabled',
+    '[class.hidden]': 'isHidden',
     '[class.selected]': 'isSelected',
     '[class.multiselect]': 'supportsMultiSelect',
     'tabindex': '0',
@@ -77,6 +78,17 @@ class MaterialSelectItemComponent extends ButtonDirective
       ..addStreamSubscription(trigger.listen(handleActivate))
       ..addFunction(() => _selectionChangeStreamSub?.cancel());
   }
+
+  /// Whether the item should be hidden.
+  ///
+  /// False by default.
+  bool get isHidden => _isHidden;
+  @Input()
+  set isHidden(value) {
+    _isHidden = getBool(value);
+  }
+
+  bool _isHidden = false;
 
   /// The value this selection item represents.
   ///
