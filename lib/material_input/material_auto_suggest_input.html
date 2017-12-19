@@ -97,7 +97,7 @@
         </span>
         <dynamic-component *ngIf="labelRenderer != null || labelFactory != null"
             [componentType]="labelRenderer != null ? labelRenderer(suggestionGroup) : null"
-            [componetFactory]="labelFactory != null ? labelFactory(suggestionGroup) : null"
+            [componentFactory]="labelFactory != null ? labelFactory(suggestionGroup) : null"
             [value]="suggestionGroup"
             (mouseenter)="activeModel.activate(null)">
         </dynamic-component>
