@@ -465,6 +465,15 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     return false;
   }
 
+  /// Whether to hide [item].
+  bool isOptionHidden(Object item) {
+    if (options is Selectable) {
+      return (options as Selectable).getSelectable(item) ==
+          SelectableOption.Hidden;
+    }
+    return false;
+  }
+
   /// Whether to show select item that deselects the current selection.
   bool get showDeselectItem =>
       !isMultiSelect && deselectLabel?.isNotEmpty == true;

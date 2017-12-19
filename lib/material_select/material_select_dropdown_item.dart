@@ -23,6 +23,7 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
   host: const {
     'class': 'item',
     '[class.disabled]': 'disabled',
+    '[class.hidden]': 'isHidden',
     '[class.active]': 'active',
     '[class.selected]': 'isSelected',
     '[class.multiselect]': 'supportsMultiSelect',

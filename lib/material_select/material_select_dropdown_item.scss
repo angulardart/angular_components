@@ -21,6 +21,10 @@
     color: $mat-lighter-transparent-black;
     cursor: default;
   }
+
+  &.hidden {
+    display: none;
+  }
 }
 
 .check-container {
