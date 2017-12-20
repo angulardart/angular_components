@@ -23,6 +23,7 @@
   &ngsp;<ng-content select="[buttonContent]"></ng-content>
 </dropdown-button>
 <material-popup enforceSpaceConstraints
+    #popup
     [class]="popupClassName"
     [preferredPositions]="preferredPositions"
     [matchMinSourceWidth]="popupMatchInputWidth"
@@ -56,7 +57,7 @@
           [selected]="isDeselectItemSelected"
           [value]="deselectLabel"
           (trigger)="deselectCurrentSelection()"
-          [active]="activeModel.isActive(deselectLabel)"
+          [active]="popup.showPopup && activeModel.isActive(deselectLabel)"
           [attr.id]="activeModel.id(deselectLabel)"
           (mouseenter)="activeModel.activate(deselectLabel)">
       </material-select-dropdown-item>
@@ -83,7 +84,7 @@
                 [disabled]="isOptionDisabled(item)"
                 [isHidden]="isOptionHidden(item)"
                 [value]="item"
-                [active]="activeModel.isActive(item)"
+                [active]="popup.showPopup && activeModel.isActive(item)"
                 [attr.id]="activeModel.id(item)"
                 (mouseenter)="activeModel.activate(item)">
             </material-select-dropdown-item>
