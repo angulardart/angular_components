@@ -7,6 +7,7 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/model/ui/icon.dart';
@@ -81,7 +82,7 @@ const indeterminateAriaState = 'mixed';
     styleUrls: const ['material_checkbox.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     visibility: Visibility.local)
-class MaterialCheckboxComponent implements ControlValueAccessor {
+class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
   final ChangeDetectorRef _changeDetector;
   final HtmlElement _root;
   final String _defaultTabIndex;
@@ -264,6 +265,16 @@ class MaterialCheckboxComponent implements ControlValueAccessor {
       assert(indeterminate);
       _setStates(checked: indeterminateToChecked);
     }
+  }
+
+  @override
+  void focus() {
+    if (disabled) return;
+
+    // Set to true so that the focus indicator is rendered.
+    _isKeyboardEvent = true;
+
+    _root.focus();
   }
 
   // Capture keyup when we are the target of event.
