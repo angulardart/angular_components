@@ -21,10 +21,9 @@ typedef Stream<Rectangle> AsyncMeasureSize<E>(E element, {bool track});
 /// A factory that can [createPopupSource] from HTML elements.
 @Injectable()
 class DomPopupSourceFactory {
-  final Window _window;
   final DomRuler _domRuler;
 
-  DomPopupSourceFactory(this._window, this._domRuler);
+  DomPopupSourceFactory(this._domRuler);
 
   /// Returns a new [DomPopupSource] from [sourceElement].
   DomPopupSource createPopupSource(HtmlElement sourceElement,
