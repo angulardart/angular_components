@@ -23,7 +23,7 @@
 
 /// Style all scrollbars within the scope to material spec.
 ///
-/// Note: This is the same as material-scrollbar-theme expect it can be used
+/// Note: This is the same as material-scrollbar-theme except it can be used
 /// globally outside the context angular components.
 @mixin material-scrollbar(
     $thumb-hover-color,
