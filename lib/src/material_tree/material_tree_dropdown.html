@@ -15,11 +15,11 @@
     class="button-text">
       {{placeholder}}
   </span>
-  <glyph
+  <material-icon
     *ngIf="!showFilterInsideButton"
     class="icon"
     icon="arrow_drop_down">
-  </glyph>
+  </material-icon>
   <material-tree-filter
     *ngIf="showFilterInsideButton"
     (filter)="visible = true"

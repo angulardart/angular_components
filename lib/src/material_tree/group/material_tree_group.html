@@ -27,11 +27,11 @@
             [checked]="isSelected(option)"
             [disabled]="isReadOnly || showDisabledCheckbox(option)">
           </material-checkbox>
-          <glyph
+          <material-icon
               *ngIf="!isMultiSelect && isSelected(option)"
               class="tree-selection-state"
               icon="check">
-          </glyph>
+          </material-icon>
         </div>
         <div class="material-tree-border"
              [class.is-parent]="hasChildren(option)"
@@ -56,14 +56,14 @@
         </span>
         <!-- /LABEL OR COMPONENT -->
         <!-- EXPANSION STATE -->
-        <glyph
+        <material-icon
           *ngIf="hasChildren(option)"
           buttonDecorator
           class="tree-expansion-state"
           [class.expanded]="isExpanded(option)"
           [icon]="isExpanded(option) ? 'expand_less' : 'expand_more'"
           (trigger)="handleExpansion($event, option)">
-        </glyph>
+        </material-icon>
       </div>
     </div>
     <!-- /EXPANSION STATE -->

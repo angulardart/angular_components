@@ -6,8 +6,8 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
-import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/src/material_tree/material_tree_filter.dart';
 import 'package:angular_components/src/material_tree/material_tree_root.dart';
@@ -26,8 +26,8 @@ import 'material_tree_impl.dart';
     selector: 'material-tree-dropdown',
     directives: const [
       DeferredContentDirective,
-      GlyphComponent,
       KeyboardOnlyFocusIndicatorDirective,
+      MaterialIconComponent,
       MaterialPopupComponent,
       MaterialTreeComponent,
       MaterialTreeFilterComponent,
