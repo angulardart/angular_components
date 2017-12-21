@@ -69,7 +69,8 @@ class MaterialIconComponent {
   /// identifier (String) this component should display.
   ///
   /// See [https://www.google.com/design/icons/](https://goo.gl/YKrYlu) for
-  /// available icons.
+  /// available icons. If the icon name contains spaces, replace them with
+  /// underscores.
   @Input()
   set icon(dynamic value) {
     _icon = value;
