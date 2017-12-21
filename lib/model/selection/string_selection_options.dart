@@ -9,8 +9,12 @@ import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/utils/async/async.dart';
 
 /// Formats [value] as a lowercase string without spaces.
-String _stringFormatSuggestion<T>(T value) =>
-    '$value'.replaceAll(' ', '').toLowerCase();
+String _stringFormatSuggestion(String value) =>
+    value.replaceAll(' ', '').toLowerCase();
+
+ItemRenderer<T> _defaultRenderer<T>(ItemRenderer<String> sanitizeString) =>
+    new CachingItemRenderer<T>((T value) => sanitizeString(value.toString()))
+        .call;
 
 typedef bool StringSuggestionFilter<T>(T suggestion, String filterQuery);
 
@@ -46,16 +50,16 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   List<OptionGroup<T>> _optionGroups;
 
   /// A function that converts a single option to a filterable string.
-  ItemRenderer<T> _toFilterableString;
+  final ItemRenderer<T> _toFilterableString;
 
   /// Function for filtering a single suggestion/option, defaults to
   /// [filterOption] method.
   StringSuggestionFilter<T> _suggestionFilter;
 
   /// The [ItemRenderer] that sanitizes options and queries before filtering.
-  ItemRenderer _sanitizeString;
+  final ItemRenderer<String> _sanitizeString;
 
-  bool _shouldSort = false;
+  final bool _shouldSort;
 
   /// The list of options and optionally a function to convert the option into a
   /// string that can be used for filtering the list.
@@ -69,7 +73,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   StringSelectionOptions(List<T> options,
       {ItemRenderer<T> toFilterableString,
       StringSuggestionFilter<T> suggestionFilter,
-      ItemRenderer sanitizeString: _stringFormatSuggestion,
+      ItemRenderer<String> sanitizeString: _stringFormatSuggestion,
       bool shouldSort: false})
       : this.withOptionGroups([new OptionGroup(options)],
             toFilterableString: toFilterableString,
@@ -80,15 +84,15 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   StringSelectionOptions.withOptionGroups(List<OptionGroup<T>> optionGroups,
       {ItemRenderer<T> toFilterableString,
       StringSuggestionFilter<T> suggestionFilter,
-      ItemRenderer sanitizeString: _stringFormatSuggestion,
+      ItemRenderer<String> sanitizeString: _stringFormatSuggestion,
       bool shouldSort: false})
-      : _toFilterableString = toFilterableString ??
-            new CachingItemRenderer<T>(sanitizeString).call,
+      : _toFilterableString =
+            toFilterableString ?? _defaultRenderer(sanitizeString),
         _shouldSort = shouldSort,
+        _sanitizeString = sanitizeString,
         super(optionGroups) {
     _suggestionFilter =
         suggestionFilter != null ? suggestionFilter : filterOption;
-    _sanitizeString = sanitizeString;
   }
 
   /// Accepts a string query and limit and applies the filter to the options.
