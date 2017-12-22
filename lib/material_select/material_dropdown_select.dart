@@ -409,7 +409,10 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
 
   @override
   void handleEscapeKey(KeyboardEvent event) {
-    close();
+    if (visible) {
+      close();
+      event.stopPropagation();
+    }
   }
 
   @override
