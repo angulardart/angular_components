@@ -657,7 +657,10 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   @override
   void handleEscapeKey(html.KeyboardEvent event) {
-    showPopup = false;
+    if (showPopup) {
+      showPopup = false;
+      event.stopPropagation();
+    }
   }
 
   /// Act as a validator.
