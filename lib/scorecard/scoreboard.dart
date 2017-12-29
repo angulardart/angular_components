@@ -60,8 +60,6 @@ import 'package:angular_components/src/scorecard/scorecard_bar.dart';
   templateUrl: 'scoreboard.html',
   styleUrls: const ['scoreboard.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
   visibility: Visibility.local,
 )
 class ScoreboardComponent implements OnInit, OnDestroy {

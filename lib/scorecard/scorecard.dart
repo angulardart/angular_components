@@ -82,8 +82,6 @@ import 'package:angular_components/utils/color/palette.dart';
   },
   styleUrls: const ['scorecard.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
   visibility: Visibility.local,
 )
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
