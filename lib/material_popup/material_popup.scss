@@ -69,6 +69,8 @@
     display: flex;
     flex-direction: column;
     overflow: auto;
+    // scss-lint:disable PropertySpelling
+    overscroll-behavior: contain;
   }
 }
 
