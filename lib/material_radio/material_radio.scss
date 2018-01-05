@@ -24,8 +24,15 @@ $ripple-top: -$mat-grid;
 
   // Radio is disabled.
   &.disabled {
-    color: $mat-lightest-transparent-black;
     cursor: not-allowed;
+
+    > .content {
+      color: $mat-light-transparent-black;
+    }
+
+    > .icon-container > .icon {
+      color: $mat-lightest-transparent-black;
+    }
   }
 
   // Left margin is removed.
