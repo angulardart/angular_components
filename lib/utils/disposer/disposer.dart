@@ -149,12 +149,7 @@ class Disposer implements Disposable {
 
   // In dev-mode, throws if a oneShot disposer was already disposed.
   void _checkIfAlreadyDisposed() {
-    assert(() {
-      if (_oneShot && _disposeCalled) {
-        throw new UnsupportedError(_oneShotDisposerMemoryLeakWarning);
-      }
-      return true;
-    });
+    assert(!(_oneShot && _disposeCalled), _oneShotDisposerMemoryLeakWarning);
   }
 
   @override
