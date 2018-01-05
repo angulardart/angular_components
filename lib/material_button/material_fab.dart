@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 
@@ -54,7 +55,7 @@ import 'material_button_base.dart';
       '[attr.disabled]': r'disabled ? "" : null',
       '[attr.raised]': r'raised ? "" : null',
       '[class.is-focused]': 'visualFocus',
-      '[attr.elevation]': 'zElevation',
+      '[class.is-pressed]': 'isPressed',
       'animated': 'true'
     },
     directives: const [MaterialRippleComponent],
@@ -66,6 +67,8 @@ class MaterialFabComponent extends MaterialButtonBase {
   final ChangeDetectorRef _changeDetector;
   MaterialFabComponent(HtmlElement element, this._changeDetector)
       : super(element);
+
+  bool get isPressed => isMouseDown || focused;
 
   @override
   void focusedStateChanged() {

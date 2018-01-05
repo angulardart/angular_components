@@ -27,7 +27,7 @@ $ambientShadowOpacity: .12;
 /// of the shadow needs to be changed dynamically, use the `material-shadow`
 /// rule below.
 ///
-/// Valid values: 2, 3, 4, 6, 8, 16, 24
+/// Valid values: 2, 3, 4, 6, 8, 12, 16, 24
 @mixin shadow-elevation($dp: 2) {
   @if $dp == 2 {
     /*! @noflip */
@@ -54,6 +54,11 @@ $ambientShadowOpacity: .12;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, $keyPenumbraOpacity),
                 0 3px 14px 2px rgba(0, 0, 0, $ambientShadowOpacity),
                 0 5px 5px -3px rgba(0, 0, 0, $keyUmbraOpacity);
+  } @else if $dp == 12 {
+    /*! @noflip */
+    box-shadow: 0 12px 17px 2px rgba(0, 0, 0, $keyPenumbraOpacity),
+                0 5px 22px 4px rgba(0, 0, 0, $ambientShadowOpacity),
+                0 7px 8px -4px rgba(0, 0, 0, $keyUmbraOpacity);
   } @else if $dp == 16 {
     /*! @noflip */
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, $keyPenumbraOpacity),
