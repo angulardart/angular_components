@@ -40,6 +40,28 @@ and we will work with you.
 **Officially supported browsers:** The last two versions of Chrome, Edge,
 Firefox, and Safari.
 
+## Package [build_runner] support
+
+Version 0.9.0-alpha+3 added experimental support for users of package
+build_runner. To build your project with build_runner:
+
+1. Add two `dev_dependencies` to your packages pubspec.yaml file:
+  ```
+  dev_dependencies:
+    build_runner: ^0.7.0
+    build_web_compilers: ^0.1.1
+  ```
+2. Run `pub get --no-precompile` (avoids pre-compiling unused transformers).
+3. Build your package:
+  ```
+  pub run build_runner build
+  ```
+  Or run a local development server:
+  ```
+  pub run build_runner serve
+  ```
+[build_runner]: https://pub.dartlang.org/packages/build_runner
+
 ## Useful links
 
 * **[Example gallery](https://dart-lang.github.io/angular_components_example/)**
