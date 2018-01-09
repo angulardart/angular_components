@@ -6,6 +6,8 @@
 // However, ideally Angular should help with these.
 // See: https://github.com/angular/angular/issues/2870
 
+// TODO(google): Add unit tests if this sticks around.
+
 /// A utility function that returns either [inputValue], or, if it is null, uses
 /// [defaultValue] to return a default value, or uses [onString] to parse it
 /// into a value that is usable.
