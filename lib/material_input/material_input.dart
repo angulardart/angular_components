@@ -252,9 +252,7 @@ class MaterialInputComponent extends BaseMaterialInput
     } else {
       this.type = type;
     }
-    if (multiple != null) {
-      this.multiple = getBool(multiple);
-    }
+    this.multiple = attributeToBool(multiple);
   }
 
   bool get numeric => type == "number";

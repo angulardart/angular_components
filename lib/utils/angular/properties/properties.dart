@@ -60,6 +60,8 @@ bool _parseBool(String strValue) {
 /// error.
 ///
 /// **NOTE**: inputValue must be non-null.
+@Deprecated('Angular now supports boolean properties natively, for @Attribute'
+    ' use [attributeToBool].')
 bool getBool(inputValue) {
   if (inputValue == null) throw new ArgumentError.notNull('inputValue');
 
@@ -68,6 +70,27 @@ bool getBool(inputValue) {
 
   throw new ArgumentError.value(
       inputValue, 'inputValue', 'Expected a String, or bool type');
+}
+
+/// Parses html attribute [String] to a [bool].
+///
+/// Should be used to parse values passed to @Attribute constructor argument.
+///
+/// This does not fully follow the HTML boolean attribute definition
+/// (https://stackoverflow.com/a/4139805), as 'false' String will be parsed
+/// to false value.
+///
+/// When no attribute is present [defaultValue] value is returned (by default
+/// false).
+///
+/// NOTE: no attribute is not the same as no value for attribute:
+///
+/// * <my-component foo> - foo attribute is present but has no value, which
+///                        is parsed to *true*.
+/// * <my-component> - no attribute is present, parsed to [defaultValue].
+bool attributeToBool(String inputValue, {bool defaultValue: false}) {
+  if (inputValue == null) return defaultValue;
+  return _parseBool(inputValue);
 }
 
 /// A typed version of [getDynamic].
