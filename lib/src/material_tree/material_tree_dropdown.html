@@ -32,7 +32,8 @@
   trackLayoutChanges
   [preferredPositions]="popupPositions"
   [source]="button"
-  [(visible)]="visible">
+  [(visible)]="visible"
+  (opened)="focus()">
   <div header>
     <ng-content select="[header]"></ng-content>
     <material-tree-filter
