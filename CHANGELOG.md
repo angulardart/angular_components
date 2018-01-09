@@ -1,3 +1,40 @@
+## 0.9.0-alpha+3
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+3. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (5.0.0-alpha+3 is used in production Google apps).
+
+**NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
+are **required**:
+
+```yaml
+dependency_overrides:
+  analyzer: ^0.31.0-alpha.1
+```
+
+This is because Angular is starting to use and support the Dart 2.0.0 SDK, which
+is evolving. We expect to no longer require overrides once we are at a beta
+release, but this is unlikely until sometime in early 2018.
+
+[dep_overrides]: https://www.dartlang.org/tools/pub/dependencies#dependency-overrides
+
+ * Add support for package
+   [build_runner](https://pub.dartlang.org/packages/build_runner).
+ * Material Auto-Suggest Input:
+   * Wait for the popup to be visible before activating dropdown items.
+   * Stop escape keyboard events from propagating after they are handled.
+ * Material Checkbox: Make focasable.
+ * Material Fab: Update shadow styles.
+ * Material Select:
+   * Wait for the popup to be visible before activating dropdown items.
+   * Stop escape keyboard events from propagating after they are handled.
+* Material Radio: Update disabled color to match spec.
+ * Migrate from Glyph to Material Icon.
+ * Cleanup unneeded `preserveWhitespace: false` and `preserveWhitespace: true`.
+ * Cleanup type warnings.
+ * Cleanup unused variables.
+ * Update documentation.
+
 ## 0.9.0-alpha+2
 
 > NOTE: This code is considered production quality, but depends on angular:
@@ -11,6 +48,12 @@ are **required**:
 dependency_overrides:
   analyzer: ^0.31.0-alpha.1
 ```
+
+This is because Angular is starting to use and support the Dart 2.0.0 SDK, which
+is evolving. We expect to no longer require overrides once we are at a beta
+release, but this is unlikely until sometime in early 2018.
+
+[dep_overrides]: https://www.dartlang.org/tools/pub/dependencies#dependency-overrides
 
  * Material Auto-Suggest Input: Add ability to give a tooltip for the clear
    icon.

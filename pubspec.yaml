@@ -1,5 +1,5 @@
 name: angular_components
-version: 0.9.0-alpha+2
+version: 0.9.0-alpha+3
 description: >
   The official Material Design components for AngularDart. Used at Google
   in production apps.
@@ -8,8 +8,8 @@ author: Dart Team <misc@dartlang.org>
 environment:
   sdk: '>=2.0.0-dev.3.0 <2.0.0'
 dependencies:
-  angular: 5.0.0-alpha+2
-  angular_forms: 1.0.1-alpha+2
+  angular: 5.0.0-alpha+3
+  angular_forms: 1.0.1-alpha+3
   build_config: ^0.2.1
   built_collection: ^1.6.0
   collection: ^1.14.0
@@ -24,6 +24,8 @@ dependencies:
   sass_builder: ^1.1.0
   uuid: ^0.5.3
 transformers:
+# build_runner users will not need these transformers and can skip the
+# compilation when running pub get by using the --no-precompile flag.
 - sass_builder:
     outputExtension: .scss.css
 - angular
