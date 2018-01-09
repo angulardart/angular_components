@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
@@ -141,9 +143,6 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   set visible(bool val) {
     if (_visible != val) {
       _visible = val;
-      if (supportsFiltering) {
-        materialTreeFilterComponent?.focus();
-      }
       if (showFilterInsidePopup && !_visible) {
         materialTreeFilterComponent?.clear();
       }
@@ -167,15 +166,19 @@ class MaterialTreeDropdownComponent extends SelectionContainer
 
   @override
   ngOnInit() {
-    if (visible && supportsFiltering) {
-      _domService.nextFrame.then(([num _]) {
-        materialTreeFilterComponent?.focus();
-      });
-    }
+    _maybeFocusFilterComponent();
   }
 
   @override
   void focus() {
     open();
+    _maybeFocusFilterComponent();
+  }
+
+  Future _maybeFocusFilterComponent() async {
+    if (visible && supportsFiltering) {
+      await _domService.nextFrame;
+      materialTreeFilterComponent?.focus();
+    }
   }
 }
