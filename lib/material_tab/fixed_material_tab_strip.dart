@@ -70,6 +70,12 @@ class FixedMaterialTabStripComponent {
 
   int get activeTabIndex => _activeTabIndex;
 
+  /// Stream of updates to [activeTabIndex], published after the [tabChange]
+  /// event has fired.
+  @Output()
+  Stream<int> get activeTabIndexChange => _activeTabIndexChange.stream;
+  final _activeTabIndexChange = new StreamController<int>.broadcast();
+
   /// List of tab button labels.
   @Input()
   set tabLabels(List<String> labels) {
@@ -102,6 +108,7 @@ class FixedMaterialTabStripComponent {
     if (event.defaultPrevented) return;
     activeTabIndex = index;
     _tabChange.add(event);
+    _activeTabIndexChange.add(activeTabIndex);
   }
 
   String activeStr(int index) {
