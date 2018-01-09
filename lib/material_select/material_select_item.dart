@@ -174,11 +174,12 @@ class MaterialSelectItemComponent extends ButtonDirective
 
   bool _selectOnActivate = true;
 
-  bool get valueHasLabel => valueLabel != null && componentRenderer == null;
+  bool get valueHasLabel => valueLabel != null;
   String get valueLabel {
     if (_value == null) {
       return null;
     } else if (componentRenderer == null &&
+        factoryRenderer == null &&
         !identical(itemRenderer, nullRenderer)) {
       return itemRenderer(_value);
     }
