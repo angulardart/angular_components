@@ -2,27 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// These are alternative to Angular 2.0 pipes that are lighter weight and typed.
-// However, ideally Angular should help with these.
-// See: https://github.com/angular/angular/issues/2870
-
-// TODO(google): Add unit tests if this sticks around.
-
-/// A utility function that returns either [inputValue], or, if it is null, uses
-/// [defaultValue] to return a default value, or uses [onString] to parse it
-/// into a value that is usable.
-///
-/// This is an untyped version of [getInt] and [getBool].
-dynamic getDynamic(inputValue, {defaultValue, onString(String strValue)}) {
-  if (inputValue == null) {
-    return defaultValue;
-  } else if (inputValue is String) {
-    return onString(inputValue);
-  } else {
-    return inputValue;
-  }
-}
-
 /// Parses [strValue] into a [bool].
 ///
 /// Only the following values are acceptable as `strValue`:
@@ -98,7 +77,13 @@ bool attributeToBool(String inputValue, {bool defaultValue: false}) {
 /// If [inputValue] is an [int], returns it.
 /// If [inputValue] is a `null`, returns [defaultValue].
 /// If [inputValue] is a String, parses using [onString], or uses [int.parse].
-int getInt(inputValue,
-    {int defaultValue: 0, int onString(String strValue): int.parse}) {
-  return getDynamic(inputValue, defaultValue: defaultValue, onString: onString);
+int getInt(inputValue, {int defaultValue: 0}) {
+  if (inputValue == null) {
+    return defaultValue;
+  } else if (inputValue is String) {
+    return int.parse(inputValue);
+  } else {
+    assert(inputValue is int);
+    return inputValue;
+  }
 }
