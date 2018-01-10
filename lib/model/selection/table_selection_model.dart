@@ -6,6 +6,7 @@ import 'dart:async';
 
 import 'package:observable/observable.dart';
 import 'package:angular_components/model/selection/select.dart';
+import 'package:angular_components/model/tree/tree_model.dart';
 
 import 'selection_model.dart';
 
@@ -73,11 +74,22 @@ abstract class BaseTableSelectionModel<T> implements SelectionModel<T> {
   }
 }
 
+/// Interface for model that can determine if rows represented by tree nodes
+/// are selectable
+abstract class SelectableWithTreeNode {
+  /// If set, used by the table instead of getSelectable to determine selectable
+  /// rows.
+  SelectableGetter<TreeNode> getTreeNodeSelectable;
+}
+
 /// MultiSelection model that supports "All across pages" selection, that marks
 /// user intent to do bulk action on all entries (even those not currently
 /// visible in a given context).
 abstract class TableSelectionModel<T> extends BaseTableSelectionModel<T>
-    implements SelectableWithComposition<T>, MultiSelectionModel<T> {
+    implements
+        SelectableWithComposition<T>,
+        MultiSelectionModel<T>,
+        SelectableWithTreeNode {
   factory TableSelectionModel(
       {KeyProvider<T> keyProvider,
       SelectableGetter<T> getSelectable,
@@ -257,6 +269,9 @@ class _TableSelectionModelImpl<T> extends Observable<ChangeRecord>
 
   @override
   SelectableGetter<T> getSelectable;
+
+  @override
+  SelectableGetter<TreeNode> getTreeNodeSelectable;
 
   @override
   bool supportsSelectAll = true;
