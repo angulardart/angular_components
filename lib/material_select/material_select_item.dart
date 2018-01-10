@@ -165,14 +165,22 @@ class MaterialSelectItemComponent extends ButtonDirective
 
   /// If true, triggering this item component will select the [value] within the
   /// [selection]; if false, triggering this item component will do nothing.
-  bool get selectOnActivate => _selectOnActivate;
-
   @Input()
   set selectOnActivate(bool value) {
     _selectOnActivate = getBool(value);
   }
 
   bool _selectOnActivate = true;
+
+  /// If true and selectOnActivate is true, triggering this item component will
+  /// deselect the currently selected [value] within the [selection]; if false,
+  /// triggering this component when [value] is selected will do nothing.
+  @Input()
+  set deselectOnActivate(bool value) {
+    _deselectOnActivate = getBool(value);
+  }
+
+  bool _deselectOnActivate = true;
 
   bool get valueHasLabel => valueLabel != null;
   String get valueLabel {
@@ -247,11 +255,11 @@ class MaterialSelectItemComponent extends ButtonDirective
     }
 
     if (_activationHandler?.handle(e, value) ?? false) return;
-    if (selectOnActivate && _selection != null && value != null) {
-      if (_selection.isSelected(value)) {
-        _selection.deselect(value);
-      } else {
+    if (_selectOnActivate && _selection != null && value != null) {
+      if (!_selection.isSelected(value)) {
         _selection.select(value);
+      } else if (_deselectOnActivate) {
+        _selection.deselect(value);
       }
     }
   }
