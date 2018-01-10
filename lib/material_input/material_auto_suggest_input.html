@@ -119,6 +119,7 @@
             [disabled]="isOptionDisabled(suggestion)"
             [value]="suggestion"
             [closeOnActivate]="closeOnActivate"
+            [deselectOnActivate]="isMultiSelect"
             [hideCheckbox]="hideCheckbox"
             [active]="popup.showPopup && activeModel.isActive(suggestion)"
             [attr.id]="activeModel.id(suggestion)"
