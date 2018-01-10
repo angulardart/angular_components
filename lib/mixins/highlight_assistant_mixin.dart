@@ -50,8 +50,10 @@ abstract class HighlightAssistantMixin
       options is Filterable ? (options as Filterable).currentQuery ?? '' : '';
 
   ItemRenderer get _highlightRenderer {
-    if (componentRenderer == null ||
-        componentRenderer == highlightComponentRenderer) {
+    if ((componentRenderer == null ||
+            componentRenderer == highlightComponentRenderer) &&
+        (factoryRenderer == null ||
+            factoryRenderer == highlightFactoryRenderer)) {
       return itemRenderer ?? defaultItemRenderer;
     }
     return defaultItemRenderer;
