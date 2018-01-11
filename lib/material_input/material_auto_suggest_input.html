@@ -90,13 +90,13 @@
           *ngFor="let suggestionGroup of visibleSuggestionGroups; trackBy: trackByIndexFn"
           group
           class="list-group">
-        <span *ngIf="suggestionGroup.hasLabel && labelRenderer == null"
+        <span *ngIf="suggestionGroup.hasLabel && !hasCustomLabelRenderer"
             label
             class="list-group-label"
             (mouseenter)="activeModel.activate(null)">
           {{suggestionGroup.uiDisplayName}}
         </span>
-        <dynamic-component *ngIf="labelRenderer != null || labelFactory != null"
+        <dynamic-component *ngIf="hasCustomLabelRenderer"
             [componentType]="labelRenderer != null ? labelRenderer(suggestionGroup) : null"
             [componentFactory]="labelFactory != null ? labelFactory(suggestionGroup) : null"
             [value]="suggestionGroup"

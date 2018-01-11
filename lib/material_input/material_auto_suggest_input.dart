@@ -454,6 +454,10 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   @Input()
   FactoryRenderer labelFactory;
 
+  // Whether a custom label render is used.
+  bool get hasCustomLabelRenderer =>
+      labelRenderer != null || labelFactory != null;
+
   /// An option is disabled if the options implements Selectable, but the [item]
   /// is not selectable.
   bool isOptionDisabled(Object item) =>

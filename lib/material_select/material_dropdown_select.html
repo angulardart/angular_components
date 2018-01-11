@@ -65,11 +65,11 @@
           group
           [class.empty]="group.isEmpty && !group.hasEmptyLabel">
         <template [ngIf]="group.isNotEmpty || group.hasEmptyLabel">
-          <span *ngIf="group.hasLabel && labelRenderer == null" label>
+          <span *ngIf="group.hasLabel && !hasCustomLabelRenderer" label>
             {{group.uiDisplayName}}
           </span>
           <dynamic-component
-              *ngIf="labelRenderer != null || labelFactory != null"
+              *ngIf="hasCustomLabelRenderer"
               [componentType]="labelRenderer != null ? labelRenderer(group) : null"
               [componentFactory]="labelFactory != null ? labelFactory(group) : null"
               [value]="group">
