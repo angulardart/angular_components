@@ -21,7 +21,7 @@ bool isKeyboardTrigger(KeyboardEvent event) =>
 
 bool modifierKeyUsed(dynamic /* MouseEvent | KeyboardEvent */ event) {
   if (event is! KeyboardEvent && event is! MouseEvent) {
-    throw new ArgumentError('type ${event.runtimeType} is not supported');
+    throw new ArgumentError('$event is not supported');
   }
   return (event.ctrlKey || event.shiftKey);
 }

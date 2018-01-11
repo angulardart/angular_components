@@ -165,7 +165,7 @@ abstract class BasePortalHost implements PortalHost {
     } else if (portal == null) {
       throw new ArgumentError.notNull('portal');
     } else {
-      throw new ArgumentError.value(portal.runtimeType, 'portal');
+      throw new ArgumentError.value(portal, 'portal');
     }
   }
 

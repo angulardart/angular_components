@@ -115,8 +115,7 @@ class Disposer implements Disposable {
     } else if (disposable_ is DisposeFunction) {
       addFunction(disposable_);
     } else {
-      throw new ArgumentError.value(disposable, 'disposable',
-          'Unsupported type: ${disposable.runtimeType}');
+      throw new ArgumentError.value(disposable, 'disposable');
     }
     return disposable;
   }

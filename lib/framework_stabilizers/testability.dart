@@ -85,7 +85,7 @@ abstract class AbstractTestability implements Testability {
   ///
   /// Subclasses should redefine this. runtimeType is obsfucated when compiled.
   @override
-  String get name => this.runtimeType.toString();
+  String get name => this.toString();
 }
 
 /// A placeholder testability that does not perform any action. Can be injected
