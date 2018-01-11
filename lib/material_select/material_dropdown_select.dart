@@ -191,6 +191,10 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   @Input()
   FactoryRenderer labelFactory;
 
+  // Whether a custom label render is used.
+  bool get hasCustomLabelRenderer =>
+      labelRenderer != null || labelFactory != null;
+
   /// CSS classes from the root element, passed to the popup to allow scoping of
   /// mixins.
   ///
