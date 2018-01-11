@@ -161,6 +161,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
         ControlValueAccessor,
         Focusable,
         AfterChanges,
+        OnInit,
         OnDestroy,
         HasRenderer,
         HasComponentRenderer,
@@ -185,6 +186,8 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Keeps track of the item matching the filter as the suggestions are
   /// being updated.
   final ActiveItemModel activeModel;
+
+  bool _isInitialized = false;
 
   /// Whether to clear the text once the item is selected from the menu.
   @Input()
@@ -393,8 +396,9 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
     if (isSingleSelect && selection.selectedValues.isNotEmpty) {
       _lastSelectedItem = selection.selectedValues.first;
-      _inputText = itemRenderer(_lastSelectedItem);
-      _filterSuggestions();
+      if (_isInitialized) {
+        inputText = itemRenderer(_lastSelectedItem);
+      }
     }
     _selectionListener?.cancel();
     _selectionListener = selection.selectionChanges.listen((_) {
@@ -408,8 +412,9 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
             : null;
         // Make sure that the change was not caused by this component.
         if (_lastSelectedItem != selectedItem) {
-          inputText = selectedItem != null ? itemRenderer(selectedItem) : '';
           _lastSelectedItem = selectedItem;
+          inputText =
+              _lastSelectedItem != null ? itemRenderer(_lastSelectedItem) : '';
         }
       }
     });
@@ -717,6 +722,16 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     } else {
       selection.select(suggestion);
     }
+  }
+
+  @override
+  ngOnInit() {
+    _isInitialized = true;
+    scheduleMicrotask(() {
+      if (inputText.isEmpty && _lastSelectedItem != null) {
+        inputText = itemRenderer(_lastSelectedItem);
+      }
+    });
   }
 
   @override
