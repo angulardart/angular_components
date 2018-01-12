@@ -30,6 +30,13 @@ final bool supportsAnimationApi =
     js_util.hasProperty(new DivElement(), 'animate') &&
         !js.context.hasProperty('__acxDisableWebAnimationsApi');
 
+/// Whether the browser supports position: sticky.
+final bool supportsPositionSticky = () {
+  var el = new DivElement();
+  el.style.cssText = 'position: -webkit-sticky; position: sticky';
+  return el.style.position.contains('sticky');
+}();
+
 /// Whether the current web browser is Firefox.
 final bool isFirefox = window.navigator.userAgent.contains('Firefox/');
 
