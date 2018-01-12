@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:js/js_util.dart' as js_util;
 
 /// Determines if the space key was pressed in a [KeyboardEvent].
 ///
@@ -168,4 +169,24 @@ bool isParentOf(Element element, Node node) {
     }
   }
   return false;
+}
+
+/// A [Comparator] for sorting [Node]s based on document order.
+///
+/// Example:
+///
+///     // [elements] is a List<Element>.
+///     elements.sort(compareDocumentPosition);
+///     // Now they're sorted according to their position in the document.
+int compareDocumentPosition(Node a, Node b) {
+  int bitmask = js_util.callMethod(a, 'compareDocumentPosition', [b]);
+  if ((bitmask & 4) != 0 || (bitmask & 16) != 0) {
+    // DOCUMENT_POSITION_FOLLOWING or DOCUMENT_POSITION_CONTAINED_BY
+    return -1;
+  } else if ((bitmask & 2) != 0 || (bitmask & 8) != 0) {
+    // DOCUMENT_POSITION_PRECEDING or DOCUMENT_POSITION_CONTAINS
+    return 1;
+  } else {
+    return 0;
+  }
 }
