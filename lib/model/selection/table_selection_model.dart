@@ -11,6 +11,9 @@ import 'selection_model.dart';
 
 typedef bool IsIndeterminate(var entity);
 
+/// Count getter to return when there is no valid count
+final CountGetter _noCountGetter = () => -1;
+
 /// Selection model interface that is meant to be used with the table view
 /// component.
 abstract class BaseTableSelectionModel<T> implements SelectionModel<T> {
@@ -88,6 +91,13 @@ abstract class TableSelectionModel<T> extends BaseTableSelectionModel<T>
   @override
   SelectableGetter<T> getSelectable;
 
+  /// Whether or not the concept of "all entities" is applicable to this model
+  /// or not.
+  ///
+  /// Useful for cases such as an unknown number of entities in the model
+  /// due to expansion.
+  bool supportsSelectAll;
+
   /// If the table supports selection over multiple pages.
   bool supportsMultiplePageSelection;
 
@@ -118,7 +128,7 @@ class _SingleTableSelectionModelImpl<T> extends Observable<ChangeRecord>
 
   bool deselectOnRemove;
 
-  CountGetter _totalEntitiesCount = () => -1;
+  CountGetter _totalEntitiesCount = _noCountGetter;
 
   @override
   CountGetter get totalEntitiesCount => _totalEntitiesCount;
@@ -137,7 +147,7 @@ class _SingleTableSelectionModelImpl<T> extends Observable<ChangeRecord>
       _totalEntitiesCountController.stream;
 
   @override
-  CountGetter entitiesOnPageCount = () => -1;
+  CountGetter entitiesOnPageCount = _noCountGetter;
 
   @override
   IsIndeterminate isIndeterminate;
@@ -220,10 +230,11 @@ class _TableSelectionModelImpl<T> extends Observable<ChangeRecord>
 
   bool _allSelected = false;
 
-  CountGetter _totalEntitiesCount = () => -1;
+  CountGetter _totalEntitiesCount = _noCountGetter;
 
   @override
-  CountGetter get totalEntitiesCount => _totalEntitiesCount;
+  CountGetter get totalEntitiesCount =>
+      supportsSelectAll ? _totalEntitiesCount : _noCountGetter;
 
   @override
   set totalEntitiesCount(CountGetter value) {
@@ -239,13 +250,16 @@ class _TableSelectionModelImpl<T> extends Observable<ChangeRecord>
       _totalEntitiesCountController.stream;
 
   @override
-  CountGetter entitiesOnPageCount = () => -1;
+  CountGetter entitiesOnPageCount = _noCountGetter;
 
   @override
   bool supportsMultiplePageSelection = true;
 
   @override
   SelectableGetter<T> getSelectable;
+
+  @override
+  bool supportsSelectAll = true;
 
   /// Returns number of items selected in the model.
   int get _selectedCount => _backingModel.selectedValues.length;
@@ -261,13 +275,14 @@ class _TableSelectionModelImpl<T> extends Observable<ChangeRecord>
   // allOnPageSelected and allAcrossPagesSelected, but it turns out to be
   // ambiguous and does more bad than good.
   bool get allAcrossPagesSelected =>
-      _allSelected ||
-      (_selectedCount > 0 && totalEntitiesCount() == _selectedCount);
+      supportsSelectAll &&
+      (_allSelected ||
+          (_selectedCount > 0 && totalEntitiesCount() == _selectedCount));
 
   @override
   void selectAllAcrossPages() {
     if (_allSelected) return;
-    assert(supportsMultiplePageSelection);
+    assert(supportsSelectAll && supportsMultiplePageSelection);
     bool wasEmpty = isEmpty;
     _allSelected = true;
     if (wasEmpty) {
@@ -347,7 +362,9 @@ class _TableSelectionModelImpl<T> extends Observable<ChangeRecord>
 
   @override
   bool get isPageSelected =>
-      selectedCount > 0 && selectedCount == entitiesOnPageCount();
+      supportsSelectAll &&
+      selectedCount > 0 &&
+      selectedCount == entitiesOnPageCount();
 
   @override
   void onRemove(T entity) {
