@@ -130,7 +130,7 @@
 }
 
 @mixin material-input-focused-underline-color($color) {
-  ::ng-deep .focused-underline {
+  ::ng-deep .focused-underline:not(.invalid) {
     background-color: $color;
   }
 }
