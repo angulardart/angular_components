@@ -13,4 +13,5 @@ void displayNameRendererDirective(HasRenderer hasRenderer) {
   if (hasRenderer != null) hasRenderer.itemRenderer = _displayNameRenderer;
 }
 
-final _displayNameRenderer = (HasUIDisplayName item) => item.uiDisplayName;
+final _displayNameRenderer =
+    (dynamic item) => (item as HasUIDisplayName).uiDisplayName;
