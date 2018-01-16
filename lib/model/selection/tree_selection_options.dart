@@ -35,7 +35,7 @@ class TreeSelectionOptions<T> extends SelectionOptions<T>
       : _itemRenderer = itemRenderer ?? defaultItemRenderer,
         _itemsOptions = new Map<T, TreeSelectionOptionData<T>>.fromIterable(
             listOfOptions,
-            key: (TreeSelectionOptionData<T> item) => item.value),
+            key: (item) => (item as TreeSelectionOptionData<T>).value),
         super(const []) {
     _comparator = comparator ?? _defaultComparator;
     _parentToChildrenMap = _generateParentToChildrenMap(listOfOptions);
