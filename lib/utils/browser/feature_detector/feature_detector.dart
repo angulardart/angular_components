@@ -30,6 +30,9 @@ final bool supportsAnimationApi =
     js_util.hasProperty(new DivElement(), 'animate') &&
         !js.context.hasProperty('__acxDisableWebAnimationsApi');
 
+/// Whether the browser supports ResizeObserver.
+final bool supportsResizeObserver = js.context.hasProperty('ResizeObserver');
+
 /// Whether the browser supports position: sticky.
 final bool supportsPositionSticky = () {
   var el = new DivElement();
