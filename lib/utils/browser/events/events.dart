@@ -2,11 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+@JS()
+library events;
+
 import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:js/js.dart';
 import 'package:js/js_util.dart' as js_util;
+import 'package:angular_components/utils/browser/feature_detector/feature_detector.dart';
 
 /// Determines if the space key was pressed in a [KeyboardEvent].
 ///
@@ -102,6 +107,73 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
         mouseUpListener = null;
         document.removeEventListener('focus', listener, true);
         document.removeEventListener('touchend', listener);
+      });
+  return controller.stream;
+}
+
+typedef void ResizeObserverCallback(Iterable<ResizeObserverEntry> entries);
+
+/// The ResizeObserver API is an interface for observing changes to Element's
+/// content rect’s width and height.
+///
+/// NOTE: ResizeObserver browser support is limited
+/// (https://caniuse.com/resizeobserver). Check [supportsResizeObserver] from
+/// feature_detector.dart before using.
+@JS()
+class ResizeObserver {
+  /// Create a [ResizeObserver] with the given [callback].
+  ///
+  /// [callback] is invoked when one or more of the observed elements' size
+  /// changes, after layout and before paint, making it the ideal time to apply
+  /// style changes (you will only invalidate layout, not layout and paint).
+  external ResizeObserver(ResizeObserverCallback callback);
+
+  /// Adds [target] to the list of observed elements.
+  external void observe(Element target);
+
+  /// Removes [target] from the list of observed elements.
+  external void unobserve(Element target);
+
+  /// Clears the list of observed elements.
+  external void disconnect();
+}
+
+@JS()
+@anonymous
+class ResizeObserverEntry {
+  /// The Element whose size has changed.
+  external Element get target;
+
+  /// Element's content rect when ResizeObserverCallback is invoked.
+  ///
+  /// [top] and [left] correspond to padding-top and padding-left.
+  /// [width] and [height] correspond to [innerWidth] and [innerHeight].
+  external Rectangle get contentRect;
+}
+
+/// A stream of contect rects fired when [element] changes size.
+///
+/// A content rect is a [Rectangle] where [top] = padding-top, [left] =
+/// padding-left, [width] = innerWidth, and [height] = innerHeight.
+///
+/// NOTE: This only works in browsers that support [ResizeObserver]. Check
+/// [supportsResizeObserver] from feature_detector.dart before using this.
+Stream<Rectangle> onResize(Element element) {
+  assert(supportsResizeObserver, 'ResizeObserver support is required');
+  StreamController<Rectangle> controller;
+  ResizeObserver observer;
+  controller = new StreamController<Rectangle>.broadcast(
+      sync: true,
+      onListen: () {
+        observer = new ResizeObserver(allowInterop((entries) {
+          for (var entry in entries) {
+            controller.add(entry.contentRect);
+          }
+        }));
+        observer.observe(element);
+      },
+      onCancel: () {
+        observer.disconnect();
       });
   return controller.stream;
 }
