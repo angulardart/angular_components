@@ -5,6 +5,7 @@
 import 'dart:html' as dom;
 
 import 'package:angular/angular.dart';
+import 'package:js/js_util.dart' as js_util;
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 /// Mixin for elements able to be activated through mouse or keyboard, like
@@ -31,7 +32,14 @@ abstract class ActiveItemMixin {
     _active = value;
     if (_active && !_hasHover) {
       domService.scheduleWrite(() {
-        element.scrollIntoView();
+        try {
+          var options = js_util.newObject();
+          js_util.setProperty(options, 'block', 'nearest');
+          js_util.setProperty(options, 'inline', 'nearest');
+          js_util.callMethod(element, 'scrollIntoView', [options]);
+        } catch (_) {
+          element.scrollIntoView();
+        }
       });
     }
   }
