@@ -18,6 +18,7 @@
       [icon]="menu.uiIcon">
   </material-icon>
   <span *ngIf="buttonText != null">{{buttonText}}</span>
+  <ng-content select="[menu-button]"></ng-content>
 </material-button>
 <menu-popup
     *ngIf="hasSubmenu"
