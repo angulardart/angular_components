@@ -23,15 +23,38 @@ release, but this is unlikely until sometime in early 2018.
  * Material Auto-Suggest Input:
    * Wait for the popup to be visible before activating dropdown items.
    * Stop escape keyboard events from propagating after they are handled.
- * Material Checkbox: Make focasable.
+   * Disallow deselection when clicked on a selected item with single selection
+   * models.
+   * Ensure input text is initialized correctly regardless of input order.
+   * Fix auto-scrolling issue on Firefox.
+ * Material Checkbox: Make focusable.
  * Material Fab: Update shadow styles.
+ * Material Input: Don't override underline color when the input is invalid.
+ * Material Menu: Add button content customization.
+ * Material Radio: Update disabled color to match spec.
  * Material Select:
    * Wait for the popup to be visible before activating dropdown items.
    * Stop escape keyboard events from propagating after they are handled.
-* Material Radio: Update disabled color to match spec.
+   * Fix `MaterialSelectItem` displaying two times the label when
+     `factoryRenderer` is used.
+   * Fix auto-scrolling issue on Firefox.
+ * Material Tab: Add two-way binding on fixed strip activeTabIndex.
+ * Material Tree: Autofocus the filter when `MaterialTreeDropdown` is opened,
+   but not when it closes.
+ * Better support for the zippy expansion case in selection model.
+ * Deprecate getBool, angular supports it now natively.
+ * Fix RTE when using item renderers as highlight renderers when there is a
+   custom factory renderer.
+ * Fix componentRenderer logic.
+ * Add option to disable select all in the table selection model.
+ * Add a feature detector for `position: sticky`.
  * Migrate from Glyph to Material Icon.
+ * Remove unused table model.
+ * Remove the getDynamic method from properties helpers.
+ * Remove uses of .runtimeType.
+ * Fix uses_bottom_as_dynamic ("fuzzy arrow") errors.
  * Cleanup unneeded `preserveWhitespace: false` and `preserveWhitespace: true`.
- * Cleanup type warnings.
+ * Cleanup type warnings and other Dart 2.0 fixes.
  * Cleanup unused variables.
  * Update documentation.
 
