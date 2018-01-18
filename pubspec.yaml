@@ -21,7 +21,7 @@ dependencies:
   observable: '>=0.17.0+1 <0.21.0'
   perf_api: ^0.1.0
   quiver: '>=0.24.0 <0.26.0'
-  sass_builder: ^1.1.0
+  sass_builder: ^1.1.1
   uuid: ^0.5.3
 transformers:
 # build_runner users will not need these transformers and can skip the
