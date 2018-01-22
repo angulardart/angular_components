@@ -51,16 +51,15 @@ bool getBool(inputValue) {
       inputValue, 'inputValue', 'Expected a String, or bool type');
 }
 
-/// Parses html attribute [String] to a [bool].
+/// Parses HTML attribute [String] to a [bool].
 ///
 /// Should be used to parse values passed to @Attribute constructor argument.
 ///
-/// This does not fully follow the HTML boolean attribute definition
+/// This does not follow the HTML boolean attribute definition
 /// (https://stackoverflow.com/a/4139805), as 'false' String will be parsed
 /// to false value.
 ///
-/// When no attribute is present [defaultValue] value is returned (by default
-/// false).
+/// When no attribute is present [defaultValue] value is returned.
 ///
 /// NOTE: no attribute is not the same as no value for attribute:
 ///
@@ -76,7 +75,6 @@ bool attributeToBool(String inputValue, {bool defaultValue: false}) {
 ///
 /// If [inputValue] is an [int], returns it.
 /// If [inputValue] is a `null`, returns [defaultValue].
-/// If [inputValue] is a String, parses using [onString], or uses [int.parse].
 int getInt(inputValue, {int defaultValue: 0}) {
   if (inputValue == null) {
     return defaultValue;
