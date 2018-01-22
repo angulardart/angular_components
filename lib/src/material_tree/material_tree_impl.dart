@@ -5,6 +5,7 @@
 import 'package:angular/angular.dart';
 import 'package:angular_components/src/material_tree/group/material_tree_group.dart';
 import 'package:angular_components/src/material_tree/group/material_tree_group_flat.dart';
+import 'package:angular_components/src/material_tree/material_tree_rendering_options.dart';
 import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
@@ -62,10 +63,14 @@ import 'package:angular_components/model/ui/has_factory.dart';
     ],
     templateUrl: 'material_tree_impl.html')
 class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
+  @Input()
   @override
-  final bool optimizeForDropdown;
+  bool optimizeForDropdown;
 
-  MaterialTreeComponent(@Optional() @SkipSelf() MaterialTreeRoot parentTreeRoot)
+  final MaterialTreeRenderingOptions renderingOptions;
+
+  MaterialTreeComponent(@Optional() @SkipSelf() MaterialTreeRoot parentTreeRoot,
+      @Optional() @Self() this.renderingOptions)
       : optimizeForDropdown = parentTreeRoot?.optimizeForDropdown == true {
     selection = const SelectionModel();
   }
@@ -100,8 +105,28 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
     super.selection = value;
   }
 
-  @Input('expandAll')
+  @Input()
   bool expandAll = false;
+
+  /// Whether to expand a given option group.
+  ///
+  /// When [expandAll] is true, always expand an option group, otherwise
+  /// [renderingOptions] can decide whether to expand an option group.
+  bool shouldExpand(OptionGroup group, int index) {
+    if (renderingOptions == null) return expandAll;
+
+    return expandAll || renderingOptions.shouldExpand(group, index);
+  }
+
+  /// How many items to show initially under a given option group.
+  ///
+  /// Returns null when there's no limit, otherwise show the returned number of
+  /// items initially and hides the rest behind a "View more" link.
+  int maxInitialOptionsShown(OptionGroup group, int index) {
+    if (renderingOptions == null) return null;
+
+    return renderingOptions.maxInitialOptionsShown(group, index);
+  }
 
   @ViewChildren(MaterialTreeGroupComponent)
   QueryList<MaterialTreeGroupComponent> treeGroupNodes;

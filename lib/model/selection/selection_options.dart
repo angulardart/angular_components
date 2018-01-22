@@ -24,12 +24,23 @@ class OptionGroup<T> extends LabeledList<T> {
   bool get hasEmptyLabel => _emptyLabelFcn != null;
 
   OptionGroup(List<T> items, [LabelFunction labelFcn]) : super(items, labelFcn);
+
   OptionGroup.withLabelFunction(List<T> items,
       [LabelFunction labelFcn, this._emptyLabelFcn])
       : super.withLabelFunction(items, labelFcn);
+
   OptionGroup.withLabel(List<T> items, [String label, String emptyLabel])
       : _emptyLabelFcn = emptyLabel != null ? (() => emptyLabel) : null,
         super.withLabel(items, label);
+
+  /// Creates a new option group with options from [start] inclusive to [end]
+  /// exclusive, other properties stay the same.
+  OptionGroup<T> slicedOptionGroup(int start, int end) {
+    List<T> subListItems = this.sublist(start, end);
+
+    return new OptionGroup.withLabelFunction(
+        subListItems, hasLabel ? null : () => uiDisplayName, _emptyLabelFcn);
+  }
 }
 
 /// Holds a list of options for a selection-based component.

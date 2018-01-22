@@ -68,3 +68,12 @@ ul {
     }
   }
 }
+
+.view-more-link-item {
+  padding: $mat-grid 0;
+}
+
+.view-more-link {
+  color: $mat-blue-500;
+  text-decoration: none;
+}

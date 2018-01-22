@@ -13,6 +13,8 @@ import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/src/material_tree/material_tree_node.dart';
 import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/model/selection/selection_options.dart';
+import 'package:intl/intl.dart';
 
 const materialTreeLeftPaddingToken = const OpaqueToken(
     'MaterialTreeGroupComponent_materialTreeLeftPaddingToken');
@@ -52,6 +54,33 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   bool parentHasCheckbox = false;
   final MaterialTreeRoot _root;
 
+  int _maxInitialOptionsShown;
+
+  /// Maximum number of options to show and hide the rest with a "View more"
+  /// link.
+  ///
+  /// If not specified, all options are displayed and "View more" link won't be
+  /// visible.
+  int get maxInitialOptionsShown => _maxInitialOptionsShown;
+
+  @Input()
+  set maxInitialOptionsShown(int value) {
+    _maxInitialOptionsShown = value;
+
+    if (_maxInitialOptionsShown != null) {
+      _sliceOptionGroup(_maxInitialOptionsShown);
+    }
+  }
+
+  OptionGroup _visibleGroup;
+
+  /// The current visible options group.
+  ///
+  /// This is the same as [group] when [maxInitialOptionsShown] is not set,
+  /// otherwise it contains the first [maxInitialOptionsShown] options from
+  /// [group].
+  OptionGroup get visibleGroup => _visibleGroup;
+
   /// The constant padding for every row.
   final String fixedPadding;
 
@@ -80,7 +109,7 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
       showSelectionState &&
       (isSelectable(option) || showDisabledCheckbox(option));
 
-  // This returns the item identation based on it's level.
+  // This returns the item indentation based on it's level.
   // Level 0 means it's the higher parent in the hierarchy, and it gets
   // a constant definition.
   String getIndent(option) {
@@ -125,8 +154,49 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
     e.stopPropagation();
   }
 
+  void _sliceOptionGroup(int end) {
+    if (end < group.length) {
+      _visibleGroup = group.slicedOptionGroup(0, end);
+    } else {
+      _visibleGroup = group;
+    }
+  }
+
+  /// Sets option group and visible option group if [maxInitialOptionsShown] is
+  /// specified.
+  @Input()
   @override
-  ngOnDestroy() {
+  set group(OptionGroup _group) {
+    super.group = _group;
+
+    if (_maxInitialOptionsShown == null) {
+      _visibleGroup = group;
+      return;
+    }
+
+    _sliceOptionGroup(_maxInitialOptionsShown);
+  }
+
+  /// Toggles on the collapsed options.
+  void viewMoreOptions(Event event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    _visibleGroup = group;
+  }
+
+  /// Whether "View more" link should be visible.
+  bool get viewMoreLinkVisible =>
+      _maxInitialOptionsShown != null && !identical(_visibleGroup, group);
+
+  @override
+  void ngOnDestroy() {
     onDestroy();
   }
+
+  final viewMoreMsg = _viewMoreMsg;
+
+  static String get _viewMoreMsg => Intl.message('View more',
+      desc: 'Label for a link that allows user to see the collapsed options.'
+          '[REL_NOTE: jiahaowang/LAUNCHING-2018-03-31]');
 }

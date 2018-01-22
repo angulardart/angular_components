@@ -4,7 +4,7 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <ul>
-  <li *ngFor="let option of group"
+  <li *ngFor="let option of visibleGroup"
       buttonDecorator
       keyboardOnlyFocusIndicator
       (trigger)="handleSelectionOrExpansion($event, option)"
@@ -74,9 +74,24 @@
             [expandAll]="expandAll"
             [group]="subGroup"
             [level]="level + 1"
-            [parentHasCheckbox]="showCheckbox(option)">
+            [parentHasCheckbox]="showCheckbox(option)"
+            [maxInitialOptionsShown]="maxInitialOptionsShown">
     </material-tree-group>
     <!-- /SUB ITEMS -->
+  </li>
+  <li *ngIf="viewMoreLinkVisible">
+    <div class="view-more-link-item"
+         [style.padding-left]="getIndent(visibleGroup.last)">
+      <div class="material-tree-shift"
+           [style.padding-left]="fixedPadding">
+        <a class="view-more-link"
+           href="#"
+           buttonDecorator
+           (trigger)="viewMoreOptions($event)">
+          {{viewMoreMsg}}
+        </a>
+      </div>
+    </div>
   </li>
 </ul>
 
