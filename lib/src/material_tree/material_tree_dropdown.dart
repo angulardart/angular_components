@@ -25,24 +25,26 @@ import 'material_tree_impl.dart';
 
 /// A button-triggered dropdown containing a [MaterialTreeComponent].
 @Component(
-    selector: 'material-tree-dropdown',
-    directives: const [
-      DeferredContentDirective,
-      KeyboardOnlyFocusIndicatorDirective,
-      MaterialIconComponent,
-      MaterialPopupComponent,
-      MaterialTreeComponent,
-      MaterialTreeFilterComponent,
-      NgIf,
-      PopupSourceDirective
-    ],
-    providers: const [
-      const Provider(Focusable, useExisting: MaterialTreeDropdownComponent),
-      const Provider(MaterialTreeRoot,
-          useExisting: MaterialTreeDropdownComponent)
-    ],
-    templateUrl: 'material_tree_dropdown.html',
-    styleUrls: const ['material_tree_dropdown.scss.css'])
+  selector: 'material-tree-dropdown',
+  directives: const [
+    DeferredContentDirective,
+    KeyboardOnlyFocusIndicatorDirective,
+    MaterialIconComponent,
+    MaterialPopupComponent,
+    MaterialTreeComponent,
+    MaterialTreeFilterComponent,
+    NgIf,
+    PopupSourceDirective
+  ],
+  providers: const [
+    const Provider(Focusable, useExisting: MaterialTreeDropdownComponent),
+    const Provider(MaterialTreeRoot, useExisting: MaterialTreeDropdownComponent)
+  ],
+  templateUrl: 'material_tree_dropdown.html',
+  styleUrls: const ['material_tree_dropdown.scss.css'],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialTreeDropdownComponent extends SelectionContainer
     with DropdownHandle, MaterialTreeRoot
     implements OnInit, Focusable {

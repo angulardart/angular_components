@@ -64,6 +64,8 @@ abstract class Tab extends Focusable {
         </div>''',
   styleUrls: const ['material_tab.scss.css'],
   directives: const [NgIf],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialTabComponent extends RootFocusable
     implements Tab, DeferredContentAware {

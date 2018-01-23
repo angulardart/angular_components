@@ -51,6 +51,8 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   styleUrls: const ['material_list_item.scss.css'],
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialListItemComponent extends ButtonDirective
     with ActiveItemMixin

@@ -22,6 +22,8 @@ import 'package:angular_components/model/ui/has_renderer.dart';
 @Component(
   selector: 'dynamic-component',
   template: '''<template #marker></template>''',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class DynamicComponent implements OnDestroy, AfterChanges {
   final SlowComponentLoader _slowComponentLoader;

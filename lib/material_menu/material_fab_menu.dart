@@ -44,6 +44,8 @@ import 'menu_item_groups.dart';
   styleUrls: const ['material_fab_menu.scss.css'],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialFabMenuComponent extends Object
     with TrackLayoutChangesMixin

@@ -154,6 +154,8 @@ typedef String _InputChangeCallback(String inputText);
     'material_auto_suggest_input.scss.css',
     'material_input_wrapper.scss.css'
   ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     with MaterialInputWrapper, KeyboardHandlerMixin, HighlightAssistantMixin

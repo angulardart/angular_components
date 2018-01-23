@@ -100,22 +100,25 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///    panel will not be closed.
 ///
 @Component(
-    selector: 'material-expansionpanel',
-    directives: const [
-      ButtonDirective,
-      MaterialIconComponent,
-      MaterialSaveCancelButtonsDirective,
-      MaterialYesNoButtonsComponent,
-      NgIf,
-      EnterAcceptsDirective,
-      KeyUpBoundaryDirective
-    ],
-    providers: const [
-      const Provider(DeferredContentAware, useExisting: MaterialExpansionPanel)
-    ],
-    templateUrl: 'material_expansionpanel.html',
-    styleUrls: const ['material_expansionpanel.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'material-expansionpanel',
+  directives: const [
+    ButtonDirective,
+    MaterialIconComponent,
+    MaterialSaveCancelButtonsDirective,
+    MaterialYesNoButtonsComponent,
+    NgIf,
+    EnterAcceptsDirective,
+    KeyUpBoundaryDirective
+  ],
+  providers: const [
+    const Provider(DeferredContentAware, useExisting: MaterialExpansionPanel)
+  ],
+  templateUrl: 'material_expansionpanel.html',
+  styleUrls: const ['material_expansionpanel.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialExpansionPanel
     implements DeferredContentAware, OnInit, OnDestroy {
   final NgZone _ngZone;

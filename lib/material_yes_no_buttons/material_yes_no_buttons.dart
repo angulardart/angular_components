@@ -31,6 +31,8 @@ import 'package:angular_components/material_spinner/material_spinner.dart';
   templateUrl: 'material_yes_no_buttons.html',
   styleUrls: const ['material_yes_no_buttons.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialYesNoButtonsComponent {
   /// The callback that is to be invoked, when yes button is pressed.
@@ -136,7 +138,11 @@ class MaterialYesNoButtonsComponent {
       meaning: 'Text on no button.');
 }
 
-@Directive(selector: 'material-yes-no-buttons[saveCancel]')
+@Directive(
+  selector: 'material-yes-no-buttons[saveCancel]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialSaveCancelButtonsDirective {
   MaterialSaveCancelButtonsDirective(MaterialYesNoButtonsComponent yesNo) {
     yesNo.yesText = _msgSave;
@@ -154,7 +160,11 @@ class MaterialSaveCancelButtonsDirective {
       meaning: 'Text on cancel button.');
 }
 
-@Directive(selector: 'material-yes-no-buttons[submitCancel]')
+@Directive(
+  selector: 'material-yes-no-buttons[submitCancel]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialSubmitCancelButtonsDirective
     extends MaterialSaveCancelButtonsDirective {
   MaterialSubmitCancelButtonsDirective(MaterialYesNoButtonsComponent yesNo)
@@ -199,7 +209,11 @@ abstract class BoundaryAwareKeyUpDirective implements OnDestroy {
 /// Marks a subtree of the dom that should handle `keyup` events for a
 /// [BoundaryAwareKeyUpDirective] implementation.
 // TODO(google): move to somewhere common.
-@Directive(selector: '[keyupBoundary]')
+@Directive(
+  selector: '[keyupBoundary]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class KeyUpBoundaryDirective {
   /// Stream of `keyup` [KeyboardEvent]s of the DOM subtree.
   final Stream<KeyboardEvent> keyUpStream;
@@ -210,7 +224,11 @@ class KeyUpBoundaryDirective {
 
 /// If attached to the yes-no buttons it will listen for escape `keyup` event
 /// and trigger [no] action on it.
-@Directive(selector: 'material-yes-no-buttons[escCancels]')
+@Directive(
+  selector: 'material-yes-no-buttons[escCancels]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
     implements OnDestroy {
   final MaterialYesNoButtonsComponent _yesNo;
@@ -236,7 +254,11 @@ class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
 
 /// If attached to yes-no buttons, it will listen for Enter `keyup` events and
 /// trigger the `yes` action on them.
-@Directive(selector: 'material-yes-no-buttons[enterAccepts]')
+@Directive(
+  selector: 'material-yes-no-buttons[enterAccepts]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
     implements OnDestroy {
   final MaterialYesNoButtonsComponent _yesNo;

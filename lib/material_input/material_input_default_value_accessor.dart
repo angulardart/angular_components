@@ -12,7 +12,11 @@ import 'base_material_input.dart';
 /// [ControlValueAccessor] for [MaterialInputComponent] that updates on
 /// keypress.
 // TODO(google): Migrate away from this being the default accessor.
-@Directive(selector: 'material-input:not([blurUpdate]):not([changeUpdate])')
+@Directive(
+  selector: 'material-input:not([blurUpdate]):not([changeUpdate])',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialInputDefaultValueAccessor extends BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
   MaterialInputDefaultValueAccessor(
@@ -29,7 +33,11 @@ class MaterialInputDefaultValueAccessor extends BaseMaterialInputValueAccessor
 
 /// [ControlValueAccessor] to be used with a [MaterialInputComponent] that
 /// updates on blur.
-@Directive(selector: 'material-input[blurUpdate]')
+@Directive(
+  selector: 'material-input[blurUpdate]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialInputBlurValueAccessor extends BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
   MaterialInputBlurValueAccessor(
@@ -46,7 +54,11 @@ class MaterialInputBlurValueAccessor extends BaseMaterialInputValueAccessor
 
 /// [ControlValueAccessor] to be used with a [MaterialInputComponent] that
 /// updates on change.
-@Directive(selector: 'material-input[changeUpdate]')
+@Directive(
+  selector: 'material-input[changeUpdate]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialInputChangeValueAccessor extends BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
   MaterialInputChangeValueAccessor(

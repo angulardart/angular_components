@@ -38,7 +38,11 @@ const List<Type> materialNumberInputDirectives = const [
 /// `keypressUpdate` attribute has the value update on every keypress while
 /// the default is the value only updating on a blur event.
 /// `blurFormat` attribute causes the input to be formatted on blur events.
-@Directive(selector: 'material-input[type=number],material-input[type=percent]')
+@Directive(
+  selector: 'material-input[type=number],material-input[type=percent]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
   final NumberFormat _numberFormat;
@@ -127,12 +131,15 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
 }
 
 @Directive(
-    selector: 'material-input[type=number]:not([checkInteger]),'
-        'material-input[type=percent]:not([checkInteger])',
-    providers: const [
-      const Provider(NG_VALIDATORS,
-          useExisting: MaterialNumberValidator, multi: true)
-    ])
+  selector: 'material-input[type=number]:not([checkInteger]),'
+      'material-input[type=percent]:not([checkInteger])',
+  providers: const [
+    const Provider(NG_VALIDATORS,
+        useExisting: MaterialNumberValidator, multi: true)
+  ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialNumberValidator implements Validator {
   /// Validation that works in concert with the number accessor.
   @override
@@ -154,12 +161,15 @@ class MaterialNumberValidator implements Validator {
 
 /// [Validator] which will validate a number input is an integer.
 @Directive(
-    selector: 'material-input[type=number][checkInteger],'
-        'material-input[type=percent][checkInteger]',
-    providers: const [
-      const Provider(NG_VALIDATORS,
-          useExisting: CheckIntegerValidator, multi: true)
-    ])
+  selector: 'material-input[type=number][checkInteger],'
+      'material-input[type=percent][checkInteger]',
+  providers: const [
+    const Provider(NG_VALIDATORS,
+        useExisting: CheckIntegerValidator, multi: true)
+  ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class CheckIntegerValidator implements Validator {
   /// Validation that works in concert with the number accessor.
   @override

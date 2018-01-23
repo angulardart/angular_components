@@ -102,6 +102,8 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
     NgSwitch,
     NgSwitchWhen,
   ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialMultilineInputComponent extends BaseMaterialInput
     implements ReferenceDirective, AfterViewInit, OnDestroy {

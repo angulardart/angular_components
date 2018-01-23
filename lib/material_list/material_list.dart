@@ -71,6 +71,8 @@ export 'material_list_size.dart';
   host: const {'[attr.size]': 'size'},
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialListComponent implements AcceptsWidth {
   @Input()

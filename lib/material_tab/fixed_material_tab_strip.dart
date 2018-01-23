@@ -21,19 +21,22 @@ import 'tab_change_event.dart';
 /// set focus to newly revealed content so that 1) the tab does not retain the
 /// focus style, and 2) screen-readers can reckon what has changed.
 @Component(
-    selector: 'material-tab-strip',
-    directives: const [
-      FocusListDirective,
-      FocusItemDirective,
-      TabButtonComponent,
-      NgFor
-    ],
-    host: const {
-      'class': 'themeable',
-    },
-    templateUrl: 'fixed_material_tab_strip.html',
-    styleUrls: const ['fixed_material_tab_strip.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'material-tab-strip',
+  directives: const [
+    FocusListDirective,
+    FocusItemDirective,
+    TabButtonComponent,
+    NgFor
+  ],
+  host: const {
+    'class': 'themeable',
+  },
+  templateUrl: 'fixed_material_tab_strip.html',
+  styleUrls: const ['fixed_material_tab_strip.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class FixedMaterialTabStripComponent {
   final int _transitionAmount;
   final ChangeDetectorRef _changeDetector;

@@ -24,16 +24,22 @@ const tooltipShowDelay = const Duration(milliseconds: 600);
 ///
 /// NOTE: This directive will be used in conjunction with tooltips once they are
 /// made to be popups instead of just using popups.
-@Directive(selector: '[tooltipSource]', exportAs: 'tooltipSource', host: const {
-  '(mouseover)': 'onMouseOver()',
-  '(mouseleave)': 'onMouseLeave()',
-  '(focus)': r'onFocus()',
-  '(blur)': 'onBlur()',
-  '(keyup)': 'onKeyUp()',
-  'tabindex': '0',
-  'aria-label': 'tooltipLabel',
-  '[attr.style]': "'cursor: pointer'"
-})
+@Directive(
+  selector: '[tooltipSource]',
+  exportAs: 'tooltipSource',
+  host: const {
+    '(mouseover)': 'onMouseOver()',
+    '(mouseleave)': 'onMouseLeave()',
+    '(focus)': r'onFocus()',
+    '(blur)': 'onBlur()',
+    '(keyup)': 'onKeyUp()',
+    'tabindex': '0',
+    'aria-label': 'tooltipLabel',
+    '[attr.style]': "'cursor: pointer'"
+  },
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialTooltipSourceDirective extends PopupSourceDirective
     implements Toggler, AfterViewInit, OnDestroy {
   final tooltipLabel = _tooltipLabel;

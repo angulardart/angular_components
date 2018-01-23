@@ -21,13 +21,18 @@ import 'package:angular_components/utils/browser/events/events.dart';
 /// `<your-element buttonDecorator (trigger)="yourAction()"></your-element>`
 /// instead of
 /// `<your-element (click)="yourAction()"></your-element>`
-@Directive(selector: '[buttonDecorator]', host: const {
-  '(click)': r'handleClick($event)',
-  '(keypress)': r'handleKeyPress($event)',
-  'role': 'button',
-  '[attr.aria-disabled]': 'disabledStr',
-  '[class.is-disabled]': 'disabled',
-})
+@Directive(
+  selector: '[buttonDecorator]',
+  host: const {
+    '(click)': r'handleClick($event)',
+    '(keypress)': r'handleKeyPress($event)',
+    'role': 'button',
+    '[attr.aria-disabled]': 'disabledStr',
+    '[class.is-disabled]': 'disabled',
+  },
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class ButtonDirective extends RootFocusable with HasTabIndex {
   /// Will emit Event on mouse click or keyboard activation.
   @Output()

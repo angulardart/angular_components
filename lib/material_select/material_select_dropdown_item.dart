@@ -50,6 +50,8 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
     NgIf
   ],
   templateUrl: 'material_select_item.html',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
     implements OnDestroy {

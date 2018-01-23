@@ -18,10 +18,13 @@ import 'package:angular_components/model/selection/selection_model.dart';
 /// This exists primarily to allow graceful degrading in places where hierarchy
 /// is *sometimes* used but sometimes not.
 @Component(
-    selector: 'material-tree-group-flat-list',
-    directives: const [DynamicComponent, NgFor, NgIf],
-    templateUrl: 'material_tree_group_flat_list.html',
-    styleUrls: const ['material_tree_group_flat_list.scss.css'])
+  selector: 'material-tree-group-flat-list',
+  directives: const [DynamicComponent, NgFor, NgIf],
+  templateUrl: 'material_tree_group_flat_list.html',
+  styleUrls: const ['material_tree_group_flat_list.scss.css'],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialTreeGroupFlatListComponent extends MaterialTreeNode {
   MaterialTreeGroupFlatListComponent(
       MaterialTreeRoot root, ChangeDetectorRef changeDetector)
@@ -37,17 +40,20 @@ class MaterialTreeGroupFlatListComponent extends MaterialTreeNode {
 /// This exists primarily to allow graceful degrading in places where hierarchy
 /// is *sometimes* used but sometimes not.
 @Component(
-    selector: 'material-tree-group-flat-radio',
-    directives: const [
-      ButtonDirective,
-      DynamicComponent,
-      MaterialRadioComponent,
-      MaterialRadioGroupComponent,
-      NgFor,
-      NgIf
-    ],
-    templateUrl: 'material_tree_group_flat_radio.html',
-    styleUrls: const ['material_tree_group_flat_radio.scss.css'])
+  selector: 'material-tree-group-flat-radio',
+  directives: const [
+    ButtonDirective,
+    DynamicComponent,
+    MaterialRadioComponent,
+    MaterialRadioGroupComponent,
+    NgFor,
+    NgIf
+  ],
+  templateUrl: 'material_tree_group_flat_radio.html',
+  styleUrls: const ['material_tree_group_flat_radio.scss.css'],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
   final DropdownHandle _dropdownHandle;
 
@@ -77,16 +83,19 @@ class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
 /// This exists primarily to allow graceful degrading in places where hierarchy
 /// is *sometimes* used but sometimes not.
 @Component(
-    selector: 'material-tree-group-flat-check',
-    directives: const [
-      ButtonDirective,
-      DynamicComponent,
-      MaterialCheckboxComponent,
-      NgFor,
-      NgIf
-    ],
-    templateUrl: 'material_tree_group_flat_check.html',
-    styleUrls: const ['material_tree_group_flat_check.scss.css'])
+  selector: 'material-tree-group-flat-check',
+  directives: const [
+    ButtonDirective,
+    DynamicComponent,
+    MaterialCheckboxComponent,
+    NgFor,
+    NgIf
+  ],
+  templateUrl: 'material_tree_group_flat_check.html',
+  styleUrls: const ['material_tree_group_flat_check.scss.css'],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialTreeGroupFlatCheckComponent extends MaterialTreeNode {
   final DropdownHandle _dropdownHandle;
 

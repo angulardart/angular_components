@@ -22,6 +22,8 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class DropdownMenuComponent extends Object
     with MenuPopupWrapper

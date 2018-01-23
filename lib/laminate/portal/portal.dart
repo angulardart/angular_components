@@ -229,7 +229,11 @@ class DelegatingPortalHost implements PortalHost {
 ///
 /// For example:
 ///     <template portalHost="portal"></template>
-@Directive(selector: '[portalHost]')
+@Directive(
+  selector: '[portalHost]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class PortalHostDirective extends BasePortalHost {
   final ComponentLoader _componentLoader;
   final ViewContainerRef _viewContainerRef;
@@ -321,7 +325,11 @@ typedef void OnTemplatePortalReady(TemplatePortal portal);
 ///     <template portal (ready)="onReady($event)">
 ///       Hello {{name}}!
 ///     </template>
-@Directive(selector: '[portal]')
+@Directive(
+  selector: '[portal]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class TemplatePortalDirective extends TemplatePortal {
   @Output()
   Stream<TemplatePortalDirective> get ready => _ready.stream;

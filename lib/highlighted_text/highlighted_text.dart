@@ -19,11 +19,14 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
 /// Use [HighlightedValueComponent] for highlighting a value instead of
 /// providing segments as required by this component.
 @Component(
-    selector: 'highlighted-text',
-    templateUrl: 'highlighted_text.html',
-    styleUrls: const ['highlighted_text.scss.css'],
-    directives: const [NgFor],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'highlighted-text',
+  templateUrl: 'highlighted_text.html',
+  styleUrls: const ['highlighted_text.scss.css'],
+  directives: const [NgFor],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class HighlightedTextComponent {
   /// List of [HighlightedTextSegment]s to present.
   @Input()

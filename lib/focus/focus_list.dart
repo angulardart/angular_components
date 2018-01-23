@@ -29,7 +29,11 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///       <div focusItem>Item 3</div>
 ///     </div>
 ///
-@Directive(selector: '[focusList]', host: const {'[attr.role]': 'role'})
+@Directive(
+  selector: '[focusList]', host: const {'[attr.role]': 'role'},
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class FocusListDirective implements OnDestroy {
   final NgZone _ngZone;
   final String role;

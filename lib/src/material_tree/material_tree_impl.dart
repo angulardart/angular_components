@@ -42,26 +42,29 @@ import 'package:angular_components/model/ui/has_factory.dart';
 ///       [selection]="selectionModel">
 ///     </material-tree>
 @Component(
-    selector: 'material-tree',
-    directives: const [
-      MaterialTreeGroupComponent,
-      MaterialTreeGroupFlatCheckComponent,
-      MaterialTreeGroupFlatListComponent,
-      MaterialTreeGroupFlatRadioComponent,
-      NgFor,
-      NgIf
-    ],
-    host: const {
-      '[attr.role]': 'role',
-      // Unable to use interpolation for aria-multiselectable and aria-readonly
-      // due to https://github.com/angular/angular/issues/3583
-      '[attr.aria-multiselectable]': 'showFlatCheck ? "true" : "false"',
-      '[attr.aria-readonly]': 'showFlatList ? "true" : "false"',
-    },
-    viewProviders: const [
-      const Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
-    ],
-    templateUrl: 'material_tree_impl.html')
+  selector: 'material-tree',
+  directives: const [
+    MaterialTreeGroupComponent,
+    MaterialTreeGroupFlatCheckComponent,
+    MaterialTreeGroupFlatListComponent,
+    MaterialTreeGroupFlatRadioComponent,
+    NgFor,
+    NgIf
+  ],
+  host: const {
+    '[attr.role]': 'role',
+    // Unable to use interpolation for aria-multiselectable and aria-readonly
+    // due to https://github.com/angular/angular/issues/3583
+    '[attr.aria-multiselectable]': 'showFlatCheck ? "true" : "false"',
+    '[attr.aria-readonly]': 'showFlatList ? "true" : "false"',
+  },
+  viewProviders: const [
+    const Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
+  ],
+  templateUrl: 'material_tree_impl.html',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   @Input()
   @override

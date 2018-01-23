@@ -44,6 +44,8 @@ import 'package:angular_components/mixins/button_wrapper.dart';
     KeyboardOnlyFocusIndicatorDirective,
     NgIf,
   ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class DropdownButtonComponent extends Object with MaterialButtonWrapper {
   DropdownButtonComponent() {

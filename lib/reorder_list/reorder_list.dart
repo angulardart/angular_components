@@ -39,10 +39,13 @@ export 'reorder_events.dart';
 /// User is responsible for listening to reorder events
 /// and updating order of elements accordingly
 @Component(
-    selector: 'reorder-list',
-    host: const {'role': 'list', 'class': 'themeable'},
-    templateUrl: 'reorder_list.html',
-    styleUrls: const ['reorder_list.scss.css'])
+  selector: 'reorder-list',
+  host: const {'role': 'list', 'class': 'themeable'},
+  templateUrl: 'reorder_list.html',
+  styleUrls: const ['reorder_list.scss.css'],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class ReorderListComponent implements OnDestroy {
   static final itemSelectedCssClass = 'item-selected';
   final _disposer = new Disposer.oneShot();
@@ -591,8 +594,11 @@ typedef void ReorderListHandler(int sourceIndex, int destIndex);
 /// reorder-list component. See ReorderListComponent for usage.
 // TODO(google): Add back in host value once attribute bug is fixed.
 @Directive(
-    selector: '[reorderItem]',
-    host: const {'draggable': 'true', 'role': 'listitem', 'tabindex': '0'})
+  selector: '[reorderItem]',
+  host: const {'draggable': 'true', 'role': 'listitem', 'tabindex': '0'},
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class ReorderItemDirective {
   final HtmlElement element;
 

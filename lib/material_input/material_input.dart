@@ -140,6 +140,8 @@ const String materialInputErrorKey = 'material-input-error';
     NgSwitch,
     NgSwitchWhen,
   ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialInputComponent extends BaseMaterialInput
     implements Focusable, ReferenceDirective, AfterViewInit, OnDestroy {

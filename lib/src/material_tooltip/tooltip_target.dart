@@ -30,13 +30,19 @@ import 'tooltip_source.dart' show tooltipShowDelay;
 /// <material-tooltip-text [for]="ref">
 ///   Allows for <strong>formatted</strong> <em>text</em>.
 /// </material-tooltip-text>```
-@Directive(selector: '[tooltipTarget]', exportAs: 'tooltipTarget', host: const {
-  '(mouseover)': 'onMouseOver()',
-  '(mouseleave)': 'onMouseLeave()',
-  '(click)': 'hideTooltip()',
-  '(blur)': 'hideTooltip()',
-  '(keyup)': 'showTooltipWithDelay()',
-})
+@Directive(
+  selector: '[tooltipTarget]',
+  exportAs: 'tooltipTarget',
+  host: const {
+    '(mouseover)': 'onMouseOver()',
+    '(mouseleave)': 'onMouseLeave()',
+    '(click)': 'hideTooltip()',
+    '(blur)': 'hideTooltip()',
+    '(keyup)': 'showTooltipWithDelay()',
+  },
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialTooltipTargetDirective extends TooltipBehavior
     implements AfterViewInit, OnDestroy {
   HtmlElement element;
@@ -138,6 +144,8 @@ abstract class TooltipBehavior extends TooltipTarget {
     '(keypress)': r'kbTrigger($event)',
     '(blur)': r'onBlur($event)',
   },
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class ClickableTooltipTargetDirective extends TooltipBehavior
     implements AfterViewInit, OnDestroy {
