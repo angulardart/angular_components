@@ -25,6 +25,12 @@
   }
 }
 
+@mixin material-dialog-header-border-bottom($border) {
+  ::ng-deep .wrapper > header {
+    border-bottom: $border;
+  }
+}
+
 @mixin material-dialog-body-padding($padding: 0) {
   ::ng-deep .wrapper > main,
   &[headered] ::ng-deep .wrapper > main {
