@@ -132,7 +132,7 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   }
 
   @ViewChildren(MaterialTreeGroupComponent)
-  QueryList<MaterialTreeGroupComponent> treeGroupNodes;
+  List<MaterialTreeGroupComponent> treeGroupNodes;
 
   /// Collapses all expanded tree groups.
   ///
