@@ -26,12 +26,15 @@ import 'tab_change_event.dart';
 // TODO(google): Support Scrolling tab strip in addition to fixed with an
 // attribute.
 @Component(
-    selector: 'material-tab-panel',
-    directives: const [FixedMaterialTabStripComponent],
-    host: const {'class': 'themeable'},
-    templateUrl: 'material_tab_panel.html',
-    styleUrls: const ['material_tab_panel.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'material-tab-panel',
+  directives: const [FixedMaterialTabStripComponent],
+  host: const {'class': 'themeable'},
+  templateUrl: 'material_tab_panel.html',
+  styleUrls: const ['material_tab_panel.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialTabPanelComponent {
   final ChangeDetectorRef _changeDetector;
 

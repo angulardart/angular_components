@@ -17,13 +17,16 @@ import 'package:angular_components/utils/browser/events/events.dart';
 ///
 /// Any input typed will be used to call the filter method Filterable.
 @Component(
-    selector: 'material-select-searchbox',
-    directives: const [materialInputDirectives, NgModel],
-    providers: const [
-      const Provider(Focusable, useExisting: MaterialSelectSearchboxComponent)
-    ],
-    styleUrls: const ['material_select_searchbox.scss.css'],
-    templateUrl: 'material_select_searchbox.html')
+  selector: 'material-select-searchbox',
+  directives: const [materialInputDirectives, NgModel],
+  providers: const [
+    const Provider(Focusable, useExisting: MaterialSelectSearchboxComponent)
+  ],
+  styleUrls: const ['material_select_searchbox.scss.css'],
+  templateUrl: 'material_select_searchbox.html',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialSelectSearchboxComponent extends FocusableMixin
     implements OnDestroy {
   Filterable _filterable;

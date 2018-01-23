@@ -25,10 +25,13 @@ const Map<String, double> _indeterminateTiming = const {
 ///    </material-progress>
 ///
 @Component(
-    selector: 'material-progress',
-    templateUrl: 'material_progress.html',
-    styleUrls: const ['material_progress.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'material-progress',
+  templateUrl: 'material_progress.html',
+  styleUrls: const ['material_progress.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialProgressComponent implements AfterViewInit, OnDestroy {
   final ChangeDetectorRef _changeDetector;
   final HtmlElement _element;

@@ -61,6 +61,8 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MenuItemGroupsComponent implements OnInit, OnDestroy {
   final IdGenerator _idGenerator;

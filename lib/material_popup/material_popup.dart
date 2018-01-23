@@ -6,11 +6,12 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math';
 
-import 'package:angular/angular.dart' hide Visibility;
+import 'package:angular/angular.dart';
 import 'package:meta/meta.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
-import 'package:angular_components/laminate/enums/visibility.dart';
+import 'package:angular_components/laminate/enums/visibility.dart'
+    as visibility;
 import 'package:angular_components/laminate/overlay/module.dart';
 import 'package:angular_components/laminate/overlay/overlay.dart';
 import 'package:angular_components/laminate/overlay/zindexer.dart';
@@ -82,19 +83,15 @@ export 'package:angular_components/laminate/popup/popup.dart'
   providers: const [
     const Provider(DeferredContentAware, useExisting: MaterialPopupComponent),
     const Provider(DropdownHandle, useExisting: MaterialPopupComponent),
-    const Provider(
-      PopupHierarchy,
-      useFactory: getHierarchy,
-    ),
-    const Provider(
-      PopupRef,
-      useFactory: getResolvedPopupRef,
-    ),
+    const Provider(PopupHierarchy, useFactory: getHierarchy),
+    const Provider(PopupRef, useFactory: getResolvedPopupRef),
   ],
   templateUrl: 'material_popup.html',
   styleUrls: const ['material_popup.scss.css'],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialPopupComponent extends Object
     with PopupBase, PopupEvents, PopupHierarchyElement
@@ -440,7 +437,7 @@ class MaterialPopupComponent extends Object
     _updatePopupMaxSize();
 
     // Put the overlay in the live DOM so we can measure its size.
-    _overlayRef.state.visibility = Visibility.Hidden;
+    _overlayRef.state.visibility = visibility.Visibility.Hidden;
     _overlayRef.overlayElement.style
       ..display = ''
       ..visibility = 'hidden';
@@ -584,7 +581,7 @@ class MaterialPopupComponent extends Object
     _changeDetector.markForCheck();
 
     // Set the overlay .pane to display: none.
-    _overlayRef.state.visibility = Visibility.None;
+    _overlayRef.state.visibility = visibility.Visibility.None;
     _overlayRef.overlayElement.style..display = 'none';
 
     // Notify listeners that the popup is not visible.
@@ -823,7 +820,7 @@ class MaterialPopupComponent extends Object
           offsetX
       ..top = position.originY.calcTop(sourceClientRect, contentClientRect) +
           offsetY
-      ..visibility = Visibility.Visible;
+      ..visibility = visibility.Visibility.Visible;
     _overlayRef.overlayElement.style
       ..visibility = 'visible'
       ..display = '';

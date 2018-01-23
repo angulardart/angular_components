@@ -142,6 +142,8 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
   ],
   templateUrl: 'material_dropdown_select.html',
   styleUrls: const ['material_dropdown_select.scss.css'],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialDropdownSelectComponent extends MaterialSelectBase
     with

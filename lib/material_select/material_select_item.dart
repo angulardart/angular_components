@@ -45,6 +45,8 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     DynamicComponent
   ],
   templateUrl: 'material_select_item.html',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialSelectItemComponent extends ButtonDirective
     with ActiveItemMixin

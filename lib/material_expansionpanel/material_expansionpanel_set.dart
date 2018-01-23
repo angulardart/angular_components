@@ -10,7 +10,11 @@ import 'material_expansionpanel.dart';
 
 /// A directive which will turn a set of expansion panels into an accordian
 /// widget. Thus only allowing one panel to be open at a time.
-@Directive(selector: 'material-expansionpanel-set')
+@Directive(
+  selector: 'material-expansionpanel-set',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialExpansionPanelSet implements OnDestroy {
   final _panelDisposer = new Disposer.multi();
   final _tearDownDisposer = new Disposer.oneShot();

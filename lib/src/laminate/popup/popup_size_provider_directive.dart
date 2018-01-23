@@ -13,9 +13,14 @@ import 'package:angular_components/src/laminate/popup/popup_size_provider.dart';
 ///
 /// If popupMaxHeight or popupMaxWidth is not specified, delegates to parent
 /// popup provider.
-@Directive(selector: '[popupMaxHeight],[popupMaxWidth]', providers: const [
-  const Provider(PopupSizeProvider, useClass: PopupSizeProviderDirective),
-])
+@Directive(
+  selector: '[popupMaxHeight],[popupMaxWidth]',
+  providers: const [
+    const Provider(PopupSizeProvider, useClass: PopupSizeProviderDirective),
+  ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class PopupSizeProviderDirective implements PopupSizeProvider {
   _SizeDefinition _maxHeight;
   _SizeDefinition _maxWidth;

@@ -198,7 +198,11 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
 }
 
 /// This directive is used to [ViewChild] focusable element in your view.
-@Directive(selector: '[focusableElement]', exportAs: 'focusableElement')
+@Directive(
+  selector: '[focusableElement]', exportAs: 'focusableElement',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class FocusableDirective extends RootFocusable {
   FocusableDirective(HtmlElement node) : super(node);
 }

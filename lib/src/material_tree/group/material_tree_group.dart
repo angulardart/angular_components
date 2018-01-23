@@ -26,21 +26,24 @@ const materialTreeLeftPaddingToken = const OpaqueToken(
 /// __Example use__:
 ///     <material-tree-group [group]="group"></material-tree-group>
 @Component(
-    selector: 'material-tree-group',
-    directives: const [
-      ButtonDirective,
-      DynamicComponent,
-      MaterialIconComponent,
-      KeyboardOnlyFocusIndicatorDirective,
-      MaterialCheckboxComponent,
-      MaterialTreeGroupComponent,
-      NgFor,
-      NgIf,
-      NgClass
-    ],
-    host: const {'role': 'group'},
-    templateUrl: 'material_tree_group.html',
-    styleUrls: const ['material_tree_group.scss.css'])
+  selector: 'material-tree-group',
+  directives: const [
+    ButtonDirective,
+    DynamicComponent,
+    MaterialIconComponent,
+    KeyboardOnlyFocusIndicatorDirective,
+    MaterialCheckboxComponent,
+    MaterialTreeGroupComponent,
+    NgFor,
+    NgIf,
+    NgClass
+  ],
+  host: const {'role': 'group'},
+  templateUrl: 'material_tree_group.html',
+  styleUrls: const ['material_tree_group.scss.css'],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   static final defaultConstantLeftPadding = 24;
   static final baseGridStep = 8; // Based on $mat-grid

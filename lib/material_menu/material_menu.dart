@@ -38,6 +38,8 @@ import 'package:angular_components/model/menu/menu.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialMenuComponent extends Object with MenuPopupWrapper {
   final _onTrigger = new StreamController<Null>();

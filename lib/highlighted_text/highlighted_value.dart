@@ -12,10 +12,13 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
 /// and accepts a value that it converts to text segments using a
 /// [HighlightProvider].
 @Component(
-    selector: 'highlight-value',
-    templateUrl: 'highlighted_text.html',
-    styleUrls: const ['highlighted_text.scss.css'],
-    directives: const [NgFor])
+  selector: 'highlight-value',
+  templateUrl: 'highlighted_text.html',
+  styleUrls: const ['highlighted_text.scss.css'],
+  directives: const [NgFor],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class HighlightedValueComponent implements RendersValue {
   final HighlightProvider _highLighter;
 

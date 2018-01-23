@@ -67,6 +67,8 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   template: '<ng-content></ng-content>',
   styleUrls: const ['material_radio_group.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
   final _disposer = new Disposer.oneShot();

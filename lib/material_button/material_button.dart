@@ -108,6 +108,8 @@ import 'material_button_base.dart';
   ],
   styleUrls: const ['material_button.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
 )
 class MaterialButtonComponent extends MaterialButtonBase {
   final ChangeDetectorRef _changeDetector;

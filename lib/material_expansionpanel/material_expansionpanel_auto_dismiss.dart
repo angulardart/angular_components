@@ -21,8 +21,11 @@ import 'package:angular_components/material_expansionpanel/material_expansionpan
 ///     </material-expansionpanel>
 ///
 @Directive(
-    selector: 'material-expansionpanel[autoDismissable]',
-    host: const {'(expandedChange)': r'onExpandedChanged($event)'})
+  selector: 'material-expansionpanel[autoDismissable]',
+  host: const {'(expandedChange)': r'onExpandedChanged($event)'},
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class MaterialExpansionPanelAutoDismiss implements OnDestroy {
   final MaterialExpansionPanel _expansionPanel;
 

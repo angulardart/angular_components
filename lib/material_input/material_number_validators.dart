@@ -9,9 +9,15 @@ import 'package:intl/intl.dart';
 import 'material_input_error_keys.dart';
 
 /// [Validator] which will validate a number input is positive > 0.
-@Directive(selector: '[checkPositive]', providers: const [
-  const Provider(NG_VALIDATORS, useExisting: PositiveNumValidator, multi: true)
-])
+@Directive(
+  selector: '[checkPositive]',
+  providers: const [
+    const Provider(NG_VALIDATORS,
+        useExisting: PositiveNumValidator, multi: true)
+  ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class PositiveNumValidator implements Validator {
   /// Boolean value allowing the validator to be turned on/off as needed.
   @Input('checkPositive')
@@ -34,10 +40,15 @@ class PositiveNumValidator implements Validator {
 }
 
 /// [Validator] which will validate a number input is not negative, >= 0
-@Directive(selector: '[checkNonNegative]', providers: const [
-  const Provider(NG_VALIDATORS,
-      useExisting: CheckNonNegativeValidator, multi: true)
-])
+@Directive(
+  selector: '[checkNonNegative]',
+  providers: const [
+    const Provider(NG_VALIDATORS,
+        useExisting: CheckNonNegativeValidator, multi: true)
+  ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class CheckNonNegativeValidator implements Validator {
   /// Boolean value allowing the validator to be turned on/off as needed.
   @Input('checkNonNegative')
@@ -60,9 +71,14 @@ class CheckNonNegativeValidator implements Validator {
 
 /// [Validator] which validates that a number input is greater or equal
 /// than [lowerBound].
-@Directive(selector: '[lowerBound]', providers: const [
-  const Provider(NG_VALIDATORS, useExisting: LowerBoundValidator, multi: true)
-])
+@Directive(
+  selector: '[lowerBound]',
+  providers: const [
+    const Provider(NG_VALIDATORS, useExisting: LowerBoundValidator, multi: true)
+  ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class LowerBoundValidator implements Validator {
   final NumberFormat _numberFormat;
 
@@ -94,9 +110,14 @@ class LowerBoundValidator implements Validator {
 
 /// [Validator] which validates that a number input is less or equal
 /// than [upperBound].
-@Directive(selector: '[upperBound]', providers: const [
-  const Provider(NG_VALIDATORS, useExisting: UpperBoundValidator, multi: true)
-])
+@Directive(
+  selector: '[upperBound]',
+  providers: const [
+    const Provider(NG_VALIDATORS, useExisting: UpperBoundValidator, multi: true)
+  ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class UpperBoundValidator implements Validator {
   final NumberFormat _numberFormat;
 

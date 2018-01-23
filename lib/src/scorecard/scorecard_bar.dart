@@ -27,7 +27,11 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// not take this precaution, then in some situations, some cards will always be
 /// partially covered by the scroll buttons, regardless of how the user
 /// scrolled.
-@Directive(selector: '[scorecardBar]')
+@Directive(
+  selector: '[scorecardBar]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
   final _refreshController = new StreamController<bool>.broadcast();
   final _disposer = new Disposer.oneShot();

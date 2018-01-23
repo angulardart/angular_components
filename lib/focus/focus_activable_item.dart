@@ -10,10 +10,15 @@ import 'package:angular_components/focus/focus.dart';
 /// This directive is used to [ViewChild] focusable element in your view.
 ///
 /// Assign a [key] in order to filter items from a [QueryList].
-@Directive(selector: '[focusActivableItem]', providers: const [
-  const Provider(FocusableActivateItem,
-      useExisting: FocusActivableItemDirective)
-])
+@Directive(
+  selector: '[focusActivableItem]',
+  providers: const [
+    const Provider(FocusableActivateItem,
+        useExisting: FocusActivableItemDirective)
+  ],
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class FocusActivableItemDirective extends RootFocusable
     implements FocusableActivateItem {
   /// Key to assign to the focusable item.

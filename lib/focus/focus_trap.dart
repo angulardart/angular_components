@@ -20,11 +20,14 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///         <material-button>Ok</material-button>
 ///     </focus-trap>
 @Component(
-    selector: 'focus-trap',
-    templateUrl: 'focus_trap.html',
-    styleUrls: const ['focus_trap.scss.css'],
-    directives: const [FocusContentWrapper, AutoFocusDirective],
-    changeDetection: ChangeDetectionStrategy.OnPush)
+  selector: 'focus-trap',
+  templateUrl: 'focus_trap.html',
+  styleUrls: const ['focus_trap.scss.css'],
+  directives: const [FocusContentWrapper, AutoFocusDirective],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class FocusTrapComponent implements OnDestroy {
   final _disposer = new Disposer.oneShot();
 
@@ -81,7 +84,11 @@ class FocusTrapComponent implements OnDestroy {
   }
 }
 
-@Directive(selector: '[focusContentWrapper]')
+@Directive(
+  selector: '[focusContentWrapper]',
+  // TODO(google): Change to `Visibility.local` to reduce code size.
+  visibility: Visibility.all,
+)
 class FocusContentWrapper extends FocusableDirective {
   Element _element;
   FocusContentWrapper(HtmlElement element)
