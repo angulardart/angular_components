@@ -80,6 +80,6 @@ class OverlayService {
             'Check that there is no nested overlayBindings or popupBindings');
       }
       return true;
-    });
+    }());
   }
 }
