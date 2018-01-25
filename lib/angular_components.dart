@@ -232,6 +232,7 @@ const List<dynamic> materialDirectives = const [
   MaterialListItemComponent,
   MaterialMenuComponent,
   MaterialMultilineInputComponent,
+  materialNumberInputDirectives,
   MaterialPaperTooltipComponent,
   MaterialPercentInputDirective,
   MaterialPersistentDrawerDirective,
