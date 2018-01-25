@@ -247,10 +247,20 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     super.factoryRenderer = value;
   }
 
+  // Ideally, [value] would be a [ItemRenderer<T>], where T is also the type
+  // parameter of the SelectionOptions and the SelectionModel, as parent
+  // components typically use a function that accepts a specific type (T).
+  //
+  // However, we don't have a T. Angular doesn't support injecting a
+  // type-annotated component yet, and setters, like [itemRenderer], cannot
+  // be type-annotated. This forces us to accept a plain old [Function] as
+  // [value], in order to avoid uses_dynamic_as_bottom errors. (Basically, a
+  // function like [MaterialTimePicker]'s `String renderTime(DateTime time)`
+  // cannot work as a [ItemRenderer], since it expects DateTime, not dynamic.)
   @Input()
   @override
-  set itemRenderer(ItemRenderer value) {
-    super.itemRenderer = value;
+  set itemRenderer(Function value) {
+    super.itemRenderer = (item) => value(item);
   }
 
   @Input()
@@ -504,7 +514,7 @@ class ActivateItemOnKeyPressMixin {
   String _enteredKeys = '';
 
   /// Activates an item in the ActiveItemModel based on the key passed in.
-  /// It the current item already matches, it will select the next item that
+  /// If the current item already matches, it will select the next item that
   /// matches.
   void activateOnKeyPress(
       ActiveItemModel activeModel,
