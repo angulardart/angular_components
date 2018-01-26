@@ -35,6 +35,13 @@
   }
 }
 
+/// Changes the padding around the material-input.
+@mixin input-padding($padding) {
+  ::ng-deep material-input.themeable {
+    padding: $padding;
+  }
+}
+
 /// Changes the line-height of the top section (without underline) of material
 /// input.
 @mixin input-top-section-line-height($line-height) {
