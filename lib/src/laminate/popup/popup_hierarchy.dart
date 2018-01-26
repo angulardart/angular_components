@@ -68,6 +68,7 @@ class PopupHierarchy {
 
     for (int i = _visiblePopupStack.length - 1; i >= 0; i--) {
       final current = _visiblePopupStack[i];
+      if (current.container == null) continue;
 
       if (events.isParentOf(current.container, event.target)) return;
 
