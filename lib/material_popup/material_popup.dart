@@ -378,7 +378,7 @@ class MaterialPopupComponent extends Object
   }
 
   @override
-  Element get container => _overlayRef.overlayElement;
+  Element get container => _overlayRef?.overlayElement;
 
   @override
   set source(PopupSource source) {
