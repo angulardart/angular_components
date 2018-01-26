@@ -121,9 +121,11 @@ textarea {
   width: 100%;
 }
 
-input[type="text"] {
-  // More specific version of above rule; needed to override AW3 styles for
-  // dart apps embedded in AW3.
+input[type="text"],
+input[type="text"]:focus,
+input[type="text"]:hover {
+  // More specific version of above rule; needed to override AW3/ASFE styles for
+  // dart apps embedded in AW3/ASFE.
   border: 0;
   outline: none;
   box-shadow: none;
