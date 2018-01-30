@@ -70,11 +70,13 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
+class MaterialRadioGroupComponent
+    implements ControlValueAccessor, OnDestroy, AfterContentInit {
   final _disposer = new Disposer.oneShot();
   final NgZone _ngZone;
   final NgControl cd;
   List<MaterialRadioComponent> _children;
+  bool _contentInit = false;
 
   MaterialRadioGroupComponent(this._ngZone, @Self() @Optional() this.cd) {
     _disposer.addStreamSubscription(componentSelection.selectionChanges
@@ -109,29 +111,33 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
     cd?.valueAccessor = this;
   }
 
+  @override
+  void ngAfterContentInit() {
+    _contentInit = true;
+    if (_preselectedValue != null) {
+      // Since this is updating children that were already dirty-checked,
+      // need to delay this change until next angular cycle.
+      _ngZone.onEventDone.first.then((_) {
+        if (_preselectedValue == null) return; // Overridden before callback.
+        // Initialize preselect now, this will trigger tabIndex reset.
+        selected = _preselectedValue;
+        // The preselected value should be used only once.
+        _preselectedValue = null;
+      });
+    } else {
+      // Initialize tabIndex.
+      _resetTabIndex();
+    }
+  }
+
   @ContentChildren(MaterialRadioComponent)
-  set list(QueryList components) {
-    _disposer.addStreamSubscription(components.changes.listen((_) {
-      _children = new List.from(components);
-      for (var child in _children) {
-        _disposer
-          ..addStreamSubscription(child.focusmove.listen(_moveFocus))
-          ..addStreamSubscription(child.selectionmove.listen(_moveSelection));
-      }
-      if (_preselectedValue != null) {
-        // Since this is updating children that were already dirty-checked,
-        // need to delay this change until next angular cycle.
-        _ngZone.onEventDone.first.then((_) {
-          // Initialize preselect now, this will trigger tabIndex reset.
-          selected = _preselectedValue;
-          // The preselected value should be used only once.
-          _preselectedValue = null;
-        });
-      } else {
-        // Initialize tabIndex.
-        _resetTabIndex();
-      }
-    }));
+  set list(List<MaterialRadioComponent> components) {
+    _children = new List.from(components);
+    for (var child in _children) {
+      _disposer
+        ..addStreamSubscription(child.focusmove.listen(_moveFocus))
+        ..addStreamSubscription(child.selectionmove.listen(_moveSelection));
+    }
   }
 
   @override
@@ -207,10 +213,12 @@ class MaterialRadioGroupComponent implements ControlValueAccessor, OnDestroy {
   ///  Value of currently selected radio.
   @Input()
   set selected(dynamic newValue) {
-    if (_children != null) {
+    if (_children != null && _contentInit) {
       for (var child in _children) {
         child.checked = (child.value == newValue);
       }
+      // Ensure we don't overwrite the value in the inital callback.
+      _preselectedValue = null;
     } else {
       _preselectedValue = newValue;
     }
