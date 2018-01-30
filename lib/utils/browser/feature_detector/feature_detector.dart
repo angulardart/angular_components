@@ -30,6 +30,10 @@ final bool supportsAnimationApi =
     js_util.hasProperty(new DivElement(), 'animate') &&
         !js.context.hasProperty('__acxDisableWebAnimationsApi');
 
+/// Whether the browser supports IntersectionObserver.
+final bool supportsIntersectionObserver =
+    js.context.hasProperty('IntersectionObserver');
+
 /// Whether the browser supports ResizeObserver.
 final bool supportsResizeObserver = js.context.hasProperty('ResizeObserver');
 
