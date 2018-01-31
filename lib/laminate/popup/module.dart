@@ -12,14 +12,19 @@ const inlinePositions = RelativePosition.InlinePositions;
 /// A token representing a [List] of [RelativePosition]s to use when popup auto
 /// positioning is set (`enforceSpaceConstraints`) but no custom positions
 /// (`preferredPositions`) are set.
-const OpaqueToken defaultPopupPositions =
-    const OpaqueToken('defaultPopupPositions');
+const defaultPopupPositions = const OpaqueToken<List<RelativePosition>>(
+  'defaultPopupPositions',
+);
 
 /// DI bindings for Popups and its dependencies.
 ///
 /// Should be included at most once per the injection chain.
 const popupBindings = const [
-  const Provider(defaultPopupPositions, useValue: inlinePositions),
+  // TODO(google): Use ValueProvider once available.
+  const Provider<List<RelativePosition>>(
+    defaultPopupPositions,
+    useValue: inlinePositions,
+  ),
   overlayBindings,
   DomPopupSourceFactory,
 ];
@@ -28,7 +33,11 @@ const popupBindings = const [
 ///
 /// Should be included at most once per the injection chain.
 const popupDebugBindings = const [
-  const Provider(defaultPopupPositions, useValue: inlinePositions),
+  // TODO(google): Use ValueProvider once available.
+  const Provider<List<RelativePosition>>(
+    defaultPopupPositions,
+    useValue: inlinePositions,
+  ),
   overlayDebugBindings,
   DomPopupSourceFactory,
 ];
