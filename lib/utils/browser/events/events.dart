@@ -111,6 +111,104 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
   return controller.stream;
 }
 
+typedef void IntersectionObserverCallback(
+    Iterable<IntersectionObserverEntry> entries, IntersectionObserver observer);
+
+@JS()
+@anonymous
+class IntersectionObserverOptions {
+  /// The element that is used as the viewport for checking visiblity of the
+  /// target.
+  ///
+  /// Must be the ancestor of the target. Defaults to the browser viewport if
+  /// not specified or if null.
+  external Element get root;
+
+  /// Margin around the root.
+  ///
+  /// Can have values similar to the CSS margin property, e.g.
+  /// "10px 20px 30px 40px" (top, right, bottom, left). If the root element is
+  /// specified, the values can be percentages. This set of values serves to
+  /// grow or shrink each side of the root element's bounding box before
+  /// computing intersections. Defaults to all zeros.
+  external String get rootMargin;
+
+  /// Either a single number or an array of numbers which indicate at what
+  /// percentage of the target's visibility the observer's callback should be
+  /// executed.
+  ///
+  /// If you only want to detect when visibility passes the 50% mark, you can
+  /// use a value of 0.5. If you want the callback run every time visibility
+  /// passes another 25%, you would specify the array [0, 0.25, 0.5, 0.75, 1].
+  /// The default is 0 (meaning as soon as even one pixel is visible, the
+  /// callback will be run). A value of 1.0 means that the threshold isn't
+  /// considered passed until every pixel is visible.
+  external dynamic get threshold;
+
+  external factory IntersectionObserverOptions(
+      {Element root, String rootMargin, dynamic threshold});
+}
+
+/// The IntersectionObserver interface of the Intersection Observer API provides
+/// a way to asynchronously observe changes in the intersection of a target
+/// element with an ancestor element or with a top-level document's viewport.
+///
+/// The ancestor element or viewport is referred to as the root.
+///
+/// When an IntersectionObserver is created, it's configured to watch for given
+/// ratios of visibility within the root. The configuration cannot be changed
+/// once the IntersectionObserver is created, so a given observer object is only
+/// useful for watching for specific changes in degree of visibility; however,
+/// you can watch multiple target elements with the same observer.
+// TODO(google): Remove if supported in dart:html.
+@JS()
+class IntersectionObserver {
+  /// Creates a new IntersectionObserver object which will execute a specified
+  /// callback function when it detects that a target element's visibility has
+  /// crossed one or more thresholds.
+  external IntersectionObserver(IntersectionObserverCallback callback,
+      IntersectionObserverOptions options);
+
+  /// A specific ancestor of the target element being observed.
+  ///
+  /// If no value was passed to the constructor or this is null, the top-level
+  /// document's viewport is used.
+  external Element get root;
+
+  /// An offset rectangle applied to the root's bounding box when calculating
+  /// intersections, effectively shrinking or growing the root for calculation
+  /// purposes.
+  ///
+  /// The value returned by this property may not be the same as the one
+  /// specified when calling the constructor as it may be changed to match
+  /// internal requirements. Each offset can be expressed in pixels (px) or as a
+  /// percentage (%). The default is "0px 0px 0px 0px".
+  external String get rootMargin;
+
+  /// A list of thresholds, sorted in increasing numeric order, where each
+  /// threshold is a ratio of intersection area to bounding box area of an
+  /// observed target.
+  ///
+  /// Notifications for a target are generated when any of the
+  /// thresholds are crossed for that target. If no value was passed to the
+  /// constructor, 0 is used.
+  external List<num> get thresholds;
+
+  /// Tells the IntersectionObserver a target element to observe.
+  external void observe(Element target);
+
+  /// Tells the IntersectionObserver to stop observing a particular target
+  /// element.
+  external void unobserve(Element target);
+
+  /// Stops the IntersectionObserver object from observing any target.
+  external void disconnect();
+
+  /// Returns an array of IntersectionObserverEntry objects for all observed
+  /// targets and stops observing all of them.
+  external List<IntersectionObserverEntry> takeRecords();
+}
+
 typedef void ResizeObserverCallback(Iterable<ResizeObserverEntry> entries);
 
 /// The ResizeObserver API is an interface for observing changes to Element's
