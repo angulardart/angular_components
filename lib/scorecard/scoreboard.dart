@@ -290,7 +290,9 @@ class ScoreboardComponent implements OnInit, OnDestroy {
 
   void _updatedSelected() {
     for (ScorecardComponent scorecard in _scorecards) {
-      scorecard.selected = _selectionModel.isSelected(scorecard);
+      if (scorecard.selectable) {
+        scorecard.selected = _selectionModel.isSelected(scorecard);
+      }
     }
   }
 
