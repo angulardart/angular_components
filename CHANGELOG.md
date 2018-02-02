@@ -1,8 +1,8 @@
-## 0.9.0-alpha+3
+## 0.9.0-alpha+4
 
 > NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-alpha+3. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha+3 is used in production Google apps).
+> 5.0.0-alpha+4. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (5.0.0-alpha+4 is used in production Google apps).
 
 **NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
 are **required**:
@@ -12,11 +12,50 @@ dependency_overrides:
   analyzer: ^0.31.0-alpha.1
 ```
 
-This is because Angular is starting to use and support the Dart 2.0.0 SDK, which
-is evolving. We expect to no longer require overrides once we are at a beta
+This is because Angular is starting to use and support the Dart 2 SDK, which is
+evolving. We expect to no longer require overrides once we are at a beta
 release, but this is unlikely until sometime in early 2018.
 
-[dep_overrides]: https://www.dartlang.org/tools/pub/dependencies#dependency-overrides
+ * Material Dialog: Add mixin for bottom border on header.
+ * Material Drawer: Add mixin for width.
+ * Material Input:
+   * Extend the style rules applied on `input[type=text]` to cover the hover and
+     focus states.
+   * Add mixin padding.
+ * Material Popup:
+   * Guard against `container = null` in PopupHierarchy.onTriggersOutside().
+   * Increase the animation speed according to material specs.
+ * Material Radio: Migrate away from QueryList.
+ * Material Tree:
+   * Add an option to material tree group to render a "View more" link for
+     hidden options.
+   * Migrate away from QueryList.
+ * Scorecard: Only update selected state if the scorecard is selectable.
+ * Use a reified Provider for `defaultPopupPositions`.
+ * Add IntersectionObserver bindings & onIntersection stream to ScrollHost.
+ * Add `materialNumberDirectives` to MaterialDirectives list.
+ * Preparation for Angular changing the default value of
+   `visibility: Visibility.local`.
+ * Cleanup type warnings and other Dart 2 fixes.
+ * Update documentation.
+
+## 0.9.0-alpha+3
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+4. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (5.0.0-alpha+4 is used in production Google apps).
+
+**NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
+are **required**:
+
+```yaml
+dependency_overrides:
+  analyzer: ^0.31.0-alpha.1
+```
+
+This is because Angular is starting to use and support the Dart 2 SDK, which is
+evolving. We expect to no longer require overrides once we are at a beta
+release, but this is unlikely until sometime in early 2018.
 
  * Add support for package
    [build_runner](https://pub.dartlang.org/packages/build_runner).
@@ -24,7 +63,7 @@ release, but this is unlikely until sometime in early 2018.
    * Wait for the popup to be visible before activating dropdown items.
    * Stop escape keyboard events from propagating after they are handled.
    * Disallow deselection when clicked on a selected item with single selection
-   * models.
+     models.
    * Ensure input text is initialized correctly regardless of input order.
    * Fix auto-scrolling issue on Firefox.
  * Material Checkbox: Make focusable.
@@ -42,7 +81,7 @@ release, but this is unlikely until sometime in early 2018.
  * Material Tree: Autofocus the filter when `MaterialTreeDropdown` is opened,
    but not when it closes.
  * Better support for the zippy expansion case in selection model.
- * Deprecate getBool, angular supports it now natively.
+ * Deprecate getBool(), Angular supports it now natively.
  * Fix RTE when using item renderers as highlight renderers when there is a
    custom factory renderer.
  * Fix componentRenderer logic.
@@ -50,11 +89,11 @@ release, but this is unlikely until sometime in early 2018.
  * Add a feature detector for `position: sticky`.
  * Migrate from Glyph to Material Icon.
  * Remove unused table model.
- * Remove the getDynamic method from properties helpers.
+ * Remove the getDynamic() method from properties helpers.
  * Remove uses of .runtimeType.
  * Fix uses_bottom_as_dynamic ("fuzzy arrow") errors.
  * Cleanup unneeded `preserveWhitespace: false` and `preserveWhitespace: true`.
- * Cleanup type warnings and other Dart 2.0 fixes.
+ * Cleanup type warnings and other Dart 2 fixes.
  * Cleanup unused variables.
  * Update documentation.
 
@@ -72,11 +111,9 @@ dependency_overrides:
   analyzer: ^0.31.0-alpha.1
 ```
 
-This is because Angular is starting to use and support the Dart 2.0.0 SDK, which
-is evolving. We expect to no longer require overrides once we are at a beta
+This is because Angular is starting to use and support the Dart 2 SDK, which is
+evolving. We expect to no longer require overrides once we are at a beta
 release, but this is unlikely until sometime in early 2018.
-
-[dep_overrides]: https://www.dartlang.org/tools/pub/dependencies#dependency-overrides
 
  * Material Auto-Suggest Input: Add ability to give a tooltip for the clear
    icon.
@@ -114,8 +151,8 @@ dependency_overrides:
   analyzer: ^0.31.0-alpha.1
 ```
 
-This is because Angular is starting to use and support the Dart 2.0.0 SDK, which
-is evolving. We expect to no longer require overrides once we are at a beta
+This is because Angular is starting to use and support the Dart 2 SDK, which is
+evolving. We expect to no longer require overrides once we are at a beta
 release, but this is unlikely until sometime in early 2018.
 
 [dep_overrides]: https://www.dartlang.org/tools/pub/dependencies#dependency-overrides
