@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular_components/utils/async/async.dart';
+import 'package:angular_components/utils/disposer/disposer.dart';
 
 import 'select.dart';
 import 'selection_options.dart';
@@ -19,6 +20,7 @@ class LockedLimitSelectionOptions<T> extends DelegatingSelectionOptions<T>
 
   final int lockedLimit;
   final SelectionOptions<T> _options;
+  final Disposer _disposer = new Disposer.oneShot();
 
   bool _unlockLimit = false;
   int _currentLimit;
@@ -38,6 +40,9 @@ class LockedLimitSelectionOptions<T> extends DelegatingSelectionOptions<T>
     assert(_options is Filterable);
     _currentLimit = lockedLimit;
     _updateFilteredOptions();
+    _disposer.addStreamSubscription(options.stream.listen((_) {
+      _updateFilteredOptions();
+    }));
   }
 
   set unlockLimit(bool unlock) {
@@ -78,6 +83,12 @@ class LockedLimitSelectionOptions<T> extends DelegatingSelectionOptions<T>
       _updateFilteredOptions();
     });
     return filtered;
+  }
+
+  @override
+  void dispose() {
+    _disposer.dispose();
+    super.dispose();
   }
 
   void _updateFilteredOptions() {
