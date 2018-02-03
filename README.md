@@ -98,7 +98,7 @@ the transformer.
 
   ```yaml
   dependencies:
-    sass_builder ^1.0.1 # update for the latest version
+    sass_builder: ^1.0.1 # update for the latest version
   transformers:
   - sass_builder
   - angular
