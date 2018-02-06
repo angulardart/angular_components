@@ -2,19 +2,7 @@
 
 > NOTE: This code is considered production quality, but depends on angular:
 > 5.0.0-alpha+4. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha+4 is used in production Google apps).
-
-**NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
-are **required**:
-
-```yaml
-dependency_overrides:
-  analyzer: ^0.31.0-alpha.1
-```
-
-This is because Angular is starting to use and support the Dart 2 SDK, which is
-evolving. We expect to no longer require overrides once we are at a beta
-release, but this is unlikely until sometime in early 2018.
+> api, not code quality (5.0.0-alpha+5 is used in production Google apps).
 
  * Material Dialog: Add mixin for bottom border on header.
  * Material Drawer: Add mixin for width.
