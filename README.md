@@ -38,8 +38,8 @@ code generation through package [build]. To build your project with
 
   ```yaml
   dev_dependencies:
-    build_runner: ^0.7.0
-    build_web_compilers: ^0.1.1
+    build_runner: ^0.7.8
+    build_web_compilers: ^0.2.1
   ```
 
 2. Run `pub get` on your package.
@@ -95,7 +95,7 @@ component's provided [Sass mixins](http://sass-lang.com/guide#topic-6).
 
   ```yaml
   dev_dependencies:
-    sass_builder: ^1.0.1 # update for the latest version
+    sass_builder: ^1.1.2 # update for the latest version
   ```
 
 2. Now you can import styles and mixins from this package via dart style package
