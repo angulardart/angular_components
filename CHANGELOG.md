@@ -1,7 +1,7 @@
 ## 0.9.0-alpha+4
 
 > NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-alpha+4. The alpha tag represents the evolving nature of the AngularDart
+> 5.0.0-alpha+5. The alpha tag represents the evolving nature of the AngularDart
 > api, not code quality (5.0.0-alpha+5 is used in production Google apps).
 
  * Material Dialog: Add mixin for bottom border on header.
