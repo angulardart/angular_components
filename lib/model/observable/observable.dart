@@ -272,7 +272,7 @@ class ObservableReference<T> extends ChangeNotificationProvider<T>
 
 /// Merges multiple updates of [ObserveAware]s and emits a single update
 /// notification stream.
-class ObservableComposite extends ChangeNotificationProvider {
+class ObservableComposite<T> extends ChangeNotificationProvider<T> {
   Map<Stream, StreamSubscription> _subscriptions =
       <Stream, StreamSubscription>{};
   final _disposer = new Disposer.oneShot();
