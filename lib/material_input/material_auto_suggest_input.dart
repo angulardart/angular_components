@@ -203,6 +203,11 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   @Input()
   bool hideCheckbox = false;
 
+  /// Whether the popup should automatically reposition itself based on space
+  /// available relative to the viewport.
+  @Input()
+  bool enforceSpaceConstraints = true;
+
   bool _showPopup = false;
   bool _focusPending = false;
   MaterialInputComponent _input;

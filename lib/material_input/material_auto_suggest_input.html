@@ -52,11 +52,12 @@
     <ng-content select="[trailing]"></ng-content>
   </span>
 </material-input>
-<material-popup enforceSpaceConstraints
+<material-popup
     #popup
     trackLayoutChanges
     class="{{popupShadowCssClass}}"
     [autoDismiss]="autoDismiss"
+    [enforceSpaceConstraints]="enforceSpaceConstraints"
     [matchMinSourceWidth]="popupMatchInputWidth"
     [preferredPositions]="popupPositions"
     [slide]="slide"
