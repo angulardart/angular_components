@@ -918,6 +918,9 @@ Rectangle _shiftRectangle(Rectangle rect, {num top: 0, num left: 0}) =>
 /// Returns a transformation which, when applied to [rect], will cause [rect] to
 /// be entirely within [container].
 ///
+/// If [rect] is larger than the container, this function will prefer to keep
+/// the top left corner visible.
+///
 /// Currently only handles translation, not scale.
 Rectangle _shiftRectangleToFitWithin(Rectangle rect, Rectangle container) {
   num x = 0;
@@ -925,12 +928,12 @@ Rectangle _shiftRectangleToFitWithin(Rectangle rect, Rectangle container) {
   if (rect.left < container.left) {
     x = container.left - rect.left;
   } else if (rect.right > container.right) {
-    x = container.right - rect.right;
+    x = max(container.right - rect.right, container.left - rect.left);
   }
   if (rect.top < container.top) {
     y = container.top - rect.top;
   } else if (rect.bottom > container.bottom) {
-    y = container.bottom - rect.bottom;
+    y = max(container.bottom - rect.bottom, container.top - rect.top);
   }
   return new Rectangle(x.round(), y.round(), 0, 0);
 }

@@ -74,7 +74,7 @@ const overlayBindings = const [
   const Provider(overlayContainerParent, useFactory: getOverlayContainerParent),
   // Applications may experimentally make this true to increase performance.
   const Provider(overlaySyncDom, useValue: true),
-  const Provider(overlayRepositionLoop, useValue: false),
+  const Provider(overlayRepositionLoop, useValue: true),
   OverlayDomRenderService,
   OverlayStyleConfig,
   OverlayService,
