@@ -7,6 +7,7 @@
 .paper-container {
   background-color: $mat-white;
   font-size: $mat-body-font-size;
+  line-height: $mat-font-leading-body-1;
   max-height: $mat-grid * 50;
   max-width: $mat-grid * 50;
   min-width: $mat-grid * 20;
