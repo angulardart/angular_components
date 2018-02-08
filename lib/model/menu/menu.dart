@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:observable/observable.dart';
@@ -20,8 +22,34 @@ export 'menu_item_affix.dart';
 
 /// A list of menu items with an optional name.
 class MenuItemGroup<T> extends LabeledList<T> {
-  MenuItemGroup(List<T> items, [String label])
-      : super.withLabel(new List.unmodifiable(items), label);
+  final ObservableReference<bool> _isCollapsible;
+  final ObservableReference<bool> _isExpanded;
+
+  MenuItemGroup(List<T> items,
+      [String label, bool isCollapsible = false, bool isExpanded = true])
+      : _isCollapsible = new ObservableReference(isCollapsible),
+        _isExpanded = new ObservableReference(isExpanded),
+        super.withLabel(new List.unmodifiable(items), label);
+
+  /// True when this component can be collapsed.
+  bool get isCollapsible => _isCollapsible.value;
+
+  set isCollapsible(bool value) {
+    _isCollapsible.value = value;
+  }
+
+  /// Change stream of collapsible changes.
+  Stream<bool> get onCollapsibleChange => _isCollapsible.stream;
+
+  /// True when the component is collapsed.
+  bool get isExpanded => _isExpanded.value;
+
+  set isExpanded(bool value) {
+    _isExpanded.value = value;
+  }
+
+  /// Change stream of the expansion state.
+  Stream<bool> get onExpandedChange => _isExpanded.stream;
 }
 
 /// Represents a tree-based collection of menu items.

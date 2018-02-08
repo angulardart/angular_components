@@ -13,13 +13,21 @@ $menu-item-selector: '.menu-item';
   outline: none;
 }
 
-.group-label {
+.group-header {
   @include list-item-base();
   @include mat-type-caption();
 
   color: $mat-light-transparent-black;
   height: $mat-grid * 3;
   line-height: $mat-grid * 3;
+
+  // To layout label and expansion button.
+  display: flex;
+  justify-content: space-between;
+}
+
+.expansion-icon {
+  cursor: pointer;
 }
 
 #{$menu-item-selector} {
@@ -32,7 +40,7 @@ $menu-item-selector: '.menu-item';
 }
 
 :host-context(body[dir="rtl"]) {
-  .group-label, #{$menu-item-selector} {
+  .group-header, #{$menu-item-selector} {
     @include list-item-base-rtl;
   }
 }
