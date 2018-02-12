@@ -1,3 +1,18 @@
+## 0.9.0-alpha+5
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+5. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (5.0.0-alpha+5 is used in production Google apps).
+
+ * Material Menu: Add a feature to menu item group to make it expandable.
+ * Material Radio: Protect against the group being destroyed before the
+   `tabIndex` gets reset.
+ * Material Tooltip: Update line height to 20px per ACUX spec.
+ * Widen dependencies on observable and quiver.
+ * Turn overlayRepositionLoop on by default.
+ * Only add touch listeners if the primary input is touch.
+ * Cleanup type warnings and other Dart 2 fixes.
+
 ## 0.9.0-alpha+4
 
 > NOTE: This code is considered production quality, but depends on angular:
