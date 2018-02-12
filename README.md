@@ -114,4 +114,4 @@ imports in your Sass files.
 ## Project Roadmap
 
 Our current work is summarized in the
-[roadmap for this quarter](https://github.com/dart-lang/angular_components/issues/193).
+[roadmap for this quarter](https://github.com/dart-lang/angular_components/issues/221).
