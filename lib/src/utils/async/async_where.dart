@@ -32,7 +32,7 @@ Future<T> asyncFirst<T>(List<T> items, Future<bool> filter(T item),
         {orElse()}) =>
     asyncWhere<T>(items, filter)
         .firstWhere((_) => true, defaultValue: orElse)
-        .then((x) => x as T);
+        .then((x) => x);
 
 /// Returns a future that completes with the unique item in [items] for which
 /// [filter] returns a future that completes with true.  It completes with an
