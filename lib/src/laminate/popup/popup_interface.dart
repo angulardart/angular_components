@@ -62,6 +62,13 @@ abstract class PopupInterface {
   @Input()
   set trackLayoutChanges(bool trackLayoutChanges);
 
+  /// Sets whether the popup should be constrained to the viewport.
+  ///
+  /// If this is true, then the popup's positioned will be clamped to always be
+  /// within the viewport instead of moving off-screen.
+  @Input()
+  set constrainToViewport(bool constrainToViewport);
+
   /// Sets whether the popup should be shown.
   ///
   /// If [visible] is not the current state, this may close or open the popup.
@@ -136,6 +143,11 @@ abstract class PopupBase implements PopupInterface {
   set trackLayoutChanges(bool trackLayoutChanges) {
     state.trackLayoutChanges = trackLayoutChanges;
   }
+
+  @override
+  set constrainToViewport(bool constrainToViewport) {
+    state.constrainToViewport = constrainToViewport;
+  }
 }
 
 /// A partial that stores all fields in [PopupInterface] to be sent further
@@ -167,6 +179,9 @@ abstract class PopupComposite implements PopupInterface {
 
   @override
   bool trackLayoutChanges = true;
+
+  @override
+  bool constrainToViewport = true;
 
   @override
   bool visible = false;
