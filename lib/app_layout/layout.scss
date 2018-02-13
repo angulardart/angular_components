@@ -18,33 +18,42 @@ $mat-desktop-drawer-margin: 3 * $mat-grid / 2;
 // Mobile spec calls for 16px margins have each element contribute half.
 $mat-mobile-drawer-margin: $mat-grid;
 
-material-drawer[persistent],
-material-drawer[permanent] {
-  @include material-drawer-common;
+material-drawer {
+  // Changes to material-list when used inside of the drawer.
+  @include mat-drawer-list-items;
+  @include mat-drawer-width($mat-drawer-width-default);
 
-  border-right: $mat-drawer-border;
+  &[persistent],
+  &[permanent] {
+    @include material-drawer-common;
 
-  &[end] {
-    border-left: $mat-drawer-border;
-    border-right: initial;
-    left: initial;
-    right: 0;
-  }
-}
+    border-right: $mat-drawer-border;
+    left: 0;
 
-material-drawer[persistent] {
-  transition: left $mat-transition-desktop $mat-transition-standard;
-
-  &.mat-drawer-collapsed {
-    left: -$mat-drawer-width;
-  }
-
-  &[end] {
-    transition-property: right;
+    &[end] {
+      border-left: $mat-drawer-border;
+      border-right: initial;
+      left: initial;
+      right: 0;
+    }
   }
 
-  &[end].mat-drawer-collapsed {
-    right: -$mat-drawer-width;
+  &[persistent] {
+    transition-property: transform, width;
+    transition-duration: $mat-transition-desktop;
+    transition-timing-function: $mat-transition-standard;
+
+    + material-content,
+    + .material-content {
+      transition: margin-left $mat-transition-desktop $mat-transition-standard;
+    }
+
+    &[end] {
+      + material-content,
+      + .material-content {
+        transition-property: margin-right;
+      }
+    }
   }
 }
 
@@ -54,36 +63,6 @@ material-content,
   min-height: 100%; // Allow content to expand the page.
   position: relative; // Prevent content from overlaying drawers in x, y, or z.
   z-index: 0;
-
-  material-drawer[persistent] + &,
-  material-drawer[permanent] + & {
-    margin-left: $mat-drawer-width;
-  }
-
-  material-drawer[persistent][end] + &,
-  material-drawer[permanent][end] + & {
-    margin-left: initial;
-    margin-right: $mat-drawer-width;
-  }
-
-  material-drawer[persistent] + & {
-    transition: margin-left $mat-transition-desktop $mat-transition-standard;
-  }
-
-  // If the drawer is collapsed, which needs to be the element directly before
-  // the content, set the content to the left edge.
-  material-drawer[persistent].mat-drawer-collapsed + & {
-    margin-left: 0;
-  }
-
-  material-drawer[persistent][end] + & {
-    transition-property: margin-right;
-  }
-
-  // [end] drawer is positioned on the opposite side
-  material-drawer[persistent][end].mat-drawer-collapsed + & {
-    margin-right: 0;
-  }
 }
 
 /// Material header styles
@@ -230,9 +209,4 @@ $mat-header-dense-height: 48px;
   // TODO(google) Remove padding offset when material-list padding is
   // removed
   height: $mat-header-height - $mat-grid; // Remove the content padding size
-}
-
-// Changes to material-list when used inside of the drawer.
-material-drawer {
-  @include mat-drawer-list-items;
 }
