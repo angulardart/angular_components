@@ -17,22 +17,18 @@ import 'material_expansionpanel.dart';
 )
 class MaterialExpansionPanelSet implements OnDestroy {
   final _panelDisposer = new Disposer.multi();
-  final _tearDownDisposer = new Disposer.oneShot();
   MaterialExpansionPanel _openPanel;
-  QueryList<MaterialExpansionPanel> _panels;
+  List<MaterialExpansionPanel> _panels;
 
   @ContentChildren(MaterialExpansionPanel)
-  set panels(QueryList<MaterialExpansionPanel> value) {
+  set panels(List<MaterialExpansionPanel> value) {
     _panels = value;
-    _tearDownDisposer.addStreamSubscription(
-        _panels.changes.listen((_) => _onPanelsChange()));
     _onPanelsChange();
   }
 
   @override
   void ngOnDestroy() {
     _panelDisposer.dispose();
-    _tearDownDisposer.dispose();
   }
 
   void _onPanelsChange() {
