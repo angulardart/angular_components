@@ -43,6 +43,10 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   @Input()
   bool enforceSpaceConstraints = false;
 
+  /// Whether to clamp the dropdown position so that it never goes offscreen.
+  @Input()
+  bool constrainToViewport = false;
+
   /// Whether or not the popup width is at least as wide as the select width.
   @Input()
   bool popupMatchInputWidth = true;

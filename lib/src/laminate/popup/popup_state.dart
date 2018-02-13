@@ -27,7 +27,8 @@ class PopupState extends Observable {
       int offsetY: 0,
       Iterable preferredPositions: const [],
       PopupSource source,
-      bool trackLayoutChanges: true}) {
+      bool trackLayoutChanges: true,
+      bool constrainToViewport: true}) {
     return new PopupState._(new ObservableMap<Symbol, dynamic>.from({
       #autoDismiss: autoDismiss,
       #enforceSpaceConstraints: enforceSpaceConstraints,
@@ -36,7 +37,8 @@ class PopupState extends Observable {
       #offsetY: offsetY,
       #preferredPositions: preferredPositions,
       #source: source,
-      #trackLayoutChanges: trackLayoutChanges
+      #trackLayoutChanges: trackLayoutChanges,
+      #constrainToViewport: constrainToViewport,
     }));
   }
 
@@ -123,6 +125,11 @@ class PopupState extends Observable {
     _backingMap[#trackLayoutChanges] = trackLayoutChanges;
   }
 
+  bool get constrainToViewport => _backingMap[#constrainToViewport];
+  set constrainToViewport(bool constrainToViewport) {
+    _backingMap[#constrainToViewport] = constrainToViewport;
+  }
+
   @override
   bool operator ==(o) =>
       o is PopupState &&
@@ -133,7 +140,8 @@ class PopupState extends Observable {
       o.offsetX == offsetX &&
       o.offsetY == offsetY &&
       o.preferredPositions == preferredPositions &&
-      o.trackLayoutChanges == trackLayoutChanges;
+      o.trackLayoutChanges == trackLayoutChanges &&
+      o.constrainToViewport == constrainToViewport;
 
   @override
   int get hashCode => hashObjects([
@@ -144,7 +152,8 @@ class PopupState extends Observable {
         offsetX,
         offsetY,
         preferredPositions,
-        trackLayoutChanges
+        trackLayoutChanges,
+        constrainToViewport,
       ]);
 
   @override

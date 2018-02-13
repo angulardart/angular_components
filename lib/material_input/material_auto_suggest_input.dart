@@ -208,6 +208,10 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   @Input()
   bool enforceSpaceConstraints = true;
 
+  /// Whether to clamp the popup position so that it never goes offscreen.
+  @Input()
+  bool constrainToViewport = false;
+
   bool _showPopup = false;
   bool _focusPending = false;
   MaterialInputComponent _input;

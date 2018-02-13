@@ -637,7 +637,7 @@ class MaterialPopupComponent extends Object
     _repositionOffsetX = newOffsetX;
     _repositionOffsetY = newOffsetY;
 
-    if (state.enforceSpaceConstraints) {
+    if (state.constrainToViewport) {
       // If necessary, move the popup to fit within the viewport.
       var popupRect = _overlayRef.overlayElement.getBoundingClientRect();
       popupRect =
