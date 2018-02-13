@@ -4,7 +4,7 @@
 
 @import 'package:angular_components/css/material/material';
 
-$mat-drawer-width: $mat-grid * 32 !default;
+$mat-drawer-width-default: $mat-grid * 32;
 
 @mixin material-drawer-common {
   background-color: $mat-white;
@@ -13,9 +13,7 @@ $mat-drawer-width: $mat-grid * 32 !default;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  left: 0;
   overflow: hidden;
   position: absolute;
   top: 0;
-  width: $mat-drawer-width;
 }

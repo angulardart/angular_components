@@ -4,27 +4,98 @@
 
 @import 'package:angular_components/material_list/mixins';
 
+/// Sets width of persitent and permanent material drawers.
+///
+/// Must be applied to the component itself, e.g.:
+///
+/// ```
+/// material-drawer {
+///   @include mat-drawer-width(512px);
+/// }
+/// ```
+@mixin mat-drawer-width($width) {
+  &[persistent],
+  &[permanent] {
+    width: $width;
+
+    + material-content,
+    + .material-content {
+      margin-left: $width;
+    }
+
+    &[end] {
+      + material-content,
+      + .material-content {
+        margin-left: 0;
+        margin-right: $width;
+      }
+    }
+  }
+
+  &[persistent].mat-drawer-collapsed {
+    transform: translateX(-100%);
+
+    // If the drawer is collapsed, which needs to be the element directly
+    // before the content, set the content to the left edge.
+    + material-content,
+    + .material-content {
+      margin-left: 0;
+    }
+
+    &[end] {
+      transform: translateX(100%);
+
+      // [end] drawer is positioned on the opposite side
+      + material-content,
+      + .material-content {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
 /// Sets width of MaterialTemporaryDrawerComponent and
 /// MaterialStackableDrawerComponent
 ///
-/// Must be applied to the component itself, e.g.:
+/// Should be applied to the component itself, e.g.:
 ///
 /// ```
 /// material-drawer[temporary] {
 ///   @include mat-temporary-drawer-width(512px);
 /// }
 /// ```
-@mixin mat-temporary-drawer-width($width) {
-  ::ng-deep > .drawer-content {
+///
+/// The additional params are for internal use only:
+/// *   $host encapsulates the styles within :host.
+/// *   $drawerSelector appends an extra selector to .drawer-content.
+@mixin mat-temporary-drawer-width($width, $host: false, $drawerSelector: '') {
+  @function drawer-content($selector: '') {
+    $parent: if($host,
+        if($selector == '', ':host', ':host(#{$selector})'),
+        '&#{$selector}');
+    @return '#{$parent} ::ng-deep > .drawer-content#{$drawerSelector}';
+  }
+
+  #{drawer-content()} {
+    left: -$width;
     width: $width;
   }
 
-  &:not([end]):not(.mat-drawer-expanded) ::ng-deep > .drawer-content {
-    left: -$width;
+  #{drawer-content('.mat-drawer-expanded')} {
+    transform: translateX(100%);
   }
 
-  &[end]:not(.mat-drawer-expanded) ::ng-deep > .drawer-content {
+  // We can't change the transform when the component is right aligned
+  // since that'll cause it to animate from the left to the right (and back)
+  // so we keep same transform for both alignments and rely on
+  // the left and right attributes to position the content properly.
+  #{drawer-content('[end]')} {
+    left: initial;
     right: -$width;
+  }
+
+  #{drawer-content('[end].mat-drawer-expanded')} {
+    transform: translateX(-100%);
   }
 }
 
