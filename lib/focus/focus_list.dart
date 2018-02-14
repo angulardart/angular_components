@@ -50,7 +50,7 @@ class FocusListDirective implements OnDestroy {
   bool loop = false;
 
   @ContentChildren(FocusableItem)
-  set listItems(QueryList<FocusableItem> listItems) {
+  set listItems(List<FocusableItem> listItems) {
     _children.clear();
     _disposer.dispose();
     listItems.forEach((i) {

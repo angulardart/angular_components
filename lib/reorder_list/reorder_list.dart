@@ -87,7 +87,7 @@ class ReorderListComponent implements OnDestroy {
   bool multiSelect = false;
 
   // Reorderable items in the list
-  QueryList<ReorderItemDirective> _items;
+  List<ReorderItemDirective> _items;
   // Map of active drag&drop event subscriptions.
   Map<HtmlElement, List<StreamSubscription>> _subscriptions;
   // Map of active onDrag subscriptions,
@@ -119,10 +119,8 @@ class ReorderListComponent implements OnDestroy {
   }
 
   @ContentChildren(ReorderItemDirective)
-  set items(QueryList<ReorderItemDirective> value) {
+  set items(List<ReorderItemDirective> value) {
     _items = value;
-    _disposer
-        .addStreamSubscription(_items.changes.listen((_) => _refreshItems()));
     _refreshItems();
   }
 
