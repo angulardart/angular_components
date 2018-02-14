@@ -209,7 +209,8 @@ class IntersectionObserver {
   external List<IntersectionObserverEntry> takeRecords();
 }
 
-typedef void ResizeObserverCallback(Iterable<ResizeObserverEntry> entries);
+typedef void ResizeObserverCallback(
+    Iterable<ResizeObserverEntry> entries, ResizeObserver observer);
 
 /// The ResizeObserver API is an interface for observing changes to Element's
 /// content rect’s width and height.
@@ -263,7 +264,7 @@ Stream<Rectangle> onResize(Element element) {
   controller = new StreamController<Rectangle>.broadcast(
       sync: true,
       onListen: () {
-        observer = new ResizeObserver(allowInterop((entries) {
+        observer = new ResizeObserver(allowInterop((entries, _) {
           for (var entry in entries) {
             controller.add(entry.contentRect);
           }
