@@ -80,7 +80,7 @@ class MenuItemGroupsComponent implements OnInit, OnDestroy {
   MenuModel menu;
 
   @ViewChildren(FocusableActivateItem)
-  QueryList<FocusableActivateItem> focusableItems;
+  List<FocusableActivateItem> focusableItems;
 
   List<RelativePosition> get preferredSubMenuPositions =>
       _preferredSubMenuPositions;
