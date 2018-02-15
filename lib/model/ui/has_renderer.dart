@@ -10,8 +10,25 @@ abstract class HasRenderer<T> {
   ItemRenderer<T> itemRenderer;
 }
 
+/// Returns an ItemRenderer that caches the results of calls.  It should be used
+/// in Selection widgets.
+///
+/// If the item passed in is already a caching ItemRenderer, it is returned
+/// unchanged.
+ItemRenderer<T> newCachingItemRenderer<T>(ItemRenderer<T> itemRenderer) {
+  return new CachingItemRenderer<T>(itemRenderer);
+}
+
 /// Caches the results of calls to ItemRenderer.  It should be used in
 /// Selection widgets.
+///
+/// Note: this class will soon be removed, since it will stop working due to an
+/// upcoming change to Dart language semantics: classes containing a `.call`
+/// method will no longer be able to be used in place of a function type.  See
+/// https://github.com/dart-lang/sdk/issues/32152 for more information.
+///
+/// To ensure forward compatibility, please use [newCachingItemRenderer]
+/// instead.
 class CachingItemRenderer<T> {
   /// See [ItemRenderer].
   final ItemRenderer<T> _renderer;
