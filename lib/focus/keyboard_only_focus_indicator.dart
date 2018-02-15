@@ -12,12 +12,6 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 /// outline when focused with a keyboard.
 @Directive(
   selector: "[keyboardOnlyFocusIndicator]",
-  host: const {
-    '(keyup)': 'resetOutline()',
-    '(blur)': 'resetOutline()',
-    '(mousedown)': 'hideOutline()',
-    '(click)': 'hideOutline()'
-  },
   exportAs: 'keyboardOnlyFocusIndicator',
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
@@ -28,12 +22,16 @@ class KeyboardOnlyFocusIndicatorDirective {
 
   KeyboardOnlyFocusIndicatorDirective(this._element, this._domService);
 
+  @HostListener('keyup')
+  @HostListener('blur')
   void resetOutline() {
     _domService.scheduleWrite(() {
       _element.style.outline = '';
     });
   }
 
+  @HostListener('mousedown')
+  @HostListener('click')
   void hideOutline() {
     _domService.scheduleWrite(() {
       _element.style.outline = 'none';
