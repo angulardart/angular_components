@@ -131,7 +131,6 @@ abstract class Modal {
 ///                and close interaction cycle that allows users to cancel.
 @Component(
   selector: 'modal',
-  host: const {'[attr.pane-id]': 'uniquePaneId'},
   providers: const [
     const Provider(DeferredContentAware, useExisting: ModalComponent),
     const Provider(Modal, useExisting: ModalComponent)
@@ -219,6 +218,7 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
 
   OverlayRef get resolvedOverlayRef => _resolvedOverlayRef;
 
+  @HostBinding('attr.pane-id')
   String get uniquePaneId => _resolvedOverlayRef?.uniqueId;
 
   // Make the overlay hosting this modal visible.
