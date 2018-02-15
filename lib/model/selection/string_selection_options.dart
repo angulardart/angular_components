@@ -13,8 +13,7 @@ String _stringFormatSuggestion(String value) =>
     value.replaceAll(' ', '').toLowerCase();
 
 ItemRenderer<T> _defaultRenderer<T>(ItemRenderer<String> sanitizeString) =>
-    new CachingItemRenderer<T>((T value) => sanitizeString(value.toString()))
-        .call;
+    newCachingItemRenderer<T>((T value) => sanitizeString(value.toString()));
 
 typedef bool StringSuggestionFilter<T>(T suggestion, String filterQuery);
 
