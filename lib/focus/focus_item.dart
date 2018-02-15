@@ -22,22 +22,19 @@ import 'package:angular_components/focus/focus.dart';
 ///
 @Directive(
     selector: '[focusItem]',
-    host: const {
-      '[attr.tabindex]': 'tabIndex',
-      '[attr.role]': 'role',
-      '(keydown)': r'keydown($event)',
-    },
     providers: const [
       const Provider(FocusableItem, useExisting: FocusItemDirective)
     ],
     visibility: Visibility.local)
 class FocusItemDirective extends RootFocusable implements FocusableItem {
+  @HostBinding('attr.role')
   final String role;
 
   FocusItemDirective(HtmlElement element, @Attribute('role') String role)
       : this.role = role ?? 'listitem',
         super(element);
 
+  @HostBinding('attr.tabindex')
   String tabIndex = '0';
 
   final _focusMoveCtrl =
@@ -45,6 +42,7 @@ class FocusItemDirective extends RootFocusable implements FocusableItem {
   @override
   Stream<FocusMoveEvent> get focusmove => _focusMoveCtrl.stream;
 
+  @HostListener('keydown', const [r'$event'])
   void keydown(KeyboardEvent event) {
     var focusEvent = new FocusMoveEvent.fromKeyboardEvent(this, event);
     if (focusEvent != null) {
