@@ -45,8 +45,8 @@ final bool supportsResizeObserver = js.context.hasProperty('ResizeObserver');
 /// Whether the browser supports position: sticky.
 final bool supportsPositionSticky = () {
   var el = new DivElement();
-  el.style.cssText = 'position: -webkit-sticky; position: sticky';
-  return el.style.position.contains('sticky');
+  el.style.cssText = 'position: sticky';
+  return el.style.position == 'sticky';
 }();
 
 /// Whether the current web browser is Firefox.
