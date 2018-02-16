@@ -8,6 +8,7 @@
     *ngFor="let group of options.optionGroups; let optionIndex = index"
     [expandAll]="shouldExpand(group, optionIndex)"
     [group]="group"
+    [allowParentSingleSelection]="allowParentSingleSelection"
     [maxInitialOptionsShown]="maxInitialOptionsShown(group, optionIndex)">
   </material-tree-group>
 </template>

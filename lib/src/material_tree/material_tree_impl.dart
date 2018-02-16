@@ -111,6 +111,10 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   @Input()
   bool expandAll = false;
 
+  @Input()
+  @override
+  bool allowParentSingleSelection = false;
+
   /// Whether to expand a given option group.
   ///
   /// When [expandAll] is true, always expand an option group, otherwise

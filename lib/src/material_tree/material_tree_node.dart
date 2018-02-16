@@ -66,6 +66,9 @@ class MaterialTreeNode<T> {
     expandAll ? expandAllOptions() : clearExpansions();
   }
 
+  /// Whether the parent node can be selected in single select mode
+  bool allowParentSingleSelection = false;
+
   /// The current node.
   OptionGroup<T> get group => _group;
   @Input()
@@ -135,7 +138,7 @@ class MaterialTreeNode<T> {
 
   /// Returns whether [option] is selectable.
   bool isSelectable(T option) {
-    return isMultiSelect &&
+    return (isMultiSelect || allowParentSingleSelection) &&
             _selectable.getSelectable(option) == SelectableOption.Selectable ||
         !isExpandable(option) &&
             _selectable.getSelectable(option) == SelectableOption.Selectable;

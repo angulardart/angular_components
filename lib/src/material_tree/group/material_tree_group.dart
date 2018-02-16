@@ -5,6 +5,7 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:intl/intl.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
@@ -14,7 +15,6 @@ import 'package:angular_components/src/material_tree/material_tree_node.dart';
 import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:intl/intl.dart';
 
 const materialTreeLeftPaddingToken = const OpaqueToken(
     'MaterialTreeGroupComponent_materialTreeLeftPaddingToken');
@@ -55,6 +55,9 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   int level = 0;
   @Input()
   bool parentHasCheckbox = false;
+  @Input()
+  @override
+  bool allowParentSingleSelection = false;
   final MaterialTreeRoot _root;
 
   int _maxInitialOptionsShown;
@@ -133,6 +136,7 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
 
   void handleSelectionOrExpansion(Event e, Object option) {
     if (!isExpandable(option) && isSelectable(option) ||
+        (allowParentSingleSelection && isSelectable(option)) ||
         (isMultiSelect && isSelectable(option))) {
       final previouslyToggledNode = _root.previouslyToggledNode;
       _root.previouslyToggledNode = option;
@@ -148,7 +152,7 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
       }
 
       // For single select, within a dropdown, close the dropdown on toggle.
-      if (!isMultiSelect) {
+      if (!isMultiSelect && !allowParentSingleSelection) {
         _dropdownHandle?.close();
       }
     } else {
