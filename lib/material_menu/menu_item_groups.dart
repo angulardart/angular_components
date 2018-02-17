@@ -346,6 +346,13 @@ class MenuItemGroupsComponent implements OnInit, OnDestroy {
     }
   }
 
+  /// Toggle the expansion of the group if it's collapsible.
+  void toggleExpansionIfCollapsible(MenuItemGroup group) {
+    if (group.isCollapsible) {
+      group.isExpanded = !group.isExpanded;
+    }
+  }
+
   @override
   void ngOnInit() {
     _createActiveMenuModelIfNone();
