@@ -108,7 +108,7 @@ class BaseMaterialInput extends FocusableMixin
 
   /// Maximum allowed characters for character counting input box.
   ///
-  /// Awalys shows character count if the field is non-null.
+  /// Always shows character count if the field is non-null.
   @Input()
   int maxCount;
 
