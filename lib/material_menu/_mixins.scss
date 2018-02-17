@@ -47,3 +47,17 @@
     top: -($mat-grid * 4) - $size / 2;
   }
 }
+
+@mixin menu-item-group-no-border-after-first {
+  ::ng-deep {
+    .group:not(:nth-of-type(2)):not(script):not(template):not(.empty) {
+      // TODO(google): Remove this once material list is cleaned up.
+      // Increase the specificity over styles of material list.
+      &:not(.empty):not(.empty):not(.empty) {
+        border-top: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
