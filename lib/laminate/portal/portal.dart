@@ -333,7 +333,7 @@ typedef void OnTemplatePortalReady(TemplatePortal portal);
 class TemplatePortalDirective extends TemplatePortal {
   @Output()
   Stream<TemplatePortalDirective> get ready => _ready.stream;
-  final _ready = new StreamController.broadcast();
+  final _ready = new StreamController<TemplatePortalDirective>.broadcast();
 
   TemplatePortalDirective(
       TemplateRef templateRef, ViewContainerRef viewContainerRef)
