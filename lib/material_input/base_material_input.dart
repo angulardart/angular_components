@@ -107,6 +107,8 @@ class BaseMaterialInput extends FocusableMixin
   }
 
   /// Maximum allowed characters for character counting input box.
+  ///
+  /// Awalys shows character count if the field is non-null.
   @Input()
   int maxCount;
 
@@ -169,6 +171,10 @@ class BaseMaterialInput extends FocusableMixin
           : _inputText.length;
     }
   }
+
+  /// Displays character count even if maxCount is not defined.
+  @Input()
+  bool showCharacterCount = false;
 
   BaseMaterialInput(@Self() @Optional() this._cd, this._changeDetector,
       DeferredValidator validator) {
@@ -421,12 +427,20 @@ class BaseMaterialInput extends FocusableMixin
     inputRef.nativeElement.select();
   }
 
-  String msgCharacterCounter(int currentCount, int maxCount) => Intl.message(
-      '$currentCount / $maxCount',
-      name: 'BaseMaterialInput_msgCharacterCounter',
-      args: [currentCount, maxCount],
-      desc: 'Character counter shown below a text box in the format "12 / 25"',
-      examples: const {'currentCount': 12, 'maxCount': 25});
+  /// The message to display when character counter is shown.
+  ///
+  /// Always shows [currentCount] but will ignore [maxCount] if it is null.
+  String msgCharacterCounter(int currentCount, int maxCount) => maxCount == null
+      ? '$currentCount'
+      : _msgCharacterCounter(currentCount, maxCount);
+
+  static String _msgCharacterCounter(int currentCount, int maxCount) =>
+      Intl.message('$currentCount / $maxCount',
+          name: 'BaseMaterialInput__msgCharacterCounter',
+          args: [currentCount, maxCount],
+          desc:
+              'Character counter shown below a text box in the format "12 / 25"',
+          examples: const {'currentCount': 12, 'maxCount': 25});
 
   static String get defaultEmptyMessage => Intl.message('Enter a value',
       desc: 'Error message when the input is empty and required.');

@@ -97,7 +97,7 @@
        (focus)="$event.stopPropagation()">
     &nbsp;
   </div>
-  <div *ngIf="maxCount != null"
+  <div *ngIf="maxCount != null || showCharacterCount"
        class="counter"
        aria-hidden="true"
        [class.invalid]="invalid">
