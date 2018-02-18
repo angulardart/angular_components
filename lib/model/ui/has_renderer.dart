@@ -10,54 +10,29 @@ abstract class HasRenderer<T> {
   ItemRenderer<T> itemRenderer;
 }
 
+final _rendererMarker = new Expando('Renderer marker');
+
 /// Returns an ItemRenderer that caches the results of calls.  It should be used
 /// in Selection widgets.
 ///
 /// If the item passed in is already a caching ItemRenderer, it is returned
 /// unchanged.
 ItemRenderer<T> newCachingItemRenderer<T>(ItemRenderer<T> itemRenderer) {
-  return new CachingItemRenderer<T>(itemRenderer);
-}
-
-/// Caches the results of calls to ItemRenderer.  It should be used in
-/// Selection widgets.
-///
-/// Note: this class will soon be removed, since it will stop working due to an
-/// upcoming change to Dart language semantics: classes containing a `.call`
-/// method will no longer be able to be used in place of a function type.  See
-/// https://github.com/dart-lang/sdk/issues/32152 for more information.
-///
-/// To ensure forward compatibility, please use [newCachingItemRenderer]
-/// instead.
-class CachingItemRenderer<T> {
-  /// See [ItemRenderer].
-  final ItemRenderer<T> _renderer;
-
-  /// Caches the result of calls to [ItemRenderer].
-  final Map<T, String> _cache = new Map<T, String>();
-
-  /// Creates of a CachingRenderer object.
-  CachingItemRenderer.create(this._renderer);
-
-  /// Returns a CachingRenderer, if the item passed in is already a
-  /// CachingRenderer, it just returns it directly.
-  factory CachingItemRenderer(ItemRenderer<T> itemRenderer) {
-    if (itemRenderer is CachingItemRenderer<T>) {
-      return itemRenderer;
-    }
-    return new CachingItemRenderer<T>.create(itemRenderer);
+  if (itemRenderer != null && _rendererMarker[itemRenderer] != null) {
+    return itemRenderer;
   }
-
-  /// Caches the value of the ItemRenderer call on the item if it does not
-  /// exist and uses the value if it does.
-  String call(T item) {
+  var _cache = <T, String>{};
+  ItemRenderer<T> cachingItemRenderer = (T item) {
     String value = _cache[item];
     if (value == null) {
-      value = _renderer(item);
+      value = itemRenderer(item);
       _cache[item] = value;
     }
     return value;
-  }
+  };
+  _rendererMarker[cachingItemRenderer] = cachingItemRenderer;
+
+  return cachingItemRenderer;
 }
 
 /// Interface to render a value.
