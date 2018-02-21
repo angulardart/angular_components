@@ -47,6 +47,7 @@
         class="clear-icon"
         [materialTooltip]="clearIconTooltip"
         [showTooltipIf]="hasClearIconTooltip"
+        [attr.aria-label]="clearIconTooltip"
         (trigger)="onClearIcon()">
     </material-icon>
     <ng-content select="[trailing]"></ng-content>
