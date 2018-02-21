@@ -84,9 +84,11 @@ class PriorityStreamIterator<T extends Comparable>
 /// default [Comparable.compare].
 class _StablePriorityQueue<T extends Comparable> extends HeapPriorityQueue<T> {
   _StablePriorityQueue([Comparator<T> comparison])
-      : super(new _OrderedComparator(comparison ?? _defaultComparator<T>()));
+      : this._(new _OrderedComparator(comparison ?? _defaultComparator<T>()));
 
-  _OrderedComparator<T> get comparator => comparison as _OrderedComparator<T>;
+  _StablePriorityQueue._(this.comparator) : super(comparator);
+
+  final _OrderedComparator<T> comparator;
 
   @override
   void add(T el) {
