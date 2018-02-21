@@ -54,6 +54,22 @@
   }
 }
 
+/// Internal function to generate selector for drawer-content.
+///
+/// Required to allow the temporary and stackable drawers to use the width mixin
+/// rather than duplicating the styles, which would get out of date.
+///
+/// *   $host encapsulates the styles within :host.
+/// *   $hostSelector appends a selector to the host material-drawer.
+/// *   $drawerSelector appends a selector to .drawer-content.
+@function _drawer-content(
+    $host: false, $hostSelector: '', $drawerSelector: '') {
+  $parent: if($host,
+      if($hostSelector == '', ':host', ':host(#{$hostSelector})'),
+      '&#{$hostSelector}');
+  @return '#{$parent} ::ng-deep > .drawer-content#{$drawerSelector}';
+}
+
 /// Sets width of MaterialTemporaryDrawerComponent and
 /// MaterialStackableDrawerComponent
 ///
@@ -65,23 +81,14 @@
 /// }
 /// ```
 ///
-/// The additional params are for internal use only:
-/// *   $host encapsulates the styles within :host.
-/// *   $drawerSelector appends an extra selector to .drawer-content.
-@mixin mat-temporary-drawer-width($width, $host: false, $drawerSelector: '') {
-  @function drawer-content($selector: '') {
-    $parent: if($host,
-        if($selector == '', ':host', ':host(#{$selector})'),
-        '&#{$selector}');
-    @return '#{$parent} ::ng-deep > .drawer-content#{$drawerSelector}';
-  }
-
-  #{drawer-content()} {
+/// _selector is for internal use only.
+@mixin mat-temporary-drawer-width($width, $_selector...) {
+  #{_drawer-content($_selector...)} {
     left: -$width;
     width: $width;
   }
 
-  #{drawer-content('.mat-drawer-expanded')} {
+  #{_drawer-content($hostSelector: '.mat-drawer-expanded', $_selector...)} {
     transform: translateX(100%);
   }
 
@@ -89,12 +96,13 @@
   // since that'll cause it to animate from the left to the right (and back)
   // so we keep same transform for both alignments and rely on
   // the left and right attributes to position the content properly.
-  #{drawer-content('[end]')} {
+  #{_drawer-content($hostSelector: '[end]', $_selector...)} {
     left: initial;
     right: -$width;
   }
 
-  #{drawer-content('[end].mat-drawer-expanded')} {
+  #{_drawer-content(
+      $hostSelector: '[end].mat-drawer-expanded', $_selector...)} {
     transform: translateX(-100%);
   }
 }
