@@ -1,3 +1,29 @@
+## 0.9.0-alpha+6
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+5. The alpha tag represents the evolving nature of the AngularDart
+> api, not code quality (5.0.0-alpha+5 is used in production Google apps).
+
+ * App Layout: Add mixin for permanent/persistent drawers and fix mixin for
+   temporary drawers.
+ * Material Auto Suggest Input: Add aria label to close button.
+ * Material Checkbox: Remove negative top margin.
+ * Material Input:
+   * Show character count when maxCount is null.
+   * Add attribute to set aria-label when a visible label is not desired.
+ * Material Menu:
+   * Allow expanding on group title clicks.
+   * Add a style variation to menu group to allow emphasizing the first group.
+ * Material Popup: Disable constrain to viewport in dropdowns via a new,
+   separate `@Input`.
+ * Material Tree: Adds an option to select parent nodes in a single selection
+   model tree.
+ * Remove position: -webkit-sticky support.
+ * Update type of materialProviders so it can be used when bootstrapping.
+ * Migrate from `host` to `@HostListener` and `@HostBinding`.
+ * Create a new API for caching item renderers.
+ * Cleanup type warnings and other Dart 2 fixes.
+
 ## 0.9.0-alpha+5
 
 > NOTE: This code is considered production quality, but depends on angular:

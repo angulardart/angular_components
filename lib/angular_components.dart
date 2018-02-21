@@ -4,8 +4,6 @@
 
 library angular_components;
 
-import 'package:angular/angular.dart' show Provider;
-
 import 'app_layout/material_persistent_drawer.dart';
 import 'app_layout/material_temporary_drawer.dart';
 import 'auto_dismiss/auto_dismiss.dart';
@@ -272,6 +270,6 @@ const List<dynamic> materialDirectives = const [
 ];
 
 /// A convenience list of all providers exposed by this package.
-const List<List<Provider>> materialProviders = const <List<Provider>>[
+const List<dynamic> materialProviders = const [
   popupBindings,
 ];
