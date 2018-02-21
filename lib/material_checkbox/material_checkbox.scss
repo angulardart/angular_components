@@ -4,8 +4,6 @@
 
 @import 'package:angular_components/css/material/material';
 
-// Adjust margin to keep icon and ripple centered.
-$margin-top: -1px;
 $ripple-left: -$mat-grid;
 $ripple-top: -$mat-grid;
 
@@ -63,13 +61,11 @@ $ripple-top: -$mat-grid;
 
 .icon {
   opacity: $mat-icon-opacity;
-  margin-top: $margin-top;
 
   // Checked & indeterminate icon styling
   &.filled {
     color: $mat-blue-500;
     opacity: $mat-opacity-strong;
-    margin-top: $margin-top;
   }
 }
 
