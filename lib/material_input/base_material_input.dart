@@ -84,6 +84,11 @@ class BaseMaterialInput extends FocusableMixin
   @Input()
   String label;
 
+  /// The label to be used for screen readers. Use [label] instead of this
+  /// when a visible label is desired.
+  @Input()
+  String inputAriaLabel;
+
   /// The hint text to be shown on the input. Not shown during an error.
   String _hintText;
   String get hintText => _hintText;
@@ -322,7 +327,7 @@ class BaseMaterialInput extends FocusableMixin
 
   bool get labelVisible => floatingLabelVisible || !hasVisibleText;
 
-  String get ariaLabel => label;
+  String get ariaLabel => inputAriaLabel ?? label;
 
   String get errorMessage {
     if (_error?.isNotEmpty ?? false) return _error;
