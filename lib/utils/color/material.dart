@@ -27,7 +27,7 @@ const darkOpacityLight = 0.7;
 const darkOpacityLighter = 0.5;
 const darkOpacityLightest = 0.3;
 
-const rippleOpacity = 0.14;
+const rippleOpacity = 0.16;
 const dividerOpacity = 0.12;
 
 /// SemiTransparent black/white text as used in most material specs.
