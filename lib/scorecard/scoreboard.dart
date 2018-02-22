@@ -70,13 +70,14 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
   SelectionModel _selectionModel;
-  QueryList<ScorecardComponent> _scorecards;
+  List<ScorecardComponent> _scorecards;
   ScorecardBarDirective _scorecardBar;
   String chevronBack = chevronLeft;
   String chevronForward = chevronRight;
 
   /// Whether to allow for uniform widths on scorecards.
   bool _enableUniformWidths;
+  bool _initialized = false;
 
   bool get isScrollable => scrollable && (_scorecardBar?.isScrollable ?? false);
   bool _atScorecardBarStart = false;
@@ -94,11 +95,11 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   }
 
   @ContentChildren(ScorecardComponent)
-  set scoreCards(QueryList<ScorecardComponent> value) {
+  set scoreCards(List<ScorecardComponent> value) {
     _scorecards = value;
-    _disposer.addStreamSubscription(
-        _scorecards.changes.listen((_) => _onScorecardsChange));
-    scheduleMicrotask(_onScorecardsChange);
+    // TODO(google): Remove if setting of content children occur after
+    // child is initialized.
+    if (_initialized) scheduleMicrotask(_onScorecardsChange);
   }
 
   @override
@@ -115,6 +116,10 @@ class ScoreboardComponent implements OnInit, OnDestroy {
       default:
         _selectionModel = new SelectionModel();
         break;
+    }
+    if (!_initialized) {
+      _initialized = true;
+      scheduleMicrotask(_onScorecardsChange);
     }
   }
 
