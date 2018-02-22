@@ -168,16 +168,16 @@ class MaterialRippleComponent implements OnDestroy {
     // dart2js would otherwise wait to initialize them until they are used.
     _ripplePool ??= new List<DivElement>(_maxRipples);
     _opacityTiming ??= {
-      'duration': 418.0,
+      'duration': 300.0,
     };
     _opacityKeyframes ??= [
       {'opacity': _minOpacity},
-      {'opacity': _maxOpacity, 'offset': 0.2},
-      {'opacity': _maxOpacity, 'offset': 0.4},
+      {'opacity': _maxOpacity, 'offset': 0.25},
+      {'opacity': _maxOpacity, 'offset': 0.5},
       {'opacity': _minOpacity},
     ];
     _transformTiming ??= {
-      'duration': 333.0,
+      'duration': 225.0,
       'easing': 'cubic-bezier(0.4, 0.0, 0.2, 1)',
     };
     // This is className = instead of classes.add because classes.add compiles
