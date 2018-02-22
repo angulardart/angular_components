@@ -142,8 +142,8 @@ class MaterialExpansionPanel
 
   HtmlElement _mainPanel;
   @ViewChild('mainPanel')
-  set mainPanel(ElementRef ref) {
-    _mainPanel = ref.nativeElement;
+  set mainPanel(HtmlElement mainPanel) {
+    _mainPanel = mainPanel;
     _disposer.addStreamSubscription(_mainPanel.onTransitionEnd.listen((_) {
       // Clear height override so it will match the active child's height.
       _mainPanel.style.height = '';
@@ -152,11 +152,13 @@ class MaterialExpansionPanel
 
   HtmlElement _mainContent;
   @ViewChild('mainContent')
-  set mainContent(ElementRef ref) => _mainContent = ref.nativeElement;
+  set mainContent(HtmlElement mainContent) => _mainContent = mainContent;
 
   HtmlElement _contentWrapper;
   @ViewChild('contentWrapper')
-  set contentWrapper(ElementRef ref) => _contentWrapper = ref.nativeElement;
+  set contentWrapper(HtmlElement contentWrapper) {
+    _contentWrapper = contentWrapper;
+  }
 
   /// If true, after a successful save, the panel will attempt to close.
   @Input()
