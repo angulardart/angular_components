@@ -35,8 +35,10 @@ import 'tab_change_event.dart';
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class MaterialTabPanelComponent {
+class MaterialTabPanelComponent implements AfterContentInit {
   final ChangeDetectorRef _changeDetector;
+  bool _initialzed = false;
+  Tab _previousActiveTab;
 
   /// Stream of [TabChangeEvent] instances, published before the tab has
   /// changed.
@@ -78,10 +80,22 @@ class MaterialTabPanelComponent {
 
   MaterialTabPanelComponent(this._changeDetector);
 
+  @override
+  void ngAfterContentInit() {
+    _initialzed = true;
+    _initTabs();
+  }
+
   @ContentChildren(Tab)
-  set tabs(QueryList<Tab> tabQuery) {
-    final previousActiveTab = (_tabs != null) ? _activeTab : null;
-    _tabs = new List.from(tabQuery);
+  set tabs(List<Tab> tabs) {
+    _previousActiveTab = (_tabs != null) ? _activeTab : null;
+    _tabs = tabs;
+    // TODO(google): Remove if setting of content children occur after
+    // child is initialized.
+    if (_initialzed) _initTabs();
+  }
+
+  void _initTabs() {
     _tabLabels = _tabs.map((t) => t.label).toList();
     _tabIds = _tabs.map((t) => t.tabId).toList();
 
@@ -90,8 +104,9 @@ class MaterialTabPanelComponent {
     scheduleMicrotask(() {
       _changeDetector.markForCheck(); // call early so we can return early.
       // Look for the previously active tab.
-      if (previousActiveTab != null) {
-        _activeTabIndex = _tabs.indexOf(previousActiveTab);
+      if (_previousActiveTab != null) {
+        _activeTabIndex = _tabs.indexOf(_previousActiveTab);
+        _previousActiveTab = null;
         if (_activeTabIndex == -1) {
           // Couldn't find previous tab. Just activate the first tab.
           _activeTabIndex = 0;
