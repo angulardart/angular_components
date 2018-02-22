@@ -382,7 +382,7 @@ class DomService {
   ///
   /// Returns a subscription that allows pausing, resuming and canceling the
   /// observer.
-  StreamSubscription trackLayoutChange(fn(), void callback(value),
+  StreamSubscription trackLayoutChange<T>(T fn(), void callback(T value),
       {int framesToStabilize: 1, bool runInAngularZone: false}) {
     // TODO(google): Move layout checking into ruler service when landed.
     Function trackerCallback = callback;
