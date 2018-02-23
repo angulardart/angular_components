@@ -150,7 +150,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 
   &:not([icon]) {
     border-radius: 2px;
-    min-width: 5.14em;
+    min-width: 8 * $mat-grid; // Value from mdc-button.
 
     .content {
       padding: $button-vertical-padding $button-horizontal-padding;
