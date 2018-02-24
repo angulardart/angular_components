@@ -38,7 +38,7 @@ class MaterialPercentInputDirective {
     var overrides;
     for (var key in _errorOverrides.keys) {
       if (_errorOverrides.containsKey(key)) {
-        overrides ??= new Map.from(errors);
+        overrides ??= new Map<String, dynamic>.from(errors);
         overrides[key] = _errorOverrides[key];
       }
     }
