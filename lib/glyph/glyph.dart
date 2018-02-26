@@ -18,6 +18,7 @@ const List<String> _flippedIcons = const [
   'last_page',
   'first_page',
   'open_in_new',
+  'star_half',
   'exit_to_app',
 ];
 
