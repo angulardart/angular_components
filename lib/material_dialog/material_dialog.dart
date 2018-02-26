@@ -30,7 +30,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///     <modal [visible]="showDialog">
 ///       <material-dialog>
 ///         <div header>
-///           <h3>Title</h3>
+///           <h1>Title</h1>
 ///           <p>Subtitle</p>
 ///         </div>
 ///
@@ -52,7 +52,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///     <modal [visible]="showDialog">
 ///       <material-dialog headered>
 ///         <div header>
-///           <h3>Title</h3>
+///           <h1>Title</h1>
 ///           <p>Subtitle</p>
 ///         </div>
 ///
@@ -80,7 +80,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///             <glyph icon="close"></glyph>
 ///           </material-button>
 ///
-///           <h3>Title</h3>
+///           <h1>Title</h1>
 ///         </div>
 ///
 ///         <p>Content goes here.</p>

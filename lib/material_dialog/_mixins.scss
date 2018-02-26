@@ -55,6 +55,7 @@
   padding: $mat-grid * 3 $mat-grid * 3 0;
   width: 100%;
 
+  ::ng-deep h1,
   ::ng-deep h3 {
     @include mat-type-title;
     margin: 0 0 $mat-grid;
@@ -71,6 +72,7 @@
   background: $mat-gray-700;
   padding-bottom: $mat-grid * 2;
 
+  ::ng-deep h1,
   ::ng-deep h3 {
     color: $mat-white;
     margin-bottom: $mat-grid / 2;
