@@ -97,6 +97,7 @@ footer {
 
 :host[info] ::ng-deep .wrapper {
   > header {
+    ::ng-deep h1,
     ::ng-deep h3 {
       line-height: $mat-grid * 5;
       margin: 0;
