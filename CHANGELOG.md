@@ -2,22 +2,29 @@
 
 > NOTE: This code is considered production quality, but depends on angular:
 > 5.0.0-alpha+5. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha+5 is used in production Google apps).
+> API, not code quality (5.0.0-alpha+5 is used in production Google apps).
 
  * App Layout: Add mixin for permanent/persistent drawers and fix mixin for
    temporary drawers.
  * Material Auto Suggest Input: Add aria label to close button.
+ * Material Button: Update min-width to new spec.
  * Material Checkbox: Remove negative top margin.
+ * Material Dialog: Add support for `<h1>` element in title.
+ * Material Icon: Flip half_star icon when in RTL.
  * Material Input:
    * Show character count when maxCount is null.
    * Add attribute to set aria-label when a visible label is not desired.
  * Material Menu:
    * Allow expanding on group title clicks.
    * Add a style variation to menu group to allow emphasizing the first group.
- * Material Popup: Disable constrain to viewport in dropdowns via a new,
+ * Material Popup: Disable constrain-to-viewport in dropdowns via a new,
    separate `@Input`.
- * Material Tree: Adds an option to select parent nodes in a single selection
-   model tree.
+ * Material Ripple: Update animation to match new spec.
+ * Material Select: Add a `FactoryRenderer` input.
+ * Material Tree:
+   * Adds an option to select parent nodes in a single selection model tree.
+   * Bugfix for auto selection all siblings due to an error being thrown which
+     stops event.stopPropagation from firing.
  * Remove position: -webkit-sticky support.
  * Update type of materialProviders so it can be used when bootstrapping.
  * Migrate from `host` to `@HostListener` and `@HostBinding`.
@@ -28,7 +35,7 @@
 
 > NOTE: This code is considered production quality, but depends on angular:
 > 5.0.0-alpha+5. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha+5 is used in production Google apps).
+> API, not code quality (5.0.0-alpha+5 is used in production Google apps).
 
  * Material Menu: Add a feature to menu item group to make it expandable.
  * Material Radio: Protect against the group being destroyed before the
@@ -43,7 +50,7 @@
 
 > NOTE: This code is considered production quality, but depends on angular:
 > 5.0.0-alpha+5. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha+5 is used in production Google apps).
+> API, not code quality (5.0.0-alpha+5 is used in production Google apps).
 
  * Material Dialog: Add mixin for bottom border on header.
  * Material Drawer: Add mixin for width.
@@ -72,7 +79,7 @@
 
 > NOTE: This code is considered production quality, but depends on angular:
 > 5.0.0-alpha+4. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha+4 is used in production Google apps).
+> API, not code quality (5.0.0-alpha+4 is used in production Google apps).
 
 **NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
 are **required**:
@@ -130,7 +137,7 @@ release, but this is unlikely until sometime in early 2018.
 
 > NOTE: This code is considered production quality, but depends on angular:
 > 5.0.0-alpha+2. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha+2 is used in production Google apps).
+> API, not code quality (5.0.0-alpha+2 is used in production Google apps).
 
 **NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
 are **required**:
@@ -170,7 +177,7 @@ release, but this is unlikely until sometime in early 2018.
 
 > NOTE: This code is considered production quality, but depends on angular:
 > 5.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha+1 is used in production Google apps).
+> API, not code quality (5.0.0-alpha+1 is used in production Google apps).
 
 **NOTE**: As of `angular 5.0.0-alpha+1` [`dependency_overrides`][dep_overrides]
 are **required**:
@@ -223,7 +230,7 @@ release, but this is unlikely until sometime in early 2018.
 
 > NOTE: This code is considered production quality, but depends on angular:
 > 5.0.0-alpha. The alpha tag represents the evolving nature of the AngularDart
-> api, not code quality (5.0.0-alpha is used in production Google apps).
+> API, not code quality (5.0.0-alpha is used in production Google apps).
 
  * Update dependencies to alpha versions.
    * angular: 5.0.0-alpha
@@ -558,7 +565,7 @@ release, but this is unlikely until sometime in early 2018.
 
 This code is considered production quality, but depends on angular2:
 3.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
-api, not code quality (3.0.0-alpha+1 is used in production Google apps).
+API, not code quality (3.0.0-alpha+1 is used in production Google apps).
 
  * Add Dynamic Component.
  * Add Material Select.
@@ -580,7 +587,7 @@ api, not code quality (3.0.0-alpha+1 is used in production Google apps).
 
 This code is considered production quality, but depends on angular2:
 3.0.0-alpha+1. The alpha tag represents the evolving nature of the AngularDart
-api, not code quality (3.0.0-alpha+1 is used in production Google apps).
+API, not code quality (3.0.0-alpha+1 is used in production Google apps).
 
 ### Breaking Changes
  * Update for generic syntax and `FutureOr` type introduced in Dart SDK 1.22.0.
@@ -623,7 +630,7 @@ api, not code quality (3.0.0-alpha+1 is used in production Google apps).
 
 This code is considered production quality, but depends on angular2:
 3.0.0-alpha. The alpha tag represents the evolving nature of the AngularDart
-api, not code quality (3.0.0-alpha is used in production Google apps).
+API, not code quality (3.0.0-alpha is used in production Google apps).
 
  * Add Material List.
  * Material Expansionpanel: Add `autoDismissable` directive.
@@ -635,7 +642,7 @@ api, not code quality (3.0.0-alpha is used in production Google apps).
 
 This code is considered production quality, but depends on angular2:
 3.0.0-alpha. The alpha tag represents the evolving nature of the AngularDart
-api.
+API.
 
  * Add Material Tooltip.
  * Material Ripple:
