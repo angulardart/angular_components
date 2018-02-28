@@ -58,40 +58,49 @@ class AsyncActionController<V> {
   /// have completed. If [exec] returns a future, its result is piped through to
   /// the [onDone] future, otherwise, the [onDone] future is completed with the
   /// result.
-  Future execute(Executor exec,
-      {OnCancelFunction onCancel, V valueOnCancel}) async {
-    if (_locked) {
-      throw new StateError('Cannot execute, execution already in process.');
-    }
-    _locked = true;
-
-    // Check for cancellations
-    _cancelled = await _shouldCancel();
-    var shouldProceed = !_cancelled;
-    _deferCompleter.complete(shouldProceed);
-    if (shouldProceed) {
-      // Wait for any execution deferrals.
-      await _maybeWait();
-      _executeAndAttach(exec);
-    } else {
-      _done = true;
-
-      // FutureCancellations have cancelled this action. Run the onCancel,
-      // then complete with [valueOnCancel].
-      if (onCancel == null) {
-        _executeCompleter.complete(valueOnCancel);
-      } else {
-        var cancelRes = onCancel();
-        if (cancelRes is! Future) {
-          _executeCompleter.complete(valueOnCancel);
-        } else {
-          // The action should resolve [onDone] with [valueOnCancel] if
-          // canceled, so, while we need to await the cancel result, we want
-          // to throw it away.
-          _attachFuture(cancelRes.then((_) => valueOnCancel));
-        }
+  Future execute(Executor exec, {OnCancelFunction onCancel, V valueOnCancel}) {
+    // This function is very time-sensitive.
+    // We are using explicit `Future`s to avoid breaking changes when the
+    // behavior of `async` changes.
+    // TODO(google): switch back to `async` with an explicit `await null;` at
+    // the beginning of the function, once the migration is done.
+    return new Future.microtask(() {
+      if (_locked) {
+        throw new StateError('Cannot execute, execution already in process.');
       }
-    }
+      _locked = true;
+
+      // Check for cancellations
+      return _shouldCancel().then((shouldCancel) {
+        _cancelled = shouldCancel;
+        var shouldProceed = !_cancelled;
+        _deferCompleter.complete(shouldProceed);
+        if (shouldProceed) {
+          // Wait for any execution deferrals.
+          return _maybeWait().then((_) {
+            _executeAndAttach(exec);
+          });
+        } else {
+          _done = true;
+
+          // FutureCancellations have cancelled this action. Run the onCancel,
+          // then complete with [valueOnCancel].
+          if (onCancel == null) {
+            _executeCompleter.complete(valueOnCancel);
+          } else {
+            var cancelRes = onCancel();
+            if (cancelRes is! Future) {
+              _executeCompleter.complete(valueOnCancel);
+            } else {
+              // The action should resolve [onDone] with [valueOnCancel] if
+              // canceled, so, while we need to await the cancel result, we want
+              // to throw it away.
+              _attachFuture(cancelRes.then((_) => valueOnCancel));
+            }
+          }
+        }
+      });
+    });
   }
 
   Future _maybeWait() {
@@ -99,10 +108,18 @@ class AsyncActionController<V> {
     return Future.wait(_executionDeferrals);
   }
 
-  Future<bool> _shouldCancel() async =>
-      Future.wait(_futureCancellations).then((results) => results.any((cancel) {
-            return cancel == true;
-          }));
+  Future<bool> _shouldCancel() {
+    // This function is very time-sensitive.
+    // We are using explicit `Future`s to avoid breaking changes when the
+    // behavior of `async` changes.
+    return new Future.microtask(() {
+      return Future
+          .wait(_futureCancellations)
+          .then((results) => results.any((cancel) {
+                return cancel == true;
+              }));
+    });
+  }
 
   void _executeAndAttach(dynamic /* AsyncExecutor|Executor */ exec) {
     var execResult = exec();
