@@ -101,7 +101,6 @@ class MaterialPopupComponent extends Object
         AfterViewInit,
         OnDestroy,
         DropdownHandle {
-  // Visible for testing.
   static const Duration SLIDE_DELAY = const Duration(milliseconds: 150);
 
   /// Stream on which an event is fired after the popup has finished opening.

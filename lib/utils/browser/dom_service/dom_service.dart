@@ -7,6 +7,7 @@ import 'dart:html';
 import 'dart:math' show max, min;
 
 import 'package:angular/angular.dart';
+import 'package:meta/meta.dart';
 import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/disposer/disposable_callback.dart';
 // TODO(google): Consolidate this with RenderSync /Angular.
@@ -503,7 +504,7 @@ class DomService {
     }
   }
 
-  /// Visible for testing only.
+  @visibleForTesting
   set rootZone(Zone value) {
     _rootZone = value;
   }

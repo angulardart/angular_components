@@ -7,6 +7,7 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'package:meta/meta.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_radio/material_radio_group.dart';
@@ -212,7 +213,7 @@ class MaterialRadioComponent extends RootFocusable
     }
   }
 
-  // Visible for testing.
+  @visibleForTesting
   void select() {
     if (disabled) return;
     checked = true;
