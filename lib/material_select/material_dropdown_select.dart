@@ -184,6 +184,17 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   @Input()
   bool showButtonBorder;
 
+  bool _deselectOnActivate = true;
+
+  /// If true triggering a select item component will deselect the currently
+  /// selected single select value.
+  @Input()
+  set deselectOnActivate(bool value) {
+    _deselectOnActivate = value;
+  }
+
+  bool get deselectOnActivate => isMultiSelect || _deselectOnActivate;
+
   @Input()
   @Deprecated(
       'Use labelFactory instead it allows for better tree-shakable code.')
@@ -397,10 +408,10 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
       if (item != null && selection != null) {
         if (item == deselectLabel) {
           deselectCurrentSelection();
-        } else if (selection.isSelected(item)) {
-          selection.deselect(item);
-        } else {
+        } else if (!selection.isSelected(item)) {
           selection.select(item);
+        } else if (deselectOnActivate) {
+          selection.deselect(item);
         }
       }
       if (isSingleSelect) close();

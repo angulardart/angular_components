@@ -86,6 +86,7 @@
                 [value]="item"
                 [active]="popup.showPopup && activeModel.isActive(item)"
                 [attr.id]="activeModel.id(item)"
+                [deselectOnActivate]="deselectOnActivate"
                 (mouseenter)="activeModel.activate(item)">
             </material-select-dropdown-item>
           </template>
