@@ -108,8 +108,11 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// - `slide: String` -- Direction of popup scaling. Valid values are `x`, `y`,
 ///   or `null`.
 ///
-/// - `deselectLabel: String` -- Text label for select item that deselects
-///   the current selection.
+/// - `deselectOnActivate: bool` -- Whether to deselect a selected option on
+///   click or enter/space key. Single selection model only. Defaults to true.
+///
+/// - `deselectLabel: String` -- Adds a select item that deselects the current
+///   selection.
 ///
 /// - `labelRenderer: ComponentRenderer` -- Function that returns a component
 ///   to be used for rendering group labels.
