@@ -35,7 +35,7 @@ const tooltipShowDelay = const Duration(milliseconds: 600);
     '(keyup)': 'onKeyUp()',
     'tabindex': '0',
     'aria-label': 'tooltipLabel',
-    '[attr.style]': "'cursor: pointer'"
+    '[style.cursor]': "'pointer'"
   },
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
