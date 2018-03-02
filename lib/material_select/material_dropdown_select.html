@@ -48,6 +48,7 @@
       (keypress)="onKeyPress($event)"
       (keyup)="onKeyUp($event)"
       (mouseout)="activeModel.activate(null)">
+    <ng-content select="[listHeader]"></ng-content>
     <ng-content></ng-content>
     <div class="options-wrapper" *ngIf="options != null">
       <material-select-dropdown-item
@@ -99,6 +100,7 @@
         </template>
       </div>
     </div>
+    <ng-content select="[listFooter]"></ng-content>
   </material-list>
   <div footer
       (keydown)="onKeyDown($event)"
