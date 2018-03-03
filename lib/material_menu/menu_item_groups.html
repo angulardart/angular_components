@@ -98,6 +98,7 @@
               <menu-item-groups
                   autoFocus
                   [activateFirstItemOnInit]="isKeyboardOpenedSubmenu"
+                  (selected)="onSubMenuItemSelected($event)"
                   [menu]="item.subMenu">
               </menu-item-groups>
             </material-list>
