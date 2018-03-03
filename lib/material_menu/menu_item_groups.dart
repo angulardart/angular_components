@@ -224,6 +224,10 @@ class MenuItemGroupsComponent implements OnInit, OnDestroy {
     _subMenuOpener.cancel();
   }
 
+  void onSubMenuItemSelected(MenuItem item) {
+    _selected.add(item);
+  }
+
   void select(MenuItem item, MenuItemGroup group) {
     item.nullAwareActionHandler();
 
