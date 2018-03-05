@@ -55,6 +55,14 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
+/// Mixin used for styling compact buttons local to a view. Private to this
+/// file.
+@mixin _button-compact {
+  &:not([icon]) {
+    padding: 0 $mat-grid;
+  }
+}
+
 /// Private mixin for styling the highlight when a button is hovered or focused.
 @mixin _button-hover {
   &:not([disabled]):not([icon]):hover::after,
@@ -98,6 +106,10 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 
   &[dense] {
     @include _button-dense;
+  }
+
+  &[compact] {
+    @include _button-compact;
   }
 
   &[disabled] {
@@ -296,11 +308,29 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 ///   Example:
 ///   ```scss
 ///   :host {
-///     @include button-dense-theme('material-button.dense', $mat-blue);
+///     @include button-dense-theme('material-button.dense');
 ///   }
 ///   ```
 @mixin button-dense-theme($selector) {
   ::ng-deep #{$selector} {
     @include _button-dense;
+  }
+}
+
+/// Mixin to create a compact button. Use this mixin enable compact buttons
+/// to all components below the given scope. Do not provide a scope if all
+/// all buttons or all buttons of a certain selector on the page should be
+/// compact.
+///
+/// Should be scopped unless all buttons on the page should be compact.
+///   Example:
+///   ```scss
+///   :host {
+///     @include button-compact-theme('material-button.compact');
+///   }
+///   ```
+@mixin button-compact-theme($selector) {
+  ::ng-deep #{$selector} {
+    @include _button-compact;
   }
 }
