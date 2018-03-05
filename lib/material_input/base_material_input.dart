@@ -113,7 +113,7 @@ class BaseMaterialInput extends FocusableMixin
 
   /// Maximum allowed characters for character counting input box.
   ///
-  /// Always shows character count if the field is non-null.
+  /// Character count always is displayed when the value is non-null.
   @Input()
   int maxCount;
 
@@ -177,7 +177,7 @@ class BaseMaterialInput extends FocusableMixin
     }
   }
 
-  /// Displays character count even if maxCount is not defined.
+  /// Display character count even if maxCount is null.
   @Input()
   bool showCharacterCount = false;
 
@@ -434,7 +434,8 @@ class BaseMaterialInput extends FocusableMixin
 
   /// The message to display when character counter is shown.
   ///
-  /// Always shows [currentCount] but will ignore [maxCount] if it is null.
+  /// The character count in the form "[currentCount] / [maxCount]", such as
+  /// `12 / 25`, when [maxCount] is non-null; otherwise simply "[currentCount]".
   String msgCharacterCounter(int currentCount, int maxCount) => maxCount == null
       ? '$currentCount'
       : _msgCharacterCounter(currentCount, maxCount);
