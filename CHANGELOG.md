@@ -1,8 +1,28 @@
+## 0.9.0-alpha+7
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+6. The alpha tag represents the evolving nature of the AngularDart
+> API, not code quality (5.0.0-alpha+6 is used in production Google apps).
+
+ * Material Button: Add compact mode.
+ * Material Expansionpanel: Add option show/hide the cancel button.
+ * Material Select:
+   * Add option to dropdown to disable deselecting on trigger.
+   * Allow content to be projected as list header and list footer in dropdown.
+ * Material Menu: Trigger selected event when an item from sub-menu is selected.
+ * Material Tooltip: Change `tooltipSource` directive to use `style.cursor`.
+ * Allow '\[' for start of word of highlight match.
+ * Use @visibleForTesting annotations.
+ * Prepare for change of `async` behavior in Dart 2.
+ * Make LazyEventEmitter no longer lazy and makes it easy to see why it should
+   not be used and a StreamController can be a simple drop in replacement.
+ * Update documentation.
+
 ## 0.9.0-alpha+6
 
 > NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-alpha+5. The alpha tag represents the evolving nature of the AngularDart
-> API, not code quality (5.0.0-alpha+5 is used in production Google apps).
+> 5.0.0-alpha+6. The alpha tag represents the evolving nature of the AngularDart
+> API, not code quality (5.0.0-alpha+6 is used in production Google apps).
 
  * App Layout: Add mixin for permanent/persistent drawers and fix mixin for
    temporary drawers.
