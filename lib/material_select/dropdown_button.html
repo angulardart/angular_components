@@ -6,8 +6,8 @@
 <div buttonDecorator
      keyboardOnlyFocusIndicator
      class="button"
-     (focus)="onFocus($event)"
-     (blur)="onBlur($event)"
+     (focus)="handleFocus($event)"
+     (blur)="handleBlur($event)"
      [attr.aria-label]="buttonAriaLabel"
      [class.border]="showButtonBorder"
      [class.invalid]="invalid"
