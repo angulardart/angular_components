@@ -10,6 +10,7 @@ import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/mixins/button_wrapper.dart';
+import 'package:angular_components/mixins/focusable_mixin.dart';
 
 /// A button styled specifically for dropdowns.
 ///
@@ -47,13 +48,19 @@ import 'package:angular_components/mixins/button_wrapper.dart';
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class DropdownButtonComponent extends Object with MaterialButtonWrapper {
+class DropdownButtonComponent extends Object
+    with FocusableMixin, MaterialButtonWrapper {
   DropdownButtonComponent() {
     iconName = 'arrow_drop_down';
   }
 
+  ButtonDirective _button;
+
   @ViewChild(ButtonDirective)
-  ButtonDirective button;
+  set button(ButtonDirective b) {
+    _button = b;
+    focusable = b;
+  }
 
   /// An error displayed below the button.
   ///
@@ -78,22 +85,14 @@ class DropdownButtonComponent extends Object with MaterialButtonWrapper {
 
   bool _showButtonBorder;
 
-  @Output()
-  Stream<FocusEvent> get blur => _blur.stream;
+  @Output('blur')
+  Stream<FocusEvent> get onBlur => _blur.stream;
   final _blur = new StreamController<FocusEvent>(sync: true);
 
-  void onBlur(FocusEvent event) {
+  void handleBlur(FocusEvent event) {
     _blur.add(event);
   }
 
   @Output()
-  Stream<FocusEvent> get focus => _focus.stream;
-  final _focus = new StreamController<FocusEvent>(sync: true);
-
-  void onFocus(FocusEvent event) {
-    _focus.add(event);
-  }
-
-  @Output()
-  Stream<UIEvent> get trigger => button.trigger;
+  Stream<UIEvent> get trigger => _button.trigger;
 }
