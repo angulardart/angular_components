@@ -72,7 +72,7 @@ $error-text-color: #d34336;
   $hacked-height: $icon-size / 2;
   height: $hacked-height;
 
-  ::ng-deep i.material-icons-extended {
+  ::ng-deep i.glyph-i {
     // Finally let's adjust the position of the glyph itself to compensate for
     // the smaller size of the glyph element. (This assumes center alignment)
     position: relative;
