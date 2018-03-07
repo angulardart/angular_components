@@ -24,10 +24,15 @@ $menu-item-selector: '.menu-item';
   // To layout label and expansion button.
   display: flex;
   justify-content: space-between;
+
+  &.is-collapsible {
+    cursor: pointer;
+  }
 }
 
 .expansion-icon {
   cursor: pointer;
+  margin-left: $mat-grid;
 }
 
 #{$menu-item-selector} {
