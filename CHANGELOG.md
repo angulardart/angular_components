@@ -1,15 +1,19 @@
 ## 0.9.0-alpha+7
 
 > NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-alpha+6. The alpha tag represents the evolving nature of the AngularDart
-> API, not code quality (5.0.0-alpha+6 is used in production Google apps).
+> 5.0.0-alpha+7. The alpha tag represents the evolving nature of the AngularDart
+> API, not code quality (5.0.0-alpha+7 is used in production Google apps).
 
  * Material Button: Add compact mode.
  * Material Expansionpanel: Add option show/hide the cancel button.
  * Material Select:
    * Add option to dropdown to disable deselecting on trigger.
    * Allow content to be projected as list header and list footer in dropdown.
- * Material Menu: Trigger selected event when an item from sub-menu is selected.
+   * Implement Focusable in `DropdownButtonComponent`.
+   * Fixed an alignment issue with the icon on dropdowns.
+ * Material Menu:
+   * Trigger selected event when an item from sub-menu is selected.
+   * Change mouse pointer on catagory to make it clear that it is clickable.
  * Material Tooltip: Change `tooltipSource` directive to use `style.cursor`.
  * Allow '\[' for start of word of highlight match.
  * Use @visibleForTesting annotations.
