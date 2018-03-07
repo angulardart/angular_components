@@ -14,6 +14,7 @@
     <div *ngIf="group.hasLabel"
          buttonDecorator
          class="group-header"
+         [class.is-collapsible]="group.isCollapsible"
          (trigger)="toggleExpansionIfCollapsible(group)">
       <div class="group-label">
         {{group.uiDisplayName}}
