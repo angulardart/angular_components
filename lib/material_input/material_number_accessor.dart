@@ -117,6 +117,10 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
   }
 
   num _parseNumber(String input) {
+    // NaN is a valid parsable entity for NumberFormat, but not a value a user
+    // is expected to be able to input.
+    if (input == 'NaN') return null;
+
     try {
       if (_checkInteger && input.contains(_numberFormat.symbols.DECIMAL_SEP)) {
         // Invalid value no longer an integer
