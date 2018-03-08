@@ -6,7 +6,6 @@ export 'package:angular_components/src/utils/async/async_update_scheduler.dart';
 export 'package:angular_components/src/utils/async/async_where.dart';
 export 'package:angular_components/src/utils/async/debounce_stream.dart';
 export 'package:angular_components/src/utils/async/disposable_future.dart';
-export 'package:angular_components/src/utils/async/lazy_event_emitter.dart';
 export 'package:angular_components/src/utils/async/lazy_stream_controller.dart';
 export 'package:angular_components/src/utils/async/priority_stream_iterator.dart';
 export 'package:angular_components/src/utils/async/simple_stream.dart';
