@@ -114,6 +114,12 @@
   }
 }
 
+@mixin material-input-hidden-underline() {
+  ::ng-deep .underline {
+    visibility: hidden;
+  }
+}
+
 @mixin input-enforce-ltr() {
   ::ng-deep {
     .input,
