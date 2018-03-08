@@ -21,6 +21,7 @@ $left-icon-width: $mat-grid * 4;
     $primary-color-selected: $mat-white,
     $primary-bgcolor-selected: $mat-blue-900,
     $delete-icon-color: $mat-white,
+    $left-icon-color: null,
     $left-icon-bgcolor: null,
     $max-chip-width: null,
     $selector: '') {
@@ -51,6 +52,13 @@ $left-icon-width: $mat-grid * 4;
 
     .delete-icon {
       fill: $delete-icon-color;
+    }
+
+    @if ($left-icon-color) {
+      .left-icon {
+        color: $left-icon-color;
+        fill: $left-icon-color;
+      }
     }
 
     @if ($left-icon-bgcolor) {
