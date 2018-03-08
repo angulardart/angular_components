@@ -3,10 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/material_menu/menu_popup.dart';
 import 'package:angular_components/material_menu/menu_popup_wrapper.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
+import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// The [DropdownMenuComponent] combines a [DropdownButtonComponent] with a
@@ -26,14 +28,15 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   visibility: Visibility.all,
 )
 class DropdownMenuComponent extends Object
-    with MenuPopupWrapper
-    implements OnDestroy {
+    with FocusableMixin, MenuPopupWrapper
+    implements AfterViewInit, OnDestroy {
   final _disposer = new Disposer.oneShot();
 
   DropdownMenuComponent(ChangeDetectorRef _changeDetector) {
     // Let Angular pick up changes to [isExpanded] in [MenuPopupWrapper] when
     // it's toggled programatically, e.g. TabMenuComponent.
     _disposer.addStreamSubscription(isExpandedChange.listen((_) {
+      focusable = _focusTarget;
       _changeDetector.markForCheck();
     }));
   }
@@ -43,13 +46,34 @@ class DropdownMenuComponent extends Object
     _disposer.dispose();
   }
 
+  @override
+  void ngAfterViewInit() {
+    focusable = _focusTarget;
+  }
+
   /// Dropdown button text.
   @Input()
   String buttonText;
 
+  bool _disabled = false;
+
+  bool get disabled => _disabled;
+
   @Input()
-  bool disabled = false;
+  set disabled(bool d) {
+    _disabled = d;
+    focusable = _focusTarget;
+  }
 
   bool get dropdownStyle => _dropdownStyle;
   bool _dropdownStyle = false;
+
+  @ViewChild(DropdownButtonComponent)
+  DropdownButtonComponent dropdownButton;
+
+  @ViewChild(MenuPopupComponent)
+  MenuPopupComponent menuPopup;
+
+  Focusable get _focusTarget =>
+      disabled ? null : (isExpanded ? menuPopup : dropdownButton);
 }

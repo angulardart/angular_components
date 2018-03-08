@@ -11,6 +11,7 @@ import 'package:angular_components/material_menu/menu_item_groups.dart';
 import 'package:angular_components/material_menu/menu_popup_wrapper.dart';
 import 'package:angular_components/material_menu/menu_root.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
+import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/model/menu/menu.dart';
 
 /// A popup that renders a [MenuModel] using a [MenuItemGroupsComponent].
@@ -33,7 +34,12 @@ import 'package:angular_components/model/menu/menu.dart';
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class MenuPopupComponent extends Object with MenuPopupWrapper {
+class MenuPopupComponent extends Object with FocusableMixin, MenuPopupWrapper {
   @Input()
   PopupSource popupSource;
+
+  @ViewChild(MenuItemGroupsComponent)
+  set menuItemGroups(MenuItemGroupsComponent groups) {
+    focusable = groups;
+  }
 }
