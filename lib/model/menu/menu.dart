@@ -24,12 +24,24 @@ export 'menu_item_affix.dart';
 class MenuItemGroup<T> extends LabeledList<T> {
   final ObservableReference<bool> _isCollapsible;
   final ObservableReference<bool> _isExpanded;
+  final ObservableReference<bool> _hasSeparator;
 
   MenuItemGroup(List<T> items,
-      [String label, bool isCollapsible = false, bool isExpanded = true])
-      : _isCollapsible = new ObservableReference(isCollapsible),
+      [String label,
+      bool hasSeparator = true,
+      bool isCollapsible = false,
+      bool isExpanded = true])
+      : _hasSeparator = new ObservableReference(hasSeparator),
+        _isCollapsible = new ObservableReference(isCollapsible),
         _isExpanded = new ObservableReference(isExpanded),
         super.withLabel(new List.unmodifiable(items), label);
+
+  /// True when this component explicitly specifies a separator.
+  bool get hasSeparator => _hasSeparator.value;
+
+  set hasSeparator(bool value) {
+    _hasSeparator.value = value;
+  }
 
   /// True when this component can be collapsed.
   bool get isCollapsible => _isCollapsible.value;
