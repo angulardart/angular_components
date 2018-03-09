@@ -79,6 +79,9 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   @Input()
   bool showFilterInsidePopup = false;
 
+  @Input()
+  bool shouldExpandAllWhenFiltered = true;
+
   bool get showFilterInsideButton =>
       supportsFiltering && !showFilterInsidePopup;
 
@@ -87,7 +90,8 @@ class MaterialTreeDropdownComponent extends SelectionContainer
       : throw new StateError(
           'The SlectionOptions provided should implement Filterable');
 
-  bool get expandAll => _expandAll || isFiltered;
+  bool get expandAll =>
+      _expandAll || (isFiltered && shouldExpandAllWhenFiltered);
 
   String get placeholder {
     if (selection is! MultiSelectionModel && selection.isNotEmpty) {
