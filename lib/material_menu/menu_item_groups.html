@@ -10,7 +10,8 @@
   <div group
        class="group"
        role="menu"
-       *ngFor="let group of menu.itemGroups; let i = index">
+       *ngFor="let group of menu.itemGroups; let i = index"
+       [class.has-separator]="group.hasSeparator">
     <div *ngIf="group.hasLabel"
          buttonDecorator
          class="group-header"

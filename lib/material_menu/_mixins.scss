@@ -48,16 +48,14 @@
   }
 }
 
-@mixin menu-item-group-no-border-after-first {
+// No default border on menu item groups unless explicitly specified.
+@mixin menu-item-group-no-default-border {
   ::ng-deep {
-    .group:not(:nth-of-type(2)):not(script):not(template):not(.empty) {
-      // TODO(google): Remove this once material list is cleaned up.
-      // Increase the specificity over styles of material list.
-      &:not(.empty):not(.empty):not(.empty) {
-        border-top: 0;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
+    .group:not(.has-separator):not(.empty)
+        + .group:not(script):not(template):not(.empty) {
+      border-top: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 }
