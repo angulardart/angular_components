@@ -53,9 +53,9 @@ abstract class SelectionModel<T>
       throw new ArgumentError.notNull('selectedValues');
     }
     if (allowMulti) {
-      return new _MultiSelectionModelImpl(selectedValues, keyProvider);
+      return new _MultiSelectionModelImpl<T>(selectedValues, keyProvider);
     } else {
-      return new _SingleSelectionModelImpl(
+      return new _SingleSelectionModelImpl<T>(
           selectedValues.isNotEmpty ? selectedValues.last : null, keyProvider);
     }
   }
