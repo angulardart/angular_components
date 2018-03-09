@@ -31,7 +31,7 @@ Stream<T> asyncWhere<T>(List<T> items, Future<bool> filter(T item)) async* {
 Future<T> asyncFirst<T>(List<T> items, Future<bool> filter(T item),
         {orElse()}) =>
     asyncWhere<T>(items, filter)
-        .firstWhere((_) => true, defaultValue: orElse)
+        .firstWhere((_) => true, orElse: orElse)
         .then((x) => x);
 
 /// Returns a future that completes with the unique item in [items] for which
