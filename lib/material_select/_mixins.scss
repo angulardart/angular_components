@@ -103,3 +103,10 @@
     padding: $padding;
   }
 }
+
+/// Sets the margin for the error text.
+@mixin dropdown-button-error-margin($margin) {
+  ::ng-deep .error-text {
+    margin: $margin;
+  }
+}
