@@ -224,7 +224,7 @@ class ObservableReference<T> extends ChangeNotificationProvider<T>
     with ObservableViewMixin<T> {
   static bool _defaultEq(a, b) => a == b;
 
-  final EqualsFn _equalsFn;
+  final EqualsFn<T> _equalsFn;
   StreamSubscription _listenSub;
   T _value;
 
@@ -234,7 +234,7 @@ class ObservableReference<T> extends ChangeNotificationProvider<T>
   /// the changes in the current execution block are collected, and only the
   /// last value will be published (in an async scheduled microtask).
   ObservableReference(this._value,
-      {EqualsFn equalsFn: _defaultEq, bool coalesce: false})
+      {EqualsFn<T> equalsFn: _defaultEq, bool coalesce: false})
       : _equalsFn = equalsFn,
         super(coalesce);
 
