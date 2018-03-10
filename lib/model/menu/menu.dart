@@ -90,7 +90,7 @@ class MenuModel<T> implements HasIcon {
   /// If [icon] is given, it will appear on the button that opens the menu.
   MenuModel(List<MenuItemGroup<T>> itemGroups,
       {this.icon, this.width, this.tooltipText})
-      : this.itemGroups = new List.unmodifiable(itemGroups) {
+      : this.itemGroups = new List<MenuItemGroup<T>>.unmodifiable(itemGroups) {
     assert(width == null || (width >= 1 && width <= 5));
   }
 
