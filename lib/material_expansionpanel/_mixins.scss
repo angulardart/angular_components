@@ -52,7 +52,7 @@ $_panel: 'div.panel.themeable';
 }
 
 @mixin expansionpanel-focused-background-color($color) {
-  ::ng-deep #{$_panel} > header.closed {
+  ::ng-deep #{$_panel} > header > .header.closed {
     &:hover,
     &:focus {
       background-color: $color;
@@ -61,7 +61,7 @@ $_panel: 'div.panel.themeable';
 }
 
 @mixin expansionpanel-focused-text-color($color) {
-  ::ng-deep #{$_panel} > header.closed {
+  ::ng-deep #{$_panel} > header > .header.closed {
     &:hover,
     &:focus {
       color: $color;
@@ -94,13 +94,13 @@ $_panel: 'div.panel.themeable';
 }
 
 @mixin expansionpanel-panel-name-min-width($min-width) {
-  ::ng-deep > #{$_panel} > header > .panel-name {
+  ::ng-deep > #{$_panel} > header .panel-name {
     min-width: $min-width;
   }
 }
 
 @mixin expansionpanel-panel-name-max-width($max-width) {
-  ::ng-deep > #{$_panel} > header > .panel-name {
+  ::ng-deep > #{$_panel} > header .panel-name {
     max-width: $max-width;
   }
 }
@@ -137,18 +137,18 @@ $_panel: 'div.panel.themeable';
 
 @mixin expansionpanel-header-min-height($min-height, $open-min-height) {
   ::ng-deep #{$_panel} {
-    header {
+    .header {
       min-height: $min-height;
     }
 
-    &.open > header {
+    &.open .header {
       min-height: $open-min-height;
     }
   }
 }
 
 @mixin expansionpanel-header-padding($padding) {
-  ::ng-deep #{$_panel} > header {
+  ::ng-deep #{$_panel} .header {
     padding: $padding;
   }
 }
@@ -158,7 +158,7 @@ $_panel: 'div.panel.themeable';
   ::ng-deep #{$_panel} {
     transition: none;
 
-    &.open > header {
+    &.open .header {
       // Need to override the min-height increase which happens by default.
       min-height: $mat-grid * 6;
     }
@@ -177,8 +177,8 @@ $_panel: 'div.panel.themeable';
 @mixin expansionpanel-dense-theme() {
   ::ng-deep #{$_panel} {
 
-    header,
-    &.open > header {
+    .header,
+    &.open .header {
       min-height: $mat-grid * 4;
     }
 

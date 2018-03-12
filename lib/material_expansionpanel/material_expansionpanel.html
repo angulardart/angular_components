@@ -12,9 +12,11 @@
      keyupBoundary>
 
   <!-- Title section -->
-  <header buttonDecorator
+<header
+  *ngIf="!isExpanded || !hideExpandedHeader">
+  <div class="header"
+          buttonDecorator
           #expandCollapseButton
-          *ngIf="!isExpanded || !hideExpandedHeader"
           [disabled]="disabled"
           [class.closed] = "!isExpanded"
           [class.disable-header-expansion]="disableHeaderExpansion"
@@ -37,7 +39,11 @@
                    [class.expand-more]="shouldFlipExpandIcon"
                    (trigger)="handleExpandIconClick()">
     </material-icon>
-  </header>
+  </div>
+  <div class="action" *ngIf="!shouldShowExpandIcon">
+    <ng-content select="[action]"></ng-content>
+  </div>
+</header>
 
   <!-- Expanded section -->
   <main [class.hidden]="!isExpanded" #mainPanel>
