@@ -25,8 +25,9 @@ import 'tooltip_target.dart';
 /// __Attributes:__
 ///
 /// - `type` -- The type of the icon. Defaults to "help" to show "help_outline"
-/// icon (a circled "?"). The other supported value is "info" for
-/// "info_outline" (a circled "i").
+/// icon (a circled "?"). The other supported values are "info" for
+/// "info_outline" (a circled "i") and "error" for "error_outline"
+/// (a circled "!").
 @Component(
   selector: 'material-icon-tooltip',
   providers: const [
@@ -69,7 +70,7 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
       @Attribute('type') String type, @Attribute('size') String size)
       : icon = '${type ?? "help"}_outline',
         iconSize = size ?? 'medium' {
-    assert(type == 'help' || type == 'info' || type == null);
+    assert(type == 'help' || type == 'info' || type == 'error' || type == null);
     assert(iconSize == 'x-small' ||
         iconSize == 'small' ||
         iconSize == 'medium' ||
