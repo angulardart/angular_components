@@ -8,6 +8,7 @@
   display: block;
   overflow: hidden;
   position: relative;
+  z-index: 0; // Create a stacking context for the button.
 
   .scroll-button {
     display: flex;
