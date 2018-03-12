@@ -254,15 +254,25 @@ class MaterialExpansionPanel
   @Input()
   bool alwaysShowExpandIcon = false;
 
+  /// If true, the expand icon should never be visible.
+  @Input()
+  bool alwaysHideExpandIcon = false;
+
   bool get hasCustomExpandIcon => expandIcon != _defaultExpandIcon;
 
-  bool get shouldShowExpandIcon =>
-      (hasCustomExpandIcon && isExpanded) ? alwaysShowExpandIcon : !disabled;
+  bool get shouldShowExpandIcon {
+    if (alwaysHideExpandIcon) return false;
+    return (hasCustomExpandIcon && isExpanded)
+        ? alwaysShowExpandIcon
+        : !disabled;
+  }
 
   bool get shouldFlipExpandIcon => hasCustomExpandIcon ? false : !isExpanded;
 
   bool get shouldShowHiddenHeaderExpandIcon =>
-      hasCustomExpandIcon ? false : (hideExpandedHeader && !disabled);
+      hasCustomExpandIcon || alwaysHideExpandIcon
+          ? false
+          : (hideExpandedHeader && !disabled);
 
   /// Option to set if widget should show save/cancel buttons `true` by default.
   @Input()

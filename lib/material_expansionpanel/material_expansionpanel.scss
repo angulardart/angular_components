@@ -55,10 +55,15 @@
 }
 
 header {
+  display: flex;
+  color: $mat-transparent-black;
+}
+
+.header {
   align-items: center;
   display: flex;
+  flex-grow: 1;
   @include mat-type-subhead;
-  color: $mat-transparent-black;
   cursor: pointer;
   min-height: $mat-grid * 6;
   outline: none;
@@ -77,7 +82,7 @@ header {
   }
 }
 
-.panel.open > header {
+.panel.open > header > .header {
   min-height: $mat-grid * 8;
 }
 
