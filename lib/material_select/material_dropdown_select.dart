@@ -8,6 +8,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_components/annotations/rtl_annotation.dart';
 import 'package:angular_components/content/deferred_content.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
@@ -224,25 +225,10 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
       @Attribute('popupClass') String popupClass,
       HtmlElement element)
       : activeModel = new ActiveItemModel(idGenerator),
-        popupClassName =
-            _constructEncapsulatedCss(popupClass, element.classes) {
+        popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
     isRtl = rtl;
     preferredPositions = RelativePosition.overlapAlignments;
     iconName = 'arrow_drop_down';
-  }
-
-  /// Return a string representing the encapsulated classes from [classes]
-  /// combined with the classes from [className].
-  // TODO(google): Move this somewhere more common if this becomes common
-  // practice.
-  static String _constructEncapsulatedCss(
-      String className, CssClassSet classes) {
-    var result = className ?? '';
-    for (var i in classes) {
-      // Add encapsulation classes from host
-      if (i.startsWith('_')) result += ' $i';
-    }
-    return result;
   }
 
   @Input()
