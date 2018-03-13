@@ -49,7 +49,7 @@ class _SingleFunctionDisposable implements Disposable {
 ///     final disposer = new Disposer()
 ///       ..addDisposable(() => print('Clean up');)
 ///       ..addDisposable(stream.listen())
-///       ..addDiposable(myCustomDisposable);
+///       ..addDisposable(myCustomDisposable);
 ///
 ///     disposer.dispose();
 ///
@@ -65,7 +65,7 @@ class _SingleFunctionDisposable implements Disposable {
 ///
 ///     disposer.dispose();
 ///     // The following call will assert.
-///     disposer.addDiposable(myCustomDisposable);
+///     disposer.addDisposable(myCustomDisposable);
 ///
 /// Prefer typed functions whenever possible:
 ///   [addEventSink]
