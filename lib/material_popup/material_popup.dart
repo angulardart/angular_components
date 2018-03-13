@@ -678,88 +678,37 @@ class MaterialPopupComponent extends Object
     // containerRect is (0, -500) 1024x768.
     //
     // Hopefully this'll make things easier to understand.
-    var screenSize = new _Size.fromRect(containerRect);
     var containerOffset = containerRect.topLeft;
 
-    // Determine best fit.
-    final positions = _flatten(_preferredPositions);
+    // Try each position, and use the one which overlaps most with the viewport.
+    var positions = _flatten(_preferredPositions);
     var bestPosition = positions.first;
-    var bestUnscrollableOverflow = double.INFINITY;
-    var bestHorizOverflow = double.INFINITY;
-    var bestVertOverflow = double.INFINITY;
-
-    bool better(unscrollableOverflow, horizOverflow, vertOverflow) {
-      if (unscrollableOverflow < bestUnscrollableOverflow) return true;
-      if (unscrollableOverflow > bestUnscrollableOverflow) return false;
-      // If we reach here, unscrollable overflow was the same.
-      if (horizOverflow < bestHorizOverflow) return true;
-      if (horizOverflow > bestHorizOverflow) return false;
-      // If we reach here, horiz overflow was the same.
-      return vertOverflow < bestVertOverflow;
-    }
-
-    // Also keep track of which positions we've already tried. (If people are
-    // just stitching together premade sets of positions, there will probably be
-    // some overlap between those sets.
-    final tried = new Set();
-
+    var bestOverlap = 0.0;
     for (var position in positions) {
       if (state.source.isRtl == true) {
         position = position.flipRelativePosition();
       }
-
-      if (!tried.add(position)) continue;
-
       // Build up a tentative position for the popup. These numbers are all
       // relative to the container div.
-      var containerPos = new Rectangle(
-          position.originX.calcLeft(sourceRect, contentRect) as num,
-          position.originY.calcTop(sourceRect, contentRect) as num,
+      var containerPos = new Rectangle<num>(
+          position.originX.calcLeft(sourceRect, contentRect),
+          position.originY.calcTop(sourceRect, contentRect),
           contentRect.width,
           contentRect.height);
       // Now translate that into screen space.
-      var screenPos = new Rectangle.fromPoints(
+      var screenPos = new Rectangle<num>.fromPoints(
           containerPos.topLeft + containerOffset,
           containerPos.bottomRight + containerOffset);
-
-      // Now we want to check to see how much the popup overflows off the
-      // screen. This happens in screen space.
-      var screenLeftOverflow = max(-screenPos.left, 0);
-      var screenRightOverflow = max(screenPos.right - screenSize.width, 0);
-      var screenTopOverflow = max(-screenPos.top, 0);
-      var screenBottomOverflow = max(screenPos.bottom - screenSize.height, 0);
-
-      var horizOverflow = screenLeftOverflow + screenRightOverflow;
-      var vertOverflow = screenTopOverflow + screenBottomOverflow;
-
-      // BUT! If a position that overflows less does it by going off the top or
-      // left of the page, then that's not great, because we can't scroll to see
-      // the rest of it. In that case we should prefer the one that overflows a
-      // lot to the bottom or right, because then we can at least scroll to see
-      // the rest.
-      //
-      // To check for this, we need to check coordinates in *document space*,
-      // not in screen space. We'll use the container as an approximation for
-      // that.
-      var documentLeftOverflow = max(-containerPos.left, 0);
-      var documentTopOverflow = max(-containerPos.top, 0);
-
-      var unscrollableOverflow = documentLeftOverflow + documentTopOverflow;
-
-      // If there's no overflow, we fit on screen -- just use this position
-      if (unscrollableOverflow == 0 &&
-          horizOverflow == 0 &&
-          vertOverflow == 0) {
-        return position;
-      }
-
-      // Otherwise try to minimize unscrollable overflow, then horiz overflow,
-      // then vert overflow.
-      if (better(unscrollableOverflow, horizOverflow, vertOverflow)) {
+      if (_viewportRect.containsRectangle(screenPos)) {
         bestPosition = position;
-        bestUnscrollableOverflow = unscrollableOverflow;
-        bestHorizOverflow = horizOverflow;
-        bestVertOverflow = vertOverflow;
+        break;
+      }
+      var overlapRect = _viewportRect.intersection(screenPos);
+      if (overlapRect == null) continue;
+      var overlap = overlapRect.width * overlapRect.height;
+      if (overlap > bestOverlap) {
+        bestOverlap = overlap;
+        bestPosition = position;
       }
     }
 
