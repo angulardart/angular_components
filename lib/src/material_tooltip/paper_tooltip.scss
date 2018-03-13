@@ -13,6 +13,11 @@
   min-width: $mat-grid * 20;
   padding: $mat-grid * 3;
 
+  @media(max-width: $mat-grid * 56) { // account for padding
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
   display: flex;
   flex-direction: column;
 
