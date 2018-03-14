@@ -141,6 +141,11 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 
   &[raised] {
     @include _button-raised;
+
+    &.highlighted:not([disabled]) {
+      background-color: $mat-blue-500;
+      color: $mat-white;
+    }
   }
 
   &[no-ink] material-ripple {
