@@ -5,13 +5,16 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_menu/menu_popup.dart';
 import 'package:angular_components/material_menu/menu_popup_wrapper.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
+import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/model/menu/menu.dart';
+import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// The Material Menu renders a menu based on a [MenuModel] object. This menu
 /// comprises a `material-list` in a `material-popup` and a
@@ -41,8 +44,11 @@ import 'package:angular_components/model/menu/menu.dart';
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class MaterialMenuComponent extends Object with MenuPopupWrapper {
+class MaterialMenuComponent extends Object
+    with FocusableMixin, MenuPopupWrapper
+    implements AfterViewInit, OnDestroy {
   final _onTrigger = new StreamController<Null>();
+  final _disposer = new Disposer.oneShot();
 
   /// Trigger button text. Ignored if the [MenuModel] has an icon.
   @Input()
@@ -78,5 +84,37 @@ class MaterialMenuComponent extends Object with MenuPopupWrapper {
   void handleButtonClick() {
     isExpanded = closeMenuOnClick ? !isExpanded : true;
     _onTrigger.add(null);
+  }
+
+  MaterialButtonComponent _button;
+
+  @ViewChild(MaterialButtonComponent)
+  set button(MaterialButtonComponent b) {
+    _button = b;
+  }
+
+  MenuPopupComponent _menuPopup;
+
+  @ViewChild(MenuPopupComponent)
+  set menuPopup(MenuPopupComponent m) {
+    _menuPopup = m;
+  }
+
+  Focusable get _focusTarget =>
+      disabled ? null : (isExpanded ? _menuPopup : _button);
+
+  @override
+  void ngAfterViewInit() {
+    focusable = _focusTarget;
+    // Other listeners which call focus() on isExpandedChange may have to await
+    // an extra cycle before the focusable is updated.
+    _disposer.addStreamSubscription(isExpandedChange.listen((_) {
+      focusable = _focusTarget;
+    }));
+  }
+
+  @override
+  void ngOnDestroy() {
+    _disposer.dispose();
   }
 }
