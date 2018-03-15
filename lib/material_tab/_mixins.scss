@@ -120,9 +120,13 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
   }
 }
 
-// Allow the text inside the tab to break into lines.
+// Allow the text inside the tab to break into lines. This needs to carefully
+// scoped to tab-strip or tab-button. Example:
+// material-tab-strip {
+//   @include allow-text-wrap;
+// }
 @mixin allow-text-wrap {
-  ::ng-deep > .content {
+  ::ng-deep .content {
     text-overflow: initial;
     white-space: initial;
   }
