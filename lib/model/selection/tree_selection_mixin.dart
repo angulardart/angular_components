@@ -65,6 +65,5 @@ abstract class TreeSelectionMixin<T>
       throw new UnimplementedError('getHierarchyMap() must be overriden.');
 
   /// Returns the parent of the given value
-  @visibleForTesting
   T getParent(T value) => null;
 }
