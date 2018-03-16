@@ -31,7 +31,15 @@ import 'package:angular_components/utils/browser/events/events.dart';
     directives: const [NgIf],
     changeDetection: ChangeDetectionStrategy.OnPush,
     visibility: Visibility.local)
-class MaterialToggleComponent {
+class MaterialToggleComponent implements AfterViewInit {
+  @ViewChild('toggle')
+  HtmlElement toggleElement;
+
+  @override
+  void ngAfterViewInit() {
+    _syncAriaPressed();
+  }
+
   /// Enables/disables the toggle button.
   ///
   /// `true` is disabled and `false` is enabled.
@@ -42,7 +50,13 @@ class MaterialToggleComponent {
   ///
   /// `true` is ON and `false` is OFF.
   @Input()
-  bool checked = false;
+  set checked(bool value) {
+    _checked = value;
+    _syncAriaPressed();
+  }
+
+  bool get checked => _checked;
+  bool _checked = false;
 
   final _controller = new StreamController<bool>.broadcast();
 
@@ -107,5 +121,10 @@ class MaterialToggleComponent {
       keyEvent.preventDefault();
       keyEvent.stopPropagation();
     }
+  }
+
+  void _syncAriaPressed() {
+    if (toggleElement == null) return;
+    toggleElement.attributes['aria-pressed'] = '$checked';
   }
 }
