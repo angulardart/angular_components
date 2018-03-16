@@ -75,7 +75,7 @@ code generation through package [build]. To build your project with
 ## Required Icon Font
 
 For icons to appear, add the following icon font download to your page.
-[Example](https://github.com/dart-lang/angular_components_example/blob/master/web/index.html#L13)
+[Example](https://github.com/dart-lang/angular_components_example/blob/master/angular_gallery/lib/builder/template/index.html.mustache)
 
 ```html
 <link
