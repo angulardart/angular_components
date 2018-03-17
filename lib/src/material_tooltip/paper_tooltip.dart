@@ -3,8 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
@@ -61,6 +63,7 @@ getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
                 [offsetX]="offsetX"
                 [offsetY]="offsetY"
                 [autoDismiss]="false"
+                [class]="popupClassName"
                 [source]="popupSource"
                 role="tooltip">
   <div class="paper-container"
@@ -79,6 +82,10 @@ getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
   visibility: Visibility.all,
 )
 class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
+  // To allow for more flexible styling, classes specified on the host are
+  // re-applied to material-popup.
+  final String popupClassName;
+
   PopupSource _tooltipSource;
   PopupSource get popupSource => _tooltipSource;
 
@@ -106,7 +113,10 @@ class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
   final TooltipController _tooltipController;
   final ChangeDetectorRef _changeDetector;
 
-  MaterialPaperTooltipComponent(this._tooltipController, this._changeDetector);
+  MaterialPaperTooltipComponent(this._tooltipController, this._changeDetector,
+      HtmlElement hostElement, @Attribute('tooltipClass') String tooltipClass)
+      : popupClassName =
+            constructEncapsulatedCss(tooltipClass, hostElement.classes);
 
   @ViewChild(MaterialPopupComponent)
   set popupChild(MaterialPopupComponent popup) {
