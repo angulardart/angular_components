@@ -46,9 +46,11 @@ class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
   int _transform = 0;
   int _buttonSize = 0;
 
-  ScorecardBarDirective(this._domService, ElementRef elementRef,
-      @Optional() @Inject(rtlToken) bool isRtl)
-      : _element = elementRef.nativeElement {
+  ScorecardBarDirective(
+    this._domService,
+    this._element,
+    @Optional() @Inject(rtlToken) bool isRtl,
+  ) {
     _isRtl = isRtl ?? false;
   }
 

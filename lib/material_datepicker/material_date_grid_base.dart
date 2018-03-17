@@ -291,11 +291,14 @@ abstract class ForcedScrollDirectiveHost {
   visibility: Visibility.all,
 )
 class ForcedScrollDirective {
-  final ElementRef _element;
+  final HtmlElement _element;
   final DomService _domService;
 
   ForcedScrollDirective(
-      this._element, this._domService, ForcedScrollDirectiveHost calendar) {
+    this._element,
+    this._domService,
+    ForcedScrollDirectiveHost calendar,
+  ) {
     // Trying to inject this directive into the calendar using @ViewQuery causes
     // the tests' tearDown to fail... so do this nastiness instead.
     // TODO(google): It didn't look like the test bed was doing anything
@@ -305,12 +308,11 @@ class ForcedScrollDirective {
     calendar.attachScroller(this);
   }
 
-  int get height => (_element.nativeElement as HtmlElement).clientHeight;
+  int get height => _element.clientHeight;
 
   void forceScroll(int scrollTop) {
     _domService.scheduleWrite(() {
-      Element elm = _element.nativeElement;
-      elm.scrollTop = scrollTop;
+      _element.scrollTop = scrollTop;
     });
   }
 }
