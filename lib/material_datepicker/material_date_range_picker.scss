@@ -1,0 +1,85 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'constants';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_select/mixins';
+
+$apply-height: $mat-grid * 6;
+$datepicker-main-content-height: $mat-grid * 9;
+
+$main-font-size: 13px;
+
+:host {
+  user-select: none;
+}
+
+.popup-contents {
+  user-select: none;
+  display: inline-block;
+  font-size: $main-font-size;
+
+  // Since the calendar picker already has a scrollbar, the parent container
+  // should avoid showing a second one.
+  overflow: hidden;
+}
+
+.separator {
+  flex-grow: 1;
+}
+
+.apply-bar {
+  box-sizing: border-box;
+  align-items: center;
+
+  background-color: $mat-white;
+  border-top: 1px solid $mat-gray-300;
+  display: none;
+  font-size: 13px;
+  height: $apply-height;
+  padding-right: $mat-grid;
+  color: $mat-blue-500;
+}
+
+.apply-bar.visible {
+  display: flex;
+}
+
+.main-content {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  height: $datepicker-main-content-height;
+
+  :host(.disabled) & {
+    cursor: not-allowed;
+  }
+}
+
+.main-line {
+  display: flex;
+}
+
+.range-title {
+  color: $mat-light-transparent-black;
+  font-size: 12px;
+  margin-bottom: $mat-grid-type;
+}
+
+.comparison-title {
+  color: $mat-light-transparent-black;
+  font-size: 12px;
+  margin-top: $mat-grid-type;
+}
+
+.menu-lookalike {
+  @include dropdown-icon-spacing($mat-grid * 2);
+}
+
+.next-prev-buttons {
+  // Shift up a little to align with the dropdown button text.
+  position: relative;
+  top: -3px;
+}

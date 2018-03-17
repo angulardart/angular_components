@@ -1,0 +1,291 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'constants';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/mixins';
+
+/// This mixin for size related properties of variants of date grids, including compact and normal
+/// calendars.
+@mixin calendar-sizing($cell-size,
+                       $title-padding,
+                       $horizontal-padding,
+                       $cells-per-row,
+                       $rows-per-group) {
+  $circle-size: $cell-size - $mat-grid-type;
+  // Reduce width/height of today's circle to compensate for that border
+  $today-circle-size: $circle-size - 2 * $cal-today-border-width;
+
+  .header-bar {
+    padding: 0 $horizontal-padding;
+  }
+
+  .title {
+    height: $cell-size;
+    padding: 0 $horizontal-padding + $title-padding;
+  }
+
+  .row {
+    padding-left: $horizontal-padding;
+  }
+
+  .row-group {
+    height: $cell-size * $rows-per-group;
+  }
+
+  //
+  // cell (date) styles
+  //
+
+  // The 44x44 (or 36x36 compact) touch/click target for each cell
+  .cell,
+  .spacer {
+    height: $cell-size;
+    width: $cell-size;
+  }
+
+  // The 40x40 (or 32x32 compact) circle for each cell
+  .circle {
+    height: $circle-size;
+    width: $circle-size;
+  }
+
+  // Circular border around today's cell
+  .today {
+    // The circle shouldn't encompass the entire 44x44 (or 36x36 compact) touch
+    // target; it should match the size of the other circles. So, shrink it to
+    // match. But the touch target itself should stay the same size, so we need
+    // to add a margin to compensate.
+    height: $today-circle-size;
+    // Today's .cell div is smaller than usual - calculate compensating margin
+    margin: ($cell-size - $circle-size) / 2;
+    width: $today-circle-size;
+  }
+
+  .today .circle {
+    height: inherit;
+    width: inherit;
+  }
+
+  // Since the selected range is blue by default, the blue circle around the
+  // current date needs some "padding" to make it visually distinguishable.
+  // This "padding" is actually implemented as a white border so that it draws
+  // over the top of the highlight divs. We then have to reduce width/height to
+  // compensate for adding the border.
+  // This selector has low CSS specificity so it can easily be overridden by
+  // the calendar-today-circle-padding mixin.
+  .today .boundary {
+    height: $today-circle-size - 2 * $cal-today-border-width;
+    width: $today-circle-size - 2 * $cal-today-border-width;
+  }
+
+  //
+  // highlighted range styles
+  //
+
+  // There are $cells-per-row+1 positions on the grid row (week):
+  // 0:     start of the grid row
+  // 1..$cells-per-row:  on the nth day of the row
+  // ($cells-per-row+1): end of the grid row
+  .start-0 {
+    left: 0;
+  }
+
+  @for $i from 1 through $cells-per-row {
+    $date-position: $horizontal-padding
+      + ($i * $cell-size)
+      - ($cell-size / 2);
+
+    .start-#{$i} {
+      // subtract circle radius to make room for the highlight's border-radius
+      left: $date-position - $circle-size / 2;
+    }
+
+    .end-#{$i} {
+      // add circle radius to make room for the highlight's border-radius
+      right: calc(100% - #{$date-position + $circle-size / 2});
+    }
+  }
+
+  .end-#{$cells-per-row + 1} {
+    right: 0;
+  }
+
+  .highlight {
+    border-radius: $circle-size / 2;
+    bottom: ($cell-size - $circle-size) / 2;
+    top: ($cell-size - $circle-size) / 2;
+  }
+
+  // Highlight ends are rounded when they fall on cells in a row
+  // (positions 1-7 in a week) but square at the start/end of a row
+  // (positions 0 and ($cells-per-row+1)).
+  .highlight.start-0 {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .highlight.end-#{$cells-per-row + 1} {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+
+// For properties which do not differ between compact and non-compact calendars,
+// prefer to set them outside the calendar-sizing mixin. This avoids increasing
+// their specificity unnecessarily, and fixes a bug caused by the
+// calendar-highlights mixin having less specificity than some default rules.
+
+:host {
+  display: inline-flex;
+  flex-direction: column;
+  user-select: none;
+  cursor: default;
+  font-size: 13px;
+  @include material-scrollbar-theme($mat-blue);
+}
+
+.scroller {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-shrink: 1;
+
+  // Prevent repaint on scroll.
+  will-change: transform;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  color: $mat-light-transparent-black;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+// Absolute positioning removes the title from the flow.
+// It remains in the correct place because .row-group is
+// position: relative.
+.title.inline {
+  position: absolute;
+}
+
+.header-bar {
+  background-color: $mat-grey-200;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.row {
+  position: relative;
+  white-space: nowrap;
+}
+
+.row-group {
+  box-sizing: border-box;
+  border-bottom: 1px solid $mat-grey-200;
+  position: relative; // So that inline titles can use position: absolute
+}
+
+//
+// date styles
+//
+
+.cell,
+.spacer {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: $mat-transparent-black;
+  transition:
+      background-color $mat-transition-fast $mat-transition-acceleration,
+      box-shadow $mat-transition $mat-transition-standard;
+}
+
+.boundary {
+  background-color: $mat-blue-500;
+  color: $mat-transparent-white;
+  font-weight: bold;
+}
+
+.cell:hover > .circle {
+  transition:
+      background-color $mat-transition-fast $mat-transition-deceleration,
+      box-shadow $mat-transition $mat-transition-standard;
+}
+
+.cell:hover > .boundary {
+  background-color: $mat-blue-700;
+  // Copied from material-shadow -- it doesn't make sense for the calendar
+  // dates to have a material-shadow element themselves, since they're created
+  // outside of Angular (and in large numbers -- performance is a concern).
+  box-shadow: 0 2px 5px 0 $cal-shadow-color;
+}
+
+.cell.disabled > .circle {
+  cursor: no-drop;
+  color: $mat-grey-500;
+}
+
+.today {
+  border: $cal-today-border-width solid $mat-blue-500;
+  border-radius: 50%;
+  font-weight: bold;
+
+  // Since the selected range is blue by default, the blue circle around the
+  // current date needs some "padding" to make it visually distinguishable.
+  // This "padding" is actually implemented as a white border so that it draws
+  // over the top of the highlight divs. We then have to reduce width/height to
+  // compensate for adding the border.
+  // This selector has low CSS specificity so it can easily be overridden by
+  // the calendar-today-circle-padding mixin.
+  .boundary {
+    border: $cal-today-border-width solid $mat-white;
+  }
+}
+
+//
+// highlighted range styles
+//
+
+.highlight {
+  background-color: $mat-blue-100;
+  position: absolute;
+  z-index: -1;
+}
+
+//
+// Cursor styles
+//
+// Firefox and Chrome have "grab" and "grabbing" icons. IE can fall back to a
+// custom image. The ordering of these rules is important as the browsers will
+// use the last one they consider valid.
+// https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#Browser_compatibility
+// TODO(google): Move into a common mixin (?)
+.grabbable .boundary {
+  cursor:
+      inline-image(
+              'package:angular_components/material_datepicker/src/openhand.cur')
+      7 5, default;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.grabbable:active,
+.grabbable:active .boundary {
+  cursor:
+      inline-image(
+              'package:angular_components/material_datepicker/src/closedhand.cur')
+      7 5, move;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}

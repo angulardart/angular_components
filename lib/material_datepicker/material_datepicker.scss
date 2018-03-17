@@ -1,0 +1,81 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'constants';
+@import 'mixins';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_select/mixins';
+
+$main-font-size: 13px;
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+
+  // Since the calendar picker already has a scrollbar, the parent container
+  // should avoid showing a second one.
+  overflow: hidden;
+  width: $cal-width;
+  font-size: $main-font-size;
+
+  &.compact {
+    width: $cal-compact-width;
+  }
+}
+
+@include calendar-num-week-rows(7);
+
+@for $i from 6 through 12 {
+  @include calendar-num-week-rows($i, $selector: '.num-week-rows-#{$i}');
+}
+
+.date-input {
+  box-sizing: border-box;
+  display: flex;
+  padding: 0 $picker-horizontal-padding;
+
+  material-input {
+    padding: 0;
+  }
+}
+
+.popup-content.compact .date-input {
+  padding: 0 $picker-compact-horizontal-padding;
+}
+
+.icon {
+  opacity: $mat-icon-opacity;
+}
+
+.menu-lookalike {
+  @include dropdown-icon-spacing($mat-grid * 2);
+  width: $mat-grid * 22; // looks about right
+}
+
+material-select-item {
+  box-sizing: border-box;
+  width: $cal-width;
+  font-size: inherit;
+}
+
+.preset-dates-wrapper {
+  padding: $mat-grid * 2 0;
+  border-top: 1px solid $mat-border-light;
+}
+
+.primary-label {
+  font-size: $mat-caption-font-size;
+}
+
+.inner-label-wrapper {
+  color: $mat-blue-500;
+  font-size: $mat-caption-font-size;
+  padding: $picker-vertical-padding $picker-horizontal-padding;
+  padding-bottom: $mat-grid;
+
+  :host(.compact) & {
+    padding: $picker-compact-vertical-padding $picker-compact-horizontal-padding;
+    padding-bottom: 0;
+  }
+}

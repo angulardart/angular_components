@@ -1,0 +1,246 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_button/mixins';
+@import 'package:angular_components/material_datepicker/constants';
+@import 'package:angular_components/material_datepicker/mixins';
+@import 'package:angular_components/material_input/mixins';
+@import 'package:angular_components/material_list/mixins';
+
+@include material-scrollbars('date-range-editor', $mat-blue);
+
+:host {
+  display: inline-flex;
+  color: $mat-transparent-black;
+
+  // See 'position: absolute' in .preset-list
+  position: relative;
+}
+
+.preset-list {
+  @include material-list-padding(0);
+  @include material-list-max-width(100%);
+  border-right: 1px solid $mat-gray-300;
+
+  // Scroll vertically (but never horizontally) if preset list is too long
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  // Stops the date-range-editor from increasing its height to match a
+  // lengthy preset list.
+  max-height: $preset-list-max-height;
+
+  .group {
+    padding: $date-range-picker-vertical-padding 0;
+    border-bottom: 1px solid $mat-gray-300;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    material-select-item {
+      font-size: inherit;
+    }
+
+    .days-input {
+      display: flex;
+      height: 4 * $mat-grid;
+      align-items: center;
+
+      material-input {
+        @include input-top-section-margin(0);
+        @include input-top-section-line-height(22px);
+        flex-shrink: 0;
+        padding: 0;
+        position: relative;
+        margin-right: $mat-grid-type;
+        width: 28px;
+      }
+    }
+  }
+}
+
+.preset-dropdown-button {
+  position: relative;
+  display: inline-flex;
+  margin-left: auto;
+  left: $mat-grid;
+
+  glyph {
+    transform: rotate(-90deg);
+  }
+}
+
+@include icon-button-padding('.preset-dropdown-button', 0);
+
+.preset-dropdown-item {
+  font-size: $mat-body-font-size;
+}
+
+.basic-preset-list {
+  min-width: $cal-compact-width;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  width: $cal-width;
+  border-left: 1px solid $mat-gray-300;
+  margin-left: -1px;
+  padding-top: $date-range-picker-vertical-padding;
+
+  :host(.compact) & {
+    width: $cal-compact-width;
+  }
+}
+
+.range-title {
+  color: $mat-lighter-transparent-black;
+  font-size: $mat-body-font-size;
+  padding: 2px $date-range-picker-horizontal-padding;
+}
+
+.range-input {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 4 * $mat-grid;
+  line-height: 4 * $mat-grid;
+  padding: 0 $date-range-picker-horizontal-padding;
+  margin-bottom: $date-range-picker-vertical-padding;
+}
+
+.month-selector-toolbar {
+  display: flex;
+  padding: 0 $date-range-picker-horizontal-padding;
+  margin-bottom: $date-range-picker-vertical-padding;
+  align-items: center;
+  color: $mat-transparent-black;
+}
+
+.month-selector-dropdown {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.month-selector-dropdown-icon {
+  will-change: transform;
+  transition: transform $mat-transition $mat-transition-standard;
+
+  &.flipped {
+    transform: scaleY(-1);
+  }
+}
+
+.visible-month {
+  @include mat-type-body-2();
+  text-transform: uppercase;
+}
+
+.picker-container {
+  @include calendar-height(7);
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+
+  &.compact {
+    @include calendar-compact-height(7);
+  }
+}
+
+.picker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(0);
+  transition: transform $mat-transition $mat-transition-standard;
+  will-change: transform;
+
+  &.ng-hide {
+    transform: translateY(100%);
+  }
+
+  &.ng-hidden {
+    visibility: hidden;
+  }
+}
+
+.month-selector {
+  border-top: 1px solid $mat-border-light;
+
+  &.ng-hide {
+    transform: translateY(-100%);
+  }
+}
+
+.range {
+  flex: 1;
+}
+
+.button-decorator {
+  display: flex;
+  padding-left: $date-range-picker-horizontal-padding;
+  padding-right: $date-range-picker-horizontal-padding;
+  margin-bottom: $date-range-picker-vertical-padding;
+  cursor: pointer;
+}
+
+.expend-more {
+  color: $mat-light-transparent-black;
+  height: $mat-font-leading-body-2;
+}
+
+.expand-less {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: $mat-light-transparent-black;
+}
+
+.custom-tab-left {
+  margin-right: auto;
+  // In the left column, selected custom date range will show up.
+  line-height: $mat-font-leading-body-2;
+}
+
+.custom_tab-left-selected {
+  margin-top: $cal-basic-custom-margin;
+  margin-right: auto;
+  line-height: $cal-basic-custom-line-height;
+}
+
+.custom-tab-right {
+  margin-right: auto;
+  line-height: $mat-font-leading-headline;
+}
+
+.custom_range_desc {
+  margin-bottom: $cal-basic-custom-margin;
+  font-size: $mat-font-size-caption;
+}
+
+.content-separator {
+  background: $mat-grey-300;
+  height: 1px;
+  color: $mat-grey-600;
+}
+
+// Date range input colors.
+@include date-range-input-highlights('.range-input', (
+  range: $mat-blue-map,
+  comparison: $mat-google-yellow-map,
+));
+
+// Remove the padding from the circle around the current date if it falls on the
+// edge of the comparison highlight, but keep it if it falls on the edge of the
+// range highlight.
+@include calendar-today-circle-remove-padding(
+  '.calendar',
+  comparison,
+  $exclude: range
+);

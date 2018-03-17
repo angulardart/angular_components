@@ -1,0 +1,43 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_datepicker/constants';
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.comparison-toggle-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  height: 4 * $mat-grid;
+  padding: 0 (2 * $mat-grid);
+}
+
+.comparison-toggle {
+  display: inline-flex;
+}
+
+.comparison-option-dropdown {
+  flex-grow: 1;
+  display: inline-block;
+  padding: 0 $mat-grid;
+  position: relative;
+}
+
+material-select-item {
+  font-size: inherit;
+}
+
+.fake-popup {
+  background-color: $mat-white;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}

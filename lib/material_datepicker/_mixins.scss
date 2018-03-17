@@ -1,0 +1,208 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// SASS mixins that deal with the calendar.
+@import 'constants';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/mixins';
+
+// Defines calendar highlight colors for the calendar selected with the given
+// selector. It's meant to be included at the top-level so that the
+// polyfill-non-strict selectors can take effect.
+//
+// Example usage:
+//
+// @include calendar-highlights('.calendar', (
+//   primary: $mat-deep-purple-map,
+//   secondary: $mat-pink-map,
+//   primary secondary: $mat-indigo-map, // Overlap of the two ranges
+// ));
+@mixin calendar-highlights($selector, $map) {
+  @each $ranges, $color in $map {
+    $highlight: '.highlight';
+    $boundary: '.boundary';
+    $left: '.left';
+    $right: '.right';
+    @each $range in $ranges {
+      $highlight: '#{$highlight}.highlight-#{$range}';
+      $left: '#{$left}.left-#{$range}';
+      $right: '#{$right}.right-#{$range}';
+      $boundary: '#{$boundary}.boundary-#{$range}';
+    }
+
+    #{$selector} ::ng-deep #{$highlight}::before {
+      background: map-get($color, 100);
+    }
+
+    #{$selector} ::ng-deep #{$left}::before {
+      border-left-color: map-get($color, 100);
+    }
+
+    #{$selector} ::ng-deep #{$right}::before {
+      border-right-color: map-get($color, 100);
+    }
+
+    #{$selector} ::ng-deep .boundary#{$highlight}:not(.active):not(.hover)::after {
+      background: map-get($color, 100);
+    }
+
+    #{$selector} ::ng-deep #{$boundary}.active:not(.hover) {
+      color: map-get(map-get($mat-text-colors, $color), 500);
+
+      &::after {
+        background: map-get($color, 500);
+      }
+    }
+  }
+}
+
+// Defines calendar highlight colors for the material datepicker.
+@mixin material-calendar-picker-theme($map) {
+  $primary-color: map-get($map, 500);
+
+  ::ng-deep material-calendar-picker {
+    @include calendar-highlights('', (default: $map));
+    @include material-scrollbar-theme($primary-color);
+  }
+}
+
+// Sets the color of the border around today's date on the calendar.
+@mixin calendar-today-circle($color) {
+  ::ng-deep material-calendar-picker .today {
+    box-shadow: inset 0 0 0 1px $color;
+  }
+}
+
+// The current date will be circled in blue on the calendar.
+// By default, white padding is added between that circle and the circle marking
+// a highlight boundary. This is only really appropriate for blue
+// highlights, so use this mixin to remove the padding for other highlights.
+//
+// Example usage:
+//
+// @include calendar-today-circle-remove-padding('.calendar', range);
+//
+// The second argument can be a list specifying multiple highlight names:
+//
+// @include calendar-today-circle-remove-padding('.calendar', range comparison);
+//
+// By default, padding removal also applies to cases where the specified
+// highlights overlap other highlights. If you want to keep the padding when
+// overlapping certain other highlights, pass an exclusion list:
+//
+// @include calendar-today-circle-remove-padding(
+//   '.calendar',
+//   comparison,
+//   $exclude: range
+// );
+//
+// In this example, 'range' will have padding, 'comparison' will not, and the
+// combination of 'range+comparison' will.
+//
+@mixin calendar-today-circle-remove-padding($selector, $ranges, $exclude: ()) {
+  @each $range in $ranges {
+    $boundary: '.boundary.boundary-#{$range}';
+    @each $exclude-range in $exclude {
+      $boundary: '#{$boundary}:not(.boundary-#{$exclude-range})';
+    }
+
+    #{$selector} ::ng-deep .today #{$boundary}.circle {
+      border: 0;
+      height: inherit;
+      width: inherit;
+    }
+  }
+}
+
+@mixin calendar-main-font-size($selector, $value) {
+  #{$selector} ::ng-deep .menu-lookalike {
+    font-size: $value;
+  }
+}
+
+@mixin calendar-height($numVisibleWeeks) {
+  height: $cal-date-size * ($numVisibleWeeks + 1);
+}
+
+@mixin calendar-compact-height($numVisibleWeeks) {
+  height: $cal-date-compact-size * ($numVisibleWeeks + 1);
+}
+
+@mixin calendar-num-week-rows($weekRows, $selector: '') {
+  material-calendar-picker#{$selector}, .calendar-placeholder#{$selector} {
+    @include calendar-height($weekRows);
+
+    &.compact {
+      @include calendar-compact-height($weekRows);
+    }
+  }
+}
+
+// Set the width of the menu-lookalike, which shows the value of the date
+// chosen.
+@mixin menu-width($width) {
+  ::ng-deep .menu-lookalike {
+    width: $width;
+  }
+}
+
+// Set the border of the menu-lookalike, which shows the value of the date
+// chosen.
+@mixin menu-border($border) {
+  ::ng-deep .menu-lookalike {
+    border: $border;
+  }
+}
+
+// Set the glyph margin of the menu-lookalike, which is the margin style of the
+// arrow_drop_down icon.
+@mixin menu-glyph-margin($margin) {
+  ::ng-deep .menu-lookalike {
+    glyph {
+      margin: $margin;
+    }
+  }
+}
+
+// Defines highlight colors for the date-range-inputs. Corresponds to
+// @calendar-highlights, except overlapping ranges do not apply.
+//
+// Example usage:
+//
+// @include date-range-input-highlights('.date-range-inputs', (
+//   primary: $mat-deep-purple-map,
+//   secondary: $mat-pink-map,
+// ));
+@mixin date-range-input-highlights($selector, $map) {
+  @each $range, $color in $map {
+    $active: '.#{$range} material-input.active';
+
+    #{$selector} ::ng-deep #{$active} {
+      @include material-input-focused-underline-color(map-get($color, 500));
+
+      ::selection {
+        background: map-get($color, 100);
+      }
+    }
+  }
+}
+
+// Set the display property of the range-title, which shows the title text of
+// selected date range.
+//
+// Example usage (hide range title):
+//
+// @include range-title-display(none);
+@mixin range-title-display($display) {
+  ::ng-deep .range-title {
+    display: $display;
+  }
+}
+
+// Set the margin of the range title.
+@mixin range-title-margin($margin) {
+  ::ng-deep .range-title {
+    margin: $margin;
+  }
+}

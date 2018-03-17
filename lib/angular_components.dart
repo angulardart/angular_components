@@ -20,7 +20,6 @@ import 'glyph/glyph.dart';
 import 'highlighted_text/highlighted_text.dart';
 import 'highlighted_text/highlighted_value.dart';
 import 'laminate/components/modal/modal.dart';
-import 'laminate/popup/module.dart';
 import 'laminate/popup/popup.dart';
 import 'material_button/material_button.dart';
 import 'material_button/material_fab.dart';
@@ -28,6 +27,16 @@ import 'material_checkbox/material_checkbox.dart'
     show MaterialCheckboxComponent;
 import 'material_chips/material_chip.dart';
 import 'material_chips/material_chips.dart';
+import 'material_datepicker/date_input.dart';
+import 'material_datepicker/date_range_editor.dart';
+import 'material_datepicker/date_range_input.dart';
+import 'material_datepicker/material_calendar_picker.dart';
+import 'material_datepicker/material_date_range_picker.dart';
+import 'material_datepicker/material_date_time_picker.dart';
+import 'material_datepicker/material_datepicker.dart';
+import 'material_datepicker/material_month_picker.dart';
+import 'material_datepicker/material_time_picker.dart';
+import 'material_datepicker/module.dart';
 import 'material_dialog/material_dialog.dart';
 import 'material_expansionpanel/material_expansionpanel.dart';
 import 'material_expansionpanel/material_expansionpanel_auto_dismiss.dart';
@@ -57,6 +66,7 @@ import 'material_ripple/material_ripple.dart';
 import 'material_select/display_name.dart';
 import 'material_select/dropdown_button.dart';
 import 'material_select/material_dropdown_select.dart';
+import 'material_select/material_dropdown_select_accessor.dart';
 import 'material_select/material_select.dart';
 import 'material_select/material_select_dropdown_item.dart';
 import 'material_select/material_select_item.dart';
@@ -107,6 +117,21 @@ export 'material_checkbox/material_checkbox.dart'
     show MaterialCheckboxComponent;
 export 'material_chips/material_chip.dart';
 export 'material_chips/material_chips.dart';
+export 'material_datepicker/calendar.dart';
+export 'material_datepicker/comparison.dart';
+export 'material_datepicker/date_input.dart';
+export 'material_datepicker/date_range_editor.dart';
+export 'material_datepicker/date_range_input.dart';
+export 'material_datepicker/material_calendar_picker.dart';
+export 'material_datepicker/material_date_range_picker.dart';
+export 'material_datepicker/material_date_time_picker.dart';
+export 'material_datepicker/material_datepicker.dart';
+export 'material_datepicker/material_month_picker.dart';
+export 'material_datepicker/material_time_picker.dart';
+export 'material_datepicker/model.dart';
+export 'material_datepicker/module.dart';
+export 'material_datepicker/next_prev_buttons.dart';
+export 'material_datepicker/preset.dart';
 export 'material_dialog/material_dialog.dart';
 export 'material_expansionpanel/material_expansionpanel.dart';
 export 'material_expansionpanel/material_expansionpanel_auto_dismiss.dart';
@@ -142,6 +167,7 @@ export 'material_select/activation_handler.dart';
 export 'material_select/display_name.dart';
 export 'material_select/dropdown_button.dart';
 export 'material_select/material_dropdown_select.dart';
+export 'material_select/material_dropdown_select_accessor.dart';
 export 'material_select/material_select.dart';
 export 'material_select/material_select_base.dart';
 export 'material_select/material_select_dropdown_item.dart';
@@ -166,6 +192,7 @@ export 'mixins/has_tab_index.dart';
 export 'mixins/highlight_assistant_mixin.dart';
 export 'mixins/material_dropdown_base.dart';
 export 'mixins/track_layout_changes.dart';
+export 'model/date/date.dart';
 export 'model/selection/select.dart';
 export 'model/selection/selection_model.dart';
 export 'model/selection/selection_options.dart';
@@ -191,8 +218,12 @@ const List<dynamic> materialDirectives = const [
   CheckNonNegativeValidator,
   ClickableTooltipTargetDirective,
   DarkThemeDirective,
+  DateInputDirective,
+  DateRangeEditorComponent,
+  DateRangeInputComponent,
   DeferredContentDirective,
   displayNameRendererDirective,
+  DropdownSelectValueAccessor,
   DropdownButtonComponent,
   DropdownMenuComponent,
   DynamicComponent,
@@ -209,9 +240,13 @@ const List<dynamic> materialDirectives = const [
   LowerBoundValidator,
   MaterialAutoSuggestInputComponent,
   MaterialButtonComponent,
+  MaterialCalendarPickerComponent,
   MaterialCheckboxComponent,
   MaterialChipComponent,
   MaterialChipsComponent,
+  MaterialDatepickerComponent,
+  MaterialDateRangePickerComponent,
+  MaterialDateTimePickerComponent,
   MaterialDialogComponent,
   MaterialDropdownSelectComponent,
   MaterialExpansionPanel,
@@ -229,6 +264,7 @@ const List<dynamic> materialDirectives = const [
   MaterialListComponent,
   MaterialListItemComponent,
   MaterialMenuComponent,
+  MaterialMonthPickerComponent,
   MaterialMultilineInputComponent,
   materialNumberInputDirectives,
   MaterialPaperTooltipComponent,
@@ -246,6 +282,7 @@ const List<dynamic> materialDirectives = const [
   MaterialSpinnerComponent,
   MaterialTabComponent,
   MaterialTabPanelComponent,
+  MaterialTimePickerComponent,
   MaterialTemporaryDrawerComponent,
   MaterialTreeComponent,
   MaterialTreeDropdownComponent,
@@ -256,6 +293,7 @@ const List<dynamic> materialDirectives = const [
   MaterialYesNoButtonsComponent,
   MenuPopupComponent,
   MenuRootDirective,
+  MultiDropdownSelectValueAccessor,
   ModalComponent,
   NgModel,
   PositiveNumValidator,
@@ -271,5 +309,5 @@ const List<dynamic> materialDirectives = const [
 
 /// A convenience list of all providers exposed by this package.
 const List<dynamic> materialProviders = const [
-  popupBindings,
+  datepickerBindings,
 ];

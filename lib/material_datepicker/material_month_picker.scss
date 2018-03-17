@@ -1,0 +1,156 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'constants';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/mixins';
+
+$month-width: 63px;
+$month-height: 36px;
+$base-layer-index: -2;
+$mid-layer-index: -1;
+$top-layer-index: 0;
+
+:host {
+  @include material-scrollbar-theme($mat-blue-500);
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-container {
+  flex-grow: 1;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 4 * $month-width + $cal-scrollbar-width;
+
+  // Promote to its own layer so the compositor thread can handle scrolling.
+  will-change: transform;
+}
+
+.calendar-container {
+  user-select: none;
+  position: absolute;
+  top: 0;
+  /*! @noflip */
+  left: 0;
+  width: 4 * $month-width;
+  line-height: $month-height;
+  text-transform: uppercase;
+  font-size: $mat-body-font-size;
+}
+
+// ::ng-deep is used to selectively disable Angular shimming so that the
+// dynamically created elements can be styled.
+.calendar-container ::ng-deep {
+  .year {
+    width: 4 * $month-width;
+    height: 4 * $month-height;
+  }
+
+  .year-title {
+    position: relative;
+    height: $month-height;
+    padding-left: 2 * $mat-grid;
+    font-size: $mat-body-font-size;
+    color: $mat-light-transparent-black;
+    margin: 0;
+
+    &.highlight::before {
+      display: block;
+      position: absolute;
+      content: '';
+      top: $cal-highlight-margin;
+      left: 0;
+      right: 0;
+      bottom: $cal-highlight-margin;
+      z-index: $base-layer-index;
+      background: $mat-blue-100;
+    }
+  }
+
+  .month {
+    display: inline-block;
+    position: relative;
+    width: $month-width;
+    height: $month-height;
+    text-align: center;
+    cursor: pointer;
+    color: $mat-transparent-black;
+
+    &::before,
+    &::after {
+      display: block;
+      position: absolute;
+      overflow: hidden;
+      box-sizing: border-box;
+      contain: strict;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      color: $mat-lighter-transparent-black;
+    }
+
+    &.boundary {
+      &:not(.hover) {
+        color: $mat-white;
+      }
+
+      &.start::before {
+        left: 50%;
+      }
+
+      &.end::before {
+        right: 50%;
+      }
+
+      &.left::before {
+        left: 0;
+        border-left-style: solid;
+      }
+
+      &.right::before {
+        right: 0;
+        border-right-style: solid;
+      }
+    }
+
+    &.highlight {
+      &::before {
+        content: '';
+        top: $cal-highlight-margin;
+        left: 0;
+        right: 0;
+        bottom: $cal-highlight-margin;
+        z-index: $base-layer-index;
+        background: $mat-blue-100;
+      }
+    }
+
+    &.hover::after,
+    &.today::after,
+    &.boundary::after {
+      content: '';
+      top: $cal-highlight-margin;
+      left: $cal-highlight-margin;
+      right: $cal-highlight-margin;
+      bottom: $cal-highlight-margin;
+      border-radius: $month-height / 2;
+      z-index: $mid-layer-index;
+    }
+
+    &.boundary::after {
+      background: $mat-blue-700;
+    }
+
+    &.hover::after {
+      background: $mat-gray-200;
+    }
+  }
+}

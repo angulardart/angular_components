@@ -1,0 +1,81 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div class="main-content"
+     popupSource
+     #button="popupSource"
+     buttonDecorator
+     keyboardOnlyFocusIndicator
+     #focusOnClose="keyboardOnlyFocusIndicator"
+     (trigger)="open()"
+     (focus)="initEditor()"
+     (mouseenter)="initEditor()">
+  <div class="range-title"
+       *ngIf="hasTitle && presets.isNotEmpty">
+    {{rangeTitle}}
+  </div>
+  <span class="main-line">
+    <dropdown-button class="menu-lookalike primary-range"
+        [disabled]="disabled"
+        [buttonText]="formattedRange"
+        [error]="error">
+    </dropdown-button>
+    <next-prev-buttons *ngIf="showNextPrevButtons"
+                       class="next-prev-buttons"
+                       [disabled]="disabled"
+                       [model]="model">
+    </next-prev-buttons>
+  </span>
+  <div class="comparison-title" *ngIf="hasComparison">
+    {{formattedComparison}}
+  </div>
+</div>
+
+<!--
+  The (open) and (close) events exist to keep the material-date-range-picker
+  state in sync when the material-popup opens/closes itself (for example,
+  autodismiss when the user clicks outside the popup).
+-->
+<material-popup enforceSpaceConstraints
+                [preferredPositions]="overlapAlignments"
+                [source]="button"
+                (open)="open()"
+                (close)="close()">
+  <focus-trap *ngIf="isEditorCreated"
+              class="popup-contents"
+              [class.compact]="compact"
+              (keypress)="onKeyPress($event)"
+              (keydown)="onKeyDown($event)"
+              (keyup)="onKeyUp($event)">
+    <date-range-editor [model]="model"
+                       [presets]="presets"
+                       [supportsClearRange]="supportsClearRange"
+                       [supportsComparison]="supportsComparison"
+                       [supportsDaysInputs]="supportsDaysInputs"
+                       [minDate]="minDate"
+                       [maxDate]="maxDate"
+                       [allowHighlightUpdates]="allowHighlightUpdates"
+                       [compact]="compact"
+                       [calendarCreated]="isCalendarCreated"
+                       [supportsCustomRange]="supportsCustomRange"
+                       [relativeDaysToToday]="relativeDaysToToday"
+                       (presetRangeSelected)="onRangeClicked($event)">
+    </date-range-editor>
+
+    <ng-content select="[messageBar]"></ng-content>
+
+    <div class="apply-bar" [class.visible]="applyBarVisible">
+      <div class="separator">&nbsp;</div>
+      <material-button class="cancel"
+                       (trigger)="cancel(); $event.preventDefault()">
+        {{cancelButtonMsg}}
+      </material-button>
+      <material-button class="apply"
+                       (trigger)="apply($event); $event.preventDefault()">
+        {{applyButtonMsg}}
+      </material-button>
+    </div>
+  </focus-trap>
+</material-popup>

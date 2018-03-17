@@ -1,0 +1,47 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_datepicker/constants';
+
+:host {
+  height: $icon-button-size;
+  white-space: nowrap;
+}
+
+%button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  height: $icon-button-size;
+  opacity: $mat-icon-opacity;
+  padding: 0;
+  transition: opacity $mat-transition-fast $mat-transition-standard;
+  width: $icon-button-size;
+}
+
+%button.disabled {
+  opacity: $mat-opacity-lightest;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+%button:hover:not(.disabled),
+%button:focus:not(.disabled) {
+  opacity: $mat-icon-opacity-hover;
+}
+
+%button glyph {
+  color: inherit;
+}
+
+.prev {
+  @extend %button;
+  margin-right: $mat-grid;
+}
+
+.next {
+  @extend %button;
+}

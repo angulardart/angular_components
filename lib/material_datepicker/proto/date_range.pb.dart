@@ -9,7 +9,8 @@ import 'dart:core' show int, bool, double, String, List, override;
 
 import 'package:protobuf/protobuf.dart';
 
-import 'package:google.type/date.pb.dart' as $google$type;
+import 'package:angular_components/material_datepicker/proto/date.pb.dart'
+    as $date$type;
 
 class DatepickerDateRange extends GeneratedMessage {
   static final BuilderInfo _i = new BuilderInfo('DatepickerDateRange')
@@ -145,10 +146,10 @@ class _ReadonlyDatepickerDateRange extends DatepickerDateRange
 
 class DateRange extends GeneratedMessage {
   static final BuilderInfo _i = new BuilderInfo('DateRange')
-    ..a<$google$type.Date>(1, 'start', PbFieldType.OM,
-        $google$type.Date.getDefault, $google$type.Date.create)
-    ..a<$google$type.Date>(2, 'end', PbFieldType.OM,
-        $google$type.Date.getDefault, $google$type.Date.create)
+    ..a<$date$type.Date>(1, 'start', PbFieldType.OM, $date$type.Date.getDefault,
+        $date$type.Date.create)
+    ..a<$date$type.Date>(2, 'end', PbFieldType.OM, $date$type.Date.getDefault,
+        $date$type.Date.create)
     ..hasRequiredFields = false;
 
   DateRange() : super();
@@ -171,16 +172,16 @@ class DateRange extends GeneratedMessage {
     if (v is! DateRange) checkItemFailed(v, 'DateRange');
   }
 
-  $google$type.Date get start => $_getN(0);
-  set start($google$type.Date v) {
+  $date$type.Date get start => $_getN(0);
+  set start($date$type.Date v) {
     setField(1, v);
   }
 
   bool hasStart() => $_has(0);
   void clearStart() => clearField(1);
 
-  $google$type.Date get end => $_getN(1);
-  set end($google$type.Date v) {
+  $date$type.Date get end => $_getN(1);
+  set end($date$type.Date v) {
     setField(2, v);
   }
 
