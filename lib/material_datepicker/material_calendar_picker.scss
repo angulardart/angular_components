@@ -1,0 +1,266 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'constants';
+@import 'mixins';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/mixins';
+
+@mixin calendar-slot-size($slot-size) {
+  line-height: $slot-size;
+
+  .header-day {
+    width: $slot-size;
+    height: $slot-size;
+  }
+
+  .scroll-container {
+    width: $days-per-week * $slot-size + $cal-scrollbar-width;
+  }
+
+  .calendar-container {
+    width: $days-per-week * $slot-size;
+  }
+
+  .month {
+    width: $days-per-week * $slot-size;
+    height: $week-rows-in-month * $slot-size;
+  }
+
+  .month-title {
+    width: 3 * $slot-size;
+    height: $slot-size;
+    padding-left: $slot-size / 3;
+  }
+
+  .day-slot {
+    width: $slot-size;
+    height: $slot-size;
+
+    &.left::before {
+      border-left-width: $slot-size / 2;
+    }
+
+    &.right::before {
+      border-right-width: $slot-size / 2;
+    }
+
+    &.today::after,
+    &.hover::after,
+    &.boundary::after {
+      line-height: $slot-size - 4px;
+    }
+
+    &.left.left-preview::before {
+      border-left-width: 0;
+      box-shadow: inset ($slot-size / 2) 0 0 $mat-white;
+    }
+
+    &.right.right-preview::before {
+      border-right-width: 0;
+      box-shadow: inset (-$slot-size / 2) 0 0 $mat-white;
+    }
+  }
+}
+
+// ::ng-deep is used here to disable Angular shimming (which this component is
+// incompatible with since all elements are created manually).
+:host ::ng-deep {
+  @include calendar-slot-size($cal-date-size);
+  @include material-scrollbar-theme($mat-blue-500);
+  user-select: none;
+
+  // Default calendar selection colors: blue for the selected range;
+  // google-yellow for the comparison range; green if they overlap.
+  @include calendar-highlights('', (
+    default: $mat-blue-map,
+    range: $mat-blue-map,
+    comparison: $mat-google-yellow-map,
+    range comparison: $mat-green-map,
+  ));
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: $mat-body-font-size;
+  text-transform: uppercase;
+  color: $mat-transparent-black;
+  contain: content;
+
+  .header-day {
+    display: inline-block;
+    text-align: center;
+    font-size: $mat-caption-font-size;
+    color: $mat-light-transparent-black;
+  }
+
+  .scroll-container {
+    flex-grow: 1;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-top: 1px solid $mat-border-light;
+
+    // Promote to its own layer so the compositor thread can handle scrolling.
+    will-change: transform;
+  }
+
+  .calendar-container {
+    position: absolute;
+    top: 0;
+    /*! @noflip */
+    left: 0;
+    overflow: hidden;
+    contain: strict;
+  }
+
+  .month {
+    position: absolute;
+    background: $mat-white;
+    top: 0;
+    /*! @noflip */
+    left: 0;
+    overflow: hidden;
+    counter-reset: day;
+    box-sizing: border-box;
+    will-change: transform;
+
+    // Can't contain style here because the CSS counters need access to the
+    // enclosing scope.
+    contain: size layout paint;
+  }
+
+  .month-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    font-size: $mat-body-font-size;
+    color: $mat-light-transparent-black;
+    z-index: 1;
+    pointer-events: none;
+    contain: strict;
+    box-sizing: border-box;
+  }
+
+  .day-slot {
+    $base-layer-index: -2;
+    $mid-layer-index: -1;
+    $top-layer-index: 0;
+
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: top;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: $top-layer-index;
+
+    // Can't contain style here because the CSS counters need access to the
+    // enclosing scope.
+    contain: size layout paint;
+
+    &::before,
+    &::after {
+      display: block;
+      position: absolute;
+      overflow: hidden;
+      box-sizing: border-box;
+      contain: strict;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &.invisible {
+      pointer-events: none;
+      color: transparent;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      color: $mat-lighter-transparent-black;
+    }
+
+    &.hidden {
+      visibility: hidden;
+    }
+
+    &.boundary {
+      &.start::before {
+        left: 50%;
+      }
+
+      &.end::before {
+        right: 50%;
+      }
+
+      &.left::before {
+        left: 0;
+        border-left-style: solid;
+      }
+
+      &.right::before {
+        right: 0;
+        border-right-style: solid;
+      }
+    }
+
+    &.highlight {
+      &::before {
+        content: '';
+        top: $cal-highlight-margin;
+        left: 0;
+        right: 0;
+        bottom: $cal-highlight-margin;
+        z-index: $base-layer-index;
+      }
+    }
+
+    &.hover::after,
+    &.today::after,
+    &.boundary::after {
+      content: '';
+      top: $cal-highlight-margin;
+      left: $cal-highlight-margin;
+      right: $cal-highlight-margin;
+      bottom: $cal-highlight-margin;
+      border-radius: 100%;
+      z-index: $mid-layer-index;
+    }
+
+    &.today::after {
+      box-shadow: inset 0 0 0 1px $mat-gray-200;
+    }
+
+    &.highlight-preview::before {
+      border-top: 1px dashed $mat-lighter-transparent-black;
+      border-bottom: 1px dashed $mat-lighter-transparent-black;
+    }
+
+    &.boundary-preview::after {
+      box-shadow: inset 0 0 0 1px $mat-lighter-transparent-black;
+    }
+
+    &.hover::after {
+      background: $mat-gray-200;
+    }
+  }
+
+  .calendar-container.not-firefox .day-slot {
+    &.visible,
+    &.disabled {
+      &::after {
+        counter-increment: day;
+        content: counter(day);
+      }
+    }
+  }
+}
+
+:host.compact ::ng-deep {
+  @include calendar-slot-size($cal-date-compact-size);
+}

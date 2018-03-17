@@ -1,0 +1,98 @@
+syntax = "proto2";
+
+package third_party.dart_src.acx.material_datepicker;
+
+import "google/type/date.proto";
+
+// Represents a date range selected in a material-date-range-picker.
+// Supports "relative presets" which update depending on the current date,
+// as well as plain date ranges (which don't).
+// The intended use case is saving/loading the date range picker's state.
+message DatepickerDateRange {
+  // A concrete date range specified exactly (i.e. not relative to the current
+  // date). Even if a relative_preset is specified, this field should always be
+  // filled in, as a fallback for clients which may not support newly-added
+  // presets.
+  optional DateRange date_range = 1;
+
+  // A preset date range which changes its semantics relative to the current
+  // date.
+  //
+  // For example, the user may select "Yesterday", which is represented by
+  // relative_preset.days_ago == 1. If this data is loaded on January 5, 2016,
+  // the user will see the values "Yesterday" and "January 4, 2016" in the UI.
+  // If the same data is loaded on February 10, 2016, the user will see
+  // "Yesterday" and "February 9, 2016", though the data on disk is unchanged.
+  //
+  // This is optional; if not present (or if your code doesn't support the
+  // selected preset), fall back to using date_range.
+  //
+  // Next ID: 12
+  oneof relative_preset {
+    // A single day, this many days ago relative to the current date
+    // (0 for today, +1 for yesterday, -1 for tomorrow)
+    int32 days_ago = 2;
+
+    // A single week, this many weeks ago, specified relative to the current
+    // date
+    // (0 for this week, +1 for last week, -1 for next week)
+    int32 weeks_ago = 3;
+
+    // A single month, this many months ago relative to the current date
+    // (0 for this month, +1 for last month, -1 for next month)
+    int32 months_ago = 4;
+
+    // A single quarter, this many quarters ago relative to the current date
+    // (0 for this quarter, +1 for last quarter, -1 for next quarter)
+    int32 quarters_ago = 10;
+
+    // A single broadcast month, this many broadcast months ago relative to the
+    // current date (0 for this broadcast month, +1 for last broadcast month,
+    // -1 for next broadcast month).
+    //
+    // The broadcast calendar is a standardized calendar used primarily for the
+    // planning and purchase of radio and television programs and advertising.
+    // Every week in the broadcast calendar starts on a Monday and ends on a
+    // Sunday, and every month has either four or five such weeks. Broadcast
+    // calendar months thus have either 28 or 35 days. The key link between the
+    // broadcast and Gregorian calendars is that the first week of every
+    // broadcast month always contains the Gregorian calendar first of the
+    // month.
+    //
+    // For details, see: https://en.wikipedia.org/wiki/Broadcast_calendar
+    // Example:
+    // https://www.tvb.org/Portals/0/media/file/TVB_Bdcst_Calendar_2015-17.pdf
+    int32 broadcast_months_ago = 8;
+
+    // A single year, this many years ago relative to the current date
+    // (0 for this year, +1 for last year, -1 for next year)
+    int32 years_ago = 5;
+
+    // A range with specified length in days, ending yesterday.
+    // Must be at least 1.
+    int32 last_n_days = 6;
+
+    // A range with specified length in days, ending today.
+    // Must be at least 1.
+    int32 last_n_days_to_today = 9;
+
+    // If present, this range begins at the date picker's minimum date, and
+    // ends at its maximum date. If present, must have the value 'true'.
+    bool all_time_range = 7;
+  }
+
+  // The starting day of the week, corresponding to the Dart [DateTime.MONDAY]
+  // (1), [DateTime.TUESDAY] (2), etc.
+  //
+  // Only specified if [weeks_ago] is also specified.
+  optional int32 start_weekday = 11;
+}
+
+// A concrete date range between two calendar dates, inclusive.
+message DateRange {
+  // First day of the range
+  optional google.type.Date start = 1;
+
+  // Last day of the range
+  optional google.type.Date end = 2;
+}

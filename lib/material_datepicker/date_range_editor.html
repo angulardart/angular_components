@@ -1,0 +1,171 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<material-select [width]="0"
+                 class="preset-list"
+                 [class.basic-preset-list]="isBasic"
+                 *ngIf="presets.isNotEmpty && shouldShowPredefinedList">
+  <div *ngIf="supportsClearRange" class="group">
+    <material-select-item (trigger)="onClearRangeClicked($event)">
+      {{clearRangeMsg}}
+    </material-select-item>
+  </div>
+  <div *ngIf="supportsCustomRange" class="group">
+    <material-select-item (trigger)="onCustomClicked()"
+                          [selected]="isCustomRangeSelected"
+                          closeOnActivate="false">
+      <div [class.custom-tab-left]="isBasic && !isCustomRangeSelected"
+           [class.custom_tab-left-selected]="isBasic && isCustomRangeSelected">
+        {{customRangeMsg}}
+        <div *ngIf="isBasic && isCustomRangeSelected"
+             class="custom_range_desc">
+          {{customRangeDescription}}
+        </div>
+      </div>
+      <glyph *ngIf="isBasic" buttonDecorator class="expend-more" icon="expand_more"></glyph>
+    </material-select-item>
+  </div>
+  <div class="group">
+    <material-select-item *ngFor="let preset of presets"
+       (trigger)="onRangeClicked($event, preset.range)"
+       [disabled]="!isValid(preset)"
+       [showTooltipIf]="!isValid(preset)"
+       [materialTooltip]="rangeDisabledTooltip"
+       [selected]="isSelected(preset.range)"
+       closeOnActivate="false">
+      {{preset.title}}
+      <template [ngIf]="preset.alternatives != null && preset.alternatives.isNotEmpty">
+        <material-button icon
+                         class="preset-dropdown-button"
+                         popupSource
+                         #menuSource="popupSource"
+                         alignPositionX="after"
+                         alignPositionY="start"
+                         (click)="$event.stopPropagation()"
+                         (keypress)="$event.stopPropagation()"
+                         (trigger)="popup.toggle()">
+          <glyph icon="arrow_drop_down"></glyph>
+        </material-button>
+        <material-popup #popup
+                        [offsetX]="9"
+                        [offsetY]="-4"
+                        [source]="menuSource">
+          <material-select-item *ngFor="let alternative of preset.alternatives"
+            class="preset-dropdown-item"
+            (trigger)="onAlternativePresetClicked($event, preset, alternative)"
+            [disabled]="!isValid(alternative)"
+            [showTooltipIf]="!isValid(alternative)"
+            [materialTooltip]="rangeDisabledTooltip"
+            [selected]="isAlternativePresetSelected(alternative)"
+            closeOnActivate="false">
+            {{alternative.shortTitle}}
+          </material-select-item>
+        </material-popup>
+      </template>
+    </material-select-item>
+  </div>
+  <div *ngIf="supportsDaysInputs" class="days group">
+    <material-select-item class="days-input days-to-today"
+                          closeOnActivate="false"
+                          (trigger)="onRangeClicked($event, daysToTodayRange)"
+                          [selected]="isSelected(daysToTodayRange)">
+      <material-input [(ngModel)]="daysToToday"
+                      (click)="$event.stopPropagation()"
+                      [displayBottomPanel]="false"
+                      [maxCount]="maxDaysInputLength"></material-input>
+      <span>{{daysToTodayMsg}}</span>
+    </material-select-item>
+    <material-select-item class="days-input days-to-yesterday"
+                          closeOnActivate="false"
+                          (trigger)="onRangeClicked($event, daysToYesterdayRange)"
+                          [selected]="isSelected(daysToYesterdayRange)">
+      <material-input [(ngModel)]="daysToYesterday"
+                      (click)="$event.stopPropagation()"
+                      [displayBottomPanel]="false"
+                      [maxCount]="maxDaysInputLength"></material-input>
+      <span>{{daysToYesterdayMsg}}</span>
+    </material-select-item>
+  </div>
+  <div class="comparison group" *ngIf="supportsComparison">
+    <comparison-range-editor [model]="model"></comparison-range-editor>
+  </div>
+</material-select>
+
+<div class="right-column"
+     *ngIf="supportsCustomRange && shouldShowCustomDateRangeColumn">
+  <div buttonDecorator *ngIf="isBasic"
+                        class="button-decorator"
+                        (trigger)="disableCustomMode()">
+    <div class="custom-tab-right">{{customRangeMsg}}</div>
+    <glyph class="expand-less" icon="expand_less"></glyph>
+  </div>
+  <div *ngIf="isBasic" class="content-separator"></div>
+  <div class="range-input">
+    <date-range-input class="range"
+                      [minDate]="minDate"
+                      [maxDate]="maxDate"
+                      [isClearRangeSelected]="isClearRangeSelected"
+                      [rangeId]="model.rangeId"
+                      [(state)]="model.calendar.value"
+                      [(range)]="model.range.value">
+    </date-range-input>
+  </div>
+
+  <!-- TODO(google): When a custom comparison range is enabled,
+      select that in the calendar when this gains focus -->
+  <div class="range-title" *ngIf="model.comparisonEnabled">
+    {{comparisonHeaderMsg}}
+  </div>
+  <div class="range-input" *ngIf="model.comparisonEnabled">
+    <date-range-input class="comparison inputs"
+                      [minDate]="model.minDate"
+                      [maxDate]="model.maxDate"
+                      [isClearRangeSelected]="isClearRangeSelected"
+                      [rangeId]="model.comparisonId"
+                      [(state)]="model.calendar.value"
+                      [(range)]="model.comparison.value">
+    </date-range-input>
+  </div>
+
+  <div class="month-selector-toolbar" *ngIf="supportsMonthSelector">
+    <div class="month-selector-dropdown"
+         buttonDecorator
+         keyboardOnlyFocusIndicator
+         (trigger)="onMonthSelectorDropdownClicked()">
+      <span class="visible-month">{{visibleMonthName}}</span>
+      <glyph icon="arrow_drop_down"
+             class="month-selector-dropdown-icon"
+             [class.flipped]="showMonthSelector"></glyph>
+    </div>
+    <next-prev-buttons class="next-prev-range"
+                       [model]="nextPrevModel">
+    </next-prev-buttons>
+  </div>
+
+  <div class="calendar-placeholder" *ngIf="!isCalendarCreated"></div>
+
+  <div class="picker-container" [class.compact]="compact">
+    <material-calendar-picker class="picker calendar"
+                              [showhide]="!showMonthSelector"
+                              *ngIf="isCalendarCreated"
+                              [(state)]="model.calendar.value"
+                              [popupHandle]="popupHandle"
+                              [minDate]="minDate"
+                              [maxDate]="maxDate"
+                              [allowHighlightUpdates]="allowHighlightUpdates"
+                              [compact]="compact"
+                              (visibleMonth)="onVisibleMonthChange($event)"
+                              mode="date-range">
+    </material-calendar-picker>
+    <material-month-picker class="picker month-selector"
+                           *ngIf="supportsMonthSelector"
+                           [showhide]="showMonthSelector"
+                           [(state)]="monthSelectorState"
+                           [minDate]="minDate"
+                           [maxDate]="maxDate"
+                           mode="single-date">
+    </material-month-picker>
+  </div>
+</div>

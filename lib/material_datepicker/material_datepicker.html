@@ -1,0 +1,61 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div class="main-content"
+     popupSource
+     #container="popupSource">
+  <div *ngIf="presetDates.isNotEmpty" class="primary-label">
+    {{labelMsg}}
+  </div>
+  <dropdown-button class="menu-lookalike primary-range"
+                  [disabled]="disabled"
+                  [error]="error"
+                  [buttonText]="formattedDate"
+                  (trigger)="onTrigger()">
+  </dropdown-button>
+</div>
+<material-popup
+    enforceSpaceConstraints
+    [source]="container"
+    [(visible)]="popupVisible"
+    [preferredPositions]="preferredPositions">
+    <div class="popup-content" [class.compact]="compact" *deferredContent>
+      <div class="inner-label-wrapper">
+          <span *ngIf="presetDates.isNotEmpty" class="inner-label" >{{labelMsg}}</span>
+      </div>
+      <div class="date-input">
+        <material-input dateParsing
+                        autoFocus
+                        type="text"
+                        [dateFormat]="outputFormat"
+                        [maxDate]="maxDate"
+                        [minDate]="minDate"
+                        [date]="date"
+                        (dateChange)="setDateFromInput($event)"
+                        [required]="required"
+                        [label]="placeholderMsg"
+                        >
+        </material-input>
+      </div>
+
+      <div class="preset-dates-wrapper" *ngIf="presetDates.isNotEmpty">
+          <material-select-item *ngFor="let presetDate of presetDates"
+                                (trigger)="onPresetClicked(presetDate)"
+                                [selected]="isPresetDateSelected(presetDate)"
+                                closeOnActivate="false">
+            {{presetDate.title}}
+        </material-select-item>
+      </div>
+
+      <material-calendar-picker class="calendar-picker"
+                                [ngClass]="calendarWeekRowsStyle"
+                                [(state)]="calendar"
+                                [minDate]="minDate"
+                                [maxDate]="maxDate"
+                                [compact]="compact"
+                                mode="single-date">
+      </material-calendar-picker>
+    </div>
+</material-popup>

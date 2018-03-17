@@ -1,0 +1,28 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_datepicker/mixins';
+@import 'package:angular_components/material_input/mixins';
+@import 'package:angular_components/material_select/mixins';
+
+$time-picker-width: $mat-grid * 18;
+
+:host {
+  dropdown-button {
+    @include dropdown-icon-spacing($mat-grid * 2);
+    width: $time-picker-width;
+
+    .button-text {
+      padding-left: $mat-grid * 3;
+    }
+  }
+}
+
+.time-input-box {
+  width: $time-picker-width;
+  @include input-bottom-section-padding(0 0 0 $mat-grid);
+  @include input-top-section-padding(
+          $mat-grid $mat-grid * 4 $mat-grid $mat-grid * 3);
+}

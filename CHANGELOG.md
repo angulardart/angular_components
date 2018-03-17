@@ -1,3 +1,11 @@
+## 0.9.0-alpha+8
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+8. The alpha tag represents the evolving nature of the AngularDart
+> API, not code quality (5.0.0-alpha+8 is used in production Google apps).
+
+ * Add Material Datepicker components.
+
 ## 0.9.0-alpha+7
 
 > NOTE: This code is considered production quality, but depends on angular:

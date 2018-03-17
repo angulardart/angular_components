@@ -1,0 +1,68 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// CSS constants for datepicker components.
+@import 'package:angular_components/css/material/material';
+
+// Hopefully this never changes
+$days-per-week: 7;
+
+// The scrollbar width varies between 4px (material style in Chrome) and 17px
+// (system style IE). This number is choosen to be in the middle, so in Chrome
+// it doesn't look like there's extra padding on the right, while in IE the
+// scrollbar doesn't overlap with the dates.
+$cal-scrollbar-width: $mat-grid;
+
+// Line width of the circle around the current date
+$cal-today-border-width: 1px;
+
+// Months can have up to 6 partial weeks. We also may need space for a
+// title, but a 6-week month will always have an inline title.
+// (Proof: Longest month is 31 days. 28 of those days will appear in the
+// middle 4 weeks, leaving 3 days. To reach 6 weeks, there must be at least
+// 1 day before and after the middle 4 weeks. Therefore there can be at
+// most 2 days in the first week, giving enough space for an inline title.)
+$week-rows-in-month: 6; // DUPLICATED: material_calendar_picker.dart
+
+$icon-size: $mat-grid * 3;
+$icon-button-size: $icon-size;
+
+// Max-height of the entire preset list
+$preset-list-max-height: $mat-grid * 67;
+
+/// Regular calendar sizes.
+$cal-date-size: 48px; // DUPLICATED: material_calendar_picker.dart
+$cal-title-padding: $mat-grid-type * 3;
+$cal-horizontal-padding: $mat-grid;
+$cal-width: $cal-date-size * $days-per-week
+  + $cal-scrollbar-width;
+
+/// Compact calendar sizes.
+$cal-date-compact-size: 36px; // DUPLICATED: material_calendar_picker.dart
+$cal-title-compact-padding: $mat-grid-type * 3;
+$cal-compact-horizontal-padding: $mat-grid;
+$cal-compact-width: $cal-date-compact-size * $days-per-week
+  + $cal-scrollbar-width;
+
+/// The margin between the highlight and the edge of the cell.
+$cal-highlight-margin: 2px;
+
+/// Picker sizes.
+$picker-horizontal-padding: $mat-grid * 3;
+$picker-vertical-padding: $mat-grid * 2;
+
+/// Compact picker sizes.
+$picker-compact-horizontal-padding: $mat-grid-type * 5;
+$picker-compact-vertical-padding: $mat-grid * 2;
+
+/// material-date-range-picker whitespace.
+$date-range-picker-horizontal-padding: 2 * $mat-grid;
+$date-range-picker-vertical-padding: 10px;
+
+/// Color for drop shadows.
+$cal-shadow-color: rgba(0, 0, 0, .26);
+
+/// Custom tab under basic mode.
+$cal-basic-custom-margin: 9px;
+$cal-basic-custom-line-height: 17px;
