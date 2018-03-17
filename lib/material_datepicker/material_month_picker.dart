@@ -251,9 +251,9 @@ class MaterialMonthPickerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   @ViewChild('container')
-  set container(ElementRef containerRef) {
-    _container = containerRef.nativeElement;
-    _scroller = _container.parent;
+  set container(Element container) {
+    _container = container;
+    _scroller = container.parent;
   }
 
   @override
