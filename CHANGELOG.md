@@ -5,6 +5,34 @@
 > API, not code quality (5.0.0-alpha+8 is used in production Google apps).
 
  * Add Material Datepicker components.
+ * Add ShowHideDirective and GlobalEscapeDirective.
+ * Material Button: Update highlight styling.
+ * Material Chips: Allow overriding left-icon-color.
+ * Material Expansionpanel:
+   * Allow icon to be hidden and allow additional buttons in the header.
+   * Increase mixin specificity.
+ * Material Input:
+   * Add mixin for hiding underline.
+   * Add mixins for trailing text color and padding.
+ * Material Menu:
+   * Implement `Focusable`.
+   * Add a flag to `MenuItemGroup` to explicitly specify a separator.
+ * Material Popup: Simplify positioning algorithm.
+ * Material Select:
+   * Add mixin to allow for error text margin.
+   * Refactor `constructEncapsulatedCss` to utils.
+ * Material Tab: Make `text-wrap` mixin more generic.
+ * Material Tree: Add a 'shouldExpandAllWhenFiltered' input.
+ * Material Toggle: Fix aria-pressed state.
+ * Material Tooltip:
+   * Allow paper tooltip CSS to be customizable.
+   * Allow `'error_outline'` as a valid icon.
+   * Prevent paper tooltips from overflowing on small screens.
+ * Scorecard: Add stacking context.
+ * Delete deprecated `LazyEventEmitter`.
+ * Migrate uses of `ElementRef` to `Element` or `HtmlElement`.
+ * Cleanup type warnings and other Dart 2 fixes.
+ * Update documentation.
 
 ## 0.9.0-alpha+7
 
