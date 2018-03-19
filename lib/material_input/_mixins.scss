@@ -78,6 +78,20 @@
   }
 }
 
+/// Changes the padding of the trailing text.
+@mixin material-input-trailing-text-padding($padding) {
+  ::ng-deep .trailing-text {
+    padding: $padding;
+  }
+}
+
+/// Changes the color of the trailing text.
+@mixin material-input-trailing-text-color($color) {
+  ::ng-deep .trailing-text {
+    color: $color;
+  }
+}
+
 /// Changes the `$primary-color`in the material-input which includes the label
 /// text and underline.
 @mixin material-input-theme($primary-color) {
