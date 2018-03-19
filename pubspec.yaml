@@ -6,7 +6,7 @@ description: >
 homepage: https://webdev.dartlang.org/components
 author: Dart Team <misc@dartlang.org>
 environment:
-  sdk: '>=2.0.0-dev.3.0 <2.0.0'
+  sdk: '>=2.0.0-dev.28.0 <2.0.0'
 dependencies:
   angular: 5.0.0-alpha+8
   angular_forms: 2.0.0-alpha
@@ -19,7 +19,8 @@ dependencies:
   js: ^0.6.1
   logging: ^0.11.2
   meta: ^1.0.4
-  observable: '>=0.17.0+1 <0.22.0'
+  observable: '>=0.17.0+1 <0.23.0'
+  protobuf: ^0.7.1
   perf_api: ^0.1.0
   quiver: '>=0.24.0 <0.29.0'
   sass_builder: ^1.1.2
