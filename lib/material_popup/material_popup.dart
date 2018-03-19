@@ -885,15 +885,3 @@ Rectangle _shiftRectangleToFitWithin(Rectangle rect, Rectangle container) {
   }
   return new Rectangle(x.round(), y.round(), 0, 0);
 }
-
-/// The size of something.
-///
-/// Like a [Rectangle], except without a position. Since all these positions are
-/// relative to different things (screen space, container space, etc.), it's
-/// easier to clearly call out when we care about position vs. when we don't.
-class _Size {
-  final num width;
-  final num height;
-  _Size(this.width, this.height);
-  _Size.fromRect(Rectangle r) : this(r.width, r.height);
-}
