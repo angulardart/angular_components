@@ -43,11 +43,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// 2035 but "36" is interpreted as "1936". Next year, "36" will start to be
 /// interpreted as 2036.
 ///
-/// This component is based on the mocks at
-/// <http://folio/ritaho/Ads%20UX%20components/datepicker2014/Latest>.
-/// It implements the "fully loaded picker" part of the spec. Other parts of the
-/// spec (e.g. datetime picker, date range picker with other layouts) should
-/// probably be implemented as their own components.
 ///
 /// __Example usage:__
 ///
