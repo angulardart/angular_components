@@ -41,8 +41,6 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
 ///
 /// See also `material-date-range-picker` if you want to choose date ranges.
 ///
-/// This component is based on the spec at
-/// <http://folio/ritaho/Ads%20UX%20components/datepicker2014/Latest>.
 ///
 /// __Example usage:__
 ///
