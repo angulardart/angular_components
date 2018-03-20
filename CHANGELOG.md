@@ -8,7 +8,7 @@
  * Add ShowHideDirective and GlobalEscapeDirective.
  * Material Button: Update highlight styling.
  * Material Chips: Allow overriding left-icon-color.
- * Material Expansionpanel:
+ * Material ExpansionPanel:
    * Allow icon to be hidden and allow additional buttons in the header.
    * Increase mixin specificity.
  * Material Input:
@@ -22,8 +22,8 @@
    * Add mixin to allow for error text margin.
    * Refactor `constructEncapsulatedCss` to utils.
  * Material Tab: Make `text-wrap` mixin more generic.
- * Material Tree: Add a 'shouldExpandAllWhenFiltered' input.
- * Material Toggle: Fix aria-pressed state.
+ * Material Tree: Add a `shouldExpandAllWhenFiltered` input.
+ * Material Toggle: Fix `aria-pressed` state.
  * Material Tooltip:
    * Allow paper tooltip CSS to be customizable.
    * Allow `'error_outline'` as a valid icon.

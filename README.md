@@ -14,9 +14,9 @@ Angular package.
 This is a continually growing set of widgets. See the [example gallery] and the
 [documentation] for a full list. Recent additions include:
 
+* Material Datepicker
 * Material Menu
 * Material Auto-suggest Input
-* Material Select Searchbox
 
 [example gallery]: https://dart-lang.github.io/angular_components_example/
 [documentation]: https://www.dartdocs.org/documentation/angular_components/latest/angular_components/angular_components-library.html
@@ -75,7 +75,7 @@ code generation through package [build]. To build your project with
 ## Required Icon Font
 
 For icons to appear, add the following icon font download to your page.
-[Example](https://github.com/dart-lang/angular_components_example/blob/master/web/index.html#L13)
+[Example](https://github.com/dart-lang/angular_components_example/blob/ae323a593cbb5508fa6fbe33afb7f5d40ea96a7e/angular_gallery/lib/builder/template/index.html.mustache#L8)
 
 ```html
 <link
