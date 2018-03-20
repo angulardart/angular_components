@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @import 'package:angular_components/material_button/mixins';
+@import 'package:angular_components/material_list/mixins';
 @import 'package:angular_components/material_select/mixins';
 
 /// Sets the height of menu-item
@@ -56,6 +57,26 @@
       border-top: 0;
       margin-top: 0;
       margin-bottom: 0;
+    }
+  }
+}
+
+@mixin menu-item-group-label-font {
+  ::ng-deep {
+    .group {
+      > .group-header {
+        @include list-item-base();
+        text-transform: none;
+        display: flex;
+        color: inherit;
+        height: auto;
+      }
+
+      // Use more left padding to show this is the sub-level element of
+      // the group since the font is the same now.
+      &.has-label > .menu-item {
+        padding-left: $list-item-padding * 1.5;
+      }
     }
   }
 }
