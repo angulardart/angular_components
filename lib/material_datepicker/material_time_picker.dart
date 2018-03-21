@@ -74,16 +74,14 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   @Input()
   set time(DateTime value) {
     value = utc ? value?.toUtc() : value?.toLocal();
-
-    // When value changes
     if ((value?.hour != _time?.hour ||
         value?.minute != _time?.minute ||
         value?.isUtc != _time?.isUtc)) {
-      _time = _withEpochDate(value);
-      _timeChangeController.add(_time);
+      _time = value;
+      _timeChangeController.add(time);
     }
-    setInputErrorText(_validateTime(_time));
-    timeInputText = _time == null ? "" : renderTime(_time);
+    setInputErrorText(_validateTime(time));
+    timeInputText = time == null ? "" : renderTime(time);
   }
 
   /// An error displayed below the closed date picker.
@@ -92,7 +90,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   @Input()
   String error;
 
-  DateTime get time => _time;
+  DateTime get time => _withEpochDate(_time);
 
   bool get disabled => _disabled;
   bool _disabled = false;
@@ -146,22 +144,22 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   }
 
   DateTime _maxTime;
-  DateTime get maxTime => _maxTime;
+  DateTime get maxTime => _withEpochDate(_maxTime);
 
   /// Maximum date time that can be chosen by the user.
   @Input()
   set maxTime(DateTime value) {
-    _maxTime = _withEpochDate(value);
+    _maxTime = value;
     timeOptions.maxTime = _maxTime;
 
     // Validates selected time again since it may becomes invalid.
-    if (_validateTime(_time) != null) {
+    if (_validateTime(time) != null) {
       time = null;
     }
   }
 
   DateTime _minTime;
-  DateTime get minTime => _minTime;
+  DateTime get minTime => _withEpochDate(_minTime);
 
   /// Minimum date time that can be chosen by the user.
   @Input()
@@ -170,7 +168,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
     timeOptions.minTime = _minTime;
 
     // Validates selected time again since it may becomes invalid.
-    if (_validateTime(_time) != null) {
+    if (_validateTime(time) != null) {
       time = null;
     }
   }
@@ -235,7 +233,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
     if (setAsCurrent) {
       time = inputError == null ? parsed : _time;
     }
-    return _time;
+    return time;
   }
 
   /// Parses time in various type of formats and returns a [DateTime] object
