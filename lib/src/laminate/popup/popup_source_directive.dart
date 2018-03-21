@@ -22,9 +22,8 @@ import 'package:angular_components/utils/angular/reference/reference.dart';
 ///     </div>
 ///     <template popup [relativeTo]="source"></template>
 @Directive(
-  selector: '[popupSource]', exportAs: 'popupSource',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  selector: '[popupSource]',
+  exportAs: 'popupSource',
 )
 // TODO(google): Deprecate use of `relativeTo` with an Element, use instead.
 // TODO(google): Move the setting of alignOriginX and Y into DomPopupSource.
