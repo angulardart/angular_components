@@ -200,7 +200,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   Date _maxDate = new Date(9999, DateTime.DECEMBER, 31);
   Date get maxDate => _maxDate;
 
-  final ElementRef _elementRef;
+  final Element _elementRef;
   final DomService _domService;
   final ManagedZone _managedZone;
 
@@ -363,14 +363,12 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     // adds 50-100 ms to latency because the animation frame doesn't get
     // triggered for a long time (since the main calendar init takes 100+ ms,
     // requestAnimationFrame() tries to render at 10 fps).
-    if (_elementRef.nativeElement.querySelector('.preset-list') != null) {
-      _elementRef.nativeElement
+    if (_elementRef.querySelector('.preset-list') != null) {
+      _elementRef
           .querySelector('.preset-list material-select-item.selected')
           ?.focus();
     } else {
-      _elementRef.nativeElement
-          .querySelector('material-input.active input')
-          ?.focus();
+      _elementRef.querySelector('material-input.active input')?.focus();
     }
   }
 

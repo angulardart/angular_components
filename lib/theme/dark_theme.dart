@@ -35,9 +35,9 @@ class AcxDarkTheme {
   AcxDarkTheme(@Inject(darkThemeToken) @Optional() bool dark)
       : isDarkTheme = dark ?? false;
 
-  void theme(ElementRef element) {
+  void theme(HtmlElement element) {
     if (isDarkTheme) {
-      (element.nativeElement as HtmlElement).classes.add(darkThemeClass);
+      element.classes.add(darkThemeClass);
     }
   }
 
