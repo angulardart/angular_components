@@ -42,8 +42,7 @@ import 'material_tree_impl.dart';
   ],
   templateUrl: 'material_tree_dropdown.html',
   styleUrls: const ['material_tree_dropdown.scss.css'],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // injected by clients
 )
 class MaterialTreeDropdownComponent extends SelectionContainer
     with DropdownHandle, MaterialTreeRoot
