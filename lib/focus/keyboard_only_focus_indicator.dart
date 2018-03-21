@@ -13,8 +13,6 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 @Directive(
   selector: "[keyboardOnlyFocusIndicator]",
   exportAs: 'keyboardOnlyFocusIndicator',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class KeyboardOnlyFocusIndicatorDirective {
   final HtmlElement _element;
