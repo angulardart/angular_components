@@ -19,7 +19,9 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
 /// The selected [dateTime] is always in local time zone.
 /// See `material-datepicker` if you want to choose date only.
 /// See `material-time-picker` if you want to choose time only.
-/// ### Example
+///
+/// __Example usage:__
+///
 ///     <material-date-time-picker [(dateTime)]="myDateTime">
 ///     </material-date-time-picker>
 @Component(

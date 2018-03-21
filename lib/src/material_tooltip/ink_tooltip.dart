@@ -28,7 +28,7 @@ import 'tooltip_target.dart';
 /// Consider using [MaterialTooltipDirective] instead; usage is much simpler and
 /// it enforces text-only small tooltips.
 ///
-/// __Example Usage:__
+/// __Example usage:__
 ///
 /// ```html
 /// <!-- Explicitly declare the tooltip target. Allows for custom content -->

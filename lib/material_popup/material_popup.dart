@@ -44,7 +44,7 @@ export 'package:angular_components/laminate/popup/popup.dart'
 /// - If the contents change and need to readjust position use
 ///  [trackLayoutChanges] which is also defined in [PopupInterface].
 ///
-/// __Example use__:
+/// __Example usage__:
 ///
 ///     <button (click)="showPopup = !showPopup"
 ///             popupSource

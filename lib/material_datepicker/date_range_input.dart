@@ -20,7 +20,7 @@ import 'package:angular_components/model/observable/observable.dart';
 /// 2035 but "36" is interpreted as "1936". Next year, "36" will start to be
 /// interpreted as 2036.
 ///
-/// __Example Usage:__
+/// __Example usage:__
 ///
 ///     <date-range-input [(range)]="dateRange"></date-range-input>
 ///
