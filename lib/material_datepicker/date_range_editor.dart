@@ -77,8 +77,6 @@ export 'package:angular_components/src/material_datepicker/date_range_editor_mod
     PopupSourceDirective,
     ShowHideDirective,
   ],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   /// A mutable model which fully describes the selected date range and the
