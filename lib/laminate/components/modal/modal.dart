@@ -143,8 +143,7 @@ abstract class Modal {
   ''',
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // Injected by dialog, et al.
 )
 class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
   final Modal _parentModal;
