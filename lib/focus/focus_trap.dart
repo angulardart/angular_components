@@ -25,8 +25,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   styleUrls: const ['focus_trap.scss.css'],
   directives: const [FocusContentWrapper, AutoFocusDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class FocusTrapComponent implements OnDestroy {
   final _disposer = new Disposer.oneShot();
@@ -51,17 +49,17 @@ class FocusTrapComponent implements OnDestroy {
     _disposer.dispose();
   }
 
-  focusFirst() {
+  void focusFirst() {
     _focusFirstInOrder(
         new DomTreeIterator(_content.element, scope: _content.element));
   }
 
-  focusLast() {
+  void focusLast() {
     _focusFirstInOrder(new DomTreeIterator(_content.element,
         scope: _content.element, reverse: true, wraps: true));
   }
 
-  _focusFirstInOrder(Iterator<Element> iterator) {
+  void _focusFirstInOrder(Iterator<Element> iterator) {
     while (iterator.moveNext()) {
       if (iterator.current.tabIndex == 0 && _visible(iterator.current)) {
         iterator.current.focus();
@@ -75,7 +73,7 @@ class FocusTrapComponent implements OnDestroy {
     return (element.offsetWidth != 0 && element.offsetHeight != 0);
   }
 
-  _focusDefault() {
+  void _focusDefault() {
     if (_autoFocusDirective != null) {
       _autoFocusDirective.focus();
     } else if (_content != null) {
@@ -86,8 +84,6 @@ class FocusTrapComponent implements OnDestroy {
 
 @Directive(
   selector: '[focusContentWrapper]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class FocusContentWrapper extends FocusableDirective {
   Element _element;
