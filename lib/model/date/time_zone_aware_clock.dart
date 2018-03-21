@@ -72,6 +72,7 @@ SettableTimeZone settableTimeZoneFactory() => new SettableTimeZone();
 class SettableTimeZone {
   final TimeFunction _time;
   final _initialized = new Completer<Null>();
+  final _throwIfNotInitialized;
 
   /// The offset to add to UTC to get local time.
   ///
@@ -104,39 +105,49 @@ class SettableTimeZone {
 
   /// Accepts a custom [timeFunc] for testing purposes, following the same
   /// pattern as [Clock].
-  SettableTimeZone([TimeFunction timeFunc = systemTime]) : _time = timeFunc;
+  ///
+  /// [throwIfNotInitialized] will cause [StateError] to be thrown if [now()]
+  /// is called before [offsetFromUtc] is set. This will eventually be the only
+  /// available behavior.
+  // TODO(google): Default throwIfNotInitialized to true. Deprecate+remove it.
+  SettableTimeZone(
+      [TimeFunction timeFunc = systemTime, bool throwIfNotInitialized = false])
+      : _time = timeFunc,
+        _throwIfNotInitialized = throwIfNotInitialized;
 
   /// The current time, in the time zone given by [offsetFromUtc].
   ///
   /// Not for public use; call [Clock.now()] instead.
   DateTime _now() {
     var systemTime = _time();
-    if (offsetFromUtc != null) {
-      if (systemTime.timeZoneOffset.inMicroseconds == null) {
+    if (offsetFromUtc == null) {
+      // Ensure that offsetFromUtc is set before calling now() on this object.
+      if (_throwIfNotInitialized) {
         throw new StateError(
-            'System time has a null or undefined timezone offset! $systemTime');
+            'TimeZoneAwareClock not initialized with time zone data');
+      } else {
+        _logger.severe('not initialized with time zone data');
+        return systemTime;
       }
-      if (systemTime.timeZoneOffset.inMicroseconds.isNaN) {
-        throw new StateError(
-            'System time has a NaN timezone offset! $systemTime');
-      }
-      // To convert system time to UTC, subtract systemTime.timeZoneOffset.
-      // To convert UTC to the Custom's local time, add [offsetFromUtc].
-      var offset = offsetFromUtc - systemTime.timeZoneOffset;
-      if (offset.inMicroseconds == null) {
-        throw new StateError('Computed time offset is null or undefined! '
-            '$offsetFromUtc - ${systemTime.timeZoneOffset} = $offset');
-      }
-      if (offset.inMicroseconds.isNaN) {
-        throw new StateError('Computed time offset is NaN! '
-            '$offsetFromUtc - ${systemTime.timeZoneOffset} = $offset');
-      }
-      return systemTime.add(offset);
-    } else {
-      // Severe mostly to enable eye3 tracking, but also because this could
-      // cause unexpected behavior if callers expect a consistent timezone.
-      _logger.severe("not initialized with time zone data");
-      return systemTime;
+    } else if (systemTime.timeZoneOffset.inMicroseconds == null) {
+      throw new StateError(
+          'System time has a null or undefined timezone offset! $systemTime');
+    } else if (systemTime.timeZoneOffset.inMicroseconds.isNaN) {
+      throw new StateError(
+          'System time has a NaN timezone offset! $systemTime');
     }
+
+    // To convert system time to UTC, subtract systemTime.timeZoneOffset.
+    // To convert UTC to the Custom's local time, add [offsetFromUtc].
+    var offset = offsetFromUtc - systemTime.timeZoneOffset;
+    if (offset.inMicroseconds == null) {
+      throw new StateError('Computed time offset is null or undefined! '
+          '$offsetFromUtc - ${systemTime.timeZoneOffset} = $offset');
+    }
+    if (offset.inMicroseconds.isNaN) {
+      throw new StateError('Computed time offset is NaN! '
+          '$offsetFromUtc - ${systemTime.timeZoneOffset} = $offset');
+    }
+    return systemTime.add(offset);
   }
 }
