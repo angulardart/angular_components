@@ -31,6 +31,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     '[class.selected]': 'isSelected',
     '[class.multiselect]': 'supportsMultiSelect',
     'tabindex': '0',
+    'role': 'option'
   },
   providers: const [
     const Provider(SelectionItem, useExisting: MaterialSelectItemComponent),
@@ -73,9 +74,8 @@ class MaterialSelectItemComponent extends ButtonDirective
       this.domService,
       @Optional() this._dropdown,
       @Optional() this._activationHandler,
-      this._cdRef,
-      @Attribute('role') String role)
-      : super(element, role ?? 'option') {
+      this._cdRef)
+      : super(element) {
     _disposer
       ..addStreamSubscription(trigger.listen(handleActivate))
       ..addFunction(() => _selectionChangeStreamSub?.cancel());

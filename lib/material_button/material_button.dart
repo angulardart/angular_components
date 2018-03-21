@@ -121,7 +121,7 @@ class MaterialButtonComponent extends MaterialButtonBase {
 
   MaterialButtonComponent(
       HtmlElement element, AcxDarkTheme darktheme, this._changeDetector)
-      : super(element, null) {
+      : super(element) {
     if (_changeDetector == null)
       throw new Exception('Expecting change detector');
     darktheme.themeElement(element);

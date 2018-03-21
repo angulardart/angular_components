@@ -15,6 +15,7 @@ import 'package:angular_components/material_tab/tab_mixin.dart';
   host: const {
     '[class.focus]': 'visualFocus',
     '[class.active]': 'isActive || isMouseDown',
+    'role': 'tab'
   },
   template: r'''
           <div class="content">
@@ -30,7 +31,7 @@ import 'package:angular_components/material_tab/tab_mixin.dart';
 class TabButtonComponent extends MaterialButtonBase with TabMixin {
   final Element _nativeElement;
 
-  TabButtonComponent(this._nativeElement) : super(_nativeElement, 'tab');
+  TabButtonComponent(this._nativeElement) : super(_nativeElement);
 
   @override
   Element get nativeElement => _nativeElement;
