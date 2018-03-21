@@ -35,8 +35,6 @@ import 'package:angular_components/model/date/date.dart';
     MaterialDropdownSelectComponent,
     MaterialSelectItemComponent
   ],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class ComparisonRangeEditorComponent {
   /// A mutable model describing a comparison date range. The only expected
