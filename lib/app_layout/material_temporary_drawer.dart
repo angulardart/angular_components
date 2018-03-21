@@ -34,8 +34,7 @@ import 'material_drawer_base.dart';
   templateUrl: 'material_temporary_drawer.html',
   styleUrls: const ['material_temporary_drawer.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // Injected by child elements.
 )
 class MaterialTemporaryDrawerComponent extends MaterialDrawerBase {
   MaterialTemporaryDrawerComponent() : super(visible: false);
