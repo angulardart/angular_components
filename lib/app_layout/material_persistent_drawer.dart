@@ -31,8 +31,7 @@ import 'material_drawer_base.dart';
     '[class.mat-drawer-collapsed]': '!visible',
     '[class.mat-drawer-expanded]': 'visible',
   },
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // Injected by child elements.
 )
 class MaterialPersistentDrawerDirective extends MaterialDrawerBase {
   MaterialPersistentDrawerDirective() : super();
