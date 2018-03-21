@@ -67,8 +67,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   template: '<ng-content></ng-content>',
   styleUrls: const ['material_radio_group.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // Injected by members of the group.
 )
 class MaterialRadioGroupComponent
     implements ControlValueAccessor, OnDestroy, AfterContentInit {
