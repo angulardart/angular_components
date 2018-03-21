@@ -33,8 +33,6 @@ import 'tab_change_event.dart';
   templateUrl: 'material_tab_panel.html',
   styleUrls: const ['material_tab_panel.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialTabPanelComponent implements AfterContentInit {
   final ChangeDetectorRef _changeDetector;
