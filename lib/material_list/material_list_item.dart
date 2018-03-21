@@ -46,7 +46,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   host: const {
     'class': 'item',
     '[class.disabled]': 'disabled',
-    '[attr.role]': 'role',
   },
   styleUrls: const ['material_list_item.scss.css'],
   template: '<ng-content></ng-content>',
@@ -59,7 +58,6 @@ class MaterialListItemComponent extends ButtonDirective
     implements OnDestroy {
   final _disposer = new Disposer.oneShot();
   final DropdownHandle _dropdown;
-  final String role;
 
   final String _hostTabIndex;
 
@@ -78,8 +76,7 @@ class MaterialListItemComponent extends ButtonDirective
       @Optional() this._dropdown,
       @Attribute('tabindex') this._hostTabIndex,
       @Attribute('role') String role)
-      : this.role = role ?? 'button',
-        super(element) {
+      : super(element, role) {
     if (_dropdown != null) {
       _disposer.addDisposable(trigger.listen(handleActivate));
     }

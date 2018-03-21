@@ -118,9 +118,9 @@ class MaterialButtonComponent extends MaterialButtonBase {
     _changeDetector.markForCheck();
   }
 
-  MaterialButtonComponent(
-      HtmlElement element, AcxDarkTheme darktheme, this._changeDetector)
-      : super(element) {
+  MaterialButtonComponent(HtmlElement element, AcxDarkTheme darktheme,
+      this._changeDetector, @Attribute('role') String role)
+      : super(element, role) {
     if (_changeDetector == null)
       throw new Exception('Expecting change detector');
     darktheme.themeElement(element);
