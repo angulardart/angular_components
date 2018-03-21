@@ -34,8 +34,6 @@ import 'tab_change_event.dart';
   templateUrl: 'fixed_material_tab_strip.html',
   styleUrls: const ['fixed_material_tab_strip.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class FixedMaterialTabStripComponent {
   final int _transitionAmount;
