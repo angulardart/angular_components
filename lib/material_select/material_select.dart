@@ -49,8 +49,6 @@ import 'material_select_item.dart';
   ],
   templateUrl: 'material_select.html',
   styleUrls: const ['material_select.scss.css'],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialSelectComponent extends MaterialSelectBase {
   List<SelectionItem> _selectItems;
