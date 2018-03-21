@@ -13,6 +13,8 @@ import 'material_button_base.dart';
 
 /// A flat or raised button with an optional ripple effect.
 ///
+/// __Example usage:__
+///
 /// ```html
 /// <!-- A button with both icon and text -->
 /// <material-button (trigger)="generateNames()">
@@ -21,7 +23,7 @@ import 'material_button_base.dart';
 /// </material-button>
 /// ```
 ///
-/// ## Attributes
+/// __Attributes:__
 ///
 /// The following attributes are commonly used with `<material-button>`:
 ///
@@ -38,23 +40,23 @@ import 'material_button_base.dart';
 /// - `dense`: If present, reduces `font-size` to 13px and button height to
 ///   32px.
 ///
-/// ## Properties
+/// __Properties:__
 ///
-/// The following MaterialButtonComponent properties are frequently used:
+/// The following properties are frequently used:
 ///
-/// - [disabled]: True if the button should not respond to events, and
+/// - `disabled` -- True if the button should not respond to events, and
 ///   should have a style that suggests that interaction is not allowed.
-/// - [raised]: True if the button should have a box shadow that makes the
+/// - `raised` -- True if the button should have a box shadow that makes the
 ///   button look raised.
 ///
-/// ## Events
+/// __Events:__
 ///
 /// To react to button clicks, handle the trigger event:
 ///
-/// - [trigger]: Fired when the button is activated via click, tap, or
+/// - `trigger` -- Fired when the button is activated via click, tap, or
 ///   key press.
 ///
-/// ## Styling
+/// __Styling:__
 ///
 /// Style the button with CSS as you would a normal DOM element:
 ///
@@ -78,12 +80,9 @@ import 'material_button_base.dart';
 ///
 /// The opacity of the ripple is not customizable via CSS.
 ///
-/// ## See also
+/// __See also:__
 ///
 /// Examples:
-///
-/// * [material_button_demo example](https://github.com/dart-lang/angular_components_example/tree/master/lib/src/material_button_demo)
-/// * [demo_app/demo_app.html](https://github.com/dart-lang/angular_components_example/blob/master/lib/src/demo_app/demo_app.html)
 /// * [dart-lang/io_2017_components_codelab repo](https://github.com/dart-lang/io_2017_components_codelab/tree/master)
 ///
 /// Other resources:

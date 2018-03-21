@@ -8,7 +8,6 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_components/annotations/rtl_annotation.dart';
 import 'package:angular_components/content/deferred_content.dart';
-import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
@@ -32,6 +31,7 @@ import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/model/ui/template_support.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 /// Material Dropdown Select is a button-triggered dropdown.
@@ -58,7 +58,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// The material-select has a fixed max height and auto overflow. We can add a
 /// property for custom max height once there's a use case.
 ///
-/// __Example Usage:__
+/// __Example usage:__
 ///
 ///     <material-dropdown-select
 ///       [buttonText]="buttonText"
@@ -81,40 +81,26 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// - `width: int` -- Width of the dropdown/list, default none, valid values are
 ///   0-5.
 /// - `visible: bool` -- Whether the dropdown is visible.
-///
 /// - `buttonText: String` -- Text on trigger button.
-///
 /// - `buttonAriaLabel: String` -- Aria label for trigger button.
-///
 ///  - `showButtonBorder: bool` - Whether to show the bottom border of the
 ///   dropdown button.
-///
 /// - `iconName: String` -- Icon to use on button, `arrow_drop_down` by default.
-///
 /// - `icon-label: String` -- Aria label for the button icon.
-///
 /// - `disabled: bool` -- Whether the control is disabled.
-///
 /// - `icon: Icon` -- `Icon` model instance.
-///
 /// - `autoDismiss: bool` -- Whether the popup should close when the document
 ///   pressed.
-///
 /// - `popupMatchInputWidth: bool` -- Whether or not the popup width is at least
 ///   as wide as the select width.
-///
 /// - `preferredPositions: List` -- A manual list of preferred auto-alignments
 ///   for the dropdown popup.
-///
 /// - `slide: String` -- Direction of popup scaling. Valid values are `x`, `y`,
 ///   or `null`.
-///
 /// - `deselectOnActivate: bool` -- Whether to deselect a selected option on
 ///   click or enter/space key. Single selection model only. Defaults to true.
-///
 /// - `deselectLabel: String` -- Adds a select item that deselects the current
 ///   selection.
-///
 /// - `labelRenderer: ComponentRenderer` -- Function that returns a component
 ///   to be used for rendering group labels.
 @Component(

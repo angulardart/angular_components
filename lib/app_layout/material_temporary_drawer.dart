@@ -10,7 +10,9 @@ import 'material_drawer_base.dart';
 /// A temporary drawer that can be opened and closed.
 ///
 /// Works with deferred content.
+///
 /// __Example usage:__
+///
 ///     <material-drawer temporary #drawer="drawer">
 ///         ... content here ...
 ///     </material-drawer>

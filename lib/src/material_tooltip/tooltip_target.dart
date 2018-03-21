@@ -20,7 +20,7 @@ import 'tooltip_source.dart' show tooltipShowDelay;
 /// the only stand-alone tooltip component is the [MaterialInkTooltipComponent],
 /// which gives full control over the content of a simple tooltip.
 ///
-/// __Example Usage:__
+/// __Example usage:__
 ///
 /// ```html
 /// <!-- Explicitly declare the tooltip target. Allows for custom content -->
@@ -124,7 +124,7 @@ abstract class TooltipBehavior extends TooltipTarget {
 /// the only stand-alone tooltip component is the [MaterialInkTooltipComponent],
 /// which gives full control over the content of a simple tooltip.
 ///
-/// __Example Usage:__
+/// __Example usage:__
 ///
 /// ```html
 /// <!-- Explicitly declare the tooltip target. Allows for custom content -->

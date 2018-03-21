@@ -26,10 +26,9 @@ const Icon checkedIcon = const Icon('radio_button_checked');
 /// Keyboard interaction for focus is a little unusual, so we are managing our
 /// own streams instead of using FocusItemDirective.
 ///
-/// __attributes:__
+/// __Attributes:__
 ///
 /// - `no-ink` -- set this attribute to disable the ripple effect on the chip.
-///
 @Component(
     selector: 'material-radio',
     host: const {

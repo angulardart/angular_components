@@ -32,7 +32,7 @@ abstract class Tab extends Focusable {
 /// property. Tab contents can be lazily instantiated by using the
 /// `*deferredContent` template directive.
 ///
-/// __Example Usage:__
+/// __Example usage:__
 ///
 ///     <material-tab-panel>
 ///       <material-tab label="tab 1">

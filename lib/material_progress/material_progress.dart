@@ -21,9 +21,8 @@ const Map<String, double> _indeterminateTiming = const {
 ///
 /// __Example usage:__
 ///
-///    <material-progress [activeProgress]="10" [secondaryProgress]="30">
-///    </material-progress>
-///
+///     <material-progress [activeProgress]="10" [secondaryProgress]="30">
+///     </material-progress>
 @Component(
   selector: 'material-progress',
   templateUrl: 'material_progress.html',

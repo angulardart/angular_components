@@ -12,7 +12,8 @@ import 'tab_change_event.dart';
 
 /// A component that creates a tab panel with navigation bar on the top.
 ///
-/// Example usage:
+/// __Example usage:__
+///
 ///     <material-tab-panel>
 ///       <material-tab label="tab1">
 ///         <!-- your tab content -->
