@@ -85,8 +85,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     const Provider(DateRangeEditorHost,
         useExisting: MaterialDateRangePickerComponent)
   ],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
     implements OnInit, OnDestroy, DateRangeEditorHost {
