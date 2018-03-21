@@ -66,10 +66,10 @@
     .group {
       > .group-header {
         @include list-item-base();
-        text-transform: none;
+        color: $mat-transparent-black;;
         display: flex;
-        color: inherit;
         height: auto;
+        text-transform: none;
       }
 
       // Use more left padding to show this is the sub-level element of
