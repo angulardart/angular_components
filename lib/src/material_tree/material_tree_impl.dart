@@ -62,8 +62,6 @@ import 'package:angular_components/model/ui/has_factory.dart';
     const Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
   ],
   templateUrl: 'material_tree_impl.html',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   @Input()
