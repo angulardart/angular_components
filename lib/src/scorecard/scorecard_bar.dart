@@ -29,8 +29,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// scrolled.
 @Directive(
   selector: '[scorecardBar]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
   final _refreshController = new StreamController<bool>.broadcast();
