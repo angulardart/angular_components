@@ -34,8 +34,6 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
     MaterialTimePickerComponent,
     MaterialInputComponent,
   ],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialDateTimePickerComponent {
   final Clock _clock;
