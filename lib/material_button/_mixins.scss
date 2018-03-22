@@ -15,6 +15,7 @@ $fab-icon-size: $mat-grid * 3;
 
 $button-horizontal-padding: .57em;
 $button-vertical-padding: .7em;
+$button-min-width: 8 * $mat-grid; // Value from mdc-button.
 
 // From spec http://www.google.com/design/spec/components/buttons.html#buttons-flat-raised-buttons
 $button-disabled-color: rgba(0, 0, 0, $mat-opacity-lightest);
@@ -167,7 +168,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 
   &:not([icon]) {
     border-radius: 2px;
-    min-width: 8 * $mat-grid; // Value from mdc-button.
+    min-width: $button-min-width;
 
     .content {
       padding: $button-vertical-padding $button-horizontal-padding;
