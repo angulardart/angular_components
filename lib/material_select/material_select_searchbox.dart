@@ -24,8 +24,6 @@ import 'package:angular_components/utils/browser/events/events.dart';
   ],
   styleUrls: const ['material_select_searchbox.scss.css'],
   templateUrl: 'material_select_searchbox.html',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialSelectSearchboxComponent extends FocusableMixin
     implements OnDestroy {
