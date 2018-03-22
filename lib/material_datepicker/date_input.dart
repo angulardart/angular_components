@@ -40,8 +40,6 @@ import 'module.dart';
 ///
 @Directive(
   selector: 'material-input[dateParsing]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class DateInputDirective implements OnDestroy {
   /// Various recognized input formats.
