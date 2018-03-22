@@ -16,8 +16,6 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
   templateUrl: 'highlighted_text.html',
   styleUrls: const ['highlighted_text.scss.css'],
   directives: const [NgFor],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class HighlightedValueComponent implements RendersValue {
   final HighlightProvider _highLighter;
