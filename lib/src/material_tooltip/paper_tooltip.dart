@@ -18,7 +18,7 @@ import 'tooltip_controller.dart';
 import 'tooltip_target.dart';
 
 @Injectable()
-getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
+Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
     tooltip.tooltipHandle;
 
 /// A paper based overlay meant to convey long-form contextual information about
@@ -78,8 +78,7 @@ getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // injected by [getTooltipHandle] above.
 )
 class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
   // To allow for more flexible styling, classes specified on the host are
