@@ -63,26 +63,26 @@ const indeterminateAriaState = 'mixed';
 /// - `indeterminate: bool` -- Published when the indeterminate state changes.
 ///
 @Component(
-    selector: 'material-checkbox',
-    host: const {
-      'class': 'themeable',
-      '(click)': r'handleClick($event)',
-      '(keypress)': r'handleKeyPress($event)',
-      '(keyup)': r'handleKeyUp($event)',
-      '(focus)': r'handleFocus($event)',
-      '(mousedown)': r'handleMouseDown($event)',
-      '(blur)': r'handleBlur($event)',
-      '[class.disabled]': 'disabled',
-      '[attr.aria-disabled]': 'disabled',
-      '[attr.role]': 'role',
-      '[attr.tabindex]': 'tabIndex',
-      '[attr.aria-label]': 'label',
-    },
-    directives: const [GlyphComponent, MaterialRippleComponent, NgIf],
-    templateUrl: 'material_checkbox.html',
-    styleUrls: const ['material_checkbox.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.local)
+  selector: 'material-checkbox',
+  host: const {
+    'class': 'themeable',
+    '(click)': r'handleClick($event)',
+    '(keypress)': r'handleKeyPress($event)',
+    '(keyup)': r'handleKeyUp($event)',
+    '(focus)': r'handleFocus($event)',
+    '(mousedown)': r'handleMouseDown($event)',
+    '(blur)': r'handleBlur($event)',
+    '[class.disabled]': 'disabled',
+    '[attr.aria-disabled]': 'disabled',
+    '[attr.role]': 'role',
+    '[attr.tabindex]': 'tabIndex',
+    '[attr.aria-label]': 'label',
+  },
+  directives: const [GlyphComponent, MaterialRippleComponent, NgIf],
+  templateUrl: 'material_checkbox.html',
+  styleUrls: const ['material_checkbox.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+)
 class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
   final ChangeDetectorRef _changeDetector;
   final HtmlElement _root;
