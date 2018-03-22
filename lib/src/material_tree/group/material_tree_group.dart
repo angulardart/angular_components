@@ -41,8 +41,6 @@ const materialTreeLeftPaddingToken = const OpaqueToken(
   host: const {'role': 'group'},
   templateUrl: 'material_tree_group.html',
   styleUrls: const ['material_tree_group.scss.css'],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   static final defaultConstantLeftPadding = 24;
