@@ -6,7 +6,6 @@
 @import 'package:angular_components/material_button/mixins';
 
 $button-height: 9 * $mat-grid-type;
-$button-min-width: 11 * $mat-grid;
 
 :host {
   display: flex;
@@ -17,7 +16,6 @@ $button-min-width: 11 * $mat-grid;
 .btn.btn-no {
   height: $button-height;
   margin: 0 $mat-grid-type;
-  min-width: $button-min-width
 }
 
 .btn:not([disabled]).highlighted {
