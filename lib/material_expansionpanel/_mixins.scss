@@ -105,6 +105,15 @@ $_panel: 'div.panel.themeable';
   }
 }
 
+@mixin expansionpanel-no-header-contents-padding() {
+  ::ng-deep > #{$_panel} > header {
+    .panel-name,
+    .panel-description {
+      padding: 0;
+    }
+  }
+}
+
 @mixin expansionpanel-expand-button-text-color($color) {
   ::ng-deep #{$_panel} material-icon.expand-button {
     color: $color;
