@@ -34,8 +34,6 @@ import '../src/material_datepicker/enum_parsing.dart';
   selector: 'material-month-picker',
   styleUrls: const ['material_month_picker.scss.css'],
   templateUrl: 'material_month_picker.html',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialMonthPickerComponent implements OnInit, AfterViewInit, OnDestroy {
   /// An object describing the entire state of the calendar -- what's selected
