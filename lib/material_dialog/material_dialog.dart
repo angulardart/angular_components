@@ -94,8 +94,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   styleUrls: const ['material_dialog.scss.css'],
   directives: const [FocusTrapComponent, NgIf],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   final DomService _domService;
