@@ -57,8 +57,6 @@ import 'package:angular_components/model/observable/observable.dart';
 ''',
   styleUrls: const ['date_range_input.scss.css'],
   directives: const [DateInputDirective, materialInputDirectives],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class DateRangeInputComponent implements OnInit, OnDestroy {
   ChangeDetectorRef _changeDetector;
