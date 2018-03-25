@@ -254,6 +254,10 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   @Input()
   bool filterSuggestions = true;
 
+  /// Whether to close on enter even for string non matching options.
+  @Input()
+  bool closeOnEnter = false;
+
   /// A custom CSS class for suggestion popup contents.
   @Input()
   String popupShadowCssClass = '';
@@ -637,8 +641,12 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
       showPopup = true;
     } else {
       var item = activeModel.activeItem;
-      if (item != null && !isOptionDisabled(item)) {
-        onListItemSelected(item);
+      if (item != null) {
+        if (!isOptionDisabled(item)) {
+          onListItemSelected(item);
+        }
+      } else if (closeOnEnter) {
+        showPopup = false;
       }
     }
   }
