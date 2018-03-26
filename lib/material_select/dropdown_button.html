@@ -11,7 +11,13 @@
      [attr.aria-label]="buttonAriaLabel"
      [class.border]="showButtonBorder"
      [class.invalid]="invalid"
-     [disabled]="disabled">
+     [disabled]="disabled"
+     role="combobox"
+     aria-haspopup="listbox"
+     aria-autocomplete="none"
+     [attr.aria-owns]="ariaOwns"
+     [attr.aria-expanded]="ariaExpanded"
+     [attr.aria-activedescendant]="ariaActiveDescendant">
   <span class="button-text" *ngIf="buttonText != null">{{buttonText}}</span>
   <ng-content></ng-content>
   <glyph *ngIf="buttonIcon != null"

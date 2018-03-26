@@ -66,6 +66,18 @@ class DropdownButtonComponent extends Object
   @Input()
   String error;
 
+  /// The id of the content of the dropdown.
+  @Input()
+  String ariaOwns;
+
+  /// True if the dropdown is expanded.
+  @Input()
+  bool ariaExpanded;
+
+  /// The id of the active element of the dropdown.
+  @Input()
+  String ariaActiveDescendant;
+
   bool get invalid => error != null;
 
   /// Whether to show the bottom border of the dropdown button.

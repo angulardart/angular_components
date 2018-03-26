@@ -14,6 +14,7 @@ import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 /// Container for a single item selected in a dropdown.
 ///
@@ -32,7 +33,9 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
     '(mousedown)': r'preventTextSelectionIfShiftKey($event)',
     '(mouseenter)': 'onMouseEnter()',
     '(mouseleave)': 'onMouseLeave()',
+    '[attr.aria-selected]': 'isSelected',
     '[attr.aria-disabled]': 'disabledStr',
+    '[attr.id]': 'id',
     'tabindex': '0',
   },
   providers: const [
@@ -52,15 +55,29 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 )
 class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
     implements OnDestroy {
+  final String _generatedId;
+
+  String _id;
+
+  /// The id of the element.
+  String get id => _id ?? _generatedId;
+  @Input()
+  set id(String id) {
+    _id = id;
+  }
+
   MaterialSelectDropdownItemComponent(
       HtmlElement element,
       DomService domService,
       @Attribute('role') String role,
       @Optional() DropdownHandle dropdown,
       @Optional() ActivationHandler activationHandler,
+      @Optional() IdGenerator idGenerator,
       ChangeDetectorRef cdRef)
-      : super(element, domService, dropdown, activationHandler, cdRef,
-            role ?? 'button') {
+      : _generatedId =
+            (idGenerator ?? new SequentialIdGenerator.fromUUID()).nextId(),
+        super(element, domService, dropdown, activationHandler, cdRef,
+            role ?? 'option') {
     this.itemRenderer = defaultItemRenderer;
   }
 

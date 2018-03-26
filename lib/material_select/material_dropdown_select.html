@@ -19,7 +19,10 @@
     (keyup)="onKeyUp($event)"
     (trigger)="handleClick($event)"
     popupSource
-    #source="popupSource">
+    #source="popupSource"
+    [ariaOwns]="listId"
+    [ariaExpanded]="visible"
+    [ariaActiveDescendant]="ariaActiveDescendant">
   &ngsp;<ng-content select="[buttonContent]"></ng-content>
 </dropdown-button>
 <material-popup enforceSpaceConstraints
@@ -41,6 +44,8 @@
   </div>
   <material-list
       class="options-list"
+      role="listbox"
+      [attr.id]="listId"
       [width]="width"
       tabIndex="-1"
       *deferredContent="true"
@@ -59,7 +64,7 @@
           [value]="deselectLabel"
           (trigger)="deselectCurrentSelection()"
           [active]="popup.showPopup && activeModel.isActive(deselectLabel)"
-          [attr.id]="activeModel.id(deselectLabel)"
+          [id]="activeModel.id(deselectLabel)"
           (mouseenter)="activeModel.activate(deselectLabel)">
       </material-select-dropdown-item>
       <div *ngFor="let group of options.optionGroups; trackBy: trackByIndexFn"
@@ -86,7 +91,7 @@
                 [isHidden]="isOptionHidden(item)"
                 [value]="item"
                 [active]="popup.showPopup && activeModel.isActive(item)"
-                [attr.id]="activeModel.id(item)"
+                [id]="activeModel.id(item)"
                 [deselectOnActivate]="deselectOnActivate"
                 (mouseenter)="activeModel.activate(item)">
             </material-select-dropdown-item>

@@ -83,6 +83,8 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// - `visible: bool` -- Whether the dropdown is visible.
 /// - `buttonText: String` -- Text on trigger button.
 /// - `buttonAriaLabel: String` -- Aria label for trigger button.
+/// - `ariaActiveDescendant: String` -- The id of the selected item in the
+///    dropdown when using content projection.
 ///  - `showButtonBorder: bool` - Whether to show the bottom border of the
 ///   dropdown button.
 /// - `iconName: String` -- Icon to use on button, `arrow_drop_down` by default.
@@ -152,6 +154,9 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   /// Keeps track of the active item.
   final ActiveItemModel activeModel;
 
+  /// The id for the contained material-list.
+  final String listId;
+
   /// Listener for options changes.
   StreamSubscription _optionsListener;
 
@@ -204,6 +209,9 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   /// Only visible for the template.
   final String popupClassName;
 
+  /// The id of the active element of the dropdown.
+  String _ariaActiveDescendant;
+
   MaterialDropdownSelectComponent(
       @Optional() IdGenerator idGenerator,
       @Optional() @SkipSelf() this._popupSizeDelegate,
@@ -211,10 +219,32 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
       @Attribute('popupClass') String popupClass,
       HtmlElement element)
       : activeModel = new ActiveItemModel(idGenerator),
-        popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
+        popupClassName = constructEncapsulatedCss(popupClass, element.classes),
+        listId =
+            (idGenerator ?? new SequentialIdGenerator.fromUUID()).nextId() {
     isRtl = rtl;
     preferredPositions = RelativePosition.overlapAlignments;
     iconName = 'arrow_drop_down';
+  }
+
+  /// The id of the currently selected item, or the first item if none are
+  /// selected.
+  String get ariaActiveDescendant {
+    if (!visible) return '';
+
+    if (_ariaActiveDescendant != null) return _ariaActiveDescendant;
+
+    if (options != null) {
+      if (isDeselectItemSelected) return activeModel.id(deselectLabel);
+      return activeModel.activeId;
+    }
+
+    return '';
+  }
+
+  @Input()
+  set ariaActiveDescendant(String id) {
+    _ariaActiveDescendant = id;
   }
 
   @Input()
