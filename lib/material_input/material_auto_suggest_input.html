@@ -125,7 +125,7 @@
             [deselectOnActivate]="isMultiSelect"
             [hideCheckbox]="hideCheckbox"
             [active]="popup.showPopup && activeModel.isActive(suggestion)"
-            [attr.id]="activeModel.id(suggestion)"
+            [id]="activeModel.id(suggestion)"
             (mouseenter)="activeModel.activate(suggestion)">
         </material-select-dropdown-item>
       </div>
