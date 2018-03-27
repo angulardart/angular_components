@@ -52,6 +52,14 @@ class MaterialInputWrapper {
     _label = value;
   }
 
+  String _ariaLabel;
+  String get ariaLabel => _ariaLabel ?? label;
+  // Set is added to allow the base classes to override this functionality.
+  @Input()
+  set ariaLabel(String value) {
+    _ariaLabel = value;
+  }
+
   String _inputText;
   String get inputText => _inputText;
   // Set is added to allow the base classes to override this functionality.

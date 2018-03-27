@@ -74,6 +74,8 @@ typedef String _InputChangeCallback(String inputText);
 ///   Defaults to 10.
 /// - `label: String` -- The label to use on the input. Passed through to
 ///   `material-input`.
+/// - `ariaLabel: String` -- The label to use for assistive technology.  If not
+///    provided, uses the label instead.
 /// - `labelRenderer: ComponentRenderer` -- Provides capability to customize the
 ///    suggestionOptions label with a custom component.
 /// - `leadingGlyph: String` -- Any persistent glyph to show before the input.
