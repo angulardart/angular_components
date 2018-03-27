@@ -12,6 +12,7 @@ import 'package:angular_components/laminate/ruler/dom_ruler.dart';
 import 'package:angular_components/src/laminate/ruler/ruler_interface.dart';
 
 /// An implementation of ruler that works on Angular [ElementRef] objects.
+@Deprecated('Use DomRuler instead. ElementRef is deprecated.')
 @Injectable()
 class NgRuler implements Ruler<ElementRef> {
   // TODO(google): Deprecate doing this when web workers introduced.
