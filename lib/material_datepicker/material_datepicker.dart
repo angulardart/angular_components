@@ -11,6 +11,7 @@ import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
@@ -26,6 +27,7 @@ import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
 import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
+import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 
@@ -54,6 +56,7 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
     DateInputDirective,
     DeferredContentDirective,
     DropdownButtonComponent,
+    FocusTrapComponent,
     GlyphComponent,
     KeyboardOnlyFocusIndicatorDirective,
     MaterialCalendarPickerComponent,
@@ -72,7 +75,7 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class MaterialDatepickerComponent extends Object
+class MaterialDatepickerComponent extends KeyboardHandlerMixin
     with FocusableMixin
     implements AfterViewInit {
   /// The format used to format dates.
@@ -221,6 +224,11 @@ class MaterialDatepickerComponent extends Object
   /// Opens the calendar picker popup if not in a [disabled] state.
   void onTrigger() {
     popupVisible = !disabled;
+  }
+
+  @override
+  void handleEscapeKey(KeyboardEvent event) {
+    popupVisible = false;
   }
 
   /// A list of preset dates which the user can choose from.

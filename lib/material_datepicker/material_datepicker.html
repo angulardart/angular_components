@@ -21,6 +21,9 @@
     [source]="container"
     [(visible)]="popupVisible"
     [preferredPositions]="preferredPositions">
+  <focus-trap (keypress)="onKeyPress($event)"
+              (keydown)="onKeyDown($event)"
+              (keyup)="onKeyUp($event)">
     <div class="popup-content" [class.compact]="compact" *deferredContent>
       <div class="inner-label-wrapper">
           <span *ngIf="presetDates.isNotEmpty" class="inner-label" >{{labelMsg}}</span>
@@ -58,4 +61,5 @@
                                 mode="single-date">
       </material-calendar-picker>
     </div>
+  </focus-trap>
 </material-popup>
