@@ -5,8 +5,6 @@ together can give a material look and feel to the scafolding of your
 application. It provides an App Bar, Drawers, and Navigation styling following
 the material spec.
 
-[TOC]
-
 ## Setup
 
 The styles are provided by
@@ -69,7 +67,7 @@ Here is an example:
 </header>
 ```
 
-![Simple App Bar](g3doc/simple_app_bar.png)
+![Simple App Bar](/dart-lang/angular_components/master/lib/app_layout/g3doc/simple_app_bar.png)
 
 ## Drawers
 
