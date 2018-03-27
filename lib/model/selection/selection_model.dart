@@ -8,7 +8,9 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:observable/observable.dart';
+
 import 'package:angular_components/src/model/selection/interfaces/selectable.dart';
+import 'package:angular_components/src/model/selection/radio_group_single_selection_model.dart';
 
 export 'package:angular_components/src/model/selection/delegating_selection_model.dart';
 export 'package:angular_components/src/model/selection/radio_group_single_selection_model.dart';
@@ -40,18 +42,22 @@ abstract class SelectionModel<T>
 
   /// Creates a single-selection model.
   ///
-  /// [keyProvider] is used for equality checking by various other methods.
-  /// For example, [select] will only alter the set of selected values if the
-  /// key of the new value is not among the keys of the already selected values.
+  /// [keyProvider] is used for equality checking. For example, [select] will
+  /// only alter the selected value if the key of the new value does not equal
+  /// the key of the already selected value.
   factory SelectionModel.single({T selected, KeyProvider<T> keyProvider}) =>
       new _SingleSelectionModelImpl<T>(
           selected, keyProvider ?? _defaultKeyProvider);
 
+  /// Creates a single-selection model that always has a value selected.
+  factory SelectionModel.radio(T selected) =>
+      new RadioGroupSingleSelectionModel<T>(selected);
+
   /// Creates a multi-selection model.
   ///
-  /// [keyProvider] is used for equality checking by various other methods.
-  /// For example, [select] will only alter the set of selected values if the
-  /// key of the new value is not among the keys of the already selected values.
+  /// [keyProvider] is used for equality checking. For example, [select] will
+  /// only alter the set of selected values if the key of the new value is not
+  /// among the keys of the already selected values.
   factory SelectionModel.multi(
       {List<T> selectedValues,
       KeyProvider<T> keyProvider}) = MultiSelectionModel<T>;
@@ -63,7 +69,7 @@ abstract class SelectionModel<T>
   factory SelectionModel.withList(
       {List<T> selectedValues,
       KeyProvider<T> keyProvider,
-      bool allowMulti: false}) {
+      bool allowMulti = false}) {
     if (allowMulti) {
       return new SelectionModel<T>.multi(
           selectedValues: selectedValues, keyProvider: keyProvider);
