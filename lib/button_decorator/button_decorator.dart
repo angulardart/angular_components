@@ -30,7 +30,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
     '[attr.aria-disabled]': 'disabledStr',
     '[class.is-disabled]': 'disabled',
   },
-  // TODO(google): Change to `Visibility.local` to reduce code size.
+  // Injected by [DisablePendingClickHandlerDirective].
   visibility: Visibility.all,
 )
 class ButtonDirective extends RootFocusable with HasTabIndex {
