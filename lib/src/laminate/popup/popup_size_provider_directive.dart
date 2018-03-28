@@ -18,8 +18,6 @@ import 'package:angular_components/src/laminate/popup/popup_size_provider.dart';
   providers: const [
     const Provider(PopupSizeProvider, useClass: PopupSizeProviderDirective),
   ],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class PopupSizeProviderDirective implements PopupSizeProvider {
   _SizeDefinition _maxHeight;
