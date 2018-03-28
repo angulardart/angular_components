@@ -37,8 +37,6 @@ const tooltipShowDelay = const Duration(milliseconds: 600);
     'aria-label': 'tooltipLabel',
     '[style.cursor]': "'pointer'"
   },
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialTooltipSourceDirective extends PopupSourceDirective
     implements Toggler, AfterViewInit, OnDestroy {
