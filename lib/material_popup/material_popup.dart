@@ -90,8 +90,7 @@ export 'package:angular_components/laminate/popup/popup.dart'
   styleUrls: const ['material_popup.scss.css'],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // injected by hierarchy
 )
 class MaterialPopupComponent extends Object
     with PopupBase, PopupEvents, PopupHierarchyElement
