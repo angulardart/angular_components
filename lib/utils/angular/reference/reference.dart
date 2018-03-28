@@ -15,9 +15,8 @@ import 'package:angular/angular.dart';
 ///     <material-button ref #button="ref"></materialButton>
 ///     <!-- You can now use 'button' in this template as a property -->
 @Directive(
-  selector: '[ref]', exportAs: 'ref',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  selector: '[ref]',
+  exportAs: 'ref',
 )
 class ReferenceDirective {
   final ElementRef elementRef;
