@@ -21,8 +21,8 @@ while (( "$#" )); do
   case $TASK in
   dartanalyzer) echo
     echo -e '\033[1mTASK: dartanalyzer\033[22m'
-    echo -e 'dartanalyzer --fatal-infos --fatal-warnings .'
-    dartanalyzer --fatal-infos --fatal-warnings . || EXIT_CODE=$?
+    echo -e 'dartanalyzer --fatal-warnings .'
+    dartanalyzer --fatal-warnings . || EXIT_CODE=$?
     ;;
   dartfmt) echo
     echo -e '\033[1mTASK: dartfmt\033[22m'
