@@ -16,8 +16,6 @@ import 'package:angular_components/focus/focus.dart';
     const Provider(FocusableActivateItem,
         useExisting: FocusActivableItemDirective)
   ],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class FocusActivableItemDirective extends RootFocusable
     implements FocusableActivateItem {
