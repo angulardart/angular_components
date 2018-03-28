@@ -284,7 +284,7 @@ class MaterialDatepickerComponent extends Object
 
     // Init minDate and maxDate to sensible defaults
     var now = clock.now();
-    minDate = new Date(now.year - 10, DateTime.JANUARY, 1);
-    maxDate = new Date(now.year + 10, DateTime.DECEMBER, 31);
+    minDate = new Date(now.year - 10, DateTime.january, 1);
+    maxDate = new Date(now.year + 10, DateTime.december, 31);
   }
 }

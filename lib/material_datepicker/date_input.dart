@@ -113,7 +113,7 @@ class DateInputDirective implements OnDestroy {
     if (_lastParse != _date) _trySetDate(_lastParse, setAsCurrent: true);
   }
 
-  Date _maxDate = new Date(9999, DateTime.DECEMBER, 31);
+  Date _maxDate = new Date(9999, DateTime.december, 31);
   Date get maxDate => _maxDate;
 
   /// The earliest recognized date, inclusive.
@@ -128,7 +128,7 @@ class DateInputDirective implements OnDestroy {
     if (_lastParse != _date) _trySetDate(_lastParse, setAsCurrent: true);
   }
 
-  Date _minDate = new Date(1000, DateTime.JANUARY, 1);
+  Date _minDate = new Date(1000, DateTime.january, 1);
   Date get minDate => _minDate;
 
   /// The selected date.

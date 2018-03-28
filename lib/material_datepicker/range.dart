@@ -457,7 +457,7 @@ class WeekRange implements DatepickerDateRange {
   /// [clock] starting on the [startWeekday].
   ///
   /// The [startWeekday] is the 1-based first day of the week: e.g.
-  /// [DateTime.MONDAY] (which equals 1) for Monday, [DateTime.TUESDAY] for
+  /// [DateTime.monday] (which equals 1) for Monday, [DateTime.tuesday] for
   /// Tuesday, etc. It defaults to the first day of the week specified in the
   /// current locale.
   WeekRange.weeksAgo(clock, ago,
