@@ -28,8 +28,6 @@ const Map<String, double> _indeterminateTiming = const {
   templateUrl: 'material_progress.html',
   styleUrls: const ['material_progress.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialProgressComponent implements AfterViewInit, OnDestroy {
   final ChangeDetectorRef _changeDetector;
