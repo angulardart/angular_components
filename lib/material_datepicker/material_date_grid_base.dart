@@ -287,8 +287,6 @@ abstract class ForcedScrollDirectiveHost {
 /// detection cycle. (It's a bit of a hack)
 @Directive(
   selector: '[imperativelyScrollable]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class ForcedScrollDirective {
   final HtmlElement _element;
