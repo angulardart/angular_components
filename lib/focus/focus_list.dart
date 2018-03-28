@@ -30,8 +30,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///
 @Directive(
   selector: '[focusList]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class FocusListDirective implements OnDestroy {
   final NgZone _ngZone;
