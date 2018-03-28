@@ -231,8 +231,6 @@ class DelegatingPortalHost implements PortalHost {
 ///     <template portalHost="portal"></template>
 @Directive(
   selector: '[portalHost]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class PortalHostDirective extends BasePortalHost {
   final ComponentLoader _componentLoader;
@@ -327,8 +325,6 @@ typedef void OnTemplatePortalReady(TemplatePortal portal);
 ///     </template>
 @Directive(
   selector: '[portal]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class TemplatePortalDirective extends TemplatePortal {
   @Output()
