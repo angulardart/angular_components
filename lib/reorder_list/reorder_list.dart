@@ -43,8 +43,7 @@ export 'reorder_events.dart';
   host: const {'role': 'list', 'class': 'themeable'},
   templateUrl: 'reorder_list.html',
   styleUrls: const ['reorder_list.scss.css'],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // injected
 )
 class ReorderListComponent implements OnDestroy {
   static final itemSelectedCssClass = 'item-selected';
@@ -594,8 +593,6 @@ typedef void ReorderListHandler(int sourceIndex, int destIndex);
 @Directive(
   selector: '[reorderItem]',
   host: const {'draggable': 'true', 'role': 'listitem', 'tabindex': '0'},
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class ReorderItemDirective {
   final HtmlElement element;
