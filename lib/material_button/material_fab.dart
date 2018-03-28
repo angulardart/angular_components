@@ -15,10 +15,13 @@ import 'material_button_base.dart';
 /// It may be flat or raised. A raised button is styled with a shadow.
 ///
 /// __Example usage:__
-///     <!-- A Floating Action Button (FAB). -->
-///     <material-fab aria-label="add">
-///       <material-icon icon="add"></material-icon>
-///     </material-fab>
+///
+/// ```
+/// <!-- A Floating Action Button (FAB). -->
+/// <material-fab aria-label="add">
+///   <material-icon icon="add"></material-icon>
+/// </material-fab>
+/// ```
 ///
 /// __Properties:__
 ///
@@ -34,19 +37,35 @@ import 'material_button_base.dart';
 ///
 /// __Styling:__
 ///
-/// Style the button with CSS as you would a normal DOM element.
-///     /* Make #myButton green with yellow text */
-///     #myButton {
-///       background: green;
-///       color: yellow;
-///     }
+/// The preferred way of specifying FAB colors is to use mixins:
+///
+/// ```
+/// /* Make #myButton green with yellow icon */
+/// @include button-background-color('#myButton', green);
+/// @include icon-button-color('#myButton', yellow);
+/// ```
+///
+/// The advantage of using mixins for color is that they will not overwrite the
+/// disabled state colors. You can also style the FAB with CSS as you would a
+/// normal DOM element, although this will also affect the disabled state:
+///
+/// ```
+/// /* Make #myButton green with yellow icon */
+/// #myButton {
+///   background: green;
+///   color: yellow;
+/// }
+/// ```
 ///
 /// By default the ripple is the same color as the foreground at 25% opacity.
 /// You may customize the color using this selector:
-///     /* Make #myButton use a blue ripple instead of foreground color */
-///     #myButton material-ripple {
-///       color: blue;
-///     }
+///
+/// ```
+/// /* Make #myButton use a blue ripple instead of foreground color */
+/// #myButton material-ripple {
+///   color: blue;
+/// }
+/// ```
 ///
 /// The opacity of the ripple is not customizable via CSS.
 @Component(
