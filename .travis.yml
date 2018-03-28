@@ -15,13 +15,14 @@ jobs:
       dart: stable
 
 stages:
-  - analyzer_and_format
+  - analyze_and_format
 
 # Only building master means that we don't run two builds for each pull request.
 branches:
-  only: [master]
+  only:
+    - master
 
 cache:
   directories:
-    - $HOME/.pub-cache
+    - "$HOME/.pub-cache"
     - angular_components/.dart_tool/build
