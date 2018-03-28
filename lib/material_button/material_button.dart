@@ -58,7 +58,17 @@ import 'material_button_base.dart';
 ///
 /// __Styling:__
 ///
-/// Style the button with CSS as you would a normal DOM element:
+/// The preferred way of specifying button colors is to use mixins:
+///
+/// ```
+/// /* Make #myButton green with yellow text */
+/// @include button-background-color('#myButton', green);
+/// @include button-color('#myButton', yellow);
+/// ```
+///
+/// The advantage of using mixins for color is that they will not overwrite the
+/// disabled state colors. You can also style the button with CSS as you would a
+/// normal DOM element, although this will also affect the disabled state:
 ///
 /// ```
 /// /* Make #myButton green with yellow text */
