@@ -22,8 +22,6 @@ import 'package:angular_components/model/selection/selection_model.dart';
   directives: const [DynamicComponent, NgFor, NgIf],
   templateUrl: 'material_tree_group_flat_list.html',
   styleUrls: const ['material_tree_group_flat_list.scss.css'],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialTreeGroupFlatListComponent extends MaterialTreeNode {
   MaterialTreeGroupFlatListComponent(
@@ -51,8 +49,6 @@ class MaterialTreeGroupFlatListComponent extends MaterialTreeNode {
   ],
   templateUrl: 'material_tree_group_flat_radio.html',
   styleUrls: const ['material_tree_group_flat_radio.scss.css'],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
   final DropdownHandle _dropdownHandle;
@@ -93,8 +89,6 @@ class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
   ],
   templateUrl: 'material_tree_group_flat_check.html',
   styleUrls: const ['material_tree_group_flat_check.scss.css'],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialTreeGroupFlatCheckComponent extends MaterialTreeNode {
   final DropdownHandle _dropdownHandle;
