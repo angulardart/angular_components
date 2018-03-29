@@ -12,8 +12,6 @@ import 'material_expansionpanel.dart';
 /// widget. Thus only allowing one panel to be open at a time.
 @Directive(
   selector: 'material-expansionpanel-set',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialExpansionPanelSet implements OnDestroy {
   final _panelDisposer = new Disposer.multi();
