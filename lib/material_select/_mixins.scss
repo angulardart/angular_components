@@ -81,6 +81,13 @@
   }
 }
 
+/// Sets the color of the "disabled" item.
+@mixin material-select-disabled-color($color) {
+  ::ng-deep material-select-dropdown-item.item.disabled {
+    color: $color;
+  }
+}
+
 /// Enables pointer events on disabled MaterialSelectDropdownItems
 ///
 /// This can be scoped to a specific selector in cases where
