@@ -29,8 +29,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   ],
   templateUrl: 'material_time_picker.html',
   styleUrls: const ['material_time_picker.scss.css'],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialTimePickerComponent extends KeyboardHandlerMixin
     implements OnInit, OnDestroy {
