@@ -1,3 +1,37 @@
+## 0.9.0-alpha+9
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+9. The alpha tag represents the evolving nature of the AngularDart
+> API, not code quality (5.0.0-alpha+9 is used in production Google apps).
+
+ * Remove visibility.all from @Component annotations. This is potentially
+   BREAKING.
+ * Button Decorator: Allow role to be customized.
+ * Material Button: Remove override of `min-width` for `yes-no-buttons` as it is
+   now the right value in material-button.
+ * Material Date Picker: Improved keyboard handling.
+ * Material Date Time Picker: Update so that it sets time to default value if
+   date is picked but time is not picked.
+ * Material Menu:
+   * Match the color of the group header label to item.
+   * Add mixin to show the same font for group label.
+ * Material Expansion Panel: Add mixin for additional padding.
+ * Material Input: Add an aria-label that can override the label.
+ * Material Select:
+   * Add proper aria attributes to make `material-dropdown-select` screen reader
+     accessible.
+   * Add mixin to set disabled color.
+ * Material Time Picker: Fix one hour difference after daylight saving.
+ * Selection Model:
+   * Add empty, single, and multi constructors.
+   * Add `ignoreDeselect` option to `SelectionModel.single` and deprecate
+     `RadioGroupSingleSelectionModel`.
+ * Add a parameter to fail loudly when TimeZoneAwareClock is used before it's
+   initialized, to prevent incorrect return values from being ignored.
+ * Migrate from `ElementRef` to `Element` or `HtmlElement`.
+ * Fix Dart2 runtime cast failures.
+ * Update documentation.
+
 ## 0.9.0-alpha+8
 
 > NOTE: This code is considered production quality, but depends on angular:
