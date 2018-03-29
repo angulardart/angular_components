@@ -24,8 +24,6 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
   styleUrls: const ['highlighted_text.scss.css'],
   directives: const [NgFor],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class HighlightedTextComponent {
   /// List of [HighlightedTextSegment]s to present.
