@@ -46,8 +46,6 @@ export 'package:angular_components/src/material_datepicker/sequential.dart';
 ''',
   styleUrls: const ['next_prev_buttons.scss.css'],
   directives: const [GlyphComponent],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class NextPrevComponent implements OnDestroy {
   final ChangeDetectorRef _changeDetector;
