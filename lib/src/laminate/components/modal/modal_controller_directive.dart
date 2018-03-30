@@ -9,8 +9,6 @@ import 'package:angular_components/laminate/portal/portal.dart';
 /// An internal directive that is used by the modal component to hoist content.
 @Directive(
   selector: '[modalController]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class ModalControllerDirective extends TemplatePortal implements OnDestroy {
   ModalControllerDirective(
