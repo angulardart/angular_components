@@ -117,8 +117,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   templateUrl: 'material_expansionpanel.html',
   styleUrls: const ['material_expansionpanel.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // injected
 )
 class MaterialExpansionPanel
     implements DeferredContentAware, OnInit, OnDestroy {
