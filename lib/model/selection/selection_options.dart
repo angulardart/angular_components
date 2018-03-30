@@ -73,7 +73,6 @@ abstract class GroupedOptions<T> implements Disposable {
 /// that will fire a change notification when the optionGroups list changes but
 /// it will not detect if the contents of the List or the individual
 /// [OptionGroup]s changed.
-///
 class SelectionOptions<T> extends GroupedOptions<T>
     implements ObserveAware<List<OptionGroup<T>>> {
   final _controller =
