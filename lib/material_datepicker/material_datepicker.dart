@@ -72,8 +72,6 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
   host: const {'[class.compact]': 'compact'},
   styleUrls: const ['material_datepicker.scss.css'],
   templateUrl: 'material_datepicker.html',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialDatepickerComponent extends KeyboardHandlerMixin
     with FocusableMixin
