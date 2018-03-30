@@ -15,7 +15,7 @@ class CalendarMonth {
   List<String> _classes = [];
 
   CalendarMonth(int year, int month,
-      {CalendarState state, this.startingWeekday: DateTime.MONDAY})
+      {CalendarState state, this.startingWeekday: DateTime.monday})
       : _start = new Date(year, month),
         calendarState = state {
     _title = _start.format(new DateFormat.yMMM());
@@ -28,12 +28,12 @@ class CalendarMonth {
   }
 
   CalendarMonth.fromDate(Date date,
-      {CalendarState state, int startingWeekday: DateTime.MONDAY})
+      {CalendarState state, int startingWeekday: DateTime.monday})
       : this(date.year, date.month,
             state: state, startingWeekday: startingWeekday);
 
   CalendarMonth.fromTime(DateTime time,
-      {CalendarState state, int startingWeekday: DateTime.MONDAY})
+      {CalendarState state, int startingWeekday: DateTime.monday})
       : this(time.year, time.month,
             state: state, startingWeekday: startingWeekday);
 
@@ -111,7 +111,7 @@ class CalendarMonth {
   ///
   /// Based on [CalendarWeek.next].
   CalendarMonth get next {
-    if (month < DateTime.DECEMBER) {
+    if (month < DateTime.december) {
       return addMonths(1);
     }
     return null;

@@ -39,7 +39,7 @@ class DomService {
   final NgZone _ngZone;
   final Window _window;
 
-  Zone _rootZone = Zone.ROOT;
+  Zone _rootZone = Zone.root;
   bool _insideDigest = false;
   Disposable _layoutObserveRead;
   bool _scheduledProcessQueue = false;

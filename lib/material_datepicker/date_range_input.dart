@@ -191,12 +191,12 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   /// The latest recognized date, inclusive.
   /// Defaults to Dec 31, 9999 -- i.e., limited to 4-digit years.
   @Input()
-  Date maxDate = new Date(9999, DateTime.DECEMBER, 31);
+  Date maxDate = new Date(9999, DateTime.december, 31);
 
   /// The earliest recognized date, inclusive.
   /// Defaults to Jan 1, 1000 -- i.e., limited to 4-digit years.
   @Input()
-  Date minDate = new Date(1000, DateTime.JANUARY, 1);
+  Date minDate = new Date(1000, DateTime.january, 1);
 
   String get startDateMsg => Intl.message('Start date',
       name: 'DateRangeInputComponent_startDateMsg',
