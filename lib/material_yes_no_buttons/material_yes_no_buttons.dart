@@ -31,8 +31,7 @@ import 'package:angular_components/material_spinner/material_spinner.dart';
   templateUrl: 'material_yes_no_buttons.html',
   styleUrls: const ['material_yes_no_buttons.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
+  visibility: Visibility.all, // Injected by directives.
 )
 class MaterialYesNoButtonsComponent {
   /// The callback that is to be invoked, when yes button is pressed.
@@ -140,7 +139,6 @@ class MaterialYesNoButtonsComponent {
 
 @Directive(
   selector: 'material-yes-no-buttons[saveCancel]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
 class MaterialSaveCancelButtonsDirective {
