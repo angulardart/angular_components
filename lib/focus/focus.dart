@@ -167,9 +167,9 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
   /// Enables the auto focus directive so that it can be conditionally applied.
   ///
   /// This value should not change during the component's life.
+  // TODO(google): Change to an attribute.
   @Input()
   set autoFocus(bool value) {
-    assert(_autoFocus == null);
     _autoFocus = value;
   }
 

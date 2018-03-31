@@ -81,8 +81,8 @@ const String materialInputErrorKey = 'material-input-error';
 /// - `required: bool` -- Whether or not the input is required. If there's no
 ///   input text, a required input will show a validation error when it's first
 ///   focused.
-/// - `disabled: bool` -- Whether or not the input is disabled. Disabled inputs
-///   are grayed out and have a dashed underline.
+/// - `disabled: bool` -- Whether or not the input is disabled (readonly).
+///   Disabled inputs are grayed out and have a dashed underline.
 /// - `maxCount: int` -- The maximum length of the input.
 /// - DEPRECATED: `checkValid: ValidityCheck` -- A custom validation function.
 ///   This function should take in the input text, and return a string

@@ -42,7 +42,7 @@
                   [class.disabledInput]="disabled"
                   attr.aria-invalid="{{invalid}}"
                   [attr.aria-label]="ariaLabel"
-                  [disabled]="disabled"
+                  [readonly]="disabled"
                   [ngModel]="inputText"
                   (blur)="inputBlurAction($event, textareaEl.validity.valid, textareaEl.validationMessage)"
                   (change)="inputChange(textareaEl.value, textareaEl.validity.valid, textareaEl.validationMessage);$event.stopPropagation()"
@@ -59,7 +59,7 @@
     <div class="unfocused-underline"
          [class.invisible]="disabled" [class.invalid]="invalid"></div>
     <div class="focused-underline"
-         [class.invisible]="!focused" [class.invalid]="invalid"
+         [class.invisible]="!focused || disabled" [class.invalid]="invalid"
          [class.animated]="underlineAnimated"></div>
   </div>
 </div>
