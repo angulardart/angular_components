@@ -289,7 +289,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   @override
-  set visible(value) {
+  set visible(bool value) {
     super.visible = value;
     resetEnteredKeys();
   }
