@@ -61,6 +61,7 @@ const String materialInputErrorKey = 'material-input-error';
 /// - `multiple` -- Whether the user can enter multiple values, separated by
 ///   commas. This attribute only applies when type = "email", otherwise it is
 ///   ignored.
+/// - `role` -- The role attribute for the input element.
 ///
 /// __Inputs:__
 ///
@@ -108,6 +109,19 @@ const String materialInputErrorKey = 'material-input-error';
 /// - `maxRows` -- If the input is multiline, the max number of lines.
 /// - `showCharacterCount` -- Force the character count to be displayed if
 ///   maxCount is null.
+/// - `inputAriaLabel` -- A label for the input for use by assistive
+///   technologies.
+/// - `inputAriaOwns` -- The ID of an element which should be assigned to the
+///   input element's aria-owns attribute.
+/// - `inputAriaActivedescendent` -- The ID of an element which should be
+///   assigned to the input element's aria-activedescendant attribute.
+/// - `inputAriaHasPopup` -- The value for the input element's aria-haspopup
+///   attribute, indicating that the element referred to by inputAriaOwns is
+///   expandable.
+/// - `inputAriaExpanded` -- Whether or not the expandable element referred to
+///   by [inputAriaOwns] is currently visible.
+/// - `inputAriaAutocomplete` -- The autocomplete method applied to the inner
+///   input element.
 ///
 /// __Outputs:__
 ///
@@ -188,6 +202,9 @@ class MaterialInputComponent extends BaseMaterialInput
   /// Only applies when type = "email", otherwise it is ignored.
   bool multiple = false;
 
+  /// The role to assign to the inner input element.
+  final String inputRole;
+
   /// Any persistent text to show before the input box.
   String get leadingText => _leadingText;
   String _leadingText;
@@ -238,9 +255,40 @@ class MaterialInputComponent extends BaseMaterialInput
     _changeDetector.markForCheck();
   }
 
+  /// The id of an element which should be assigned to the inner input element's
+  /// aria-owns attribute.
+  @Input()
+  String inputAriaOwns;
+
+  /// The id of an element which should be assigned to the inner input element's
+  /// aria-activedescendant attribute.
+  @Input()
+  String inputAriaActivedescendent;
+
+  /// The value for the input element's aria-haspopup attribute.
+  ///
+  /// If the element referred to by [inputAriaOwns] is expandable, this should
+  /// be either "true" or the role of the owned element.
+  @Input()
+  String inputAriaHasPopup;
+
+  /// Whether or not the expandable element referred to by [inputAriaOwns] is
+  /// currently visible.
+  @Input()
+  bool inputAriaExpanded;
+
+  /// The autocomplete method applied to the inner input element.
+  ///
+  /// This can be used in conjunction with [inputRole] values of "combobox" or
+  /// "textbox". If this is "list" or "both", [inputAriaHasPopup] should be
+  /// set to "true".
+  @Input()
+  String inputAriaAutocomplete;
+
   MaterialInputComponent(
       @Attribute('type') String type,
       @Attribute('multiple') String multiple,
+      @Attribute('role') this.inputRole,
       @Self() @Optional() NgControl cd,
       this._changeDetector,
       DeferredValidator validator)
