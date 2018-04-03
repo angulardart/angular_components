@@ -27,7 +27,7 @@
       <glyph *ngIf="isBasic" buttonDecorator class="expend-more" icon="expand_more"></glyph>
     </material-select-item>
   </div>
-  <div class="group">
+  <div role="listbox" class="group">
     <material-select-item *ngFor="let preset of presets"
        (trigger)="onRangeClicked($event, preset.range)"
        [disabled]="!isValid(preset)"

@@ -43,7 +43,9 @@
         </material-input>
       </div>
 
-      <div class="preset-dates-wrapper" *ngIf="presetDates.isNotEmpty">
+      <div role="listbox"
+           class="preset-dates-wrapper"
+           *ngIf="presetDates.isNotEmpty">
           <material-select-item *ngFor="let presetDate of presetDates"
                                 (trigger)="onPresetClicked(presetDate)"
                                 [selected]="isPresetDateSelected(presetDate)"

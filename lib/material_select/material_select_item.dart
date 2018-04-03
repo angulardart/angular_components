@@ -6,7 +6,6 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:intl/intl.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/glyph/glyph.dart';
@@ -22,6 +21,10 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// Material Select Item is a special kind of list item which can be selected.
+///
+/// For accessibility, should be contained in an element with role="listbox" and
+/// aria-multiselectable set appropriately, unless [role] is set to something
+/// other than "option".
 @Component(
   selector: 'material-select-item',
   host: const {
@@ -29,6 +32,8 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     '[class.disabled]': 'disabled',
     '[class.hidden]': 'isHidden',
     '[class.selected]': 'isSelected',
+    '[attr.aria-selected]': 'isSelected',
+    '[attr.aria-checked]': 'isAriaChecked',
     '[class.multiselect]': 'supportsMultiSelect',
     'tabindex': '0',
   },
@@ -241,6 +246,9 @@ class MaterialSelectItemComponent extends ButtonDirective
   ComponentFactory get componentFactory =>
       factoryRenderer != null ? factoryRenderer(value) : null;
 
+  bool get isAriaChecked =>
+      !supportsMultiSelect || hideCheckbox ? null : isSelected;
+
   /// Whether this item should be marked as selected.
   bool get isSelected => _isMarkedSelected || _isSelectedInSelectionModel;
 
@@ -268,14 +276,4 @@ class MaterialSelectItemComponent extends ButtonDirective
   void ngOnDestroy() {
     _disposer.dispose();
   }
-
-  String get selectedMessage => Intl.message('Click to deselect',
-      name: 'selectedMessage',
-      desc: 'Label for an icon describing possible interactions with a '
-          'selected menu item.');
-
-  String get notSelectedMessage => Intl.message('Click to select',
-      name: 'notSelectedMessage',
-      desc: 'Label for an icon describing possible interactions with a '
-          'non-selected menu item.');
 }
