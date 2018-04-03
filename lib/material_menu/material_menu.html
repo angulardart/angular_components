@@ -23,6 +23,7 @@
 <menu-popup
     *ngIf="hasSubmenu"
     [(isExpanded)]="isExpanded"
+    [popupClass]="popupClass"
     [menu]="menu"
     [popupSource]="toggle"
     [preferredPositions]="preferredPositions"

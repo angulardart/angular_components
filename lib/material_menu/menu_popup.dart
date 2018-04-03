@@ -16,25 +16,29 @@ import 'package:angular_components/model/menu/menu.dart';
 
 /// A popup that renders a [MenuModel] using a [MenuItemGroupsComponent].
 @Component(
-  selector: 'menu-popup',
-  directives: const [
-    AutoFocusDirective,
-    DeferredContentDirective,
-    MaterialListComponent,
-    MaterialPopupComponent,
-    MenuItemGroupsComponent,
-    MenuRootDirective,
-    NgIf,
-  ],
-  templateUrl: 'menu_popup.html',
-  styleUrls: const ['menu_popup.scss.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
-)
+    selector: 'menu-popup',
+    directives: const [
+      AutoFocusDirective,
+      DeferredContentDirective,
+      MaterialListComponent,
+      MaterialPopupComponent,
+      MenuItemGroupsComponent,
+      MenuRootDirective,
+      NgIf,
+    ],
+    templateUrl: 'menu_popup.html',
+    styleUrls: const ['menu_popup.scss.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush)
 class MenuPopupComponent extends Object with FocusableMixin, MenuPopupWrapper {
   @Input()
   PopupSource popupSource;
+
+  /// CSS classes to append onto the menu popup.
+  ///
+  /// These CSS classes will be copied into the popup overlay. The classes can
+  /// be used to select DOM elements within the overlay when the popup is open.
+  @Input()
+  String popupClass;
 
   @ViewChild(MenuItemGroupsComponent)
   set menuItemGroups(MenuItemGroupsComponent groups) {

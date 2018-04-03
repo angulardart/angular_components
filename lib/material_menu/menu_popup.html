@@ -6,6 +6,7 @@
 <material-popup enforceSpaceConstraints
     [(visible)]="isExpanded"
     [source]="popupSource"
+    [class]="popupClass"
     [preferredPositions]="preferredPositions">
   <ng-content></ng-content>
   <material-list
@@ -14,6 +15,7 @@
       [width]="width">
     <menu-item-groups
         [menu]="menu"
+        [popupClass]="popupClass"
         menu-root
         autoFocus
         preventCloseOnPressLeft>
