@@ -158,7 +158,7 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   Stream<MenuItem> get selected => _selected.stream;
   final _selected = new StreamController<MenuItem>.broadcast();
 
-  /// Hightlighter to use, need to be to be provided if [highlight] is used.
+  /// Highlighter to use, need to be to be provided if [highlight] is used.
   @Input()
   TextHighlighter highlighter;
 
@@ -170,6 +170,15 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   }
 
   String _highlight;
+
+  /// CSS classes to append onto the sub-menu popups.
+  ///
+  /// These CSS classes will be copied into the sub-menu popup overlays.
+  /// Typically this will be set by the [MaterialMenuComponent] on the popup
+  /// this component is rendered in and need to be propagated down to any
+  /// sub-menus this component will open.
+  @Input()
+  String popupClass;
 
   bool get hasHighlight => _highlight?.isNotEmpty ?? false;
 

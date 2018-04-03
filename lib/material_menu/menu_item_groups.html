@@ -87,6 +87,7 @@
           </material-select-item>
           <material-popup
               *ngIf="item.hasSubMenu"
+              [class]="popupClass"
               [source]="subMenuSource"
               enforceSpaceConstraints
               [preferredPositions]="preferredSubMenuPositions"
@@ -102,6 +103,7 @@
                   autoFocus
                   [activateFirstItemOnInit]="isKeyboardOpenedSubmenu"
                   (selected)="onSubMenuItemSelected($event)"
+                  [popupClass]="popupClass"
                   [menu]="item.subMenu">
               </menu-item-groups>
             </material-list>

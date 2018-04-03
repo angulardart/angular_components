@@ -28,25 +28,29 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///     <material-menu [menu]="menuModel">
 ///     </material-menu>
 @Component(
-  selector: 'material-menu',
-  directives: const [
-    MaterialButtonComponent,
-    MaterialIconComponent,
-    MaterialTooltipDirective,
-    MenuPopupComponent,
-    NgIf,
-    PopupSourceDirective
-  ],
-  templateUrl: 'material_menu.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
-)
+    selector: 'material-menu',
+    directives: const [
+      MaterialButtonComponent,
+      MaterialIconComponent,
+      MaterialTooltipDirective,
+      MenuPopupComponent,
+      NgIf,
+      PopupSourceDirective
+    ],
+    templateUrl: 'material_menu.html',
+    changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialMenuComponent extends Object
     with FocusableMixin, MenuPopupWrapper
     implements AfterViewInit, OnDestroy {
   final _onTrigger = new StreamController<Null>();
   final _disposer = new Disposer.oneShot();
+
+  /// CSS classes to append onto the menu popup.
+  ///
+  /// These CSS classes will be copied into the popup overlay. The classes can
+  /// be used to select DOM elements within the overlay when the popup is open.
+  @Input()
+  String popupClass;
 
   /// Trigger button text. Ignored if the [MenuModel] has an icon.
   @Input()
