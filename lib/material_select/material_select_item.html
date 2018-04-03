@@ -4,22 +4,17 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <div *ngIf="!supportsMultiSelect && isSelected"
-    class="selected-accent mixin"
-    [attr.aria-label]="selectedMessage">
+    class="selected-accent mixin">
 </div>
 &ngsp;
 <template [ngIf]="supportsMultiSelect && !hideCheckbox">
   <material-checkbox *ngIf="!useCheckMarks"
       tabindex="-1"
       [checked]="isSelected"
-      [disabled]="disabled"
-      [attr.aria-label]=
-          "isSelected ? selectedMessage : notSelectedMessage">
+      [disabled]="disabled">
   </material-checkbox>
   &ngsp;
-  <span *ngIf="useCheckMarks"
-      class="check-container"
-      [attr.aria-label]="isSelected ? selectedMessage : notSelectedMessage">
+  <span *ngIf="useCheckMarks" class="check-container">
     <glyph *ngIf="isSelected"
         baseline
         class="check"

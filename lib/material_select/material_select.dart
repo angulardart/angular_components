@@ -36,7 +36,11 @@ import 'material_select_item.dart';
 ///    Optional. Defaults to false.
 @Component(
   selector: 'material-select',
-  host: const {'role': 'listbox', '[attr.aria-disabled]': 'disabledStr'},
+  host: const {
+    'role': 'listbox',
+    '[attr.aria-multiselectable]': 'isMultiSelect',
+    '[attr.aria-disabled]': 'disabledStr'
+  },
   providers: const [
     const Provider(HasRenderer, useExisting: MaterialSelectComponent),
     const Provider(SelectionContainer, useExisting: MaterialSelectComponent)
