@@ -17,7 +17,21 @@ material-fab {
 
 .close-menu {
   height: $mat-grid * 7;
-  background-color: $mat-scrollbar-background-hover;
+  background-color: $mat-grey-200;
+
+  &:hover {
+    background-color: $mat-grey-200;
+
+    .close-icon {
+      opacity: 1;
+    }
+  }
+}
+
+.close-icon {
+  opacity: $mat-opacity-light;
+  transition: opacity $mat-transition-desktop $mat-transition-standard;
+  will-change: opacity;
 }
 
 .menu-content {
@@ -26,28 +40,32 @@ material-fab {
   border-radius: 50%;
   height: $fab-size;
   overflow: hidden;
-  transition: background-color $mat-transition-fast $mat-transition-standard;
-  transition: border-radius $mat-transition-fast $mat-transition-standard;
-  transition: width $mat-transition $mat-transition-deceleration;
-  transition: height $mat-transition $mat-transition-deceleration;
+  transition: background-color $mat-transition-fast $mat-transition-standard,
+              border-radius $mat-transition-fast $mat-transition-standard,
+              width $mat-transition $mat-transition-deceleration,
+              height $mat-transition $mat-transition-deceleration;
   width: $fab-size;
 
   &.visible {
     border-radius: $popup-border-radius;
+    width: 30 * $mat-grid;
+
+    &.has-icons {
+      width: 35 * $mat-grid;
+    }
   }
 
   &.closing {
-    transition: background-color $mat-transition $mat-transition-deceleration;
-    transition: border-radius $mat-transition $mat-transition-deceleration;
-    transition: width $mat-transition-fast $mat-transition-standard;
-    transition: height $mat-transition-fast $mat-transition-standard;
+    transition: background-color $mat-transition $mat-transition-deceleration,
+                border-radius $mat-transition $mat-transition-deceleration,
+                width $mat-transition-fast $mat-transition-standard,
+                height $mat-transition-fast $mat-transition-standard;
   }
 }
 
 .content-wrapper {
   @include item-height('menu-item-groups', $mat-grid * 7);
 
-  display: inline-block;
   opacity: 0;
   transition: opacity $mat-transition $mat-transition-deceleration;
 
@@ -62,4 +80,5 @@ material-fab {
 
 .menu-groups {
   padding: $mat-grid 0;
+  border-top: 1px solid $mat-border-light;
 }
