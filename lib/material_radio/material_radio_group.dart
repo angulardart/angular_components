@@ -161,6 +161,8 @@ class MaterialRadioGroupComponent
     // not implemented
   }
 
+  void onDisabledChanged(bool isDisabled) {}
+
   void _resetTabIndex() {
     // Since this is updating children that were already dirty-checked,
     // need to delay this change until next angular cycle.

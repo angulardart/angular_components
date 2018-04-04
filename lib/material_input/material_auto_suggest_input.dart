@@ -801,4 +801,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
       return 448;
     }
   }
+
+  void onDisabledChanged(bool isDisabled) {}
 }
