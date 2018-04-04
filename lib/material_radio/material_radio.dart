@@ -94,6 +94,8 @@ class MaterialRadioComponent extends RootFocusable
     // not implemented
   }
 
+  void onDisabledChanged(bool isDisabled) {}
+
   /// Value this radio represents, used in selection model with radio-group.
   @Input()
   dynamic value;
