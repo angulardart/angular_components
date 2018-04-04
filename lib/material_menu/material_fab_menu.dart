@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content.dart';
@@ -116,9 +115,6 @@ class MaterialFabMenuComponent extends Object
 
   bool get hasIcons => _viewModel.hasIcons;
 
-  @ViewChild('content')
-  HtmlElement contentElementRef;
-
   @override
   void ngOnDestroy() {
     _viewModelStreamSub?.cancel();
@@ -127,12 +123,7 @@ class MaterialFabMenuComponent extends Object
   }
 
   void onPopupOpened() {
-    if (_menuVisible || contentElementRef == null) return;
-    // Set the content wrapper large enough so as not to cut off any menu
-    // contents. Menu contents are measured via scrolling dimensions.
-    var e = contentElementRef;
-    var scrollHeight = e.scrollHeight;
-    e.style.height = '${scrollHeight}px';
+    if (_menuVisible) return;
     _menuVisible = true;
     _onShow.add(null);
   }
@@ -156,9 +147,6 @@ class MaterialFabMenuComponent extends Object
   void _hideMenuContent() {
     if (!_menuVisible) return;
     _menuVisible = false;
-    if (contentElementRef == null) return;
-    var e = contentElementRef;
-    e.style.removeProperty('height');
   }
 
   final tooltipPositions = const <RelativePosition>[
