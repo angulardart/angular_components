@@ -9,7 +9,6 @@
 @import 'package:angular_components/material_popup/mixins';
 
 material-fab {
-
   &.invisible {
     opacity: 0;
   }
@@ -38,16 +37,17 @@ material-fab {
   @include material-shadow();
   background: $bg-color;
   border-radius: 50%;
-  height: $fab-size;
+  display: flex;
   overflow: hidden;
-  transition: background-color $mat-transition-fast $mat-transition-standard,
-              border-radius $mat-transition-fast $mat-transition-standard,
-              width $mat-transition $mat-transition-deceleration,
-              height $mat-transition $mat-transition-deceleration;
+  transition: border-radius $mat-transition-fast $mat-transition-standard,
+              width $mat-transition $mat-transition-deceleration;
+  height: $fab-size;
+  max-height: 100vh;
   width: $fab-size;
 
   &.visible {
     border-radius: $popup-border-radius;
+    height: auto;
     width: 30 * $mat-grid;
 
     &.has-icons {
@@ -56,17 +56,16 @@ material-fab {
   }
 
   &.closing {
-    transition: background-color $mat-transition $mat-transition-deceleration,
-                border-radius $mat-transition $mat-transition-deceleration,
-                width $mat-transition-fast $mat-transition-standard,
-                height $mat-transition-fast $mat-transition-standard;
+    transition: border-radius $mat-transition $mat-transition-deceleration,
+                width $mat-transition-fast $mat-transition-standard;
   }
 }
 
 .content-wrapper {
   @include item-height('menu-item-groups', $mat-grid * 7);
-
+  flex: 1;
   opacity: 0;
+  overflow: auto;
   transition: opacity $mat-transition $mat-transition-deceleration;
 
   &.visible {
@@ -75,6 +74,9 @@ material-fab {
 
   &.closing {
     transition: opacity $mat-transition-fast $mat-transition-standard;
+
+    // Hide scrollbars when closing.
+    overflow: hidden;
   }
 }
 
