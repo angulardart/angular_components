@@ -18,10 +18,10 @@ import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
   selector: '[showhide]',
 )
 class ShowHideDirective implements OnInit, OnDestroy {
-  static String NG_HIDE_CLASS = 'ng-hide';
-  static String NG_HIDDEN_CLASS = 'ng-hidden';
+  static String _hideClass = 'ng-hide';
+  static String _hiddenClass = 'ng-hidden';
   // time after transition started, when ng-hidden is added forcefully
-  static int TRANSITION_TIMEOUT_MS = 16;
+  static int _transitionTimeoutMs = 16;
 
   final Element _element;
   final DomService _domService;
@@ -72,8 +72,8 @@ class ShowHideDirective implements OnInit, OnDestroy {
     } else {
       _initialWritePending = true;
       _domService.scheduleWrite(() {
-        _element.classes.toggle(NG_HIDE_CLASS, !value);
-        _element.classes.toggle(NG_HIDDEN_CLASS, !value);
+        _element.classes.toggle(_hideClass, !value);
+        _element.classes.toggle(_hiddenClass, !value);
         _initialWritePending = false;
       });
     }
@@ -82,9 +82,9 @@ class ShowHideDirective implements OnInit, OnDestroy {
   void _show() {
     _stopHiding();
     _domService.scheduleRead(() {
-      if (_initialWritePending || _element.classes.contains(NG_HIDDEN_CLASS)) {
+      if (_initialWritePending || _element.classes.contains(_hiddenClass)) {
         _domService.scheduleWrite(() {
-          _element.classes.remove(NG_HIDDEN_CLASS);
+          _element.classes.remove(_hiddenClass);
         });
         // remove the ng-hide class in the next event loop, so that effects of
         // removing ng-hidden can settle (like changing display from none to
@@ -101,7 +101,7 @@ class ShowHideDirective implements OnInit, OnDestroy {
   void _removeNgHide() {
     if (_hiding) return;
     _domService.scheduleWrite(() {
-      _element.classes.remove(NG_HIDE_CLASS);
+      _element.classes.remove(_hideClass);
       _onShow.add(_element);
     });
     _onTransitionEnd(() {
@@ -126,7 +126,7 @@ class ShowHideDirective implements OnInit, OnDestroy {
       // if the transition wasn't started because the hidden element already
       // have the same properties, hide it manually
       Duration timeout =
-          new Duration(milliseconds: duration + TRANSITION_TIMEOUT_MS);
+          new Duration(milliseconds: duration + _transitionTimeoutMs);
       new Future.delayed(timeout, complete);
     });
   }
@@ -134,7 +134,7 @@ class ShowHideDirective implements OnInit, OnDestroy {
   void _hide() {
     _hiding = true;
     _domService.scheduleWrite(() {
-      _element.classes.add(NG_HIDE_CLASS);
+      _element.classes.add(_hideClass);
       _onHide.add(_element);
     });
     _onTransitionEnd(_hideIfHiding);
@@ -145,7 +145,7 @@ class ShowHideDirective implements OnInit, OnDestroy {
   void _hideIfHiding() {
     if (_hiding) {
       _domService.scheduleWrite(() {
-        _element.classes.add(NG_HIDDEN_CLASS);
+        _element.classes.add(_hiddenClass);
       });
       _onHideEnd.add(_element);
       _hiding = false;
