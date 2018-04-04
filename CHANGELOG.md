@@ -1,8 +1,25 @@
-## 0.9.0-alpha+9
+## 0.9.0-alpha+10
 
 > NOTE: This code is considered production quality, but depends on angular:
 > 5.0.0-alpha+9. The alpha tag represents the evolving nature of the AngularDart
 > API, not code quality (5.0.0-alpha+9 is used in production Google apps).
+
+ * Material Input:
+   * Allow values to be selectable when disabled on all browsers. This is
+     potentially BREAKING.
+   * Pass aria attributes through to the inner input element. Includes material
+     auto suggest.
+ * Material Select: Add aria states/properties to indicate selected/checked in
+   select item component.
+ * Material FAB Menu:
+   * Update close bar style
+   * Change menu width to 280px if menu has icons
+   * Fix transitions
+ * Material Menu:
+   * Allow mixins to customize popup contents by specifying additional CSS
+     classes added to the popup content.
+
+## 0.9.0-alpha+9
 
  * Remove visibility.all from @Component annotations. This is potentially
    BREAKING.
