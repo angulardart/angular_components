@@ -29,6 +29,7 @@ class PopupHierarchy {
   }
 
   void _attach(PopupHierarchyElement child) {
+    assert(child != null);
     if (_visiblePopupStack.isEmpty) {
       _rootPane =
           events.closestWithClass(child.elementRef.nativeElement, 'pane');
@@ -68,7 +69,7 @@ class PopupHierarchy {
 
     for (int i = _visiblePopupStack.length - 1; i >= 0; i--) {
       final current = _visiblePopupStack[i];
-      if (current.container == null) continue;
+      if (current?.container == null) continue;
 
       if (events.isParentOf(current.container, event.target)) return;
 
