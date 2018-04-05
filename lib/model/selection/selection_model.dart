@@ -45,9 +45,8 @@ abstract class SelectionModel<T>
   /// [keyProvider] is used for equality checking. For example, [select] will
   /// only alter the selected value if the key of the new value does not equal
   /// the key of the already selected value.
-  factory SelectionModel.single({T selected, KeyProvider<T> keyProvider}) =>
-      new _SingleSelectionModelImpl<T>(
-          selected, keyProvider ?? _defaultKeyProvider);
+  factory SelectionModel.single({T selected, KeyProvider<T> keyProvider}) =
+      SingleSelectionModel<T>;
 
   /// Creates a single-selection model that always has a value selected.
   factory SelectionModel.radio(T selected) =>
@@ -111,12 +110,20 @@ abstract class SelectionModel<T>
   Iterable<T> get selectedValues;
 }
 
+abstract class SingleSelectionModel<T> extends SelectionModel<T> {
+  factory SingleSelectionModel({T selected, KeyProvider<T> keyProvider}) =>
+      new _SingleSelectionModelImpl<T>(
+          selected, keyProvider ?? _defaultKeyProvider);
+
+  /// The selected value, or `null` if no value has been selected.
+  T get selectedValue;
+}
+
 abstract class MultiSelectionModel<T> extends SelectionModel<T> {
   factory MultiSelectionModel(
-      {List<T> selectedValues, KeyProvider<T> keyProvider}) {
-    return new _MultiSelectionModelImpl<T>(
-        selectedValues ?? const [], keyProvider ?? _defaultKeyProvider);
-  }
+          {List<T> selectedValues, KeyProvider<T> keyProvider}) =>
+      new _MultiSelectionModelImpl<T>(
+          selectedValues ?? const [], keyProvider ?? _defaultKeyProvider);
 
   /// Adds all [values] to the list of selected items that were not previously
   /// selected. Will only emit a [changes] event for values that were actually

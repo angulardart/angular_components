@@ -86,7 +86,18 @@ class DelegatingSelectionModel<T> implements SelectionModel<T> {
   }
 }
 
-/// a delegating implementation of [MultiSelectionModel]
+/// A delegating implementation of [SingleSelectionModel].
+class DelegatingSingleSelectionModel<T> extends DelegatingSelectionModel<T>
+    implements SingleSelectionModel<T> {
+  DelegatingSingleSelectionModel(SingleSelectionModel<T> delegateModel)
+      : super(delegateModel);
+
+  @override
+  T get selectedValue =>
+      (_delegateModel as SingleSelectionModel<T>).selectedValue;
+}
+
+/// A delegating implementation of [MultiSelectionModel].
 class DelegatingMultiSelectionModel<T> extends DelegatingSelectionModel<T>
     implements MultiSelectionModel<T> {
   DelegatingMultiSelectionModel(MultiSelectionModel<T> delegateModel)
