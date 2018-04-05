@@ -1,0 +1,83 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+$knob-radius: $mat-grid;
+$track-container-height: 6px;
+$track-height: 2px;
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  height: 4 * $knob-radius;
+}
+
+.track-container {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  height: $mat-grid-type;
+}
+
+.track {
+  height: 2px;
+  width: 100%;
+}
+
+.left-track-container > .track {
+  background-color: $mat-blue-500;
+}
+
+.right-track-container > .track {
+  background-color: $mat-grey-500;
+}
+
+.knob {
+  height: 2 * $knob-radius;
+  position: relative;
+  width: 0;
+}
+
+.knob-real {
+  background-color: $mat-blue-500;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 2 * $knob-radius;
+  position: absolute;
+  width: 2 * $knob-radius;
+}
+
+.knob-hover-shadow {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 4 * $knob-radius;
+  margin: -$knob-radius;
+  position: absolute;
+  transition: background-color .5s linear;
+  width: 4 * $knob-radius;
+}
+
+.knob-drag-shadow {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 2.5 * $knob-radius;
+  margin: -$knob-radius / 4;
+  position: absolute;
+  width: 2.5 * $knob-radius;
+}
+
+.is-dragging.knob-drag-shadow {
+  background-color: $mat-blue-500;
+}
+
+.knob:focus,
+.knob:hover {
+  outline: none;
+
+  .knob-hover-shadow {
+    background-color: transparentize($mat-blue-500, .50);
+  }
+}
