@@ -1,0 +1,30 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div class="container" #container>
+  <div class="track-container left-track-container"
+       (mousedown)="mouseDown($event)"
+       [style.width.%]="progressPercent">
+    <div class="track"></div>
+  </div>
+  <div class="knob" role="slider"
+         tabindex="1"
+         (keydown)="knobKeyDown($event)"
+         (mousedown)="mouseDown($event)"
+         [style.margin-left.px]="isRtl ? 0 : -8"
+         [style.margin-right.px]="isRtl ? -8 : 0"
+         [attr.aria-valuemin]="min"
+         [attr.aria-valuemax]="max"
+         [attr.aria-valuenow]="value">
+    <div class="knob-real"></div>
+    <div class="knob-hover-shadow"></div>
+    <div class="knob-drag-shadow" [class.is-dragging]="isDragging"></div>
+  </div>
+  <div class="track-container right-track-container"
+       (mousedown)="mouseDown($event)"
+       style.width="calc({{100-progressPercent}}% + 8px)">
+    <div class="track"></div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+/// Mixin to customize the color of the slider "thumb". The color is also
+/// used as the basis for the color of the hover and focus states. Use this
+/// mixin to change the color of all components below the given scope.
+///
+/// Example:
+/// ```scss
+/// :host {
+///   @include slider-thumb-color('material-slider.my-color', $mat-red);
+/// }
+/// ```
+@mixin slider-thumb-color($selector, $color) {
+  ::ng-deep #{$selector} .knob-real,
+  ::ng-deep #{$selector} .is-dragging.knob-drag-shadow {
+    background-color: $color;
+  }
+
+  ::ng-deep #{$selector} .knob:focus,
+  ::ng-deep #{$selector} .knob:hover {
+    .knob-hover-shadow {
+      background-color: transparentize($color, .50);
+    }
+  }
+}
+
+/// Mixin to customize the two colors of the slider "track". Use this mixin to
+/// change the color of all components below the given scope.
+///
+/// Example:
+/// ```scss
+/// :host {
+///   @include slider-track-color(
+///     'material-slider.my-color', $mat-orange, $mat-yellow);
+/// }
+/// ```
+@mixin slider-track-color($selector, $left-color, $right-color: $mat-grey) {
+  ::ng-deep #{$selector} .left-track-container > .track {
+    background-color: $left-color;
+  }
+
+  ::ng-deep #{$selector} .right-track-container > .track {
+    background-color: $right-color;
+  }
+}
