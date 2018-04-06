@@ -4,6 +4,9 @@
 > 5.0.0-alpha+9. The alpha tag represents the evolving nature of the AngularDart
 > API, not code quality (5.0.0-alpha+9 is used in production Google apps).
 
+ * Add Material Slider component.
+ * Remove `visibility.all` from `@Component` annotations. This is potentially
+   BREAKING.
  * Material Input:
    * Allow values to be selectable when disabled on all browsers. This is
      potentially BREAKING.
@@ -12,16 +15,26 @@
  * Material Select: Add aria states/properties to indicate selected/checked in
    select item component.
  * Material FAB Menu:
-   * Update close bar style
-   * Change menu width to 280px if menu has icons
-   * Fix transitions
+   * Update close bar style.
+   * Change menu width to 280px if menu has icons.
+   * Fix transitions.
+   * Simplify material-fab-menu animation & allow it to scroll on small screens.
  * Material Menu:
    * Allow mixins to customize popup contents by specifying additional CSS
      classes added to the popup content.
+ * Material Popup: Enforce space constraints on content.
+ * Protect against a null pointer exception in laminate popup.
+ * Add `SingleSelectionModel` interface with `selectedValue()` method.
+ * Add `onDisabledChanged()` to all `ControlValueAccessor` implementations.
+ * Make `ShowHideDirective` constansts private.
 
 ## 0.9.0-alpha+9
 
- * Remove visibility.all from @Component annotations. This is potentially
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+9. The alpha tag represents the evolving nature of the AngularDart
+> API, not code quality (5.0.0-alpha+9 is used in production Google apps).
+
+ * Remove `visibility.all` from `@Component` annotations. This is potentially
    BREAKING.
  * Button Decorator: Allow role to be customized.
  * Material Button: Remove override of `min-width` for `yes-no-buttons` as it is
@@ -43,7 +56,7 @@
    * Add empty, single, and multi constructors.
    * Add `ignoreDeselect` option to `SelectionModel.single` and deprecate
      `RadioGroupSingleSelectionModel`.
- * Add a parameter to fail loudly when TimeZoneAwareClock is used before it's
+ * Add a parameter to fail loudly when `TimeZoneAwareClock` is used before it's
    initialized, to prevent incorrect return values from being ignored.
  * Migrate from `ElementRef` to `Element` or `HtmlElement`.
  * Fix Dart2 runtime cast failures.
