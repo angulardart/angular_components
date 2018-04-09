@@ -106,18 +106,20 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   height: 4 * $mat-grid;
   line-height: 4 * $mat-grid;
-  padding: 0 $date-range-picker-horizontal-padding;
   margin-bottom: $date-range-picker-vertical-padding;
+  padding: 0 $date-range-picker-horizontal-padding;
 }
 
 .month-selector-toolbar {
-  display: flex;
-  padding: 0 $date-range-picker-horizontal-padding;
-  margin-bottom: $date-range-picker-vertical-padding;
   align-items: center;
   color: $mat-transparent-black;
+  display: flex;
+  flex-shrink: 0;
+  margin-bottom: $date-range-picker-vertical-padding;
+  padding: 0 $date-range-picker-horizontal-padding;
 }
 
 .month-selector-dropdown {
