@@ -16,13 +16,24 @@ $main-font-size: 13px;
 }
 
 .popup-contents {
-  user-select: none;
   display: inline-block;
   font-size: $main-font-size;
-
+  height: inherit;
+  max-height: inherit;
+  min-height: inherit;
   // Since the calendar picker already has a scrollbar, the parent container
   // should avoid showing a second one.
   overflow: hidden;
+  user-select: none;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  max-height: inherit;
+  min-height: inherit;
 }
 
 .separator {
@@ -30,16 +41,16 @@ $main-font-size: 13px;
 }
 
 .apply-bar {
-  box-sizing: border-box;
   align-items: center;
-
   background-color: $mat-white;
   border-top: 1px solid $mat-gray-300;
+  box-sizing: border-box;
+  color: $mat-blue-500;
   display: none;
   font-size: 13px;
+  flex-shrink: 0;
   height: $apply-height;
   padding-right: $mat-grid;
-  color: $mat-blue-500;
 }
 
 .apply-bar.visible {
