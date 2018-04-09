@@ -5,15 +5,15 @@
 > API, not code quality (5.0.0-alpha+9 is used in production Google apps).
 
  * Add Material Slider component.
- * Remove `visibility.all` from `@Component` annotations. This is potentially
-   BREAKING.
+ * Remove some `visibility.all` from `@Component` annotations. This is
+   potentially BREAKING.
  * Material Input:
    * Allow values to be selectable when disabled on all browsers. This is
      potentially BREAKING.
    * Pass aria attributes through to the inner input element. Includes material
      auto suggest.
  * Material Select: Add aria states/properties to indicate selected/checked in
-   select item component.
+   item.
  * Material FAB Menu:
    * Update close bar style.
    * Change menu width to 280px if menu has icons.
@@ -26,7 +26,7 @@
  * Protect against a null pointer exception in laminate popup.
  * Add `SingleSelectionModel` interface with `selectedValue()` method.
  * Add `onDisabledChanged()` to all `ControlValueAccessor` implementations.
- * Make `ShowHideDirective` constansts private.
+ * Make `ShowHideDirective` constants private. This is potentially BREAKING.
 
 ## 0.9.0-alpha+9
 
@@ -34,8 +34,8 @@
 > 5.0.0-alpha+9. The alpha tag represents the evolving nature of the AngularDart
 > API, not code quality (5.0.0-alpha+9 is used in production Google apps).
 
- * Remove `visibility.all` from `@Component` annotations. This is potentially
-   BREAKING.
+ * Remove some `visibility.all` from `@Component` annotations. This is
+   potentially BREAKING.
  * Button Decorator: Allow role to be customized.
  * Material Button: Remove override of `min-width` for `yes-no-buttons` as it is
    now the right value in material-button.
