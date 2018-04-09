@@ -71,6 +71,7 @@ import 'material_select/material_select.dart';
 import 'material_select/material_select_dropdown_item.dart';
 import 'material_select/material_select_item.dart';
 import 'material_select/material_select_searchbox.dart';
+import 'material_slider/material_slider.dart';
 import 'material_spinner/material_spinner.dart';
 import 'material_tab/fixed_material_tab_strip.dart';
 import 'material_tab/material_tab.dart';
@@ -174,6 +175,7 @@ export 'material_select/material_select_dropdown_item.dart';
 export 'material_select/material_select_item.dart';
 export 'material_select/material_select_searchbox.dart';
 export 'material_select/shift_click_selection.dart';
+export 'material_slider/material_slider.dart';
 export 'material_spinner/material_spinner.dart';
 export 'material_tab/fixed_material_tab_strip.dart';
 export 'material_tab/material_tab.dart';
@@ -279,6 +281,7 @@ const List<dynamic> materialDirectives = const [
   MaterialSelectDropdownItemComponent,
   MaterialSelectItemComponent,
   MaterialSelectSearchboxComponent,
+  MaterialSliderComponent,
   MaterialSpinnerComponent,
   MaterialTabComponent,
   MaterialTabPanelComponent,
