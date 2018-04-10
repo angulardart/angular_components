@@ -39,19 +39,18 @@ material-drawer {
   }
 
   &[persistent] {
-    transition-property: transform, width;
-    transition-duration: $mat-transition-desktop;
-    transition-timing-function: $mat-transition-standard;
-
-    + material-content,
-    + .material-content {
-      transition: margin-left $mat-transition-desktop $mat-transition-standard;
+    transition: {
+      duration: $mat-transition-desktop;
+      property: transform, width;
+      timing-function: $mat-transition-standard;
     }
 
-    &[end] {
-      + material-content,
-      + .material-content {
-        transition-property: margin-right;
+    ~ material-content,
+    ~ .material-content {
+      transition: {
+        duration: $mat-transition-desktop;
+        property: margin-left, margin-right;
+        timing-function: $mat-transition-standard;
       }
     }
   }
@@ -90,6 +89,26 @@ $mat-header-dense-height: 48px;
   width: 100%;
   z-index: 0;
 
+  // Add shadow to the header
+  &.shadow {
+    @include shadow-elevation(4);
+  }
+
+  // Header is taking the full top row.
+  ~ material-drawer {
+    // Position the drawer lower to fit the header.
+    &[permanent],
+    &[persistent] {
+      top: $mat-header-height;
+    }
+  }
+
+  // Reduce the min size of the content.
+  ~ material-content,
+  ~ .material-content {
+    min-height: calc(100% - #{$mat-header-height});
+  }
+
   // Dense header spec for desktop and mouse heavy interfaces.
   &.dense-header {
     height: $mat-header-dense-height;
@@ -97,38 +116,17 @@ $mat-header-dense-height: 48px;
     .material-header-row {
       height: $mat-header-dense-height;
     }
-  }
 
-  // Add shadow to the header
-  &.shadow {
-    @include shadow-elevation(4);
-  }
-
-  // Header is taking the full top row.
-  + material-drawer {
-    // Position the drawer lower to fit the header.
-    &[permanent],
-    &[persistent] {
-      top: $mat-header-height;
+    ~ material-drawer {
+      &[permanent],
+      &[persistent] {
+        top: $mat-header-dense-height;
+      }
     }
 
     // Reduce the min size of the content.
-    + material-content,
-    + .material-content {
-      min-height: calc(100% - #{$mat-header-height});
-    }
-  }
-
-  // Dense header is taking the full top row.
-  &.dense-header + material-drawer {
-    &[permanent],
-    &[persistent] {
-      top: $mat-header-dense-height;
-    }
-
-    // Reduce the min size of the content.
-    + material-content,
-    + .material-content {
+    ~ material-content,
+    ~ .material-content {
       min-height: calc(100% - #{$mat-header-dense-height});
     }
   }

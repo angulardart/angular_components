@@ -18,36 +18,39 @@
   &[permanent] {
     width: $width;
 
-    + material-content,
-    + .material-content {
-      margin-left: $width;
+    &:not([end]) {
+      ~ material-content,
+      ~ .material-content {
+        margin-left: $width;
+      }
     }
 
     &[end] {
-      + material-content,
-      + .material-content {
-        margin-left: 0;
+      ~ material-content,
+      ~ .material-content {
         margin-right: $width;
       }
     }
   }
 
   &[persistent].mat-drawer-collapsed {
-    transform: translateX(-100%);
+    &:not([end]) {
+      transform: translateX(-100%);
 
-    // If the drawer is collapsed, which needs to be the element directly
-    // before the content, set the content to the left edge.
-    + material-content,
-    + .material-content {
-      margin-left: 0;
+      // If the drawer is collapsed, which needs to be an element before the
+      // content, set the content to the left edge.
+      ~ material-content,
+      ~ .material-content {
+        margin-left: 0;
+      }
     }
 
     &[end] {
       transform: translateX(100%);
 
       // [end] drawer is positioned on the opposite side
-      + material-content,
-      + .material-content {
+      ~ material-content,
+      ~ .material-content {
         margin-right: 0;
       }
     }
