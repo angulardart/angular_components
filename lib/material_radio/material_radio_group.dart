@@ -161,6 +161,7 @@ class MaterialRadioGroupComponent
     // not implemented
   }
 
+  @override
   void onDisabledChanged(bool isDisabled) {}
 
   void _resetTabIndex() {

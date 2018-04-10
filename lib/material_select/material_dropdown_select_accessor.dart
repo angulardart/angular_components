@@ -134,5 +134,6 @@ abstract class BaseDropdownSelectValueAccessor
     _visibileSub?.cancel();
   }
 
+  @override
   void onDisabledChanged(bool isDisabled) {}
 }
