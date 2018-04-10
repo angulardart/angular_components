@@ -1,12 +1,15 @@
 ## 0.9.0-alpha+10
 
 > NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-alpha+9. The alpha tag represents the evolving nature of the AngularDart
-> API, not code quality (5.0.0-alpha+9 is used in production Google apps).
+> 5.0.0-alpha+10. The alpha tag represents the evolving nature of the
+> AngularDart API, not code quality (5.0.0-alpha+10 is used in production Google
+> apps).
 
  * Add Material Slider component.
  * Remove some `visibility.all` from `@Component` annotations. This is
    potentially BREAKING.
+ * App Layout: Add support for 0 or 2 drawers.
+ * Material Date Range Picker: Improved support for high browser zoom.
  * Material Input:
    * Allow values to be selectable when disabled on all browsers. This is
      potentially BREAKING.
