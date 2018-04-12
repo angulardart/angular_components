@@ -266,13 +266,13 @@ Stream<Rectangle> onResize(Element element) {
       onListen: () {
         observer = new ResizeObserver(allowInterop((entries, _) {
           for (var entry in entries) {
-            controller.add(entry.contentRect);
+            controller.add(js_util.getProperty(entry, 'contentRect'));
           }
         }));
-        observer.observe(element);
+        js_util.callMethod(observer, 'observe', [element]);
       },
       onCancel: () {
-        observer.disconnect();
+        js_util.callMethod(observer, 'disconnect', []);
       });
   return controller.stream;
 }
