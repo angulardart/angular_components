@@ -111,47 +111,6 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
   return controller.stream;
 }
 
-typedef void ResizeObserverCallback(
-    Iterable<ResizeObserverEntry> entries, ResizeObserver observer);
-
-/// The ResizeObserver API is an interface for observing changes to Element's
-/// content rect’s width and height.
-///
-/// NOTE: ResizeObserver browser support is limited
-/// (https://caniuse.com/resizeobserver). Check [supportsResizeObserver] from
-/// feature_detector.dart before using.
-@JS()
-class ResizeObserver {
-  /// Create a [ResizeObserver] with the given [callback].
-  ///
-  /// [callback] is invoked when one or more of the observed elements' size
-  /// changes, after layout and before paint, making it the ideal time to apply
-  /// style changes (you will only invalidate layout, not layout and paint).
-  external ResizeObserver(ResizeObserverCallback callback);
-
-  /// Adds [target] to the list of observed elements.
-  external void observe(Element target);
-
-  /// Removes [target] from the list of observed elements.
-  external void unobserve(Element target);
-
-  /// Clears the list of observed elements.
-  external void disconnect();
-}
-
-@JS()
-@anonymous
-class ResizeObserverEntry {
-  /// The Element whose size has changed.
-  external Element get target;
-
-  /// Element's content rect when ResizeObserverCallback is invoked.
-  ///
-  /// [top] and [left] correspond to padding-top and padding-left.
-  /// [width] and [height] correspond to [innerWidth] and [innerHeight].
-  external Rectangle get contentRect;
-}
-
 /// A stream of contect rects fired when [element] changes size.
 ///
 /// A content rect is a [Rectangle] where [top] = padding-top, [left] =
@@ -168,13 +127,13 @@ Stream<Rectangle> onResize(Element element) {
       onListen: () {
         observer = new ResizeObserver(allowInterop((entries, _) {
           for (var entry in entries) {
-            controller.add(js_util.getProperty(entry, 'contentRect'));
+            controller.add(entry.contentRect);
           }
         }));
-        js_util.callMethod(observer, 'observe', [element]);
+        observer.observe(element);
       },
       onCancel: () {
-        js_util.callMethod(observer, 'disconnect', []);
+        observer.disconnect();
       });
   return controller.stream;
 }
