@@ -181,3 +181,15 @@
     color: $color;
   }
 }
+
+/// Changes the font size of all text including the leading and trailing
+/// text and glyphs.
+@mixin material-input-font-size($font-size) {
+  ::ng-deep {
+    .leading-text,
+    .trailing-text,
+    .input {
+      font-size: $font-size;
+    }
+  }
+}
