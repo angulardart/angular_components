@@ -57,6 +57,15 @@
 header {
   display: flex;
   color: $mat-transparent-black;
+  transition: min-height $mat-transition-slow $mat-transition-standard,
+              opacity $mat-transition-slow $mat-transition-standard;
+
+  &.hidden {
+    min-height: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
 }
 
 .header {
