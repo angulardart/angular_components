@@ -87,7 +87,7 @@ int _dayOfWeek(int year, int month, int day) {
   templateUrl: 'material_calendar_picker.html',
 )
 class MaterialCalendarPickerComponent
-    implements OnInit, AfterViewInit, OnDestroy {
+    implements OnInit, AfterChanges, AfterViewInit, OnDestroy {
   /// The height of the each calendar date, in pixels.
   static const DATE_HEIGHT_PX = 48; // DUPLICATED in _constants.scss
   static const DATE_COMPACT_HEIGHT_PX = 36; // DUPLICATED in _constants.scss
@@ -209,8 +209,10 @@ class MaterialCalendarPickerComponent
   /// analysis.
   @Input()
   set minDate(Date newDate) {
+    if (newDate == _minDate) return;
     _minDate = newDate;
     _minMonth = new _Month.fromDate(_minDate);
+    _isResetNeeded = true;
   }
 
   Date get minDate => _minDate;
@@ -228,8 +230,10 @@ class MaterialCalendarPickerComponent
   /// could be the current day.
   @Input()
   set maxDate(Date newDate) {
+    if (newDate == _maxDate) return;
     _maxDate = newDate;
     _maxMonth = new _Month.fromDate(_maxDate);
+    _isResetNeeded = true;
   }
 
   Date get maxDate => _maxDate;
@@ -240,6 +244,7 @@ class MaterialCalendarPickerComponent
   @Input()
   set compact(value) {
     _compact = getBool(value);
+    _isResetNeeded = true;
   }
 
   bool get compact => _compact;
@@ -671,6 +676,13 @@ class MaterialCalendarPickerComponent
   // Whether a render operation is currently pending.
   bool _isRenderScheduled = true;
 
+  // Whether to completely reset (redraw) the view at the end of the change
+  // detection cycle.
+  bool _isResetNeeded = false;
+
+  // Whether the component has finished the initial render.
+  bool _isInitialized = false;
+
   // Months which are currently in the DOM.
   List<_Month> _renderedMonths = [];
 
@@ -727,16 +739,19 @@ class MaterialCalendarPickerComponent
   }
 
   @override
+  void ngAfterChanges() {
+    if (_isInitialized && _isResetNeeded) {
+      _resetView();
+    }
+
+    _isResetNeeded = false;
+  }
+
+  @override
   void ngAfterViewInit() {
     _initializeEvents();
-    _resetContainerHeight();
-    _scrollToMonth(new _Month.fromDate(_initialDate));
-
-    // Wait to render until after the initial scroll.
-    window.requestAnimationFrame((_) {
-      _initializePanels();
-      _isRenderScheduled = false;
-    });
+    _resetView();
+    _isInitialized = true;
   }
 
   @override
@@ -756,11 +771,27 @@ class MaterialCalendarPickerComponent
     }
 
     // Create the blank month containers.
+    _container.children.clear();
+    _renderedMonths.clear();
+    _renderedOffsets.clear();
+
     for (var i = -_overdraw; i <= _overdraw; i++) {
       _container.append(_monthTemplate.clone(true));
     }
 
     _renderVisible();
+  }
+
+  void _resetView() {
+    _isRenderScheduled = true;
+    _resetContainerHeight();
+    _scrollToMonth(new _Month.fromDate(_initialDate));
+
+    // Wait to render until after the initial scroll.
+    window.requestAnimationFrame((_) {
+      _initializePanels();
+      _isRenderScheduled = false;
+    });
   }
 
   // Dart returns a separate instance every time a tearoff is accessed, so we

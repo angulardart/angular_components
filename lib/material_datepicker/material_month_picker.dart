@@ -35,7 +35,8 @@ import '../src/material_datepicker/enum_parsing.dart';
   styleUrls: const ['material_month_picker.scss.css'],
   templateUrl: 'material_month_picker.html',
 )
-class MaterialMonthPickerComponent implements OnInit, AfterViewInit, OnDestroy {
+class MaterialMonthPickerComponent
+    implements OnInit, AfterChanges, AfterViewInit, OnDestroy {
   /// An object describing the entire state of the calendar -- what's selected
   /// on the calendar, and whether or not the selection is currently "active".
   @Input()
@@ -63,7 +64,14 @@ class MaterialMonthPickerComponent implements OnInit, AfterViewInit, OnDestroy {
   /// domain context. e.g. The earliest date for which data is available for
   /// analysis.
   @Input()
-  Date minDate;
+  set minDate(Date newDate) {
+    if (newDate == _minDate) return;
+    _minDate = newDate;
+    _isResetNeeded = true;
+  }
+
+  Date get minDate => _minDate;
+  Date _minDate;
 
   /// Dates later than `maxDate` cannot be clicked on or scrolled to.
   ///
@@ -75,7 +83,14 @@ class MaterialMonthPickerComponent implements OnInit, AfterViewInit, OnDestroy {
   /// your domain context. e.g. For apps which analyse historical data, this
   /// could be the current month.
   @Input()
-  Date maxDate;
+  set maxDate(Date newDate) {
+    if (newDate == _maxDate) return;
+    _maxDate = newDate;
+    _isResetNeeded = true;
+  }
+
+  Date get maxDate => _maxDate;
+  Date _maxDate;
 
   /// What sort of interaction this calendar supports.
   CalendarSelectionMode get mode => _mode;
@@ -229,6 +244,10 @@ class MaterialMonthPickerComponent implements OnInit, AfterViewInit, OnDestroy {
   // The .calendar-container element.
   HtmlElement _container;
 
+  // Whether to completely reset (redraw) the view at the end of the change
+  // detection cycle.
+  bool _isResetNeeded = true;
+
   CalendarListener _inputListener = new CalendarListener.noop();
   StreamSubscription _calendarStream;
 
@@ -266,11 +285,15 @@ class MaterialMonthPickerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   @override
+  void ngAfterChanges() {
+    if (_isResetNeeded) {
+      _resetView();
+    }
+    _isResetNeeded = false;
+  }
+
+  @override
   void ngAfterViewInit() {
-    final initialDate =
-        state.selections.isEmpty ? _today : state.selections.first.start;
-    _renderAllYears();
-    scrollToYear(initialDate.year);
     _addEventListeners();
   }
 
@@ -286,6 +309,8 @@ class MaterialMonthPickerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   void _renderAllYears() {
+    _container.children.clear();
+
     for (var i = minDate.year; i <= maxDate.year; i++) {
       _container.append(_renderYear(i));
     }
@@ -304,6 +329,13 @@ class MaterialMonthPickerComponent implements OnInit, AfterViewInit, OnDestroy {
           .querySelector(_monthSelector(new Date(maxDate.year, i, 1)));
       element.classes.add('disabled');
     }
+  }
+
+  void _resetView() {
+    final initialDate =
+        state.selections.isEmpty ? _today : state.selections.first.start;
+    _renderAllYears();
+    scrollToYear(initialDate.year);
   }
 
   // Dart returns a separate instance every time a tearoff is accessed, so we
