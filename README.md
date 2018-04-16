@@ -1,6 +1,8 @@
 [Material design] components for [AngularDart]. Powering some of Google's most
 sophisticated and mission-critical [applications].
 
+The [AngularDart Components Gallery] contains live examples and documentation.
+
 This productive and stable set of widgets, contributed to by hundreds of
 Googlers, make debugging and deploying your app easier. Strict latency and
 testing policies make these widgets an excellent fit for projects using the
@@ -9,17 +11,13 @@ Angular package.
 [Material design]: https://material.io/guidelines
 [AngularDart]: https://webdev.dartlang.org/angular
 [applications]: https://news.dartlang.org/2016/03/the-new-adwords-ui-uses-dart-we-asked.html
-[dep_overrides]: https://www.dartlang.org/tools/pub/dependencies#dependency-overrides
+[AngularDart Components Gallery]: https://dart-lang.github.io/angular_components_example/
 
-This is a continually growing set of widgets. See the [example gallery] and the
-[documentation] for a full list. Recent additions include:
+This is a continually growing set of widgets. Recent additions include:
 
+* Material Slider
 * Material Datepicker
 * Material Menu
-* Material Auto-suggest Input
-
-[example gallery]: https://dart-lang.github.io/angular_components_example/
-[documentation]: https://www.dartdocs.org/documentation/angular_components/latest/angular_components/angular_components-library.html
 
 At this time we are not taking pull requests, but please
 [file an issue](https://github.com/dart-lang/angular_components/issues)
@@ -61,11 +59,11 @@ code generation through package [build]. To build your project with
 
 ## Useful links
 
-* **[Example gallery](https://dart-lang.github.io/angular_components_example/)**
+* **[AngularDart Components Gallery](https://dart-lang.github.io/angular_components_example/)**
 * AngularDart Components resources:
   * [About AngularDart Components](https://webdev.dartlang.org/components)
   * [Google I/O 2017 codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app)
-  * [Dart Summit 2016 codelab](https://webdev.dartlang.org/codelabs/angular_components)
+  * [AngularDart Components launch codelab](https://webdev.dartlang.org/codelabs/angular_components)
   * [API reference](https://webdev.dartlang.org/components/api)
 * AngularDart resources:
   * [AngularDart documentation](https://webdev.dartlang.org/angular/guide)
@@ -95,7 +93,7 @@ component's provided [Sass mixins](http://sass-lang.com/guide#topic-6).
 
   ```yaml
   dev_dependencies:
-    sass_builder: ^1.1.2 # update for the latest version
+    sass_builder: ^1.2.0 # update for the latest version
   ```
 
 2. Now you can import styles and mixins from this package via dart style package
@@ -114,4 +112,4 @@ imports in your Sass files.
 ## Project Roadmap
 
 Our current work is summarized in the
-[roadmap for this quarter](https://github.com/dart-lang/angular_components/issues/221).
+[roadmap for this quarter](https://github.com/dart-lang/angular_components/issues/251).
