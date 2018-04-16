@@ -23,6 +23,10 @@ $bg-color-ink: $mat-grey-700;
 @mixin material-popup-border-radius($border-radius: $popup-border-radius) {
   @include material-popup-style {
     border-radius: $border-radius;
+
+    .popup {
+      border-radius: $border-radius;
+    }
   }
 }
 
