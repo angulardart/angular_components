@@ -204,7 +204,7 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
     return _highlightCache[input] = highlighter.highlight(input, [_highlight]);
   }
 
-  @HostListener('mouseover', const [r'$event'])
+  @HostListener('mouseover')
   void onMouseOver(MouseEvent event) {
     _isMouseDriven = true;
 
@@ -218,7 +218,7 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
     _subMenuOpener.start();
   }
 
-  @HostListener('mouseout', const [r'$event'])
+  @HostListener('mouseout')
   void onMouseOut(MouseEvent event) {
     _isMouseDriven = false;
 

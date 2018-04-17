@@ -223,7 +223,7 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
     }
   }
 
-  @HostListener('keypress', const [r'$event'])
+  @HostListener('keypress')
   void handleKeypress(KeyboardEvent event) {
     int keyCode = event.keyCode;
     if (selectable && (keyCode == KeyCode.ENTER || isSpaceKey(event))) {

@@ -42,7 +42,7 @@ class FocusItemDirective extends RootFocusable implements FocusableItem {
   @override
   Stream<FocusMoveEvent> get focusmove => _focusMoveCtrl.stream;
 
-  @HostListener('keydown', const [r'$event'])
+  @HostListener('keydown')
   void keydown(KeyboardEvent event) {
     var focusEvent = new FocusMoveEvent.fromKeyboardEvent(this, event);
     if (focusEvent != null) {
