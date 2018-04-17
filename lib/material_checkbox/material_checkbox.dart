@@ -111,7 +111,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
   writeValue(newValue) {
     // Need to ignore the null on init.
     if (newValue == null) return;
-    checked = newValue as bool;
+    _setStates(checked: (newValue as bool), emitEvent: false);
   }
 
   @override
@@ -194,8 +194,9 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
 
   /// Actually update the state variables. If both parameters are provided, then
   /// set them as presented, otherwise we will clear the other one if necessary.
-  /// Events are only fired if there was a change.
-  void _setStates({bool checked: false, bool indeterminate: false}) {
+  /// Events are only fired if there was a change and [emitEvent] is true.
+  void _setStates(
+      {bool checked: false, bool indeterminate: false, bool emitEvent = true}) {
     // At most one can be true.
     assert(!checked || !indeterminate);
 
@@ -214,11 +215,11 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
         ? indeterminateIcon
         : _checked ? checkedIcon : uncheckedIcon;
 
-    if (_checked != prevChecked) {
+    if (emitEvent && _checked != prevChecked) {
       _onChecked.add(_checked);
     }
 
-    if (_indeterminate != prevIndeterminate) {
+    if (emitEvent && _indeterminate != prevIndeterminate) {
       _onIndeterminate.add(_indeterminate);
     }
 
