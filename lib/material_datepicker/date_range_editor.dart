@@ -35,7 +35,6 @@ import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
 import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/angular/managed_zone/interface.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/showhide/showhide.dart';
 
@@ -90,8 +89,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   /// This is useful for reducing visual noise during popup open/close
   /// animations. Defaults to true.
   @Input()
-  set allowHighlightUpdates(value) {
-    _allowHighlightUpdates = getBool(value);
+  set allowHighlightUpdates(bool value) {
+    _allowHighlightUpdates = value;
   }
 
   bool get allowHighlightUpdates => _allowHighlightUpdates;
@@ -103,8 +102,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   ///
   /// Defaults to `true`.
   @Input()
-  set supportsComparison(value) {
-    _supportsComparison = getBool(value);
+  set supportsComparison(bool value) {
+    _supportsComparison = value;
   }
 
   bool get supportsComparison => _supportsComparison;
@@ -117,8 +116,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(value) {
-    _compact = getBool(value);
+  set compact(bool value) {
+    _compact = value;
   }
 
   bool get compact => _compact;
@@ -130,8 +129,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   ///
   /// Defaults to `true`.
   @Input()
-  set supportsDaysInputs(value) {
-    _supportsDaysInputs = getBool(value);
+  set supportsDaysInputs(bool value) {
+    _supportsDaysInputs = value;
   }
 
   bool get supportsDaysInputs => _supportsDaysInputs;
@@ -211,8 +210,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   bool get isCalendarCreated => _isCalendarCreated ?? false;
 
   @Input('calendarCreated')
-  set isCalendarCreated(value) {
-    _isCalendarCreated = getBool(value);
+  set isCalendarCreated(bool value) {
+    _isCalendarCreated = value;
   }
 
   /// Whether or not this date range picker supports clearing date range.

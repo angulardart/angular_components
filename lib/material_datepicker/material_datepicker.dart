@@ -29,7 +29,6 @@ import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 
 /// A material-design-styled single date picker -- a date parsing input and
 /// calendar picker. Users can type in their own custom dates, or click on the
@@ -100,8 +99,8 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(value) {
-    _compact = getBool(value);
+  set compact(bool value) {
+    _compact = value;
   }
 
   bool get compact => _compact;

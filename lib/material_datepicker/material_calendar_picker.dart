@@ -13,7 +13,6 @@ import 'package:angular_components/material_datepicker/calendar.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/observable/observable.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/browser/feature_detector/feature_detector.dart'
     show isEdge, isFirefox;
 
@@ -187,8 +186,8 @@ class MaterialCalendarPickerComponent
   ///
   /// Defaults to true.
   @Input()
-  set allowHighlightUpdates(value) {
-    var nowAllowed = getBool(value);
+  set allowHighlightUpdates(bool value) {
+    var nowAllowed = value;
     if (_allowHighlightUpdates != nowAllowed) {
       _allowHighlightUpdates = nowAllowed;
       if (nowAllowed) _onCalendarChange(_model.value);
@@ -242,8 +241,8 @@ class MaterialCalendarPickerComponent
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(value) {
-    _compact = getBool(value);
+  set compact(bool value) {
+    _compact = value;
     _isResetNeeded = true;
   }
 

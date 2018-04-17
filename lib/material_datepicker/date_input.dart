@@ -9,7 +9,6 @@ import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/model/date/date.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 import 'calendar.dart';
@@ -148,8 +147,8 @@ class DateInputDirective implements OnDestroy {
   ///
   /// Only used when [isMonthInput] is true.
   @Input()
-  set rangeEnd(isRangeEnd) {
-    _isRangeEnd = getBool(isRangeEnd);
+  set rangeEnd(bool isRangeEnd) {
+    _isRangeEnd = isRangeEnd;
   }
 
   bool _isRangeEnd = false;

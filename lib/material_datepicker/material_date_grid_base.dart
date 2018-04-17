@@ -14,7 +14,6 @@ import 'package:angular_components/src/material_datepicker/calendar_listener.dar
 import 'package:angular_components/src/material_datepicker/enum_parsing.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/observable/observable.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
@@ -78,8 +77,8 @@ abstract class MaterialDateGridBase
   /// Set this to false to temporarily suppress updates to the calendar's range
   /// highlights. Defaults to true.
   @Input()
-  set allowHighlightUpdates(value) {
-    var nowAllowed = getBool(value);
+  set allowHighlightUpdates(bool value) {
+    var nowAllowed = value;
     if (_allowHighlightUpdates != nowAllowed) {
       _allowHighlightUpdates = nowAllowed;
       if (nowAllowed) onCalendarChange(model.value);
@@ -183,8 +182,8 @@ abstract class MaterialDateGridBase
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(value) {
-    _compact = getBool(value);
+  set compact(bool value) {
+    _compact = value;
   }
 
   bool get compact => _compact;
