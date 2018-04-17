@@ -66,27 +66,27 @@ class MaterialButtonBase extends ButtonDirective {
   void focusedStateChanged() {}
 
   /// Triggered on a mouse press.
-  @HostListener('mousedown', const [r'$event'])
+  @HostListener('mousedown')
   void onMouseDown(_) {
     _clickFocused = true;
     _isMouseDown = true;
   }
 
   /// Triggered on a mouse release.
-  @HostListener('mouseup', const [r'$event'])
+  @HostListener('mouseup')
   void onMouseUp(_) {
     _isMouseDown = false;
   }
 
   /// Triggered on focus.
-  @HostListener('focus', const [r'$event'])
+  @HostListener('focus')
   void onFocus(UIEvent event) {
     if (_clickFocused) return;
     _setFocused(true);
   }
 
   /// Triggered on blur.
-  @HostListener('blur', const [r'$event'])
+  @HostListener('blur')
   void onBlur(UIEvent event) {
     if (_clickFocused) _clickFocused = false;
     // Always ensure that focused is false.
