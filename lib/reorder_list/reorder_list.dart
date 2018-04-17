@@ -505,12 +505,20 @@ class ReorderListComponent implements OnDestroy {
     var elementIndex = _getIndex(element);
 
     var moveTargetIndex = elementIndex;
+    // The [moveTargetIndex] needs to be incremented if the dragged item was
+    // previously dragged up in the list (without a drop) and then dragged down
+    // in the list to [element], which will have shifted position after the
+    // first drag because it is in the range
+    // [_currentMoveIndex, _moveSourceIndex).
+    // The reverse situation requires decrementing the [moveTargetIndex].
     if (_currentMoveIndex < _moveSourceIndex &&
-        elementIndex >= _currentMoveIndex) {
+        elementIndex >= _currentMoveIndex &&
+        elementIndex < _moveSourceIndex) {
       moveTargetIndex++;
     }
     if (_currentMoveIndex > _moveSourceIndex &&
-        elementIndex <= _currentMoveIndex) {
+        elementIndex <= _currentMoveIndex &&
+        elementIndex > _moveSourceIndex) {
       moveTargetIndex--;
     }
 
