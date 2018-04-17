@@ -552,10 +552,17 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Filters suggestion list according to input.
   @override
   set inputText(String inputText) {
+    if (_setInputText(inputText) && _callback != null) {
+      _callback(_inputText);
+    }
+  }
+
+  /// Returns true if [inputText] was changed.
+  bool _setInputText(String inputText) {
     inputText ??= '';
 
     if (inputText == _inputText) {
-      return;
+      return false;
     }
 
     if (selection != _defaultSelection &&
@@ -564,7 +571,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
       // deselect previously selected item as the component was not asked to
       // clear the text upon selection, indicating that the selection is bound
       // to the text.
-      // TODO(google): Should we clear the selection if they earse even a letter?
+      // TODO(google): Should we clear the selection if they erase even a letter?
       if (inputText != itemRenderer(_lastSelectedItem)) {
         selection.deselect(_lastSelectedItem);
         _lastSelectedItem = null;
@@ -573,7 +580,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     _inputText = inputText;
     _inputChange.add(inputText);
     _filterSuggestions();
-    if (_callback != null) _callback(inputText);
+    return true;
   }
 
   @Output('clear')
@@ -702,7 +709,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   @override
   void writeValue(newValue) {
-    inputText = newValue as String;
+    _setInputText(newValue as String);
   }
 
   @override
@@ -750,7 +757,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     _isInitialized = true;
     scheduleMicrotask(() {
       if (inputText.isEmpty && _lastSelectedItem != null) {
-        inputText = itemRenderer(_lastSelectedItem);
+        _setInputText(itemRenderer(_lastSelectedItem));
       }
     });
   }
