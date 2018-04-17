@@ -28,7 +28,6 @@ import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
 import 'package:angular_components/model/observable/observable.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
@@ -169,8 +168,8 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   ///
   /// Defaults to true.
   @Input()
-  set supportsComparison(value) {
-    _supportsComparison = getBool(value);
+  set supportsComparison(bool value) {
+    _supportsComparison = value;
     if (!supportsComparison && selection.value?.comparison != null) {
       selection.value =
           new DatepickerComparison.noComparison(selection.value.range);
@@ -185,8 +184,8 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   ///
   /// Defaults to true.
   @Input()
-  set showNextPrevButtons(value) {
-    _showNextPrevButtons = getBool(value);
+  set showNextPrevButtons(bool value) {
+    _showNextPrevButtons = value;
   }
 
   bool get showNextPrevButtons => _showNextPrevButtons;
@@ -198,8 +197,8 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   ///
   /// Defaults to `true`.
   @Input()
-  set supportsDaysInputs(value) {
-    _supportsDaysInputs = getBool(value);
+  set supportsDaysInputs(bool value) {
+    _supportsDaysInputs = value;
   }
 
   bool get supportsDaysInputs => _supportsDaysInputs;
@@ -208,8 +207,8 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(value) {
-    _compact = getBool(value);
+  set compact(bool value) {
+    _compact = value;
   }
 
   bool get compact => _compact;
@@ -224,8 +223,8 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
 
   /// Whether changing the selected date range should be disabled.
   @Input()
-  set disabled(value) {
-    _disabled = getBool(value);
+  set disabled(bool value) {
+    _disabled = value;
     // Hide popup if visible.
     if (_popupVisible && disabled) close();
   }

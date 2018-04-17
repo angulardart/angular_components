@@ -15,7 +15,6 @@ import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/string_selection_options.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// A material-design-styled time input component.
@@ -95,7 +94,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
 
   /// Whether changing the selected time should be disabled.
   @Input()
-  set disabled(dynamic value) => _disabled = getBool(value);
+  set disabled(bool value) => _disabled = value;
 
   bool _required = false;
   bool get required => _required;
@@ -105,7 +104,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   /// If true, the embedded text field will display an error to the user if
   /// blank. If false, clearing the text field will set `time` to `null`.
   @Input()
-  set required(dynamic value) => _required = getBool(value);
+  set required(bool value) => _required = value;
 
   bool get utc => _utc;
   bool _utc = false;
@@ -114,8 +113,8 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   ///
   /// By default, the widget returns time in the local time zone.
   @Input()
-  set utc(dynamic value) {
-    _utc = getBool(value);
+  set utc(bool value) {
+    _utc = value;
 
     timeOptions = new TimeSelectionOptions(
         new List<DateTime>.generate(24, _utc ? _utcTime : _localTime));

@@ -12,7 +12,6 @@ import 'package:angular_components/material_datepicker/material_time_picker.dart
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/model/date/date.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 
 /// A material-design-styled single date and time picker.
 ///
@@ -91,7 +90,7 @@ class MaterialDateTimePickerComponent {
 
   /// Whether changing the selected date and time should be disabled.
   @Input()
-  set disabled(dynamic value) => _disabled = getBool(value);
+  set disabled(bool value) => _disabled = value;
 
   bool _required = false;
   bool get required => _required;
@@ -101,7 +100,7 @@ class MaterialDateTimePickerComponent {
   /// If true, the embedded text fields will display an error to the user if
   /// blank. If false, clearing the text fields will set [dateTime] to `null`.
   @Input()
-  set required(dynamic value) => _required = getBool(value);
+  set required(bool value) => _required = value;
 
   bool get utc => _utc;
   bool _utc = false;
@@ -110,8 +109,8 @@ class MaterialDateTimePickerComponent {
   ///
   /// In default, the widget returns time in the local time zone.
   @Input()
-  set utc(dynamic value) {
-    _utc = getBool(value);
+  set utc(bool value) {
+    _utc = value;
     dateTime = _utc ? _dateTime?.toUtc() : _dateTime?.toLocal();
   }
 
