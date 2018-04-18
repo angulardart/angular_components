@@ -34,8 +34,11 @@ bool modifierKeyUsed(dynamic /* MouseEvent | KeyboardEvent */ event) {
 
 /// Whether the [MouseEvent] was initiated with the primary mouse button and no
 /// modifier keys were used.
-bool isStandardMouseEvent(MouseEvent event) =>
-    !(event.button != 0 || event.altKey || event.ctrlKey || event.metaKey);
+bool isStandardMouseEvent(MouseEvent event) => !(event.button != 0 ||
+    event.altKey ||
+    event.ctrlKey ||
+    event.metaKey ||
+    event.shiftKey);
 
 typedef bool Predicate<T>(T value);
 
