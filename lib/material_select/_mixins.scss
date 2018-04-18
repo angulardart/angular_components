@@ -76,8 +76,8 @@
 ///
 /// Apply to <material-select> or <material-select-item>.
 @mixin material-select-selected-color($color) {
-  ::ng-deep .selected-accent.mixin {
-    background-color: $color;
+  ::ng-deep .selected-accent.mixin.mixin {
+    background: $color;
   }
 }
 
