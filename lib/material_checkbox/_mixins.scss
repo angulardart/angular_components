@@ -20,9 +20,17 @@
 }
 
 
-/// Removes left margin of <material-checkbox>s
+/// Removes left margin of <material-checkbox>.
 ///
 /// Example use: @include checkbox-no-left-margin
 @mixin checkbox-no-left-margin {
   margin-left: -3px;
 }
+
+/// Removes right margin of <material-checkbox>.
+@mixin checkbox-no-right-margin {
+  margin-right: 0;
+}
+
+
+
