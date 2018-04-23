@@ -1,3 +1,31 @@
+## 0.9.0-alpha+11
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+11. The alpha tag represents the evolving nature of the
+> AngularDart API, not code quality (5.0.0-alpha+11 is used in production Google
+> apps).
+
+ * Material Auto-Suggest: Prevent marking itself as dirty when it receives
+   initial form value.
+ * Material Checkbox:
+   * Prevent marking itself as dirty when it receives initial form value.
+   * Add mixin to remove right margin.
+ * Material Datepicker:
+   * Re-render calendar and month picker when date limits change.
+   * Switch to bool inputs instead of `getBool()`.
+ * Material Expansion Panel: Improve animations.
+ * Material Input:
+   * Add mixin to change the font size.
+   * Add `aria-label` and `aria-invalid` attributes back to the input field.
+ * Material Popup: Fix border radius mixin.
+ * Material Select: Fix selected color mixin on vertical selection indicator.
+ * Reorder List: Restrict when a dragged item's target index is incremented or
+   decremented.
+ * Use new `@HostListener()` argument inference: `$event` is now implicit.
+ * Make mouse events with the shift modifier key a non-standard mouse event in
+   `isStandardMouseEvent()`.
+ * Remove `IntersectionObserver` bindings now that they exist in dart:html.
+
 ## 0.9.0-alpha+10
 
 > NOTE: This code is considered production quality, but depends on angular:
