@@ -51,13 +51,13 @@ export 'package:angular_components/laminate/popup/popup.dart'
 ///             #source="popupSource">
 ///       Toggle
 ///     </button>
-///     <material-popup [visible]="showPopup" [source]="source">
+///     <material-popup [(visible)]="showPopup" [source]="source">
 ///       Hello World
 ///     </material-popup>
 ///
 /// Material popup also supports deferred/lazy-loaded content:
 ///
-///     <material-popup [visible]="showPopup" [source]="source">
+///     <material-popup [(visible)]="showPopup" [source]="source">
 ///       <expensive-component *deferredContent></expensive-component>
 ///     </material-popup>
 ///
