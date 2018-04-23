@@ -25,6 +25,7 @@
  * Make mouse events with the shift modifier key a non-standard mouse event in
    `isStandardMouseEvent()`.
  * Remove `IntersectionObserver` bindings now that they exist in dart:html.
+ * Update documentation.
 
 ## 0.9.0-alpha+10
 
