@@ -36,7 +36,7 @@
   flex-grow: 1;
 }
 
-:host-context(body[dir="rtl"]) {
+:host-context([dir="rtl"]) {
   @include list-item-base-rtl;
 }
 
