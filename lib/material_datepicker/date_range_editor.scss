@@ -70,6 +70,10 @@
 
   glyph {
     transform: rotate(-90deg);
+
+    :host-context([dir="rtl"]) & {
+      transform: rotate(90deg);
+    }
   }
 }
 
