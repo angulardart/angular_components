@@ -42,7 +42,7 @@
   }
 }
 
-// Include this inside :host-context(body[dir="rtl"])
+// Include this inside :host-context([dir="rtl"])
 @mixin list-item-base-rtl {
   ::ng-deep .submenu-icon {
     transform: rotate(90deg);

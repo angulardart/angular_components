@@ -44,7 +44,7 @@ $menu-item-selector: '.menu-item';
   }
 }
 
-:host-context(body[dir="rtl"]) {
+:host-context([dir="rtl"]) {
   .group-header, #{$menu-item-selector} {
     @include list-item-base-rtl;
   }
