@@ -126,16 +126,13 @@ main {
   max-height: 100%;
   opacity: 1;
   overflow: hidden;
-  transform: scaley(1);
   transition: height $mat-transition $mat-transition-standard,
-              opacity $mat-transition $mat-transition-standard,
-              transform $mat-transition $mat-transition-standard;
+              opacity $mat-transition $mat-transition-standard;
   width: 100%;
 
   &.hidden {
     height: 0;
     opacity: 0;
-    transform: scaley(0);
   }
 }
 
