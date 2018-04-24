@@ -327,14 +327,28 @@ class ReorderListComponent implements OnDestroy {
     _curTransformY = new List<int>.filled(childCount, 0);
     _itemSizes = new List<int>(childCount);
     for (int i = 0; i < childCount; i++) {
-      _itemSizes[i] =
-          verticalItems ? contents[i].offset.height : contents[i].offset.width;
+      _itemSizes[i] = _computeItemSize(contents[i]);
     }
     _reorderActive = true;
     _currentMoveIndex = _moveSourceIndex;
     // Move element off the grid as soon as reorder starts
     _moveItem(_currentMoveIndex, _currentMoveIndex);
   }
+
+  int _computeItemSize(Element elem) {
+    final cssStyle = elem.getComputedStyle();
+    if (verticalItems) {
+      return elem.offset.height +
+          _parsePx(cssStyle.marginBottom) +
+          _parsePx(cssStyle.marginTop);
+    } else {
+      return elem.offset.width +
+          _parsePx(cssStyle.marginLeft) +
+          _parsePx(cssStyle.marginRight);
+    }
+  }
+
+  int _parsePx(String style) => int.parse(style.replaceAll('px', ''));
 
   void _onDragEnd(MouseEvent e) {
     e.stopPropagation();
