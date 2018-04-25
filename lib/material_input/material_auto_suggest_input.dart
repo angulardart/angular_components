@@ -810,5 +810,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   }
 
   @override
-  void onDisabledChanged(bool isDisabled) {}
+  void onDisabledChanged(bool isDisabled) {
+    disabled = isDisabled;
+  }
 }

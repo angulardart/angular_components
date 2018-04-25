@@ -321,5 +321,8 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
   }
 
   @override
-  void onDisabledChanged(bool isDisabled) {}
+  void onDisabledChanged(bool isDisabled) {
+    disabled = isDisabled;
+    _changeDetector?.markForCheck();
+  }
 }
