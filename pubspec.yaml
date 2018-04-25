@@ -25,4 +25,3 @@ dependencies:
   perf_api: ^0.1.0
   quiver: '>=0.24.0 <0.29.0'
   sass_builder: ^1.1.2
-  uuid: ^0.5.3
