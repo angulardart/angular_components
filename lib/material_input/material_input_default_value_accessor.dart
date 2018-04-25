@@ -115,5 +115,7 @@ abstract class BaseMaterialInputValueAccessor
   }
 
   @override
-  void onDisabledChanged(bool isDisabled) {}
+  void onDisabledChanged(bool isDisabled) {
+    input.disabled = isDisabled;
+  }
 }

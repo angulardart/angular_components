@@ -95,7 +95,10 @@ class MaterialRadioComponent extends RootFocusable
   }
 
   @override
-  void onDisabledChanged(bool isDisabled) {}
+  void onDisabledChanged(bool isDisabled) {
+    disabled = isDisabled;
+    _changeDetector.markForCheck();
+  }
 
   /// Value this radio represents, used in selection model with radio-group.
   @Input()
