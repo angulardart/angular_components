@@ -13,7 +13,7 @@ abstract class IdGenerator {
 /// Sequential implementation of generator that will use seed as prefix
 /// and sequential number as suffix in form of "prefix--153"
 class SequentialIdGenerator implements IdGenerator {
-  static final _rnd = new math.Random.secure();
+  static final _rnd = new math.Random();
   final String _prefix;
   int _seq = 0;
 
