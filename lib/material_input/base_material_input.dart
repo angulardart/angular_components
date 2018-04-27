@@ -50,6 +50,7 @@ class BaseMaterialInput extends FocusableMixin
 
   bool _required = false;
   bool _showHintOnlyOnFocus = false;
+  bool _disabled = false;
 
   /// Enable native validation (e.g. for type="url").
   bool useNativeValidation = true;
@@ -248,8 +249,12 @@ class BaseMaterialInput extends FocusableMixin
   bool floatingLabel = false;
 
   /// Whether or not this input is disabled.
+  bool get disabled => _disabled;
   @Input()
-  bool disabled = false;
+  set disabled(bool disabled) {
+    _disabled = disabled;
+    _changeDetector.markForCheck();
+  }
 
   /// Whether or not the hint text will be displayed when the input is not
   /// focused.
