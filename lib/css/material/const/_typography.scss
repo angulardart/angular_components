@@ -172,6 +172,16 @@ $mat-font-leading-body-1: 20px;
   }
 }
 
+// Set link colors across encapsulation boundaries. This can be used at the
+// top level of an application to ensure that all links are ACX-styled, even
+// if generated dynamically.
+@mixin mat-link-deep {
+  ::ng-deep a {
+    @include mat-link();
+  }
+}
+
+
 // Deprecated: use $mat-font-size-STYLE instead.
 // TODO(google): remove.
 $mat-display-4-font-size: $mat-font-size-display-4;
