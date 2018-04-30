@@ -12,7 +12,35 @@
   border-radius: $mat-grid-type / 2;
   display: block;
   height: auto;
+  max-height: 60vh;
+  max-width: $mat-grid * 155;
   overflow: hidden;
+}
+
+// Max height and max width values and calculations are from:
+// https://spec.googleplex.com/acux-material/components/headered-dialog.html#headered-dialog-specification
+@media (max-height: 1200px) {
+  :host {
+    max-height: calc(560px + (100vh - 600px) * .267);
+  }
+}
+
+@media (max-height: 600px) {
+  :host {
+    max-height: calc(100vh - #{$mat-grid * 4});
+  }
+}
+
+@media (max-width: 1800px) {
+  :host {
+    max-width: calc(880px + (100vw - 920px) * .4);
+  }
+}
+
+@media (max-width: 920px) {
+  :host {
+    max-width: calc(100vw - #{$mat-grid * 4});
+  }
 }
 
 focus-trap {
@@ -26,6 +54,7 @@ focus-trap {
   display: flex;
   flex-direction: column;
   height: inherit;
+  overflow: hidden;
   max-height: inherit;
   min-height: inherit;
 }
