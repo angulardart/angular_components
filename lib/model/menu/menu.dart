@@ -34,7 +34,7 @@ class MenuItemGroup<T> extends LabeledList<T> {
       : _hasSeparator = new ObservableReference(hasSeparator),
         _isCollapsible = new ObservableReference(isCollapsible),
         _isExpanded = new ObservableReference(isExpanded),
-        super.withLabel(new List.unmodifiable(items), label);
+        super.withLabel(new List<T>.unmodifiable(items), label);
 
   /// True when this component explicitly specifies a separator.
   bool get hasSeparator => _hasSeparator.value;
