@@ -7,11 +7,12 @@
 
 :host {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .separator {
-  padding: $mat-grid;
+  padding: 0 $mat-grid;
+  line-height: 4 * $mat-grid;
 }
 
 [dateParsing] {
@@ -25,8 +26,11 @@
   $offset: 6px;
 
   @include input-top-section-margin(0 0 $offset 0);
-  @include input-hide-bottom-section();
-  margin-bottom: -$offset;
+  @include input-hide-bottom-spaceholder();
+  // Tweak the margins so the inputs align vertically with the bottom of their
+  // containing element.
+  margin-top: $offset + 2px;
+  margin-bottom: -$offset + 1px;
 
   &.active {
     @include material-input-display-focused-underline();
