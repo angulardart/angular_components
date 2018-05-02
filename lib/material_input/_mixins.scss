@@ -57,6 +57,16 @@
   }
 }
 
+/// Hides empty space in bottom section of material input.
+///
+/// Prefer default behavior or input-hide-bottom-section(). This may be useful
+/// when space is truly limited, but error messages are still necessary.
+@mixin input-hide-bottom-spaceholder() {
+  ::ng-deep .spaceholder {
+    display: none;
+  }
+}
+
 /// Changes the bottom section padding of material input.
 @mixin input-bottom-section-padding($padding) {
   ::ng-deep .bottom-section {
