@@ -181,6 +181,10 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
     .content {
       padding: $mat-grid;
     }
+
+    &[vertical] .content {
+      flex-direction: column;
+    }
   }
 
   &[clear-size] {
