@@ -4,7 +4,8 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <div class="baseline" #popupSourceEl>
-  <div class="top-section">
+  <div class="top-section"
+       [class.disabled]="disabled">
     <span *ngIf="hasLeadingGlyph"
           class="leading-text"
           [class.floated-label]="floatingLabel">
