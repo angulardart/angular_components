@@ -35,7 +35,7 @@ const tooltipShowDelay = const Duration(milliseconds: 600);
     '(keyup)': 'onKeyUp()',
     'tabindex': '0',
     'aria-label': 'tooltipLabel',
-    '[style.cursor]': "'pointer'"
+    'style.cursor': 'pointer'
   },
 )
 class MaterialTooltipSourceDirective extends PopupSourceDirective
