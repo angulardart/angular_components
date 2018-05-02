@@ -182,6 +182,16 @@
   }
 }
 
+/// Changes the disabled color of leading and trailing text.
+@mixin material-input-disabled-leading-trailing-text-color($color) {
+  ::ng-deep .top-section.disabled {
+    .leading-text,
+    .trailing-text {
+      color: $color;
+    }
+  }
+}
+
 /// Changes the font size of all text including the leading and trailing
 /// text and glyphs.
 @mixin material-input-font-size($font-size) {
