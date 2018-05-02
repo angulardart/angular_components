@@ -35,11 +35,13 @@ const tooltipShowDelay = const Duration(milliseconds: 600);
     '(keyup)': 'onKeyUp()',
     'tabindex': '0',
     'aria-label': 'tooltipLabel',
-    'style.cursor': 'pointer'
   },
 )
 class MaterialTooltipSourceDirective extends PopupSourceDirective
     implements Toggler, AfterViewInit, OnDestroy {
+  @HostBinding('style.cursor')
+  static const cursorStyle = 'pointer';
+
   final tooltipLabel = _tooltipLabel;
   final HtmlElement element;
   DelayedAction _show;
