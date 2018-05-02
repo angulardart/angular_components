@@ -35,6 +35,7 @@ material-fab {
 
 .menu-content {
   @include material-shadow();
+  @include menu-item-text-wrap();
   background: $bg-color;
   border-radius: 50%;
   display: flex;
