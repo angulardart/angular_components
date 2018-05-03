@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -96,6 +97,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
+  final HtmlElement _rootElement;
   final DomService _domService;
   final ChangeDetectorRef _changeDetector;
   final ModalComponent _modal;
@@ -107,8 +109,11 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   bool shouldShowTopScrollStroke = false;
   bool shouldShowBottomScrollStroke = false;
 
-  MaterialDialogComponent(
-      this._domService, this._changeDetector, @Optional() this._modal);
+  final _isInFullscreenModeStreamController = new StreamController<bool>();
+  bool _shouldListenForFullscreenChanges = false;
+
+  MaterialDialogComponent(this._rootElement, this._domService,
+      this._changeDetector, @Optional() this._modal);
 
   @ViewChild('main', read: HtmlElement)
   set main(HtmlElement element) {
@@ -167,8 +172,39 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
     }));
   }
 
+  @Input('listenForFullscreenChanges')
+  set shouldListenForFullscreenChanges(bool shouldListenForFullscreenChanges) {
+    // Don't do anything if [shouldListenForFullscreenChanges] is set to false.
+    if (!shouldListenForFullscreenChanges) return;
+
+    // If [_shouldListenForFullscreenChanges] is set to true, then that means
+    // that we're already listening to fullscreen changes, so don't do anything.
+    if (_shouldListenForFullscreenChanges) return;
+
+    _shouldListenForFullscreenChanges = shouldListenForFullscreenChanges;
+    _disposer.addStreamSubscription(window.onResize.listen((_) {
+      _listenForFullscreenChanges();
+    }));
+  }
+
+  @Output('fullscreenMode')
+  Stream<bool> get isInFullscreenMode =>
+      _isInFullscreenModeStreamController.stream;
+
+  void _listenForFullscreenChanges() {
+    if (!_shouldListenForFullscreenChanges) return;
+    _disposer.addDisposable(_domService.scheduleRead(() {
+      final isInFullscreenMode =
+          document.body.clientWidth == _rootElement.clientWidth &&
+              document.body.clientHeight == _rootElement.clientHeight;
+      _isInFullscreenModeStreamController.add(isInFullscreenMode);
+    }));
+  }
+
   @override
   void ngAfterContentChecked() {
+    if (_shouldListenForFullscreenChanges) _listenForFullscreenChanges();
+
     // This adds or removes the scroll border when the content within the <main>
     // element has changed.
     _setHeaderFooterScrollBorder();

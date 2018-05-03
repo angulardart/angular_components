@@ -97,6 +97,17 @@
   }
 }
 
+@mixin material-dialog-fullscreen(
+    $width-threshold: 100vw,
+    $height-threshold: 100vh) {
+  @media (max-height: $height-threshold), (max-width: $width-threshold) {
+    height: 100vh;
+    max-height: 100vh;
+    max-width: 100vw;
+    width: 100vw;
+  }
+}
+
 // This mixin only exists to ensure that the current material dialog instances
 // do not break due to the default max height / width settings. This mixin
 // should not be used for new components.
