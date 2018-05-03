@@ -185,7 +185,6 @@ $_panel: 'div.panel.themeable';
 
 @mixin expansionpanel-dense-theme() {
   ::ng-deep #{$_panel} {
-
     .header,
     &.open .header {
       min-height: $mat-grid * 4;
@@ -211,5 +210,19 @@ $_panel: 'div.panel.themeable';
 @mixin expansionpanel-flat-on-collapse-theme() {
   ::ng-deep #{$_panel}:not(.open) {
     box-shadow: 0 0 1px 1px $mat-border-light;
+  }
+}
+
+
+@mixin expansionpanel-top-align-expand-button($margin-top: $mat-grid-type * 3) {
+  ::ng-deep #{$_panel} {
+    &.open .header .expand-button {
+      margin-top: $margin-top + $mat-grid;
+    }
+
+    .header .expand-button {
+      align-self: flex-start;
+      margin-top: $margin-top;
+    }
   }
 }
