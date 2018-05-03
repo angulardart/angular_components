@@ -11,7 +11,6 @@ import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/focus.dart';
-import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
@@ -139,7 +138,6 @@ typedef String _InputChangeCallback(String inputText);
     ButtonDirective,
     CachingDeferredContentDirective,
     DynamicComponent,
-    FocusTrapComponent,
     KeyboardOnlyFocusIndicatorDirective,
     MaterialIconComponent,
     materialInputDirectives,
@@ -601,12 +599,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   Stream<html.FocusEvent> get onFocus => _onFocus.stream;
   final _onFocus = new StreamController<html.FocusEvent>.broadcast(sync: true);
 
-  /// If true, the text input's focus-handler callback behavior is bypassed.
-  bool _focusHandlerDisabled = false;
-
   void handleFocus(html.FocusEvent event) {
-    if (_focusHandlerDisabled) return;
-
     showPopup = true;
     _onFocus.add(event);
     _isFocused = true;
@@ -704,11 +697,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     if (showPopup) {
       showPopup = false;
       event.stopPropagation();
-      // If the popup was clicked, giving it focus, return focus to the input
-      // combo box. But avoid the side-effects of handleFocus.
-      _focusHandlerDisabled = true;
-      focus();
-      _focusHandlerDisabled = false;
     }
   }
 
