@@ -12,10 +12,6 @@ import 'package:angular_components/material_tab/tab_mixin.dart';
 /// A specialized button component used only by the tab strip.
 @Component(
   selector: 'tab-button',
-  host: const {
-    '[class.focus]': 'visualFocus',
-    '[class.active]': 'isActive || isMouseDown',
-  },
   template: r'''
           <div class="content">
             {{label}}
@@ -36,4 +32,10 @@ class TabButtonComponent extends MaterialButtonBase with TabMixin {
   /// Whether the tab represented by this button is currently active.
   @Input('active')
   bool isActive;
+
+  @HostBinding('class.focus')
+  bool get hostClassFocus => visualFocus;
+
+  @HostBinding('class.active')
+  bool get hostClassActive => isActive || isMouseDown;
 }

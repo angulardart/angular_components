@@ -30,8 +30,6 @@ import 'material_drawer_base.dart';
     // TODO(google) click is not accessible; add bindings for esc key. This
     // should also block keyboard selection outside of the drawer, while open.
     '(click)': 'toggle()',
-    '[class.mat-drawer-collapsed]': '!visible',
-    '[class.mat-drawer-expanded]': 'visible',
   },
   templateUrl: 'material_temporary_drawer.html',
   styleUrls: const ['material_temporary_drawer.scss.css'],
@@ -40,4 +38,10 @@ import 'material_drawer_base.dart';
 )
 class MaterialTemporaryDrawerComponent extends MaterialDrawerBase {
   MaterialTemporaryDrawerComponent() : super(visible: false);
+
+  @HostBinding('class.mat-drawer-collapsed')
+  bool get hostMatDrawerCollapsed => !visible;
+
+  @HostBinding('class.mat-drawer-expanded')
+  bool get hostMatDrawerExpanded => visible;
 }

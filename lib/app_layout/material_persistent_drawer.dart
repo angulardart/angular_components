@@ -29,12 +29,14 @@ import 'material_drawer_base.dart';
     const Provider(DeferredContentAware,
         useExisting: MaterialPersistentDrawerDirective),
   ],
-  host: const {
-    '[class.mat-drawer-collapsed]': '!visible',
-    '[class.mat-drawer-expanded]': 'visible',
-  },
   visibility: Visibility.all, // Injected by child elements.
 )
 class MaterialPersistentDrawerDirective extends MaterialDrawerBase {
   MaterialPersistentDrawerDirective() : super();
+
+  @HostBinding('class.mat-drawer-collapsed')
+  bool get hostMatDrawerCollapsed => !visible;
+
+  @HostBinding('class.mat-drawer-expanded')
+  bool get hostMatDrawerExpanded => visible;
 }
