@@ -84,10 +84,10 @@
 }
 
 
-@mixin material-dialog-main-flex($flow) {
+@mixin material-dialog-main-flex($flow: null) {
   ::ng-deep .wrapper > main {
-    @include display-flex();
-    @include flex-flow($flow);
+    display: flex;
+    flex-flow: $flow;
   }
 }
 
