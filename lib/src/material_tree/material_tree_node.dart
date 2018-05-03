@@ -42,7 +42,7 @@ class MaterialTreeNode<T> {
   /// May specify a custom [isExpandable].
   MaterialTreeNode(this._root, this._changeDetector,
       {IsExpandable<T> isExpandable})
-      : _expandedNodes = new HashMap<T, Iterable<OptionGroup<T>>>(),
+      : _expandedNodes = new HashMap<T, Iterable<OptionGroup<T>>>.identity(),
         _disposer = new Disposer.multi() {
     _group = _EMPTY_OPTION_GROUP;
     if (!_root.supportsHierarchy) {
