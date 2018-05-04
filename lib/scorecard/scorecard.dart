@@ -77,8 +77,6 @@ import 'package:angular_components/utils/color/palette.dart';
   templateUrl: 'scorecard.html',
   host: const {
     'class': 'themeable',
-    '[attr.tabindex]': 'selectable ? 0 : null',
-    '[attr.role]': 'selectable ? "button" : null',
   },
   styleUrls: const ['scorecard.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -197,6 +195,12 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
     // explicitly markForCheck() here to cover that case.
     _changeDetector.markForCheck();
   }
+
+  @HostBinding('attr.tabindex')
+  int get hostTabIndex => selectable ? 0 : null;
+
+  @HostBinding('attr.role')
+  String get hostRole => selectable ? "button" : null;
 
   /// The [Color] to apply to the scorecard background when it is selected.
   @Input()
