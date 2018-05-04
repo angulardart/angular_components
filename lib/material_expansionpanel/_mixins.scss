@@ -216,7 +216,7 @@ $_panel: 'div.panel.themeable';
 
 @mixin expansionpanel-top-align-expand-button($margin-top: $mat-grid-type * 3) {
   ::ng-deep #{$_panel} {
-    &.open .header .expand-button {
+    &.open > header > .header .expand-button {
       margin-top: $margin-top + $mat-grid;
     }
 
