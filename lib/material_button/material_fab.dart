@@ -93,4 +93,19 @@ class MaterialFabComponent extends MaterialButtonBase {
   void focusedStateChanged() {
     _changeDetector.markForCheck();
   }
+
+  @HostBinding('attr.disabled')
+  String get hostDisabled => disabled ? '' : null;
+
+  @HostBinding('attr.raised')
+  String get hostRaised => raised ? '' : null;
+
+  @HostBinding('class.is-focused')
+  bool get hostClassIsFocused => visualFocus;
+
+  @HostBinding('class.is-pressed')
+  bool get hostClassIsPressed => isPressed;
+
+  @HostBinding('attr.animated')
+  static const String hostAnimated = 'true';
 }

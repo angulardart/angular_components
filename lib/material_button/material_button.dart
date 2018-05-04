@@ -102,13 +102,6 @@ import 'material_button_base.dart';
 // https://github.com/dart-lang/dartdoc/issues/1484.
 @Component(
   selector: 'material-button',
-  host: const {
-    '[attr.disabled]': r'disabled ? "" : null',
-    '[attr.raised]': r'raised ? "" : null',
-    '[class.is-focused]': 'visualFocus',
-    '[attr.elevation]': 'zElevation',
-    'animated': 'true'
-  },
   directives: const [MaterialRippleComponent],
   templateUrl: 'material_button.html',
   providers: const [
@@ -135,4 +128,19 @@ class MaterialButtonComponent extends MaterialButtonBase {
       throw new Exception('Expecting change detector');
     darktheme.themeElement(element);
   }
+
+  @HostBinding('attr.disabled')
+  String get hostDisabled => disabled ? "" : null;
+
+  @HostBinding('attr.raised')
+  String get hostRaised => raised ? "" : null;
+
+  @HostBinding('class.is-focused')
+  bool get hostClassIsFocused => visualFocus;
+
+  @HostBinding('attr.elevation')
+  String get hostElevation => '$zElevation';
+
+  @HostBinding('attr.animated')
+  static const String hostAnimated = 'true';
 }
