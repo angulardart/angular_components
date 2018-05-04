@@ -70,11 +70,12 @@
     (visibleChange)="showPopup = $event">
   <div header
       keyboardOnlyFocusIndicator
-      tabIndex="-1">
+      tabIndex="-1"
+      (keyup)="onKeyUp($event)">
     <ng-content select="[header]"></ng-content>
   </div>
-  <!-- Prevent child content from being created too early. -->
-  <template cachedDeferredContent>
+  <!-- Deferred to prevent child content from being created too early. -->
+  <focus-trap *cachedDeferredContent (keyup)="onKeyUp($event)">
     <div *ngIf="showLoadingSpinner" class="loading">
       <material-spinner></material-spinner>
     </div>
@@ -132,10 +133,11 @@
         </material-select-dropdown-item>
       </div>
     </material-list>
-  </template>
+  </focus-trap>
   <div footer
       keyboardOnlyFocusIndicator
-      tabIndex="-1">
+      tabIndex="-1"
+      (keyup)="onKeyUp($event)">
     <ng-content select="[footer]"></ng-content>
   </div>
 </material-popup>
