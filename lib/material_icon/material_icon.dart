@@ -15,6 +15,7 @@ const List<String> _flippedIcons = const [
   'arrow_forward',
   'chevron_left',
   'chevron_right',
+  'help_outline',
   'navigate_before',
   'navigate_next',
   'last_page',
