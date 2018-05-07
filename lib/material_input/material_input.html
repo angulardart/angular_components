@@ -94,6 +94,7 @@
        [class.invalid]="invalid"
        *ngSwitchWhen="errorState">
     {{errorMessage}}
+    <ng-content select="[error-text-trailing]"></ng-content>
   </div>
   <div class="hint-text" *ngSwitchWhen="hintState">
     {{hintText}}
