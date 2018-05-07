@@ -51,13 +51,6 @@ import 'package:angular_components/model/ui/has_factory.dart';
     NgFor,
     NgIf
   ],
-  host: const {
-    '[attr.role]': 'role',
-    // Unable to use interpolation for aria-multiselectable and aria-readonly
-    // due to https://github.com/angular/angular/issues/3583
-    '[attr.aria-multiselectable]': 'showFlatCheck ? "true" : "false"',
-    '[attr.aria-readonly]': 'showFlatList ? "true" : "false"',
-  },
   viewProviders: const [
     const Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
   ],
@@ -156,6 +149,7 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   bool get showFlatRadio => !showFlatList && !showFlatCheck;
 
   /// The ARIA role to use for the host element.
+  @HostBinding('attr.role')
   String get role {
     if (supportsHierarchy) {
       return "tree";
@@ -165,4 +159,10 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
       return "list";
     }
   }
+
+  @HostBinding('attr.aria-multiselectable')
+  String get hostMultiselectable => '$showFlatCheck';
+
+  @HostBinding('attr.aria-readonly')
+  String get hostReadonly => '$showFlatList';
 }
