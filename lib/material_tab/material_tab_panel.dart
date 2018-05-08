@@ -29,12 +29,14 @@ import 'tab_change_event.dart';
 @Component(
   selector: 'material-tab-panel',
   directives: const [FixedMaterialTabStripComponent],
-  host: const {'class': 'themeable'},
   templateUrl: 'material_tab_panel.html',
   styleUrls: const ['material_tab_panel.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialTabPanelComponent implements AfterContentInit {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
   final ChangeDetectorRef _changeDetector;
   bool _initialzed = false;
   Tab _previousActiveTab;

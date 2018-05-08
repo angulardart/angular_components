@@ -34,17 +34,20 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 ///     <!-- Chip with custom delete action -->
 ///     <material-chip model="myChip" (remove)="myChips.remove(myChip)"></material-chip>
 @Component(
-    selector: 'material-chip',
-    host: const {'class': 'themeable'},
-    providers: const [
-      const Provider(HasRenderer, useExisting: MaterialChipComponent)
-    ],
-    templateUrl: 'material_chip.html',
-    styleUrls: const ['material_chip.scss.css'],
-    directives: const [ButtonDirective, NgIf],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.local)
+  selector: 'material-chip',
+  providers: const [
+    const Provider(HasRenderer, useExisting: MaterialChipComponent)
+  ],
+  templateUrl: 'material_chip.html',
+  styleUrls: const ['material_chip.scss.css'],
+  directives: const [ButtonDirective, NgIf],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  visibility: Visibility.local,
+)
 class MaterialChipComponent extends RootFocusable implements HasRenderer {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
   MaterialChipComponent(Element root) : super(root);
 
   String get chipDeleteButtonMessage => Intl.message('Delete',

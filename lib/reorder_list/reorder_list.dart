@@ -40,12 +40,17 @@ export 'reorder_events.dart';
 /// and updating order of elements accordingly
 @Component(
   selector: 'reorder-list',
-  host: const {'role': 'list', 'class': 'themeable'},
   templateUrl: 'reorder_list.html',
   styleUrls: const ['reorder_list.scss.css'],
   visibility: Visibility.all, // injected
 )
 class ReorderListComponent implements OnDestroy {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
+  @HostBinding('attr.role')
+  static const hostRole = 'list';
+
   static final itemSelectedCssClass = 'item-selected';
   final _disposer = new Disposer.oneShot();
 

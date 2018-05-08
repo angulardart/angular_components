@@ -32,7 +32,6 @@ const Icon checkedIcon = const Icon('radio_button_checked');
 @Component(
     selector: 'material-radio',
     host: const {
-      'class': 'themeable',
       '(click)': r'handleClick($event)',
       '(keypress)': r'handleKeyPress($event)',
       '(keydown)': r'handleKeyDown($event)',
@@ -51,6 +50,9 @@ const Icon checkedIcon = const Icon('radio_button_checked');
     visibility: Visibility.local)
 class MaterialRadioComponent extends RootFocusable
     implements ControlValueAccessor, FocusableItem, OnDestroy {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
   final ChangeDetectorRef _changeDetector;
   final Disposer _disposer = new Disposer.oneShot();
   final MaterialRadioGroupComponent _group;

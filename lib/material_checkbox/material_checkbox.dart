@@ -65,7 +65,6 @@ const indeterminateAriaState = 'mixed';
 @Component(
   selector: 'material-checkbox',
   host: const {
-    'class': 'themeable',
     '(click)': r'handleClick($event)',
     '(keypress)': r'handleKeyPress($event)',
     '(keyup)': r'handleKeyUp($event)',
@@ -84,6 +83,9 @@ const indeterminateAriaState = 'mixed';
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
   final ChangeDetectorRef _changeDetector;
   final HtmlElement _root;
   final String _defaultTabIndex;

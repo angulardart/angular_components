@@ -80,7 +80,9 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 @Component(
   selector: 'material-input[multiline]',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: const {'class': 'themeable', '(focus)': 'focus()', 'tabIndex': '-1'},
+  host: const {
+    '(focus)': 'focus()',
+  },
   providers: const [
     DeferredValidator,
     const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
@@ -109,6 +111,12 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 )
 class MaterialMultilineInputComponent extends BaseMaterialInput
     implements ReferenceDirective, AfterViewInit, OnDestroy {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
+  @HostBinding('tabIndex')
+  static const hostTabIndex = -1;
+
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
 
