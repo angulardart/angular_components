@@ -21,6 +21,14 @@
           [class.disable-header-expansion]="disableHeaderExpansion"
           [attr.aria-label]="headerMsg"
           (trigger)="handleHeaderClick()">
+    <material-icon
+        buttonDecorator
+        *ngIf="shouldShowExpandIcon && shouldExpandOnLeft"
+        class="expand-button expand-on-left"
+        [icon]="expandIcon"
+        [class.expand-more]="shouldFlipExpandIcon"
+        (trigger)="handleExpandIconClick()">
+    </material-icon>
     <div class="panel-name">
       <p class="primary-text">{{name}}</p>
       <p class="secondary-text" *ngIf="secondaryText != null">{{secondaryText}}</p>
@@ -32,7 +40,7 @@
     </div>
 
     <material-icon buttonDecorator
-                   *ngIf="shouldShowExpandIcon"
+                   *ngIf="shouldShowExpandIcon && !shouldExpandOnLeft"
                    class="expand-button"
                    [icon]="expandIcon"
                    [class.expand-more]="shouldFlipExpandIcon"
@@ -48,11 +56,20 @@
 <main [class.hidden]="!isExpanded" #mainPanel>
   <div #mainContent>
     <div #contentWrapper class="content-wrapper" [class.hidden-header]="hideExpandedHeader">
+      <material-icon
+          *ngIf="shouldShowHiddenHeaderExpandIcon && shouldExpandOnLeft"
+          #expandCollapseButton
+          [icon]="expandIcon"
+          class="expand-button expand-on-left"
+          buttonDecorator
+          (trigger)="collapse()"
+          [attr.aria-label]="closePanelMsg">
+      </material-icon>
       <div class="content">
         <ng-content></ng-content>
       </div>
       <material-icon
-          *ngIf="shouldShowHiddenHeaderExpandIcon"
+          *ngIf="shouldShowHiddenHeaderExpandIcon && !shouldExpandOnLeft"
           #expandCollapseButton
           [icon]="expandIcon"
           class="expand-button"

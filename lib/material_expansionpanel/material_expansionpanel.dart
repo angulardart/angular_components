@@ -126,10 +126,13 @@ class MaterialExpansionPanel
   final DomService _domService;
   final _disposer = new Disposer.oneShot();
   final _defaultExpandIcon = 'expand_less';
+  final bool shouldExpandOnLeft;
 
   bool initialized = false;
 
-  MaterialExpansionPanel(this._ngZone, this._changeDetector, this._domService);
+  MaterialExpansionPanel(this._ngZone, this._changeDetector, this._domService,
+      @Attribute('shouldExpandOnLeft') String expandOnLeft)
+      : shouldExpandOnLeft = expandOnLeft != null;
 
   /// Set the auto focus child so that we can focus on it when the panel opens.
   ///
