@@ -52,6 +52,10 @@
   &.expand-more {
     transform: rotate(180deg);
   }
+
+  &.expand-on-left {
+    margin: 0 $mat-grid-type 0 0;
+  }
 }
 
 header {
@@ -151,6 +155,10 @@ main {
 
     &:focus {
       outline: none;
+    }
+
+    &.expand-on-left {
+      margin: 0 $mat-grid-type 0 0;
     }
   }
 }
