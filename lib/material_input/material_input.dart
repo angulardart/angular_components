@@ -136,7 +136,9 @@ const String materialInputErrorKey = 'material-input-error';
 @Component(
   selector: 'material-input:not(material-input[multiline])',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: const {'class': 'themeable', '(focus)': 'focus()', 'tabIndex': '-1'},
+  host: const {
+    '(focus)': 'focus()',
+  },
   providers: const [
     DeferredValidator,
     const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
@@ -161,6 +163,12 @@ const String materialInputErrorKey = 'material-input-error';
 )
 class MaterialInputComponent extends BaseMaterialInput
     implements Focusable, ReferenceDirective, AfterViewInit, OnDestroy {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
+  @HostBinding('tabIndex')
+  static const hostTabIndex = -1;
+
   ChangeDetectorRef _changeDetector;
 
   /// TODO(google): The following value could be set in the base class, but

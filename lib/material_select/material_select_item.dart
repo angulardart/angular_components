@@ -28,14 +28,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 @Component(
   selector: 'material-select-item',
   host: const {
-    'class': 'item',
     '[class.disabled]': 'disabled',
     '[class.hidden]': 'isHidden',
     '[class.selected]': 'isSelected',
     '[attr.aria-selected]': 'isSelected',
     '[attr.aria-checked]': 'isAriaChecked',
     '[class.multiselect]': 'supportsMultiSelect',
-    'tabindex': '0',
   },
   providers: const [
     const Provider(SelectionItem, useExisting: MaterialSelectItemComponent),
@@ -58,6 +56,13 @@ class MaterialSelectItemComponent extends ButtonDirective
         HasRenderer,
         HasComponentRenderer,
         HasFactoryRenderer {
+  @HostBinding('class')
+  static const hostClass = 'item';
+
+  // The qualified name is long because button_directive.dart uses hostTabIndex.
+  @HostBinding('tabIndex')
+  static const hostTabIndexForSelectItem = 0;
+
   final _disposer = new Disposer.oneShot();
   final ActivationHandler _activationHandler;
   final ChangeDetectorRef _cdRef;

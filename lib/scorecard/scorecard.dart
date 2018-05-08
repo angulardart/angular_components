@@ -75,14 +75,15 @@ import 'package:angular_components/utils/color/palette.dart';
   selector: 'acx-scorecard',
   directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
   templateUrl: 'scorecard.html',
-  host: const {
-    'class': 'themeable',
-  },
+  host: const {},
   styleUrls: const ['scorecard.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   visibility: Visibility.local,
 )
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
   static const changeTypePositive = 'POSITIVE';
   static const changeTypeNegative = 'NEGATIVE';
   static const changeTypeNeutral = 'NEUTRAL';

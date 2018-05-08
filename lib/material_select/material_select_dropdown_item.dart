@@ -22,7 +22,6 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 @Component(
   selector: 'material-select-dropdown-item',
   host: const {
-    'class': 'item',
     '[class.disabled]': 'disabled',
     '[class.hidden]': 'isHidden',
     '[class.active]': 'active',
@@ -36,7 +35,6 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     '[attr.aria-selected]': 'isSelected',
     '[attr.aria-disabled]': 'disabledStr',
     '[attr.id]': 'id',
-    'tabindex': '0',
   },
   providers: const [
     const Provider(SelectionItem,
@@ -55,6 +53,13 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 )
 class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
     implements OnDestroy {
+  @HostBinding('class')
+  static const hostClass = 'item';
+
+  // The qualified name is long because button_directive.dart uses hostTabIndex.
+  @HostBinding('tabIndex')
+  static const hostTabIndexForSelectDropdown = 0;
+
   final String _generatedId;
 
   String _id;

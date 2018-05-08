@@ -28,14 +28,14 @@ import 'tab_change_event.dart';
     TabButtonComponent,
     NgFor
   ],
-  host: const {
-    'class': 'themeable',
-  },
   templateUrl: 'fixed_material_tab_strip.html',
   styleUrls: const ['fixed_material_tab_strip.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class FixedMaterialTabStripComponent {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
   final int _transitionAmount;
   final ChangeDetectorRef _changeDetector;
   int _activeTabIndex = 0;

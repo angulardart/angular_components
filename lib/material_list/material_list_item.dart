@@ -43,10 +43,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 // TODO(google): should activate/deactivate on mouse hover
 @Component(
   selector: 'material-list-item',
-  host: const {
-    'class': 'item',
-    '[class.disabled]': 'disabled',
-  },
   styleUrls: const ['material_list_item.scss.css'],
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -54,6 +50,9 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 class MaterialListItemComponent extends ButtonDirective
     with ActiveItemMixin
     implements OnDestroy {
+  @HostBinding('class')
+  static const hostClass = 'item';
+
   final _disposer = new Disposer.oneShot();
   final DropdownHandle _dropdown;
 
@@ -79,6 +78,10 @@ class MaterialListItemComponent extends ButtonDirective
       _disposer.addDisposable(trigger.listen(handleActivate));
     }
   }
+
+  @HostBinding('class.disabled')
+  @override
+  bool get disabled => super.disabled;
 
   /// Whether the encompassing dropdown should be close on selecting
   /// this item.
