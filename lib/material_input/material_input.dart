@@ -136,9 +136,6 @@ const String materialInputErrorKey = 'material-input-error';
 @Component(
   selector: 'material-input:not(material-input[multiline])',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: const {
-    '(focus)': 'focus()',
-  },
   providers: const [
     DeferredValidator,
     const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
@@ -217,6 +214,11 @@ class MaterialInputComponent extends BaseMaterialInput
   String get leadingText => _leadingText;
   String _leadingText;
   bool get hasLeadingText => isNotEmpty(leadingText);
+
+  // Overriden to add a HostListener event.
+  @HostListener('focus')
+  @override
+  void focus() => super.focus();
 
   @Input()
   set leadingText(String value) {

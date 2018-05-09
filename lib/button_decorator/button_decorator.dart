@@ -23,13 +23,6 @@ import 'package:angular_components/utils/browser/events/events.dart';
 /// `<your-element (click)="yourAction()"></your-element>`
 @Directive(
   selector: '[buttonDecorator]',
-  host: const {
-    '(click)': r'handleClick($event)',
-    '(keypress)': r'handleKeyPress($event)',
-    '[attr.role]': 'role',
-    '[attr.aria-disabled]': 'disabledStr',
-    '[class.is-disabled]': 'disabled',
-  },
   // Injected by [DisablePendingClickHandlerDirective].
   visibility: Visibility.all,
 )
@@ -42,6 +35,7 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
 
   String _hostTabIndex;
 
+  @HostBinding('attr.role')
   final String role;
 
   ButtonDirective(Element element, @Attribute('role') String role)
@@ -49,9 +43,11 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
         super(element);
 
   /// String value to be passed to aria-disabled.
+  @HostBinding('attr.aria-disabled')
   String get disabledStr => '$disabled';
 
   /// Is the button disabled.
+  @HostBinding('class.is-disabled')
   @Input()
   bool disabled = false;
 
@@ -70,12 +66,14 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
   }
 
   /// Triggers if not disabled.
+  @HostListener('click')
   void handleClick(MouseEvent mouseEvent) {
     if (disabled) return;
     _trigger.add(mouseEvent);
   }
 
   /// Triggers on enter and space if not disabled.
+  @HostListener('keypress')
   void handleKeyPress(KeyboardEvent keyboardEvent) {
     if (disabled) return;
     int keyCode = keyboardEvent.keyCode;
