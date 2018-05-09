@@ -206,3 +206,10 @@
     margin: $margin;
   }
 }
+
+// Removes left padding of <material-time-picker>.
+@mixin time-picker-no-left-padding {
+  ::ng-deep dropdown-button .button-text {
+    padding-left: 0;
+  }
+}
