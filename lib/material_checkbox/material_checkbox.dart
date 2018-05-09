@@ -64,19 +64,6 @@ const indeterminateAriaState = 'mixed';
 ///
 @Component(
   selector: 'material-checkbox',
-  host: const {
-    '(click)': r'handleClick($event)',
-    '(keypress)': r'handleKeyPress($event)',
-    '(keyup)': r'handleKeyUp($event)',
-    '(focus)': r'handleFocus($event)',
-    '(mousedown)': r'handleMouseDown($event)',
-    '(blur)': r'handleBlur($event)',
-    '[class.disabled]': 'disabled',
-    '[attr.aria-disabled]': 'disabled',
-    '[attr.role]': 'role',
-    '[attr.tabindex]': 'tabIndex',
-    '[attr.aria-label]': 'label',
-  },
   directives: const [GlyphComponent, MaterialRippleComponent, NgIf],
   templateUrl: 'material_checkbox.html',
   styleUrls: const ['material_checkbox.scss.css'],
@@ -89,6 +76,8 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
   final ChangeDetectorRef _changeDetector;
   final HtmlElement _root;
   final String _defaultTabIndex;
+
+  @HostBinding('attr.role')
   final String role;
   Function _onTouched;
 
@@ -148,10 +137,13 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
   @Input()
   bool indeterminateToChecked = false;
 
+  @HostBinding('class.disabled')
+  @HostBinding('attr.aria-disabled')
   @Input()
   bool disabled = false;
 
   // Current tab index
+  @HostBinding('attr.tabindex')
   String get tabIndex => disabled ? "-1" : _defaultTabIndex;
 
   /// Current state of the checkbox. This is user set-able state, via
@@ -252,6 +244,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
   String get rippleColor => checked ? themeColor : '';
 
   /// Label for the checkbox.
+  @HostBinding('attr.aria-label')
   @Input()
   String label;
 
@@ -282,17 +275,20 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
   }
 
   // Capture keyup when we are the target of event.
+  @HostListener('keyup')
   void handleKeyUp(KeyboardEvent event) {
     if (event.target != _root) return;
     _isKeyboardEvent = true;
   }
 
+  @HostListener('click')
   void handleClick(MouseEvent mouseEvent) {
     if (disabled) return;
     _isKeyboardEvent = false;
     toggleChecked();
   }
 
+  @HostListener('mousedown')
   void handleMouseDown(MouseEvent mouseEvent) {
     // This removes the text selection behavior of mousedown.
     if (readOnly) {
@@ -300,6 +296,7 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
     }
   }
 
+  @HostListener('keypress')
   void handleKeyPress(KeyboardEvent event) {
     if (disabled) return;
     if (event.target != _root) return;
@@ -312,11 +309,13 @@ class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
   }
 
   // Triggered on focus.
+  @HostListener('focus')
   void handleFocus(_) {
     _focused = true;
   }
 
   // Triggered on blur.
+  @HostListener('blur')
   void handleBlur(Event event) {
     _focused = false;
     _onTouched?.call();

@@ -68,7 +68,6 @@ import 'package:angular_components/model/date/date.dart';
     NgIf,
     PopupSourceDirective,
   ],
-  host: const {'[class.compact]': 'compact'},
   styleUrls: const ['material_datepicker.scss.css'],
   templateUrl: 'material_datepicker.html',
 )
@@ -103,6 +102,7 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
     _compact = value;
   }
 
+  @HostBinding('class.compact')
   bool get compact => _compact;
 
   bool _compact = !window.matchMedia("(pointer: coarse)").matches;
