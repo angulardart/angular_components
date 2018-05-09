@@ -80,9 +80,6 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 @Component(
   selector: 'material-input[multiline]',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: const {
-    '(focus)': 'focus()',
-  },
   providers: const [
     DeferredValidator,
     const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
@@ -159,6 +156,11 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
   set focusable(Focusable value) {
     super.focusable = value;
   }
+
+  // Overriden to add a HostListener event.
+  @HostListener('focus')
+  @override
+  void focus() => super.focus();
 
   @ViewChild('popupSourceEl')
   ElementRef popupSourceEl;
