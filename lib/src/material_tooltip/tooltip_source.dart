@@ -27,21 +27,16 @@ const tooltipShowDelay = const Duration(milliseconds: 600);
 @Directive(
   selector: '[tooltipSource]',
   exportAs: 'tooltipSource',
-  host: const {
-    '(mouseover)': 'onMouseOver()',
-    '(mouseleave)': 'onMouseLeave()',
-    '(focus)': r'onFocus()',
-    '(blur)': 'onBlur()',
-    '(keyup)': 'onKeyUp()',
-    'tabindex': '0',
-    'aria-label': 'tooltipLabel',
-  },
 )
 class MaterialTooltipSourceDirective extends PopupSourceDirective
     implements Toggler, AfterViewInit, OnDestroy {
   @HostBinding('style.cursor')
-  static const cursorStyle = 'pointer';
+  static const hostStyleCursor = 'pointer';
 
+  @HostBinding('tabIndex')
+  static const hostTabIndex = 0;
+
+  @HostBinding('attr.aria-label')
   final tooltipLabel = _tooltipLabel;
   final HtmlElement element;
   DelayedAction _show;
@@ -68,15 +63,19 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
   }
 
   bool _focusLatch = false;
+
+  @HostListener('focus')
   void onFocus() {
     _focusLatch = true;
   }
 
+  @HostListener('blur')
   void onBlur() {
     _focusLatch = false;
     deactivate();
   }
 
+  @HostListener('keyup')
   void onKeyUp() {
     if (_focusLatch) {
       activate();
@@ -84,12 +83,14 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
     }
   }
 
+  @HostListener('mouseover')
   void onMouseOver() {
     if (_isMouseInside) return;
     _isMouseInside = true;
     _show.start();
   }
 
+  @HostListener('mouseleave')
   void onMouseLeave() {
     _isMouseInside = false;
     deactivate();
