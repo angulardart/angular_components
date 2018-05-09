@@ -27,14 +27,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// other than "option".
 @Component(
   selector: 'material-select-item',
-  host: const {
-    '[class.disabled]': 'disabled',
-    '[class.hidden]': 'isHidden',
-    '[class.selected]': 'isSelected',
-    '[attr.aria-selected]': 'isSelected',
-    '[attr.aria-checked]': 'isAriaChecked',
-    '[class.multiselect]': 'supportsMultiSelect',
-  },
   providers: const [
     const Provider(SelectionItem, useExisting: MaterialSelectItemComponent),
     const Provider(HasRenderer, useExisting: MaterialSelectItemComponent)
@@ -89,9 +81,14 @@ class MaterialSelectItemComponent extends ButtonDirective
       ..addFunction(() => _selectionChangeStreamSub?.cancel());
   }
 
+  @HostBinding('class.disabled')
+  @override
+  bool get disabled => super.disabled;
+
   /// Whether the item should be hidden.
   ///
   /// False by default.
+  @HostBinding('class.hidden')
   bool get isHidden => _isHidden;
   @Input()
   set isHidden(value) {
@@ -119,6 +116,7 @@ class MaterialSelectItemComponent extends ButtonDirective
   bool _supportsMultiSelect = false;
 
   /// Whether the container supports selecting multiple items.
+  @HostBinding('class.multiselect')
   bool get supportsMultiSelect => _supportsMultiSelect;
 
   /// Whether to hide the checkbox.
@@ -251,10 +249,12 @@ class MaterialSelectItemComponent extends ButtonDirective
   ComponentFactory get componentFactory =>
       factoryRenderer != null ? factoryRenderer(value) : null;
 
+  @HostBinding('attr.aria-checked')
   bool get isAriaChecked =>
       !supportsMultiSelect || hideCheckbox ? null : isSelected;
 
   /// Whether this item should be marked as selected.
+  @HostBinding('class.selected')
   bool get isSelected => _isMarkedSelected || _isSelectedInSelectionModel;
 
   bool get _isMarkedSelected => selected != null && selected;

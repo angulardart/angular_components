@@ -75,7 +75,6 @@ import 'package:angular_components/utils/color/palette.dart';
   selector: 'acx-scorecard',
   directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
   templateUrl: 'scorecard.html',
-  host: const {},
   styleUrls: const ['scorecard.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   visibility: Visibility.local,
