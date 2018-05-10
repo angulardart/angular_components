@@ -17,8 +17,6 @@
   overflow: hidden;
 }
 
-// Max height and max width values and calculations are from:
-// https://spec.googleplex.com/acux-material/components/headered-dialog.html#headered-dialog-specification
 @media (max-height: 1200px) {
   :host {
     max-height: calc(560px + (100vh - 600px) * .267);
