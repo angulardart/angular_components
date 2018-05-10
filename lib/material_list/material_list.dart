@@ -68,11 +68,11 @@ export 'material_list_size.dart';
   selector: 'material-list',
   styleUrls: const ['material_list.scss.css'],
   directives: const [NgClass],
-  host: const {'[attr.size]': 'size'},
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialListComponent implements AcceptsWidth {
+  @HostBinding('attr.size')
   @Input()
   String size = MaterialListSize.auto;
 

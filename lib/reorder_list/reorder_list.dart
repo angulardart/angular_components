@@ -619,9 +619,17 @@ typedef void ReorderListHandler(int sourceIndex, int destIndex);
 // TODO(google): Add back in host value once attribute bug is fixed.
 @Directive(
   selector: '[reorderItem]',
-  host: const {'draggable': 'true', 'role': 'listitem', 'tabindex': '0'},
 )
 class ReorderItemDirective {
+  @HostBinding('attr.draggable')
+  static const hostDraggable = 'true';
+
+  @HostBinding('attr.role')
+  static const hostRole = 'listitem';
+
+  @HostBinding('tabIndex')
+  static const hostTabIndex = 0;
+
   final HtmlElement element;
 
   ReorderItemDirective(this.element);
