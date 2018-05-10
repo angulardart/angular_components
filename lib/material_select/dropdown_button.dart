@@ -47,7 +47,11 @@ import 'package:angular_components/mixins/focusable_mixin.dart';
   ],
 )
 class DropdownButtonComponent extends Object
-    with FocusableMixin, MaterialButtonWrapper {
+    with FocusableMixin, MaterialButtonWrapper
+    implements OnInit {
+  String _role;
+  String _ariaRole;
+
   DropdownButtonComponent() {
     iconName = 'arrow_drop_down';
   }
@@ -59,6 +63,28 @@ class DropdownButtonComponent extends Object
     _button = b;
     focusable = b;
   }
+
+  /// The ARIA role of the dropdown button.
+  String get role => _role;
+  @Input()
+  set role(String value) {
+    assert(
+        ariaRole == null, 'Aria role can only be set before initialization.');
+    _role = value;
+  }
+
+  String get ariaRole => _ariaRole;
+
+  @override
+  void ngOnInit() {
+    _ariaRole = role ?? 'button';
+  }
+
+  /// The value for aria-haspopup.
+  ///
+  /// See https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup for valid values.
+  @Input()
+  String popupType = 'dialog';
 
   /// An error displayed below the button.
   ///

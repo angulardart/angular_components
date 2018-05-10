@@ -4,6 +4,7 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <dropdown-button
+    [role]="buttonAriaRole"
     [buttonAriaLabel]="buttonAriaLabel"
     [buttonText]="buttonText"
     [error]="error"
@@ -20,6 +21,7 @@
     (trigger)="handleClick($event)"
     popupSource
     #source="popupSource"
+    popupType="listbox"
     [ariaOwns]="listId"
     [ariaExpanded]="visible"
     [ariaActiveDescendant]="ariaActiveDescendant">
