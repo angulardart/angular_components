@@ -26,7 +26,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
   // Injected by [DisablePendingClickHandlerDirective].
   visibility: Visibility.all,
 )
-class ButtonDirective extends RootFocusable with HasTabIndex {
+class ButtonDirective extends RootFocusable with HasTabIndex implements OnInit {
   /// Will emit Event on mouse click or keyboard activation.
   @Output()
   Stream<UIEvent> get trigger => _trigger.stream;
@@ -34,13 +34,28 @@ class ButtonDirective extends RootFocusable with HasTabIndex {
   final _trigger = new StreamController<UIEvent>.broadcast(sync: true);
 
   String _hostTabIndex;
-
-  @HostBinding('attr.role')
-  final String role;
+  String _role;
+  String _ariaRole;
+  final Element _element;
 
   ButtonDirective(Element element, @Attribute('role') String role)
-      : this.role = role ?? 'button',
+      : _role = role,
+        _element = element,
         super(element);
+
+  @Input()
+  set role(String value) {
+    assert(ariaRole == null, 'Role can only be set before initialization.');
+    _role = value;
+  }
+
+  @HostBinding('attr.role')
+  String get ariaRole => _ariaRole;
+
+  @override
+  void ngOnInit() {
+    _ariaRole = _role ?? 'button';
+  }
 
   /// String value to be passed to aria-disabled.
   @HostBinding('attr.aria-disabled')

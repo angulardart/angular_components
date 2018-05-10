@@ -160,6 +160,12 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   /// The id for the contained material-list.
   final String listId;
 
+  /// The ARIA role to be used for the internal dropdown button.
+  ///
+  /// If not provided, will use the default role for [DropdownButtonComponent]:
+  /// 'button'.
+  final String buttonAriaRole;
+
   /// Listener for options changes.
   StreamSubscription _optionsListener;
 
@@ -220,6 +226,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
       @Optional() @SkipSelf() this._popupSizeDelegate,
       @Optional() @Inject(rtlToken) bool rtl,
       @Attribute('popupClass') String popupClass,
+      @Attribute('buttonAriaRole') this.buttonAriaRole,
       HtmlElement element)
       : activeModel = new ActiveItemModel(idGenerator),
         popupClassName = constructEncapsulatedCss(popupClass, element.classes),
