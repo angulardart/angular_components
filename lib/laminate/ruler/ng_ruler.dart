@@ -31,7 +31,7 @@ class NgRuler implements Ruler<ElementRef> {
   }
 
   @override
-  Future update(ElementRef elementRef,
+  Future<void> update(ElementRef elementRef,
       {List<String> cssClasses,
       Visibility visibility,
       Position position,

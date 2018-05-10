@@ -44,7 +44,7 @@ abstract class Ruler<E> {
   /// based properties on [element].
   ///
   /// **NOTE**: All of these properties are *cleared* before updating.
-  Future update(E element,
+  Future<void> update(E element,
       {List<String> cssClasses,
       Visibility visibility,
       Position position,
@@ -96,7 +96,7 @@ abstract class RulerBase<E> implements Ruler<E> {
   Stream get onLayoutChanged;
 
   /// Override with an implementation of [DomService.onRead].
-  Future onRead();
+  Future<void> onRead();
 
   /// Override with an implementation of [DomService.onWrite].
   Future onWrite();
@@ -119,7 +119,7 @@ abstract class RulerBase<E> implements Ruler<E> {
   void clearCssPropertiesSync(E element);
 
   /// Synchronously write [element].style[propertyName] = [propertyValue].
-  void setCssPropertySync(E element, String propertyName, propertyValue);
+  void setCssPropertySync(E element, String propertyName, String propertyValue);
 
   @override
   Stream<Rectangle> track(E element) {
@@ -163,7 +163,7 @@ abstract class RulerBase<E> implements Ruler<E> {
   }
 
   @override
-  Future update(E element,
+  Future<void> update(E element,
       {List<String> cssClasses,
       Visibility visibility,
       Position position,
