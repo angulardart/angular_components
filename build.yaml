@@ -23,3 +23,5 @@ builders:
     build_extensions:
       .scss: [".scss.css"]
       .sass: [".scss.css"]
+    applies_builders:
+      - sass_builder|sass_source_cleanup
