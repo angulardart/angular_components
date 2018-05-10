@@ -62,10 +62,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   selector: 'material-date-range-picker',
   styleUrls: const ['material_date_range_picker.scss.css'],
   templateUrl: 'material_date_range_picker.html',
-  host: const {
-    '[class.compact]': 'compact',
-    '[class.disabled]': 'disabled',
-  },
   directives: const [
     ButtonDirective,
     DateRangeEditorComponent,
@@ -211,6 +207,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
     _compact = value;
   }
 
+  @HostBinding('class.compact')
   bool get compact => _compact;
 
   bool _compact = !window.matchMedia("(pointer: coarse)").matches;
@@ -230,6 +227,8 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   }
 
   bool _disabled = false;
+
+  @HostBinding('class.disabled')
   bool get disabled => _disabled;
 
   /// Dates earlier than `minDate` cannot be chosen.
