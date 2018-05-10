@@ -115,7 +115,7 @@ $acx-neutral-increase-color: $mat-light-transparent-black;
 
 // A mixin for changing the padding of a scorecard.
 @mixin acx-scorecard-padding($top: null, $right: null, $bottom: null, $left: null) {
-  :host ::ng-deep acx-scorecard {
+  ::ng-deep acx-scorecard {
     @if ($top != null) {
       padding-top: $top;
     }
