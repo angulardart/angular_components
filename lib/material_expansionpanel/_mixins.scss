@@ -139,7 +139,7 @@ $_panel: 'div.panel.themeable';
 }
 
 @mixin expansionpanel-no-content-margin() {
-  ::ng-deep .panel .content-wrapper {
+  ::ng-deep #{$_panel} .content-wrapper {
     margin: 0;
   }
 }
