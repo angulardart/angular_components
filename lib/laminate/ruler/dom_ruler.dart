@@ -41,10 +41,10 @@ class DomRulerImpl extends RulerBase<Element> implements DomRuler {
   Stream get onLayoutChanged => _domService.onLayoutChanged;
 
   @override
-  Future onRead() => _domService.onRead();
+  Future<void> onRead() => _domService.onRead();
 
   @override
-  Future onWrite() => _domService.onWrite();
+  Future<void> onWrite() => _domService.onWrite();
 
   @override
   Future<Rectangle> measure(Element element, {bool offset: false}) {
@@ -93,7 +93,8 @@ class DomRulerImpl extends RulerBase<Element> implements DomRuler {
   }
 
   @override
-  void setCssPropertySync(Element element, String propertyName, propertyValue) {
+  void setCssPropertySync(
+      Element element, String propertyName, String propertyValue) {
     element.style.setProperty(propertyName, propertyValue);
   }
 }

@@ -478,7 +478,7 @@ class _AnimationOrigins {
   static const DOWN = 'top center';
   static const DOWN_RIGHT = 'top left';
 
-  static Map<String, String> flippedAnimationOrigins = <String, String>{
+  static const Map<String, String> flippedAnimationOrigins = const {
     _AnimationOrigins.UP_LEFT: _AnimationOrigins.UP_RIGHT,
     _AnimationOrigins.UP_RIGHT: _AnimationOrigins.UP_LEFT,
     _AnimationOrigins.LEFT: _AnimationOrigins.RIGHT,

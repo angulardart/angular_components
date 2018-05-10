@@ -74,7 +74,7 @@ abstract class Modal {
   ///
   /// Only is active if [preventInteraction] is `true`.
   @Output()
-  Stream get shieldClick;
+  Stream<void> get shieldClick;
 
   /// Whether the modal is visible in the DOM.
   ///
@@ -209,7 +209,7 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
   }
 
   @override
-  Stream get shieldClick => _resolvedOverlayRef.onPanePressed
+  Stream<void> get shieldClick => _resolvedOverlayRef.onPanePressed
       .where((MouseEvent e) => e.eventPhase == Event.AT_TARGET);
 
   @override
