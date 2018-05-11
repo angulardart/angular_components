@@ -73,6 +73,7 @@ $default-input-width: $mat-grid * 22;
 }
 
 .invalid.counter,
+.invalid.label-text,
 .error-text,
 .focused.error-icon {
   color: $error-color;
