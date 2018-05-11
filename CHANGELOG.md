@@ -1,3 +1,52 @@
+## 0.9.0-alpha+12
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+11. The alpha tag represents the evolving nature of the
+> AngularDart API, not code quality (5.0.0-alpha+11 is used in production Google
+> apps).
+
+ * Material Auto-Suggest Input: Improve keyboard navigation behavior.
+ * Material Button: Allow icon button items to be created vertically.
+ * Material Checkbox: Support `onDisabledChanged` callback from angular_forms.
+ * Material Datepicker:
+   * Fix direction of dropdown arrows in RTL locales.
+   * Allow error messages to be shown on range picker inputs.
+   * Add a mixin to remove left padding from the time picker.
+ * Material Dialog:
+   * Set default `max-height` and `max-width`.
+   * Add full screen mode.
+ * Material Expansison Panel:
+   * Remove `transform: scaley` from expand animation.
+   * Add mixin for top-aligning expand button.
+   * Add option to move the expand button to the left side.
+ * Material Icon:
+   * Add help icon to the list of icons flipped when direction is RTL.
+ * Material Input:
+   * Support `onDisabledChanged` callback from angular_forms.
+   * Push change detection when marked as disabled.
+   * Add disabled class to `"top-section"` when the input is disabled.
+   * Add mixin to allow hiding only the placeholder in the bottom section.
+   * Support to fill in error text trailing.
+   * Fix error color for floating label when an error is shown in the input.
+ * Material Menu:
+   * Wrap long text in Fab Menu.
+   * Horizontally align the expansion icon with the label.
+ * Material Radio: Support `onDisabledChanged` callback from angular_forms.
+ * Material Select: Pipe through customized aria role, `labelby`, and `haspopup`
+   to the dropdown button.
+ * Material Tree: Use item identity to remember expanded state.
+ * Reorder List: Calculate the full height/width of the elements.
+ * Scorecard: Remove the `:host` from the padding mixin so it is not required to
+   be used at the top level.
+ * Add support for `SingleSelectionModel` to `SelectionModel.empty`.
+ * Add `mat-link-deep` mixin to push the Material link styles everywhere.
+ * Updates to new `@HostBinding` syntax.
+ * Update sass_builder dependency to latest and use the post-process builder to
+   cleanup `.scss` files from the output.
+ * Support RTL selectors on any element.
+ * Remove usage of package uuid.
+ * Dart2 type fixes.
+
 ## 0.9.0-alpha+11
 
 > NOTE: This code is considered production quality, but depends on angular:
