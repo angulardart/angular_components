@@ -110,6 +110,7 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   bool shouldShowBottomScrollStroke = false;
 
   final _isInFullscreenModeStreamController = new StreamController<bool>();
+  bool _isInFullscreenMode;
   bool _shouldListenForFullscreenChanges = false;
 
   MaterialDialogComponent(this._rootElement, this._domService,
@@ -193,17 +194,25 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
 
   void _listenForFullscreenChanges() {
     if (!_shouldListenForFullscreenChanges) return;
-    _disposer.addDisposable(_domService.scheduleRead(() {
-      final isInFullscreenMode =
-          document.body.clientWidth == _rootElement.clientWidth &&
-              document.body.clientHeight == _rootElement.clientHeight;
+    _disposer.addDisposable(
+        _domService.scheduleRead(_updateForFullscreenChangesInsideDomReadLoop));
+  }
+
+  void _updateForFullscreenChangesInsideDomReadLoop() {
+    final isInFullscreenMode =
+        document.body.clientWidth == _rootElement.clientWidth &&
+            document.body.clientHeight == _rootElement.clientHeight;
+    if (_isInFullscreenMode != isInFullscreenMode) {
+      _isInFullscreenMode = isInFullscreenMode;
       _isInFullscreenModeStreamController.add(isInFullscreenMode);
-    }));
+    }
   }
 
   @override
   void ngAfterContentChecked() {
-    if (_shouldListenForFullscreenChanges) _listenForFullscreenChanges();
+    if (_shouldListenForFullscreenChanges) {
+      _updateForFullscreenChangesInsideDomReadLoop();
+    }
 
     // This adds or removes the scroll border when the content within the <main>
     // element has changed.
