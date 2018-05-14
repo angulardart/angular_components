@@ -27,7 +27,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///
 /// - `itemRenderer: ItemRenderer` -- A rendering function to render selection
 ///    models as a string.
-/// - `removeable` -- Whether the chips can be removed.
+/// - `removable` -- Whether the chips can be removed.
 /// - `selectionModel: SelectionModel` -- The selection model this component
 ///   controls.
 @Component(
