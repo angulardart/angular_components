@@ -145,7 +145,8 @@ abstract class Modal {
   preserveWhitespace: true,
   visibility: Visibility.all, // Injected by dialog, et al.
 )
-class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
+class ModalComponent
+    implements DeferredContentAware, Modal, AfterViewInit, OnDestroy {
   final Element _element;
   final Modal _parentModal;
   final GlobalModalStack _stack;
@@ -184,6 +185,14 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
   }
 
   @override
+  void ngAfterViewInit() {
+    // Propagate CSS classes of the host element to the overview element for
+    // integration with Angular CSS shimming.
+    var hostClassName = _element.className;
+    resolvedOverlayRef.overlayElement.className += ' $hostClassName';
+  }
+
+  @override
   void ngOnDestroy() {
     _isDestroyed = true;
     _disposer.dispose();
@@ -196,7 +205,6 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
       overlayRef.dispose();
     } else {
       _resolvedOverlayRef = overlayRef;
-      _propagateCssClassToOverlay();
       _disposer
         ..addDisposable(_resolvedOverlayRef)
         ..addStreamSubscription(_resolvedOverlayRef.onVisibleChanged
@@ -301,12 +309,5 @@ class ModalComponent implements DeferredContentAware, Modal, OnDestroy {
     } else {
       _showModalOverlay(temporary: true);
     }
-  }
-
-  /// Propagate CSS classes of the host element to the overview element for
-  /// integration with Angular CSS shimming.
-  void _propagateCssClassToOverlay() {
-    var hostClassName = _element.className;
-    resolvedOverlayRef.overlayElement.className += ' $hostClassName';
   }
 }
