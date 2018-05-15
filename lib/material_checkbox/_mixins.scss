@@ -32,5 +32,10 @@
   margin-right: 0;
 }
 
-
+/// Hides the text portion of <material-checkbox>.
+@mixin checkbox-hide-label {
+  ::ng-deep .content {
+    display: none;
+  }
+}
 
