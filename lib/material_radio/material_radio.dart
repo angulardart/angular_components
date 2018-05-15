@@ -31,70 +31,44 @@ const Icon checkedIcon = const Icon('radio_button_checked');
 /// - `no-ink` -- set this attribute to disable the ripple effect on the chip.
 @Component(
     selector: 'material-radio',
-    host: const {
-      '(click)': r'handleClick($event)',
-      '(keypress)': r'handleKeyPress($event)',
-      '(keydown)': r'handleKeyDown($event)',
-      '(keyup)': r'handleKeyUp($event)',
-      '(focus)': r'onFocus()',
-      '(blur)': r'onBlur()',
-      '[attr.role]': 'role',
-      '[class.disabled]': 'disabled',
-      '[attr.tabindex]': 'tabIndex',
-      '[attr.aria-disabled]': 'disabled',
-    },
     directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
     templateUrl: 'material_radio.html',
     styleUrls: const ['material_radio.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.local)
+    changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialRadioComponent extends RootFocusable
-    implements ControlValueAccessor, FocusableItem, OnDestroy {
+    implements ControlValueAccessor<bool>, FocusableItem, OnDestroy {
+  final ChangeDetectorRef _changeDetector;
+  final MaterialRadioGroupComponent _group;
+  final HtmlElement _root;
+  final _disposer = new Disposer.oneShot();
+
+  MaterialRadioComponent(this._root, this._changeDetector,
+      @Host() @Optional() this._group, @Self() @Optional() NgControl cd)
+      : super(_root) {
+    // When NgControl is present on the host element, the component
+    // participates in the Forms API.
+    cd?.valueAccessor = this;
+  }
+
   @HostBinding('class')
   static const hostClass = 'themeable';
 
-  final ChangeDetectorRef _changeDetector;
-  final Disposer _disposer = new Disposer.oneShot();
-  final MaterialRadioGroupComponent _group;
-  final HtmlElement _root;
-  final String role;
+  @HostBinding('attr.role')
+  static const role = 'radio';
 
-  MaterialRadioComponent(
-      this._root,
-      this._changeDetector,
-      @Host() @Optional() this._group,
-      @Self() @Optional() NgControl cd,
-      @Attribute('role') String role)
-      : this.role = role ?? 'radio',
-        super(_root) {
-    // participates in the Forms API.
-    if (cd != null) {
-      cd.valueAccessor = this;
-    }
-    _syncAriaChecked();
+  @override
+  void writeValue(bool isChecked) {
+    checked = isChecked;
   }
 
   @override
-  void ngOnDestroy() => _disposer.dispose();
-
-  @override
-  writeValue(newValue) {
-    // Need to ignore the null on init.
-    if (newValue == null) return;
-    checked = newValue as bool;
-  }
-
-  @override
-  registerOnChange(callback) {
-    _disposer
-        .addStreamSubscription(onChecked.listen((value) => callback(value)));
+  void registerOnChange(ChangeFunction<bool> callback) {
+    _disposer.addStreamSubscription(onChecked.listen(callback));
   }
 
   // onTouched API is not supported for now.
   @override
-  registerOnTouched(callback) {
-    // not implemented
-  }
+  void registerOnTouched(_) {}
 
   @override
   void onDisabledChanged(bool isDisabled) {
@@ -109,14 +83,9 @@ class MaterialRadioComponent extends RootFocusable
   /// Whether the radio should not respond to events, and have a style that
   /// suggests that interaction is not allowed.
   @Input()
-  set disabled(bool disabled) {
-    if (_disabled == disabled) return;
-    _disabled = disabled;
-    _updateTabIndex();
-  }
-
-  bool get disabled => _disabled;
-  bool _disabled = false;
+  @HostBinding('class.disabled')
+  @HostBinding('attr.aria-disabled')
+  bool disabled = false;
 
   /// Published when the radio selection state changes.
   @Output('checkedChange')
@@ -125,48 +94,37 @@ class MaterialRadioComponent extends RootFocusable
 
   /// Whether the radio should be preselected.
   @Input()
-  set checked(bool newValue) {
-    if (_checked == newValue) return;
-    // TODO(google): A video test fails without this MarkForCheck, but
-    // it shouldn't be needed for @Inputs.
+  set checked(bool isChecked) {
+    if (_checked == isChecked) return;
+    _checked = isChecked;
+    _onChecked.add(_checked);
     _changeDetector.markForCheck();
 
-    _icon = newValue ? checkedIcon : uncheckedIcon;
-
-    if (_group != null) {
-      if (newValue) {
-        _group.componentSelection.select(this);
-      } else {
-        _group.componentSelection.deselect(this);
-      }
+    if (_group == null) return;
+    if (isChecked) {
+      _group.componentSelection.select(this);
+    } else {
+      _group.componentSelection.deselect(this);
     }
-
-    _checked = newValue;
-    _syncAriaChecked();
-    _onChecked.add(_checked);
   }
 
+  @HostBinding('attr.aria-checked')
   bool get checked => _checked;
   bool _checked = false;
 
   /// Current icon, depends on the state of [checked].
-  Icon get icon => _icon;
-  Icon _icon = uncheckedIcon;
+  Icon get icon => _checked ? checkedIcon : uncheckedIcon;
 
   /// Current tab index, depends on state of [disabled] and selection status
   /// if in group.
-  String get tabIndex => '$_tabIndex';
-  int _tabIndex = 0;
+  @HostBinding('attr.tabindex')
+  int get tabIndex => disabled ? -1 : _enabledTabIndex;
+
   int _enabledTabIndex = 0;
 
-  void _updateTabIndex() {
-    _tabIndex = _disabled ? -1 : _enabledTabIndex;
-  }
-
   @override
-  set tabbable(bool tabbable) {
-    _enabledTabIndex = tabbable ? 0 : -1;
-    _updateTabIndex();
+  set tabbable(bool isTabbable) {
+    _enabledTabIndex = isTabbable ? 0 : -1;
     _changeDetector.markForCheck();
   }
 
@@ -180,71 +138,68 @@ class MaterialRadioComponent extends RootFocusable
   Stream<FocusMoveEvent> get selectionmove => _selectionMoveCtrl.stream;
 
   // Capture keydown to forward event to radio group when cycling focus.
+  @HostListener('keydown')
   void handleKeyDown(KeyboardEvent event) {
     if (event.target != _root) return;
     var focusEvent = new FocusMoveEvent.fromKeyboardEvent(this, event);
-    if (focusEvent != null) {
-      if (event.ctrlKey) {
-        _focusMoveCtrl.add(focusEvent);
-      } else {
-        _selectionMoveCtrl.add(focusEvent);
-      }
-      // Required to prevent window from scrolling.
-      event.preventDefault();
+
+    if (focusEvent == null) return;
+    if (event.ctrlKey) {
+      _focusMoveCtrl.add(focusEvent);
+    } else {
+      _selectionMoveCtrl.add(focusEvent);
     }
+    // Required to prevent window from scrolling.
+    event.preventDefault();
   }
 
   // Capture keyup when we are the target of event.
+  @HostListener('keyup')
   void handleKeyUp(KeyboardEvent event) {
     if (event.target != _root) return;
     _isKeyboardEvent = true;
   }
 
-  var _focused = false;
-  var _isKeyboardEvent = false;
+  bool _isFocused = false;
+  bool _isKeyboardEvent = false;
 
-  /// Whether focuse should be drawn.
-  bool get showFocus => _focused && _isKeyboardEvent;
+  /// Whether focus should be drawn.
+  bool get showFocus => _isFocused && _isKeyboardEvent;
 
+  @HostListener('focus')
   void onFocus() {
-    _focused = true;
-    if (_group != null) {
-      _group.focusSelection.select(this);
-    }
+    _isFocused = true;
+    if (_group != null) _group.focusSelection.select(this);
   }
 
+  @HostListener('blur')
   void onBlur() {
-    _focused = false;
-    if (_group != null) {
-      _group.focusSelection.deselect(this);
-    }
+    _isFocused = false;
+    if (_group != null) _group.focusSelection.deselect(this);
   }
 
   @visibleForTesting
   void select() {
-    if (disabled) return;
-    checked = true;
+    if (!disabled) checked = true;
   }
 
-  void handleClick(MouseEvent mouseEvent) {
+  @HostListener('click')
+  void handleClick() {
     _isKeyboardEvent = false;
     select();
   }
 
+  @HostListener('keypress')
   void handleKeyPress(KeyboardEvent event) {
-    if (event.target != _root) return;
-    if (isSpaceKey(event)) {
-      // Required to prevent window from scrolling.
-      event.preventDefault();
-      _isKeyboardEvent = true;
-      select();
-    }
+    if (event.target != _root || !isSpaceKey(event)) return;
+    // Required to prevent window from scrolling.
+    event.preventDefault();
+    _isKeyboardEvent = true;
+    select();
   }
 
-  String get _ariaChecked => checked is bool ? '$checked' : 'mixed';
-
-  void _syncAriaChecked() {
-    if (_root == null) return;
-    _root.attributes['aria-checked'] = _ariaChecked;
+  @override
+  void ngOnDestroy() {
+    _disposer.dispose();
   }
 }
