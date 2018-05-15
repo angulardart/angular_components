@@ -60,10 +60,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// ```
 @Component(
   selector: 'material-radio-group',
-  host: const {
-    'role': 'radiogroup',
-    'tabindex': '-1',
-  },
   template: '<ng-content></ng-content>',
   styleUrls: const ['material_radio_group.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -71,48 +67,175 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 )
 class MaterialRadioGroupComponent
     implements ControlValueAccessor, OnDestroy, AfterContentInit {
-  final _disposer = new Disposer.oneShot();
   final NgZone _ngZone;
-  final NgControl cd;
-  List<MaterialRadioComponent> _children;
-  bool _contentInit = false;
+  final _disposer = new Disposer.oneShot();
 
-  MaterialRadioGroupComponent(this._ngZone, @Self() @Optional() this.cd) {
-    _disposer.addStreamSubscription(componentSelection.selectionChanges
-        .listen((List<SelectionChangeRecord<MaterialRadioComponent>> changes) {
+  List<MaterialRadioComponent> _radioComponents = <MaterialRadioComponent>[];
+
+  MaterialRadioGroupComponent(this._ngZone, @Self() @Optional() NgControl cd) {
+    // When NgControl is present on the host element, the component participates
+    // in the Forms API.
+    cd?.valueAccessor = this;
+
+    _disposer.addStreamSubscription(
+        componentSelection.selectionChanges.listen((checkedChanges) {
       // Need to uncheck if selection change was made via user action.
-      for (var change in changes) {
-        for (MaterialRadioComponent item in change.removed) {
-          item.checked = false;
+      for (var checkedChange in checkedChanges) {
+        for (var radioComponent in checkedChange.removed) {
+          radioComponent.checked = false;
         }
       }
       // In case this was programmatically selected, thus won't get updated
       // by focus calls.
       _resetTabIndex();
-      MaterialRadioComponent selectedComponent =
-          componentSelection.selectedValues.isEmpty
-              ? null
-              : componentSelection.selectedValues.first;
-      _selected = selectedComponent == null ? null : selectedComponent.value;
+      _selected = _selectedRadioComponent?.value;
       if (valueSelection != null && _selected != null) {
         valueSelection.select(_selected);
       }
       _onChange.add(_selected);
     }));
 
-    _disposer.addStreamSubscription(
-        focusSelection.selectionChanges.listen((List changes) {
+    _disposer.addStreamSubscription(focusSelection.selectionChanges.listen((_) {
       _resetTabIndex();
     }));
+  }
 
-    // When NgControl is present on the host element, the component
-    // participates in the Forms API.
-    cd?.valueAccessor = this;
+  @HostBinding('attr.role')
+  static const role = 'radiogroup';
+
+  @HostBinding('attr.tabindex')
+  static const tabIndex = -1;
+
+  @ContentChildren(MaterialRadioComponent)
+  set radioComponents(List<MaterialRadioComponent> radioComponents) {
+    _radioComponents = radioComponents;
+    for (var radioComponent in _radioComponents) {
+      _disposer
+        ..addStreamSubscription(radioComponent.focusmove.listen(_moveFocus))
+        ..addStreamSubscription(
+            radioComponent.selectionmove.listen(_moveSelection));
+    }
+  }
+
+  @override
+  void writeValue(dynamic selectedValue) {
+    if (selectedValue != null) selected = selectedValue;
+  }
+
+  @override
+  void registerOnChange(Function callback) {
+    _disposer
+        .addStreamSubscription(onChange.listen((value) => callback(value)));
+  }
+
+  // onTouched API is not supported for now.
+  @override
+  void registerOnTouched(_) {}
+
+  @override
+  void onDisabledChanged(bool isDisabled) {}
+
+  void _resetTabIndex() {
+    // Since this is updating children that were already dirty-checked,
+    // need to delay this change until next angular cycle.
+    _ngZone.onEventDone.first.then((_) {
+      if (_radioComponents == null) return; // Component was destroyed.
+      // Disable everything first.
+      for (var radioComponent in _radioComponents) {
+        radioComponent.tabbable = false;
+      }
+
+      var selectedRadioComponent = _selectedRadioComponent;
+      if (selectedRadioComponent != null) {
+        // Only selected is tabbable.
+        selectedRadioComponent.tabbable = true;
+      } else if (focusSelection.isEmpty) {
+        // When not focused, set both first and last as tabbable, so either can
+        // catch focus depending on direction of tab cycle. Though they will get
+        // disbled onFocus, so will tab out of the group properly.
+        var focusables = _getFocusableChildren();
+        if (focusables.isNotEmpty) {
+          focusables
+            ..first.tabbable = true
+            ..last.tabbable = true;
+        }
+      }
+    });
+  }
+
+  /// Published when selection changes
+  @Output('selectedChange')
+  Stream<dynamic> get onChange => _onChange.stream;
+  final _onChange = new StreamController<dynamic>.broadcast();
+
+  /// Selection model containing value object.
+  @Input('selectionModel')
+  SelectionModel valueSelection;
+
+  /// Internal selection model containing the radio component.
+  final componentSelection =
+      new SelectionModel<MaterialRadioComponent>.single();
+
+  MaterialRadioComponent get _selectedRadioComponent {
+    if (componentSelection.selectedValues.isEmpty) return null;
+    return componentSelection.selectedValues.single;
+  }
+
+  /// Internal selection model to keep track of radio currently in focus.
+  final focusSelection = new SelectionModel<MaterialRadioComponent>.single();
+
+  // Keep the preselected value until children are loaded.
+  dynamic _preselectedValue;
+  bool _isContentInit = false;
+
+  /// Value of currently selected radio.
+  @Input()
+  set selected(dynamic selectedValue) {
+    if (_radioComponents != null && _isContentInit) {
+      for (var radioComponent in _radioComponents) {
+        radioComponent.checked = (radioComponent.value == selectedValue);
+      }
+      // Ensure we don't overwrite the value in the initial callback.
+      _preselectedValue = null;
+    } else {
+      _preselectedValue = selectedValue;
+    }
+  }
+
+  dynamic _selected;
+  dynamic get selected => _selected;
+
+  void _moveFocus(FocusMoveEvent event) => _move(event);
+  void _moveSelection(FocusMoveEvent event) => _move(event, true);
+
+  List<MaterialRadioComponent> _getFocusableChildren(
+      [MaterialRadioComponent source]) {
+    // Make sure current focus is in the list even if it's disabled.
+    return _radioComponents
+        .where((radioComponent) =>
+            !radioComponent.disabled || radioComponent == source)
+        .toList();
+  }
+
+  // Move focus and selection via keyboard event. Need to wrap, also jump over
+  // disabled siblings.
+  void _move(FocusMoveEvent event, [bool moveSelection = false]) {
+    MaterialRadioComponent source = event.focusItem;
+
+    // Siblings can be disabled, so we have to discount those when applying
+    // offset.
+    final focusableChildren = _getFocusableChildren(source);
+
+    // Force focus on the child and check it if necessary.
+    final index = focusableChildren.indexOf(source);
+    final newIndex = (index + event.offset) % focusableChildren.length;
+    if (moveSelection) focusableChildren[newIndex].checked = true;
+    focusableChildren[newIndex].focus();
   }
 
   @override
   void ngAfterContentInit() {
-    _contentInit = true;
+    _isContentInit = true;
     if (_preselectedValue != null) {
       // Since this is updating children that were already dirty-checked,
       // need to delay this change until next angular cycle.
@@ -129,139 +252,8 @@ class MaterialRadioGroupComponent
     }
   }
 
-  @ContentChildren(MaterialRadioComponent)
-  set list(List<MaterialRadioComponent> components) {
-    _children = new List.from(components);
-    for (var child in _children) {
-      _disposer
-        ..addStreamSubscription(child.focusmove.listen(_moveFocus))
-        ..addStreamSubscription(child.selectionmove.listen(_moveSelection));
-    }
-  }
-
   @override
-  void ngOnDestroy() => _disposer.dispose();
-
-  @override
-  writeValue(dynamic newValue) {
-    // Need to ignore the null on init.
-    if (newValue == null) return;
-    selected = newValue;
-  }
-
-  @override
-  registerOnChange(callback) {
-    _disposer
-        .addStreamSubscription(onChange.listen((value) => callback(value)));
-  }
-
-  // onTouched API is not supported for now.
-  @override
-  registerOnTouched(callback) {
-    // not implemented
-  }
-
-  @override
-  void onDisabledChanged(bool isDisabled) {}
-
-  void _resetTabIndex() {
-    // Since this is updating children that were already dirty-checked,
-    // need to delay this change until next angular cycle.
-    _ngZone.onEventDone.first.then((_) {
-      if (_children == null) return; // Component was destoryed.
-      // Disable everything first.
-      for (var child in _children) {
-        child.tabbable = false;
-      }
-      MaterialRadioComponent selectedComponent =
-          componentSelection.selectedValues.isEmpty
-              ? null
-              : componentSelection.selectedValues.first;
-      if (selectedComponent != null) {
-        // Only selected is tabbable.
-        selectedComponent.tabbable = true;
-      } else if (focusSelection.isEmpty) {
-        // When not focused, set both first and last as tabbable, so either can
-        // catch focus depending on direction of tab cycle. Though they will get
-        // disbled onFocus, so will tab out of the group properly.
-        List<MaterialRadioComponent> focusables = _getFocusableChildren();
-        if (focusables.isNotEmpty) {
-          focusables.first.tabbable = true;
-          focusables.last.tabbable = true;
-        }
-      }
-    });
-  }
-
-  /// Published when selection changes
-  @Output('selectedChange')
-  Stream<Object> get onChange => _onChange.stream;
-  final _onChange = new StreamController<Object>.broadcast();
-
-  /// Selection model containing value object.
-  @Input('selectionModel')
-  SelectionModel valueSelection;
-
-  /// Internal selection model containing the radio component.
-  SelectionModel<MaterialRadioComponent> componentSelection =
-      new SelectionModel<MaterialRadioComponent>.withList();
-
-  /// Internal selection model to keep track of radio currently in focus.
-  SelectionModel<MaterialRadioComponent> focusSelection =
-      new SelectionModel.withList();
-
-  // Keep the preselected value until children are loaded.
-  dynamic _preselectedValue;
-
-  ///  Value of currently selected radio.
-  @Input()
-  set selected(dynamic newValue) {
-    if (_children != null && _contentInit) {
-      for (var child in _children) {
-        child.checked = (child.value == newValue);
-      }
-      // Ensure we don't overwrite the value in the inital callback.
-      _preselectedValue = null;
-    } else {
-      _preselectedValue = newValue;
-    }
-  }
-
-  dynamic _selected;
-  dynamic get selected => _selected;
-
-  void _moveFocus(FocusMoveEvent event) => _move(event);
-  void _moveSelection(FocusMoveEvent event) => _move(event, true);
-
-  List<MaterialRadioComponent> _getFocusableChildren(
-      [MaterialRadioComponent source]) {
-    List<MaterialRadioComponent> focusableChildren = new List();
-    for (var child in _children) {
-      // Make sure current focus is in the list even if it's disabled.
-      if (!child.disabled || child == source) {
-        focusableChildren.add(child);
-      }
-    }
-    return focusableChildren;
-  }
-
-  // Move focus and selection via keyboard event. Need to wrap, also jump over
-  // disabled siblings.
-  void _move(FocusMoveEvent event, [bool moveSelection = false]) {
-    MaterialRadioComponent source = event.focusItem;
-    // Siblings can be disabled, so we have to discount those when applying
-    // offset.
-    List<MaterialRadioComponent> focusableChildren =
-        _getFocusableChildren(source);
-
-    // Force focus on the child and check it if necessary.
-    int index = focusableChildren.indexOf(source);
-    int newIndex = (index + event.offset) % focusableChildren.length;
-    if (moveSelection) {
-      focusableChildren[newIndex].checked = true;
-      focusableChildren[newIndex].focus();
-    } else {
-      focusableChildren[newIndex].focus();
-    }
+  void ngOnDestroy() {
+    _disposer.dispose();
   }
 }
