@@ -97,15 +97,16 @@ class MaterialRadioComponent extends RootFocusable
   set checked(bool isChecked) {
     if (_checked == isChecked) return;
     _checked = isChecked;
-    _onChecked.add(_checked);
     _changeDetector.markForCheck();
 
-    if (_group == null) return;
-    if (isChecked) {
-      _group.componentSelection.select(this);
-    } else {
-      _group.componentSelection.deselect(this);
+    if (_group != null) {
+      if (isChecked) {
+        _group.componentSelection.select(this);
+      } else {
+        _group.componentSelection.deselect(this);
+      }
     }
+    _onChecked.add(_checked);
   }
 
   @HostBinding('attr.aria-checked')
