@@ -66,7 +66,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   visibility: Visibility.all, // Injected by members of the group.
 )
 class MaterialRadioGroupComponent
-    implements ControlValueAccessor, OnDestroy, AfterContentInit {
+    implements ControlValueAccessor<dynamic>, OnDestroy, AfterContentInit {
   final NgZone _ngZone;
   final _disposer = new Disposer.oneShot();
 
@@ -123,9 +123,8 @@ class MaterialRadioGroupComponent
   }
 
   @override
-  void registerOnChange(Function callback) {
-    _disposer
-        .addStreamSubscription(onChange.listen((value) => callback(value)));
+  void registerOnChange(ChangeFunction<dynamic> callback) {
+    _disposer.addStreamSubscription(onChange.listen(callback));
   }
 
   // onTouched API is not supported for now.
