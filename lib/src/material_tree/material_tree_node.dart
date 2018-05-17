@@ -55,7 +55,7 @@ class MaterialTreeNode<T> {
     if (_root.options is Selectable) {
       _selectable = _root.options as Selectable<T>;
     } else {
-      _selectable = const _AlwaysSelectable();
+      _selectable = new _AlwaysSelectable<T>();
     }
   }
 
@@ -284,8 +284,6 @@ class MaterialTreeNode<T> {
 
 // TODO(google): Remove once we switch over Selectable interfaces.
 class _AlwaysSelectable<T> implements Selectable<T> {
-  const _AlwaysSelectable();
-
   @override
   SelectableOption getSelectable(T item) => SelectableOption.Selectable;
 }
