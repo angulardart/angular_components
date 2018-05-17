@@ -33,13 +33,6 @@ import 'tooltip_source.dart' show tooltipShowDelay;
 @Directive(
   selector: '[tooltipTarget]',
   exportAs: 'tooltipTarget',
-  host: const {
-    '(mouseover)': 'onMouseOver()',
-    '(mouseleave)': 'onMouseLeave()',
-    '(click)': 'hideTooltip()',
-    '(blur)': 'hideTooltip()',
-    '(keyup)': 'showTooltipWithDelay()',
-  },
 )
 class MaterialTooltipTargetDirective extends TooltipBehavior
     implements AfterViewInit, OnDestroy {
@@ -83,6 +76,7 @@ abstract class TooltipBehavior extends TooltipTarget {
     _show = new DelayedAction(tooltipShowDelay, showTooltip);
   }
 
+  @HostListener('keyup')
   void showTooltipWithDelay() {
     _show.start();
   }
@@ -94,18 +88,24 @@ abstract class TooltipBehavior extends TooltipTarget {
     _tooltip?.activate();
   }
 
+  @HostListener('blur')
+  @HostListener('click')
+  void onBlurOrClick() => hideTooltip();
+
   void hideTooltip({bool immediate: false}) {
     _show.cancel(); // Cancel any pending actions if tooltip is hidden early.
     _tooltipActivate.add(false);
     _tooltip?.deactivate(immediate: immediate);
   }
 
+  @HostListener('mouseover')
   void onMouseOver() {
     if (_isMouseInside) return;
     _isMouseInside = true;
     showTooltipWithDelay();
   }
 
+  @HostListener('mouseleave')
   void onMouseLeave() {
     _isMouseInside = false;
     hideTooltip();
@@ -135,13 +135,6 @@ abstract class TooltipBehavior extends TooltipTarget {
 @Directive(
   selector: '[clickableTooltipTarget]',
   exportAs: 'tooltipTarget',
-  host: const {
-    '(mouseover)': 'onMouseOver()',
-    '(mouseleave)': 'onMouseLeave()',
-    '(click)': 'onClick()',
-    '(keypress)': r'kbTrigger($event)',
-    '(blur)': r'onBlur($event)',
-  },
 )
 class ClickableTooltipTargetDirective extends TooltipBehavior
     implements AfterViewInit, OnDestroy {
@@ -162,6 +155,7 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
     });
   }
 
+  @HostListener('blur')
   void onBlur(FocusEvent event) {
     // Don't hide the tooltip if the user clicked an empty area on the page.
     if (event.relatedTarget == null) return;
@@ -175,6 +169,7 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
     hideTooltip(immediate: true);
   }
 
+  @HostListener('click')
   void onClick() {
     _toggleVisibility();
   }
@@ -187,6 +182,7 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
     }
   }
 
+  @HostListener('keypress')
   void kbTrigger(KeyboardEvent event) {
     if (event.keyCode == KeyCode.ENTER || isSpaceKey(event)) {
       _toggleVisibility();
