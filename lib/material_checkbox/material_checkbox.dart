@@ -8,6 +8,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
@@ -64,12 +65,16 @@ const indeterminateAriaState = 'mixed';
 ///
 @Component(
   selector: 'material-checkbox',
+  providers: const [
+    const Provider(HasDisabled, useExisting: MaterialCheckboxComponent),
+  ],
   directives: const [GlyphComponent, MaterialRippleComponent, NgIf],
   templateUrl: 'material_checkbox.html',
   styleUrls: const ['material_checkbox.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
-class MaterialCheckboxComponent implements ControlValueAccessor, Focusable {
+class MaterialCheckboxComponent
+    implements ControlValueAccessor, HasDisabled, Focusable {
   @HostBinding('class')
   static const hostClass = 'themeable';
 

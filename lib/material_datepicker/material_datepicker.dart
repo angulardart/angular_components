@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
@@ -68,12 +69,15 @@ import 'package:angular_components/model/date/date.dart';
     NgIf,
     PopupSourceDirective,
   ],
+  providers: const [
+    const Provider(HasDisabled, useExisting: MaterialDatepickerComponent),
+  ],
   styleUrls: const ['material_datepicker.scss.css'],
   templateUrl: 'material_datepicker.html',
 )
 class MaterialDatepickerComponent extends KeyboardHandlerMixin
     with FocusableMixin
-    implements AfterViewInit {
+    implements AfterViewInit, HasDisabled {
   /// The format used to format dates.
   ///
   /// Defaults to `yMMMd`, e.g. 'Jan 23, 2015'.

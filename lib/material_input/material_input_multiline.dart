@@ -7,6 +7,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/reference/reference.dart';
 import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
@@ -82,6 +83,7 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: const [
     DeferredValidator,
+    const Provider(HasDisabled, useExisting: MaterialMultilineInputComponent),
     const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
     const Provider(ReferenceDirective,
         useExisting: MaterialMultilineInputComponent),

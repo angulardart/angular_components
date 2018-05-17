@@ -8,6 +8,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:observable/observable.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_menu/menu_root.dart';
 import 'package:angular_components/model/menu/menu_item_affix.dart';
@@ -26,12 +27,15 @@ import 'package:angular_components/model/ui/icon.dart';
     NgFor,
     NgIf,
   ],
+  providers: const [
+    const Provider(HasDisabled, useExisting: MenuItemAffixListComponent),
+  ],
   templateUrl: 'menu_item_affix_list.html',
   styleUrls: const ['menu_item_affix_list.scss.css'],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
 )
-class MenuItemAffixListComponent implements OnDestroy {
+class MenuItemAffixListComponent implements HasDisabled, OnDestroy {
   final ChangeDetectorRef _cdRef;
 
   StreamSubscription _itemChangeStreamSub;
@@ -51,6 +55,8 @@ class MenuItemAffixListComponent implements OnDestroy {
   set disabled(bool disabled) {
     _disabled = disabled;
   }
+
+  bool get disabled => _disabled;
 
   /// Observable list of affix items.
   @Input()

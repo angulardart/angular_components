@@ -6,6 +6,7 @@ import 'dart:html' as dom;
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/a11y/active_item_mixin.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
@@ -43,6 +44,9 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 // TODO(google): should activate/deactivate on mouse hover
 @Component(
   selector: 'material-list-item',
+  providers: const [
+    const Provider(HasDisabled, useExisting: MaterialListItemComponent),
+  ],
   styleUrls: const ['material_list_item.scss.css'],
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,

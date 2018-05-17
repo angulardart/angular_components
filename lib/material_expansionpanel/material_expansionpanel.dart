@@ -9,6 +9,7 @@ import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_yes_no_buttons/material_yes_no_buttons.dart';
@@ -112,7 +113,8 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     KeyUpBoundaryDirective
   ],
   providers: const [
-    const Provider(DeferredContentAware, useExisting: MaterialExpansionPanel)
+    const Provider(DeferredContentAware, useExisting: MaterialExpansionPanel),
+    const Provider(HasDisabled, useExisting: MaterialExpansionPanel),
   ],
   templateUrl: 'material_expansionpanel.html',
   styleUrls: const ['material_expansionpanel.scss.css'],
@@ -120,7 +122,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   visibility: Visibility.all, // injected
 )
 class MaterialExpansionPanel
-    implements DeferredContentAware, OnInit, OnDestroy {
+    implements DeferredContentAware, HasDisabled, OnInit, OnDestroy {
   final NgZone _ngZone;
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;

@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
@@ -37,6 +38,7 @@ import 'material_select_item.dart';
 @Component(
   selector: 'material-select',
   providers: const [
+    const Provider(HasDisabled, useExisting: MaterialSelectComponent),
     const Provider(HasRenderer, useExisting: MaterialSelectComponent),
     const Provider(SelectionContainer, useExisting: MaterialSelectComponent)
   ],
@@ -49,7 +51,8 @@ import 'material_select_item.dart';
   templateUrl: 'material_select.html',
   styleUrls: const ['material_select.scss.css'],
 )
-class MaterialSelectComponent extends MaterialSelectBase {
+class MaterialSelectComponent extends MaterialSelectBase
+    implements HasDisabled {
   @HostBinding('attr.role')
   static const hostRole = 'listbox';
 

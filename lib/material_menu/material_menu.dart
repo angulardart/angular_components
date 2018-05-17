@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
@@ -37,11 +38,14 @@ import 'package:angular_components/utils/disposer/disposer.dart';
       NgIf,
       PopupSourceDirective
     ],
+    providers: const [
+      const Provider(HasDisabled, useExisting: MaterialMenuComponent),
+    ],
     templateUrl: 'material_menu.html',
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialMenuComponent extends Object
     with FocusableMixin, MenuPopupWrapper
-    implements AfterViewInit, OnDestroy {
+    implements AfterViewInit, HasDisabled, OnDestroy {
   final _onTrigger = new StreamController<Null>();
   final _disposer = new Disposer.oneShot();
 

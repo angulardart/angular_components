@@ -9,6 +9,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/forms/error_renderer.dart' show ErrorFn;
 import 'package:angular_components/mixins/focusable_mixin.dart';
@@ -33,7 +34,7 @@ enum BottomPanelState {
 
 /// Base class for behavior that is shared between material input components.
 class BaseMaterialInput extends FocusableMixin
-    implements Focusable, AfterViewInit, OnDestroy {
+    implements HasDisabled, Focusable, AfterViewInit, OnDestroy {
   final ChangeDetectorRef _changeDetector;
   final _disposer = new Disposer.oneShot();
 

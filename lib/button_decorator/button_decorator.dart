@@ -7,6 +7,7 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/mixins/has_tab_index.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 
@@ -26,7 +27,9 @@ import 'package:angular_components/utils/browser/events/events.dart';
   // Injected by [DisablePendingClickHandlerDirective].
   visibility: Visibility.all,
 )
-class ButtonDirective extends RootFocusable with HasTabIndex implements OnInit {
+class ButtonDirective extends RootFocusable
+    with HasTabIndex
+    implements OnInit, HasDisabled {
   /// Will emit Event on mouse click or keyboard activation.
   @Output()
   Stream<UIEvent> get trigger => _trigger.stream;

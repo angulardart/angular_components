@@ -8,6 +8,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_radio/material_radio_group.dart';
@@ -32,11 +33,18 @@ const Icon checkedIcon = const Icon('radio_button_checked');
 @Component(
     selector: 'material-radio',
     directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
+    providers: const [
+      const Provider(HasDisabled, useExisting: MaterialRadioComponent),
+    ],
     templateUrl: 'material_radio.html',
     styleUrls: const ['material_radio.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialRadioComponent extends RootFocusable
-    implements ControlValueAccessor<bool>, FocusableItem, OnDestroy {
+    implements
+        ControlValueAccessor<bool>,
+        HasDisabled,
+        FocusableItem,
+        OnDestroy {
   final ChangeDetectorRef _changeDetector;
   final MaterialRadioGroupComponent _group;
   final HtmlElement _root;
