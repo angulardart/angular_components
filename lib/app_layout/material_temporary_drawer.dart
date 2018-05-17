@@ -26,11 +26,6 @@ import 'material_drawer_base.dart';
     const Provider(DeferredContentAware,
         useExisting: MaterialTemporaryDrawerComponent),
   ],
-  host: const {
-    // TODO(google) click is not accessible; add bindings for esc key. This
-    // should also block keyboard selection outside of the drawer, while open.
-    '(click)': 'toggle()',
-  },
   templateUrl: 'material_temporary_drawer.html',
   styleUrls: const ['material_temporary_drawer.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -44,4 +39,10 @@ class MaterialTemporaryDrawerComponent extends MaterialDrawerBase {
 
   @HostBinding('class.mat-drawer-expanded')
   bool get hostMatDrawerExpanded => visible;
+
+  // TODO(google) click is not accessible; add bindings for esc key. This
+  // should also block keyboard selection outside of the drawer, while open.
+  @HostListener('click')
+  @override
+  void toggle() => super.toggle();
 }
