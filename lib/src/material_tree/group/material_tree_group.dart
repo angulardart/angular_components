@@ -38,11 +38,13 @@ const materialTreeLeftPaddingToken = const OpaqueToken(
     NgIf,
     NgClass
   ],
-  host: const {'role': 'group'},
   templateUrl: 'material_tree_group.html',
   styleUrls: const ['material_tree_group.scss.css'],
 )
 class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
+  @HostBinding('attr.role')
+  static const hostRole = 'group';
+
   static final defaultConstantLeftPadding = 24;
   static final baseGridStep = 8; // Based on $mat-grid
   static final rowIndentationStep =
