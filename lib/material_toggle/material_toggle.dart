@@ -20,18 +20,17 @@ import 'package:angular_components/utils/browser/events/events.dart';
 ///     <material-toggle [disabled]="false" [(checked)]="true" label="Click me">
 ///     </material-toggle>
 @Component(
-    selector: 'material-toggle',
-    host: const {
-      'class': 'themeable',
-      '(click)': r'handleClick($event)',
-      '(keypress)': r'handleKeyPress($event)'
-    },
-    styleUrls: const ['material_toggle.scss.css'],
-    templateUrl: 'material_toggle.html',
-    directives: const [NgIf],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.local)
+  selector: 'material-toggle',
+  styleUrls: const ['material_toggle.scss.css'],
+  templateUrl: 'material_toggle.html',
+  directives: const [NgIf],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  visibility: Visibility.local,
+)
 class MaterialToggleComponent implements AfterViewInit {
+  @HostBinding('class')
+  static const hostClass = 'themeable';
+
   @ViewChild('toggle')
   HtmlElement toggleElement;
 
@@ -108,12 +107,14 @@ class MaterialToggleComponent implements AfterViewInit {
     }
   }
 
+  @HostListener('click')
   void handleClick(MouseEvent mouseEvent) {
     toggleChecked();
     mouseEvent.preventDefault();
     mouseEvent.stopPropagation();
   }
 
+  @HostListener('keypress')
   void handleKeyPress(KeyboardEvent keyEvent) {
     int keyCode = keyEvent.keyCode;
     if (keyCode == KeyCode.ENTER || isSpaceKey(keyEvent)) {
