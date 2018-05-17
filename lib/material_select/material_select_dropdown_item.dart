@@ -21,21 +21,6 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// This should only be used in select dropdowns.
 @Component(
   selector: 'material-select-dropdown-item',
-  host: const {
-    '[class.disabled]': 'disabled',
-    '[class.hidden]': 'isHidden',
-    '[class.active]': 'active',
-    '[class.selected]': 'isSelected',
-    '[class.multiselect]': 'supportsMultiSelect',
-    '(click)': r'handleClick($event)',
-    '(keypress)': r'handleKeyPress($event)',
-    '(mousedown)': r'preventTextSelectionIfShiftKey($event)',
-    '(mouseenter)': 'onMouseEnter()',
-    '(mouseleave)': 'onMouseLeave()',
-    '[attr.aria-selected]': 'isSelected',
-    '[attr.aria-disabled]': 'disabledStr',
-    '[attr.id]': 'id',
-  },
   providers: const [
     const Provider(SelectionItem,
         useExisting: MaterialSelectDropdownItemComponent),
@@ -65,7 +50,9 @@ class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
   String _id;
 
   /// The id of the element.
+  @HostBinding('attr.id')
   String get id => _id ?? _generatedId;
+
   @Input()
   set id(String id) {
     _id = id;
@@ -86,6 +73,11 @@ class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
     this.itemRenderer = defaultItemRenderer;
   }
 
+  @HostBinding('attr.aria-selected')
+  @override
+  bool get isSelected => super.isSelected;
+
+  @HostListener('mousedown')
   void preventTextSelectionIfShiftKey(MouseEvent e) {
     if (e.shiftKey) e.preventDefault();
   }
