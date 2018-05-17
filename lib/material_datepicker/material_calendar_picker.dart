@@ -80,7 +80,6 @@ int _dayOfWeek(int year, int month, int day) {
 @Component(
   changeDetection: ChangeDetectionStrategy.Detached,
   directives: const [NgFor],
-  host: const {'[class.compact]': 'compact'},
   selector: 'material-calendar-picker',
   styleUrls: const ['material_calendar_picker.scss.css'],
   templateUrl: 'material_calendar_picker.html',
@@ -246,6 +245,7 @@ class MaterialCalendarPickerComponent
     _isResetNeeded = true;
   }
 
+  @HostBinding('class.compact')
   bool get compact => _compact;
   bool _compact = false;
 
