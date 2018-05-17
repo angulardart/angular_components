@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html' show Event;
+
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import 'package:angular_components/glyph/glyph.dart';
@@ -24,10 +26,6 @@ export 'package:angular_components/src/material_datepicker/sequential.dart';
 @Component(
   selector: 'next-prev-buttons',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: const {
-    '(click)': r'$event.stopPropagation()',
-    '(keypress)': r'$event.stopPropagation()',
-  },
   template: r'''
 <button class="prev"
         [class.disabled]="isPrevDisabled"
@@ -55,6 +53,10 @@ class NextPrevComponent implements OnDestroy {
   bool _hasPrev = false;
 
   NextPrevComponent(this._changeDetector);
+
+  @HostListener('click')
+  @HostListener('keypress')
+  void stopPropagation(Event e) => e.stopPropagation();
 
   /// Something that can logically move to a next/prev value.
   @Input()
