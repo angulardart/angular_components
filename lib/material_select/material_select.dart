@@ -36,11 +36,6 @@ import 'material_select_item.dart';
 ///    Optional. Defaults to false.
 @Component(
   selector: 'material-select',
-  host: const {
-    'role': 'listbox',
-    '[attr.aria-multiselectable]': 'isMultiSelect',
-    '[attr.aria-disabled]': 'disabledStr'
-  },
   providers: const [
     const Provider(HasRenderer, useExisting: MaterialSelectComponent),
     const Provider(SelectionContainer, useExisting: MaterialSelectComponent)
@@ -55,6 +50,9 @@ import 'material_select_item.dart';
   styleUrls: const ['material_select.scss.css'],
 )
 class MaterialSelectComponent extends MaterialSelectBase {
+  @HostBinding('attr.role')
+  static const hostRole = 'listbox';
+
   List<SelectionItem> _selectItems;
 
   /// Function for use by NgFor for optionGroup to avoid recreating the
@@ -62,6 +60,10 @@ class MaterialSelectComponent extends MaterialSelectBase {
   final Function trackByIndexFn = indexIdentityFn;
 
   bool _disabled = false;
+
+  @HostBinding('attr.aria-multiselectable')
+  @override
+  bool get isMultiSelect => super.isMultiSelect;
 
   @Input()
   @override
@@ -115,6 +117,7 @@ class MaterialSelectComponent extends MaterialSelectBase {
 
   bool get disabled => _disabled;
 
+  @HostBinding('attr.aria-disabled')
   String get disabledStr => '$_disabled';
 
   @override

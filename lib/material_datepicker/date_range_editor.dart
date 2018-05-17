@@ -53,7 +53,6 @@ export 'package:angular_components/src/material_datepicker/date_range_editor_mod
 @Component(
   selector: 'date-range-editor',
   templateUrl: 'date_range_editor.html',
-  host: const {'[class.compact]': 'compact'},
   styleUrls: const ['date_range_editor.scss.css'],
   directives: const [
     ButtonDirective,
@@ -120,6 +119,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     _compact = value;
   }
 
+  @HostBinding('class.compact')
   bool get compact => _compact;
 
   bool _compact = false;
