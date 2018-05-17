@@ -137,6 +137,7 @@ class DomService {
   ///
   /// ONLY FOR TESTING!
   /// DO NOT CALL THIS METHOD IN PRODUCTION CODE!
+  @visibleForTesting
   void leap({num highResTimer, steps: 1}) {
     // Force a angular turn to make sure layout calls are scheduled.
     _ngZone.run(() {});
