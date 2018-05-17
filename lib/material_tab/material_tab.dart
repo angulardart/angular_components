@@ -48,12 +48,6 @@ abstract class Tab extends Focusable {
 ///     </material-tab-panel>
 @Component(
   selector: 'material-tab',
-  host: const {
-    'role': 'tabpanel',
-    '[attr.id]': 'panelId',
-    '[attr.aria-labelledby]': 'tabId',
-    '[class.material-tab]': 'active',
-  },
   providers: const [
     const Provider(Tab, useExisting: MaterialTabComponent),
     const Provider(DeferredContentAware, useExisting: MaterialTabComponent)
@@ -67,6 +61,9 @@ abstract class Tab extends Focusable {
 )
 class MaterialTabComponent extends RootFocusable
     implements Tab, DeferredContentAware {
+  @HostBinding('attr.role')
+  static const hostRole = 'tabpanel';
+
   final String _uuid;
   final _visible = new StreamController<bool>.broadcast(sync: true);
 
@@ -95,13 +92,16 @@ class MaterialTabComponent extends RootFocusable
   Stream<bool> get contentVisible => _visible.stream;
 
   /// Whether the tab is active.
+  @HostBinding('class.material-tab')
   bool get active => _active;
   bool _active = false;
 
   /// HTML ID for the panel.
+  @HostBinding('attr.id')
   String get panelId => 'panel-$_uuid';
 
   /// HTML ID for the tab.
+  @HostBinding('attr.aria-labelledby')
   @override
   String get tabId => 'tab-$_uuid';
 }
