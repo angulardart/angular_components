@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/glyph/glyph.dart';
@@ -78,11 +79,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   ],
   providers: const [
     const Provider(DateRangeEditorHost,
-        useExisting: MaterialDateRangePickerComponent)
+        useExisting: MaterialDateRangePickerComponent),
+    const Provider(HasDisabled, useExisting: MaterialDateRangePickerComponent),
   ],
 )
 class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
-    implements OnInit, OnDestroy, DateRangeEditorHost {
+    implements HasDisabled, OnInit, OnDestroy, DateRangeEditorHost {
   DateRangeEditorComponent _dateRangeEditor;
   bool _focusOnDateRangeEditorInit = false;
 

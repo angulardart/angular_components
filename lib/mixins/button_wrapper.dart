@@ -3,12 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/model/ui/icon.dart';
 
 /// Properties for a component which wants to expose typical options for a
 /// button: `buttonText`, `buttonAriaLabel`, `disabled`, `icon` and `raised`.
 // TODO(google): Add doc comments for inputs.
-class MaterialButtonWrapper {
+class MaterialButtonWrapper implements HasDisabled {
   @Input()
   String buttonText;
   @Input()

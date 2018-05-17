@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_datepicker/material_datepicker.dart';
 import 'package:angular_components/material_datepicker/material_time_picker.dart';
 import 'package:angular_components/material_datepicker/module.dart';
@@ -33,8 +34,11 @@ import 'package:angular_components/model/date/date.dart';
     MaterialTimePickerComponent,
     MaterialInputComponent,
   ],
+  providers: const [
+    const Provider(HasDisabled, useExisting: MaterialDateTimePickerComponent),
+  ],
 )
-class MaterialDateTimePickerComponent {
+class MaterialDateTimePickerComponent implements HasDisabled {
   final Clock _clock;
 
   /// The format used to format dates.

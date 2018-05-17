@@ -11,6 +11,7 @@ import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_list/material_list.dart';
@@ -114,6 +115,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
   providers: const [
     const Provider(DropdownHandle,
         useExisting: MaterialDropdownSelectComponent),
+    const Provider(HasDisabled, useExisting: MaterialDropdownSelectComponent),
     const Provider(HasRenderer, useExisting: MaterialDropdownSelectComponent),
     const Provider(DeferredContentAware,
         useExisting: MaterialDropdownSelectComponent),

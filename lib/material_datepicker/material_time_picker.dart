@@ -8,6 +8,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/material_select/material_dropdown_select.dart';
@@ -26,11 +27,14 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     materialInputDirectives,
     NgStyle,
   ],
+  providers: const [
+    const Provider(HasDisabled, useExisting: MaterialTimePickerComponent),
+  ],
   templateUrl: 'material_time_picker.html',
   styleUrls: const ['material_time_picker.scss.css'],
 )
 class MaterialTimePickerComponent extends KeyboardHandlerMixin
-    implements OnInit, OnDestroy {
+    implements HasDisabled, OnInit, OnDestroy {
   static DateTime _utcTime(int hour, [int minute = 0]) => new DateTime.utc(
       _unixEpoch.year, _unixEpoch.month, _unixEpoch.day, hour, minute);
 

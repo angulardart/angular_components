@@ -7,6 +7,7 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_spinner/material_spinner.dart';
 
@@ -28,12 +29,15 @@ import 'package:angular_components/material_spinner/material_spinner.dart';
     NgClass,
     NgIf,
   ],
+  providers: const [
+    const Provider(HasDisabled, useExisting: MaterialYesNoButtonsComponent),
+  ],
   templateUrl: 'material_yes_no_buttons.html',
   styleUrls: const ['material_yes_no_buttons.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   visibility: Visibility.all, // Injected by directives.
 )
-class MaterialYesNoButtonsComponent {
+class MaterialYesNoButtonsComponent implements HasDisabled {
   /// The callback that is to be invoked, when yes button is pressed.
   ///
   /// Published events are either KeyboardEvent or MouseEvent

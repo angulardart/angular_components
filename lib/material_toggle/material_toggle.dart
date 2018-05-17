@@ -7,6 +7,7 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:meta/meta.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 
 /// `material-toggle` is a button that can be either ON or OFF.
@@ -24,10 +25,13 @@ import 'package:angular_components/utils/browser/events/events.dart';
   styleUrls: const ['material_toggle.scss.css'],
   templateUrl: 'material_toggle.html',
   directives: const [NgIf],
+  providers: const [
+    const Provider(HasDisabled, useExisting: MaterialToggleComponent),
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   visibility: Visibility.local,
 )
-class MaterialToggleComponent implements AfterViewInit {
+class MaterialToggleComponent implements AfterViewInit, HasDisabled {
   @HostBinding('class')
   static const hostClass = 'themeable';
 

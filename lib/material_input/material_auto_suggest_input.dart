@@ -13,6 +13,7 @@ import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
@@ -120,6 +121,7 @@ typedef String _InputChangeCallback(String inputText);
 @Component(
   selector: 'material-auto-suggest-input',
   providers: const [
+    const Provider(HasDisabled, useExisting: MaterialAutoSuggestInputComponent),
     const Provider(HasRenderer, useExisting: MaterialAutoSuggestInputComponent),
     const Provider(SelectionContainer,
         useExisting: MaterialAutoSuggestInputComponent),

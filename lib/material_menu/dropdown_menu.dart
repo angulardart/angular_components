@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/material_menu/menu_popup.dart';
 import 'package:angular_components/material_menu/menu_popup_wrapper.dart';
@@ -20,6 +21,9 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     MenuPopupComponent,
     PopupSourceDirective
   ],
+  providers: const [
+    const Provider(HasDisabled, useExisting: DropdownMenuComponent),
+  ],
   templateUrl: 'dropdown_menu.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
@@ -27,7 +31,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 )
 class DropdownMenuComponent extends Object
     with FocusableMixin, MenuPopupWrapper
-    implements AfterViewInit, OnDestroy {
+    implements AfterViewInit, HasDisabled, OnDestroy {
   final _disposer = new Disposer.oneShot();
 
   DropdownMenuComponent(ChangeDetectorRef _changeDetector) {

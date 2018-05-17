@@ -6,6 +6,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:quiver/strings.dart' show isNotEmpty;
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/reference/reference.dart';
@@ -141,6 +142,7 @@ const String materialInputErrorKey = 'material-input-error';
     const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
     const Provider(ReferenceDirective, useExisting: MaterialInputComponent),
     const Provider(Focusable, useExisting: MaterialInputComponent),
+    const Provider(HasDisabled, useExisting: MaterialInputComponent),
     const Provider(BaseMaterialInput, useExisting: MaterialInputComponent)
   ],
   templateUrl: 'material_input.html',
