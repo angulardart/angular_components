@@ -15,3 +15,12 @@
     font-size: $size;
   }
 }
+
+/// Changes to flip the icon horizontally.
+///
+/// RTL is handled by the class on body, we don't handle rtl in this mixin.
+@mixin material-icon-flip() {
+  ::ng-deep .material-icon-i {
+    transform: scaleX(-1);
+  }
+}
