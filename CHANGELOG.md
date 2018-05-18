@@ -1,13 +1,15 @@
 ## 0.9.0-alpha+12
 
 > NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-alpha+11. The alpha tag represents the evolving nature of the
-> AngularDart API, not code quality (5.0.0-alpha+11 is used in production Google
+> 5.0.0-alpha+12. The alpha tag represents the evolving nature of the
+> AngularDart API, not code quality (5.0.0-alpha+12 is used in production Google
 > apps).
 
  * Material Auto-Suggest Input: Improve keyboard navigation behavior.
  * Material Button: Allow icon button items to be created vertically.
- * Material Checkbox: Support `onDisabledChanged` callback from angular_forms.
+ * Material Checkbox:
+   * Support `onDisabledChanged` callback from angular_forms.
+   * Add mixin to hide text label.
  * Material Datepicker:
    * Fix direction of dropdown arrows in RTL locales.
    * Allow error messages to be shown on range picker inputs.
@@ -31,13 +33,18 @@
  * Material Menu:
    * Wrap long text in Fab Menu.
    * Horizontally align the expansion icon with the label.
- * Material Radio: Support `onDisabledChanged` callback from angular_forms.
+ * Material Radio:
+   * Support `onDisabledChanged` callback from angular_forms.
+   * Internal cleanup.
  * Material Select: Pipe through customized aria role, `labelby`, and `haspopup`
    to the dropdown button.
  * Material Tree: Use item identity to remember expanded state.
  * Reorder List: Calculate the full height/width of the elements.
  * Scorecard: Remove the `:host` from the padding mixin so it is not required to
    be used at the top level.
+ * Add `HasDisabled` interface.
+ * Propagate css classes on modal component to the overlay element.
+ * Annotate `Domservice.leap()` visible for testing.
  * Add support for `SingleSelectionModel` to `SelectionModel.empty`.
  * Add `mat-link-deep` mixin to push the Material link styles everywhere.
  * Updates to new `@HostBinding` syntax.
@@ -46,6 +53,7 @@
  * Support RTL selectors on any element.
  * Remove usage of package uuid.
  * Dart2 type fixes.
+ * Update documentation.
 
 ## 0.9.0-alpha+11
 
