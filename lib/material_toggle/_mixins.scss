@@ -11,6 +11,7 @@
 ///         $primary-color: $mat-teal-500,
 ///         $off-btn-color: $mat-teal-500,
 ///         $selector: '.custom-area');
+// TODO(google): Remove selector it shouldn't be needed as there aren't host styling.
 @mixin material-toggle-theme($primary-color, $off-btn-color: null, $selector: '') {
   @if $off-btn-color != null {
     ::ng-deep #{$selector} material-toggle.themeable .material-toggle .tgl-btn {
