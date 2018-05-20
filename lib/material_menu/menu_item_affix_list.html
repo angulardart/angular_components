@@ -12,6 +12,7 @@
           buttonDecorator
           class="material-list-item-primary secondary-icon"
           [attr.aria-label]="getActionIconAriaLabel(getIcon(affix))"
+          [ngClass]="affix.cssClass"
           [class.action-icon]="false"
           [class.disabled]="!isActionIconAffix(affix)"
           [class.hover-icon]="affix.isVisibleOnHover"
@@ -21,7 +22,8 @@
       </material-icon>
       <span
           *ngIf="isCaptionAffix(affix)"
-          class="material-list-item-primary caption-text">
+          class="material-list-item-primary caption-text"
+          [ngClass]="affix.cssClass">
         {{getText(affix)}}
       </span>
     </template>
