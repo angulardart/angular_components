@@ -15,6 +15,8 @@ abstract class MenuItemAffix {
   bool get shouldCloseMenuOnTrigger;
   bool hasShortcutKeyCode(int keyCode);
   void triggerShortcutAction();
+
+  String get cssClass;
 }
 
 typedef void IconAction();
@@ -40,7 +42,13 @@ class IconAffix extends MenuItemAffix {
 
   final Icon icon;
 
-  IconAffix({@required this.icon, this.visibility: IconVisibility.visible});
+  @override
+  final String cssClass;
+
+  IconAffix(
+      {@required this.icon,
+      this.visibility: IconVisibility.visible,
+      this.cssClass});
 
   @override
   bool get shouldCloseMenuOnTrigger =>
@@ -65,7 +73,11 @@ class CaptionAffix extends MenuItemAffix {
 
   final String text;
 
-  CaptionAffix({this.text, this.visibility: IconVisibility.visible});
+  @override
+  final String cssClass;
+
+  CaptionAffix(
+      {this.text, this.visibility: IconVisibility.visible, this.cssClass});
 
   @override
   bool get shouldCloseMenuOnTrigger => false;

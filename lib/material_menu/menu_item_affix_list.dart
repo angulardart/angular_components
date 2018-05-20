@@ -26,6 +26,7 @@ import 'package:angular_components/model/ui/icon.dart';
     MaterialIconComponent,
     NgFor,
     NgIf,
+    NgClass,
   ],
   providers: const [
     const Provider(HasDisabled, useExisting: MenuItemAffixListComponent),
