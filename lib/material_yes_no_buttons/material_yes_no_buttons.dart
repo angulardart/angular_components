@@ -35,7 +35,6 @@ import 'package:angular_components/material_spinner/material_spinner.dart';
   templateUrl: 'material_yes_no_buttons.html',
   styleUrls: const ['material_yes_no_buttons.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  visibility: Visibility.all, // Injected by directives.
 )
 class MaterialYesNoButtonsComponent implements HasDisabled {
   /// The callback that is to be invoked, when yes button is pressed.
