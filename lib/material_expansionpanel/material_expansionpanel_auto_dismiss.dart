@@ -22,7 +22,6 @@ import 'package:angular_components/material_expansionpanel/material_expansionpan
 ///
 @Directive(
   selector: 'material-expansionpanel[autoDismissable]',
-  host: const {'(expandedChange)': r'onExpandedChanged($event)'},
 )
 class MaterialExpansionPanelAutoDismiss implements OnDestroy {
   final MaterialExpansionPanel _expansionPanel;
@@ -53,6 +52,7 @@ class MaterialExpansionPanelAutoDismiss implements OnDestroy {
   }
 
   /// Handles expanded status changes from the panel.
+  @HostListener('expandedChange')
   void onExpandedChanged(bool expand) {
     _clicksOutsideSubscription?.cancel();
     if (expand) {
