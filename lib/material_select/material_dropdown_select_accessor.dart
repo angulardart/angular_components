@@ -19,7 +19,7 @@ import 'material_dropdown_select.dart';
       'material-dropdown-select[ngControl]:not([multi]),',
   providers: const [
     const ExistingProvider<ControlValueAccessor>.forToken(
-        NG_VALUE_ACCESSOR, DropdownSelectValueAccessor),
+        ngValueAccessor, DropdownSelectValueAccessor),
   ],
 )
 class DropdownSelectValueAccessor extends BaseDropdownSelectValueAccessor
@@ -64,7 +64,7 @@ class DropdownSelectValueAccessor extends BaseDropdownSelectValueAccessor
       'material-dropdown-select[multi][ngFormControl]',
   providers: const [
     const ExistingProvider<ControlValueAccessor>.forToken(
-        NG_VALUE_ACCESSOR, MultiDropdownSelectValueAccessor),
+        ngValueAccessor, MultiDropdownSelectValueAccessor),
   ],
 )
 class MultiDropdownSelectValueAccessor extends BaseDropdownSelectValueAccessor
