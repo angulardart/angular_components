@@ -104,15 +104,17 @@
 
 /// Changes the `$primary-color`in the material-input which includes the label
 /// text and underline.
-@mixin material-input-theme($primary-color) {
-  ::ng-deep material-input.themeable {
+// TODO(google): Modifier shouldn't be needed but this mixin is poorly written
+// refactor to remove it.
+@mixin material-input-theme($primary-color, $modifier: '') {
+  ::ng-deep material-input.themeable#{$modifier} {
     @include material-input-focused-underline-color($primary-color);
 
     .cursor {
       background-color: $primary-color;
     }
 
-    .focused.label-text {
+    .focused.label-text:not(.invalid) {
       color: $primary-color;
     }
   }
