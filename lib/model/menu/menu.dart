@@ -94,6 +94,11 @@ class MenuModel<T> implements HasIcon {
     assert(width == null || (width >= 1 && width <= 5));
   }
 
+  MenuModel.flat(List<T> items, {this.icon, this.width, this.tooltipText})
+      : this.itemGroups = [new MenuItemGroup<T>(items)] {
+    assert(width == null || (width >= 1 && width <= 5));
+  }
+
   /// Preset width, 1 through 5. By default, the material menu will expand to
   /// its content. Note: The spec clearly lays out predefined menu sizes so use
   /// the default, expanding size, sparingly.
