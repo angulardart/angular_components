@@ -162,6 +162,12 @@ $_panel: 'div.panel.themeable';
   }
 }
 
+@mixin expansionpanel-header-align-items($align-items) {
+  ::ng-deep #{$_panel} .header {
+    align-items: $align-items;
+  }
+}
+
 // Disables the header expansion effect when the panel is opened.
 @mixin expansionpanel-no-expansion() {
   ::ng-deep #{$_panel} {
