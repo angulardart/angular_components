@@ -88,3 +88,11 @@
     }
   }
 }
+
+// Changes the icon color of .menu-item. $selector should be one of the css
+// classes passed in through MenuItem.
+@mixin menu-item-icon-color($selector, $color) {
+  ::ng-deep #{$selector}.menu-item material-icon.material-list-item-primary {
+    color: $color;
+  }
+}
