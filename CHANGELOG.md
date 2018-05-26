@@ -1,3 +1,24 @@
+## 0.9.0-alpha+13
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+13. The alpha tag represents the evolving nature of the
+> AngularDart API, not code quality (5.0.0-alpha+13 is used in production Google
+> apps).
+
+ * Material Expansion Panel: Add mixin to set alignment in the header.
+ * Material Icon:
+   * Add flag to mirror icon.
+   * Roll back change that flipped help icon in RTL.
+ * Material Input: Adding field to material input mixin to specify the label
+   color when there is an error and the label is focused.
+ * Material Menu:
+   * Allow setting the class for each affix item.
+   * Add helper constructor for flat menus.
+   * Add mixin for changing the icon color of menu item.
+ * Material Yes/No Buttons: Remove `Visibility.all`.
+ * Handle null pointer in `popup_source_directive`.
+ * Updates to new `@HostBinding` syntax.
+
 ## 0.9.0-alpha+12
 
 > NOTE: This code is considered production quality, but depends on angular:
@@ -43,7 +64,7 @@
  * Scorecard: Remove the `:host` from the padding mixin so it is not required to
    be used at the top level.
  * Add `HasDisabled` interface.
- * Propagate css classes on modal component to the overlay element.
+ * Propagate CSS classes on modal component to the overlay element.
  * Annotate `Domservice.leap()` visible for testing.
  * Add support for `SingleSelectionModel` to `SelectionModel.empty`.
  * Add `mat-link-deep` mixin to push the Material link styles everywhere.
@@ -51,7 +72,7 @@
  * Update sass_builder dependency to latest and use the post-process builder to
    cleanup `.scss` files from the output.
  * Support RTL selectors on any element.
- * Remove usage of package uuid.
+ * Remove usage of package UUID.
  * Dart2 type fixes.
  * Update documentation.
 
