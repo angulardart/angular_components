@@ -239,6 +239,9 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     iconName = 'arrow_drop_down';
   }
 
+  @ViewChild(DropdownButtonComponent)
+  DropdownButtonComponent dropdownButton;
+
   /// The id of the currently selected item, or the first item if none are
   /// selected.
   String get ariaActiveDescendant {
@@ -456,6 +459,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     if (visible) {
       close();
       event.stopPropagation();
+      dropdownButton.focus();
     }
   }
 
@@ -466,6 +470,12 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
       // Don't select if the selection model is multi-select.
       activateOnKeyPress(activeModel, event.charCode, options, itemRenderer,
           !visible && isSingleSelect ? selection : null);
+    }
+  }
+
+  void onAutoDismissed(Event event) {
+    if (event is FocusEvent) {
+      dropdownButton.focus();
     }
   }
 

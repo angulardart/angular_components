@@ -37,7 +37,8 @@
     [autoDismiss]="autoDismiss"
     [trackLayoutChanges]="trackLayoutChanges"
     [visible]="visible"
-    (visibleChange)="onVisible($event)">
+    (visibleChange)="onVisible($event)"
+    (autoDismissed)="onAutoDismissed($event)">
   <div header
       (keydown)="onKeyDown($event)"
       (keypress)="onKeyPress($event)"
