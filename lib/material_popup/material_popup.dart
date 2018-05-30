@@ -111,13 +111,6 @@ class MaterialPopupComponent extends Object
   final StreamController<bool> _onContentVisible =
       new StreamController<bool>.broadcast(sync: true);
 
-  /// Stream on which an event is fired when the popup is auto dismissed.
-  /// Output event should be either a [FocusEvent] or a [MouseEvent].
-  @Output('autoDismissed')
-  Stream<Event> get onAutoDismissed => _onAutoDismissed.stream;
-  final StreamController<Event> _onAutoDismissed =
-      new StreamController<Event>.broadcast(sync: true);
-
   final ChangeDetectorRef _changeDetector;
   final ViewContainerRef _viewContainer;
   final Disposer _disposer = new Disposer.oneShot();
@@ -412,15 +405,7 @@ class MaterialPopupComponent extends Object
   }
 
   @override
-  void onDismiss() {
-    close();
-  }
-
-  @override
-  void onAutoDismiss(Event event) {
-    close();
-    _onAutoDismissed.add(event);
-  }
+  void onDismiss() => close();
 
   /// Open the popup.
   ///
