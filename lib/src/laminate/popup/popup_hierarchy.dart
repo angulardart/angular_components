@@ -77,7 +77,7 @@ class PopupHierarchy {
         if (events.isParentOf(blockerElement, event.target)) return;
       }
 
-      if (current.autoDismiss) current.onAutoDismiss(event);
+      if (current.autoDismiss) current.onDismiss();
     }
   }
 }
@@ -104,10 +104,6 @@ abstract class PopupHierarchyElement {
 
   void detachFromVisibleHierarchy() {
     hierarchy._detach(this);
-  }
-
-  void onAutoDismiss(Event event) {
-    onDismiss();
   }
 
   void onDismiss();
