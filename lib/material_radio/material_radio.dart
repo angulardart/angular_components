@@ -211,4 +211,9 @@ class MaterialRadioComponent extends RootFocusable
   void ngOnDestroy() {
     _disposer.dispose();
   }
+
+  // Unimplemented for M2.
+  Future get focusDelegate async => null;
+  String radioGroupName;
+  set radioInputElement(HtmlElement _) {}
 }
