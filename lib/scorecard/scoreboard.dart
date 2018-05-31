@@ -301,15 +301,13 @@ class ScoreboardComponent implements OnInit, OnDestroy {
     }
   }
 
-  String get scrollScorecardBarForward => Intl.message(
+  static final scrollScorecardBarForward = Intl.message(
       'Scroll scorecard bar forward',
-      name: 'scrollScorecardBarForward',
       desc: 'Aria label of a button that scrolls the scorecard bar horizontally'
           ' forward. Forward is, to the right in left-to-right layouts'
           ' and to the left in right-to-left layouts.');
-  String get scrollScorecardBarBack => Intl.message(
+  static final scrollScorecardBarBack = Intl.message(
       'Scroll scorecard bar backward',
-      name: 'scrollScorecardBarBack',
       desc: 'Aria label of a button that scrolls the scorecard bar horizontally'
           ' backward. Backward is, to the left in left-to-right layouts'
           ' and to the right in right-to-left layouts.');
