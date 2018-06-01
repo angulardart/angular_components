@@ -39,7 +39,7 @@ String formatRange(DateRange range) {
 }
 
 class _DateFormatterMessages {
-  static String get _allTimeMsg => Intl.message('All time',
+  static final _allTimeMsg = Intl.message('All time',
       name: '_allTimeMsg',
       desc: 'Indicates that the selected date range has no start or end');
 
