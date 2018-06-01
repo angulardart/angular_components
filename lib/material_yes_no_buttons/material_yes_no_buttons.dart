@@ -129,12 +129,12 @@ class MaterialYesNoButtonsComponent implements HasDisabled {
     _no.add(event);
   }
 
-  static String get _msgYes => Intl.message('Yes',
+  static final _msgYes = Intl.message('Yes',
       name: '_msgYes',
       desc: 'Text on yes button.',
       meaning: 'Text on yes button.');
 
-  static String get _msgNo => Intl.message('No',
+  static final _msgNo = Intl.message('No',
       name: '_msgNo',
       desc: 'Text on no button.',
       meaning: 'Text on no button.');
@@ -150,15 +150,11 @@ class MaterialSaveCancelButtonsDirective {
     yesNo.noText = _msgCancel;
   }
 
-  static String get _msgSave => Intl.message('Save',
-      name: '_msgSave',
-      desc: 'Text on save button.',
-      meaning: 'Text on save button.');
+  static final _msgSave = Intl.message('Save',
+      desc: 'Text on save button.', meaning: 'Text on save button.');
 
-  static String get _msgCancel => Intl.message('Cancel',
-      name: '_msgCancel',
-      desc: 'Text on cancel button.',
-      meaning: 'Text on cancel button.');
+  static final _msgCancel = Intl.message('Cancel',
+      desc: 'Text on cancel button.', meaning: 'Text on cancel button.');
 }
 
 @Directive(
@@ -173,10 +169,8 @@ class MaterialSubmitCancelButtonsDirective
     yesNo.yesText = _msgSubmit;
   }
 
-  static String get _msgSubmit => Intl.message('Submit',
-      name: '_msgSubmit',
-      desc: 'Text on submit button.',
-      meaning: 'Text on submit button.');
+  static final _msgSubmit = Intl.message('Submit',
+      desc: 'Text on submit button.', meaning: 'Text on submit button.');
 }
 
 /// Base implementation of directive to listen to keyup events.
