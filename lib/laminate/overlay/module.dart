@@ -33,10 +33,19 @@ HtmlElement getDefaultContainer(
 
   var element = parent.querySelector('#default-acx-overlay-container');
   if (element == null) {
+    // Add a hidden focusable element before overlay container to prevent screen
+    // reader from picking up content from a random element when users shift tab
+    // out of the first visible overlay.
+    parent.append(new DivElement()..tabIndex = 0);
+
     element = new DivElement()
       ..id = 'default-acx-overlay-container'
       ..classes.add('acx-overlay-container');
     parent.append(element);
+
+    // Add a hidden focusable element after overlay container to ensure there's
+    // a focusable element when users tab out of the last visible overlay.
+    parent.append(new DivElement()..tabIndex = 0);
   }
   element.attributes['container-name'] = name;
   return element;
