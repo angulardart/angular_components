@@ -315,11 +315,11 @@ class MaterialExpansionPanel
     }
   }
 
-  String get _closePanelMsg => Intl.message('Close panel',
+  static final _closePanelMsg = Intl.message('Close panel',
       name: '_closePanelMsg',
       desc: 'ARIA label for a button that closes the panel.');
 
-  String get _openPanelMsg => Intl.message('Open panel',
+  static final _openPanelMsg = Intl.message('Open panel',
       name: '_openPanelMsg',
       desc: 'ARIA label for a button that opens the panel.');
 
@@ -525,12 +525,12 @@ class MaterialExpansionPanel
     _disposer.dispose();
   }
 
-  static String get _msgSave => Intl.message('Save',
+  static final _msgSave = Intl.message('Save',
       name: '_msgSave',
       desc: 'Text on save button.',
       meaning: 'Text on save button.');
 
-  static String get _msgCancel => Intl.message('Cancel',
+  static final _msgCancel = Intl.message('Cancel',
       name: '_msgCancel',
       desc: 'Text on cancel button.',
       meaning: 'Text on cancel button.');
