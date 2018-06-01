@@ -25,20 +25,20 @@ bool isSpaceKey(KeyboardEvent event) {
 bool isKeyboardTrigger(KeyboardEvent event) =>
     event.keyCode == KeyCode.ENTER || isSpaceKey(event);
 
-bool modifierKeyUsed(dynamic /* MouseEvent | KeyboardEvent */ event) {
-  if (event is! KeyboardEvent && event is! MouseEvent) {
-    throw new ArgumentError('$event is not supported');
-  }
-  return (event.ctrlKey || event.shiftKey);
-}
-
 /// Whether the [MouseEvent] was initiated with the primary mouse button and no
 /// modifier keys were used.
-bool isStandardMouseEvent(MouseEvent event) => !(event.button != 0 ||
-    event.altKey ||
-    event.ctrlKey ||
-    event.metaKey ||
-    event.shiftKey);
+bool isStandardMouseEvent(MouseEvent event) =>
+    event.button == 0 &&
+    !event.altKey &&
+    !event.ctrlKey &&
+    !event.metaKey &&
+    !event.shiftKey;
+
+/// Whether the [UIEvent] is a standard trigger event without modifier keys.
+bool isStandardTriggerEvent(UIEvent event) {
+  return event is MouseEvent && isStandardMouseEvent(event) ||
+      event is KeyboardEvent && isKeyboardTrigger(event);
+}
 
 typedef bool Predicate<T>(T value);
 
