@@ -50,7 +50,7 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
 
   MaterialChipComponent(Element root) : super(root);
 
-  String get chipDeleteButtonMessage => Intl.message('Delete',
+  static final chipDeleteButtonMessage = Intl.message('Delete',
       name: 'chipDeleteButtonMessage',
       desc: 'Label for a button which removes the item when clicked.',
       meaning: 'Label for a button which removes the item when clicked.');
