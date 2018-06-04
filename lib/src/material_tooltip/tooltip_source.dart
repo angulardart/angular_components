@@ -37,7 +37,11 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
   static const hostTabIndex = 0;
 
   @HostBinding('attr.aria-label')
-  final tooltipLabel = _tooltipLabel;
+  static final tooltipLabel = Intl.message(
+      'Mouseover or press enter on this icon for more information.',
+      name: 'MaterialTooltipSourceDirective_tooltipLabel',
+      desc: 'Label for help icon which opens a help center tooltip.');
+
   final HtmlElement element;
   DelayedAction _show;
 
@@ -106,9 +110,4 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
   }
 
   Toggleable _popupRef;
-
-  static String get _tooltipLabel => Intl.message(
-      'Mouseover or press enter on this icon for more information.',
-      name: 'MaterialTooltipSourceDirective__tooltipLabel',
-      desc: 'Label for help icon which opens a help center tooltip.');
 }
