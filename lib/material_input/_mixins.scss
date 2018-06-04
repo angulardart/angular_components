@@ -176,7 +176,7 @@
 
 /// Changes the underline color when not in focus.
 @mixin material-input-unfocused-underline-color($color) {
-  ::ng-deep .unfocused-underline {
+  ::ng-deep .unfocused-underline:not(.invalid) {
     background-color: $color;
   }
 }
