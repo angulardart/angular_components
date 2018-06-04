@@ -87,7 +87,7 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
   @override
   Stream<bool> get contentVisible => tooltipBehavior.tooltipActivate;
 
-  String get helpTooltipLabel => Intl.message(
+  static final helpTooltipLabel = Intl.message(
       'Mouseover, click, press Enter key or Space key on this icon for more '
       'information.',
       name: 'MaterialIconTooltipComponent_helpTooltipLabel',
