@@ -32,6 +32,11 @@ const windowBindings = const [
   const Provider(Window, useFactory: getWindow)
 ];
 
+const windowModule = const Module(provide: [
+  const FactoryProvider(Document, getDocument),
+  const FactoryProvider(Window, getWindow),
+]);
+
 /// Returns the current [Window]'s location.
 ///
 /// This mainly exists so that components can change the location without

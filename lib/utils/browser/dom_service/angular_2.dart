@@ -22,7 +22,7 @@ export 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 /// Factory for [DomService].
 const domServiceBinding =
-    const Provider(DomService, useFactory: createDomService, deps: const [
+    const FactoryProvider(DomService, createDomService, deps: const [
   const [DomService, const Optional(), const SkipSelf()],
   const [Disposer, const Optional()],
   NgZone,
