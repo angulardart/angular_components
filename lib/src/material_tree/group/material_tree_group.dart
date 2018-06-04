@@ -201,8 +201,6 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
     onDestroy();
   }
 
-  final viewMoreMsg = _viewMoreMsg;
-
-  static String get _viewMoreMsg => Intl.message('View more',
+  static final viewMoreMsg = Intl.message('View more',
       desc: 'Label for a link that allows user to see the collapsed options.');
 }
