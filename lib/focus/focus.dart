@@ -175,6 +175,8 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
 
   @override
   void focus() {
+    if (!_autoFocus) return;
+
     if (_focusable != null) {
       _focusable.focus();
     } else {
