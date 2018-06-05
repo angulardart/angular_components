@@ -29,6 +29,9 @@ $button-hovered-background: rgba(158, 158, 158, .20);
 $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 
+// TODO(google): Eventually move to _typography.
+$mat-font-size-icon-label: 8px;
+
 // Private used for external mixin, and button-base only.
 @mixin _button-raised {
   @include material-shadow;
@@ -182,8 +185,21 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
       padding: $mat-grid;
     }
 
-    &[vertical] .content {
-      flex-direction: column;
+    // Used on a icon to make the button have content underneath the icon.
+    // Do not use without extra content such as a label.
+    &[vertical] {
+      font-size: $mat-font-size-icon-label;
+
+      .content {
+        flex-direction: column;
+
+        ::ng-deep > {
+          material-icon,
+          glyph {
+            margin-bottom: $mat-grid-type;
+          }
+        }
+      }
     }
   }
 
