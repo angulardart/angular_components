@@ -198,11 +198,11 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   @Input()
   Date minDate = new Date(1000, DateTime.JANUARY, 1);
 
-  String get startDateMsg => Intl.message('Start date',
+  final startDateMsg = Intl.message('Start date',
       name: 'DateRangeInputComponent_startDateMsg',
       desc: 'ARIA label for the input specifying the start of the date range');
 
-  String get endDateMsg => Intl.message('End date',
+  final endDateMsg = Intl.message('End date',
       name: 'DateRangeInputComponent_endDateMsg',
       desc: 'ARIA label for the input specifying the end of the date range');
 }

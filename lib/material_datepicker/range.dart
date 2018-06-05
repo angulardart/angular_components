@@ -900,7 +900,7 @@ List<DatepickerDateRange> commonRanges(Clock clock) => [
       allTime,
     ];
 
-String get _customDateRangeMsg => Intl.message('Custom',
+final _customDateRangeMsg = Intl.message('Custom',
     name: '_customDateRangeMsg',
     meaning: 'Name of a date range',
     desc: 'Name of a user-specified date range, as opposed to a predefined '

@@ -109,7 +109,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   bool _supportsComparison = true;
 
-  String get comparisonHeaderMsg => Intl.message('Compare',
+  static final comparisonHeaderMsg = Intl.message('Compare',
       name: 'comparisonHeaderMsg',
       desc: 'Label for a toggle that turns time comparison on/off.');
 
@@ -503,25 +503,25 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   String get customRangeDescription => formatRange(model.range.value);
 
-  String get navigateBeforeMsg => Intl.message('Previous date range',
+  static final navigateBeforeMsg = Intl.message('Previous date range',
       name: 'navigateBeforeMsg',
       meaning: 'Update the calendar display to show the previous time period.',
       desc: 'Label for control button which changes the range of dates shown in'
           'the calendar to the previous range of dates.');
 
-  String get navigateNextMsg => Intl.message('Next date range',
+  static final navigateNextMsg = Intl.message('Next date range',
       name: 'navigateNextMsg',
       meaning: 'Update the calendar display to show the next time period',
       desc: 'Label for control button which changes the range of dates shown in'
           'the calendar to the next range of dates.');
 
-  String get clearRangeMsg => Intl.message('Clear date range',
+  static final clearRangeMsg = Intl.message('Clear date range',
       name: 'DateRangeEditorComponent_clearRangeMsg',
       meaning: 'Clear the current range.',
       desc: 'Label for an option in the preset list at the left which '
           'clears the current selection.');
 
-  String get customRangeMsg => Intl.message('Custom',
+  static final customRangeMsg = Intl.message('Custom',
       name: 'DateRangeEditorComponent_customRangeMsg',
       meaning: 'Replace the current range with a Custom range that has the '
           'same endpoints.',
@@ -529,17 +529,17 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
           'replaces the current selection with a "Custom" range.');
 
   // TODO(google): Check if some locales require text before the input.
-  String get daysToTodayMsg => Intl.message('days up to today',
+  static final daysToTodayMsg = Intl.message('days up to today',
       name: 'daysToTodayMsg',
       desc: 'Label for number input which changes the range of dates shown in'
           ' the calendar to [today - number, today].');
 
-  String get daysToYesterdayMsg => Intl.message('days up to yesterday',
+  static final daysToYesterdayMsg = Intl.message('days up to yesterday',
       name: 'daysToYesterdayMsg',
       desc: 'Label for number input which changes the range of dates shown in'
           ' the calendar to [yesterday - number, yesterday].');
 
-  String get rangeDisabledTooltip => Intl.message('No days available',
+  static final rangeDisabledTooltip = Intl.message('No days available',
       name: 'DateRangeEditorComponent_rangeDisabledTooltip',
       desc: 'Message that explains why a date range is invalid.');
 }

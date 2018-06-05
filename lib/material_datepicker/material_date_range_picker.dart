@@ -550,14 +550,14 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
     }
   }
 
-  String get cancelButtonMsg => Intl.message('Cancel',
+  static final cancelButtonMsg = Intl.message('Cancel',
       meaning: 'Button in a date picker',
       desc: 'Label for a "cancel" button -- abandon the current date selection '
           'and go back to whatever it was before the user opened the date picker');
 
   String get applyButtonMsg => applyButtonLabel ?? _applyButtonMsg;
 
-  String get _applyButtonMsg => Intl.message('Apply',
+  static final _applyButtonMsg = Intl.message('Apply',
       name: '_applyButtonMsg',
       meaning: 'Button in a date picker',
       desc: 'Label for an "Apply" button -- accept and apply the date range '
@@ -569,7 +569,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
       args: [to],
       examples: const {'to': 'Jul 21, 2014 - Aug 3, 2015'});
 
-  String get _placeHolderMsg => Intl.message('Select a date range',
+  static final _placeHolderMsg = Intl.message('Select a date range',
       name: '_placeHolderMsg',
       desc: 'Placeholder text for a date range picker with an empty range.');
 }

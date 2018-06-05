@@ -110,12 +110,12 @@ class NextPrevComponent implements OnDestroy {
   /// Whether the next button is disabled.
   bool get isNextDisabled => disabled || !hasNext;
 
-  static String get _genericNextMsg => Intl.message('Next',
+  static final _genericNextMsg = Intl.message('Next',
       name: '_genericNextMsg',
       meaning: 'For a button which moves to the next item',
       desc: 'Label for a button to move to the next item of some series.');
 
-  static String get _genericPrevMsg => Intl.message('Previous',
+  static final _genericPrevMsg = Intl.message('Previous',
       name: '_genericPrevMsg',
       meaning: 'For a button which moves to the previous item',
       desc: 'Label for a button to move to the previous item of some series.');
