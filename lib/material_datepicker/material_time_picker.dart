@@ -322,11 +322,11 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
     event.stopPropagation();
   }
 
-  String get dropdownPlaceholderMsg => Intl.message('Select time',
+  static final dropdownPlaceholderMsg = Intl.message('Select time',
       name: 'MaterialTimePickerComponent_dropdownPlaceholderMsg',
       desc: 'Placeholder text for an empty time picker dropdown button.');
 
-  String get inputPlaceholderMsg => Intl.message('Enter time',
+  static final inputPlaceholderMsg = Intl.message('Enter time',
       name: 'MaterialTimePickerComponent_inputPlaceholderMsg',
       desc: 'Placeholder text for an empty time picker input box.');
 

@@ -215,7 +215,7 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
       desc: 'Placeholder text for an empty date picker text box.');
 
   /// Gets the i18n'ed "Custom" label text.
-  String get customDateMsg => Intl.message('Custom',
+  static final customDateMsg = Intl.message('Custom',
       name: 'customDateMsg',
       desc: 'Indicates that a single custom date is selected');
 

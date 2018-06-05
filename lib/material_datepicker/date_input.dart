@@ -358,7 +358,7 @@ class DateInputDirective implements OnDestroy {
     return thisYear;
   }
 
-  String get invalidDateMsg => Intl.message('Enter a date',
+  static final invalidDateMsg = Intl.message('Enter a date',
       name: 'invalidDateMsg',
       meaning: 'Error message',
       desc: 'Displayed when the user types text into a date input field which '

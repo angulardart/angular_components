@@ -48,7 +48,7 @@ class ComparisonRangeEditorComponent {
     ComparisonOption.custom
   ];
 
-  String get comparisonHeaderMsg => Intl.message('Compare',
+  static final comparisonHeaderMsg = Intl.message('Compare',
       name: 'comparisonHeaderMsg',
       desc: 'Label for a toggle that turns time comparison on/off.');
 
@@ -59,20 +59,20 @@ class ComparisonRangeEditorComponent {
     return prev?.isPredefined == true ? prev.title : _previousPeriodMsg;
   }
 
-  String get _previousPeriodMsg => Intl.message('Previous period',
+  static final _previousPeriodMsg = Intl.message('Previous period',
       name: '_previousPeriodMsg',
       meaning: 'Name for a time comparison option',
       desc: 'Setting to compare the selected date range with the previous '
           'period. E.g. if the selected range were May, this would be April.');
 
-  String get samePeriodLastYearMsg => Intl.message('Previous year',
+  static final samePeriodLastYearMsg = Intl.message('Previous year',
       name: 'samePeriodLastYearMsg',
       meaning: 'Name for a time comparison option',
       desc: 'Setting to compare the selected date range with the same range '
           'last year. E.g. if the selected range were May 2015, this would be '
           'May 2014.');
 
-  String get customMsg => Intl.message('Custom',
+  static final customMsg = Intl.message('Custom',
       name: 'customMsg',
       meaning: 'Name for a time comparison option',
       desc: 'Setting to compare the selected date range with another arbitrary '
