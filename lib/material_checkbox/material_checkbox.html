@@ -5,12 +5,12 @@
 -->
 <div class="icon-container"
      [class.focus]="showFocus">
-  <glyph [style.color]="themeColor"
+  <material-icon [style.color]="themeColor"
          [icon]="icon"
          class="icon"
          aria-hidden="true"
          [class.filled]="checked || indeterminate">
-  </glyph>
+  </material-icon>
   <material-ripple [style.color]="rippleColor"
               *ngIf="!disabled"
               class="ripple">
