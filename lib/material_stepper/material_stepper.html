@@ -1,0 +1,112 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div class="stepper stepper-body mixin"
+     #stepper
+     [attr.orientation]="orientation"
+     [attr.size]="size"
+     [acxStickyElement]="afterStepperElement"
+     [sticky]="stickyHeader">
+  <div class="stepper-step"
+       *ngFor="let step of steps"
+       [attr.orientation]="orientation"
+       [attr.size]="size"
+       [class.can-select]="step.isSelectable"
+       attr.active="{{step.active}}"
+       attr.selectable="{{step.isSelectable}}"
+       buttonDecorator
+       (trigger)="jumpStep(step.index)">
+    <!-- Step number in circle -->
+        <span class="stepper-step-index"
+              [attr.orientation]="orientation"
+              [attr.active]="step.active"
+              [attr.complete]="step.complete"
+              [class.can-select]="step.isSelectable">
+          {{step.complete ? "" : step.index +1}}
+          <span *ngIf="step.complete">
+            <material-icon icon="check"></material-icon>
+          </span>
+        </span>
+    <!-- Step label -->
+    <div class="stepper-step-header"
+         [attr.orientation]="orientation"
+         [attr.size]="size">
+      <span class="stepper-step-name"
+            [attr.active]="step.active"
+            [attr.complete]="step.complete">
+        {{step.name}}
+      </span>
+      <div class="stepper-step-optional"
+           [attr.orientation]="orientation"
+           [attr.optional]="step.isOptional"
+           [attr.size]="size">
+        {{step.isOptional ? optionalMsg : ''}}
+          <span *ngIf="step.isSelectable">
+            <material-icon icon="mode_edit"
+                   class="edit-icon"
+                   [attr.orientation]="orientation"
+                   [attr.size]="size">
+            </material-icon>
+          </span>
+      </div>
+    </div>
+    <div *ngIf="!step.isLast"
+         class="step-line"
+         [attr.orientation]="orientation"
+         [attr.size]="size">
+    </div>
+    <div *ngIf="shouldInlineContent && !stepperDone"
+         class="stepper-content"
+         [attr.orientation]="orientation"
+         [attr.size]="size"
+         (keypress)="stopPropagationOfEnterAndSpace($event)">
+      <template [ngIf]="step.active">
+        <template [portalHost]="steps[step.index]"></template>
+        <span *ngIf="!activeStep.hideButtons" class="button-container">
+          <material-yes-no-buttons
+              class="stepper-yes-no-buttons"
+              raised
+              yesHighlighted
+              [disabled]="activeStep.busy"
+              [yesDisabled]="!activeStep.canContinue"
+              (yes)="stepForward($event, activeStep)"
+              (no)="stepBackward($event, activeStep)"
+              [yesText]="continueMsg"
+              [noText]="noText"
+              [noDisplayed]="!activeStep.cancelHidden && activeStep.index != 0">
+          </material-yes-no-buttons>
+        </span>
+      </template>
+      <div *ngIf="!step.active && step.summaryDirective != null"
+           class="step-summary-directive">
+        <template [portalHost]="step.summaryDirective"></template>
+      </div>
+      <div *ngIf="step.shouldShowSummary"
+           class="stepper-step-summary">
+        {{step.completeSummary}}
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!shouldInlineContent && !stepperDone && steps.length > 0"
+     class="stepper-content mixin"
+     [attr.orientation]="orientation"
+     [attr.size]="size">
+  <template [portalHost]="activeStep"></template>
+    <span *ngIf="!activeStep.hideButtons" class="button-container">
+      <material-yes-no-buttons
+          raised
+          yesHighlighted
+          [disabled]="activeStep.busy"
+          [yesDisabled]="!activeStep.canContinue"
+          (yes)="stepForward($event, activeStep)"
+          (no)="stepBackward($event, activeStep)"
+          [yesText]="continueMsg"
+          [noText]="noText"
+          [noDisplayed]="!activeStep.cancelHidden && activeStep.index != 0">
+      </material-yes-no-buttons>
+    </span>
+</div>
+<div #afterStepperElement></div>
