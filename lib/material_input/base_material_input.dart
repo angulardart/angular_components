@@ -454,6 +454,6 @@ class BaseMaterialInput extends FocusableMixin
               'Character counter shown below a text box in the format "12 / 25"',
           examples: const {'currentCount': 12, 'maxCount': 25});
 
-  static String get defaultEmptyMessage => Intl.message('Enter a value',
+  static final defaultEmptyMessage = Intl.message('Enter a value',
       desc: 'Error message when the input is empty and required.');
 }
