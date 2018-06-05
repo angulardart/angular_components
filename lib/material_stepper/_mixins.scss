@@ -1,0 +1,50 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+/// Changes the `$step-color` in the stepper.
+///
+/// Optionally specify a `$selector`. Example usage:
+///     @include material-stepper-theme(
+///         $step-color: $mat-teal-500,
+///         $selector: 'table-view');
+
+@mixin material-stepper-theme(
+    $step-selector: '',
+    $step-color : $mat-blue-500,
+    $disabled-color : $mat-grey-500,
+    $button-color : $mat-blue-500,
+    $selector: ''
+    ) {
+  #{$selector} ::ng-deep material-stepper.themeable .stepper-yes-no-buttons {
+    @include material-yes-button-color($button-color);
+  }
+
+  #{$selector} ::ng-deep material-stepper.themeable .stepper-step-index {
+    &[active = true] {
+      background-color: $step-color;
+    }
+
+    &[active = false] {
+      background-color: $disabled-color;
+    }
+
+    &[complete = true] {
+      background-color: $step-color;
+    }
+  }
+}
+
+@mixin stepper-body {
+  ::ng-deep .stepper.stepper-body.mixin {
+    @content;
+  }
+}
+
+@mixin stepper-content {
+  ::ng-deep .stepper-content.mixin {
+    @content;
+  }
+}

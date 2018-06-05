@@ -1,0 +1,241 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_icon/mixins';
+
+$mini-spacing: $mat-grid * 5;
+$default-spacing: $mini-spacing * 2;
+$button-width: $mat-grid * 12;
+$step-index-radius: $mat-grid * 3;
+$small-space: $mat-grid * 8;
+$vertical-left-margin: $small-space - $step-index-radius;
+$edit-icon-size: $mat-grid * 2;
+
+:host {
+  display: block;
+}
+
+.step-line {
+  border-color: $mat-grey-400;
+  border-style: solid;
+  position: absolute;
+
+  &[orientation = horizontal] {
+    border-width: 1px 0 0;
+    height: 0;
+    top: $step-index-radius / 2 + 2;
+    right: $mat-grid;
+
+    &[size = default] {
+      width: $default-spacing - $mat-grid * 2;
+    }
+
+    &[size = mini] {
+      width: $mini-spacing - $mat-grid * 2;
+    }
+  }
+
+  &[orientation = vertical] {
+    border-width: 0 1px 0 0;
+    height: 100%;
+    left: $step-index-radius / 2 + 1;
+    top: $step-index-radius + 3;
+    width: 0;
+
+    &[last = true] {
+      height: 0;
+    }
+  }
+}
+
+.stepper {
+
+  &[orientation = horizontal] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &[orientation = vertical] {
+    display: inline-block;
+
+    &[size = default] {
+      display: block;
+    }
+
+    &[size = mini] {
+      max-width: $mat-grid * 50;
+    }
+  }
+}
+
+.stepper-step-index {
+  border: 2px solid $mat-white;
+  border-radius: 100%;
+  box-sizing: content-box;
+  color: $mat-white;
+  cursor: default;
+  font-size: $mat-body-font-size;
+  height: $step-index-radius;
+  line-height: $step-index-radius;
+  text-align: center;
+  width: $step-index-radius;
+
+  &[orientation = horizontal] {
+    flex-shrink: 0;
+  }
+
+  &[orientation = vertical] {
+    position: absolute;
+  }
+
+  &[active = true] {
+    background-color: $mat-blue-500;
+  }
+
+  &[active = false] {
+    background-color: $mat-grey-500;
+  }
+
+  &[complete = true] {
+    background-color: $mat-blue-500;
+  }
+}
+
+.stepper-step {
+  box-sizing: border-box;
+  cursor: default;
+  outline-width: 0;
+  position: relative;
+
+  &[orientation = horizontal] {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &[orientation = vertical] {
+    padding-bottom: $mini-spacing;
+    width: auto;
+
+    &[active = false] {
+
+      &[selectable = true] {
+        &:hover {
+          background-color: $mat-grey-200;
+        }
+
+        &:hover .edit-icon {
+          color: $mat-grey-700;
+        }
+      }
+    }
+  }
+}
+
+.stepper-step-header {
+  box-sizing: border-box;
+
+  &[orientation = horizontal] {
+    margin: $mat-grid-type + 1 $default-spacing 0 0;
+    padding-left: $mat-grid;
+    flex-shrink: 0;
+
+    &[size = mini] {
+      margin-right: $mini-spacing;
+    }
+  }
+
+  &[orientation = vertical] {
+    height: 100%;
+    margin: 0 0 0 $vertical-left-margin;
+    padding: $mat-grid - 3 $small-space 0 0;
+  }
+
+  .edit-icon {
+    display: none;
+
+    &[orientation = vertical] {
+
+      &[size = default] {
+        @include material-icon-size($edit-icon-size);
+
+        display: inherit;
+        padding-left: $mat-grid * 2;
+        vertical-align: sub;
+      }
+    }
+  }
+}
+
+.stepper-step-name {
+  @include mat-type-subhead();
+  color: $mat-black;
+  margin: 0 auto;
+
+  &[active = true] {
+    font-weight: $mat-font-weight-medium;
+  }
+
+  &[active = false] {
+    color: $mat-grey-500;
+  }
+
+  &[complete = true] {
+    color: $mat-black;
+  }
+}
+
+.stepper-content {
+  &[orientation = vertical] {
+
+    &[size = default] {
+      padding-left: $vertical-left-margin;
+    }
+
+    &[size = mini] {
+      display: inline-block;
+      top: 0;
+      vertical-align: top;
+    }
+  }
+}
+
+.stepper-step-optional {
+  @include mat-type-subhead();
+  color: $mat-grey-400;
+  text-align: center;
+  width: $mat-grid * 10;
+
+  &[orientation = horizontal] {
+    @include mat-type-caption();
+
+    &[optional = false] {
+      width: 0;
+    }
+  }
+
+  &[orientation = vertical] {
+    float: right;
+
+    &[size = mini] {
+      float: none;
+    }
+  }
+}
+
+.stepper-step-summary {
+  @include mat-type-caption();
+  color: $mat-grey-600;
+  padding-top: $mat-grid * 2;
+}
+
+.can-select {
+  cursor: pointer;
+}
+
+.button-container {
+  display: block;
+  padding-top: $mat-grid * 3;
+}
