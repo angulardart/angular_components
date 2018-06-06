@@ -15,9 +15,9 @@ Angular package.
 
 This is a continually growing set of widgets. Recent additions include:
 
+* Material Stepper
 * Material Slider
 * Material Datepicker
-* Material Menu
 
 At this time we are not taking pull requests, but please
 [file an issue](https://github.com/dart-lang/angular_components/issues)
@@ -29,33 +29,11 @@ Firefox, and Safari.
 ## Package `build_runner` support
 
 As of angular: 5.0.0-alpha+5 the pub transformer has been removed in favor of
-code generation through package [build]. To build your project with
-[build_runner]:
+code generation through package [build]. Please see the Dart 2
+[migration guide].
 
-1. Add two dev dependencies to your `pubspec.yaml` file:
-
-  ```yaml
-  dev_dependencies:
-    build_runner: ^0.8.6
-    build_web_compilers: ^0.4.0
-  ```
-
-2. Run `pub get` on your package.
-3. Build your package:
-
-  ```
-  pub run build_runner build
-  ```
-
-  Or run a local development server with a file watcher and incremental
-  rebuilds:
-
-  ```
-  pub run build_runner serve
-  ```
-
-[build_runner]: https://pub.dartlang.org/packages/build_runner
 [build]: https://pub.dartlang.org/packages/build
+[migration guide]: https://webdev.dartlang.org/dart-2
 
 ## Useful links
 
