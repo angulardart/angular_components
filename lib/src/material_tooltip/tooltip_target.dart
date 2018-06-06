@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/laminate/overlay/constants.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/src/material_tooltip/tooltip_controller.dart';
 import 'package:angular_components/model/action/delayed_action.dart';
@@ -163,7 +164,7 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
     // Don't hide the tooltip if focus went to an element inside the tooltip.
     HtmlElement el;
     for (el = event.relatedTarget; el.parent != null; el = el.parent) {
-      if (el.className == "acx-overlay-container") return;
+      if (el.className == overlayContainerClassName) return;
     }
 
     hideTooltip(immediate: true);
