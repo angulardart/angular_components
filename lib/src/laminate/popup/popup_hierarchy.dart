@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/laminate/overlay/constants.dart';
 import 'package:angular_components/utils/browser/events/events.dart' as events;
 
 /// Tracks a hierarchy of visible popup and provides it closing logic.
@@ -62,8 +63,8 @@ class PopupHierarchy {
     // created by another app using ACX.
     // TODO(google): Find a way to compute it only when needed and make it
     // globally accessible.
-    var modalPanes =
-        document.querySelectorAll('.acx-overlay-container .pane.modal.visible');
+    var modalPanes = document
+        .querySelectorAll('.$overlayContainerClassName .pane.modal.visible');
     if (modalPanes.isNotEmpty) {
       if (useMultiModalDismissal) {
         // Only close popups that belong to the currently visible modal or whose
