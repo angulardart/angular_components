@@ -1,3 +1,26 @@
+## 0.9.0-alpha+14
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+14. The alpha tag represents the evolving nature of the
+> AngularDart API, not code quality (5.0.0-alpha+14 is used in production Google
+> apps).
+
+ * Add Material Stepper component.
+ * Material Button: Update size and position of text labels for icon buttons.
+ * Material Checkbox: Migrate from the deprecated Glyph component to Material
+   Icon.
+ * Material Input: Don't override unfocused underline color when the input is
+   invalid.
+ * Material Select:
+   * Support focus on dropdown button when dismissed via keyboard.
+   * Fix focus bug when clicking on a different focusable element.
+ * Add new CSS class names used by `ShowHideDirective` to avoid conflicts with
+   Angular JS apps.
+ * Only focus when `_autoFocus` is `true` when using `AutoFocusDirective`.
+ * Update various components to use finals for `Intl.message`s to improve
+   performance.
+ * Update `PopupHierarchy` to better handle cases with multiple modals.
+
 ## 0.9.0-alpha+13
 
 > NOTE: This code is considered production quality, but depends on angular:
@@ -9,8 +32,8 @@
  * Material Icon:
    * Add flag to mirror icon.
    * Roll back change that flipped help icon in RTL.
- * Material Input: Adding field to material input mixin to specify the label
-   color when there is an error and the label is focused.
+ * Material Input: Add field to material input mixin to specify the label color
+   when there is an error and the label is focused.
  * Material Menu:
    * Allow setting the class for each affix item.
    * Add helper constructor for flat menus.
