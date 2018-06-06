@@ -13,6 +13,7 @@ import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
+import 'package:angular_components/laminate/overlay/constants.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
@@ -474,8 +475,14 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   void onAutoDismissed(Event event) {
-    if (event is FocusEvent) {
-      dropdownButton.focus();
+    if (event is FocusEvent &&
+        event.target is Element &&
+        (event.target as Element)
+            .classes
+            .contains(overlayFocusablePlaceholderClassName)) {
+      scheduleMicrotask(() {
+        dropdownButton.focus();
+      });
     }
   }
 
