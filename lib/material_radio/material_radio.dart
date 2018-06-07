@@ -50,9 +50,14 @@ class MaterialRadioComponent extends RootFocusable
   final HtmlElement _root;
   final _disposer = new Disposer.oneShot();
 
-  MaterialRadioComponent(this._root, this._changeDetector,
-      @Host() @Optional() this._group, @Self() @Optional() NgControl cd)
-      : super(_root) {
+  MaterialRadioComponent(
+      this._root,
+      this._changeDetector,
+      @Host() @Optional() this._group,
+      @Self() @Optional() NgControl cd,
+      @Attribute('role') String role)
+      : this.role = role ?? 'radio',
+        super(_root) {
     // When NgControl is present on the host element, the component
     // participates in the Forms API.
     cd?.valueAccessor = this;
@@ -62,7 +67,7 @@ class MaterialRadioComponent extends RootFocusable
   static const hostClass = 'themeable';
 
   @HostBinding('attr.role')
-  static const role = 'radio';
+  final String role;
 
   @override
   void writeValue(bool isChecked) {
