@@ -74,7 +74,7 @@ const indeterminateAriaState = 'mixed';
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialCheckboxComponent
-    implements ControlValueAccessor, HasDisabled, Focusable {
+    implements ControlValueAccessor<bool>, HasDisabled, Focusable {
   @HostBinding('class')
   static const hostClass = 'themeable';
 
@@ -104,10 +104,10 @@ class MaterialCheckboxComponent
   }
 
   @override
-  writeValue(newValue) {
+  void writeValue(bool isChecked) {
     // Need to ignore the null on init.
-    if (newValue == null) return;
-    _setStates(checked: (newValue as bool), emitEvent: false);
+    if (isChecked == null) return;
+    _setStates(checked: isChecked, emitEvent: false);
   }
 
   @override
