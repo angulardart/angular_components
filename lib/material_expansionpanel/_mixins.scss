@@ -232,3 +232,12 @@ $_panel: 'div.panel.themeable';
     }
   }
 }
+
+// Move header action to the bottom (on the left by default).
+@mixin expansionpanel-bottom-header-action {
+  ::ng-deep #{$_panel} {
+    header {
+      flex-direction: column;
+    }
+  }
+}
