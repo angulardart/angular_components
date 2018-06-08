@@ -185,8 +185,7 @@ $mat-font-size-icon-label: 8px;
       padding: $mat-grid;
     }
 
-    // Used on a icon to make the button have content underneath the icon.
-    // Do not use without extra content such as a label.
+    // @deprecated. Please use the vertical-icon-button mixin instead.
     &[vertical] {
       font-size: $mat-font-size-icon-label;
 
