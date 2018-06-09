@@ -124,7 +124,9 @@ class FocusMoveEvent {
 ///
 /// Please put only on content that appears after user action and
 /// requires focus to be changed to it.
-@Directive(selector: '[autoFocus]', visibility: Visibility.local)
+@Directive(
+  selector: '[autoFocus]',
+)
 class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
   final _disposer = new Disposer.oneShot();
 

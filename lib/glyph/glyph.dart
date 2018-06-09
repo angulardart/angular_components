@@ -54,11 +54,11 @@ const List<String> _flippedIcons = const [
 /// - `flip` -- Whether the icon should be flipped for RTL languages.
 @Deprecated('Use MaterialIconComponent instead')
 @Component(
-    selector: 'glyph',
-    templateUrl: 'glyph.html',
-    styleUrls: const ['glyph.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.local)
+  selector: 'glyph',
+  templateUrl: 'glyph.html',
+  styleUrls: const ['glyph.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+)
 class GlyphComponent {
   static const String _materialIconsExtended = 'material-icons-extended';
 

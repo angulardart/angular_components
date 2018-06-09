@@ -15,10 +15,10 @@ import 'package:angular_components/utils/async/async.dart';
 
 /// A simple component that maps an input box to the [Filterable] interface.
 @Component(
-    selector: 'material-tree-filter',
-    directives: const [materialInputDirectives, NgIf],
-    templateUrl: 'material_tree_filter.html',
-    visibility: Visibility.local)
+  selector: 'material-tree-filter',
+  directives: const [materialInputDirectives, NgIf],
+  templateUrl: 'material_tree_filter.html',
+)
 class MaterialTreeFilterComponent {
   final StreamController _onFocusController =
       new StreamController.broadcast(sync: true);

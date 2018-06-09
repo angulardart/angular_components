@@ -26,8 +26,8 @@ import 'package:angular_components/utils/browser/events/events.dart';
 ///     </div>
 ///
 @Directive(
-    selector: '[autoDismissable]:not(material-expansionpanel)',
-    visibility: Visibility.local)
+  selector: '[autoDismissable]:not(material-expansionpanel)',
+)
 class AutoDismissDirective {
   final Stream _click;
   final NgZone _zone;
