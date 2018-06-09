@@ -29,3 +29,22 @@
     }
   }
 }
+
+// Changes the height and roundedness of the ends of <material-progress>.
+//
+// Example use:
+// :host material-progress {
+//   wide-rounded-progress-bar($mat-grid * 2);
+// }
+//
+@mixin wide-rounded-progress-bar($height) {
+  ::ng-deep {
+    height: $height;
+
+    .progress-container,
+    .active-progress,
+    .secondary-progress {
+      border-radius: $height / 2;
+    }
+  }
+}
