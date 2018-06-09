@@ -19,9 +19,9 @@ import 'package:angular/angular.dart';
 ///       border-color: $mat-red;
 ///     }
 @Component(
-    selector: 'material-spinner',
-    templateUrl: 'material_spinner.html',
-    styleUrls: const ['material_spinner.scss.css'],
-    changeDetection: ChangeDetectionStrategy.Detached,
-    visibility: Visibility.local)
+  selector: 'material-spinner',
+  templateUrl: 'material_spinner.html',
+  styleUrls: const ['material_spinner.scss.css'],
+  changeDetection: ChangeDetectionStrategy.Detached,
+)
 class MaterialSpinnerComponent {}

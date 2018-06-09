@@ -31,15 +31,15 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// - `selectionModel: SelectionModel` -- The selection model this component
 ///   controls.
 @Component(
-    selector: 'material-chips',
-    providers: const [
-      const Provider(HasRenderer, useExisting: MaterialChipsComponent)
-    ],
-    templateUrl: 'material_chips.html',
-    styleUrls: const ['material_chips.scss.css'],
-    directives: const [MaterialChipComponent, NgFor],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.local)
+  selector: 'material-chips',
+  providers: const [
+    const Provider(HasRenderer, useExisting: MaterialChipsComponent)
+  ],
+  templateUrl: 'material_chips.html',
+  styleUrls: const ['material_chips.scss.css'],
+  directives: const [MaterialChipComponent, NgFor],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+)
 class MaterialChipsComponent implements HasRenderer, OnDestroy {
   final ChangeDetectorRef _changeDetector;
   final Disposer _disposer = new Disposer.multi();

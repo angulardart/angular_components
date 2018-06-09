@@ -29,7 +29,6 @@ import 'package:angular_components/utils/browser/events/events.dart';
     const Provider(HasDisabled, useExisting: MaterialToggleComponent),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  visibility: Visibility.local,
 )
 class MaterialToggleComponent implements AfterViewInit, HasDisabled {
   @HostBinding('class')

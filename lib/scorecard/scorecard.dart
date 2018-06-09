@@ -77,7 +77,6 @@ import 'package:angular_components/utils/color/palette.dart';
   templateUrl: 'scorecard.html',
   styleUrls: const ['scorecard.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  visibility: Visibility.local,
 )
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   @HostBinding('class')

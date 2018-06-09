@@ -21,11 +21,11 @@ import 'package:angular_components/focus/focus.dart';
 ///     </div>
 ///
 @Directive(
-    selector: '[focusItem]',
-    providers: const [
-      const Provider(FocusableItem, useExisting: FocusItemDirective)
-    ],
-    visibility: Visibility.local)
+  selector: '[focusItem]',
+  providers: const [
+    const Provider(FocusableItem, useExisting: FocusItemDirective)
+  ],
+)
 class FocusItemDirective extends RootFocusable implements FocusableItem {
   @HostBinding('attr.role')
   final String role;

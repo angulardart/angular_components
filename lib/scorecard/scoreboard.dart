@@ -60,7 +60,6 @@ import 'package:angular_components/src/scorecard/scorecard_bar.dart';
   templateUrl: 'scoreboard.html',
   styleUrls: const ['scoreboard.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  visibility: Visibility.local,
 )
 class ScoreboardComponent implements OnInit, OnDestroy {
   static const chevronLeft = 'chevron_left';
