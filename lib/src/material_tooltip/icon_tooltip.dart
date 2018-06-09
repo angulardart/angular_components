@@ -54,7 +54,6 @@ import 'tooltip_target.dart';
   ],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
-  visibility: Visibility.local,
 )
 class MaterialIconTooltipComponent implements DeferredContentAware {
   HtmlElement element;
