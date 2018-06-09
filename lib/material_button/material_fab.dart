@@ -69,12 +69,12 @@ import 'material_button_base.dart';
 ///
 /// The opacity of the ripple is not customizable via CSS.
 @Component(
-    selector: 'material-fab',
-    directives: const [MaterialRippleComponent],
-    templateUrl: 'material_button.html',
-    styleUrls: const ['material_fab.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    visibility: Visibility.local)
+  selector: 'material-fab',
+  directives: const [MaterialRippleComponent],
+  templateUrl: 'material_button.html',
+  styleUrls: const ['material_fab.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+)
 class MaterialFabComponent extends MaterialButtonBase {
   final ChangeDetectorRef _changeDetector;
   MaterialFabComponent(HtmlElement element, this._changeDetector)

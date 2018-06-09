@@ -39,9 +39,9 @@ import 'tooltip_target.dart';
 ///   Allows for <strong>formatted</strong> <em>text</em>.
 /// </material-tooltip-text>```
 @Component(
-    selector: 'material-tooltip-text',
-    providers: const [tooltipControllerBinding],
-    template: r'''
+  selector: 'material-tooltip-text',
+  providers: const [tooltipControllerBinding],
+  template: r'''
         <material-popup *ngIf="popupSource != null"
                         ink
                         role="tooltip"
@@ -57,12 +57,12 @@ import 'tooltip_target.dart';
             {{text}}<ng-content></ng-content>
           </div>
         </material-popup>''',
-    styleUrls: const ['ink_tooltip.scss.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    directives: const [DeferredContentDirective, NgIf, MaterialPopupComponent],
-    // TODO(google): Change preserveWhitespace to false to improve codesize.
-    preserveWhitespace: true,
-    visibility: Visibility.local)
+  styleUrls: const ['ink_tooltip.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  directives: const [DeferredContentDirective, NgIf, MaterialPopupComponent],
+  // TODO(google): Change preserveWhitespace to false to improve codesize.
+  preserveWhitespace: true,
+)
 class MaterialInkTooltipComponent implements Tooltip {
   final TooltipController _tooltipController;
   final ChangeDetectorRef _changeDetector;
