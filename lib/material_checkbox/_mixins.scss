@@ -9,6 +9,8 @@
 ///     $primary-color: $mat-teal-500,
 ///     $selector: '.custom-area');
 @mixin material-checkbox-theme($primary-color, $selector: '') {
+  @warn 'This mixin is deprecated. Please use material-checkbox-color instead.';
+
   // Use component's selector with the themeable class to increase theme
   // selector's priority.
   ::ng-deep #{$selector} material-checkbox {
@@ -19,6 +21,12 @@
   }
 }
 
+/// Changes the color of the checkbox.
+@mixin material-checkbox-color($color) {
+  &:not(.disabled) ::ng-deep .icon-container .icon.filled {
+    color: $color;
+  }
+}
 
 /// Removes left margin of <material-checkbox>.
 ///
