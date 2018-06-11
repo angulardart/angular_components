@@ -11,13 +11,9 @@ import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-/// A component or directive that can be programmatically focused.
-/// Directive can manage if it means to put focus on root of itself
-/// or meaningful component inside.
-abstract class Focusable {
-  /// Item/component focuses itself
-  void focus();
-}
+import 'focus_interface.dart';
+
+export 'focus_interface.dart';
 
 /// An abstract class for components to extend if their programmatic focus
 /// should simply put focus on root element.
@@ -203,9 +199,11 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
 
 /// This directive is used to [ViewChild] focusable element in your view.
 @Directive(
-  selector: '[focusableElement]',
-  exportAs: 'focusableElement',
-)
+    selector: '[focusableElement]',
+    exportAs: 'focusableElement',
+    providers: const [
+      const Provider(Focusable, useExisting: FocusableDirective)
+    ])
 class FocusableDirective extends RootFocusable {
   FocusableDirective(HtmlElement node) : super(node);
 }

@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math';
 
+import 'package:angular_components/focus/focus_interface.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 
 /// The source of where a popup will be created from.
@@ -65,7 +66,7 @@ abstract class PopupSource {
 }
 
 /// An [PopupSource] that's based on an element.
-abstract class ElementPopupSource implements PopupSource {
+abstract class ElementPopupSource implements PopupSource, Focusable {
   HtmlElement get sourceElement;
 
   @override
