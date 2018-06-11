@@ -72,8 +72,8 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   StringSelectionOptions(List<T> options,
       {ItemRenderer<T> toFilterableString,
       StringSuggestionFilter<T> suggestionFilter,
-      ItemRenderer<String> sanitizeString: _stringFormatSuggestion,
-      bool shouldSort: false})
+      ItemRenderer<String> sanitizeString = _stringFormatSuggestion,
+      bool shouldSort = false})
       : this.withOptionGroups([new OptionGroup(options)],
             toFilterableString: toFilterableString,
             suggestionFilter: suggestionFilter,
@@ -83,8 +83,8 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   StringSelectionOptions.withOptionGroups(List<OptionGroup<T>> optionGroups,
       {ItemRenderer<T> toFilterableString,
       StringSuggestionFilter<T> suggestionFilter,
-      ItemRenderer<String> sanitizeString: _stringFormatSuggestion,
-      bool shouldSort: false})
+      ItemRenderer<String> sanitizeString = _stringFormatSuggestion,
+      bool shouldSort = false})
       : _toFilterableString =
             toFilterableString ?? _defaultRenderer(sanitizeString),
         _shouldSort = shouldSort,
@@ -102,7 +102,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   /// TODO(google): In a followup CL, refactor the reusable portions of this code
   /// into a generic filter.
   @override
-  DisposableFuture<bool> filter(Object query, {int limit: -1}) {
+  DisposableFuture<bool> filter(Object query, {int limit = -1}) {
     _currentLimit = limit < 1 ? UNLIMITED : limit;
     _currentQuery = query as String;
     refilter();

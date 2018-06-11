@@ -69,7 +69,7 @@ class LockedLimitSelectionOptions<T> extends DelegatingSelectionOptions<T>
   /// Filter up to [limit] results using [filterQuery]. [limit] is used instead
   /// of [lockedLimit] iff [unlockLimit] is true.
   @override
-  DisposableFuture<bool> filter(Object filterQuery, {int limit: UNLIMITED}) {
+  DisposableFuture<bool> filter(Object filterQuery, {int limit = UNLIMITED}) {
     _currentLimit = _unlockLimit ? limit : lockedLimit;
     // If the limit is locked and finite, only filter one extra item to
     // determine if results will be truncated to meet the lockedLimit.
