@@ -168,11 +168,11 @@
   transition: transform $mat-transition $mat-transition-standard;
   will-change: transform;
 
-  &.ng-hide {
+  &.acx-showhide-hide {
     transform: translateY(100%);
   }
 
-  &.ng-hidden {
+  &.acx-showhide-hidden {
     visibility: hidden;
   }
 }
@@ -180,7 +180,7 @@
 .month-selector {
   border-top: 1px solid $mat-border-light;
 
-  &.ng-hide {
+  &.acx-showhide-hide {
     transform: translateY(-100%);
   }
 }
