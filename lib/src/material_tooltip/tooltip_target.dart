@@ -210,7 +210,11 @@ abstract class TooltipTarget extends PopupSourceDirective {
 
   TooltipTarget(DomPopupSourceFactory domPopupSourceFactory,
       this.viewContainerRef, this._element)
-      : super(domPopupSourceFactory, _element, /* referenceDirective */ null);
+      : super(
+            domPopupSourceFactory,
+            _element,
+            /* referenceDirective */ null,
+            /* focusable */ null);
 
   /// Sets the tooltip associated with this target.
   void setTooltip(Tooltip component) {

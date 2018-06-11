@@ -7,6 +7,7 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/focus/focus_interface.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/src/laminate/popup/dom_popup_source.dart';
 import 'package:angular_components/src/laminate/popup/popup_source.dart';
@@ -32,6 +33,7 @@ class PopupSourceDirective
   final DomPopupSourceFactory _domPopupSourceFactory;
   HtmlElement _element;
   ReferenceDirective _referenceDirective;
+  Focusable _focusable;
 
   Alignment _alignOriginX = Alignment.Start;
   Alignment _alignOriginY = Alignment.Start;
@@ -40,13 +42,14 @@ class PopupSourceDirective
   String _popupId;
 
   PopupSourceDirective(this._domPopupSourceFactory, this._element,
-      @Optional() this._referenceDirective);
+      @Optional() this._referenceDirective, @Optional() this._focusable);
 
   @override
   ngOnDestroy() {
     _element = null;
     _popupSource = null;
     _referenceDirective = null;
+    _focusable = null;
   }
 
   @override
@@ -103,6 +106,15 @@ class PopupSourceDirective
 
     if (_popupId != null) {
       _popupSource.popupId = _popupId;
+    }
+  }
+
+  @override
+  void focus() {
+    if (_focusable != null) {
+      _focusable.focus();
+    } else {
+      _element.focus();
     }
   }
 }

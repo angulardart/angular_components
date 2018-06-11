@@ -7,6 +7,7 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
+import 'package:angular_components/focus/focus_interface.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
@@ -48,6 +49,7 @@ import 'package:angular_components/mixins/focusable_mixin.dart';
   ],
   providers: const [
     const Provider(HasDisabled, useExisting: DropdownButtonComponent),
+    const Provider(Focusable, useExisting: DropdownButtonComponent),
   ],
 )
 class DropdownButtonComponent extends Object

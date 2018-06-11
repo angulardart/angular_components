@@ -12,6 +12,7 @@ import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/enums/visibility.dart'
     as visibility;
+import 'package:angular_components/laminate/overlay/constants.dart';
 import 'package:angular_components/laminate/overlay/module.dart';
 import 'package:angular_components/laminate/overlay/overlay.dart';
 import 'package:angular_components/laminate/overlay/zindexer.dart';
@@ -419,6 +420,18 @@ class MaterialPopupComponent extends Object
   @override
   void onAutoDismiss(Event event) {
     close();
+    // If user tabs out of the popup, restore focus on the popup source element
+    // instead of some seemingly random DOM location.
+    if (state.source is ElementPopupSource &&
+        event is FocusEvent &&
+        event.target is Element &&
+        (event.target as Element)
+            .classes
+            .contains(overlayFocusablePlaceholderClassName)) {
+      scheduleMicrotask(() {
+        (state.source as ElementPopupSource).focus();
+      });
+    }
     _onAutoDismissed.add(event);
   }
 

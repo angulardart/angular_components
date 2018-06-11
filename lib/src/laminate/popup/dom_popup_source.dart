@@ -96,6 +96,11 @@ class DomPopupSource implements ElementPopupSource {
   }
 
   @override
+  void focus() {
+    sourceElement.focus();
+  }
+
+  @override
   String toString() =>
       'DomPopupSource ' +
       {'alignOriginX': alignOriginX, 'alignOriginY': alignOriginY}.toString();
