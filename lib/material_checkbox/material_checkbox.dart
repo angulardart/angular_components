@@ -74,7 +74,7 @@ const indeterminateAriaState = 'mixed';
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialCheckboxComponent
-    implements ControlValueAccessor<bool>, HasDisabled, Focusable {
+    implements ControlValueAccessor<bool>, HasDisabled, Focusable, OnDestroy {
   @HostBinding('class')
   static const hostClass = 'themeable';
 
@@ -331,4 +331,9 @@ class MaterialCheckboxComponent
     disabled = isDisabled;
     _changeDetector?.markForCheck();
   }
+
+  /// Unimplemented for M1.
+  Future focusDelegate;
+  set checkboxInputElement(_) {}
+  void ngOnDestroy() {}
 }
