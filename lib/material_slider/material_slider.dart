@@ -10,6 +10,7 @@ import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/check.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 
 /// A [material slider](https://material.io/guidelines/components/sliders.html)
 /// which works for integer values.
@@ -24,21 +25,35 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 ///     <material-slider [min]="0"
 ///                      [max]="100"
 ///                      [step]="1"
-///                      [(value)]="30">
+///                      [(value)]="30"
+///                      [disabled]="disabled">
 ///     </material-slider>
 @Component(
   selector: 'material-slider',
+  providers: const [
+    const Provider(HasDisabled, useExisting: MaterialSliderComponent),
+  ],
   templateUrl: 'material_slider.html',
   styleUrls: const ['material_slider.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class MaterialSliderComponent implements AfterChanges {
+class MaterialSliderComponent implements AfterChanges, HasDisabled {
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
 
   MaterialSliderComponent(this._changeDetector, this._domService);
+
+  /// String value to be passed to aria-disabled.
+  @HostBinding('attr.aria-disabled')
+  String get disabledStr => '$disabled';
+
+  /// Is the slider disabled.
+  @HostBinding('class.is-disabled')
+  @HostBinding('attr.aria-disabled')
+  @Input()
+  bool disabled = false;
 
   /// The current value of the input element.
   ///
@@ -120,6 +135,7 @@ class MaterialSliderComponent implements AfterChanges {
 
   /// Handles mouse down events on the slider knob or the slider track.
   void mouseDown(MouseEvent event) {
+    if (disabled) return;
     if (event.button != 0) return;
     event.preventDefault();
     _setValueToMousePosition(event.page.x);
@@ -139,6 +155,7 @@ class MaterialSliderComponent implements AfterChanges {
 
   /// Handles key press events on the slider knob.
   void knobKeyDown(KeyboardEvent event) {
+    if (disabled) return;
     var newValue = value;
     final bigStepSize = ((max - min) / 10.0).ceil();
     final sign = isRtl ? -1 : 1;

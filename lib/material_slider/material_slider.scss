@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_slider/mixins';
 
 $knob-radius: $mat-grid;
 $track-container-height: 6px;
@@ -13,12 +14,35 @@ $track-height: 2px;
   display: flex;
   flex-grow: 1;
   height: 4 * $knob-radius;
+  cursor: pointer;
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .knob-real {
+      background-color: $mat-grey-600;
+    }
+
+    .knob:focus,
+    .knob:hover {
+      .knob-hover-shadow {
+        display: none;
+      }
+    }
+
+    .left-track-container > .track {
+      background-color: $mat-grey-600;
+    }
+
+    .right-track-container > .track {
+      background-color: $mat-grey-400;
+    }
+  }
 }
 
 .track-container {
   align-items: center;
   display: flex;
-  cursor: pointer;
   height: $mat-grid-type;
 }
 
@@ -44,7 +68,6 @@ $track-height: 2px;
 .knob-real {
   background-color: $mat-blue-500;
   border-radius: 50%;
-  cursor: pointer;
   height: 2 * $knob-radius;
   position: absolute;
   width: 2 * $knob-radius;
@@ -52,7 +75,6 @@ $track-height: 2px;
 
 .knob-hover-shadow {
   border-radius: 50%;
-  cursor: pointer;
   height: 4 * $knob-radius;
   margin: -$knob-radius;
   position: absolute;
@@ -62,7 +84,6 @@ $track-height: 2px;
 
 .knob-drag-shadow {
   border-radius: 50%;
-  cursor: pointer;
   height: 2.5 * $knob-radius;
   margin: -$knob-radius / 4;
   position: absolute;
