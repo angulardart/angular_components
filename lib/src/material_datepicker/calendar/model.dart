@@ -179,13 +179,14 @@ class CalendarState {
       this.currentSelection,
       this.cause,
       this.preview,
-      this.previewAnchoredAtStart: false,
-      resolution: CalendarResolution.days})
+      this.previewAnchoredAtStart = false,
+      resolution = CalendarResolution.days})
       : selections = _adaptSelections(selections ?? [], resolution),
         resolution = resolution;
 
   CalendarState.empty(
-      {String currentSelection: 'default', resolution: CalendarResolution.days})
+      {String currentSelection = 'default',
+      resolution = CalendarResolution.days})
       : this(
             selections: [],
             currentSelection: currentSelection,
@@ -195,7 +196,7 @@ class CalendarState {
   /// Creates a calendar state initialized with the given selections.
   /// The first element in the list is set as the current selection.
   CalendarState.selected(List<CalendarSelection> selections,
-      {resolution: CalendarResolution.days, cause: CausedBy.external})
+      {resolution = CalendarResolution.days, cause = CausedBy.external})
       : this(
             cause: cause,
             selections: selections,
@@ -204,7 +205,7 @@ class CalendarState {
 
   /// Sets the range with the given ID as the "current selection" -- the range
   /// that'll get updated when the user clicks on the calendar.
-  CalendarState select(String id, {bool previewAnchoredAtStart: false}) =>
+  CalendarState select(String id, {bool previewAnchoredAtStart = false}) =>
       new CalendarState(
           selections: selections,
           currentSelection: id,
@@ -215,7 +216,8 @@ class CalendarState {
   /// Updates the value for the given selection. Creates it if it's not in the
   /// list of selections already.
   CalendarState setSelection(CalendarSelection val,
-      {CausedBy cause: CausedBy.external, bool previewAnchoredAtStart: false}) {
+      {CausedBy cause = CausedBy.external,
+      bool previewAnchoredAtStart = false}) {
     var newSelections = [val]..addAll(selections.where((s) => s.id != val.id));
     return new CalendarState(
         selections: newSelections,
@@ -257,8 +259,8 @@ class CalendarState {
 
   /// Sets both endpoints of the "current" selection
   CalendarState setCurrentSelection(Date a, Date b,
-          {CausedBy cause: CausedBy.rangeConfirm,
-          bool previewAnchoredAtStart: false}) =>
+          {CausedBy cause = CausedBy.rangeConfirm,
+          bool previewAnchoredAtStart = false}) =>
       setSelection(new CalendarSelection.guessOrder(currentSelection, a, b),
           cause: cause, previewAnchoredAtStart: previewAnchoredAtStart);
 
@@ -271,7 +273,7 @@ class CalendarState {
   /// `confirmRange` - If true, this the last endpoint to be set for the current
   ///                  range. This information is not used by CalendarState
   ///                  directly, but clients of CalendarState may need it.
-  CalendarState confirmPreview({bool confirmRange: false}) {
+  CalendarState confirmPreview({bool confirmRange = false}) {
     var current = selection(currentSelection);
     var anchor = previewAnchoredAtStart ? current.start : current.end;
     assert(preview != null && anchor != null);

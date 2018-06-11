@@ -33,7 +33,7 @@ class Highlight {
   List<String> _classes;
 
   Highlight(this.start, this.end, this.containedRanges,
-      {this.classIndexOffset: 0, this.group: 0});
+      {this.classIndexOffset = 0, this.group = 0});
 
   List<String> get classes => _classes ?? _initClasses();
 

@@ -22,7 +22,7 @@ class CalendarYear extends _HasHighlights {
   List<CalendarMonth> _months;
 
   CalendarYear(int year, CalendarState state,
-      {this.startingWeekday: DateTime.MONDAY})
+      {this.startingWeekday = DateTime.MONDAY})
       : _start = new Date(year),
         super(state) {
     _title = _start.format(new DateFormat.y());
@@ -35,11 +35,11 @@ class CalendarYear extends _HasHighlights {
   }
 
   CalendarYear.fromDate(Date date,
-      {CalendarState state, int startingWeekday: DateTime.MONDAY})
+      {CalendarState state, int startingWeekday = DateTime.MONDAY})
       : this(date.year, state, startingWeekday: startingWeekday);
 
   CalendarYear.fromTime(DateTime time,
-      {CalendarState state, int startingWeekday: DateTime.MONDAY})
+      {CalendarState state, int startingWeekday = DateTime.MONDAY})
       : this(time.year, state, startingWeekday: startingWeekday);
 
   Date get start => _start;
@@ -125,7 +125,7 @@ class CalendarYear extends _HasHighlights {
   CalendarYear addYears(int years) =>
       new CalendarYear(year + years, _state, startingWeekday: startingWeekday);
 
-  int getRowIndex(int month, {int monthsPerRow: 4}) =>
+  int getRowIndex(int month, {int monthsPerRow = 4}) =>
       ((month - 1) / monthsPerRow).round();
 
   CalendarYear get next => addYears(1);
