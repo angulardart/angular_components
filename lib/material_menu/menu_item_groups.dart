@@ -251,7 +251,7 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   }
 
   @HostListener('keydown', const [r'$event'])
-  void handleKeydown(KeyboardEvent event, {bool shouldPreventDefault: true}) {
+  void handleKeydown(KeyboardEvent event, {bool shouldPreventDefault = true}) {
     _isMouseDriven = false;
 
     if (event.keyCode == KeyCode.TAB) return;
@@ -301,7 +301,7 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   ///   - isOpenedByKeyboard: set this to true if this sub-menu is opened via
   ///         keyboard shortcut; if true, the first element of the sub-menu is
   ///         automatically selected upon opening
-  void _openSubMenu(MenuItem item, {bool isOpenedByKeyboard: false}) {
+  void _openSubMenu(MenuItem item, {bool isOpenedByKeyboard = false}) {
     // Do not open or activate the sub-menu if the menu is disabled.
     if (!item.enabled) return;
 

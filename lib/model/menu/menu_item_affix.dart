@@ -31,7 +31,7 @@ class IconWithAction extends Icon {
   final bool shouldCloseMenuOnTrigger;
 
   IconWithAction(String name, this.action, this.ariaLabel, this.keyCode,
-      {this.shouldCloseMenuOnTrigger: false})
+      {this.shouldCloseMenuOnTrigger = false})
       : super(name);
 }
 
@@ -47,7 +47,7 @@ class IconAffix extends MenuItemAffix {
 
   IconAffix(
       {@required this.icon,
-      this.visibility: IconVisibility.visible,
+      this.visibility = IconVisibility.visible,
       this.cssClass});
 
   @override
@@ -77,7 +77,7 @@ class CaptionAffix extends MenuItemAffix {
   final String cssClass;
 
   CaptionAffix(
-      {this.text, this.visibility: IconVisibility.visible, this.cssClass});
+      {this.text, this.visibility = IconVisibility.visible, this.cssClass});
 
   @override
   bool get shouldCloseMenuOnTrigger => false;

@@ -11,7 +11,7 @@ import 'package:angular_components/model/ui/has_renderer.dart';
 ///
 /// [itemRenderer] should return a unique string representation for each item.
 List<T> sortItems<T>(ItemRenderer<T> itemRenderer, Iterable<T> items,
-    {bool ignoreCase: false}) {
+    {bool ignoreCase = false}) {
   // TODO(google): Use new SplayTreeMap<String, T>.fromIterable<T>(...) when
   // generic constructors becomes available.
   var itemsMap = new SplayTreeMap<String, T>();

@@ -21,7 +21,7 @@ class NgRuler implements Ruler<ElementRef> {
   NgRuler(this._domRuler);
 
   @override
-  Future<Rectangle> measure(ElementRef elementRef, {bool offset: false}) {
+  Future<Rectangle> measure(ElementRef elementRef, {bool offset = false}) {
     return _domRuler.measure(elementRef.nativeElement, offset: offset);
   }
 
@@ -42,7 +42,7 @@ class NgRuler implements Ruler<ElementRef> {
       num right,
       num bottom,
       num zIndex,
-      bool useCssTransform: true}) {
+      bool useCssTransform = true}) {
     return _domRuler.update(elementRef.nativeElement,
         cssClasses: cssClasses,
         visibility: visibility,
@@ -69,7 +69,7 @@ class NgRuler implements Ruler<ElementRef> {
       num right,
       num bottom,
       num zIndex,
-      bool useCssTransform: true}) {
+      bool useCssTransform = true}) {
     return _domRuler.updateSync(elementRef.nativeElement,
         cssClasses: cssClasses,
         visibility: visibility,
@@ -85,7 +85,7 @@ class NgRuler implements Ruler<ElementRef> {
   }
 
   @override
-  Rectangle measureSync(ElementRef element, {bool offset: false}) {
+  Rectangle measureSync(ElementRef element, {bool offset = false}) {
     return _domRuler.measureSync(element.nativeElement, offset: offset);
   }
 }

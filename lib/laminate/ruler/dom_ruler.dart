@@ -47,7 +47,7 @@ class DomRulerImpl extends RulerBase<Element> implements DomRuler {
   Future<void> onWrite() => _domService.onWrite();
 
   @override
-  Future<Rectangle> measure(Element element, {bool offset: false}) {
+  Future<Rectangle> measure(Element element, {bool offset = false}) {
     if (canSyncWrite(element)) {
       // It is not possible to measure something not in the live DOM.
       // throw new StateError('Element is not in the live DOM document.');
@@ -57,7 +57,7 @@ class DomRulerImpl extends RulerBase<Element> implements DomRuler {
   }
 
   @override
-  Rectangle measureSync(Element element, {bool offset: false}) {
+  Rectangle measureSync(Element element, {bool offset = false}) {
     // Purposefully don't use a 'canSyncWrite' here because some places in the
     // code will want a synchronous write regardless (e.g. overlays).
     if (offset) {
