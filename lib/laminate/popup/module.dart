@@ -16,28 +16,43 @@ const defaultPopupPositions = const OpaqueToken<List<RelativePosition>>(
   'defaultPopupPositions',
 );
 
+/// DI module for Popups and its dependencies.
+///
+/// Should be included at most once per the injection chain.
+const popupModule = const Module(
+  include: const [
+    overlayModule,
+  ],
+  provide: _popupProviders,
+);
+
+const _popupProviders = const <Provider>[
+  const ValueProvider.forToken(defaultPopupPositions, inlinePositions),
+  const ClassProvider(DomPopupSourceFactory),
+];
+
 /// DI bindings for Popups and its dependencies.
 ///
 /// Should be included at most once per the injection chain.
 const popupBindings = const [
-  // TODO(google): Use ValueProvider once available.
-  const Provider<List<RelativePosition>>(
-    defaultPopupPositions,
-    useValue: inlinePositions,
-  ),
   overlayBindings,
-  DomPopupSourceFactory,
+  _popupProviders,
 ];
+
+/// DI module for Popups and its dependencies with debugging enabled.
+///
+/// Should be included at most once per the injection chain.
+const popupDebugModule = const Module(
+  include: const [
+    overlayDebugModule,
+  ],
+  provide: _popupProviders,
+);
 
 /// DI bindings for Popups and its dependencies with debugging enabled.
 ///
 /// Should be included at most once per the injection chain.
 const popupDebugBindings = const [
-  // TODO(google): Use ValueProvider once available.
-  const Provider<List<RelativePosition>>(
-    defaultPopupPositions,
-    useValue: inlinePositions,
-  ),
   overlayDebugBindings,
-  DomPopupSourceFactory,
+  _popupProviders,
 ];

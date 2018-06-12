@@ -77,27 +77,52 @@ HtmlElement getOverlayContainerParent(Document document,
   return containerParent ?? document.querySelector('body');
 }
 
+/// DI module for Overlay and its dependencies.
+const overlayModule = const Module(
+  include: const [
+    windowModule,
+  ],
+  provide: _overlayProviders,
+);
+
+const _overlayProviders = const <Provider>[
+  const ClassProvider(AcxImperativeViewUtils),
+  const ClassProvider(DomRuler),
+  domServiceBinding,
+  const ClassProvider(ManagedZone, useClass: Angular2ManagedZone),
+  const FactoryProvider.forToken(overlayContainerName, getDefaultContainerName),
+  const FactoryProvider.forToken(overlayContainerToken, getDefaultContainer),
+  const FactoryProvider.forToken(
+      overlayContainerParent, getOverlayContainerParent),
+  // Applications may experimentally make this true to increase performance.
+  const ValueProvider.forToken(overlaySyncDom, true),
+  const ValueProvider.forToken(overlayRepositionLoop, true),
+  const ClassProvider(OverlayDomRenderService),
+  const ClassProvider(OverlayStyleConfig),
+  const ClassProvider(OverlayService),
+  const ClassProvider(ZIndexer),
+];
+
 /// DI bindings for Overlay and its dependencies.
 const overlayBindings = const [
-  AcxImperativeViewUtils,
-  DomRuler,
-  domServiceBinding,
-  const Provider(ManagedZone, useClass: Angular2ManagedZone),
-  const Provider(overlayContainerName, useFactory: getDefaultContainerName),
-  const Provider(overlayContainerToken, useFactory: getDefaultContainer),
-  const Provider(overlayContainerParent, useFactory: getOverlayContainerParent),
-  // Applications may experimentally make this true to increase performance.
-  const Provider(overlaySyncDom, useValue: true),
-  const Provider(overlayRepositionLoop, useValue: true),
-  OverlayDomRenderService,
-  OverlayStyleConfig,
-  OverlayService,
   windowBindings,
-  ZIndexer
+  _overlayProviders,
+];
+
+/// Similar to [overlayModule], but enables easy debugging of the overlays.
+const overlayDebugModule = const Module(
+  include: const [
+    overlayModule,
+  ],
+  provide: _overlayDebugProviders,
+);
+
+const _overlayDebugProviders = const <Provider>[
+  const FactoryProvider.forToken(overlayContainerToken, getDebugContainer),
 ];
 
 /// Similar to [overlayBindings], but enables easy debugging of the overlays.
 const overlayDebugBindings = const [
   overlayBindings,
-  const Provider(overlayContainerToken, useFactory: getDebugContainer)
+  _overlayDebugProviders,
 ];
