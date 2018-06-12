@@ -184,7 +184,7 @@ class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
     }));
   }
 
-  void _readElement({windowResize: false}) {
+  void _readElement({windowResize = false}) {
     assert(_domService.isReadingDom);
     _clientSize = currentClientSize;
     _scrollSize = currentScrollSize;

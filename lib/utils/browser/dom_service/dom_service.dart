@@ -150,7 +150,7 @@ class DomService {
   /// ONLY FOR TESTING!
   /// DO NOT CALL THIS METHOD IN PRODUCTION CODE!
   @visibleForTesting
-  void leap({num highResTimer, steps: 1}) {
+  void leap({num highResTimer, steps = 1}) {
     // Force a angular turn to make sure layout calls are scheduled.
     _ngZone.run(() {});
     while (steps > 0) {
@@ -400,7 +400,7 @@ class DomService {
   /// Returns a subscription that allows pausing, resuming and canceling the
   /// observer.
   StreamSubscription trackLayoutChange<T>(T fn(), void callback(T value),
-      {int framesToStabilize: 1, bool runInAngularZone: false}) {
+      {int framesToStabilize = 1, bool runInAngularZone = false}) {
     // TODO(google): Move layout checking into ruler service when landed.
     Function trackerCallback = callback;
     if (runInAngularZone) {

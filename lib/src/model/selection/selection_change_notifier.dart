@@ -16,7 +16,7 @@ abstract class SelectionObservable<T> {
 
   /// Schedules a [SelectionChangeRecord].
   void notifySelectionChange(
-      {Iterable<T> added: const [], Iterable<T> removed: const []});
+      {Iterable<T> added = const [], Iterable<T> removed = const []});
 
   /// A stream that returns changes to selected elements.
   Stream<List<SelectionChangeRecord<T>>> get selectionChanges;
@@ -44,7 +44,7 @@ abstract class SelectionChangeNotifier<T> implements SelectionModel<T> {
 
   @override
   void notifySelectionChange(
-      {Iterable<T> added: const [], Iterable<T> removed: const []}) {
+      {Iterable<T> added = const [], Iterable<T> removed = const []}) {
     if (hasSelectionObservers) {
       var record = new SelectionChangeRecord<T>(added: added, removed: removed);
       if (_selectionChangeRecords == null) {

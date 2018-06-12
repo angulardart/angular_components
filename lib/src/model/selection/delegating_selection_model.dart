@@ -73,7 +73,7 @@ class DelegatingSelectionModel<T> implements SelectionModel<T> {
 
   @override
   void notifySelectionChange(
-      {Iterable<T> added: const [], Iterable<T> removed: const []}) {
+      {Iterable<T> added = const [], Iterable<T> removed = const []}) {
     _delegateModel.notifySelectionChange(added: added, removed: removed);
   }
 
