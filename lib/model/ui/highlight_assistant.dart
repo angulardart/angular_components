@@ -28,7 +28,7 @@ class HighlightAssistant {
   /// Creates new HighlightAssistant, using provided [optionHighlighter] or
   /// TextHighlighter if no value is provided.
   HighlightAssistant(
-      {Highlighter optionHighlighter, bool matchFromStartOfWord: false})
+      {Highlighter optionHighlighter, bool matchFromStartOfWord = false})
       : _optionHighlighter = optionHighlighter,
         _matchFromStartOfWord = matchFromStartOfWord;
 

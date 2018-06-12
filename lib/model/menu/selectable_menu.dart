@@ -96,14 +96,14 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
 
   SelectableMenuItem(
       {@required this.value,
-      this.itemRenderer: defaultItemRenderer,
+      this.itemRenderer = defaultItemRenderer,
       this.icon,
       @Deprecated('Please use itemSuffixes instead') this.secondaryIcon,
       this.subMenu,
       this.tooltip,
       Iterable<String> cssClasses,
-      Function action: _noOp,
-      SelectableOption selectableState: SelectableOption.Selectable,
+      Function action = _noOp,
+      SelectableOption selectableState = SelectableOption.Selectable,
       bool shouldSelectOnItemClick,
       ObservableList<MenuItemAffix> itemSuffixes})
       : _action = action,

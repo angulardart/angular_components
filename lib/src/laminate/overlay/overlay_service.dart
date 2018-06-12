@@ -63,7 +63,7 @@ class OverlayService {
       state: state);
 
   // Depending on client flags, either measure sync or async.
-  Stream<Rectangle<num>> _measurePane(HtmlElement pane, {bool track: false}) {
+  Stream<Rectangle<num>> _measurePane(HtmlElement pane, {bool track = false}) {
     return _renderService.measureSize(pane,
         track: track, sync: _useDomSynchronously);
   }

@@ -167,7 +167,7 @@ class MaterialFabMenuModel {
 
   final ObservableReference<bool> _showPopup;
 
-  MaterialFabMenuModel(this.menuItem, {bool showPopup: false})
+  MaterialFabMenuModel(this.menuItem, {bool showPopup = false})
       : _showPopup = new ObservableReference<bool>(showPopup);
 
   Stream<Change<bool>> get onShowPopupChange => _showPopup.changes;

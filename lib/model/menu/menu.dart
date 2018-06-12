@@ -174,7 +174,7 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   ///   the item content.
   MenuItem(
       this.label,
-      {this.enabled: true,
+      {this.enabled = true,
       this.tooltip,
       this.action,
       this.icon,

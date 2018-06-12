@@ -145,7 +145,7 @@ class _ImmutableOverlayState implements OverlayState {
   final Position position;
 
   const _ImmutableOverlayState(
-      {this.captureEvents: false,
+      {this.captureEvents = false,
       this.left,
       this.top,
       this.right,
@@ -154,7 +154,7 @@ class _ImmutableOverlayState implements OverlayState {
       this.minWidth,
       this.height,
       this.zIndex,
-      this.visibility: Visibility.None,
+      this.visibility = Visibility.None,
       this.position});
 
   @override
@@ -222,7 +222,7 @@ class MutableOverlayState implements OverlayState {
   }
 
   MutableOverlayState(
-      {bool captureEvents: false,
+      {bool captureEvents = false,
       num left,
       num top,
       num right,
@@ -231,7 +231,7 @@ class MutableOverlayState implements OverlayState {
       num minWidth,
       num height,
       int zIndex,
-      Visibility visibility: Visibility.None,
+      Visibility visibility = Visibility.None,
       Position position}) {
     _captureEvents = captureEvents;
     _left = left;

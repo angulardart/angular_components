@@ -40,7 +40,7 @@ class TextHighlighter {
   final bool matchFromStartOfWord;
 
   const TextHighlighter(
-      {this.caseSensitive: false, this.matchFromStartOfWord: true});
+      {this.caseSensitive = false, this.matchFromStartOfWord = true});
 
   List<HighlightedTextSegment> highlight(String text, List<String> tokens) =>
       _applyMarkers(text, getMarkers(text, tokens));
