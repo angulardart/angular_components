@@ -158,7 +158,7 @@ class OverlayDomRenderService {
   /// but should only be used on elements that will not effect layout much such
   /// as overlays/popups.
   Stream<Rectangle> measureSize(HtmlElement pane,
-      {bool track: false, bool sync: false}) {
+      {bool track = false, bool sync = false}) {
     if (track) {
       return _domRuler.track(pane);
     } else {

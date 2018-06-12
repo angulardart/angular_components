@@ -398,12 +398,12 @@ class MaterialExpansionPanel
     _expandCollapseButton = button;
   }
 
-  Future<bool> expand({bool byUserAction: true}) {
+  Future<bool> expand({bool byUserAction = true}) {
     if (disabled && byUserAction) return new Future.value(false);
     return changeState(true, byUserAction, _openController);
   }
 
-  Future<bool> collapse({bool byUserAction: true}) {
+  Future<bool> collapse({bool byUserAction = true}) {
     if (disabled && byUserAction) return new Future.value(false);
     return changeState(false, byUserAction, _closeController);
   }

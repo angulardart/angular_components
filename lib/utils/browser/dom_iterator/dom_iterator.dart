@@ -28,7 +28,7 @@ class DomTreeIterator implements Iterator<Element> {
   ///   but instead will wrap through beginning and will end upon hitting
   ///   the starting element instead.
   DomTreeIterator(element,
-      {bool reverse: false, Element scope, bool wraps: false})
+      {bool reverse = false, Element scope, bool wraps = false})
       : _element = element,
         _startingElement = element,
         _reverse = reverse,

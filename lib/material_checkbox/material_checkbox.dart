@@ -195,7 +195,9 @@ class MaterialCheckboxComponent
   /// set them as presented, otherwise we will clear the other one if necessary.
   /// Events are only fired if there was a change and [emitEvent] is true.
   void _setStates(
-      {bool checked: false, bool indeterminate: false, bool emitEvent = true}) {
+      {bool checked = false,
+      bool indeterminate = false,
+      bool emitEvent = true}) {
     // At most one can be true.
     assert(!checked || !indeterminate);
 

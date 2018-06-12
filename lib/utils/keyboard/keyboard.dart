@@ -10,10 +10,10 @@ import 'dart:html';
 /// it will return true if shift is pressed,
 /// but false if both shift and alt are pressed
 bool modifiersKeysFor(KeyboardEvent event,
-    {bool shiftKey: false,
-    bool ctrlKey: false,
-    bool altKey: false,
-    bool metaKey: false}) {
+    {bool shiftKey = false,
+    bool ctrlKey = false,
+    bool altKey = false,
+    bool metaKey = false}) {
   return (event.shiftKey == shiftKey) &&
       (event.altKey == altKey) &&
       (event.ctrlKey == ctrlKey) &&
