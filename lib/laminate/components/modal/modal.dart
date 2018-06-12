@@ -233,7 +233,7 @@ class ModalComponent
   // Make the overlay hosting this modal visible.
   //
   // If it has a parent, we should temporarily hide it.
-  void _showModalOverlay({bool temporary: false}) {
+  void _showModalOverlay({bool temporary = false}) {
     if (!temporary) {
       if (_stack != null) {
         _stack.onModalOpened(this);
@@ -247,7 +247,7 @@ class ModalComponent
   // Make the overlay hosting this modal hidden.
   //
   // If it has a parent, we should re-show it.
-  void _hideModalOverlay({bool temporary: false}) {
+  void _hideModalOverlay({bool temporary = false}) {
     if (!temporary) {
       if (_stack != null) {
         _stack.onModalClosed(this);

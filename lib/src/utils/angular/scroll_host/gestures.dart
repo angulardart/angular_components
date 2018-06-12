@@ -100,7 +100,7 @@ class GestureListener implements Disposable {
   /// If the listener to [scrollStream] cannot keep up with the default rate,
   /// a larger [scrollInterval] should be passed.
   GestureListener(this._element, this._isDirectionScrollable, this._clock,
-      {Duration scrollInterval: _defaultScrollInterval})
+      {Duration scrollInterval = _defaultScrollInterval})
       : _scrollInterval = scrollInterval;
 
   _Gesture _gesture;

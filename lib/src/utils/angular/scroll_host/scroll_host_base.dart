@@ -64,7 +64,7 @@ abstract class ScrollHostBase implements ScrollHost {
 
   ScrollHostBase(this._domService, this._ngZone,
       GestureListenerFactory gestureListenerFactory,
-      {this.usePositionSticky: false}) {
+      {this.usePositionSticky = false}) {
     // TODO(google): add alternative impl based on TouchEvent.supported.
     _panController =
         new NonTouchPanController(_ngZone, _domService, anchorElement);
@@ -311,7 +311,7 @@ class ElementScrollHostBase extends ScrollHostBase {
 
   ElementScrollHostBase(DomService domService, NgZone managedZone,
       GestureListenerFactory gestureListenerFactory, this.element,
-      {bool usePositionSticky: false})
+      {bool usePositionSticky = false})
       : super(domService, managedZone, gestureListenerFactory,
             usePositionSticky: usePositionSticky) {
     element.style.overflowY = 'auto';
