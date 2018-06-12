@@ -91,7 +91,7 @@ class LazyListTracker<S, T> extends Object
     return object;
   }
 
-  void updateAll({bool force: false}) {
+  void updateAll({bool force = false}) {
     if (force) {
       _target.clear();
       _target.length = _source.length;

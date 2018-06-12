@@ -887,7 +887,7 @@ Rectangle _resizeRectangle(Rectangle rect, {num width, num height}) =>
     new Rectangle(
         rect.left, rect.top, width ?? rect.width, height ?? rect.height);
 
-Rectangle _shiftRectangle(Rectangle rect, {num top: 0, num left: 0}) =>
+Rectangle _shiftRectangle(Rectangle rect, {num top = 0, num left = 0}) =>
     new Rectangle(rect.left + left, rect.top + top, rect.width, rect.height);
 
 /// Returns a transformation which, when applied to [rect], will cause [rect] to

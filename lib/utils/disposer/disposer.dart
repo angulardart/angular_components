@@ -85,7 +85,7 @@ class Disposer implements Disposable {
   /// Pass [oneShot] as true if no disposables are meant to be added after
   /// the dispose method is called.
   @Deprecated("Please use oneShot or multi instead")
-  Disposer({bool oneShot: false}) : _oneShot = oneShot;
+  Disposer({bool oneShot = false}) : _oneShot = oneShot;
 
   /// Convenience constructor for one shot mode or single dispose mode.
   Disposer.oneShot() : _oneShot = true;

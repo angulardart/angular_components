@@ -432,9 +432,9 @@ class RelativePosition {
   final String animationOrigin;
 
   const RelativePosition(
-      {this.originX: Alignment.Start,
-      this.originY: Alignment.Start,
-      this.animationOrigin: _AnimationOrigins.DOWN_RIGHT});
+      {this.originX = Alignment.Start,
+      this.originY = Alignment.Start,
+      this.animationOrigin = _AnimationOrigins.DOWN_RIGHT});
 
   RelativePosition flipRelativePosition() {
     return new RelativePosition(

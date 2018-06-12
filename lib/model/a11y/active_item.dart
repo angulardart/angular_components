@@ -31,7 +31,7 @@ class ActiveItemModel<T> {
   /// Common a11y practice for menu components, loop is set to true.
   /// Example: http://oaa-accessibility.org/examplep/menubar1/
   ActiveItemModel(IdGenerator idGenerator,
-      {bool loop: false, List<T> items: const []})
+      {bool loop = false, List<T> items = const []})
       : _idGenerator = idGenerator ?? new SequentialIdGenerator.fromUUID() {
     _loop = loop;
     _items = items;

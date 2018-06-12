@@ -234,7 +234,7 @@ class ObservableReference<T> extends ChangeNotificationProvider<T>
   /// the changes in the current execution block are collected, and only the
   /// last value will be published (in an async scheduled microtask).
   ObservableReference(this._value,
-      {EqualsFn<T> equalsFn: _defaultEq, bool coalesce: false})
+      {EqualsFn<T> equalsFn = _defaultEq, bool coalesce = false})
       : _equalsFn = equalsFn,
         super(coalesce);
 
@@ -282,9 +282,9 @@ class ObservableComposite<T> extends ChangeNotificationProvider<T> {
   /// the changes in the current execution block are collected, and only the
   /// one event with null value will be published (in an async scheduled microtask).
   ObservableComposite(
-      {bool coalesce: false,
+      {bool coalesce = false,
       List<ObserveAware> values,
-      bool withStackTrace: false})
+      bool withStackTrace = false})
       : _withStackTrace = withStackTrace,
         super(coalesce) {
     if (values != null) {
@@ -296,7 +296,7 @@ class ObservableComposite<T> extends ChangeNotificationProvider<T> {
 
   /// Starts listening on value changes (if not already doing so).
   ObserveAware register(ObserveAware value,
-      {ObserveAware replaces, bool initialNotification: true}) {
+      {ObserveAware replaces, bool initialNotification = true}) {
     if (value == null) return null;
     Stream replacesStream = (replaces == null) ? null : replaces.stream;
     registerStream(value.stream,
@@ -315,7 +315,7 @@ class ObservableComposite<T> extends ChangeNotificationProvider<T> {
 
   /// Starts listening on value changes (if not already doing so).
   Stream registerStream(Stream stream,
-      {Stream replaces, bool initialNotification: true}) {
+      {Stream replaces, bool initialNotification = true}) {
     if (_subscriptions.containsKey(stream)) {
       // little sanity check
       assert(replaces == null);

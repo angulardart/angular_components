@@ -77,7 +77,7 @@ class Date extends Comparators<Date> {
   /// Returns this [Date] as a [DateTime] at midnight UTC.
   DateTime asUtcTime() => _time;
 
-  Date add({int years: 0, int months: 0, int days: 0}) =>
+  Date add({int years = 0, int months = 0, int days = 0}) =>
       // Let Dart's [DateTime] handle all the arithmetic. It intelligently
       // handles bogus values like (2015, 43, -32) and generally does what we
       // want here. This behavior isn't documented anywhere, but at the very
@@ -111,7 +111,7 @@ class Date extends Comparators<Date> {
 
 /// The number of days spanned by the range defined by the two dates. Defaults
 /// to including the end date, so that `daysSpanned(d, d) == 1`.
-int daysSpanned(Date start, Date end, {bool inclusive: true}) =>
+int daysSpanned(Date start, Date end, {bool inclusive = true}) =>
     // Use inHours / 24 instead of inDays to account for daylight savings
     (end.asUtcTime().difference(start.asUtcTime()).inHours / 24).round() +
     (inclusive ? 1 : 0);

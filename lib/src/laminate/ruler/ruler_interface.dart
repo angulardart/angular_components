@@ -18,7 +18,7 @@ abstract class Ruler<E> {
   /// of absolute.
   ///
   /// Throws [StateError] if [element] is not within the live DOM.
-  Future<Rectangle> measure(E element, {bool offset: false});
+  Future<Rectangle> measure(E element, {bool offset = false});
 
   /// Returns a dimension client rectangle for [element].
   ///
@@ -26,7 +26,7 @@ abstract class Ruler<E> {
   /// of absolute.
   ///
   /// Throws [StateError] if [element] is not within the live DOM.
-  Rectangle measureSync(E element, {bool offset: false});
+  Rectangle measureSync(E element, {bool offset = false});
 
   /// Returns a stream of bounding client rectangles for [element].
   ///
@@ -55,7 +55,7 @@ abstract class Ruler<E> {
       num right,
       num bottom,
       num zIndex,
-      bool useCssTransform: true});
+      bool useCssTransform = true});
 
   /// Updates position and dimension based properties on [element].
   ///
@@ -71,7 +71,7 @@ abstract class Ruler<E> {
       num right,
       num bottom,
       num zIndex,
-      bool useCssTransform: true});
+      bool useCssTransform = true});
 }
 
 /// A partial implementation of [Ruler] without external dependencies.
@@ -102,12 +102,12 @@ abstract class RulerBase<E> implements Ruler<E> {
   Future onWrite();
 
   @override
-  Future<Rectangle> measure(E element, {bool offset: false}) {
+  Future<Rectangle> measure(E element, {bool offset = false}) {
     return onRead().then((_) => measureSync(element, offset: offset));
   }
 
   @override
-  Rectangle measureSync(E element, {bool offset: false});
+  Rectangle measureSync(E element, {bool offset = false});
 
   /// Removes [classes] on [element].
   void removeCssClassesSync(E element, List<String> classes);
@@ -174,7 +174,7 @@ abstract class RulerBase<E> implements Ruler<E> {
       num right,
       num bottom,
       num zIndex,
-      bool useCssTransform: true}) {
+      bool useCssTransform = true}) {
     void doSyncUpdate() {
       updateSync(element,
           cssClasses: cssClasses,
@@ -208,7 +208,7 @@ abstract class RulerBase<E> implements Ruler<E> {
       num right,
       num bottom,
       num zIndex,
-      bool useCssTransform: true}) {
+      bool useCssTransform = true}) {
     // TODO(google): Consider another format for dimensions.
     SetPropertyFn setProperty = (name, value) {
       setCssPropertySync(element, name, value);

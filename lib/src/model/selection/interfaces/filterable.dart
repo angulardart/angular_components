@@ -49,7 +49,7 @@ abstract class Filterable<Q> {
   ///       // The visible list now shows nothing.
   ///     });
   ///   });
-  Stream filter(Q query, {int limit: Filterable.UNLIMITED});
+  Stream filter(Q query, {int limit = Filterable.UNLIMITED});
 
   /// Whether a [currentQuery] is applied.
   bool get isFiltered;
@@ -93,7 +93,7 @@ abstract class AbstractFilterable<Q> implements Filterable<Q> {
   ///
   /// The stream returned should immediately emit an event once the underlying
   /// data structure has been modified based on the returned data.
-  Stream doFilter(Q query, {int limit: Filterable.UNLIMITED});
+  Stream doFilter(Q query, {int limit = Filterable.UNLIMITED});
 
   /// Automatically called when [isFiltered] flips to `false` from `true`.
   ///
@@ -101,7 +101,7 @@ abstract class AbstractFilterable<Q> implements Filterable<Q> {
   void onFilterCancelled();
 
   @override
-  Stream filter(Q query, {int limit: Filterable.UNLIMITED}) {
+  Stream filter(Q query, {int limit = Filterable.UNLIMITED}) {
     StreamController streamController;
     StreamSubscription streamSubscription;
     streamController = new StreamController.broadcast(onListen: () {
