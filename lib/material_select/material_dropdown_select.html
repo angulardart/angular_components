@@ -23,8 +23,7 @@
     #source="popupSource"
     popupType="listbox"
     [ariaOwns]="listId"
-    [ariaExpanded]="visible"
-    [ariaActiveDescendant]="ariaActiveDescendant">
+    [ariaExpanded]="visible">
   &ngsp;<ng-content select="[buttonContent]"></ng-content>
 </dropdown-button>
 <material-popup enforceSpaceConstraints
@@ -45,23 +44,25 @@
     <ng-content select="[header]"></ng-content>
   </div>
   <material-list
+      [autoFocus]="listAutoFocus"
       class="options-list"
       role="listbox"
       [attr.id]="listId"
       [width]="width"
-      tabIndex="-1"
+      tabIndex="0"
       *deferredContent="true"
       (keydown)="onKeyDown($event)"
       (keypress)="onKeyPress($event)"
       (keyup)="onKeyUp($event)"
-      (mouseout)="activeModel.activate(null)">
+      (mouseout)="activeModel.activate(null)"
+      [attr.aria-activedescendant]="ariaActiveDescendant">
     <ng-content select="[listHeader]"></ng-content>
     <ng-content></ng-content>
     <div class="options-wrapper" *ngIf="options != null">
       <material-select-dropdown-item
           *ngIf="showDeselectItem"
           [class.empty]="options.optionGroups.length == 1"
-          keyboardOnlyFocusIndicator
+          [tabbable]="false"
           [selected]="isDeselectItemSelected"
           [value]="deselectLabel"
           (trigger)="deselectCurrentSelection()"
@@ -84,7 +85,7 @@
           </dynamic-component>
           <template [ngIf]="group.isNotEmpty">
             <material-select-dropdown-item *ngFor="let item of group"
-                keyboardOnlyFocusIndicator
+                [tabbable]="false"
                 [itemRenderer]="itemRenderer"
                 [componentRenderer]="componentRenderer"
                 [factoryRenderer]="factoryRenderer"
@@ -100,7 +101,7 @@
           </template>
           <material-select-dropdown-item
               *ngIf="group.isEmpty && group.hasEmptyLabel"
-              keyboardOnlyFocusIndicator
+              [tabbable]="false"
               [disabled]="true"
               [value]="group.emptyLabel">
           </material-select-dropdown-item>

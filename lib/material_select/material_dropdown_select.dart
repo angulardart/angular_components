@@ -10,6 +10,7 @@ import 'package:angular_components/annotations/rtl_annotation.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
+import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
@@ -127,6 +128,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
         useExisting: MaterialDropdownSelectComponent),
   ],
   directives: const [
+    AutoFocusDirective,
     DeferredContentDirective,
     DropdownButtonComponent,
     DynamicComponent,
@@ -250,7 +252,6 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     if (_ariaActiveDescendant != null) return _ariaActiveDescendant;
 
     if (options != null) {
-      if (isDeselectItemSelected) return activeModel.id(deselectLabel);
       return activeModel.activeId;
     }
 
@@ -261,6 +262,13 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   set ariaActiveDescendant(String id) {
     _ariaActiveDescendant = id;
   }
+
+  /// Whether to focus the options list by default when the popup opens.
+  ///
+  /// Should be set to false when another element in the popup is focused on
+  /// open, e.g. a search box.
+  @Input()
+  bool listAutoFocus = true;
 
   @Input()
   @override
@@ -434,7 +442,10 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
           selection.deselect(item);
         }
       }
-      if (isSingleSelect) close();
+      if (isSingleSelect) {
+        close();
+        dropdownButton.focus();
+      }
     }
   }
 
@@ -445,6 +456,8 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
 
   @override
   void handleSpaceKey(KeyboardEvent event) {
+    // Prevent any scrolling.
+    event?.preventDefault();
     _handleKeyboardTrigger();
   }
 
