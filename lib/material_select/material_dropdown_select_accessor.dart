@@ -26,7 +26,7 @@ class DropdownSelectValueAccessor extends BaseDropdownSelectValueAccessor
     implements ControlValueAccessor, OnDestroy {
   StreamSubscription _selectionChangesSub;
   DropdownSelectValueAccessor(MaterialDropdownSelectComponent select)
-      : super(select, new SelectionModel.withList());
+      : super(select, new SelectionModel.single());
 
   @override
   void registerOnChange(callback) {
