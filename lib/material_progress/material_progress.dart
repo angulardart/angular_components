@@ -12,7 +12,7 @@ import 'package:angular_components/utils/browser/feature_detector/feature_detect
 const String ARIA_VALUENOW_ATTR = "aria-valuenow";
 const Map<String, double> _indeterminateTiming = const {
   'duration': 2000.0,
-  'iterations': double.INFINITY
+  'iterations': double.infinity
 };
 
 /// The progress bars are for situations where the percentage completed can be
