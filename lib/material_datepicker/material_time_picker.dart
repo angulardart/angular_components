@@ -183,7 +183,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   String get dropdownText =>
       time != null ? renderTime(time) : dropdownPlaceholderMsg;
   TimeSelectionOptions timeOptions;
-  SelectionModel<DateTime> selectedTime = new SelectionModel.withList();
+  SelectionModel<DateTime> selectedTime = new SelectionModel.single();
   String timeInputText = "";
   String renderTime(DateTime time) => outputFormat.format(time);
 
