@@ -157,8 +157,8 @@ class MaterialDateTimePickerComponent implements HasDisabled {
   MaterialDateTimePickerComponent(@Inject(datepickerClock) this._clock) {
     // Init minDateTime and maxDateTime to sensible defaults.
     int year = _clock.now().toUtc().year;
-    minDateTime = new DateTime(year - 10, DateTime.JANUARY, 1, 0, 0);
-    maxDateTime = new DateTime(year + 10, DateTime.DECEMBER, 31, 23, 59);
+    minDateTime = new DateTime(year - 10, DateTime.january, 1, 0, 0);
+    maxDateTime = new DateTime(year + 10, DateTime.december, 31, 23, 59);
   }
 
   Date _date;

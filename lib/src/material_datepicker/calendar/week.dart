@@ -13,7 +13,7 @@ class CalendarWeek extends _HasHighlights {
   Date _end;
 
   CalendarWeek(this._start, CalendarState state,
-      [this._startingWeekday = DateTime.MONDAY])
+      [this._startingWeekday = DateTime.monday])
       : super(state) {
     _end = _start.add(days: numDays - 1);
     if (_end.isAfter(_endOfMonth)) {
