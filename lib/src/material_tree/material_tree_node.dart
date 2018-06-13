@@ -131,7 +131,7 @@ class MaterialTreeNode<T> {
   bool isExpanded(T option) => _expandedNodes.containsKey(option);
 
   /// Whether no selection is possible but the item is normally selectable.
-  bool get isReadOnly => _root.selection == const SelectionModel();
+  bool get isReadOnly => _root.selection == const SelectionModel.empty();
 
   /// Whether multiple items may be selected.
   bool get isMultiSelect => _root.selection is MultiSelectionModel;

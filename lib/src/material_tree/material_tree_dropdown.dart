@@ -104,7 +104,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   final bool optimizeForDropdown = true;
 
   MaterialTreeDropdownComponent(this._domService) {
-    selection = const SelectionModel();
+    selection = const SelectionModel.empty();
   }
 
   @Input()

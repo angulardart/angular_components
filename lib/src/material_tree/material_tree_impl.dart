@@ -66,7 +66,7 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   MaterialTreeComponent(@Optional() @SkipSelf() MaterialTreeRoot parentTreeRoot,
       @Optional() @Self() this.renderingOptions)
       : optimizeForDropdown = parentTreeRoot?.optimizeForDropdown == true {
-    selection = const SelectionModel();
+    selection = const SelectionModel.empty();
   }
 
   @Input()
@@ -143,7 +143,7 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   bool get showFlatCheck => selection is MultiSelectionModel;
 
   /// Whether to show a flat list of items without any selection.
-  bool get showFlatList => selection == const SelectionModel();
+  bool get showFlatList => selection == const SelectionModel.empty();
 
   /// Whether to show a flat list of items with single-selection.
   bool get showFlatRadio => !showFlatList && !showFlatCheck;
