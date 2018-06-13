@@ -10,8 +10,8 @@ import 'delegating_selection_model.dart';
 class RadioGroupSingleSelectionModel<T>
     extends DelegatingSingleSelectionModel<T> {
   RadioGroupSingleSelectionModel([T initialValue])
-      : super(new SelectionModel<T>.withList(
-            selectedValues: initialValue == null ? const [] : [initialValue]));
+      : super(new SelectionModel<T>.single(
+            selected: initialValue == null ? null : initialValue));
 
   @override
   void clear() {}
