@@ -186,7 +186,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     RelativePosition.AdjacentTopRight
   ];
 
-  final SelectionModel _defaultSelection = new SelectionModel.withList();
+  final SelectionModel _defaultSelection = new SelectionModel.single();
 
   final String popupId;
   final String inputId;
