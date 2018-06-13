@@ -107,13 +107,13 @@ class ScoreboardComponent implements OnInit, OnDestroy {
       case ScoreboardType.toggle:
       case ScoreboardType.radio:
       case ScoreboardType.custom:
-        _selectionModel = new SelectionModel.withList();
+        _selectionModel = new SelectionModel.single();
         break;
       case ScoreboardType.selectable:
-        _selectionModel = new SelectionModel.withList(allowMulti: true);
+        _selectionModel = new SelectionModel.multi();
         break;
       default:
-        _selectionModel = new SelectionModel();
+        _selectionModel = new SelectionModel.empty();
         break;
     }
     if (!_initialized) {
