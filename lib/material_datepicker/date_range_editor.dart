@@ -183,7 +183,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     nextPrevModel.update(_visibleMonth, minDate, maxDate);
   }
 
-  Date _minDate = new Date(1000, DateTime.JANUARY, 1);
+  Date _minDate = new Date(1000, DateTime.january, 1);
   Date get minDate => _minDate;
 
   ///  Dates later than `maxDate` cannot be chosen. Defaults to Dec 31, 9999.
@@ -194,7 +194,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     nextPrevModel.update(_visibleMonth, minDate, maxDate);
   }
 
-  Date _maxDate = new Date(9999, DateTime.DECEMBER, 31);
+  Date _maxDate = new Date(9999, DateTime.december, 31);
   Date get maxDate => _maxDate;
 
   final Element _elementRef;

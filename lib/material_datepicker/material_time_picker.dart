@@ -48,7 +48,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
         : _localTime(input.hour, input.minute);
   }
 
-  static final _unixEpoch = new DateTime(1970, DateTime.JANUARY, 1, 0, 0);
+  static final _unixEpoch = new DateTime(1970, DateTime.january, 1, 0, 0);
   static final _supportedTimeFormats = [
     new DateFormat.jm(),
     new DateFormat.Hm(),
