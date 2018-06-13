@@ -20,15 +20,15 @@ class PopupState extends Observable {
 
   /// Create a new, empty popup state (with defaults).
   factory PopupState(
-      {bool autoDismiss: true,
-      bool enforceSpaceConstraints: false,
-      bool matchMinSourceWidth: false,
-      int offsetX: 0,
-      int offsetY: 0,
-      Iterable preferredPositions: const [],
+      {bool autoDismiss = true,
+      bool enforceSpaceConstraints = false,
+      bool matchMinSourceWidth = false,
+      int offsetX = 0,
+      int offsetY = 0,
+      Iterable preferredPositions = const [],
       PopupSource source,
-      bool trackLayoutChanges: true,
-      bool constrainToViewport: true}) {
+      bool trackLayoutChanges = true,
+      bool constrainToViewport = true}) {
     return new PopupState._(new ObservableMap<Symbol, dynamic>.from({
       #autoDismiss: autoDismiss,
       #enforceSpaceConstraints: enforceSpaceConstraints,

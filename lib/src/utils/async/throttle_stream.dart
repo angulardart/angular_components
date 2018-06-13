@@ -28,6 +28,6 @@ import 'rate_limit.dart';
 /// above: the last discarded event is saved, and will be triggered once the
 /// throttling period expires.
 StreamTransformer<S, T> throttleStream<S, T>(Duration duration,
-        {bool guaranteeLast: true}) =>
+        {bool guaranteeLast = true}) =>
     new RateLimitTransformer<S, T>(
         duration, guaranteeLast ? throttleGuaranteeLast : throttle);

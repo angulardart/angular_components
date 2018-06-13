@@ -81,7 +81,7 @@ class PopupSourceDirective
   }
 
   @override
-  Stream<Rectangle<num>> onDimensionsChanged({bool track: false}) {
+  Stream<Rectangle<num>> onDimensionsChanged({bool track = false}) {
     return _popupSource?.onDimensionsChanged(track: track)?.distinct();
   }
 

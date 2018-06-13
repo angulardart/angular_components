@@ -248,7 +248,7 @@ class DateInputDirective implements OnDestroy {
   /// Returns null on success, or a localized error string on failure.
   /// - `setAsCurrent: bool` -- If true, and parsing succeeds, set the text
   ///   to the parsed date.
-  String _parseDate(String input, {bool setAsCurrent: false}) {
+  String _parseDate(String input, {bool setAsCurrent = false}) {
     if (input.trim().isEmpty) {
       // Empty input is invalid iff input is required
       _lastParse = null;
@@ -283,7 +283,7 @@ class DateInputDirective implements OnDestroy {
 
   /// Given an already parsed date, checks its validity and optionally sets it
   /// as the current value if valid.
-  String _trySetDate(Date date, {bool setAsCurrent: false}) {
+  String _trySetDate(Date date, {bool setAsCurrent = false}) {
     // Always update the textbox if the date parses successfully. This is useful
     // feedback for users even if the entered date is too early/late.
     if (setAsCurrent) {
@@ -322,7 +322,7 @@ class DateInputDirective implements OnDestroy {
   /// As of today, `44` probably means `1944`, but at some point in the future
   /// it'll start to mean `2044`. By default, we'll look 20 years into the
   /// future, so `44` will switch from meaning `1944` to `2044` in 2024.
-  int _guessCentury(int year, {int lookahead: 20}) {
+  int _guessCentury(int year, {int lookahead = 20}) {
     var currentYear = _clock.now().year;
     var currentCentury = currentYear ~/ 100;
     var guess = year + currentCentury * 100;

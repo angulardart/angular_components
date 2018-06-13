@@ -93,7 +93,7 @@ class MaterialInkTooltipComponent implements Tooltip {
   }
 
   @override
-  void deactivate({bool immediate: false}) {
+  void deactivate({bool immediate = false}) {
     _showPopup = false;
     _changeDetector.markForCheck();
   }

@@ -17,7 +17,8 @@ import 'package:angular_components/laminate/enums/alignment.dart';
 abstract class PopupSource {
   /// Create a [PopupSource] from a predefined location ([rectangle]).
   factory PopupSource.fromRectangle(Rectangle rectangle,
-      {Alignment alignX: Alignment.Start, Alignment alignY: Alignment.Start}) {
+      {Alignment alignX = Alignment.Start,
+      Alignment alignY = Alignment.Start}) {
     return new _RectanglePopupSource(rectangle,
         alignOriginX: alignX, alignOriginY: alignY);
   }
@@ -51,7 +52,7 @@ abstract class PopupSource {
   /// changes. This has some performance impact. See [DomService]. If [track]
   /// is false, the stream will only update when [alignOriginX] or
   /// [alignOriginY] change.
-  Stream<Rectangle> onDimensionsChanged({bool track: false});
+  Stream<Rectangle> onDimensionsChanged({bool track = false});
 
   /// The size of the source and its position relative to the viewport.
   Rectangle get dimensions;
@@ -87,7 +88,7 @@ class _RectanglePopupSource implements PopupSource {
       {this.alignOriginX, this.alignOriginY});
 
   @override
-  Stream<Rectangle> onDimensionsChanged({bool track: false}) {
+  Stream<Rectangle> onDimensionsChanged({bool track = false}) {
     // Track is ignored for this type, as it's assumed that the Rectangle is
     // immutable. If in the future we have an ObservableRectangle, then track
     // can be supported.

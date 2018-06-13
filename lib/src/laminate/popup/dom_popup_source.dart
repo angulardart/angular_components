@@ -27,8 +27,8 @@ class DomPopupSourceFactory {
 
   /// Returns a new [DomPopupSource] from [sourceElement].
   DomPopupSource createPopupSource(HtmlElement sourceElement,
-      {Alignment alignOriginX: Alignment.Start,
-      Alignment alignOriginY: Alignment.Start}) {
+      {Alignment alignOriginX = Alignment.Start,
+      Alignment alignOriginY = Alignment.Start}) {
     return new DomPopupSource(_asyncMeasureSize, sourceElement,
         alignOriginX: alignOriginX, alignOriginY: alignOriginY);
   }
@@ -39,7 +39,7 @@ class DomPopupSourceFactory {
   /// If [track] is set, will wait for DOM update notifications and respond if
   /// the measurement changes.
   Stream<Rectangle> _asyncMeasureSize(HtmlElement element,
-      {bool track: false}) {
+      {bool track = false}) {
     if (track) {
       return _domRuler.track(element);
     } else {
@@ -60,9 +60,9 @@ class DomPopupSource implements ElementPopupSource {
   /// Setting [alignOriginX] and [alignOriginY] is used for calculating what
   /// the x and y position should be.
   DomPopupSource(this._asyncMeasureSize, this.sourceElement,
-      {Alignment alignOriginX: Alignment.Start,
-      Alignment alignOriginY: Alignment.Start,
-      Point transform: const Point(0, 0)}) {
+      {Alignment alignOriginX = Alignment.Start,
+      Alignment alignOriginY = Alignment.Start,
+      Point transform = const Point(0, 0)}) {
     _alignOriginX = alignOriginX;
     _alignOriginY = alignOriginY;
   }
@@ -77,7 +77,7 @@ class DomPopupSource implements ElementPopupSource {
   Alignment get alignOriginY => _alignOriginY;
 
   @override
-  Stream<Rectangle<num>> onDimensionsChanged({bool track: false}) {
+  Stream<Rectangle<num>> onDimensionsChanged({bool track = false}) {
     return _asyncMeasureSize(sourceElement, track: track);
   }
 

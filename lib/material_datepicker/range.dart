@@ -93,10 +93,10 @@ abstract class DatepickerDateRange implements DateRange {
   proto.DatepickerDateRange toProtoBuf();
 
   factory DatepickerDateRange(String title, Date start, Date end,
-          {RangeFn next: _genericNext,
-          RangeFn prev: _genericPrev,
-          bool isPredefined: false,
-          bool isAllTime: false}) =>
+          {RangeFn next = _genericNext,
+          RangeFn prev = _genericPrev,
+          bool isPredefined = false,
+          bool isAllTime = false}) =>
       new _BasicDateRange(
           title, start, end, next, prev, isPredefined, isAllTime);
 

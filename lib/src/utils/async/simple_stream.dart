@@ -64,14 +64,14 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   /// List of streams to cleanup.
   static List<SimpleStream> _cleanupStreams = [];
 
-  SimpleStream({bool isSync: false, bool runInZone: false})
+  SimpleStream({bool isSync = false, bool runInZone = false})
       : _isSync = isSync,
         _runInZone = runInZone,
         super(const Stream.empty());
 
   SimpleStream.broadcast(
-      {bool isSync: false,
-      bool runInZone: false,
+      {bool isSync = false,
+      bool runInZone = false,
       SubscriptionChangeListener<T> onListen,
       SubscriptionChangeListener<T> onCancel})
       : _isSync = isSync,
@@ -265,8 +265,8 @@ class LastStateStream<T> extends SimpleStream<T> {
   T _lastItem;
 
   LastStateStream(
-      {bool isSync: false,
-      bool runInZone: false,
+      {bool isSync = false,
+      bool runInZone = false,
       SubscriptionChangeListener onListen,
       SubscriptionChangeListener onCancel})
       : super.broadcast(
