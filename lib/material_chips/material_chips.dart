@@ -51,7 +51,7 @@ class MaterialChipsComponent implements HasRenderer, OnDestroy {
   /// The list of `HasUIDisplayName` objects to render.
   //  TODO(google): update this to be selection, not selectionModel, in order
   //  to match SelectionModel properties from other components
-  SelectionModel _selectionModel = const SelectionModel();
+  SelectionModel _selectionModel = const SelectionModel.empty();
 
   @Input()
   set selectionModel(SelectionModel model) {
