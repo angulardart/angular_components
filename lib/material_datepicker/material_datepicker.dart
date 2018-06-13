@@ -129,7 +129,7 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
   Stream<Date> get dateChange => _controller.stream;
 
   void _setDateInternal(Date date,
-      {CausedBy cause: CausedBy.external, bool closePopup: true}) {
+      {CausedBy cause = CausedBy.external, bool closePopup = true}) {
     if (date == _date) return;
     _controller.add(date);
     _date = date;

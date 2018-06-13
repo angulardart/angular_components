@@ -229,7 +229,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
 
   /// Given a text, checks its validity and optionally sets it
   /// as the current value if valid, reverts to previous value if not valid.
-  DateTime _parseAndTrySetTime(String timeText, {bool setAsCurrent: false}) {
+  DateTime _parseAndTrySetTime(String timeText, {bool setAsCurrent = false}) {
     final parsed = _parseTime(timeText);
     if (setAsCurrent) {
       time = inputError == null ? parsed : _time;

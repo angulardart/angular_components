@@ -124,7 +124,7 @@ class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
   }
 
   @override
-  void deactivate({bool immediate: false}) {
+  void deactivate({bool immediate = false}) {
     _showPopup = false;
     _changeDetector.markForCheck();
   }

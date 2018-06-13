@@ -93,7 +93,7 @@ abstract class TooltipBehavior extends TooltipTarget {
   @HostListener('click')
   void onBlurOrClick() => hideTooltip();
 
-  void hideTooltip({bool immediate: false}) {
+  void hideTooltip({bool immediate = false}) {
     _show.cancel(); // Cancel any pending actions if tooltip is hidden early.
     _tooltipActivate.add(false);
     _tooltip?.deactivate(immediate: immediate);

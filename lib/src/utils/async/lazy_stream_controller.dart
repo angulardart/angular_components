@@ -24,14 +24,14 @@ class LazyStreamController<T> implements StreamController<T> {
   /// Creates a new [LazyStreamController] that will be a non-broadcast
   /// controller.
   factory LazyStreamController(
-      {void onListen(), void onCancel(), bool sync: false}) {
+      {void onListen(), void onCancel(), bool sync = false}) {
     return new LazyStreamController._(() => new StreamController<T>(
         onListen: onListen, onCancel: onCancel, sync: sync));
   }
 
   /// Creates a new [LazyStreamController] that will be a broadcast controller.
   factory LazyStreamController.broadcast(
-      {void onListen(), void onCancel(), bool sync: false}) {
+      {void onListen(), void onCancel(), bool sync = false}) {
     return new LazyStreamController._(() => new StreamController<T>.broadcast(
         onListen: onListen, onCancel: onCancel, sync: sync));
   }
@@ -75,7 +75,7 @@ class LazyStreamController<T> implements StreamController<T> {
   }
 
   @override
-  Future addStream(Stream<T> source, {bool cancelOnError: true}) {
+  Future addStream(Stream<T> source, {bool cancelOnError = true}) {
     return _initializeLazy().addStream(source, cancelOnError: cancelOnError);
   }
 

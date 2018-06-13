@@ -17,7 +17,7 @@ abstract class Tooltip {
   void activate();
 
   /// Deactivates this Tooltip.
-  void deactivate({bool immediate: false});
+  void deactivate({bool immediate = false});
 }
 
 /// A simple controller which ensures only one tooltip is visible on the screen.
@@ -84,7 +84,7 @@ class _ProxyTooltip implements Tooltip {
   }
 
   @override
-  void deactivate({bool immediate: false}) {
+  void deactivate({bool immediate = false}) {
     if (immediate) {
       _controller.deactivateImmediately(_tooltip);
     } else {
