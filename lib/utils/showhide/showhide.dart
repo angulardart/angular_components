@@ -18,11 +18,9 @@ import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
   selector: '[showhide]',
 )
 class ShowHideDirective implements OnInit, OnDestroy {
-  static const _hideClassLegacy = 'ng-hide';
   static const _hideClass = 'acx-showhide-hide';
-
-  static const _hiddenClassLegacy = 'ng-hidden';
   static const _hiddenClass = 'acx-showhide-hidden';
+
   // time after transition started, when acx-showhide-hidden is added forcefully
   static int _transitionTimeoutMs = 16;
 
@@ -75,9 +73,7 @@ class ShowHideDirective implements OnInit, OnDestroy {
     } else {
       _initialWritePending = true;
       _domService.scheduleWrite(() {
-        _element.classes.toggle(_hideClassLegacy, !value);
         _element.classes.toggle(_hideClass, !value);
-        _element.classes.toggle(_hiddenClassLegacy, !value);
         _element.classes.toggle(_hiddenClass, !value);
         _initialWritePending = false;
       });
@@ -87,11 +83,8 @@ class ShowHideDirective implements OnInit, OnDestroy {
   void _show() {
     _stopHiding();
     _domService.scheduleRead(() {
-      if (_initialWritePending ||
-          _element.classes.contains(_hiddenClassLegacy) ||
-          _element.classes.contains(_hiddenClass)) {
+      if (_initialWritePending || _element.classes.contains(_hiddenClass)) {
         _domService.scheduleWrite(() {
-          _element.classes.remove(_hiddenClassLegacy);
           _element.classes.remove(_hiddenClass);
         });
         // remove the ng-hide class in the next event loop, so that effects of
@@ -109,7 +102,6 @@ class ShowHideDirective implements OnInit, OnDestroy {
   void _removeNgHide() {
     if (_hiding) return;
     _domService.scheduleWrite(() {
-      _element.classes.remove(_hideClassLegacy);
       _element.classes.remove(_hideClass);
       _onShow.add(_element);
     });
@@ -143,7 +135,6 @@ class ShowHideDirective implements OnInit, OnDestroy {
   void _hide() {
     _hiding = true;
     _domService.scheduleWrite(() {
-      _element.classes.add(_hideClassLegacy);
       _element.classes.add(_hideClass);
       _onHide.add(_element);
     });
@@ -155,7 +146,6 @@ class ShowHideDirective implements OnInit, OnDestroy {
   void _hideIfHiding() {
     if (_hiding) {
       _domService.scheduleWrite(() {
-        _element.classes.add(_hiddenClassLegacy);
         _element.classes.add(_hiddenClass);
       });
       _onHideEnd.add(_element);
