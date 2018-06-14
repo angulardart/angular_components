@@ -28,15 +28,10 @@ class MenuPopupWrapper implements AcceptsWidth {
   Stream<bool> get isExpandedChange => _expanded.stream;
   final _expanded = new ObservableReference<bool>(false);
 
-  /// Width of the menu.
+  /// Selects 1 of 5 predefined width values for the menu.
   ///
-  /// Ignored if [menu] instance has a width set.
-  /// Preset width, 1 through 5. By default, the material list will expand to
-  /// its content. Note: The spec clearly lays out predefined list sizes so use
-  /// the default, expanding size, sparingly.
-  /// Each width multiplies the base block width (64px on desktop and tablet) by
-  /// [1.5, 3, 5, 6, 7], respectively to obtain a predictable width.
-  /// Set to 0 to have the list expand to fit its content.
+  /// Ignored if [menu] instance has a width set. See [AcceptsWidth.width] for
+  /// more details.
   int get width => menu?.width ?? _width;
 
   @override

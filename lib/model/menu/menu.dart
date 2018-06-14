@@ -12,8 +12,10 @@ import 'package:angular_components/model/a11y/active_item.dart';
 import 'package:angular_components/model/collection/combined_list.dart';
 import 'package:angular_components/model/collection/labeled_list.dart';
 import 'package:angular_components/model/observable/observable.dart';
+import 'package:angular_components/model/ui/accepts_width.dart';
 import 'package:angular_components/model/ui/display_name.dart';
 import 'package:angular_components/model/ui/icon.dart';
+import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 import 'menu_item_affix.dart';
@@ -68,7 +70,7 @@ class MenuItemGroup<T> extends LabeledList<T> {
 ///
 /// The items are organized into [MenuItemGroup] instances.
 /// IMPORTANT: menu model is immutable, since menu component are OnPush.
-class MenuModel<T> implements HasIcon {
+class MenuModel<T> implements HasIcon, AcceptsWidth {
   /// The groups of menu items.
   /// IMPORTANT this is immutable.
   final List<MenuItemGroup<T>> itemGroups;
@@ -85,27 +87,37 @@ class MenuModel<T> implements HasIcon {
   /// True if the menu has a tooltip.
   bool get hasTooltip => isNotEmpty(tooltipText);
 
+  int _width;
+
   /// Creates a menu model with the given menu groups list.
   ///
   /// If [icon] is given, it will appear on the button that opens the menu.
   MenuModel(List<MenuItemGroup<T>> itemGroups,
-      {this.icon, this.width, this.tooltipText})
-      : this.itemGroups = new List<MenuItemGroup<T>>.unmodifiable(itemGroups) {
-    assert(width == null || (width >= 1 && width <= 5));
+      {this.icon, int width, this.tooltipText})
+      : itemGroups = new List<MenuItemGroup<T>>.unmodifiable(itemGroups) {
+    this.width = width;
   }
 
-  MenuModel.flat(List<T> items, {this.icon, this.width, this.tooltipText})
-      : this.itemGroups = [new MenuItemGroup<T>(items)] {
-    assert(width == null || (width >= 1 && width <= 5));
+  /// Creates a simple menu model that contains no sub-menus.
+  MenuModel.flat(List<T> items, {this.icon, width, this.tooltipText})
+      : itemGroups = [new MenuItemGroup<T>(items)] {
+    this.width = width;
   }
 
-  /// Preset width, 1 through 5. By default, the material menu will expand to
-  /// its content. Note: The spec clearly lays out predefined menu sizes so use
-  /// the default, expanding size, sparingly.
-  /// Each width multiplies the base block width (64px on desktop and tablet) by
-  /// [1.5, 3, 5, 6, 7], respectively to obtain a predictable width.
-  /// Set to 0 to have the list expand to fit its content.
-  int width;
+  /// Selects 1 of 5 predefined width values.
+  ///
+  /// See [AcceptsWidth.width] for more details. Null by default.
+  int get width => _width;
+
+  @override
+  set width(val) {
+    if (val == null) {
+      _width = null;
+    } else {
+      _width = getInt(val);
+      assert(_width >= 0 && _width <= 5);
+    }
+  }
 }
 
 /// A menu item.
