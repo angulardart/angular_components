@@ -22,9 +22,23 @@
 }
 
 /// Changes the color of the checkbox.
-@mixin material-checkbox-color($color) {
-  &:not(.disabled) ::ng-deep .icon-container .icon.filled {
-    color: $color;
+///
+/// Optional parameter $modifier is used for changing the color of certain
+/// material-checkbox components rather than all material-checkbox components.
+// TODO(google): Remove $include-in-checkbox parameter once all checkboxes
+//                  are migrated.
+@mixin material-checkbox-color($color,
+                               $modifier: '',
+                               $include-in-checkbox: true) {
+  @if ($include-in-checkbox == false or $modifier != '') {
+    ::ng-deep material-checkbox#{$modifier}:not(.disabled)
+        .icon-container .icon.filled {
+      color: $color;
+    }
+  } @else {
+    &:not(.disabled) ::ng-deep .icon-container .icon.filled {
+      color: $color;
+    }
   }
 }
 
