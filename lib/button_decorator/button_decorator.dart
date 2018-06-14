@@ -39,11 +39,9 @@ class ButtonDirective extends RootFocusable
   String _hostTabIndex;
   String _role;
   String _ariaRole;
-  final Element _element;
 
   ButtonDirective(Element element, @Attribute('role') String role)
       : _role = role,
-        _element = element,
         super(element);
 
   @Input()
