@@ -101,4 +101,8 @@ class MaterialFabComponent extends MaterialButtonBase {
 
   @HostBinding('attr.animated')
   static const String hostAnimated = 'true';
+
+  // Unused in M1.
+  @Input()
+  String ariaLabel;
 }
