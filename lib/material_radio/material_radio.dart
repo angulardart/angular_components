@@ -8,8 +8,8 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
-import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_radio/material_radio_group.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
@@ -217,7 +217,7 @@ class MaterialRadioComponent extends RootFocusable
     _disposer.dispose();
   }
 
-  // Unimplemented for M2.
+  // Unimplemented in M1.
   Future get focusDelegate async => null;
   String radioGroupName;
   set radioInputElement(HtmlElement _) {}
