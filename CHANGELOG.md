@@ -1,3 +1,40 @@
+## 0.9.0-alpha+15
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-alpha+15. The alpha tag represents the evolving nature of the
+> AngularDart API, not code quality (5.0.0-alpha+15 is used in production Google
+> apps).
+
+ * Update dependencies for compatibility with Dart SDK v2.0.0-dev.62.0.
+ * Material Button: Remove styles for vertically aligned icon with text buttons.
+ * Material Checkbox: Add `material-checkbox-color` mixin and deprecate
+   `material-checkbox-theme`.
+ * Material Datepicker: Use updated class names for `ShowHideDirective`.
+ * Material Expansion Panel: Add a mixin to show header actions on the bottom
+   instead of on the left.
+ * Material Popup: Automatically restore focus on the popup source element when
+   user tabs out.
+ * Material Progress: Add height with rounded possibility for material progress
+   bar.
+ * Material Select:
+   * Update to `activedescendant` ARIA pattern for a11y.
+   * Ensure button text displays correctly when there the error message shows
+     below it.
+ * Material Slider:
+   * Add disabled property.
+   * Update size of click target.
+ * Material Radio:
+   * Add `role` attribute.
+   * Add `material-radio-color` mixin and deprecate `material-radio-theme`.
+ * Add DI modules to Laminate Overlay & Popup components.
+ * Update to `SelectionModel.single()`, `SelectionModel.multi()` etc. instead of
+   deprecated `SelectionModel.withList()`.
+ * Remove explicit `Visibility.local` from Angular components and directives, as
+   this is the default now.
+ * Remove legacy CSS class names used by `ShowHideDirective` that conflict with
+   Angular JS apps.
+ * Style updates for new additions to Effective Dart.
+
 ## 0.9.0-alpha+14
 
 > NOTE: This code is considered production quality, but depends on angular:
@@ -16,7 +53,7 @@
    * Fix focus bug when clicking on a different focusable element.
  * Add new CSS class names used by `ShowHideDirective` to avoid conflicts with
    Angular JS apps.
- * Only focus when `_autoFocus` is `true` when using `AutoFocusDirective`.
+ * Only focus when `autoFocus` is `true` when using `AutoFocusDirective`.
  * Update various components to use finals for `Intl.message`s to improve
    performance.
  * Update `PopupHierarchy` to better handle cases with multiple modals.
