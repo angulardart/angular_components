@@ -29,9 +29,6 @@ $button-hovered-background: rgba(158, 158, 158, .20);
 $button-disabled-color-dark: rgba(255, 255, 255, $mat-dark-opacity-lightest);
 $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 
-// TODO(google): Eventually move to _typography.
-$mat-font-size-icon-label: 8px;
-
 // Private used for external mixin, and button-base only.
 @mixin _button-raised {
   @include material-shadow;
@@ -183,22 +180,6 @@ $mat-font-size-icon-label: 8px;
 
     .content {
       padding: $mat-grid;
-    }
-
-    // @deprecated. Please use the vertical-icon-button mixin instead.
-    &[vertical] {
-      font-size: $mat-font-size-icon-label;
-
-      .content {
-        flex-direction: column;
-
-        ::ng-deep > {
-          material-icon,
-          glyph {
-            margin-bottom: $mat-grid-type;
-          }
-        }
-      }
     }
   }
 
