@@ -11,6 +11,11 @@ import 'base_material_input.dart';
 
 /// [ControlValueAccessor] for [MaterialInputComponent] that updates on
 /// keypress.
+///
+/// Note: This is less accessible since any errors that are produced by the
+/// input are shown immediately which is distracting when using a screen reader.
+/// instead please consider using [blurUpdate] which only shows errors after
+/// a blur event.
 // TODO(google): Migrate away from this being the default accessor.
 @Directive(
   selector: 'material-input:not([blurUpdate]):not([changeUpdate])',
