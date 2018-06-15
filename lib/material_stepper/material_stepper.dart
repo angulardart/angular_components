@@ -60,8 +60,8 @@ class MaterialStepperComponent {
   @HostBinding('class')
   static const hostClass = 'themeable';
 
-  static const DEFAULT_ORIENTATION = HORIZONTAL;
-  static const DEFAULT_SIZE = SIZE_DEFAULT;
+  static const defaultOrientation = horizontal;
+  static const defaultSize = sizeDefault;
   List<StepDirective> steps = [];
 
   int activeStepIndex;
@@ -69,8 +69,8 @@ class MaterialStepperComponent {
 
   String _noText = _cancelMsg;
 
-  var _orientation = DEFAULT_ORIENTATION;
-  var _size = DEFAULT_SIZE;
+  var _orientation = defaultOrientation;
+  var _size = defaultSize;
   var _legalJumps;
 
   HtmlElement _stepperNativeElement;
@@ -154,7 +154,7 @@ class MaterialStepperComponent {
   /// 'horizontal' and 'vertical' (default).
   @Input()
   set orientation(String s) {
-    assert(Orientations.contains(s));
+    assert(orientations.contains(s));
     _orientation = s;
   }
 
@@ -163,7 +163,7 @@ class MaterialStepperComponent {
   /// 'default' (default) and 'mini'.
   @Input()
   set size(String s) {
-    assert(Sizes.contains(s));
+    assert(sizes.contains(s));
     _size = s;
   }
 
@@ -172,7 +172,7 @@ class MaterialStepperComponent {
   /// while for others, it is more natural if the step content is laid out
   /// together with its other DOM elements (vertical, default-size).
   bool get shouldInlineContent =>
-      orientation == VERTICAL && size == SIZE_DEFAULT;
+      orientation == vertical && size == sizeDefault;
 
   String get noText => _noText;
 
@@ -198,7 +198,7 @@ class MaterialStepperComponent {
   /// 'all' (any jump allowed, regardless of the step state).
   @Input()
   set legalJumps(String s) {
-    assert(Jumps.contains(s));
+    assert(jumps.contains(s));
     _legalJumps = s;
     _recalculatePropertiesOfSteps();
   }
@@ -267,13 +267,13 @@ class MaterialStepperComponent {
       }
 
       switch (_legalJumps) {
-        case ALL:
+        case all:
           s.isSelectable = !s.active;
           break;
-        case NONE:
+        case none:
           s.isSelectable = false;
           break;
-        case BACKWARDS:
+        case backwards:
           s.isSelectable = i < activeStepIndex;
       }
       i++;

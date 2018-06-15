@@ -2,16 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-const String HORIZONTAL = 'horizontal';
-const String VERTICAL = 'vertical';
-const String SIZE_DEFAULT = 'default';
-const String SIZE_MINI = 'mini';
-const String ALL = 'all';
-const String BACKWARDS = 'backwards';
-const String NONE = 'none';
+const horizontal = 'horizontal';
+const vertical = 'vertical';
+const sizeDefault = 'default';
+const sizeMini = 'mini';
+const all = 'all';
+const backwards = 'backwards';
+const none = 'none';
 
-const Orientations = const <String>[HORIZONTAL, VERTICAL];
+const orientations = const [horizontal, vertical];
 
-const Sizes = const <String>[SIZE_DEFAULT, SIZE_MINI];
+const sizes = const [sizeDefault, sizeMini];
 
-const Jumps = const <String>[ALL, BACKWARDS, NONE];
+const jumps = const [all, backwards, none];
