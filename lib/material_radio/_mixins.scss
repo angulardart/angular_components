@@ -9,6 +9,8 @@
 ///         $primary-color: $mat-teal-500,
 ///         $selector: '.custom-area');
 @mixin material-radio-theme($primary-color, $selector: '') {
+  @warn 'This mixin is deprecated. Please use material-radio-color().';
+
   ::ng-deep #{$selector} material-radio.themeable:not(.disabled) {
     .icon-container.checked {
       .icon,
@@ -18,3 +20,25 @@
     }
   }
 }
+
+/// Changes the color of the radio button.
+///
+/// Optional parameter $modifier is used for changing the color of certain
+/// material-radio components rather than all material-radio components.
+@mixin material-radio-color(
+    $primary-color, $focus-indicator-color: $primary-color, $modifier: '') {
+  ::ng-deep material-radio#{$modifier}:not(.disabled) .icon-container {
+    &.checked .icon {
+      color: $primary-color;
+    }
+
+    .ripple {
+      color: $focus-indicator-color;
+    }
+
+    &.focus::after {
+      background-color: $focus-indicator-color;
+    }
+  }
+}
+
