@@ -5,10 +5,9 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
-
-import 'fixed_material_tab_strip.dart';
-import 'material_tab.dart';
-import 'tab_change_event.dart';
+import 'package:angular_components/material_tab/fixed_material_tab_strip.dart';
+import 'package:angular_components/material_tab/material_tab.dart';
+import 'package:angular_components/material_tab/tab_change_event.dart';
 
 /// A component that creates a tab panel with navigation bar on the top.
 ///
@@ -38,7 +37,7 @@ class MaterialTabPanelComponent implements AfterContentInit {
   static const hostClass = 'themeable';
 
   final ChangeDetectorRef _changeDetector;
-  bool _initialzed = false;
+  bool _initialized = false;
   Tab _previousActiveTab;
 
   /// Stream of [TabChangeEvent] instances, published before the tab has
@@ -83,7 +82,7 @@ class MaterialTabPanelComponent implements AfterContentInit {
 
   @override
   void ngAfterContentInit() {
-    _initialzed = true;
+    _initialized = true;
     _initTabs();
   }
 
@@ -93,7 +92,7 @@ class MaterialTabPanelComponent implements AfterContentInit {
     _tabs = tabs;
     // TODO(google): Remove if setting of content children occur after
     // child is initialized.
-    if (_initialzed) _initTabs();
+    if (_initialized) _initTabs();
   }
 
   void _initTabs() {
