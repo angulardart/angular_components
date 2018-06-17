@@ -21,7 +21,7 @@ import 'tooltip_target.dart';
 /// Typically, the tooltips are associated with an icon or a button and provide
 /// a label or brief helper text about that element. This component should be
 /// used with a [TooltipTarget] component which controls its visibility
-/// and provides the underlying [ElementRef] at which the tooltip is targeted.
+/// and provides the underlying [HtmlElement] at which the tooltip is targeted.
 ///
 /// Use this component in conjunction with the [MaterialTooltipTargetDirective].
 ///
