@@ -30,34 +30,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///   last option that's not disabled, depending on direction, otherwise focus
 ///   goes to the selected (except when disabled, then skips group entirely);
 ///   and jumps out of the group on second tab.
-///
-/// __Example usage:__
-///
-/// Checked status is set on individual radio, only listen to selection at
-/// group level.
-///
-/// ```html
-///   <material-radio-group [selectionModel]="mySingleSelectionModel">
-///     <material-radio [checked]="true"
-///                     [value]="option0">default choice
-///     </material-radio>
-///     <material-radio [checked]="false"
-///                     [value]="option1">alternative choice
-///     </material-radio>
-///   </material-radio-group>
-/// ```
-///
-/// Selection of the value is done at group level, can also be done
-/// via [ngModel].
-///
-/// ```html
-///   <material-radio-group [(selected)]="selectedOption">
-///     <material-radio [value]="option0">default choice
-///     </material-radio>
-///     <material-radio [value]="option1">alternative choice
-///     </material-radio>
-///   </material-radio-group>
-/// ```
 @Component(
   selector: 'material-radio-group',
   template: '<ng-content></ng-content>',
@@ -162,7 +134,7 @@ class MaterialRadioGroupComponent
     });
   }
 
-  /// Published when selection changes
+  /// Published when selection changes. Prefer `(ngModelChanged)`.
   @Output('selectedChange')
   Stream<dynamic> get onChange => _onChange.stream;
   final _onChange = new StreamController<dynamic>.broadcast();
@@ -187,7 +159,7 @@ class MaterialRadioGroupComponent
   dynamic _preselectedValue;
   bool _isContentInit = false;
 
-  /// Value of currently selected radio.
+  /// Value of currently selected radio. Prefer `[ngModel]`.
   @Input()
   set selected(dynamic selectedValue) {
     if (_radioComponents != null && _isContentInit) {
