@@ -17,46 +17,6 @@ export 'material_list_size.dart';
 /// The `MaterialListComponent` class acts as the root node for a list
 /// providing styling and the ability to collect item events.
 ///
-/// __Example usage:__
-///
-///     <material-list size="medium">
-///       <material-list-item>Item 1</material-list-item>
-///       <material-list-item>Item 2</material-list-item>
-///     </material-list>
-///
-/// __List Item Grouping:__
-///
-/// Wrap `material-list-item` elements in a container with attribute
-/// `group` for a divider line between other groupings.
-///
-///     <material-list>
-///       <div group>
-///         <material-list-item>Item</material-list-item>
-///         <material-list-item>Item</material-list-item>
-///         <material-list-item>Item</material-list-item>
-///       </div>
-///       <material-list-item>Item</material-list-item>
-///       <material-list-item>Item</material-list-item>
-///       <div group>
-///         <material-list-item>Item</material-list-item>
-///         <material-list-item>Item</material-list-item>
-///         <material-list-item>Item</material-list-item>
-///       </div>
-///     <material-list>
-///
-/// __List Item Group Labels:__
-///
-/// Denote the label for a list item group using the `label` attribute.
-///
-///     <material-list>
-///       <div group>
-///         <div label>My Menu Group</div>
-///         <material-list-item>Item</material-list-item>
-///         <material-list-item>Item</material-list-item>
-///         <material-list-item>Item</material-list-item>
-///       </div>
-///     </material-list>
-///
 /// __Attributes:__
 ///
 /// - `size: string {x-small, small, medium, large, x-large}` Sizes for the
@@ -72,17 +32,19 @@ export 'material_list_size.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialListComponent implements AcceptsWidth {
-  @HostBinding('attr.size')
-  @Input()
-  String size = MaterialListSize.auto;
-
   /// Preset width, 1 through 5. By default, the material list will expand to
-  /// the full width of its parent. Note: The spec clearly lays out predefined
+  /// the full width of its parent.
+  ///
+  /// Note: The spec clearly lays out predefined
   /// list sizes so use the default, expanding size, sparingly.
   /// Each width multiplies the base block width (64px on desktop and tablet) by
   /// [1.5, 3, 5, 6, 7], respectively to obtain a predictable width.
   /// Set to 0 to have the list expand to the full width of its parent.
-  @Deprecated('Use size attribute instead.')
+  @HostBinding('attr.size')
+  @Input()
+  String size = MaterialListSize.auto;
+
+  @Deprecated('Use size input instead.')
   @Input()
   set width(val) {
     val = getInt(val);

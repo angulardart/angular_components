@@ -35,11 +35,13 @@ abstract class DropdownHandle {
 /// - `DeferredContentAware` -- Provides a means to lazily create/attach
 ///   content.
 class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
+  /// Fired when the dropdown's visibility changes.
   @Output('visibleChange')
   Stream<bool> get visibleStream => _visibleStream.stream;
   final _visibleStream = new StreamController<bool>.broadcast(sync: true);
   final _contentVisible = new StreamController<bool>.broadcast(sync: true);
 
+  /// Avoid rendering drop down offscreen.
   @Input()
   bool enforceSpaceConstraints = false;
 
@@ -55,10 +57,14 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   @Input()
   String slide;
 
+  /// Whether the popup should close when the document pressed.
   bool autoDismiss = true;
 
   bool _visible = false;
+
   bool get visible => _visible;
+
+  /// Whether the dropdown is visible.
   @Input()
   set visible(bool value) {
     bool vis = value;
