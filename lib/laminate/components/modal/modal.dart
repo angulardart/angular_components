@@ -194,6 +194,9 @@ class ModalComponent
 
   @override
   void ngOnDestroy() {
+    if (visible) {
+      _hideModalOverlay();
+    }
     _isDestroyed = true;
     _disposer.dispose();
   }
