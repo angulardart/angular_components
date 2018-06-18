@@ -170,6 +170,13 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   /// 'button'.
   final String buttonAriaRole;
 
+  /// The id of an element that describes the selection in the dropdown button.
+  ///
+  /// For example, a text element that says "results per page" for a dropdown
+  /// with numerical options.
+  @Input()
+  String buttonAriaLabelledBy;
+
   /// Listener for options changes.
   StreamSubscription _optionsListener;
 
