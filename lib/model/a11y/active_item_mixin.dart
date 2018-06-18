@@ -26,6 +26,7 @@ abstract class ActiveItemMixin {
   @HostBinding('class.active')
   bool get active => _active;
 
+  /// Marks item as active from keyboard selection.
   @Input()
   set active(bool value) {
     if (value == _active) return;

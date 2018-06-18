@@ -30,7 +30,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
 class ButtonDirective extends RootFocusable
     with HasTabIndex
     implements OnInit, HasDisabled {
-  /// Will emit Event on mouse click or keyboard activation.
+  /// Will emit a `UIEvent` on mouse click or keyboard activation.
   @Output()
   Stream<UIEvent> get trigger => _trigger.stream;
 
@@ -44,6 +44,7 @@ class ButtonDirective extends RootFocusable
       : _role = role,
         super(element);
 
+  /// Role of this component used for a11y.
   @Input()
   set role(String value) {
     assert(ariaRole == null, 'Role can only be set before initialization.');
@@ -62,18 +63,18 @@ class ButtonDirective extends RootFocusable
   @HostBinding('attr.aria-disabled')
   String get disabledStr => '$disabled';
 
-  /// Is the button disabled.
+  /// Is the component disabled.
   @HostBinding('class.is-disabled')
   @Input()
   bool disabled = false;
 
-  /// Is the button tabbable.
+  /// Is the component tabbable.
   @Input()
   bool tabbable = true;
 
   String get hostTabIndex => tabbable && !disabled ? _hostTabIndex : '-1';
 
-  /// The tab index of the button.
+  /// The tab index of the component.
   ///
   /// The value is used if [tabbable] is `true` and [disabled] is `false`.
   @Input()

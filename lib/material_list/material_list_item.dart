@@ -16,31 +16,11 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// `:hover` styling and emits and `trigger` event when the user clicks or
 /// presses `enter` or `space` keys.
 ///
-/// See [MaterialListComponent] for item **grouping** and **labelling**.
+/// See `MaterialListComponent` for item **grouping** and **labelling**.
 ///
 /// Note: If the material-list-item has a [DropdownHandle] in its ancestry, the
 /// dropdown will be closed on triggering (i.e. clicking or pressing enter/space
 /// on) the list item if [closeOnActivate] is true.
-///
-/// __Example usage:__
-///
-///     <material-list>
-///       <material-list-item (trigger)="select(1)">Item 1</material-list-item>
-///       <material-list-item (trigger)="select(2)">Item 2</material-list-item>
-///     </material-list>
-///
-/// __Properties:__
-///
-/// - `disabled:bool` -- disables the trigger and gives item a disabled style.
-/// - `active:bool` -- marks item as active from keyboard selection.
-/// - `closeOnActivate:bool` -- causes dropdown to be closed on activation.
-///   True by default.
-///
-/// __Events:__
-///
-/// - `trigger:MouseEvent|KeyboardEvent` -- fired when either mouse is clicked
-///   or __enter__ or __space__ keys are pressed.
-///
 // TODO(google): should activate/deactivate on mouse hover
 @Component(
   selector: 'material-list-item',
@@ -87,7 +67,13 @@ class MaterialListItemComponent extends ButtonDirective
   @override
   bool get disabled => super.disabled;
 
-  /// Whether the encompassing dropdown should be close on selecting
+  /// Disables the trigger and gives item a disabled style.
+  // Overridden just to give a better doc-comment;
+  @override
+  @Input()
+  set disabled(bool value) => super.disabled = value;
+
+  /// Whether the encompassing dropdown should close on selection of
   /// this item.
   @Input()
   bool closeOnActivate = true;
