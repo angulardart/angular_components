@@ -9,27 +9,6 @@ import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// A __chips__ collection widget, displaying a list of objects as Chips.
-///
-/// __Example usage:__
-///
-///     <!-- Selection Model -->
-///     <material-chips [selectionModel]="mySelectedChips">
-///     </material-chips>
-///
-///
-///     <!-- Static Chips -->
-///     <material-chips>
-///       <material-chip>My Chip</material-chip>
-///       <material-chip>Another Chip</material-chip>
-///     </material-chips>
-///
-/// __Inputs:__
-///
-/// - `itemRenderer: ItemRenderer` -- A rendering function to render selection
-///    models as a string.
-/// - `removable` -- Whether the chips can be removed.
-/// - `selectionModel: SelectionModel` -- The selection model this component
-///   controls.
 @Component(
   selector: 'material-chips',
   providers: const [
@@ -53,6 +32,7 @@ class MaterialChipsComponent implements HasRenderer, OnDestroy {
   //  to match SelectionModel properties from other components
   SelectionModel _selectionModel = const SelectionModel.empty();
 
+  /// The selection model this component controls.
   @Input()
   set selectionModel(SelectionModel model) {
     _selectionModel = model;
