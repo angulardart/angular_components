@@ -22,17 +22,6 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// When hasLeftIcon is true, the left-icon content should be set to a
 /// `MaterialIconComponent` or an SVG image.
 /// Chip components are rendered in a `material-chips` component.
-///
-/// __Example usage:__
-///
-///     <!-- plain chip -->
-///     <material-chip>Chip Text Here</material-chip>
-///     <!-- chip using model-->
-///     <material-chip model="myChip"></material-chip>
-///     <!-- Chip which can be removed from a selection -->
-///     <material-chip model="myChip" selectionModel="selectionModel"></material-chip>
-///     <!-- Chip with custom delete action -->
-///     <material-chip model="myChip" (remove)="myChips.remove(myChip)"></material-chip>
 @Component(
   selector: 'material-chip',
   providers: const [
@@ -72,7 +61,7 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
   @Input()
   bool hasLeftIcon = false;
 
-  /// An [ItemRenderer] function (takes an object and returns a string).
+  /// An `ItemRenderer` function (takes an object and returns a string).
   ///
   /// If ItemRenderer is not state-less, and may return different values for
   /// the same input item, then the ItemRenderer reference needs to update, or
