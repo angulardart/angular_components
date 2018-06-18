@@ -13,6 +13,7 @@ import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/mixins/button_wrapper.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 /// A button styled specifically for dropdowns.
 ///
@@ -109,6 +110,24 @@ class DropdownButtonComponent extends Object
   /// The id of the active element of the dropdown.
   @Input()
   String ariaActiveDescendant;
+
+  /// A unique id for the button element.
+  final String uuid = new SequentialIdGenerator.fromUUID().nextId();
+
+  String _ariaLabelledBy;
+
+  /// The id of an element that additionally describes the button.
+  ///
+  /// For example, a text element that says "results per page" for a dropdown
+  /// with numerical options.
+  @Input()
+  set ariaLabelledBy(String labelledBy) => _ariaLabelledBy = labelledBy;
+
+  /// The aria-labelledby value to apply to the button, or null.
+  ///
+  /// Must also include the id of the button to read both.
+  String get ariaLabelledBy =>
+      _ariaLabelledBy == null ? null : '$_ariaLabelledBy $uuid';
 
   bool get invalid => error != null;
 

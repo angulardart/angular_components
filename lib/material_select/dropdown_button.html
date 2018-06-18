@@ -5,10 +5,12 @@
 -->
 <div buttonDecorator
      keyboardOnlyFocusIndicator
+     [attr.id]="uuid"
      class="button"
      (focus)="handleFocus($event)"
      (blur)="handleBlur($event)"
      [attr.aria-label]="buttonAriaLabel"
+     [attr.aria-labelledby]="ariaLabelledBy"
      [class.border]="showButtonBorder"
      [class.invalid]="invalid"
      [disabled]="disabled"
