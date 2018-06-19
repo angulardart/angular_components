@@ -14,63 +14,15 @@ import 'package:angular_components/utils/browser/events/events.dart';
 import 'package:angular_components/utils/color/color.dart';
 import 'package:angular_components/utils/color/palette.dart';
 
-/// ACUX standalone scorecard component.
+/// Standalone scorecard component.
 ///
 /// This component is meant to be reused/embedded in larger components.
 ///
-/// __Example usage:__
+/// __ng-content:__
 ///
-///      <acx-scorecard
-///          label="Estimated earnings"
-///          value="$158.22"
-///          description="+$24.20 (15%)"
-///          suggestionAfter="of last quarter"
-///          changeType="POSITIVE">
-///      </acx-scorecard>
-///
-/// To make a scorecard `selectable`, simply flip on the flag. Then [selected]
-/// can be used to change and be notified of changes to the selection state:
-///
-///     <acx-scorecard
-///         selectable
-///         label="Estimated earnings"
-///         value="$158.22"
-///         [(selected)]="isSelected">
-///     </acx-scorecard>
-///
-/// To right-align the text in a scorecard add the CSS class 'right-align':
-///
-///     <acx-scorecard class="right-align"></acx-scorecard>
-///
-/// Content projection can also be used with the <name> element to insert custom
-/// content into the label area, with <value> to insert custom content into
-/// the value area, or with <description> to insert custom content into the
-/// description area:
-///
-///     <acx-scorecard ...>
-///       <name>Estimated earnings <i>(NEW)</i></name>
-///       <value><glyph icon="mode_edit"></glyph></value>
-///       <description><b>On track</b></description>
-///     </acx-scorecard>
-///
-/// __Inputs:__
-///
-/// - `label: String` -- The title of the scorecard.
-/// - `value: String` -- The value of the scorecard.
-/// - `description: String` -- Short description of the scorecard.
-/// - `changeGlyph: bool` -- Whether to display a small change arrow glyph in
-///   the description.
-/// - `suggestionBefore: String` -- Suggestion text before the description.
-/// - `suggestionAfter: String` -- Suggestion text after the description.
-/// - `extraBig: bool` -- Whether to use a larger class style.
-/// - `changeType: String` -- The type of change: POSITIVE, NEGATIVE, NEUTRAL.
-/// - `selectable: bool` -- Whether a scorecard is selectable.
-/// - `selected: bool` -- Whether the scorecard is selected.
-/// - `selectedColor: Color` -- Color to apply to the selected scorecard.
-///
-/// __Outputs:__
-///
-/// - `selectedChange` -- Fired when selection state changes.
+/// - `name` -- Custom content in the label area.
+/// - `value` -- Custom content in the value area.
+/// - `description` -- Custom content in the description area.
 @Component(
   selector: 'acx-scorecard',
   directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
@@ -180,10 +132,10 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   @Input()
   bool selected = false;
 
-  /// Whether the selection state of the scorecard can be changed by clicking.
   @HostBinding('class.selectable')
   bool get selectable => _selectable;
 
+  /// Whether the selection state of the scorecard can be changed by clicking.
   @Input()
   set selectable(bool selectable) {
     _selectable = selectable;
