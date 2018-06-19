@@ -21,34 +21,10 @@ import 'package:angular_components/src/scorecard/scorecard_bar.dart';
 ///
 /// This component manages a row of scorecards.
 ///
-/// __Example usage:__
+/// __Attributes:__
 ///
-///      <acx-scoreboard scrollable [type]="toggle">
-///        <acx-scorecard
-///            label="Estimated earnings"
-///            value="$158.22"
-///            description="+$24.20 (15%)"
-///            changeType="positive">
-///        </acx-scorecard>
-///        <acx-scorecard
-///            label="Ad RPM"
-///            value="$0.58"
-///            description="-$0.02 (3%)"
-///            changeType="negative">
-///        </acx-scorecard>
-///      </acx-scoreboard>
-///
-/// __Inputs:__
-///
-/// - `type: ScoreboardType` -- Type of scoreboard, e.g., standard, selectable,
-///   radio, toggle.
 /// - `enableUniformWidths: bool` -- Whether scorecards in the scoreboard
 ///   should have uniform widths.
-/// - `scrollable: bool` -- Whether the scoreboard is scrollable.
-/// - `resetOnCardChanges` -- Whether to reset the card selection when there are
-///   card changes.
-/// - `isVertical: bool` -- Whether the scorecard is displayed vertically.
-///   Defaults to false.
 @Component(
   selector: 'acx-scoreboard',
   directives: const [
@@ -135,6 +111,7 @@ class ScoreboardComponent implements OnInit, OnDestroy {
         _scorecardBar.refreshStream.listen((_) => _refreshArrows()));
   }
 
+  /// Type of scoreboard, e.g., standard, selectable, radio, toggle.
   @Input()
   ScoreboardType type = ScoreboardType.standard;
 
