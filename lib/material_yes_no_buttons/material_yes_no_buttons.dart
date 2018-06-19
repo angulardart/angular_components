@@ -140,6 +140,7 @@ class MaterialYesNoButtonsComponent implements HasDisabled {
       meaning: 'Text on no button.');
 }
 
+/// Provides messages from yes/no buttons to be Save/Cancel.
 @Directive(
   selector: 'material-yes-no-buttons[saveCancel]',
   visibility: Visibility.all,
@@ -157,6 +158,7 @@ class MaterialSaveCancelButtonsDirective {
       desc: 'Text on cancel button.', meaning: 'Text on cancel button.');
 }
 
+/// Provides default messages from yes/no buttons to be Submit/Cancel.
 @Directive(
   selector: 'material-yes-no-buttons[submitCancel]',
   // TODO(google): Change to `Visibility.local` to reduce code size.
