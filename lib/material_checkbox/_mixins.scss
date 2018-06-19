@@ -29,10 +29,16 @@
 //                  are migrated.
 @mixin material-checkbox-color($color,
                                $modifier: '',
-                               $include-in-checkbox: false) {
-  ::ng-deep material-checkbox#{$modifier}:not(.disabled)
-      .icon-container .icon.filled {
-    color: $color;
+                               $include-in-checkbox: true) {
+  @if ($include-in-checkbox == false or $modifier != '') {
+    ::ng-deep material-checkbox#{$modifier}:not(.disabled)
+        .icon-container .icon.filled {
+      color: $color;
+    }
+  } @else {
+    &:not(.disabled) ::ng-deep .icon-container .icon.filled {
+      color: $color;
+    }
   }
 }
 
