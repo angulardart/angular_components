@@ -35,33 +35,9 @@ const indeterminateAriaState = 'mixed';
 /// should only be interactible with SPACE, while button is for both SPACE and
 /// ENTER.
 ///
-/// __Properties:__
-///
-/// - `checked: bool` -- Whether the checkbox should be selected.
-/// - `disabled: bool` -- Whether the checkbox should not respond to events, and
-///   have a style that suggests that interaction is not allowed.
-/// - `readOnly: bool` -- Whether the checkbox can be changed by user
-///   interaction.
-/// - `indeterminate: bool` -- Whether the checkbox should be set to mixed
-///   state.
-/// - `indeterminateToChecked: bool` -- Whether the checkbox should go to
-///    checked state or unchecked when toggled from indeterminate state.
-/// - `label: String` -- Label for the checkbox, alternatively use content.
-/// - `themeColor: String` -- Color of the checkbox and ripple when checked.
-///    Example: '#FF00FF'. By default it is $mat-blue-500.
-///    Note that the themeColor is applied to the checkbox even when the box is
-///    unchecked, which deviates from the standard material spec. Use mixin to
-///    set themeColor unless you want this behavior.
-///
 /// __Attributes:__
 ///
 /// - `no-ink` -- set this attribute to disable the ripple effect on the chip.
-///
-/// __Events:__
-///
-/// - `change: String` -- Published when state changes, i.e. icon changes.
-/// - `checkedChange: bool` -- Published when the check state changes.
-/// - `indeterminate: bool` -- Published when the indeterminate state changes.
 ///
 @Component(
   selector: 'material-checkbox',
@@ -127,7 +103,9 @@ class MaterialCheckboxComponent
   final _onChecked = new StreamController.broadcast();
 
   /// Fired when checkbox goes in and out of indeterminate state, but not when
-  /// set to checked. Sends the state of [indeterminate];
+  /// set to checked.
+  ///
+  /// Sends the state of [indeterminate].
   @Output('indeterminateChange')
   Stream get onIndeterminate => _onIndeterminate.stream;
   final _onIndeterminate = new StreamController.broadcast();
@@ -138,22 +116,26 @@ class MaterialCheckboxComponent
   final _onChange = new StreamController.broadcast();
 
   /// Determines the state to go into when [indeterminate] state is toggled.
+  ///
   /// `true` will go to checked and `false` will go to unchecked.
   @Input()
   bool indeterminateToChecked = false;
 
+  /// Whether the checkbox should not respond to events, and have a style that
+  /// suggests that interaction is not allowed.
   @HostBinding('class.disabled')
   @HostBinding('attr.aria-disabled')
   @Input()
   bool disabled = false;
 
-  // Current tab index
+  // Current tab index.
   @HostBinding('attr.tabindex')
   String get tabIndex => disabled ? "-1" : _defaultTabIndex;
 
   /// Current state of the checkbox. This is user set-able state, via
   /// [toggleChecked()], so when checked, the [indeterminate] state gets
   /// cleared.
+  ///
   /// `true` is CHECKED and `false` is not.
   @Input()
   set checked(bool newValue) {
@@ -165,6 +147,7 @@ class MaterialCheckboxComponent
   bool get checked => _checked;
   bool _checked = false;
 
+  /// Whether the checkbox can be changed by user interaction.
   @Input()
   bool readOnly = false;
 
@@ -181,6 +164,7 @@ class MaterialCheckboxComponent
   /// Alternative state of the checkbox, not user set-able state. Between
   /// [checked] and [indeterminate], only one can be true, though both can be
   /// false.
+  ///
   /// `true` is INDETERMINATE and `false` is not.
   @Input()
   set indeterminate(bool newValue) {
@@ -191,9 +175,11 @@ class MaterialCheckboxComponent
   bool get indeterminate => _indeterminate;
   bool _indeterminate = false;
 
-  /// Actually update the state variables. If both parameters are provided, then
-  /// set them as presented, otherwise we will clear the other one if necessary.
-  /// Events are only fired if there was a change and [emitEvent] is true.
+  /// Actually update the state variables.
+  ///
+  /// If both parameters are provided, then set them as presented, otherwise we
+  /// will clear the other one if necessary. Events are only fired if there was
+  /// a change and [emitEvent] is true.
   void _setStates(
       {bool checked = false,
       bool indeterminate = false,
@@ -240,7 +226,12 @@ class MaterialCheckboxComponent
   Icon get icon => _icon;
   Icon _icon = uncheckedIcon;
 
-  /// Color of the checkbox.
+  /// Color of the checkbox and ripple when checked.
+  ///
+  /// Example: '#FF00FF'. By default it is $mat-blue-500. Note that the
+  /// themeColor is applied to the checkbox even when the box is unchecked,
+  /// which deviates from the standard material spec. Use mixin to set
+  /// themeColor unless you want this behavior.
   @Input()
   String themeColor;
 
@@ -250,14 +241,15 @@ class MaterialCheckboxComponent
   /// color.
   String get rippleColor => checked ? themeColor : '';
 
-  /// Label for the checkbox.
+  /// Label for the checkbox, alternatively use content.
   @HostBinding('attr.aria-label')
   @Input()
   String label;
 
-  /// Toggles checkbox via user action. When it is indeterminate, toggle
-  /// can go to checked or unchecked, depending on state
-  /// [indeterminateToChecked].
+  /// Toggles checkbox via user action.
+  ///
+  /// When it is indeterminate, toggle can go to checked or unchecked, depending
+  /// on state [indeterminateToChecked].
   @visibleForTesting
   void toggleChecked() {
     if (disabled || readOnly) return;
