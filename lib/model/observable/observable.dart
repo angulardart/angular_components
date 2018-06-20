@@ -167,6 +167,10 @@ class ChangeNotificationProvider<T> implements ChangeAware<T>, Disposable {
 abstract class ObservableView<T> extends ChangeAware<T> implements Disposable {
   T get value;
 
+  /// A [Stream] of all values on this view, including the current [value] at
+  /// the time the stream is listened to.
+  Stream<T> get values;
+
   /// Returns a new [ObservableView] which is created by lazily calling [mapper]
   /// on this view's [value], [stream], and [changes] properties.
   ///
@@ -192,6 +196,18 @@ abstract class ObservableViewMixin<T> implements ObservableView<T> {
       last = v;
       return change;
     });
+  }
+
+  @override
+  Stream<T> get values async* {
+    // Unlike with `changes`, we're OK here returning an async non-broadcast
+    // stream instead of trying to inherit the broadcastness/syncness of the
+    // underlying `stream` -- if `stream` were sync, then
+    // `ref.values.asBroadcastStream()` would end up yielding the current value
+    // before anything could possibly listen to it, which really defeats the
+    // point of even calling `values` in the first place.
+    yield value;
+    yield* stream;
   }
 
   @override
