@@ -58,8 +58,9 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
       @Attribute('checkInteger') String integer,
       @Attribute('blurFormat') String blurFormat) {
     var updateStream;
-    final changeUpdate = getBool(changeUpdateAttr ?? false);
-    final keypressUpdate = getBool(keypressUpdateAttr ?? false);
+    final changeUpdate = attributeToBool(changeUpdateAttr, defaultValue: false);
+    final keypressUpdate =
+        attributeToBool(keypressUpdateAttr, defaultValue: false);
     assert(!(changeUpdate && keypressUpdate),
         'Cannot update both on keypress and change.');
     if (changeUpdate) {
@@ -70,9 +71,14 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
       updateStream = input.onBlur;
     }
     numberFormat ??= new NumberFormat.decimalPattern();
-    final checkInteger = getBool(integer ?? false);
-    return new MaterialNumberValueAccessor._(updateStream, checkInteger,
-        numberFormat, input, control, getBool(blurFormat ?? false));
+    final checkInteger = attributeToBool(integer, defaultValue: false);
+    return new MaterialNumberValueAccessor._(
+        updateStream,
+        checkInteger,
+        numberFormat,
+        input,
+        control,
+        attributeToBool(blurFormat, defaultValue: false));
   }
 
   MaterialNumberValueAccessor._(
