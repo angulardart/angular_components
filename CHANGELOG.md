@@ -1,3 +1,9 @@
+  * Material Stepper: Use scrollHostProviders instead of deprecated
+    scrollHostModule.
+  * Ink Tooltip: Fix comment which was using deprecated ElementRef
+  * Material Tabs: General cleanup: remove unneeded directive, use absolute
+    imports, and fix spelling error.
+
 ## 0.9.0-alpha+15
 
 > NOTE: This code is considered production quality, but depends on angular:
