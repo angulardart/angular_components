@@ -55,8 +55,7 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
   bool _usePositionSticky = false;
 
   ElementScrollHost(this._domService, this._ngZone,
-      this._gestureListenerFactory, ElementRef elementRef)
-      : this.element = elementRef.nativeElement;
+      this._gestureListenerFactory, this.element);
 
   @override
   void ngOnInit() {
@@ -184,8 +183,7 @@ class StickyFloatingTracker implements OnInit, OnDestroy {
   final ScrollHost _scrollHost;
   final Element _element;
 
-  StickyFloatingTracker(this._scrollHost, ElementRef elementRef)
-      : _element = elementRef.nativeElement;
+  StickyFloatingTracker(this._scrollHost, this._element);
 
   @override
   void ngOnInit() {
@@ -214,8 +212,8 @@ class StickyFloatingTracker implements OnInit, OnDestroy {
 class AcxPanClassDirective extends BasePanClassDirective
     implements OnInit, OnDestroy {
   AcxPanClassDirective(
-      DomService domService, ScrollHost scrollHost, ElementRef elementRef)
-      : super(domService, scrollHost, elementRef.nativeElement);
+      DomService domService, ScrollHost scrollHost, HtmlElement element)
+      : super(domService, scrollHost, element);
 
   @override
   void ngOnInit() => startPanListener();
