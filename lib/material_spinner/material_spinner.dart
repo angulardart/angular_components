@@ -9,10 +9,6 @@ import 'package:angular/angular.dart';
 ///
 /// See <http://www.google.com/design/spec/components/progress-activity.html>.
 ///
-/// __Example usage:__
-///
-///     <material-spinner></material-spinner>
-///
 /// To change the color of the spinner, change the `border-color` in CSS:
 ///
 ///     material-spinner {
