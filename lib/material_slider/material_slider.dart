@@ -19,15 +19,6 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 /// keyboard. In LTR, Left/down arrow keys decrease the value by 1, up/right
 /// keys increase by 1, page up increases by 10% (rounded up) and page down
 /// decreases by 10% (rounded up). In RTL, the keys have the opposite effect.
-///
-/// __Example usage:__
-///
-///     <material-slider [min]="0"
-///                      [max]="100"
-///                      [step]="1"
-///                      [(value)]="30"
-///                      [disabled]="disabled">
-///     </material-slider>
 @Component(
   selector: 'material-slider',
   providers: const [
@@ -49,7 +40,7 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
   @HostBinding('attr.aria-disabled')
   String get disabledStr => '$disabled';
 
-  /// Is the slider disabled.
+  /// True if the slider disabled.
   @HostBinding('class.is-disabled')
   @HostBinding('attr.aria-disabled')
   @Input()
