@@ -165,7 +165,7 @@ class StepDirective extends TemplatePortal {
 /// A [TemplatePortal] which is used to house an optional summary view for a
 /// [StepDirective].
 ///
-/// Note: Only works with vertical orrientation.
+/// Note: Only works with vertical orientation.
 ///
 /// __Example usage:__
 ///
