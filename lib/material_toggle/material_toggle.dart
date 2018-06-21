@@ -11,15 +11,11 @@ import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 
 /// `material-toggle` is a button that can be either ON or OFF.
+///
 /// User can tap the toggle button to change the state.
 /// Usually you use toggle buttons when you have a single ON/OFF option.
 /// If you have multiple options from a set to be checked/unchecked, use
 /// `material-checkbox` instead.
-///
-/// __Example usage:__
-///
-///     <material-toggle [disabled]="false" [(checked)]="true" label="Click me">
-///     </material-toggle>
 @Component(
   selector: 'material-toggle',
   styleUrls: const ['material_toggle.scss.css'],
