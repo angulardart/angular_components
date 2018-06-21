@@ -10,15 +10,6 @@ import 'material_drawer_base.dart';
 /// A temporary drawer that can be opened and closed.
 ///
 /// Works with deferred content.
-///
-/// __Example usage:__
-///
-///     <material-drawer temporary #drawer="drawer">
-///         ... content here ...
-///     </material-drawer>
-///     <material-button (trigger)="drawer.toggle()">
-///       Toggle Drawer
-///     </material-button>
 @Component(
   selector: 'material-drawer[temporary]',
   exportAs: 'drawer',

@@ -13,15 +13,6 @@ import 'material_drawer_base.dart';
 /// in the list of styleUrls of the containing component.
 ///
 /// Works with deferred content.
-///
-/// __Example usage:__
-///
-///     <material-drawer persistent #drawer="drawer">
-///         ... content here ...
-///     </material-drawer>
-///     <material-button (trigger)="drawer.toggle()">
-///       Toggle Drawer
-///     </material-button>
 @Directive(
   selector: 'material-drawer[persistent]',
   exportAs: 'drawer',
