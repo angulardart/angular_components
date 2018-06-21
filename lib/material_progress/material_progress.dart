@@ -18,11 +18,6 @@ const Map<String, double> _indeterminateTiming = const {
 /// The progress bars are for situations where the percentage completed can be
 /// determined. They give users a quick sense of how much longer an operation
 /// will take.
-///
-/// __Example usage:__
-///
-///     <material-progress [activeProgress]="10" [secondaryProgress]="30">
-///     </material-progress>
 @Component(
   selector: 'material-progress',
   templateUrl: 'material_progress.html',
@@ -43,15 +38,21 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
   @Input()
   int secondaryProgress = 0;
 
-  /// The minimum progress value. Defaults to 0.
+  /// The minimum progress value.
+  ///
+  /// Defaults to 0.
   @Input()
   int min = 0;
 
-  /// The maximum progress value. Defaults to 100.
+  /// The maximum progress value.
+  ///
+  /// Defaults to 100.
   @Input()
   int max = 100;
 
-  /// Boolean whether the progress bar is deterministic. Default `false`
+  /// Boolean whether the progress bar is deterministic.
+  ///
+  /// Defaults to `false`.
   @Input()
   set indeterminate(bool b) {
     _indeterminate = b;
