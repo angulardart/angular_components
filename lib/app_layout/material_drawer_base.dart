@@ -16,9 +16,9 @@ class MaterialDrawerBase implements DeferredContentAware, OnInit {
 
   bool _visible;
 
-  /// Visibility of the drawer.
   bool get visible => _visible;
 
+  /// Visibility of the drawer.
   @Input()
   set visible(bool value) {
     if (value == _visible) return;
