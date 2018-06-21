@@ -32,10 +32,17 @@ typedef Future<List> MatchCallback(String string);
 /// A simple pass-through implementation of [KeyProvider].
 Object _defaultKeyProvider(Object o) => o;
 
+/// A mixin that provides the implementation of [castIterable].
+class CastIterable<T> {
+  /// Casts [values] into an Iterable<T>.
+  Iterable<T> castIterable(Iterable values) => values.cast<T>();
+}
+
 /// Provides pattern to manage a collection of selected values.
 /// This is used in model-view architecture to notify interested parties of
 /// [changes] to selection.
-abstract class SelectionModel<T>
+abstract class SelectionModel<T> extends Object
+    with CastIterable<T>
     implements Observable<ChangeRecord>, SelectionObservable<T> {
   /// Creates an immutable, constant model.
   const factory SelectionModel.empty() = _NoopSelectionModelImpl<T>;
@@ -108,6 +115,9 @@ abstract class SelectionModel<T>
 
   /// Returns ordered list of selected values.
   Iterable<T> get selectedValues;
+
+  /// Casts [values] into an Iterable<T>.
+  Iterable<T> castIterable(Iterable values);
 }
 
 abstract class SingleSelectionModel<T> extends SelectionModel<T> {
