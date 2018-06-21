@@ -44,7 +44,6 @@ import 'package:angular_components/utils/browser/events/events.dart';
     MaterialYesNoButtonsComponent,
     NgFor,
     NgIf,
-    NgStyle,
     PortalHostDirective,
     StickyElementDirective,
   ],
@@ -67,13 +66,10 @@ class MaterialStepperComponent {
   int activeStepIndex;
   bool stepperDone = false;
 
-  String _noText = _cancelMsg;
-
   var _orientation = defaultOrientation;
   var _size = defaultSize;
   var _legalJumps;
 
-  HtmlElement _stepperNativeElement;
   List<StepDirective> _stepDirectiveList;
   final _activeStepController =
       new StreamController<StepDirective>.broadcast(sync: true);
@@ -146,9 +142,7 @@ class MaterialStepperComponent {
   /// Text to be displayed on the button that goes back to the former step.
   /// By default, displays "Cancel".
   @Input()
-  set noText(String text) {
-    _noText = text;
-  }
+  String noText = _cancelMsg;
 
   /// Orientation in which the steps are laid out. Possible values:
   /// 'horizontal' and 'vertical' (default).
@@ -174,8 +168,6 @@ class MaterialStepperComponent {
   bool get shouldInlineContent =>
       orientation == vertical && size == sizeDefault;
 
-  String get noText => _noText;
-
   String get orientation => _orientation;
 
   String get size => _size;
@@ -184,12 +176,6 @@ class MaterialStepperComponent {
   /// only have 1 step active at a time.
   StepDirective get activeStep =>
       steps.length > 0 ? steps[activeStepIndex] : null;
-
-  /// Get the native element for the stepper (not the stepper content).
-  ///
-  /// This is helpful for ensuring that animations don't go above or behind
-  /// the stepper.
-  HtmlElement get stepperNativeElement => _stepperNativeElement;
 
   /// Jumps (defined as step-switches not triggered by the Continue/Cancel
   /// buttons) that are legal. Possible values:
@@ -203,10 +189,12 @@ class MaterialStepperComponent {
     _recalculatePropertiesOfSteps();
   }
 
+  /// Get the native element for the stepper (not the stepper content).
+  ///
+  /// This is helpful for ensuring that animations don't go above or behind
+  /// the stepper.
   @ViewChild('stepper')
-  set stepperElement(ElementRef stepper) {
-    _stepperNativeElement = stepper.nativeElement;
-  }
+  HtmlElement stepperNativeElement;
 
   /// Because of the button decorator enclosing the inline portal eats up
   /// SPACE and ENTER key-presses (by preventing the default on them),
