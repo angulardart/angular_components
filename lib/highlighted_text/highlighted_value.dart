@@ -20,6 +20,7 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
 class HighlightedValueComponent implements RendersValue {
   final HighlightProvider _highLighter;
 
+  /// Value to pass to the highlighter to calculate text segments.
   @override
   @Input()
   Object value;
