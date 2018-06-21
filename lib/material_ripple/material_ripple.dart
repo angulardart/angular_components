@@ -142,11 +142,6 @@ void _applyFallbackAnimation(
 ///
 /// The effect can be visualized as a concentric circle with motion.
 ///
-/// Example of use:
-///     <div style="position: relative">
-///       <material-ripple></material-ripple>
-///     </div>
-///
 /// The containing element needs to be position: relative.
 ///
 /// By default, the ripple is centered on the point of contact.
