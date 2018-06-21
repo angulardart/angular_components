@@ -16,12 +16,6 @@ import 'deferred_content_aware.dart';
 /// Throws if A does not exist.
 /// This directive can be used to avoid the cost of eagerly instantiating
 /// invisible content and the cost of change-detection on invisible content.
-///
-/// __Example usage__:
-///
-///     <modal [(visible)]="visible">
-///         <expensive-content *deferredContent></expensive-content>
-///     </modal>
 @Directive(
   selector: '[deferredContent]',
 )
@@ -35,7 +29,10 @@ class DeferredContentDirective implements OnDestroy {
 
   /// Create a placeholder element to maintain content size when hidden.
   ///
-  /// Used like *deferredContent="true".
+  /// Used like:
+  /// ```html
+  ///  <my-expensive-component *deferredContent="true"></my-expensive-component>
+  /// ```
   @Input('deferredContent')
   bool preserveDimensions = false;
 
