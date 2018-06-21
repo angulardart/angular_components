@@ -10,15 +10,6 @@ import 'package:angular_components/model/ui/has_renderer.dart';
 /// Dynamically renders another component, setting the [value] field on the
 /// dynamic component if it implements [RendersValue] (and not if the component
 /// does not implement the interface).
-///
-/// A host component can load child components in a loop and set their values:
-///
-///     ... *ngFor="item in items">
-///       <dynamic-component
-///           [componentFactory]="aFactoryThatMayNotRenderValue"
-///           [value]="item">
-///       </dynamic-component>
-///
 @Component(
   selector: 'dynamic-component',
   template: '''<template #marker></template>''',
@@ -79,7 +70,7 @@ class DynamicComponent implements OnDestroy, AfterChanges {
     _componentType = dartType;
   }
 
-  /// The type of component to dynamically render.
+  /// The component factory of the component to dynamically render.
   @Input()
   set componentFactory(ComponentFactory component) {
     if (_componentFactory != component) _factoryChanged = true;
