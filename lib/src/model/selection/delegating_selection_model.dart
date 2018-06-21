@@ -8,7 +8,9 @@ import 'package:observable/observable.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 
 /// A delegating implementation of [SelectionModel].
-class DelegatingSelectionModel<T> implements SelectionModel<T> {
+class DelegatingSelectionModel<T> extends Object
+    with CastIterable<T>
+    implements SelectionModel<T> {
   final SelectionModel<T> _delegateModel;
 
   DelegatingSelectionModel(this._delegateModel);

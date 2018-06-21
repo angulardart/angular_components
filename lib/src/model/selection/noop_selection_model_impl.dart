@@ -71,4 +71,7 @@ class _NoopSelectionModelImpl<T> implements SingleSelectionModel<T> {
 
   @override
   final List<T> selectedValues = const [];
+
+  @override
+  Iterable<T> castIterable(Iterable values) => values.cast<T>();
 }
