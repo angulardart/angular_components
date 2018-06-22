@@ -23,72 +23,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///  - `headered` -- Adds a gray background to the dialog header.
 ///  - `info` -- Styles the dialog as an info dialog.
 ///
-/// __Basic Dialog__:
-///
-/// This should be used in a directive that knows to move content to an overlay.
-/// For example, using the [Modal] component:
-///
-///     <modal [visible]="showDialog">
-///       <material-dialog>
-///         <div header>
-///           <h1>Title</h1>
-///           <p>Subtitle</p>
-///         </div>
-///
-///         <p>Content goes here.</p>
-///
-///         <div footer>
-///           <material-button (trigger)="showDialog = false">
-///             Close
-///           </material-button>
-///         </div>
-///       </material-dialog>
-///     </modal>
-///
-/// __Headered Dialog__:
-///
-/// To create a dialog with a dark gray header, add the `headered` attribute.
-/// For example:
-///
-///     <modal [visible]="showDialog">
-///       <material-dialog headered>
-///         <div header>
-///           <h1>Title</h1>
-///           <p>Subtitle</p>
-///         </div>
-///
-///         <p>Content goes here.</p>
-///
-///         <div footer>
-///           <material-button (trigger)="showDialog = false">
-///             Close
-///           </material-button>
-///         </div>
-///       </material-dialog>
-///     </modal>
-///
-/// __Info Dialog__:
-///
-/// To create an information dialog, add the `info` attribute and put a material
-/// button that uses a glyph for closing the dialog.
-/// For example:
-///
-///     <modal [visible]="showDialog">
-///       <material-dialog info>
-///
-///         <div header>
-///           <material-button icon (trigger)="showDialog = false">
-///             <glyph icon="close"></glyph>
-///           </material-button>
-///
-///           <h1>Title</h1>
-///         </div>
-///
-///         <p>Content goes here.</p>
-///
-///       </material-dialog>
-///     </modal>
-///
 @Component(
   selector: 'material-dialog',
   templateUrl: 'material_dialog.html',
@@ -173,6 +107,8 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
     }));
   }
 
+  /// Determines whether to listen for when the dialog enters or exits
+  /// fullscreen mode.
   @Input('listenForFullscreenChanges')
   set shouldListenForFullscreenChanges(bool shouldListenForFullscreenChanges) {
     // Don't do anything if [shouldListenForFullscreenChanges] is set to false.
@@ -188,6 +124,7 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
     }));
   }
 
+  /// Stream for when the dialog enters or exits fullscreen mode.
   @Output('fullscreenMode')
   Stream<bool> get isInFullscreenMode =>
       _isInFullscreenModeStreamController.stream;
