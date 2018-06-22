@@ -30,10 +30,6 @@ const List<String> _flippedIcons = const [
 /// [material-icons-extended](https://www.google.com/design/icons/) is the only
 /// supported font.
 ///
-/// ## Usage
-///
-///     <glyph icon="android"></glyph>
-///
 /// This stylesheet should be included at the top of the page:
 ///
 /// ```html
