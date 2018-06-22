@@ -219,9 +219,10 @@ class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
         var dimension = _isVertical ? 'height' : 'width';
         var size = button.getComputedStyle().getPropertyValue(dimension);
         if (size != 'auto') {
-          _buttonSize = double
-              .parse(size.replaceAll(new RegExp('[^0-9.]'), ''), (_) => 0.0)
-              .floor();
+          final parsed =
+              double.tryParse(size.replaceAll(new RegExp('[^0-9.]'), '')) ??
+                  0.0;
+          _buttonSize = parsed.floor();
           break;
         }
       }
