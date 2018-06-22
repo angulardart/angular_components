@@ -71,7 +71,7 @@ num toNum(Object value) {
   } else if (value is Int64) {
     return value.toDouble();
   } else if (value is String) {
-    return double.parse(value, (String s) => null);
+    return double.tryParse(value);
   } else {
     return null;
   }
