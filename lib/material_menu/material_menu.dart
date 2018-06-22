@@ -23,11 +23,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///
 /// The menu expands when the button is clicked and closes when either an item
 /// is selected or a region outside the dropdown is clicked.
-///
-/// __Example usage:__
-///
-///     <material-menu [menu]="menuModel">
-///     </material-menu>
 @Component(
     selector: 'material-menu',
     directives: const [
@@ -68,6 +63,7 @@ class MaterialMenuComponent extends Object
   @Input()
   bool closeMenuOnClick = false;
 
+  /// Whether the menu is disabled or not.
   @Input()
   bool disabled = false;
 

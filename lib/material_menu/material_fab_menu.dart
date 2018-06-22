@@ -49,6 +49,7 @@ class MaterialFabMenuComponent extends Object
     implements OnDestroy {
   final ChangeDetectorRef _changeDetector;
 
+  /// Popup positions for the menu popup to show up in.
   @Input()
   List<RelativePosition> preferredPopupPositions;
 
@@ -86,6 +87,9 @@ class MaterialFabMenuComponent extends Object
     });
   }
 
+  /// Id used internally.
+  // TODO(google): See if we can remove this input now that we are open
+  // sourced.
   @Input()
   String naviId;
 
