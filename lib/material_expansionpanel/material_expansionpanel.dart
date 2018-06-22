@@ -30,76 +30,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// takes into account the state of the other panels in the set, and issues the
 /// appropriate actions onto each individual panel.
 ///
-/// TODO(google): Keyboard/accessibility inputs
-///
-/// __Example usage:__
-///
-///     <material-expansionpanel (save)="doSave()">
-///       <my-component></my-component>
-///     </material-expansionpanel>
-///
-///     <material-expansionpanel wide>
-///       <div value class="valueClass">
-///         Fancily formatted value of my panel's contents
-///       </div>
-///       <my-component></my-component>
-///     </material-expansionpanel>
-///
-/// Material expansion panel also supports deferred content:
-///
-///     <material-expansionpanel>
-///       <div *deferredContent>
-///         Deferred panel contents
-///       </div>
-///     </material-expansionpanel>
-///
 /// __Attributes:__
 ///
 ///  - `wide` -- When specified the width of the panel when expanded, is
 ///    slightly wider then its width when collapsed.
 ///  - `flat` -- Indicates that the panel should not "float" or separate from
 ///    other panels when expanded.
-///
-/// __Inputs:__
-///
-///  - `alwaysShowExpandIcon: bool` -- If true, the expand icon is always
-///    visible regardless of the expanded state or whether custom icon is used.
-///  - `closeOnSave: bool` -- If true, after a successful save, the panel will
-///    attempt to close.
-///  - `expanded: bool` -- Determines whether the panel is expanded by default.
-///    Otherwise, the panel is closed by default.
-///  - `disabled: bool` -- If true, the panel will remain in the collapsed state
-///    with no way to expand it, or if expanded by default, it will stay in
-///    expanded state.
-///  - `hideExpandedHeader: bool` -- If true, the title section of the panel is
-///    hidden when the panel is expanded.
-///  - `name: String` -- A short name label for the expansion panel.
-///  - `secondaryText: String` -- Some optional secondary summary text that
-///    describes the state of the widget hosted inside the panel.
-///  - `showSaveCancel: bool` -- Determines whether to show the save/cancel
-///    buttons by default.
-///  - `saveText: String` -- The text to be shown on the save button (e.g.
-///    "okay", "apply"). The default text is "save".
-///  - `cancelText: String` -- The text to be shown on the cancel button (e.g.
-///    "dismiss", "not now"). The default text is "cancel".
-///  - `saveDisabled: bool` -- If true, the save button is disabled.
-///  - `enterAccepts: bool` -- If true, enterAccepts is enabled.
-///  - `cancelDisplayed: bool` -- If true, the cancel button is displayed.
-///
-/// __Events:__
-///
-///  - `expandedChange: bool` -- Fired when the panel is opened or closed.
-///  - `open: AsyncAction<bool>` -- Fired when the panel is attempting to open.
-///    Can be cancelled by `event.cancelIf(new Future.value(false));`
-///  - `close: AsyncAction<bool>` -- Fired when panel is attempting to close.
-///    Can be cancelled by `event.cancelIf(new Future.value(false));`
-///  - `save: AsyncAction<bool>` -- Fired after user clicks on save button.
-///    Use `event.defer(Future<bool>)` to indicate if the save operation was
-///    successful. If save was unsuccessful, panel will not close.
-///  - `cancel: AsyncAction<bool>` -- Fired after user clicks cancel button.
-///    Use `event.defer(Future<bool>)` to indicate if cancel operation should
-///    itself be cancelled (e.g. Have unsaved changes). If future returns false,
-///    panel will not be closed.
 ///
 @Component(
   selector: 'material-expansionpanel',
@@ -183,10 +119,12 @@ class MaterialExpansionPanel
     }
   }
 
+  /// Event fired when the panel is either collapsed or expanded.
   @Output('expandedChange')
   Stream<bool> get isExpandedChange => _isExpandedChange.stream;
   final _isExpandedChange = new StreamController<bool>.broadcast(sync: true);
 
+  /// Event fired when the panel is collapsed or expanded by the user.
   @Output('expandedChangeByUser')
   Stream<bool> get isExpandedChangeByUserAction =>
       _isExpandedChangeByUserAction.stream;
@@ -244,14 +182,16 @@ class MaterialExpansionPanel
   String secondaryText;
 
   /// An optional icon name to replace the expand arrows with a custom icon.
-  ///
-  /// If a custom icon is used, then the icon disappears when the panel is
-  /// expanded. By default, the expand icon is "expand_less."
-  String _expandIcon;
-  String get expandIcon => _expandIcon ?? _defaultExpandIcon;
-
   @Input()
   set expandIcon(String expandIcon) => _expandIcon = expandIcon;
+
+  String _expandIcon;
+
+  /// If a custom icon is used, then the icon disappears when the panel is
+  /// expanded.
+  ///
+  /// By default, the expand icon is "expand_less."
+  String get expandIcon => _expandIcon ?? _defaultExpandIcon;
 
   /// If true, the expand icon should always be visible regardless whether a
   /// custom icon is used.
@@ -286,6 +226,8 @@ class MaterialExpansionPanel
   @Input()
   bool cancelDisplayed = true;
 
+  /// If set to true, the toolbelt buttons will listen for Enter `keyup` events
+  /// and trigger the `yes` action on them.
   @Input()
   bool enterAccepts = false;
 
