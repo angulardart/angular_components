@@ -17,13 +17,15 @@ class MenuPopupWrapper implements AcceptsWidth {
   MenuModel menu;
 
   /// Whether the menu is open.
-  bool get isExpanded => _expanded.value;
   @Input()
   set isExpanded(value) {
     if (_expanded.value == value) return;
     _expanded.value = getBool(value);
   }
 
+  bool get isExpanded => _expanded.value;
+
+  /// Outputs an event when the menu is expanded.
   @Output()
   Stream<bool> get isExpandedChange => _expanded.stream;
   final _expanded = new ObservableReference<bool>(false);
@@ -34,6 +36,7 @@ class MenuPopupWrapper implements AcceptsWidth {
   /// more details.
   int get width => menu?.width ?? _width;
 
+  /// Width of the menu.
   @override
   @Input()
   set width(val) {

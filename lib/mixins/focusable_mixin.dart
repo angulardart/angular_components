@@ -10,6 +10,7 @@ import 'package:angular_components/focus/focus.dart';
 
 /// Assistant for focusing an element.
 class FocusableMixin implements Focusable {
+  /// Event when the element is focused.
   @Output('focus')
   Stream<FocusEvent> get onFocus => _onFocus.stream;
   final StreamController<FocusEvent> _onFocus =
