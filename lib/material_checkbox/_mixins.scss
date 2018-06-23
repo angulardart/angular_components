@@ -29,7 +29,7 @@
 //                  are migrated.
 @mixin material-checkbox-color($color,
                                $modifier: '',
-                               $include-in-checkbox: true) {
+                               $include-in-checkbox: false) {
   @if ($include-in-checkbox == false or $modifier != '') {
     ::ng-deep material-checkbox#{$modifier}:not(.disabled)
         .icon-container .icon.filled {
