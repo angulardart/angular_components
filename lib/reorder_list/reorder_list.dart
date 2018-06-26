@@ -16,25 +16,12 @@ export 'reorder_events.dart';
 
 /// Provides a list that can reorder it's children using html5 drag&drop.
 /// A vertical reorder-list will use any component in its <ng-content>
-/// marked with 'reorderPlaceholder' attribute as a placeholder when moving
+/// marked with `reorderPlaceholder` attribute as a placeholder when moving
 /// items.
 ///
 /// __Attention:__ This component is not an implementation of the Material List
 /// reorder control from the Material Spec. There is currently no support for
 /// interactions on a mobile device.
-///
-/// Typical use:
-/// '''
-/// <reorder-list (reorder)="onReorder($event)">
-///   <div *ngFor="let item of items" reorderItem>
-///     {{item}}
-///   </div>
-/// </reorder-list>
-/// '''
-///
-/// optional input:
-///   multiSelect = true, will enable selection of multiple items (by pressing
-///   Shift|Ctrl+clicking with the mouse) and drag them to a new position.
 ///
 /// User is responsible for listening to reorder events
 /// and updating order of elements accordingly
