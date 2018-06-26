@@ -14,24 +14,10 @@ import 'material_button_base.dart';
 
 /// A flat or raised button with an optional ripple effect.
 ///
-/// __Example usage:__
-///
-/// ```html
-/// <!-- A button with both icon and text -->
-/// <material-button (trigger)="generateNames()">
-///     <material-icon icon="lightbulb_outline"></material-icon>
-///     Get new ideas
-/// </material-button>
-/// ```
-///
 /// __Attributes:__
 ///
 /// The following attributes are commonly used with `<material-button>`:
 ///
-/// - `disabled`: If present, sets the [disabled] property to true. If the
-///   `disabled` property is true, this attribute is present.
-/// - `raised`:  If present, sets the [raised] property to true. If the
-///   `raised` property is true, this attribute is present.
 /// - `icon`: If present, removes the minimum width style of the button.
 ///   To specify the actual icon in the button, use a `<glyph>`,
 /// `<material-icon>`, or `<img>`.
@@ -40,22 +26,6 @@ import 'material_button_base.dart';
 ///   the button.
 /// - `dense`: If present, reduces `font-size` to 13px and button height to
 ///   32px.
-///
-/// __Properties:__
-///
-/// The following properties are frequently used:
-///
-/// - `disabled` -- True if the button should not respond to events, and
-///   should have a style that suggests that interaction is not allowed.
-/// - `raised` -- True if the button should have a box shadow that makes the
-///   button look raised.
-///
-/// __Events:__
-///
-/// To react to button clicks, handle the trigger event:
-///
-/// - `trigger` -- Fired when the button is activated via click, tap, or
-///   key press.
 ///
 /// __Styling:__
 ///

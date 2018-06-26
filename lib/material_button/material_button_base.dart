@@ -9,19 +9,6 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 
 /// A base class from which to build buttons.
-///
-/// __Expected Properties:__
-///
-/// - `disabled: bool` -- Whether the button should not respond to events, and
-///   have a style that suggests that interaction is not allowed. Note: only
-///   stops the trigger event, not native events.
-/// - `raised: bool` -- Whether to have a box-shadow that makes the button look
-///   raised.
-///
-/// __Expected Events:__
-///
-/// - `trigger: Event` -- Published when the button is activated via click or
-///   keypress.
 class MaterialButtonBase extends ButtonDirective {
   static const lowElevation = 1;
   static const mediumElevation = 2;
@@ -30,7 +17,8 @@ class MaterialButtonBase extends ButtonDirective {
   bool _clickFocused = false;
   bool _isMouseDown = false;
 
-  /// Whether the button should be raised.
+  /// Is `true` if the button should have a box shadow that makes the button look
+  /// raised.
   @Input()
   bool raised = false;
 
