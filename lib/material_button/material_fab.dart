@@ -14,27 +14,6 @@ import 'material_button_base.dart';
 ///
 /// It may be flat or raised. A raised button is styled with a shadow.
 ///
-/// __Example usage:__
-///
-/// ```
-/// <!-- A Floating Action Button (FAB). -->
-/// <material-fab aria-label="add">
-///   <material-icon icon="add"></material-icon>
-/// </material-fab>
-/// ```
-///
-/// __Properties:__
-///
-/// - `disabled: bool` -- Whether the button should not respond to events, and
-///   have a style that suggests that interaction is not allowed.
-/// - `raised: bool` -- Whether to have a box-shadow that makes the button look
-///   raised.
-///
-/// __Events:__
-///
-/// - `trigger: Event` -- Published when the button is activated via click or
-///   keypress.
-///
 /// __Styling:__
 ///
 /// The preferred way of specifying FAB colors is to use mixins:
@@ -101,8 +80,4 @@ class MaterialFabComponent extends MaterialButtonBase {
 
   @HostBinding('attr.animated')
   static const String hostAnimated = 'true';
-
-  // Unused in M1.
-  @Input()
-  String ariaLabel;
 }

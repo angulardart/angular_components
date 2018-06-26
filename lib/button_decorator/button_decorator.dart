@@ -30,7 +30,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
 class ButtonDirective extends RootFocusable
     with HasTabIndex
     implements OnInit, HasDisabled {
-  /// Will emit a `UIEvent` on mouse click or keyboard activation.
+  /// Fired when the button is activated via click, tap, or key press.
   @Output()
   Stream<UIEvent> get trigger => _trigger.stream;
 
