@@ -31,11 +31,14 @@ class TabButtonComponent extends MaterialButtonBase with TabMixin {
 
   /// Whether the tab represented by this button is currently active.
   @Input('active')
-  bool isActive;
+  bool isActive = false;
 
   @HostBinding('class.focus')
   bool get hostClassFocus => visualFocus;
 
   @HostBinding('class.active')
   bool get hostClassActive => isActive || isMouseDown;
+
+  @HostBinding('attr.disabled')
+  String get hostDisabled => disabled ? "" : null;
 }
