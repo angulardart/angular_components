@@ -5,6 +5,7 @@
 library angular_components;
 
 import 'app_layout/material_persistent_drawer.dart';
+import 'app_layout/material_stackable_drawer.dart';
 import 'app_layout/material_temporary_drawer.dart';
 import 'auto_dismiss/auto_dismiss.dart';
 import 'button_decorator/button_decorator.dart';
@@ -73,6 +74,8 @@ import 'material_select/material_select_item.dart';
 import 'material_select/material_select_searchbox.dart';
 import 'material_slider/material_slider.dart';
 import 'material_spinner/material_spinner.dart';
+import 'material_stepper/material_step.dart';
+import 'material_stepper/material_stepper.dart';
 import 'material_tab/fixed_material_tab_strip.dart';
 import 'material_tab/material_tab.dart';
 import 'material_tab/material_tab_panel.dart';
@@ -90,6 +93,7 @@ import 'theme/dark_theme.dart';
 export 'annotations/rtl_annotation.dart';
 export 'app_layout/material_drawer_base.dart';
 export 'app_layout/material_persistent_drawer.dart';
+export 'app_layout/material_stackable_drawer.dart';
 export 'app_layout/material_temporary_drawer.dart';
 export 'auto_dismiss/auto_dismiss.dart';
 export 'button_decorator/button_decorator.dart';
@@ -177,6 +181,9 @@ export 'material_select/material_select_searchbox.dart';
 export 'material_select/shift_click_selection.dart';
 export 'material_slider/material_slider.dart';
 export 'material_spinner/material_spinner.dart';
+export 'material_stepper/common.dart';
+export 'material_stepper/material_step.dart';
+export 'material_stepper/material_stepper.dart';
 export 'material_tab/fixed_material_tab_strip.dart';
 export 'material_tab/material_tab.dart';
 export 'material_tab/material_tab_panel.dart';
@@ -283,6 +290,9 @@ const List<dynamic> materialDirectives = const [
   MaterialSelectSearchboxComponent,
   MaterialSliderComponent,
   MaterialSpinnerComponent,
+  MaterialStackableDrawerComponent,
+  MaterialStepperBackButtonTextDirective,
+  MaterialStepperComponent,
   MaterialTabComponent,
   MaterialTabPanelComponent,
   MaterialTimePickerComponent,
@@ -305,7 +315,9 @@ const List<dynamic> materialDirectives = const [
   ReorderListComponent,
   ScoreboardComponent,
   ScorecardComponent,
+  StepDirective,
   StopPropagationDirective,
+  SummaryDirective,
   TabButtonComponent,
   UpperBoundValidator,
 ];
