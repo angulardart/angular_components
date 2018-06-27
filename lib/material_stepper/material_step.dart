@@ -10,22 +10,6 @@ import 'package:angular_components/model/action/async_action.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 
 /// A step within the stepper.
-///
-/// __Example usage:__
-///
-/// <material-stepper>
-///   <template step name="Step A">
-///     <div>
-///       [...]
-///     </div>
-///   </template>
-///   <template step name="Step B">
-///     <div>
-///       [...]
-///     </div>
-///   </template>
-/// <material-stepper>
-///
 @Directive(
   selector: '[step]',
   exportAs: 'step',
@@ -46,9 +30,10 @@ class StepDirective extends TemplatePortal {
 
   bool _optional = false;
 
+  bool get optional => _optional;
+
   /// Whether the step is optional. Optional steps have an extra label denoting
   /// that they're optional and should be skip-able. Default is false.
-  bool get optional => _optional;
   @Input()
   set optional(value) {
     _optional = getBool(value);
@@ -61,8 +46,9 @@ class StepDirective extends TemplatePortal {
 
   bool _hideButtons = false;
 
-  /// Whether the buttons should be hidden on this step.
   bool get hideButtons => _hideButtons;
+
+  /// Whether the buttons should be hidden on this step.
   @Input()
   set hideButtons(value) {
     _hideButtons = getBool(value);
@@ -70,8 +56,9 @@ class StepDirective extends TemplatePortal {
 
   bool _cancelHidden = false;
 
-  /// Whether the cancel button should be hidden on this step.
   bool get cancelHidden => _cancelHidden;
+
+  /// Whether the cancel button should be hidden on this step.
   @Input()
   set cancelHidden(value) {
     _cancelHidden = getBool(value);
@@ -79,10 +66,11 @@ class StepDirective extends TemplatePortal {
 
   bool _complete = false;
 
+  bool get complete => _complete;
+
   /// Whether the step is completed.
   ///
   /// This is set when the stepper goes to the next step.
-  bool get complete => _complete;
   @Input()
   set complete(value) {
     _complete = getBool(value);
@@ -90,11 +78,12 @@ class StepDirective extends TemplatePortal {
 
   bool _canContinue = true;
 
+  bool get canContinue => _canContinue;
+
   /// Whether the step can continue.
   ///
   /// This can be used to prevent continuing on from a step until all parts of
   /// the current step meet validation requirements.
-  bool get canContinue => _canContinue;
   @Input()
   set canContinue(value) {
     _canContinue = getBool(value);
@@ -125,16 +114,21 @@ class StepDirective extends TemplatePortal {
 
   bool get isNotSelectable => !isSelectable;
 
-  /// Called when the Continue button is clicked. If the event handler calls
-  /// $event.cancel(), the step won't be continued.
+  /// Called when the Continue button is clicked.
+  ///
+  /// If the event handler calls `$event.cancel()`, the step won't be continued.
   @Output('continue')
   Stream<AsyncAction<bool>> get continueStream => _continueController.stream;
 
-  /// Called when the Cancel button is clicked. If the event handler calls
-  /// $event.cancel(), the step won't be cancelled.
+  /// Called when the Cancel button is clicked.
+  ///
+  /// If the event handler calls `$event.cancel()`, the step won't be cancelled.
   @Output('cancel')
   Stream<AsyncAction<bool>> get cancelStream => _cancelController.stream;
 
+  /// Called when the user wants to jump to this step.
+  ///
+  /// If the event handler calls `$event.cancel()`, the step won't be continued.
   @Output('jumpHere')
   Stream<AsyncAction<bool>> get jumpStream => _jumpController.stream;
 
