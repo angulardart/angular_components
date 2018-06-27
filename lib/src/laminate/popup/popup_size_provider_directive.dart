@@ -20,14 +20,22 @@ import 'package:angular_components/src/laminate/popup/popup_size_provider.dart';
   ],
 )
 class PopupSizeProviderDirective implements PopupSizeProvider {
+  _SizeDefinition _minHeight;
+  _SizeDefinition _minWidth;
   _SizeDefinition _maxHeight;
   _SizeDefinition _maxWidth;
   PopupSizeProvider _parentPopupSizeProvider;
 
   PopupSizeProviderDirective(
+      @Attribute('popupMinHeight') String minHeight,
+      @Attribute('popupMinWidth') String minWidth,
       @Attribute('popupMaxHeight') String maxHeight,
       @Attribute('popupMaxWidth') String maxWidth,
       @Optional() @SkipSelf() this._parentPopupSizeProvider) {
+    _minHeight =
+        minHeight == null ? null : new _SizeDefinition.fromString(minHeight);
+    _minWidth =
+        minWidth == null ? null : new _SizeDefinition.fromString(minWidth);
     _maxHeight =
         maxHeight == null ? null : new _SizeDefinition.fromString(maxHeight);
     _maxWidth =
@@ -35,11 +43,24 @@ class PopupSizeProviderDirective implements PopupSizeProvider {
 
     // Define a reasonable default if for some reason a parent
     // PopupSizeProvider is not injected.
-    if ((_maxHeight == null || _maxWidth == null) &&
+    if ((_minHeight == null ||
+            _minWidth == null ||
+            _maxHeight == null ||
+            _maxWidth == null) &&
         _parentPopupSizeProvider == null) {
       _parentPopupSizeProvider = new PercentagePopupSizeProvider(0.7, 0.5);
     }
   }
+
+  @override
+  num getMinWidth(num positionX, num viewportWidth) => _minWidth == null
+      ? _parentPopupSizeProvider.getMinWidth(positionX, viewportWidth)
+      : _minWidth.getPixels(viewportWidth);
+
+  @override
+  num getMinHeight(num positionY, num viewportHeight) => _minHeight == null
+      ? _parentPopupSizeProvider.getMinHeight(positionY, viewportHeight)
+      : _minHeight.getPixels(viewportHeight);
 
   @override
   num getMaxWidth(num positionX, num viewportWidth) => _maxWidth == null

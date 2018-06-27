@@ -216,6 +216,12 @@ class MaterialPopupComponent extends Object
     _popupSizeProvider = value;
   }
 
+  /// The min height of the popup content provided by the PopupSizeProvider.
+  num minHeight;
+
+  /// The min width of the popup content provided by the PopupSizeProvider.
+  num minWidth;
+
   /// The max height of the popup content provided by the PopupSizeProvider.
   num maxHeight;
 
@@ -458,9 +464,9 @@ class MaterialPopupComponent extends Object
       throw new StateError('Cannot open popup: no source set.');
     }
 
-    // Initialize the maximum size and content size based on the viewport size
-    // before popup position is populated.
-    _updatePopupMaxSize();
+    // Initialize the minimum/maximum size and content size based on the
+    // viewport size before popup position is populated.
+    _updatePopupMinMaxSize();
 
     // Put the overlay in the live DOM so we can measure its size.
     _overlayRef.state.visibility = visibility.Visibility.Hidden;
@@ -503,7 +509,7 @@ class MaterialPopupComponent extends Object
       _windowResizeSub = window.onResize
           .transform(debounceStream(const Duration(milliseconds: 200)))
           .listen((_) {
-        _updatePopupMaxSize();
+        _updatePopupMinMaxSize();
       });
     }
 
@@ -677,8 +683,12 @@ class MaterialPopupComponent extends Object
         'translate(${_repositionOffsetX}px, ${_repositionOffsetY}px)';
   }
 
-  void _updatePopupMaxSize() {
+  void _updatePopupMinMaxSize() {
     if (_popupSizeProvider == null) return;
+    minHeight = _popupSizeProvider.getMinHeight(
+        _overlayRef.state.top ?? 0, _viewportRect.height);
+    minWidth = _popupSizeProvider.getMinWidth(
+        _overlayRef.state.left ?? 0, _viewportRect.width);
     maxHeight = _popupSizeProvider.getMaxHeight(
         _overlayRef.state.top ?? 0, _viewportRect.height);
     maxWidth = _popupSizeProvider.getMaxWidth(
@@ -802,8 +812,8 @@ class MaterialPopupComponent extends Object
 
     _alignmentPosition = position;
 
-    // Update the max size now that the popup has been positioned.
-    _updatePopupMaxSize();
+    // Update the min and max sizes now that the popup has been positioned.
+    _updatePopupMinMaxSize();
   }
 }
 

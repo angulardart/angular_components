@@ -799,6 +799,16 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   }
 
   @override
+  num getMinHeight(num positionY, num viewportHeight) {
+    return _popupSizeDelegate?.getMinHeight(positionY, viewportHeight);
+  }
+
+  @override
+  num getMinWidth(num positionX, num viewportWidth) {
+    return _popupSizeDelegate?.getMinWidth(positionX, viewportWidth);
+  }
+
+  @override
   num getMaxHeight(num positionY, num viewportHeight) {
     if (_popupSizeDelegate != null) {
       return _popupSizeDelegate.getMaxHeight(positionY, viewportHeight);
