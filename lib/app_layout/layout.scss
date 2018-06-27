@@ -87,7 +87,7 @@ $mat-header-dense-height: 48px;
   padding: 0;
   position: relative; // Prevent content from overlaying drawers in x, y, or z.
   width: 100%;
-  z-index: 0;
+  z-index: 1;
 
   // Add shadow to the header
   &.shadow {
