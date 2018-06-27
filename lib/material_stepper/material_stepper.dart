@@ -175,7 +175,7 @@ class MaterialStepperComponent {
   /// Get the step directive that is currently active.  The stepper will
   /// only have 1 step active at a time.
   StepDirective get activeStep =>
-      steps.length > 0 ? steps[activeStepIndex] : null;
+      steps.isNotEmpty ? steps[activeStepIndex] : null;
 
   /// Jumps (defined as step-switches not triggered by the Continue/Cancel
   /// buttons) that are legal. Possible values:

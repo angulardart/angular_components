@@ -64,7 +64,7 @@ class DomTreeIterator implements Iterator<Element> {
       return false;
     }
 
-    if (_element == _scope && _element.children.length == 0) {
+    if (_element == _scope && _element.children.isEmpty) {
       _element == null;
       return false;
     }
@@ -117,7 +117,7 @@ class DomTreeIterator implements Iterator<Element> {
     } else {
       // 4
       _element = _element.previousElementSibling;
-      while (_element.children.length > 0) {
+      while (_element.children.isNotEmpty) {
         _element = _lastChild(_element);
       }
     }
@@ -143,7 +143,7 @@ class DomTreeIterator implements Iterator<Element> {
   //
   // 4) Otherwise simply go to the next sibling.
   _navigateForward() {
-    if (_element.children.length > 0) {
+    if (_element.children.isNotEmpty) {
       // 1
       _element = _firstChild(_element);
     } else {
@@ -172,7 +172,7 @@ class DomTreeIterator implements Iterator<Element> {
 /// Returns last descendant in the [scope] in dom order
 Element lastDescendant(Element scope) {
   Element current = scope;
-  while (current.children.length > 0) {
+  while (current.children.isNotEmpty) {
     current = _lastChild(current);
   }
   return current;
