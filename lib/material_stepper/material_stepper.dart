@@ -18,24 +18,10 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/scroll_host/angular_2.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 
-/// A material-design-styled stepper.  A stepper is a numbered
-/// indicator used to convey progress or function as a navigational tool
+/// A material-design-styled stepper.
 ///
-/// __Example usage:__
-///
-///     <material-stepper>
-///       <template step name="Step A">
-///         <div>
-///           [...]
-///         </div>
-///       </template>
-///       <template step name="Step B">
-///         <div>
-///           [...]
-///         </div>
-///       </template>
-///     </material-stepper>
-///
+/// A stepper is a numbered indicator used to convey progress or function as a
+/// navigational tool
 @Component(
   selector: 'material-stepper',
   directives: const [
@@ -85,12 +71,12 @@ class MaterialStepperComponent {
   }
 
   bool _stickyHeader = false;
+  bool get stickyHeader => _stickyHeader;
 
   /// Indicates whether the header, which lists the available steps,
   /// should stick to the top of the page.
   ///
   /// Applicable only to steppers with horizontal header.
-  bool get stickyHeader => _stickyHeader;
   @Input()
   set stickyHeader(value) {
     _stickyHeader = getBool(value);
@@ -144,8 +130,9 @@ class MaterialStepperComponent {
   @Input()
   String noText = _cancelMsg;
 
-  /// Orientation in which the steps are laid out. Possible values:
-  /// 'horizontal' and 'vertical' (default).
+  /// Orientation in which the steps are laid out.
+  ///
+  /// Possible values: 'horizontal' and 'vertical' (default).
   @Input()
   set orientation(String s) {
     assert(orientations.contains(s));
@@ -153,8 +140,9 @@ class MaterialStepperComponent {
   }
 
   /// Size theme which in turn determines sizes of various step header elements
-  /// (e.g., the step number, step name, etc.). Possible values:
-  /// 'default' (default) and 'mini'.
+  /// (e.g., the step number, step name, etc.).
+  ///
+  /// Possible values: 'default' (default) and 'mini'.
   @Input()
   set size(String s) {
     assert(sizes.contains(s));
@@ -178,10 +166,12 @@ class MaterialStepperComponent {
       steps.isNotEmpty ? steps[activeStepIndex] : null;
 
   /// Jumps (defined as step-switches not triggered by the Continue/Cancel
-  /// buttons) that are legal. Possible values:
-  /// 'none' (default; no jumps allowed),
-  /// 'backwards'(jumps to already completed steps allowed),
-  /// 'all' (any jump allowed, regardless of the step state).
+  /// buttons) that are legal.
+  ///
+  /// Possible values:
+  ///   * 'none' (default; no jumps allowed),
+  ///   * 'backwards'(jumps to already completed steps allowed),
+  ///   * 'all' (any jump allowed, regardless of the step state).
   @Input()
   set legalJumps(String s) {
     assert(jumps.contains(s));
@@ -268,6 +258,7 @@ class MaterialStepperComponent {
     }
   }
 
+  /// Event that fires when the active step has changed.
   @Output('activeStepChanged')
   Stream<StepDirective> get activeStepChanged => _activeStepController.stream;
 
