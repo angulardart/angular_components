@@ -18,10 +18,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
 /// if a transitive parent wants to listen to all events in it's scope (ex.
 /// click on anything to hide popup), it can do so.
 ///
-/// usage:
-/// `<your-element buttonDecorator (trigger)="yourAction()"></your-element>`
-/// instead of
-/// `<your-element (click)="yourAction()"></your-element>`
+/// Gives a common event `trigger` for keyboard, and click events.
 @Directive(
   selector: '[buttonDecorator]',
   // Injected by [DisablePendingClickHandlerDirective].
