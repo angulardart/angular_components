@@ -16,6 +16,8 @@
        [style.transform-origin]="transformOrigin"
        [class.visible]="showPopup">
       <div class="popup"
+           [style.min-height.px]="minHeight"
+           [style.min-width.px]="minWidth"
            [style.max-height.px]="maxHeight"
            [style.max-width.px]="maxWidth">
           <div class="material-popup-content content">

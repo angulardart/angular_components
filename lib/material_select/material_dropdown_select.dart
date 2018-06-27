@@ -507,6 +507,14 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   @override
+  num getMinHeight(num positionY, num viewportHeight) =>
+      _popupSizeDelegate?.getMinHeight(positionY, viewportHeight);
+
+  @override
+  num getMinWidth(num positionX, num viewportWidth) =>
+      _popupSizeDelegate?.getMinWidth(positionX, viewportWidth);
+
+  @override
   num getMaxHeight(num positionY, num viewportHeight) {
     if (_popupSizeDelegate != null) {
       return _popupSizeDelegate.getMaxHeight(positionY, viewportHeight);

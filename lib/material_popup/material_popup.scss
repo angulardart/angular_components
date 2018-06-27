@@ -68,6 +68,8 @@
   main {
     display: flex;
     flex-direction: column;
+    min-height: inherit;
+    min-width: inherit;
     max-height: inherit;
     max-width: inherit;
     overflow: auto;
@@ -83,6 +85,8 @@
 }
 
 .material-popup-content {
+  min-width: inherit;
+  min-height: inherit;
   max-width: inherit;
   max-height: inherit;
   position: relative;

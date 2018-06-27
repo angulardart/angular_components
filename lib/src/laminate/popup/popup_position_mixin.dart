@@ -26,6 +26,14 @@ class PopupPositionMixin implements PopupSizeProvider {
       new PercentagePopupSizeProvider();
 
   @override
+  num getMinWidth(num positionX, num viewportWidth) =>
+      delegatePopupSizeProvider.getMinWidth(positionX, viewportWidth);
+
+  @override
+  num getMinHeight(num positionY, num viewportHeight) =>
+      delegatePopupSizeProvider.getMinHeight(positionY, viewportHeight);
+
+  @override
   num getMaxWidth(num positionX, num viewportWidth) =>
       delegatePopupSizeProvider.getMaxHeight(positionX, viewportWidth);
 
