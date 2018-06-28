@@ -11,7 +11,7 @@
 /// more specific to override the default.
 /// Note: The should be scoped to a shimmed selector outside.
 @mixin material-icon-size($size) {
-  ::ng-deep .material-icon-i {
+  ::ng-deep .material-icon-i.material-icon-i {
     font-size: $size;
   }
 }
