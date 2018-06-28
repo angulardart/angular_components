@@ -24,3 +24,11 @@
     transform: scaleX(-1);
   }
 }
+
+/// Changes the padding of the icon
+// TODO(google): Consider removing this mixin. Moved from client code.
+@mixin material-icon-padding($padding) {
+  ::ng-deep .material-icon-i {
+    padding: $padding;
+  }
+}
