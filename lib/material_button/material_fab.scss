@@ -3,19 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @import 'package:angular_components/css/material/shadow';
+// TODO(google): Remove once glyph has been replaced with material-icon.
+@import 'package:angular_components/glyph/mixins';
+@import 'package:angular_components/material_icon/mixins';
 @import 'mixins';
 
 :host {
   @include fab;
-
-  material-icon {
-    @include material-icon-size($fab-icon-size);
-  }
-
-  // TODO(google): Remove once glyph has been replaced with material-icon.
-  glyph {
-    @include glyph-size($fab-icon-size);
-  }
 
   &[mini] {
     @include fab-mini;
@@ -28,5 +22,14 @@
   &.is-pressed[raised] {
     @include shadow-elevation(12);
   }
+}
+
+material-icon {
+  @include material-icon-size($fab-icon-size);
+}
+
+// TODO(google): Remove once glyph has been replaced with material-icon.
+glyph {
+  @include glyph-size($fab-icon-size);
 }
 
