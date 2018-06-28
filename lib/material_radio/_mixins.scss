@@ -2,25 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// Changes the `$primary-color` in the material-radio.
-///
-/// Optionally specify a `$selector`. Example usage:
-///     @include material-radio-theme(
-///         $primary-color: $mat-teal-500,
-///         $selector: '.custom-area');
-@mixin material-radio-theme($primary-color, $selector: '') {
-  @warn 'This mixin is deprecated. Please use material-radio-color().';
-
-  ::ng-deep #{$selector} material-radio.themeable:not(.disabled) {
-    .icon-container.checked {
-      .icon,
-      .ripple {
-        color: $primary-color;
-      }
-    }
-  }
-}
-
 /// Changes the color of the radio button.
 ///
 /// Optional parameter $modifier is used for changing the color of certain
