@@ -197,7 +197,10 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
   }
 }
 
-/// This directive is used to [ViewChild] focusable element in your view.
+/// Tags an element as being [Focusable].
+///
+/// Tagging elements as [Focusable] allows other components to easily access
+/// which elements can be focused and perform actions on them.
 @Directive(
     selector: '[focusableElement]',
     exportAs: 'focusableElement',

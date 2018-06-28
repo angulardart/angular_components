@@ -6,10 +6,12 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-/// `FocusListDirective`, used in conjunction with [FocusItemDirective] or
+/// Used in conjunction with [FocusItemDirective] or
 /// other directive implementing [FocusableItem], to provide a means to move
 /// focus between a list of components (or elements) by way of keyboard
-/// interaction. The arrow keys move focus forward and backward in the list.
+/// interaction.
+///
+/// The arrow keys move focus forward and backward in the list.
 ///
 /// Tab order: Focus list represents single interactible element in tab order,
 /// tab will land to the first element in the list by default
@@ -19,15 +21,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// the last focused element in the list will be focused.
 ///
 /// This leads to better navigation both in and between the lists.
-///
-/// __Example Usage:__
-///
-///     <div focusList>
-///       <div focusItem>Item 1</div>
-///       <div focusItem>Item 2</div>
-///       <div focusItem>Item 3</div>
-///     </div>
-///
 @Directive(
   selector: '[focusList]',
 )

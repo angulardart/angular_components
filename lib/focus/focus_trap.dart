@@ -9,16 +9,9 @@ import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/utils/browser/dom_iterator/dom_iterator.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-/// Focus trap designed for usage of popups and modals.
+/// Focus trap designed for usage in popups and modals.
 ///
 /// After focus enters components it ensures that focus will not leave it.
-///
-/// __Example usage:__
-///
-///     <focus-trap>
-///         <material-input></material-input>
-///         <material-button>Ok</material-button>
-///     </focus-trap>
 @Component(
   selector: 'focus-trap',
   templateUrl: 'focus_trap.html',
