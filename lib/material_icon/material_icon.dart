@@ -26,12 +26,6 @@ const List<String> _flippedIcons = const [
 
 /// A material style icon.
 ///
-/// __Example usage:__
-///
-///     <material-icon
-///         icon="android">
-///     </material-icon>
-///
 /// This stylesheet should be included at the top of the page:
 ///
 /// ```html
@@ -48,17 +42,14 @@ const List<String> _flippedIcons = const [
 ///
 /// __Attributes:__
 ///
-/// - `size: String` -- The size of the icon. Options are: x-small, small,
-///   medium, large, and x-large, corresponding to 12px, 13px, 16px, 18px, and
-///   20px, respectively. If no size is specified, the default of 24px is used.
+/// - `size: String` -- The size of the icon. Options are: `x-small`, `small`,
+///   `medium`, `large`, and `x-large`, corresponding to 12px, 13px, 16px, 18px,
+///    and 20px, respectively. If no size is specified, the default of 24px is
+///    used.
 /// - `flip` -- Whether the icon should be flipped for RTL languages.
 /// - `light` -- Whether the opacity of the icon should be reduced.
+/// - `baseline` Whether the icon needs to be aligned to the baseline.
 ///
-/// __Inputs:__
-///
-/// - `icon: Icon|String` -- The `Icon` model
-///   (lib/model/ui/icon.dart) or icon identifier (String) this
-///   component should display.
 @Component(
   selector: 'material-icon',
   templateUrl: 'material_icon.html',
