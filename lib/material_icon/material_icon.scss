@@ -12,6 +12,13 @@ $large: 18px;
 $x-large: 20px;
 $default: 24px;
 
+// Local size method which is on elements which don't need deep.
+@mixin _material-icon-size($size) {
+  .material-icon-i {
+    font-size: $size;
+  }
+}
+
 :host {
   display: inline-flex;
 
@@ -23,26 +30,26 @@ $default: 24px;
     opacity: $mat-icon-opacity;
   }
 
-  @include material-icon-size($default);
+  @include _material-icon-size($default);
 
   &[size="x-small"] {
-    @include material-icon-size($x-small);
+    @include _material-icon-size($x-small);
   }
 
   &[size="small"] {
-    @include material-icon-size($small);
+    @include _material-icon-size($small);
   }
 
   &[size="medium"] {
-    @include material-icon-size($medium);
+    @include _material-icon-size($medium);
   }
 
   &[size="large"] {
-    @include material-icon-size($large);
+    @include _material-icon-size($large);
   }
 
   &[size="x-large"] {
-    @include material-icon-size($x-large);
+    @include _material-icon-size($x-large);
   }
 }
 
