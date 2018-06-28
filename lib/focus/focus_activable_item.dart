@@ -7,9 +7,8 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_components/focus/focus.dart';
 
-/// This directive is used to [ViewChild] focusable element in your view.
-///
-/// Assign a [key] in order to filter items from a [QueryList].
+/// Used in conjunction with other components to allow tagging view or content
+/// elements that should be focused either by index or [key].
 @Directive(
   selector: '[focusActivableItem]',
   providers: const [

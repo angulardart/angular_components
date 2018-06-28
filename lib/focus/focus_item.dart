@@ -11,15 +11,6 @@ import 'package:angular_components/focus/focus.dart';
 /// `FocusItemDirective`, used in conjunction with [FocusListDirective],
 /// provides a means to move focus between a list of components (or elements)
 /// by way of keyboard interaction.
-///
-/// __Example Usage:__
-///
-///     <div focusList>
-///       <div focusItem>Item 1</div>
-///       <div focusItem>Item 2</div>
-///       <div focusItem>Item 3</div>
-///     </div>
-///
 @Directive(
   selector: '[focusItem]',
   providers: const [
