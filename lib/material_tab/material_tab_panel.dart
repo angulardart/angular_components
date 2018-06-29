@@ -10,19 +10,6 @@ import 'package:angular_components/material_tab/material_tab.dart';
 import 'package:angular_components/material_tab/tab_change_event.dart';
 
 /// A component that creates a tab panel with navigation bar on the top.
-///
-/// __Example usage:__
-///
-///     <material-tab-panel>
-///       <material-tab label="tab1">
-///         <!-- your tab content -->
-///       </material-tab>
-///       <material-tab label="tab2">
-///         <my-tab-panel-component *deferredContent>
-///           <!-- your tab content -->
-///         </my-tab-panel>
-///       </material-tab>
-///     </material-tab-panel>
 // TODO(google): Support Scrolling tab strip in addition to fixed with an
 // attribute.
 @Component(
