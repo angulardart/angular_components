@@ -79,6 +79,7 @@ header {
   @include mat-type-subhead;
   cursor: pointer;
   min-height: $mat-grid * 6;
+  min-width: 0;
   outline: none;
   padding: 0 $mat-grid * 3;
   transition: min-height $mat-transition-slow $mat-transition-standard;
