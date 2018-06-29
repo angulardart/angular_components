@@ -15,8 +15,7 @@ import 'package:angular_components/model/ui/has_factory.dart';
 
 /// A material selection component that supports a tree of options.
 ///
-/// To use, simply pass in a minimum of [options] to see items:
-///     <material-tree [options]="selectionOptions"></material-tree>
+/// To use, simply pass in a minimum of [options] to see items.
 ///
 /// If [SelectionOptions] implements the [Parent] interface, a handle is shown
 /// for each option that [Parent.hasChildren] is set for, and toggling the
@@ -26,21 +25,8 @@ import 'package:angular_components/model/ui/has_factory.dart';
 /// If [SelectionOptions] implements the [Filterable] interface.
 ///
 /// To receive feedback from the component, a [selection] model is required.
-///     <material-tree
-///       [options]="selectionOptions"
-///       [selection]="selectionModel">
-///     </material-tree>
 ///
-/// To customize, specify an [itemRenderer] and/or [componentRenderer].
-///
-/// You may add an HTML attribute 'in-dropdown' to optimize use in a dropdown;
-/// for example, this will hide checks in a single selection since the selection
-/// state is already known:
-///     <material-tree
-///       dropdown
-///       [options]="selectionOptions"
-///       [selection]="selectionModel">
-///     </material-tree>
+/// To customize, specify an [itemRenderer] and/or [factoryRenderer].
 @Component(
   selector: 'material-tree',
   directives: const [
@@ -57,6 +43,7 @@ import 'package:angular_components/model/ui/has_factory.dart';
   templateUrl: 'material_tree_impl.html',
 )
 class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
+  /// Whether to hide check-marks in a single select dropdown
   @Input()
   @override
   bool optimizeForDropdown;
@@ -69,39 +56,52 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
     selection = const SelectionModel.empty();
   }
 
+  @Deprecated('Use [factoryRenderer] instead')
   @Input()
   @override
   set componentRenderer(ComponentRenderer value) {
     super.componentRenderer = value;
   }
 
+  /// Specifies the factoryRenderer to use to determine the factory for
+  /// rendering an item.
   @Input()
   @override
   set factoryRenderer(FactoryRenderer value) {
     super.factoryRenderer = value;
   }
 
+  /// A simple function to render the item to string.
   @Input()
   @override
   set itemRenderer(ItemRenderer value) {
     super.itemRenderer = value;
   }
 
+  /// The available options for this contianer.
   @Input()
   @override
   set options(SelectionOptions value) {
     super.options = value;
   }
 
+  /// The selection model this container represents.
   @Input()
   @override
   set selection(SelectionModel value) {
     super.selection = value;
   }
 
+  /// Whether to always expand an option group.
   @Input()
   bool expandAll = false;
 
+  /// Whether the widgets supports the selection of non-leaf nodes
+  ///
+  /// When `false`, and the widget is using a single selection model clicking
+  /// the widget should toggle expansion when a non-leaf node is clicked. When
+  /// `true` the widget should select non-leaf nodes when clicked and only
+  /// toggle expansion when the expansion icon is clicked.
   @Input()
   @override
   bool allowParentSingleSelection = false;

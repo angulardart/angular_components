@@ -19,6 +19,7 @@ import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 import 'material_tree_impl.dart';
@@ -70,14 +71,17 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   @ViewChild(MaterialTreeFilterComponent)
   MaterialTreeFilterComponent materialTreeFilterComponent;
 
+  /// Whether to always expand an option group.
   @Input()
   set expandAll(bool value) {
     _expandAll = value;
   }
 
+  /// Place the filter input inside of the popup.
   @Input()
   bool showFilterInsidePopup = false;
 
+  /// When `true` expand all items when the tree is being filtered.
   @Input()
   bool shouldExpandAllWhenFiltered = true;
 
@@ -107,30 +111,43 @@ class MaterialTreeDropdownComponent extends SelectionContainer
     selection = const SelectionModel.empty();
   }
 
+  @Deprecated('Use [factoryRenderer] instead')
   @Input()
   @override
   set componentRenderer(ComponentRenderer value) {
     super.componentRenderer = value;
   }
 
+  /// Specifies the factoryRenderer to use to determine the factory for
+  /// rendering an item.
+  @Input()
+  @override
+  set factoryRenderer(FactoryRenderer value) {
+    super.factoryRenderer = value;
+  }
+
+  /// A simple function to render the item to string.
   @Input()
   @override
   set itemRenderer(ItemRenderer value) {
     super.itemRenderer = value;
   }
 
+  /// The available options for this contianer.
   @Input()
   @override
   set options(SelectionOptions value) {
     super.options = value;
   }
 
+  /// The selection model this container represents.
   @Input()
   @override
   set selection(SelectionModel value) {
     super.selection = value;
   }
 
+  /// Placeholder to be used for the dropdown text when nothing is selected.
   @Input()
   set placeholder(String placeholder) {
     _placeholder = placeholder ?? _DEFAULT_PLACEHOLDER;
@@ -144,6 +161,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
 
   bool get visible => _visible;
 
+  /// Whether to show the dropdown or not.
   @Input()
   set visible(bool val) {
     if (_visible != val) {
