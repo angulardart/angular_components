@@ -74,7 +74,6 @@ abstract class SelectionItem<T> implements HasRenderer<T> {
   }
 
   /// A simple function to render the item to string.
-  /// @override
   ItemRenderer<T> _itemRenderer;
   @override
   ItemRenderer<T> get itemRenderer => _itemRenderer;
