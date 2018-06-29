@@ -31,21 +31,6 @@ abstract class Tab extends Focusable {
 /// The `material-tab` component sets the button's label text via the `label`
 /// property. Tab contents can be lazily instantiated by using the
 /// `*deferredContent` template directive.
-///
-/// __Example usage:__
-///
-///     <material-tab-panel>
-///       <material-tab label="tab 1">
-///         <my-component *deferredContent>
-///           Tab #1 Contents
-///         </my-component>
-///       </material-tab>
-///       <material-tab label="tab 2">
-///         <template deferredContent>
-///           Tab #2 Contents
-///         </template>
-///       </material-tab>
-///     </material-tab-panel>
 @Component(
   selector: 'material-tab',
   providers: const [
