@@ -109,6 +109,9 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   bool _supportsComparison = true;
 
+  /// Checks if custom comparison is a valid option.
+  bool get isCustomComparisonValid => model.isCustomComparisonValid;
+
   static final comparisonHeaderMsg = Intl.message('Compare',
       name: 'comparisonHeaderMsg',
       desc: 'Label for a toggle that turns time comparison on/off.');

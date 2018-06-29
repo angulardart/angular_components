@@ -6,14 +6,12 @@ import 'dart:async';
 
 import 'package:angular_components/material_datepicker/calendar.dart';
 import 'package:angular_components/material_datepicker/comparison.dart';
+import 'package:angular_components/material_datepicker/comparison_option.dart';
 import 'package:angular_components/material_datepicker/range.dart';
 import 'package:angular_components/src/material_datepicker/sequential.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
-
-/// Possible comparison options.
-enum ComparisonOption { previousPeriod, samePeriodLastYear, custom }
 
 /// The cause of the most recent change to the date range.
 enum Action {
@@ -44,8 +42,8 @@ enum DateRangePickerConfiguration {
 
 /// Info needed to edit comparison ranges.
 abstract class HasComparisonRange {
-  /// The previous date range (used to generate comparison title).
-  DatepickerDateRange get prevRange;
+  /// The current date range.
+  DatepickerDateRange get primaryRange;
 
   /// `true` if time comparison is turned on.
   bool comparisonEnabled;
@@ -119,12 +117,6 @@ class DateRangeEditorModel
   final _changes = new StreamController<DateRangeChange>.broadcast(sync: true);
   final Disposer _disposer = new Disposer.oneShot();
 
-  /// List of [ComparisonOption]s which fall within minDate/maxDate.
-  ///
-  /// Rebuilt as needed via calls to _updateValidComparisonOptions().
-  List<ComparisonOption> get validComparisonOptions => _validComparisonOptions;
-  List<ComparisonOption> _validComparisonOptions = [];
-
   Date minDate;
   Date maxDate;
   bool requireFullPeriods;
@@ -133,6 +125,7 @@ class DateRangeEditorModel
   bool shouldShowPredefinedList = true;
   bool shouldShowCustomDateRangeColumn = true;
   ComparisonOption _comparisonOption = ComparisonOption.previousPeriod;
+  List<ComparisonOption> _supportedComparisonOptions = defaultComparisonOptions;
   DatepickerDateRange _customComparisonRange;
   String _comparisonTitle = '';
   Action _lastCause;
@@ -142,8 +135,14 @@ class DateRangeEditorModel
       this.minDate,
       this.maxDate,
       this.requireFullPeriods = false,
-      this.basic = false})
+      this.basic = false,
+      List<ComparisonOption> supportedComparisonOptions})
       : _ref = new ObservableReference(initialValue) {
+    this.supportedComparisonOptions =
+        (supportedComparisonOptions?.isNotEmpty ?? false)
+            ? supportedComparisonOptions
+            : defaultComparisonOptions;
+
     _updateHasNextPrev(initialValue);
     _updateValidComparisonOptions();
     _disposer
@@ -163,12 +162,32 @@ class DateRangeEditorModel
     }
   }
 
+  /// List of [ComparisonOption]s which fall within minDate/maxDate.
+  ///
+  /// Rebuilt as needed via calls to _updateValidComparisonOptions().
+  List<ComparisonOption> get validComparisonOptions => _validComparisonOptions;
+  List<ComparisonOption> _validComparisonOptions = [];
+
+  /// List of [ComparisonOption]s which client want to support.
+  set supportedComparisonOptions(List<ComparisonOption> options) {
+    if (options != _supportedComparisonOptions) {
+      assert(options != null && options.isNotEmpty);
+      _supportedComparisonOptions = options;
+      _comparisonOption = _supportedComparisonOptions.first;
+      _updateValidComparisonOptions();
+    }
+  }
+
+  /// Whether custom date range in comparison is a valid option.
+  bool get isCustomComparisonValid =>
+      validComparisonOptions.contains(ComparisonOption.custom);
+
   /// A sync, broadcast stream of changes caused by the user poking at the
   /// datepicker.
   Stream<DateRangeChange> get changes => _changes.stream;
 
   @override
-  DatepickerDateRange get prevRange => value?.range?.prev;
+  DatepickerDateRange get primaryRange => value?.range;
 
   /// Whether or not time comparison is enabled.
   @override
@@ -347,18 +366,21 @@ class DateRangeEditorModel
     // Update the comparison UI (the toggle and the option dropdown)
     _comparisonEnabled = newValue.isComparisonEnabled;
     if (_comparisonEnabled) {
-      if (newValue.comparesToPreviousPeriod()) {
-        _comparisonOption = ComparisonOption.previousPeriod;
-      } else if (newValue.comparesToSamePeriodLastYear()) {
-        _comparisonOption = ComparisonOption.samePeriodLastYear;
-      } else {
+      _comparisonOption = null;
+      for (final option in _supportedComparisonOptions) {
+        if (newValue.comparesTo(option)) {
+          _comparisonOption = option;
+          break;
+        }
+      }
+      if (_comparisonOption == null &&
+          _supportedComparisonOptions.contains(ComparisonOption.custom)) {
         _comparisonOption = ComparisonOption.custom;
       }
-
       _updateValidComparisonOptions();
     }
 
-    // Update the comparison range's text input fields
+    // Updates the comparison range's text input fields
     final hypotheticalComparison =
         (comparison != null) ? comparison : _buildComparison(range).comparison;
     if (hypotheticalComparison == null) return;
@@ -484,8 +506,11 @@ class DateRangeEditorModel
   /// Builds a [DatepickerComparison] from the given [range], using the current
   /// time comparison option.
   ///
-  /// If the current time comparison option is not valid for the given [range],
-  /// then [ComparisonOption.custom] is used.
+  /// If range is All Time, returns "no comparison".
+  ///
+  /// If the current comparison option is not valid for the given [range],
+  /// [ComparisonOption.custom] is used if supported. If not, returns "no
+  /// comparison".
   DatepickerComparison _buildComparison(DatepickerDateRange range) {
     if (!_rangeSupportsComparison(range)) {
       return new DatepickerComparison.noComparison(range);
@@ -494,29 +519,27 @@ class DateRangeEditorModel
     // If we're returning a Custom comparison range, but _customComparisonRange
     // hasn't been set up yet, use a default of the first day of the given
     // range. This should only be needed the first time the user enables
-    // comparison mode, if previous period and previous year aren't valid for
+    // comparison mode, if other comparison options aren't valid for
     // their chosen range.
     final defaultCustomComparisonRange =
         new DatepickerDateRange.custom(range.start, range.start);
-
-    // If the selected comparison option is invalid for this range, return a
-    // "Custom" comparison, with the current comparison range.
     var validComparisonOptions = _getValidComparisonOptions(range);
-    if (!validComparisonOptions.contains(_comparisonOption)) {
+
+    if (_comparisonOption == ComparisonOption.custom) {
       return new DatepickerComparison.custom(
           range, _customComparisonRange ?? defaultCustomComparisonRange);
     }
 
-    switch (_comparisonOption) {
-      case ComparisonOption.previousPeriod:
-        return new DatepickerComparison.previousPeriod(range);
-      case ComparisonOption.samePeriodLastYear:
-        return new DatepickerComparison.samePeriodLastYear(range);
-      case ComparisonOption.custom:
-        return new DatepickerComparison.custom(
-            range, _customComparisonRange ?? defaultCustomComparisonRange);
+    if (validComparisonOptions.contains(_comparisonOption)) {
+      return new DatepickerComparison(range, _comparisonOption);
     }
-    throw new ArgumentError(_comparisonOption);
+
+    // Try to fall back to custom if the comparison option is no longer valid.
+    if (isCustomComparisonValid) {
+      return new DatepickerComparison.custom(
+          range, _customComparisonRange ?? defaultCustomComparisonRange);
+    }
+    return new DatepickerComparison.noComparison(range);
   }
 
   /// Updates [_validComparisonOptions] based on the current range, and whether
@@ -537,30 +560,24 @@ class DateRangeEditorModel
   /// Returns the list of [ComparisonOption]s that have any overlap with the
   /// [minDate] to [maxDate] for the given [range].
   List<ComparisonOption> _getValidComparisonOptions(DatepickerDateRange range) {
-    final options = <ComparisonOption>[];
+    final validOptions = <ComparisonOption>[];
 
     // Return empty list if range doesn't support comparison.
     if (range == null || !_rangeSupportsComparison(range)) {
-      return options;
+      return validOptions;
     }
 
-    // See if the current range's "Previous period" has any overlap with the
-    // minDate to maxDate range.
-    var previousPeriod = new DatepickerComparison.previousPeriod(range);
-    if (previousPeriod.comparison?.clamp(min: minDate, max: maxDate) != null) {
-      options.add(ComparisonOption.previousPeriod);
+    for (ComparisonOption option in _supportedComparisonOptions) {
+      if (option == ComparisonOption.custom) {
+        validOptions.add(option);
+      } else {
+        var comparisonRange = option.computeComparisonRange(range);
+        if (comparisonRange?.clamp(min: minDate, max: maxDate) != null) {
+          validOptions.add(option);
+        }
+      }
     }
 
-    // See if the current range's "Same period last year" has any overlap with
-    // the minDate to maxDate range.
-    var lastYear = new DatepickerComparison.samePeriodLastYear(range);
-    if (lastYear.comparison?.clamp(min: minDate, max: maxDate) != null) {
-      options.add(ComparisonOption.samePeriodLastYear);
-    }
-
-    // Custom is always valid.
-    options.add(ComparisonOption.custom);
-
-    return options;
+    return validOptions;
   }
 }

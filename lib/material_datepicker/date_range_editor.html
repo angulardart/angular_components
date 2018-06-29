@@ -125,7 +125,8 @@
                       [isClearRangeSelected]="isClearRangeSelected"
                       [rangeId]="model.comparisonId"
                       [(state)]="model.calendar.value"
-                      [(range)]="model.comparison.value">
+                      [(range)]="model.comparison.value"
+                      [disabled]="!isCustomComparisonValid">
     </date-range-input>
   </div>
 

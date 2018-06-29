@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:intl/intl.dart';
+import 'package:angular_components/material_datepicker/comparison_option.dart';
 import 'package:angular_components/material_datepicker/range.dart';
 import 'package:angular_components/model/date/date.dart';
 
@@ -15,14 +15,17 @@ class DatepickerComparison implements DateRangeComparison {
   /// The selected comparison range, if any.
   final DatepickerDateRange comparison;
 
+  DatepickerComparison(DatepickerDateRange range, ComparisonOption option)
+      : this.custom(range, option.computeComparisonRange(range));
+
   DatepickerComparison.noComparison(DatepickerDateRange range)
       : this.custom(range, null);
 
   DatepickerComparison.previousPeriod(DatepickerDateRange range)
-      : this.custom(range, _getPreviousRange(range));
+      : this(range, ComparisonOption.previousPeriod);
 
   DatepickerComparison.samePeriodLastYear(DatepickerDateRange range)
-      : this.custom(range, _getSamePeriodLastYearRange(range));
+      : this(range, ComparisonOption.samePeriodLastYear);
 
   /// Construct a copy of `original` clamped to the given `min`/`max` dates.
   /// Existing clamping is removed before the new clamping is applied.
@@ -34,12 +37,19 @@ class DatepickerComparison implements DateRangeComparison {
 
   bool get isComparisonEnabled => comparison != null;
 
+  @Deprecated('use comparesTo instead')
   bool comparesToPreviousPeriod() =>
-      comparison != null && rangeEqual(comparison, _getPreviousRange(range));
+      comparesTo(ComparisonOption.previousPeriod);
 
+  @Deprecated('use comparesTo instead')
   bool comparesToSamePeriodLastYear() =>
+      comparesTo(ComparisonOption.samePeriodLastYear);
+
+  /// Checks the comparison date range has same logic as given comparisonOption.
+  bool comparesTo(ComparisonOption option) =>
       comparison != null &&
-      comparison.unclamped() == _getSamePeriodLastYearRange(range);
+      comparison.unclamped() ==
+          option.computeComparisonRange(range.unclamped());
 
   bool operator ==(o) =>
       o is DatepickerComparison &&
@@ -49,32 +59,4 @@ class DatepickerComparison implements DateRangeComparison {
       ? rangeHash(range) ^ rangeHash(comparison)
       : rangeHash(range);
   String toString() => 'DatepickerComparison -- $range / $comparison';
-
-  /// If the previous date range has an interesting title like '3 weeks ago',
-  /// keep it; if it's the generic 'Custom' title, replace it with 'Previous
-  /// period'.
-  static DatepickerDateRange _getPreviousRange(DatepickerDateRange range) {
-    var prev = range.prev;
-    if (prev != null && !prev.isPredefined) {
-      return new DatepickerDateRange(_prevPeriodMsg(), prev.start, prev.end);
-    }
-    return prev;
-  }
-
-  static DatepickerDateRange _getSamePeriodLastYearRange(
-          DatepickerDateRange range) =>
-      new DatepickerDateRange(
-          _lastYearMsg(), range.start.add(years: -1), range.end.add(years: -1));
-
-  static String _prevPeriodMsg() => Intl.message('Previous period',
-      name: '_prevPeriodMsg',
-      meaning: 'Name of a date range',
-      desc: 'Generic name for the period before a time range. E.g. if someone '
-          'has selected the last 30 days, this represents the 30 days previous.');
-  static String _lastYearMsg() => Intl.message('Same period last year',
-      name: '_lastYearMsg',
-      meaning: 'Name of a date range',
-      desc: 'Generic name for a time period matching a selected date range, '
-          'but one year prior. E.g. if someone has selected Feb 2015, this '
-          'represents Feb 2014.');
 }
