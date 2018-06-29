@@ -17,20 +17,11 @@ import 'tooltip_source.dart' show tooltipShowDelay;
 /// A directive that marks the target of a tooltip and handles showing and
 /// hiding a tooltip on hover, click, enter, and space.
 ///
-/// This directive is used in conjunction with a [Tooltip] Component. Currently
-/// the only stand-alone tooltip component is the [MaterialInkTooltipComponent],
-/// which gives full control over the content of a simple tooltip.
+/// This directive is used in conjunction with a [Tooltip] Component. Such as
+/// the [MaterialInkTooltipComponent], which gives full control over
+/// the content of a simple tooltip.
 ///
-/// __Example usage:__
-///
-/// ```html
-/// <!-- Explicitly declare the tooltip target. Allows for custom content -->
-/// <span tooltipTarget #ref="tooltipTarget">
-///   Explicitly declare a tooltip component
-/// </span>
-/// <material-tooltip-text [for]="ref">
-///   Allows for <strong>formatted</strong> <em>text</em>.
-/// </material-tooltip-text>```
+/// __Export As__: `tooltipTarget`
 @Directive(
   selector: '[tooltipTarget]',
   exportAs: 'tooltipTarget',
@@ -65,6 +56,7 @@ abstract class TooltipBehavior extends TooltipTarget {
   // Whether the mouse is currently inside the component.
   bool _isMouseInside = false;
 
+  /// Event that fires when the tooltip is activated.
   @Output()
   Stream<bool> get tooltipActivate => _tooltipActivate.stream.distinct();
 
@@ -119,20 +111,11 @@ abstract class TooltipBehavior extends TooltipTarget {
 /// This directive is slightly different from [MaterialTooltipTargetDirective]
 /// as click and key events make tooltips appear with no delay.
 ///
-/// This directive is used in conjunction with a [Tooltip] Component. Currently
-/// the only stand-alone tooltip component is the [MaterialInkTooltipComponent],
-/// which gives full control over the content of a simple tooltip.
+/// This directive is used in conjunction with a [Tooltip] Component. Such as
+/// the [MaterialInkTooltipComponent], which gives full control over the content
+/// of a simple tooltip.
 ///
-/// __Example usage:__
-///
-/// ```html
-/// <!-- Explicitly declare the tooltip target. Allows for custom content -->
-/// <span clickableTooltipTarget #ref="tooltipTarget">
-///   Explicitly declare a tooltip component
-/// </span>
-/// <material-tooltip-text [for]="ref">
-///   Allows for <strong>formatted</strong> <em>text</em>.
-/// </material-tooltip-text>```
+/// __Export As__: `tooltipTarget`
 @Directive(
   selector: '[clickableTooltipTarget]',
   exportAs: 'tooltipTarget',

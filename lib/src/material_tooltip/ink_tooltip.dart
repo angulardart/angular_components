@@ -27,17 +27,6 @@ import 'tooltip_target.dart';
 ///
 /// Consider using [MaterialTooltipDirective] instead; usage is much simpler and
 /// it enforces text-only small tooltips.
-///
-/// __Example usage:__
-///
-/// ```html
-/// <!-- Explicitly declare the tooltip target. Allows for custom content -->
-/// <span tooltipTarget #ref="tooltipTarget">
-///   Explicitly declare a tooltip component
-/// </span>
-/// <material-tooltip-text [for]="ref">
-///   Allows for <strong>formatted</strong> <em>text</em>.
-/// </material-tooltip-text>```
 @Component(
   selector: 'material-tooltip-text',
   providers: const [tooltipControllerBinding],
@@ -99,6 +88,12 @@ class MaterialInkTooltipComponent implements Tooltip {
   }
 
   /// The element at which this tooltip is targeted.
+  ///
+  /// This is typically set in the template by using a var ref. For example:
+  /// ```html
+  ///   <span tooltipTarget #target="tooltipTarget">Tip</span>
+  ///   <material-tooltip-text [for]="target">My tooltip</material-tooltip-text>
+  /// ```
   @Input('for')
   set tooltipRef(TooltipTarget target) {
     if (target == null) return;

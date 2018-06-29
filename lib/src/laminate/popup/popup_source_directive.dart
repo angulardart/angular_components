@@ -13,15 +13,7 @@ import 'package:angular_components/src/laminate/popup/dom_popup_source.dart';
 import 'package:angular_components/src/laminate/popup/popup_source.dart';
 import 'package:angular_components/utils/angular/reference/reference.dart';
 
-/// A directive that exposes the [PopupSource] interface as `popupSource`:
-///
-/// Example of use:
-///     <div popupSource
-///          alignPositionX="alignX"
-///          alignPositionY="alignY"
-///          #source="popupSource">
-///     </div>
-///     <template popup [relativeTo]="source"></template>
+/// A directive that exposes the [PopupSource] interface as `popupSource`.
 @Directive(
   selector: '[popupSource]',
   exportAs: 'popupSource',
@@ -65,6 +57,19 @@ class PopupSourceDirective
   @override
   Alignment get alignOriginX => _popupSource.alignOriginX;
 
+  /// Alignment of the popup in the horizontal direction.
+  ///
+  /// Possible values are:
+  /// - `start`: Align popup to the start of a container. This is equivalent
+  ///   to 'flex-start'. (Default)
+  /// - `center`: Align popup to the center of a container. This is equivalent
+  ///   to 'center'.
+  /// - `end`: Align popup to the end of a container. This is equivalent to
+  ///   'flex-end'.
+  /// - `before`: Align popup before a container. This is *not* equivalent to
+  ///   any CSS positioning model.
+  /// - `after`: Align popup after a container. This is *not* equivalent to
+  ///   any CSS positioning model.
   @Input('alignPositionX')
   set alignX(String align) {
     _alignOriginX = new Alignment.parse(align);
@@ -74,6 +79,19 @@ class PopupSourceDirective
   @override
   Alignment get alignOriginY => _popupSource.alignOriginY;
 
+  /// Alignment of the popup in the vertical direction.
+  ///
+  /// Possible values are:
+  /// - `start`: Align popup to the start of a container. This is equivalent
+  ///   to 'flex-start'. (Default)
+  /// - `center`: Align popup to the center of a container. This is equivalent
+  ///   to 'center'.
+  /// - `end`: Align popup to the end of a container. This is equivalent to
+  ///   'flex-end'.
+  /// - `before`: Align popup before a container. This is *not* equivalent to
+  ///   any CSS positioning model.
+  /// - `after`: Align popup after a container. This is *not* equivalent to
+  ///   any CSS positioning model.
   @Input('alignPositionY')
   set alignY(String align) {
     _alignOriginY = new Alignment.parse(align);

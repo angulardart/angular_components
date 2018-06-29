@@ -28,8 +28,6 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
 /// link, etc. The target may also be the `help_outline` icon, which acts as a
 /// proxy for the actual target.
 ///
-/// See the Material spec and usage guidelines
-/// [https://material.io/guidelines/components/tooltips.html#tooltips-usage]
 /// Use this component in conjunction with the [MaterialTooltipTargetDirective].
 ///
 /// This component supports deferred content.
@@ -37,14 +35,13 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
 /// If your tooltip content is another component, use the
 /// [DeferredContentDirective] to load your component only when it is visible.
 ///
-///
 /// __Supported Content:__
 ///
 /// The following selectors are automatically styled to tooltip spec:
 ///
 /// - `header`
 /// - `footer`
-/// - `*` - Non header/footer content is given the tooltip body style.
+/// - Non header/footer content is given the tooltip body style.
 @Component(
   selector: 'material-tooltip-card',
   providers: const [
@@ -88,7 +85,14 @@ class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
   PopupSource _tooltipSource;
   PopupSource get popupSource => _tooltipSource;
 
-  /// Positions where to try to show the tooltip.
+  /// Relative positions where to try to show the tooltip.
+  ///
+  /// Defaults to:
+  ///
+  /// `[RelativePosition.OffsetBottomRight,
+  /// RelativePosition.OffsetTopLeft,
+  /// RelativePosition.OffsetBottomLeft,
+  /// RelativePosition.OffsetTopRight]`
   @Input()
   List<RelativePosition> preferredPositions = _defaultPositions;
 
