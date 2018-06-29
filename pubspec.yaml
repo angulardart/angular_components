@@ -1,5 +1,5 @@
 name: angular_components
-version: 0.9.0-alpha+15
+version: 0.9.0-beta
 description: >
   The official Material Design components for AngularDart. Used at Google
   in production apps.
@@ -8,8 +8,8 @@ author: Dart Team <misc@dartlang.org>
 environment:
   sdk: '>=2.0.0-dev.60.0 <2.0.0'
 dependencies:
-  angular: 5.0.0-alpha+15
-  angular_forms: 2.0.0-alpha+7
+  angular: 5.0.0-beta
+  angular_forms: 2.0.0-beta
   async: ^2.0.6
   build: '>=0.11.1 <0.13.0'
   build_config: '>=0.2.6 <0.4.0'

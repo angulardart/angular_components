@@ -15,9 +15,9 @@ Angular package.
 
 This is a continually growing set of widgets. Recent additions include:
 
+* Material Stacking Drawer
 * Material Stepper
 * Material Slider
-* Material Datepicker
 
 At this time we are not taking pull requests, but please
 [file an issue](https://github.com/dart-lang/angular_components/issues)
@@ -28,9 +28,8 @@ Firefox, and Safari.
 
 ## Package `build_runner` support
 
-As of angular: 5.0.0-alpha+5 the pub transformer has been removed in favor of
-code generation through package [build]. Please see the Dart 2
-[migration guide].
+The pub transformer has been removed in favor of code generation through package
+[build]. Please see the Dart 2 [migration guide].
 
 [build]: https://pub.dartlang.org/packages/build
 [migration guide]: https://webdev.dartlang.org/dart-2
