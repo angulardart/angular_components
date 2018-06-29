@@ -39,6 +39,7 @@ import 'package:angular_components/model/observable/observable.dart';
                 [class.active]="isStartActive"
                 [(date)]="start"
                 (focus)="onStartFocused()"
+                [disabled]="disabled"
                 class="start date-input">
 </material-input>
 <span class="separator">—</span>
@@ -52,6 +53,7 @@ import 'package:angular_components/model/observable/observable.dart';
                 [(date)]="end"
                 [rangeEnd]="true"
                 (focus)="onEndFocused()"
+                [disabled]="disabled"
                 class="end date-input">
 </material-input>
 ''',
@@ -63,6 +65,17 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   StreamSubscription _calendarStream;
 
   DateRangeInputComponent(this._changeDetector);
+
+  /// Whether the input field is disabled.
+  ///
+  /// If true, the component disable both start and end input field.
+  @Input()
+  set disabled(bool isDisabled) {
+    _disabled = isDisabled;
+  }
+
+  bool get disabled => _disabled;
+  bool _disabled = false;
 
   @override
   void ngOnInit() {
@@ -79,12 +92,18 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   }
 
   void onStartFocused() {
+    if (_disabled) {
+      return;
+    }
     if (state.currentSelection == rangeId && !state.previewAnchoredAtStart)
       return;
     _model.value = state.select(rangeId, previewAnchoredAtStart: false);
   }
 
   void onEndFocused() {
+    if (_disabled) {
+      return;
+    }
     if (state.currentSelection == rangeId && state.previewAnchoredAtStart)
       return;
     _model.value = state.select(rangeId, previewAnchoredAtStart: true);

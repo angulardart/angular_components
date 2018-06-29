@@ -18,6 +18,7 @@ import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_datepicker/comparison.dart';
+import 'package:angular_components/material_datepicker/comparison_option.dart';
 import 'package:angular_components/material_datepicker/date_range_editor.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/material_datepicker/next_prev_buttons.dart';
@@ -84,7 +85,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   ],
 )
 class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
-    implements HasDisabled, OnInit, OnDestroy, DateRangeEditorHost {
+    implements
+        HasDisabled,
+        OnInit,
+        AfterChanges,
+        OnDestroy,
+        DateRangeEditorHost {
   DateRangeEditorComponent _dateRangeEditor;
   bool _focusOnDateRangeEditorInit = false;
 
@@ -286,6 +292,22 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   String get placeHolderMsg => _customPlaceHolderMsg ?? _placeHolderMsg;
   String _customPlaceHolderMsg;
 
+  /// [ComparisonOption]s the user can choose from.
+  ///
+  /// By default, this is "Previous period", "Previous year", and "Custom".
+  /// This can only be set once. Null or empty values are ignored.
+  @Input()
+  set comparisonOptions(List<ComparisonOption> options) {
+    if (options != null && options.isNotEmpty) {
+      // User cannot change this value after setting it.
+      assert(_comparisonOptions == null || _comparisonOptions == options);
+      _comparisonOptions = options;
+      model.supportedComparisonOptions = _comparisonOptions;
+    }
+  }
+
+  List<ComparisonOption> _comparisonOptions;
+
   @ViewChild('focusOnClose')
   KeyboardOnlyFocusIndicatorDirective focusOnClose;
 
@@ -379,6 +401,19 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
       ..addDisposable(model.changes
           .where((_) => !_popupVisible) // handle next/prev buttons while closed
           .listen((v) => selection.value = v.date));
+  }
+
+  @override
+  void ngAfterChanges() {
+    // Checks the edge case if user enter a wrong comparison range that
+    // is not supported.
+    if (supportsComparison &&
+        _comparisonOptions != null &&
+        selection.value != null &&
+        !_isComparisonOptionsSupported(selection.value)) {
+      throw UnsupportedError('Your comparisonOptions don\'t support your'
+          ' input datePickerComparison: ${selection.value}');
+    }
   }
 
   @override
@@ -549,6 +584,13 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
       return cmp;
     }
   }
+
+  /// Whether the given [DatepickerComparison] is supported by this picker's
+  /// current configuration.
+  bool _isComparisonOptionsSupported(DatepickerComparison cmp) =>
+      !cmp.isComparisonEnabled ||
+      _comparisonOptions.contains(ComparisonOption.custom) ||
+      _comparisonOptions.any((option) => cmp.comparesTo(option));
 
   static final cancelButtonMsg = Intl.message('Cancel',
       meaning: 'Button in a date picker',

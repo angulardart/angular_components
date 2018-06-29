@@ -2,9 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:core';
+
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
+import 'package:angular_components/material_datepicker/comparison_option.dart';
 import 'package:angular_components/material_datepicker/date_range_input.dart';
+import 'package:angular_components/material_datepicker/range.dart';
 import 'package:angular_components/src/material_datepicker/date_range_editor_model.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/material_list/material_list_item.dart';
@@ -41,53 +45,27 @@ class ComparisonRangeEditorComponent {
   /// non-test implementation is [DateRangeEditorModel].
   @Input()
   HasComparisonRange model;
+  Map<ComparisonOption, String> _optionMsgCache = {};
+  DatepickerDateRange _primaryDateRange;
 
-  final List<ComparisonOption> options = [
-    ComparisonOption.previousPeriod,
-    ComparisonOption.samePeriodLastYear,
-    ComparisonOption.custom
-  ];
-
-  static final comparisonHeaderMsg = Intl.message('Compare',
+  String get comparisonHeaderMsg => Intl.message('Compare',
       name: 'comparisonHeaderMsg',
       desc: 'Label for a toggle that turns time comparison on/off.');
 
-  String get previousPeriodMsg {
-    // If we have a nice title ("3 weeks ago"), use that. Otherwise fall back
-    // to "Previous period".
-    var prev = model.prevRange;
-    return prev?.isPredefined == true ? prev.title : _previousPeriodMsg;
+  /// Gets display message from given option.
+  String comparisonOptionMsg(ComparisonOption option) {
+    if (_primaryDateRange != model.primaryRange) {
+      _updateOptionMsg();
+      _primaryDateRange = model.primaryRange;
+    }
+    return _optionMsgCache[option];
   }
 
-  static final _previousPeriodMsg = Intl.message('Previous period',
-      name: '_previousPeriodMsg',
-      meaning: 'Name for a time comparison option',
-      desc: 'Setting to compare the selected date range with the previous '
-          'period. E.g. if the selected range were May, this would be April.');
-
-  static final samePeriodLastYearMsg = Intl.message('Previous year',
-      name: 'samePeriodLastYearMsg',
-      meaning: 'Name for a time comparison option',
-      desc: 'Setting to compare the selected date range with the same range '
-          'last year. E.g. if the selected range were May 2015, this would be '
-          'May 2014.');
-
-  static final customMsg = Intl.message('Custom',
-      name: 'customMsg',
-      meaning: 'Name for a time comparison option',
-      desc: 'Setting to compare the selected date range with another arbitrary '
-          'user-selected date range.');
-
-  String comparisonOptionMsg(ComparisonOption option) {
-    switch (option) {
-      case ComparisonOption.previousPeriod:
-        return previousPeriodMsg;
-      case ComparisonOption.samePeriodLastYear:
-        return samePeriodLastYearMsg;
-      case ComparisonOption.custom:
-        return customMsg;
-      default:
-        return '<unknown comparison option>';
+  void _updateOptionMsg() {
+    for (var option in model.validComparisonOptions) {
+      _optionMsgCache[option] =
+          option.computeComparisonRange(model.primaryRange)?.title ??
+              option.displayName;
     }
   }
 }
