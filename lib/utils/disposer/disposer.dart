@@ -4,6 +4,8 @@
 
 import 'dart:async';
 
+import 'package:meta/meta.dart';
+
 const String _oneShotDisposerMemoryLeakWarning =
     'Possible memory leak detected: A disposable should not be added to '
     'one shot disposers after the dispose() method has been called.';
@@ -20,6 +22,7 @@ abstract class Disposable {
   factory Disposable(DisposeFunction disposeFn) = _SingleFunctionDisposable;
 
   /// Disposes this disposable and any resources it has open.
+  @mustCallSuper
   void dispose();
 }
 
