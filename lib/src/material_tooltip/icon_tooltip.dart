@@ -24,10 +24,10 @@ import 'tooltip_target.dart';
 ///
 /// __Attributes:__
 ///
-/// - `type` -- The type of the icon. Defaults to "help" to show "help_outline"
-/// icon (a circled "?"). The other supported values are "info" for
-/// "info_outline" (a circled "i") and "error" for "error_outline"
-/// (a circled "!").
+/// - `type` -- The type of the icon. Possible values:
+///   - `help` -- Shows a "help_outline" icon (a circled "?"). (Default)
+///   - `info` -- Shows an "info_outline" (a circled "i")
+///   - `error` -- Shows an "error_outline" (a circled "!").
 @Component(
   selector: 'material-icon-tooltip',
   providers: const [
