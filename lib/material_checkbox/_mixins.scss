@@ -2,25 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// Changes the `$primary-color` of <material-checkbox>s under the $selector
-/// element.
-///
-/// Example use: @include material-checkbox-theme(
-///     $primary-color: $mat-teal-500,
-///     $selector: '.custom-area');
-@mixin material-checkbox-theme($primary-color, $selector: '') {
-  @warn 'This mixin is deprecated. Please use material-checkbox-color instead.';
-
-  // Use component's selector with the themeable class to increase theme
-  // selector's priority.
-  ::ng-deep #{$selector} material-checkbox {
-    &.themeable:not(.disabled) .icon-container .icon.filled,
-    &:not(.disabled) .icon-container .ripple.filled {
-      color: $primary-color;
-    }
-  }
-}
-
 /// Changes the color of the checkbox.
 ///
 /// Optional parameter $modifier is used for changing the color of certain
