@@ -1,8 +1,7 @@
 ## 0.9.0-beta
 
 > NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-beta. The alpha tag represents the evolving nature of the AngularDart
-> API, not code quality (5.0.0-beta is used in production Google apps).
+> 5.0.0-beta (5.0.0-beta is used in production Google apps).
 
 Please note that an up-to-date copy of `dev` channel Dart SDK is required (at
 least `2.0.0-dev.65` as of this writing) to use this version with AngularDart
@@ -40,9 +39,6 @@ more details.
 #### Button Decorator
 * Allow role to be customized.
 
-#### Glyph
-* Fix flipped help icon when in left-to-right.
-
 #### Material Auto-Suggest Input
 * Improve keyboard navigation behavior.
 * Prevent marking itself as dirty when it receives initial form value.
@@ -54,7 +50,7 @@ more details.
 * Ensure input text is initialized correctly regardless of input order.
 * Fix auto-scrolling issue on Firefox.
 * Add ability to give a tooltip for the clear icon.
-* Replace ngOnChanges(\_) with ngAfterChanges.
+* Replace `ngOnChanges()` with `ngAfterChanges()`.
 * Protect against method being called after it is destroyed.
 
 #### Material Button
