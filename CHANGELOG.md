@@ -89,6 +89,12 @@ more details.
 * Update margin on dense theme.
 
 #### Material Date Picker
+* Add dynamic Date Picker Comparison Options
+ * Allow user create their own comparison option.
+ * Provide default comparison options (previous period, previous year, custom).
+ * New interface `SupportedComparisonOptions` for
+   `MaterialDateRangePickerComponent`.
+ * New interface `Disabled` for `DateRangeInput`.
 * Use updated class names for `ShowHideDirective`.
 * Fix direction of dropdown arrows in RTL locales.
 * Allow error messages to be shown on range picker inputs.
@@ -112,6 +118,7 @@ more details.
 * Remove `preserveWhitespace: false`.
 
 #### Material Expansion Panel
+* Fix issue where header could extend beyond the max-width of its container.
 * Add a mixin for no borders.
 * Add a mixin to show header actions on the bottom instead of on the left.
 * Add mixin to set alignment in the header.
