@@ -8,18 +8,30 @@ import 'package:angular_components/model/ui/icon.dart';
 
 /// Properties for a component which wants to expose typical options for a
 /// button: `buttonText`, `buttonAriaLabel`, `disabled`, `icon` and `raised`.
-// TODO(google): Add doc comments for inputs.
 class MaterialButtonWrapper implements HasDisabled {
+  /// Text on the button.
   @Input()
   String buttonText;
+
+  /// Aria label for the button.
   @Input()
   String buttonAriaLabel;
+
+  /// Whether the button is disabled.
   @Input()
   bool disabled = false;
+
+  /// Icon to be used with the button. (Optional)
   @Input()
   Icon icon;
+
+  /// Icon to use for the button.
+  ///
+  /// See [MaterialIconComponent] for possible values.
   @Input()
   String iconName;
+
+  /// Whether the button is raised.
   @Input()
   bool raised = false;
 

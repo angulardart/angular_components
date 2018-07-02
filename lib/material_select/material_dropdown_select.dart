@@ -60,55 +60,14 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// The material-select has a fixed max height and auto overflow. We can add a
 /// property for custom max height once there's a use case.
 ///
-/// See third_party/dart_src/acx/material_select/examples for example usage.
+/// See examples for usage.
 ///
-/// __Example usage:__
+/// __Attributes:__
 ///
-///     <material-dropdown-select
-///       [buttonText]="buttonText"
-///       [selection]="singleSelectModel"
-///       [options]="options"
-///       [itemRenderer]="itemRenderer"
-///       [preferredPositions]="preferredPositions">
-///     </material-dropdown-select>
-///
-/// __Properties:__
-///
-/// - `selection: SelectionModel` -- The selection model this component
-///   controls.
-/// - `options: SelectionOptions` -- The options to use for this selection
-///   model.
-/// - `componentRenderer: ComponentRenderer` -- Function that returns a
-///   component to render the Item. The component must implement RendersValue.
-/// - `itemRenderer: ItemRenderer` -- Function to convert an option object to
-///   string.
-/// - `width: int` -- Width of the dropdown/list, default none, valid values are
-///   0-5.
-/// - `visible: bool` -- Whether the dropdown is visible.
-/// - `buttonText: String` -- Text on trigger button.
-/// - `buttonAriaLabel: String` -- Aria label for trigger button.
-/// - `ariaActiveDescendant: String` -- The id of the selected item in the
-///    dropdown when using content projection.
-///  - `showButtonBorder: bool` - Whether to show the bottom border of the
-///   dropdown button.
-/// - `iconName: String` -- Icon to use on button, `arrow_drop_down` by default.
-/// - `icon-label: String` -- Aria label for the button icon.
-/// - `disabled: bool` -- Whether the control is disabled.
-/// - `icon: Icon` -- `Icon` model instance.
-/// - `autoDismiss: bool` -- Whether the popup should close when the document
-///   pressed.
-/// - `popupMatchInputWidth: bool` -- Whether or not the popup width is at least
-///   as wide as the select width.
-/// - `preferredPositions: List` -- A manual list of preferred auto-alignments
-///   for the dropdown popup.
-/// - `slide: String` -- Direction of popup scaling. Valid values are `x`, `y`,
-///   or `null`.
-/// - `deselectOnActivate: bool` -- Whether to deselect a selected option on
-///   click or enter/space key. Single selection model only. Defaults to true.
-/// - `deselectLabel: String` -- Adds a select item that deselects the current
-///   selection.
-/// - `labelRenderer: ComponentRenderer` -- Function that returns a component
-///   to be used for rendering group labels.
+/// - `buttonAriaRole` -- Aria label for the button icon.
+/// - `popupClass` -- Class to be added to the dropdown popup so that the popup
+///   can be styled in an encapsulated way. See [MaterialPopup] for
+///   documentation.
 @Component(
   selector: 'material-dropdown-select',
   providers: const [
@@ -199,8 +158,9 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
 
   bool _deselectOnActivate = true;
 
-  /// If true triggering a select item component will deselect the currently
-  /// selected single select value.
+  ///  Whether to deselect a selected option on click or enter/space key.
+  ///
+  /// Single selection model only. Defaults to true.
   @Input()
   set deselectOnActivate(bool value) {
     _deselectOnActivate = value;
@@ -213,7 +173,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
       'Use labelFactory instead it allows for better tree-shakable code.')
   ComponentRenderer labelRenderer;
 
-  /// Factory used to create labels for the dropdown.
+  /// Factory that returns a component to be used for rendering group labels.
   @Input()
   FactoryRenderer labelFactory;
 
@@ -227,7 +187,6 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   /// Only visible for the template.
   final String popupClassName;
 
-  /// The id of the active element of the dropdown.
   String _ariaActiveDescendant;
 
   MaterialDropdownSelectComponent(
@@ -249,8 +208,8 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   @ViewChild(DropdownButtonComponent)
   DropdownButtonComponent dropdownButton;
 
-  /// The id of the currently selected item, or the first item if none are
-  /// selected.
+  // The id of the currently selected item, or the first item if none are
+  // selected.
   String get ariaActiveDescendant {
     if (!visible) return '';
 
@@ -263,6 +222,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     return '';
   }
 
+  /// The id of the active element of the dropdown.
   @Input()
   set ariaActiveDescendant(String id) {
     _ariaActiveDescendant = id;
@@ -291,6 +251,8 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     super.factoryRenderer = value;
   }
 
+  /// Function to convert an option object to string.
+  ///
   // Ideally, [value] would be a [ItemRenderer<T>], where T is also the type
   // parameter of the SelectionOptions and the SelectionModel, as parent
   // components typically use a function that accepts a specific type (T).
@@ -307,18 +269,21 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     super.itemRenderer = (item) => value(item);
   }
 
+  /// Width of the dropdown/list, default none, valid values are 0-5.
   @Input()
   @override
   set width(value) {
     super.width = value;
   }
 
+  /// Whether the dropdown is visible.
   @override
   set visible(bool value) {
     super.visible = value;
     resetEnteredKeys();
   }
 
+  /// The options to use for this selection model.
   @Input()
   @override
   set options(SelectionOptions newOptions) {
@@ -334,11 +299,13 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     });
   }
 
+  /// Event that fires when the dropdown button is focused.
   @Output()
   Stream<FocusEvent> get focus => _focus.stream;
   StreamController<FocusEvent> _focus =
       new StreamController<FocusEvent>.broadcast(sync: true);
 
+  /// Event that fires when the dropdown button is blurred.
   @Output()
   Stream<FocusEvent> get blur => _blur.stream;
   StreamController<FocusEvent> _blur =
@@ -352,6 +319,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     _blur.add(event);
   }
 
+  /// The selection model this component controls.
   @Input()
   @override
   set selection(SelectionModel newSelection) {
