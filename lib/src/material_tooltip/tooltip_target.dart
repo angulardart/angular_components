@@ -20,8 +20,6 @@ import 'tooltip_source.dart' show tooltipShowDelay;
 /// This directive is used in conjunction with a [Tooltip] Component. Such as
 /// the [MaterialInkTooltipComponent], which gives full control over
 /// the content of a simple tooltip.
-///
-/// __Export As__: `tooltipTarget`
 @Directive(
   selector: '[tooltipTarget]',
   exportAs: 'tooltipTarget',
@@ -114,8 +112,6 @@ abstract class TooltipBehavior extends TooltipTarget {
 /// This directive is used in conjunction with a [Tooltip] Component. Such as
 /// the [MaterialInkTooltipComponent], which gives full control over the content
 /// of a simple tooltip.
-///
-/// __Export As__: `tooltipTarget`
 @Directive(
   selector: '[clickableTooltipTarget]',
   exportAs: 'tooltipTarget',

@@ -60,9 +60,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// The material-select has a fixed max height and auto overflow. We can add a
 /// property for custom max height once there's a use case.
 ///
-/// See
-/// https://github.com/dart-lang/angular_components_example/tree/master/example/material_select_example
-/// for example usage.
+/// See third_party/dart_src/acx/material_select/examples for example usage.
 ///
 /// __Example usage:__
 ///
