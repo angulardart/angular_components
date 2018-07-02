@@ -16,8 +16,12 @@
 //
 // Apply directly to the <material-yes-no-buttons> element.
 @mixin material-yes-button-text-color($value) {
-  ::ng-deep .btn-yes {
-    color: $value;
+  ::ng-deep .btn-yes.btn:not([disabled]) {
+    &,
+    &.highlighted,
+    &.highlighted[raised] {
+      color: $value;
+    }
   }
 }
 
