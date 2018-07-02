@@ -25,16 +25,6 @@ import 'material_select_item.dart';
 /// Options can be specified manually (in your template), or via a
 /// [SelectionOptions] instance. Options can be marked as selected via template
 /// or by checking against a selection model.
-///
-/// __Properties:__
-///
-///  - `options: SelectionOptions` - The [SelectionOptions] instance providing
-///    options to render.
-///  - `width: int` - The width of the rendered list, from 1 to 5.
-///  - `itemRenderer: ItemRenderer` - A rendering function to render selection
-///    options, if given a `value`.
-///  - `disabled: bool` - Whether the select should be shown as disabled.
-///    Optional. Defaults to false.
 @Component(
   selector: 'material-select',
   providers: const [
@@ -68,24 +58,29 @@ class MaterialSelectComponent extends MaterialSelectBase
   @override
   bool get isMultiSelect => super.isMultiSelect;
 
+  /// The [SelectionOptions] instance providing options to render.
   @Input()
   @override
   set options(SelectionOptions value) {
     super.options = value;
   }
 
+  /// The width of the rendered list, from 1 to 5.
   @Input()
   @override
   set width(value) {
     super.width = value;
   }
 
+  @Deprecated('Use factoryRenderer instead it is more tree-shakable')
   @Input()
   @override
   set componentRenderer(ComponentRenderer value) {
     super.componentRenderer = value;
   }
 
+  /// Used to create a [ComponentFactory] that must override [RendersValue]
+  /// from a given option allowing for a more expressive option.
   @Input()
   @override
   set factoryRenderer(FactoryRenderer value) {
@@ -113,6 +108,9 @@ class MaterialSelectComponent extends MaterialSelectBase
     return false;
   }
 
+  /// Whether the select should be shown as disabled.
+  ///
+  /// Defaults to false.
   @Input()
   set disabled(value) {
     _disabled = getBool(value);
@@ -127,9 +125,11 @@ class MaterialSelectComponent extends MaterialSelectBase
   ItemRenderer get itemRenderer => _itemRenderer;
   ItemRenderer _itemRenderer;
 
+  /// A rendering function to render selection options to a String, if given a
+  /// `value`.
   @Input()
-  set itemRenderer(ItemRenderer value) {
-    _itemRenderer = value;
+  set itemRenderer(ItemRenderer renderer) {
+    _itemRenderer = renderer;
     _refreshItems();
   }
 

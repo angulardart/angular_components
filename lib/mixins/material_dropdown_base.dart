@@ -54,6 +54,8 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   bool popupMatchInputWidth = true;
 
   /// Direction of popup scaling.
+  ///
+  /// Valid values are `x`, `y`, or `null`.
   @Input()
   String slide;
 
