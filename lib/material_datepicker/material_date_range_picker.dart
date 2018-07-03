@@ -30,6 +30,7 @@ import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
 import 'package:angular_components/model/observable/observable.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
@@ -60,6 +61,11 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///                                 [presets]="presets">
 ///     </material-date-range-picker>
 ///
+/// __Attributes:__
+///
+/// - `popupClass` -- Class to be added to the range picker popup so that the
+///   popup can be styled in an encapsulated way. See [MaterialPopup] for
+///   documentation.
 @Component(
   selector: 'material-date-range-picker',
   styleUrls: const ['material_date_range_picker.scss.css'],
@@ -359,11 +365,20 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   final DomService _domService;
   final NgZone _ngZone;
 
+  /// CSS classes from the root element, passed to the popup to allow scoping of
+  /// mixins.
+  ///
+  /// Only visible for the template.
+  final String popupClassName;
+
   MaterialDateRangePickerComponent(
       @Optional() @Inject(datepickerClock) Clock clock,
       Clock legacyClock,
+      @Attribute('popupClass') String popupClass,
+      HtmlElement element,
       this._domService,
-      this._ngZone) {
+      this._ngZone)
+      : popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
     // TODO(google): Migrate to use only datepickerClock
     clock ??= legacyClock;
 

@@ -39,6 +39,7 @@
   autodismiss when the user clicks outside the popup).
 -->
 <material-popup enforceSpaceConstraints
+                [class]="popupClassName"
                 [preferredPositions]="overlapAlignments"
                 [source]="button"
                 (open)="open()"
