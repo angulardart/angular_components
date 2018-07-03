@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
@@ -26,7 +27,11 @@ import 'package:angular_components/utils/browser/events/events.dart';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
-class MaterialToggleComponent implements AfterViewInit, HasDisabled {
+class MaterialToggleComponent
+    implements AfterViewInit, HasDisabled, ControlValueAccessor<bool> {
+  Function _onTouched;
+  final ChangeDetectorRef _changeDetector;
+
   @HostBinding('class')
   static const hostClass = 'themeable';
 
@@ -92,6 +97,11 @@ class MaterialToggleComponent implements AfterViewInit, HasDisabled {
     _updateShadowZ();
   }
 
+  MaterialToggleComponent(
+      this._changeDetector, @Self() @Optional() NgControl cd) {
+    cd?.valueAccessor = this;
+  }
+
   bool get hasLabel => label != null && label.isNotEmpty;
 
   void _updateShadowZ() {
@@ -103,6 +113,7 @@ class MaterialToggleComponent implements AfterViewInit, HasDisabled {
     if (!disabled) {
       checked = !checked;
       _controller.add(checked);
+      _onTouched?.call();
     }
   }
 
@@ -126,5 +137,27 @@ class MaterialToggleComponent implements AfterViewInit, HasDisabled {
   void _syncAriaPressed() {
     if (toggleElement == null) return;
     toggleElement.attributes['aria-pressed'] = '$checked';
+  }
+
+  @override
+  void writeValue(bool isChecked) {
+    checked = isChecked;
+    _changeDetector?.markForCheck();
+  }
+
+  @override
+  void registerOnChange(ChangeFunction<bool> callback) {
+    onChecked.listen((checked) => callback(checked));
+  }
+
+  @override
+  void registerOnTouched(TouchFunction callback) {
+    _onTouched = callback;
+  }
+
+  @override
+  void onDisabledChanged(bool isDisabled) {
+    disabled = isDisabled;
+    _changeDetector?.markForCheck();
   }
 }
