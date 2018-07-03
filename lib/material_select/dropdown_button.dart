@@ -18,22 +18,10 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// A button styled specifically for dropdowns.
 ///
 /// By default, this button is rendered with a triangle icon and an underline.
-///
-/// __Properties:__
-///
-///  - `iconName: String` -- Material icon displayed on the right of the button.
-///   Defaults to `arrow_drop_down`.
-///  - `icon: Icon` -- `Icon` model instance.
-///  - `buttonText: String` -- Text on the button.
-///  - `buttonAriaLabel: String` - Optional aria label for the button.
-///  - `showButtonBorder: bool` - Whether to show the bottom border of the
-///   dropdown button.
-///  - `disabled: bool` - Whether the button should be disabled.
-///
-/// __Events:__
-///
-/// - `trigger: Event` -- Published when the button is activated via click or
-///   keypress.
+/// The component itself does not have a popup itself but can be used to build
+/// dropdowns that are not provided. Use `material-dropdown-select` for a
+/// component that has the same button style, and implements the dropdown
+/// itself.
 @Component(
   selector: 'dropdown-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -71,8 +59,9 @@ class DropdownButtonComponent extends Object
     focusable = b;
   }
 
-  /// The ARIA role of the dropdown button.
   String get role => _role;
+
+  /// The ARIA role of the dropdown button.
   @Input()
   set role(String value) {
     assert(
@@ -146,6 +135,7 @@ class DropdownButtonComponent extends Object
 
   bool _showButtonBorder;
 
+  /// Event that fires when the dropdown button is blurred.
   @Output('blur')
   Stream<FocusEvent> get onBlur => _blur.stream;
   final _blur = new StreamController<FocusEvent>(sync: true);
@@ -154,6 +144,7 @@ class DropdownButtonComponent extends Object
     _blur.add(event);
   }
 
+  /// Event fired when the button is clicked or keyboard activated.
   @Output()
   Stream<UIEvent> get trigger => _button.trigger;
 }
