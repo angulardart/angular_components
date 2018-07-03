@@ -41,7 +41,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 class MaterialMenuComponent extends Object
     with FocusableMixin, MenuPopupWrapper
     implements AfterViewInit, HasDisabled, OnDestroy {
-  final _onTrigger = new StreamController<Null>();
+  final _onTrigger = new StreamController<void>();
   final _disposer = new Disposer.oneShot();
 
   /// CSS classes to append onto the menu popup.
@@ -73,7 +73,7 @@ class MaterialMenuComponent extends Object
 
   /// Outputs an event when the menu button is triggered.
   @Output('trigger')
-  Stream<Null> get onTrigger => _onTrigger.stream;
+  Stream<void> get onTrigger => _onTrigger.stream;
 
   String get tooltipText => menu?.tooltipText;
 

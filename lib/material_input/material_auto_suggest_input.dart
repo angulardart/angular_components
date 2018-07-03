@@ -588,8 +588,8 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   }
 
   @Output('clear')
-  Stream<Null> get onClear => _onClear.stream;
-  final _onClear = new StreamController<Null>.broadcast(sync: true);
+  Stream<void> get onClear => _onClear.stream;
+  final _onClear = new StreamController<void>.broadcast(sync: true);
 
   void onClearIcon() {
     _onClear.add(null);
@@ -612,8 +612,8 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   }
 
   @Output('blur')
-  Stream<Null> get onBlur => _onBlur.stream;
-  final _onBlur = new StreamController<Null>.broadcast(sync: true);
+  Stream<void> get onBlur => _onBlur.stream;
+  final _onBlur = new StreamController<void>.broadcast(sync: true);
 
   void handleBlur(html.FocusEvent event) {
     _isFocused = false;

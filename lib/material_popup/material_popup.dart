@@ -87,9 +87,9 @@ class MaterialPopupComponent extends Object
 
   /// Stream on which an event is fired after the popup has finished opening.
   @Output('opened')
-  Stream<Null> get onOpened => _onOpened.stream;
-  final StreamController<Null> _onOpened =
-      new StreamController<Null>.broadcast(sync: true);
+  Stream<void> get onOpened => _onOpened.stream;
+  final StreamController<void> _onOpened =
+      new StreamController<void>.broadcast(sync: true);
 
   final StreamController<bool> _onContentVisible =
       new StreamController<bool>.broadcast(sync: true);
