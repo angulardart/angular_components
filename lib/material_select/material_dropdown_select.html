@@ -62,6 +62,7 @@
     <div class="options-wrapper" *ngIf="options != null">
       <material-select-dropdown-item
           *ngIf="showDeselectItem"
+          keyboardOnlyFocusIndicator
           [class.empty]="options.optionGroups.length == 1"
           [tabbable]="false"
           [selected]="isDeselectItemSelected"
@@ -86,6 +87,7 @@
           </dynamic-component>
           <template [ngIf]="group.isNotEmpty">
             <material-select-dropdown-item *ngFor="let item of group"
+                keyboardOnlyFocusIndicator
                 [tabbable]="false"
                 [itemRenderer]="itemRenderer"
                 [componentRenderer]="componentRenderer"
@@ -102,6 +104,7 @@
           </template>
           <material-select-dropdown-item
               *ngIf="group.isEmpty && group.hasEmptyLabel"
+              keyboardOnlyFocusIndicator
               [tabbable]="false"
               [disabled]="true"
               [value]="group.emptyLabel">
