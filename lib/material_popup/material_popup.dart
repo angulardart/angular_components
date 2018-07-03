@@ -45,40 +45,22 @@ export 'package:angular_components/laminate/popup/popup.dart'
 /// - If the contents change and need to readjust position use
 ///  [trackLayoutChanges] which is also defined in [PopupInterface].
 ///
-/// __Example usage__:
-///
-///     <button (click)="showPopup = !showPopup"
-///             popupSource
-///             #source="popupSource">
-///       Toggle
-///     </button>
-///     <material-popup [(visible)]="showPopup" [source]="source">
-///       Hello World
-///     </material-popup>
-///
-/// Material popup also supports deferred/lazy-loaded content:
-///
-///     <material-popup [(visible)]="showPopup" [source]="source">
-///       <expensive-component *deferredContent></expensive-component>
-///     </material-popup>
+/// Material popup also supports deferred/lazy-loaded content.
 ///
 /// This component publishes itself as a [DropdownHandle], so its children may
 /// control its visibility by injecting it:
 ///
-///     class MyComponent {
-///       final DropdownHandle _dropdownHandle;
+/// ``` Dart
+/// class MyComponent {
+///   final DropdownHandle _dropdownHandle;
 ///
-///       MyComponent(this._dropdownHandle);
+///   MyComponent(this._dropdownHandle);
 ///
-///       void onSomethingThatShouldCloseTheDropdown() {
-///         _dropdownHandle.close();
-///       }
-///     }
-///
-/// __Inputs:__
-///
-/// - `slide: String` -- Direction of popup scaling. Valid values are `x`, `y`,
-/// or `null`.
+///   void onSomethingThatShouldCloseTheDropdown() {
+///     _dropdownHandle.close();
+///   }
+/// }
+/// ```
 @Component(
   selector: 'material-popup',
   providers: const [
@@ -199,6 +181,10 @@ class MaterialPopupComponent extends Object
   /// Direction of popup scaling.
   String _slide;
   String get slide => _slide;
+
+  /// Direction of popup scaling.
+  ///
+  /// Valid values are `x`, `y`, or `null`.
   @Input()
   set slide(String value) {
     _slide = (value?.isNotEmpty ?? false) ? value : null;
