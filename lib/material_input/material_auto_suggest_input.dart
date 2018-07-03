@@ -57,67 +57,6 @@ typedef String _InputChangeCallback(String inputText);
 ///
 /// The popup suggestion list has a max height and auto overflow. We can add a
 /// property for custom max height once there's a use case.
-///
-/// __Example usage:__
-///
-///     <material-auto-suggest-input label="Type here"
-///                                  [suggestions]="suggestions"
-///                                  [limit]="5">
-///     </material-auto-suggest-input>
-///
-/// __Properties:__
-///
-/// - `suggestions: List<String>` -- The list of suggestions to use when
-///   auto-suggesting. Suggestions are matched if they contain the input text.
-/// - `shouldClearOnSelection: bool` -- If the text field should be cleared on
-///   selection.
-/// - `limit: int` -- How many suggestions to show. If the limit is less than 1,
-///   it is assumed to be mean no limit. See filter method in [Filterable].
-///   Defaults to 10.
-/// - `label: String` -- The label to use on the input. Passed through to
-///   `material-input`.
-/// - `ariaLabel: String` -- The label to use for assistive technology.  If not
-///    provided, uses the label instead.
-/// - `labelRenderer: ComponentRenderer` -- Provides capability to customize the
-///    suggestionOptions label with a custom component.
-/// - `leadingGlyph: String` -- Any persistent glyph to show before the input.
-///   Available icons are shown on this page: [https://design.google.com/icons/]
-///   (https://design.google.com/icons/)
-/// - `trailingGlyph: String` -- Any persistent glyph to show at the end of the
-///   input; the icons available are the same as the leadingGlyph property.
-/// - `inputText: String` -- The text entered into the input.
-/// - `filterSuggestions: bool` -- When turn off, always show full list of
-///   suggestions.
-/// - `popupMatchInputWidth: bool` -- Whether or not the suggestion popup width
-///   is at least as wide as the input width.
-/// - `selection: SelectionModel` -- if set, auto suggest will use the
-///   supplied observable SelectionModel object.
-///   (default) uses a single selection model.
-/// - `showClearIcon: bool` -- Show or hide the trailing close icon to clear the
-///   input and hide the popup.
-/// - `clearIconTooltip: String` -- Tooltip shown on clear icon.
-/// - `slide: String` -- Direction of popup scaling. Valid values are `x`, `y`,
-///   or `null`.
-/// - `loading: bool` -- When turned on and no suggestions available, show
-///    loading indicator in the suggestions dropdown.
-/// - `emptyPlaceholder: String` -- The text to display if there are no
-///    suggestions to show and the suggestions are not loading.
-/// - `closeOnActivate` -- Whether to close dropdown on activation.
-/// - `hideCheckbox` -- Whether to hide the checkbox before the item in
-///   multi-selection.
-/// - `showPopup` -- Used to control the visibility of the suggestion popup.
-/// - `disabled: bool` -- Whether this input is disabled.
-///
-/// __Events:__
-///
-/// - `focus: FocusEvent` -- Fired when the input gains focus
-/// - `blur: FocusEvent` -- Fired when the input gains blur or auto suggest
-///   item get selected.
-/// - `inputTextChange: String` -- Fired when the input text changes (on
-///   keypress).
-/// - `clear` -- Fired when the close icon is clicked.
-/// - `showPopupChange` -- Fired when the value of showPopup changes.
-///
 @Component(
   selector: 'material-auto-suggest-input',
   providers: const [
@@ -252,11 +191,11 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   @Input()
   bool initialActivateSelection = false;
 
-  /// How many suggestions to show at once.  This is applied after any
-  /// filtering.
   int _limit = 10;
 
   /// Allow filtering of suggestions as the user is typing.
+  ///
+  /// When `false` always show the full list of suggestions.
   @Input()
   bool filterSuggestions = true;
 
@@ -283,6 +222,8 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   StreamSubscription _optionsListener;
 
   /// Direction of popup scaling.
+  ///
+  /// Valid values are `x`, `y`, or `null`.
   @Input()
   String slide;
 
@@ -304,8 +245,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   // The fields below are deprecated.
 
-  /// The list of all possible suggestions.
-  @deprecated
+  @Deprecated('Use [options] instead')
   @Input()
   set suggestions(List value) {
     _suggestions = value;
@@ -316,6 +256,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   // Override renderer here to just add the @Input annotation and keep the
   // angular dependency out of models.
+  /// A simple function to render the an item to string.
   @override
   @Input()
   set itemRenderer(ItemRenderer<dynamic> value) => super.itemRenderer = value;
@@ -328,13 +269,12 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   set componentRenderer(ComponentRenderer value) =>
       super.componentRenderer = value;
 
-  // [FactoryRenderer] used to display the item.
+  /// [FactoryRenderer] used to display the item.
   @override
   @Input()
   set factoryRenderer(FactoryRenderer value) => super.factoryRenderer = value;
 
-  /// Sort the suggestions.
-  @Deprecated('Caller should call .sort() instead.')
+  @Deprecated('Caller should call .sort() on the options instead.')
   @Input()
   set sorted(bool value) {
     _sorted = value;
@@ -376,7 +316,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     selection = _defaultSelection;
   }
 
-  /// Publishes events when input text changes.
+  /// Publishes events when input text changes (on keypress.)
   @Output('inputTextChange')
   Stream<String> get textChanged => _inputChange.stream;
 
@@ -410,6 +350,10 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     }
   }
 
+  /// If set, auto suggest will use the supplied observable [SelectionModel]
+  /// object.
+  ///
+  /// Uses a single selection model by default.
   @override
   @Input()
   set selection(SelectionModel selection) {
@@ -441,6 +385,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     });
   }
 
+  /// The available options for this container.
   @override
   @Input('selectionOptions')
   set options(SelectionOptions options) {
@@ -455,6 +400,10 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     });
   }
 
+  /// How many suggestions to show.
+  ///
+  /// If the limit is less than 1, it is assumed to be mean no limit.
+  /// See filter method in [Filterable]. Defaults to 10.
   @Input()
   set limit(dynamic value) {
     var newLimit = getInt(value);
@@ -471,7 +420,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   bool get showLoadingSpinner => loading && options.optionsList.isEmpty;
 
-  /// Custom renderer for suggestion labels.
   @Deprecated('Use labelFactory instead.')
   @Input()
   ComponentRenderer labelRenderer;
@@ -518,6 +466,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   bool get showPopup => _showPopup && !disabled;
 
+  /// Used to control the visibility of the suggestion popup.
   @Input()
   set showPopup(bool value) {
     if (value != _showPopup) {
@@ -531,6 +480,8 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     }
   }
 
+  /// When turned on and no suggestions available, show loading indicator in the
+  /// suggestions dropdown.
   @Input()
   bool loading = false;
 
@@ -541,6 +492,9 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   List<RelativePosition> get popupPositions => _popupPositions;
 
+  /// List of positions to try and draw the suggest popup.
+  ///
+  /// See [MaterialPopupComponent] for more information.
   @Input()
   set popupPositions(List<RelativePosition> positions) {
     if (positions?.isNotEmpty == true) {
@@ -587,6 +541,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     return true;
   }
 
+  /// Fired when the close icon is clicked.
   @Output('clear')
   Stream<void> get onClear => _onClear.stream;
   final _onClear = new StreamController<void>.broadcast(sync: true);
@@ -599,6 +554,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   bool _isFocused = false;
 
+  /// Fired when the input gains focus
   @Output('focus')
   Stream<html.FocusEvent> get onFocus => _onFocus.stream;
   final _onFocus = new StreamController<html.FocusEvent>.broadcast(sync: true);
@@ -611,6 +567,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     _isFocused = true;
   }
 
+  /// Fired when the input gains blur or auto suggest item get selected.
   @Output('blur')
   Stream<void> get onBlur => _onBlur.stream;
   final _onBlur = new StreamController<void>.broadcast(sync: true);

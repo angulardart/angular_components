@@ -40,20 +40,6 @@ const String materialInputErrorKey = 'material-input-error';
 /// NOTE: Clients must declare materialInputDirectives in their directives list
 /// instead of MaterialInputComponent.
 ///
-/// __Example usage:__
-///
-///     @Component(
-///       selector: 'my-component',
-///       template: '''
-///         <material-input label="Your Name"></material-input>
-///         <material-input multiline label="Enter multiple lines here">
-///         </material-input>
-///         <material-input [(ngModel)]="text"></material-input>
-///       ''',
-///       directives: [materialInputDirectives]
-///     )
-///     class MyComponent {}
-///
 /// __Attributes:__
 ///
 /// - `type` -- The type of the input. Defaults to "text". Other supported
@@ -63,77 +49,6 @@ const String materialInputErrorKey = 'material-input-error';
 ///   commas. This attribute only applies when type = "email", otherwise it is
 ///   ignored.
 /// - `role` -- The role attribute for the input element.
-///
-/// __Inputs:__
-///
-/// - `error` -- The error to be shown on the input. Has a higher precedent than
-///   all other errors.
-/// - `errorMsg` -- The error msg to be shown on the input if the max characters
-///   are hit.
-/// - `multiline: bool` -- Whether or not the input supports multiple lines.
-/// - `label: String` -- The label to give the input. This is the default text
-///   that shows up if nothing's entered into the text box.
-/// - `floatingLabel: bool` -- Whether or not the label "floats". If false, the
-///   label disappears when text is entered into the box. If true, it instead
-///   "floats" up above the input.
-/// - `hintText: String` -- The hint to be shown on the input. This text will
-///    not be displayed if there is an error message on the input.
-/// - `showHintOnlyOnFocus: bool` -- Whether or not the hint text will be
-///    displayed when the input is not focused. Defaults to false.
-/// - `required: bool` -- Whether or not the input is required. If there's no
-///   input text, a required input will show a validation error when it's first
-///   focused.
-/// - `disabled: bool` -- Whether or not the input is disabled (readonly).
-///   Disabled inputs are grayed out and have a dashed underline.
-/// - `maxCount: int` -- The maximum length of the input.
-/// - DEPRECATED: `checkValid: ValidityCheck` -- A custom validation function.
-///   This function should take in the input text, and return a string
-///   containing an error message, or `null` if the input is valid. Note: With
-///   OnPush the validator will not be run on each digest. It is important for
-///   the function to change whenever state of the validation function changes.
-/// - `rightAlign: bool` -- Whether or not the input text should be
-///   right-aligned. Defaults to false.
-/// - `characterCounter: CharacterCounter` -- A custom character counter
-///   function. Takes in the input text; returns how many characters the text
-///   should be considered as.
-/// - `leadingText: String` -- Any text to show at the leading edge of the
-///   input -- e.g. a currency symbol or similar.
-/// - `trailingText: String` -- Any text to show at the trailing edge of the
-///   input -- e.g. a currency symbol or similar.
-/// - `leadingGlyph: String` -- Any symbol to show at the leading edge of the
-///   input -- e.g. a URL link icon or similar.
-/// - `trailingGlyph: String` -- Any symbol to show at the trailing edge of the
-///   input -- e.g. a URL link icon or similar.
-/// - `displayBottomPanel: bool` -- Whether to display error, hint text, and
-///   character counter panel.
-/// - `rows` -- If the input is multiline, how many lines there are.
-/// - `maxRows` -- If the input is multiline, the max number of lines.
-/// - `showCharacterCount` -- Force the character count to be displayed if
-///   maxCount is null.
-/// - `inputAriaLabel` -- A label for the input for use by assistive
-///   technologies.
-/// - `inputAriaOwns` -- The ID of an element which should be assigned to the
-///   input element's aria-owns attribute.
-/// - `inputAriaActivedescendent` -- The ID of an element which should be
-///   assigned to the input element's aria-activedescendant attribute.
-/// - `inputAriaHasPopup` -- The value for the input element's aria-haspopup
-///   attribute, indicating that the element referred to by inputAriaOwns is
-///   expandable.
-/// - `inputAriaExpanded` -- Whether or not the expandable element referred to
-///   by [inputAriaOwns] is currently visible.
-/// - `inputAriaAutocomplete` -- The autocomplete method applied to the inner
-///   input element.
-///
-/// __Outputs:__
-///
-/// - `inputKeyPress: String` -- Fired when the input text changes -- i.e., on
-///   every keypress.
-/// - `change: String` -- Publishes the input text whenever a conceptual "change
-///   event" happens -- i.e., when the input loses focus, or when the user hits
-///   enter.
-/// - `focus: FocusEvent` -- Fired when the input is focused.
-/// - `blur: FocusEvent` -- Fired when this input loses focus.
-///
 @Component(
   selector: 'material-input:not(material-input[multiline])',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -212,16 +127,17 @@ class MaterialInputComponent extends BaseMaterialInput
   /// The role to assign to the inner input element.
   final String inputRole;
 
-  /// Any persistent text to show before the input box.
-  String get leadingText => _leadingText;
-  String _leadingText;
-  bool get hasLeadingText => isNotEmpty(leadingText);
-
   // Overriden to add a HostListener event.
   @HostListener('focus')
   @override
   void focus() => super.focus();
 
+  bool get hasLeadingText => isNotEmpty(leadingText);
+  String get leadingText => _leadingText;
+  String _leadingText;
+
+  /// Any text to show at the leading edge of the input -- e.g. a currency
+  /// symbol or similar.
   @Input()
   set leadingText(String value) {
     _leadingText = value;
@@ -230,16 +146,18 @@ class MaterialInputComponent extends BaseMaterialInput
     _changeDetector.markForCheck();
   }
 
-  /// Any persistent glyph to show before the input box.
+  /// Any symbol to show at the leading edge of the input -- e.g. a URL link
+  /// icon or similar.
   @Input()
   String leadingGlyph;
   bool get hasLeadingGlyph => isNotEmpty(leadingGlyph);
 
-  /// Any persistent text to show after the input box.
   String get trailingText => _trailingText;
   String _trailingText;
   bool get hasTrailingText => isNotEmpty(trailingText);
 
+  /// Any text to show at the trailing edge of the input -- e.g. a currency
+  /// symbol or similar.
   @Input()
   set trailingText(String value) {
     _trailingText = value;
@@ -248,17 +166,18 @@ class MaterialInputComponent extends BaseMaterialInput
     _changeDetector.markForCheck();
   }
 
-  /// Any persistent glyph to show after the input box.
+  /// Any symbol to show at the trailing edge of the input -- e.g. a URL link
+  /// icon or similar.
   @Input()
   String trailingGlyph;
   bool get hasTrailingGlyph => isNotEmpty(trailingGlyph);
 
-  /// Whether the input contents should be always right aligned.
-  ///
-  /// Default value is `false`.
   bool get rightAlign => _rightAlign;
   bool _rightAlign = false;
 
+  /// Whether the input contents should be always right aligned.
+  ///
+  /// Default value is `false`.
   @Input()
   set rightAlign(bool value) {
     _rightAlign = value;
@@ -267,17 +186,18 @@ class MaterialInputComponent extends BaseMaterialInput
     _changeDetector.markForCheck();
   }
 
-  /// The id of an element which should be assigned to the inner input element's
+  /// The ID of an element which should be assigned to the inner input element's
   /// aria-owns attribute.
   @Input()
   String inputAriaOwns;
 
-  /// The id of an element which should be assigned to the inner input element's
+  /// The ID of an element which should be assigned to the inner input element's
   /// aria-activedescendant attribute.
   @Input()
   String inputAriaActivedescendent;
 
-  /// The value for the input element's aria-haspopup attribute.
+  /// The value for the input element's aria-haspopup attribute, indicating that
+  /// the element referred to by inputAriaOwns is expandable.
   ///
   /// If the element referred to by [inputAriaOwns] is expandable, this should
   /// be either "true" or the role of the owned element.

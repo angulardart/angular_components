@@ -17,7 +17,7 @@ abstract class SelectionContainer<T>
     _selection = value;
   }
 
-  /// The available options for this contianer.
+  /// The available options for this container.
   SelectionOptions<T> _options;
   SelectionOptions<T> get options => _options;
   set options(SelectionOptions<T> value) {

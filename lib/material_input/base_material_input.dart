@@ -62,47 +62,58 @@ class BaseMaterialInput extends FocusableMixin
   /// Controls what section of the BottomPanel is displayed.
   BottomPanelState bottomPanelState = BottomPanelState.empty;
 
-  /// Error message to be displayed in case of invalid input.
   String _errorMsg;
   String get errorMsg => _errorMsg;
+
+  /// The error msg to be shown on the input if it has more than [maxCount]
+  /// characters.
   @Input()
   set errorMsg(String msg) {
     _errorMsg = msg;
     updateBottomPanelState();
   }
 
+  String _error;
+  String get error => _error;
+
   /// Error to be displayed.
   ///
   /// Higher precendent than all other errors which may be on this input.
-  String _error;
-  String get error => _error;
   @Input()
   set error(String error) {
     _error = error;
     updateBottomPanelState();
   }
 
-  /// The label for this input. It disappears when user inputs text.
+  /// The label for this input.
+  ///
+  /// This is the default text that shows up if nothing's entered into the text
+  /// box. It disappears when user inputs text.
   @Input()
   String label;
 
-  /// The label to be used for screen readers. Use [label] instead of this
-  /// when a visible label is desired.
+  /// The label to be used for assistive technologies.
+  ///
+  /// Use [label] instead of this when a visible label is desired.
   @Input()
   String inputAriaLabel;
 
-  /// The hint text to be shown on the input. Not shown during an error.
   String _hintText;
   String get hintText => _hintText;
+
+  /// The hint to be shown on the input.
+  ///
+  /// This text will not be displayed if there is an error message on the input.
   @Input()
   set hintText(value) {
     _hintText = value;
     updateBottomPanelState();
   }
 
-  /// Custom error message to show when the field is required and blank.
   String _requiredErrorMsg = defaultEmptyMessage;
   String get requiredErrorMsg => _requiredErrorMsg;
+
+  /// Custom error message to show when the field is required and blank.
   @Input()
   set requiredErrorMsg(String value) {
     _requiredErrorMsg = value;
@@ -119,10 +130,6 @@ class BaseMaterialInput extends FocusableMixin
   @Input()
   int maxCount;
 
-  /// Custom validation function to be used to validate input.
-  /// Returns error string to be used in case of error or null otherwise.
-  /// This validation would over-ride default validation logic.
-  /// But character counter (if exists) validation would be done before this.
   ValidityCheck _checkValid;
   ValidityCheck get checkValid => _checkValid;
   @Deprecated('Use angular2 forms API instead')
@@ -149,7 +156,7 @@ class BaseMaterialInput extends FocusableMixin
     _changeDetector.markForCheck();
   }
 
-  /// Display error message and character counter below the input.
+  /// Whether to display error, hint text, and character counter panel.
   @Input()
   bool displayBottomPanel = true;
 
@@ -161,8 +168,12 @@ class BaseMaterialInput extends FocusableMixin
   @Input()
   ErrorFn errorRenderer;
 
-  /// Custom character counter function to be used.
   CharacterCounter _characterCounter;
+
+  /// A custom character counter function.
+  ///
+  /// Takes in the input text; returns how many characters the text should be
+  /// considered as.
   @Input()
   set characterCounter(CharacterCounter counterFn) {
     _characterCounter = counterFn;
@@ -245,29 +256,40 @@ class BaseMaterialInput extends FocusableMixin
     return null;
   }
 
-  /// The label will "float" above the text input instead of disappearing.
+  /// Whether or not the label "floats".
+  ///
+  /// If false, the label disappears when text is entered into the box. If true,
+  /// it instead "floats" up above the input.
   @Input()
   bool floatingLabel = false;
 
-  /// Whether or not this input is disabled.
   bool get disabled => _disabled;
+
+  /// Whether or not this input is disabled (readonly input.)
   @Input()
   set disabled(bool disabled) {
     _disabled = disabled;
     _changeDetector.markForCheck();
   }
 
+  bool get showHintOnlyOnFocus => _showHintOnlyOnFocus;
+
   /// Whether or not the hint text will be displayed when the input is not
   /// focused.
-  bool get showHintOnlyOnFocus => _showHintOnlyOnFocus;
+  ///
+  /// Defaults to false.
   @Input()
   set showHintOnlyOnFocus(bool value) {
     _showHintOnlyOnFocus = value;
     updateBottomPanelState();
   }
 
-  /// Input is a required field if attribute is present.
   bool get required => _required;
+
+  /// Whether or not the input is required.
+  ///
+  /// If there's no input text, a required input will show a validation error
+  /// when it's first blured.
   @Input()
   set required(bool required) {
     var prev = _required;

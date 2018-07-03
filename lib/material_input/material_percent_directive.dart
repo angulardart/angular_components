@@ -13,12 +13,6 @@ export 'package:angular_components/material_input/material_number_accessor.dart'
     show materialNumberInputDirectives;
 
 /// Directive to control `material-input` to accept percentage values.
-///
-/// __Example Usage:__
-///
-///     <material-input type="percent" [(ngModel)]="percentage">
-///     </material-input>
-///
 @Directive(
   selector: 'material-input[type=percent]',
   // TODO(google): Change to `Visibility.local` to reduce code size.
