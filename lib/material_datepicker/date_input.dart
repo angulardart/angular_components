@@ -31,12 +31,6 @@ import 'module.dart';
 ///
 /// This hijacks the input's `on-change` property, so don't specify that on the
 /// input, or this won't work.
-///
-/// __Example usage:__
-///
-///     <material-input dateParsing type="text" [(date)]="statsDate">
-///     </material-input>
-///
 @Directive(
   selector: 'material-input[dateParsing]',
 )

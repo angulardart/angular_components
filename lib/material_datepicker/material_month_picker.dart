@@ -19,12 +19,6 @@ import '../src/material_datepicker/enum_parsing.dart';
 /// An material-styled calendar which supports selecting single months or month
 /// ranges.
 ///
-/// __Example usage:__
-///
-///     <material-month-picker [(state)]="calendarState"
-///                            mode="date-range">
-///     </material-month-picker>
-///
 /// __Attributes:__
 ///
 /// - `mode` -- What sort of interaction this calendar supports. Valid values

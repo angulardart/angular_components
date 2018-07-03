@@ -19,11 +19,6 @@ import 'package:angular_components/model/observable/observable.dart';
 /// 20 years into the future: right now (August 2015), "35" is interpreted as
 /// 2035 but "36" is interpreted as "1936". Next year, "36" will start to be
 /// interpreted as 2036.
-///
-/// __Example usage:__
-///
-///     <date-range-input [(range)]="dateRange"></date-range-input>
-///
 // TODO(google): Do the start/end date inputs need to be reversed in RTL
 // locales?
 @Component(
@@ -136,6 +131,10 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   }
 
   bool _isClearRangeSelected = false;
+
+  /// __Internal use only.__
+  ///
+  /// Used by material_date_range_editor.
   @Input()
   set isClearRangeSelected(bool value) {
     _isClearRangeSelected = value;

@@ -42,12 +42,6 @@ import 'package:angular_components/model/date/date.dart';
 /// interpreted as 2036.
 ///
 /// See also `material-date-range-picker` if you want to choose date ranges.
-///
-///
-/// __Example usage:__
-///
-///     <material-datepicker [(date)]="statsDate"></material-datepicker>
-///
 @Component(
   selector: 'material-datepicker',
   directives: const [
@@ -171,8 +165,6 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
   bool _disabled = false;
   bool get disabled => _disabled;
 
-  /// Make the calendar visibility accesible so it can be opened
-  /// from outside the component
   bool _popupVisible = false;
   bool get popupVisible => _popupVisible;
 
@@ -182,6 +174,7 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
   @Output()
   Stream<bool> get popupVisibleChange => _popupVisibleController.stream;
 
+  /// Opens or closes the datepicker.
   @Input()
   set popupVisible(bool visible) {
     // Show popup only if not disabled
@@ -232,10 +225,12 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
     popupVisible = false;
   }
 
-  /// A list of preset dates which the user can choose from.
-  /// Defaults is empty so any list is shown.
   List<SingleDayRange> get presetDates => _presetDates;
   List<SingleDayRange> _presetDates = [];
+
+  /// A list of preset dates which the user can choose from.
+  ///
+  /// Defaults is empty so any list is shown.
   @Input('predefinedDates')
   set presetDates(List<SingleDayRange> preset) {
     _presetDates = preset;
@@ -271,8 +266,9 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
     _setDateInternal(newDate);
   }
 
-  /// Add option to edit the height of the calendar
   int _numCalendarWeekRows;
+
+  /// Sets the number of weeks the calendar should show.
   @Input()
   set numCalendarWeekRows(int value) {
     _numCalendarWeekRows = value;
