@@ -47,12 +47,6 @@ int _dayOfWeek(int year, int month, int day) {
 /// You probably want to use `material-datepicker` or
 /// `material-date-range-picker` instead of this.
 ///
-/// __Example usage:__
-///
-///     <material-calendar-picker [(state)]="calendarState"
-///                               mode="date-range">
-///     </material-calendar-picker>
-///
 /// __Attributes:__
 ///
 /// - `mode` -- What sort of interaction this calendar supports. Valid values
@@ -66,11 +60,13 @@ int _dayOfWeek(int year, int month, int day) {
 /// Selected ranges have IDs, which are used to pick the right style out of the
 /// mixin. For example, the standard date range picker uses this styling:
 ///
-///     @include calendar-highlights('.calendar', (
-///       range: $mat-blue-map,
-///       comparison: $mat-google-yellow-map,
-///       range comparison: $mat-green-map,
-///     ));
+/// ``` Scss
+///  @include calendar-highlights('.calendar', (
+///    range: $mat-blue-map,
+///    comparison: $mat-google-yellow-map,
+///    range comparison: $mat-green-map,
+///  ));
+/// ```
 ///
 /// This sets the primary date range (which has the ID "range") to blue, the
 /// comparison date range to yellow, and the overlap to green. The overlap color

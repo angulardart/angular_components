@@ -45,21 +45,10 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// 2035 but "36" is interpreted as "1936". Next year, "36" will start to be
 /// interpreted as 2036.
 ///
-///
-/// __Example usage:__
-///
-///     <material-date-range-picker [(range)]="range"
-///                                 [presets]="presets">
-///     </material-date-range-picker>
-///
 /// Since a primary use of this picker is for a global per-app date range, this
 /// component can also read from and write to an [ObservableReference] instance.
 /// (The [DatepickerModel] class is also provided to make using it easier in
 /// dependency injection.)
-///
-///     <material-date-range-picker [reference]="observableReference"
-///                                 [presets]="presets">
-///     </material-date-range-picker>
 ///
 /// __Attributes:__
 ///
@@ -103,13 +92,6 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   List<RelativePosition> get overlapAlignments =>
       RelativePosition.overlapAlignments;
 
-  /// A list of predefined date ranges which the user can choose from.
-  ///
-  /// These are subject to clamping by `minDate` and `maxDate`, and are excluded
-  /// entirely if their end point is before `minDate` or their start point is
-  /// after `maxDate`.
-  // TODO(google): Eventually these should be `DateRangeOption`s or
-  // something, which take in a clock and return a DatepickerDateRange
   @Deprecated('Use [presets] instead.')
   @Input('predefinedRanges')
   set predefinedRanges(List<DatepickerDateRange> ranges) {
@@ -164,8 +146,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   /// An [ObservableReference] of a date range.
   ///
   /// This can be used if it's more convenient to mutate something in-place
-  /// instead of getting and setting new date range values. (E.g. the global
-  /// date range in CM).
+  /// instead of getting and setting new date range values.
   @Input('reference')
   ObservableReference<DatepickerComparison> selection =
       new ObservableReference(null);
