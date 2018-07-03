@@ -19,65 +19,6 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 
 /// `material-input` is a multi-line text field where user can enter
 /// input, and can optionally have a label.
-///
-/// __Example usage:__
-///
-///     @Component(
-///       selector: 'my-component',
-///       template: '''
-///         <material-input multiline [(ngModel)]="text" label="Enter text">
-///         </material-input>
-///       ''',
-///       directives: [materialInputDirectives]
-///     )
-///     class MyComponent {}
-///
-/// __Inputs:__
-///
-/// - `error` -- The error to be shown on the input. Has a higher precedent than
-///   all other errors.
-/// - `errorMsg` -- The error msg to be shown on the input if the max characters
-///   are hit
-/// - `label: String` -- The label to give the input. This is the default text
-///   that shows up if nothing's entered into the text box.
-/// - `floatingLabel: bool` -- Whether or not the label "floats". If false, the
-///   label disappears when text is entered into the box. If true, it instead
-///   "floats" up above the input.
-/// - `hintText: String` -- The hint to be shown on the input. This text will
-///    not be displayed if there is an error message on the input.
-/// - `showHintOnlyOnFocus: bool` -- Whether or not the hint text will be
-///    displayed when the input is not focused. Defaults to false.
-/// - `required: bool` -- Whether or not the input is required. If there's no
-///   input text, a required input will show a validation error when it's first
-///   focused.
-/// - `disabled: bool` -- Whether or not the input is disabled (readonly).
-///   Disabled inputs are grayed out and have a dashed underline.
-/// - `maxCount: int` -- The maximum length of the input.
-/// - `checkValid: ValidityCheck` -- A custom validation function. This
-///   function should take in the input text, and return a string containing an
-///   error message, or `null` if the input is valid. Note: With OnPush the
-///   validator will not be run on each digest. It is important for the function
-///   to change whenever state of the validation function changes.
-/// - `characterCounter: CharacterCounter` -- A custom character counter
-///   function. Takes in the input text; returns how many characters the text
-///   should be considered as.
-/// - `displayBottomPanel: bool` -- Whether to display error, hint text, and
-///   character counter panel.
-/// - `rows` -- If the input is multiline, how many lines there are.
-/// - `maxRows` -- If the input is multiline, the max number of lines.
-/// - `showCharacterCount` -- Whether or not the character count will be
-///    displayed when maxCount is null.
-///
-/// __Outputs:__
-///
-/// - `inputKeyPress: String` -- Fired when the input text changes -- i.e., on
-///   every keypress.
-/// - `change: String` -- Publishes the input text whenever a conceptual "change
-///   event" happens -- i.e., when the input loses focus, or when the user hits
-///   enter.
-/// - `focus: FocusEvent` -- Fired when the input is focused.
-/// - `blur: FocusEvent` -- Fired when this input loses focus.
-///
 @Component(
   selector: 'material-input[multiline]',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -198,6 +139,9 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
 
   int get rows => _rows;
 
+  /// How many rows the multiline input should have.
+  ///
+  /// Can either be an integer, or a string.
   @Input()
   set rows(dynamic value) {
     _rows = getInt(value);
@@ -206,6 +150,9 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
 
   int get maxRows => _maxRows;
 
+  /// Maximum number of lines to display.
+  ///
+  /// Anything more than the [maxRows] will cause the input to scroll.
   @Input()
   set maxRows(dynamic value) {
     _maxRows = getInt(value);

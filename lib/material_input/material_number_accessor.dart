@@ -32,6 +32,12 @@ const List<Type> materialNumberInputDirectives = const [
 
 /// [ControlValueAccessor] which will coerce an input into a [num].
 ///
+/// Use [materialNumberInputDirectives] to get a set of directives to use with
+/// the input to provide validations. Such as the default to ensure it is a
+/// number, `checkInteger`, `checkPositive`, `checkNonNegative` (allows 0,)
+/// `lowerBound`, and `upperBound`.
+///
+///
 /// Accessor always sets the raw [String] value that is set from the input, but
 /// only sets the value of a [Control] if the input could be parsed.
 ///

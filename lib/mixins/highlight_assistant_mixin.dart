@@ -24,21 +24,23 @@ abstract class HighlightAssistantMixin
 
   HighlightAssistant _highlightAssistant;
 
+  Highlighter _optionHighlighter;
+  Highlighter get optionHighlighter => _optionHighlighter;
+
   /// Function which returns a list of [HighlightedTextSegment] for the given
   /// query and value.
   ///
   /// If no `optionHighlighter` is provided, a `TextHighlighter` is used in
   /// conjunction with the `itemRenderer` to produce the list of text segments.
-  Highlighter _optionHighlighter;
-  Highlighter get optionHighlighter => _optionHighlighter;
   @Input()
   set optionHighlighter(Highlighter value) {
     _optionHighlighter = value;
     _highlightAssistant = null;
   }
 
-  /// Whether matches should only highlight at the start of words.
   bool _highlightMatchFromStartOfWord = false;
+
+  /// Whether matches should only highlight at the start of words.
   @Input()
   set highlightMatchFromStartOfWord(bool value) {
     _highlightMatchFromStartOfWord = value;
