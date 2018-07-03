@@ -61,8 +61,8 @@ class MaterialFabMenuComponent extends Object
 
   /// Emits when fab is opened.
   @Output()
-  Stream<Null> get onShow => _onShow.stream;
-  final _onShow = new StreamController<Null>.broadcast();
+  Stream<void> get onShow => _onShow.stream;
+  final _onShow = new StreamController<void>.broadcast();
 
   /// [MenuItem] that defines the appearance and behavior of this menu.
   ///

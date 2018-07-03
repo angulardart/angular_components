@@ -12,11 +12,11 @@ import 'package:angular_components/src/laminate/popup/popup_state.dart';
 abstract class PopupInterface {
   /// Fires an asynchronous event when the popup is being opened.
   @Output('open')
-  Stream<Null> get onOpen;
+  Stream<void> get onOpen;
 
   /// Fires an asynchronous event when the popup is being closed.
   @Output('close')
-  Stream<Null> get onClose;
+  Stream<void> get onClose;
 
   /// A synchronous event that fires when the [visible] property of the popup
   /// changes (e.g. either from `false` to `true` or `true` to `false`).
@@ -86,13 +86,13 @@ abstract class PopupInterface {
 // TODO(google): Consider moving these into material_popup as there aren't
 // any other users of these streams.
 abstract class PopupEvents {
-  Stream<Null> get onOpen => onOpenController.stream;
-  final StreamController<Null> onOpenController =
-      new StreamController<Null>.broadcast(sync: true);
+  Stream<void> get onOpen => onOpenController.stream;
+  final StreamController<void> onOpenController =
+      new StreamController<void>.broadcast(sync: true);
 
-  Stream<Null> get onClose => onCloseController.stream;
-  final StreamController<Null> onCloseController =
-      new StreamController<Null>.broadcast(sync: true);
+  Stream<void> get onClose => onCloseController.stream;
+  final StreamController<void> onCloseController =
+      new StreamController<void>.broadcast(sync: true);
 
   Stream<bool> get onVisible => onVisibleController.stream;
   final StreamController<bool> onVisibleController =
