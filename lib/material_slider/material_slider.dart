@@ -19,6 +19,10 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 /// keyboard. In LTR, Left/down arrow keys decrease the value by 1, up/right
 /// keys increase by 1, page up increases by 10% (rounded up) and page down
 /// decreases by 10% (rounded up). In RTL, the keys have the opposite effect.
+///
+/// WARNING when using double values floating point math can cause the values
+/// to be non-exact. If displaying the value to the user consider formatting
+/// the result.
 @Component(
   selector: 'material-slider',
   providers: const [
@@ -48,33 +52,33 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
 
   /// The current value of the input element.
   ///
-  /// Must be between [min] and [max], inclusive.
+  /// Must be between [min] and [max], inclusive, and a multiple of [step].
   @Input()
-  int value = 0;
+  num value = 0;
 
-  final _changeController = new StreamController<int>.broadcast(sync: true);
+  final _changeController = new StreamController<num>.broadcast(sync: true);
 
   /// Publishes events when the value of the input is changed by the user.
   @Output()
-  Stream<int> get valueChange => _changeController.stream;
+  Stream<num> get valueChange => _changeController.stream;
 
   /// The minimum progress value.
   ///
   /// Defaults to 0, must be strictly smaller than max.
   @Input()
-  int min = 0;
+  num min = 0;
 
   /// The maximum progress value.
   ///
   /// Defaults to 100, must be strictly larger than min.
   @Input()
-  int max = 100;
+  num max = 100;
 
   /// The step size of the input.
   ///
-  /// Must be a positive integer and a divisor of (max - min).
+  /// Must be a positive number and a divisor of (max - min).
   @Input()
-  int step = 1;
+  num step = 1;
 
   /// The current progress of the input in percent.
   double get progressPercent => (100.0 * (value - min) / (max - min));
@@ -82,16 +86,31 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
   /// Verifies that the input values of this control are consistent.
   @override
   void ngAfterChanges() {
-    checkArgument(min < max, message: 'Failed assertion: ${min} < ${max}');
-    checkArgument(step > 0, message: 'Failed assertion: ${step} > 0');
-    checkArgument((max - min) % step == 0,
-        message: 'Failed assertion: (${max} - ${min}) % ${step} == 0.');
-    checkArgument(value >= min,
-        message: 'Failed assertion: ${value} >= ${min}');
-    checkArgument(value <= max,
-        message: 'Failed assertion: ${value} <= ${max}');
-    checkArgument((value - min) % step == 0,
-        message: 'Failed assertion: (${value} - ${min}) % ${step} == 0.');
+    assert(() {
+      checkArgument(min < max, message: 'Failed assertion: ${min} < ${max}');
+      checkArgument(step > 0, message: 'Failed assertion: ${step} > 0');
+      checkArgument(_divisible(max - min, step),
+          message: 'Failed assertion: (${max} - ${min}) % ${step} ~ 0.');
+      checkArgument(value >= min,
+          message: 'Failed assertion: ${value} >= ${min}');
+      checkArgument(value <= max,
+          message: 'Failed assertion: ${value} <= ${max}');
+      checkArgument(_divisible(value - min, step),
+          message: 'Failed assertion: (${value} - ${min}) % ${step} ~ 0.');
+      return true;
+    }());
+  }
+
+  bool _divisible(num value, num step) {
+    if (step is int) {
+      return value % step == 0;
+    } else {
+      final epsilon = 1e-10;
+      double remainder = value % step;
+      if (remainder < epsilon) return true;
+      if (step - remainder < epsilon) return true;
+      return false;
+    }
   }
 
   @ViewChild('container')
@@ -111,8 +130,12 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
       final fractionOfTrack =
           isRtl ? 1.0 - fractionOfTrackLtr : fractionOfTrackLtr;
 
-      final scaledValue = (fractionOfTrack * (max - min)).round();
-      final unboundedValue = min + (scaledValue ~/ step) * step;
+      final scaledValue = (fractionOfTrack * (max - min));
+      final halfStep = step / 2;
+      // Clamp to the closest step value.
+      final unboundedValue = min +
+          (scaledValue ~/ step) * step +
+          (scaledValue.remainder(step) > halfStep ? step : 0);
       final newValue = math.max(min, math.min(max, unboundedValue));
       if (newValue != value) {
         value = newValue;
