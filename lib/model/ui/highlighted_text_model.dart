@@ -101,7 +101,8 @@ class TextHighlighter {
     var segments = <HighlightedTextSegment>[];
     var currentSegment = new StringBuffer();
 
-    commitSegment(bool highlight) {
+    void commitSegment({@required bool highlight}) {
+      if (currentSegment.isEmpty) return;
       segments.add(
           new HighlightedTextSegment(currentSegment.toString(), highlight));
       currentSegment.clear();
@@ -110,14 +111,22 @@ class TextHighlighter {
     var ink = 0, inkPrevious = 0, i = 0, caseOffset = 0;
 
     while (i < text.length) {
-      // "Apply" the ink to the current letter, or "gather" ink based on the
-      // current marker value.
-      ink = max(max(0, inkPrevious - 1), markers[i + caseOffset]);
-      // If we transition between "highlighting" and "not highlighting", commit
-      // the segment.
-      if (i > 0 && (ink > 0) != (inkPrevious > 0)) {
-        commitSegment(inkPrevious > 0);
+      // "Apply" the ink to the current letter.
+      ink = max(0, inkPrevious - 1);
+      if (ink == 0 && inkPrevious > 0) {
+        // Ran out of ink, commit the previous segment.
+        commitSegment(highlight: true);
       }
+
+      // Gather more ink.
+      if (ink < markers[i + caseOffset]) {
+        ink = markers[i + caseOffset];
+        if (i > 0) {
+          // Commit the previous segment.
+          commitSegment(highlight: inkPrevious > 0);
+        }
+      }
+
       currentSegment.writeCharCode(text.codeUnitAt(i));
 
       // Handle the special case of some capital letters being mapped to
@@ -143,7 +152,7 @@ class TextHighlighter {
       inkPrevious = ink;
       i++;
     }
-    commitSegment(inkPrevious > 0);
+    commitSegment(highlight: inkPrevious > 0);
 
     return segments;
   }
