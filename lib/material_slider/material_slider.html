@@ -3,7 +3,8 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<div class="container" [class.is-disabled]="disabled" (mousedown)="mouseDown($event)" #container>
+<div class="container" [class.is-disabled]="disabled" (mousedown)="mouseDown($event)"
+    (touchstart)="touchStart($event)" #container>
   <div class="track-container left-track-container"
        [style.width.%]="progressPercent">
     <div class="track"></div>

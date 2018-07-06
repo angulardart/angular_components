@@ -144,6 +144,27 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
     });
   }
 
+  /// Handles touch start events on the slider knob.
+  void touchStart(TouchEvent event) {
+    if (disabled) return;
+    event.preventDefault();
+    final touch = event.targetTouches.first;
+    _setValueToMousePosition(touch.page.x);
+    isDragging = true;
+    _changeDetector.markForCheck();
+    final touchMoveSubscription = document.onTouchMove.listen((event) {
+      event.preventDefault();
+      final touch = event.targetTouches.first;
+      _setValueToMousePosition(touch.page.x);
+    });
+    document.onTouchEnd.take(1).listen((event) {
+      event.preventDefault();
+      touchMoveSubscription.cancel();
+      isDragging = false;
+      _changeDetector.markForCheck();
+    });
+  }
+
   /// Handles key press events on the slider knob.
   void knobKeyDown(KeyboardEvent event) {
     if (disabled) return;
