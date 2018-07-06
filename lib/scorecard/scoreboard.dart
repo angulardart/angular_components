@@ -17,8 +17,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 import 'scorecard.dart';
 import 'package:angular_components/src/scorecard/scorecard_bar.dart';
 
-/// ACUX Scoreboard component
-///
 /// This component manages a row of scorecards.
 ///
 /// __Attributes:__
