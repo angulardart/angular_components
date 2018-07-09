@@ -7,12 +7,11 @@ import 'dart:html' as dom;
 import 'package:angular/angular.dart';
 import 'package:js/js_util.dart' as js_util;
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
+import 'active_item_directive.dart';
 
 /// Mixin for elements able to be activated through mouse or keyboard, like
 /// list elements.
-///
-/// Components including this mixin must subscribe to call onMouseEnter/Leave
-/// based on events.
+@Deprecated('Use the ActiveItemDirective instead')
 abstract class ActiveItemMixin {
   /// Dom element of the item, that will be scrolled to view on activate.
   dom.HtmlElement get element;
@@ -20,11 +19,15 @@ abstract class ActiveItemMixin {
   /// An instance of DomService, used to coordinate scrolling.
   DomService get domService;
 
+  /// An instance of the directive for migration.
+  // This is only for migration to keep active in sync and will be removed soon.
+  ActiveItemDirective get activeItemDirective;
+
   bool _active = false;
 
   /// Whether the element is active.
   @HostBinding('class.active')
-  bool get active => _active;
+  bool get active => _active || activeItemDirective?.active == true;
 
   /// Marks item as active from keyboard selection.
   @Input()

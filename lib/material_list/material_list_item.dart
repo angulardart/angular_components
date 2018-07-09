@@ -9,6 +9,7 @@ import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/a11y/active_item_mixin.dart';
+import 'package:angular_components/model/a11y/active_item_directive.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
@@ -51,10 +52,15 @@ class MaterialListItemComponent extends ButtonDirective
   @override
   DomService domService;
 
+  // Temporary for migration.
+  @override
+  final ActiveItemDirective activeItemDirective;
+
   MaterialListItemComponent(
       this.element,
       this.domService,
       @Optional() this._dropdown,
+      @Optional() this.activeItemDirective,
       @Attribute('tabindex') this._hostTabIndex,
       @Attribute('role') String role)
       : super(element, role) {

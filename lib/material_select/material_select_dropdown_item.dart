@@ -11,6 +11,7 @@ import 'package:angular_components/material_checkbox/material_checkbox.dart';
 import 'package:angular_components/material_select/activation_handler.dart';
 import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/model/a11y/active_item_directive.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
@@ -65,11 +66,12 @@ class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
       @Optional() DropdownHandle dropdown,
       @Optional() ActivationHandler activationHandler,
       @Optional() IdGenerator idGenerator,
+      @Optional() ActiveItemDirective activeItemDirective,
       ChangeDetectorRef cdRef)
       : _generatedId =
             (idGenerator ?? new SequentialIdGenerator.fromUUID()).nextId(),
-        super(element, domService, dropdown, activationHandler, cdRef,
-            role ?? 'option') {
+        super(element, domService, dropdown, activationHandler,
+            activeItemDirective, cdRef, role ?? 'option') {
     this.itemRenderer = defaultItemRenderer;
   }
 

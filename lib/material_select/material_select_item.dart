@@ -14,6 +14,7 @@ import 'package:angular_components/material_checkbox/material_checkbox.dart';
 import 'package:angular_components/material_select/activation_handler.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/a11y/active_item_mixin.dart';
+import 'package:angular_components/model/a11y/active_item_directive.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
@@ -68,6 +69,10 @@ class MaterialSelectItemComponent extends ButtonDirective
   @override
   final DomService domService;
 
+  // Temporary for migration.
+  @override
+  final ActiveItemDirective activeItemDirective;
+
   StreamSubscription _selectionChangeStreamSub;
 
   MaterialSelectItemComponent(
@@ -75,6 +80,7 @@ class MaterialSelectItemComponent extends ButtonDirective
       this.domService,
       @Optional() this._dropdown,
       @Optional() this._activationHandler,
+      @Optional() this.activeItemDirective,
       this._cdRef,
       @Attribute('role') String role)
       : super(element, role ?? 'option') {
