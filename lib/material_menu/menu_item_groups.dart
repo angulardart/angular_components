@@ -24,6 +24,7 @@ import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/a11y/active_item.dart';
+import 'package:angular_components/model/a11y/active_item_directive.dart';
 import 'package:angular_components/model/action/delayed_action.dart';
 import 'package:angular_components/model/menu/menu.dart';
 import 'package:angular_components/model/menu/selectable_menu.dart';
@@ -37,6 +38,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 @Component(
   selector: 'menu-item-groups',
   directives: const [
+    ActiveItemDirective,
     AutoFocusDirective,
     ButtonDirective,
     DeferredContentDirective,

@@ -68,7 +68,7 @@
           [selected]="isDeselectItemSelected"
           [value]="deselectLabel"
           (trigger)="deselectCurrentSelection()"
-          [active]="popup.showPopup && activeModel.isActive(deselectLabel)"
+          [itemActive]="popup.showPopup && activeModel.isActive(deselectLabel)"
           [id]="activeModel.id(deselectLabel)"
           (mouseenter)="activeModel.activate(deselectLabel)">
       </material-select-dropdown-item>
@@ -96,7 +96,7 @@
                 [disabled]="isOptionDisabled(item)"
                 [isHidden]="isOptionHidden(item)"
                 [value]="item"
-                [active]="popup.showPopup && activeModel.isActive(item)"
+                [itemActive]="popup.showPopup && activeModel.isActive(item)"
                 [id]="activeModel.id(item)"
                 [deselectOnActivate]="deselectOnActivate"
                 (mouseenter)="activeModel.activate(item)">

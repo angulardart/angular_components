@@ -27,6 +27,7 @@ import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/mixins/highlight_assistant_mixin.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/a11y/active_item.dart';
+import 'package:angular_components/model/a11y/active_item_directive.dart';
 import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
@@ -77,6 +78,7 @@ typedef String _InputChangeCallback(String inputText);
         useExisting: MaterialAutoSuggestInputComponent)
   ],
   directives: const [
+    ActiveItemDirective,
     ButtonDirective,
     CachingDeferredContentDirective,
     DynamicComponent,

@@ -55,7 +55,7 @@
 
               closeOnActivate="false"
               useCheckMarks="true"
-              [active]="isItemActive(item)"
+              [itemActive]="isItemActive(item)"
               [disabled]="!item.enabled"
               [selection]="getSelectionModel(group)"
               [selectOnActivate]="shouldSelectItemOnClick(item)"
