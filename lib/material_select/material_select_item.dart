@@ -13,13 +13,10 @@ import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_checkbox/material_checkbox.dart';
 import 'package:angular_components/material_select/activation_handler.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
-import 'package:angular_components/model/a11y/active_item_mixin.dart';
-import 'package:angular_components/model/a11y/active_item_directive.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
-import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// Material Select Item is a special kind of list item which can be selected.
@@ -44,7 +41,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   templateUrl: 'material_select_item.html',
 )
 class MaterialSelectItemComponent extends ButtonDirective
-    with ActiveItemMixin
     implements
         OnDestroy,
         SelectionItem,
@@ -63,24 +59,14 @@ class MaterialSelectItemComponent extends ButtonDirective
   final ChangeDetectorRef _cdRef;
   final DropdownHandle _dropdown;
 
-  @override
   final HtmlElement element;
-
-  @override
-  final DomService domService;
-
-  // Temporary for migration.
-  @override
-  final ActiveItemDirective activeItemDirective;
 
   StreamSubscription _selectionChangeStreamSub;
 
   MaterialSelectItemComponent(
       this.element,
-      this.domService,
       @Optional() this._dropdown,
       @Optional() this._activationHandler,
-      @Optional() this.activeItemDirective,
       this._cdRef,
       @Attribute('role') String role)
       : super(element, role ?? 'option') {
