@@ -8,9 +8,6 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
-import 'package:angular_components/model/a11y/active_item_mixin.dart';
-import 'package:angular_components/model/a11y/active_item_directive.dart';
-import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// Material List Item is a block element intended for user interaction; it has
@@ -32,9 +29,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
-class MaterialListItemComponent extends ButtonDirective
-    with ActiveItemMixin
-    implements OnDestroy {
+class MaterialListItemComponent extends ButtonDirective implements OnDestroy {
   @HostBinding('class')
   static const hostClass = 'item';
 
@@ -46,23 +41,10 @@ class MaterialListItemComponent extends ButtonDirective
   @override
   String get hostTabIndex => _hostTabIndex;
 
-  @override
   dom.HtmlElement element;
 
-  @override
-  DomService domService;
-
-  // Temporary for migration.
-  @override
-  final ActiveItemDirective activeItemDirective;
-
-  MaterialListItemComponent(
-      this.element,
-      this.domService,
-      @Optional() this._dropdown,
-      @Optional() this.activeItemDirective,
-      @Attribute('tabindex') this._hostTabIndex,
-      @Attribute('role') String role)
+  MaterialListItemComponent(this.element, @Optional() this._dropdown,
+      @Attribute('tabindex') this._hostTabIndex, @Attribute('role') String role)
       : super(element, role) {
     if (_dropdown != null) {
       _disposer.addDisposable(trigger.listen(handleActivate));
