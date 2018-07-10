@@ -71,6 +71,12 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   @ViewChild(MaterialTreeFilterComponent)
   MaterialTreeFilterComponent materialTreeFilterComponent;
 
+  /// Fired when the dropdown's visibility changes.
+  @Output()
+  Stream<bool> get visibleChange => _visibleStream.stream;
+
+  final _visibleStream = new StreamController<bool>.broadcast(sync: true);
+
   /// Whether to always expand an option group.
   @Input()
   set expandAll(bool value) {
@@ -166,6 +172,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   set visible(bool val) {
     if (_visible != val) {
       _visible = val;
+      _visibleStream.add(val);
       if (showFilterInsidePopup && !_visible) {
         materialTreeFilterComponent?.clear();
       }
