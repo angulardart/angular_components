@@ -8,12 +8,12 @@
                  [class.basic-preset-list]="isBasic"
                  *ngIf="presets.isNotEmpty && shouldShowPredefinedList">
   <div *ngIf="supportsClearRange" class="group">
-    <material-select-item (trigger)="onClearRangeClicked($event)">
+    <material-select-item (trigger)="onClearRangeClicked">
       {{clearRangeMsg}}
     </material-select-item>
   </div>
   <div *ngIf="supportsCustomRange" class="group">
-    <material-select-item (trigger)="onCustomClicked()"
+    <material-select-item (trigger)="onCustomClicked"
                           [selected]="isCustomRangeSelected"
                           closeOnActivate="false">
       <div [class.custom-tab-left]="isBasic && !isCustomRangeSelected"
@@ -97,7 +97,7 @@
      *ngIf="supportsCustomRange && shouldShowCustomDateRangeColumn">
   <div buttonDecorator *ngIf="isBasic"
                         class="button-decorator"
-                        (trigger)="disableCustomMode()">
+                        (trigger)="disableCustomMode">
     <div class="custom-tab-right">{{customRangeMsg}}</div>
     <glyph class="expand-less" icon="expand_less"></glyph>
   </div>
@@ -134,7 +134,7 @@
     <div class="month-selector-dropdown"
          buttonDecorator
          keyboardOnlyFocusIndicator
-         (trigger)="onMonthSelectorDropdownClicked()">
+         (trigger)="onMonthSelectorDropdownClicked">
       <span class="visible-month">{{visibleMonthName}}</span>
       <glyph icon="arrow_drop_down"
              class="month-selector-dropdown-icon"
@@ -157,7 +157,7 @@
                               [maxDate]="maxDate"
                               [allowHighlightUpdates]="allowHighlightUpdates"
                               [compact]="compact"
-                              (visibleMonth)="onVisibleMonthChange($event)"
+                              (visibleMonth)="onVisibleMonthChange"
                               mode="date-range">
     </material-calendar-picker>
     <material-month-picker class="picker month-selector"

@@ -13,8 +13,8 @@
     [showHintOnlyOnFocus]="showHintOnlyOnFocus"
     (ngModelChange)="inputText = $event; showPopup = true"
     (click)="showPopup = true; $event.stopPropagation()"
-    (focus)="handleFocus($event)"
-    (blur)="handleBlur($event)"
+    (focus)="handleFocus"
+    (blur)="handleBlur"
     [characterCounter]="characterCounter"
     [checkValid]="checkValid"
     [disabled]="disabled"
@@ -36,9 +36,9 @@
     [rightAlign]="rightAlign"
     [trailingGlyph]="trailingGlyph"
     [trailingText]="trailingText"
-    (keydown)="onKeyDown($event)"
-    (keypress)="onKeyPress($event)"
-    (keyup)="onKeyUp($event)">
+    (keydown)="onKeyDown"
+    (keypress)="onKeyPress"
+    (keyup)="onKeyUp">
   <span trailing>
     <material-icon
         *ngIf="showClearIcon"
@@ -50,7 +50,7 @@
         [materialTooltip]="clearIconTooltip"
         [showTooltipIf]="hasClearIconTooltip"
         [attr.aria-label]="clearIconTooltip"
-        (trigger)="onClearIcon()">
+        (trigger)="onClearIcon">
     </material-icon>
     <ng-content select="[trailing]"></ng-content>
   </span>
@@ -71,11 +71,11 @@
   <div header
       keyboardOnlyFocusIndicator
       tabIndex="-1"
-      (keyup)="onKeyUp($event)">
+      (keyup)="onKeyUp">
     <ng-content select="[header]"></ng-content>
   </div>
   <!-- Deferred to prevent child content from being created too early. -->
-  <focus-trap *cachedDeferredContent (keyup)="onKeyUp($event)">
+  <focus-trap *cachedDeferredContent (keyup)="onKeyUp">
     <div *ngIf="showLoadingSpinner" class="loading">
       <material-spinner></material-spinner>
     </div>
@@ -137,7 +137,7 @@
   <div footer
       keyboardOnlyFocusIndicator
       tabIndex="-1"
-      (keyup)="onKeyUp($event)">
+      (keyup)="onKeyUp">
     <ng-content select="[footer]"></ng-content>
   </div>
 </material-popup>

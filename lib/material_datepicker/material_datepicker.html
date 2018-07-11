@@ -13,7 +13,7 @@
                   [disabled]="disabled"
                   [error]="error"
                   [buttonText]="formattedDate"
-                  (trigger)="onTrigger()">
+                  (trigger)="onTrigger">
   </dropdown-button>
 </div>
 <material-popup
@@ -21,9 +21,9 @@
     [source]="container"
     [(visible)]="popupVisible"
     [preferredPositions]="preferredPositions">
-  <focus-trap (keypress)="onKeyPress($event)"
-              (keydown)="onKeyDown($event)"
-              (keyup)="onKeyUp($event)">
+  <focus-trap (keypress)="onKeyPress"
+              (keydown)="onKeyDown"
+              (keyup)="onKeyUp">
     <div class="popup-content" [class.compact]="compact" *deferredContent>
       <div class="inner-label-wrapper">
           <span *ngIf="presetDates.isNotEmpty" class="inner-label" >{{labelMsg}}</span>
@@ -36,7 +36,7 @@
                         [maxDate]="maxDate"
                         [minDate]="minDate"
                         [date]="date"
-                        (dateChange)="setDateFromInput($event)"
+                        (dateChange)="setDateFromInput"
                         [required]="required"
                         [label]="placeholderMsg"
                         >

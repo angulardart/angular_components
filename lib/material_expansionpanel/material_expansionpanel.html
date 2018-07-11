@@ -20,14 +20,14 @@
           [class.closed] = "!isExpanded"
           [class.disable-header-expansion]="disableHeaderExpansion"
           [attr.aria-label]="headerMsg"
-          (trigger)="handleHeaderClick()">
+          (trigger)="handleHeaderClick">
     <material-icon
         buttonDecorator
         *ngIf="shouldShowExpandIcon && shouldExpandOnLeft"
         class="expand-button expand-on-left"
         [icon]="expandIcon"
         [class.expand-more]="shouldFlipExpandIcon"
-        (trigger)="handleExpandIconClick()">
+        (trigger)="handleExpandIconClick">
     </material-icon>
     <div class="panel-name">
       <p class="primary-text">{{name}}</p>
@@ -44,7 +44,7 @@
                    class="expand-button"
                    [icon]="expandIcon"
                    [class.expand-more]="shouldFlipExpandIcon"
-                   (trigger)="handleExpandIconClick()">
+                   (trigger)="handleExpandIconClick">
     </material-icon>
   </div>
   <div class="action" *ngIf="!shouldShowExpandIcon">
@@ -93,8 +93,8 @@
         [yesDisabled]="saveDisabled"
         [enterAccepts]="enterAccepts"
         [noDisplayed]="cancelDisplayed"
-        (yes)="doSave()"
-        (no)="doCancel()">
+        (yes)="doSave"
+        (no)="doCancel">
     </material-yes-no-buttons>
   </div>
 </main>

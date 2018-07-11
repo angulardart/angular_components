@@ -9,9 +9,9 @@
      buttonDecorator
      keyboardOnlyFocusIndicator
      #focusOnClose="keyboardOnlyFocusIndicator"
-     (trigger)="open()"
-     (focus)="initEditor()"
-     (mouseenter)="initEditor()">
+     (trigger)="open"
+     (focus)="initEditor"
+     (mouseenter)="initEditor">
   <div class="range-title"
        *ngIf="hasTitle && presets.isNotEmpty">
     {{rangeTitle}}
@@ -42,14 +42,14 @@
                 [class]="popupClassName"
                 [preferredPositions]="overlapAlignments"
                 [source]="button"
-                (open)="open()"
-                (close)="close()">
+                (open)="open"
+                (close)="close">
   <focus-trap *ngIf="isEditorCreated"
               class="popup-contents"
               [class.compact]="compact"
-              (keypress)="onKeyPress($event)"
-              (keydown)="onKeyDown($event)"
-              (keyup)="onKeyUp($event)">
+              (keypress)="onKeyPress"
+              (keydown)="onKeyDown"
+              (keyup)="onKeyUp">
     <div class="wrapper">
       <date-range-editor [model]="model"
                          [presets]="presets"
@@ -63,7 +63,7 @@
                          [calendarCreated]="isCalendarCreated"
                          [supportsCustomRange]="supportsCustomRange"
                          [relativeDaysToToday]="relativeDaysToToday"
-                         (presetRangeSelected)="onRangeClicked($event)">
+                         (presetRangeSelected)="onRangeClicked">
       </date-range-editor>
 
       <ng-content select="[messageBar]"></ng-content>
