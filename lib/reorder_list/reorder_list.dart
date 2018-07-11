@@ -19,6 +19,15 @@ export 'reorder_events.dart';
 /// marked with `reorderPlaceholder` attribute as a placeholder when moving
 /// items.
 ///
+/// `reorderItem`s should be direct children of the `reorder-list` and, by
+/// default, the entire element is a handle and may be dragged and dropped
+/// to perfom reorder operations.
+///
+/// If a `reorderItem` component implements [ReorderHandleProvider], the child
+/// element marked with `reorderHandle` will be draggable for reorder
+/// operations. This allows complex components to be reordered by a handle and
+/// not have the entire component be listening to drag and drop events.
+///
 /// __Attention:__ This component is not an implementation of the Material List
 /// reorder control from the Material Spec. There is currently no support for
 /// interactions on a mobile device.
@@ -77,8 +86,8 @@ class ReorderListComponent implements OnDestroy {
   @Input()
   bool multiSelect = false;
 
-  // Reorderable items in the list
-  List<ReorderItemDirective> _items;
+  // Reorderable items in the list; keys are the handles, values are the items
+  Map<HtmlElement, HtmlElement> _items;
   // Map of active drag&drop event subscriptions.
   Map<HtmlElement, List<StreamSubscription>> _subscriptions;
   // Map of active onDrag subscriptions,
@@ -111,12 +120,13 @@ class ReorderListComponent implements OnDestroy {
 
   @ContentChildren(ReorderItemDirective)
   set items(List<ReorderItemDirective> value) {
-    _items = value;
+    _items = new Map.fromIterable(value,
+        key: (e) => e.handleElement, value: (e) => e.element);
     _refreshItems();
   }
 
   void _refreshItems() {
-    Set<HtmlElement> newElements = _items.map((e) => e.element).toSet();
+    final newElements = _handleElements.toSet();
     Set<HtmlElement> currentlyTracked = new Set.from(_subscriptions.keys);
     for (HtmlElement tracked in currentlyTracked) {
       if (!newElements.contains(tracked)) {
@@ -204,10 +214,11 @@ class ReorderListComponent implements OnDestroy {
       }
     }
 
+    final draggedElement = _items[_dragSourceElement];
     if (verticalItems) {
       placeholder.style
-        ..height = "${_dragSourceElement.borderEdge.height}px"
-        ..width = "${_dragSourceElement.borderEdge.width}px"
+        ..height = "${draggedElement.borderEdge.height}px"
+        ..width = "${draggedElement.borderEdge.width}px"
         ..top = "${upperStackSize}px";
     } else {
       HtmlElement e = contents[toIndex];
@@ -215,11 +226,11 @@ class ReorderListComponent implements OnDestroy {
       // its right minus drag source width as placeholder's left.
       var left = moveRight
           ? e.offset.left
-          : e.offset.right - _dragSourceElement.borderEdge.width;
+          : e.offset.right - draggedElement.borderEdge.width;
 
       placeholder.style
-        ..height = "${_dragSourceElement.borderEdge.height}px"
-        ..width = "${_dragSourceElement.borderEdge.width}px"
+        ..height = "${draggedElement.borderEdge.height}px"
+        ..width = "${draggedElement.borderEdge.width}px"
         ..top = "${e.offset.top}px"
         ..left = "${left}px";
     }
@@ -297,7 +308,8 @@ class ReorderListComponent implements OnDestroy {
     _dragSubscriptions.remove(element);
   }
 
-  get _reorderElements => _items.map((x) => x.element).toList();
+  List<HtmlElement> get _handleElements => _items.keys.toList();
+  List<HtmlElement> get _reorderElements => _items.values.toList();
 
   void _onDragStart(MouseEvent e) {
     // If multiSelect is enabled, clear the selection and replace with the
@@ -315,7 +327,7 @@ class ReorderListComponent implements OnDestroy {
     // Initialize all transforms.
     var contents = _reorderElements;
     int childCount = contents.length;
-    _moveSourceIndex = contents.indexOf(_dragSourceElement);
+    _moveSourceIndex = _handleElements.indexOf(_dragSourceElement);
     _curTransformY = new List<int>.filled(childCount, 0);
     _itemSizes = new List<int>(childCount);
     for (int i = 0; i < childCount; i++) {
@@ -550,7 +562,7 @@ class ReorderListComponent implements OnDestroy {
   }
 
   int _getIndex(HtmlElement element) {
-    List contents = _reorderElements;
+    List contents = _handleElements;
     int childCount = contents.length;
     for (int i = 0; i < childCount; i++) {
       if (element == contents[i]) {
@@ -601,15 +613,14 @@ class ReorderListComponent implements OnDestroy {
 
 typedef void ReorderListHandler(int sourceIndex, int destIndex);
 
-/// Indicates that a child will participate in reorder operation inside a
-/// reorder-list component. See ReorderListComponent for usage.
-// TODO(google): Add back in host value once attribute bug is fixed.
+/// Indicates that the element is a list item in the containing `reorder-list`
+/// component. See [ReorderListComponent] for usage.
 @Directive(
   selector: '[reorderItem]',
 )
 class ReorderItemDirective {
   @HostBinding('attr.draggable')
-  static const hostDraggable = 'true';
+  String get hostDraggable => _reorderHandle == null ? 'true' : null;
 
   @HostBinding('attr.role')
   static const hostRole = 'listitem';
@@ -618,6 +629,43 @@ class ReorderItemDirective {
   static const hostTabIndex = 0;
 
   final HtmlElement element;
+  final ReorderHandleProvider _handleProvider;
+  HtmlElement _handleElement;
 
-  ReorderItemDirective(this.element);
+  HtmlElement get _reorderHandle =>
+      _handleElement ?? _handleProvider?.reorderHandle?.element;
+
+  /// The [HtmlElement] to be used as the drag handle.
+  ///
+  /// Optional. If not specified, the host element for this directive will also
+  /// be the handle.
+  @Input()
+  set reorderHandle(HtmlElement element) {
+    _handleElement = element;
+  }
+
+  HtmlElement get handleElement => _reorderHandle ?? element;
+
+  ReorderItemDirective(this.element, @Optional() this._handleProvider);
+}
+
+/// Interface that will return a [ReorderHandleDirective] for use as a handle of
+/// a component marked as a `reorderItem` inside a reorder-list.
+abstract class ReorderHandleProvider {
+  ReorderHandleDirective get reorderHandle;
+}
+
+/// Indicates the element with this directive is the drag handle for the
+/// containing [reorderItem].
+@Directive(
+  selector: '[reorderHandle]',
+  exportAs: 'handle',
+)
+class ReorderHandleDirective {
+  @HostBinding('attr.draggable')
+  static const hostDraggable = 'true';
+
+  final HtmlElement element;
+
+  ReorderHandleDirective(this.element);
 }
