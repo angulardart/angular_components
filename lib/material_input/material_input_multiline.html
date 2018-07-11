@@ -46,7 +46,7 @@
                   [ngModel]="inputText"
                   (blur)="inputBlurAction($event, textareaEl.validity.valid, textareaEl.validationMessage)"
                   (change)="inputChange(textareaEl.value, textareaEl.validity.valid, textareaEl.validationMessage);$event.stopPropagation()"
-                  (focus)="inputFocusAction($event)"
+                  (focus)="inputFocusAction"
                   (input)="inputKeypress(textareaEl.value, textareaEl.validity.valid, textareaEl.validationMessage)"></textarea>
       </div>
     </div>

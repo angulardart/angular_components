@@ -13,7 +13,7 @@
     [(visible)]="popupVisible"
     [options]="timeOptions"
     [error]="error">
-  <div header (keypress)="onKeyPress($event)" (keydown)="onInputBoxKeyDown($event)">
+  <div header (keypress)="onKeyPress" (keydown)="onInputBoxKeyDown">
     <div class="time-input-box">
       <material-input
           type="text"
@@ -24,8 +24,8 @@
           [label]="inputPlaceholderMsg"
           [displayBottomPanel]="displayErrorPanel"
           [error]="inputError"
-          (inputKeyPress)="onTextChange($event)"
-          (blur)="onBlur()">
+          (inputKeyPress)="onTextChange"
+          (blur)="onBlur">
       </material-input>
     </div>
   </div>

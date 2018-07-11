@@ -12,7 +12,7 @@
     <div class="error" [class.expanded]="error != null">{{error}}</div>
 
     <main #main
-          (scroll)="onScroll()"
+          (scroll)="onScroll"
           [class.top-scroll-stroke]="shouldShowTopScrollStroke"
           [class.bottom-scroll-stroke]="shouldShowBottomScrollStroke">
       <ng-content></ng-content>

@@ -6,7 +6,7 @@
 <focus-trap
     [class.mouse-driven]="isMouseDriven"
     [class.keyboard-driven]="!isMouseDriven"
-    (focus)="onFocus($event)">
+    (focus)="onFocus">
   <div group
        class="group"
        role="menu"
@@ -102,7 +102,7 @@
               <menu-item-groups
                   autoFocus
                   [activateFirstItemOnInit]="isKeyboardOpenedSubmenu"
-                  (selected)="onSubMenuItemSelected($event)"
+                  (selected)="onSubMenuItemSelected"
                   [popupClass]="popupClass"
                   [menu]="item.subMenu">
               </menu-item-groups>

@@ -56,7 +56,7 @@
              [ngModel]="inputText"
              (blur)="inputBlurAction($event, inputEl.validity.valid, inputEl.validationMessage)"
              (change)="inputChange(inputEl.value, inputEl.validity.valid, inputEl.validationMessage);$event.stopPropagation()"
-             (focus)="inputFocusAction($event)"
+             (focus)="inputFocusAction"
              (input)="inputKeypress(inputEl.value, inputEl.validity.valid, inputEl.validationMessage)">
     </label>
     <span *ngIf="hasTrailingText"

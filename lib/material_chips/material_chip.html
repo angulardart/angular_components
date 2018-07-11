@@ -14,7 +14,7 @@
     *ngIf="removable"
     class="delete-icon"
     buttonDecorator
-    (trigger)="removeChip($event)"
+    (trigger)="removeChip"
     [attr.aria-label]="chipDeleteButtonMessage"
     [attr.aria-describedby]="uuid">
       <path d="M12 2c-5.53 0-10 4.47-10 10s4.47 10 10 10 10-4.47 10-10-4.47-10-10-10zm5
