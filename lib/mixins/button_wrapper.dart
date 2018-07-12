@@ -38,7 +38,7 @@ class MaterialButtonWrapper implements HasDisabled {
   Icon _buttonIcon;
   Icon get buttonIcon {
     if (icon != null) return icon;
-    if (_buttonIcon == null && (iconName != null && !iconName.isEmpty)) {
+    if (_buttonIcon == null && (iconName != null && iconName.isNotEmpty)) {
       _buttonIcon = new Icon(iconName);
     }
     return _buttonIcon;
