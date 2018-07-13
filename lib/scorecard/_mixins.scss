@@ -150,3 +150,19 @@ $acx-neutral-increase-color: $mat-light-transparent-black;
     }
   }
 }
+
+// A mixin for changing the scorecard bar display to flex.
+// Optionally specify a $flex-direction for the .scorecard-bar and a
+// $scorecard-flex for the flex value of each acx-scorecard.
+@mixin acx-scorecard-flex-display($flex-direction: row, $scorecard-flex: 1) {
+  ::ng-deep {
+    acx-scorecard {
+      flex: $scorecard-flex;
+    }
+
+    .scorecard-bar {
+      display: flex;
+      flex-direction: $flex-direction;
+    }
+  }
+}
