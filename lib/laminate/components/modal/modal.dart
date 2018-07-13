@@ -16,7 +16,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///
 /// Creates a stack of modals, hiding the previous one when a new is shown.
 ///
-/// __Example use__:
+/// __Example use:__
 ///     bootstrap(MyApp, const [GlobalModalStack]);
 ///
 /// **NOTE**: Usage of this removes [Modal]'s built in LIFO stack.
@@ -106,7 +106,7 @@ abstract class Modal {
 /// If [preventInteraction] is `true` (it is by default), interaction with the
 /// rest of the application may be disabled until the dialog is closed.
 ///
-/// __Example usage__:
+/// __Example usage:__
 ///     <!-- With aggressive content -->
 ///     <modal [preventInteraction]="isModal" ([visible])="showDialog">
 ///       Hello World!
@@ -119,15 +119,17 @@ abstract class Modal {
 ///       </template>
 ///     </modal>
 ///
-/// __Events__:
-///     `open`: Fires whenever the modal is opening (before visibility).
-///     `close`: Fires whenever the modal is closing (before visibility).
-///     `visible`: Fires whenever visibility changes.
-///     `shieldClick`: Fires whenever the modal background is pressed.
+/// __Events:__
 ///
-/// __Properties__:
-///     `preventInteraction`: Set to false to allow interaction with your app.
-///     `visible`: Set in order to change visibility. This will trigger an open
+/// - `open` -- Fires whenever the modal is opening (before visibility).
+/// - `visible` -- Fires whenever visibility changes.
+/// - `close` --  Fires whenever the modal is closing (before visibility).
+/// - `shieldClick` -- Fires whenever the modal background is pressed.
+///
+/// __Properties:__
+///
+/// - `preventInteraction` -- Set to false to allow interaction with your app.
+/// - `visible` -- Set in order to change visibility. This will trigger an open
 ///                and close interaction cycle that allows users to cancel.
 @Component(
   selector: 'modal',
