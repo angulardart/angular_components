@@ -11,13 +11,15 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
 /// A [SelectionContainer] implementation with an additional option for setting
 /// the rendered list's `width`.
 ///
-/// __Expected Properties__:
-///  - `selection`
-///  - `options`
-///  - `itemRenderer`
-///  - `width`
+/// __Expected Properties:__
+///
+/// - `selection`
+/// - `options`
+/// - `itemRenderer`
+/// - `width`
 ///
 /// __Expected Binding:__
+///
 /// `HasRenderer`
 abstract class MaterialSelectBase extends SelectionContainer
     implements AcceptsWidth {
