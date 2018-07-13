@@ -13,12 +13,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// A styled container following the Material Spec for Dialogs.
 ///
-/// __Supported Content__:
+/// __Supported Content:__
 ///
 /// - `[header]` -- Header content for the dialog.
 /// - `[footer]` -- Footer content for the dialog.
 ///
-/// __Attributes__:
+/// __Attributes:__
 ///
 ///  - `headered` -- Adds a gray background to the dialog header.
 ///  - `info` -- Styles the dialog as an info dialog.
