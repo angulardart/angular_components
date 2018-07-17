@@ -51,7 +51,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   /// Using array as the assumption is that there will mainly be limited number
   /// of subscribers and overhead of a map is more.  It can always be made
   /// smarter.  If it is null, it means that the stream is closed.
-  List<SimpleStreamSubscription<T>> _subscriptions = [];
+  List<SimpleStreamSubscription<T>> _subscriptions = const [];
 
   /// List of items to send to avoid scheduling multiple micro tasks for each
   /// item to be sent.
@@ -239,7 +239,8 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   }
 
   @override
-  StreamSubscription<T> listen(onData, {onError, onDone, cancelOnError}) {
+  StreamSubscription<T> listen(void onData(T event),
+      {Function onError, void onDone(), bool cancelOnError}) {
     // Don't allow listening to a closed stream, it will throw exception in
     // non checked mode since subscriptions will be null once the stream is
     // closed.
@@ -250,7 +251,11 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
     }
     var sub = new SimpleStreamSubscription<T>(
         this, onData, onDone, onError, cancelOnError, contextFunc);
-    _subscriptions.add(sub);
+    if (_subscriptions.isEmpty) {
+      _subscriptions = [sub];
+    } else {
+      _subscriptions.add(sub);
+    }
     if (_onListen != null && _subscriptions.length == 1) {
       _onListen(sub);
     }
@@ -282,7 +287,8 @@ class LastStateStream<T> extends SimpleStream<T> {
   }
 
   @override
-  StreamSubscription<T> listen(onData, {onError, onDone, cancelOnError}) {
+  StreamSubscription<T> listen(void onData(T event),
+      {Function onError, void onDone(), bool cancelOnError}) {
     SimpleStreamSubscription<T> sub = super.listen(onData,
         onError: onError, onDone: onDone, cancelOnError: cancelOnError);
     if (_lastItem != null) {
@@ -402,4 +408,28 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
   Future<S> asFuture<S>([S futureValue]) {
     throw new UnsupportedError('Not supported.');
   }
+}
+
+/// Provides an interface for both StreamController & and Stream for use with
+/// output events in Angular components.
+///
+/// Reduces the amount of boilerplate needed by removing the need for a getter
+/// that returns the stream for angular.
+class SimpleEmitter<T> extends SimpleStream<T> {
+  SimpleEmitter(
+      {bool isSync = true,
+      bool runInZone = true,
+      SubscriptionChangeListener onListen,
+      SubscriptionChangeListener onCancel})
+      : super.broadcast(
+            isSync: isSync,
+            runInZone: runInZone,
+            onListen: onListen,
+            onCancel: onCancel);
+
+  /// Returns referene to object.
+  Stream<T> get stream => this;
+
+  /// Returns referene to object.
+  EventSink<T> get sink => this;
 }
