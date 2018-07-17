@@ -137,7 +137,7 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
   AutoFocusDirective(
       HtmlElement node,
       this._domService,
-      @Optional() this._focusable,
+      @Self() @Optional() this._focusable,
       @Optional() this._modal,
       @Optional() this._popupRef)
       : super(node);
