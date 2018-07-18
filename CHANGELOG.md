@@ -53,7 +53,7 @@ users in the Dart package ecosystem.
 * Modify `TextHighlighter` to return separate results for adjacent matches,
   rather than concatenating them into a single result.
 * Migrate to using event tearoffs.
-* Deprecate convenience list for materialDirectives. It has been demonstrated
+* Deprecate convenience list for `materialDirectives`. It has been demonstrated
   that it's use increases code size when only some of the components are being
   used. It is preferable to use only the directives needed for your application
   for improved dart2js tree shaking.
