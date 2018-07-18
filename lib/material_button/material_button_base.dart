@@ -11,7 +11,7 @@ import 'package:angular_components/button_decorator/button_decorator.dart';
 /// A base class from which to build buttons.
 class MaterialButtonBase extends ButtonDirective {
   static const lowElevation = 1;
-  static const mediumElevation = 2;
+  static const mediumElevation = 4;
 
   bool _focused = false;
   bool _clickFocused = false;
