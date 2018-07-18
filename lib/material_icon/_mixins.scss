@@ -32,3 +32,9 @@
     padding: $padding;
   }
 }
+
+@mixin material-icon-weight($weight) {
+  ::ng-deep .material-icon-i {
+    font-weight: $weight;
+  }
+}
