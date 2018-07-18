@@ -20,7 +20,7 @@ component specific styling so you can easily override style values as needed.
 @Component(
     selector: 'my-component',
     templateUrl: 'my_component.html',
-    styleUrls: const [
+    styleUrls: [
       'package:angular_components/css/mdc_web/card/mdc-card.scss.css',
       'my_component.scss.css'])
 class MyComponent {}
