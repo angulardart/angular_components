@@ -219,7 +219,7 @@ export 'theme/module.dart';
 export 'utils/async/async.dart';
 
 /// A convenience list of all Directives exposed by this package.
-@Deprecated('Use the specific directives in your app for smaller code size.')
+@Deprecated('List the directives used by your app for smaller code size.')
 const List<dynamic> materialDirectives = const [
   AutoDismissDirective,
   AutoFocusDirective,
