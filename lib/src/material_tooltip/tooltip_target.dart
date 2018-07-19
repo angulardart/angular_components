@@ -193,8 +193,7 @@ abstract class TooltipTarget extends PopupSourceDirective {
             domPopupSourceFactory,
             _element,
             /* referenceDirective */ null,
-            /* focusable */ null,
-            /* initAriaAttributes */ null);
+            /* focusable */ null);
 
   /// Sets the tooltip associated with this target.
   void setTooltip(Tooltip component) {
