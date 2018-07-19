@@ -28,12 +28,9 @@ class DomPopupSourceFactory {
   /// Returns a new [DomPopupSource] from [sourceElement].
   DomPopupSource createPopupSource(HtmlElement sourceElement,
       {Alignment alignOriginX = Alignment.Start,
-      Alignment alignOriginY = Alignment.Start,
-      bool initAriaAttributes = true}) {
+      Alignment alignOriginY = Alignment.Start}) {
     return new DomPopupSource(_asyncMeasureSize, sourceElement,
-        alignOriginX: alignOriginX,
-        alignOriginY: alignOriginY,
-        initAriaAttributes: initAriaAttributes);
+        alignOriginX: alignOriginX, alignOriginY: alignOriginY);
   }
 
   /// Returns a stream of client sizes for [element], and offsets with the
@@ -57,22 +54,15 @@ class DomPopupSource implements ElementPopupSource {
 
   final AsyncMeasureSize<HtmlElement> _asyncMeasureSize;
   final HtmlElement sourceElement;
-  final bool _initAriaAttributes;
 
   /// Creates a new source from a measure function and source DOM element.
   ///
   /// Setting [alignOriginX] and [alignOriginY] is used for calculating what
   /// the x and y position should be.
-  ///
-  /// [initAriaAttributes] decides whether to set the popup related aria
-  /// attributes. This defaults to true and can be set to false for cases where
-  /// the popup source isn't the focus target.
   DomPopupSource(this._asyncMeasureSize, this.sourceElement,
       {Alignment alignOriginX = Alignment.Start,
       Alignment alignOriginY = Alignment.Start,
-      Point transform = const Point(0, 0),
-      bool initAriaAttributes = true})
-      : _initAriaAttributes = initAriaAttributes {
+      Point transform = const Point(0, 0)}) {
     _alignOriginX = alignOriginX;
     _alignOriginY = alignOriginY;
   }
@@ -99,7 +89,7 @@ class DomPopupSource implements ElementPopupSource {
 
   @override
   set popupId(String id) {
-    if (id == null || !_initAriaAttributes) return;
+    if (id == null) return;
     sourceElement
       ..setAttribute('aria-owns', id)
       ..setAttribute('aria-haspopup', 'true');
