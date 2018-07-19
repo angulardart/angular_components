@@ -22,8 +22,9 @@
     (trigger)="handleClick($event)"
     popupSource
     #source="popupSource"
+    initPopupAriaAttributes="false"
     popupType="listbox"
-    [ariaOwns]="listId"
+    [ariaOwns]="visible ? listId : null"
     [ariaExpanded]="visible">
   &ngsp;<ng-content select="[buttonContent]"></ng-content>
 </dropdown-button>
