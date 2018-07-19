@@ -11,6 +11,7 @@ import 'package:angular_components/focus/focus_interface.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/src/laminate/popup/dom_popup_source.dart';
 import 'package:angular_components/src/laminate/popup/popup_source.dart';
+import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/reference/reference.dart';
 
 /// A directive that exposes the [PopupSource] interface as `popupSource`.
@@ -23,6 +24,7 @@ import 'package:angular_components/utils/angular/reference/reference.dart';
 class PopupSourceDirective
     implements ElementPopupSource, AfterViewInit, OnDestroy {
   final DomPopupSourceFactory _domPopupSourceFactory;
+  final bool _initAriaAttributes;
   HtmlElement _element;
   ReferenceDirective _referenceDirective;
   Focusable _focusable;
@@ -33,8 +35,17 @@ class PopupSourceDirective
   PopupSource _popupSource;
   String _popupId;
 
-  PopupSourceDirective(this._domPopupSourceFactory, this._element,
-      @Optional() this._referenceDirective, @Optional() this._focusable);
+  /// [initPopupAriaAttributes] is an attribute input that decide whether to
+  /// set the popup related aria attributes. This defaults to true and can be
+  /// set to false for cases where the popup source isn't the focus target.
+  PopupSourceDirective(
+      this._domPopupSourceFactory,
+      this._element,
+      @Optional() this._referenceDirective,
+      @Optional() this._focusable,
+      @Attribute('initPopupAriaAttributes') String initAriaAttributes)
+      : _initAriaAttributes =
+            attributeToBool(initAriaAttributes, defaultValue: true);
 
   @override
   ngOnDestroy() {
@@ -116,11 +127,10 @@ class PopupSourceDirective
   }
 
   void _updateSource() {
-    _popupSource = _domPopupSourceFactory.createPopupSource(
-      _element,
-      alignOriginX: _alignOriginX,
-      alignOriginY: _alignOriginY,
-    );
+    _popupSource = _domPopupSourceFactory.createPopupSource(_element,
+        alignOriginX: _alignOriginX,
+        alignOriginY: _alignOriginY,
+        initAriaAttributes: _initAriaAttributes);
 
     if (_popupId != null) {
       _popupSource.popupId = _popupId;
