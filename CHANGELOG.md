@@ -19,11 +19,17 @@ users in the Dart package ecosystem.
 
 ### Component Updates
 
+#### Material Button
+* Update elevation on buttons that have focus.
+
 #### Material Date Range Picker
 * Add the 'popupClass' attribute to allow styling the popup.
 
 #### Material Dropdown Select
 * Add back `keyboardOnlyFocusIndicator` to dropdown items.
+
+#### Material Icon
+* Add mixin for font weight.
 
 #### Material Input
 * Return `null` when input is `"NaN"` or `null`.
@@ -50,6 +56,10 @@ users in the Dart package ecosystem.
 
 ### Other Updates
 #### Miscellaneous
+* Add attribute on `PopupSourceDirective` to decide whether to set the popup
+  related aria attributes.
+* Scope the `Focusable` item for `AutoFocusDirective` so that any node in the
+  hierarchy isn't mistakenly focused.
 * Modify `TextHighlighter` to return separate results for adjacent matches,
   rather than concatenating them into a single result.
 * Migrate to using event tearoffs.
