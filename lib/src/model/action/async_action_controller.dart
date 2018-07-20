@@ -113,8 +113,7 @@ class AsyncActionController<V> {
     // We are using explicit `Future`s to avoid breaking changes when the
     // behavior of `async` changes.
     return new Future.microtask(() {
-      return Future
-          .wait(_futureCancellations)
+      return Future.wait(_futureCancellations)
           .then((results) => results.any((cancel) {
                 return cancel == true;
               }));
