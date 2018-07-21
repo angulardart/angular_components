@@ -10,7 +10,7 @@
 /// - Hidden - the item is not selectable, and no checkbox is present.
 enum SelectableOption { Selectable, Disabled, Hidden }
 
-typedef SelectableOption SelectableGetter<T>(T entity);
+typedef SelectableGetter<T> = SelectableOption Function(T entity);
 
 /// Interface for determining if an entity [T] should be shown as selectable.
 ///
@@ -32,9 +32,39 @@ abstract class Selectable<T> {
 ///
 /// __Example use__:
 ///     class MySelectionOptions = SelectionOptions with SelectableWithComposition;
+///
+/// **DEPRECATED**: The main purpose of this interface/class was to have an
+/// indentical API to [Selectable], but allow overriding the [getSelectable]
+/// implementation at runtime. Unfortunately this has caused many problems
+/// (b/111665960), and in practice users were using this interface but providing
+/// a static implementation. To get a similar API, simply extend/mixin/implement
+/// [SelectableWithOverride].
+@Deprecated('Being removed in favor of `SelectableWithOverride`')
 abstract class SelectableWithComposition<T> {
   /// Whether [item] should be shown as selectable.
   SelectableGetter<T> getSelectable = (T item) => SelectableOption.Selectable;
+}
+
+/// Interface for determining if an entity [T] should be shown as selectable.
+///
+/// This interface serves the same purpose of `Selectable<T>`, except the
+/// [getSelectable] method delegates to [overrideGetSelectable], which can be
+/// invoked at runtime.
+///
+/// It is recommended to _extend_ or _mixin_ this class when possible.
+///
+/// __Example use__:
+///     class MySelectionOptions = SelectionOptions with SelectableWithOverride;
+abstract class SelectableWithOverride<T> implements Selectable<T> {
+  @override
+  SelectableOption getSelectable(T item) => _overrideSelectable(item);
+
+  /// May be set, at runtime, to change the implementation of [getSelectable].
+  void overrideGetSelectable(SelectableGetter<T> overrideSelectable) {
+    _overrideSelectable = override;
+  }
+
+  SelectableGetter<T> _overrideSelectable = (_) => SelectableOption.Selectable;
 }
 
 /// An optional interface for describing why an item is/is not selectable.
