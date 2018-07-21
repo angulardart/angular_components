@@ -5,6 +5,7 @@
 part of angular_components.model.selection.selection_model;
 
 /// Mixin for providing [SelectionModel.selectableChanges].
+@Deprecated('Unused. Being deleted')
 abstract class SelectableChangeNotifier<T>
     implements SelectionModel<T>, SelectableWithComposition<T> {
   StreamController<SelectableChangeRecord> _selectableChangeController;
