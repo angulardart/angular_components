@@ -9,7 +9,6 @@ import 'dart:collection';
 
 import 'package:observable/observable.dart';
 
-import 'package:angular_components/src/model/selection/interfaces/selectable.dart';
 import 'package:angular_components/src/model/selection/radio_group_single_selection_model.dart';
 
 export 'package:angular_components/src/model/selection/delegating_selection_model.dart';
@@ -17,7 +16,6 @@ export 'package:angular_components/src/model/selection/radio_group_single_select
 
 part 'package:angular_components/src/model/selection/multi_selection_model_impl.dart';
 part 'package:angular_components/src/model/selection/noop_selection_model_impl.dart';
-part 'package:angular_components/src/model/selection/selectable_change_notifier.dart';
 part 'package:angular_components/src/model/selection/selection_change_notifier.dart';
 part 'package:angular_components/src/model/selection/single_selection_model_impl.dart';
 
@@ -156,9 +154,4 @@ abstract class SelectionChangeRecord<T> extends ChangeRecord {
 
   /// Returns an iterable of values removed from selection.
   Iterable<T> get removed;
-}
-
-/// A change record for [SelectionModel.selectableChanges].
-abstract class SelectableChangeRecord<T> extends ChangeRecord {
-  const factory SelectableChangeRecord() = _SelectableChangeRecordImpl<T>;
 }
