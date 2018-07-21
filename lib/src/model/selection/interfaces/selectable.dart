@@ -21,6 +21,43 @@ typedef SelectableGetter<T> = SelectableOption Function(T entity);
 /// __Example use__:
 ///     class MySelectionOptions = SelectionOptions with Selectable;
 abstract class Selectable<T> {
+  /// Returns `true` if [item] is described to have [option] in [isMaybeModel].
+  ///
+  /// This is a helper function for implementing a behavioral check that on a
+  /// [isMaybeModel] that _may_ implement the [Selectable] interface, and if it
+  /// does, may describe [item] to have the selectability of [option].
+  ///
+  /// See [isSelectableIn], [isDisabledIn], and [isHiddenIn].
+  static bool _isOptionCheck<T>(
+    Object isMaybeModel,
+    T item,
+    SelectableOption option,
+  ) {
+    if (isMaybeModel is Selectable<T>) {
+      return identical(isMaybeModel.getSelectable(item), option);
+    }
+    if (isMaybeModel is SelectableWithComposition<T>) {
+      final SelectableGetter<T> getSelectable = isMaybeModel.getSelectable;
+      return getSelectable != null && identical(getSelectable(item), option);
+    }
+    return false;
+  }
+
+  /// Returns whether [model] has [item] as a [SelectableOption.Selectable].
+  static bool isSelectableIn<T>(Object model, T item) {
+    return _isOptionCheck(model, item, SelectableOption.Selectable);
+  }
+
+  /// Returns whether [model] has [item] as a [SelectableOption.Disabled].
+  static bool isDisabledIn<T>(Object model, T item) {
+    return _isOptionCheck(model, item, SelectableOption.Disabled);
+  }
+
+  /// Returns whether [model] has [item] as a [SelectableOption.Hidden].
+  static bool isHiddenIn<T>(Object model, T item) {
+    return _isOptionCheck(model, item, SelectableOption.Hidden);
+  }
+
   /// Whether [item] should be shown as selectable.
   SelectableOption getSelectable(T item) => SelectableOption.Selectable;
 }
