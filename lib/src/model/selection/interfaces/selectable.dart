@@ -32,6 +32,7 @@ abstract class Selectable<T> {
     Object isMaybeModel,
     T item,
     SelectableOption option,
+    bool defaultIfMissingInterface,
   ) {
     if (isMaybeModel is Selectable<T>) {
       return identical(isMaybeModel.getSelectable(item), option);
@@ -40,22 +41,49 @@ abstract class Selectable<T> {
       final SelectableGetter<T> getSelectable = isMaybeModel.getSelectable;
       return getSelectable != null && identical(getSelectable(item), option);
     }
-    return false;
+    return defaultIfMissingInterface;
   }
 
   /// Returns whether [model] has [item] as a [SelectableOption.Selectable].
-  static bool isSelectableIn<T>(Object model, T item) {
-    return _isOptionCheck(model, item, SelectableOption.Selectable);
+  static bool isSelectableIn<T>(
+    Object model,
+    T item, [
+    bool defaultIfMissingInterface = true,
+  ]) {
+    return _isOptionCheck(
+      model,
+      item,
+      SelectableOption.Selectable,
+      defaultIfMissingInterface,
+    );
   }
 
   /// Returns whether [model] has [item] as a [SelectableOption.Disabled].
-  static bool isDisabledIn<T>(Object model, T item) {
-    return _isOptionCheck(model, item, SelectableOption.Disabled);
+  static bool isDisabledIn<T>(
+    Object model,
+    T item, [
+    bool defaultIfMissingInterface = false,
+  ]) {
+    return _isOptionCheck(
+      model,
+      item,
+      SelectableOption.Disabled,
+      defaultIfMissingInterface,
+    );
   }
 
   /// Returns whether [model] has [item] as a [SelectableOption.Hidden].
-  static bool isHiddenIn<T>(Object model, T item) {
-    return _isOptionCheck(model, item, SelectableOption.Hidden);
+  static bool isHiddenIn<T>(
+    Object model,
+    T item, [
+    bool defaultIfMissingInterface = false,
+  ]) {
+    return _isOptionCheck(
+      model,
+      item,
+      SelectableOption.Hidden,
+      defaultIfMissingInterface,
+    );
   }
 
   /// Whether [item] should be shown as selectable.
