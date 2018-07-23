@@ -414,7 +414,7 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
 /// output events in Angular components.
 ///
 /// Reduces the amount of boilerplate needed by removing the need for a getter
-/// that returns the stream for angular.
+/// that returns the stream for Angular.
 class SimpleEmitter<T> extends SimpleStream<T> {
   SimpleEmitter(
       {bool isSync = true,
@@ -427,9 +427,9 @@ class SimpleEmitter<T> extends SimpleStream<T> {
             onListen: onListen,
             onCancel: onCancel);
 
-  /// Returns referene to object.
+  /// Returns `this`.
   Stream<T> get stream => this;
 
-  /// Returns referene to object.
+  /// Returns `this`.
   EventSink<T> get sink => this;
 }
