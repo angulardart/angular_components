@@ -436,10 +436,14 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   /// An option is disabled if the options implements Selectable, but the [item]
   /// is not selectable.
-  bool isOptionDisabled(Object item) =>
-      options is Selectable &&
-      (options as Selectable).getSelectable(item) !=
-          SelectableOption.Selectable;
+  bool isOptionDisabled(Object item) {
+    // TODO: Verify if this can be simplified to .isDisabledIn.
+    //
+    // The prior code did a check for `!= SelectableOption.Selected`. It is
+    // possible there are existing users that are relying on `.Hidden` to mean
+    // disabled, for example.
+    return !Selectable.isSelectableIn(options, item, true);
+  }
 
   /// Whether to highlight options.
   /// Default value is `true`.

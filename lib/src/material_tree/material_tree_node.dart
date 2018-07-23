@@ -52,8 +52,10 @@ class MaterialTreeNode<T> {
       _isExpandable = isExpandable ?? hasChildren;
       _parent = _root.options as Parent<T, Iterable<OptionGroup<T>>>;
     }
-    if (_root.options is Selectable) {
-      _selectable = _root.options as Selectable<T>;
+    // TODO(google).
+    final Object options = _root.options;
+    if (options is Selectable<T>) {
+      _selectable = options;
     } else {
       _selectable = new _AlwaysSelectable<T>();
     }

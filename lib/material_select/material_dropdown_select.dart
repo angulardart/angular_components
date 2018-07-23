@@ -505,20 +505,17 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
 
   /// If selectionOptions implements Selectable, it is called.
   bool isOptionDisabled(Object item) {
-    if (options is Selectable) {
-      return (options as Selectable).getSelectable(item) !=
-          SelectableOption.Selectable;
-    }
-    return false;
+    // TODO: Verify if this can be simplified to .isDisabledIn.
+    //
+    // The prior code did a check for `!= SelectableOption.Selected`. It is
+    // possible there are existing users that are relying on `.Hidden` to mean
+    // disabled, for example.
+    return !Selectable.isSelectableIn(options, item, true);
   }
 
   /// Whether to hide [item].
   bool isOptionHidden(Object item) {
-    if (options is Selectable) {
-      return (options as Selectable).getSelectable(item) ==
-          SelectableOption.Hidden;
-    }
-    return false;
+    return Selectable.isHiddenIn(options, item, false);
   }
 
   /// Whether to show select item that deselects the current selection.
