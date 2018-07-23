@@ -178,6 +178,11 @@ abstract class ScrollHostBase implements ScrollHost {
     if (!usePositionSticky) {
       _elementListenersDisposer.addStreamSubscription(
           anchorElement.onMouseWheel.listen((WheelEvent event) {
+        // Ignore mouse wheel event if the CTRL key or SHIFT key is pressed.
+        // This is consistent with other Google sites and ensures compatibility
+        // with embedded APIs (e.g. Maps zooms the map when CTRL is pressed).
+        if (event.ctrlKey || event.shiftKey) return;
+
         // [event.deltaY] is negated because [scrollDirection] treats the bottom
         // as the y-axis whereas [event] treats the top as the y-axis.
         var d = scrollDirection(event.deltaX, -event.deltaY);
