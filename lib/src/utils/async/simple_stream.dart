@@ -67,7 +67,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   SimpleStream({bool isSync = false, bool runInZone = false})
       : _isSync = isSync,
         _runInZone = runInZone,
-        super(const Stream.empty());
+        super(const Stream<Null>.empty());
 
   SimpleStream.broadcast(
       {bool isSync = false,
@@ -78,7 +78,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
         _runInZone = runInZone,
         _onListen = onListen,
         _onCancel = onCancel,
-        super(const Stream.empty());
+        super(const Stream<Null>.empty());
 
   bool get isSync => _isSync;
 
