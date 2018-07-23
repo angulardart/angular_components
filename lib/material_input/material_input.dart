@@ -172,6 +172,14 @@ class MaterialInputComponent extends BaseMaterialInput
   String trailingGlyph;
   bool get hasTrailingGlyph => isNotEmpty(trailingGlyph);
 
+  /// Aria label used for the trailing glyph.
+  @Input()
+  String trailingGlyphAriaLabel;
+
+  /// Aria label used for the leading glyph.
+  @Input()
+  String leadingGlyphAriaLabel;
+
   bool get rightAlign => _rightAlign;
   bool _rightAlign = false;
 
