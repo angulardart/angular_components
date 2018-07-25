@@ -106,7 +106,7 @@ abstract class ManagedZoneBase extends ManagedZone {
   @override
   Stream get onTurnStart {
     if (_onTurnStartController == null) {
-      _onTurnStartController = new StreamController.broadcast(sync: true);
+      _onTurnStartController = StreamController.broadcast(sync: true);
     }
     return _onTurnStartController.stream;
   }
@@ -114,7 +114,7 @@ abstract class ManagedZoneBase extends ManagedZone {
   @override
   Stream get onTurnDone {
     if (_onTurnDoneController == null) {
-      _onTurnDoneController = new StreamController.broadcast(sync: true);
+      _onTurnDoneController = StreamController.broadcast(sync: true);
     }
     return _onTurnDoneController.stream;
   }
@@ -122,7 +122,7 @@ abstract class ManagedZoneBase extends ManagedZone {
   @override
   Stream get onEventDone {
     if (_onEventDoneController == null) {
-      _onEventDoneController = new StreamController.broadcast(sync: true);
+      _onEventDoneController = StreamController.broadcast(sync: true);
     }
     return _onEventDoneController.stream;
   }

@@ -25,11 +25,11 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 /// the result.
 @Component(
   selector: 'material-slider',
-  providers: const [
-    const Provider(HasDisabled, useExisting: MaterialSliderComponent),
+  providers: [
+    Provider(HasDisabled, useExisting: MaterialSliderComponent),
   ],
   templateUrl: 'material_slider.html',
-  styleUrls: const ['material_slider.scss.css'],
+  styleUrls: ['material_slider.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
@@ -56,7 +56,7 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
   @Input()
   num value = 0;
 
-  final _changeController = new StreamController<num>.broadcast(sync: true);
+  final _changeController = StreamController<num>.broadcast(sync: true);
 
   /// Publishes events when the value of the input is changed by the user.
   @Output()

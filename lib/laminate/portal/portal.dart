@@ -21,7 +21,7 @@ abstract class Portal<T> {
   Future<T> attach(PortalHost host) {
     assert(host != null);
     if (isAttached) {
-      throw new StateError('Already attached to host!');
+      throw StateError('Already attached to host!');
     } else {
       _attachedHost = host;
       return host.attach(this) as Future<T>;
@@ -70,7 +70,7 @@ class ComponentPortal<T> extends Portal<T> {
 
   @override
   ComponentPortal<T> clone() =>
-      new ComponentPortal<T>(componentFactory, origin: origin);
+      ComponentPortal<T>(componentFactory, origin: origin);
 
   /// The type of component that will be created.
   Type get component => T;
@@ -95,7 +95,7 @@ class TemplatePortal extends Portal<Map<String, dynamic>> {
   get origin => viewContainer;
 
   @override
-  TemplatePortal clone() => new TemplatePortal(template, viewContainer);
+  TemplatePortal clone() => TemplatePortal(template, viewContainer);
 
   /// Attach to the [host], optionally with [locals] specific to this instance.
   @override
@@ -151,10 +151,10 @@ abstract class BasePortalHost implements PortalHost {
   Future attach(Portal portal) {
     assert(portal != null);
     if (_isDisposed) {
-      throw new StateError('Already disposed.');
+      throw StateError('Already disposed.');
     }
     if (hasAttached) {
-      throw new StateError('Already has attached portal!');
+      throw StateError('Already has attached portal!');
     }
     if (portal is ComponentPortal) {
       _attachedPortal = portal;
@@ -163,9 +163,9 @@ abstract class BasePortalHost implements PortalHost {
       _attachedPortal = portal;
       return attachTemplatePortal(portal);
     } else if (portal == null) {
-      throw new ArgumentError.notNull('portal');
+      throw ArgumentError.notNull('portal');
     } else {
-      throw new ArgumentError.value(portal, 'portal');
+      throw ArgumentError.value(portal, 'portal');
     }
   }
 
@@ -184,7 +184,7 @@ abstract class BasePortalHost implements PortalHost {
       _detachPortal();
       _detachPortal = null;
     }
-    return new Future.value();
+    return Future.value();
   }
 
   @override
@@ -251,7 +251,7 @@ class PortalHostDirective extends BasePortalHost {
         portal.componentFactory, viewContainerRef);
     setPortalDisposer(ref.destroy);
     // TODO(google): This is no longer async remove the future if possible.
-    return new Future.value(ref);
+    return Future.value(ref);
   }
 
   @override
@@ -260,7 +260,7 @@ class PortalHostDirective extends BasePortalHost {
     final viewRef = _viewContainerRef.createEmbeddedView(portal.template);
     portal.locals.forEach(viewRef.setLocal);
     setPortalDisposer(_viewContainerRef.clear);
-    return new Future.value(BasePortalHost.createLocalsMap(viewRef));
+    return Future.value(BasePortalHost.createLocalsMap(viewRef));
   }
 
   @Input('portalHost')
@@ -291,7 +291,7 @@ class DomPortalHost extends BasePortalHost {
   @override
   Future<ComponentRef> attachComponentPortal(ComponentPortal portal) {
     if (portal.origin == null) {
-      throw new StateError('A component hosted in a DomPortalHost must '
+      throw StateError('A component hosted in a DomPortalHost must '
           'have an `origin` set, since the DOM element itself '
           'is not an Angular component.');
     }
@@ -329,7 +329,7 @@ typedef void OnTemplatePortalReady(TemplatePortal portal);
 class TemplatePortalDirective extends TemplatePortal {
   @Output()
   Stream<TemplatePortalDirective> get ready => _ready.stream;
-  final _ready = new StreamController<TemplatePortalDirective>.broadcast();
+  final _ready = StreamController<TemplatePortalDirective>.broadcast();
 
   TemplatePortalDirective(
       TemplateRef templateRef, ViewContainerRef viewContainerRef)

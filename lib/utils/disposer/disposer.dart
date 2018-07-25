@@ -16,7 +16,7 @@ typedef void DisposeFunction();
 /// A class with a [dispose] method for cleaning up resources or subscriptions.
 abstract class Disposable {
   /// A disposable that does nothing.
-  static const Disposable Noop = const _NoopDisposable();
+  static const Disposable Noop = _NoopDisposable();
 
   /// Creates a simple disposable that just executes [disposeFn].
   factory Disposable(DisposeFunction disposeFn) = _SingleFunctionDisposable;
@@ -118,7 +118,7 @@ class Disposer implements Disposable {
     } else if (disposable_ is DisposeFunction) {
       addFunction(disposable_);
     } else {
-      throw new ArgumentError.value(disposable, 'disposable');
+      throw ArgumentError.value(disposable, 'disposable');
     }
     return disposable;
   }
