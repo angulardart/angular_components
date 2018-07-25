@@ -11,9 +11,8 @@ import 'package:angular_components/focus/focus.dart';
 /// elements that should be focused either by index or [key].
 @Directive(
   selector: '[focusActivableItem]',
-  providers: const [
-    const Provider(FocusableActivateItem,
-        useExisting: FocusActivableItemDirective)
+  providers: [
+    Provider(FocusableActivateItem, useExisting: FocusActivableItemDirective)
   ],
 )
 class FocusActivableItemDirective extends RootFocusable

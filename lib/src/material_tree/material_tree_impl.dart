@@ -29,7 +29,7 @@ import 'package:angular_components/model/ui/has_factory.dart';
 /// To customize, specify an [itemRenderer] and/or [factoryRenderer].
 @Component(
   selector: 'material-tree',
-  directives: const [
+  directives: [
     MaterialTreeGroupComponent,
     MaterialTreeGroupFlatCheckComponent,
     MaterialTreeGroupFlatListComponent,
@@ -37,8 +37,8 @@ import 'package:angular_components/model/ui/has_factory.dart';
     NgFor,
     NgIf
   ],
-  viewProviders: const [
-    const Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
+  viewProviders: [
+    Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
   ],
   templateUrl: 'material_tree_impl.html',
 )

@@ -27,7 +27,7 @@ import 'material_tree_impl.dart';
 /// A button-triggered dropdown containing a [MaterialTreeComponent].
 @Component(
   selector: 'material-tree-dropdown',
-  directives: const [
+  directives: [
     DeferredContentDirective,
     KeyboardOnlyFocusIndicatorDirective,
     MaterialIconComponent,
@@ -37,12 +37,12 @@ import 'material_tree_impl.dart';
     NgIf,
     PopupSourceDirective
   ],
-  providers: const [
-    const Provider(Focusable, useExisting: MaterialTreeDropdownComponent),
-    const Provider(MaterialTreeRoot, useExisting: MaterialTreeDropdownComponent)
+  providers: [
+    Provider(Focusable, useExisting: MaterialTreeDropdownComponent),
+    Provider(MaterialTreeRoot, useExisting: MaterialTreeDropdownComponent)
   ],
   templateUrl: 'material_tree_dropdown.html',
-  styleUrls: const ['material_tree_dropdown.scss.css'],
+  styleUrls: ['material_tree_dropdown.scss.css'],
   visibility: Visibility.all, // injected by clients
 )
 class MaterialTreeDropdownComponent extends SelectionContainer
@@ -50,7 +50,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
     implements OnInit, Focusable {
   // Popup positioning to use when filtering is enabled.
   static const List /*RelativePosition | List<RelativePosition>*/
-      _popupPositionsOffset = const [
+      _popupPositionsOffset = [
     RelativePosition.AdjacentBottomLeft,
     RelativePosition.AdjacentBottomEdge,
     RelativePosition.AdjacentTopLeft,
@@ -75,7 +75,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   @Output()
   Stream<bool> get visibleChange => _visibleStream.stream;
 
-  final _visibleStream = new StreamController<bool>.broadcast(sync: true);
+  final _visibleStream = StreamController<bool>.broadcast(sync: true);
 
   /// Whether to always expand an option group.
   @Input()
@@ -96,7 +96,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
 
   Filterable get filterableOptions => options is Filterable
       ? options as Filterable
-      : throw new StateError(
+      : throw StateError(
           'The SlectionOptions provided should implement Filterable');
 
   bool get expandAll =>

@@ -29,7 +29,7 @@ class FocusListDirective implements OnDestroy {
 
   @HostBinding('attr.role')
   final String role;
-  final _disposer = new Disposer.multi();
+  final _disposer = Disposer.multi();
   final _children = <FocusableItem>[];
   int get _length => _children.length;
 

@@ -15,12 +15,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 @Component(
   selector: 'focus-trap',
   templateUrl: 'focus_trap.html',
-  styleUrls: const ['focus_trap.scss.css'],
-  directives: const [FocusContentWrapper, AutoFocusDirective],
+  styleUrls: ['focus_trap.scss.css'],
+  directives: [FocusContentWrapper, AutoFocusDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class FocusTrapComponent implements OnDestroy {
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
 
   AutoFocusDirective _autoFocusDirective;
   @ContentChild(AutoFocusDirective)
@@ -44,11 +44,11 @@ class FocusTrapComponent implements OnDestroy {
 
   void focusFirst() {
     _focusFirstInOrder(
-        new DomTreeIterator(_content.element, scope: _content.element));
+        DomTreeIterator(_content.element, scope: _content.element));
   }
 
   void focusLast() {
-    _focusFirstInOrder(new DomTreeIterator(_content.element,
+    _focusFirstInOrder(DomTreeIterator(_content.element,
         scope: _content.element, reverse: true, wraps: true));
   }
 
