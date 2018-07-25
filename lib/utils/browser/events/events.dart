@@ -58,7 +58,7 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
   StreamSubscription<MouseEvent> mouseUpListener;
   EventListener listener;
 
-  controller = new StreamController.broadcast(
+  controller = StreamController.broadcast(
       sync: true,
       onListen: () {
         assert(clickListener == null);
@@ -125,10 +125,10 @@ Stream<Rectangle> onResize(Element element) {
   assert(supportsResizeObserver, 'ResizeObserver support is required');
   StreamController<Rectangle> controller;
   ResizeObserver observer;
-  controller = new StreamController<Rectangle>.broadcast(
+  controller = StreamController<Rectangle>.broadcast(
       sync: true,
       onListen: () {
-        observer = new ResizeObserver(allowInterop((entries, _) {
+        observer = ResizeObserver(allowInterop((entries, _) {
           for (var entry in entries) {
             controller.add(entry.contentRect);
           }

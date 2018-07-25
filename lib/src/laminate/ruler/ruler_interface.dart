@@ -84,7 +84,7 @@ abstract class Ruler<E> {
 /// - [setProperties]
 abstract class RulerBase<E> implements Ruler<E> {
   // Holds what CSS classes were previously set by the Ruler.
-  final _addedCssClasses = new Expando<List<String>>();
+  final _addedCssClasses = Expando<List<String>>();
 
   /// Return true if [element] can be synchronously updated safely because it is
   /// not in the live DOM document.
@@ -125,7 +125,7 @@ abstract class RulerBase<E> implements Ruler<E> {
   Stream<Rectangle> track(E element) {
     StreamController<Rectangle> controller;
     StreamSubscription<dynamic> subscription;
-    controller = new StreamController<Rectangle>(
+    controller = StreamController<Rectangle>(
         sync: true,
         onListen: () {
           // Get an initial measure of the element prior to onLayoutChanged.
@@ -192,7 +192,7 @@ abstract class RulerBase<E> implements Ruler<E> {
 
     if (canSyncWrite(element)) {
       doSyncUpdate();
-      return new Future.value();
+      return Future.value();
     }
     return onWrite().then((_) => doSyncUpdate());
   }
@@ -243,7 +243,7 @@ abstract class RulerBase<E> implements Ruler<E> {
     // Using translateX/Y is faster than left/top, but there is at least one
     // use case that needs the other behavior.
     if (useCssTransform) {
-      var buffer = new StringBuffer();
+      var buffer = StringBuffer();
       if (left != null) {
         setProperty('left', '0');
         buffer.write('translateX(${left.round()}px) ');
