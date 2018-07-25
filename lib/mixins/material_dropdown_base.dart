@@ -38,8 +38,8 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
   /// Fired when the dropdown's visibility changes.
   @Output('visibleChange')
   Stream<bool> get visibleStream => _visibleStream.stream;
-  final _visibleStream = new StreamController<bool>.broadcast(sync: true);
-  final _contentVisible = new StreamController<bool>.broadcast(sync: true);
+  final _visibleStream = StreamController<bool>.broadcast(sync: true);
+  final _contentVisible = StreamController<bool>.broadcast(sync: true);
 
   /// Avoid rendering drop down offscreen.
   @Input()

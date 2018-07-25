@@ -102,20 +102,19 @@ class DateRangeEditorModel
   /// The actual datepicker value.
   final ObservableReference<DatepickerComparison> _ref;
 
-  final calendar = new ObservableReference<CalendarState>(
-      new CalendarState.empty(currentSelection: _rangeId),
+  final calendar = ObservableReference<CalendarState>(
+      CalendarState.empty(currentSelection: _rangeId),
       coalesce: true);
 
-  final range = new ObservableReference<DateRange>(new DateRange(null, null),
-      coalesce: true);
+  final range =
+      ObservableReference<DateRange>(DateRange(null, null), coalesce: true);
 
   @override
-  final comparison = new ObservableReference<DateRange>(
-      new DateRange(null, null),
-      coalesce: true);
+  final comparison =
+      ObservableReference<DateRange>(DateRange(null, null), coalesce: true);
 
-  final _changes = new StreamController<DateRangeChange>.broadcast(sync: true);
-  final Disposer _disposer = new Disposer.oneShot();
+  final _changes = StreamController<DateRangeChange>.broadcast(sync: true);
+  final Disposer _disposer = Disposer.oneShot();
 
   Date minDate;
   Date maxDate;
@@ -137,7 +136,7 @@ class DateRangeEditorModel
       this.requireFullPeriods = false,
       this.basic = false,
       List<ComparisonOption> supportedComparisonOptions})
-      : _ref = new ObservableReference(initialValue) {
+      : _ref = ObservableReference(initialValue) {
     this.supportedComparisonOptions =
         (supportedComparisonOptions?.isNotEmpty ?? false)
             ? supportedComparisonOptions
@@ -227,8 +226,8 @@ class DateRangeEditorModel
   String get comparisonTitle => _comparisonTitle;
 
   /// Takes a snapshot of the model's current state.
-  ModelState save() => new ModelState(
-      value, calendar.value, comparisonEnabled, comparisonOption);
+  ModelState save() =>
+      ModelState(value, calendar.value, comparisonEnabled, comparisonOption);
 
   /// Sets the model's state to a value from an earlier call to `save`.
   void restore(ModelState state) {
@@ -246,7 +245,7 @@ class DateRangeEditorModel
       _changeValue(_withComparison(range), Action.button);
 
   @override
-  ObservableReference<bool> hasNext = new ObservableReference<bool>(false);
+  ObservableReference<bool> hasNext = ObservableReference<bool>(false);
 
   @override
   DatepickerDateRange next() {
@@ -254,7 +253,7 @@ class DateRangeEditorModel
     if (next == null) return null;
     final amt = daysSpanned(value.range.start, next.start, inclusive: false);
     if (_customComparisonRange != null) {
-      _customComparisonRange = new DatepickerDateRange.custom(
+      _customComparisonRange = DatepickerDateRange.custom(
           _customComparisonRange.start.add(days: amt),
           _customComparisonRange.end.add(days: amt));
     }
@@ -263,7 +262,7 @@ class DateRangeEditorModel
   }
 
   @override
-  ObservableReference<bool> hasPrev = new ObservableReference<bool>(false);
+  ObservableReference<bool> hasPrev = ObservableReference<bool>(false);
 
   @override
   DatepickerDateRange prev() {
@@ -271,7 +270,7 @@ class DateRangeEditorModel
     if (prev == null) return null;
     final amt = daysSpanned(prev.start, value.range.start, inclusive: false);
     if (_customComparisonRange != null) {
-      _customComparisonRange = new DatepickerDateRange.custom(
+      _customComparisonRange = DatepickerDateRange.custom(
           _customComparisonRange.start.add(days: -amt),
           _customComparisonRange.end.add(days: -amt));
     }
@@ -298,11 +297,11 @@ class DateRangeEditorModel
   /// changes, but does want to publish the value at `dragEnd`, even if it's the
   /// same value as the last `drag` change.
   void _changeValue(DatepickerComparison val, Action cause) {
-    val = new DatepickerComparison.reclamp(val, minDate, maxDate);
+    val = DatepickerComparison.reclamp(val, minDate, maxDate);
     if (value == val && (cause == null || cause == _lastCause)) return;
     value = val;
     _lastCause = cause;
-    _changes.add(new DateRangeChange(val, cause));
+    _changes.add(DateRangeChange(val, cause));
   }
 
   /// Update the next/prev buttons to reflect the main value changing.
@@ -313,10 +312,10 @@ class DateRangeEditorModel
     if (requireFullPeriods) {
       hasPrev.value = prevRange != null &&
           rangeContainsRange(
-              new DateRange(minDate, maxDate), prevRange.unclamped());
+              DateRange(minDate, maxDate), prevRange.unclamped());
       hasNext.value = nextRange != null &&
           rangeContainsRange(
-              new DateRange(minDate, maxDate), nextRange.unclamped());
+              DateRange(minDate, maxDate), nextRange.unclamped());
     } else {
       hasPrev.value = prevRange != null;
       hasNext.value = nextRange != null;
@@ -344,7 +343,7 @@ class DateRangeEditorModel
       if (_selectionDifferent(calendar.value, rangeId, range) ||
           !calendar.value.has(rangeId)) {
         calendar.value = calendar.value.setSelection(
-            new CalendarSelection(rangeId, range.start, range.end),
+            CalendarSelection(rangeId, range.start, range.end),
             previewAnchoredAtStart: calendar.value.previewAnchoredAtStart,
             cause: CausedBy.external);
       }
@@ -355,8 +354,7 @@ class DateRangeEditorModel
       if (_selectionDifferent(calendar.value, comparisonId, comparison) ||
           !calendar.value.has(comparisonId)) {
         calendar.value = calendar.value.setSelection(
-            new CalendarSelection(
-                comparisonId, comparison.start, comparison.end),
+            CalendarSelection(comparisonId, comparison.start, comparison.end),
             cause: CausedBy.external);
       }
     } else {
@@ -385,7 +383,7 @@ class DateRangeEditorModel
         (comparison != null) ? comparison : _buildComparison(range).comparison;
     if (hypotheticalComparison == null) return;
     this.comparison.value = hypotheticalComparison.asPlainRange();
-    _customComparisonRange = new DatepickerDateRange.custom(
+    _customComparisonRange = DatepickerDateRange.custom(
         hypotheticalComparison.start, hypotheticalComparison.end);
     _comparisonTitle = hypotheticalComparison.title;
   }
@@ -394,7 +392,7 @@ class DateRangeEditorModel
   void _setPrimaryRange(DateRange range) {
     if (value?.range?.asPlainRange() == range) return;
     _changeValue(
-        _withComparison(new DatepickerDateRange.custom(range.start, range.end)),
+        _withComparison(DatepickerDateRange.custom(range.start, range.end)),
         Action.textEntry);
   }
 
@@ -403,7 +401,7 @@ class DateRangeEditorModel
     if (_customComparisonRange?.asPlainRange() == range) return;
     comparisonOption = ComparisonOption.custom;
     _customComparisonRange =
-        new DatepickerDateRange.custom(range?.start, range?.end);
+        DatepickerDateRange.custom(range?.start, range?.end);
     _changeValue(_withComparison(value?.range), Action.textEntry);
   }
 
@@ -416,7 +414,7 @@ class DateRangeEditorModel
     if (newState.currentSelection == rangeId &&
         _selectionDifferent(newState, rangeId, selectedRange)) {
       // If the user's dragging the primary range, keep track of that.
-      selectedRange = new DatepickerDateRange.custom(
+      selectedRange = DatepickerDateRange.custom(
           newState.selection(rangeId).start, newState.selection(rangeId).end);
     } else if (newState.currentSelection == comparisonId &&
         _selectionDifferent(newState, comparisonId, _customComparisonRange)) {
@@ -424,7 +422,7 @@ class DateRangeEditorModel
       // 'custom' comparison on (if it isn't already). (But use the internal
       // helper, so that we don't clobber the active range.)
       _setComparisonOption(ComparisonOption.custom);
-      _customComparisonRange = new DatepickerDateRange.custom(
+      _customComparisonRange = DatepickerDateRange.custom(
           newState.selection(comparisonId).start,
           newState.selection(comparisonId).end);
     }
@@ -497,7 +495,7 @@ class DateRangeEditorModel
   DatepickerComparison _withComparison(DatepickerDateRange range) =>
       _comparisonEnabled
           ? _buildComparison(range)
-          : new DatepickerComparison.noComparison(range);
+          : DatepickerComparison.noComparison(range);
 
   /// Supports comparison only when [range] is not null and is not all time.
   static bool _rangeSupportsComparison(DatepickerDateRange range) =>
@@ -513,7 +511,7 @@ class DateRangeEditorModel
   /// comparison".
   DatepickerComparison _buildComparison(DatepickerDateRange range) {
     if (!_rangeSupportsComparison(range)) {
-      return new DatepickerComparison.noComparison(range);
+      return DatepickerComparison.noComparison(range);
     }
 
     // If we're returning a Custom comparison range, but _customComparisonRange
@@ -522,24 +520,24 @@ class DateRangeEditorModel
     // comparison mode, if other comparison options aren't valid for
     // their chosen range.
     final defaultCustomComparisonRange =
-        new DatepickerDateRange.custom(range.start, range.start);
+        DatepickerDateRange.custom(range.start, range.start);
     var validComparisonOptions = _getValidComparisonOptions(range);
 
     if (_comparisonOption == ComparisonOption.custom) {
-      return new DatepickerComparison.custom(
+      return DatepickerComparison.custom(
           range, _customComparisonRange ?? defaultCustomComparisonRange);
     }
 
     if (validComparisonOptions.contains(_comparisonOption)) {
-      return new DatepickerComparison(range, _comparisonOption);
+      return DatepickerComparison(range, _comparisonOption);
     }
 
     // Try to fall back to custom if the comparison option is no longer valid.
     if (isCustomComparisonValid) {
-      return new DatepickerComparison.custom(
+      return DatepickerComparison.custom(
           range, _customComparisonRange ?? defaultCustomComparisonRange);
     }
-    return new DatepickerComparison.noComparison(range);
+    return DatepickerComparison.noComparison(range);
   }
 
   /// Updates [_validComparisonOptions] based on the current range, and whether

@@ -28,8 +28,8 @@ import 'package:angular_components/model/date/date.dart';
 @Component(
   selector: 'comparison-range-editor',
   templateUrl: 'comparison_range_editor.html',
-  styleUrls: const ['comparison_range_editor.scss.css'],
-  directives: const [
+  styleUrls: ['comparison_range_editor.scss.css'],
+  directives: [
     DateRangeInputComponent,
     MaterialListComponent,
     MaterialListItemComponent,

@@ -10,7 +10,7 @@ dynamic fuzzyParseEnum(List values, String val) {
   var valAsRegex = val
       .toUpperCase()
       .replaceAll('.', r'\.')
-      .replaceAll(new RegExp(r'[_-]'), r'[-_]');
-  var regex = new RegExp(valAsRegex + r'$');
+      .replaceAll(RegExp(r'[_-]'), r'[-_]');
+  var regex = RegExp(valAsRegex + r'$');
   return values.firstWhere((v) => regex.hasMatch(v.toString().toUpperCase()));
 }

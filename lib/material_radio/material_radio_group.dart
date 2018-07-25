@@ -33,14 +33,14 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 @Component(
   selector: 'material-radio-group',
   template: '<ng-content></ng-content>',
-  styleUrls: const ['material_radio_group.scss.css'],
+  styleUrls: ['material_radio_group.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   visibility: Visibility.all, // Injected by members of the group.
 )
 class MaterialRadioGroupComponent
     implements ControlValueAccessor<dynamic>, OnDestroy, AfterContentInit {
   final NgZone _ngZone;
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
 
   List<MaterialRadioComponent> _radioComponents = <MaterialRadioComponent>[];
 
@@ -137,15 +137,14 @@ class MaterialRadioGroupComponent
   /// Published when selection changes. Prefer `(ngModelChanged)`.
   @Output('selectedChange')
   Stream<dynamic> get onChange => _onChange.stream;
-  final _onChange = new StreamController<dynamic>.broadcast();
+  final _onChange = StreamController<dynamic>.broadcast();
 
   /// Selection model containing value object.
   @Input('selectionModel')
   SelectionModel valueSelection;
 
   /// Internal selection model containing the radio component.
-  final componentSelection =
-      new SelectionModel<MaterialRadioComponent>.single();
+  final componentSelection = SelectionModel<MaterialRadioComponent>.single();
 
   MaterialRadioComponent get _selectedRadioComponent {
     if (componentSelection.selectedValues.isEmpty) return null;
@@ -153,7 +152,7 @@ class MaterialRadioGroupComponent
   }
 
   /// Internal selection model to keep track of radio currently in focus.
-  final focusSelection = new SelectionModel<MaterialRadioComponent>.single();
+  final focusSelection = SelectionModel<MaterialRadioComponent>.single();
 
   // Keep the preselected value until children are loaded.
   dynamic _preselectedValue;

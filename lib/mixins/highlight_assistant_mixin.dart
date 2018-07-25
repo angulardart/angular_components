@@ -63,7 +63,7 @@ abstract class HighlightAssistantMixin
 
   @override
   List<HighlightedTextSegment> highlightOption(Object item) {
-    _highlightAssistant ??= new HighlightAssistant(
+    _highlightAssistant ??= HighlightAssistant(
         optionHighlighter: optionHighlighter,
         matchFromStartOfWord: _highlightMatchFromStartOfWord);
     return _highlightAssistant.highlightOption(

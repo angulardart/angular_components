@@ -17,8 +17,8 @@ import 'package:angular_components/model/ui/icon.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-const Icon uncheckedIcon = const Icon('radio_button_unchecked');
-const Icon checkedIcon = const Icon('radio_button_checked');
+const Icon uncheckedIcon = Icon('radio_button_unchecked');
+const Icon checkedIcon = Icon('radio_button_checked');
 
 /// A radio button with material style. Usually used together with
 /// `material-radio-group`. Once checked, same radio button can not be unchecked
@@ -32,12 +32,12 @@ const Icon checkedIcon = const Icon('radio_button_checked');
 /// - `no-ink` -- set this attribute to disable the ripple effect on the chip.
 @Component(
     selector: 'material-radio',
-    directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
-    providers: const [
-      const Provider(HasDisabled, useExisting: MaterialRadioComponent),
+    directives: [MaterialIconComponent, MaterialRippleComponent, NgIf],
+    providers: [
+      Provider(HasDisabled, useExisting: MaterialRadioComponent),
     ],
     templateUrl: 'material_radio.html',
-    styleUrls: const ['material_radio.scss.css'],
+    styleUrls: ['material_radio.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialRadioComponent extends RootFocusable
     implements
@@ -48,7 +48,7 @@ class MaterialRadioComponent extends RootFocusable
   final ChangeDetectorRef _changeDetector;
   final MaterialRadioGroupComponent _group;
   final HtmlElement _root;
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
 
   MaterialRadioComponent(
       this._root,
@@ -103,7 +103,7 @@ class MaterialRadioComponent extends RootFocusable
   /// Published when the radio selection state changes.
   @Output('checkedChange')
   Stream<bool> get onChecked => _onChecked.stream;
-  final _onChecked = new StreamController<bool>.broadcast();
+  final _onChecked = StreamController<bool>.broadcast();
 
   /// Whether the radio should be preselected.
   @Input()
@@ -142,10 +142,9 @@ class MaterialRadioComponent extends RootFocusable
     _changeDetector.markForCheck();
   }
 
-  final _focusMoveCtrl =
-      new StreamController<FocusMoveEvent>.broadcast(sync: true);
+  final _focusMoveCtrl = StreamController<FocusMoveEvent>.broadcast(sync: true);
   final _selectionMoveCtrl =
-      new StreamController<FocusMoveEvent>.broadcast(sync: true);
+      StreamController<FocusMoveEvent>.broadcast(sync: true);
 
   @override
   Stream<FocusMoveEvent> get focusmove => _focusMoveCtrl.stream;
@@ -155,7 +154,7 @@ class MaterialRadioComponent extends RootFocusable
   @HostListener('keydown')
   void handleKeyDown(KeyboardEvent event) {
     if (event.target != _root) return;
-    var focusEvent = new FocusMoveEvent.fromKeyboardEvent(this, event);
+    var focusEvent = FocusMoveEvent.fromKeyboardEvent(this, event);
 
     if (focusEvent == null) return;
     if (event.ctrlKey) {
