@@ -15,8 +15,8 @@ import 'package:angular_components/src/laminate/popup/popup_size_provider.dart';
 /// popup provider.
 @Directive(
   selector: '[popupMaxHeight],[popupMaxWidth]',
-  providers: const [
-    const Provider(PopupSizeProvider, useClass: PopupSizeProviderDirective),
+  providers: [
+    Provider(PopupSizeProvider, useClass: PopupSizeProviderDirective),
   ],
 )
 class PopupSizeProviderDirective implements PopupSizeProvider {
@@ -33,13 +33,11 @@ class PopupSizeProviderDirective implements PopupSizeProvider {
       @Attribute('popupMaxWidth') String maxWidth,
       @Optional() @SkipSelf() this._parentPopupSizeProvider) {
     _minHeight =
-        minHeight == null ? null : new _SizeDefinition.fromString(minHeight);
-    _minWidth =
-        minWidth == null ? null : new _SizeDefinition.fromString(minWidth);
+        minHeight == null ? null : _SizeDefinition.fromString(minHeight);
+    _minWidth = minWidth == null ? null : _SizeDefinition.fromString(minWidth);
     _maxHeight =
-        maxHeight == null ? null : new _SizeDefinition.fromString(maxHeight);
-    _maxWidth =
-        maxWidth == null ? null : new _SizeDefinition.fromString(maxWidth);
+        maxHeight == null ? null : _SizeDefinition.fromString(maxHeight);
+    _maxWidth = maxWidth == null ? null : _SizeDefinition.fromString(maxWidth);
 
     // Define a reasonable default if for some reason a parent
     // PopupSizeProvider is not injected.
@@ -48,7 +46,7 @@ class PopupSizeProviderDirective implements PopupSizeProvider {
             _maxHeight == null ||
             _maxWidth == null) &&
         _parentPopupSizeProvider == null) {
-      _parentPopupSizeProvider = new PercentagePopupSizeProvider(0.7, 0.5);
+      _parentPopupSizeProvider = PercentagePopupSizeProvider(0.7, 0.5);
     }
   }
 
@@ -75,23 +73,23 @@ class PopupSizeProviderDirective implements PopupSizeProvider {
 
 /// Defines a size in any unit and computes in pixels.
 abstract class _SizeDefinition {
-  static final RegExp _parseAttribute = new RegExp(r'([\d.]+)\s*([^\d\s]+)');
+  static final RegExp _parseAttribute = RegExp(r'([\d.]+)\s*([^\d\s]+)');
 
   /// Create from an attribute string.
   ///
   /// [attribute] should be in the format <num><unit>.  i.e: "100px" or "70%".
   factory _SizeDefinition.fromString(String attribute) {
     var match = _parseAttribute.firstMatch(attribute);
-    if (match == null) throw new StateError('Invalid size string: $attribute');
+    if (match == null) throw StateError('Invalid size string: $attribute');
     num size = num.parse(match.group(1));
     var unit = match.group(2).toLowerCase();
     switch (unit) {
       case 'px':
-        return new _PixelSizeDefinition(size);
+        return _PixelSizeDefinition(size);
       case '%':
-        return new _PercentSizeDefinition(size);
+        return _PercentSizeDefinition(size);
       default:
-        throw new StateError('Invalid unit for size string: $attribute');
+        throw StateError('Invalid unit for size string: $attribute');
     }
   }
 

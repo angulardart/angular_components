@@ -22,8 +22,7 @@ class PopupPositionMixin implements PopupSizeProvider {
   /// Minimum height for the popup.
   static const _MIN_HEIGHT_PX = 40;
 
-  PopupSizeProvider delegatePopupSizeProvider =
-      new PercentagePopupSizeProvider();
+  PopupSizeProvider delegatePopupSizeProvider = PercentagePopupSizeProvider();
 
   @override
   num getMinWidth(num positionX, num viewportWidth) =>

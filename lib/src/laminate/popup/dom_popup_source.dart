@@ -30,7 +30,7 @@ class DomPopupSourceFactory {
       {Alignment alignOriginX = Alignment.Start,
       Alignment alignOriginY = Alignment.Start,
       bool initAriaAttributes = true}) {
-    return new DomPopupSource(_asyncMeasureSize, sourceElement,
+    return DomPopupSource(_asyncMeasureSize, sourceElement,
         alignOriginX: alignOriginX,
         alignOriginY: alignOriginY,
         initAriaAttributes: initAriaAttributes);

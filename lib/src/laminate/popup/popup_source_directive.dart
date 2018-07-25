@@ -83,7 +83,7 @@ class PopupSourceDirective
   ///   any CSS positioning model.
   @Input('alignPositionX')
   set alignX(String align) {
-    _alignOriginX = new Alignment.parse(align);
+    _alignOriginX = Alignment.parse(align);
     _updateSource();
   }
 
@@ -105,7 +105,7 @@ class PopupSourceDirective
   ///   any CSS positioning model.
   @Input('alignPositionY')
   set alignY(String align) {
-    _alignOriginY = new Alignment.parse(align);
+    _alignOriginY = Alignment.parse(align);
     _updateSource();
   }
 
