@@ -93,7 +93,7 @@ class AcxImperativeViewUtils {
       for (final rootNode in viewRef.rootNodes) {
         intoDomElement.append(rootNode);
       }
-      return new ImperativeViewRef._(viewRef, () {
+      return ImperativeViewRef._(viewRef, () {
         var index = viewContainer.indexOf(viewRef);
         if (index > -1) viewContainer.remove(index);
       });

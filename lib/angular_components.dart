@@ -220,7 +220,7 @@ export 'utils/async/async.dart';
 
 /// A convenience list of all Directives exposed by this package.
 @Deprecated('List the directives used by your app for smaller code size.')
-const List<dynamic> materialDirectives = const [
+const List<dynamic> materialDirectives = [
   AutoDismissDirective,
   AutoFocusDirective,
   ButtonDirective,
@@ -324,6 +324,6 @@ const List<dynamic> materialDirectives = const [
 ];
 
 /// A convenience list of all providers exposed by this package.
-const List<dynamic> materialProviders = const [
+const List<dynamic> materialProviders = [
   datepickerBindings,
 ];

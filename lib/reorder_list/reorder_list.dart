@@ -37,7 +37,7 @@ export 'reorder_events.dart';
 @Component(
   selector: 'reorder-list',
   templateUrl: 'reorder_list.html',
-  styleUrls: const ['reorder_list.scss.css'],
+  styleUrls: ['reorder_list.scss.css'],
   visibility: Visibility.all, // injected
 )
 class ReorderListComponent implements OnDestroy {
@@ -48,31 +48,30 @@ class ReorderListComponent implements OnDestroy {
   static const hostRole = 'list';
 
   static final itemSelectedCssClass = 'item-selected';
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
 
   /// Will emit [ReorderEvent] after reordering has finished.
   @Output()
   Stream<ReorderEvent> get reorder => _reorder.stream;
-  final _reorder = new StreamController<ReorderEvent>.broadcast(sync: true);
+  final _reorder = StreamController<ReorderEvent>.broadcast(sync: true);
 
   /// Will emit [ReorderEvent] when the prospective reordering position has
   /// changed.
   @Output()
   Stream<ReorderEvent> get reorderAttempt => _reorderAttempt.stream;
-  final _reorderAttempt =
-      new StreamController<ReorderEvent>.broadcast(sync: true);
+  final _reorderAttempt = StreamController<ReorderEvent>.broadcast(sync: true);
 
   /// Will emit [int] index of element to delete when delete is triggered.
   @Output()
   Stream<int> get delete => _delete.stream;
-  final _delete = new StreamController<int>.broadcast(sync: true);
+  final _delete = StreamController<int>.broadcast(sync: true);
 
   /// Will emit [ItemSelectionEvent] indexes of the newly selected elements.
   @Output()
   Stream<ItemSelectionEvent> get itemSelectionChanged =>
       _itemSelectionChanged.stream;
   final _itemSelectionChanged =
-      new StreamController<ItemSelectionEvent>.broadcast(sync: true);
+      StreamController<ItemSelectionEvent>.broadcast(sync: true);
 
   final NgZone _ngZone;
 
@@ -114,20 +113,20 @@ class ReorderListComponent implements OnDestroy {
   HtmlElement placeholder;
 
   ReorderListComponent(this._ngZone) {
-    _subscriptions = new Map<HtmlElement, List<StreamSubscription>>();
-    _dragSubscriptions = new Map<HtmlElement, StreamSubscription>();
+    _subscriptions = Map<HtmlElement, List<StreamSubscription>>();
+    _dragSubscriptions = Map<HtmlElement, StreamSubscription>();
   }
 
   @ContentChildren(ReorderItemDirective)
   set items(List<ReorderItemDirective> value) {
-    _items = new Map.fromIterable(value,
+    _items = Map.fromIterable(value,
         key: (e) => e.handleElement, value: (e) => e.element);
     _refreshItems();
   }
 
   void _refreshItems() {
     final newElements = _handleElements.toSet();
-    Set<HtmlElement> currentlyTracked = new Set.from(_subscriptions.keys);
+    Set<HtmlElement> currentlyTracked = Set.from(_subscriptions.keys);
     for (HtmlElement tracked in currentlyTracked) {
       if (!newElements.contains(tracked)) {
         unTrack(tracked);
@@ -151,7 +150,7 @@ class ReorderListComponent implements OnDestroy {
 
   void _unTrackAll() {
     // Prevent concurrent modification exception.
-    var keys = new List<HtmlElement>.from(_subscriptions.keys);
+    var keys = List<HtmlElement>.from(_subscriptions.keys);
     for (HtmlElement element in keys) {
       unTrack(element);
     }
@@ -328,8 +327,8 @@ class ReorderListComponent implements OnDestroy {
     var contents = _reorderElements;
     int childCount = contents.length;
     _moveSourceIndex = _handleElements.indexOf(_dragSourceElement);
-    _curTransformY = new List<int>.filled(childCount, 0);
-    _itemSizes = new List<int>(childCount);
+    _curTransformY = List<int>.filled(childCount, 0);
+    _itemSizes = List<int>(childCount);
     for (int i = 0; i < childCount; i++) {
       _itemSizes[i] = _computeItemSize(contents[i]);
     }
@@ -459,9 +458,9 @@ class ReorderListComponent implements OnDestroy {
 
   // Handles selection change call emitting,
   void _notifySelectionChange() {
-    var sources = new List<int>.from(_selectedElementIndexes);
+    var sources = List<int>.from(_selectedElementIndexes);
     sources.sort();
-    _itemSelectionChanged.add(new ItemSelectionEvent(sources));
+    _itemSelectionChanged.add(ItemSelectionEvent(sources));
   }
 
   // Handles Ctrl|Metakey key selection when onClick event is fired.
@@ -484,7 +483,7 @@ class ReorderListComponent implements OnDestroy {
       _pivotItemIndex = index;
     }
 
-    var indexes = new List<int>.from(
+    var indexes = List<int>.from(
         range(min(_pivotItemIndex, index), max(_pivotItemIndex, index)));
     // Range gives the values until the biggest index, but not including it.
     // So adding it manually.
@@ -551,7 +550,7 @@ class ReorderListComponent implements OnDestroy {
       // otherwise we can trigger onDrag during transition and cause flickering
       _dragSubscriptions[element].cancel();
       _dragSubscriptions[element] == null;
-      new Future.delayed(new Duration(milliseconds: 250), () {
+      Future.delayed(Duration(milliseconds: 250), () {
         // Check if element wasn't untracked
         if (_subscriptions[element] != null) {
           _dragSubscriptions[element] =
@@ -574,11 +573,11 @@ class ReorderListComponent implements OnDestroy {
 
   ReorderEvent _createReorderEvent(int sourceIndex, int destIndex) {
     if (multiSelect) {
-      var sources = new List<int>.from(_selectedElementIndexes);
+      var sources = List<int>.from(_selectedElementIndexes);
       sources.sort();
-      return new MultiReorderEvent(sources, destIndex);
+      return MultiReorderEvent(sources, destIndex);
     } else {
-      return new ReorderEvent(sourceIndex, destIndex);
+      return ReorderEvent(sourceIndex, destIndex);
     }
   }
 

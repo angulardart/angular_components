@@ -15,9 +15,9 @@ import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/model/ui/icon.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 
-const Icon uncheckedIcon = const Icon('check_box_outline_blank');
-const Icon checkedIcon = const Icon('check_box');
-const Icon indeterminateIcon = const Icon('indeterminate_check_box');
+const Icon uncheckedIcon = Icon('check_box_outline_blank');
+const Icon checkedIcon = Icon('check_box');
+const Icon indeterminateIcon = Icon('indeterminate_check_box');
 
 const uncheckedAriaState = 'false';
 const checkedAriaState = 'true';
@@ -41,12 +41,12 @@ const indeterminateAriaState = 'mixed';
 ///
 @Component(
   selector: 'material-checkbox',
-  providers: const [
-    const Provider(HasDisabled, useExisting: MaterialCheckboxComponent),
+  providers: [
+    Provider(HasDisabled, useExisting: MaterialCheckboxComponent),
   ],
-  directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
+  directives: [MaterialIconComponent, MaterialRippleComponent, NgIf],
   templateUrl: 'material_checkbox.html',
-  styleUrls: const ['material_checkbox.scss.css'],
+  styleUrls: ['material_checkbox.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialCheckboxComponent
@@ -100,7 +100,7 @@ class MaterialCheckboxComponent
   /// indeterminate. Sends the state of [checked].
   @Output('checkedChange')
   Stream get onChecked => _onChecked.stream;
-  final _onChecked = new StreamController.broadcast();
+  final _onChecked = StreamController.broadcast();
 
   /// Fired when checkbox goes in and out of indeterminate state, but not when
   /// set to checked.
@@ -108,12 +108,12 @@ class MaterialCheckboxComponent
   /// Sends the state of [indeterminate].
   @Output('indeterminateChange')
   Stream get onIndeterminate => _onIndeterminate.stream;
-  final _onIndeterminate = new StreamController.broadcast();
+  final _onIndeterminate = StreamController.broadcast();
 
   /// Fired when checkbox state changes, sends [checkedStr], i.e. ARIA state.
   @Output('change')
   Stream get onChange => _onChange.stream;
-  final _onChange = new StreamController.broadcast();
+  final _onChange = StreamController.broadcast();
 
   /// Determines the state to go into when [indeterminate] state is toggled.
   ///

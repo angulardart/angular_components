@@ -28,5 +28,5 @@ class ItemSelectionEvent {
   final List<int> selectedIndexes;
 
   ItemSelectionEvent(List<int> indexes)
-      : selectedIndexes = new List<int>.unmodifiable(indexes);
+      : selectedIndexes = List<int>.unmodifiable(indexes);
 }
