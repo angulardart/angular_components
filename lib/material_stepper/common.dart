@@ -10,8 +10,8 @@ const all = 'all';
 const backwards = 'backwards';
 const none = 'none';
 
-const orientations = const [horizontal, vertical];
+const orientations = [horizontal, vertical];
 
-const sizes = const [sizeDefault, sizeMini];
+const sizes = [sizeDefault, sizeMini];
 
-const jumps = const [all, backwards, none];
+const jumps = [all, backwards, none];

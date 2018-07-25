@@ -24,7 +24,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
 /// navigational tool
 @Component(
   selector: 'material-stepper',
-  directives: const [
+  directives: [
     ButtonDirective,
     MaterialIconComponent,
     MaterialYesNoButtonsComponent,
@@ -34,7 +34,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
     StickyElementDirective,
   ],
   templateUrl: 'material_stepper.html',
-  styleUrls: const [
+  styleUrls: [
     'material_stepper.scss.css',
   ],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
@@ -58,7 +58,7 @@ class MaterialStepperComponent {
 
   List<StepDirective> _stepDirectiveList;
   final _activeStepController =
-      new StreamController<StepDirective>.broadcast(sync: true);
+      StreamController<StepDirective>.broadcast(sync: true);
 
   @ContentChildren(StepDirective)
   set stepsQuery(List<StepDirective> value) {
@@ -84,7 +84,7 @@ class MaterialStepperComponent {
 
   // Jump to step at index if possible
   Future<bool> jumpStep(int index) {
-    if (steps[index].isNotSelectable) return new Future.value(false);
+    if (steps[index].isNotSelectable) return Future.value(false);
     stepperDone = false;
     return _stepTo(index);
   }
@@ -97,7 +97,7 @@ class MaterialStepperComponent {
     event.preventDefault();
     event.stopPropagation();
 
-    AsyncActionController<bool> ctrl = new AsyncActionController<bool>();
+    AsyncActionController<bool> ctrl = AsyncActionController<bool>();
     step.requestStepContinue(ctrl.action);
     ctrl.execute(() {
       activeStep.complete = true;
@@ -117,7 +117,7 @@ class MaterialStepperComponent {
     event.preventDefault();
     event.stopPropagation();
 
-    AsyncActionController<bool> ctrl = new AsyncActionController<bool>();
+    AsyncActionController<bool> ctrl = AsyncActionController<bool>();
     step.requestStepCancel(ctrl.action);
     ctrl.execute(() {
       activeStep.complete = false;
@@ -207,9 +207,9 @@ class MaterialStepperComponent {
   }
 
   Future<bool> _stepTo(int index) {
-    if (index == activeStepIndex) return new Future.value(true);
+    if (index == activeStepIndex) return Future.value(true);
 
-    final actionController = new AsyncActionController<bool>();
+    final actionController = AsyncActionController<bool>();
     steps[index].requestStepJump(actionController.action);
     actionController.execute(() {
       activeStepIndex = index;

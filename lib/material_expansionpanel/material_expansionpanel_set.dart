@@ -14,7 +14,7 @@ import 'material_expansionpanel.dart';
   selector: 'material-expansionpanel-set',
 )
 class MaterialExpansionPanelSet implements OnDestroy {
-  final _panelDisposer = new Disposer.multi();
+  final _panelDisposer = Disposer.multi();
   MaterialExpansionPanel _openPanel;
   List<MaterialExpansionPanel> _panels;
 
@@ -35,7 +35,7 @@ class MaterialExpansionPanelSet implements OnDestroy {
     _panels.forEach((panel) {
       if (panel.isExpanded) {
         if (_openPanel != null) {
-          throw new StateError("Should only have one panel open at a time");
+          throw StateError("Should only have one panel open at a time");
         }
         _openPanel = panel;
       }

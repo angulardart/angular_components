@@ -39,7 +39,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///
 @Component(
   selector: 'material-expansionpanel',
-  directives: const [
+  directives: [
     ButtonDirective,
     MaterialIconComponent,
     MaterialSaveCancelButtonsDirective,
@@ -48,12 +48,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     EnterAcceptsDirective,
     KeyUpBoundaryDirective
   ],
-  providers: const [
-    const Provider(DeferredContentAware, useExisting: MaterialExpansionPanel),
-    const Provider(HasDisabled, useExisting: MaterialExpansionPanel),
+  providers: [
+    Provider(DeferredContentAware, useExisting: MaterialExpansionPanel),
+    Provider(HasDisabled, useExisting: MaterialExpansionPanel),
   ],
   templateUrl: 'material_expansionpanel.html',
-  styleUrls: const ['material_expansionpanel.scss.css'],
+  styleUrls: ['material_expansionpanel.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   visibility: Visibility.all, // injected
 )
@@ -62,7 +62,7 @@ class MaterialExpansionPanel
   final NgZone _ngZone;
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
   final _defaultExpandIcon = 'expand_less';
   final bool shouldExpandOnLeft;
 
@@ -122,14 +122,14 @@ class MaterialExpansionPanel
   /// Event fired when the panel is either collapsed or expanded.
   @Output('expandedChange')
   Stream<bool> get isExpandedChange => _isExpandedChange.stream;
-  final _isExpandedChange = new StreamController<bool>.broadcast(sync: true);
+  final _isExpandedChange = StreamController<bool>.broadcast(sync: true);
 
   /// Event fired when the panel is collapsed or expanded by the user.
   @Output('expandedChangeByUser')
   Stream<bool> get isExpandedChangeByUserAction =>
       _isExpandedChangeByUserAction.stream;
   final _isExpandedChangeByUserAction =
-      new StreamController<bool>.broadcast(sync: true);
+      StreamController<bool>.broadcast(sync: true);
 
   @override
   Stream<bool> get contentVisible => isExpandedChange;
@@ -280,13 +280,13 @@ class MaterialExpansionPanel
           examples: const {'panelName': 'Conversions'});
 
   final _openController =
-      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
+      StreamController<AsyncAction<bool>>.broadcast(sync: true);
   final _closeController =
-      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
+      StreamController<AsyncAction<bool>>.broadcast(sync: true);
   final _saveController =
-      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
+      StreamController<AsyncAction<bool>>.broadcast(sync: true);
   final _cancelController =
-      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
+      StreamController<AsyncAction<bool>>.broadcast(sync: true);
 
   /// Event fired when panel is trying to close.
   ///
@@ -341,17 +341,17 @@ class MaterialExpansionPanel
   }
 
   Future<bool> expand({bool byUserAction = true}) {
-    if (disabled && byUserAction) return new Future.value(false);
+    if (disabled && byUserAction) return Future.value(false);
     return changeState(true, byUserAction, _openController);
   }
 
   Future<bool> collapse({bool byUserAction = true}) {
-    if (disabled && byUserAction) return new Future.value(false);
+    if (disabled && byUserAction) return Future.value(false);
     return changeState(false, byUserAction, _closeController);
   }
 
   Future<bool> doSave() {
-    var actionCtrl = new AsyncActionController<bool>();
+    var actionCtrl = AsyncActionController<bool>();
     _saveController.add(actionCtrl.action);
     _activeSaveCancelAction = true;
     _changeDetector.markForCheck();
@@ -372,7 +372,7 @@ class MaterialExpansionPanel
   }
 
   Future<bool> doCancel() {
-    var actionCtrl = new AsyncActionController<bool>();
+    var actionCtrl = AsyncActionController<bool>();
     _cancelController.add(actionCtrl.action);
     _activeSaveCancelAction = true;
     _changeDetector.markForCheck();
@@ -397,9 +397,9 @@ class MaterialExpansionPanel
   Future<bool> changeState(
       bool expand, bool byUserAction, StreamController stream) {
     if (_isExpanded == expand) {
-      return new Future.value(true);
+      return Future.value(true);
     }
-    var actionCtrl = new AsyncActionController<bool>();
+    var actionCtrl = AsyncActionController<bool>();
     stream.add(actionCtrl.action);
     var stateWasInitialized = initialized;
     actionCtrl.execute(() {
@@ -439,7 +439,7 @@ class MaterialExpansionPanel
   ///
   /// This defined end point will be used to animate expansion.
   Future<String> _readExpandedPanelHeight() {
-    var completeExpandedHeight = new Completer<String>();
+    var completeExpandedHeight = Completer<String>();
 
     _domService.scheduleRead(() {
       var contentHeight = _mainContent.scrollHeight;
