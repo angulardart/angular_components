@@ -19,11 +19,11 @@ import 'package:angular_components/utils/browser/events/events.dart';
 /// `material-checkbox` instead.
 @Component(
   selector: 'material-toggle',
-  styleUrls: const ['material_toggle.scss.css'],
+  styleUrls: ['material_toggle.scss.css'],
   templateUrl: 'material_toggle.html',
-  directives: const [NgIf],
-  providers: const [
-    const Provider(HasDisabled, useExisting: MaterialToggleComponent),
+  directives: [NgIf],
+  providers: [
+    Provider(HasDisabled, useExisting: MaterialToggleComponent),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
@@ -61,7 +61,7 @@ class MaterialToggleComponent
   bool get checked => _checked;
   bool _checked = false;
 
-  final _controller = new StreamController<bool>.broadcast();
+  final _controller = StreamController<bool>.broadcast();
 
   /// Event that is fired when the toggle is checked.
   @Output('checkedChange')

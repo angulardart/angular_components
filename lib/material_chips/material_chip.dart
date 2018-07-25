@@ -24,12 +24,10 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// Chip components are rendered in a `material-chips` component.
 @Component(
   selector: 'material-chip',
-  providers: const [
-    const Provider(HasRenderer, useExisting: MaterialChipComponent)
-  ],
+  providers: [Provider(HasRenderer, useExisting: MaterialChipComponent)],
   templateUrl: 'material_chip.html',
-  styleUrls: const ['material_chip.scss.css'],
-  directives: const [ButtonDirective, NgIf],
+  styleUrls: ['material_chip.scss.css'],
+  directives: [ButtonDirective, NgIf],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialChipComponent extends RootFocusable implements HasRenderer {
@@ -107,7 +105,7 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
   /// Event fired when the chip is removed which returns the value of the chip.
   @Output()
   Stream get remove => _remove.stream;
-  final _remove = new StreamController<dynamic>(sync: true);
+  final _remove = StreamController<dynamic>(sync: true);
 
   void removeChip(/* MouseEvent | KeyboardEvent */ event) {
     selectionModel?.deselect(value);
@@ -125,4 +123,4 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
   }
 }
 
-final _idGenerator = new SequentialIdGenerator.fromUUID();
+final _idGenerator = SequentialIdGenerator.fromUUID();
