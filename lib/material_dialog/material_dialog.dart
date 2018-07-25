@@ -53,6 +53,9 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   @ViewChild('main', read: HtmlElement)
   set main(HtmlElement element) {
     _mainElement = element;
+    _disposer.addStreamSubscription(element.onScroll.listen((_) {
+      _setHeaderFooterScrollBorder();
+    }));
     if (_modal == null) return;
     _disposer.addStreamSubscription(_modal.onOpen.listen((_) {
       _setHeaderFooterScrollBorder();
@@ -82,8 +85,6 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   /// scrolling.
   @Input()
   bool shouldShowScrollStrokes = true;
-
-  void onScroll() => _setHeaderFooterScrollBorder();
 
   void _setHeaderFooterScrollBorder() {
     if (!shouldShowScrollStrokes) return;
