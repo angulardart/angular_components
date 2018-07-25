@@ -13,12 +13,12 @@ import 'material_drawer_base.dart';
 @Component(
   selector: 'material-drawer[temporary]',
   exportAs: 'drawer',
-  providers: const [
-    const Provider(DeferredContentAware,
+  providers: [
+    Provider(DeferredContentAware,
         useExisting: MaterialTemporaryDrawerComponent),
   ],
   templateUrl: 'material_temporary_drawer.html',
-  styleUrls: const ['material_temporary_drawer.scss.css'],
+  styleUrls: ['material_temporary_drawer.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   visibility: Visibility.all, // Injected by child elements.
 )

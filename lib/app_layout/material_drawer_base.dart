@@ -9,7 +9,7 @@ import 'package:angular_components/content/deferred_content_aware.dart';
 
 // When deferred content should be removed. Needs to be longer than the longest
 // animation.
-const animationDuration = const Duration(milliseconds: 500);
+const animationDuration = Duration(milliseconds: 500);
 
 class MaterialDrawerBase implements DeferredContentAware, OnInit {
   MaterialDrawerBase({bool visible = true}) : _visible = visible;
@@ -26,7 +26,7 @@ class MaterialDrawerBase implements DeferredContentAware, OnInit {
 
     if (!_visible) {
       // Wait until after the animation to remove the content
-      new Timer(animationDuration, () {
+      Timer(animationDuration, () {
         // Make sure we are still not visible in case the drawer was toggled
         // quickly before the animation was done.
         if (!_visible) _visibleChange.add(_visible);
@@ -37,7 +37,7 @@ class MaterialDrawerBase implements DeferredContentAware, OnInit {
     }
   }
 
-  final _visibleChange = new StreamController<bool>.broadcast(sync: true);
+  final _visibleChange = StreamController<bool>.broadcast(sync: true);
 
   /// Event fired when the visibility of the drawer changes.
   ///

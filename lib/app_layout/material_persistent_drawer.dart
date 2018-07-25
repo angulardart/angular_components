@@ -16,8 +16,8 @@ import 'material_drawer_base.dart';
 @Directive(
   selector: 'material-drawer[persistent]',
   exportAs: 'drawer',
-  providers: const [
-    const Provider(DeferredContentAware,
+  providers: [
+    Provider(DeferredContentAware,
         useExisting: MaterialPersistentDrawerDirective),
   ],
   visibility: Visibility.all, // Injected by child elements.
