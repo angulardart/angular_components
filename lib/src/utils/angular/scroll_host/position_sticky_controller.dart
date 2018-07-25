@@ -37,7 +37,7 @@ class PositionStickyController implements StickyController {
   void stick(Element element, StickyPosition position, Element range,
       {String stickyClass, String stickyKey}) {
     final stickyElement =
-        new _StickyElement(element, position, range, stickyClass, stickyKey);
+        _StickyElement(element, position, range, stickyClass, stickyKey);
     if (_stickyElements.contains(stickyElement)) return;
 
     // Prevent the element from appearing in the layout more than once.
@@ -141,7 +141,7 @@ class PositionStickyController implements StickyController {
     // edge of the scroll host. The invisible element is positioned relative to
     // the sticky element with an offset opposite of the sticky element's
     // offset.
-    stickyElement.intersectionElement = new DivElement()
+    stickyElement.intersectionElement = DivElement()
       ..style.width = '0px'
       ..style.height = '1px'
       ..style.position = 'absolute';

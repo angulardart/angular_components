@@ -37,7 +37,7 @@ class ScrollObserver implements Disposable {
   ///
   /// Useful for setting a longer duration to limit activity logging.
   ScrollObserver.withDurationMs(this._scrollHost, this._idleCheckDurationMs)
-      : _idleCheckDuration = new Duration(milliseconds: _idleCheckDurationMs) {
+      : _idleCheckDuration = Duration(milliseconds: _idleCheckDurationMs) {
     _subscribe();
   }
 
@@ -50,13 +50,13 @@ class ScrollObserver implements Disposable {
         if (_timer == null) {
           // Since listenOnScroll gets called outside angular zone,
           // it is safe to start timer here which will also execute outside.
-          _timer = new Timer.periodic(_idleCheckDuration, _checkIdle);
+          _timer = Timer.periodic(_idleCheckDuration, _checkIdle);
         }
       }
     });
   }
 
-  int get _now => new DateTime.now().millisecondsSinceEpoch;
+  int get _now => DateTime.now().millisecondsSinceEpoch;
 
   void _checkIdle(Timer _) {
     int elapsedTimeSinceLastScroll = _now - _scrollTimestamp;
