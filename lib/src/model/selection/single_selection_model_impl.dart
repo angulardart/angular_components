@@ -29,7 +29,7 @@ class _SingleSelectionModelImpl<T> extends Observable<ChangeRecord>
   @override
   bool select(T value) {
     if (value == null) {
-      throw new ArgumentError.notNull('value');
+      throw ArgumentError.notNull('value');
     }
     var newKey = _keyOf(value);
     if (newKey == _selectedKey) {
@@ -54,7 +54,7 @@ class _SingleSelectionModelImpl<T> extends Observable<ChangeRecord>
   @override
   bool deselect(T value) {
     if (value == null) {
-      throw new ArgumentError.notNull('value');
+      throw ArgumentError.notNull('value');
     }
     if (_selectedValues.isEmpty || !_isKeySelected(value)) {
       return false;
@@ -78,7 +78,7 @@ class _SingleSelectionModelImpl<T> extends Observable<ChangeRecord>
   @override
   bool isSelected(T value) {
     if (value == null) {
-      throw new ArgumentError.notNull('value');
+      throw ArgumentError.notNull('value');
     }
     return _isKeySelected(value);
   }

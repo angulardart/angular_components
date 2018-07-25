@@ -13,7 +13,7 @@ class _MultiSelectionModelImpl<T> extends Observable<ChangeRecord>
 
   _MultiSelectionModelImpl(
       Iterable<T> initialSelection, KeyProvider<T> keyProvider)
-      : selectedValues = new LinkedHashSet<T>(
+      : selectedValues = LinkedHashSet<T>(
             equals: (a, b) => keyProvider(a) == keyProvider(b),
             hashCode: (o) => keyProvider(o).hashCode)
           ..addAll(initialSelection);
@@ -32,7 +32,7 @@ class _MultiSelectionModelImpl<T> extends Observable<ChangeRecord>
   @override
   bool deselect(T value) {
     if (value == null) {
-      throw new ArgumentError();
+      throw ArgumentError();
     }
     if (selectedValues.remove(value)) {
       if (isEmpty) {
@@ -48,7 +48,7 @@ class _MultiSelectionModelImpl<T> extends Observable<ChangeRecord>
   @override
   bool select(T value) {
     if (value == null) {
-      throw new ArgumentError();
+      throw ArgumentError();
     }
     if (selectedValues.add(value)) {
       if (selectedValues.length == 1) {
@@ -65,7 +65,7 @@ class _MultiSelectionModelImpl<T> extends Observable<ChangeRecord>
   @override
   void selectAll(Iterable<T> values) {
     if (values == null) {
-      throw new ArgumentError();
+      throw ArgumentError();
     }
     final toAdd = values.where((v) => !selectedValues.contains(v)).toList();
     if (toAdd.isEmpty) return;
@@ -81,7 +81,7 @@ class _MultiSelectionModelImpl<T> extends Observable<ChangeRecord>
   @override
   void deselectAll(Iterable<T> values) {
     if (values == null) {
-      throw new ArgumentError();
+      throw ArgumentError();
     }
     final toRemove = values.where((v) => selectedValues.contains(v)).toList();
     if (toRemove.isEmpty) return;
@@ -97,7 +97,7 @@ class _MultiSelectionModelImpl<T> extends Observable<ChangeRecord>
   @override
   bool isSelected(T value) {
     if (value == null) {
-      throw new ArgumentError();
+      throw ArgumentError();
     }
     return selectedValues.contains(value);
   }

@@ -16,9 +16,9 @@ class CalendarMonth {
 
   CalendarMonth(int year, int month,
       {CalendarState state, this.startingWeekday = DateTime.monday})
-      : _start = new Date(year, month),
+      : _start = Date(year, month),
         calendarState = state {
-    _title = _start.format(new DateFormat.yMMM());
+    _title = _start.format(DateFormat.yMMM());
     if (state?._resolutionAtLeast(CalendarResolution.months) ?? false) {
       _weeks = [];
     } else {
@@ -78,7 +78,7 @@ class CalendarMonth {
       newYear++;
       newMonth -= 12;
     }
-    return new CalendarMonth(newYear, newMonth,
+    return CalendarMonth(newYear, newMonth,
         state: calendarState, startingWeekday: startingWeekday);
   }
 
@@ -99,7 +99,7 @@ class CalendarMonth {
   bool containsDate(Date date) => date.year == year && date.month == month;
 
   Iterable<CalendarWeek> _generateWeeks() sync* {
-    var week = new CalendarWeek(_start, calendarState, startingWeekday);
+    var week = CalendarWeek(_start, calendarState, startingWeekday);
     while (week != null) {
       yield week;
       week = week.next;
@@ -154,18 +154,18 @@ class MonthRange {
   factory MonthRange.within(CalendarMonth min, CalendarMonth max, int length,
       {final CalendarMonth tryToStartAt}) {
     if (length < 1) {
-      throw new ArgumentError.value(length, 'length', 'must be at least 1');
+      throw ArgumentError.value(length, 'length', 'must be at least 1');
     }
     if (min == null) {
-      throw new ArgumentError.notNull('min');
+      throw ArgumentError.notNull('min');
     }
     if (max == null) {
-      throw new ArgumentError.notNull('max');
+      throw ArgumentError.notNull('max');
     }
 
     int months = min.deltaMonths(max) + 1;
     if (months < 1) {
-      throw new ArgumentError('max must not be before min');
+      throw ArgumentError('max must not be before min');
     }
 
     var start = tryToStartAt?.start ?? min.start;
@@ -184,7 +184,7 @@ class MonthRange {
       start = max.start.add(months: -(length - 1));
     }
 
-    return new MonthRange(start, length);
+    return MonthRange(start, length);
   }
 
   /// Eagerly construct a list of [CalendarMonth] instances corresponding to
@@ -193,8 +193,8 @@ class MonthRange {
   /// The first entry will have the same month and year as [startDate]. All
   /// entries will have the specified [state] and [startingWeekday].
   List<CalendarMonth> toList(CalendarState state, int startingWeekday) {
-    var startMonth = new CalendarMonth(start.year, start.month,
+    var startMonth = CalendarMonth(start.year, start.month,
         state: state, startingWeekday: startingWeekday);
-    return new List.generate(length, (i) => startMonth.addMonths(i));
+    return List.generate(length, (i) => startMonth.addMonths(i));
   }
 }

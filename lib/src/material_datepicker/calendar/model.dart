@@ -22,8 +22,7 @@ bool datesEqualAtResolution(Date a, Date b, CalendarResolution resolution) {
       return a == b;
     case CalendarResolution.weeks:
     default:
-      throw new ArgumentError(
-          'Equality not supported at resolution: $resolution');
+      throw ArgumentError('Equality not supported at resolution: $resolution');
   }
 }
 
@@ -38,7 +37,7 @@ int compareDatesAtResolution(Date a, Date b, CalendarResolution resolution) {
       return a.compareTo(b);
     case CalendarResolution.weeks:
     default:
-      throw new ArgumentError(
+      throw ArgumentError(
           'Comparison not supported at resolution: $resolution');
   }
 }
@@ -83,7 +82,7 @@ class CalendarSelection {
       max = earlierOf(max, end ?? max);
     }
 
-    return new CalendarSelection(id, min, max);
+    return CalendarSelection(id, min, max);
   }
 
   @override
@@ -98,10 +97,10 @@ class CalendarSelection {
 }
 
 Date firstDayOfMonth(Date date) =>
-    date == null ? null : new Date(date.year, date.month, 1);
+    date == null ? null : Date(date.year, date.month, 1);
 
 Date lastDayOfMonth(Date date) =>
-    date == null ? null : new Date(date.year, date.month + 1, 1).add(days: -1);
+    date == null ? null : Date(date.year, date.month + 1, 1).add(days: -1);
 
 /// Describes the interaction state arising directly from the most recent user
 /// action that produced any particular CalendarState.
@@ -115,7 +114,7 @@ enum CausedBy { external, preview, drag, endpointConfirm, rangeConfirm }
 
 /// The (immutable) state of selections on the calendar.
 class CalendarState {
-  static final Function _setEq = new UnorderedIterableEquality().equals;
+  static final Function _setEq = UnorderedIterableEquality().equals;
 
   /// The smallest relevant unit of time in the context of the calendar.
   ///
@@ -169,7 +168,7 @@ class CalendarState {
       return selections;
     }
     return selections
-        .map((selection) => new CalendarSelection(selection.id,
+        .map((selection) => CalendarSelection(selection.id,
             firstDayOfMonth(selection.start), lastDayOfMonth(selection.end)))
         .toList();
   }
@@ -206,7 +205,7 @@ class CalendarState {
   /// Sets the range with the given ID as the "current selection" -- the range
   /// that'll get updated when the user clicks on the calendar.
   CalendarState select(String id, {bool previewAnchoredAtStart = false}) =>
-      new CalendarState(
+      CalendarState(
           selections: selections,
           currentSelection: id,
           cause: CausedBy.external,
@@ -219,7 +218,7 @@ class CalendarState {
       {CausedBy cause = CausedBy.external,
       bool previewAnchoredAtStart = false}) {
     var newSelections = [val]..addAll(selections.where((s) => s.id != val.id));
-    return new CalendarState(
+    return CalendarState(
         selections: newSelections,
         currentSelection: currentSelection,
         cause: cause,
@@ -230,13 +229,13 @@ class CalendarState {
   /// Updates the "current" selection's endpoints, with "dragging" as the cause
   /// (the user is still dragging the current selection).
   CalendarState updateDrag(Date a, Date b) =>
-      setSelection(new CalendarSelection.guessOrder(currentSelection, a, b),
+      setSelection(CalendarSelection.guessOrder(currentSelection, a, b),
           cause: CausedBy.drag);
 
   /// Updates the preview endpoint and sets `cause` to `previewing`.
   CalendarState updateCurrentPreview(Date newPreviewTarget) {
     assert(newPreviewTarget != null);
-    return new CalendarState(
+    return CalendarState(
         selections: selections,
         currentSelection: currentSelection,
         cause: CausedBy.preview,
@@ -249,7 +248,7 @@ class CalendarState {
   /// This only changes the preview state. The `cause` is still `preview`.
   CalendarState cancelCurrentPreview() => preview == null
       ? this
-      : new CalendarState(
+      : CalendarState(
           selections: selections,
           currentSelection: currentSelection,
           cause: CausedBy.preview,
@@ -261,7 +260,7 @@ class CalendarState {
   CalendarState setCurrentSelection(Date a, Date b,
           {CausedBy cause = CausedBy.rangeConfirm,
           bool previewAnchoredAtStart = false}) =>
-      setSelection(new CalendarSelection.guessOrder(currentSelection, a, b),
+      setSelection(CalendarSelection.guessOrder(currentSelection, a, b),
           cause: cause, previewAnchoredAtStart: previewAnchoredAtStart);
 
   /// Delete the "current" selection. Note this is different from creating a
@@ -287,13 +286,13 @@ class CalendarState {
         // End date was moved before (or onto) the start date. Collapse to a
         // single-day range and keep the end date active.
         return setSelection(
-            new CalendarSelection(currentSelection, preview, preview),
+            CalendarSelection(currentSelection, preview, preview),
             cause: cause,
             previewAnchoredAtStart: true);
       } else {
         // Update the range length, and make the start date active.
         return setSelection(
-            new CalendarSelection.guessOrder(currentSelection, preview, anchor),
+            CalendarSelection.guessOrder(currentSelection, preview, anchor),
             cause: cause,
             previewAnchoredAtStart: false);
       }
@@ -304,7 +303,7 @@ class CalendarState {
       var rangeLengthInDays =
           daysSpanned(current.start, current.end, inclusive: false);
       return setSelection(
-          new CalendarSelection(
+          CalendarSelection(
               currentSelection, preview, preview.add(days: rangeLengthInDays)),
           cause: cause,
           previewAnchoredAtStart: true);
@@ -314,7 +313,7 @@ class CalendarState {
   /// Removes the identified selection from the list of selections.
   /// If the identified selection does not exist, has no effect.
   CalendarState clearSelection(String id) => has(id)
-      ? new CalendarState(
+      ? CalendarState(
           selections: selections.where((s) => s.id != id).toList(),
           currentSelection: currentSelection,
           cause: CausedBy.external,
