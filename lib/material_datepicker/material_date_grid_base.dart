@@ -110,7 +110,7 @@ abstract class MaterialDateGridBase
 
   void onMouseLeave(Date date) => _inputListener.onMouseLeave(date);
 
-  CalendarListener _inputListener = new CalendarListener.noop();
+  CalendarListener _inputListener = CalendarListener.noop();
 
   ForcedScrollDirective scroller;
 
@@ -123,7 +123,7 @@ abstract class MaterialDateGridBase
   Date today;
 
   StreamSubscription _calendarStream;
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
   final ChangeDetectorRef changeDetector;
   final DomService _domService;
 
@@ -131,11 +131,11 @@ abstract class MaterialDateGridBase
       this.changeDetector, this._domService, String mode)
       : paddingTop = MIN_BUFFER_SIZE_PX,
         paddingBottom = MIN_BUFFER_SIZE_PX,
-        today = new Date.today(clock),
-        model = new ObservableReference<CalendarState>(initialState,
-            coalesce: true) {
+        today = Date.today(clock),
+        model =
+            ObservableReference<CalendarState>(initialState, coalesce: true) {
     // Get the 1-indexed starting weekday for the current locale, and use that.
-    startingWeekday = new DateFormat().dateSymbols.FIRSTDAYOFWEEK + 1;
+    startingWeekday = DateFormat().dateSymbols.FIRSTDAYOFWEEK + 1;
 
     if (mode != null && mode.isNotEmpty) {
       _mode = fuzzyParseEnum(CalendarSelectionMode.values, mode);
@@ -148,10 +148,10 @@ abstract class MaterialDateGridBase
         _calendarStream = model.stream.listen(onCalendarChange));
 
     if (mode == CalendarSelectionMode.SINGLE_DATE) {
-      _inputListener = new CalendarListener.singleDate(model);
+      _inputListener = CalendarListener.singleDate(model);
     }
     if (mode == CalendarSelectionMode.DATE_RANGE) {
-      _inputListener = new CalendarListener.dateRange(model);
+      _inputListener = CalendarListener.dateRange(model);
     }
     _disposer.addDisposable(_inputListener);
 

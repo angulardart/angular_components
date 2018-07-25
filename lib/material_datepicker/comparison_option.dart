@@ -28,21 +28,21 @@ class ComparisonOption {
   const ComparisonOption(this.displayName, this.computeComparisonRange);
 
   static final ComparisonOption previousPeriod =
-      new ComparisonOption(_prevPeriodMsg, (DatepickerDateRange range) {
+      ComparisonOption(_prevPeriodMsg, (DatepickerDateRange range) {
     var prev = range.prev;
     if (prev != null && !prev.isPredefined) {
-      return new DatepickerDateRange(_prevPeriodMsg, prev.start, prev.end);
+      return DatepickerDateRange(_prevPeriodMsg, prev.start, prev.end);
     }
     return prev;
   });
 
-  static final ComparisonOption samePeriodLastYear = new ComparisonOption(
+  static final ComparisonOption samePeriodLastYear = ComparisonOption(
       _previousYearMsg,
-      (DatepickerDateRange range) => new DatepickerDateRange(_previousYearMsg,
+      (DatepickerDateRange range) => DatepickerDateRange(_previousYearMsg,
           range.start.add(years: -1), range.end.add(years: -1)));
 
   static final ComparisonOption custom =
-      new ComparisonOption(_customMsg, (DatepickerDateRange range) => null);
+      ComparisonOption(_customMsg, (DatepickerDateRange range) => null);
 
   static final String _prevPeriodMsg = Intl.message('Previous period',
       name: '_prevPeriodMsg',

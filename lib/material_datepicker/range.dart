@@ -23,11 +23,11 @@ DatepickerDateRange _ifValidRange(
 
 DatepickerDateRange _genericNext(DatepickerDateRange r) => _ifValidRange(
     r,
-    () => new DatepickerDateRange.custom(
+    () => DatepickerDateRange.custom(
         r.end.add(days: 1), r.end.add(days: daysSpanned(r.start, r.end))));
 DatepickerDateRange _genericPrev(DatepickerDateRange r) => _ifValidRange(
     r,
-    () => new DatepickerDateRange.custom(
+    () => DatepickerDateRange.custom(
         r.start.add(days: -daysSpanned(r.start, r.end)),
         r.start.add(days: -1)));
 
@@ -97,13 +97,12 @@ abstract class DatepickerDateRange implements DateRange {
           RangeFn prev = _genericPrev,
           bool isPredefined = false,
           bool isAllTime = false}) =>
-      new _BasicDateRange(
-          title, start, end, next, prev, isPredefined, isAllTime);
+      _BasicDateRange(title, start, end, next, prev, isPredefined, isAllTime);
 
   /// Shortcut to define a "custom" date range with a localized "Custom" title
   /// and default behavior.
   factory DatepickerDateRange.custom(Date start, Date end) =>
-      new DatepickerDateRange(_customDateRangeMsg, start, end);
+      DatepickerDateRange(_customDateRangeMsg, start, end);
 
   /// Construct from the protocol buffer format defined in date_range.proto.
   factory DatepickerDateRange.fromProtoBuf(
@@ -111,27 +110,27 @@ abstract class DatepickerDateRange implements DateRange {
     if (pb.hasAllTimeRange()) {
       return allTime;
     } else if (pb.hasDaysAgo()) {
-      return new SingleDayRange.daysAgo(clock, pb.daysAgo);
+      return SingleDayRange.daysAgo(clock, pb.daysAgo);
     } else if (pb.hasLastNDays()) {
-      return new LastNDaysRange.beforeToday(clock, pb.lastNDays);
+      return LastNDaysRange.beforeToday(clock, pb.lastNDays);
     } else if (pb.hasLastNDaysToToday()) {
-      return new LastNDaysToTodayRange.beforeToday(clock, pb.lastNDaysToToday);
+      return LastNDaysToTodayRange.beforeToday(clock, pb.lastNDaysToToday);
     } else if (pb.hasWeeksAgo()) {
       if (pb.hasStartWeekday()) {
-        return new WeekRange.weeksAgo(clock, pb.weeksAgo,
+        return WeekRange.weeksAgo(clock, pb.weeksAgo,
             startWeekday: pb.startWeekday);
       } else {
-        return new WeekRange.weeksAgo(clock, pb.weeksAgo);
+        return WeekRange.weeksAgo(clock, pb.weeksAgo);
       }
     } else if (pb.hasMonthsAgo()) {
-      return new MonthRange.monthsAgo(clock, pb.monthsAgo);
+      return MonthRange.monthsAgo(clock, pb.monthsAgo);
     } else if (pb.hasBroadcastMonthsAgo()) {
-      return new BroadcastMonthRange.monthsAgo(clock, pb.broadcastMonthsAgo);
+      return BroadcastMonthRange.monthsAgo(clock, pb.broadcastMonthsAgo);
     } else if (pb.hasYearsAgo()) {
-      return new YearRange.yearsAgo(clock, pb.yearsAgo);
+      return YearRange.yearsAgo(clock, pb.yearsAgo);
     }
 
-    return new DatepickerDateRange.custom(
+    return DatepickerDateRange.custom(
         _convertToDate(pb.dateRange.start), _convertToDate(pb.dateRange.end));
   }
 }
@@ -140,7 +139,7 @@ DatepickerDateRange _clamp(DatepickerDateRange range, {Date min, Date max}) {
   if (min != null && max != null) assert(min <= max);
   if ((min == null || range.end == null || min <= range.end) &&
       (max == null || range.start == null || max >= range.start)) {
-    return new _ClampedDateRange(range, min: min, max: max);
+    return _ClampedDateRange(range, min: min, max: max);
   }
   return null;
 }
@@ -160,25 +159,25 @@ String _rangeString(DatepickerDateRange range) =>
     '${range.title} (${range.start}) (${range.end})';
 
 DateRange _plainRange(DatepickerDateRange range) =>
-    new DateRange(range.start, range.end);
+    DateRange(range.start, range.end);
 
 proto.DatepickerDateRange _makeProtoBuf(DatepickerDateRange range) =>
     range.isAllTime
-        ? (new proto.DatepickerDateRange()..allTimeRange = true)
-        : (new proto.DatepickerDateRange()
+        ? (proto.DatepickerDateRange()..allTimeRange = true)
+        : (proto.DatepickerDateRange()
           ..dateRange = _makeDateRangeProto(range.start, range.end));
 
-_makeDateRangeProto(Date start, Date end) => new proto.DateRange()
+_makeDateRangeProto(Date start, Date end) => proto.DateRange()
   ..start = _makeDateProto(start)
   ..end = _makeDateProto(end);
 
-dateproto.Date _makeDateProto(Date date) => new dateproto.Date()
+dateproto.Date _makeDateProto(Date date) => dateproto.Date()
   ..year = date.year
   ..month = date.month
   ..day = date.day;
 
 Date _convertToDate(dateproto.Date date) =>
-    new Date(date.year, date.month, date.day);
+    Date(date.year, date.month, date.day);
 
 /// An implementation of [DatepickerDateRange] that delegates to an underlying
 /// instance, but clamps its start and end dates to some range.
@@ -301,15 +300,15 @@ class SingleDayRange implements DatepickerDateRange {
   final RangeTitle _titleFunction;
   SingleDayRange(this._date, this._ago, [this._titleFunction = _defaultTitle]);
   SingleDayRange.daysAgo(clock, ago, [RangeTitle titleFunction = _defaultTitle])
-      : this(new Date.today(clock).add(days: -ago), ago, titleFunction);
+      : this(Date.today(clock).add(days: -ago), ago, titleFunction);
 
   String get title => _titleFunction(_ago);
   Date get start => _date;
   Date get end => _date;
   DatepickerDateRange get next =>
-      new SingleDayRange(_date.add(days: 1), _ago - 1, _titleFunction);
+      SingleDayRange(_date.add(days: 1), _ago - 1, _titleFunction);
   DatepickerDateRange get prev =>
-      new SingleDayRange(_date.add(days: -1), _ago + 1, _titleFunction);
+      SingleDayRange(_date.add(days: -1), _ago + 1, _titleFunction);
   bool get isPredefined => true;
   bool get isAllTime => false;
 
@@ -362,8 +361,7 @@ class LastNDaysRange implements DatepickerDateRange {
       : title = title ?? _lastNDaysMsg(lengthInDays),
         _lengthInDays = lengthInDays;
   LastNDaysRange.beforeToday(clock, lengthInDays, [String title])
-      : this(new Date.today(clock).add(days: -lengthInDays), lengthInDays,
-            title);
+      : this(Date.today(clock).add(days: -lengthInDays), lengthInDays, title);
   Date get start => _start;
   Date get end => _start.add(days: _lengthInDays - 1);
   DatepickerDateRange get next => _genericNext(this);
@@ -407,7 +405,7 @@ class LastNDaysToTodayRange implements DatepickerDateRange {
       : title = title ?? _lastNDaysToTodayMsg(lengthInDays),
         _lengthInDays = lengthInDays;
   LastNDaysToTodayRange.beforeToday(clock, lengthInDays, [String title])
-      : this(new Date.today(clock).add(days: -(lengthInDays - 1)), lengthInDays,
+      : this(Date.today(clock).add(days: -(lengthInDays - 1)), lengthInDays,
             title);
   Date get start => _start;
   Date get end => _start.add(days: _lengthInDays - 1);
@@ -464,9 +462,9 @@ class WeekRange implements DatepickerDateRange {
       {RangeTitle titleFunction = _defaultTitle, int startWeekday})
       : this(
             _weekStart(
-                    new Date.today(clock),
+                    Date.today(clock),
                     startWeekday ??
-                        (new DateFormat().dateSymbols.FIRSTDAYOFWEEK + 1))
+                        (DateFormat().dateSymbols.FIRSTDAYOFWEEK + 1))
                 .add(days: -7 * ago),
             ago,
             titleFunction,
@@ -476,9 +474,9 @@ class WeekRange implements DatepickerDateRange {
   Date get start => _start;
   Date get end => _start.add(days: 6);
   DatepickerDateRange get next =>
-      new WeekRange(_start.add(days: 7), _ago - 1, _titleFunction);
+      WeekRange(_start.add(days: 7), _ago - 1, _titleFunction);
   DatepickerDateRange get prev =>
-      new WeekRange(_start.add(days: -7), _ago + 1, _titleFunction);
+      WeekRange(_start.add(days: -7), _ago + 1, _titleFunction);
   bool get isPredefined => true;
   bool get isAllTime => false;
 
@@ -533,15 +531,15 @@ class MonthRange implements DatepickerDateRange {
   final RangeTitle _titleFunction;
 
   MonthRange(Date start, this._ago, [this._titleFunction = _defaultTitle])
-      : _start = new Date(start.year, start.month, 1);
+      : _start = Date(start.year, start.month, 1);
 
   MonthRange.monthsAgo(Clock clock, int ago,
       [RangeTitle titleFunction = _defaultTitle])
-      : this._monthsAgo(new Date.today(clock), ago, titleFunction);
+      : this._monthsAgo(Date.today(clock), ago, titleFunction);
 
   MonthRange._monthsAgo(Date today, int ago, RangeTitle titleFunction)
       : this(
-            new Date(
+            Date(
                 today.year,
                 // The [Date] constructor handles wrapping to previous years.
                 today.month - ago,
@@ -553,9 +551,9 @@ class MonthRange implements DatepickerDateRange {
   Date get start => _start;
   Date get end => _start.add(months: 1, days: -1);
   DatepickerDateRange get next =>
-      new MonthRange(_start.add(months: 1), _ago - 1, _titleFunction);
+      MonthRange(_start.add(months: 1), _ago - 1, _titleFunction);
   DatepickerDateRange get prev =>
-      new MonthRange(_start.add(months: -1), _ago + 1, _titleFunction);
+      MonthRange(_start.add(months: -1), _ago + 1, _titleFunction);
   bool get isPredefined => true;
   bool get isAllTime => false;
 
@@ -632,8 +630,8 @@ class BroadcastMonthRange implements DatepickerDateRange {
 
   factory BroadcastMonthRange.monthsAgo(Clock clock, int ago,
       [RangeTitle titleFunction = _defaultTitle]) {
-    var today = new Date.today(clock);
-    var thisCalendarMonthTheFirst = new Date(today.year, today.month, 1);
+    var today = Date.today(clock);
+    var thisCalendarMonthTheFirst = Date(today.year, today.month, 1);
     var nextCalendarMonthTheFirst = thisCalendarMonthTheFirst.add(months: 1);
 
     // Today belongs to the broadcast month containing
@@ -642,7 +640,7 @@ class BroadcastMonthRange implements DatepickerDateRange {
     var theFirst = nextCalendarMonthTheFirst.isAfter(_weekEnd(today))
         ? thisCalendarMonthTheFirst
         : nextCalendarMonthTheFirst;
-    return new BroadcastMonthRange._(
+    return BroadcastMonthRange._(
         theFirst.add(months: -ago), ago, titleFunction);
   }
 
@@ -650,9 +648,9 @@ class BroadcastMonthRange implements DatepickerDateRange {
   Date get start => _weekStart(_theFirst);
   Date get end => _weekStart(_theFirst.add(months: 1)).add(days: -1);
 
-  DatepickerDateRange get next => new BroadcastMonthRange._(
-      _theFirst.add(months: 1), _ago - 1, _titleFunction);
-  DatepickerDateRange get prev => new BroadcastMonthRange._(
+  DatepickerDateRange get next =>
+      BroadcastMonthRange._(_theFirst.add(months: 1), _ago - 1, _titleFunction);
+  DatepickerDateRange get prev => BroadcastMonthRange._(
       _theFirst.add(months: -1), _ago + 1, _titleFunction);
 
   bool get isPredefined => true;
@@ -700,17 +698,17 @@ class YearRange implements DatepickerDateRange {
   final int _ago;
   final RangeTitle _titleFunction;
   YearRange(Date start, this._ago, [this._titleFunction = _defaultTitle])
-      : _start = new Date(start.year, 1, 1);
+      : _start = Date(start.year, 1, 1);
   YearRange.yearsAgo(clock, ago, [RangeTitle titleFunction = _defaultTitle])
-      : this(new Date.today(clock).add(years: -ago), ago, titleFunction);
+      : this(Date.today(clock).add(years: -ago), ago, titleFunction);
 
   String get title => _titleFunction(_ago);
   Date get start => _start;
-  Date get end => new Date(_start.year, 12, 31);
+  Date get end => Date(_start.year, 12, 31);
   DatepickerDateRange get next =>
-      new YearRange(_start.add(years: 1), _ago - 1, _titleFunction);
+      YearRange(_start.add(years: 1), _ago - 1, _titleFunction);
   DatepickerDateRange get prev =>
-      new YearRange(_start.add(years: -1), _ago + 1, _titleFunction);
+      YearRange(_start.add(years: -1), _ago + 1, _titleFunction);
   bool get isPredefined => true;
   bool get isAllTime => false;
 
@@ -761,15 +759,15 @@ class QuarterRange implements DatepickerDateRange {
   final RangeTitle _titleFunction;
 
   QuarterRange(Date startDate, this._ago, [this._titleFunction = _defaultTitle])
-      : start = new Date(startDate.year, _getStartMonth(startDate), 1);
+      : start = Date(startDate.year, _getStartMonth(startDate), 1);
 
   QuarterRange.quartersAgo(Clock clock, int ago,
       [RangeTitle titleFunction = _defaultTitle])
-      : this._quartersAgo(new Date.today(clock), ago, titleFunction);
+      : this._quartersAgo(Date.today(clock), ago, titleFunction);
 
   QuarterRange._quartersAgo(Date today, int ago, RangeTitle titleFunction)
       : this(
-            new Date(
+            Date(
                 today.year,
                 // The [Date] constructor handles wrapping to previous years.
                 today.month - ago * 3,
@@ -783,10 +781,10 @@ class QuarterRange implements DatepickerDateRange {
   Date get end => start.add(months: 3, days: -1);
   @override
   DatepickerDateRange get next =>
-      new QuarterRange(start.add(months: 3), _ago - 1, _titleFunction);
+      QuarterRange(start.add(months: 3), _ago - 1, _titleFunction);
   @override
   DatepickerDateRange get prev =>
-      new QuarterRange(start.add(months: -3), _ago + 1, _titleFunction);
+      QuarterRange(start.add(months: -3), _ago + 1, _titleFunction);
   @override
   bool get isPredefined => true;
   @override
@@ -840,52 +838,49 @@ class QuarterRange implements DatepickerDateRange {
 
 // Commonly used date ranges
 @Injectable()
-DatepickerDateRange today(Clock clock) => new SingleDayRange.daysAgo(clock, 0);
+DatepickerDateRange today(Clock clock) => SingleDayRange.daysAgo(clock, 0);
 @Injectable()
-DatepickerDateRange yesterday(Clock clock) =>
-    new SingleDayRange.daysAgo(clock, 1);
+DatepickerDateRange yesterday(Clock clock) => SingleDayRange.daysAgo(clock, 1);
 @Injectable()
-DatepickerDateRange thisWeek(Clock clock) => new WeekRange.weeksAgo(clock, 0);
+DatepickerDateRange thisWeek(Clock clock) => WeekRange.weeksAgo(clock, 0);
 @Injectable()
-DatepickerDateRange lastWeek(Clock clock) => new WeekRange.weeksAgo(clock, 1);
+DatepickerDateRange lastWeek(Clock clock) => WeekRange.weeksAgo(clock, 1);
 @Injectable()
 DatepickerDateRange last7Days(Clock clock) =>
-    new LastNDaysRange.beforeToday(clock, 7);
+    LastNDaysRange.beforeToday(clock, 7);
 @Injectable()
 DatepickerDateRange last14Days(Clock clock) =>
-    new LastNDaysRange.beforeToday(clock, 14);
+    LastNDaysRange.beforeToday(clock, 14);
 @Injectable()
-DatepickerDateRange thisMonth(Clock clock) =>
-    new MonthRange.monthsAgo(clock, 0);
+DatepickerDateRange thisMonth(Clock clock) => MonthRange.monthsAgo(clock, 0);
 @Injectable()
-DatepickerDateRange lastMonth(Clock clock) =>
-    new MonthRange.monthsAgo(clock, 1);
+DatepickerDateRange lastMonth(Clock clock) => MonthRange.monthsAgo(clock, 1);
 @Injectable()
 DatepickerDateRange thisBroadcastMonth(Clock clock) =>
-    new BroadcastMonthRange.monthsAgo(clock, 0);
+    BroadcastMonthRange.monthsAgo(clock, 0);
 @Injectable()
 DatepickerDateRange lastBroadcastMonth(Clock clock) =>
-    new BroadcastMonthRange.monthsAgo(clock, 1);
+    BroadcastMonthRange.monthsAgo(clock, 1);
 @Injectable()
 DatepickerDateRange last30Days(Clock clock) =>
-    new LastNDaysRange.beforeToday(clock, 30);
+    LastNDaysRange.beforeToday(clock, 30);
 @Injectable()
-DatepickerDateRange thisYear(Clock clock) => new YearRange.yearsAgo(clock, 0);
+DatepickerDateRange thisYear(Clock clock) => YearRange.yearsAgo(clock, 0);
 @Injectable()
-DatepickerDateRange lastYear(Clock clock) => new YearRange.yearsAgo(clock, 1);
+DatepickerDateRange lastYear(Clock clock) => YearRange.yearsAgo(clock, 1);
 @Injectable()
 DatepickerDateRange thisQuarter(Clock clock) =>
-    new QuarterRange.quartersAgo(clock, 0);
+    QuarterRange.quartersAgo(clock, 0);
 @Injectable()
 DatepickerDateRange lastQuarter(Clock clock) =>
-    new QuarterRange.quartersAgo(clock, 1);
+    QuarterRange.quartersAgo(clock, 1);
 
 // TODO(google): null, null is fine to send to the API, but the UI wants
 // to show (account opening)-(today). If "All Time" should be represented by
 // those two dates, then we need to get the account opening date down here.
 // If not, we need to change the data model to have separate dates for display
 // vs. what gets sent to the API.
-DatepickerDateRange allTime = new DatepickerDateRange(_allTimeMsg, null, null,
+DatepickerDateRange allTime = DatepickerDateRange(_allTimeMsg, null, null,
     isPredefined: true, isAllTime: true);
 
 // TODO(google): AWN no longer uses thisYear and lastYear. Check cross-team

@@ -22,24 +22,24 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 @Component(
   selector: 'material-time-picker',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: const [
+  directives: [
     MaterialDropdownSelectComponent,
     materialInputDirectives,
     NgStyle,
   ],
-  providers: const [
-    const Provider(HasDisabled, useExisting: MaterialTimePickerComponent),
+  providers: [
+    Provider(HasDisabled, useExisting: MaterialTimePickerComponent),
   ],
   templateUrl: 'material_time_picker.html',
-  styleUrls: const ['material_time_picker.scss.css'],
+  styleUrls: ['material_time_picker.scss.css'],
 )
 class MaterialTimePickerComponent extends KeyboardHandlerMixin
     implements HasDisabled, OnInit, OnDestroy {
-  static DateTime _utcTime(int hour, [int minute = 0]) => new DateTime.utc(
+  static DateTime _utcTime(int hour, [int minute = 0]) => DateTime.utc(
       _unixEpoch.year, _unixEpoch.month, _unixEpoch.day, hour, minute);
 
-  static DateTime _localTime(int hour, [int minute = 0]) => new DateTime(
-      _unixEpoch.year, _unixEpoch.month, _unixEpoch.day, hour, minute);
+  static DateTime _localTime(int hour, [int minute = 0]) =>
+      DateTime(_unixEpoch.year, _unixEpoch.month, _unixEpoch.day, hour, minute);
 
   static DateTime _withEpochDate(DateTime input) {
     if (input == null) return null;
@@ -48,17 +48,17 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
         : _localTime(input.hour, input.minute);
   }
 
-  static final _unixEpoch = new DateTime(1970, DateTime.january, 1, 0, 0);
+  static final _unixEpoch = DateTime(1970, DateTime.january, 1, 0, 0);
   static final _supportedTimeFormats = [
-    new DateFormat.jm(),
-    new DateFormat.Hm(),
-    new DateFormat.jms(),
-    new DateFormat.Hms()
+    DateFormat.jm(),
+    DateFormat.Hm(),
+    DateFormat.jms(),
+    DateFormat.Hms()
   ];
 
   final Clock _clock;
-  final _disposer = new Disposer.oneShot();
-  final _timeChangeController = new StreamController<DateTime>.broadcast();
+  final _disposer = Disposer.oneShot();
+  final _timeChangeController = StreamController<DateTime>.broadcast();
   DateTime _time;
   bool displayErrorPanel;
   String inputError;
@@ -67,7 +67,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   ///
   /// Defaults to `jm`, e.g. '5:08 PM'.
   @Input()
-  DateFormat outputFormat = new DateFormat.jm();
+  DateFormat outputFormat = DateFormat.jm();
 
   /// The selected time.
   ///
@@ -120,13 +120,13 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   set utc(bool value) {
     _utc = value;
 
-    timeOptions = new TimeSelectionOptions(
-        new List<DateTime>.generate(24, _utc ? _utcTime : _localTime));
+    timeOptions = TimeSelectionOptions(
+        List<DateTime>.generate(24, _utc ? _utcTime : _localTime));
 
     time = _time;
   }
 
-  final _popupVisibleController = new StreamController<bool>.broadcast();
+  final _popupVisibleController = StreamController<bool>.broadcast();
 
   /// Publishes events when the [popupVisible] changes.
   @Output()
@@ -183,13 +183,12 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   String get dropdownText =>
       time != null ? renderTime(time) : dropdownPlaceholderMsg;
   TimeSelectionOptions timeOptions;
-  SelectionModel<DateTime> selectedTime = new SelectionModel.single();
+  SelectionModel<DateTime> selectedTime = SelectionModel.single();
   String timeInputText = "";
   String renderTime(DateTime time) => outputFormat.format(time);
 
   MaterialTimePickerComponent(@Inject(datepickerClock) this._clock) {
-    timeOptions =
-        new TimeSelectionOptions(new List<DateTime>.generate(24, _localTime));
+    timeOptions = TimeSelectionOptions(List<DateTime>.generate(24, _localTime));
   }
 
   @override

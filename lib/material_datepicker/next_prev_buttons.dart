@@ -42,12 +42,12 @@ export 'package:angular_components/src/material_datepicker/sequential.dart';
   <glyph icon="navigate_next" [attr.aria-label]="nextLabel"></glyph>
 </button>
 ''',
-  styleUrls: const ['next_prev_buttons.scss.css'],
-  directives: const [GlyphComponent],
+  styleUrls: ['next_prev_buttons.scss.css'],
+  directives: [GlyphComponent],
 )
 class NextPrevComponent implements OnDestroy {
   final ChangeDetectorRef _changeDetector;
-  final Disposer _modelListeners = new Disposer.multi();
+  final Disposer _modelListeners = Disposer.multi();
   Sequential _model;
   bool _hasNext = false;
   bool _hasPrev = false;
