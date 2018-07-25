@@ -75,7 +75,7 @@ class ChangeNotificationProvider<T> implements ChangeAware<T>, Disposable {
   @override
   Stream<T> get stream {
     if (_streamController == null) {
-      _streamController = new StreamController<T>.broadcast(sync: true);
+      _streamController = StreamController<T>.broadcast(sync: true);
     }
     return _streamController.stream;
   }
@@ -84,7 +84,7 @@ class ChangeNotificationProvider<T> implements ChangeAware<T>, Disposable {
   @override
   Stream<Change<T>> get changes {
     if (_changeController == null) {
-      _changeController = new StreamController<Change<T>>.broadcast(sync: true);
+      _changeController = StreamController<Change<T>>.broadcast(sync: true);
     }
     return _changeController.stream;
   }
@@ -136,7 +136,7 @@ class ChangeNotificationProvider<T> implements ChangeAware<T>, Disposable {
       _streamController.add(next);
     }
     if (_hasChangeListener) {
-      _changeController.add(new Change(previous, next));
+      _changeController.add(Change(previous, next));
     }
   }
 
@@ -180,7 +180,7 @@ abstract class ObservableView<T> extends ChangeAware<T> implements Disposable {
   /// An [ObservableView] of the most-recently-published value on the given
   /// [stream].
   factory ObservableView.fromStream(Stream<T> stream, {T initialValue}) =>
-      new ObservableReference(initialValue)..listen(stream);
+      ObservableReference(initialValue)..listen(stream);
 }
 
 /// Implements methods of [ObservableView] in terms of the basic [value] and
@@ -192,7 +192,7 @@ abstract class ObservableViewMixin<T> implements ObservableView<T> {
     // Want to do this using stream.map so that the `changes` stream has the
     // same broadcastness/syncness as the `stream` stream.
     return stream.map((v) {
-      var change = new Change(last, v);
+      var change = Change(last, v);
       last = v;
       return change;
     });
@@ -212,7 +212,7 @@ abstract class ObservableViewMixin<T> implements ObservableView<T> {
 
   @override
   ObservableView<M> map<M>(M Function(T) mapper) =>
-      new _MappedView<T, M>(this, mapper);
+      _MappedView<T, M>(this, mapper);
 }
 
 /// An [ObservableView] that just points at an existing [ObservableView] and
@@ -291,7 +291,7 @@ class ObservableReference<T> extends ChangeNotificationProvider<T>
 class ObservableComposite<T> extends ChangeNotificationProvider<T> {
   Map<Stream, StreamSubscription> _subscriptions =
       <Stream, StreamSubscription>{};
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
   final bool _withStackTrace;
 
   /// Changes are published synchronously by default. When [coalesce] is set,

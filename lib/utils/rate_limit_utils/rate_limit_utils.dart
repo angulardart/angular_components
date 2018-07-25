@@ -29,8 +29,8 @@ DebouncedFunction<T> debounce<T>(UnaryFunction<T> delegate, Duration delay) {
 
   return (argument) {
     timer?.cancel();
-    completer ??= new Completer();
-    timer = new Timer(delay, () {
+    completer ??= Completer();
+    timer = Timer(delay, () {
       completer.complete(delegate(argument));
       completer = null;
       timer = null;
@@ -67,7 +67,7 @@ UnaryFunction<T> _throttle<T>(UnaryFunction<T> delegate, Duration interval,
   self = (argument) {
     if (!onCooldown) {
       onCooldown = true;
-      new Timer(interval, () {
+      Timer(interval, () {
         onCooldown = false;
         if (hasLastArg) {
           self(lastArg);
