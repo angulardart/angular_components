@@ -23,7 +23,7 @@ export 'material_input_default_value_accessor.dart';
 export 'material_input_multiline.dart';
 
 /// A list of all material input directives.
-const materialInputDirectives = const [
+const materialInputDirectives = [
   MaterialInputComponent,
   MaterialInputDefaultValueAccessor,
   MaterialInputBlurValueAccessor,
@@ -52,17 +52,17 @@ const String materialInputErrorKey = 'material-input-error';
 @Component(
   selector: 'material-input:not(material-input[multiline])',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: const [
+  providers: [
     DeferredValidator,
-    const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
-    const Provider(ReferenceDirective, useExisting: MaterialInputComponent),
-    const Provider(Focusable, useExisting: MaterialInputComponent),
-    const Provider(HasDisabled, useExisting: MaterialInputComponent),
-    const Provider(BaseMaterialInput, useExisting: MaterialInputComponent)
+    Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
+    Provider(ReferenceDirective, useExisting: MaterialInputComponent),
+    Provider(Focusable, useExisting: MaterialInputComponent),
+    Provider(HasDisabled, useExisting: MaterialInputComponent),
+    Provider(BaseMaterialInput, useExisting: MaterialInputComponent)
   ],
   templateUrl: 'material_input.html',
-  styleUrls: const ['material_input.scss.css'],
-  directives: const [
+  styleUrls: ['material_input.scss.css'],
+  directives: [
     DefaultValueAccessor,
     FocusableDirective,
     MaterialIconComponent,

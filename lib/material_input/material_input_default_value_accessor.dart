@@ -83,7 +83,7 @@ class MaterialInputChangeValueAccessor extends BaseMaterialInputValueAccessor
 abstract class BaseMaterialInputValueAccessor
     implements ControlValueAccessor, OnDestroy {
   @protected
-  final disposer = new Disposer.oneShot();
+  final disposer = Disposer.oneShot();
   @protected
   final BaseMaterialInput input;
   final NgControl _cd;

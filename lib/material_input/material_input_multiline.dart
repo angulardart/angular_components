@@ -22,22 +22,17 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
 @Component(
   selector: 'material-input[multiline]',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: const [
+  providers: [
     DeferredValidator,
-    const Provider(HasDisabled, useExisting: MaterialMultilineInputComponent),
-    const Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
-    const Provider(ReferenceDirective,
-        useExisting: MaterialMultilineInputComponent),
-    const Provider(Focusable, useExisting: MaterialMultilineInputComponent),
-    const Provider(BaseMaterialInput,
-        useExisting: MaterialMultilineInputComponent)
+    Provider(HasDisabled, useExisting: MaterialMultilineInputComponent),
+    Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
+    Provider(ReferenceDirective, useExisting: MaterialMultilineInputComponent),
+    Provider(Focusable, useExisting: MaterialMultilineInputComponent),
+    Provider(BaseMaterialInput, useExisting: MaterialMultilineInputComponent)
   ],
   templateUrl: 'material_input_multiline.html',
-  styleUrls: const [
-    'material_input.scss.css',
-    'material_input_multiline.scss.css'
-  ],
-  directives: const [
+  styleUrls: ['material_input.scss.css', 'material_input_multiline.scss.css'],
+  directives: [
     DefaultValueAccessor,
     FocusableDirective,
     NgFor,
