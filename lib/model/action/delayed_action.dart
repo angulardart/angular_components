@@ -28,8 +28,8 @@ class DelayedAction {
   /// to `false` when the timer is cancelled.
   Future<bool> start() {
     if (_timer == null) {
-      _completer = new Completer<bool>();
-      _timer = new Timer(_duration, _wrappedCallback);
+      _completer = Completer<bool>();
+      _timer = Timer(_duration, _wrappedCallback);
     }
     return _completer.future;
   }
