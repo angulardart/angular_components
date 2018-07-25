@@ -22,11 +22,11 @@ import 'tooltip_target.dart';
 /// An ink-based tooltip which can be attached to any element.
 @Directive(
   selector: '[materialTooltip]',
-  providers: const [tooltipControllerBinding],
+  providers: [tooltipControllerBinding],
 )
 class MaterialTooltipDirective extends TooltipTarget
     implements OnDestroy, OnInit, AfterViewInit {
-  final _disposer = new Disposer.multi();
+  final _disposer = Disposer.multi();
   final ComponentLoader _viewLoader;
   final ChangeDetectorRef _changeDetector;
   final Window _window;
@@ -54,7 +54,7 @@ class MaterialTooltipDirective extends TooltipTarget
       : this.element = element,
         super(domPopupSourceFactory, viewContainerRef, element) {
     inLongPress = false;
-    _delayedActivate = new DelayedAction(tooltipShowDelay, _activate);
+    _delayedActivate = DelayedAction(tooltipShowDelay, _activate);
   }
 
   void _attachHostListeners() {

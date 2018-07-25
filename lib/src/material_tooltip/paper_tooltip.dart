@@ -44,13 +44,12 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
 /// - Non header/footer content is given the tooltip body style.
 @Component(
   selector: 'material-tooltip-card',
-  providers: const [
+  providers: [
     tooltipControllerBinding,
-    const Provider(Tooltip, useFactory: getTooltipHandle),
-    const Provider(DeferredContentAware,
-        useExisting: MaterialPaperTooltipComponent)
+    Provider(Tooltip, useFactory: getTooltipHandle),
+    Provider(DeferredContentAware, useExisting: MaterialPaperTooltipComponent)
   ],
-  directives: const [DeferredContentDirective, NgIf, MaterialPopupComponent],
+  directives: [DeferredContentDirective, NgIf, MaterialPopupComponent],
   template: '''
 <material-popup *ngIf="popupSource != null"
                 [visible]="showPopup"
@@ -71,7 +70,7 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
     <div class="footer"><ng-content select="footer"></ng-content></div>
   </div>
 </material-popup>''',
-  styleUrls: const ['paper_tooltip.scss.css'],
+  styleUrls: ['paper_tooltip.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
@@ -107,7 +106,7 @@ class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
   bool get showPopup => _showPopup;
 
   final StreamController<bool> _visibleCtrl =
-      new StreamController<bool>.broadcast();
+      StreamController<bool>.broadcast();
   @override
   Stream<bool> get contentVisible => _visibleCtrl.stream;
 
@@ -162,7 +161,7 @@ class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
 }
 
 /// [RelativePosition] list for the ink tooltip.
-const _defaultPositions = const [
+const _defaultPositions = [
   RelativePosition.OffsetBottomRight,
   RelativePosition.OffsetTopLeft,
   RelativePosition.OffsetBottomLeft,

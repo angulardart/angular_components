@@ -11,7 +11,7 @@ import 'package:angular_components/laminate/popup/popup.dart'
 import 'package:angular_components/model/action/delayed_action.dart';
 import 'package:angular_components/model/ui/toggle.dart';
 
-const tooltipShowDelay = const Duration(milliseconds: 600);
+const tooltipShowDelay = Duration(milliseconds: 600);
 
 /// An implementation of [PopupSourceDirective] that shows and hides the popup
 /// on keyboard and mouse events.
@@ -57,7 +57,7 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
             /* referenceDirective */ null,
             /* focusable */ null,
             /* initAriaAttributes */ null) {
-    _show = new DelayedAction(tooltipShowDelay, activate);
+    _show = DelayedAction(tooltipShowDelay, activate);
   }
 
   /// Makes the tooltip appear.

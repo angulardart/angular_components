@@ -29,7 +29,7 @@ import 'tooltip_target.dart';
 /// it enforces text-only small tooltips.
 @Component(
   selector: 'material-tooltip-text',
-  providers: const [tooltipControllerBinding],
+  providers: [tooltipControllerBinding],
   template: r'''
         <material-popup *ngIf="popupSource != null"
                         ink
@@ -46,9 +46,9 @@ import 'tooltip_target.dart';
             {{text}}<ng-content></ng-content>
           </div>
         </material-popup>''',
-  styleUrls: const ['ink_tooltip.scss.css'],
+  styleUrls: ['ink_tooltip.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: const [DeferredContentDirective, NgIf, MaterialPopupComponent],
+  directives: [DeferredContentDirective, NgIf, MaterialPopupComponent],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
 )

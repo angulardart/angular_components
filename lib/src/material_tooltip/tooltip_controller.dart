@@ -43,7 +43,7 @@ class TooltipController {
 
     // Use a small delay just in case the user mouses into the tooltip.
     final tooltipToClose = tooltip;
-    _closeTimer = new Timer(keepAliveDuration, () {
+    _closeTimer = Timer(keepAliveDuration, () {
       tooltipToClose.deactivate();
       if (tooltipToClose == _activeTooltip) _activeTooltip = null;
     });
@@ -67,10 +67,10 @@ class TooltipController {
   /// Timer to close the previous tooltip.
   Timer _closeTimer;
 
-  Tooltip proxyFor(Tooltip tooltip) => new _ProxyTooltip(tooltip, this);
+  Tooltip proxyFor(Tooltip tooltip) => _ProxyTooltip(tooltip, this);
 }
 
-const keepAliveDuration = const Duration(milliseconds: 500);
+const keepAliveDuration = Duration(milliseconds: 500);
 
 class _ProxyTooltip implements Tooltip {
   final Tooltip _tooltip;
