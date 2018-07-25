@@ -6,7 +6,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/src/material_tooltip/tooltip_controller.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-const materialTooltipBindings = const [TooltipController];
+const materialTooltipBindings = [TooltipController];
 
 // This is a pattern which allows a singleton service to be shared in an
 // application without binding the service at the application level, while
@@ -17,12 +17,11 @@ const materialTooltipBindings = const [TooltipController];
 // using dart's factory pattern.
 
 /// Factory for [TooltipController].
-const tooltipControllerBinding = const Provider(TooltipController,
-    useFactory: createTooltipController,
-    deps: const [
-      const [TooltipController, const Optional(), const SkipSelf()],
-      const [Disposer, const Optional()]
-    ]);
+const tooltipControllerBinding =
+    Provider(TooltipController, useFactory: createTooltipController, deps: [
+  [TooltipController, Optional(), SkipSelf()],
+  [Disposer, Optional()]
+]);
 
 // Shared [TooltipController] resource. Currently there is only one per
 // application.
@@ -38,7 +37,7 @@ TooltipController createTooltipController(
 
   if (_singletonController != null) return _singletonController;
 
-  _singletonController = new TooltipController();
+  _singletonController = TooltipController();
   disposer?.addFunction(() {
     _singletonController = null;
   });

@@ -35,10 +35,10 @@ class DomTreeIterator implements Iterator<Element> {
         _scope = scope,
         _wraps = wraps {
     if (_wraps && _scope == null) {
-      throw new Exception('global wrapping is disallowed, scope is required');
+      throw Exception('global wrapping is disallowed, scope is required');
     }
     if (_scope != null && !_scope.contains(_element)) {
-      throw new Exception('if scope is set, '
+      throw Exception('if scope is set, '
           'starting element should be inside of scope');
     }
   }
@@ -49,7 +49,7 @@ class DomTreeIterator implements Iterator<Element> {
   /// if wraps is true or inherited from current as true,
   /// new wraps will start from current position.
   DomTreeIterator reversed({wraps}) {
-    return new DomTreeIterator(_element,
+    return DomTreeIterator(_element,
         reverse: !_reverse, scope: _scope, wraps: wraps ?? _wraps);
   }
 

@@ -104,7 +104,7 @@ abstract class AbstractFilterable<Q> implements Filterable<Q> {
   Stream filter(Q query, {int limit = Filterable.UNLIMITED}) {
     StreamController streamController;
     StreamSubscription streamSubscription;
-    streamController = new StreamController.broadcast(onListen: () {
+    streamController = StreamController.broadcast(onListen: () {
       if (isFiltered) {
         _currentDoFilterSubscription.cancel();
         _currentDoFilterController.close();

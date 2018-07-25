@@ -63,14 +63,14 @@ export 'package:angular_components/laminate/popup/popup.dart'
 /// ```
 @Component(
   selector: 'material-popup',
-  providers: const [
-    const Provider(DeferredContentAware, useExisting: MaterialPopupComponent),
-    const Provider(DropdownHandle, useExisting: MaterialPopupComponent),
-    const Provider(PopupHierarchy, useFactory: getHierarchy),
-    const Provider(PopupRef, useFactory: getResolvedPopupRef),
+  providers: [
+    Provider(DeferredContentAware, useExisting: MaterialPopupComponent),
+    Provider(DropdownHandle, useExisting: MaterialPopupComponent),
+    Provider(PopupHierarchy, useFactory: getHierarchy),
+    Provider(PopupRef, useFactory: getResolvedPopupRef),
   ],
   templateUrl: 'material_popup.html',
-  styleUrls: const ['material_popup.scss.css'],
+  styleUrls: ['material_popup.scss.css'],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
   visibility: Visibility.all, // injected by hierarchy
@@ -83,27 +83,27 @@ class MaterialPopupComponent extends Object
         AfterViewInit,
         OnDestroy,
         DropdownHandle {
-  static const Duration SLIDE_DELAY = const Duration(milliseconds: 150);
+  static const Duration SLIDE_DELAY = Duration(milliseconds: 150);
 
   /// Stream on which an event is fired after the popup has finished opening.
   @Output('opened')
   Stream<void> get onOpened => _onOpened.stream;
   final StreamController<void> _onOpened =
-      new StreamController<void>.broadcast(sync: true);
+      StreamController<void>.broadcast(sync: true);
 
   final StreamController<bool> _onContentVisible =
-      new StreamController<bool>.broadcast(sync: true);
+      StreamController<bool>.broadcast(sync: true);
 
   /// Stream on which an event is fired when the popup is auto dismissed.
   /// Output event should be either a [FocusEvent] or a [MouseEvent].
   @Output('autoDismissed')
   Stream<Event> get onAutoDismissed => _onAutoDismissed.stream;
   final StreamController<Event> _onAutoDismissed =
-      new StreamController<Event>.broadcast(sync: true);
+      StreamController<Event>.broadcast(sync: true);
 
   final ChangeDetectorRef _changeDetector;
   final ViewContainerRef _viewContainer;
-  final Disposer _disposer = new Disposer.oneShot();
+  final Disposer _disposer = Disposer.oneShot();
   final NgZone _ngZone;
   final OverlayService _overlayService;
   PopupHierarchy _hierarchy;
@@ -122,7 +122,7 @@ class MaterialPopupComponent extends Object
   final ElementRef elementRef;
 
   final String role;
-  static final _idGenerator = new SequentialIdGenerator.fromUUID();
+  static final _idGenerator = SequentialIdGenerator.fromUUID();
   final _uniqueId = _idGenerator.nextId();
 
   PopupRef _resolvedPopupRef;
@@ -141,7 +141,7 @@ class MaterialPopupComponent extends Object
 
   // The window.resize event is throttled because it can occur at a high
   // frequency (> 20 times per second).
-  static const _resizeThrottleDuration = const Duration(milliseconds: 100);
+  static const _resizeThrottleDuration = Duration(milliseconds: 100);
 
   // Whether the popup is in the process of opening (or has finished opening).
   //
@@ -255,7 +255,7 @@ class MaterialPopupComponent extends Object
     }
 
     // Create the PopupRef for the ACX focus library.
-    _resolvedPopupRef = new MaterialPopupRef(this);
+    _resolvedPopupRef = MaterialPopupRef(this);
 
     // Start the shared window.resize listener (if it hasn't been already).
     _initViewportRect();
@@ -267,7 +267,7 @@ class MaterialPopupComponent extends Object
     // window.innerWidth/window.innerHeight directly is because accessing
     // window.innerWidth/window.innerHeight can cause reflows.
     _viewportRect =
-        new MutableRectangle(0, 0, window.innerWidth, window.innerHeight);
+        MutableRectangle(0, 0, window.innerWidth, window.innerHeight);
     _ngZone.runOutsideAngular(() {
       window.onResize
           .transform(
@@ -284,7 +284,7 @@ class MaterialPopupComponent extends Object
 
   /// The popup visible hierarchy.
   PopupHierarchy get hierarchy {
-    _hierarchy = _hierarchy ?? new PopupHierarchy();
+    _hierarchy = _hierarchy ?? PopupHierarchy();
     return _hierarchy;
   }
 
@@ -315,7 +315,7 @@ class MaterialPopupComponent extends Object
   }
 
   @override
-  final PopupState state = new PopupState();
+  final PopupState state = PopupState();
 
   /// The popup pane ID, which is added to the DOM (as pane-id) for testing.
   @HostBinding('attr.pane-id')
@@ -389,7 +389,7 @@ class MaterialPopupComponent extends Object
     // of the Toggle library. Here, we register the [PopupRef] as a
     // [Toggleable] iff [source] uses the library.
     if (source is Toggler) {
-      (source as Toggler).toggleable = new _DeferredToggleable(this);
+      (source as Toggler).toggleable = _DeferredToggleable(this);
     }
   }
 
@@ -432,7 +432,7 @@ class MaterialPopupComponent extends Object
   /// Returns a [Future] which resolves once the popup has started opening.
   Future _open() {
     // Avoid duplicate events.
-    if (_isOpening) return new Future.value();
+    if (_isOpening) return Future.value();
     _isOpening = true;
 
     // Cancel pending animation timer callback if it exists.
@@ -442,12 +442,12 @@ class MaterialPopupComponent extends Object
     onOpenController.add(null);
 
     // If the event was cancelled, exit early.
-    if (!_isOpening) return new Future.value();
+    if (!_isOpening) return Future.value();
 
     if (!_viewInitialized) {
-      throw new StateError('No content is attached.');
+      throw StateError('No content is attached.');
     } else if (state.source == null) {
-      throw new StateError('Cannot open popup: no source set.');
+      throw StateError('Cannot open popup: no source set.');
     }
 
     // Initialize the minimum/maximum size and content size based on the
@@ -465,7 +465,7 @@ class MaterialPopupComponent extends Object
     _changeDetector.markForCheck();
 
     // Start listening to both the popup and the source's layout.
-    var initialData = new Completer<Rectangle>();
+    var initialData = Completer<Rectangle>();
     var popupContentsLayoutStream =
         _overlayRef.measureSizeChanges().asBroadcastStream(onCancel: (sub) {
       _layoutInternalSub = sub;
@@ -526,7 +526,7 @@ class MaterialPopupComponent extends Object
     if (hasBox) {
       // If animating, wait until the animation has finished before notifying
       // listeners.
-      _animationTimer = new Timer(SLIDE_DELAY, () {
+      _animationTimer = Timer(SLIDE_DELAY, () {
         // No need to check whether the popup has been closed in the meantime,
         // since this callback will not fire in that case (clearTimeout).
         _animationTimer = null;
@@ -580,7 +580,7 @@ class MaterialPopupComponent extends Object
     if (hasBox) {
       // If animating, wait until the animation has finished before removing
       // popup contents.
-      _animationTimer = new Timer(SLIDE_DELAY, () {
+      _animationTimer = Timer(SLIDE_DELAY, () {
         // No need to check whether the popup has been opened in the meantime,
         // since this callback will not fire in that case (clearTimeout).
         _animationTimer = null;
@@ -612,7 +612,7 @@ class MaterialPopupComponent extends Object
     if (sourceDimensions == null) return null;
     var containerRect = _overlayRef.containerElement?.getBoundingClientRect();
     if (containerRect == null) return null;
-    return new Rectangle(
+    return Rectangle(
         (sourceDimensions.left - containerRect.left).round(),
         (sourceDimensions.top - containerRect.top).round(),
         sourceDimensions.width.round(),
@@ -713,13 +713,13 @@ class MaterialPopupComponent extends Object
       }
       // Build up a tentative position for the popup. These numbers are all
       // relative to the container div.
-      var containerPos = new Rectangle<num>(
+      var containerPos = Rectangle<num>(
           position.originX.calcLeft(sourceRect, contentRect),
           position.originY.calcTop(sourceRect, contentRect),
           contentRect.width,
           contentRect.height);
       // Now translate that into screen space.
-      var screenPos = new Rectangle<num>.fromPoints(
+      var screenPos = Rectangle<num>.fromPoints(
           containerPos.topLeft + containerOffset,
           containerPos.bottomRight + containerOffset);
       if (_viewportRect.containsRectangle(screenPos)) {
@@ -773,7 +773,7 @@ class MaterialPopupComponent extends Object
           _getBestPosition(contentClientRect, sourceClientRect, containerRect);
     }
     if (position == null) {
-      position = new RelativePosition(
+      position = RelativePosition(
           originX: state.source.alignOriginX,
           originY: state.source.alignOriginY);
       if (isRtl) {
@@ -843,10 +843,10 @@ class _DeferredToggleable extends Toggleable {
 //
 // TODO(google): This belongs as a utility not inlined here.
 Stream<List<T>> _mergeStreams<T>(List<Stream<T>> streams) {
-  var streamSubscriptions = new List<StreamSubscription<T>>(streams.length);
-  var cachedResults = new List<T>(streams.length);
+  var streamSubscriptions = List<StreamSubscription<T>>(streams.length);
+  var cachedResults = List<T>(streams.length);
   StreamController<List<T>> streamController;
-  streamController = new StreamController<List<T>>.broadcast(
+  streamController = StreamController<List<T>>.broadcast(
       sync: true,
       onListen: () {
         var i = 0;
@@ -880,11 +880,10 @@ Iterable _flatten(Iterable nested) sync* {
 }
 
 Rectangle _resizeRectangle(Rectangle rect, {num width, num height}) =>
-    new Rectangle(
-        rect.left, rect.top, width ?? rect.width, height ?? rect.height);
+    Rectangle(rect.left, rect.top, width ?? rect.width, height ?? rect.height);
 
 Rectangle _shiftRectangle(Rectangle rect, {num top = 0, num left = 0}) =>
-    new Rectangle(rect.left + left, rect.top + top, rect.width, rect.height);
+    Rectangle(rect.left + left, rect.top + top, rect.width, rect.height);
 
 /// Returns a transformation which, when applied to [rect], will cause [rect] to
 /// be entirely within [container].
@@ -906,5 +905,5 @@ Rectangle _shiftRectangleToFitWithin(Rectangle rect, Rectangle container) {
   } else if (rect.bottom > container.bottom) {
     y = max(container.bottom - rect.bottom, container.top - rect.top);
   }
-  return new Rectangle(x.round(), y.round(), 0, 0);
+  return Rectangle(x.round(), y.round(), 0, 0);
 }
