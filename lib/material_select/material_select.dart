@@ -27,19 +27,14 @@ import 'material_select_item.dart';
 /// or by checking against a selection model.
 @Component(
   selector: 'material-select',
-  providers: const [
-    const Provider(HasDisabled, useExisting: MaterialSelectComponent),
-    const Provider(HasRenderer, useExisting: MaterialSelectComponent),
-    const Provider(SelectionContainer, useExisting: MaterialSelectComponent)
+  providers: [
+    Provider(HasDisabled, useExisting: MaterialSelectComponent),
+    Provider(HasRenderer, useExisting: MaterialSelectComponent),
+    Provider(SelectionContainer, useExisting: MaterialSelectComponent)
   ],
-  directives: const [
-    MaterialListComponent,
-    MaterialSelectItemComponent,
-    NgIf,
-    NgFor
-  ],
+  directives: [MaterialListComponent, MaterialSelectItemComponent, NgIf, NgFor],
   templateUrl: 'material_select.html',
-  styleUrls: const ['material_select.scss.css'],
+  styleUrls: ['material_select.scss.css'],
 )
 class MaterialSelectComponent extends MaterialSelectBase
     implements HasDisabled {

@@ -71,21 +71,17 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 ///   documentation.
 @Component(
   selector: 'material-dropdown-select',
-  providers: const [
-    const Provider(DropdownHandle,
+  providers: [
+    Provider(DropdownHandle, useExisting: MaterialDropdownSelectComponent),
+    Provider(HasDisabled, useExisting: MaterialDropdownSelectComponent),
+    Provider(HasRenderer, useExisting: MaterialDropdownSelectComponent),
+    Provider(DeferredContentAware,
         useExisting: MaterialDropdownSelectComponent),
-    const Provider(HasDisabled, useExisting: MaterialDropdownSelectComponent),
-    const Provider(HasRenderer, useExisting: MaterialDropdownSelectComponent),
-    const Provider(DeferredContentAware,
-        useExisting: MaterialDropdownSelectComponent),
-    const Provider(SelectionContainer,
-        useExisting: MaterialDropdownSelectComponent),
-    const Provider(PopupSizeProvider,
-        useExisting: MaterialDropdownSelectComponent),
-    const Provider(ActivationHandler,
-        useExisting: MaterialDropdownSelectComponent),
+    Provider(SelectionContainer, useExisting: MaterialDropdownSelectComponent),
+    Provider(PopupSizeProvider, useExisting: MaterialDropdownSelectComponent),
+    Provider(ActivationHandler, useExisting: MaterialDropdownSelectComponent),
   ],
-  directives: const [
+  directives: [
     ActiveItemDirective,
     AutoFocusDirective,
     DeferredContentDirective,
@@ -100,7 +96,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     PopupSourceDirective,
   ],
   templateUrl: 'material_dropdown_select.html',
-  styleUrls: const ['material_dropdown_select.scss.css'],
+  styleUrls: ['material_dropdown_select.scss.css'],
   visibility: Visibility.all, // injected by directives
 )
 class MaterialDropdownSelectComponent extends MaterialSelectBase
@@ -198,10 +194,9 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
       @Attribute('popupClass') String popupClass,
       @Attribute('buttonAriaRole') this.buttonAriaRole,
       HtmlElement element)
-      : activeModel = new ActiveItemModel(idGenerator),
+      : activeModel = ActiveItemModel(idGenerator),
         popupClassName = constructEncapsulatedCss(popupClass, element.classes),
-        listId =
-            (idGenerator ?? new SequentialIdGenerator.fromUUID()).nextId() {
+        listId = (idGenerator ?? SequentialIdGenerator.fromUUID()).nextId() {
     isRtl = rtl;
     preferredPositions = RelativePosition.overlapAlignments;
     iconName = 'arrow_drop_down';
@@ -305,13 +300,13 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   @Output()
   Stream<FocusEvent> get focus => _focus.stream;
   StreamController<FocusEvent> _focus =
-      new StreamController<FocusEvent>.broadcast(sync: true);
+      StreamController<FocusEvent>.broadcast(sync: true);
 
   /// Event that fires when the dropdown button is blurred.
   @Output()
   Stream<FocusEvent> get blur => _blur.stream;
   StreamController<FocusEvent> _blur =
-      new StreamController<FocusEvent>.broadcast(sync: true);
+      StreamController<FocusEvent>.broadcast(sync: true);
 
   void onFocus(FocusEvent event) {
     _focus.add(event);
@@ -340,7 +335,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   void _updateActiveModel() {
-    var items = new List<dynamic>.from(options?.optionsList ?? []);
+    var items = List<dynamic>.from(options?.optionsList ?? []);
     if (showDeselectItem) {
       items.insert(0, deselectLabel);
     }
@@ -603,7 +598,7 @@ class ActivateItemOnKeyPressMixin {
   String _charCodeToString(int charCode) {
     String key = _charCodeMap[charCode];
     if (key == null) {
-      key = new String.fromCharCode(charCode).toLowerCase();
+      key = String.fromCharCode(charCode).toLowerCase();
       _charCodeMap[charCode] = key;
     }
     return key;

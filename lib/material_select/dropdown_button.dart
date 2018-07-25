@@ -26,19 +26,19 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
   selector: 'dropdown-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'dropdown_button.html',
-  styleUrls: const [
+  styleUrls: [
     'package:angular_components/button_decorator/button_decorator.scss.css',
     'dropdown_button.scss.css'
   ],
-  directives: const [
+  directives: [
     ButtonDirective,
     GlyphComponent,
     KeyboardOnlyFocusIndicatorDirective,
     NgIf,
   ],
-  providers: const [
-    const Provider(HasDisabled, useExisting: DropdownButtonComponent),
-    const Provider(Focusable, useExisting: DropdownButtonComponent),
+  providers: [
+    Provider(HasDisabled, useExisting: DropdownButtonComponent),
+    Provider(Focusable, useExisting: DropdownButtonComponent),
   ],
 )
 class DropdownButtonComponent extends Object
@@ -101,7 +101,7 @@ class DropdownButtonComponent extends Object
   String ariaActiveDescendant;
 
   /// A unique id for the button element.
-  final String uuid = new SequentialIdGenerator.fromUUID().nextId();
+  final String uuid = SequentialIdGenerator.fromUUID().nextId();
 
   String _ariaLabelledBy;
 
@@ -138,7 +138,7 @@ class DropdownButtonComponent extends Object
   /// Event that fires when the dropdown button is blurred.
   @Output('blur')
   Stream<FocusEvent> get onBlur => _blur.stream;
-  final _blur = new StreamController<FocusEvent>(sync: true);
+  final _blur = StreamController<FocusEvent>(sync: true);
 
   void handleBlur(FocusEvent event) {
     _blur.add(event);

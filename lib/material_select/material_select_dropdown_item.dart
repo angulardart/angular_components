@@ -20,14 +20,12 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// This should only be used in select dropdowns.
 @Component(
   selector: 'material-select-dropdown-item',
-  providers: const [
-    const Provider(SelectionItem,
-        useExisting: MaterialSelectDropdownItemComponent),
-    const Provider(HasRenderer,
-        useExisting: MaterialSelectDropdownItemComponent)
+  providers: [
+    Provider(SelectionItem, useExisting: MaterialSelectDropdownItemComponent),
+    Provider(HasRenderer, useExisting: MaterialSelectDropdownItemComponent)
   ],
-  styleUrls: const ['material_select_dropdown_item.scss.css'],
-  directives: const [
+  styleUrls: ['material_select_dropdown_item.scss.css'],
+  directives: [
     DynamicComponent,
     GlyphComponent,
     MaterialCheckboxComponent,
@@ -65,7 +63,7 @@ class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
       @Optional() IdGenerator idGenerator,
       ChangeDetectorRef cdRef)
       : _generatedId =
-            (idGenerator ?? new SequentialIdGenerator.fromUUID()).nextId(),
+            (idGenerator ?? SequentialIdGenerator.fromUUID()).nextId(),
         super(element, dropdown, activationHandler, cdRef, role ?? 'option') {
     this.itemRenderer = defaultItemRenderer;
   }

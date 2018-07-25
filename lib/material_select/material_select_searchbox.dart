@@ -18,11 +18,11 @@ import 'package:angular_components/utils/browser/events/events.dart';
 /// Any input typed will be used to call the filter method Filterable.
 @Component(
   selector: 'material-select-searchbox',
-  directives: const [materialInputDirectives, NgModel],
-  providers: const [
-    const Provider(Focusable, useExisting: MaterialSelectSearchboxComponent)
+  directives: [materialInputDirectives, NgModel],
+  providers: [
+    Provider(Focusable, useExisting: MaterialSelectSearchboxComponent)
   ],
-  styleUrls: const ['material_select_searchbox.scss.css'],
+  styleUrls: ['material_select_searchbox.scss.css'],
   templateUrl: 'material_select_searchbox.html',
 )
 class MaterialSelectSearchboxComponent extends FocusableMixin

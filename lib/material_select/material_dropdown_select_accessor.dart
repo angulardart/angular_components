@@ -17,16 +17,15 @@ import 'material_dropdown_select.dart';
   selector: 'material-dropdown-select[ngModel]:not([multi]),'
       'material-dropdown-select[ngFormControl]:not([multi]),'
       'material-dropdown-select[ngControl]:not([multi]),',
-  providers: const [
-    const ExistingProvider.forToken(
-        ngValueAccessor, DropdownSelectValueAccessor),
+  providers: [
+    ExistingProvider.forToken(ngValueAccessor, DropdownSelectValueAccessor),
   ],
 )
 class DropdownSelectValueAccessor extends BaseDropdownSelectValueAccessor
     implements ControlValueAccessor, OnDestroy {
   StreamSubscription _selectionChangesSub;
   DropdownSelectValueAccessor(MaterialDropdownSelectComponent select)
-      : super(select, new SelectionModel.single());
+      : super(select, SelectionModel.single());
 
   @override
   void registerOnChange(callback) {
@@ -62,8 +61,8 @@ class DropdownSelectValueAccessor extends BaseDropdownSelectValueAccessor
   selector: 'material-dropdown-select[multi][ngModel],'
       'material-dropdown-select[multi][ngControl],'
       'material-dropdown-select[multi][ngFormControl]',
-  providers: const [
-    const ExistingProvider.forToken(
+  providers: [
+    ExistingProvider.forToken(
         ngValueAccessor, MultiDropdownSelectValueAccessor),
   ],
 )
@@ -72,7 +71,7 @@ class MultiDropdownSelectValueAccessor extends BaseDropdownSelectValueAccessor
   var selectionChangesSub;
 
   MultiDropdownSelectValueAccessor(MaterialDropdownSelectComponent select)
-      : super(select, new MultiSelectionModel());
+      : super(select, MultiSelectionModel());
 
   @override
   void registerOnChange(callback) {
