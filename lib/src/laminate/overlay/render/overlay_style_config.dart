@@ -96,7 +96,7 @@ class OverlayStyleConfig {
 
   void registerStyles() {
     if (stylesRegistered) return;
-    _styleHost.append(new StyleElement()
+    _styleHost.append(StyleElement()
       ..id = _styleId
       ..text = inlinedStyles);
     _stylesRegistered = true;

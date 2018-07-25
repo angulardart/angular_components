@@ -16,7 +16,7 @@ import 'package:angular_components/utils/angular/imperative_view/imperative_view
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 /// An opaque token for the name of the overlay container, if any.
-const overlayContainerName = const OpaqueToken('overlayContainerName');
+const overlayContainerName = OpaqueToken('overlayContainerName');
 
 /// An opaque token of the DOM element that is the container.
 ///
@@ -25,24 +25,24 @@ const overlayContainerName = const OpaqueToken('overlayContainerName');
 ///     bootstrap(RootComponent, [
 ///       provide(overlayContainerToken, useValue: overlayContainer)
 ///     ]);
-const overlayContainerToken = const OpaqueToken('overlayContainer');
+const overlayContainerToken = OpaqueToken('overlayContainer');
 
 /// Where [overlayContainerToken] should be created.
-const overlayContainerParent = const OpaqueToken('overlayContainerParent');
+const overlayContainerParent = OpaqueToken('overlayContainerParent');
 
 /// Flag whether to use synchronous reads/writes instead of async.
 ///
 /// The reason for this is that overlays are already in a position:absolute
 /// layer in the DOM, and waiting for the next frame makes less sense and causes
 /// latency issues.
-const overlaySyncDom = const OpaqueToken('overlaySyncDom');
+const overlaySyncDom = OpaqueToken('overlaySyncDom');
 
 /// Flag whether to reposition popups on every frame when trackLayoutChanges is
 /// true.
 ///
 /// This allows popups to scroll with the page if the overlay container is not
 /// part of the scrolling container.
-const overlayRepositionLoop = const OpaqueToken('overlayRepositionLoop');
+const overlayRepositionLoop = OpaqueToken('overlayRepositionLoop');
 
 /// A DOM implementation of the components needed for [OverlayService].
 ///
@@ -51,7 +51,7 @@ const overlayRepositionLoop = const OpaqueToken('overlayRepositionLoop');
 /// overlay service will live.
 @Injectable()
 class OverlayDomRenderService {
-  static const _defaultConfig = const OverlayState();
+  static const _defaultConfig = OverlayState();
   static const _paneClassName = 'pane';
 
   final HtmlElement containerElement;
@@ -167,7 +167,7 @@ class OverlayDomRenderService {
       if (!sync) {
         return _domRuler.measure(pane).asStream();
       }
-      return new Stream.fromIterable([_domRuler.measureSync(pane)]);
+      return Stream.fromIterable([_domRuler.measureSync(pane)]);
     }
   }
 
@@ -182,8 +182,7 @@ class OverlayDomRenderService {
           .onWrite()
           .then((_) => containerElement.getBoundingClientRect());
     } else {
-      return new Future<Rectangle>.value(
-          containerElement.getBoundingClientRect());
+      return Future<Rectangle>.value(containerElement.getBoundingClientRect());
     }
   }
 
@@ -192,7 +191,7 @@ class OverlayDomRenderService {
   /// The element is created and appended in the next DOM write queue.
   Future<HtmlElement> createOverlayPane([OverlayState state = _defaultConfig]) {
     // Create a detached DIV to use as the overlay host.
-    HtmlElement pane = new DivElement()
+    HtmlElement pane = DivElement()
       ..attributes['pane-id'] = _createUniqueId()
       ..classes.add(_paneClassName);
 
@@ -208,14 +207,14 @@ class OverlayDomRenderService {
       });
     } else {
       containerElement.append(pane);
-      return new Future.value(pane);
+      return Future.value(pane);
     }
   }
 
   /// Creates and returns an overlay pane DOM element.
   HtmlElement createOverlayPaneSync([OverlayState state = _defaultConfig]) {
     // Create a detached DIV to use as the overlay host.
-    HtmlElement pane = new DivElement()
+    HtmlElement pane = DivElement()
       ..attributes['pane-id'] = _createUniqueId()
       ..classes.add(_paneClassName);
 
@@ -229,6 +228,6 @@ class OverlayDomRenderService {
 
   /// Creates a DOM-bound [PortalHost] with [hostContainer].
   PortalHost createPortalHost(HtmlElement hostContainer) {
-    return new DomPortalHost(hostContainer, _imperativeViewUtils);
+    return DomPortalHost(hostContainer, _imperativeViewUtils);
   }
 }
