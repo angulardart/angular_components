@@ -25,21 +25,21 @@ import 'package:angular_components/src/scorecard/scorecard_bar.dart';
 ///   should have uniform widths.
 @Component(
   selector: 'acx-scoreboard',
-  directives: const [
+  directives: [
     MaterialButtonComponent,
     MaterialIconComponent,
     NgIf,
     ScorecardBarDirective,
   ],
   templateUrl: 'scoreboard.html',
-  styleUrls: const ['scoreboard.scss.css'],
+  styleUrls: ['scoreboard.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class ScoreboardComponent implements OnInit, OnDestroy {
   static const chevronLeft = 'chevron_left';
   static const chevronRight = 'chevron_right';
-  final _disposer = new Disposer.oneShot();
-  final _cardSelectionDisposer = new Disposer.multi();
+  final _disposer = Disposer.oneShot();
+  final _cardSelectionDisposer = Disposer.multi();
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
   SelectionModel _selectionModel;
@@ -81,13 +81,13 @@ class ScoreboardComponent implements OnInit, OnDestroy {
       case ScoreboardType.toggle:
       case ScoreboardType.radio:
       case ScoreboardType.custom:
-        _selectionModel = new SelectionModel.single();
+        _selectionModel = SelectionModel.single();
         break;
       case ScoreboardType.selectable:
-        _selectionModel = new SelectionModel.multi();
+        _selectionModel = SelectionModel.multi();
         break;
       default:
-        _selectionModel = new SelectionModel.empty();
+        _selectionModel = SelectionModel.empty();
         break;
     }
     if (!_initialized) {
@@ -250,7 +250,7 @@ class ScoreboardComponent implements OnInit, OnDestroy {
           var elemWidth = element
               .getComputedStyle()
               .width
-              .replaceAll(new RegExp('[^0-9.]'), '');
+              .replaceAll(RegExp('[^0-9.]'), '');
           var elemWidthValue =
               elemWidth.isEmpty ? 0.0 : double.parse(elemWidth);
           if (elemWidthValue > width) width = elemWidthValue;

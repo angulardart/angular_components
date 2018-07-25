@@ -25,9 +25,9 @@ import 'package:angular_components/utils/color/palette.dart';
 /// - `description` -- Custom content in the description area.
 @Component(
   selector: 'acx-scorecard',
-  directives: const [MaterialIconComponent, MaterialRippleComponent, NgIf],
+  directives: [MaterialIconComponent, MaterialRippleComponent, NgIf],
   templateUrl: 'scorecard.html',
-  styleUrls: const ['scorecard.scss.css'],
+  styleUrls: ['scorecard.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
@@ -39,7 +39,7 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
   static const changeTypeNeutral = 'NEUTRAL';
 
   final StreamController<bool> _selectionController =
-      new StreamController<bool>.broadcast(sync: true);
+      StreamController<bool>.broadcast(sync: true);
 
   bool _isChangePositive = false;
   bool _isChangeNegative = false;
@@ -106,7 +106,7 @@ class ScorecardComponent extends KeyboardOnlyFocusIndicatorDirective {
         _isChangeNeutral = true;
         break;
       default:
-        throw new ArgumentError.value(changeType, 'changeType');
+        throw ArgumentError.value(changeType, 'changeType');
     }
   }
 

@@ -5,10 +5,10 @@
 import 'package:intl/intl.dart';
 import 'package:angular_components/model/date/date.dart';
 
-final _dayFmt = new DateFormat.d();
-final _dateFmt = new DateFormat.yMMMd();
-final _yearFmt = new DateFormat.y();
-final _monthFmt = new DateFormat.MMM();
+final _dayFmt = DateFormat.d();
+final _dateFmt = DateFormat.yMMMd();
+final _yearFmt = DateFormat.y();
+final _monthFmt = DateFormat.MMM();
 
 /// Formats the date, or returns '' if the date is null.
 String formatDate(Date date) => date?.format(_dateFmt) ?? '';
