@@ -25,16 +25,16 @@ Window getWindow() => window;
 /// Ideally, an application would limit direct use of these to maintain
 /// compatibility with web workers, but there is no Angular sanitized version
 /// yet available.
-const windowBindings = const [
+const windowBindings = [
   // This strange syntax is required because we need windowBindings to be a
   // const list to be usable within component annotations.
-  const Provider(Document, useFactory: getDocument),
-  const Provider(Window, useFactory: getWindow)
+  Provider(Document, useFactory: getDocument),
+  Provider(Window, useFactory: getWindow)
 ];
 
-const windowModule = const Module(provide: [
-  const FactoryProvider(Document, getDocument),
-  const FactoryProvider(Window, getWindow),
+const windowModule = Module(provide: [
+  FactoryProvider(Document, getDocument),
+  FactoryProvider(Window, getWindow),
 ]);
 
 /// Returns the current [Window]'s location.
@@ -48,6 +48,6 @@ const windowModule = const Module(provide: [
 Location getLocation(Window window) => window.location;
 
 /// Provides [Location] bound for use within Angular.
-const locationBindings = const [
-  const Provider(Location, useFactory: getLocation),
+const locationBindings = [
+  Provider(Location, useFactory: getLocation),
 ];

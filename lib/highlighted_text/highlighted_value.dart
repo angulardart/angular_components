@@ -14,8 +14,8 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
 @Component(
   selector: 'highlight-value',
   templateUrl: 'highlighted_text.html',
-  styleUrls: const ['highlighted_text.scss.css'],
-  directives: const [NgFor],
+  styleUrls: ['highlighted_text.scss.css'],
+  directives: [NgFor],
 )
 class HighlightedValueComponent implements RendersValue {
   final HighlightProvider _highLighter;

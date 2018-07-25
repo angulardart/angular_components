@@ -21,8 +21,8 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
 @Component(
   selector: 'highlighted-text',
   templateUrl: 'highlighted_text.html',
-  styleUrls: const ['highlighted_text.scss.css'],
-  directives: const [NgFor],
+  styleUrls: ['highlighted_text.scss.css'],
+  directives: [NgFor],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class HighlightedTextComponent {

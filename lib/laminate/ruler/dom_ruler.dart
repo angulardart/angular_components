@@ -51,7 +51,7 @@ class DomRulerImpl extends RulerBase<Element> implements DomRuler {
     if (canSyncWrite(element)) {
       // It is not possible to measure something not in the live DOM.
       // throw new StateError('Element is not in the live DOM document.');
-      return new Future<Rectangle>.value(const Rectangle(0, 0, 0, 0));
+      return Future<Rectangle>.value(const Rectangle(0, 0, 0, 0));
     }
     return super.measure(element, offset: offset);
   }
@@ -71,8 +71,7 @@ class DomRulerImpl extends RulerBase<Element> implements DomRuler {
     if (canSyncWrite(element)) {
       // It is not possible to measure something not in the live DOM.
       // throw new StateError('Element is not in the live DOM document.');
-      return new Stream<Rectangle>.fromIterable(
-          const [const Rectangle(0, 0, 0, 0)]);
+      return Stream<Rectangle>.fromIterable(const [Rectangle(0, 0, 0, 0)]);
     }
     return super.track(element);
   }
