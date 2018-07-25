@@ -7,9 +7,9 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 Testability createDomServiceWebdriverTestability(DomService domService) {
   if (testabilitiesEnabled) {
-    return new DomServiceWebdriverTestability._(domService);
+    return DomServiceWebdriverTestability._(domService);
   }
-  return new NullTestability();
+  return NullTestability();
 }
 
 /// The DomService Webdriver Testability API allows test frameworks to wait for

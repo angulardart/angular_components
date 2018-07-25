@@ -46,8 +46,8 @@ class DomService {
   /// The time to increment after each layout check.
   static const int _IDLE_TIMER_INC_MILLIS = 100;
 
-  final _domReadQueue = new List<DomReadWriteFn>();
-  final _domWriteQueue = new List<DomReadWriteFn>();
+  final _domReadQueue = List<DomReadWriteFn>();
+  final _domWriteQueue = List<DomReadWriteFn>();
   final NgZone _ngZone;
   final Window _window;
 
@@ -99,7 +99,7 @@ class DomService {
         if (isDomMutatedPredicate == null || isDomMutatedPredicate()) {
           // Sending an event to DomService in other apps on the same page.
           _inDispatchTurnDoneEvent = true;
-          _window.dispatchEvent(new Event(_TURN_DONE_EVENT_TYPE));
+          _window.dispatchEvent(Event(_TURN_DONE_EVENT_TYPE));
           _inDispatchTurnDoneEvent = false;
           // If dom has been mutated by angular, mark [_writeQueueChangedLayout]
           // to true. So that [_scheduleOnLayoutChanged] will be called normally
@@ -156,7 +156,7 @@ class DomService {
     while (steps > 0) {
       if (_nextFrameFuture == null) return;
       if (highResTimer == null) {
-        highResTimer = new DateTime.now().millisecondsSinceEpoch;
+        highResTimer = DateTime.now().millisecondsSinceEpoch;
       }
       assert(_nextFrameCompleter != null);
       final Completer completer = _nextFrameCompleter;
@@ -175,7 +175,7 @@ class DomService {
   Future<num> get nextFrame {
     if (_nextFrameFuture == null) {
       assert(_nextFrameCompleter == null);
-      final completer = new Completer<num>.sync();
+      final completer = Completer<num>.sync();
       _nextFrameCompleter = completer;
       _ngZone.runOutsideAngular(() {
         // Delayed initialization of the cross-app event sending.
@@ -192,7 +192,7 @@ class DomService {
         });
       });
       _nextFrameFuture =
-          new ZonedFuture(completer.future, _ngZone.runOutsideAngular);
+          ZonedFuture(completer.future, _ngZone.runOutsideAngular);
     }
     return _nextFrameFuture;
   }
@@ -204,11 +204,11 @@ class DomService {
   ///   - Subscriptions to the stream should be cancelled as soon as possible.
   Stream get onIdle {
     if (_onIdleStream == null) {
-      _onIdleController = new StreamController.broadcast(
+      _onIdleController = StreamController.broadcast(
           sync: true, onListen: _resetIdleTimer, onCancel: _resetIdleTimer);
       // TODO(google): consider scoping it to be inside the managed zone:
       _onIdleStream =
-          new ZonedStream(_onIdleController.stream, _ngZone.runOutsideAngular);
+          ZonedStream(_onIdleController.stream, _ngZone.runOutsideAngular);
       // TODO(google): integrate with Chrome's new idle detection API
     }
     return _onIdleStream;
@@ -228,7 +228,7 @@ class DomService {
       return Disposable.Noop;
     }
     // This is temporary until all the callers are fixed.
-    DisposableCallback callback = new DisposableCallback(fn);
+    DisposableCallback callback = DisposableCallback(fn);
     _scheduleInQueue(callback.call, _domReadQueue);
     return callback;
   }
@@ -247,7 +247,7 @@ class DomService {
       return Disposable.Noop;
     }
     // This is temporary until all the callers are fixed.
-    DisposableCallback callback = new DisposableCallback(fn);
+    DisposableCallback callback = DisposableCallback(fn);
     _scheduleInQueue(callback.call, _domWriteQueue);
     return callback;
   }
@@ -262,16 +262,16 @@ class DomService {
 
   /// A future-based API version of [scheduleRead].
   Future onRead() {
-    final completer = new Completer.sync();
+    final completer = Completer.sync();
     scheduleRead(completer.complete);
-    return new ZonedFuture(completer.future, _ngZone.runOutsideAngular);
+    return ZonedFuture(completer.future, _ngZone.runOutsideAngular);
   }
 
   /// A future-based API version of [scheduleWrite].
   Future onWrite() {
-    final completer = new Completer.sync();
+    final completer = Completer.sync();
     scheduleWrite(completer.complete);
-    return new ZonedFuture(completer.future, _ngZone.runOutsideAngular);
+    return ZonedFuture(completer.future, _ngZone.runOutsideAngular);
   }
 
   void _processQueues() {
@@ -327,8 +327,8 @@ class DomService {
   /// A stream that fires when the queues have been processed and are now empty.
   Stream get onQueuesProcessed {
     if (_onQueuesProcessedStream == null) {
-      _onQueuesProcessedController = new StreamController.broadcast(sync: true);
-      _onQueuesProcessedStream = new ZonedStream(
+      _onQueuesProcessedController = StreamController.broadcast(sync: true);
+      _onQueuesProcessedStream = ZonedStream(
           _onQueuesProcessedController.stream, _ngZone.runOutsideAngular);
     }
     return _onQueuesProcessedStream;
@@ -342,8 +342,8 @@ class DomService {
   ///   to openly check elements size or positioning in this callback.
   Stream get onLayoutChanged {
     if (_onLayoutChangedStream == null) {
-      _onLayoutChangedController = new StreamController.broadcast(sync: true);
-      _onLayoutChangedStream = new ZonedStream(
+      _onLayoutChangedController = StreamController.broadcast(sync: true);
+      _onLayoutChangedStream = ZonedStream(
           _onLayoutChangedController.stream, _ngZone.runOutsideAngular);
       _ngZone.runOutsideAngular(() {
         // Capture events from Angular
@@ -408,8 +408,7 @@ class DomService {
         _ngZone.run(() => callback(value));
       };
     }
-    var tracker =
-        new _ChangeTracker(this, fn, trackerCallback, framesToStabilize);
+    var tracker = _ChangeTracker(this, fn, trackerCallback, framesToStabilize);
     return onLayoutChanged.listen((_) => tracker._onLayoutObserve());
   }
 
@@ -504,7 +503,7 @@ class DomService {
       // - to shorten the minimum period
       // - to detect CPU activities that we are not aware of
       _idleTimerMillis = max(_MIN_IDLE_TIMER_MILLIS, _idleTimerMillis);
-      _idleTimer = new Timer(new Duration(milliseconds: _idleTimerMillis), () {
+      _idleTimer = Timer(Duration(milliseconds: _idleTimerMillis), () {
         _idleTimer = null;
         _idleTimerMillis = _idleTimerMillis ~/ 2;
         _onIdleController.add(null);

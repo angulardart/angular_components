@@ -48,8 +48,8 @@ int _stateHashCode(OverlayState a) {
 abstract class OverlayState {
   /// An overlay pane that centers its content both on the x and y-axis and
   /// captures events, preventing interaction with underlying content.
-  static const Dialog = const OverlayState(
-      captureEvents: true, top: 0, bottom: 0, left: 0, right: 0);
+  static const Dialog =
+      OverlayState(captureEvents: true, top: 0, bottom: 0, left: 0, right: 0);
 
   const factory OverlayState(
       {bool captureEvents,
@@ -189,7 +189,7 @@ class _ImmutableOverlayState implements OverlayState {
 /// Change notifies are delivered asynchronously through [onUpdate].
 class MutableOverlayState implements OverlayState {
   // Fires a single notification once per microtask queue.
-  final _asyncScheduler = new AsyncUpdateScheduler();
+  final _asyncScheduler = AsyncUpdateScheduler();
 
   bool _captureEvents;
   num _left;
@@ -205,9 +205,9 @@ class MutableOverlayState implements OverlayState {
 
   /// Creates a mutable state by copying values from [other].
   factory MutableOverlayState.from(OverlayState other) {
-    if (other == null) return new MutableOverlayState();
+    if (other == null) return MutableOverlayState();
     if (other is MutableOverlayState) return other;
-    return new MutableOverlayState(
+    return MutableOverlayState(
         captureEvents: other.captureEvents,
         left: other.left,
         top: other.top,

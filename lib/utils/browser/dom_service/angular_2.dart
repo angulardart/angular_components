@@ -21,12 +21,12 @@ export 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 // using dart's factory pattern.
 
 /// Factory for [DomService].
-const domServiceBinding = const FactoryProvider(
+const domServiceBinding = FactoryProvider(
   DomService,
   createDomService,
-  deps: const [
-    const [DomService, const Optional(), const SkipSelf()],
-    const [Disposer, const Optional()],
+  deps: [
+    [DomService, Optional(), SkipSelf()],
+    [Disposer, Optional()],
     NgZone,
     Window,
   ],
@@ -44,7 +44,7 @@ DomService createDomService(@Optional() @SkipSelf() DomService service,
 
   if (_singletonService != null) return _singletonService;
 
-  _singletonService = new DomService(zone, window);
+  _singletonService = DomService(zone, window);
 
   createDomServiceWebdriverTestability(_singletonService).register();
 

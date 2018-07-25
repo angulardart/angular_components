@@ -46,14 +46,14 @@ class OverlayService {
   Future<Rectangle<num>> measureContainer() =>
       _renderService.measureContainer();
 
-  static const _defaultState = const OverlayState();
-  static final _logger = new Logger('OverlayService');
+  static const _defaultState = OverlayState();
+  static final _logger = Logger('OverlayService');
 
   final bool _useDomSynchronously;
   final NgZone _ngZone;
   final OverlayDomRenderService _renderService;
 
-  OverlayRef _createRef(HtmlElement pane, OverlayState state) => new OverlayRef(
+  OverlayRef _createRef(HtmlElement pane, OverlayState state) => OverlayRef(
       _renderService.applyState,
       _measurePane,
       _renderService.createPortalHost(pane),
