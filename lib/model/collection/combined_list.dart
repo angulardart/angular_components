@@ -26,7 +26,7 @@ class CombinedList<E> extends ListMixin<E> {
       if (index < list.length) return list[index];
       index -= list.length;
     }
-    throw new StateError('Index out of range: $index ($length)');
+    throw StateError('Index out of range: $index ($length)');
   }
 
   @override
@@ -39,9 +39,9 @@ class CombinedList<E> extends ListMixin<E> {
       }
       index -= list.length;
     }
-    throw new StateError('Index out of range: $index ($length)');
+    throw StateError('Index out of range: $index ($length)');
   }
 
   @override
-  set length(int newLength) => throw new UnimplementedError();
+  set length(int newLength) => throw UnimplementedError();
 }

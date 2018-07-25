@@ -55,7 +55,7 @@ class LazyListTracker<S, T> extends Object
   int get length => _target == null ? 0 : _target.length;
 
   @override
-  set length(int value) => throw new UnimplementedError();
+  set length(int value) => throw UnimplementedError();
 
   /// Forces the tracker to track the ObservableList source, otherwise it
   /// will be tracked only on the first index access.
@@ -140,7 +140,7 @@ class LazyListTracker<S, T> extends Object
 
   void _initIfRequired() {
     if (_target == null) {
-      _target = new List();
+      _target = List();
       if (_source is ObservableList) {
         (_source as ObservableList).deliverListChanges();
         _subscription = (_source as ObservableList)
