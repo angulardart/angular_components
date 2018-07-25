@@ -13,7 +13,7 @@ abstract class IdGenerator {
 /// Sequential implementation of generator that will use seed as prefix
 /// and sequential number as suffix in form of "prefix--153"
 class SequentialIdGenerator implements IdGenerator {
-  static final _rnd = new math.Random();
+  static final _rnd = math.Random();
   final String _prefix;
   int _seq = 0;
 
@@ -43,7 +43,7 @@ class SequentialIdGenerator implements IdGenerator {
   /// Eliminates the only dependency on `pkg:uuid` in all of components.
   static String _createUuid() {
     // See http://www.cryptosys.net/pki/uuid-rfc4122.html for notes
-    var bytes = new List<int>.generate(16, (_) => _rnd.nextInt(256));
+    var bytes = List<int>.generate(16, (_) => _rnd.nextInt(256));
     bytes[6] = (bytes[6] & 0x0F) | 0x40;
     bytes[8] = (bytes[8] & 0x3f) | 0x80;
 
