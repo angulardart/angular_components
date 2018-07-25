@@ -38,7 +38,7 @@ class OptionGroup<T> extends LabeledList<T> {
   OptionGroup<T> slicedOptionGroup(int start, int end) {
     List<T> subListItems = this.sublist(start, end);
 
-    return new OptionGroup.withLabelFunction(
+    return OptionGroup.withLabelFunction(
         subListItems, hasLabel ? null : () => uiDisplayName, _emptyLabelFcn);
   }
 }
@@ -76,7 +76,7 @@ abstract class GroupedOptions<T> implements Disposable {
 class SelectionOptions<T> extends GroupedOptions<T>
     implements ObserveAware<List<OptionGroup<T>>> {
   final _controller =
-      new StreamController<List<OptionGroup<T>>>.broadcast(sync: true);
+      StreamController<List<OptionGroup<T>>>.broadcast(sync: true);
 
   List<T> _flattenedList;
   List<OptionGroup<T>> _optionGroups;
@@ -89,7 +89,7 @@ class SelectionOptions<T> extends GroupedOptions<T>
   /// Creates an instance from a list of options.
   // TODO(google): Rename this to withOptions.
   SelectionOptions.fromList(List<T> options, {String label})
-      : this(<OptionGroup<T>>[new OptionGroup<T>.withLabel(options, label)]);
+      : this(<OptionGroup<T>>[OptionGroup<T>.withLabel(options, label)]);
 
   /// Creates an instance with the given option groups.
   SelectionOptions.withOptionGroups(List<OptionGroup<T>> optionGroups)
@@ -98,7 +98,7 @@ class SelectionOptions<T> extends GroupedOptions<T>
   /// Creates an instance with options resolved from the provided `Future`.
   factory SelectionOptions.fromFuture(
           Future<List<OptionGroup<T>>> optionGroupListFuture) =>
-      new _FutureSelectionOptions<T>(optionGroupListFuture);
+      _FutureSelectionOptions<T>(optionGroupListFuture);
 
   /// Creates an instance where the available options are the last data item
   /// from the provided `Stream`.
@@ -107,7 +107,7 @@ class SelectionOptions<T> extends GroupedOptions<T>
   /// the stream listener.
   factory SelectionOptions.fromStream(
           Stream<List<OptionGroup<T>>> optionGroupListStream) =>
-      new _StreamSelectionOptions<T>(optionGroupListStream);
+      _StreamSelectionOptions<T>(optionGroupListStream);
 
   /// Provides the stream of options group changes.
   @override

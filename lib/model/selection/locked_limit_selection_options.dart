@@ -20,7 +20,7 @@ class LockedLimitSelectionOptions<T> extends DelegatingSelectionOptions<T>
 
   final int lockedLimit;
   final SelectionOptions<T> _options;
-  final Disposer _disposer = new Disposer.oneShot();
+  final Disposer _disposer = Disposer.oneShot();
 
   bool _unlockLimit = false;
   int _currentLimit;
@@ -111,7 +111,7 @@ class LockedLimitSelectionOptions<T> extends DelegatingSelectionOptions<T>
         totalOptionCount += group.length;
       } else {
         var lastOptions = group.take(maxItems - totalOptionCount).toList();
-        _filteredGroups.add(new OptionGroup<T>(lastOptions));
+        _filteredGroups.add(OptionGroup<T>(lastOptions));
         break;
       }
     }

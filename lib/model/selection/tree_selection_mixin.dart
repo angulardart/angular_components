@@ -27,11 +27,11 @@ abstract class TreeSelectionMixin<T>
 
   /// Gets a flat list of T when given a parent of type T.
   List<T> allChildrenOf(T e) {
-    List<T> allChildren = new List<T>();
-    Queue<T> parentsToCheck = new Queue<T>();
+    List<T> allChildren = List<T>();
+    Queue<T> parentsToCheck = Queue<T>();
 
     // To prevent an accidental circular reference
-    Set<T> visited = new Set<T>();
+    Set<T> visited = Set<T>();
 
     visited.add(e);
     if (hasChildren(e)) {
@@ -62,7 +62,7 @@ abstract class TreeSelectionMixin<T>
   /// Returns the hierarchy map data of the tree.
   @protected
   Map<T, List<OptionGroup<T>>> getHierarchyMap() =>
-      throw new UnimplementedError('getHierarchyMap() must be overriden.');
+      throw UnimplementedError('getHierarchyMap() must be overriden.');
 
   /// Returns the parent of the given value
   T getParent(T value) => null;

@@ -55,7 +55,7 @@ abstract class SelectionModel<T> extends Object
 
   /// Creates a single-selection model that always has a value selected.
   factory SelectionModel.radio(T selected) =>
-      new RadioGroupSingleSelectionModel<T>(selected);
+      RadioGroupSingleSelectionModel<T>(selected);
 
   /// Creates a multi-selection model.
   ///
@@ -75,10 +75,10 @@ abstract class SelectionModel<T> extends Object
       KeyProvider<T> keyProvider,
       bool allowMulti = false}) {
     if (allowMulti) {
-      return new SelectionModel<T>.multi(
+      return SelectionModel<T>.multi(
           selectedValues: selectedValues, keyProvider: keyProvider);
     } else {
-      return new SelectionModel<T>.single(
+      return SelectionModel<T>.single(
           selected: (selectedValues?.isNotEmpty ?? false)
               ? selectedValues.last
               : null,
@@ -120,7 +120,7 @@ abstract class SelectionModel<T> extends Object
 
 abstract class SingleSelectionModel<T> extends SelectionModel<T> {
   factory SingleSelectionModel({T selected, KeyProvider<T> keyProvider}) =>
-      new _SingleSelectionModelImpl<T>(
+      _SingleSelectionModelImpl<T>(
           selected, keyProvider ?? _defaultKeyProvider);
 
   /// The selected value, or `null` if no value has been selected.
@@ -130,7 +130,7 @@ abstract class SingleSelectionModel<T> extends SelectionModel<T> {
 abstract class MultiSelectionModel<T> extends SelectionModel<T> {
   factory MultiSelectionModel(
           {List<T> selectedValues, KeyProvider<T> keyProvider}) =>
-      new _MultiSelectionModelImpl<T>(
+      _MultiSelectionModelImpl<T>(
           selectedValues ?? const [], keyProvider ?? _defaultKeyProvider);
 
   /// Adds all [values] to the list of selected items that were not previously
