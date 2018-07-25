@@ -45,7 +45,7 @@ class ZonedFuture<T> extends _ZoneRunner implements Future<T> {
 
   @override
   Stream<T> asStream() {
-    return new ZonedStream(_innerFuture.asStream(), _runInZoneFn);
+    return ZonedStream(_innerFuture.asStream(), _runInZoneFn);
   }
 
   @override
@@ -105,12 +105,12 @@ class ZonedStream<T> extends Stream<T> with _ZoneRunner {
 
   @override
   Future<T> get first {
-    return new ZonedFuture<T>(_innerStream.first, _runInZone);
+    return ZonedFuture<T>(_innerStream.first, _runInZone);
   }
 
   @override
   Future<T> get last {
-    return new ZonedFuture<T>(_innerStream.last, _runInZone);
+    return ZonedFuture<T>(_innerStream.last, _runInZone);
   }
 
   @override

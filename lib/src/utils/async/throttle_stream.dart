@@ -29,5 +29,5 @@ import 'rate_limit.dart';
 /// throttling period expires.
 StreamTransformer<S, T> throttleStream<S, T>(Duration duration,
         {bool guaranteeLast = true}) =>
-    new RateLimitTransformer<S, T>(
+    RateLimitTransformer<S, T>(
         duration, guaranteeLast ? throttleGuaranteeLast : throttle);

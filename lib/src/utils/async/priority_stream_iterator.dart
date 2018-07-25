@@ -21,8 +21,8 @@ class PriorityStreamIterator<T extends Comparable>
   /// [comparison] function. If [comparison] is not provided, [T] must implement
   /// Comparable<T>.
   PriorityStreamIterator(Stream<T> stream, [int comparison(T a, T b)])
-      : _iterator = new StreamIterator(stream),
-        _queue = new _StablePriorityQueue<T>(comparison) {
+      : _iterator = StreamIterator(stream),
+        _queue = _StablePriorityQueue<T>(comparison) {
     _accumulateValues();
   }
 
@@ -32,7 +32,7 @@ class PriorityStreamIterator<T extends Comparable>
   Future<bool> moveNext() {
     if (_queue.isNotEmpty) {
       _current = _queue.removeFirst();
-      return new Future.value(true);
+      return Future.value(true);
     }
     _current = null;
     return _next.then((_) {
@@ -84,7 +84,7 @@ class PriorityStreamIterator<T extends Comparable>
 /// default [Comparable.compare].
 class _StablePriorityQueue<T extends Comparable> extends HeapPriorityQueue<T> {
   _StablePriorityQueue([Comparator<T> comparison])
-      : this._(new _OrderedComparator(comparison ?? _defaultComparator<T>()));
+      : this._(_OrderedComparator(comparison ?? _defaultComparator<T>()));
 
   _StablePriorityQueue._(this.comparator) : super(comparator);
 
@@ -173,7 +173,7 @@ class _OrderedComparator<T extends Comparable> implements Function {
   int _compareOrder(T a, T b) {
     if (!_ordinalByElement.containsKey(a) ||
         !_ordinalByElement.containsKey(b)) {
-      throw new StateError(
+      throw StateError(
           "Comparing elements that weren't registered with the comparator.");
     }
     return _ordinalByElement[a] - _ordinalByElement[b];
