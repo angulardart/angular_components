@@ -17,7 +17,7 @@ import 'package:angular_components/model/menu/menu.dart';
 /// A popup that renders a [MenuModel] using a [MenuItemGroupsComponent].
 @Component(
     selector: 'menu-popup',
-    directives: const [
+    directives: [
       AutoFocusDirective,
       DeferredContentDirective,
       MaterialListComponent,
@@ -27,7 +27,7 @@ import 'package:angular_components/model/menu/menu.dart';
       NgIf,
     ],
     templateUrl: 'menu_popup.html',
-    styleUrls: const ['menu_popup.scss.css'],
+    styleUrls: ['menu_popup.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MenuPopupComponent extends Object with FocusableMixin, MenuPopupWrapper {
   @Input()

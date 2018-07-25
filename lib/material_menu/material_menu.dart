@@ -25,7 +25,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// is selected or a region outside the dropdown is clicked.
 @Component(
     selector: 'material-menu',
-    directives: const [
+    directives: [
       MaterialButtonComponent,
       MaterialIconComponent,
       MaterialTooltipDirective,
@@ -33,16 +33,16 @@ import 'package:angular_components/utils/disposer/disposer.dart';
       NgIf,
       PopupSourceDirective
     ],
-    providers: const [
-      const Provider(HasDisabled, useExisting: MaterialMenuComponent),
+    providers: [
+      Provider(HasDisabled, useExisting: MaterialMenuComponent),
     ],
     templateUrl: 'material_menu.html',
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialMenuComponent extends Object
     with FocusableMixin, MenuPopupWrapper
     implements AfterViewInit, HasDisabled, OnDestroy {
-  final _onTrigger = new StreamController<void>();
-  final _disposer = new Disposer.oneShot();
+  final _onTrigger = StreamController<void>();
+  final _disposer = Disposer.oneShot();
 
   /// CSS classes to append onto the menu popup.
   ///

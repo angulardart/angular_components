@@ -37,7 +37,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// Renders list of menu items.
 @Component(
   selector: 'menu-item-groups',
-  directives: const [
+  directives: [
     ActiveItemDirective,
     AutoFocusDirective,
     ButtonDirective,
@@ -61,7 +61,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     PopupSourceDirective
   ],
   templateUrl: 'menu_item_groups.html',
-  styleUrls: const ['menu_item_groups.scss.css'],
+  styleUrls: ['menu_item_groups.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
@@ -70,7 +70,7 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   final IdGenerator _idGenerator;
   final ChangeDetectorRef _changeDetector;
 
-  static const _menuDelay = const Duration(milliseconds: 400);
+  static const _menuDelay = Duration(milliseconds: 400);
 
   /// The menu to display.
   ///
@@ -158,7 +158,7 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   /// Fires when user selects an item in the menu.
   @Output()
   Stream<MenuItem> get selected => _selected.stream;
-  final _selected = new StreamController<MenuItem>.broadcast();
+  final _selected = StreamController<MenuItem>.broadcast();
 
   /// Highlighter to use, need to be to be provided if [highlight] is used.
   @Input()
@@ -191,12 +191,12 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
           ChangeDetectorRef changeDetector,
           @Optional() DropdownHandle dropdownHandle,
           @Optional() IdGenerator idGenerator) =>
-      new MenuItemGroupsComponent._(dropdownHandle, menuRoot, changeDetector,
-          idGenerator ?? new SequentialIdGenerator.fromUUID());
+      MenuItemGroupsComponent._(dropdownHandle, menuRoot, changeDetector,
+          idGenerator ?? SequentialIdGenerator.fromUUID());
 
   MenuItemGroupsComponent._(this._dropdownHandle, this._menuRoot,
       this._changeDetector, this._idGenerator) {
-    this._subMenuOpener = new DelayedAction(_menuDelay, _openSubMenuOnHover);
+    this._subMenuOpener = DelayedAction(_menuDelay, _openSubMenuOnHover);
   }
 
   /// Returns list of highlighted segments for a given input, using provided
@@ -252,7 +252,7 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
     }
   }
 
-  @HostListener('keydown', const [r'$event'])
+  @HostListener('keydown', [r'$event'])
   void handleKeydown(KeyboardEvent event, {bool shouldPreventDefault = true}) {
     _isMouseDriven = false;
 
@@ -430,13 +430,13 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
 
   void _createActiveMenuModelIfNone() {
     if ((menu != null) && (activeModel == null)) {
-      activeModel = new ActiveMenuItemModel(_idGenerator,
+      activeModel = ActiveMenuItemModel(_idGenerator,
           menu: menu, filterOutUnselectableItems: true);
       if (_activateFirstItemOnInit) {
         // Set auto-focus to the currently selected list item if this menu is
         // a sub-menu and was opened via keyboard shortcut.
         _autoFocusItemId =
-            new qc.Optional.of(activeModel.id(activeModel.activeItem));
+            qc.Optional.of(activeModel.id(activeModel.activeItem));
       } else {
         // Don't activate any item.
         activeModel.activate(null);
@@ -470,7 +470,7 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   }
 }
 
-const _preferredSubMenuPositions = const [
+const _preferredSubMenuPositions = [
   RelativePosition.AdjacentRightTop,
   RelativePosition.AdjacentRight,
   RelativePosition.AdjacentRightBottom,
@@ -479,7 +479,7 @@ const _preferredSubMenuPositions = const [
   RelativePosition.AdjacentLeftBottom,
 ];
 
-const _tooltipPositions = const [
+const _tooltipPositions = [
   RelativePosition.AdjacentRight,
   RelativePosition.AdjacentLeft,
 ];

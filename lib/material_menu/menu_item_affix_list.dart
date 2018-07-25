@@ -21,18 +21,18 @@ import 'package:angular_components/model/ui/icon.dart';
 @Component(
   selector: 'menu-item-affix-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: const [
+  directives: [
     ButtonDirective,
     MaterialIconComponent,
     NgFor,
     NgIf,
     NgClass,
   ],
-  providers: const [
-    const Provider(HasDisabled, useExisting: MenuItemAffixListComponent),
+  providers: [
+    Provider(HasDisabled, useExisting: MenuItemAffixListComponent),
   ],
   templateUrl: 'menu_item_affix_list.html',
-  styleUrls: const ['menu_item_affix_list.scss.css'],
+  styleUrls: ['menu_item_affix_list.scss.css'],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
 )

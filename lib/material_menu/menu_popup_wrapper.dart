@@ -28,7 +28,7 @@ class MenuPopupWrapper implements AcceptsWidth {
   /// Outputs an event when the menu is expanded.
   @Output()
   Stream<bool> get isExpandedChange => _expanded.stream;
-  final _expanded = new ObservableReference<bool>(false);
+  final _expanded = ObservableReference<bool>(false);
 
   /// Selects 1 of 5 predefined width values for the menu.
   ///
