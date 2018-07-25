@@ -23,7 +23,7 @@ bool _parseBool(String strValue) {
     case 'false':
       return false;
     default:
-      throw new ArgumentError.value(
+      throw ArgumentError.value(
           strValue,
           'strValue',
           'Only "", "true", and "false" are acceptable values for parseBool. '
@@ -42,12 +42,12 @@ bool _parseBool(String strValue) {
 @Deprecated('Angular now supports boolean properties natively, for @Attribute'
     ' use [attributeToBool].')
 bool getBool(inputValue) {
-  if (inputValue == null) throw new ArgumentError.notNull('inputValue');
+  if (inputValue == null) throw ArgumentError.notNull('inputValue');
 
   if (inputValue is String) return _parseBool(inputValue);
   if (inputValue is bool) return inputValue;
 
-  throw new ArgumentError.value(
+  throw ArgumentError.value(
       inputValue, 'inputValue', 'Expected a String, or bool type');
 }
 

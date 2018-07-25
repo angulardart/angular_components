@@ -6,12 +6,11 @@ import 'package:fixnum/fixnum.dart';
 
 /// A denomination type for defining how large values are mapped to [suffix]es
 class Denomination {
-  static const Hundreds = const Denomination._(1, '', null);
-  static const Thousands = const Denomination._(1000, 'k', 1000);
-  static const Millions = const Denomination._(1000000, 'M', 1000000);
-  static const Billions = const Denomination._(1000000000, 'B', 1000000000);
-  static const Trillions =
-      const Denomination._(1000000000000, 'T', 1000000000000);
+  static const Hundreds = Denomination._(1, '', null);
+  static const Thousands = Denomination._(1000, 'k', 1000);
+  static const Millions = Denomination._(1000000, 'M', 1000000);
+  static const Billions = Denomination._(1000000000, 'B', 1000000000);
+  static const Trillions = Denomination._(1000000000000, 'T', 1000000000000);
 
   /// The minimum value to gain the attached suffix
   final num minValue;
