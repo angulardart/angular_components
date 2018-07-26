@@ -39,9 +39,59 @@ abstract class Selectable<T> {
     }
     if (isMaybeModel is SelectableWithComposition<T>) {
       final SelectableGetter<T> getSelectable = isMaybeModel.getSelectable;
-      return getSelectable != null && identical(getSelectable(item), option);
+      if (getSelectable != null) {
+        return identical(getSelectable(item), option);
+      }
     }
     return defaultIfMissingInterface;
+  }
+
+  /// Returns the selectability of option [item] in [isMaybeModel].
+  static SelectableOption getOptionIn<T>(
+    Object isMaybeModel,
+    T item, [
+    SelectableOption defaultIfMissingInterface = SelectableOption.Selectable,
+  ]) {
+    if (isMaybeModel is Selectable<T>) {
+      return isMaybeModel.getSelectable(item);
+    }
+    if (isMaybeModel is SelectableWithComposition<T>) {
+      final dynamic avoidFuzzyArrow = isMaybeModel;
+      final getSelectable = avoidFuzzyArrow.getSelectable;
+      if (getSelectable != null) {
+        return getSelectable(item);
+      }
+    }
+    return defaultIfMissingInterface;
+  }
+
+  /// Returns a filter function based on [item] being selectable.
+  static bool Function(T) filterWhereSelectable<T>(
+    Object isMaybeModel, [
+    bool defaultIfMissingInterface = true,
+  ]) {
+    bool Function(T) isSelectable = (_) => defaultIfMissingInterface;
+    if (isMaybeModel is Selectable<T>) {
+      isSelectable = (option) {
+        return identical(
+          isMaybeModel.getSelectable(option),
+          SelectableOption.Selectable,
+        );
+      };
+    }
+    if (isMaybeModel is SelectableWithComposition<T>) {
+      final dynamic avoidFuzzyArrow = isMaybeModel;
+      final getSelectable = avoidFuzzyArrow.getSelectable;
+      if (getSelectable != null) {
+        isSelectable = (option) {
+          return identical(
+            getSelectable(option),
+            SelectableOption.Selectable,
+          );
+        };
+      }
+    }
+    return isSelectable;
   }
 
   /// Returns whether [model] has [item] as a [SelectableOption.Selectable].
