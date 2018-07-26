@@ -224,4 +224,14 @@ class Color {
 
   @override
   int get hashCode => hash4(red, green, blue, alpha);
+
+  /// Calculates the square of the Euclidean distance from another color.
+  ///
+  /// The distance is calculated using the rgb channels and ignores the alpha
+  /// channel.
+  int distanceFrom(Color other) {
+    return math.pow(other.red - red, 2) +
+        math.pow(other.blue - blue, 2) +
+        math.pow(other.green - green, 2);
+  }
 }

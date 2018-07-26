@@ -92,6 +92,23 @@ const redA400 = Color.rgb(255, 23, 68);
 const redA700 = Color.rgb(213, 0, 0);
 const red = red500;
 
+const reds = {
+  'mat-red-50': red50,
+  'mat-red-100': red100,
+  'mat-red-200': red200,
+  'mat-red-300': red300,
+  'mat-red-400': red400,
+  'mat-red-500': red500,
+  'mat-red-600': red600,
+  'mat-red-700': red700,
+  'mat-red-800': red800,
+  'mat-red-900': red900,
+  'mat-red-A100': redA100,
+  'mat-red-A200': redA200,
+  'mat-red-A400': redA400,
+  'mat-red-A700': redA700,
+};
+
 /// Pinks
 const pink50 = Color.rgb(252, 228, 236);
 const pink100 = Color.rgb(248, 187, 208);
@@ -109,6 +126,23 @@ const pinkA200 = Color.rgb(255, 64, 129);
 const pinkA400 = Color.rgb(245, 0, 87);
 const pinkA700 = Color.rgb(197, 17, 98);
 const pink = pink500;
+
+const pinks = {
+  'mat-pink-50': pink50,
+  'mat-pink-100': pink100,
+  'mat-pink-200': pink200,
+  'mat-pink-300': pink300,
+  'mat-pink-400': pink400,
+  'mat-pink-500': pink500,
+  'mat-pink-600': pink600,
+  'mat-pink-700': pink700,
+  'mat-pink-800': pink800,
+  'mat-pink-900': pink900,
+  'mat-pink-A100': pinkA100,
+  'mat-pink-A200': pinkA200,
+  'mat-pink-A400': pinkA400,
+  'mat-pink-A700': pinkA700,
+};
 
 /// Purples
 const purple50 = Color.rgb(243, 229, 245);
@@ -128,6 +162,23 @@ const purpleA400 = Color.rgb(213, 0, 249);
 const purpleA700 = Color.rgb(170, 0, 255);
 const purple = purple500;
 
+const purples = {
+  'mat-purple-50': purple50,
+  'mat-purple-100': purple100,
+  'mat-purple-200': purple200,
+  'mat-purple-300': purple300,
+  'mat-purple-400': purple400,
+  'mat-purple-500': purple500,
+  'mat-purple-600': purple600,
+  'mat-purple-700': purple700,
+  'mat-purple-800': purple800,
+  'mat-purple-900': purple900,
+  'mat-purple-A100': purpleA100,
+  'mat-purple-A200': purpleA200,
+  'mat-purple-A400': purpleA400,
+  'mat-purple-A700': purpleA700,
+};
+
 /// Deep Purples
 const deepPurple50 = Color.rgb(237, 231, 246);
 const deepPurple100 = Color.rgb(209, 196, 233);
@@ -145,6 +196,23 @@ const deepPurpleA200 = Color.rgb(124, 77, 255);
 const deepPurpleA400 = Color.rgb(101, 31, 255);
 const deepPurpleA700 = Color.rgb(98, 0, 234);
 const deepPurple = deepPurple500;
+
+const deepPurples = {
+  'mat-deep-purple-50': deepPurple50,
+  'mat-deep-purple-100': deepPurple100,
+  'mat-deep-purple-200': deepPurple200,
+  'mat-deep-purple-300': deepPurple300,
+  'mat-deep-purple-400': deepPurple400,
+  'mat-deep-purple-500': deepPurple500,
+  'mat-deep-purple-600': deepPurple600,
+  'mat-deep-purple-700': deepPurple700,
+  'mat-deep-purple-800': deepPurple800,
+  'mat-deep-purple-900': deepPurple900,
+  'mat-deep-purple-A100': deepPurpleA100,
+  'mat-deep-purple-A200': deepPurpleA200,
+  'mat-deep-purple-A400': deepPurpleA400,
+  'mat-deep-purple-A700': deepPurpleA700,
+};
 
 /// Indigo
 const indigo50 = Color.rgb(232, 234, 246);
@@ -164,6 +232,23 @@ const indigoA400 = Color.rgb(61, 90, 254);
 const indigoA700 = Color.rgb(48, 79, 254);
 const indigo = indigo500;
 
+const indigos = {
+  'mat-indigo-50': indigo50,
+  'mat-indigo-100': indigo100,
+  'mat-indigo-200': indigo200,
+  'mat-indigo-300': indigo300,
+  'mat-indigo-400': indigo400,
+  'mat-indigo-500': indigo500,
+  'mat-indigo-600': indigo600,
+  'mat-indigo-700': indigo700,
+  'mat-indigo-800': indigo800,
+  'mat-indigo-900': indigo900,
+  'mat-indigo-A100': indigoA100,
+  'mat-indigo-A200': indigoA200,
+  'mat-indigo-A400': indigoA400,
+  'mat-indigo-A700': indigoA700,
+};
+
 /// Google Blue
 const blue50 = Color.rgb(232, 240, 254);
 const blue100 = Color.rgb(198, 218, 252);
@@ -181,6 +266,23 @@ const blueA200 = Color.rgb(68, 138, 255);
 const blueA400 = Color.rgb(41, 121, 255);
 const blueA700 = Color.rgb(41, 98, 255);
 const blue = blue500;
+
+const blues = {
+  'mat-blue-50': blue50,
+  'mat-blue-100': blue100,
+  'mat-blue-200': blue200,
+  'mat-blue-300': blue300,
+  'mat-blue-400': blue400,
+  'mat-blue-500': blue500,
+  'mat-blue-600': blue600,
+  'mat-blue-700': blue700,
+  'mat-blue-800': blue800,
+  'mat-blue-900': blue900,
+  'mat-blue-A100': blueA100,
+  'mat-blue-A200': blueA200,
+  'mat-blue-A400': blueA400,
+  'mat-blue-A700': blueA700,
+};
 
 /// Light Blues
 const lightBlue50 = Color.rgb(225, 245, 254);
@@ -200,6 +302,23 @@ const lightBlueA400 = Color.rgb(0, 176, 255);
 const lightBlueA700 = Color.rgb(0, 145, 234);
 const lightBlue = lightBlue500;
 
+const lightBlues = {
+  'mat-light-blue-50': lightBlue50,
+  'mat-light-blue-100': lightBlue100,
+  'mat-light-blue-200': lightBlue200,
+  'mat-light-blue-300': lightBlue300,
+  'mat-light-blue-400': lightBlue400,
+  'mat-light-blue-500': lightBlue500,
+  'mat-light-blue-600': lightBlue600,
+  'mat-light-blue-700': lightBlue700,
+  'mat-light-blue-800': lightBlue800,
+  'mat-light-blue-900': lightBlue900,
+  'mat-light-blue-A100': lightBlueA100,
+  'mat-light-blue-A200': lightBlueA200,
+  'mat-light-blue-A400': lightBlueA400,
+  'mat-light-blue-A700': lightBlueA700,
+};
+
 /// Cyan
 const cyan50 = Color.rgb(224, 247, 250);
 const cyan100 = Color.rgb(178, 235, 242);
@@ -217,6 +336,23 @@ const cyanA200 = Color.rgb(24, 255, 255);
 const cyanA400 = Color.rgb(0, 229, 255);
 const cyanA700 = Color.rgb(0, 184, 212);
 const cyan = cyan500;
+
+const cyans = {
+  'mat-cyan-50': cyan50,
+  'mat-cyan-100': cyan100,
+  'mat-cyan-200': cyan200,
+  'mat-cyan-300': cyan300,
+  'mat-cyan-400': cyan400,
+  'mat-cyan-500': cyan500,
+  'mat-cyan-600': cyan600,
+  'mat-cyan-700': cyan700,
+  'mat-cyan-800': cyan800,
+  'mat-cyan-900': cyan900,
+  'mat-cyan-A100': cyanA100,
+  'mat-cyan-A200': cyanA200,
+  'mat-cyan-A400': cyanA400,
+  'mat-cyan-A700': cyanA700,
+};
 
 /// Teals
 const teal50 = Color.rgb(224, 242, 241);
@@ -236,6 +372,23 @@ const tealA400 = Color.rgb(29, 233, 182);
 const tealA700 = Color.rgb(0, 191, 165);
 const teal = teal500;
 
+const teals = {
+  'mat-teal-50': teal50,
+  'mat-teal-100': teal100,
+  'mat-teal-200': teal200,
+  'mat-teal-300': teal300,
+  'mat-teal-400': teal400,
+  'mat-teal-500': teal500,
+  'mat-teal-600': teal600,
+  'mat-teal-700': teal700,
+  'mat-teal-800': teal800,
+  'mat-teal-900': teal900,
+  'mat-teal-A100': tealA100,
+  'mat-teal-A200': tealA200,
+  'mat-teal-A400': tealA400,
+  'mat-teal-A700': tealA700,
+};
+
 /// Google Green
 const green50 = Color.rgb(226, 243, 235);
 const green100 = Color.rgb(183, 225, 205);
@@ -253,6 +406,23 @@ const greenA200 = Color.rgb(105, 240, 174);
 const greenA400 = Color.rgb(0, 230, 118);
 const greenA700 = Color.rgb(0, 200, 83);
 const green = green500;
+
+const greens = {
+  'mat-green-50': green50,
+  'mat-green-100': green100,
+  'mat-green-200': green200,
+  'mat-green-300': green300,
+  'mat-green-400': green400,
+  'mat-green-500': green500,
+  'mat-green-600': green600,
+  'mat-green-700': green700,
+  'mat-green-800': green800,
+  'mat-green-900': green900,
+  'mat-green-A100': greenA100,
+  'mat-green-A200': greenA200,
+  'mat-green-A400': greenA400,
+  'mat-green-A700': greenA700,
+};
 
 /// Light Greens
 const lightGreen50 = Color.rgb(241, 248, 233);
@@ -272,6 +442,23 @@ const lightGreenA400 = Color.rgb(118, 255, 3);
 const lightGreenA700 = Color.rgb(100, 221, 23);
 const lightGreen = lightGreen500;
 
+const lightGreens = {
+  'mat-light-green-50': lightGreen50,
+  'mat-light-green-100': lightGreen100,
+  'mat-light-green-200': lightGreen200,
+  'mat-light-green-300': lightGreen300,
+  'mat-light-green-400': lightGreen400,
+  'mat-light-green-500': lightGreen500,
+  'mat-light-green-600': lightGreen600,
+  'mat-light-green-700': lightGreen700,
+  'mat-light-green-800': lightGreen800,
+  'mat-light-green-900': lightGreen900,
+  'mat-light-green-A100': lightGreenA100,
+  'mat-light-green-A200': lightGreenA200,
+  'mat-light-green-A400': lightGreenA400,
+  'mat-light-green-A700': lightGreenA700,
+};
+
 /// Limes
 const lime50 = Color.rgb(249, 251, 231);
 const lime100 = Color.rgb(240, 244, 195);
@@ -289,6 +476,23 @@ const limeA200 = Color.rgb(238, 255, 65);
 const limeA400 = Color.rgb(198, 255, 0);
 const limeA700 = Color.rgb(174, 234, 0);
 const lime = lime500;
+
+const limes = {
+  'mat-lime-50': lime50,
+  'mat-lime-100': lime100,
+  'mat-lime-200': lime200,
+  'mat-lime-300': lime300,
+  'mat-lime-400': lime400,
+  'mat-lime-500': lime500,
+  'mat-lime-600': lime600,
+  'mat-lime-700': lime700,
+  'mat-lime-800': lime800,
+  'mat-lime-900': lime900,
+  'mat-lime-A100': limeA100,
+  'mat-lime-A200': limeA200,
+  'mat-lime-A400': limeA400,
+  'mat-lime-A700': limeA700,
+};
 
 /// Google Yellow
 const yellow50 = Color.rgb(254, 246, 224);
@@ -308,6 +512,23 @@ const yellowA400 = Color.rgb(255, 188, 0);
 const yellowA700 = Color.rgb(255, 158, 0);
 const yellow = yellow500;
 
+const yellows = {
+  'mat-yellow-50': yellow50,
+  'mat-yellow-100': yellow100,
+  'mat-yellow-200': yellow200,
+  'mat-yellow-300': yellow300,
+  'mat-yellow-400': yellow400,
+  'mat-yellow-500': yellow500,
+  'mat-yellow-600': yellow600,
+  'mat-yellow-700': yellow700,
+  'mat-yellow-800': yellow800,
+  'mat-yellow-900': yellow900,
+  'mat-yellow-A100': yellowA100,
+  'mat-yellow-A200': yellowA200,
+  'mat-yellow-A400': yellowA400,
+  'mat-yellow-A700': yellowA700,
+};
+
 /// Oranges
 const orange50 = Color.rgb(255, 243, 224);
 const orange100 = Color.rgb(255, 224, 178);
@@ -325,6 +546,23 @@ const orangeA200 = Color.rgb(255, 171, 64);
 const orangeA400 = Color.rgb(255, 145, 0);
 const orangeA700 = Color.rgb(255, 109, 0);
 const orange = orange500;
+
+const oranges = {
+  'mat-orange-50': orange50,
+  'mat-orange-100': orange100,
+  'mat-orange-200': orange200,
+  'mat-orange-300': orange300,
+  'mat-orange-400': orange400,
+  'mat-orange-500': orange500,
+  'mat-orange-600': orange600,
+  'mat-orange-700': orange700,
+  'mat-orange-800': orange800,
+  'mat-orange-900': orange900,
+  'mat-orange-A100': orangeA100,
+  'mat-orange-A200': orangeA200,
+  'mat-orange-A400': orangeA400,
+  'mat-orange-A700': orangeA700,
+};
 
 /// Deep Oranges
 const deepOrange50 = Color.rgb(251, 233, 231);
@@ -344,6 +582,23 @@ const deepOrangeA400 = Color.rgb(255, 61, 0);
 const deepOrangeA700 = Color.rgb(221, 44, 0);
 const deepOrange = deepOrange500;
 
+const deepOranges = {
+  'mat-deep-orange-50': deepOrange50,
+  'mat-deep-orange-100': deepOrange100,
+  'mat-deep-orange-200': deepOrange200,
+  'mat-deep-orange-300': deepOrange300,
+  'mat-deep-orange-400': deepOrange400,
+  'mat-deep-orange-500': deepOrange500,
+  'mat-deep-orange-600': deepOrange600,
+  'mat-deep-orange-700': deepOrange700,
+  'mat-deep-orange-800': deepOrange800,
+  'mat-deep-orange-900': deepOrange900,
+  'mat-deep-orange-A100': deepOrangeA100,
+  'mat-deep-orange-A200': deepOrangeA200,
+  'mat-deep-orange-A400': deepOrangeA400,
+  'mat-deep-orange-A700': deepOrangeA700,
+};
+
 /// Browns
 const brown50 = Color.rgb(239, 235, 233);
 const brown100 = Color.rgb(215, 204, 200);
@@ -357,6 +612,19 @@ const brown800 = Color.rgb(78, 52, 46);
 const brown900 = Color.rgb(62, 39, 35);
 const brown = brown500;
 
+const browns = {
+  'mat-brown-50': brown50,
+  'mat-brown-100': brown100,
+  'mat-brown-200': brown200,
+  'mat-brown-300': brown300,
+  'mat-brown-400': brown400,
+  'mat-brown-500': brown500,
+  'mat-brown-600': brown600,
+  'mat-brown-700': brown700,
+  'mat-brown-800': brown800,
+  'mat-brown-900': brown900,
+};
+
 /// Greys
 const grey50 = Color.rgb(250, 250, 250);
 const grey100 = Color.rgb(245, 245, 245);
@@ -369,6 +637,19 @@ const grey700 = Color.rgb(97, 97, 97);
 const grey800 = Color.rgb(66, 66, 66);
 const grey900 = Color.rgb(33, 33, 33);
 const grey = grey500;
+
+const greys = {
+  'mat-grey-50': grey50,
+  'mat-grey-100': grey100,
+  'mat-grey-200': grey200,
+  'mat-grey-300': grey300,
+  'mat-grey-400': grey400,
+  'mat-grey-500': grey500,
+  'mat-grey-600': grey600,
+  'mat-grey-700': grey700,
+  'mat-grey-800': grey800,
+  'mat-grey-900': grey900,
+};
 
 const gray50 = grey50;
 const gray100 = grey100;
@@ -394,6 +675,19 @@ const blueGrey700 = Color.rgb(69, 90, 100);
 const blueGrey800 = Color.rgb(55, 71, 79);
 const blueGrey900 = Color.rgb(38, 50, 56);
 const blueGrey = blueGrey500;
+
+const blueGreys = {
+  'mat-blue-grey-50': blueGrey50,
+  'mat-blue-grey-100': blueGrey100,
+  'mat-blue-grey-200': blueGrey200,
+  'mat-blue-grey-300': blueGrey300,
+  'mat-blue-grey-400': blueGrey400,
+  'mat-blue-grey-500': blueGrey500,
+  'mat-blue-grey-600': blueGrey600,
+  'mat-blue-grey-700': blueGrey700,
+  'mat-blue-grey-800': blueGrey800,
+  'mat-blue-grey-900': blueGrey900,
+};
 
 /// Vanilla colors listed in external facing spec
 
@@ -487,7 +781,60 @@ const amberA400 = Color.rgb(255, 196, 0);
 const amberA700 = Color.rgb(255, 171, 0);
 const amber = amber500;
 
+const ambers = {
+  'mat-amber-50': amber50,
+  'mat-amber-100': amber100,
+  'mat-amber-200': amber200,
+  'mat-amber-300': amber300,
+  'mat-amber-400': amber400,
+  'mat-amber-500': amber500,
+  'mat-amber-600': amber600,
+  'mat-amber-700': amber700,
+  'mat-amber-800': amber800,
+  'mat-amber-900': amber900,
+  'mat-amber-A100': amberA100,
+  'mat-amber-A200': amberA200,
+  'mat-amber-A400': amberA400,
+  'mat-amber-A700': amberA700,
+};
+
 // Link colors.
 const linkDefault = blue700;
 const linkVisited = deepPurple500;
 const linkActive = red700;
+
+/// A list of all material colors.
+final materialColors = Map<String, Color>.unmodifiable({}
+  ..addAll(reds)
+  ..addAll(pinks)
+  ..addAll(purples)
+  ..addAll(deepPurples)
+  ..addAll(indigos)
+  ..addAll(blues)
+  ..addAll(lightBlues)
+  ..addAll(cyans)
+  ..addAll(teals)
+  ..addAll(greens)
+  ..addAll(lightGreens)
+  ..addAll(limes)
+  ..addAll(yellows)
+  ..addAll(oranges)
+  ..addAll(deepOranges)
+  ..addAll(browns)
+  ..addAll(greys)
+  ..addAll(blueGreys)
+  ..addAll(ambers));
+
+/// Find the name of the closest Material Color given the [searchColor] color.
+String closestMaterialColorName(Color searchColor) {
+  var closestColorName = materialColors.keys.first;
+  var minDistance = searchColor.distanceFrom(materialColors[closestColorName]);
+  materialColors.forEach((String name, Color color) {
+    var distance = searchColor.distanceFrom(color);
+    if (distance < minDistance) {
+      minDistance = distance;
+      closestColorName = name;
+    }
+  });
+  return closestColorName;
+}
