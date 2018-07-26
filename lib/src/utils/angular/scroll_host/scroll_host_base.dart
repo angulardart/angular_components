@@ -244,9 +244,8 @@ abstract class ScrollHostBase implements ScrollHost {
     }
   }
 
-  void _onIntersection(Iterable<IntersectionObserverEntry> entries,
-      IntersectionObserver _observer) {
-    for (var entry in entries) {
+  void _onIntersection(Iterable entries, IntersectionObserver _observer) {
+    for (IntersectionObserverEntry entry in entries) {
       _intersectionStreams[entry.target]?.add(entry);
     }
   }
