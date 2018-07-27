@@ -84,14 +84,15 @@ header {
   padding: 0 $mat-grid * 3;
   transition: min-height $mat-transition-slow $mat-transition-standard;
 
-  &.closed {
+  &.closed:not(.is-disabled) {
     &:hover,
     &:focus {
       background-color: $mat-grey-200;
     }
   }
 
-  &.disable-header-expansion {
+  &.disable-header-expansion,
+  &.is-disabled {
     cursor: default;
   }
 }
