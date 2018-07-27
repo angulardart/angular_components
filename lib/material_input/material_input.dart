@@ -10,6 +10,7 @@ import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/reference/reference.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 import 'base_material_input.dart';
 import 'deferred_validator.dart';
@@ -126,7 +127,7 @@ class MaterialInputComponent extends BaseMaterialInput
 
   /// The role to assign to the inner input element.
   final String inputRole;
-
+  final labelId = new SequentialIdGenerator.fromUUID().nextId();
   // Overriden to add a HostListener event.
   @HostListener('focus')
   @override
