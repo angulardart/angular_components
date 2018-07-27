@@ -13,3 +13,8 @@
   visibility: hidden;
   position: absolute;
 }
+
+.staticHeight {
+  // Needed to override display value set on textarea.
+  position: static;
+}

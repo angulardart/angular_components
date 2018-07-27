@@ -132,6 +132,10 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
   int get minInputHeight => rows * _inputLineHeight;
   int get maxInputHeight => _maxRows > 0 ? _maxRows * _inputLineHeight : null;
 
+  /// Sets height of the text area when the height does not change with the
+  /// amount of text in it.
+  int get textAreaHeight => rows == maxRows ? maxInputHeight : null;
+
   int get rows => _rows;
 
   /// How many rows the multiline input should have.

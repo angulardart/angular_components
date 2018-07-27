@@ -19,10 +19,15 @@
           {{label}}
         </span>
       </div>
-      <div>
+      <!-- This div needs its height set to a fixed value when the height of
+            the textarea is static because static positioned elements have
+            less trailing white space than absolute positioned elements -->
+      <div
+        [style.height.px]="textAreaHeight">
         <!-- Invisible text for sizing the multiline input to grow
-             with typing. -->
-        <div class="mirror-text"
+              with typing. Hidden when the height of the textarea is static in
+              order to prevent negative layout performance impact.-->
+        <div class="mirror-text" *ngIf="rows != maxRows"
             aria-hidden="true"
             [style.min-height.px]="minInputHeight"
             [style.max-height.px]="maxInputHeight">
@@ -40,6 +45,8 @@
                   focusableElement
                   class="textarea"
                   [class.disabledInput]="disabled"
+                  [class.staticHeight]="rows == maxRows"
+                  [style.height.px]="textAreaHeight"
                   attr.aria-invalid="{{invalid}}"
                   [attr.aria-label]="ariaLabel"
                   [readonly]="disabled"
