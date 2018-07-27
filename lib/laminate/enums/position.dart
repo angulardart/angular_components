@@ -7,10 +7,10 @@ import 'package:angular_components/src/laminate/enums/base.dart';
 export 'package:angular_components/src/laminate/enums/base.dart';
 
 class Position implements ElementStyleEnum {
-  static const Static = const Position._('static');
-  static const Relative = const Position._('relative');
-  static const Fixed = const Position._('fixed');
-  static const Absolute = const Position._('absolute');
+  static const Static = Position._('static');
+  static const Relative = Position._('relative');
+  static const Fixed = Position._('fixed');
+  static const Absolute = Position._('absolute');
 
   final String _cssPropertyValue;
 

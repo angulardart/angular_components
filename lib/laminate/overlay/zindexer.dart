@@ -32,7 +32,7 @@ class ZIndexer {
   }
 
   factory ZIndexer() {
-    return _currentInstance ??= new ZIndexer._();
+    return _currentInstance ??= ZIndexer._();
   }
 
   ZIndexer._() {

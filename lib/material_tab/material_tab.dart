@@ -33,16 +33,16 @@ abstract class Tab extends Focusable {
 /// `*deferredContent` template directive.
 @Component(
   selector: 'material-tab',
-  providers: const [
-    const Provider(Tab, useExisting: MaterialTabComponent),
-    const Provider(DeferredContentAware, useExisting: MaterialTabComponent)
+  providers: [
+    Provider(Tab, useExisting: MaterialTabComponent),
+    Provider(DeferredContentAware, useExisting: MaterialTabComponent)
   ],
   template: '''
         <div class="tab-content" *ngIf="active">
           <ng-content></ng-content>
         </div>''',
-  styleUrls: const ['material_tab.scss.css'],
-  directives: const [NgIf],
+  styleUrls: ['material_tab.scss.css'],
+  directives: [NgIf],
 )
 class MaterialTabComponent extends RootFocusable
     implements Tab, DeferredContentAware {
@@ -50,10 +50,10 @@ class MaterialTabComponent extends RootFocusable
   static const hostRole = 'tabpanel';
 
   final String _uuid;
-  final _visible = new StreamController<bool>.broadcast(sync: true);
+  final _visible = StreamController<bool>.broadcast(sync: true);
 
   MaterialTabComponent(HtmlElement element, @Optional() IdGenerator idGenerator)
-      : _uuid = (idGenerator ?? new SequentialIdGenerator.fromUUID()).nextId(),
+      : _uuid = (idGenerator ?? SequentialIdGenerator.fromUUID()).nextId(),
         super(element);
 
   /// The label for this tab.

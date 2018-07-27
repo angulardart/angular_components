@@ -26,8 +26,8 @@ export 'material_list_size.dart';
 ///   for the list, resulting in the width at least the specified width.
 @Component(
   selector: 'material-list',
-  styleUrls: const ['material_list.scss.css'],
-  directives: const [NgClass],
+  styleUrls: ['material_list.scss.css'],
+  directives: [NgClass],
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 )

@@ -33,7 +33,7 @@ class ShowHideDirective implements OnInit, OnDestroy {
   bool _hiding = true;
 
   ShowHideDirective(this._element, this._domService) {
-    _transitionEndQueue = new StreamQueue(_element.onTransitionEnd);
+    _transitionEndQueue = StreamQueue(_element.onTransitionEnd);
   }
 
   @override
@@ -49,22 +49,22 @@ class ShowHideDirective implements OnInit, OnDestroy {
   /// Fires when the hide styles are first applied to the element.
   @Output('hide')
   Stream<Element> get onHide => _onHide.stream;
-  var _onHide = new StreamController<Element>.broadcast(sync: true);
+  var _onHide = StreamController<Element>.broadcast(sync: true);
 
   /// Fires when the show styles are first applied to the element.
   @Output('show')
   Stream<Element> get onShow => _onShow.stream;
-  var _onShow = new StreamController<Element>.broadcast(sync: true);
+  var _onShow = StreamController<Element>.broadcast(sync: true);
 
   /// Fires when the transitions have finished and the element is fully visible.
   @Output('showEnd')
   Stream<Element> get onShowEnd => _onShowEnd.stream;
-  var _onShowEnd = new StreamController<Element>.broadcast(sync: true);
+  var _onShowEnd = StreamController<Element>.broadcast(sync: true);
 
   /// Fires when the transitions have finished and the element is fully hidden.
   @Output('hideEnd')
   Stream<Element> get onHideEnd => _onHideEnd.stream;
-  var _onHideEnd = new StreamController<Element>.broadcast(sync: true);
+  var _onHideEnd = StreamController<Element>.broadcast(sync: true);
 
   @Input('showhide')
   set visible(bool value) {
@@ -127,8 +127,8 @@ class ShowHideDirective implements OnInit, OnDestroy {
       // if the transition wasn't started because the hidden element already
       // have the same properties, hide it manually
       Duration timeout =
-          new Duration(milliseconds: duration + _transitionTimeoutMs);
-      new Future.delayed(timeout, complete);
+          Duration(milliseconds: duration + _transitionTimeoutMs);
+      Future.delayed(timeout, complete);
     });
   }
 
@@ -164,7 +164,7 @@ class ShowHideDirective implements OnInit, OnDestroy {
 
     // TODO(google): remove this when
     // https://code.google.com/p/dart/issues/detail?id=16059 is fixed
-    Match matches = new RegExp(r"([0-9.]+)([ms]+)").matchAsPrefix(duration);
+    Match matches = RegExp(r"([0-9.]+)([ms]+)").matchAsPrefix(duration);
     if (matches == null || matches.groupCount < 2) return 0;
 
     double value = double.parse(matches[1]);

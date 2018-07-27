@@ -60,7 +60,7 @@ class TextHighlighter {
   @protected
   List<int> getMarkers(String text, List<String> tokens) {
     var _matchText = caseSensitive ? text : text.toLowerCase();
-    List<int> markers = new List.filled(_matchText.length, 0);
+    List<int> markers = List.filled(_matchText.length, 0);
 
     for (String token in tokens) {
       // Prevents an infinite loop, since there are "infinite" occurrences of
@@ -99,12 +99,12 @@ class TextHighlighter {
   /// computed previously.
   List<HighlightedTextSegment> _applyMarkers(String text, List<int> markers) {
     var segments = <HighlightedTextSegment>[];
-    var currentSegment = new StringBuffer();
+    var currentSegment = StringBuffer();
 
     void commitSegment({@required bool highlight}) {
       if (currentSegment.isEmpty) return;
-      segments.add(
-          new HighlightedTextSegment(currentSegment.toString(), highlight));
+      segments
+          .add(HighlightedTextSegment(currentSegment.toString(), highlight));
       currentSegment.clear();
     }
 

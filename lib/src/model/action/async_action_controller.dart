@@ -20,11 +20,11 @@ class AsyncActionController<V> {
   // The controller uses the indirection of a [Completer] in order to coalesce
   // subscribers to [AsyncAction#onDone] and to provide a [Future] for
   // [AsyncAction#onDone] before [execute] has been called.
-  final _executeCompleter = new Completer<V>();
+  final _executeCompleter = Completer<V>();
 
   // This [Completer] resolves its future when the controller is ready to
   // proceed with the action execution, and is ready to be deferred.
-  final _deferCompleter = new Completer<bool>();
+  final _deferCompleter = Completer<bool>();
 
   // Futures to await before completing the execution.
   final _executionDeferrals = <Future>[];
@@ -39,7 +39,7 @@ class AsyncActionController<V> {
 
   AsyncAction<V> get action {
     if (_action == null) {
-      _action = new AsyncAction<V>(
+      _action = AsyncAction<V>(
           _executeCompleter.future,
           _deferCompleter.future,
           _futureCancellations,
@@ -64,9 +64,9 @@ class AsyncActionController<V> {
     // behavior of `async` changes.
     // TODO(google): switch back to `async` with an explicit `await null;` at
     // the beginning of the function, once the migration is done.
-    return new Future.microtask(() {
+    return Future.microtask(() {
       if (_locked) {
-        throw new StateError('Cannot execute, execution already in process.');
+        throw StateError('Cannot execute, execution already in process.');
       }
       _locked = true;
 
@@ -112,9 +112,8 @@ class AsyncActionController<V> {
     // This function is very time-sensitive.
     // We are using explicit `Future`s to avoid breaking changes when the
     // behavior of `async` changes.
-    return new Future.microtask(() {
-      return Future
-          .wait(_futureCancellations)
+    return Future.microtask(() {
+      return Future.wait(_futureCancellations)
           .then((results) => results.any((cancel) {
                 return cancel == true;
               }));

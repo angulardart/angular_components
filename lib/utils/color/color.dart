@@ -36,10 +36,10 @@ class Color {
   static const _alphaThreshold = 0.01;
 
   /// [RegExp] for matching start of rgb() or rgba() functional notation.
-  static final _rgbRE = new RegExp(r'^rgba?\((.*)\)$');
+  static final _rgbRE = RegExp(r'^rgba?\((.*)\)$');
 
   /// [RegExp for matching separator of rgb() or rgba() functional notation.
-  static final _separatorRE = new RegExp(r' *, *');
+  static final _separatorRE = RegExp(r' *, *');
 
   /// Color channels.
   ///
@@ -83,7 +83,7 @@ class Color {
   /// The background must be opaque.
   num contrastRatio(Color background) {
     if (background.alpha != 1) {
-      throw new ArgumentError.value(background, 'background',
+      throw ArgumentError.value(background, 'background',
           'Cannot calculate contrast against non-opaque backgrounds.');
     }
     final a = alpha == 1 ? this : withBackground(background);
@@ -96,7 +96,7 @@ class Color {
   ///
   /// Returns [a] when t = 0 and [b] when t = 1, without floating point errors.
   static num _lerpNum(num a, num b, num t) {
-    if (t < 0.0 || t > 1.0) throw new ArgumentError.value(t, 't');
+    if (t < 0.0 || t > 1.0) throw ArgumentError.value(t, 't');
     return a * (1.0 - t) + b * t;
   }
 
@@ -109,7 +109,7 @@ class Color {
     if (a == null && b == null) return null;
     if (a == null) return b.withAlpha(_lerpNum(0, b.alpha, t));
     if (b == null) return a.withAlpha(_lerpNum(a.alpha, 0, t));
-    return new Color.rgba(
+    return Color.rgba(
         _lerpNum(a.red, b.red, t).toInt(),
         _lerpNum(a.green, b.green, t).toInt(),
         _lerpNum(a.blue, b.blue, t).toInt(),
@@ -125,8 +125,7 @@ class Color {
         b > 255 ||
         a < 0 ||
         a > 1) {
-      throw new FormatException(
-          'Invalid color format; value out of bounds.', s);
+      throw FormatException('Invalid color format; value out of bounds.', s);
     }
   }
 
@@ -154,7 +153,7 @@ class Color {
         final b = color(values[2]);
         final a = values.length == 4 ? num.parse(values.last) : 1;
         _checkValues(r, g, b, a, s);
-        return new Color.rgba(r, g, b, a);
+        return Color.rgba(r, g, b, a);
       case '#': // hex
         s = s.substring(1);
         // Calculate number of characters per channel.
@@ -172,15 +171,15 @@ class Color {
         final b = hex(2);
         final a = s.length % 4 == 0 ? hex(3) / 255 : 1;
         _checkValues(r, g, b, a, s);
-        return new Color.rgba(r, g, b, a);
+        return Color.rgba(r, g, b, a);
     }
-    throw new FormatException('Invalid color format', s);
+    throw FormatException('Invalid color format', s);
   }
 
   /// Creates a copy with the given alpha channel value.
   Color withAlpha(num a) {
     assert(a >= 0 && a <= 1);
-    return new Color.rgba(red, green, blue, a);
+    return Color.rgba(red, green, blue, a);
   }
 
   /// Resolves against a background color.
@@ -188,7 +187,7 @@ class Color {
   /// If [background] is opaque, the returned color will also be opaque.
   Color withBackground(Color background) => alpha == 1
       ? this
-      : new Color.rgba(
+      : Color.rgba(
           _lerpNum(background.red, red, alpha).toInt(),
           _lerpNum(background.green, green, alpha).toInt(),
           _lerpNum(background.blue, blue, alpha).toInt(),
@@ -225,4 +224,14 @@ class Color {
 
   @override
   int get hashCode => hash4(red, green, blue, alpha);
+
+  /// Calculates the square of the Euclidean distance from another color.
+  ///
+  /// The distance is calculated using the rgb channels and ignores the alpha
+  /// channel.
+  int distanceFrom(Color other) {
+    return math.pow(other.red - red, 2) +
+        math.pow(other.blue - blue, 2) +
+        math.pow(other.green - green, 2);
+  }
 }

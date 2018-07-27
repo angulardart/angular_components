@@ -32,7 +32,7 @@ class ActiveItemModel<T> {
   /// Example: http://oaa-accessibility.org/examplep/menubar1/
   ActiveItemModel(IdGenerator idGenerator,
       {bool loop = false, List<T> items = const []})
-      : _idGenerator = idGenerator ?? new SequentialIdGenerator.fromUUID() {
+      : _idGenerator = idGenerator ?? SequentialIdGenerator.fromUUID() {
     _loop = loop;
     _items = items;
     if (_items.isNotEmpty) _activeIndex = 0;
@@ -40,7 +40,7 @@ class ActiveItemModel<T> {
 
   /// Stream of model change events
   Stream get modelChanged => _modelChanged.stream;
-  final _modelChanged = new StreamController.broadcast(sync: true);
+  final _modelChanged = StreamController.broadcast(sync: true);
 
   /// ID of currently active item.
   String get activeId => id(activeItem);
@@ -59,7 +59,7 @@ class ActiveItemModel<T> {
     _ids.clear();
     var _lastActive = activeItem;
     // Ensure [_items] can't change.
-    _items = new List.unmodifiable(itemList);
+    _items = List.unmodifiable(itemList);
     if (_lastActive != null) {
       var last = _items.indexOf(_lastActive);
       if (last != -1) {
@@ -139,7 +139,7 @@ class ActiveItemModel<T> {
     return _ids[item];
   }
 
-  final Map<T, String> _ids = new HashMap<T, String>();
+  final Map<T, String> _ids = HashMap<T, String>();
   final IdGenerator _idGenerator;
   List<T> _items;
   bool _loop;

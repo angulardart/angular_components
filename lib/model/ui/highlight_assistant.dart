@@ -7,11 +7,11 @@ import 'package:angular_components/model/ui/highlighted_text_model.dart';
 
 /// Maintains a reference to the highlighter and a cache of highlighted data.
 class HighlightAssistant {
-  static final RegExp _separatorRegex = new RegExp(r'[,\s]+');
+  static final RegExp _separatorRegex = RegExp(r'[,\s]+');
 
   // Cache highlight segments.
   final _highlightCache =
-      new Map<String, Map<dynamic, List<HighlightedTextSegment>>>();
+      Map<String, Map<dynamic, List<HighlightedTextSegment>>>();
 
   final Highlighter _optionHighlighter;
 
@@ -20,7 +20,7 @@ class HighlightAssistant {
 
   /// Gets the default text highlighter, creating a cached instance if needed.
   TextHighlighter get _textHighlighter => __textHighlighter ??=
-      new TextHighlighter(matchFromStartOfWord: _matchFromStartOfWord);
+      TextHighlighter(matchFromStartOfWord: _matchFromStartOfWord);
 
   /// Whether matches should only highlight at the start of words.
   bool _matchFromStartOfWord;

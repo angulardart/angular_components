@@ -21,14 +21,14 @@ import 'package:angular_components/material_tab/tab_change_event.dart';
 /// focus style, and 2) screen-readers can reckon what has changed.
 @Component(
   selector: 'material-tab-strip',
-  directives: const [
+  directives: [
     FocusListDirective,
     FocusItemDirective,
     TabButtonComponent,
     NgFor
   ],
   templateUrl: 'fixed_material_tab_strip.html',
-  styleUrls: const ['fixed_material_tab_strip.scss.css'],
+  styleUrls: ['fixed_material_tab_strip.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class FixedMaterialTabStripComponent {
@@ -49,12 +49,12 @@ class FixedMaterialTabStripComponent {
   @Output()
   Stream<TabChangeEvent> get beforeTabChange => _beforeTabChange.stream;
   final _beforeTabChange =
-      new StreamController<TabChangeEvent>.broadcast(sync: true);
+      StreamController<TabChangeEvent>.broadcast(sync: true);
 
   /// Stream of [TabChangeEvent] instances, published when the tab has changed.
   @Output()
   Stream<TabChangeEvent> get tabChange => _tabChange.stream;
-  final _tabChange = new StreamController<TabChangeEvent>.broadcast(sync: true);
+  final _tabChange = StreamController<TabChangeEvent>.broadcast(sync: true);
 
   /// Index of the active panel, 0-based.
   ///
@@ -74,7 +74,7 @@ class FixedMaterialTabStripComponent {
   /// event has fired.
   @Output()
   Stream<int> get activeTabIndexChange => _activeTabIndexChange.stream;
-  final _activeTabIndexChange = new StreamController<int>.broadcast();
+  final _activeTabIndexChange = StreamController<int>.broadcast();
 
   /// List of tab button labels.
   @Input()
@@ -103,7 +103,7 @@ class FixedMaterialTabStripComponent {
 
   void switchTo(int index) {
     if (index == activeTabIndex) return;
-    var event = new TabChangeEvent(activeTabIndex, index);
+    var event = TabChangeEvent(activeTabIndex, index);
     _beforeTabChange.add(event);
     if (event.defaultPrevented) return;
     activeTabIndex = index;

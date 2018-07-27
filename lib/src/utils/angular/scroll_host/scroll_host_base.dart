@@ -66,11 +66,10 @@ abstract class ScrollHostBase implements ScrollHost {
       GestureListenerFactory gestureListenerFactory,
       {this.usePositionSticky = false}) {
     // TODO(google): add alternative impl based on TouchEvent.supported.
-    _panController =
-        new NonTouchPanController(_ngZone, _domService, anchorElement);
+    _panController = NonTouchPanController(_ngZone, _domService, anchorElement);
     _stickyController = usePositionSticky
-        ? new PositionStickyController(this)
-        : new StickyControllerImpl(_domService, this);
+        ? PositionStickyController(this)
+        : StickyControllerImpl(_domService, this);
     if (feature_detector.isTouchInterface) {
       _gestureListener =
           gestureListenerFactory.create(anchorElement, _isDirectionScrollable);
@@ -78,7 +77,7 @@ abstract class ScrollHostBase implements ScrollHost {
 
     if (feature_detector.supportsIntersectionObserver) {
       var root = scrollbarHost is Element ? scrollbarHost : null;
-      _intersectionObserver = new IntersectionObserver(
+      _intersectionObserver = IntersectionObserver(
           // allowInterop still required; otherwise this breaks under dart2js.
           js.allowInterop(_onIntersection),
           {'root': root});
@@ -96,9 +95,9 @@ abstract class ScrollHostBase implements ScrollHost {
   @override
   Stream<ScrollHostEvent> get onScroll {
     if (_onScrollStream == null) {
-      _onScrollController = new StreamController.broadcast(
+      _onScrollController = StreamController.broadcast(
           onListen: startNativeScrollListener, sync: true);
-      _onScrollStream = new ZonedStream<ScrollHostEvent>(
+      _onScrollStream = ZonedStream<ScrollHostEvent>(
           _onScrollController.stream, _ngZone.runOutsideAngular);
     }
     return _onScrollStream;
@@ -109,7 +108,7 @@ abstract class ScrollHostBase implements ScrollHost {
 
   @override
   Rectangle calcViewportRect() {
-    return new Rectangle(offsetX, offsetY, clientWidth, clientHeight);
+    return Rectangle(offsetX, offsetY, clientWidth, clientHeight);
   }
 
   @override
@@ -142,10 +141,8 @@ abstract class ScrollHostBase implements ScrollHost {
   /// content of the ScrollHost.
   Stream<ScrollHostEvent> get nativeOnScroll {
     if (_nativeOnScrollController == null) {
-      _nativeOnScrollController =
-          new StreamController<ScrollHostEvent>.broadcast(
-              onListen: _startElementListeners,
-              onCancel: _stopElementListeners);
+      _nativeOnScrollController = StreamController<ScrollHostEvent>.broadcast(
+          onListen: _startElementListeners, onCancel: _stopElementListeners);
     }
 
     return _nativeOnScrollController.stream;
@@ -164,7 +161,7 @@ abstract class ScrollHostBase implements ScrollHost {
 
   void _startElementListeners() {
     if (_elementListenersDisposer != null) return;
-    _elementListenersDisposer = new Disposer.oneShot();
+    _elementListenersDisposer = Disposer.oneShot();
 
     if (_gestureListener != null) {
       _elementListenersDisposer.addStreamSubscription(
@@ -178,6 +175,11 @@ abstract class ScrollHostBase implements ScrollHost {
     if (!usePositionSticky) {
       _elementListenersDisposer.addStreamSubscription(
           anchorElement.onMouseWheel.listen((WheelEvent event) {
+        // Ignore mouse wheel event if the CTRL key or SHIFT key is pressed.
+        // This is consistent with other Google sites and ensures compatibility
+        // with embedded APIs (e.g. Maps zooms the map when CTRL is pressed).
+        if ((event?.ctrlKey ?? false) || (event?.shiftKey ?? false)) return;
+
         // [event.deltaY] is negated because [scrollDirection] treats the bottom
         // as the y-axis whereas [event] treats the top as the y-axis.
         var d = scrollDirection(event.deltaX, -event.deltaY);
@@ -192,7 +194,7 @@ abstract class ScrollHostBase implements ScrollHost {
         // reasonably well.
         int pixelsPerDeltaUnit = event.deltaMode == 0 ? 1 : 16;
         int deltaYPixels = event.deltaY.toInt() * pixelsPerDeltaUnit;
-        _nativeOnScrollController.add(new ScrollHostEventImpl(0, deltaYPixels));
+        _nativeOnScrollController.add(ScrollHostEventImpl(0, deltaYPixels));
       }));
     }
 
@@ -206,7 +208,7 @@ abstract class ScrollHostBase implements ScrollHost {
         _scrollInProgress = false;
         return;
       }
-      _nativeOnScrollController.add(new ScrollHostEventImpl(0, 0));
+      _nativeOnScrollController.add(ScrollHostEventImpl(0, 0));
     }));
   }
 
@@ -242,9 +244,8 @@ abstract class ScrollHostBase implements ScrollHost {
     }
   }
 
-  void _onIntersection(Iterable<IntersectionObserverEntry> entries,
-      IntersectionObserver _observer) {
-    for (var entry in entries) {
+  void _onIntersection(Iterable entries, IntersectionObserver _observer) {
+    for (IntersectionObserverEntry entry in entries) {
       _intersectionStreams[entry.target]?.add(entry);
     }
   }
@@ -253,7 +254,7 @@ abstract class ScrollHostBase implements ScrollHost {
   Stream<IntersectionObserverEntry> onIntersection(Element element) {
     assert(feature_detector.supportsIntersectionObserver);
     _intersectionStreams[element] ??=
-        new StreamController<IntersectionObserverEntry>.broadcast(
+        StreamController<IntersectionObserverEntry>.broadcast(
             onListen: () => _intersectionObserver.observe(element),
             onCancel: () => _intersectionObserver.unobserve(element),
             sync: true);
@@ -372,7 +373,7 @@ class BasePanClassDirective {
   final ScrollHost _scrollHost;
   final Element _element;
 
-  PanEvent _lastEvent = new PanEventImpl(false, false, false, false);
+  PanEvent _lastEvent = PanEventImpl(false, false, false, false);
   String _className;
   StreamSubscription _subscription;
 

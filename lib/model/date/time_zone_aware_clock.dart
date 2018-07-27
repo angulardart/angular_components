@@ -10,21 +10,21 @@ import 'package:meta/meta.dart';
 import 'package:quiver/time.dart';
 
 final _logger =
-    new Logger("third_party.dart_src.acx.model.date.time_zone_aware_clock");
+    Logger("third_party.dart_src.acx.model.date.time_zone_aware_clock");
 
 /// See [TimeZoneAwareClock].
 ///
 /// Deprecated in favor of TimeZoneAwareClock, since having two ways to perform
 /// the same task is redundant, and since subclassing is more expressive.
 @Deprecated('use the TimeZoneAwareClock class instead')
-const timeZoneAwareClock = const OpaqueToken('timeZoneAwareClock');
+const timeZoneAwareClock = OpaqueToken('timeZoneAwareClock');
 
 /// Provides [timeZoneAwareClock], an instance of [Clock] set to
 /// [SettableTimeZone], which can change at runtime.
-const timeZoneAwareClockProviders = const [
-  const Provider(SettableTimeZone, useFactory: settableTimeZoneFactory),
+const timeZoneAwareClockProviders = [
+  Provider(SettableTimeZone, useFactory: settableTimeZoneFactory),
   TimeZoneAwareClock,
-  const Provider(timeZoneAwareClock, useExisting: TimeZoneAwareClock),
+  Provider(timeZoneAwareClock, useExisting: TimeZoneAwareClock),
 ];
 
 /// Clock set to [SettableTimeZone], which can change at runtime.
@@ -59,19 +59,18 @@ class TimeZoneAwareClock extends Clock {
 }
 
 @Injectable()
-Clock clockFactory(SettableTimeZone timeZone) =>
-    new TimeZoneAwareClock(timeZone);
+Clock clockFactory(SettableTimeZone timeZone) => TimeZoneAwareClock(timeZone);
 
 /// Workaround to avoid making SettableTimeZone @Injectable(), since that gives
 /// the error: 'Missing identifier "TimeFunction" from metadata map".
 @Injectable()
-SettableTimeZone settableTimeZoneFactory() => new SettableTimeZone();
+SettableTimeZone settableTimeZoneFactory() => SettableTimeZone();
 
 /// Wrapper to set/get a custom time zone for the [Clock] provided by
 /// [timeZoneAwareClockProviders].
 class SettableTimeZone {
   final TimeFunction _time;
-  final _initialized = new Completer<Null>();
+  final _initialized = Completer<Null>();
   final _throwIfNotInitialized;
 
   /// The offset to add to UTC to get local time.
@@ -81,11 +80,11 @@ class SettableTimeZone {
   Duration get offsetFromUtc => _offsetFromUtc;
   set offsetFromUtc(Duration newOffset) {
     if (newOffset != null && newOffset.inMicroseconds == null) {
-      throw new ArgumentError.value(
+      throw ArgumentError.value(
           newOffset, 'newOffset' 'holds a null or undefined value');
     }
     if (newOffset != null && newOffset.inMicroseconds.isNaN) {
-      throw new ArgumentError.value(newOffset, 'newOffset' 'is NaN!');
+      throw ArgumentError.value(newOffset, 'newOffset' 'is NaN!');
     }
 
     if (!_initialized.isCompleted && newOffset != null) {
@@ -123,29 +122,28 @@ class SettableTimeZone {
     if (offsetFromUtc == null) {
       // Ensure that offsetFromUtc is set before calling now() on this object.
       if (_throwIfNotInitialized) {
-        throw new StateError(
+        throw StateError(
             'TimeZoneAwareClock not initialized with time zone data');
       } else {
         _logger.severe('not initialized with time zone data');
         return systemTime;
       }
     } else if (systemTime.timeZoneOffset.inMicroseconds == null) {
-      throw new StateError(
+      throw StateError(
           'System time has a null or undefined timezone offset! $systemTime');
     } else if (systemTime.timeZoneOffset.inMicroseconds.isNaN) {
-      throw new StateError(
-          'System time has a NaN timezone offset! $systemTime');
+      throw StateError('System time has a NaN timezone offset! $systemTime');
     }
 
     // To convert system time to UTC, subtract systemTime.timeZoneOffset.
     // To convert UTC to the Custom's local time, add [offsetFromUtc].
     var offset = offsetFromUtc - systemTime.timeZoneOffset;
     if (offset.inMicroseconds == null) {
-      throw new StateError('Computed time offset is null or undefined! '
+      throw StateError('Computed time offset is null or undefined! '
           '$offsetFromUtc - ${systemTime.timeZoneOffset} = $offset');
     }
     if (offset.inMicroseconds.isNaN) {
-      throw new StateError('Computed time offset is NaN! '
+      throw StateError('Computed time offset is NaN! '
           '$offsetFromUtc - ${systemTime.timeZoneOffset} = $offset');
     }
     return systemTime.add(offset);

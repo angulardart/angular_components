@@ -88,15 +88,15 @@ abstract class PopupInterface {
 abstract class PopupEvents {
   Stream<void> get onOpen => onOpenController.stream;
   final StreamController<void> onOpenController =
-      new StreamController<void>.broadcast(sync: true);
+      StreamController<void>.broadcast(sync: true);
 
   Stream<void> get onClose => onCloseController.stream;
   final StreamController<void> onCloseController =
-      new StreamController<void>.broadcast(sync: true);
+      StreamController<void>.broadcast(sync: true);
 
   Stream<bool> get onVisible => onVisibleController.stream;
   final StreamController<bool> onVisibleController =
-      new StreamController<bool>.broadcast(sync: true);
+      StreamController<bool>.broadcast(sync: true);
 }
 
 /// A partial that implements the setters of [PopupBase] by writing to [state].

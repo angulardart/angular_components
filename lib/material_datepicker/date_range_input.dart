@@ -52,8 +52,8 @@ import 'package:angular_components/model/observable/observable.dart';
                 class="end date-input">
 </material-input>
 ''',
-  styleUrls: const ['date_range_input.scss.css'],
-  directives: const [DateInputDirective, materialInputDirectives],
+  styleUrls: ['date_range_input.scss.css'],
+  directives: [DateInputDirective, materialInputDirectives],
 )
 class DateRangeInputComponent implements OnInit, OnDestroy {
   ChangeDetectorRef _changeDetector;
@@ -118,7 +118,7 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   /// if both inputs are valid dates
   @Output()
   Stream<DateRange> get rangeChange => _controller.stream;
-  final _controller = new StreamController<DateRange>.broadcast();
+  final _controller = StreamController<DateRange>.broadcast();
 
   /// The selected date range.
   @Input()
@@ -127,7 +127,7 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
       // Publish changes, if both endpoints are set
       _controller.add(range);
     }
-    _range = range ?? new DateRange(null, null);
+    _range = range ?? DateRange(null, null);
   }
 
   bool _isClearRangeSelected = false;
@@ -145,7 +145,7 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   /// [_isClearRangeSelected] is true to avoid unnecessary input error check.
   bool get isDateInputRequired => !_isClearRangeSelected;
 
-  DateRange _range = new DateRange(null, null);
+  DateRange _range = DateRange(null, null);
   DateRange get range => _range;
 
   /// An object describing the entire state of the calendar -- what's selected
@@ -158,7 +158,7 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
 
   CalendarState get state => _model.value;
   ObservableReference<CalendarState> _model =
-      new ObservableReference(new CalendarState.empty(), coalesce: true);
+      ObservableReference(CalendarState.empty(), coalesce: true);
 
   /// Fired when the calendar state changes -- e.g. when the user starts
   /// dragging the selected date range.
@@ -172,14 +172,14 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   Date get start => range.start;
   set start(Date date) {
     if (range.start != date) {
-      range = new DateRange(date, range.end);
+      range = DateRange(date, range.end);
     }
   }
 
   Date get end => range.end;
   set end(Date date) {
     if (range.end != date) {
-      range = new DateRange(range.start, date);
+      range = DateRange(range.start, date);
     }
   }
 
@@ -193,13 +193,13 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   /// The [DateFormat] used to format dates. Defaults to `yMMMd`,
   /// e.g. "Jul 31, 2015".
   @Input()
-  DateFormat dateFormat = new DateFormat.yMMMd();
+  DateFormat dateFormat = DateFormat.yMMMd();
 
   /// The [DateFormat] used to format dates when the input is active.
   ///
   /// Defaults to `yMd`, e.g. "7/31/15".
   @Input()
-  DateFormat activeDateFormat = new DateFormat.yMd();
+  DateFormat activeDateFormat = DateFormat.yMd();
 
   DateFormat get startDateFormat =>
       isStartActive ? activeDateFormat : dateFormat;
@@ -209,12 +209,12 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   /// The latest recognized date, inclusive.
   /// Defaults to Dec 31, 9999 -- i.e., limited to 4-digit years.
   @Input()
-  Date maxDate = new Date(9999, DateTime.december, 31);
+  Date maxDate = Date(9999, DateTime.december, 31);
 
   /// The earliest recognized date, inclusive.
   /// Defaults to Jan 1, 1000 -- i.e., limited to 4-digit years.
   @Input()
-  Date minDate = new Date(1000, DateTime.january, 1);
+  Date minDate = Date(1000, DateTime.january, 1);
 
   final startDateMsg = Intl.message('Start date',
       name: 'DateRangeInputComponent_startDateMsg',

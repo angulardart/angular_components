@@ -31,8 +31,8 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   selector: '[scorecardBar]',
 )
 class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
-  final _refreshController = new StreamController<bool>.broadcast();
-  final _disposer = new Disposer.oneShot();
+  final _refreshController = StreamController<bool>.broadcast();
+  final _disposer = Disposer.oneShot();
   final HtmlElement _element;
   final DomService _domService;
 
@@ -220,8 +220,7 @@ class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
         var size = button.getComputedStyle().getPropertyValue(dimension);
         if (size != 'auto') {
           final parsed =
-              double.tryParse(size.replaceAll(new RegExp('[^0-9.]'), '')) ??
-                  0.0;
+              double.tryParse(size.replaceAll(RegExp('[^0-9.]'), '')) ?? 0.0;
           _buttonSize = parsed.floor();
           break;
         }

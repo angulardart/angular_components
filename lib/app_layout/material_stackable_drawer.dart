@@ -14,12 +14,12 @@ import 'package:angular_components/content/deferred_content_aware.dart';
 /// Works with deferred content.
 @Component(
   selector: 'material-drawer[stackable]',
-  providers: const [
-    const Provider(DeferredContentAware,
+  providers: [
+    Provider(DeferredContentAware,
         useExisting: MaterialStackableDrawerComponent),
   ],
   templateUrl: 'material_stackable_drawer.html',
-  styleUrls: const ['material_stackable_drawer.scss.css'],
+  styleUrls: ['material_stackable_drawer.scss.css'],
   visibility: Visibility.all, // Injected by child elements.
 )
 class MaterialStackableDrawerComponent

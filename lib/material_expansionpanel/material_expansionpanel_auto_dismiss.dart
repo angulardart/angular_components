@@ -40,7 +40,7 @@ class MaterialExpansionPanelAutoDismiss implements OnDestroy {
       this._expansionPanel,
       @Optional() @Inject(overlayContainerToken) this._overlayContainerToken,
       this._element) {
-    _clicksOutsideController = new StreamController.broadcast(
+    _clicksOutsideController = StreamController.broadcast(
         sync: true,
         onListen: () {
           _mouseUpListener = document.onMouseUp.listen(_onMouseUp);

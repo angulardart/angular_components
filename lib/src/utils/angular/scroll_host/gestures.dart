@@ -40,7 +40,7 @@ class GestureListenerFactory {
 
   GestureListener create(
           Element element, DirectionCheck isDirectionScrollable) =>
-      new GestureListener(element, isDirectionScrollable, _clock);
+      GestureListener(element, isDirectionScrollable, _clock);
 }
 
 /// Directions in which a parent of [target] can scroll within the [host].
@@ -85,8 +85,7 @@ class GestureEvent extends ScrollHostEventImpl {
 /// Listens to touch events on an element and exposes a [scrollStream] of
 /// [ScrollHostEvent] events fired as the user moves their finger.
 class GestureListener implements Disposable {
-  static const Duration _defaultScrollInterval =
-      const Duration(milliseconds: 17);
+  static const Duration _defaultScrollInterval = Duration(milliseconds: 17);
 
   final Element _element;
   final DirectionCheck _isDirectionScrollable;
@@ -107,7 +106,7 @@ class GestureListener implements Disposable {
 
   Stream<GestureEvent> get scrollStream {
     if (_scrollController == null) {
-      _scrollController = new StreamController<GestureEvent>.broadcast(
+      _scrollController = StreamController<GestureEvent>.broadcast(
           onListen: _startListeners, onCancel: _onCancel);
     }
 
@@ -117,7 +116,7 @@ class GestureListener implements Disposable {
   /// Starts listening for touch events on [_element].
   void _startListeners() {
     if (_disposer != null) return;
-    _disposer = new Disposer.oneShot();
+    _disposer = Disposer.oneShot();
     _disposer
         .addStreamSubscription(_element.onTouchStart.listen(_onTouchStart));
     _disposer.addStreamSubscription(_element.onTouchMove.listen(_onTouchMove));
@@ -148,7 +147,7 @@ class GestureListener implements Disposable {
     _capturing = false;
 
     _gesture?.cancel();
-    _gesture = new _Gesture(_scrollController, _clock, _scrollInterval);
+    _gesture = _Gesture(_scrollController, _clock, _scrollInterval);
     _gesture.start(touchStart);
   }
 
@@ -216,7 +215,7 @@ class GestureListener implements Disposable {
 /// finger, slowing down as if subject to friction.
 class _Gesture {
   // An extremely low value of timeout can lead to missed touch drag events.
-  static const Duration _touchMoveTimeout = const Duration(milliseconds: 500);
+  static const Duration _touchMoveTimeout = Duration(milliseconds: 500);
   static const double _flingSpeedThreshold = 2.0; // in pixels/ms
   static const double _frictionCoefficient = 0.005; // in pixels/ms^2
 
@@ -260,7 +259,7 @@ class _Gesture {
   /// Begin a new gesture.
   void start(TouchEvent touchStart) {
     assert(_scrollTimer == null); // This should only be called once.
-    _scrollTimer = new Timer.periodic(_scrollInterval, _addDragEvent);
+    _scrollTimer = Timer.periodic(_scrollInterval, _addDragEvent);
     _startTime = _clock.now();
     _lastTime = _startTime;
     _startPoint = touchStart.touches.single.screen;
@@ -290,7 +289,7 @@ class _Gesture {
     _scrollTimer.cancel();
 
     if (_velocity.abs() >= _flingSpeedThreshold) {
-      _scrollTimer = new Timer.periodic(_scrollInterval, _addFlingEvent);
+      _scrollTimer = Timer.periodic(_scrollInterval, _addFlingEvent);
     } else {
       _syncToLastTouchPoint();
     }
@@ -305,8 +304,7 @@ class _Gesture {
   void _syncToLastTouchPoint() {
     Point delta = _lastSyncPoint - _lastTouchPoint;
     if (delta.x != 0 || delta.y != 0) {
-      _scrollController
-          .add(new GestureEvent(delta.x, delta.y, _startingTarget));
+      _scrollController.add(GestureEvent(delta.x, delta.y, _startingTarget));
       _lastSyncPoint = _lastTouchPoint;
     }
   }
@@ -330,7 +328,7 @@ class _Gesture {
     int deltaY =
         (speed * _velocityY.sign * _scrollInterval.inMilliseconds).round();
     if (speed > 0 && (deltaX != 0 || deltaY != 0)) {
-      _scrollController.add(new GestureEvent(deltaX, deltaY, _startingTarget));
+      _scrollController.add(GestureEvent(deltaX, deltaY, _startingTarget));
     } else {
       cancel();
     }

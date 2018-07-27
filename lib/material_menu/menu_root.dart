@@ -8,7 +8,7 @@ import 'package:angular_components/mixins/material_dropdown_base.dart';
 /// A directive providing a [MenuRoot] through the injected [DropdownHandle].
 @Directive(
   selector: '[menu-root]',
-  providers: const [const Provider(MenuRoot, useExisting: MenuRootDirective)],
+  providers: [Provider(MenuRoot, useExisting: MenuRootDirective)],
 )
 class MenuRootDirective extends MenuRoot {
   final DropdownHandle _dropdown;

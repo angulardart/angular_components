@@ -36,7 +36,7 @@ enum BottomPanelState {
 class BaseMaterialInput extends FocusableMixin
     implements HasDisabled, Focusable, AfterViewInit, OnDestroy {
   final ChangeDetectorRef _changeDetector;
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
 
   /// Template accessors for the BottomPanelState
   final emptyState = BottomPanelState.empty;
@@ -301,21 +301,19 @@ class BaseMaterialInput extends FocusableMixin
     }
   }
 
-  final _keypressController =
-      new StreamController<String>.broadcast(sync: true);
+  final _keypressController = StreamController<String>.broadcast(sync: true);
 
   /// Publishes events whenever input text changes (each keypress).
   @Output('inputKeyPress')
   Stream<String> get onKeypress => _keypressController.stream;
 
-  final _changeController = new StreamController<String>.broadcast(sync: true);
+  final _changeController = StreamController<String>.broadcast(sync: true);
 
   /// Publishes events when a change event is fired. (On enter, or on blur.)
   @Output('change')
   Stream<String> get onChange => _changeController.stream;
 
-  final _blurController =
-      new StreamController<FocusEvent>.broadcast(sync: true);
+  final _blurController = StreamController<FocusEvent>.broadcast(sync: true);
 
   /// Publishes events when a blur event is fired.
   @Output('blur')

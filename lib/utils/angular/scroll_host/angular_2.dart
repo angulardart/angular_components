@@ -17,17 +17,17 @@ import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
 export 'package:angular_components/src/utils/angular/scroll_host/scroll_host_interface.dart'
     show ScrollHost;
 
-const clockValue = const Clock();
+const clockValue = Clock();
 
-const scrollHostProviders = const <Provider>[
-  const ClassProvider(ScrollHost, useClass: WindowScrollHost),
-  const ValueProvider(Clock, clockValue),
-  const ClassProvider(GestureListenerFactory),
+const scrollHostProviders = <Provider>[
+  ClassProvider(ScrollHost, useClass: WindowScrollHost),
+  ValueProvider(Clock, clockValue),
+  ClassProvider(GestureListenerFactory),
 ];
 @Deprecated('Use [scrollHostProviders] or [scrollHostNewModule]')
 const scrollHostModule = scrollHostProviders;
 
-const scrollHostNewModule = const Module(
+const scrollHostNewModule = Module(
   provide: scrollHostProviders,
 );
 
@@ -35,9 +35,9 @@ const scrollHostNewModule = const Module(
 /// a specific element.
 @Directive(
   selector: '[acxScrollHost]',
-  providers: const [
-    const Provider(ScrollHost, useExisting: ElementScrollHost),
-    const Provider(Clock, useValue: clockValue),
+  providers: [
+    Provider(ScrollHost, useExisting: ElementScrollHost),
+    Provider(Clock, useValue: clockValue),
     GestureListenerFactory,
   ],
   exportAs: 'acxScrollHost',
@@ -59,7 +59,7 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
 
   @override
   void ngOnInit() {
-    _scrollHost = new ElementScrollHostBase(
+    _scrollHost = ElementScrollHostBase(
         _domService, _ngZone, _gestureListenerFactory, element,
         usePositionSticky: _usePositionSticky);
   }
@@ -81,7 +81,7 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
     _usePositionSticky = value;
     if (_scrollHost != null) {
       _scrollHost.dispose();
-      _scrollHost = new ElementScrollHostBase(
+      _scrollHost = ElementScrollHostBase(
           _domService, _ngZone, _gestureListenerFactory, element,
           usePositionSticky: _usePositionSticky);
     }

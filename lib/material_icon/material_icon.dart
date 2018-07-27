@@ -10,7 +10,7 @@ import 'package:angular_components/model/ui/icon.dart';
 /// Icons that should be horizontally flipped when the direction is RTL.
 ///
 /// Please add to this list as needed.
-const List<String> _flippedIcons = const [
+const List<String> _flippedIcons = [
   'arrow_back',
   'arrow_forward',
   'chevron_left',
@@ -53,7 +53,7 @@ const List<String> _flippedIcons = const [
 @Component(
   selector: 'material-icon',
   templateUrl: 'material_icon.html',
-  styleUrls: const ['material_icon.scss.css'],
+  styleUrls: ['material_icon.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialIconComponent {
@@ -70,6 +70,10 @@ class MaterialIconComponent {
       _element.setAttribute('flip', '');
     }
   }
+
+  /// Aria label to add to the icon.
+  @Input()
+  String ariaLabel;
 
   dynamic _icon;
 
@@ -90,12 +94,5 @@ class IconSize {
   static const large = 'large';
   static const xLarge = 'x-large';
 
-  static const values = const [
-    defaultSize,
-    xSmall,
-    small,
-    medium,
-    large,
-    xLarge
-  ];
+  static const values = [defaultSize, xSmall, small, medium, large, xLarge];
 }

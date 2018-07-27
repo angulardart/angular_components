@@ -31,10 +31,10 @@ abstract class ListDiff<T> {
   List<DiffEntry<T>> get deleted;
 
   factory ListDiff.compare(List<T> prev, List<T> curr) =>
-      new _ComparingListDiff(prev, curr);
+      _ComparingListDiff(prev, curr);
 
   factory ListDiff.fromObservable(List<ListChangeRecord> event) =>
-      new _ObservedListDiff(event);
+      _ObservedListDiff(event);
 }
 
 class _ComparingListDiff<T> implements ListDiff<T> {
@@ -48,17 +48,17 @@ class _ComparingListDiff<T> implements ListDiff<T> {
   // TODO(google): make calculation of [entries] or the sorting of [deleted]
   // deferred to the time of the getter call
   void _calculateEntries(List<T> prev, List<T> curr) {
-    var map = new LinkedHashMap<T, DiffEntry<T>>();
+    var map = LinkedHashMap<T, DiffEntry<T>>();
     for (int i = 0; i < prev.length; i++) {
       T entity = prev[i];
       assert(!map.containsKey(entity));
-      map[entity] = new DiffEntry<T>.oldEntry(entity, i);
+      map[entity] = DiffEntry<T>.oldEntry(entity, i);
     }
     for (int i = 0; i < curr.length; i++) {
       T entity = curr[i];
       var entry = map.remove(entity);
       if (entry == null) {
-        entry = new DiffEntry<T>.newEntry(entity);
+        entry = DiffEntry<T>.newEntry(entity);
       }
       entries.add(entry);
     }
@@ -82,29 +82,27 @@ class _ObservedListDiff<T> implements ListDiff<T> {
     for (int eventIndex = 0; eventIndex < event.length; eventIndex++) {
       ListChangeRecord record = event[eventIndex];
       for (int i = entries.length; i < record.index; i++) {
-        entries
-            .add(new DiffEntry<T>.oldEntry(record.object[i] as T, i + offset));
+        entries.add(DiffEntry<T>.oldEntry(record.object[i] as T, i + offset));
       }
       for (int i = 0; i < record.removed.length; i++) {
         var entity = record.removed[i] as T;
         assert(!removed.containsKey(entity));
         removed[entity] =
-            new DiffEntry<T>.oldEntry(entity, record.index + offset + i);
+            DiffEntry<T>.oldEntry(entity, record.index + offset + i);
       }
       offset += record.removed.length;
       for (int i = 0; i < record.addedCount; i++) {
         var entity = record.object[record.index + i] as T;
         var entry = removed.remove(entity);
         if (entry == null) {
-          entry = new DiffEntry<T>.newEntry(entity);
+          entry = DiffEntry<T>.newEntry(entity);
         }
         entries.add(entry);
       }
       offset -= record.addedCount;
     }
     for (int i = entries.length; i < event.last.object.length; i++) {
-      entries.add(
-          new DiffEntry<T>.oldEntry(event.last.object[i] as T, i + offset));
+      entries.add(DiffEntry<T>.oldEntry(event.last.object[i] as T, i + offset));
     }
     if (removed.isNotEmpty) {
       for (int i = 0; i < entries.length; i++) {

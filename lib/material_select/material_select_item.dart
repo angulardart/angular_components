@@ -26,13 +26,13 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// other than "option".
 @Component(
   selector: 'material-select-item',
-  providers: const [
-    const Provider(SelectionItem, useExisting: MaterialSelectItemComponent),
-    const Provider(HasDisabled, useExisting: MaterialSelectItemComponent),
-    const Provider(HasRenderer, useExisting: MaterialSelectItemComponent),
+  providers: [
+    Provider(SelectionItem, useExisting: MaterialSelectItemComponent),
+    Provider(HasDisabled, useExisting: MaterialSelectItemComponent),
+    Provider(HasRenderer, useExisting: MaterialSelectItemComponent),
   ],
-  styleUrls: const ['material_select_item.scss.css'],
-  directives: const [
+  styleUrls: ['material_select_item.scss.css'],
+  directives: [
     GlyphComponent,
     MaterialCheckboxComponent,
     NgIf,
@@ -54,7 +54,7 @@ class MaterialSelectItemComponent extends ButtonDirective
   @HostBinding('tabIndex')
   static const hostTabIndexForSelectItem = 0;
 
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
   final ActivationHandler _activationHandler;
   final ChangeDetectorRef _cdRef;
   final DropdownHandle _dropdown;

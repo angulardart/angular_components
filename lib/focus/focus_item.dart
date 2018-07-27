@@ -13,9 +13,7 @@ import 'package:angular_components/focus/focus.dart';
 /// by way of keyboard interaction.
 @Directive(
   selector: '[focusItem]',
-  providers: const [
-    const Provider(FocusableItem, useExisting: FocusItemDirective)
-  ],
+  providers: [Provider(FocusableItem, useExisting: FocusItemDirective)],
 )
 class FocusItemDirective extends RootFocusable implements FocusableItem {
   @HostBinding('attr.role')
@@ -28,14 +26,13 @@ class FocusItemDirective extends RootFocusable implements FocusableItem {
   @HostBinding('attr.tabindex')
   String tabIndex = '0';
 
-  final _focusMoveCtrl =
-      new StreamController<FocusMoveEvent>.broadcast(sync: true);
+  final _focusMoveCtrl = StreamController<FocusMoveEvent>.broadcast(sync: true);
   @override
   Stream<FocusMoveEvent> get focusmove => _focusMoveCtrl.stream;
 
   @HostListener('keydown')
   void keydown(KeyboardEvent event) {
-    var focusEvent = new FocusMoveEvent.fromKeyboardEvent(this, event);
+    var focusEvent = FocusMoveEvent.fromKeyboardEvent(this, event);
     if (focusEvent != null) {
       _focusMoveCtrl.add(focusEvent);
     }

@@ -14,7 +14,7 @@ class FocusableMixin implements Focusable {
   @Output('focus')
   Stream<FocusEvent> get onFocus => _onFocus.stream;
   final StreamController<FocusEvent> _onFocus =
-      new StreamController<FocusEvent>.broadcast(sync: true);
+      StreamController<FocusEvent>.broadcast(sync: true);
 
   Focusable _focusable;
   bool _focusPending = false;

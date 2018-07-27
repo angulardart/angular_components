@@ -33,10 +33,10 @@ class MenuItemGroup<T> extends LabeledList<T> {
       bool hasSeparator = true,
       bool isCollapsible = false,
       bool isExpanded = true])
-      : _hasSeparator = new ObservableReference(hasSeparator),
-        _isCollapsible = new ObservableReference(isCollapsible),
-        _isExpanded = new ObservableReference(isExpanded),
-        super.withLabel(new List<T>.unmodifiable(items), label);
+      : _hasSeparator = ObservableReference(hasSeparator),
+        _isCollapsible = ObservableReference(isCollapsible),
+        _isExpanded = ObservableReference(isExpanded),
+        super.withLabel(List<T>.unmodifiable(items), label);
 
   /// True when this component explicitly specifies a separator.
   bool get hasSeparator => _hasSeparator.value;
@@ -94,13 +94,13 @@ class MenuModel<T> implements HasIcon, AcceptsWidth {
   /// If [icon] is given, it will appear on the button that opens the menu.
   MenuModel(List<MenuItemGroup<T>> itemGroups,
       {this.icon, int width, this.tooltipText})
-      : itemGroups = new List<MenuItemGroup<T>>.unmodifiable(itemGroups) {
+      : itemGroups = List<MenuItemGroup<T>>.unmodifiable(itemGroups) {
     this.width = width;
   }
 
   /// Creates a simple menu model that contains no sub-menus.
   MenuModel.flat(List<T> items, {this.icon, width, this.tooltipText})
-      : itemGroups = [new MenuItemGroup<T>(items)] {
+      : itemGroups = [MenuItemGroup<T>(items)] {
     this.width = width;
   }
 
@@ -198,11 +198,11 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
           ObservableReference<IconVisibility> secondaryIconVisibility,
       this.subMenu})
       : _secondaryIconVisibility = secondaryIconVisibility ??
-            new ObservableReference<IconVisibility>(IconVisibility.visible),
-        itemSuffixes = itemSuffixes ?? new ObservableList<MenuItemAffix>(),
-        cssClasses = new BuiltList<String>(cssClasses ?? const []) {
+            ObservableReference<IconVisibility>(IconVisibility.visible),
+        itemSuffixes = itemSuffixes ?? ObservableList<MenuItemAffix>(),
+        cssClasses = BuiltList<String>(cssClasses ?? const []) {
     if (secondaryIcon != null) {
-      this.itemSuffixes.add(new IconAffix(
+      this.itemSuffixes.add(IconAffix(
           icon: secondaryIcon, visibility: _secondaryIconVisibility.value));
     }
   }
@@ -221,7 +221,7 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
 /// a given [MenuItem].
 abstract class NullMenuItem extends MenuItem<NullMenuItem> {
   factory NullMenuItem() {
-    throw new UnsupportedError('Should be never instantiatied');
+    throw UnsupportedError('Should be never instantiatied');
   }
 }
 
@@ -249,17 +249,17 @@ class ActiveMenuItemModel<T> extends ActiveItemModel<T> {
 
   @override
   set items(_) {
-    throw new UnsupportedError('ActiveMenuItemModel items can only be updated'
+    throw UnsupportedError('ActiveMenuItemModel items can only be updated'
         'by setting #menu');
   }
 
   static CombinedList<T> _createEnabledItemGroupList<T>(
       List<List<T>> menuGroups, bool filterOutUnselectableItems) {
-    if (menuGroups == null) return new CombinedList<T>([]);
+    if (menuGroups == null) return CombinedList<T>([]);
 
-    if (!filterOutUnselectableItems) return new CombinedList<T>(menuGroups);
+    if (!filterOutUnselectableItems) return CombinedList<T>(menuGroups);
 
-    return new CombinedList<T>(menuGroups
+    return CombinedList<T>(menuGroups
         .map((group) => group
             .where((item) => item is MenuItem ? item.enabled : true)
             .toList())

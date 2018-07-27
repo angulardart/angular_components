@@ -25,7 +25,7 @@ import 'menu_item_groups.dart';
 @Component(
   selector: 'material-fab-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: const [
+  directives: [
     AutoFocusDirective,
     DeferredContentDirective,
     NgFor,
@@ -40,7 +40,7 @@ import 'menu_item_groups.dart';
     PopupSourceDirective,
   ],
   templateUrl: 'material_fab_menu.html',
-  styleUrls: const ['material_fab_menu.scss.css'],
+  styleUrls: ['material_fab_menu.scss.css'],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
 )
@@ -62,7 +62,7 @@ class MaterialFabMenuComponent extends Object
   /// Emits when fab is opened.
   @Output()
   Stream<void> get onShow => _onShow.stream;
-  final _onShow = new StreamController<void>.broadcast();
+  final _onShow = StreamController<void>.broadcast();
 
   /// [MenuItem] that defines the appearance and behavior of this menu.
   ///
@@ -72,7 +72,7 @@ class MaterialFabMenuComponent extends Object
   set menuItem(MenuItem menuItem) {
     if (menuItem == null) return;
 
-    viewModel = new MaterialFabMenuModel(menuItem, showPopup: showPopup);
+    viewModel = MaterialFabMenuModel(menuItem, showPopup: showPopup);
   }
 
   /// Sets the view model for this component.
@@ -143,7 +143,7 @@ class MaterialFabMenuComponent extends Object
 
   void hideMenu() {
     _hideMenuContent();
-    new Future.delayed(MaterialPopupComponent.SLIDE_DELAY, () {
+    Future.delayed(MaterialPopupComponent.SLIDE_DELAY, () {
       _viewModel.closePopup();
     });
   }
@@ -172,7 +172,7 @@ class MaterialFabMenuModel {
   final ObservableReference<bool> _showPopup;
 
   MaterialFabMenuModel(this.menuItem, {bool showPopup = false})
-      : _showPopup = new ObservableReference<bool>(showPopup);
+      : _showPopup = ObservableReference<bool>(showPopup);
 
   Stream<Change<bool>> get onShowPopupChange => _showPopup.changes;
 

@@ -20,8 +20,8 @@ import 'deferred_content_aware.dart';
   selector: '[deferredContent]',
 )
 class DeferredContentDirective implements OnDestroy {
-  final _disposer = new Disposer.oneShot();
-  final _placeholder = new DivElement();
+  final _disposer = Disposer.oneShot();
+  final _placeholder = DivElement();
 
   ViewContainerRef _viewContainer;
   EmbeddedViewRef _viewRef;
@@ -101,7 +101,7 @@ class DeferredContentDirective implements OnDestroy {
 class CachingDeferredContentDirective implements OnDestroy {
   ViewContainerRef _viewContainer;
   TemplateRef _template;
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
   ViewRef _view;
 
   // Keep around the current state.

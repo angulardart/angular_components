@@ -149,7 +149,7 @@ void _applyFallbackAnimation(
   selector: 'material-ripple',
   template: '',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: const ['material_ripple.scss.css'],
+  styleUrls: ['material_ripple.scss.css'],
   changeDetection: ChangeDetectionStrategy.Detached,
 )
 class MaterialRippleComponent implements OnDestroy {
@@ -160,7 +160,7 @@ class MaterialRippleComponent implements OnDestroy {
   MaterialRippleComponent(this._element) {
     // These are initialized here instead of when they're declared because
     // dart2js would otherwise wait to initialize them until they are used.
-    _ripplePool ??= new List<DivElement>(_maxRipples);
+    _ripplePool ??= List<DivElement>(_maxRipples);
     _opacityTiming ??= {
       'duration': 300.0,
     };
@@ -179,7 +179,7 @@ class MaterialRippleComponent implements OnDestroy {
     if (_rippleTemplate == null) {
       final className =
           (supportsAnimationApi) ? '__acx-ripple' : '__acx-ripple fallback';
-      _rippleTemplate = new DivElement()..className = className;
+      _rippleTemplate = DivElement()..className = className;
     }
 
     // This is necessary because if _onMouseDown was a method, a new closure

@@ -68,7 +68,7 @@ abstract class AbstractTestability implements Testability {
         return;
       }
 
-      new Future(() {
+      Future(() {
         if (newCallback != null) newCallback(false, name);
         while (_callbacks.isNotEmpty) {
           (_callbacks.removeLast())(true, name);
@@ -98,16 +98,16 @@ class NullTestability implements Testability {
 
   @override
   void whenStable(IsStableCallback fn) {
-    throw new UnsupportedError('not supported by NullTestability');
+    throw UnsupportedError('not supported by NullTestability');
   }
 
   @override
   bool get isStable {
-    throw new UnsupportedError('not supported by NullTestability');
+    throw UnsupportedError('not supported by NullTestability');
   }
 
   @override
   String get name {
-    throw new UnsupportedError('not supported by NullTestability');
+    throw UnsupportedError('not supported by NullTestability');
   }
 }

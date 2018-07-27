@@ -37,42 +37,42 @@ import 'module.dart';
 class DateInputDirective implements OnDestroy {
   /// Various recognized input formats.
   final _inputFormats = [
-    new DateFormat.yMMMd(), // 'Jan 23, 2015'
-    new DateFormat.yMd(), // '1/23/2015' (or '23/1/2015' in non-US)
-    new DateFormat.yMEd(), // 'Fri, 1/23/2015' (or 'Fri, 23/1/2015')
-    new DateFormat.yMMMEd(), // 'Fri, Jan 23, 2015'
-    new DateFormat.yMMMMd(), // 'January 23, 2015'
-    new DateFormat.yMMMMEEEEd(), // 'Friday, January 23, 2015'
-    new DateFormat('yyyy-MM-dd') // ISO format ('2015-01-23')
+    DateFormat.yMMMd(), // 'Jan 23, 2015'
+    DateFormat.yMd(), // '1/23/2015' (or '23/1/2015' in non-US)
+    DateFormat.yMEd(), // 'Fri, 1/23/2015' (or 'Fri, 23/1/2015')
+    DateFormat.yMMMEd(), // 'Fri, Jan 23, 2015'
+    DateFormat.yMMMMd(), // 'January 23, 2015'
+    DateFormat.yMMMMEEEEd(), // 'Friday, January 23, 2015'
+    DateFormat('yyyy-MM-dd') // ISO format ('2015-01-23')
   ];
 
   /// Recognized day input formats which omit the year.
   final _dayInputFormatsWithoutYear = [
-    new DateFormat.MMMd(), // 'Jan 23'
-    new DateFormat.Md(), // '1/23' (or '23/1' in non-US)
-    new DateFormat.MEd(), // 'Fri, 1/23' (or 'Fri, 23/1')
-    new DateFormat.MMMEd(), // 'Fri, Jan 23'
-    new DateFormat.MMMMd(), // 'January 23'
-    new DateFormat.MMMMEEEEd() // 'Friday, January 23'
+    DateFormat.MMMd(), // 'Jan 23'
+    DateFormat.Md(), // '1/23' (or '23/1' in non-US)
+    DateFormat.MEd(), // 'Fri, 1/23' (or 'Fri, 23/1')
+    DateFormat.MMMEd(), // 'Fri, Jan 23'
+    DateFormat.MMMMd(), // 'January 23'
+    DateFormat.MMMMEEEEd() // 'Friday, January 23'
   ];
 
   /// Recognized month input formats which omit the day.
   final _monthInputFormatsWithoutDay = [
-    new DateFormat.yMMM(), // 'Jan 2015'
-    new DateFormat.yM(), // '1/2015'
-    new DateFormat.yMMMM(), // 'January 2015'
-    new DateFormat('yyyy-MM') // ISO format ('2015-01')
+    DateFormat.yMMM(), // 'Jan 2015'
+    DateFormat.yM(), // '1/2015'
+    DateFormat.yMMMM(), // 'January 2015'
+    DateFormat('yyyy-MM') // ISO format ('2015-01')
   ];
 
   /// Recognized month input formats which only contain months.
   final _monthInputFormatsMonthOnly = [
-    new DateFormat.MMM(), // 'Jan'
-    new DateFormat.M(), // '1
-    new DateFormat.MMMM() // 'January'
+    DateFormat.MMM(), // 'Jan'
+    DateFormat.M(), // '1
+    DateFormat.MMMM() // 'January'
   ];
 
-  final _defaultMonthFormat = new DateFormat.yMMM();
-  final _defaultDayFormat = new DateFormat.yMMMd();
+  final _defaultMonthFormat = DateFormat.yMMM();
+  final _defaultDayFormat = DateFormat.yMMMd();
 
   /// The [DateFormat] used to format dates. When [isMonthInput] is false, this
   /// defaults to `yMMMd`, e.g. "Jul 31, 2015". When [isMonthInput] is true,
@@ -104,7 +104,7 @@ class DateInputDirective implements OnDestroy {
     if (_lastParse != _date) _trySetDate(_lastParse, setAsCurrent: true);
   }
 
-  Date _maxDate = new Date(9999, DateTime.december, 31);
+  Date _maxDate = Date(9999, DateTime.december, 31);
   Date get maxDate => _maxDate;
 
   /// The earliest recognized date, inclusive.
@@ -119,7 +119,7 @@ class DateInputDirective implements OnDestroy {
     if (_lastParse != _date) _trySetDate(_lastParse, setAsCurrent: true);
   }
 
-  Date _minDate = new Date(1000, DateTime.january, 1);
+  Date _minDate = Date(1000, DateTime.january, 1);
   Date get minDate => _minDate;
 
   /// The selected date.
@@ -147,9 +147,9 @@ class DateInputDirective implements OnDestroy {
 
   bool _isRangeEnd = false;
 
-  final Disposer _disposer = new Disposer.oneShot();
+  final Disposer _disposer = Disposer.oneShot();
 
-  final _controller = new StreamController<Date>.broadcast();
+  final _controller = StreamController<Date>.broadcast();
 
   /// Fired when a valid date value is entered.
   @Output()
@@ -206,7 +206,7 @@ class DateInputDirective implements OnDestroy {
     Date date;
     formatList.any((format) {
       try {
-        date = new Date.parseLoose(input, format);
+        date = Date.parseLoose(input, format);
         date = _clampDate(date);
         return true;
       } on FormatException {
@@ -268,7 +268,7 @@ class DateInputDirective implements OnDestroy {
     }
 
     if (_lastParse != null && _lastParse.year < 100) {
-      _lastParse = new Date(
+      _lastParse = Date(
           _guessCentury(_lastParse.year), _lastParse.month, _lastParse.day);
     }
 
@@ -336,7 +336,7 @@ class DateInputDirective implements OnDestroy {
   Date _guessYear(Date date) {
     if (date == null) return null;
 
-    final thisYear = new Date(_clock.now().year, date.month, date.day);
+    final thisYear = Date(_clock.now().year, date.month, date.day);
     for (var candidate in [
       thisYear,
       thisYear.add(years: 1),

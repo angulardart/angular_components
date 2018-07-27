@@ -32,7 +32,7 @@ abstract class SelectionChangeNotifier<T> implements SelectionModel<T> {
     if (hasSelectionObservers &&
         _selectionChangeRecords != null &&
         _selectionChangeRecords.isNotEmpty) {
-      var records = new UnmodifiableListView<SelectionChangeRecord<T>>(
+      var records = UnmodifiableListView<SelectionChangeRecord<T>>(
           _selectionChangeRecords);
       _selectionChangeRecords = null;
       _selectionChangeController.add(records);
@@ -46,7 +46,7 @@ abstract class SelectionChangeNotifier<T> implements SelectionModel<T> {
   void notifySelectionChange(
       {Iterable<T> added = const [], Iterable<T> removed = const []}) {
     if (hasSelectionObservers) {
-      var record = new SelectionChangeRecord<T>(added: added, removed: removed);
+      var record = SelectionChangeRecord<T>(added: added, removed: removed);
       if (_selectionChangeRecords == null) {
         _selectionChangeRecords = [];
         scheduleMicrotask(deliverSelectionChanges);
@@ -65,7 +65,7 @@ abstract class SelectionChangeNotifier<T> implements SelectionModel<T> {
   Stream<List<SelectionChangeRecord<T>>> get selectionChanges {
     if (_selectionChangeController == null) {
       _selectionChangeController =
-          new StreamController<List<SelectionChangeRecord<T>>>.broadcast(
+          StreamController<List<SelectionChangeRecord<T>>>.broadcast(
               sync: true);
     }
     return _selectionChangeController.stream;
@@ -82,9 +82,9 @@ class _SelectionChangeRecordImpl<T> extends ChangeRecord
   final Iterable<T> removed;
 
   factory _SelectionChangeRecordImpl({Iterable<T> added, Iterable<T> removed}) {
-    added = added != null ? new UnmodifiableListView(added) : const [];
-    removed = removed != null ? new UnmodifiableListView(removed) : const [];
-    return new _SelectionChangeRecordImpl._(added, removed);
+    added = added != null ? UnmodifiableListView(added) : const [];
+    removed = removed != null ? UnmodifiableListView(removed) : const [];
+    return _SelectionChangeRecordImpl._(added, removed);
   }
 
   _SelectionChangeRecordImpl._(this.added, this.removed);

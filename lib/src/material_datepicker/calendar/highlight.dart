@@ -56,7 +56,7 @@ class Highlight {
 /// Base class for calendar time periods that can contain [Highlight]s, such as
 /// [CalendarWeek] and [CalendarYear].
 abstract class _HasHighlights {
-  static final Function _setEq = new UnorderedIterableEquality().equals;
+  static final Function _setEq = UnorderedIterableEquality().equals;
 
   /// `true` if the two highlights are for the same set of calendar selections.
   static bool _matchingRangesEq(Highlight a, Highlight b) => _setEq(
@@ -113,12 +113,12 @@ abstract class _HasHighlights {
   ///     |        2        3        4         5         6         7   8  |
   ///     | (         blue         )   (          green          ) 7   8  |
   Iterable<Highlight> _mergedHighlights() sync* {
-    var current = new Highlight(0, 0, []);
+    var current = Highlight(0, 0, []);
     for (var h in _generateHighlights()) {
       if (_matchingRangesEq(h, current)) {
         // This range matches the same set of selections as the last; merge them
         // into one larger range
-        current = new Highlight(current.start, h.end, h.containedRanges);
+        current = Highlight(current.start, h.end, h.containedRanges);
       } else {
         // This range matches a different set of selections; yield the last one
         // and start keeping track of this one

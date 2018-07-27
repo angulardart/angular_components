@@ -22,7 +22,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// **NOTE**: Usage of this removes [Modal]'s built in LIFO stack.
 @Injectable()
 class GlobalModalStack {
-  final List<Modal> _stack = new List<Modal>();
+  final List<Modal> _stack = List<Modal>();
 
   /// Should be triggered when [modal] is closed.
   void onModalClosed(Modal modal) {
@@ -133,11 +133,11 @@ abstract class Modal {
 ///                and close interaction cycle that allows users to cancel.
 @Component(
   selector: 'modal',
-  providers: const [
-    const Provider(DeferredContentAware, useExisting: ModalComponent),
-    const Provider(Modal, useExisting: ModalComponent)
+  providers: [
+    Provider(DeferredContentAware, useExisting: ModalComponent),
+    Provider(Modal, useExisting: ModalComponent)
   ],
-  directives: const [ModalControllerDirective],
+  directives: [ModalControllerDirective],
   template: r'''
     <template [modalController]="resolvedOverlayRef">
       <ng-content></ng-content>
@@ -155,17 +155,17 @@ class ModalComponent
 
   @override
   Stream<AsyncAction> get onOpen => _onOpen.stream;
-  final _onOpen = new StreamController<AsyncAction>.broadcast(sync: true);
+  final _onOpen = StreamController<AsyncAction>.broadcast(sync: true);
 
   @override
   Stream<AsyncAction> get onClose => _onClose.stream;
-  final _onClose = new StreamController<AsyncAction>.broadcast(sync: true);
+  final _onClose = StreamController<AsyncAction>.broadcast(sync: true);
 
   @override
   Stream<bool> get onVisibleChanged => _onVisibleChanged.stream;
-  final _onVisibleChanged = new StreamController<bool>.broadcast(sync: true);
+  final _onVisibleChanged = StreamController<bool>.broadcast(sync: true);
 
-  final Disposer _disposer = new Disposer.oneShot();
+  final Disposer _disposer = Disposer.oneShot();
 
   bool _isDestroyed = false;
   bool _isHidden = false;
@@ -266,7 +266,7 @@ class ModalComponent
   @override
   Future<bool> open() {
     if (_pendingOpen == null) {
-      final controller = new AsyncActionController();
+      final controller = AsyncActionController();
       controller.execute(_showModalOverlay);
       _pendingOpen = controller.action.onDone.then((completed) {
         _pendingOpen = null;
@@ -280,7 +280,7 @@ class ModalComponent
   @override
   Future<bool> close() {
     if (_pendingClose == null) {
-      final controller = new AsyncActionController();
+      final controller = AsyncActionController();
       controller.execute(_hideModalOverlay);
       _pendingClose = controller.action.onDone.then((completed) {
         _pendingClose = null;

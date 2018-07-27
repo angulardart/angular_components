@@ -59,7 +59,7 @@ class OverlayRef implements PortalHost {
 
   /// An event stream that fires when the overlay's visibility changes.
   Stream<bool> get onVisibleChanged {
-    _onVisibleController ??= new StreamController.broadcast(sync: true);
+    _onVisibleController ??= StreamController.broadcast(sync: true);
     return _onVisibleController.stream;
   }
 
@@ -82,7 +82,7 @@ class OverlayRef implements PortalHost {
 
   /// Sets whether the overlay should be visible.
   void setVisible([bool visible]) {
-    state.visibility = new Visibility.fromBoolean(visible ?? true);
+    state.visibility = Visibility.fromBoolean(visible ?? true);
   }
 
   /// A unique ID that represents the overlay pane.
@@ -143,7 +143,7 @@ class OverlayRef implements PortalHost {
       this.overlayElement,
       this._runOutsideAngular,
       {OverlayState state})
-      : this.state = new MutableOverlayState.from(state) {
+      : this.state = MutableOverlayState.from(state) {
     _stateUpdateListener = this.state.onUpdate.listen((_) => _applyChanges());
   }
 }

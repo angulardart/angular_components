@@ -26,7 +26,7 @@ import '../src/material_datepicker/enum_parsing.dart';
 @Component(
   changeDetection: ChangeDetectionStrategy.Detached,
   selector: 'material-month-picker',
-  styleUrls: const ['material_month_picker.scss.css'],
+  styleUrls: ['material_month_picker.scss.css'],
   templateUrl: 'material_month_picker.html',
 )
 class MaterialMonthPickerComponent
@@ -41,7 +41,7 @@ class MaterialMonthPickerComponent
 
   CalendarState get state => _model.value;
   ObservableReference<CalendarState> _model =
-      new ObservableReference(new CalendarState.empty(), coalesce: true);
+      ObservableReference(CalendarState.empty(), coalesce: true);
 
   /// Fired when the calendar state changes -- e.g. when the user starts
   /// dragging the selected date range.
@@ -96,14 +96,14 @@ class MaterialMonthPickerComponent
   static const _yearAttribute = 'data-year';
   static const _monthAttribute = 'data-month';
 
-  static final _monthNames = new DateFormat().dateSymbols.SHORTMONTHS;
+  static final _monthNames = DateFormat().dateSymbols.SHORTMONTHS;
 
   static final _yearTemplate = _createYearTemplate();
-  static final _yearTemplateContainer = new DivElement();
-  static final _yearTemplateTitle = new HeadingElement.h2();
+  static final _yearTemplateContainer = DivElement();
+  static final _yearTemplateTitle = HeadingElement.h2();
 
   static DocumentFragment _createYearTemplate() {
-    final template = new DocumentFragment();
+    final template = DocumentFragment();
 
     // Create the year container element.
     _yearTemplateContainer.className = 'year';
@@ -114,7 +114,7 @@ class MaterialMonthPickerComponent
     _yearTemplateContainer.append(_yearTemplateTitle);
 
     // Create the month elements.
-    final monthTemplate = new DivElement()..className = 'month';
+    final monthTemplate = DivElement()..className = 'month';
     for (var i = 0; i < 12; i++) {
       HtmlElement month = monthTemplate.clone(true);
       month
@@ -178,7 +178,7 @@ class MaterialMonthPickerComponent
     // If it's a single month range, we're done.
     if (start == end) return;
 
-    var range = new Range()
+    var range = Range()
       ..setStartBefore(start)
       ..setEndAfter(end);
 
@@ -242,19 +242,19 @@ class MaterialMonthPickerComponent
   // detection cycle.
   bool _isResetNeeded = true;
 
-  CalendarListener _inputListener = new CalendarListener.noop();
+  CalendarListener _inputListener = CalendarListener.noop();
   StreamSubscription _calendarStream;
 
   MaterialMonthPickerComponent(@Optional() @Inject(datepickerClock) Clock clock,
       @Attribute('mode') String mode) {
-    clock ??= new Clock();
+    clock ??= Clock();
 
     // Init minDate and maxDate to sensible defaults
     var now = clock.now();
-    minDate = new Date(now.year - 10, DateTime.january, 1);
-    maxDate = new Date(now.year + 10, DateTime.december, 31);
+    minDate = Date(now.year - 10, DateTime.january, 1);
+    maxDate = Date(now.year + 10, DateTime.december, 31);
 
-    _today = new Date.today(clock);
+    _today = Date.today(clock);
 
     if (mode != null && mode.isNotEmpty) {
       _mode = fuzzyParseEnum(CalendarSelectionMode.values, mode);
@@ -272,9 +272,9 @@ class MaterialMonthPickerComponent
     _calendarStream = _model.stream.listen(_onCalendarChange);
 
     if (_mode == CalendarSelectionMode.SINGLE_DATE) {
-      _inputListener = new CalendarListener.singleDate(_model);
+      _inputListener = CalendarListener.singleDate(_model);
     } else if (_mode == CalendarSelectionMode.DATE_RANGE) {
-      _inputListener = new CalendarListener.dateRange(_model);
+      _inputListener = CalendarListener.dateRange(_model);
     }
   }
 
@@ -312,15 +312,15 @@ class MaterialMonthPickerComponent
     // Disable all months before minDate.
     HtmlElement element;
     for (var i = 1; i < minDate.month; i++) {
-      element = _container
-          .querySelector(_monthSelector(new Date(minDate.year, i, 1)));
+      element =
+          _container.querySelector(_monthSelector(Date(minDate.year, i, 1)));
       element.classes.add('disabled');
     }
 
     // Disable all months after maxDate.
     for (var i = maxDate.month + 1; i <= 12; i++) {
-      element = _container
-          .querySelector(_monthSelector(new Date(maxDate.year, i, 1)));
+      element =
+          _container.querySelector(_monthSelector(Date(maxDate.year, i, 1)));
       element.classes.add('disabled');
     }
   }
@@ -367,7 +367,7 @@ class MaterialMonthPickerComponent
     final year = monthElement.parent.getAttribute(_yearAttribute);
     if (year == null) return null;
 
-    return new Date(int.parse(year), int.parse(month), 1);
+    return Date(int.parse(year), int.parse(month), 1);
   }
 
   void _onClick(Event event) {

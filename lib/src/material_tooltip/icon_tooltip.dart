@@ -30,10 +30,9 @@ import 'tooltip_target.dart';
 ///   - `error` -- Shows an "error_outline" (a circled "!").
 @Component(
   selector: 'material-icon-tooltip',
-  providers: const [
+  providers: [
     AcxDarkTheme,
-    const Provider(DeferredContentAware,
-        useExisting: MaterialIconTooltipComponent)
+    Provider(DeferredContentAware, useExisting: MaterialIconTooltipComponent)
   ],
   template: r'''
     <material-icon [icon]="icon" [attr.size]="iconSize"
@@ -44,9 +43,9 @@ import 'tooltip_target.dart';
     <material-tooltip-card [for]="tooltipRef">
       <ng-content></ng-content>
     </material-tooltip-card>''',
-  styleUrls: const ['icon_tooltip.scss.css'],
+  styleUrls: ['icon_tooltip.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: const [
+  directives: [
     ClickableTooltipTargetDirective,
     MaterialIconComponent,
     KeyboardOnlyFocusIndicatorDirective,

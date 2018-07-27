@@ -64,7 +64,7 @@ enum _DragState { canPreview, pendingGrabOrClick, pendingDragOrClick, dragging }
 /// Listens for date range selections. This one is more complicated...
 class _RangeListener implements CalendarListener {
   final ObservableReference<CalendarState> model;
-  final _disposer = new Disposer.multi();
+  final _disposer = Disposer.multi();
   _RangeListener(this.model) {
     _initSelectionPreview();
     _disposer.addStreamSubscription(model.stream.listen((s) {
@@ -170,7 +170,7 @@ class _RangeListener implements CalendarListener {
       if (state == _DragState.dragging) {
         // If this was actually a drag, confirm current selection (set
         // previously by mousemove) and select the next range
-        model.value = new CalendarState(
+        model.value = CalendarState(
             selections: model.value.selections,
             currentSelection: model.value.currentSelection,
             cause: CausedBy.rangeConfirm,

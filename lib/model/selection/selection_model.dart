@@ -9,7 +9,6 @@ import 'dart:collection';
 
 import 'package:observable/observable.dart';
 
-import 'package:angular_components/src/model/selection/interfaces/selectable.dart';
 import 'package:angular_components/src/model/selection/radio_group_single_selection_model.dart';
 
 export 'package:angular_components/src/model/selection/delegating_selection_model.dart';
@@ -17,7 +16,6 @@ export 'package:angular_components/src/model/selection/radio_group_single_select
 
 part 'package:angular_components/src/model/selection/multi_selection_model_impl.dart';
 part 'package:angular_components/src/model/selection/noop_selection_model_impl.dart';
-part 'package:angular_components/src/model/selection/selectable_change_notifier.dart';
 part 'package:angular_components/src/model/selection/selection_change_notifier.dart';
 part 'package:angular_components/src/model/selection/single_selection_model_impl.dart';
 
@@ -57,7 +55,7 @@ abstract class SelectionModel<T> extends Object
 
   /// Creates a single-selection model that always has a value selected.
   factory SelectionModel.radio(T selected) =>
-      new RadioGroupSingleSelectionModel<T>(selected);
+      RadioGroupSingleSelectionModel<T>(selected);
 
   /// Creates a multi-selection model.
   ///
@@ -77,10 +75,10 @@ abstract class SelectionModel<T> extends Object
       KeyProvider<T> keyProvider,
       bool allowMulti = false}) {
     if (allowMulti) {
-      return new SelectionModel<T>.multi(
+      return SelectionModel<T>.multi(
           selectedValues: selectedValues, keyProvider: keyProvider);
     } else {
-      return new SelectionModel<T>.single(
+      return SelectionModel<T>.single(
           selected: (selectedValues?.isNotEmpty ?? false)
               ? selectedValues.last
               : null,
@@ -122,7 +120,7 @@ abstract class SelectionModel<T> extends Object
 
 abstract class SingleSelectionModel<T> extends SelectionModel<T> {
   factory SingleSelectionModel({T selected, KeyProvider<T> keyProvider}) =>
-      new _SingleSelectionModelImpl<T>(
+      _SingleSelectionModelImpl<T>(
           selected, keyProvider ?? _defaultKeyProvider);
 
   /// The selected value, or `null` if no value has been selected.
@@ -132,7 +130,7 @@ abstract class SingleSelectionModel<T> extends SelectionModel<T> {
 abstract class MultiSelectionModel<T> extends SelectionModel<T> {
   factory MultiSelectionModel(
           {List<T> selectedValues, KeyProvider<T> keyProvider}) =>
-      new _MultiSelectionModelImpl<T>(
+      _MultiSelectionModelImpl<T>(
           selectedValues ?? const [], keyProvider ?? _defaultKeyProvider);
 
   /// Adds all [values] to the list of selected items that were not previously
@@ -156,9 +154,4 @@ abstract class SelectionChangeRecord<T> extends ChangeRecord {
 
   /// Returns an iterable of values removed from selection.
   Iterable<T> get removed;
-}
-
-/// A change record for [SelectionModel.selectableChanges].
-abstract class SelectableChangeRecord<T> extends ChangeRecord {
-  const factory SelectableChangeRecord() = _SelectableChangeRecordImpl<T>;
 }

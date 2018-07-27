@@ -10,7 +10,7 @@
 /// - Hidden - the item is not selectable, and no checkbox is present.
 enum SelectableOption { Selectable, Disabled, Hidden }
 
-typedef SelectableOption SelectableGetter<T>(T entity);
+typedef SelectableGetter<T> = SelectableOption Function(T entity);
 
 /// Interface for determining if an entity [T] should be shown as selectable.
 ///
@@ -21,6 +21,121 @@ typedef SelectableOption SelectableGetter<T>(T entity);
 /// __Example use__:
 ///     class MySelectionOptions = SelectionOptions with Selectable;
 abstract class Selectable<T> {
+  /// Returns `true` if [item] is described to have [option] in [isMaybeModel].
+  ///
+  /// This is a helper function for implementing a behavioral check that on a
+  /// [isMaybeModel] that _may_ implement the [Selectable] interface, and if it
+  /// does, may describe [item] to have the selectability of [option].
+  ///
+  /// See [isSelectableIn], [isDisabledIn], and [isHiddenIn].
+  static bool _isOptionCheck<T>(
+    Object isMaybeModel,
+    T item,
+    SelectableOption option,
+    bool defaultIfMissingInterface,
+  ) {
+    if (isMaybeModel is Selectable<T>) {
+      return identical(isMaybeModel.getSelectable(item), option);
+    }
+    if (isMaybeModel is SelectableWithComposition<T>) {
+      final SelectableGetter<T> getSelectable = isMaybeModel.getSelectable;
+      if (getSelectable != null) {
+        return identical(getSelectable(item), option);
+      }
+    }
+    return defaultIfMissingInterface;
+  }
+
+  /// Returns the selectability of option [item] in [isMaybeModel].
+  static SelectableOption getOptionIn<T>(
+    Object isMaybeModel,
+    T item, [
+    SelectableOption defaultIfMissingInterface = SelectableOption.Selectable,
+  ]) {
+    if (isMaybeModel is Selectable<T>) {
+      return isMaybeModel.getSelectable(item);
+    }
+    if (isMaybeModel is SelectableWithComposition<T>) {
+      final dynamic avoidFuzzyArrow = isMaybeModel;
+      final getSelectable = avoidFuzzyArrow.getSelectable;
+      if (getSelectable != null) {
+        return getSelectable(item);
+      }
+    }
+    return defaultIfMissingInterface;
+  }
+
+  /// Returns a filter function based on [item] being selectable.
+  static bool Function(T) filterWhereSelectable<T>(
+    Object isMaybeModel, [
+    bool defaultIfMissingInterface = true,
+  ]) {
+    bool Function(T) isSelectable = (_) => defaultIfMissingInterface;
+    if (isMaybeModel is Selectable<T>) {
+      isSelectable = (option) {
+        return identical(
+          isMaybeModel.getSelectable(option),
+          SelectableOption.Selectable,
+        );
+      };
+    }
+    if (isMaybeModel is SelectableWithComposition<T>) {
+      final dynamic avoidFuzzyArrow = isMaybeModel;
+      final getSelectable = avoidFuzzyArrow.getSelectable;
+      if (getSelectable != null) {
+        isSelectable = (option) {
+          return identical(
+            getSelectable(option),
+            SelectableOption.Selectable,
+          );
+        };
+      }
+    }
+    return isSelectable;
+  }
+
+  /// Returns whether [model] has [item] as a [SelectableOption.Selectable].
+  static bool isSelectableIn<T>(
+    Object model,
+    T item, [
+    bool defaultIfMissingInterface = true,
+  ]) {
+    return _isOptionCheck(
+      model,
+      item,
+      SelectableOption.Selectable,
+      defaultIfMissingInterface,
+    );
+  }
+
+  /// Returns whether [model] has [item] as a [SelectableOption.Disabled].
+  static bool isDisabledIn<T>(
+    Object model,
+    T item, [
+    bool defaultIfMissingInterface = false,
+  ]) {
+    return _isOptionCheck(
+      model,
+      item,
+      SelectableOption.Disabled,
+      defaultIfMissingInterface,
+    );
+  }
+
+  /// Returns whether [model] has [item] as a [SelectableOption.Hidden].
+  static bool isHiddenIn<T>(
+    Object model,
+    T item, [
+    bool defaultIfMissingInterface = false,
+  ]) {
+    return _isOptionCheck(
+      model,
+      item,
+      SelectableOption.Hidden,
+      defaultIfMissingInterface,
+    );
+  }
+
   /// Whether [item] should be shown as selectable.
   SelectableOption getSelectable(T item) => SelectableOption.Selectable;
 }
@@ -32,9 +147,39 @@ abstract class Selectable<T> {
 ///
 /// __Example use__:
 ///     class MySelectionOptions = SelectionOptions with SelectableWithComposition;
+///
+/// **DEPRECATED**: The main purpose of this interface/class was to have an
+/// indentical API to [Selectable], but allow overriding the [getSelectable]
+/// implementation at runtime. Unfortunately this has caused many problems
+/// (b/111665960), and in practice users were using this interface but providing
+/// a static implementation. To get a similar API, simply extend/mixin/implement
+/// [SelectableWithOverride].
+@Deprecated('Being removed in favor of `SelectableWithOverride`')
 abstract class SelectableWithComposition<T> {
   /// Whether [item] should be shown as selectable.
   SelectableGetter<T> getSelectable = (T item) => SelectableOption.Selectable;
+}
+
+/// Interface for determining if an entity [T] should be shown as selectable.
+///
+/// This interface serves the same purpose of `Selectable<T>`, except the
+/// [getSelectable] method delegates to [overrideGetSelectable], which can be
+/// invoked at runtime.
+///
+/// It is recommended to _extend_ or _mixin_ this class when possible.
+///
+/// __Example use__:
+///     class MySelectionOptions = SelectionOptions with SelectableWithOverride;
+abstract class SelectableWithOverride<T> implements Selectable<T> {
+  @override
+  SelectableOption getSelectable(T item) => _overrideSelectable(item);
+
+  /// May be set, at runtime, to change the implementation of [getSelectable].
+  void overrideGetSelectable(SelectableGetter<T> overrideSelectable) {
+    _overrideSelectable = override;
+  }
+
+  SelectableGetter<T> _overrideSelectable = (_) => SelectableOption.Selectable;
 }
 
 /// An optional interface for describing why an item is/is not selectable.

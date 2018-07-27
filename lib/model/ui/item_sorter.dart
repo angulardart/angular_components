@@ -14,7 +14,7 @@ List<T> sortItems<T>(ItemRenderer<T> itemRenderer, Iterable<T> items,
     {bool ignoreCase = false}) {
   // TODO(google): Use new SplayTreeMap<String, T>.fromIterable<T>(...) when
   // generic constructors becomes available.
-  var itemsMap = new SplayTreeMap<String, T>();
+  var itemsMap = SplayTreeMap<String, T>();
   if (ignoreCase) {
     for (T item in items) {
       itemsMap[itemRenderer(item).toLowerCase()] = item;

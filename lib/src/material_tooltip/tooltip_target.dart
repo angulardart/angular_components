@@ -47,7 +47,7 @@ class MaterialTooltipTargetDirective extends TooltipBehavior
 /// Class incorporating the common behavior of a [Directive] that marks the
 /// target of a tooltip.
 abstract class TooltipBehavior extends TooltipTarget {
-  final _tooltipActivate = new StreamController<bool>.broadcast(sync: true);
+  final _tooltipActivate = StreamController<bool>.broadcast(sync: true);
   final ChangeDetectorRef _changeDetector;
   DelayedAction _show;
 
@@ -64,7 +64,7 @@ abstract class TooltipBehavior extends TooltipTarget {
       HtmlElement element,
       this._changeDetector)
       : super(domPopupSourceFactory, viewContainerRef, element) {
-    _show = new DelayedAction(tooltipShowDelay, showTooltip);
+    _show = DelayedAction(tooltipShowDelay, showTooltip);
   }
 
   @HostListener('keyup')

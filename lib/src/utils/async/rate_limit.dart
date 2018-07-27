@@ -50,8 +50,6 @@ class RateLimitTransformer<S, T> extends StreamTransformerBase<S, T> {
   RateLimitTransformer(this._duration, this._rateLimitStrategy);
 
   @override
-  Stream<T> bind(Stream<S> stream) => new Stream.eventTransformed(
-      stream,
-      (EventSink sink) =>
-          new _RateLimitSink(sink, _duration, _rateLimitStrategy));
+  Stream<T> bind(Stream<S> stream) => Stream.eventTransformed(stream,
+      (EventSink sink) => _RateLimitSink(sink, _duration, _rateLimitStrategy));
 }

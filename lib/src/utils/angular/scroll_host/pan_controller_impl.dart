@@ -16,13 +16,13 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 class NonTouchPanController implements PanController {
   /// The duration while we are collecting multiple events, to merge them into
   /// a single interpretation.
-  static final _eventCollectDuration = new Duration(milliseconds: 50);
+  static final _eventCollectDuration = Duration(milliseconds: 50);
 
   /// The duration to wait after an active scrolling to prevent false positives.
-  static final _scrollCooldownDuration = new Duration(seconds: 1);
+  static final _scrollCooldownDuration = Duration(seconds: 1);
 
   /// The duration to wait after intent recognition, to prevent multiples.
-  static final _deduplicationDuration = new Duration(seconds: 4);
+  static final _deduplicationDuration = Duration(seconds: 4);
 
   final NgZone ngZone;
   final DomService domService;
@@ -58,10 +58,10 @@ class NonTouchPanController implements PanController {
   Stream<PanEvent> get onPan {
     if (_controller == null) {
       assert(_stream == null);
-      _controller = new StreamController.broadcast(
+      _controller = StreamController.broadcast(
           sync: true, onListen: _onListen, onCancel: _onCancel);
-      _stream = new ZonedStream<PanEvent>(
-          _controller.stream, ngZone.runOutsideAngular);
+      _stream =
+          ZonedStream<PanEvent>(_controller.stream, ngZone.runOutsideAngular);
     }
     return _stream;
   }
@@ -106,7 +106,7 @@ class NonTouchPanController implements PanController {
   void _scheduleNotification() {
     if (_eventCollectTimer != null) return;
     if (!_hasNotification) return;
-    _eventCollectTimer = new Timer(_eventCollectDuration, () {
+    _eventCollectTimer = Timer(_eventCollectDuration, () {
       _eventCollectTimer = null;
       // wait until the previous event is actually sent
       if (_notificationSender != null) {
@@ -115,7 +115,7 @@ class NonTouchPanController implements PanController {
       }
       if (_endPan) _resetPans();
       PanEventImpl event =
-          new PanEventImpl(_panTop, _panRight, _panBottom, _panLeft);
+          PanEventImpl(_panTop, _panRight, _panBottom, _panLeft);
       if ((event != _lastEvent) &&
           (event.isValid) &&
           (!event.isSubsetOf(_lastEvent))) {
@@ -149,7 +149,7 @@ class NonTouchPanController implements PanController {
 
   void _scheduleScrollingCooldown() {
     _cancelScrollingCooldown();
-    _scrollCooldownTimer = new Timer(_scrollCooldownDuration, () {
+    _scrollCooldownTimer = Timer(_scrollCooldownDuration, () {
       _scrollCooldownTimer = null;
       _wasScrolling = false;
     });
@@ -164,7 +164,7 @@ class NonTouchPanController implements PanController {
 
   _scheduleDeduplication() {
     _cancelDeduplication();
-    _deduplicationTimer = new Timer(_deduplicationDuration, () {
+    _deduplicationTimer = Timer(_deduplicationDuration, () {
       _deduplicationTimer = null;
       _lastEvent = null;
     });

@@ -60,24 +60,21 @@ typedef String _InputChangeCallback(String inputText);
 /// property for custom max height once there's a use case.
 @Component(
   selector: 'material-auto-suggest-input',
-  providers: const [
-    const Provider(HasDisabled, useExisting: MaterialAutoSuggestInputComponent),
-    const Provider(HasRenderer, useExisting: MaterialAutoSuggestInputComponent),
-    const Provider(SelectionContainer,
+  providers: [
+    Provider(HasDisabled, useExisting: MaterialAutoSuggestInputComponent),
+    Provider(HasRenderer, useExisting: MaterialAutoSuggestInputComponent),
+    Provider(SelectionContainer,
         useExisting: MaterialAutoSuggestInputComponent),
-    const Provider(HighlightProvider,
+    Provider(HighlightProvider, useExisting: MaterialAutoSuggestInputComponent),
+    Provider(DropdownHandle, useExisting: MaterialAutoSuggestInputComponent),
+    Provider(HasComponentRenderer,
         useExisting: MaterialAutoSuggestInputComponent),
-    const Provider(DropdownHandle,
+    Provider(HasFactoryRenderer,
         useExisting: MaterialAutoSuggestInputComponent),
-    const Provider(HasComponentRenderer,
-        useExisting: MaterialAutoSuggestInputComponent),
-    const Provider(HasFactoryRenderer,
-        useExisting: MaterialAutoSuggestInputComponent),
-    const Provider(Focusable, useExisting: MaterialAutoSuggestInputComponent),
-    const Provider(PopupSizeProvider,
-        useExisting: MaterialAutoSuggestInputComponent)
+    Provider(Focusable, useExisting: MaterialAutoSuggestInputComponent),
+    Provider(PopupSizeProvider, useExisting: MaterialAutoSuggestInputComponent)
   ],
-  directives: const [
+  directives: [
     ActiveItemDirective,
     ButtonDirective,
     CachingDeferredContentDirective,
@@ -97,7 +94,7 @@ typedef String _InputChangeCallback(String inputText);
     StopPropagationDirective,
   ],
   templateUrl: 'material_auto_suggest_input.html',
-  styleUrls: const [
+  styleUrls: [
     'material_auto_suggest_input.scss.css',
     'material_input_wrapper.scss.css'
   ],
@@ -120,14 +117,14 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// How to automatically position the dropdown popup by default.
   ///
   /// We do not want to cover the input area.
-  static const List<RelativePosition> _defaultPopupPositions = const [
+  static const List<RelativePosition> _defaultPopupPositions = [
     RelativePosition.AdjacentBottomLeft,
     RelativePosition.AdjacentBottomRight,
     RelativePosition.AdjacentTopLeft,
     RelativePosition.AdjacentTopRight
   ];
 
-  final SelectionModel _defaultSelection = new SelectionModel.single();
+  final SelectionModel _defaultSelection = SelectionModel.single();
 
   final String popupId;
   final String inputId;
@@ -171,7 +168,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   String _inputText = '';
 
   /// Publishes events when input text changes.
-  final _inputChange = new StreamController<String>.broadcast(sync: true);
+  final _inputChange = StreamController<String>.broadcast(sync: true);
 
   /// The last item that was selected.  This is needed if clearOnSelection is
   /// false to determine if an item needs to be unselected.
@@ -302,14 +299,12 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
           @Optional() @Self() NgControl cd,
           @Optional() IdGenerator idGenerator,
           @Optional() @SkipSelf() PopupSizeProvider popupSizeDelegate) =>
-      new MaterialAutoSuggestInputComponent.protected(
-          cd,
-          idGenerator ?? new SequentialIdGenerator.fromUUID(),
-          popupSizeDelegate);
+      MaterialAutoSuggestInputComponent.protected(cd,
+          idGenerator ?? SequentialIdGenerator.fromUUID(), popupSizeDelegate);
 
   MaterialAutoSuggestInputComponent.protected(this._cd, IdGenerator idGenerator,
       [this._popupSizeDelegate])
-      : activeModel = new ActiveItemModel(idGenerator, loop: true),
+      : activeModel = ActiveItemModel(idGenerator, loop: true),
         popupId = idGenerator.nextId(),
         inputId = idGenerator.nextId() {
     if (_cd != null) {
@@ -342,12 +337,12 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     // If either the suggestions were changed or the value of sort was changed,
     // rebuild the list of options.
     if (_refreshOptions) {
-      var optionsList = new List.from(_suggestions);
+      var optionsList = List.from(_suggestions);
       if (_sorted) {
         optionsList.sort();
       }
-      options = new StringSelectionOptions(optionsList,
-          toFilterableString: itemRenderer);
+      options =
+          StringSelectionOptions(optionsList, toFilterableString: itemRenderer);
       _refreshOptions = false;
     }
   }
@@ -436,10 +431,14 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   /// An option is disabled if the options implements Selectable, but the [item]
   /// is not selectable.
-  bool isOptionDisabled(Object item) =>
-      options is Selectable &&
-      (options as Selectable).getSelectable(item) !=
-          SelectableOption.Selectable;
+  bool isOptionDisabled(Object item) {
+    // TODO: Verify if this can be simplified to .isDisabledIn.
+    //
+    // The prior code did a check for `!= SelectableOption.Selected`. It is
+    // possible there are existing users that are relying on `.Hidden` to mean
+    // disabled, for example.
+    return !Selectable.isSelectableIn(options, item, true);
+  }
 
   /// Whether to highlight options.
   /// Default value is `true`.
@@ -460,7 +459,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
       ? highlightFactoryRenderer
       : super.factoryRenderer;
 
-  final _showPopupController = new StreamController<bool>.broadcast(sync: true);
+  final _showPopupController = StreamController<bool>.broadcast(sync: true);
 
   /// Publishes event when the showPopup changes.
   @Output()
@@ -546,7 +545,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Fired when the close icon is clicked.
   @Output('clear')
   Stream<void> get onClear => _onClear.stream;
-  final _onClear = new StreamController<void>.broadcast(sync: true);
+  final _onClear = StreamController<void>.broadcast(sync: true);
 
   void onClearIcon() {
     _onClear.add(null);
@@ -559,7 +558,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Fired when the input gains focus
   @Output('focus')
   Stream<html.FocusEvent> get onFocus => _onFocus.stream;
-  final _onFocus = new StreamController<html.FocusEvent>.broadcast(sync: true);
+  final _onFocus = StreamController<html.FocusEvent>.broadcast(sync: true);
 
   void handleFocus(html.FocusEvent event) {
     if (_isFocused) return;
@@ -572,7 +571,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Fired when the input gains blur or auto suggest item get selected.
   @Output('blur')
   Stream<void> get onBlur => _onBlur.stream;
-  final _onBlur = new StreamController<void>.broadcast(sync: true);
+  final _onBlur = StreamController<void>.broadcast(sync: true);
 
   void handleBlur(html.FocusEvent event) {
     _isFocused = false;

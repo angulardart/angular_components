@@ -23,17 +23,17 @@ import 'package:angular_components/material_spinner/material_spinner.dart';
 /// To display buttons in reversed order add a `reverse` attribute.
 @Component(
   selector: 'material-yes-no-buttons',
-  directives: const [
+  directives: [
     MaterialButtonComponent,
     MaterialSpinnerComponent,
     NgClass,
     NgIf,
   ],
-  providers: const [
-    const Provider(HasDisabled, useExisting: MaterialYesNoButtonsComponent),
+  providers: [
+    Provider(HasDisabled, useExisting: MaterialYesNoButtonsComponent),
   ],
   templateUrl: 'material_yes_no_buttons.html',
-  styleUrls: const ['material_yes_no_buttons.scss.css'],
+  styleUrls: ['material_yes_no_buttons.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialYesNoButtonsComponent implements HasDisabled {
@@ -42,14 +42,14 @@ class MaterialYesNoButtonsComponent implements HasDisabled {
   /// Published events are either KeyboardEvent or MouseEvent
   @Output()
   Stream<UIEvent> get yes => _yes.stream;
-  final _yes = new StreamController<UIEvent>.broadcast();
+  final _yes = StreamController<UIEvent>.broadcast();
 
   /// The callback that is to be invoked, when no button is pressed.
   ///
   /// Published events are either KeyboardEvent or MouseEvent
   @Output()
   Stream<UIEvent> get no => _no.stream;
-  final _no = new StreamController<UIEvent>.broadcast();
+  final _no = StreamController<UIEvent>.broadcast();
 
   /// The text to be shown on the save button.
   ///

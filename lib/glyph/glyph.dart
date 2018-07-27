@@ -10,7 +10,7 @@ import 'package:angular_components/model/ui/icon.dart';
 /// Icons that should be horizontally flipped when the direction is RTL.
 ///
 /// Please add to this list as needed.
-const List<String> _flippedIcons = const [
+const List<String> _flippedIcons = [
   'arrow_back',
   'arrow_forward',
   'chevron_left',
@@ -51,7 +51,7 @@ const List<String> _flippedIcons = const [
 @Component(
   selector: 'glyph',
   templateUrl: 'glyph.html',
-  styleUrls: const ['glyph.scss.css'],
+  styleUrls: ['glyph.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class GlyphComponent {

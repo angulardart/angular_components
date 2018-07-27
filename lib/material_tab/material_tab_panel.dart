@@ -14,9 +14,9 @@ import 'package:angular_components/material_tab/tab_change_event.dart';
 // attribute.
 @Component(
   selector: 'material-tab-panel',
-  directives: const [FixedMaterialTabStripComponent],
+  directives: [FixedMaterialTabStripComponent],
   templateUrl: 'material_tab_panel.html',
-  styleUrls: const ['material_tab_panel.scss.css'],
+  styleUrls: ['material_tab_panel.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialTabPanelComponent implements AfterContentInit {
@@ -35,12 +35,12 @@ class MaterialTabPanelComponent implements AfterContentInit {
   @Output()
   Stream<TabChangeEvent> get beforeTabChange => _beforeTabChange.stream;
   final _beforeTabChange =
-      new StreamController<TabChangeEvent>.broadcast(sync: true);
+      StreamController<TabChangeEvent>.broadcast(sync: true);
 
   /// Stream of [TabChangeEvent] instances, published when the tab has changed.
   @Output()
   Stream<TabChangeEvent> get tabChange => _tabChange.stream;
-  final _tabChange = new StreamController<TabChangeEvent>.broadcast(sync: true);
+  final _tabChange = StreamController<TabChangeEvent>.broadcast(sync: true);
 
   /// Whether to center-align the tab buttons.
   ///

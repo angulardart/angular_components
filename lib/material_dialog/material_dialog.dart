@@ -26,8 +26,8 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 @Component(
   selector: 'material-dialog',
   templateUrl: 'material_dialog.html',
-  styleUrls: const ['material_dialog.scss.css'],
-  directives: const [FocusTrapComponent, NgIf],
+  styleUrls: ['material_dialog.scss.css'],
+  directives: [FocusTrapComponent, NgIf],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
@@ -35,7 +35,7 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   final DomService _domService;
   final ChangeDetectorRef _changeDetector;
   final ModalComponent _modal;
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
 
   HtmlElement _mainElement;
   bool _shouldShowHeader = true;
@@ -43,7 +43,7 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   bool shouldShowTopScrollStroke = false;
   bool shouldShowBottomScrollStroke = false;
 
-  final _isInFullscreenModeStreamController = new StreamController<bool>();
+  final _isInFullscreenModeStreamController = StreamController<bool>();
   bool _isInFullscreenMode;
   bool _shouldListenForFullscreenChanges = false;
 
@@ -53,6 +53,9 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   @ViewChild('main', read: HtmlElement)
   set main(HtmlElement element) {
     _mainElement = element;
+    _disposer.addStreamSubscription(element.onScroll.listen((_) {
+      _setHeaderFooterScrollBorder();
+    }));
     if (_modal == null) return;
     _disposer.addStreamSubscription(_modal.onOpen.listen((_) {
       _setHeaderFooterScrollBorder();
@@ -82,8 +85,6 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
   /// scrolling.
   @Input()
   bool shouldShowScrollStrokes = true;
-
-  void onScroll() => _setHeaderFooterScrollBorder();
 
   void _setHeaderFooterScrollBorder() {
     if (!shouldShowScrollStrokes) return;

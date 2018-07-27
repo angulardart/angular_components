@@ -25,7 +25,7 @@ class CalendarWeek extends _HasHighlights {
     } else {
       _days = _generateDays().toList();
     }
-    _spacers = new List(numBlankDays);
+    _spacers = List(numBlankDays);
     _updateHighlights();
   }
 
@@ -54,13 +54,13 @@ class CalendarWeek extends _HasHighlights {
 
   CalendarWeek get next {
     if (_end.isBefore(_endOfMonth)) {
-      return new CalendarWeek(_end.add(days: 1), _state, _startingWeekday);
+      return CalendarWeek(_end.add(days: 1), _state, _startingWeekday);
     }
     return null;
   }
 
   Iterable<CalendarDay> _generateDays() =>
-      _iterateDays().map((d) => new CalendarDay(d, _state));
+      _iterateDays().map((d) => CalendarDay(d, _state));
 
   /// Generates highlight objects based on which calendar selections match each
   /// pair of adjacent dates. This yields one highlight per date considered; use
@@ -98,7 +98,7 @@ class CalendarWeek extends _HasHighlights {
 
     // Positions `numBlankDays + 1` - 7: days in this week
     for (var day in _iterateDays()) {
-      yield new Highlight(lastPos, pos, _matching(last, day));
+      yield Highlight(lastPos, pos, _matching(last, day));
       last = day;
       lastPos = pos;
       pos++;
@@ -106,7 +106,7 @@ class CalendarWeek extends _HasHighlights {
 
     // Position 8: day after this week
     var day = _end.add(days: 1);
-    yield new Highlight(lastPos, 8, _matching(last, day));
+    yield Highlight(lastPos, 8, _matching(last, day));
   }
 
   /// Iterator over all the dates contained in this calendar week
@@ -120,5 +120,5 @@ class CalendarWeek extends _HasHighlights {
 
   // Specifying day 0 of the next month is a way to get the last day of the
   // current month. (This behavior is actually guaranteed by DateTime's API.)
-  Date get _endOfMonth => new Date(_start.year, _start.month + 1, 0);
+  Date get _endOfMonth => Date(_start.year, _start.month + 1, 0);
 }

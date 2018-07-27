@@ -31,7 +31,7 @@ class ButtonDirective extends RootFocusable
   @Output()
   Stream<UIEvent> get trigger => _trigger.stream;
 
-  final _trigger = new StreamController<UIEvent>.broadcast(sync: true);
+  final _trigger = StreamController<UIEvent>.broadcast(sync: true);
 
   String _hostTabIndex;
   String _role;

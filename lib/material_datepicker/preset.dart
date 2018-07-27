@@ -26,7 +26,7 @@ class DatepickerPreset {
 
   /// Create a [DatepickerPreset] based on a [DatepickerDateRange].
   factory DatepickerPreset.fromRange(DatepickerDateRange range) =>
-      new DatepickerPreset(range.title, range);
+      DatepickerPreset(range.title, range);
 
   /// Create a [DatepickerPreset] for selecting "This week".
   ///
@@ -47,8 +47,8 @@ class DatepickerPreset {
     List<DatepickerPreset> alternatives = [];
     for (var startDay in validStartWeekdays) {
       var startDayName = _weekdayName(startDay);
-      var preset = new DatepickerPreset(_thisWeekTitle(startDayName),
-          new WeekRange.weeksAgo(clock, 0, startWeekday: startDay),
+      var preset = DatepickerPreset(_thisWeekTitle(startDayName),
+          WeekRange.weeksAgo(clock, 0, startWeekday: startDay),
           shortTitle: _thisWeekShortTitle(startDayName),
           alternatives: alternatives);
       alternatives.add(preset);
@@ -78,9 +78,8 @@ class DatepickerPreset {
       var endDay = 1 + ((startDay - 1) + 6).remainder(7);
       var startDayName = _weekdayName(startDay);
       var endDayName = _weekdayName(endDay);
-      var preset = new DatepickerPreset(
-          _lastWeekTitle(startDayName, endDayName),
-          new WeekRange.weeksAgo(clock, 1, startWeekday: startDay),
+      var preset = DatepickerPreset(_lastWeekTitle(startDayName, endDayName),
+          WeekRange.weeksAgo(clock, 1, startWeekday: startDay),
           shortTitle: _lastWeekShortTitle(startDayName, endDayName),
           alternatives: alternatives);
       alternatives.add(preset);
@@ -93,21 +92,17 @@ class DatepickerPreset {
   DatepickerPreset(this.title, this.range,
       {this.shortTitle, this.alternatives});
 
-  static final _weekdayNames =
-      new DateFormat().dateSymbols.STANDALONESHORTWEEKDAYS;
+  static final _weekdayNames = DateFormat().dateSymbols.STANDALONESHORTWEEKDAYS;
 
   // Where 1 = Mon, 7 = Sun.
   static int get _defaultStartWeekday =>
-      1 + new DateFormat().dateSymbols.FIRSTDAYOFWEEK;
+      1 + DateFormat().dateSymbols.FIRSTDAYOFWEEK;
 
-  static const _defaultValidStartWeekdays = const [
-    DateTime.sunday,
-    DateTime.monday
-  ];
+  static const _defaultValidStartWeekdays = [DateTime.sunday, DateTime.monday];
 
   static List<int> _initValidStartWeekdays(
       int startWeekday, List<int> validStartWeekdays) {
-    validStartWeekdays ??= new List<int>.from(_defaultValidStartWeekdays);
+    validStartWeekdays ??= List<int>.from(_defaultValidStartWeekdays);
     if (!validStartWeekdays.contains(startWeekday)) {
       validStartWeekdays.insert(0, startWeekday);
     }
@@ -160,14 +155,14 @@ class DatepickerPreset {
 
 /// The default list of presets to use in material-date-range-picker.
 List<DatepickerPreset> defaultPresets(Clock clock) => [
-      new DatepickerPreset.fromRange(today(clock)),
-      new DatepickerPreset.fromRange(yesterday(clock)),
-      new DatepickerPreset.thisWeek(clock),
-      new DatepickerPreset.fromRange(last7Days(clock)),
-      new DatepickerPreset.lastWeek(clock),
-      new DatepickerPreset.fromRange(last14Days(clock)),
-      new DatepickerPreset.fromRange(thisMonth(clock)),
-      new DatepickerPreset.fromRange(last30Days(clock)),
-      new DatepickerPreset.fromRange(lastMonth(clock)),
-      new DatepickerPreset.fromRange(allTime),
+      DatepickerPreset.fromRange(today(clock)),
+      DatepickerPreset.fromRange(yesterday(clock)),
+      DatepickerPreset.thisWeek(clock),
+      DatepickerPreset.fromRange(last7Days(clock)),
+      DatepickerPreset.lastWeek(clock),
+      DatepickerPreset.fromRange(last14Days(clock)),
+      DatepickerPreset.fromRange(thisMonth(clock)),
+      DatepickerPreset.fromRange(last30Days(clock)),
+      DatepickerPreset.fromRange(lastMonth(clock)),
+      DatepickerPreset.fromRange(allTime),
     ];

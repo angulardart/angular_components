@@ -56,7 +56,7 @@ abstract class ProjectedFocus implements Focusable {
       if (delegate is Focusable) {
         _resolvedFocusable = delegate;
       } else {
-        _resolvedFocusable = new _FocusableElement(delegate);
+        _resolvedFocusable = _FocusableElement(delegate);
       }
       _resolvedFocusable.focus();
     });
@@ -104,7 +104,7 @@ class FocusMoveEvent {
     int keyCode = kbEvent.keyCode;
     if (!_isNextKey(keyCode) && !_isPrevKey(keyCode)) return null;
     int offset = _isNextKey(keyCode) ? 1 : -1;
-    return new FocusMoveEvent(item, offset, () {
+    return FocusMoveEvent(item, offset, () {
       kbEvent.preventDefault();
     });
   }
@@ -124,7 +124,7 @@ class FocusMoveEvent {
   selector: '[autoFocus]',
 )
 class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
 
   bool _autoFocus;
   // These fields are not final to support nulling them out for easier memory
@@ -204,9 +204,7 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
 @Directive(
     selector: '[focusableElement]',
     exportAs: 'focusableElement',
-    providers: const [
-      const Provider(Focusable, useExisting: FocusableDirective)
-    ])
+    providers: [Provider(Focusable, useExisting: FocusableDirective)])
 class FocusableDirective extends RootFocusable {
   FocusableDirective(HtmlElement node) : super(node);
 }

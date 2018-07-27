@@ -33,7 +33,7 @@ abstract class ShiftClickSelectionMixin<T> implements ActivationHandler<T> {
       final clickedIndex = optionValues.indexOf(value);
       final pivotIndex = optionValues.indexOf(_pivot);
       if (pivotIndex == -1) {
-        throw new StateError("pivot item is no longer in the model: $_pivot");
+        throw StateError("pivot item is no longer in the model: $_pivot");
       }
       optionValues
           .skip(min(pivotIndex, clickedIndex))

@@ -16,13 +16,13 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
 )
 class StepDirective extends TemplatePortal {
   final _continueController =
-      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
+      StreamController<AsyncAction<bool>>.broadcast(sync: true);
 
   final _cancelController =
-      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
+      StreamController<AsyncAction<bool>>.broadcast(sync: true);
 
   final _jumpController =
-      new StreamController<AsyncAction<bool>>.broadcast(sync: true);
+      StreamController<AsyncAction<bool>>.broadcast(sync: true);
 
   /// Name shown as the title.
   @Input()

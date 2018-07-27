@@ -1,3 +1,35 @@
+## 0.9.0-beta+2
+
+> NOTE: This code is considered production quality, but depends on angular:
+> 5.0.0-beta+2 (5.0.0-beta+2 is used in production Google apps).
+
+### Breaking Changes
+* Remove `SelectableChangeNotifier` and deprecate `SelectableWithComposition`
+  with the intention to remove. They are widely unused, complicated the
+  implementations, and unsound in Dart 2.
+
+#### Material Dialog
+* Fix bug where a disposable could be added to its disposer after it had already
+  been destroyed.
+
+#### Material Icon
+* Add aria label and use them for trailing/leading icons of Material Input.
+
+#### Material Popup
+* Change `<main>` html tag to a `<div>`. HTML5 states there should only be one
+  main tag per application.
+
+### Other Updates
+#### Miscellaneous
+* Add `is{Selectable|Disabled|Hidden}In()`, `getOptionIn()` and, `filterWhere()`
+  as static helpers to `Selectable`.
+* Add a lookup method for finding the closest Material Color name based on any
+  input color.
+
+#### Dart 2 Updates
+* Fixes for Dart 2 compile-time and runtime errors.
+* Applicaion of `dartfmt --fix`.
+
 ## 0.9.0-beta+1
 
 > NOTE: This code is considered production quality, but depends on angular:

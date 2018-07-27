@@ -17,7 +17,7 @@ class Date extends Comparators<Date> {
   final DateTime _time;
 
   Date(int year, [int month = 1, int day = 1])
-      : _time = new DateTime.utc(year, month, day);
+      : _time = DateTime.utc(year, month, day);
 
   /// Extracts the [Date] from the given time.
   ///
@@ -35,21 +35,21 @@ class Date extends Comparators<Date> {
   ///
   factory Date.fromTime(DateTime time, {Duration tzOffset}) {
     if (time.timeZoneOffset.inMicroseconds.isNaN) {
-      throw new ArgumentError.value(time, 'time', 'has a NaN time zone offset');
+      throw ArgumentError.value(time, 'time', 'has a NaN time zone offset');
     }
 
     tzOffset ??= time.timeZoneOffset;
     if (tzOffset.inMicroseconds.isNaN) {
-      throw new ArgumentError.value(tzOffset, 'tzOffset', 'has a NaN duration');
+      throw ArgumentError.value(tzOffset, 'tzOffset', 'has a NaN duration');
     }
 
     final localTime = time.add(tzOffset - time.timeZoneOffset);
-    return new Date(localTime.year, localTime.month, localTime.day);
+    return Date(localTime.year, localTime.month, localTime.day);
   }
 
   /// Creates a Date from an [int] representing milliseconds since epoch.
   factory Date.fromTimestamp(int msSinceEpoch) =>
-      new Date.fromTime(new DateTime.fromMillisecondsSinceEpoch(msSinceEpoch));
+      Date.fromTime(DateTime.fromMillisecondsSinceEpoch(msSinceEpoch));
 
   // TODO(google): Passing in a timezone here every time would be
   // frustrating. How about a "Calendar" class -- like a Clock, but for dates
@@ -57,20 +57,20 @@ class Date extends Comparators<Date> {
   factory Date.today([Clock clock]) {
     var now = (clock ?? const Clock()).now();
     if (now.timeZoneOffset.inMicroseconds.isNaN) {
-      throw new StateError('Clock $clock returned a time with a NaN timezone '
+      throw StateError('Clock $clock returned a time with a NaN timezone '
           'offset: $now');
     }
-    return new Date.fromTime(now);
+    return Date.fromTime(now);
   }
 
   factory Date.parse(String input, DateFormat format) =>
-      new Date.fromTime(format.parse(input));
+      Date.fromTime(format.parse(input));
 
   factory Date.parseStrict(String input, DateFormat format) =>
-      new Date.fromTime(format.parseStrict(input));
+      Date.fromTime(format.parseStrict(input));
 
   factory Date.parseLoose(String input, DateFormat format) =>
-      new Date.fromTime(format.parseLoose(input));
+      Date.fromTime(format.parseLoose(input));
 
   String format(DateFormat format) => format.format(asUtcTime());
 
@@ -86,7 +86,7 @@ class Date extends Comparators<Date> {
       // we also have tests around it.
       //
       // [1]: http://stackoverflow.com/a/14815209
-      new Date(year + years, month + months, day + days);
+      Date(year + years, month + months, day + days);
 
   int get year => asUtcTime().year;
   int get month => asUtcTime().month;
@@ -150,7 +150,7 @@ class DateRange {
     // `start == end` is a valid condition for a date range.
     if (start != null && end != null && start > end) return null;
 
-    return new DateRange(start, end);
+    return DateRange(start, end);
   }
 
   /// Returns the later of [a] and [b], where [a] and [b] both represent start
@@ -224,7 +224,7 @@ Iterable<Date> enumerateRange(DateRange range) {
     return [];
   }
   if (range.start == null || range.end == null) {
-    throw new ArgumentError(
+    throw ArgumentError(
         'Cannot call enumerateRange with a range with a null start or end.');
   }
   return enumerateDates(range.start, range.end);
@@ -253,7 +253,7 @@ class DatepickerSelection extends ObservableViewMixin<DateRangeComparison> {
   /// [ObservableReference] but doesn't give you any way of disposing of its
   /// streams, so it'd result in memory leaks in prod.
   DatepickerSelection.test([DateRangeComparison initialValue])
-      : _ref = new ObservableReference(initialValue);
+      : _ref = ObservableReference(initialValue);
 
   @override
   DateRangeComparison get value => _ref.value;

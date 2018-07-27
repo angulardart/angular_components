@@ -6,7 +6,7 @@ import 'material.dart';
 
 export 'material.dart';
 
-const chartingPalette = const [
+const chartingPalette = [
   blue500,
   red500,
   yellow500,

@@ -22,7 +22,7 @@ class _NoopSelectionModelImpl<T> implements SingleSelectionModel<T> {
   // Observable.
 
   @override
-  Stream<List<ChangeRecord>> get changes => new Stream.fromIterable(const []);
+  Stream<List<ChangeRecord>> get changes => Stream.fromIterable(const []);
 
   @override
   bool deliverChanges() => false;
@@ -64,7 +64,7 @@ class _NoopSelectionModelImpl<T> implements SingleSelectionModel<T> {
 
   @override
   Stream<List<SelectionChangeRecord<T>>> get selectionChanges =>
-      new Stream.fromIterable(const []);
+      Stream.fromIterable(const []);
 
   @override
   final T selectedValue = null;

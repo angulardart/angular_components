@@ -18,7 +18,7 @@ class DynamicComponent implements OnDestroy, AfterChanges {
   final SlowComponentLoader _slowComponentLoader;
   final ComponentLoader _componentLoader;
   final ChangeDetectorRef _changeDetectorRef;
-  final _onLoadController = new StreamController<ComponentRef>();
+  final _onLoadController = StreamController<ComponentRef>();
 
   ViewContainerRef _viewContainerRef;
   bool _loadDeferred = false;

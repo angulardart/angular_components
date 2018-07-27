@@ -28,14 +28,14 @@ import 'package:angular_components/model/date/date.dart';
   selector: 'material-date-time-picker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'material_date_time_picker.html',
-  styleUrls: const ['material_date_time_picker.scss.css'],
-  directives: const [
+  styleUrls: ['material_date_time_picker.scss.css'],
+  directives: [
     MaterialDatepickerComponent,
     MaterialTimePickerComponent,
     MaterialInputComponent,
   ],
-  providers: const [
-    const Provider(HasDisabled, useExisting: MaterialDateTimePickerComponent),
+  providers: [
+    Provider(HasDisabled, useExisting: MaterialDateTimePickerComponent),
   ],
 )
 class MaterialDateTimePickerComponent implements HasDisabled {
@@ -45,13 +45,13 @@ class MaterialDateTimePickerComponent implements HasDisabled {
   ///
   /// Defaults to `yMMMd`, e.g. 'Jan 23, 2015'.
   @Input()
-  DateFormat outputDateFormat = new DateFormat.yMMMd();
+  DateFormat outputDateFormat = DateFormat.yMMMd();
 
   /// The format used to format time.
   ///
   /// Defaults to `jm`, e.g. '5:08 PM'.
   @Input()
-  DateFormat outputTimeFormat = new DateFormat.jm();
+  DateFormat outputTimeFormat = DateFormat.jm();
 
   /// Maximum date time that can be chosen by the user.
   ///
@@ -61,7 +61,7 @@ class MaterialDateTimePickerComponent implements HasDisabled {
   @Input()
   DateTime maxDateTime;
   Date get maxDate =>
-      new Date(maxDateTime.year, maxDateTime.month, maxDateTime.day);
+      Date(maxDateTime.year, maxDateTime.month, maxDateTime.day);
 
   /// Returns maximum time for time picker when selected date is maximum date.
   DateTime get maxTime {
@@ -79,7 +79,7 @@ class MaterialDateTimePickerComponent implements HasDisabled {
   @Input()
   DateTime minDateTime;
   Date get minDate =>
-      new Date(minDateTime.year, minDateTime.month, minDateTime.day);
+      Date(minDateTime.year, minDateTime.month, minDateTime.day);
 
   /// Returns minimum time for time picker when selected date is minimum date.
   DateTime get minTime {
@@ -118,7 +118,7 @@ class MaterialDateTimePickerComponent implements HasDisabled {
     dateTime = _utc ? _dateTime?.toUtc() : _dateTime?.toLocal();
   }
 
-  final _dateTimeController = new StreamController<DateTime>.broadcast();
+  final _dateTimeController = StreamController<DateTime>.broadcast();
 
   /// Publishes events when the selected [dateTime] changes.
   @Output()
@@ -149,7 +149,7 @@ class MaterialDateTimePickerComponent implements HasDisabled {
   set dateTime(DateTime value) {
     if (value != _dateTime) {
       _dateTime = value;
-      _date = (_dateTime == null ? null : new Date.fromTime(_dateTime));
+      _date = (_dateTime == null ? null : Date.fromTime(_dateTime));
       _time = cloneDateTime(_dateTime);
     }
   }
@@ -157,8 +157,8 @@ class MaterialDateTimePickerComponent implements HasDisabled {
   MaterialDateTimePickerComponent(@Inject(datepickerClock) this._clock) {
     // Init minDateTime and maxDateTime to sensible defaults.
     int year = _clock.now().toUtc().year;
-    minDateTime = new DateTime(year - 10, DateTime.january, 1, 0, 0);
-    maxDateTime = new DateTime(year + 10, DateTime.december, 31, 23, 59);
+    minDateTime = DateTime(year - 10, DateTime.january, 1, 0, 0);
+    maxDateTime = DateTime(year + 10, DateTime.december, 31, 23, 59);
   }
 
   Date _date;
@@ -173,8 +173,7 @@ class MaterialDateTimePickerComponent implements HasDisabled {
         if (_sameDate(_date, minDateTime)) {
           _time = cloneDateTime(minDateTime);
         } else {
-          _time =
-              _utc ? new DateTime.utc(_date.year) : new DateTime(_date.year);
+          _time = _utc ? DateTime.utc(_date.year) : DateTime(_date.year);
         }
       }
       _updateDateTimeAndNotify();
@@ -197,7 +196,7 @@ class MaterialDateTimePickerComponent implements HasDisabled {
     if (!disabled && _time == null) {
       DateTime now = _clock.now();
       _time = now;
-      _date = new Date(now.year, now.month, now.day);
+      _date = Date(now.year, now.month, now.day);
       _updateDateTimeAndNotify();
     }
   }
@@ -207,9 +206,9 @@ class MaterialDateTimePickerComponent implements HasDisabled {
   void _updateDateTimeAndNotify() {
     _dateTime = _date != null && _time != null
         ? (utc
-            ? new DateTime.utc(
+            ? DateTime.utc(
                 _date.year, _date.month, _date.day, _time.hour, _time.minute)
-            : new DateTime(
+            : DateTime(
                 _date.year, _date.month, _date.day, _time.hour, _time.minute))
         : null;
 
@@ -230,8 +229,7 @@ class MaterialDateTimePickerComponent implements HasDisabled {
 
   static DateTime cloneDateTime(DateTime dateTime) {
     return dateTime != null
-        ? new DateTime.fromMillisecondsSinceEpoch(
-            dateTime.millisecondsSinceEpoch,
+        ? DateTime.fromMillisecondsSinceEpoch(dateTime.millisecondsSinceEpoch,
             isUtc: dateTime.isUtc)
         : null;
   }

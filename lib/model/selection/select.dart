@@ -52,5 +52,5 @@ abstract class Parent<P, C> {
   /// Returns the children of the parent and filter the results based of the
   /// query if supported.
   DisposableFuture<C> childrenOf(P parent, [Object filterQuery]) =>
-      new DisposableFuture.fromValue(const [] as C);
+      DisposableFuture.fromValue(const [] as C);
 }

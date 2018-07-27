@@ -12,29 +12,29 @@ const inlinePositions = RelativePosition.InlinePositions;
 /// A token representing a [List] of [RelativePosition]s to use when popup auto
 /// positioning is set (`enforceSpaceConstraints`) but no custom positions
 /// (`preferredPositions`) are set.
-const defaultPopupPositions = const OpaqueToken<List<RelativePosition>>(
+const defaultPopupPositions = OpaqueToken<List<RelativePosition>>(
   'defaultPopupPositions',
 );
 
 /// DI module for Popups and its dependencies.
 ///
 /// Should be included at most once per the injection chain.
-const popupModule = const Module(
-  include: const [
+const popupModule = Module(
+  include: [
     overlayModule,
   ],
   provide: _popupProviders,
 );
 
-const _popupProviders = const <Provider>[
-  const ValueProvider.forToken(defaultPopupPositions, inlinePositions),
-  const ClassProvider(DomPopupSourceFactory),
+const _popupProviders = <Provider>[
+  ValueProvider.forToken(defaultPopupPositions, inlinePositions),
+  ClassProvider(DomPopupSourceFactory),
 ];
 
 /// DI bindings for Popups and its dependencies.
 ///
 /// Should be included at most once per the injection chain.
-const popupBindings = const [
+const popupBindings = [
   overlayBindings,
   _popupProviders,
 ];
@@ -42,8 +42,8 @@ const popupBindings = const [
 /// DI module for Popups and its dependencies with debugging enabled.
 ///
 /// Should be included at most once per the injection chain.
-const popupDebugModule = const Module(
-  include: const [
+const popupDebugModule = Module(
+  include: [
     overlayDebugModule,
   ],
   provide: _popupProviders,
@@ -52,7 +52,7 @@ const popupDebugModule = const Module(
 /// DI bindings for Popups and its dependencies with debugging enabled.
 ///
 /// Should be included at most once per the injection chain.
-const popupDebugBindings = const [
+const popupDebugBindings = [
   overlayDebugBindings,
   _popupProviders,
 ];

@@ -19,7 +19,7 @@ import 'material_number_validators.dart';
 export 'material_input.dart' show MaterialInputComponent;
 export 'material_number_validators.dart';
 
-const List<Type> materialNumberInputDirectives = const [
+const List<Type> materialNumberInputDirectives = [
   CheckIntegerValidator,
   LowerBoundValidator,
   MaterialInputComponent,
@@ -76,9 +76,9 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
     } else {
       updateStream = input.onBlur;
     }
-    numberFormat ??= new NumberFormat.decimalPattern();
+    numberFormat ??= NumberFormat.decimalPattern();
     final checkInteger = attributeToBool(integer, defaultValue: false);
-    return new MaterialNumberValueAccessor._(
+    return MaterialNumberValueAccessor._(
         updateStream,
         checkInteger,
         numberFormat,
@@ -149,9 +149,8 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
 @Directive(
   selector: 'material-input[type=number]:not([checkInteger]),'
       'material-input[type=percent]:not([checkInteger])',
-  providers: const [
-    const Provider(NG_VALIDATORS,
-        useExisting: MaterialNumberValidator, multi: true)
+  providers: [
+    Provider(NG_VALIDATORS, useExisting: MaterialNumberValidator, multi: true)
   ],
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
@@ -179,9 +178,8 @@ class MaterialNumberValidator implements Validator {
 @Directive(
   selector: 'material-input[type=number][checkInteger],'
       'material-input[type=percent][checkInteger]',
-  providers: const [
-    const Provider(NG_VALIDATORS,
-        useExisting: CheckIntegerValidator, multi: true)
+  providers: [
+    Provider(NG_VALIDATORS, useExisting: CheckIntegerValidator, multi: true)
   ],
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,

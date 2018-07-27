@@ -24,7 +24,7 @@ class LabeledValue<T> implements HasUIDisplayName {
   /// Creates a new [LabeledValue] by executing the provided [formatter] on
   /// the provided [value].
   factory LabeledValue.format(T value, Formatter formatter) =>
-      new LabeledValue(value, formatter.format(value));
+      LabeledValue(value, formatter.format(value));
 
   @override
   String toString() => uiDisplayName;

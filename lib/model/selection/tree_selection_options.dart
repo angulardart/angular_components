@@ -33,7 +33,7 @@ class TreeSelectionOptions<T> extends SelectionOptions<T>
   TreeSelectionOptions.fromList(List<TreeSelectionOptionData<T>> listOfOptions,
       {ItemRenderer<T> itemRenderer, Comparator<T> comparator})
       : _itemRenderer = itemRenderer ?? defaultItemRenderer,
-        _itemsOptions = new Map<T, TreeSelectionOptionData<T>>.fromIterable(
+        _itemsOptions = Map<T, TreeSelectionOptionData<T>>.fromIterable(
             listOfOptions,
             key: (item) => (item as TreeSelectionOptionData<T>).value),
         super(const []) {
@@ -41,8 +41,7 @@ class TreeSelectionOptions<T> extends SelectionOptions<T>
     _parentToChildrenMap = _generateParentToChildrenMap(listOfOptions);
 
     /// Sets the actual options to start from.
-    optionGroups =
-        _parentToChildrenMap.remove(null) ?? [new OptionGroup<T>([])];
+    optionGroups = _parentToChildrenMap.remove(null) ?? [OptionGroup<T>([])];
   }
 
   @override
@@ -50,7 +49,7 @@ class TreeSelectionOptions<T> extends SelectionOptions<T>
 
   @override
   DisposableFuture<List<OptionGroup<T>>> childrenOf(T e, [_]) {
-    return new DisposableFuture<List<OptionGroup<T>>>.fromValue(
+    return DisposableFuture<List<OptionGroup<T>>>.fromValue(
         _parentToChildrenMap[e]);
   }
 
@@ -69,7 +68,7 @@ class TreeSelectionOptions<T> extends SelectionOptions<T>
     for (var option in options) {
       // Put all children in a single option group.
       parentToChildrenMap
-          .putIfAbsent(option.parent, () => [new OptionGroup<T>([])])
+          .putIfAbsent(option.parent, () => [OptionGroup<T>([])])
           .single
           .add(option.value);
     }

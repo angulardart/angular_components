@@ -57,9 +57,9 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///   documentation.
 @Component(
   selector: 'material-date-range-picker',
-  styleUrls: const ['material_date_range_picker.scss.css'],
+  styleUrls: ['material_date_range_picker.scss.css'],
   templateUrl: 'material_date_range_picker.html',
-  directives: const [
+  directives: [
     ButtonDirective,
     DateRangeEditorComponent,
     DeferredContentDirective,
@@ -73,10 +73,10 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     PopupSourceDirective,
     FocusTrapComponent,
   ],
-  providers: const [
-    const Provider(DateRangeEditorHost,
+  providers: [
+    Provider(DateRangeEditorHost,
         useExisting: MaterialDateRangePickerComponent),
-    const Provider(HasDisabled, useExisting: MaterialDateRangePickerComponent),
+    Provider(HasDisabled, useExisting: MaterialDateRangePickerComponent),
   ],
 )
 class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
@@ -95,8 +95,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   @Deprecated('Use [presets] instead.')
   @Input('predefinedRanges')
   set predefinedRanges(List<DatepickerDateRange> ranges) {
-    presets =
-        ranges.map((range) => new DatepickerPreset.fromRange(range)).toList();
+    presets = ranges.map((range) => DatepickerPreset.fromRange(range)).toList();
   }
 
   /// A list of preset date ranges which the user can choose from.
@@ -149,7 +148,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   /// instead of getting and setting new date range values.
   @Input('reference')
   ObservableReference<DatepickerComparison> selection =
-      new ObservableReference(null);
+      ObservableReference(null);
 
   /// Whether or not this date range picker supports choosing time comparison
   /// ranges.
@@ -163,7 +162,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
     _supportsComparison = value;
     if (!supportsComparison && selection.value?.comparison != null) {
       selection.value =
-          new DatepickerComparison.noComparison(selection.value.range);
+          DatepickerComparison.noComparison(selection.value.range);
     }
   }
 
@@ -298,7 +297,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   @ViewChild('focusOnClose')
   KeyboardOnlyFocusIndicatorDirective focusOnClose;
 
-  final model = new DateRangeEditorModel();
+  final model = DateRangeEditorModel();
   ModelState _lastState;
 
   bool _popupVisible = false;
@@ -320,7 +319,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   /// saved or canceled when the popup is closed.
   bool _isApplying = false;
 
-  Disposer _disposer = new Disposer.oneShot();
+  Disposer _disposer = Disposer.oneShot();
 
   DatepickerComparison get range => selection.value;
 
@@ -341,7 +340,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   /// Published when the datepicker popup starts opening or closing.
   @Output('popupVisible')
   Stream<bool> get onPopupVisible => _onPopupVisible.stream;
-  final _onPopupVisible = new StreamController<bool>.broadcast();
+  final _onPopupVisible = StreamController<bool>.broadcast();
 
   final DomService _domService;
   final NgZone _ngZone;
@@ -365,8 +364,8 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
 
     // Init minDate and maxDate to sensible defaults
     var now = clock.now();
-    minDate = new Date(now.year - 10, DateTime.january, 1);
-    maxDate = new Date(now.year + 10, DateTime.december, 31);
+    minDate = Date(now.year - 10, DateTime.january, 1);
+    maxDate = Date(now.year + 10, DateTime.december, 31);
   }
 
   @override
@@ -451,7 +450,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
           // general rule, the selection should only change as the direct and
           // immediate result of an action performed by the user.
           model.value =
-              new DatepickerComparison.reclamp(model.value, minDate, maxDate);
+              DatepickerComparison.reclamp(model.value, minDate, maxDate);
           model.minDate = minDate;
           model.maxDate = maxDate;
 
@@ -575,7 +574,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   /// not supported by this component instance.
   DatepickerComparison _maybeStripComparison(DatepickerComparison cmp) {
     if (cmp != null && cmp.isComparisonEnabled && !supportsComparison) {
-      return new DatepickerComparison.noComparison(cmp.range);
+      return DatepickerComparison.noComparison(cmp.range);
     } else {
       return cmp;
     }

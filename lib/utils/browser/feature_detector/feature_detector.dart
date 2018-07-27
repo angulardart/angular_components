@@ -32,7 +32,7 @@ bool isHammerLoaded() => js.context.hasProperty('Hammer');
 
 /// Whether the browser supports the Web Animations API.
 final bool supportsAnimationApi =
-    js_util.hasProperty(new DivElement(), 'animate') &&
+    js_util.hasProperty(DivElement(), 'animate') &&
         !js.context.hasProperty('__acxDisableWebAnimationsApi');
 
 /// Whether the browser supports IntersectionObserver.
@@ -44,7 +44,7 @@ final bool supportsResizeObserver = js.context.hasProperty('ResizeObserver');
 
 /// Whether the browser supports position: sticky.
 final bool supportsPositionSticky = () {
-  var el = new DivElement();
+  var el = DivElement();
   el.style.cssText = 'position: sticky';
   return el.style.position == 'sticky';
 }();

@@ -22,7 +22,7 @@ typedef bool IsExpandable<T>(T option);
 ///
 /// May serve strictly as an interface or be extended as a base class.
 class MaterialTreeNode<T> {
-  final OptionGroup<T> _EMPTY_OPTION_GROUP = new OptionGroup<T>(const []);
+  final OptionGroup<T> _EMPTY_OPTION_GROUP = OptionGroup<T>(const []);
 
   final Map<T, Iterable<OptionGroup<T>>> _expandedNodes;
   Disposer _disposer;
@@ -42,8 +42,8 @@ class MaterialTreeNode<T> {
   /// May specify a custom [isExpandable].
   MaterialTreeNode(this._root, this._changeDetector,
       {IsExpandable<T> isExpandable})
-      : _expandedNodes = new HashMap<T, Iterable<OptionGroup<T>>>.identity(),
-        _disposer = new Disposer.multi() {
+      : _expandedNodes = HashMap<T, Iterable<OptionGroup<T>>>.identity(),
+        _disposer = Disposer.multi() {
     _group = _EMPTY_OPTION_GROUP;
     if (!_root.supportsHierarchy) {
       _isExpandable = (_) => false;
@@ -52,10 +52,12 @@ class MaterialTreeNode<T> {
       _isExpandable = isExpandable ?? hasChildren;
       _parent = _root.options as Parent<T, Iterable<OptionGroup<T>>>;
     }
-    if (_root.options is Selectable) {
-      _selectable = _root.options as Selectable<T>;
+    // TODO(google).
+    final Object options = _root.options;
+    if (options is Selectable<T>) {
+      _selectable = options;
     } else {
-      _selectable = new _AlwaysSelectable<T>();
+      _selectable = _AlwaysSelectable<T>();
     }
   }
 
@@ -202,7 +204,7 @@ class MaterialTreeNode<T> {
     if (!didClose) {
       return expandOption(option);
     }
-    return new Future<Iterable<OptionGroup<T>>>.value();
+    return Future<Iterable<OptionGroup<T>>>.value();
   }
 
   /// Sets the [isSelected] state of [option] and returns the result.
@@ -296,6 +298,6 @@ class _NotAParent<P, C> implements Parent<P, C> {
 
   @override
   DisposableFuture<C> childrenOf(P parent, [Object filterQuery]) {
-    throw new UnsupportedError('Does not support hierarchy');
+    throw UnsupportedError('Does not support hierarchy');
   }
 }

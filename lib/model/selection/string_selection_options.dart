@@ -74,7 +74,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
       StringSuggestionFilter<T> suggestionFilter,
       ItemRenderer<String> sanitizeString = _stringFormatSuggestion,
       bool shouldSort = false})
-      : this.withOptionGroups([new OptionGroup(options)],
+      : this.withOptionGroups([OptionGroup(options)],
             toFilterableString: toFilterableString,
             suggestionFilter: suggestionFilter,
             sanitizeString: sanitizeString,
@@ -106,7 +106,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
     _currentLimit = limit < 1 ? UNLIMITED : limit;
     _currentQuery = query as String;
     refilter();
-    return new DisposableFuture.fromValue(true);
+    return DisposableFuture.fromValue(true);
   }
 
   @protected
@@ -142,7 +142,7 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
     } else {
       list = group.take(limit);
     }
-    var filteredGroup = new OptionGroup<T>.withLabelFunction(
+    var filteredGroup = OptionGroup<T>.withLabelFunction(
         list.toList(growable: false),
         () => group.uiDisplayName,
         group.emptyLabel != null ? () => group.emptyLabel : null);

@@ -16,8 +16,8 @@ import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 
-const materialTreeLeftPaddingToken = const OpaqueToken(
-    'MaterialTreeGroupComponent_materialTreeLeftPaddingToken');
+const materialTreeLeftPaddingToken =
+    OpaqueToken('MaterialTreeGroupComponent_materialTreeLeftPaddingToken');
 
 /// An internal component for rendering selection options.
 ///
@@ -27,7 +27,7 @@ const materialTreeLeftPaddingToken = const OpaqueToken(
 ///     <material-tree-group [group]="group"></material-tree-group>
 @Component(
   selector: 'material-tree-group',
-  directives: const [
+  directives: [
     ButtonDirective,
     DynamicComponent,
     MaterialIconComponent,
@@ -39,7 +39,7 @@ const materialTreeLeftPaddingToken = const OpaqueToken(
     NgClass
   ],
   templateUrl: 'material_tree_group.html',
-  styleUrls: const ['material_tree_group.scss.css'],
+  styleUrls: ['material_tree_group.scss.css'],
 )
 class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   @HostBinding('attr.role')

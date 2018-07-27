@@ -29,7 +29,7 @@ class PopupState extends Observable {
       PopupSource source,
       bool trackLayoutChanges = true,
       bool constrainToViewport = true}) {
-    return new PopupState._(new ObservableMap<Symbol, dynamic>.from({
+    return PopupState._(ObservableMap<Symbol, dynamic>.from({
       #autoDismiss: autoDismiss,
       #enforceSpaceConstraints: enforceSpaceConstraints,
       #matchMinSourceWidth: matchMinSourceWidth,
@@ -45,8 +45,8 @@ class PopupState extends Observable {
   /// Create a new popup state from [other].
   factory PopupState.from(PopupState other) {
     // TODO(google): Remove this once it's popup service has a default state.
-    if (other == null) return new PopupState();
-    return new PopupState._(new ObservableMap.from(other._backingMap));
+    if (other == null) return PopupState();
+    return PopupState._(ObservableMap.from(other._backingMap));
   }
 
   PopupState._(this._backingMap);
@@ -58,7 +58,7 @@ class PopupState extends Observable {
         var propertyRecords = <ChangeRecord>[];
         for (var record in records) {
           if (record is MapChangeRecord) {
-            propertyRecords.add(new PropertyChangeRecord(
+            propertyRecords.add(PropertyChangeRecord(
                 this, record.key, record.oldValue, record.newValue));
           }
         }

@@ -10,7 +10,7 @@ abstract class HasRenderer<T> {
   ItemRenderer<T> itemRenderer;
 }
 
-final _rendererMarker = new Expando('Renderer marker');
+final _rendererMarker = Expando('Renderer marker');
 
 /// Returns an ItemRenderer that caches the results of calls.  It should be used
 /// in Selection widgets.
@@ -62,4 +62,4 @@ String defaultItemRenderer(dynamic value) => '$value';
 const ItemRenderer nullRenderer = _nullRenderer;
 
 String _nullRenderer(dynamic value) =>
-    throw new StateError("nullRenderer should never be called");
+    throw StateError("nullRenderer should never be called");

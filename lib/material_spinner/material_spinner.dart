@@ -17,7 +17,7 @@ import 'package:angular/angular.dart';
 @Component(
   selector: 'material-spinner',
   templateUrl: 'material_spinner.html',
-  styleUrls: const ['material_spinner.scss.css'],
+  styleUrls: ['material_spinner.scss.css'],
   changeDetection: ChangeDetectionStrategy.Detached,
 )
 class MaterialSpinnerComponent {}

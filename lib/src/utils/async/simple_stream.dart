@@ -67,7 +67,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   SimpleStream({bool isSync = false, bool runInZone = false})
       : _isSync = isSync,
         _runInZone = runInZone,
-        super(const Stream.empty());
+        super(const Stream<Null>.empty());
 
   SimpleStream.broadcast(
       {bool isSync = false,
@@ -78,7 +78,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
         _runInZone = runInZone,
         _onListen = onListen,
         _onCancel = onCancel,
-        super(const Stream.empty());
+        super(const Stream<Null>.empty());
 
   bool get isSync => _isSync;
 
@@ -87,7 +87,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
       {void onListen(StreamSubscription<T> subscription),
       void onCancel(StreamSubscription<T> subscription)}) {
     if (onListen != null || onCancel != null) {
-      throw new UnsupportedError('Not supported outside constructor.');
+      throw UnsupportedError('Not supported outside constructor.');
     }
     return this;
   }
@@ -249,7 +249,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
     if (_runInZone) {
       contextFunc = Zone.current.run;
     }
-    var sub = new SimpleStreamSubscription<T>(
+    var sub = SimpleStreamSubscription<T>(
         this, onData, onDone, onError, cancelOnError, contextFunc);
     if (_subscriptions.isEmpty) {
       _subscriptions = [sub];
@@ -315,7 +315,7 @@ class EmptySimpleStream<T> extends SimpleStream<T> {
 
   @override
   StreamSubscription<T> listen(onData, {onError, onDone, cancelOnError}) {
-    return new SimpleStreamSubscription._empty();
+    return SimpleStreamSubscription._empty();
   }
 }
 
@@ -337,7 +337,7 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
   bool _cancelOnError = false;
 
   factory SimpleStreamSubscription._empty() =>
-      new SimpleStreamSubscription(null, null, null, null, false, null);
+      SimpleStreamSubscription(null, null, null, null, false, null);
 
   SimpleStreamSubscription(this._stream, this._callback, this._doneCallback,
       this._onError, this._cancelOnError, this._contextFunc);
@@ -397,16 +397,16 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
   }
 
   @override
-  void pause([resumeSignal]) => throw new UnsupportedError('Not supported.');
+  void pause([resumeSignal]) => throw UnsupportedError('Not supported.');
 
   @override
   void resume() {
-    throw new UnsupportedError('Not supported.');
+    throw UnsupportedError('Not supported.');
   }
 
   @override
   Future<S> asFuture<S>([S futureValue]) {
-    throw new UnsupportedError('Not supported.');
+    throw UnsupportedError('Not supported.');
   }
 }
 
@@ -414,7 +414,7 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
 /// output events in Angular components.
 ///
 /// Reduces the amount of boilerplate needed by removing the need for a getter
-/// that returns the stream for angular.
+/// that returns the stream for Angular.
 class SimpleEmitter<T> extends SimpleStream<T> {
   SimpleEmitter(
       {bool isSync = true,
@@ -427,9 +427,9 @@ class SimpleEmitter<T> extends SimpleStream<T> {
             onListen: onListen,
             onCancel: onCancel);
 
-  /// Returns referene to object.
+  /// Returns `this`.
   Stream<T> get stream => this;
 
-  /// Returns referene to object.
+  /// Returns `this`.
   EventSink<T> get sink => this;
 }

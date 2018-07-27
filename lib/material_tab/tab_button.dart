@@ -18,8 +18,8 @@ import 'package:angular_components/material_tab/tab_mixin.dart';
           </div>
           <material-ripple></material-ripple>
         ''',
-  styleUrls: const ['tab_button.scss.css'],
-  directives: const [MaterialRippleComponent],
+  styleUrls: ['tab_button.scss.css'],
+  directives: [MaterialRippleComponent],
 )
 class TabButtonComponent extends MaterialButtonBase with TabMixin {
   final Element _nativeElement;

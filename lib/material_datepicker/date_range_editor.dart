@@ -53,8 +53,8 @@ export 'package:angular_components/src/material_datepicker/date_range_editor_mod
 @Component(
   selector: 'date-range-editor',
   templateUrl: 'date_range_editor.html',
-  styleUrls: const ['date_range_editor.scss.css'],
-  directives: const [
+  styleUrls: ['date_range_editor.scss.css'],
+  directives: [
     ButtonDirective,
     ComparisonRangeEditorComponent,
     DateRangeInputComponent,
@@ -147,8 +147,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   @Deprecated('Use [presets] instead.')
   @Input()
   set ranges(List<DatepickerDateRange> ranges) {
-    presets =
-        ranges.map((range) => new DatepickerPreset.fromRange(range)).toList();
+    presets = ranges.map((range) => DatepickerPreset.fromRange(range)).toList();
   }
 
   /// A list of preset date ranges which the user can choose from.
@@ -168,7 +167,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   // The subset of _presets which fall within minDate/maxDate (at least partly).
   // Filtered version of presets, regenerated as needed.
-  Set<DatepickerPreset> _validPresets = new Set<DatepickerPreset>();
+  Set<DatepickerPreset> _validPresets = Set<DatepickerPreset>();
 
   /// If the editor's inside a popup, a handle on the popup. (This is needed
   /// because we can't initialize the calendar's scroll position until after it
@@ -186,7 +185,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     nextPrevModel.update(_visibleMonth, minDate, maxDate);
   }
 
-  Date _minDate = new Date(1000, DateTime.january, 1);
+  Date _minDate = Date(1000, DateTime.january, 1);
   Date get minDate => _minDate;
 
   ///  Dates later than `maxDate` cannot be chosen. Defaults to Dec 31, 9999.
@@ -197,7 +196,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     nextPrevModel.update(_visibleMonth, minDate, maxDate);
   }
 
-  Date _maxDate = new Date(9999, DateTime.december, 31);
+  Date _maxDate = Date(9999, DateTime.december, 31);
   Date get maxDate => _maxDate;
 
   final Element _elementRef;
@@ -264,8 +263,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   DatepickerDateRange _createDaysToTodayRange(int numDays) =>
       relativeDaysToToday
-          ? new LastNDaysToTodayRange.beforeToday(_clock, numDays)
-          : new DatepickerDateRange('$numDays $daysToTodayMsg',
+          ? LastNDaysToTodayRange.beforeToday(_clock, numDays)
+          : DatepickerDateRange('$numDays $daysToTodayMsg',
               _today.add(days: -(numDays - 1)), _today,
               isPredefined: true);
 
@@ -295,7 +294,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   DatepickerDateRange daysToYesterdayRange;
 
   DatepickerDateRange _createDaysToYesterdayRange(int numDays) =>
-      new LastNDaysRange.beforeToday(_clock, numDays);
+      LastNDaysRange.beforeToday(_clock, numDays);
 
   // Dart doesn't support arbitrarily large DateTimes.
   static const int _maxDaysInputLength = 4;
@@ -324,9 +323,9 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
       Clock legacyClock) {
     // TODO(google): Migrate to use only datepickerClock
     _clock ??= legacyClock;
-    _today = new Date.today(_clock);
+    _today = Date.today(_clock);
     editorHost?.dateRangeEditorCreated(this);
-    nextPrevModel = new DateRangeEditorNextPrevModel(onNext: () {
+    nextPrevModel = DateRangeEditorNextPrevModel(onNext: () {
       calendarPicker.scrollToDate(_visibleMonth.add(months: 1));
     }, onPrev: () {
       calendarPicker.scrollToDate(_visibleMonth.add(months: -1));
@@ -375,10 +374,10 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   /// Event which fires when one of the ranges is selected.
   @Output()
   Stream<UIEvent> get presetRangeSelected => _controller.stream;
-  final _controller = new StreamController<UIEvent>.broadcast(sync: true);
+  final _controller = StreamController<UIEvent>.broadcast(sync: true);
 
   void _updateValidPresets() {
-    _validPresets = new Set<DatepickerPreset>();
+    _validPresets = Set<DatepickerPreset>();
     for (var preset in _presets) {
       if (preset.range.clamp(min: minDate, max: maxDate) != null) {
         _validPresets.add(preset);
@@ -427,9 +426,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   void onCustomClicked() {
     var oldRange = model.value?.range;
     if (oldRange != null) {
-      model.selectRange(
-          new DatepickerDateRange.custom(oldRange.start, oldRange.end)
-              .clamp(min: minDate, max: maxDate));
+      model.selectRange(DatepickerDateRange.custom(oldRange.start, oldRange.end)
+          .clamp(min: minDate, max: maxDate));
     }
     if (model.basic) {
       model.shouldShowPredefinedList = false;
@@ -460,7 +458,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
       // the month into view.
       showMonthSelector = false;
       _monthSelectorState =
-          new CalendarState.empty(resolution: CalendarResolution.months);
+          CalendarState.empty(resolution: CalendarResolution.months);
       final selectedMonth = state.selection(state.currentSelection);
       _domService.scheduleWrite(() {
         calendarPicker.scrollToDate(selectedMonth.start);
@@ -470,9 +468,9 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   CalendarState get monthSelectorState => _monthSelectorState;
   CalendarState _monthSelectorState =
-      new CalendarState.empty(resolution: CalendarResolution.months);
+      CalendarState.empty(resolution: CalendarResolution.months);
 
-  static final _monthFormatter = new DateFormat.yMMM();
+  static final _monthFormatter = DateFormat.yMMM();
   Date _visibleMonth;
 
   String get visibleMonthName => _visibleMonthName;
@@ -560,10 +558,10 @@ class DateRangeEditorNextPrevModel implements Sequential {
   DateRangeEditorNextPrevModel({this.onNext, this.onPrev});
 
   @override
-  ObservableReference<bool> hasNext = new ObservableReference<bool>(false);
+  ObservableReference<bool> hasNext = ObservableReference<bool>(false);
 
   @override
-  ObservableReference<bool> hasPrev = new ObservableReference<bool>(false);
+  ObservableReference<bool> hasPrev = ObservableReference<bool>(false);
 
   @override
   void next() => onNext();

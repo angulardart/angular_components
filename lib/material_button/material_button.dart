@@ -73,14 +73,14 @@ import 'material_button_base.dart';
 // https://github.com/dart-lang/dartdoc/issues/1484.
 @Component(
   selector: 'material-button',
-  directives: const [MaterialRippleComponent],
+  directives: [MaterialRippleComponent],
   templateUrl: 'material_button.html',
-  providers: const [
+  providers: [
     AcxDarkTheme,
-    const Provider(ButtonDirective, useExisting: MaterialButtonComponent),
-    const Provider(HasDisabled, useExisting: MaterialButtonComponent),
+    Provider(ButtonDirective, useExisting: MaterialButtonComponent),
+    Provider(HasDisabled, useExisting: MaterialButtonComponent),
   ],
-  styleUrls: const ['material_button.scss.css'],
+  styleUrls: ['material_button.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
@@ -96,8 +96,7 @@ class MaterialButtonComponent extends MaterialButtonBase {
   MaterialButtonComponent(HtmlElement element, AcxDarkTheme darktheme,
       this._changeDetector, @Attribute('role') String role)
       : super(element, role) {
-    if (_changeDetector == null)
-      throw new Exception('Expecting change detector');
+    if (_changeDetector == null) throw Exception('Expecting change detector');
     darktheme.themeElement(element);
   }
 

@@ -19,7 +19,7 @@ class StickyControllerImpl implements StickyController {
   StreamSubscription _layoutSubscription;
 
   final _rowMap = <Element, _StickyRow>{};
-  Set<Element> _floatingElements = new Set();
+  Set<Element> _floatingElements = Set();
 
   /// The ordered list of rows, based on their position. The order will be
   /// cached between layout checks, unless there was a register or an unregister
@@ -42,7 +42,7 @@ class StickyControllerImpl implements StickyController {
     }
     unstick(element);
     _rowMap[element] =
-        new _StickyRow(element, position, range, stickyClass, stickyKey);
+        _StickyRow(element, position, range, stickyClass, stickyKey);
     _startEventListeners();
   }
 
@@ -79,7 +79,7 @@ class StickyControllerImpl implements StickyController {
   @override
   void dispose() {
     if (_rowMap.isNotEmpty) {
-      List<Element> toRemove = new List.from(_rowMap.keys);
+      List<Element> toRemove = List.from(_rowMap.keys);
       for (Element element in toRemove) {
         unstick(element);
       }
@@ -130,18 +130,18 @@ class StickyControllerImpl implements StickyController {
         num newHeight = hostRect.bottom - newTop;
         if ((newTop != hostRect.top) && (newHeight > 0)) {
           hostRect =
-              new Rectangle(hostRect.left, newTop, hostRect.width, newHeight);
+              Rectangle(hostRect.left, newTop, hostRect.width, newHeight);
         }
       } else {
         num newBottom = min(hostRect.bottom, rect.top);
         num newHeight = newBottom - hostRect.top;
         if ((newBottom != hostRect.bottom) && (newHeight > 0)) {
-          hostRect = new Rectangle(
-              hostRect.left, hostRect.top, hostRect.width, newHeight);
+          hostRect =
+              Rectangle(hostRect.left, hostRect.top, hostRect.width, newHeight);
         }
       }
     }
-    return new Rectangle(
+    return Rectangle(
         hostRect.left, hostRect.top, hostRect.width, hostRect.height);
   }
 
@@ -250,8 +250,8 @@ class _StickyRow implements StickyRowPosition {
   void readRowPositions() {
     rowPosition = element.getBoundingClientRect();
     if (translateY != null) {
-      rowPosition = new Rectangle(rowPosition.left,
-          rowPosition.top - translateY, rowPosition.width, rowPosition.height);
+      rowPosition = Rectangle(rowPosition.left, rowPosition.top - translateY,
+          rowPosition.width, rowPosition.height);
     }
     rangePosition = range?.getBoundingClientRect();
   }
@@ -419,7 +419,7 @@ abstract class StickyRowUtils {
       Rectangle hostPosition, List<T> rows) {
     num hostTop = hostPosition.top;
     num hostBottom = hostPosition.bottom;
-    var layout = new StickyContainerLayout<T>()
+    var layout = StickyContainerLayout<T>()
       ..hostPosition = hostPosition
       .._translateYs = [];
 

@@ -16,13 +16,13 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// [MenuPopup].
 @Component(
   selector: 'dropdown-menu',
-  directives: const [
+  directives: [
     DropdownButtonComponent,
     MenuPopupComponent,
     PopupSourceDirective
   ],
-  providers: const [
-    const Provider(HasDisabled, useExisting: DropdownMenuComponent),
+  providers: [
+    Provider(HasDisabled, useExisting: DropdownMenuComponent),
   ],
   templateUrl: 'dropdown_menu.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,7 +32,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 class DropdownMenuComponent extends Object
     with FocusableMixin, MenuPopupWrapper
     implements AfterViewInit, HasDisabled, OnDestroy {
-  final _disposer = new Disposer.oneShot();
+  final _disposer = Disposer.oneShot();
 
   DropdownMenuComponent(ChangeDetectorRef _changeDetector) {
     // Let Angular pick up changes to [isExpanded] in [MenuPopupWrapper] when

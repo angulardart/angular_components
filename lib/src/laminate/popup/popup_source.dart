@@ -19,7 +19,7 @@ abstract class PopupSource {
   factory PopupSource.fromRectangle(Rectangle rectangle,
       {Alignment alignX = Alignment.Start,
       Alignment alignY = Alignment.Start}) {
-    return new _RectanglePopupSource(rectangle,
+    return _RectanglePopupSource(rectangle,
         alignOriginX: alignX, alignOriginY: alignY);
   }
 
@@ -92,7 +92,7 @@ class _RectanglePopupSource implements PopupSource {
     // Track is ignored for this type, as it's assumed that the Rectangle is
     // immutable. If in the future we have an ObservableRectangle, then track
     // can be supported.
-    return new Stream<Rectangle>.fromIterable([_predefinedRectangle]);
+    return Stream<Rectangle>.fromIterable([_predefinedRectangle]);
   }
 
   @override

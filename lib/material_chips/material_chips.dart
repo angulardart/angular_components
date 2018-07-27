@@ -11,17 +11,15 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// A __chips__ collection widget, displaying a list of objects as Chips.
 @Component(
   selector: 'material-chips',
-  providers: const [
-    const Provider(HasRenderer, useExisting: MaterialChipsComponent)
-  ],
+  providers: [Provider(HasRenderer, useExisting: MaterialChipsComponent)],
   templateUrl: 'material_chips.html',
-  styleUrls: const ['material_chips.scss.css'],
-  directives: const [MaterialChipComponent, NgFor],
+  styleUrls: ['material_chips.scss.css'],
+  directives: [MaterialChipComponent, NgFor],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialChipsComponent implements HasRenderer, OnDestroy {
   final ChangeDetectorRef _changeDetector;
-  final Disposer _disposer = new Disposer.multi();
+  final Disposer _disposer = Disposer.multi();
 
   /// Whether the chips can be removed.
   @Input()

@@ -94,4 +94,4 @@ class FixedPopupSizeProvider implements PopupSizeProvider {
 }
 
 /// A popup size provider of no maximum size.
-const unboundedPopupSize = const FixedPopupSizeProvider();
+const unboundedPopupSize = FixedPopupSizeProvider();

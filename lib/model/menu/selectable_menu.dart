@@ -110,11 +110,11 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
         _selectableState = selectableState,
         _secondaryIconVisibility = IconVisibility.visible,
         shouldSelectOnItemClick = shouldSelectOnItemClick ?? subMenu == null,
-        itemSuffixes = itemSuffixes ?? new ObservableList<MenuItemAffix>(),
-        cssClasses = new BuiltList<String>(cssClasses ?? const []) {
+        itemSuffixes = itemSuffixes ?? ObservableList<MenuItemAffix>(),
+        cssClasses = BuiltList<String>(cssClasses ?? const []) {
     if (secondaryIcon != null) {
-      this.itemSuffixes.add(new IconAffix(
-          icon: secondaryIcon, visibility: _secondaryIconVisibility));
+      this.itemSuffixes.add(
+          IconAffix(icon: secondaryIcon, visibility: _secondaryIconVisibility));
     }
   }
 

@@ -13,27 +13,27 @@ class Alignment implements ElementStyleEnum {
   /// Align content before a container.
   ///
   /// This is *not* equivalent to any CSS positioning model.
-  static const Before = const BeforeCustomAlignment();
+  static const Before = BeforeCustomAlignment();
 
   /// Align content to the start of a container.
   ///
   /// This is equivalent to 'flex-start'.
-  static const Start = const Alignment('Start', 'flex-start');
+  static const Start = Alignment('Start', 'flex-start');
 
   /// Align content to the center of a container.
   ///
   /// This is equivalent to 'center'.
-  static const Center = const Alignment('Center', 'center');
+  static const Center = Alignment('Center', 'center');
 
   /// Align content to the end of a container.
   ///
   /// This is equivalent to 'flex-end'.
-  static const End = const Alignment('End', 'flex-end');
+  static const End = Alignment('End', 'flex-end');
 
   /// Align content after a container.
   ///
   /// This is *not* equivalent to any CSS positioning model.
-  static const After = const AfterCustomAlignment();
+  static const After = AfterCustomAlignment();
 
   final String _displayName;
   final String _cssPropertyValue;
@@ -58,7 +58,7 @@ class Alignment implements ElementStyleEnum {
     } else if (displayName == 'after') {
       return Alignment.After;
     } else {
-      throw new ArgumentError.value(displayName, 'displayName');
+      throw ArgumentError.value(displayName, 'displayName');
     }
   }
 
@@ -81,7 +81,7 @@ class Alignment implements ElementStyleEnum {
   /// content being aligned *if* it were visible.
   num calcLeft(Rectangle sourceRect, [Rectangle contentRect]) {
     if (requiresContentSizeToPosition && contentRect == null) {
-      throw new ArgumentError.notNull('contentRect');
+      throw ArgumentError.notNull('contentRect');
     }
     var left = sourceRect.left;
     if (this == Center) {
@@ -98,7 +98,7 @@ class Alignment implements ElementStyleEnum {
   /// content being aligned *if* it were visible.
   num calcTop(Rectangle sourceRect, [Rectangle contentRect]) {
     if (requiresContentSizeToPosition && contentRect == null) {
-      throw new ArgumentError.notNull('contentRect');
+      throw ArgumentError.notNull('contentRect');
     }
     var top = sourceRect.top;
     if (this == Center) {
@@ -124,7 +124,7 @@ abstract class _CustomAlignment extends Alignment {
 
   @override
   void apply(SetPropertyFn setProperty) {
-    throw new UnsupportedError('Cannot be reflected as a CSS style.');
+    throw UnsupportedError('Cannot be reflected as a CSS style.');
   }
 
   @override
@@ -173,25 +173,25 @@ class AfterCustomAlignment extends _CustomAlignment {
 /// A pair [originX] and [originY] defines how to align relative to the point.
 class RelativePosition {
   /// A set of [RelativePosition]s that are covering the point.
-  static const overlapAlignments = const [
-    const RelativePosition(originX: Alignment.Start, originY: Alignment.Start),
-    const RelativePosition(
+  static const overlapAlignments = [
+    RelativePosition(originX: Alignment.Start, originY: Alignment.Start),
+    RelativePosition(
         originX: Alignment.End,
         originY: Alignment.Start,
         animationOrigin: _AnimationOrigins.DOWN_LEFT),
-    const RelativePosition(
+    RelativePosition(
         originX: Alignment.Start,
         originY: Alignment.End,
         animationOrigin: _AnimationOrigins.UP_RIGHT),
-    const RelativePosition(
+    RelativePosition(
         originX: Alignment.End,
         originY: Alignment.End,
         animationOrigin: _AnimationOrigins.UP_LEFT),
-    const RelativePosition(
+    RelativePosition(
         originX: Alignment.Center,
         originY: Alignment.Start,
         animationOrigin: _AnimationOrigins.DOWN),
-    const RelativePosition(
+    RelativePosition(
         originX: Alignment.Center,
         originY: Alignment.End,
         animationOrigin: _AnimationOrigins.UP),
@@ -200,7 +200,7 @@ class RelativePosition {
   /// A set of [RelativePosition]s that are appropriate for inline-type editors
   /// such as dropdown(s) that will appear at the point and either flow down or
   /// up; as well as left or right, depending on available space.
-  static const InlinePositions = const [
+  static const InlinePositions = [
     InlineBottom,
     InlineBottomLeft,
     InlineBottomRight,
@@ -211,28 +211,28 @@ class RelativePosition {
 
   /// A position that starts at the origin and flows downwards.
   static const InlineBottom =
-      const RelativePosition(animationOrigin: _AnimationOrigins.DOWN);
+      RelativePosition(animationOrigin: _AnimationOrigins.DOWN);
 
   /// A position that starts at the origin and flows upwards.
-  static const InlineTop = const RelativePosition(
+  static const InlineTop = RelativePosition(
       originY: Alignment.End, animationOrigin: _AnimationOrigins.UP);
 
   /// A position that starts at the origin and flows downwards and left
-  static const InlineBottomLeft = const RelativePosition(
+  static const InlineBottomLeft = RelativePosition(
       originX: Alignment.End, animationOrigin: _AnimationOrigins.DOWN_LEFT);
 
   /// A position that starts at the origin and flows upwards and left
-  static const InlineTopLeft = const RelativePosition(
+  static const InlineTopLeft = RelativePosition(
       originX: Alignment.End,
       originY: Alignment.End,
       animationOrigin: _AnimationOrigins.UP_LEFT);
 
   /// A position that starts at the origin and flows downwards and right
-  static const InlineBottomRight = const RelativePosition(
+  static const InlineBottomRight = RelativePosition(
       originX: Alignment.Start, animationOrigin: _AnimationOrigins.DOWN_RIGHT);
 
   /// A position that starts at the origin and flows upwards and right
-  static const InlineTopRight = const RelativePosition(
+  static const InlineTopRight = RelativePosition(
       originX: Alignment.Start,
       originY: Alignment.End,
       animationOrigin: _AnimationOrigins.UP_RIGHT);
@@ -240,7 +240,7 @@ class RelativePosition {
   /// A set of [RelativePosition]s that are appropriate for offset-type menus
   /// that appear usually offset of one of the four points of the origin
   /// (e.g. bottom right, bottom left, top right, top left).
-  static const OffsetPositions = const [
+  static const OffsetPositions = [
     OffsetBottomRight,
     OffsetBottomLeft,
     OffsetTopRight,
@@ -249,28 +249,28 @@ class RelativePosition {
 
   /// A position that starts at the origin's bottom right point and flows
   /// downwards and to the right.
-  static const OffsetBottomRight = const RelativePosition(
+  static const OffsetBottomRight = RelativePosition(
       originX: Alignment.After,
       originY: Alignment.After,
       animationOrigin: _AnimationOrigins.DOWN_RIGHT);
 
   /// A position that starts at the origin's bottom left point and flows
   /// downwards and to the left.
-  static const OffsetBottomLeft = const RelativePosition(
+  static const OffsetBottomLeft = RelativePosition(
       originX: Alignment.Before,
       originY: Alignment.After,
       animationOrigin: _AnimationOrigins.DOWN_LEFT);
 
   /// A position that starts at the origin's top right point and flows upwards
   /// and to the right.
-  static const OffsetTopRight = const RelativePosition(
+  static const OffsetTopRight = RelativePosition(
       originX: Alignment.After,
       originY: Alignment.Before,
       animationOrigin: _AnimationOrigins.UP_RIGHT);
 
   /// A position that starts at the origin's top left point and flows upwards
   /// and to the left.
-  static const OffsetTopLeft = const RelativePosition(
+  static const OffsetTopLeft = RelativePosition(
       originX: Alignment.Before,
       originY: Alignment.Before,
       animationOrigin: _AnimationOrigins.UP_LEFT);
@@ -313,7 +313,7 @@ class RelativePosition {
   /// for hovercard positioning; which is probably a sane default for most basic
   /// pop-ups. That ordering tries all cardinal directions, then the other non-
   /// corner alignments, and finally the corners.
-  static const ComprehensiveOffsetPositions = const [
+  static const ComprehensiveOffsetPositions = [
     // cardinal directions
     AdjacentCardinal,
     // edges
@@ -328,7 +328,7 @@ class RelativePosition {
   /// Offsets that'll position the popup adjacent to the origin element in one
   /// of the four cardinal directions: directly above, below, to the left, or to
   /// the right.
-  static const AdjacentCardinal = const [
+  static const AdjacentCardinal = [
     AdjacentTop,
     AdjacentRight,
     AdjacentBottom,
@@ -340,20 +340,20 @@ class RelativePosition {
   ///
   /// It'll try centering the popup, and will fall back to left- or
   /// right-aligning it.
-  static const AdjacentTopEdge = const [
+  static const AdjacentTopEdge = [
     AdjacentTop,
     AdjacentTopLeft,
     AdjacentTopRight
   ];
-  static const AdjacentTopLeft = const RelativePosition(
+  static const AdjacentTopLeft = RelativePosition(
       originX: Alignment.Start,
       originY: Alignment.Before,
       animationOrigin: _AnimationOrigins.UP_RIGHT);
-  static const AdjacentTop = const RelativePosition(
+  static const AdjacentTop = RelativePosition(
       originX: Alignment.Center,
       originY: Alignment.Before,
       animationOrigin: _AnimationOrigins.UP);
-  static const AdjacentTopRight = const RelativePosition(
+  static const AdjacentTopRight = RelativePosition(
       originX: Alignment.End,
       originY: Alignment.Before,
       animationOrigin: _AnimationOrigins.UP_LEFT);
@@ -363,20 +363,20 @@ class RelativePosition {
   ///
   /// It'll try centering the popup, and will fall back to top- or
   /// bottom-aligning it.
-  static const AdjacentRightEdge = const [
+  static const AdjacentRightEdge = [
     AdjacentRight,
     AdjacentRightTop,
     AdjacentRightBottom
   ];
-  static const AdjacentRightTop = const RelativePosition(
+  static const AdjacentRightTop = RelativePosition(
       originX: Alignment.After,
       originY: Alignment.Start,
       animationOrigin: _AnimationOrigins.DOWN_RIGHT);
-  static const AdjacentRight = const RelativePosition(
+  static const AdjacentRight = RelativePosition(
       originX: Alignment.After,
       originY: Alignment.Center,
       animationOrigin: _AnimationOrigins.RIGHT);
-  static const AdjacentRightBottom = const RelativePosition(
+  static const AdjacentRightBottom = RelativePosition(
       originX: Alignment.After,
       originY: Alignment.End,
       animationOrigin: _AnimationOrigins.UP_RIGHT);
@@ -386,20 +386,20 @@ class RelativePosition {
   ///
   /// It'll try centering the popup, and will fall back to left- or
   /// right-aligning it.
-  static const AdjacentBottomEdge = const [
+  static const AdjacentBottomEdge = [
     AdjacentBottom,
     AdjacentBottomLeft,
     AdjacentBottomRight
   ];
-  static const AdjacentBottomRight = const RelativePosition(
+  static const AdjacentBottomRight = RelativePosition(
       originX: Alignment.End,
       originY: Alignment.After,
       animationOrigin: _AnimationOrigins.DOWN_LEFT);
-  static const AdjacentBottom = const RelativePosition(
+  static const AdjacentBottom = RelativePosition(
       originX: Alignment.Center,
       originY: Alignment.After,
       animationOrigin: _AnimationOrigins.DOWN);
-  static const AdjacentBottomLeft = const RelativePosition(
+  static const AdjacentBottomLeft = RelativePosition(
       originX: Alignment.Start,
       originY: Alignment.After,
       animationOrigin: _AnimationOrigins.DOWN_RIGHT);
@@ -409,20 +409,20 @@ class RelativePosition {
   ///
   /// It'll try centering the popup, and will fall back to left- or
   /// right-aligning it.
-  static const AdjacentLeftEdge = const [
+  static const AdjacentLeftEdge = [
     AdjacentLeft,
     AdjacentLeftTop,
     AdjacentLeftBottom
   ];
-  static const AdjacentLeftBottom = const RelativePosition(
+  static const AdjacentLeftBottom = RelativePosition(
       originX: Alignment.Before,
       originY: Alignment.End,
       animationOrigin: _AnimationOrigins.UP_LEFT);
-  static const AdjacentLeft = const RelativePosition(
+  static const AdjacentLeft = RelativePosition(
       originX: Alignment.Before,
       originY: Alignment.Center,
       animationOrigin: _AnimationOrigins.LEFT);
-  static const AdjacentLeftTop = const RelativePosition(
+  static const AdjacentLeftTop = RelativePosition(
       originX: Alignment.Before,
       originY: Alignment.Start,
       animationOrigin: _AnimationOrigins.DOWN_LEFT);
@@ -437,7 +437,7 @@ class RelativePosition {
       this.animationOrigin = _AnimationOrigins.DOWN_RIGHT});
 
   RelativePosition flipRelativePosition() {
-    return new RelativePosition(
+    return RelativePosition(
         originX: _flipAlignment(this.originX),
         originY: this.originY,
         animationOrigin: _flipAnimation(this.animationOrigin));
@@ -478,7 +478,7 @@ class _AnimationOrigins {
   static const DOWN = 'top center';
   static const DOWN_RIGHT = 'top left';
 
-  static const Map<String, String> flippedAnimationOrigins = const {
+  static const Map<String, String> flippedAnimationOrigins = {
     _AnimationOrigins.UP_LEFT: _AnimationOrigins.UP_RIGHT,
     _AnimationOrigins.UP_RIGHT: _AnimationOrigins.UP_LEFT,
     _AnimationOrigins.LEFT: _AnimationOrigins.RIGHT,

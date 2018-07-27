@@ -44,7 +44,7 @@ import 'package:angular_components/model/date/date.dart';
 /// See also `material-date-range-picker` if you want to choose date ranges.
 @Component(
   selector: 'material-datepicker',
-  directives: const [
+  directives: [
     AutoFocusDirective,
     ButtonDirective,
     DateInputDirective,
@@ -63,10 +63,10 @@ import 'package:angular_components/model/date/date.dart';
     NgIf,
     PopupSourceDirective,
   ],
-  providers: const [
-    const Provider(HasDisabled, useExisting: MaterialDatepickerComponent),
+  providers: [
+    Provider(HasDisabled, useExisting: MaterialDatepickerComponent),
   ],
-  styleUrls: const ['material_datepicker.scss.css'],
+  styleUrls: ['material_datepicker.scss.css'],
   templateUrl: 'material_datepicker.html',
 )
 class MaterialDatepickerComponent extends KeyboardHandlerMixin
@@ -76,7 +76,7 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
   ///
   /// Defaults to `yMMMd`, e.g. 'Jan 23, 2015'.
   @Input()
-  DateFormat outputFormat = new DateFormat.yMMMd();
+  DateFormat outputFormat = DateFormat.yMMMd();
 
   /// Dates later than `maxDate` cannot be chosen.
   ///
@@ -116,7 +116,7 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
   List<RelativePosition> preferredPositions =
       RelativePosition.overlapAlignments;
 
-  final _controller = new StreamController<Date>.broadcast();
+  final _controller = StreamController<Date>.broadcast();
 
   /// Publishes events when the selected date changes.
   @Output()
@@ -145,7 +145,7 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
   Date _date;
   Date get date => _date;
 
-  CalendarState _calendar = new CalendarState.empty();
+  CalendarState _calendar = CalendarState.empty();
   CalendarState get calendar => _calendar;
   set calendar(CalendarState state) {
     _calendar = state;
@@ -168,7 +168,7 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
   bool _popupVisible = false;
   bool get popupVisible => _popupVisible;
 
-  final _popupVisibleController = new StreamController<bool>.broadcast();
+  final _popupVisibleController = StreamController<bool>.broadcast();
 
   /// Publishes events when the popupVisible changes.
   @Output()
@@ -285,11 +285,11 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
 
   MaterialDatepickerComponent(
       @Optional() @Inject(datepickerClock) Clock clock) {
-    clock ??= new Clock();
+    clock ??= Clock();
 
     // Init minDate and maxDate to sensible defaults
     var now = clock.now();
-    minDate = new Date(now.year - 10, DateTime.january, 1);
-    maxDate = new Date(now.year + 10, DateTime.december, 31);
+    minDate = Date(now.year - 10, DateTime.january, 1);
+    maxDate = Date(now.year + 10, DateTime.december, 31);
   }
 }

@@ -37,18 +37,18 @@ HtmlElement getDefaultContainer(
     // Add a hidden focusable element before overlay container to prevent screen
     // reader from picking up content from a random element when users shift tab
     // out of the first visible overlay.
-    parent.append(new DivElement()
+    parent.append(DivElement()
       ..tabIndex = 0
       ..classes.add(overlayFocusablePlaceholderClassName));
 
-    element = new DivElement()
+    element = DivElement()
       ..id = overlayDefaultContainerId
       ..classes.add(overlayContainerClassName);
     parent.append(element);
 
     // Add a hidden focusable element after overlay container to ensure there's
     // a focusable element when users tab out of the last visible overlay.
-    parent.append(new DivElement()
+    parent.append(DivElement()
       ..tabIndex = 0
       ..classes.add(overlayFocusablePlaceholderClassName));
   }
@@ -78,51 +78,50 @@ HtmlElement getOverlayContainerParent(Document document,
 }
 
 /// DI module for Overlay and its dependencies.
-const overlayModule = const Module(
-  include: const [
+const overlayModule = Module(
+  include: [
     windowModule,
   ],
   provide: _overlayProviders,
 );
 
-const _overlayProviders = const <Provider>[
-  const ClassProvider(AcxImperativeViewUtils),
-  const ClassProvider(DomRuler),
+const _overlayProviders = <Provider>[
+  ClassProvider(AcxImperativeViewUtils),
+  ClassProvider(DomRuler),
   domServiceBinding,
-  const ClassProvider(ManagedZone, useClass: Angular2ManagedZone),
-  const FactoryProvider.forToken(overlayContainerName, getDefaultContainerName),
-  const FactoryProvider.forToken(overlayContainerToken, getDefaultContainer),
-  const FactoryProvider.forToken(
-      overlayContainerParent, getOverlayContainerParent),
+  ClassProvider(ManagedZone, useClass: Angular2ManagedZone),
+  FactoryProvider.forToken(overlayContainerName, getDefaultContainerName),
+  FactoryProvider.forToken(overlayContainerToken, getDefaultContainer),
+  FactoryProvider.forToken(overlayContainerParent, getOverlayContainerParent),
   // Applications may experimentally make this true to increase performance.
-  const ValueProvider.forToken(overlaySyncDom, true),
-  const ValueProvider.forToken(overlayRepositionLoop, true),
-  const ClassProvider(OverlayDomRenderService),
-  const ClassProvider(OverlayStyleConfig),
-  const ClassProvider(OverlayService),
-  const ClassProvider(ZIndexer),
+  ValueProvider.forToken(overlaySyncDom, true),
+  ValueProvider.forToken(overlayRepositionLoop, true),
+  ClassProvider(OverlayDomRenderService),
+  ClassProvider(OverlayStyleConfig),
+  ClassProvider(OverlayService),
+  ClassProvider(ZIndexer),
 ];
 
 /// DI bindings for Overlay and its dependencies.
-const overlayBindings = const [
+const overlayBindings = [
   windowBindings,
   _overlayProviders,
 ];
 
 /// Similar to [overlayModule], but enables easy debugging of the overlays.
-const overlayDebugModule = const Module(
-  include: const [
+const overlayDebugModule = Module(
+  include: [
     overlayModule,
   ],
   provide: _overlayDebugProviders,
 );
 
-const _overlayDebugProviders = const <Provider>[
-  const FactoryProvider.forToken(overlayContainerToken, getDebugContainer),
+const _overlayDebugProviders = <Provider>[
+  FactoryProvider.forToken(overlayContainerToken, getDebugContainer),
 ];
 
 /// Similar to [overlayBindings], but enables easy debugging of the overlays.
-const overlayDebugBindings = const [
+const overlayDebugBindings = [
   overlayBindings,
   _overlayDebugProviders,
 ];

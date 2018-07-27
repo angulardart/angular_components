@@ -118,12 +118,12 @@ class AsyncAction<V> {
     if (cancelled) return;
 
     if (isDone) {
-      throw new StateError('Cannot register. Action is complete.');
+      throw StateError('Cannot register. Action is complete.');
     }
 
     // Don't allow more registrations.
     if (_waitingForDone) {
-      throw new StateError('Cannot register. Already waiting.');
+      throw StateError('Cannot register. Already waiting.');
     }
 
     // Register a future.
@@ -139,17 +139,17 @@ class AsyncAction<V> {
 
     // Don't allow more registrations.
     if (isDone) {
-      throw new StateError('Cannot register. Action is complete.');
+      throw StateError('Cannot register. Action is complete.');
     }
 
     if (_waitingForDone) {
-      throw new StateError('Cannot register. Already waiting.');
+      throw StateError('Cannot register. Already waiting.');
     }
 
     _syncCancelled = true;
     _futureCancellations
       ..clear()
-      ..add(new Future.value(true));
+      ..add(Future.value(true));
   }
 
   /// Defer the action execution, if the action is not already executed or
@@ -166,11 +166,11 @@ class AsyncAction<V> {
 
     // Don't allow more registrations.
     if (isDone) {
-      throw new StateError('Cannot register. Action is complete.');
+      throw StateError('Cannot register. Action is complete.');
     }
 
     if (_waitingForDone) {
-      throw new StateError('Cannot register. Already waiting.');
+      throw StateError('Cannot register. Already waiting.');
     }
 
     // Register a future.
