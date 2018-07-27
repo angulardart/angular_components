@@ -28,6 +28,7 @@
            [class.right-align]="rightAlign">
         <!-- needed for floating label animation measurement -->
         <span class="label-text"
+              [attr.id]="labelId"
               [class.invisible]="!labelVisible"
               [class.animated]="labelAnimated"
               [class.reset]="labelAnimationReset"
@@ -41,24 +42,25 @@
       <input #inputEl
              focusableElement
              class="input"
-             [class.disabledInput]="disabled"
-             [class.right-align]="rightAlign"
-             [type]="type"
-             [multiple]="multiple"
-             [readonly]="disabled"
-             [attr.role]="inputRole"
-             [attr.aria-label]="inputAriaLabel"
-             [attr.aria-invalid]="invalid"
-             [attr.aria-owns]="inputAriaOwns"
              [attr.aria-activedescendant]="inputAriaActivedescendent"
-             [attr.aria-expanded]="inputAriaExpanded"
              [attr.aria-autocomplete]="inputAriaAutocomplete"
+             [attr.aria-expanded]="inputAriaExpanded"
              [attr.aria-haspopup]="inputAriaHasPopup"
+             [attr.aria-invalid]="invalid"
+             [attr.aria-label]="inputAriaLabel"
+             [attr.aria-labelledby]="labelId"
+             [attr.aria-owns]="inputAriaOwns"
+             [attr.role]="inputRole"
              [ngModel]="inputText"
              (blur)="inputBlurAction($event, inputEl.validity.valid, inputEl.validationMessage)"
              (change)="inputChange(inputEl.value, inputEl.validity.valid, inputEl.validationMessage);$event.stopPropagation()"
+             [class.disabledInput]="disabled"
+             [class.right-align]="rightAlign"
              (focus)="inputFocusAction"
-             (input)="inputKeypress(inputEl.value, inputEl.validity.valid, inputEl.validationMessage)">
+             (input)="inputKeypress(inputEl.value, inputEl.validity.valid, inputEl.validationMessage)"
+             [multiple]="multiple"
+             [readonly]="disabled"
+             [type]="type">
     </label>
     <span *ngIf="hasTrailingText"
           class="trailing-text"
@@ -74,21 +76,28 @@
                      [attr.disabled]="disabled">
       </material-icon>
     </span>
-    <ng-content select="[trailing]"></ng-content>
+    <ng-content select="[trailing]">
+    </ng-content>
   </div>
 
   <div class="underline">
     <div class="disabled-underline" [class.invisible]="!disabled">
     </div>
     <div class="unfocused-underline"
-         [class.invisible]="disabled" [class.invalid]="invalid"></div>
+         [class.invisible]="disabled"
+         [class.invalid]="invalid">
+    </div>
     <div class="focused-underline"
-         [class.invisible]="!focused || disabled" [class.invalid]="invalid"
-         [class.animated]="underlineAnimated"></div>
+         [class.invisible]="!focused || disabled"
+         [class.invalid]="invalid"
+         [class.animated]="underlineAnimated">
+    </div>
   </div>
 </div>
 
-<div class="bottom-section" *ngIf="displayBottomPanel" [ngSwitch]="bottomPanelState">
+<div class="bottom-section"
+     *ngIf="displayBottomPanel"
+     [ngSwitch]="bottomPanelState">
   <div class="error-text"
        role="alert"
        attr.aria-hidden="{{!invalid}}"
@@ -96,7 +105,8 @@
        [class.invalid]="invalid"
        *ngSwitchWhen="errorState">
     {{errorMessage}}
-    <ng-content select="[error-text-trailing]"></ng-content>
+    <ng-content select="[error-text-trailing]">
+    </ng-content>
   </div>
   <div class="hint-text" *ngSwitchWhen="hintState">
     {{hintText}}
