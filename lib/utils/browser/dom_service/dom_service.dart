@@ -30,10 +30,10 @@ class DomService {
   /// Eventually, this flag will be flipped to `true`, and deleted (all code
   /// must use this behavior).
   ///
-  /// By flipping this to `true`, it means:
-  /// * [Zone.current] will be restored when the callbacks are executed.
-  /// * AngularDart (or any parent zone) will know about the change.
-  static bool maintainZoneOnCallbacks = false;
+  /// By flipping this to `false`, it means:
+  /// * [Zone.current] will be not be restored when the callbacks are executed.
+  /// * AngularDart (or any parent zone) will not know about the change.
+  static bool maintainZoneOnCallbacks = true;
 
   static const _TURN_DONE_EVENT_TYPE = 'doms-turn';
 
