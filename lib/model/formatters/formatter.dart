@@ -6,3 +6,39 @@
 abstract class Formatter<T> {
   String format(T value, [String parameters]);
 }
+
+abstract class StyleFormatter<T> implements Formatter<T> {
+  /// Returns list of classes to style value.
+  List<String> computeStyle(T value, [String parameters]) => const [];
+}
+
+/// Formats a value using parameters and the entity containing the
+/// source field.
+///
+/// T is the type of the value that is being formatted.
+/// In order to use, extend the [Formatter] class and implement the
+/// [EntityFormatter] interface, then have the format method return null.
+///
+/// Example usage:
+/// ```dart
+/// class MyFormatter extends Formatter implements EntityFormatter {
+///   @override
+///   String format(value, [String args]) => null;
+///
+///   @override
+///   String formatEntityField(Map entity, value, [String args]) => ...
+/// }
+/// ```
+// TODO(google): add  implements Formatter<T>
+abstract class EntityFormatter<T> {
+  String formatEntityField(Map entity, T value, [String parameters]);
+}
+
+/// Generates list of css classes based on entity value.
+///
+/// This list will be merged with one returned by [StyleFormatter.computeStyle].
+// TODO(google): add implements StyleFormatter<T>
+abstract class EntityStyleFormatter<T> {
+  /// Returns list of classes to style the value.
+  List<String> computeEntityStyle(Map entity, T value, [String parameters]);
+}
