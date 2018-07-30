@@ -138,8 +138,8 @@ class MaterialDialogComponent implements AfterContentChecked, OnDestroy {
 
   void _updateForFullscreenChangesInsideDomReadLoop() {
     final isInFullscreenMode =
-        document.body.clientWidth == _rootElement.clientWidth &&
-            document.body.clientHeight == _rootElement.clientHeight;
+        document.body.clientWidth <= _rootElement.clientWidth &&
+            document.body.clientHeight <= _rootElement.clientHeight;
     if (_isInFullscreenMode != isInFullscreenMode) {
       _isInFullscreenMode = isInFullscreenMode;
       _isInFullscreenModeStreamController.add(isInFullscreenMode);
