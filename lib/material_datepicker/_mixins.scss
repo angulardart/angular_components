@@ -57,12 +57,16 @@
   }
 }
 
-// Defines calendar highlight colors for the material datepicker.
+/// Defines calendar highlight colors for the material datepicker.
+///
+/// Note: Only changes the 'range' highlights. This is currently the default,
+/// but it is customizable. If you want to override other colors please use
+/// calendar-highlights.
 @mixin material-calendar-picker-theme($map) {
   $primary-color: map-get($map, 500);
 
   ::ng-deep material-calendar-picker {
-    @include calendar-highlights('', (default: $map));
+    @include calendar-highlights('', (range: $map));
     @include material-scrollbar-theme($primary-color);
   }
 }
