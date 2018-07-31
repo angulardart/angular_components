@@ -23,18 +23,6 @@ typedef Future<num> RequestAnimationFrame();
 /// Utility class to synchronize DOM operations across components, e.g. to check
 /// changes in the layout after a UI update or application event.
 class DomService {
-  /// Whether to execute functions scheduled within [Zone.current].
-  ///
-  /// This is the expected behavior and contract of Dart applications, but is
-  /// not applied automatically to every callback (only to Futures and Streams).
-  /// Eventually, this flag will be flipped to `true`, and deleted (all code
-  /// must use this behavior).
-  ///
-  /// By flipping this to `false`, it means:
-  /// * [Zone.current] will be not be restored when the callbacks are executed.
-  /// * AngularDart (or any parent zone) will not know about the change.
-  static bool maintainZoneOnCallbacks = true;
-
   static const _TURN_DONE_EVENT_TYPE = 'doms-turn';
 
   /// The maximum time the idle scheduler waits between events.
@@ -253,9 +241,7 @@ class DomService {
   }
 
   void _scheduleInQueue(DomReadWriteFn fn, List<DomReadWriteFn> queue) {
-    if (maintainZoneOnCallbacks) {
-      fn = Zone.current.bindCallback(fn);
-    }
+    fn = Zone.current.bindCallback(fn);
     queue.add(fn);
     _scheduleProcessQueue();
   }
