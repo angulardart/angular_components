@@ -30,6 +30,7 @@ import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 
 /// A material-design-styled single date picker -- a date parsing input and
 /// calendar picker. Users can type in their own custom dates, or click on the
@@ -72,6 +73,12 @@ import 'package:angular_components/model/date/date.dart';
 class MaterialDatepickerComponent extends KeyboardHandlerMixin
     with FocusableMixin
     implements AfterViewInit, HasDisabled {
+  /// CSS classes from the root element, passed to the popup to allow scoping of
+  /// mixins.
+  ///
+  /// Only visible for the template.
+  final String popupClassName;
+
   /// The format used to format dates.
   ///
   /// Defaults to `yMMMd`, e.g. 'Jan 23, 2015'.
@@ -284,7 +291,10 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
   String error;
 
   MaterialDatepickerComponent(
-      @Optional() @Inject(datepickerClock) Clock clock) {
+      HtmlElement element,
+      @Attribute('popupClass') String popupClass,
+      @Optional() @Inject(datepickerClock) Clock clock)
+      : popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
     clock ??= Clock();
 
     // Init minDate and maxDate to sensible defaults
