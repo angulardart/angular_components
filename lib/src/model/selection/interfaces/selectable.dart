@@ -115,24 +115,6 @@ abstract class Selectable<T> {
   SelectableOption getSelectable(T item) => SelectableOption.Selectable;
 }
 
-/// Interface for determining if an entity [T] should be shown as selectable.
-///
-/// This interface serves the same purpose of Selectable<T>, except the
-/// getSelectable getter is a member instead of a method.
-///
-/// __Example use__:
-///     class MySelectionOptions = SelectionOptions with SelectableWithComposition;
-///
-/// **DEPRECATED**: The main purpose of this interface/class was to have an
-/// indentical API to [Selectable], but allow overriding the [getSelectable]
-/// implementation at runtime. Unfortunately this has caused many problems
-/// (b/111665960), and in practice users were using this interface but providing
-/// a static implementation.
-abstract class SelectableWithComposition<T> {
-  /// Whether [item] should be shown as selectable.
-  SelectableGetter<T> getSelectable = (T item) => SelectableOption.Selectable;
-}
-
 /// An optional interface for describing why an item is/is not selectable.
 ///
 /// __Example use__:
