@@ -65,7 +65,7 @@ class DomTreeIterator implements Iterator<Element> {
     }
 
     if (_element == _scope && _element.children.isEmpty) {
-      _element == null;
+      _element = null;
       return false;
     }
 
