@@ -205,6 +205,10 @@ class MaterialRippleComponent implements OnDestroy {
     _element.addEventListener('keydown', _onKeyDown);
   }
 
+  /// Allow the ripple to be created programatically.
+  void createRipple(int clientX, int clientY) =>
+      _createRipple(clientX, clientY, _element, center);
+
   /// Whether the ripple should start from the center of the container.
   @Input()
   bool center = false;
