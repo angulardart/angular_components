@@ -160,4 +160,7 @@ class MaterialToggleComponent
     disabled = isDisabled;
     _changeDetector?.markForCheck();
   }
+
+  // M2 interfaces that are unneeded for M1.
+  void createRipple() {}
 }
