@@ -29,16 +29,14 @@ abstract class StyleFormatter<T> implements Formatter<T> {
 ///   String formatEntityField(Map entity, value, [String args]) => ...
 /// }
 /// ```
-// TODO(google): add  implements Formatter<T>
-abstract class EntityFormatter<T> {
+abstract class EntityFormatter<T> implements Formatter<T> {
   String formatEntityField(Map entity, T value, [String parameters]);
 }
 
 /// Generates list of css classes based on entity value.
 ///
 /// This list will be merged with one returned by [StyleFormatter.computeStyle].
-// TODO(google): add implements StyleFormatter<T>
-abstract class EntityStyleFormatter<T> {
+abstract class EntityStyleFormatter<T> implements StyleFormatter<T> {
   /// Returns list of classes to style the value.
   List<String> computeEntityStyle(Map entity, T value, [String parameters]);
 }
