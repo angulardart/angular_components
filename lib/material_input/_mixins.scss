@@ -215,3 +215,15 @@
     }
   }
 }
+
+/// Changes the padding of the multiline material input.
+@mixin multiline-material-input-padding($padding) {
+  ::ng-deep {
+    .label,
+    .mirror-text,
+    .textarea {
+      box-sizing: border-box;
+      padding: $padding;
+    }
+  }
+}
