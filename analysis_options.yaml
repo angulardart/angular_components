@@ -1,5 +1,4 @@
 analyzer:
-  strong-mode: true
   errors:
     dead_code: warning
     unused_element: warning
