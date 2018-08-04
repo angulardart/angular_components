@@ -1,3 +1,41 @@
+## 0.9.0-beta+3
+
+### Breaking Changes
+* Remove `is SelectableWithComposition`.
+
+### Component Updates
+#### Material Datepicker
+* Allow scoped overrides of themed values.
+* Update `material-calendar-theme` mixin to use the `range` highlight.
+
+#### Material Dialog
+* Fix bug with full screen dialogs.
+
+#### Material Input
+* Remove element used for resizing if the textarea does not need to be resized.
+* Added an `aria-labelledby` attribute.
+* Add mixin to adjust padding for multi-line inputs.
+
+#### Material Expansionpanel
+* Do not change background color on focus or hover when disabled.
+
+#### Material Ripple
+* Allow the ripple to be created programmatically.
+
+#### Material Spinner
+* Add mixin to adjust the stroke width.
+
+#### Material Time Picker
+* Fix bug where `selectedTime` is not reset when the time is set
+  programmatically.
+
+### Other Updates
+#### Miscellaneous
+* Make `DomService` run callbacks in the correct zone.
+* Fix bug in `DomTreeIterator.moveNext()` where it was using equality instead of
+  assignment.
+* EntityFormatters now implement the regular Formatters.
+
 ## 0.9.0-beta+2
 
 > NOTE: This code is considered production quality, but depends on angular:
@@ -8,6 +46,7 @@
   with the intention to remove. They are widely unused, complicated the
   implementations, and unsound in Dart 2.
 
+### Component Updates
 #### Material Dialog
 * Fix bug where a disposable could be added to its disposer after it had already
   been destroyed.
@@ -28,7 +67,7 @@
 
 #### Dart 2 Updates
 * Fixes for Dart 2 compile-time and runtime errors.
-* Applicaion of `dartfmt --fix`.
+* Application of `dartfmt --fix`.
 
 ## 0.9.0-beta+1
 
