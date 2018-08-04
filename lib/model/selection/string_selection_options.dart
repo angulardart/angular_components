@@ -32,8 +32,7 @@ typedef bool StringSuggestionFilter<T>(T suggestion, String filterQuery);
 /// var options = new StringSelectionOptions<Color>(
 ///     // list of colors
 ///     [new Color (1, 'Red'), new Color(2, 'Blue'), new Color(3, 'Purple')],
-///     // converts color object to string for filtering.
-///     (Color color) => color.displayName.toLowerCase());
+///     toFilterableString: (Color color) => color.displayName.toLowerCase());
 /// ```
 class StringSelectionOptions<T> extends SelectionOptions<T>
     implements Filterable {
