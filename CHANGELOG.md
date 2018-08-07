@@ -1,172 +1,24 @@
-## 0.9.0-beta+3
+## 0.9.0
+
+> Pub _transformers_ are no longer used. Instead, use the new
+> [webdev](https://pub.dartlang.org/packages/webdev) CLI, or, for advanced
+> users, the [build_runner](https://pub.dartlang.org/packages/build_runner) CLI.
+>
+> Please see the Dart 2 [migration guide](https://webdev.dartlang.org/dart-2) for
+> more details.
 
 ### Breaking Changes
 * Remove `is SelectableWithComposition`.
-
-### Component Updates
-#### Material Datepicker
-* Allow scoped overrides of themed values.
-* Update `material-calendar-theme` mixin to use the `range` highlight.
-
-#### Material Dialog
-* Fix bug with full screen dialogs.
-
-#### Material Input
-* Remove element used for resizing if the textarea does not need to be resized.
-* Added an `aria-labelledby` attribute.
-* Add mixin to adjust padding for multi-line inputs.
-
-#### Material Expansionpanel
-* Do not change background color on focus or hover when disabled.
-
-#### Material Ripple
-* Allow the ripple to be created programmatically.
-
-#### Material Spinner
-* Add mixin to adjust the stroke width.
-
-#### Material Time Picker
-* Fix bug where `selectedTime` is not reset when the time is set
-  programmatically.
-
-### Other Updates
-#### Miscellaneous
-* Make `DomService` run callbacks in the correct zone.
-* Fix bug in `DomTreeIterator.moveNext()` where it was using equality instead of
-  assignment.
-* EntityFormatters now implement the regular Formatters.
-
-## 0.9.0-beta+2
-
-> NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-beta+2 (5.0.0-beta+2 is used in production Google apps).
-
-### Breaking Changes
 * Remove `SelectableChangeNotifier` and deprecate `SelectableWithComposition`
   with the intention to remove. They are widely unused, complicated the
   implementations, and unsound in Dart 2.
-
-### Component Updates
-#### Material Dialog
-* Fix bug where a disposable could be added to its disposer after it had already
-  been destroyed.
-
-#### Material Icon
-* Add aria label and use them for trailing/leading icons of Material Input.
-
-#### Material Popup
-* Change `<main>` html tag to a `<div>`. HTML5 states there should only be one
-  main tag per application.
-
-### Other Updates
-#### Miscellaneous
-* Add `is{Selectable|Disabled|Hidden}In()`, `getOptionIn()` and, `filterWhere()`
-  as static helpers to `Selectable`.
-* Add a lookup method for finding the closest Material Color name based on any
-  input color.
-
-#### Dart 2 Updates
-* Fixes for Dart 2 compile-time and runtime errors.
-* Application of `dartfmt --fix`.
-
-## 0.9.0-beta+1
-
-> NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-beta+1 (5.0.0-beta+1 is used in production Google apps).
-
-### Updated Dependencies
-* Bumped the lower bound of the SDK dependency and widened the upper bound to
-  include the 2.0.0 stable release.
-* angular: 5.0.0-beta+1
-* angular_forms: 2.0.0-beta+1
-
-### Add Material Card Styling
-Material Card is card styling provided by the Google material team also known as
-mdc-web. The styles included in this package are provided as a convenience to
-users in the Dart package ecosystem.
-
-### Breaking Changes
 * `ActiveItemMixin` has been removed in favor of the new `ActiveItemDirective`.
 
-### Component Updates
-
-#### Material Button
-* Update elevation on buttons that have focus.
-
-#### Material Date Range Picker
-* Add the 'popupClass' attribute to allow styling the popup.
-
-#### Material Dropdown Select
-* Add back `keyboardOnlyFocusIndicator` to dropdown items.
-
-#### Material Icon
-* Add mixin for font weight.
-
-#### Material Input
-* Return `null` when input is `"NaN"` or `null`.
-
-#### Material Slider
-* Add touch controls.
-* Enable doubles for slider values.
-
-#### Material Tree
-* Add `visibleChange` output stream to `MaterialTreeDropdownComponent`.
-
-#### Material Toggle
-* Implement `ControlValueAccessor`.
-
-#### Material Yes/No Buttons
-* Fix bug where text color was not applying to highlighted/raised yes button.
-* Fix no button to not override disabled text label color.
-
-#### Reorder List
-* Add ability to specify a handle element in a complex component.
-
-#### Scorecard
-* Add mixin for changing the display to flex.
-
-### Other Updates
-#### Miscellaneous
-* Add attribute on `PopupSourceDirective` to decide whether to set the popup
-  related aria attributes.
-* Scope the `Focusable` item for `AutoFocusDirective` so that any node in the
-  hierarchy isn't mistakenly focused.
-* Modify `TextHighlighter` to return separate results for adjacent matches,
-  rather than concatenating them into a single result.
-* Migrate to using event tearoffs.
-* Deprecate convenience list for `materialDirectives`. It has been demonstrated
-  that it's use increases code size when only some of the components are being
-  used. It is preferable to use only the directives needed for your application
-  for improved dart2js tree shaking.
-
-#### Dart 2 Updates
-* Migrate from `Stream<Null>` to `Stream<void>`.
-
-#### Documentation
-* General documentation cleanup for `@Input`s and `@Output`s. Improves
-  documentation generated by the component gallery.
-
-## 0.9.0-beta
-
-> NOTE: This code is considered production quality, but depends on angular:
-> 5.0.0-beta (5.0.0-beta is used in production Google apps).
-
-Please note that an up-to-date copy of `dev` channel Dart SDK is required (at
-least `2.0.0-dev.65` as of this writing) to use this version with AngularDart
-v5.0.0-beta.
-
-Pub _transformers_ are no longer used. Instead, use the new
-[webdev](https://pub.dartlang.org/packages/webdev) CLI, or, for advanced
-users, the [build_runner](https://pub.dartlang.org/packages/build_runner) CLI.
-
-Please see the Dart 2 [migration guide](https://webdev.dartlang.org/dart-2) for
-more details.
-
-### Updated Dependencies
-* angular: 5.0.0-beta
-* angular_forms: 2.0.0-beta
-
 ### New Components
+* Material Card styling
+  * Provided by the Google material team also known as mdc-web. The styles
+    included in this package are provided as a convenience to users in the Dart
+    package ecosystem.
 * Material Stacking Drawer
 * Material Stepper
 * Material Slider
@@ -202,6 +54,7 @@ more details.
 * Protect against method being called after it is destroyed.
 
 #### Material Button
+* Update elevation on buttons that have focus.
 * Remove styles for vertically aligned icon with text buttons.
 * Update size and position of text labels for icon buttons.
 * Allow icon button items to be created vertically.
@@ -236,57 +89,25 @@ more details.
 * Allow overriding left-icon-color.
 * Update margin on dense theme.
 
-#### Material Date Picker
-* Add dynamic Date Picker Comparison Options
- * Allow user create their own comparison option.
- * Provide default comparison options (previous period, previous year, custom).
- * New interface `SupportedComparisonOptions` for
-   `MaterialDateRangePickerComponent`.
- * New interface `Disabled` for `DateRangeInput`.
-* Use updated class names for `ShowHideDirective`.
-* Fix direction of dropdown arrows in RTL locales.
-* Allow error messages to be shown on range picker inputs.
-* Add a mixin to remove left padding from the time picker.
-* Re-render calendar and month picker when date limits change.
-* Switch to bool inputs instead of `getBool()`.
-* Improved keyboard handling.
-
-#### Material Date Range Picker
-* Improved support for high browser zoom.
-
-#### Material Date Time Picker
-* Update so that it sets time to default value if date is picked but time is not
-  picked.
-
-#### Material Dialog:
+#### Material Dialog
+* Fix bug with full screen dialogs.
+* Fix bug where a disposable could be added to its disposer after it had already
+  been destroyed.
 * Set default `max-height` and `max-width`.
 * Add full screen mode.
 * Add support for `<h1>` element in title.
 * Add mixin for bottom border on header.
 * Remove `preserveWhitespace: false`.
 
-#### Material Expansion Panel
-* Fix issue where header could extend beyond the max-width of its container.
-* Add a mixin for no borders.
-* Add a mixin to show header actions on the bottom instead of on the left.
-* Add mixin to set alignment in the header.
-* Remove `transform: scaley` from expand animation.
-* Add mixin for top-aligning expand button.
-* Add option to move the expand button to the left side.
-* Improve animations.
-* Add mixin for additional padding.
-* Allow icon to be hidden and allow additional buttons in the header.
-* Increase mixin specificity.
-* Add option show/hide the cancel button.
-* Add mixin for flat on collapse.
-* Smooth appearance/disappearance of expansion panel contents.
-* Add mixin to allow change the panel name min width.
-* Remove `preserveWhitespace: false`.
+#### Material Dropdown Select
+* Add back `keyboardOnlyFocusIndicator` to dropdown items.
 
 #### Material FAB
 * Update shadow styles.
 
 #### Material Icon
+* Add aria label and use them for trailing/leading icons of Material Input.
+* Add mixin for font weight.
 * Update mixins to allow overriding elements which have the size attribute set.
 * Add flag to mirror icon.
 * Roll back change that flipped help icon in RTL.
@@ -294,6 +115,10 @@ more details.
 * Flip half_star icon when in RTL.
 
 #### Material Input
+* Remove element used for resizing if the textarea does not need to be resized.
+* Added an `aria-labelledby` attribute.
+* Add mixin to adjust padding for multi-line inputs.
+* Return `null` when input is `"NaN"` or `null`.
 * Don't override unfocused underline color when the input is invalid.
 * Add field to mixin to specify the label color when there is an error and the
   label is focused.
@@ -327,34 +152,28 @@ more details.
   blur.
 * Fix unexpected `)` in selector for `MaterialInputDefaultValueAccessor`.
 
-#### Material FAB Menu
-* Update close bar style.
-* Change menu width to 280px if menu has icons.
-* Fix transitions.
-* Simplify material-fab-menu animation & allow it to scroll on small screens.
-* Update size mixin.
-
-#### Material Menu
-* Allow setting the class for each affix item.
-* Add helper constructor for flat menus.
-* Add mixin for changing the icon color of menu item.
-* Wrap long text in Fab Menu.
-* Horizontally align the expansion icon with the label.
-* Allow mixins to customize popup contents by specifying additional CSS classes
-  added to the popup content.
-* Match the color of the group header label to item.
-* Add mixin to show the same font for group label.
-* Implement `Focusable`.
-* Add a flag to `MenuItemGroup` to explicitly specify a separator.
-* Trigger selected event when an item from sub-menu is selected.
-* Change mouse pointer on category to make it clear that it is clickable.
-* Allow expanding on group title clicks.
-* Add a style variation to menu group to allow emphasizing the first group.
-* Add a feature to menu item group to make it expandable.
-* Add button content customization.
-* Add mixin for lowercase button text.
+#### Material Expansionpanel
+* Do not change background color on focus or hover when disabled.
+* Fix issue where header could extend beyond the max-width of its container.
+* Add a mixin for no borders.
+* Add a mixin to show header actions on the bottom instead of on the left.
+* Add mixin to set alignment in the header.
+* Remove `transform: scaley` from expand animation.
+* Add mixin for top-aligning expand button.
+* Add option to move the expand button to the left side.
+* Improve animations.
+* Add mixin for additional padding.
+* Allow icon to be hidden and allow additional buttons in the header.
+* Increase mixin specificity.
+* Add option show/hide the cancel button.
+* Add mixin for flat on collapse.
+* Smooth appearance/disappearance of expansion panel contents.
+* Add mixin to allow change the panel name min width.
+* Remove `preserveWhitespace: false`.
 
 #### Material Popup
+* Change `<main>` html tag to a `<div>`. HTML5 states there should only be one
+  main tag per application.
 * Automatically restore focus on the popup source element when user tabs out.
 * Fix border radius mixin.
 * Enforce space constraints on content.
@@ -380,6 +199,7 @@ more details.
 * Update disabled color to match spec.
 
 #### Material Ripple
+* Allow the ripple to be created programmatically.
 * Update animation to match new spec.
 
 #### Material Select
@@ -416,12 +236,8 @@ more details.
 * Add `showButtonBorder` input to Material Dropdown Select component.
 * Cleanup unused styles.
 
-#### Material Slider
-* Add disabled property.
-* Update size of click target.
-
-#### Material Stepper
-* Use `scrollHostProviders` instead of deprecated `scrollHostModule`.
+#### Material Spinner
+* Add mixin to adjust the stroke width.
 
 #### Material Tabs
 * General cleanup: remove unneeded directive, use absolute imports, and fix
@@ -431,24 +247,8 @@ more details.
 * Add two-way binding on fixed strip activeTabIndex.
 * Increase space between labels.
 
-#### Material Time Picker
-* Fix one hour difference after daylight saving.
-
-#### Material Tree
-* Use item identity to remember expanded state.
-* Add a `shouldExpandAllWhenFiltered` input.
-* Adds an option to select parent nodes in a single selection model tree.
-* Bugfix for auto selection all siblings due to an error being thrown which
-  stops event.stopPropagation from firing.
-* Add an option to material tree group to render a "View more" link for hidden
-  options.
-* Migrate away from QueryList.
-* Autofocus the filter when `MaterialTreeDropdown` is opened, but not when it
-  closes.
-* Improve latency of `MaterialTreeFilter`.
-* Clear filter inside the popup when `MaterialTreeDropdown` closes.
-
 #### Material Toggle
+* Implement `ControlValueAccessor`.
 * Fix `aria-pressed` state.
 * Add mixin to display label on the right.
 
@@ -463,15 +263,34 @@ more details.
   deferred content by having the visible property be set in an async manner so
   that the value isn't added in the middle of a change detection loop.
 
+#### Material Tree
+* Add `visibleChange` output stream to `MaterialTreeDropdownComponent`.
+* Use item identity to remember expanded state.
+* Add a `shouldExpandAllWhenFiltered` input.
+* Adds an option to select parent nodes in a single selection model tree.
+* Bugfix for auto selection all siblings due to an error being thrown which
+  stops event.stopPropagation from firing.
+* Add an option to material tree group to render a "View more" link for hidden
+  options.
+* Migrate away from QueryList.
+* Autofocus the filter when `MaterialTreeDropdown` is opened, but not when it
+  closes.
+* Improve latency of `MaterialTreeFilter`.
+* Clear filter inside the popup when `MaterialTreeDropdown` closes.
+
 #### Material Yes/No Buttons
+* Fix bug where text color was not applying to highlighted/raised yes button.
+* Fix no button to not override disabled text label color.
 * Remove `Visibility.all`.
 * Update mixins to use CSS shimming.
 
 #### Reorder List
+* Add ability to specify a handle element in a complex component.
 * Calculate the full height/width of the elements.
 * Restrict when a dragged item's target index is incremented or decremented.
 
 #### Scorecard
+* Add mixin for changing the display to flex.
 * Remove the `:host` from the padding mixin so it is not required to be used at
   the top level.
 * Add stacking context.
@@ -482,6 +301,8 @@ more details.
 
 ### Other Updates
 #### Selection Model
+* Add `is{Selectable|Disabled|Hidden}In()`, `getOptionIn()` and, `filterWhere()`
+  as static helpers to `Selectable`.
 * Add empty, single, and multi constructors.
 * Add `ignoreDeselect` option to `SelectionModel.single` and deprecate
   `RadioGroupSingleSelectionModel`.
@@ -494,6 +315,8 @@ more details.
 * Use generic type for table selection model `SelectableGetter`.
 
 #### Modal/Overlay
+* Add attribute on `PopupSourceDirective` to decide whether to set the popup
+  related aria attributes.
 * Ensure parent modal is shown when the current modal is destroyed.
 * Add DI modules to Laminate Overlay & Popup components.
 * Update `PopupHierarchy` to better handle cases with multiple modals.
@@ -505,6 +328,21 @@ more details.
 * Add support for minimum width and height to `PopupSizeProvider`.
 
 #### Miscellaneous
+* Make `DomService` run callbacks in the correct zone.
+* Fix bug in `DomTreeIterator.moveNext()` where it was using equality instead of
+  assignment.
+* EntityFormatters now implement the regular Formatters.
+* Add a lookup method for finding the closest Material Color name based on any
+  input color.
+* Scope the `Focusable` item for `AutoFocusDirective` so that any node in the
+  hierarchy isn't mistakenly focused.
+* Modify `TextHighlighter` to return separate results for adjacent matches,
+  rather than concatenating them into a single result.
+* Migrate to using event tearoffs.
+* Deprecate convenience list for `materialDirectives`. It has been demonstrated
+  that it's use increases code size when only some of the components are being
+  used. It is preferable to use only the directives needed for your application
+  for improved dart2js tree shaking.
 * Add `@mustCallSuper` to the Disposer interface.
 * Add Add `ObservableView.values` -- like `.stream`, except also with the
   current value.
@@ -572,6 +410,9 @@ more details.
   when components manage spacing around themselves and have been validated.
 
 #### Dart 2 Updates
+* Fixes for Dart 2 compile-time and runtime errors.
+* Application of `dartfmt --fix`.
+* Migrate from `Stream<Null>` to `Stream<void>`.
 * Updates to conform to new Effective Dart guidelines.
 * Prepare for change of `async` behavior in Dart 2.
 * Updates to stronger types for Dart 2.
