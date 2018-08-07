@@ -9,6 +9,7 @@ import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
+import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/theme/dark_theme.dart';
 
@@ -40,7 +41,11 @@ import 'tooltip_target.dart';
         keyboardOnlyFocusIndicator
         clickableTooltipTarget #tooltipRef="tooltipTarget">
     </material-icon>
-    <material-tooltip-card [for]="tooltipRef">
+    <material-tooltip-card
+        [for]="tooltipRef"
+        [preferredPositions]="preferredPositions"
+        [offsetX]="offsetX"
+        [offsetY]="offsetY">
       <ng-content></ng-content>
     </material-tooltip-card>''',
   styleUrls: ['icon_tooltip.scss.css'],
@@ -63,6 +68,25 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
 
   /// Size of the icon. Must be a valid size for [MaterialIconComponent].
   final String iconSize;
+
+  /// Relative positions where to try to show the tooltip.
+  ///
+  /// Defaults to:
+  ///
+  /// `[RelativePosition.OffsetBottomRight,
+  /// RelativePosition.OffsetTopLeft,
+  /// RelativePosition.OffsetBottomLeft,
+  /// RelativePosition.OffsetTopRight]`
+  @Input()
+  List<RelativePosition> preferredPositions = _defaultPositions;
+
+  /// The x-offset to where the tooltip will be ultimately positioned.
+  @Input('offsetX')
+  int offsetX = 0;
+
+  /// The y-offset to where the tooltip will be ultimately positioned.
+  @Input('offsetY')
+  int offsetY = 0;
 
   MaterialIconTooltipComponent(AcxDarkTheme darkTheme, HtmlElement element,
       @Attribute('type') String type, @Attribute('size') String size)
@@ -91,3 +115,11 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
       name: 'MaterialIconTooltipComponent_helpTooltipLabel',
       desc: 'Label for help icon which shows help content.');
 }
+
+/// [RelativePosition] list for the ink tooltip.
+const _defaultPositions = [
+  RelativePosition.OffsetBottomRight,
+  RelativePosition.OffsetTopLeft,
+  RelativePosition.OffsetBottomLeft,
+  RelativePosition.OffsetTopRight,
+];
