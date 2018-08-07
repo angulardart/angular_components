@@ -114,4 +114,7 @@ class MaterialButtonComponent extends MaterialButtonBase {
 
   @HostBinding('attr.animated')
   static const String hostAnimated = 'true';
+
+  // not used for M1
+  final bool iconButton = false;
 }
