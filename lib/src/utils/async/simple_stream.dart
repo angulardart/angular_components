@@ -13,7 +13,7 @@ typedef void SubscriptionChangeListener<T>(StreamSubscription<T> subscription);
 /// only be cancelled.
 /// This also acts as a StreamController via the add method.
 ///
-/// Usage: Stream stream = new SimpleStream(false);
+/// Usage: Stream stream = SimpleStream();
 /// StreamSubscription sub = stream.listen((item) {print('$item'));
 /// stream.add('hi');
 /// sub.cancel();
