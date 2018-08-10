@@ -36,13 +36,18 @@ $mat-font-weight-bold: 700;
 $mat-font-weight-black: 900;
 
 // Line heights
+$mat-font-leading-display-4: 112px;
+$mat-font-leading-display-3: 56px;
 $mat-font-leading-display-2: 48px;
 $mat-font-leading-display-1: 40px;
 $mat-font-leading-headline: 32px;
+$mat-font-leading-title: 32px;
 $mat-font-leading-subhead-2: 28px;
 $mat-font-leading-subhead-1: 24px;
+$mat-font-leading-button: 36px;
 $mat-font-leading-body-2: 24px;
 $mat-font-leading-body-1: 20px;
+$mat-font-leading-caption: 20px;
 
 // Converts tracking to letter-spacing.
 @function font-tracking($tracking) {
@@ -76,7 +81,7 @@ $mat-font-leading-body-1: 20px;
   @include nowrap;
 
   color: $mat-text-secondary;
-  font: $mat-font-weight-light $mat-font-size-display-4 #{"/"} 1em $mat-font-family;
+  font: $mat-font-weight-light $mat-font-size-display-4 #{"/"} $mat-font-leading-display-4 $mat-font-family;
   letter-spacing: font-tracking(-10);
 }
 
@@ -84,7 +89,7 @@ $mat-font-leading-body-1: 20px;
   @include nowrap;
 
   color: $mat-text-secondary;
-  font: $mat-font-weight-regular $mat-font-size-display-3 #{"/"} 1em $mat-font-family;
+  font: $mat-font-weight-regular $mat-font-size-display-3 #{"/"} $mat-font-leading-display-3 $mat-font-family;
   letter-spacing: font-tracking(-5);
 }
 
@@ -110,7 +115,7 @@ $mat-font-leading-body-1: 20px;
   @include nowrap;
 
   color: $mat-text-primary;
-  font: $mat-font-weight-medium $mat-font-size-title #{"/"} 1em $mat-font-family;
+  font: $mat-font-weight-medium $mat-font-size-title #{"/"} $mat-font-leading-title $mat-font-family;
   letter-spacing: font-tracking(5);
 }
 
@@ -142,7 +147,7 @@ $mat-font-leading-body-1: 20px;
   @include nowrap;
 
   color: $mat-text-secondary;
-  font: $mat-font-weight-regular $mat-font-size-caption #{"/"} 1em $mat-font-family;
+  font: $mat-font-weight-regular $mat-font-size-caption #{"/"} $mat-font-leading-caption $mat-font-family;
   letter-spacing: font-tracking(20);
 }
 
@@ -150,7 +155,7 @@ $mat-font-leading-body-1: 20px;
   @include nowrap;
 
   color: $mat-text-primary;
-  font: $mat-font-weight-medium $mat-font-size-button #{"/"} 1em $mat-font-family;
+  font: $mat-font-weight-medium $mat-font-size-button #{"/"} $mat-font-leading-button $mat-font-family;
   letter-spacing: font-tracking(10);
   text-transform: uppercase;
 }
