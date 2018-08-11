@@ -76,6 +76,7 @@ class DisposableFuture<T> implements Future<T>, Disposable {
           if (!_wasDisposed) {
             return onValue(v);
           }
+          return null;
         }, onError: onError),
         _disposeFn);
   }

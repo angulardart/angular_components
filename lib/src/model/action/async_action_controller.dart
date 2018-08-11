@@ -98,6 +98,7 @@ class AsyncActionController<V> {
               _attachFuture(cancelRes.then((_) => valueOnCancel));
             }
           }
+          return null;
         }
       });
     });
