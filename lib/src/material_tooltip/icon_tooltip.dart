@@ -25,6 +25,9 @@ import 'tooltip_target.dart';
 ///
 /// __Attributes:__
 ///
+/// - `icon` -- The name of the icon. This overrides `type`, if both are
+/// provided. See [https://www.google.com/design/icons/] for available icons.
+///
 /// - `type` -- The type of the icon. Possible values:
 ///   - `help` -- Shows a "help_outline" icon (a circled "?"). (Default)
 ///   - `info` -- Shows an "info_outline" (a circled "i")
@@ -36,9 +39,12 @@ import 'tooltip_target.dart';
     Provider(DeferredContentAware, useExisting: MaterialIconTooltipComponent)
   ],
   template: r'''
-    <material-icon [icon]="icon" [attr.size]="iconSize"
-        tabindex="0" [attr.aria-label]="helpTooltipLabel"
+    <material-icon
+        [attr.aria-label]="helpTooltipLabel"
+        [attr.size]="iconSize"
+        [icon]="icon"
         keyboardOnlyFocusIndicator
+        tabindex="0"
         clickableTooltipTarget #tooltipRef="tooltipTarget">
     </material-icon>
     <material-tooltip-card
@@ -88,9 +94,13 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
   @Input('offsetY')
   int offsetY = 0;
 
-  MaterialIconTooltipComponent(AcxDarkTheme darkTheme, HtmlElement element,
-      @Attribute('type') String type, @Attribute('size') String size)
-      : icon = '${type ?? "help"}_outline',
+  MaterialIconTooltipComponent(
+      AcxDarkTheme darkTheme,
+      HtmlElement element,
+      @Attribute('icon') String icon,
+      @Attribute('type') String type,
+      @Attribute('size') String size)
+      : icon = icon ?? '${type ?? "help"}_outline',
         iconSize = size ?? 'medium' {
     assert(type == 'help' || type == 'info' || type == 'error' || type == null);
     assert(iconSize == 'x-small' ||
