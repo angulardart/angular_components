@@ -48,3 +48,21 @@
     @content;
   }
 }
+
+/// Changes the disabled stepper name color in the stepper.
+@mixin material-stepper-step-name-disabled-color($color: $mat-grey-500) {
+  ::ng-deep {
+    .stepper-step[active = false] .stepper-step-name {
+      color: $color;
+    }
+  }
+}
+
+/// Changes the selectable stepper name color in the stepper.
+@mixin material-stepper-step-name-selectable-color($color: $mat-grey-500) {
+  ::ng-deep {
+    .stepper-step[selectable = true] .stepper-step-name {
+      color: $color;
+    }
+  }
+}
