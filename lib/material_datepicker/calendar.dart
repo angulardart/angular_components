@@ -4,6 +4,7 @@
 
 import 'package:collection/collection.dart';
 import 'package:intl/intl.dart';
+import 'package:meta/meta.dart';
 import 'package:angular_components/model/date/date.dart';
 
 part '../src/material_datepicker/calendar/day.dart';

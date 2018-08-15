@@ -272,7 +272,8 @@ class CalendarState {
   /// `confirmRange` - If true, this the last endpoint to be set for the current
   ///                  range. This information is not used by CalendarState
   ///                  directly, but clients of CalendarState may need it.
-  CalendarState confirmPreview({bool confirmRange = false}) {
+  CalendarState confirmPreview(
+      {bool confirmRange = false, @required bool movingStartMaintainsLength}) {
     var current = selection(currentSelection);
     var anchor = previewAnchoredAtStart ? current.start : current.end;
     assert(preview != null && anchor != null);
@@ -290,23 +291,40 @@ class CalendarState {
             cause: cause,
             previewAnchoredAtStart: true);
       } else {
-        // Update the range length, and make the start date active.
+        // Modify end date.
         return setSelection(
-            CalendarSelection.guessOrder(currentSelection, preview, anchor),
+            CalendarSelection(currentSelection, anchor, preview),
             cause: cause,
             previewAnchoredAtStart: false);
       }
     } else {
       // Selecting start date.
 
-      // Preserve the length of the range, and make the end date active.
-      var rangeLengthInDays =
-          daysSpanned(current.start, current.end, inclusive: false);
-      return setSelection(
-          CalendarSelection(
-              currentSelection, preview, preview.add(days: rangeLengthInDays)),
-          cause: cause,
-          previewAnchoredAtStart: true);
+      if (movingStartMaintainsLength) {
+        // Preserve the length of the range, and make the end date active.
+        var rangeLengthInDays =
+            daysSpanned(current.start, current.end, inclusive: false);
+        return setSelection(
+            CalendarSelection(currentSelection, preview,
+                preview.add(days: rangeLengthInDays)),
+            cause: cause,
+            previewAnchoredAtStart: true);
+      } else if (preview >= anchor) {
+        // Move only the start date.
+        //
+        // Start date was moved after the end date. Collapse to a single-day
+        // range and activate the end date.
+        return setSelection(
+            CalendarSelection(currentSelection, preview, preview),
+            cause: cause,
+            previewAnchoredAtStart: true);
+      } else {
+        // Move only the start date.
+        return setSelection(
+            CalendarSelection(currentSelection, preview, anchor),
+            cause: cause,
+            previewAnchoredAtStart: true);
+      }
     }
   }
 

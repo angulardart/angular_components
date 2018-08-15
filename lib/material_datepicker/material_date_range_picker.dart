@@ -19,6 +19,7 @@ import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_datepicker/comparison.dart';
 import 'package:angular_components/material_datepicker/comparison_option.dart';
+import 'package:angular_components/material_datepicker/config.dart';
 import 'package:angular_components/material_datepicker/date_range_editor.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/material_datepicker/next_prev_buttons.dart';
@@ -206,6 +207,20 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
 
   bool _compact = !window.matchMedia("(pointer: coarse)").matches;
 
+  /// For date range selection, whether clicking to move the start date should
+  /// also move the end date (preserving the length of the selected range).
+  ///
+  /// Defaults to [DatepickerConfig.movingStartMaintainsLength] if a
+  /// [DatepickerConfig] object is provided through dependency injection.
+  @Input()
+  set movingStartMaintainsLength(bool value) {
+    _movingStartMaintainsLength = value;
+  }
+
+  get movingStartMaintainsLength =>
+      _movingStartMaintainsLength ?? _config.movingStartMaintainsLength;
+  bool _movingStartMaintainsLength;
+
   /// The label for the 'Apply' button. Set this variable only if you want a
   /// different label other than 'Apply'. If set, the input label should be
   /// internationalized.
@@ -344,6 +359,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
 
   final DomService _domService;
   final NgZone _ngZone;
+  final DatepickerConfig _config;
 
   /// CSS classes from the root element, passed to the popup to allow scoping of
   /// mixins.
@@ -354,11 +370,13 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   MaterialDateRangePickerComponent(
       @Optional() @Inject(datepickerClock) Clock clock,
       Clock legacyClock,
+      @Optional() DatepickerConfig config,
       @Attribute('popupClass') String popupClass,
       HtmlElement element,
       this._domService,
       this._ngZone)
-      : popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
+      : _config = config ?? DatepickerConfig(),
+        popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
     // TODO(google): Migrate to use only datepickerClock
     clock ??= legacyClock;
 

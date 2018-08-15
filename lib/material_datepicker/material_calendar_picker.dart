@@ -245,6 +245,23 @@ class MaterialCalendarPickerComponent
   bool get compact => _compact;
   bool _compact = false;
 
+  /// For date range selection, whether clicking to move the start date should
+  /// also move the end date (preserving the length of the selected range).
+  ///
+  /// Defaults to true, unless an enclosing component has a different default.
+  @Input()
+  set movingStartMaintainsLength(bool value) {
+    _movingStartMaintainsLength = value;
+
+    // Must recreate the input listener when this changes. If it wasn't already
+    // created, we must be executing before [ngOnInit], so defer to later.
+    if (_inputListener != null) {
+      _initInputListener();
+    }
+  }
+
+  bool _movingStartMaintainsLength = true;
+
   /// What sort of interaction this calendar supports.
   CalendarSelectionMode get mode => _mode;
   CalendarSelectionMode _mode = CalendarSelectionMode.NONE;
@@ -575,7 +592,8 @@ class MaterialCalendarPickerComponent
       // Simulate applying the selection to get the [CalendarSelection] that
       // would be created if it were actually applied. Since [CalendarState] is
       // immutable, this doesn't modify any state.
-      var previewState = state.confirmPreview();
+      var previewState = state.confirmPreview(
+          movingStartMaintainsLength: _movingStartMaintainsLength);
       var previewRange = previewState
           .selection(previewState.currentSelection)
           .clamp(min: minDate, max: maxDate);
@@ -725,11 +743,16 @@ class MaterialCalendarPickerComponent
   void ngOnInit() {
     _calendarStream = _model.stream.listen(_onCalendarChange);
 
+    _initInputListener();
+  }
+
+  void _initInputListener() {
     if (_mode == CalendarSelectionMode.SINGLE_DATE) {
       _inputListener = CalendarListener.singleDate(_model);
     }
     if (_mode == CalendarSelectionMode.DATE_RANGE) {
-      _inputListener = CalendarListener.dateRange(_model);
+      _inputListener = CalendarListener.dateRange(_model,
+          movingStartMaintainsLength: _movingStartMaintainsLength);
     }
   }
 

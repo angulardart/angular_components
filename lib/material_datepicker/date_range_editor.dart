@@ -127,6 +127,13 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   bool _compact = false;
 
+  /// For date range selection, whether clicking to move the start date should
+  /// also move the end date (preserving the length of the selected range).
+  ///
+  /// Defaults to true, unless an enclosing component has a different default.
+  @Input()
+  bool movingStartMaintainsLength = true;
+
   /// Whether or not this editor includes a section to input 'N days up to
   /// today' and 'N days up to yesterday' ranges.
   ///
