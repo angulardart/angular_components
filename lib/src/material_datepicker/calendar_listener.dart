@@ -4,6 +4,7 @@
 
 import 'dart:html';
 
+import 'package:meta/meta.dart';
 import 'package:angular_components/material_datepicker/calendar.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/observable/observable.dart';
@@ -22,8 +23,8 @@ class CalendarListener implements Disposable {
   const CalendarListener.noop();
   factory CalendarListener.singleDate(
       ObservableReference<CalendarState> model) = _DateListener;
-  factory CalendarListener.dateRange(ObservableReference<CalendarState> model) =
-      _RangeListener;
+  factory CalendarListener.dateRange(ObservableReference<CalendarState> model,
+      {@required bool movingStartMaintainsLength}) = _RangeListener;
 }
 
 /// Listens for clicks on single dates, and selects those.
@@ -54,18 +55,22 @@ class _DateListener implements CalendarListener {
   void dispose() {}
 }
 
-// The current state of drag operations in the date-range picker.
-// `canPreview` - No drag. Preview selection on mouseover, dismiss on mouseleave
-// `dragging` - Currently dragging out a selection; will exit on mouseup.
-// The `pendingGrabOrClick` and `pendingDragOrClick` states wait to determine
-// whether the latest mousedown event was the start of a click or a drag.
+/// The current state of drag operations in the date-range picker.
+///
+/// `canPreview`: No drag. Preview selection on mouseover, dismiss on mouseleave
+/// `dragging`: Currently dragging out a selection; will exit on mouseup.
+///
+/// The `pendingGrabOrClick` and `pendingDragOrClick` states wait to determine
+/// whether the latest mousedown event was the start of a click or a drag.
 enum _DragState { canPreview, pendingGrabOrClick, pendingDragOrClick, dragging }
 
-/// Listens for date range selections. This one is more complicated...
+/// Listens for date range selections.
 class _RangeListener implements CalendarListener {
   final ObservableReference<CalendarState> model;
+  final bool movingStartMaintainsLength;
   final _disposer = Disposer.multi();
-  _RangeListener(this.model) {
+
+  _RangeListener(this.model, {@required this.movingStartMaintainsLength}) {
     _initSelectionPreview();
     _disposer.addStreamSubscription(model.stream.listen((s) {
       if (s.currentSelection != previewedSelection) {
@@ -145,8 +150,9 @@ class _RangeListener implements CalendarListener {
 
     // Switch to the next range every 2 clicks
     _consecutiveClicks++;
-    model.value =
-        model.value.confirmPreview(confirmRange: _consecutiveClicks >= 2);
+    model.value = model.value.confirmPreview(
+        confirmRange: _consecutiveClicks >= 2,
+        movingStartMaintainsLength: movingStartMaintainsLength);
   }
 
   // This might be the start of a drag or grab, or the start of a click.

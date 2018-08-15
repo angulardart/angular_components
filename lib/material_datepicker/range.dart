@@ -883,8 +883,6 @@ DatepickerDateRange lastQuarter(Clock clock) =>
 DatepickerDateRange allTime = DatepickerDateRange(_allTimeMsg, null, null,
     isPredefined: true, isAllTime: true);
 
-// TODO(google): AWN no longer uses thisYear and lastYear. Check cross-team
-// to see if we should remove those entries from commonRanges as well.
 List<DatepickerDateRange> commonRanges(Clock clock) => [
       today(clock),
       yesterday(clock),

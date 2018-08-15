@@ -151,7 +151,8 @@ abstract class MaterialDateGridBase
       _inputListener = CalendarListener.singleDate(model);
     }
     if (mode == CalendarSelectionMode.DATE_RANGE) {
-      _inputListener = CalendarListener.dateRange(model);
+      _inputListener =
+          CalendarListener.dateRange(model, movingStartMaintainsLength: true);
     }
     _disposer.addDisposable(_inputListener);
 

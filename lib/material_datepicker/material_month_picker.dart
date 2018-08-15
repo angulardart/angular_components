@@ -274,7 +274,10 @@ class MaterialMonthPickerComponent
     if (_mode == CalendarSelectionMode.SINGLE_DATE) {
       _inputListener = CalendarListener.singleDate(_model);
     } else if (_mode == CalendarSelectionMode.DATE_RANGE) {
-      _inputListener = CalendarListener.dateRange(_model);
+      // TODO(google): Add support for movingStartMaintainsLength==false if
+      // we see use cases for month range picking.
+      _inputListener =
+          CalendarListener.dateRange(_model, movingStartMaintainsLength: true);
     }
   }
 
