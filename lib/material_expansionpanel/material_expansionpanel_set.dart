@@ -8,82 +8,88 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 
 import 'material_expansionpanel.dart';
 
-/// A directive which will turn a set of expansion panels into an accordian
-/// widget. Thus only allowing one panel to be open at a time.
-@Directive(
-  selector: 'material-expansionpanel-set',
-)
+/// A directive which will turn a set of [MaterialExpansionPanel]s into an
+/// accordion widget, thus only allowing only one [MaterialExpansionPanel] to be
+/// open at a time.
+@Directive(selector: 'material-expansionpanel-set')
 class MaterialExpansionPanelSet implements OnDestroy {
   final _panelDisposer = Disposer.multi();
   MaterialExpansionPanel _openPanel;
   List<MaterialExpansionPanel> _panels;
 
   @ContentChildren(MaterialExpansionPanel)
-  set panels(List<MaterialExpansionPanel> value) {
-    _panels = value;
+  set panels(List<MaterialExpansionPanel> panels) {
+    _panels = panels;
     _onPanelsChange();
-  }
-
-  @override
-  void ngOnDestroy() {
-    _panelDisposer.dispose();
   }
 
   void _onPanelsChange() {
     _panelDisposer.dispose();
     _openPanel = null;
-    _panels.forEach((panel) {
+
+    for (final panel in _panels) {
       if (panel.isExpanded) {
         if (_openPanel != null) {
-          throw StateError("Should only have one panel open at a time");
+          throw StateError('Should only have one panel open at a time');
         }
         _openPanel = panel;
       }
-      _panelDisposer.addDisposable(
-          panel.open.listen((event) => _onPanelOpen(panel, event)));
-      _panelDisposer.addDisposable(
-          panel.close.listen((event) => _onPanelClose(panel, event)));
-      _panelDisposer.addDisposable(
-          panel.cancel.listen((event) => _onPanelClose(panel, event)));
+
+      _panelDisposer
+        ..addStreamSubscription((panel.isExpandedChange.listen((isExpanded) {
+          if (isExpanded) _setOpenPanel(panel);
+        })))
+        ..addStreamSubscription(panel.open.listen((action) {
+          _onPanelOpen(panel, action);
+        }))
+        ..addStreamSubscription(panel.close.listen((action) {
+          _onPanelClose(panel, action);
+        }))
+        ..addStreamSubscription(panel.cancel.listen((action) {
+          _onPanelClose(panel, action);
+        }));
+
       if (panel.closeOnSave) {
-        _panelDisposer.addDisposable(
-            panel.save.listen((event) => _onPanelClose(panel, event)));
+        _panelDisposer.addStreamSubscription(panel.save.listen((action) {
+          _onPanelClose(panel, action);
+        }));
       }
-    });
-  }
-
-  void _onPanelOpen(MaterialExpansionPanel panel, AsyncAction<bool> event) {
-    if (_openPanel != null) {
-      if (_openPanel.activeSaveCancelAction) {
-        // Do not open the new panel, when the currently opened panel has an
-        // in-progress action.
-        event.cancel();
-        return;
-      }
-
-      event.cancelIf(_openPanel.collapse(byUserAction: false).then((success) {
-        if (success) {
-          _setOpenPanel(panel);
-        }
-        return !success;
-      }));
-    } else {
-      _setOpenPanel(panel);
     }
   }
 
-  void _onPanelClose(MaterialExpansionPanel panel, AsyncAction<bool> e) {
-    e.onDone.then((success) {
-      if (success && _openPanel == panel) {
-        _setOpenPanel(null);
-      }
-    });
+  void _onPanelOpen(
+      MaterialExpansionPanel panel, AsyncAction<bool> action) async {
+    if (_openPanel == null) _setOpenPanel(panel);
+
+    if (_openPanel.activeSaveCancelAction) {
+      // Do not open the new panel, when the currently opened panel has an
+      // in-progress action.
+      action.cancel();
+      return;
+    }
+
+    action.cancelIf(_openPanel.collapse(byUserAction: false).then((success) {
+      if (success) _setOpenPanel(panel);
+      return !success;
+    }));
+  }
+
+  void _onPanelClose(
+      MaterialExpansionPanel panel, AsyncAction<bool> action) async {
+    final wasCollapseSucessful = await action.onDone;
+    if (wasCollapseSucessful && _openPanel == panel) _setOpenPanel(null);
   }
 
   void _setOpenPanel(MaterialExpansionPanel panel) {
-    for (MaterialExpansionPanel p in _panels) {
-      if (p != panel) p.anotherExpanded = (panel != null);
-    }
+    if (_openPanel == panel) return;
     _openPanel = panel;
+    for (final panel in _panels) {
+      if (panel != _openPanel) panel.anotherExpanded = _openPanel != null;
+    }
+  }
+
+  @override
+  void ngOnDestroy() {
+    _panelDisposer.dispose();
   }
 }
