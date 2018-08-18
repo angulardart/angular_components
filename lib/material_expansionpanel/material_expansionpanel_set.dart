@@ -17,7 +17,7 @@ class MaterialExpansionPanelSet implements OnDestroy {
   MaterialExpansionPanel _openPanel;
   List<MaterialExpansionPanel> _panels;
 
-  @ContentChildren(MaterialExpansionPanel)
+  @ContentChildren(MaterialExpansionPanel, descendants: false)
   set panels(List<MaterialExpansionPanel> panels) {
     _panels = panels;
     _onPanelsChange();
