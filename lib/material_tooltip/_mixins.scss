@@ -19,3 +19,20 @@
     }
   }
 }
+
+/// Overrides the default maximum width of <material-tooltip-card>.
+/// Because this component uses a <material-popup>, Angular style encapsulation can prevent styles
+/// using this mixin from applying to the contents of the popup. To address this, use the
+/// `tooltipClass` attribute on the <material-tooltip-card> and then use that class around the
+/// reference to this mixin:
+///
+/// <material-tooltip-card tooltipClass="foo">
+///
+/// .foo {
+///   @include material-tooltip-card-max-width(...);
+/// }
+@mixin material-tooltip-card-max-width($max-width: 50 * $mat-grid) {
+  ::ng-deep .popup .material-popup-content .paper-container {
+    max-width: $max-width;
+  }
+}
