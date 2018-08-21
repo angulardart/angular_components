@@ -16,8 +16,8 @@ void main() {
     var pkgRoot = _runProc('git', ['rev-parse', '--show-toplevel']);
     var currentDir = Directory.current.resolveSymbolicLinksSync();
 
-    if (!p.equals(p.join(pkgRoot, 'json_serializable'), currentDir)) {
-      throw StateError('Expected the git root ($pkgRoot) '
+    if (!p.equals(p.join(pkgRoot, 'angular_components'), currentDir)) {
+      throw StateError('Expected the git root ($pkgRoot/angular_components) '
           'to match the current directory ($currentDir).');
     }
 
