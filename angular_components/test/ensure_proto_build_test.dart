@@ -25,10 +25,10 @@ void main() {
     expect(_changedGeneratedFiles(), isEmpty);
 
     // 2 - run build - should be no output, since nothing should change
-    var result = _runProc('protoc',
+    _runProc('protoc',
         ['--dart_out=.', 'lib/material_datepicker/proto/date_range.proto']);
 
-    result = _runProc(
+    _runProc(
         'protoc', ['--dart_out=.', 'lib/material_datepicker/proto/date.proto']);
 
     // 3 - get a list of modified `.g.dart` files - should still be empty
