@@ -217,7 +217,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
     _movingStartMaintainsLength = value;
   }
 
-  get movingStartMaintainsLength =>
+  bool get movingStartMaintainsLength =>
       _movingStartMaintainsLength ?? _config.movingStartMaintainsLength;
   bool _movingStartMaintainsLength;
 
