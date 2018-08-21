@@ -25,11 +25,11 @@ void main() {
     expect(_changedGeneratedFiles(), isEmpty);
 
     // 2 - run build - should be no output, since nothing should change
-    _runProc('protoc',
+    _runProc('protoc/protoc',
         ['--dart_out=.', 'lib/material_datepicker/proto/date_range.proto']);
 
-    _runProc(
-        'protoc', ['--dart_out=.', 'lib/material_datepicker/proto/date.proto']);
+    _runProc('protoc/protoc',
+        ['--dart_out=.', 'lib/material_datepicker/proto/date.proto']);
 
     // 3 - get a list of modified `.g.dart` files - should still be empty
     expect(_changedGeneratedFiles(), isEmpty);
@@ -47,8 +47,8 @@ Set<String> _changedGeneratedFiles() {
       .toSet();
 }
 
-String _runProc(String proc, List<String> args) {
-  var result = Process.runSync(proc, args);
+String _runProc(String proc, List<String> args, {String workingDirectory}) {
+  var result = Process.runSync(proc, args, workingDirectory: workingDirectory);
 
   if (result.exitCode != 0) {
     throw ProcessException(
