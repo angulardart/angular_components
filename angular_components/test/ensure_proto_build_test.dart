@@ -25,6 +25,7 @@ void main() {
     expect(_changedGeneratedFiles(), isEmpty);
 
     // 2 - run build - should be no output, since nothing should change
+    _runProc('echo', ['\$PATH']);
     _runProc(
         'protoc', ['--dart_out=.', 'lib/material_datepicker/proto/date.proto']);
 
@@ -48,7 +49,7 @@ Set<String> _changedGeneratedFiles() {
 }
 
 String _runProc(String proc, List<String> args, {String workingDirectory}) {
-  var result = Process.runSync(proc, args, workingDirectory: workingDirectory);
+  var result = Process.runSync(proc, args, runInShell: true);
 
   if (result.exitCode != 0) {
     throw ProcessException(
