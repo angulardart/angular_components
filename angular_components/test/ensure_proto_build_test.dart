@@ -25,13 +25,12 @@ void main() {
     expect(_changedGeneratedFiles(), isEmpty);
 
     // 2 - run build - should be no output, since nothing should change
+    var home = Platform.environment['HOME'];
 
-    print(_runProc('~/protoc/bin/protoc', ['--version']));
-
-    print(_runProc('~/protoc/bin/protoc',
+    print(_runProc('$home/protoc/bin/protoc',
         ['--dart_out=.', './lib/material_datepicker/proto/date.proto']));
 
-    _runProc('~/protoc/bin/protoc',
+    _runProc('$home/protoc/bin/protoc',
         ['--dart_out=.', './lib/material_datepicker/proto/date_range.proto']);
 
     // 3 - get a list of modified `.g.dart` files - should still be empty
