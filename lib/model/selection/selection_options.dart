@@ -15,6 +15,9 @@ export 'package:angular_components/src/model/selection/delegating_selection_opti
 part 'package:angular_components/src/model/selection/future_selection_options_impl.dart';
 part 'package:angular_components/src/model/selection/stream_selection_options_impl.dart';
 
+/// An interface for functions that segment [items] into option groups.
+typedef OptionGroupMapper<T> = List<OptionGroup<T>> Function(Iterable<T> items);
+
 /// A collection of options with an optional label.
 class OptionGroup<T> extends LabeledList<T> {
   String get emptyLabel => _emptyLabelFcn != null ? _emptyLabelFcn() : null;
@@ -29,6 +32,8 @@ class OptionGroup<T> extends LabeledList<T> {
       [LabelFunction labelFcn, this._emptyLabelFcn])
       : super.withLabelFunction(items, labelFcn);
 
+  /// An option group with a label is recommended when multiple option groups
+  /// exist in a selection list.
   OptionGroup.withLabel(List<T> items, [String label, String emptyLabel])
       : _emptyLabelFcn = emptyLabel != null ? (() => emptyLabel) : null,
         super.withLabel(items, label);
