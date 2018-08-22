@@ -11,6 +11,7 @@ unzip protoc-$PROTOC_VERSION-linux-x86_64.zip
 popd
 
 PATH=$HOME/protoc/bin:$PATH
+echo $HOME
 protoc --version
 
 # Activate dart protoc plugin.

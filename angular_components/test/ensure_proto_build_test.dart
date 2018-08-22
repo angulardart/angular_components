@@ -27,9 +27,8 @@ void main() {
     // 2 - run build - should be no output, since nothing should change
     print(_runProc('pwd', []));
 
-    print(_runProc('ls', []));
-    print("+++++++++++++++++++++++++++++++++++++");
-    print(_runProc('ls', ['lib/material_datepicker/proto']));
+    print(_runProc('echo', ['\$PATH']));
+    print(_runProc('echo', ['\$HOME']));
 
     print(_runProc('protoc', ['--version']));
 
