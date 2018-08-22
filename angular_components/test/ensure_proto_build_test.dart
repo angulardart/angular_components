@@ -31,8 +31,10 @@ void main() {
     print("+++++++++++++++++++++++++++++++++++++");
     print(_runProc('ls', ['lib/material_datepicker/proto']));
 
-    _runProc('protoc',
-        ['--dart_out=.', './lib/material_datepicker/proto/date.proto']);
+    print(_runProc('protoc', ['--version']));
+
+    print(_runProc('protoc',
+        ['--dart_out=.', './lib/material_datepicker/proto/date.proto']));
 
     _runProc('protoc',
         ['--dart_out=.', './lib/material_datepicker/proto/date_range.proto']);

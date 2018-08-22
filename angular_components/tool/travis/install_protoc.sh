@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 set -ev
 
-# Protoc version taken from:
-# https://github.com/dart-lang/dart-protoc-plugin/blob/master/.travis.yml
-PROTOC_VERSION=3.3.0
+PROTOC_VERSION=3.6.0
 
 # Download protoc.
 mkdir $HOME/protoc
