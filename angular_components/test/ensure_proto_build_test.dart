@@ -22,19 +22,16 @@ void main() {
     }
 
     // 1 - get a list of modified `.pb.dart` files - should be empty
-    // expect(_changedGeneratedFiles(), isEmpty);
+    expect(_changedGeneratedFiles(), isEmpty);
 
     // 2 - run build - should be no output, since nothing should change
-    print(_runProc('pwd', []));
 
-    print(_runProc('printenv', []));
+    print(_runProc('~/protoc/bin/protoc', ['--version']));
 
-    print(_runProc('protoc', ['--version']));
-
-    print(_runProc('protoc',
+    print(_runProc('~/protoc/bin/protoc',
         ['--dart_out=.', './lib/material_datepicker/proto/date.proto']));
 
-    _runProc('protoc',
+    _runProc('~/protoc/bin/protoc',
         ['--dart_out=.', './lib/material_datepicker/proto/date_range.proto']);
 
     // 3 - get a list of modified `.g.dart` files - should still be empty
