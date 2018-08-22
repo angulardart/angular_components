@@ -25,12 +25,13 @@ void main() {
     expect(_changedGeneratedFiles(), isEmpty);
 
     // 2 - run build - should be no output, since nothing should change
-    _runProc('echo', ['\$PATH']);
-    _runProc(
-        'protoc', ['--dart_out=.', 'lib/material_datepicker/proto/date.proto']);
+    print(_runProc('pwd', []));
 
     _runProc('protoc',
-        ['--dart_out=.', 'lib/material_datepicker/proto/date_range.proto']);
+        ['--dart_out=.', './lib/material_datepicker/proto/date.proto']);
+
+    _runProc('protoc',
+        ['--dart_out=.', './lib/material_datepicker/proto/date_range.proto']);
 
     // 3 - get a list of modified `.g.dart` files - should still be empty
     expect(_changedGeneratedFiles(), isEmpty);
