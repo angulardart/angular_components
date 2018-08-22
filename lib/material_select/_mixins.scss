@@ -81,6 +81,13 @@
   }
 }
 
+/// Sets the color of the "selected" item.
+@mixin material-select-selected-item-color($color) {
+  ::ng-deep material-select-item.selected {
+    color: $color;
+  }
+}
+
 /// Sets the color of the "disabled" item.
 @mixin material-select-disabled-color($color) {
   ::ng-deep material-select-dropdown-item.item.disabled {
