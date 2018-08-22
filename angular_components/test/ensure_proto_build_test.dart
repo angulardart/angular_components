@@ -27,8 +27,7 @@ void main() {
     // 2 - run build - should be no output, since nothing should change
     print(_runProc('pwd', []));
 
-    print(_runProc('echo', ['\$PATH']));
-    print(_runProc('echo', ['\$HOME']));
+    print(_runProc('printenv', []));
 
     print(_runProc('protoc', ['--version']));
 
