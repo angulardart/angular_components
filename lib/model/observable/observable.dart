@@ -167,9 +167,25 @@ class ChangeNotificationProvider<T> implements ChangeAware<T>, Disposable {
 abstract class ObservableView<T> extends ChangeAware<T> implements Disposable {
   T get value;
 
+  /// Blocks until [value] is non-null, and then completes with that value.
+  ///
+  /// If [value] is already non-null, completes immediately.
+  ///
+  /// The implementation may internally subscribe to [stream], so if [stream] is
+  /// single-subscription (non-broadcast), it won't be possible to listen to it
+  /// separately.
+  Future<T> get firstNonNull;
+
   /// A [Stream] of all values on this view, including the current [value] at
   /// the time the stream is listened to.
   Stream<T> get values;
+
+  /// A [Stream] of all non-null values on this view, including the current
+  /// [value] at the time the stream is listened to (if it's non-null).
+  ///
+  /// This interface does not guarantee that consecutive data events are
+  /// distinct, but subclasses may do so.
+  Stream<T> get nonNullValues;
 
   /// Returns a new [ObservableView] which is created by lazily calling [mapper]
   /// on this view's [value], [stream], and [changes] properties.
@@ -199,16 +215,29 @@ abstract class ObservableViewMixin<T> implements ObservableView<T> {
   }
 
   @override
-  Stream<T> get values async* {
+  Future<T> get firstNonNull => value != null
+      ? Future.value(value)
+      : stream.firstWhere((value) => value != null);
+
+  @override
+  Stream<T> get values {
     // Unlike with `changes`, we're OK here returning an async non-broadcast
     // stream instead of trying to inherit the broadcastness/syncness of the
     // underlying `stream` -- if `stream` were sync, then
     // `ref.values.asBroadcastStream()` would end up yielding the current value
     // before anything could possibly listen to it, which really defeats the
     // point of even calling `values` in the first place.
-    yield value;
-    yield* stream;
+
+    StreamController<T> controller;
+    controller = StreamController(onListen: () {
+      controller.add(value);
+      controller.addStream(stream).then((_) => controller.close());
+    });
+    return controller.stream;
   }
+
+  @override
+  Stream<T> get nonNullValues => values.where((value) => value != null);
 
   @override
   ObservableView<M> map<M>(M Function(T) mapper) =>
@@ -277,6 +306,14 @@ class ObservableReference<T> extends ChangeNotificationProvider<T>
     });
     return _listenSub.asFuture();
   }
+
+  /// A [Stream] of all non-null values on this view, including the current
+  /// [value] at the time the stream is listened to (if it's non-null).
+  ///
+  /// This implementation will never emit equal consecutive data events.
+  /// "Equality" is defined by [equalsFn].
+  @override
+  Stream<T> get nonNullValues => super.nonNullValues.distinct(_equalsFn);
 
   @override
   void dispose() {
