@@ -50,7 +50,7 @@ Set<String> _changedGeneratedFiles() {
 }
 
 String _runProc(String proc, List<String> args, {String workingDirectory}) {
-  var result = Process.runSync(proc, args, runInShell: true);
+  var result = Process.runSync(proc, args);
 
   if (result.exitCode != 0) {
     throw ProcessException(
