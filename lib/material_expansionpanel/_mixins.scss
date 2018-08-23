@@ -226,6 +226,17 @@ $_panel: 'div.panel.themeable';
   }
 }
 
+// Adds border radius to the closed and open panel.
+@mixin expansionpanel-border-radius($radius) {
+  ::ng-deep #{$_panel} {
+    border-radius: $radius;
+
+    .header {
+      border-radius: $radius;
+    }
+  }
+}
+
 @mixin expansionpanel-top-align-expand-button($margin-top: $mat-grid-type * 3) {
   ::ng-deep #{$_panel} {
     &.open > header > .header .expand-button {
