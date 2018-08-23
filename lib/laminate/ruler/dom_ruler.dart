@@ -10,12 +10,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/src/laminate/ruler/ruler_interface.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
-/// An implementation of ruler that uses raw DOM access and [Element]s.
-///
-/// Angular components should *not* import and use this class. See [NgRuler].
-///
-/// In multi-threaded applications, the [DomRuler] will live on the UI thread
-/// and use message passing with the application thread and [NgRuler].
+/// Measures and tracks size changes for HTML elements in Dart web applications.
 @Injectable()
 abstract class DomRuler implements Ruler<Element> {
   factory DomRuler(Document document, DomService domService) = DomRulerImpl;
