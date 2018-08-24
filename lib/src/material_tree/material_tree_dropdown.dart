@@ -67,6 +67,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   bool _expandAll = false;
   String _placeholder = _DEFAULT_PLACEHOLDER;
   bool _visible = false;
+  List<RelativePosition> _customPopupPositions;
 
   @ViewChild(MaterialTreeFilterComponent)
   MaterialTreeFilterComponent materialTreeFilterComponent;
@@ -159,11 +160,26 @@ class MaterialTreeDropdownComponent extends SelectionContainer
     _placeholder = placeholder ?? _DEFAULT_PLACEHOLDER;
   }
 
-  List /*RelativePosition | List<RelativePosition>*/ get popupPositions {
-    return showFilterInsideButton
-        ? _popupPositionsOffset
-        : _popupPositionsInline;
+  /// List of positions to try and draw the options popup.
+  ///
+  /// If left unset or if explicitly set to null, [_defaultPopupPositions] will
+  /// be used. See [MaterialPopupComponent] for more information.
+  @Input()
+  set popupPositions(List<RelativePosition> positions) {
+    _customPopupPositions = positions;
   }
+
+  List /*RelativePosition | List<RelativePosition>*/ get popupPositions =>
+      _customPopupPositions ?? _defaultPopupPositions;
+
+  /// Default positions to uses when [_customPopupPositions] is null.
+  ///
+  /// Returns offset positioning when the filter is enabled and inline
+  /// positioning when the filter is disabled.
+  List /*RelativePosition | List<RelativePosition>*/
+      get _defaultPopupPositions => showFilterInsideButton
+          ? _popupPositionsOffset
+          : _popupPositionsInline;
 
   bool get visible => _visible;
 
