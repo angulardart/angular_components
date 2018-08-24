@@ -4,12 +4,14 @@
 
 import 'package:angular/angular.dart';
 
+import 'package:angular_components/interfaces/has_disabled.dart';
+
 // TODO(google): This copies a lot of values from material-input, and yet
 // material-input doesn't use it. Consider refactoring so that these
 // values aren't copied.
 /// Properties for a component which wants to expose typical options for a
 /// input. See MaterialInput for fields definition.
-class MaterialInputWrapper {
+class MaterialInputWrapper implements HasDisabled {
   /// A custom character counter function.
   ///
   /// Takes in the input text; returns how many characters the text should be
