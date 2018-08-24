@@ -1,3 +1,43 @@
+## 0.9.1
+
+### Component Updates
+
+#### Material Date Range Picker
+* Add an option to disable maintaining the length of the date range when
+  clicking on the calendar to move the start date.
+
+#### Material Expansion Panel
+* Add Sass mixin for border radius.
+* Only register immediate child panels in a panel set.
+* Add listener for expand change to fix bug where an expansion panel set would
+  not recognize a programmatically pre-expanded panel.
+
+#### Material Select
+* Add Sass mixin for the selected item color.
+
+#### Material Stepper
+* Add Sass mixins for the step name color.
+
+#### Material Toolip
+* Add Sass mixin to set the card tooltip max width.
+* Add an icon attribute to specify any icon by name.
+* Add positioning options on icon tooltip.
+
+#### Selection Options
+* Add interface to segment options into option groups.
+
+### Miscellaneous
+* Fix `ActiveItemDirective`'s scroll into view functionality in popups and
+  modals.
+* Add `ObservableView.firstNonNull` and `ObservableView.nonNullValues`.
+* Update MDC Web styles to v0.38.0.
+* Fix missing return errors.
+* Fix default line-height values to match MDC versions.
+
+### Documentation
+* Minor doc fixes.
+* Cleanup some docs for with optional new/const.
+
 ## 0.9.0
 
 > Pub _transformers_ are no longer used. Instead, use the new
