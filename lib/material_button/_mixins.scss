@@ -275,6 +275,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
+/// Sets padding for the icon button.
 @mixin icon-button-padding($selector, $padding) {
   #{$selector}[icon] ::ng-deep .content {
     padding: $padding;
