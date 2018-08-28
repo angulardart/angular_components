@@ -11,6 +11,25 @@ import 'material_expansionpanel.dart';
 /// A directive which will turn a set of [MaterialExpansionPanel]s into an
 /// accordion widget, thus only allowing only one [MaterialExpansionPanel] to be
 /// open at a time.
+///
+/// [MaterialExpansionPanelSet] must be used with [MaterialExpansionPanel] as
+/// direct children. For example, the set will *not* work for the following
+/// scenario:
+///
+/// ```dart
+/// @Component(
+///   selector: 'middle-man',
+///   template: '<material-expansionpanel></material-expansionpanel>',
+///   directives: [MaterialExpansionPanel],
+/// )
+/// class MiddleManComponent {}
+///
+/// <material-expansionpanel-set>
+///   <middle-man></middle-man>
+///   <middle-man></middle-man>
+/// </material-expansionpanel-set>
+/// ```
+///
 @Directive(selector: 'material-expansionpanel-set')
 class MaterialExpansionPanelSet implements OnDestroy {
   final _panelDisposer = Disposer.multi();
