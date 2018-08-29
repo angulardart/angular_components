@@ -1,11 +1,21 @@
+# Created with https://github.com/dart-lang/mono_repo
 language: dart
 
-dart:
-  - dev
+jobs:
+  include:
+    - stage: analyze_and_format
+      name: "SDK: stable - DIR: angular_components - TASKS: dartfmt -n --set-exit-if-changed ."
+      script: ./tool/travis.sh dartfmt
+      env: PKG="angular_components"
+      dart: stable
+    - stage: analyze_and_format
+      name: "SDK: stable - DIR: angular_components - TASKS: dartanalyzer --fatal-warnings ."
+      script: ./tool/travis.sh dartanalyzer
+      env: PKG="angular_components"
+      dart: stable
 
-dart_task:
-  - dartanalyzer: --fatal-warnings .
-  - dartfmt
+stages:
+  - analyzer_and_format
 
 # Only building master means that we don't run two builds for each pull request.
 branches:
@@ -14,3 +24,4 @@ branches:
 cache:
   directories:
     - $HOME/.pub-cache
+    - angular_components/.dart_tool/build

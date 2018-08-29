@@ -1,0 +1,403 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h2>Single Scorecards</h2>
+<acx-scorecard
+    label="Embed me!"
+    value="$158.22"
+    description="+$24.20 (15%)"
+    changeType="POSITIVE">
+</acx-scorecard>
+<acx-scorecard
+    label="Selected"
+    value="$158.22"
+    description="+$24.20 (15%)"
+    changeType="POSITIVE"
+    [selected]="true">
+</acx-scorecard>
+<acx-scorecard
+    class="right-align"
+    label="Right aligned"
+    value="$158.22"
+    description="+$24.20 (15%)"
+    changeType="POSITIVE">
+</acx-scorecard>
+
+<h2>Scoreboards</h2>
+<h3>Standard</h3>
+<acx-scoreboard>
+  <acx-scorecard
+      label="Estimated earnings"
+      value="$158.22"
+      description="+$24.20 (15%)"
+      changeType="POSITIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Ad RPM"
+      value="$0.58"
+      description="-$0.02 (3%)"
+      changeType="NEGATIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Keywords"
+      value="412"
+      description="Suggestions to add">
+  </acx-scorecard>
+</acx-scoreboard>
+
+<h3>Selectable</h3>
+<acx-scoreboard [type]="selectable">
+  <acx-scorecard
+      label="Estimated earnings"
+      value="$158.22"
+      description="+$24.20 (15%)"
+      changeType="POSITIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Ad RPM"
+      value="$0.58"
+      description="-$0.02 (3%)"
+      changeType="NEGATIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Keywords"
+      value="412"
+      description="Suggestions to add">
+  </acx-scorecard>
+</acx-scoreboard>
+
+<h3>Toggle</h3>
+<acx-scoreboard [type]="toggle">
+  <acx-scorecard
+      label="Estimated earnings"
+      value="$158.22"
+      description="+$24.20 (15%)"
+      changeType="POSITIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Ad RPM"
+      value="$0.58"
+      description="-$0.02 (3%)"
+      changeType="NEGATIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Keywords"
+      value="412"
+      description="Suggestions to add">
+  </acx-scorecard>
+</acx-scoreboard>
+
+<h3>Radio</h3>
+<acx-scoreboard [type]="radio">
+  <acx-scorecard
+      label="Estimated earnings"
+      value="$158.22"
+      description="+$24.20 (15%)"
+      changeType="POSITIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Ad RPM"
+      value="$0.58"
+      description="-$0.02 (3%)"
+      changeType="NEGATIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Keywords"
+      value="412"
+      description="Suggestions to add">
+  </acx-scorecard>
+</acx-scoreboard>
+
+<h3>Vertical</h3>
+<acx-scoreboard isVertical>
+  <acx-scorecard
+      label="Estimated earnings"
+      value="$158.22"
+      description="+$24.20 (15%)"
+      changeType="POSITIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Ad RPM"
+      value="$0.58"
+      description="-$0.02 (3%)"
+      changeType="NEGATIVE">
+  </acx-scorecard>
+  <acx-scorecard
+      label="Keywords"
+      value="412"
+      description="Suggestions to add">
+  </acx-scorecard>
+</acx-scoreboard>
+
+<h3>Scrollable</h3>
+
+<material-input floatingLabel
+                keypressUpdate
+                label="Number of scorecards"
+                type="number"
+                checkPositive
+                checkInteger
+                [(ngModel)]="numericValue"></material-input>
+
+<acx-scoreboard scrollable [type]="toggle">
+  <acx-scorecard
+      *ngFor="let n of range"
+      label="More Item {{n}}"
+      value="{{n}}"
+      description="Suggestions to add">
+  </acx-scorecard>
+</acx-scoreboard>
+
+<section class="vertical-scoreboard-container">
+  <acx-scoreboard scrollable [type]="toggle" isVertical>
+    <acx-scorecard
+        *ngFor="let n of range"
+        label="More Item {{n}}"
+        value="{{n}}"
+        description="Suggestions to add">
+    </acx-scorecard>
+  </acx-scoreboard>
+</section>
+
+<h3>Customization</h3>
+<p>
+  Using the <em>acx-scorecard-apply-change-color-on-primary</em> mixin:
+</p>
+<div class="customize">
+  <acx-scoreboard>
+    <acx-scorecard
+        label="Estimated earnings"
+        value="$158.22"
+        description="+$24.20 (15%)"
+        changeType="POSITIVE">
+    </acx-scorecard>
+    <acx-scorecard
+        label="Ad RPM"
+        value="$0.58"
+        description="-$0.02 (3%)"
+        changeType="NEGATIVE">
+    </acx-scorecard>
+    <acx-scorecard
+        label="Keywords"
+        value="412"
+        description="Suggestions to add">
+    </acx-scorecard>
+  </acx-scoreboard>
+</div>
+<p>
+  Using the <em>acx-scorecard-title</em> and <em>acx-scorecard-value</em> mixins:
+</p>
+<acx-scoreboard class="custom-rule">
+  <acx-scorecard label="Estimated earnings"
+                 value="$158.22"
+                 description="+$24.20 (15%)"
+                 changeType="POSITIVE">
+  </acx-scorecard>
+  <acx-scorecard label="Ad RPM"
+                 value="$0.58"
+                 description="-$0.02 (3%)"
+                 changeType="NEGATIVE">
+  </acx-scorecard>
+  <acx-scorecard label="Keywords"
+                 value="412"
+                 description="Suggestions to add">
+  </acx-scorecard>
+</acx-scoreboard>
+<p>
+  Using the <em>acx-scorecard-description-color</em> mixin:
+</p>
+<div class="customize-description-color">
+  <acx-scoreboard>
+    <acx-scorecard
+        label="Estimated earnings"
+        value="$158.22"
+        [changeGlyph]="true"
+        description="+$24.20 (15%)"
+        changeType="POSITIVE">
+    </acx-scorecard>
+  </acx-scoreboard>
+</div>
+<p>
+  Using the <em>acx-scorecard-description-positive-negative-colors</em> mixin:
+</p>
+<div class="customize-positive-negative-colors">
+  <acx-scoreboard>
+    <acx-scorecard
+        label="Estimated earnings"
+        value="$158.22"
+        [changeGlyph]="true"
+        description="+$24.20 (15%)"
+        changeType="POSITIVE">
+    </acx-scorecard>
+    <acx-scorecard
+        label="Estimated earnings"
+        value="$158.22"
+        [changeGlyph]="true"
+        description="-$24.20 (15%)"
+        changeType="NEGATIVE">
+    </acx-scorecard>
+  </acx-scoreboard>
+</div>
+<p>
+  Using the <em>acx-scorecard-suggestion-color</em> mixin:
+</p>
+<div class="customize-suggestion-color">
+  <acx-scoreboard>
+    <acx-scorecard
+        label="Estimated earnings"
+        value="$158.22"
+        suggestionAfter="Suggestions to add">
+    </acx-scorecard>
+  </acx-scoreboard>
+</div>
+<p>
+  Using the <em>acx-scorecard-suggestion-to-separate-line</em> mixin:
+</p>
+<acx-scoreboard class="customize-suggestion-to-separate-line">
+  <acx-scorecard label="Estimated earnings"
+                 value="$158.22"
+                 description="+$24.20 (15%)"
+                 changeType="POSITIVE"
+                 suggestionAfter="suggestion in separate line">
+  </acx-scorecard>
+</acx-scoreboard>
+<p>
+  Using the <em>acx-scorecard-vertical-align</em> mixin to top align scorecards:
+</p>
+<acx-scoreboard class="vertically-align-scorecard-top">
+  <acx-scorecard label="Estimated earnings"
+                 value="$158.22"
+                 description="+$24.20 (15%)">
+    <div>
+      This<br>
+      injected<br>
+      content<br>
+      takes<br>
+      up<br>
+      a<br>
+      lot<br>
+      of<br>
+      lines<br>
+    </div>
+  </acx-scorecard>
+  <acx-scorecard label="Estimated cost"
+                 value="$264.23"
+                 description="-$39.63 (15%)">
+    <div>
+      This<br>
+      has<br>
+      less<br>
+      lines<br>
+    </div>
+  </acx-scorecard>
+</acx-scoreboard>
+<p>
+  Using the <em>acx-scorecard-vertical-align</em> mixin to bottom align scorecards:
+</p>
+<acx-scoreboard class="vertically-align-scorecard-bottom">
+  <acx-scorecard label="Estimated earnings"
+                 value="$158.22"
+                 description="+$24.20 (15%)">
+    <div>
+      This<br>
+      injected<br>
+      content<br>
+      takes<br>
+      up<br>
+      a<br>
+      lot<br>
+      of<br>
+      lines<br>
+    </div>
+  </acx-scorecard>
+  <acx-scorecard label="Estimated cost"
+                 value="$264.23"
+                 description="-$39.63 (15%)">
+    <div>
+      This<br>
+      has<br>
+      less<br>
+      lines<br>
+    </div>
+  </acx-scorecard>
+</acx-scoreboard>
+<p>
+  Using the <em>acx-scorecard-description-min-height</em> mixin to add a min height to description
+  to ensure injected content is aligned if description is optional (Description has to be an empty
+  String, not null to ensure it shows up correctly):
+</p>
+<acx-scoreboard class="vertically-align-scorecard-top">
+  <acx-scorecard label="Scorecard with description"
+                 value="$158.22"
+                 description="+$24.20 (15%)">
+    <div>
+      Some injected content.
+    </div>
+  </acx-scorecard>
+  <acx-scorecard label="Scorecard without description"
+                 value="$264.23"
+                 description="">
+    <div>
+      Some injected content.
+    </div>
+  </acx-scorecard>
+  <acx-scorecard class="description-with-min-height"
+                 label="Scorecard without description with min-height mixin"
+                 value="$264.23"
+                 description="">
+    <div>
+      Some injected content.
+    </div>
+  </acx-scorecard>
+</acx-scoreboard>
+<p>
+  Using the <em>acx-scorecard-flex-display</em> mixin to change the display to flex.
+</p>
+<div class="flex-scoreboard-container">
+  <acx-scoreboard>
+    <acx-scorecard label="Scorecard with flex display"
+                   value="$158.22"
+                   description="+$24.20 (15%)">
+    </acx-scorecard>
+    <acx-scorecard label="Scorecard with flex display"
+                   value="$264.23"
+                   description="-$39.63 (15%)">
+    </acx-scorecard>
+  </acx-scoreboard>
+</div>
+<p>
+  Using the ng-content directive to inject other components into the scorecard.
+</p>
+<acx-scorecard
+    label="Estimated earnings"
+    value="$158.22"
+    description="+$24.20 (15%)"
+    changeType="POSITIVE">
+  <name class="injected-div">This div was injected after the label</name>
+  <value class="injected-div">This div was injected after the value</value>
+  <div class="injected-div">This div was injected under the scorecard</div>
+</acx-scorecard>
+<p>
+  Using the extraBig input to display a bigger version of the scorecard,
+  with margins, instead of padding.
+</p>
+<acx-scorecard
+    label="Estimated earnings"
+    value="$158.22"
+    extraBig
+    description="+$24.20 (15%)"
+    changeType="POSITIVE">
+</acx-scorecard>
+<p>
+  Using the changeGlyph input to display an arrow glyph next to the description,
+  which depends on the changeType set.
+</p>
+<acx-scorecard
+    label="Estimated earnings"
+    value="$158.22"
+    [changeGlyph]="true"
+    description="$24.20 (15%)"
+    changeType="POSITIVE">
+</acx-scorecard>

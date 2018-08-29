@@ -1,0 +1,54 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h2>material-calendar-picker</h2>
+<div class="inline-block">
+  <h3>Default calendar</h3>
+  <material-calendar-picker class="calendar" [state]="plainModel">
+  </material-calendar-picker>
+</div>
+
+<div class="inline-block">
+  <h3>With custom colors</h3>
+  <material-calendar-picker class="pretty calendar" [state]="colorfulModel">
+  </material-calendar-picker>
+</div>
+
+<div class="inline-block">
+  <h3>With overlapping selections</h3>
+  <material-calendar-picker class="overlap calendar" [state]="overlapModel">
+  </material-calendar-picker>
+</div>
+
+<div>
+  <h3>Selection updating</h3>
+  <material-calendar-picker class="calendar" [state]="mutableModel">
+  </material-calendar-picker>
+
+  <button (click)="creepForward()">Creep forward</button>
+</div>
+
+<div class="inline-block">
+  <h3>Single date selection</h3>
+  <p>Click on the calendar to select a single date.</p>
+  <p>Selected date: {{singleDateModel.selection('range').start}}</p>
+  <material-calendar-picker class="calendar" mode="single-date" [(state)]="singleDateModel">
+  </material-calendar-picker>
+</div>
+
+<div class="inline-block">
+  <h3>Date range selection</h3>
+  <p>Drag the dates on the calendar to select date ranges.</p>
+  <p>Clicking two different dates is also supported.</p>
+  <p>Selected range: {{dateRangeModel.selection('range')}}</p>
+  <material-calendar-picker class="calendar" mode="date-range" [(state)]="dateRangeModel">
+  </material-calendar-picker>
+</div>
+
+<div>
+  <h3>Compact calendar</h3>
+  <material-calendar-picker class="calendar" [state]="plainModel" compact>
+  </material-calendar-picker>
+</div>

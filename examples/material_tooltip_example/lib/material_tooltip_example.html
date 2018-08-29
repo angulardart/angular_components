@@ -1,0 +1,263 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h1>Material tooltip</h1>
+<section>
+  <h2>Ink tooltip</h2>
+  <div class="demo-section">
+    <div class="demo-container" row>
+      <div column>
+        <div flex>
+          <div>
+            <material-icon
+                icon="print"
+                class="demo-glyph"
+                materialTooltip="Print">
+            </material-icon>
+            <br>
+            <material-icon
+                icon="save"
+                class="demo-glyph"
+                materialTooltip="Save">
+            </material-icon>
+            <br>
+            <material-icon
+                icon="lock"
+                class="demo-glyph"
+                [materialTooltip]="tooltipMsg">
+            </material-icon>
+            <br>
+          </div>
+        </div>
+        <div flex>
+          <material-icon
+              icon="print"
+              class="demo-glyph"
+              materialTooltip="Print">
+          </material-icon>
+          <br>
+          <material-icon
+              icon="save"
+              class="demo-glyph"
+              materialTooltip="Save">
+          </material-icon>
+          <br>
+          <material-icon
+              icon="lock"
+              class="demo-glyph"
+              [materialTooltip]="tooltipMsg">
+          </material-icon>
+          <br>
+        </div>
+      </div>
+      <div flex>
+        <p class="caption">
+          Tooltips on Icons.
+        </p>
+      </div>
+    </div>
+    <div class="demo-container" column>
+      <div>
+        <material-button
+            materialTooltip="Saves the document"
+            raised>
+          Save
+        </material-button>
+      </div>
+      <div flex>
+        <p class="caption">
+          Tooltip on a button.
+        </p>
+      </div>
+    </div>
+    <div class="demo-container" column>
+      <div>
+        <a href="#" [materialTooltip]="longString">opportunities</a>
+      </div>
+      <div flex>
+        <p class="caption">
+          Long tooltip on a link.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo-section">
+    <div class="demo-container" column>
+      <div flex>
+        <div>
+          <span tooltipTarget #ref="tooltipTarget">
+            Explicitly declare a tooltip component
+          </span>
+          <material-tooltip-text [for]="ref">
+            Allows for &nbsp; <strong>formatted</strong> &nbsp; <em>text</em>.
+          </material-tooltip-text>
+        </div>
+      </div>
+      <div flex>
+        <p class="caption">
+          Custom tooltip on some text.
+        </p>
+      </div>
+    </div>
+    <div class="knob-container" column>
+      <p><em>
+        Use this configuration sparingly, as the tooltip text is intended for
+        simple strings.
+      </em></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Card Tooltip</h2>
+  <div class="demo-section">
+    <div class="demo-container" column>
+      <div flex>
+        <div>
+          <p>
+            A simple sentence about something.
+            <material-icon
+                icon="help_outline"
+                tooltipTarget
+                keyboardOnlyFocusIndicator
+                size="medium"
+                #ref2="tooltipTarget">
+            </material-icon>
+          </p>
+          <material-tooltip-card [for]="ref2">
+            <header>Simple sentences about things.</header>
+            <p><b>How it works:</b> Text explains things further.</p>
+          </material-tooltip-card>
+        </div>
+      </div>
+      <div flex>
+        <div>
+          <p>
+            Clickable tooltip. Target will open immediately on clicks and keyboard events.
+            <material-icon
+                icon="help_outline"
+                clickableTooltipTarget
+                keyboardOnlyFocusIndicator
+                size="medium"
+                tabindex="0"
+                #clickableRef="tooltipTarget">
+            </material-icon>
+          </p>
+          <material-tooltip-card [for]="clickableRef">
+            <header>Simple sentences about things.</header>
+            <p><b>How it works:</b> Text explains things further.</p>
+          </material-tooltip-card>
+        </div>
+      </div>
+      <div flex>
+        <p class="caption">
+          Paper-based Tooltip on a help icon.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <div class="demo-container" column>
+      <div flex>
+        <div>
+          <p>
+            A Tooltip target with deferred content.
+            <material-icon
+                icon="help_outline"
+                tooltipTarget
+                size="medium"
+                #deferredRef="tooltipTarget">
+            </material-icon>
+          </p>
+          <material-tooltip-card [for]="deferredRef">
+            <delayed-content *deferredContent
+                             [delay]="4">
+              <header>Simple sentences about things.</header>
+              <p><b>How it works:</b> Text explains things further.</p>
+            </delayed-content>
+          </material-tooltip-card>
+        </div>
+      </div>
+      <div flex>
+        <p class="caption">
+          Use <strong>DeferredContentDirective</strong> inside
+          <code>material-tooltip-card</code> to create your content
+          just-in-time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Icon Tooltip</h2>
+  <div class="demo-section">
+    <div class="demo-container" column>
+      <div flex>
+        <div>
+          <material-input label="A dummy input to start a focus cycle." type="text">
+
+          </material-input>
+          <p>
+            A simple sentence about something, followed by an info tooltip
+            icon.
+            <material-icon-tooltip type="info">
+              Simple sentences about things
+            </material-icon-tooltip>
+          </p>
+          <p>
+            A simple sentence about something, followed by a material tooltip
+            icon.
+            <material-icon-tooltip icon="star">
+              More simple sentences about things
+            </material-icon-tooltip>
+          </p>
+          <p class="dark-background">
+            A simple dark-themed sentence about something, followed by a help
+            tooltip icon.
+            <material-icon-tooltip darkTheme>
+              Another simple sentences about things
+            </material-icon-tooltip>
+          </p>
+        </div>
+      </div>
+      <div>
+        <p class="caption">
+          Paper-based Tooltip on a help icon.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Tooltip Source</h2>
+  <div class="demo-section">
+    <div class="demo-container" column>
+      <div flex>
+        <div>
+          <p>
+            Use a tooltipSource to control a popup.
+            <material-icon
+                icon="help_outline"
+                tooltipSource
+                size="medium"
+                #ref3="tooltipSource">
+            </material-icon>
+          </p>
+          <material-popup [source]="ref3"
+                          enforceSpaceConstraints
+                          [preferredPositions]="preferredTooltipPositions"
+                          [autoDismiss]="false">
+            <div class="source-popup">
+              Content in a popup.
+            </div>
+          </material-popup>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

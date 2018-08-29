@@ -1,0 +1,202 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>Horizontal orientation, backwards jumps allowed, and default size</h2>
+  <material-stepper legalJumps="backwards"
+                    orientation="horizontal"
+                    size="default">
+    <template step name="Step A Title"
+              (continue)="validDelayedCheck($event)">
+      <div class="step-a">
+        <h1>Content A</h1>
+        (1s continue validation)
+      </div>
+    </template>
+    <template step name="Step B Title"
+              (cancel)="validDelayedCheck($event)">
+      <div class="step-b">
+        <h1>Content B</h1>
+        (1s cancel validation time)
+      </div>
+    </template>
+    <template step name="Step C Title">
+      <div class="step-c">
+        <h1>Content C</h1>
+      </div>
+    </template>
+    <template step name="Step D Title">
+      <div class="step-d">
+        <h1>Content C</h1>
+      </div>
+    </template>
+  </material-stepper>
+</section>
+
+<section>
+  <h2>Horizontal orientation, all jumps allowed, and mini size</h2>
+  <material-stepper #stepper1
+                    legalJumps="all"
+                    orientation="horizontal"
+                    size="mini">
+    <template step name="Step A Title"
+              [optional] = "true"
+              [hideButtons]="true">
+      <div class="step-a">
+        <h1>Content A</h1>
+        This step has a custom continue button
+        <br>
+        <material-button raised buttonDecorator
+                         class="custom-toggle-button"
+                         (trigger)="toggleContinue()">
+          Toggle continue Button
+        </material-button>
+      </div>
+        <span [style.display]="showButton ? '' : 'none'">
+          <material-button raised buttonDecorator
+                           class="custom-continue-button"
+                           (trigger)="stepper1.stepForward($event, stepper1.activeStep)">
+              Custom Continue Button
+          </material-button>
+        </span>
+    </template>
+    <template step name="Step B Title"
+              [optional] = "true"
+              (cancel)="validDelayedCheck($event)">
+      <div class="step-b">
+        <h1>Content B</h1>
+        (1s cancel verification)
+      </div>
+    </template>
+    <template step name="Step C Title">
+      <div class="step-c">
+        <h1>Content C</h1>
+      </div>
+    </template>
+  </material-stepper>
+</section>
+
+<section>
+  <h2>Horizontal orientation, no jumps allowed, and default size</h2>
+  <material-stepper legalJumps="none"
+                    orientation="horizontal">
+    <template step name="Step A Title"
+              [optional] = "true">
+      <div class="step-a">
+        <h1>Content A</h1>
+      </div>
+    </template>
+    <template step name="Step B Title"
+              [optional] = "true"
+              (cancel)="validDelayedCheck($event)">
+      <div class="step-b">
+        <h1>Content B</h1>
+        (1s cancel verification)
+      </div>
+    </template>
+    <template step name="Step C Title">
+      <div class="step-c">
+        <h1>Content C</h1>
+      </div>
+    </template>
+  </material-stepper>
+</section>
+
+<section>
+  <h2>Vertical orientation, all jumps allowed, and default size</h2>
+  <material-stepper legalJumps="all"
+                    orientation="vertical"
+                    size="default">
+    <template step name="Step A Title"
+              [optional]="true"
+              completeSummary="Step A Title completed.">
+      <div class="step-a">
+        <h1>Content A</h1>
+        This step has a complete summary.  Click `continue` to see it.
+      </div>
+    </template>
+    <template step name="Step B Title">
+      <div class="step-b">
+        <h1>Content B</h1>
+      </div>
+    </template>
+    <template step name="Step C Title"
+              [optional]="true">
+      <div class="step-c">
+        <h1>Content C</h1>
+      </div>
+    </template>
+    <template step name="Step D Title">
+      <div class="step-d">
+        <h1>Content D</h1>
+      </div>
+    </template>
+  </material-stepper>
+</section>
+
+<section class="teal-themed">
+  <h2>Vertical orientation, all jumps allowed, and mini size</h2>
+  <material-stepper legalJumps="all"
+                    orientation="vertical"
+                    size="mini">
+    <template step name="Step A Title">
+      <div class="step-a">
+        <h1>Content A</h1>
+      </div>
+    </template>
+    <template step name="Step B Title"
+              (cancel)="validDelayedCheck($event)">
+      <div class="step-b">
+        <h1>Content B</h1>
+      </div>
+    </template>
+    <template step name="Step C Title">
+      <div class="step-c">
+        <h1>Content C</h1>
+      </div>
+    </template>
+    <template step name="Step D Title">
+      <div class="step-d">
+        <h1>Content D</h1>
+      </div>
+    </template>
+  </material-stepper>
+</section>
+
+<section>
+  <h2>Error control</h2>
+  <material-stepper legalJumps="all"
+                    orientation="vertical"
+                    size="default">
+    <template step name="Step A Title"
+              [optional]="true">
+      <div class="step-a">
+        <h1>Content A</h1>
+      </div>
+    </template>
+    <template step name="Step B Title" #stepB="step">
+      <div class="step-b">
+        <h1>Content B</h1>
+      </div>
+    </template>
+    <template [summary]="stepB">
+      <h3>Great job completeing step B!</h3>
+    </template>
+    <template step name="Step C Title" #stepC="step"
+              [optional]="true">
+      <div class="step-c">
+        <h1>Content C</h1>
+      </div>
+    </template>
+    <template [summary]="stepC">
+      <h3>Summary</h3>
+    </template>
+    <template step name="Step D Title">
+      <div class="step-d">
+        <h1>Content D</h1>
+      </div>
+    </template>
+  </material-stepper>
+</section>

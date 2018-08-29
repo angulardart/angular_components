@@ -1,0 +1,66 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<material-drawer persistent #drawer="drawer"
+    [class.custom-width]="customWidth"
+    [attr.end]="end ? '' : null">
+  <material-list *deferredContent>
+    <div group class="mat-drawer-spacer"></div>
+    <div group>
+      <material-list-item>
+        <material-icon icon="inbox"></material-icon>Inbox
+      </material-list-item>
+      <material-list-item>
+        <material-icon icon="star"></material-icon>Star
+      </material-list-item>
+      <material-list-item>
+        <material-icon icon="send"></material-icon>Sent Mail
+      </material-list-item>
+      <material-list-item>
+        <material-icon icon="drafts"></material-icon>Drafts
+      </material-list-item>
+    </div>
+    <div group>
+      <div label>Tags</div>
+      <material-list-item>
+        <material-icon icon="star"></material-icon>Favorites
+      </material-list-item>
+    </div>
+  </material-list>
+</material-drawer>
+<div class="material-content">
+  <header class="material-header shadow">
+    <div class="material-header-row">
+      <material-button icon
+          class="material-drawer-button" (trigger)="drawer.toggle()">
+        <material-icon icon="menu"></material-icon>
+      </material-button>
+      <span class="material-header-title">Simple Layout</span>
+      <div class="material-spacer"></div>
+      <nav class="material-navigation">
+        <a>Link 1</a>
+      </nav>
+      <nav class="material-navigation">
+        <a>Link 2</a>
+      </nav>
+      <nav class="material-navigation">
+        <a>Link 3</a>
+      </nav>
+    </div>
+  </header>
+  <div>
+    Lorem ipsum dolor sit amet, ad erat postea ullamcorper nec, veri veniam quo
+    et. Diam phaedrum ei mea, quaeque voluptaria efficiantur duo no. Eu adhuc
+    veritus civibus nec, sumo invidunt mel id, in vim dictas detraxit. Per an
+    legere iriure blandit. Veri iisque accusamus an pri.
+  </div>
+  <div class="controls">
+    <h3>Options</h3>
+    <material-toggle [(checked)]="end" label="end">
+    </material-toggle>
+    <material-toggle [(checked)]="customWidth" label="custom width">
+    </material-toggle>
+  </div>
+</div>

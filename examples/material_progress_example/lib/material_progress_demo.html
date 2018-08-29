@@ -1,0 +1,41 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div>
+  <h2>Active progress only</h2>
+  <section class="margin">
+    <material-progress [activeProgress]="25"></material-progress>
+  </section>
+
+  <h2>Active and secondary progress</h2>
+  <section class="margin">
+    <material-progress
+        [activeProgress]="0"
+        [secondaryProgress]="25">
+    </material-progress>
+    <material-progress
+        [activeProgress]="25"
+        [secondaryProgress]="75">
+    </material-progress>
+  </section>
+
+  <h2>Indeterminate</h2>
+  <section class="margin">
+    <material-progress [indeterminate]="true"></material-progress>
+  </section>
+
+  <section class="custom-theme">
+    <h1>Custom theme</h1>
+    <div>
+      <h2>material-progress-theme($indeterminate-color: $mat-red-100, $active-color:
+        $mat-red-500, $secondary-color: $mat-red-200)</h2>
+      <material-progress
+          [activeProgress]="25"
+          [secondaryProgress]="75">
+      </material-progress>
+      <material-progress [indeterminate]="true"></material-progress>
+    </div>
+  </section>
+</div>

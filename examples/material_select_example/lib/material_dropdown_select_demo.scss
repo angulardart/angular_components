@@ -1,0 +1,36 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+
+.example {
+  @include shadow-elevation(2);
+  margin-bottom: $mat-grid * 3;
+  padding: $mat-grid * 2;
+  max-width: $mat-grid * 84;
+
+  &.example-with-options {
+    display: flex;
+  }
+}
+
+.example-pane {
+  flex: 1;
+
+  material-dropdown-select {
+    width: $mat-grid * 25;
+    padding: $mat-grid * 2 0;
+  }
+}
+
+.options-pane {
+  flex: 1;
+  padding: $mat-grid * 2;
+  background: $mat-gray-200;
+
+  material-checkbox {
+    margin-left: 0;
+  }
+}

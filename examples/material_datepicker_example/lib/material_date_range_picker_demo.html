@@ -1,0 +1,68 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h2>material-date-range-picker</h2>
+<h3>Fully-featured</h3>
+<div class="main-example">
+  <div class="options-pane" elevation="2">
+    <h4>Options</h4>
+    <material-checkbox [(checked)]="supportsComparison">Support comparison</material-checkbox>
+    <material-checkbox [(checked)]="showNextPrevButtons">Show next/prev buttons</material-checkbox>
+    <material-checkbox [(checked)]="longPresetList">
+      Long preset list (demonstrates scrolling)
+    </material-checkbox>
+    <material-checkbox [(checked)]="showMessageBar">Show message bar</material-checkbox>
+    <material-checkbox [(checked)]="movingStartMaintainsLength">
+      Maintain range length when moving start date
+    </material-checkbox>
+    <div class="limit-label">Limit to date range:</div>
+    <date-range-input [(range)]="limitToRange"></date-range-input>
+    <div class="selection-label">The current selection is: {{range}}</div>
+  </div>
+  <div>
+    <material-date-range-picker
+       [minDate]="limitToRange.start"
+       [maxDate]="limitToRange.end"
+       [presets]="presets"
+       [supportsComparison]="supportsComparison"
+       [showNextPrevButtons]="showNextPrevButtons"
+       [movingStartMaintainsLength]="movingStartMaintainsLength"
+       [(range)]="range">
+      <div *ngIf="showMessageBar" messageBar class="message-bar">
+        Custom message
+      </div>
+    </material-date-range-picker>
+  </div>
+</div>
+<h3>Simplified</h3>
+<p>A minimal example without presets, a comparison range or next/prev buttons, and using the default
+  date limits.</p>
+<material-date-range-picker class="simplified-example"
+                            [(range)]="rangeSimplified"
+                            [supportsComparison]="false"
+                            [showNextPrevButtons]="false">
+</material-date-range-picker>
+<h3>Compact</h3>
+<p>A compact example.</p>
+<material-date-range-picker class="simplified-example"
+                            compact
+                            [(range)]="rangeSimplified">
+</material-date-range-picker>
+<p>A compact example with an empty date range.</p>
+<material-date-range-picker class="simplified-example"
+                            compact
+                            [(range)]="emptyRange">
+</material-date-range-picker>
+<h3>Disabled</h3>
+<p>A disabled example.</p>
+<material-date-range-picker class="simplified-example"
+                            disabled
+                            [(range)]="rangeSimplified">
+</material-date-range-picker>
+<p>A disabled example with an empty date range.</p>
+<material-date-range-picker class="simplified-example"
+                            disabled
+                            [(range)]="emptyRange">
+</material-date-range-picker>

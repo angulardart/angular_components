@@ -1,0 +1,29 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_toggle/mixins';
+
+material-toggle {
+  padding: 12px;
+  width: 320px;
+}
+
+.theme-red {
+  @include material-toggle-theme($primary-color: $mat-red-500);
+}
+
+.theme-purple {
+  @include material-toggle-theme($primary-color: $mat-purple-500);
+}
+
+.custom-theme {
+  @include material-toggle-theme(
+    $primary-color: $mat-light-green-500,
+    $off-btn-color: $mat-lime-500);
+}
+
+.flip-label {
+  @include flip-toggle-label-position();
+}

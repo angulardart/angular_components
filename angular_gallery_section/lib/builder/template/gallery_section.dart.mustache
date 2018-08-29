@@ -1,0 +1,53 @@
+import 'package:angular/angular.dart';
+import 'package:angular_components/laminate/popup/module.dart';
+
+// Import each demo.
+{{#imports}}
+import '{{{dartImport}}}';
+{{/imports}}
+
+// Import each API page.
+{{#apis}}
+import '{{{apiImport}}}';
+{{/apis}}
+
+final _showDocs = Uri.base.queryParameters['showDocs'];
+
+@Component(
+  selector: 'gallery-section',
+  providers: const [popupBindings],
+  template: r'''
+  <div *ngIf="!showDocsPage">
+    <div class="docs-toggle" (click)="toggleDocsPage()">Show Gallery Page</div>
+      {{#demos}}
+      <{{selector}}></{{selector}}>
+      {{/demos}}
+  </div>
+  <div *ngIf="showDocsPage">
+    <div class="docs-toggle" *ngIf="!paramShowDocs"
+        (click)="toggleDocsPage()">Show Demo Only</div>
+      {{#apis}}
+      {{#docs}}
+      <{{selector}}></{{selector}}>
+      {{/docs}}
+      {{/apis}}
+  </div>''',
+  directives: const [
+    NgIf,
+    {{#demos}}
+    {{className}},
+    {{/demos}}
+    {{#apis}}
+    {{#docs}}
+    {{className}},
+    {{/docs}}
+    {{/apis}}
+  ],
+  styles: const ['.docs-toggle {color: #4285f4; cursor: pointer;}'],
+)
+class GallerySection {
+  bool get paramShowDocs => _showDocs != null;
+  bool _showDocsPage = _showDocs != null;
+  bool get showDocsPage => _showDocsPage;
+  void toggleDocsPage() => _showDocsPage = !showDocsPage;
+}

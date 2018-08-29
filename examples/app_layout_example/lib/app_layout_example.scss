@@ -1,0 +1,26 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/app_layout/mixins';
+
+:host {
+  border: 1px solid;
+  display: block;
+  height: 400px;
+  margin: 16px;
+  overflow: hidden;
+  position: relative;
+  width: 800px;
+}
+
+.controls {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-width {
+  @include mat-drawer-width(50%);
+  @include mat-temporary-drawer-width(50%);
+}

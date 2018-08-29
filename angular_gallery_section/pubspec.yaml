@@ -1,0 +1,14 @@
+name: angular_gallery_section
+author: Dart Team <misc@dartlang.org>
+environment:
+  sdk: '>=2.0.0-dev.68 <3.0.0'
+dependencies:
+  analyzer: ^0.32.4
+  angular: ^5.0.0
+  angular_components: 0.9.1
+  build: '>=0.11.1 <0.13.0'
+  build_config: '>=0.2.6 <0.4.0'
+  glob: ^1.1.5
+  markdown: ^2.0.0
+  mustache: ^1.0.0
+  path: ^1.6.1
