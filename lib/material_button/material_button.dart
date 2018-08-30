@@ -117,4 +117,5 @@ class MaterialButtonComponent extends MaterialButtonBase {
 
   // not used for M1
   final bool iconButton = false;
+  final String ariaLabel = null;
 }
