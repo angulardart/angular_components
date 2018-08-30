@@ -1,0 +1,114 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>Custom chip content</h2>
+  <material-chips>
+    <material-chip [removable]="false">Hello, World</material-chip>
+    <material-chip>{{chipText}}</material-chip>
+    <material-chip emphasis>With emphasis</material-chip>
+    <material-chip [attr.emphasis]="true">With attr emphasis</material-chip>
+    <material-chip [hasLeftIcon]="true" class="my-theme">
+      <material-icon left-icon icon="add" size="large"></material-icon>
+      With custom theme
+    </material-chip>
+    <material-chip [hasLeftIcon]="true">
+      <material-icon left-icon icon="link" size="large"></material-icon>
+      With left icon
+    </material-chip>
+    <material-chip class="left-icon-bg" [hasLeftIcon]="true">
+      <material-icon left-icon icon="link" size="large"></material-icon>
+      Left icon with bgcolor
+    </material-chip>
+  </material-chips>
+</section>
+<section>
+  <h2>Using a Data Model</h2>
+
+  <p>Here we use a data model which implements the [HasUIDisplayName] interface. Any [ItemRenderer]
+    can be provided to the component to render the value to a string.</p>
+
+  <div class="control-bar">
+    <material-button (trigger)="resetChips()" raised>Reset</material-button>
+  </div>
+  <material-chips>
+    <material-chip *ngFor="let c of chips"
+                   (remove)="chips.remove(c)"
+                   [removable]="true"
+                   [value]="c"
+                   displayNameRenderer>
+    </material-chip>
+  </material-chips>
+
+  <p>Using an object and a custom item renderer.</p>
+
+  <div class="control-bar">
+    <material-button (trigger)="resetMovies()" raised>Reset</material-button>
+  </div>
+  <material-chips>
+    <material-chip *ngFor="let c of movies"
+                   (remove)="movies.remove(c)"
+                   [removable]="true"
+                   [itemRenderer]="renderMovieChip"
+                   [value]="c">
+    </material-chip>
+  </material-chips>
+</section>
+<section>
+  <h2>SelectionModel Chips</h2>
+
+  <div class="control-bar">
+    <material-button (trigger)="resetSelection()" raised>Reset</material-button>
+  </div>
+  <material-chips [selectionModel]="selection"
+                  displayNameRenderer>
+  </material-chips>
+
+  <p>Disable the remove button on chips</p>
+  <material-chips [selectionModel]="selection"
+                  [removable]="false"
+                  displayNameRenderer>
+  </material-chips>
+
+</section>
+
+<section>
+  <h2>With Dense Theme</h2>
+  <material-chips class="dense">
+    <material-chip>With delete icon</material-chip>
+    <material-chip [removable]="false">
+      Without delete icon
+    </material-chip>
+    <material-chip [hasLeftIcon]="true">
+      <material-icon left-icon icon="link" size="large"></material-icon>
+      With left icon
+    </material-chip>
+  </material-chips>
+
+  <p>Using SelectionModel</p>
+  <material-chips class="dense"
+      displayNameRenderer
+      [selectionModel]="selection">
+  </material-chips>
+</section>
+
+<section>
+  <h2>Clickable Chips</h2>
+
+  <div class="control-bar">
+    <material-button (trigger)="resetMovies()" raised>Reset</material-button>
+  </div>
+  <material-chips class="clickable">
+    <material-chip *ngFor="let c of movies"
+                   (remove)="movies.remove(c)"
+                   [removable]="true"
+                   buttonDecorator
+                   (trigger)="onClick(c)"
+                   [itemRenderer]="renderMovieChip"
+                   [value]="c">
+    </material-chip>
+  </material-chips>
+
+</section>

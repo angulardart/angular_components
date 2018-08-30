@@ -1,0 +1,175 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+// ::ng-deep rules may apply to target tags that don't appear in the template,
+// but are inserted dynamically.
+//
+// These rules are applied to Dart documentation comments and supplemental
+// markdown docs.
+
+$horizontal-padding: $mat-grid * 6;
+$border: 1px $mat-border-light solid;
+
+:host {
+  @include mat-font-body;
+  display: block;
+  position: relative;
+  padding-bottom: $mat-grid * 10;
+}
+
+section {
+  padding: 0 $horizontal-padding;
+}
+
+a {
+  color: $mat-blue;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.metadata {
+  $height: $mat-grid * 6;
+  align-items: center;
+  color: $mat-light-transparent-black;
+  display: flex;
+  justify-content: flex-end;
+  background: $mat-grey-100;
+  line-height: $height;
+  max-height: $height;
+  white-space: nowrap;
+
+  div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  div:not(:first-of-type) {
+    margin-left: $mat-grid * 3;
+  }
+
+  .references {
+    margin-right: auto;
+  }
+}
+
+.toc {
+  border-left: $mat-grid-type $mat-blue solid;
+  margin: $mat-grid * 3 $horizontal-padding;
+  padding: 0 0 0 $mat-grid * 3;
+
+  label,
+  a {
+    align-items: center;
+    display: flex;
+  }
+
+  label {
+    align-items: flex-end;
+    color: $mat-lighter-transparent-black;
+    height: $mat-grid * 3;
+
+    &:not(:first-of-type) {
+      margin-top: $mat-grid;
+    }
+  }
+
+  a {
+    font-size: $mat-font-size-subhead;
+    height: $mat-grid * 4;
+  }
+}
+
+h2 {
+  align-items: baseline;
+  border-top: $border;
+  color: $mat-blue;
+  display: flex;
+  font-weight: $mat-font-weight-regular;
+  font-size: $mat-font-size-title;
+  margin: $mat-grid * 3 0;
+  padding-top: $mat-grid * 3;
+
+  a {
+    font-size: $mat-font-size-button;
+    padding-left: $mat-grid * 2;
+
+    &:first-of-type {
+      margin-left: auto;
+    }
+  }
+}
+
+.doc ::ng-deep strong {
+  @include mat-font-body-2;
+  color: $mat-blue;
+}
+
+::ng-deep p {
+  // Makes it so the docs for inputs and outputs could be closer to the
+  // input/output declaration.
+  margin: $mat-grid-type 0 $mat-grid * 2;
+}
+
+::ng-deep code,
+::ng-deep pre {
+  background-color: $mat-gray-50;
+  border: 1px $mat-gray-100 solid;
+  color: $mat-gray-800;
+  font: $mat-font-size-caption 'Roboto Mono', monospace;
+  padding: $mat-grid-type / 2 $mat-grid-type;
+}
+
+::ng-deep pre {
+  margin-top: $mat-grid * -2;
+  min-width: min-content;
+  padding: $mat-grid * 2;
+
+  code {
+    background: none;
+    border: 0;
+    padding: 0;
+  }
+}
+
+:not(.demo) ::ng-deep li:not(:last-of-type) {
+  margin-bottom: $mat-grid * 2;
+}
+
+.property-type {
+  background: none;
+  border: 0;
+  color: $mat-blue;
+  font-size: smaller;
+}
+
+.property-deprecated::before {
+  color: $mat-red-600;
+  content: 'Deprecated! ';
+}
+
+::ng-deep table {
+  border-collapse: collapse;
+  margin: $mat-grid * 3 0;
+  text-align: left;
+
+  strong {
+    color: $mat-transparent-black;
+  }
+
+  td,
+  th {
+    border: $border;
+    padding: $mat-grid;
+    vertical-align: top;
+  }
+
+  th {
+    background: $mat-blue-50;
+    color: $mat-blue;
+    font-weight: $mat-font-weight-medium;
+  }
+}

@@ -1,0 +1,66 @@
+import 'package:angular/angular.dart';
+import 'package:angular_gallery_section/components/gallery_component/gallery_component.dart';
+import 'package:angular_gallery_section/components/gallery_component/gallery_info.dart';
+
+// Import each demonstration script.
+{{#demoImports}}
+import '{{{dartImport}}}';
+{{/demoImports}}
+
+{{#apiComponents}}
+@Component(
+    selector: '{{selector}}-api',
+    template: '<gallery-component [model]="model"></gallery-component>',
+    directives: const [GalleryComponent])
+class {{component}}Api {
+
+  GalleryInfo model = new GalleryInfo(
+      docs: [
+        {{#docs}}
+          new Doc('{{name}}', '{{selector}}', '{{exportAs}}', '{{path}}', r"""{{comment}}""", [
+            {{#inputs}}
+              new Property(
+                '{{annotation}}',
+                '{{name}}',
+                '{{bindingAlias}}',
+                '{{type}}',
+                r"""{{comment}}""",
+                '{{classPath}}',
+                {{deprecated}},
+                '{{deprecatedMessage}}'
+              ),
+            {{/inputs}}
+          ], [
+            {{#outputs}}
+              new Property(
+                '{{annotation}}',
+                '{{name}}',
+                '{{bindingAlias}}',
+                '{{type}}',
+                r"""{{comment}}""",
+                '{{classPath}}',
+                {{deprecated}},
+                '{{deprecatedMessage}}'
+              ),
+            {{/outputs}}
+          ]),
+        {{/docs}}
+      ],
+      demos: [
+        {{#demos}}
+          new Demo({{className}}NgFactory, '{{className}}', '{{examplePath}}'),
+        {{/demos}}
+      ],
+      benchmarks: [
+        {{#benchmarks}}
+          '{{.}}',
+        {{/benchmarks}}
+      ],
+      relatedUrls: {
+        {{#relatedUrls}}
+          '{{key}}': '{{value}}',
+        {{/relatedUrls}}
+      },
+    showGeneratedDocs: {{showGeneratedDocs}});
+}
+{{/apiComponents}}

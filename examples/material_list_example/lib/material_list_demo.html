@@ -1,0 +1,205 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<span class="colorchanger" [style.color]="selectedColor">Use the list to change color</span>
+
+<section>
+  <h2>Basic Demo with Groups</h2>
+  <material-list>
+    <div group>
+      <material-list-item (trigger)="selectColor('red')">
+        Red
+      </material-list-item>
+      <material-list-item (trigger)="selectColor('green')">
+        Green
+      </material-list-item>
+    </div>
+    <material-list-item (trigger)="selectColor('coral')">
+      Coral
+    </material-list-item>
+    <material-list-item (trigger)="selectColor('mediumOrchid')">
+      MediumOrchid
+    </material-list-item>
+  </material-list>
+</section>
+
+
+<section>
+  <h2>Different list sizes and a label</h2>
+  <p><em>with borders to demonstrate container size</em></p>
+  <p>Sizes: x-small, small, medium, large, x-large</p>
+  <div *ngFor="let size of sizes">
+    <material-list class="bordered-list"
+                   [size]="size">
+      <div label>List Width {{size}}</div>
+      <material-list-item (trigger)="selectColor('red')" disabled>
+        Red
+      </material-list-item>
+      <material-list-item (trigger)="selectColor('green')">
+        Green
+      </material-list-item>
+      <material-list-item (trigger)="selectColor('coral')">
+        Coral
+      </material-list-item>
+      <material-list-item (trigger)="selectColor('mediumOrchid')">
+        MediumOrchid
+      </material-list-item>
+    </material-list>
+  </div>
+</section>
+
+<section>
+  <h2>Minimum Width</h2>
+  <p><em>with borders to demonstrate container width</em></p>
+  <p><input #input [value]="growingItemLabel" (keypress)="growingItemLabel=input.value"></p>
+  <material-list class="bordered-list"
+                 min-size="small">
+    <div label>Min Width of medium</div>
+    <material-list-item (trigger)="selectColor('red')" disabled>
+      Red
+    </material-list-item>
+    <material-list-item (trigger)="selectColor('green')">
+      Green
+    </material-list-item>
+    <material-list-item (trigger)="selectColor('coral')">
+      {{growingItemLabel}}
+    </material-list-item>
+    <material-list-item (trigger)="selectColor('mediumOrchid')">
+      MediumOrchid
+    </material-list-item>
+  </material-list>
+</section>
+
+<section class="stretched-list">
+  <h2>Stretching to fill Parent</h2>
+  <p><em>via block-material-list mixin</em></p>
+  <material-list class="bordered-list">
+      <material-list-item (trigger)="selectColor('red')" disabled>
+        Red
+      </material-list-item>
+      <material-list-item (trigger)="selectColor('green')">
+        Green
+      </material-list-item>
+      <material-list-item (trigger)="selectColor('coral')">
+        Coral
+      </material-list-item>
+      <material-list-item (trigger)="selectColor('mediumOrchid')">
+        MediumOrchid
+      </material-list-item>
+  </material-list>
+</section>
+
+<section>
+  <h2>Primary and Secondary item content</h2>
+  <material-list class="bordered-list" width="3">
+    <material-list-item>
+      Item with secondary
+      <span class="material-list-item-secondary">
+        ctrl+x
+      </span>
+    </material-list-item>
+    <material-list-item>
+      <material-icon icon="today" class="material-list-item-primary" aria-hidden="true">
+      </material-icon>
+      Item with primary icon
+    </material-list-item>
+    <material-list-item>
+      Item
+    </material-list-item>
+    <material-list-item>
+      Item
+    </material-list-item>
+  </material-list>
+</section>
+
+<section>
+  <h2>Grouping and dividers</h2>
+  <material-list class="bordered-list" width="3">
+    <div group>
+      <material-list-item>
+        Item
+      </material-list-item>
+      <material-list-item>
+        Item
+      </material-list-item>
+      <material-list-item>
+        Item with secondary
+        <span class="material-list-item-secondary">
+          ctrl+x
+        </span>
+      </material-list-item>
+    </div>
+    <div group>
+      <material-list-item>
+        Small Group Item
+      </material-list-item>
+    </div>
+    <material-list-item>
+      <material-icon icon="today" class="material-list-item-primary" aria-hidden="true">
+      </material-icon>
+      Item with primary icon
+    </material-list-item>
+    <material-list-item>
+      Item
+    </material-list-item>
+    <material-list-item>Item</material-list-item>
+  </material-list>
+</section>
+
+<section>
+  <h2>Select Items</h2>
+  <p>`material-select-item` is a special kind of `material-item` which shows a
+    check icon if the item is marked as selected</p>
+  <material-list class="bordered-list" width="3">
+    <material-select-item (trigger)="toggleItem(1)" [selected]="itemSelection.isSelected(1)">
+      Item 1
+    </material-select-item>
+    <material-select-item (trigger)="toggleItem(2)" [selected]="itemSelection.isSelected(2)">
+      Item 2
+    </material-select-item>
+    <material-select-item (trigger)="toggleItem(3)" [selected]="itemSelection.isSelected(3)">
+      Item 3
+    </material-select-item>
+  </material-list>
+</section>
+
+<section>
+  <h2>Navigate Focus via Keyboard</h2>
+  <p><em>
+    Use &lt;tab&gt; to focus an item in the list, then use up/down and left/right keys to navigate.
+  </em></p>
+  <material-list focusList tabindex="0" class="bordered-list">
+    <div group>
+      <material-list-item (trigger)="selectColor('red')" focusItem>
+        Red
+      </material-list-item>
+      <material-list-item (trigger)="selectColor('green')" focusItem>
+        Green
+      </material-list-item>
+    </div>
+    <material-list-item (trigger)="selectColor('coral')" focusItem>
+      Coral
+    </material-list-item>
+    <material-list-item (trigger)="selectColor('mediumOrchid')" focusItem>
+      MediumOrchid
+    </material-list-item>
+  </material-list>
+</section>
+
+<section>
+  <h2>No focus outline</h2>
+  <material-list>
+    <div group>
+      <material-list-item class="no-outline"
+                          (trigger)="selectColor('red')">
+        Red
+      </material-list-item>
+      <material-list-item class="no-outline"
+                          (trigger)="selectColor('green')">
+        Green
+      </material-list-item>
+    </div>
+  </material-list>
+</section>

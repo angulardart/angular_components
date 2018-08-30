@@ -1,0 +1,114 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>Flat</h2>
+  <material-yes-no-buttons></material-yes-no-buttons>
+</section>
+
+<section>
+  <h2>Raised</h2>
+  <material-yes-no-buttons raised></material-yes-no-buttons>
+</section>
+
+<section>
+  <h2>Highlight</h2>
+  <material-yes-no-buttons yesHighlighted></material-yes-no-buttons>
+</section>
+
+<section>
+    <h2>Highlight + Raised (yes button only)</h2>
+    <material-yes-no-buttons yesHighlighted yesRaised></material-yes-no-buttons>
+</section>
+
+<section>
+  <h2>Save cancel</h2>
+  <material-yes-no-buttons saveCancel></material-yes-no-buttons>
+</section>
+
+<section>
+  <h2>Custom text</h2>
+  <material-yes-no-buttons
+      yesText="Agree"
+      noText="Never">
+  </material-yes-no-buttons>
+  <material-yes-no-buttons dense
+      yesText="Condensed Agree"
+      noText="Condensed Never">
+  </material-yes-no-buttons>
+</section>
+
+<section>
+  <h2>Escape triggers `no` action</h2>
+  <material-yes-no-buttons
+      (no)="alert('no-pressed')"
+      escCancels>
+  </material-yes-no-buttons>
+</section>
+
+<section keyupBoundary>
+  <h2>Escape anywhere in the section triggers `no`</h2>
+  Dummy input: <input /><br>
+  <button>Dummy button</button><br>
+  <material-yes-no-buttons
+      (no)="alert('no-pressed')"
+      escCancels>
+  </material-yes-no-buttons>
+</section>
+
+<section keyupBoundary>
+  <h2>Escape anywhere except stopped section triggers `no`</h2>
+  <h3>Propagation works here</h3>
+  Dummy input: <input /><br>
+  <div (keyup)="$event.stopPropagation()">
+    <h3>No propagation up</h3>
+    Dummy input: <input /><br>
+    <button>Dummy button</button><br>
+  </div>
+  <h3>Propagation works here</h3>
+  Dummy input: <input /><br>
+  <button>Dummy button</button><br>
+<material-yes-no-buttons
+      (no)="alert('no-pressed')"
+      escCancels>
+  </material-yes-no-buttons>
+</section>
+
+<section pending>
+  <h2>When doing async stuff, use the pending state</h2>
+  <h3>Show the pending state for 2s when the yes button is clicked</h3>
+  <material-yes-no-buttons
+      (yes)="startPendingTimer()"
+      [pending]="pending">
+  </material-yes-no-buttons>
+
+  <h2>Reverse order</h2>
+  <div style="width: 400px; border: 1px solid black;">
+    <material-yes-no-buttons
+        reverse
+        (yes)="startPendingTimer()"
+        [pending]="pending">
+    </material-yes-no-buttons>
+  </div>
+</section>
+
+<section colors>
+  <h2>Use mixin to change colors</h2>
+  <material-yes-no-buttons raised yesHighlighted
+    class="red-yes">
+  </material-yes-no-buttons>
+  <br>
+  <material-yes-no-buttons raised
+      class="red-no">
+  </material-yes-no-buttons>
+  <br>
+  <material-yes-no-buttons
+    class="red-text-yes">
+  </material-yes-no-buttons>
+  <br>
+  <material-yes-no-buttons
+      class="red-text-no">
+  </material-yes-no-buttons>
+</section>

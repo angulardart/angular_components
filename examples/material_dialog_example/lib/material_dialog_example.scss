@@ -1,0 +1,102 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_dialog/mixins';
+
+material-button[raised] {
+  background: $mat-blue;
+  color: $mat-white;
+  margin: 0 $mat-grid $mat-grid 0;
+}
+
+.basic-dialog,
+.basic-scrolling-dialog,
+.max-height-dialog,
+.headered-dialog {
+  width: $mat-grid * 60;
+
+  [footer] material-button:not([disabled]) {
+    color: $mat-blue;
+  }
+}
+
+.basic-scrolling-dialog {
+  height: $mat-grid * 40;
+
+  [footer] {
+    padding-top: $mat-grid;
+  }
+}
+
+.max-height-dialog {
+  max-height: 60vh;
+
+  [footer] {
+    padding-top: $mat-grid;
+  }
+}
+
+.info-dialog {
+  width: $mat-grid * 40;
+}
+
+.dialog-with-error {
+  width: $mat-grid * 40;
+
+  material-button {
+    margin: $mat-grid 0;
+
+    &.close-button {
+      margin: $mat-grid 0 0 0;
+    }
+  }
+}
+
+.custom-colors-dialog {
+  @include material-dialog-header-color($mat-white);
+  @include material-dialog-header-shadow;
+  background-color: $mat-gray-100;
+  width: $mat-grid * 40;
+
+  [header] h3 {
+    color: $mat-transparent-black;
+  }
+}
+
+.no-header-footer-dialog {
+  @include material-dialog-body-padding;
+  width: $mat-grid * 40;
+
+  p {
+    margin: 0;
+    padding: $mat-grid * 3;
+  }
+
+  material-button {
+    margin: 0 0 $mat-grid * 3 $mat-grid * 3;
+  }
+}
+
+.fullscreen-dialog {
+  @include material-dialog-fullscreen($mat-grid * 100, $mat-grid * 80);
+
+  &.fullscreen-mode {
+    @include material-dialog-header-padding($mat-grid $mat-grid * 2);
+
+    [header] {
+      align-items: center;
+      display: flex;
+
+      material-button {
+        color: $mat-white;
+        margin-right: $mat-grid * 2;
+      }
+
+      h1 {
+        margin: $mat-grid-type / 2 0 0;
+      }
+    }
+  }
+}

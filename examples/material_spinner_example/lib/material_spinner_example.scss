@@ -1,0 +1,29 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+p {
+  font-weight: bold;
+}
+
+div {
+  margin-bottom: $mat-grid * 4;
+}
+
+material-spinner {
+  margin-right: $mat-grid;
+}
+
+.red {
+  border-color: $mat-red;
+}
+
+.yellow {
+  border-color: $mat-yellow;
+}
+
+.green {
+  border-color: $mat-green;
+}

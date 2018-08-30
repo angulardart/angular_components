@@ -1,0 +1,30 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_checkbox/mixins';
+
+:host {
+  @include material-checkbox-color($mat-pink-500, $modifier: '.custom-theme');
+}
+
+.limited-width {
+  width: $mat-grid * 20;
+}
+
+.debug-info {
+  background: $mat-grey-200;
+}
+
+.help-icon {
+  margin: 0 $mat-grid-type;
+}
+
+material-checkbox.top {
+  align-items: flex-start;
+}
+
+.material-checkbox-no-left-margin {
+  @include checkbox-no-left-margin;
+}

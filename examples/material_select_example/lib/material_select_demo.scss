@@ -1,0 +1,22 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_select/mixins';
+
+.bordered-list {
+  border: 1px solid $mat-black;
+  border-radius: $mat-grid;
+  margin: $mat-grid;
+  overflow: hidden;
+}
+
+.trigger-box {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.custom-selected-color {
+  @include material-select-selected-color($mat-green-500);
+}

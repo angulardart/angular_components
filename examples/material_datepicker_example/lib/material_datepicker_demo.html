@@ -1,0 +1,52 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h2>material-datepicker</h2>
+<div style="height: 600px; width: 500px; display: inline-block">
+  <h3>Required</h3>
+  <p>Selected: {{date}}</p>
+  <material-datepicker [(date)]="date"
+                       [minDate]="limitToRange.start"
+                       [maxDate]="limitToRange.end"
+                       [required]="true">
+  </material-datepicker>
+</div>
+<div style="height: 600px; width: 500px; display: inline-block">
+  <h3>Optional</h3>
+  <p>Selected: {{optionalDate}}</p>
+  <material-datepicker [(date)]="optionalDate"
+                       [minDate]="limitToRange.start"
+                       [maxDate]="limitToRange.end"
+                       [required]="false">
+  </material-datepicker>
+</div>
+<div style="height: 600px; width: 500px; display: inline-block">
+  <h3>Compact</h3>
+  <p>Selected: {{date}}</p>
+  <material-datepicker compact
+                       [(date)]="date"
+                       [minDate]="limitToRange.start"
+                       [maxDate]="limitToRange.end"
+                       [required]="true">
+  </material-datepicker>
+</div>
+
+<div style="height: 600px; width: 500px; display: inline-block">
+  <h3>Presets</h3>
+  <p>Selected: {{date}}</p>
+  <material-datepicker [predefinedDates]="predefinedDates"
+                       [(date)]="date"
+                       [minDate]="limitToRange.start"
+                       [maxDate]="limitToRange.end"
+                       [required]="true">
+  </material-datepicker>
+</div>
+
+<div>Limit to date range:
+  <date-range-input
+     [(range)]="limitToRange"
+     style="width:400px; display: inline-flex">
+  </date-range-input>
+</div>

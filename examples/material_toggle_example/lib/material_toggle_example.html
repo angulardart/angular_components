@@ -1,0 +1,81 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>A default toggle button</h2>
+  <material-toggle (checkedChange)="basicState = $event"></material-toggle>
+  {{basicState}}
+</section>
+
+<section>
+  <h2>Toggle buttons with label</h2>
+  <material-toggle label="Toggle button 1">
+  </material-toggle>
+  <br/>
+  <material-toggle [disabled]="false" [checked]="true" label="Toggle button 2">
+  </material-toggle>
+  <br/>
+  <material-toggle
+      [checked]="false"
+      label="Toggle buttons with very long labels will look like this when
+             rendered. Probably a good idea to keep your labels short.">
+  </material-toggle>
+  <br/>
+  <material-toggle [disabled]="true" [checked]="true" label="Disabled">
+  </material-toggle>
+</section>
+
+<section>
+  <h2>Toggle buttons that interact with each other</h2>
+  <material-toggle
+      [disabled]="false"
+      [(checked)]="btEnabled"
+      label="Tap to turn Bluetooth {{btEnabled ? 'OFF' : 'ON'}}.">
+  </material-toggle>
+  <br/>
+  <material-toggle
+      [disabled]="!btEnabled"
+      [(checked)]="deviceVisible"
+      label="Tap to set device {{deviceVisible ? 'invisible' : 'visible'}}.">
+  </material-toggle>
+</section>
+
+<section>
+  <h2>Toggle buttons with different theme colors (using mixins)</h2>
+  <div class="theme-red">
+    <material-toggle checked label="red">
+    </material-toggle>
+  </div>
+  <div class="theme-purple">
+    <material-toggle checked label="purple">
+    </material-toggle>
+  </div>
+  <div class="theme-red">
+    <material-toggle [checked]="false"
+                     disabled
+                     label="red (disabled, OFF)">
+    </material-toggle>
+  </div>
+  <div class="theme-purple">
+    <material-toggle checked
+                     disabled
+                     label="purple (disabled, ON)">
+    </material-toggle>
+  </div>
+</section>
+
+<section >
+  <h2>Custom theme</h2>
+  <h5><em>primary-color: $mat-light-green-500, off-btn-color: $mat-lime-500</em></h5>
+  <div class="custom-theme">
+    <material-toggle [checked]="false" label="Different 'ON' and 'OFF' colors!">
+    </material-toggle>
+  </div>
+  <h2>Toggle label on right</h2>
+  <div class="flip-label">
+    <material-toggle [checked]="false" label="Label on right">
+    </material-toggle>
+  </div>
+</section>

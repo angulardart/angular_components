@@ -1,0 +1,51 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>Material Menu Component</h2>
+  <span class="colorchanger"
+    [style.color]="selectedColor">Use the menu to change color</span>
+  <material-menu [menu]="menuModel" buttonText="OPEN">
+  </material-menu>
+  <material-menu [menu]="menuModelWithIcon">
+  </material-menu>
+  <material-menu [menu]="menuModel">
+    <section menu-button>
+      Customized button
+      <material-icon icon="arrow_drop_down" size="medium" baseline></material-icon>
+    </section>
+  </material-menu>
+
+</section>
+
+<section>
+  <h2>Nested Material Menu</h2>
+  <material-menu [menu]="nestedMenuModel" buttonText="OPEN">
+  </material-menu>
+  <h3>With dropdown style</h3>
+  <dropdown-menu
+      [menu]="nestedMenuModel"
+      buttonText="Open">
+  </dropdown-menu>
+
+  <h3>With dropdown style (nounderline)</h3>
+  <dropdown-menu
+      [menu]="nestedMenuModel"
+      buttonText="Open"
+      class="nounderline">
+  </dropdown-menu>
+
+  <h3>With single- and multi-select menu groups</h3>
+  <dropdown-menu
+      [menu]="selectableMenuModel"
+      buttonText="Open">
+  </dropdown-menu>
+
+  <h3>With menu item affixes</h3>
+  <dropdown-menu
+      [menu]="menuModelWithAffixes"
+      buttonText="Open">
+  </dropdown-menu>
+</section>

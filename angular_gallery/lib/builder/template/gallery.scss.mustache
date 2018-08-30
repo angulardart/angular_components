@@ -1,0 +1,87 @@
+@import 'package:angular_components/app_layout/mixins';
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/mixins';
+@import 'package:angular_components/css/material/shadow';
+@import 'package:angular_components/material_input/mixins';
+
+material-drawer {
+  @include material-scrollbar-theme($mat-blue);
+
+  h1 {
+    line-height: $mat-font-leading-subhead-1;
+    margin: $mat-grid-type * 5 $mat-grid * 2;
+    font-size: $mat-font-size-title;
+    font-weight: $mat-font-weight-medium;
+
+    a {
+      color: $mat-light-transparent-black;
+      text-decoration: none;
+    }
+  }
+
+  material-list {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  [group] > material-list-item {
+    color: $mat-transparent-black;
+    cursor: pointer;
+    font-weight: $mat-font-weight-regular;
+    font-size: $mat-font-size-body;
+    height: $mat-grid * 5;
+
+    &.router-link-active {
+      background: $mat-blue-50;
+      color: $mat-blue-700;
+      font-weight: $mat-font-weight-bold;
+    }
+
+    &.no-matches {
+      color: $mat-grey-500;
+      cursor: unset;
+    }
+  }
+
+  material-select-searchbox[label] {
+    @include material-input-leading-text-padding(0 $mat-grid-type 0 $mat-grid * 2);
+  }
+}
+
+material-content {
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  .material-header {
+    background-color: $mat-blue;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+::ng-deep {
+  // Pretty printing styles. Used with run_prettify.js.
+  pre.prettyprint {
+    border: 1px solid $mat-grey-200;
+    padding: $mat-grid;
+    overflow-x: auto;
+  }
+
+  .pln { color: $mat-grey-800; } // plain text
+
+  li.L0,
+  li.L1,
+  li.L2,
+  li.L3,
+  li.L4,
+  li.L5,
+  li.L6,
+  li.L7,
+  li.L8,
+  li.L9 { list-style-type: decimal }
+}

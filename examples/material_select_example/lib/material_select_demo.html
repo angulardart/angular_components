@@ -1,0 +1,73 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>Basic Usage</h2>
+  <p>The template is responsible for handling item clicks and setting items as selected</p>
+  <material-select width="2" class="bordered-list">
+    <material-select-item (trigger)="proto = 'ftp'"
+                          [selected]="proto == 'ftp'">FTP</material-select-item>
+    <material-select-item (trigger)="proto = 'http'"
+                          [selected]="proto == 'http'">HTTP</material-select-item>
+    <material-select-item (trigger)="proto = 'https'"
+                          [selected]="proto == 'https'">HTTPS</material-select-item>
+  </material-select>
+  <p>Or, create `material-select-item` elements using `*ngFor`.</p>
+  <material-select width="2" class="bordered-list">
+    <material-select-item *ngFor="let p of ['ftp', 'http', 'https']"
+                          (trigger)="proto = p"
+                          [selected]="proto == p">{{p}}</material-select-item>
+  </material-select>
+</section>
+<section>
+  <h2>SelectionModel</h2>
+  <p>See <a href="http://google3/third_party/dart_src/acx/model/selection" target="_blank">
+    google3/third_party/dart_src/acx/model/selection
+  </a> for available selection models.</p>
+  <p>The selection model class handles the details of maintaining a selection. Use it and unlock the
+    full power of `material-select`.</p>
+  <material-select [selection]="defaultLanguageSelection" width="2" class="bordered-list">
+    <material-select-item value="en-US">US English</material-select-item>
+    <material-select-item value="en-UK">UK English</material-select-item>
+    <material-select-item value="fr-CA">Canadian French</material-select-item>
+  </material-select>
+
+  <p>Using a list of options and `*ngFor`.</p>
+  <material-select [selection]="targetLanguageSelection" class="bordered-list">
+    <material-select-item *ngFor="let language of languages"
+                          [value]="language"
+                          displayNameRenderer></material-select-item>
+  </material-select>
+
+  <p>Using a list of options and `*ngFor` with check marks.</p>
+  <material-select [selection]="targetLanguageSelection" class="bordered-list">
+    <material-select-item *ngFor="let language of languages"
+                          [value]="language"
+                          useCheckMarks="true"
+                          displayNameRenderer></material-select-item>
+  </material-select>
+</section>
+<section>
+  <h2>[SelectionModel] and [SelectionOptions]</h2>
+  <p>Really take it to the next level with a [SelectionOptions] instance. It manages the list of
+    options and can be updated on the fly using streams.</p>
+  <material-select [selection]="targetLanguageSelection"
+                   [options]="languageOptions"
+                   displayNameRenderer
+                   width="2"
+                   class="bordered-list"></material-select>
+</section>
+<section>
+  <h2>Custom selected color</h2>
+  <p>Use <code>@include material-select-selected-color($mat-green-500)</code> to change the color of the accent on the selected item.</p>
+  <material-select width="2" class="bordered-list custom-selected-color">
+    <material-select-item (trigger)="proto = 'ftp'"
+                          [selected]="proto == 'ftp'">FTP</material-select-item>
+    <material-select-item (trigger)="proto = 'http'"
+                          [selected]="proto == 'http'">HTTP</material-select-item>
+    <material-select-item (trigger)="proto = 'https'"
+                          [selected]="proto == 'https'">HTTPS</material-select-item>
+  </material-select>
+</section>

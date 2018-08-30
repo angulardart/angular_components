@@ -1,0 +1,152 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h1>Todo list:</h1>
+  <p><em>using `ng-model`</em></p>
+  Remaining: {{remaining()}}
+  <div>
+    <material-checkbox
+        *ngFor="let todo of todos"
+        [(ngModel)]="todo.done"
+        [label]="todo.text">
+    </material-checkbox>
+  </div>
+  <div>
+    <material-input
+        [ngFormControl]="newTodo"
+        label="add new todo here"
+        type="text"
+        required
+        errorMsg="This input requires a value!">
+    </material-input>
+    <material-button raised (trigger)="addTodo()">add it</material-button>
+  </div>
+  <div class="debug-info">
+    Form entry = {{newTodo.value}}<br/>
+    Model dump:
+    <ul>
+      <li *ngFor="let todo of todos">{{todo.text}}: {{todo.done}}</li>
+    </ul>
+  </div>
+</section>
+
+<hr/>
+
+<section>
+  <h1>Custom:</h1>
+  <p><em>Tab Index</em></p>
+  <div>
+    <material-checkbox no-ink
+        tabindex="2"
+        label="Custom tab index">
+    </material-checkbox>
+  </div>
+  <p><em>no ripple on click, using events and properties</em></p>
+  <div>
+    <material-checkbox no-ink
+        [disabled]="disabledState"
+        [(checked)]="checkedState"
+        [(indeterminate)]="indeterminateState"
+        [indeterminateToChecked]="indeterminateBehavior"
+        (change)="statusStr=$event"
+        [label]="customLabel">
+    </material-checkbox>
+  </div>
+  <div>
+    <material-input
+        [ngFormControl]="newLabel"
+        label="enter new label here"
+        type="text">
+    </material-input>
+    <material-button raised (trigger)="setLabel()">update label</material-button><br/>
+    <material-toggle
+        [(checked)]="disabledState"
+        label="Tap to {{disabledState ? 'enable' : 'disable'}}">
+    </material-toggle><br/>
+    <material-toggle
+        [(checked)]="indeterminateState"
+        label="Tap to {{indeterminateState ? 'unset indeterminate' : 'set indeterminate'}}">
+    </material-toggle><br/>
+    <material-toggle
+        [(checked)]="indeterminateBehavior"
+        label="Tap to {{indeterminateBehavior ? 'go from indeterminate to unchecked' : 'go from indeterminate to checked'}}">
+    </material-toggle><br/>
+  </div>
+  <div class="debug-info">
+    new label = {{newLabel.value}}<br/>
+    current label = {{customLabel}}<br/>
+    status = {{statusStr}}<br/>
+    checked = {{checkedState}}<br/>
+    disabled = {{disabledState}}<br/>
+    indeterminate = {{indeterminateState}}<br/>
+    indeterminateToChecked = {{indeterminateBehavior}}<br/>
+  </div>
+</section>
+
+<hr/>
+
+<section>
+  <h1>Various states:</h1>
+  <div>
+    <h3>No label</h3>
+    <material-checkbox></material-checkbox>
+    <h3>Unchecked</h3>
+    <material-checkbox label="plain unchecked"></material-checkbox>
+    <h3>Checked</h3>
+    <material-checkbox [checked]="true" label="plain checked"></material-checkbox>
+    <h3>Indeterminate</h3>
+    <material-checkbox [indeterminate]="true" label="work in progress"></material-checkbox>
+    <h3>Disabled</h3>
+    <material-checkbox [disabled]="true" label="mission impossible"></material-checkbox>
+    <h3>Checked and disabled</h3>
+    <material-checkbox [checked]="true" [disabled]="true" label="done and done">
+    </material-checkbox>
+    <h3>Indeterminate and disabled</h3>
+    <material-checkbox [indeterminate]="true" [disabled]="true" label="done and done">
+    </material-checkbox>
+    <h3>Checked and indeterminate = indeterminate</h3>
+    <material-checkbox [indeterminate]="true" [checked]="true" label="indeterminate?">
+    </material-checkbox>
+    <h3>Programmatically set checkbox color</h3>
+    <material-checkbox
+      label="A red checkbox"
+      themeColor="#FF0000">
+    </material-checkbox>
+    <material-checkbox
+      label="A magenta checkbox"
+      themeColor="#FF00FF">
+    </material-checkbox>
+    <h3>Label wrapped if width limit is enforced</h3>
+    <material-checkbox
+        class="limited-width"
+        label="long label is bad label, but internationalisation has its own opinions">
+    </material-checkbox>
+    <h3>Custom content; align top</h3>
+    <material-checkbox class="top">
+      <div class="custom">
+        Your feedback <a href="http://google.com" target="_blank">more info</a>
+        <material-icon icon="help" baseline class="help-icon"></material-icon><br/>
+        <textarea cols="40" rows="2"></textarea>
+      </div>
+    </material-checkbox>
+  </div>
+</section>
+
+<section>
+  <h1>Custom theme:</h1>
+  <div>
+    <h3><em>material-checkbox-color($mat-pink-500)</em></h3>
+    <material-checkbox class="custom-theme" [checked]="true" label="Themed!"></material-checkbox>
+  </div>
+</section>
+
+<section>
+  <h1>Custom mixins:</h1>
+  <div>
+    <h3>checkbox-no-left-margin</h3>
+    <material-checkbox class="material-checkbox-no-left-margin"></material-checkbox>
+  </div>
+</section>

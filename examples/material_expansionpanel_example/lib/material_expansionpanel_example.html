@@ -1,0 +1,244 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <material-expansionpanel-set>
+    <material-expansionpanel wide
+                             name="Name"
+                             (close)="showConfirmationDialog($event)"
+                             (cancel)="showConfirmationDialog($event)">
+      <span value>{{name}}</span>
+
+      <div>
+        <span>Change the name:</span>
+        <material-input autoFocus [ngModel]="name" (inputKeyPress)="name = $event"></material-input>
+      </div>
+    </material-expansionpanel>
+
+    <material-expansionpanel wide
+                             name="Count 1"
+                             value="All conversions"
+                             secondaryText="Optional">
+      Choose your conversion count!
+    </material-expansionpanel>
+
+    <material-expansionpanel wide
+                             name="Count 2"
+                             secondaryText="Optional"
+                             [hideExpandedHeader]="true">
+      Panel with header hidden when expanded
+    </material-expansionpanel>
+
+    <material-expansionpanel wide
+                             name="Buttons with custom text"
+                             saveText="Read more"
+                             cancelText="Close">
+      Panel with custom text in the button bar
+    </material-expansionpanel>
+
+    <material-expansionpanel wide name="Value" disabled>
+      Choose your conversion value!<br/>
+    </material-expansionpanel>
+
+    <material-expansionpanel wide>
+      <div name>
+        <material-icon icon="reminder" class="reminder" size="medium"></material-icon>
+        Reminder
+      </div>
+      <div value>
+        Panel headers can also have custom names.
+      </div>
+    </material-expansionpanel>
+  </material-expansionpanel-set>
+</section>
+
+<section class="flat-panels">
+  <p>
+    Another set of ExpansionPanels configured for use inside a side panel using the flat attribute
+  </p>
+
+  <material-expansionpanel flat name="Section 1" [showSaveCancel]="false">
+    The first section of the side panel!
+  </material-expansionpanel>
+
+  <material-expansionpanel flat name="Section 2" [showSaveCancel]="false">
+    The second section of the side panel!
+  </material-expansionpanel>
+
+  <material-expansionpanel flat name="Section 3" [showSaveCancel]="false">
+    The last section of the side panel!
+  </material-expansionpanel>
+</section>
+
+<section class="expand-on-left-panels">
+  <p>
+    ExpansionPanels with the expansion button on the left using the shouldExpandOnLeft attribute
+  </p>
+
+  <material-expansionpanel shouldExpandOnLeft name="Header" [showSaveCancel]="false">
+    The header remains visible when this panel is expanded.
+  </material-expansionpanel>
+
+  <material-expansionpanel shouldExpandOnLeft name="No header"
+                           [hideExpandedHeader]="true"
+                           [showSaveCancel]="false">
+    The header disappears when this panel is expanded.
+  </material-expansionpanel>
+</section>
+
+<section class="independent-panels">
+  <p>
+    Another set of ExpansionPanels configured different that don't belong to a PanelSet, and can be
+    opened independently.
+  </p>
+
+  <material-expansionpanel
+      autoDismissable
+      name="Click outside auto-collapses this panel (autoDismissable attribute)">
+    This panel will be automatically collapsed when there is a click outside of it.
+  </material-expansionpanel>
+
+  <material-expansionpanel
+      name="Confirmation when cancelling"
+      (cancel)="showConfirmationDialog($event)">
+    This panel will ask for confirmation when the "Cancel" button is pressed.
+  </material-expansionpanel>
+
+  <material-expansionpanel name="Ordinary panel">
+    This is a normal panel with no frills.
+  </material-expansionpanel>
+
+  <material-expansionpanel name="No buttons" [showSaveCancel]="false">
+    Just click on this panel again to close it.
+  </material-expansionpanel>
+
+  <material-expansionpanel name="No header" [hideExpandedHeader]="true">
+    The header disappears when this panel is expanded.
+  </material-expansionpanel>
+
+  <material-expansionpanel name="Icon only expansion" [disableHeaderExpansion]="true">
+    Clicking on the header does not expand or collapse the panel.
+  </material-expansionpanel>
+
+  <material-expansionpanel name="Expanded by default" [expanded]="true">
+    This panel is expanded by default. Click on this panel to close it.
+  </material-expansionpanel>
+
+  <material-expansionpanel
+      class="left-align-action-buttons"
+      name="Expanded by default with left align action buttons"
+      [expanded]="true">
+    This panel is expanded by default. Click on this panel to close it.
+  </material-expansionpanel>
+
+  <material-expansionpanel
+      class="custom-toolbelt-panel"
+      name="Expanded by default with custom toolbelt"
+      [showSaveCancel]="false"
+      [expanded]="isCustomToolBeltPanelExpanded"
+      (expandedChange)="isCustomToolBeltPanelExpanded = $event">
+    This panel is expanded by default. Click on this panel to close it.
+    <div toolbelt>
+      <material-yes-no-buttons class="custom-toolbelt-buttons"
+          yesText="Done"
+          noText="Cancel"
+          (yes)="isCustomToolBeltPanelExpanded = false"
+          (no)="isCustomToolBeltPanelExpanded = false">
+      </material-yes-no-buttons>
+      <material-button icon (trigger)="isCustomToolBeltPanelExpanded = false">
+        <material-icon icon="delete"></material-icon>
+      </material-button>
+    </div>
+  </material-expansionpanel>
+
+  <material-expansionpanel name="Custom expand icon" expandIcon="edit">
+    This panel has a custom expand icon which disappears when the panel is expanded.
+  </material-expansionpanel>
+
+  <material-expansionpanel
+      name="Custom expand icon with no header"
+      [hideExpandedHeader]="true"
+      expandIcon="edit">
+    This panel has a custom expand icon and hides the header when the panel is expanded.
+  </material-expansionpanel>
+
+  <material-expansionpanel disabled
+                           [expanded]="true"
+                           [hideExpandedHeader]="true"
+                           [showSaveCancel]="false">
+    Card-like panel
+  </material-expansionpanel>
+
+  <material-expansionpanel class="dark"
+                           name="Dark theme"
+                           secondaryText="Optional"
+                           [expanded]="true">
+    This panel uses the Dark theme mixin.
+  </material-expansionpanel>
+
+  <material-expansionpanel class="dense"
+                           [showSaveCancel]="false"
+                           name="Dense theme">
+    This panel uses the Dense theme mixin.
+  </material-expansionpanel>
+
+  <material-expansionpanel class="dense"
+                           name="Dense theme - secondary text"
+                           [showSaveCancel]="false"
+                           secondaryText="Optional">
+    This panel uses the Dense theme mixin.
+  </material-expansionpanel>
+
+
+  <material-expansionpanel class="dense"
+                           name="Dense theme with buttons">
+    This panel uses the Dense theme mixin.
+  </material-expansionpanel>
+
+  <material-expansionpanel
+      [alwaysHideExpandIcon]="true"
+      [hideExpandedHeader]="true"
+      name="Panel with header actions on the right">
+    <div action class="action">
+      <material-button>
+        Edit
+      </material-button>
+      <material-button>
+        Duplicate
+      </material-button>
+    </div>
+    This is a panel with additional actions on the right part of the header.
+    Clicking header actions doesn't expand the panel.
+  </material-expansionpanel>
+
+  <material-expansionpanel
+      class="bottom-header-action"
+      [alwaysHideExpandIcon]="true"
+      [hideExpandedHeader]="true"
+      name="Panel with header actions on the bottom">
+    <div action class="action">
+      <material-button>
+        Edit
+      </material-button>
+      <material-button>
+        Duplicate
+      </material-button>
+    </div>
+    This is a panel with additional actions on the bottom part of the header.
+    Clicking header actions doesn't expand the panel.
+  </material-expansionpanel>
+
+</section>
+
+<modal [visible]="showConfirmation">
+  <material-dialog class="confirmation-dialog">
+    <h3>Do you really want to cancel?</h3>
+    <material-yes-no-buttons raised
+                             yesHighlighted
+                             (yes)="closeDialog(true)"
+                             (no)="closeDialog(false)">
+    </material-yes-no-buttons>
+  </material-dialog>
+</modal>

@@ -1,0 +1,16 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+/// A mixin to customize the color scheme of the gallery component.
+@mixin gallery-component-theme($primary-color) {
+  ::ng-deep .toc {
+    border-left-color: $primary-color;
+  }
+
+  ::ng-deep h2,
+  .doc ::ng-deep strong,
+  ::ng-deep .property-type {
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,57 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<material-input type="number"
+                keypressUpdate
+                [(ngModel)]="value">
+</material-input>
+<div>
+  Number value (changes on keypress): {{value}}
+  <material-fab mini
+                raised
+                (trigger)="increaseValue()">
+    +1
+  </material-fab>
+</div>
+
+<h2>Form API</h2>
+<material-input type="number"
+                [ngFormControl]="form">
+</material-input>
+<div>
+  Form value (changes on blur): {{form.value}}
+  <material-fab mini
+                raised
+                (trigger)="increaseFormValue()">
+    +2
+  </material-fab>
+</div>
+
+<h2>NumberFormat</h2>
+
+<div>
+  Edit:
+  <material-input type="number"
+                keypressUpdate
+                [(ngModel)]="decimalValue">
+  </material-input>
+</div>
+Raw value: {{decimalValue}}
+
+
+<h3>Default format</h3>
+<material-input type="number"
+                keypressUpdate
+                disabled
+                [(ngModel)]="decimalValue">
+</material-input>
+
+<h3>Custom format (4 decimals):</h3>
+<material-input type="number"
+                fourDecimals
+                disabled
+                keypressUpdate
+                [(ngModel)]="decimalValue">
+</material-input>

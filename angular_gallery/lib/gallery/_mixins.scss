@@ -1,0 +1,42 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/mixins';
+@import 'package:angular_components/material_input/mixins';
+@import 'third_party/dart_src/acx/scaffolding/gallery_section/components/gallery_component/lib/mixins';
+
+/// A mixin to customize the color scheme of acx gallery.
+@mixin gallery-theme($map) {
+  $primary-color: map-get($map, 500);
+
+  material-drawer {
+    @include material-scrollbar-theme($primary-color);
+
+    material-select-searchbox {
+      @include material-input-theme($primary-color)
+    }
+
+    material-list [group] material-list-item.router-link-active {
+      background: map-get($map, 50);
+      color: map-get($map, 700);
+    }
+  }
+
+  material-content .material-header {
+    background-color: $primary-color;
+
+    // TODO(google) Allow setting with the gallery-theme mixin, b/69327761.
+    material-icon {
+      color: $mat-white;
+    }
+  }
+
+  ::ng-deep material-content .container {
+    a {
+      color: $primary-color;
+    }
+
+    @include gallery-component-theme($primary-color);
+  }
+}

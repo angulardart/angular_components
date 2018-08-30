@@ -1,0 +1,23 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_yes_no_buttons/mixins';
+
+.red-yes {
+  @include material-yes-button-color($mat-red-500);
+}
+
+.red-no {
+  @include material-no-button-color($mat-red-500);
+  @include material-no-button-text-color($mat-white);
+}
+
+.red-text-yes {
+  @include material-yes-button-text-color($mat-red-500);
+}
+
+.red-text-no {
+  @include material-no-button-text-color($mat-red-500);
+}
