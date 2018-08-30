@@ -9,7 +9,8 @@ import 'dart:core' show int, bool, double, String, List, override;
 
 import 'package:protobuf/protobuf.dart';
 
-import 'package:angular_components/material_datepicker/proto/date.pb.dart' as $date$type;
+import 'package:angular_components/material_datepicker/proto/date.pb.dart'
+    as $date$type;
 
 class DatepickerDateRange extends GeneratedMessage {
   static final BuilderInfo _i = new BuilderInfo('DatepickerDateRange')
@@ -145,10 +146,10 @@ class _ReadonlyDatepickerDateRange extends DatepickerDateRange
 
 class DateRange extends GeneratedMessage {
   static final BuilderInfo _i = new BuilderInfo('DateRange')
-    ..a<$date$type.Date>(1, 'start', PbFieldType.OM,
-        $date$type.Date.getDefault, $date$type.Date.create)
-    ..a<$date$type.Date>(2, 'end', PbFieldType.OM,
-        $date$type.Date.getDefault, $date$type.Date.create)
+    ..a<$date$type.Date>(1, 'start', PbFieldType.OM, $date$type.Date.getDefault,
+        $date$type.Date.create)
+    ..a<$date$type.Date>(2, 'end', PbFieldType.OM, $date$type.Date.getDefault,
+        $date$type.Date.create)
     ..hasRequiredFields = false;
 
   DateRange() : super();
