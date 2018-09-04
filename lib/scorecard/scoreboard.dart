@@ -15,7 +15,7 @@ import 'package:angular_components/utils/color/palette.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 import 'scorecard.dart';
-import 'package:angular_components/src/scorecard/scorecard_bar.dart';
+import 'scorecard_bar.dart';
 
 /// This component manages a row of scorecards.
 ///
