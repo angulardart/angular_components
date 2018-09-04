@@ -27,6 +27,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// not take this precaution, then in some situations, some cards will always be
 /// partially covered by the scroll buttons, regardless of how the user
 /// scrolled.
+// TODO(google): move this file to a shared common directory.
 @Directive(
   selector: '[scorecardBar]',
 )
