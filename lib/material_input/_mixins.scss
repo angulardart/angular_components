@@ -67,6 +67,13 @@
   }
 }
 
+/// Changes the bottom section margin of material input.
+@mixin input-bottom-section-margin($margin) {
+  ::ng-deep .bottom-section {
+    margin: $margin;
+  }
+}
+
 /// Changes the bottom section padding of material input.
 @mixin input-bottom-section-padding($padding) {
   ::ng-deep .bottom-section {
