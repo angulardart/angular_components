@@ -126,6 +126,13 @@ abstract class StickyController implements Disposable {
   /// Whether the StickyController is using position: sticky for sticky
   /// elements.
   bool get usePositionSticky;
+
+  /// Whether elements with the same stickyKey should smoothly "push" each other
+  /// when they collide, instead of overlapping.
+  ///
+  /// This does not work correctly for any current implementations when
+  /// interleaving different stickyKeys.
+  bool enableSmoothPushing;
 }
 
 /// Sticky controller z index.
