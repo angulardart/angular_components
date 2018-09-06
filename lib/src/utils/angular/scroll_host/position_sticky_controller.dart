@@ -79,6 +79,14 @@ class PositionStickyController implements StickyController {
   }
 
   @override
+  bool get enableSmoothPushing => false;
+
+  @override
+  set enableSmoothPushing(bool _) {
+    // not implemented
+  }
+
+  @override
   void dispose() {
     for (var stickyElement in _stickyElements) {
       _removeStickyStyle(stickyElement);

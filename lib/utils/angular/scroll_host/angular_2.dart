@@ -53,15 +53,22 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
 
   bool _disableAutoScroll;
   bool _usePositionSticky = false;
+  bool _enableSmoothPushing = false;
 
   ElementScrollHost(this._domService, this._ngZone,
       this._gestureListenerFactory, this.element);
 
   @override
   void ngOnInit() {
+    _init();
+  }
+
+  void _init() {
+    _scrollHost?.dispose();
     _scrollHost = ElementScrollHostBase(
         _domService, _ngZone, _gestureListenerFactory, element,
         usePositionSticky: _usePositionSticky);
+    stickyController.enableSmoothPushing = _enableSmoothPushing;
   }
 
   @Input()
@@ -74,16 +81,28 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
     }
   }
 
+  /// If enabled, smoothly push colliding elements which share a stickyKey,
+  /// instead of overlapping them (limitations apply).
+  ///
+  /// Limitations are:
+  ///
+  /// - The behavior is unspecified when elements with differing stickyKeys are
+  ///   interleaved. It should only be enabled when using one stickyKey.
+  ///
+  /// - Ignored if [usePositionSticky] is true.
+  @Input()
+  set enableSmoothPushing(bool value) {
+    _enableSmoothPushing = value;
+    stickyController?.enableSmoothPushing = value;
+  }
+
   /// Whether to use the position: sticky [StickyController] for improved
   /// scrolling performance.
   @Input()
   set usePositionSticky(bool value) {
     _usePositionSticky = value;
     if (_scrollHost != null) {
-      _scrollHost.dispose();
-      _scrollHost = ElementScrollHostBase(
-          _domService, _ngZone, _gestureListenerFactory, element,
-          usePositionSticky: _usePositionSticky);
+      _init();
     }
   }
 
@@ -140,7 +159,7 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
   PanController get panController => _scrollHost.panController;
 
   @override
-  StickyController get stickyController => _scrollHost.stickyController;
+  StickyController get stickyController => _scrollHost?.stickyController;
 
   @override
   int get scrollLength => _scrollHost.scrollLength;
