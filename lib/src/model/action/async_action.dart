@@ -40,7 +40,7 @@ import 'dart:async';
 ///     streamCtrl.add(ctrl.action);
 ///     ctrl.execute((shouldProceed) {
 ///       // `shouldProceed` is true only if `whetherToCancel` futures all
-///       // returned true.
+///       // returned false.
 ///     }
 ///
 ///     return ctrl.action.onDone.then((completed) {
