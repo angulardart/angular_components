@@ -114,7 +114,6 @@ class MaterialTooltipDirective extends TooltipTarget
     _isShown = false;
     _delayedActivate.cancel();
     _tooltip?.deactivate(immediate: immediate);
-    _inkTooltip?.deactivate();
   }
 
   void _maybeLoadTooltip() {
