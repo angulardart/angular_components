@@ -42,7 +42,9 @@ import 'tooltip_target.dart';
                         [preferredPositions]="positions"
                         [source]="popupSource"
                         [visible]="showPopup">
-          <div *deferredContent class="ink-container">
+          <div *deferredContent class="ink-container"
+               (mouseover)="onMouseOver()"
+               (mouseleave)="onMouseLeave()">
             {{text}}<ng-content></ng-content>
           </div>
         </material-popup>''',
@@ -85,6 +87,14 @@ class MaterialInkTooltipComponent implements Tooltip {
   void deactivate({bool immediate = false}) {
     _showPopup = false;
     _changeDetector.markForCheck();
+  }
+
+  void onMouseOver() {
+    _tooltipController.keepOpen(this);
+  }
+
+  void onMouseLeave() {
+    _tooltipController.deactivate(this);
   }
 
   /// The element at which this tooltip is targeted.
