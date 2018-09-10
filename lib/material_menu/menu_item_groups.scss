@@ -15,7 +15,9 @@ $menu-item-selector: '.menu-item';
 
 .group-header {
   @include list-item-base();
-  @include mat-type-caption();
+  // TODO(google): Migrate to extended mixin mat-font-caption
+  font-size: $mat-font-size-caption;
+  font-weight: $mat-font-weight-regular;
 
   color: $mat-light-transparent-black;
   height: $mat-grid * 3;

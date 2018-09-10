@@ -97,7 +97,9 @@ $x-large: 7;
     [label] {
       @include list-item-base;
       color: $mat-grey-500;
-      @include mat-type-caption();
+      // TODO(google): Migrate to extended mixin mat-font-caption
+      font-size: $mat-font-size-caption;
+      font-weight: $mat-font-weight-regular;
     }
   }
 }

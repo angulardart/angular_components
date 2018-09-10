@@ -58,7 +58,9 @@ focus-trap {
 }
 
 .error {
-  @include mat-type-body;
+  // TODO(google): Migrate to extended mixin mat-font-body
+  font-size: $mat-font-size-body;
+  font-weight: $mat-font-weight-regular;
   box-sizing: border-box;
   flex-shrink: 0;
   background: $mat-gray-200;
@@ -75,7 +77,9 @@ focus-trap {
 }
 
 main {
-  @include mat-type-body;
+  // TODO(google): Migrate to extended mixin mat-font-body
+  font-size: $mat-font-size-body;
+  font-weight: $mat-font-weight-regular;
   box-sizing: border-box;
   flex-grow: 1;
   color: $mat-transparent-black;

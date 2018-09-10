@@ -52,7 +52,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 @mixin _button-dense {
   &:not([icon]) {
     height: $mat-grid * 4;
-    font-size: $mat-body-font-size;
+    font-size: $mat-font-size-body;
   }
 }
 
@@ -87,7 +87,13 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
     color: $mat-white;
   }
 
-  @include mat-type-button;
+  // TODO(google): Migrate to extended mixin mat-font-button
+
+  font-size: $mat-font-size-button;
+
+  font-weight: $mat-font-weight-medium;
+
+  text-transform: uppercase;
 
   user-select: none;
   background: transparent;

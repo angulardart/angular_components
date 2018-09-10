@@ -11,10 +11,10 @@
 $color-hover-grey: rgba(0, 0, 0, .06);
 
 // Fonts.
-$font-size-app: $mat-body-font-size;
-$font-size-app-big: $mat-button-font-size;
+$font-size-app: $mat-font-size-body;
+$font-size-app-big: $mat-font-size-button;
 $font-size-heading: 32px;
-$font-size-heading-big: $mat-display-1-font-size;
+$font-size-heading-big: $mat-font-size-display-1;
 
 :host {
   color: $mat-transparent-black;
