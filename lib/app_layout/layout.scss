@@ -161,7 +161,7 @@ $mat-header-dense-height: 48px;
     bottom: 0;
     box-sizing: border-box;
     display: block;
-    height: $mat-title-font-size;
+    height: $mat-font-size-title;
     left: $mat-grid * 10;
     line-height: 1;
     // Set the bottom/top 0 and bottom/top margins to auto so that we can
@@ -171,7 +171,9 @@ $mat-header-dense-height: 48px;
     // Used so that we can position an exact amount from start.
     position: absolute;
     top: 0;
-    @include mat-type-title();
+    // TODO(google): Migrate to extended mixin mat-font-title
+    font-size: $mat-font-size-title;
+    font-weight: $mat-font-weight-medium;
   }
 
   /// Class used to take up the rest of the space in a header

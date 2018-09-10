@@ -188,7 +188,7 @@ input[type=number] {
 
 .animated.label-text {
   transform: translateY(-100%) translateY(-$mat-grid);
-  font-size: $mat-caption-font-size;
+  font-size: $mat-font-size-caption;
 }
 
 .leading-text.floated-label,
@@ -262,7 +262,7 @@ input[type=number] {
 .error-text,
 .hint-text,
 .spaceholder {
-  font-size: $mat-caption-font-size;
+  font-size: $mat-font-size-caption;
 }
 
 .spaceholder {

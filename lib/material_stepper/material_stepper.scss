@@ -77,7 +77,7 @@ $edit-icon-size: $mat-grid * 2;
   box-sizing: content-box;
   color: $mat-white;
   cursor: default;
-  font-size: $mat-body-font-size;
+  font-size: $mat-font-size-body;
   height: $step-index-radius;
   line-height: $step-index-radius;
   text-align: center;
@@ -170,7 +170,9 @@ $edit-icon-size: $mat-grid * 2;
 }
 
 .stepper-step-name {
-  @include mat-type-subhead();
+  // TODO(google): Migrate to extended mixin mat-font-subhead
+  font-size: $mat-font-size-subhead;
+  font-weight: $mat-font-weight-regular;
   color: $mat-black;
   margin: 0 auto;
 
@@ -203,13 +205,17 @@ $edit-icon-size: $mat-grid * 2;
 }
 
 .stepper-step-optional {
-  @include mat-type-subhead();
+  // TODO(google): Migrate to extended mixin mat-font-subhead
+  font-size: $mat-font-size-subhead;
+  font-weight: $mat-font-weight-regular;
   color: $mat-grey-400;
   text-align: center;
   width: $mat-grid * 10;
 
   &[orientation = horizontal] {
-    @include mat-type-caption();
+    // TODO(google): Migrate to extended mixin mat-font-caption
+    font-size: $mat-font-size-caption;
+    font-weight: $mat-font-weight-regular;
 
     &[optional = false] {
       width: 0;
@@ -226,7 +232,9 @@ $edit-icon-size: $mat-grid * 2;
 }
 
 .stepper-step-summary {
-  @include mat-type-caption();
+  // TODO(google): Migrate to extended mixin mat-font-caption
+  font-size: $mat-font-size-caption;
+  font-weight: $mat-font-weight-regular;
   color: $mat-grey-600;
   padding-top: $mat-grid * 2;
 }

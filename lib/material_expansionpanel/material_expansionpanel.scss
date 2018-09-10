@@ -76,7 +76,9 @@ header {
   align-items: center;
   display: flex;
   flex-grow: 1;
-  @include mat-type-subhead;
+  // TODO(google): Migrate to extended mixin mat-font-subhead
+  font-size: $mat-font-size-subhead;
+  font-weight: $mat-font-weight-regular;
   cursor: pointer;
   min-height: $mat-grid * 6;
   min-width: 0;
@@ -115,7 +117,9 @@ header {
   }
 
   .secondary-text {
-    @include mat-type-caption;
+    // TODO(google): Migrate to extended mixin mat-font-caption
+    font-size: $mat-font-size-caption;
+    font-weight: $mat-font-weight-regular;
     color: $mat-light-transparent-black;
     margin: 0;
   }

@@ -38,7 +38,9 @@
 // Styles text that is used as a floating label over a material component.
 @mixin mat-input-header() {
   color: $mat-gray-600;
-  @include mat-type-caption();
+  // TODO(google): Migrate to extended mixin mat-font-caption
+  font-size: $mat-font-size-caption;
+  font-weight: $mat-font-weight-regular;
 }
 
 // *************************************
