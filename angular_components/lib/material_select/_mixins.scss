@@ -124,3 +124,11 @@
     margin: $margin;
   }
 }
+
+/// Reduces the height of the dropdown button, at the cost of no longer aligning
+/// the underline with material-input's.
+@mixin dropdown-button-compact-height() {
+  ::ng-deep .button.border {
+    padding-bottom: 0;
+  }
+}

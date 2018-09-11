@@ -6,6 +6,7 @@
 @import 'constants';
 @import 'package:angular_components/css/material/material';
 @import 'package:angular_components/css/material/mixins';
+@import 'package:angular_components/material_select/mixins';
 
 // Defines calendar highlight colors for the calendar selected with the given
 // selector. It's meant to be included at the top-level so that the
@@ -208,6 +209,51 @@
 @mixin range-title-margin($margin) {
   ::ng-deep .range-title {
     margin: $margin;
+  }
+}
+
+// Display the range-title (which shows the title text of the selected date
+// range) to the left of the primary-range (which shows the selected dates).
+//
+// The comparison range still displays underneath the primary-range, if present.
+//
+// Useful in height-constrained environments.
+@mixin horizontal-primary-title-and-range() {
+  ::ng-deep {
+    // Make the outer div horizontal.
+    .main-content {
+      flex-direction: row;
+      height: auto;
+    }
+
+    // And the inner div vertical.
+    .dropdown-and-comparison {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .range-title {
+      font-size: inherit; // match font size of text inside dropdown trigger
+      margin: 0 $mat-grid 0 0;
+    }
+  }
+}
+
+// Remove 8px of vertical padding from the dropdown styling.
+//
+// Useful in height-constrained environments.
+@mixin dropdown-compact-height() {
+  ::ng-deep {
+    // Remove padding from within the <dropdown-button> element.
+    @include dropdown-button-compact-height();
+
+    .next-prev-buttons {
+      top: 0;
+    }
+
+    .range-title {
+      padding-top: $mat-grid-type;
+    }
   }
 }
 

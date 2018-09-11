@@ -16,20 +16,22 @@
        *ngIf="hasTitle && presets.isNotEmpty">
     {{rangeTitle}}
   </div>
-  <span class="main-line">
-    <dropdown-button class="menu-lookalike primary-range"
-        [disabled]="disabled"
-        [buttonText]="formattedRange"
-        [error]="error">
-    </dropdown-button>
-    <next-prev-buttons *ngIf="showNextPrevButtons"
-                       class="next-prev-buttons"
-                       [disabled]="disabled"
-                       [model]="model">
-    </next-prev-buttons>
-  </span>
-  <div class="comparison-title" *ngIf="hasComparison">
-    {{formattedComparison}}
+  <div class="dropdown-and-comparison">
+    <span class="main-line">
+      <dropdown-button class="menu-lookalike primary-range"
+          [disabled]="disabled"
+          [buttonText]="formattedRange"
+          [error]="error">
+      </dropdown-button>
+      <next-prev-buttons *ngIf="showNextPrevButtons"
+                         class="next-prev-buttons"
+                         [disabled]="disabled"
+                         [model]="model">
+      </next-prev-buttons>
+    </span>
+    <div class="comparison-title" *ngIf="hasComparison">
+      {{formattedComparison}}
+    </div>
   </div>
 </div>
 
