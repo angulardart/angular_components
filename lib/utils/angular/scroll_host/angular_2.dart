@@ -71,6 +71,14 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
     stickyController.enableSmoothPushing = _enableSmoothPushing;
   }
 
+  /// If true, forces a vertical scrollbar to appear even if the contents are
+  /// not long enough to normally trigger a scrollbar.
+  ///
+  /// Works by setting `overflow-y` to `scroll` on the attached element.
+  /// If false, `overflow-y` is set to `auto`.
+  ///
+  /// This avoids a re-layout in cases where the content of the scroll area is
+  /// loaded dynamically, thus improving performance slightly.
   @Input()
   set disableAutoScroll(bool value) {
     if (value != _disableAutoScroll) {
