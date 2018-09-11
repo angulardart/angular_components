@@ -1,0 +1,115 @@
+import 'dart:html';
+
+import 'package:angular/angular.dart';
+import 'package:angular_router/angular_router.dart';
+import 'package:angular_forms/angular_forms.dart';
+import 'package:angular_components/app_layout/material_persistent_drawer.dart';
+import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/highlighted_text/highlighted_value.dart';
+import 'package:angular_components/material_button/material_button.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
+import 'package:angular_components/material_list/material_list.dart';
+import 'package:angular_components/material_list/material_list_item.dart';
+import 'package:angular_components/material_select/material_select_searchbox.dart';
+import 'package:angular_components/model/selection/string_selection_options.dart';
+import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/model/ui/highlight_assistant.dart';
+import 'package:angular_components/model/ui/highlight_provider.dart';
+import 'package:angular_components/model/ui/highlighted_text_model.dart';
+
+import 'gallery_route_library.dart';
+
+/// Gallery component with routing and breadcrumbs for all examples.
+@Component(
+    selector: 'root',
+    directives: [
+      AutoFocusDirective,
+      HighlightedValueComponent,
+      MaterialButtonComponent,
+      MaterialIconComponent,
+      MaterialListComponent,
+      MaterialListItemComponent,
+      MaterialPersistentDrawerDirective,
+      MaterialSelectSearchboxComponent,
+      NgIf,
+      NgFor,
+      NgModel,
+      routerDirectives,
+    ],
+    viewProviders: [
+      Provider(HighlightProvider, useExisting: GalleryComponent)
+    ],
+    templateUrl: 'gallery.html',
+    styleUrls: [
+      'package:angular_components/app_layout/layout.scss.css',
+{{#styleUrls}}
+  '{{{.}}}',
+{{/styleUrls}}
+])
+class GalleryComponent implements HighlightProvider {
+  final HighlightAssistant _highlightAssistant = HighlightAssistant();
+  final ItemRenderer _highlightRenderer =
+      (item) => item is _Example ? item.displayName : item?.toString();
+  final List<RouteDefinition> routes = galleryRoutes;
+  StringSelectionOptions<_Example> exampleOptions;
+  String _breadcrumb = '';
+
+  GalleryComponent(Router router) {
+    router.stream.listen((newRoute) {
+        _breadcrumb = breadcrumbs[newRoute.path];
+        querySelector('material-content').scrollTop = 0;
+      });
+    exampleOptions = StringSelectionOptions<_Example>(allExamples,
+        toFilterableString: _toFilterableString);
+  }
+
+  String _toFilterableString(_Example example) {
+    var labels =
+        <String>[example.displayName]..addAll(example.relatedComponents);
+    return labels.join('\n');
+  }
+
+  String get breadcrumb => _breadcrumb;
+
+  bool get hasBreadcrumb => _breadcrumb?.isNotEmpty ?? false;
+
+  @override
+  List<HighlightedTextSegment> highlightOption(Object item) {
+    if (item is _Example) {
+      return _highlightAssistant.highlightOption(
+          exampleOptions.currentQuery, item, _highlightRenderer);
+    } else {
+      return [HighlightedTextSegment(item?.toString(), false)];
+    }
+  }
+}
+
+final breadcrumbs = {
+  {{# examples }}
+  '{{ name }}': '{{{ displayName }}}',
+  {{/ examples }}
+};
+
+/// The list of examples found by the gallery generator.
+/// This list is available in the GalleryComponent as well as a global const
+/// for applications that do not want the GalleryComponent's routing config.
+List<_Example> allExamples = const <_Example>[
+{{# examples }}
+    _Example(
+        '/{{{ name }}}',
+        '{{ displayName }}',
+        <String>[{{# relatedComponents }}'{{.}}',{{/ relatedComponents }}]
+    ),
+{{/ examples }}
+];
+
+class _Example {
+  /// The name used in headers and navigation panels.
+  final String displayName;
+  /// The router link for this example.
+  final String link;
+  /// A list of component names related to this example.
+  final List<String> relatedComponents;
+
+  const _Example(this.link, this.displayName, this.relatedComponents);
+}

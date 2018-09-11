@@ -1,0 +1,59 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_stepper/mixins';
+@import 'package:angular_components/material_yes_no_buttons/mixins';
+
+$step-width: $mat-grid * 70;
+$step-height: $mat-grid * 20;
+
+:host {
+  .step-a {
+    background-color: $mat-blue-200;
+    height: $step-height;
+    width: $step-width;
+  }
+
+  .step-b {
+    background-color: $mat-green-200;
+    height: $step-height;
+    width: $step-width;
+  }
+
+  .step-c {
+    background-color: $mat-orange-200;
+    height: $step-height;
+    width: $step-width;
+  }
+
+  .step-d {
+    background-color: $mat-amber-200;
+    height: $step-height;
+    width: $step-width;
+  }
+
+  .custom-toggle-button {
+    background: $mat-lime-200;
+    margin-top: $mat-grid * 5;
+  }
+
+  .custom-continue-button {
+    background-color: $mat-green-500;
+    color: $mat-white;
+    font-size: $mat-grid * 2;
+    margin-top: $mat-grid * 2;
+  }
+
+  @include material-stepper-theme (
+    $selector: '.teal-themed',
+    $step-color: $mat-teal-500,
+    $button-color: $mat-white
+  );
+
+  .teal-themed {
+    @include material-yes-button-color($mat-teal-500);
+    @include material-no-button-text-color($mat-teal-500);
+  }
+}

@@ -1,0 +1,33 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+
+:host {
+  display: block;
+  padding: $mat-grid * 4;
+  max-width: $mat-grid * 90;
+
+  h1 {
+    @include mat-font-display-1();
+    color: $mat-blue;
+  }
+
+  h2 {
+    @include mat-font-headline();
+  }
+
+  h3 {
+    @include mat-font-subhead();
+  }
+
+  .links {
+    list-style-type: none;
+
+    li > a {
+      @include mat-link();
+    }
+  }
+}

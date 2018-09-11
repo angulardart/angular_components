@@ -1,0 +1,66 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_radio/mixins';
+
+hr {
+  background: $mat-gray-200;
+  border: 0;
+  height: 1px;
+  margin: $mat-grid * 2 0;
+  width: 100%;
+}
+
+.debug-info {
+  background: $mat-gray-100;
+  margin-top: $mat-grid * 2;
+  padding: $mat-grid * 2;
+}
+
+
+.independent-radio-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.themed {
+  @include material-radio-color($mat-pink-600, $mat-pink-500);
+}
+
+.radio-per-line {
+  display: flex;
+}
+
+.radio-button-alignment {
+  .top-aligned {
+    align-items: flex-start;
+  }
+
+  .center-aligned {
+    align-items: center;
+  }
+
+  .bottom-aligned {
+    align-items: flex-end;
+  }
+
+  p {
+    line-height: $mat-grid-type * 5;
+    margin: 0 0 $mat-grid;
+  }
+
+  textarea {
+    display: block;
+    margin-bottom: $mat-grid;
+  }
+}
+
+.block {
+  background-color: $mat-gray-200;
+  display: inline-block;
+  height: $mat-grid * 4;
+  width: $mat-grid * 4;
+}
+

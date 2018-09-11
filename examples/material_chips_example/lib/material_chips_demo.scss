@@ -1,0 +1,40 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_chips/mixins';
+
+div.control-bar {
+  margin: $mat-grid;
+}
+
+@include material-chip-theme(
+    $primary-bgcolor: $mat-red-500,
+    $primary-bgcolor-hover: $mat-green-500,
+    $left-icon-color: $mat-white,
+    $left-icon-bgcolor: $mat-green-800,
+    $chip-selector: '.my-theme'
+);
+
+@include material-chip-theme(
+    $chip-selector: '.left-icon-bg',
+    $left-icon-bgcolor: $mat-blue-500,
+    $primary-bgcolor: $mat-grey-600,
+    $primary-bgcolor-hover: $mat-grey-700,
+    $primary-bgcolor-selected: $mat-grey-700
+);
+
+.left-icon-bg material-icon {
+  color: $mat-white;
+  fill: $mat-white;
+}
+
+.clickable {
+  @include material-chips-clickable();
+}
+
+.dense {
+  @include chips-dense-theme();
+}
+

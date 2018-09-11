@@ -1,0 +1,47 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>A tab panel with 4 tabs</h2>
+  <material-tab-panel class="tab-panel" [activeTabIndex]="1">
+    <material-tab label="tab1">
+        Eager Content of Tab 1
+    </material-tab>
+    <material-tab label="tab2">
+      <!-- the named-content component simply prints its name when it is instantiated -->
+      <named-content name="eager tab">
+        Eager Tab 2 content.
+      </named-content>
+    </material-tab>
+    <material-tab label="tab3">
+      <div *deferredContent>
+        <!-- the named-content component simply prints its name when it is instantiated -->
+        <named-content name="deferred tab 3">
+          Lazy Tab 3 Content
+        </named-content>
+      </div>
+    </material-tab>
+    <material-tab label="tab4">
+      <template deferredContent>
+        <!-- the delayed-content component shows a progress bar before showing its content. -->
+        <delayed-content [delay]="4">
+          Delayed Tab 4 Content
+        </delayed-content>
+      </template>
+    </material-tab>
+  </material-tab-panel>
+</section>
+
+<section class="margin">
+  <h2>A tab panel with 2 tabs centered</h2>
+  <material-tab-panel centerStrip class="tab-panel">
+    <material-tab label="tab1">
+      Content of tab 1
+    </material-tab>
+    <material-tab label="tab2">
+      Content of tab 2
+    </material-tab>
+  </material-tab-panel>
+</section>

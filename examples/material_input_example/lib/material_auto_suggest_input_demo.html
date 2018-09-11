@@ -1,0 +1,170 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<div class="example example-with-options">
+  <div class="example-pane">
+    <h2>Single selection</h2>
+    <material-auto-suggest-input
+        [(inputText)]="inputText"
+        [filterSuggestions]="filterSuggestions"
+        [popupMatchInputWidth]="popupMatchInputWidth"
+        [showClearIcon]="showClearIcon"
+        [clearIconTooltip]="clearIconTooltip"
+        [shouldClearOnSelection]="shouldClearOnSelection"
+        [label]="label"
+        [labelFactory]="labelFactory"
+        [leadingGlyph]="leadingGlyph"
+        [emptyPlaceholder]="emptyPlaceholder"
+        [selection]="singleModel"
+        [selectionOptions]="options"
+        [itemRenderer]="itemRenderer"
+        [factoryRenderer]="factoryRenderer"
+        [popupPositions]="popupPositions"
+        [showPopup]="showPopup"
+        [limit]="limit"
+        [disabled]="disabled">
+      <div header *ngIf="showHeaderAndFooter">Pick one</div>
+      <div footer *ngIf="showHeaderAndFooter">This is the footer</div>
+    </material-auto-suggest-input>
+
+    <div>Model's selected value:</div>
+    <div *ngFor="let v of singleModel.selectedValues">{{v}}</div>
+    <br><br><br>
+
+    <h2>Multi selection</h2>
+    <material-auto-suggest-input
+        [(inputText)]="inputText"
+        [filterSuggestions]="filterSuggestions"
+        [popupMatchInputWidth]="popupMatchInputWidth"
+        [showClearIcon]="showClearIcon"
+        [clearIconTooltip]="clearIconTooltip"
+        [hideCheckbox]="hideCheckbox"
+        [shouldClearOnSelection]="shouldClearOnSelection"
+        [label]="label"
+        [labelFactory]="labelFactory"
+        [leadingGlyph]="leadingGlyph"
+        [emptyPlaceholder]="emptyPlaceholder"
+        [selection]="multiModel"
+        [selectionOptions]="options"
+        [itemRenderer]="itemRenderer"
+        [factoryRenderer]="factoryRenderer"
+        [popupPositions]="popupPositions"
+        [showPopup]="showPopup"
+        [limit]="limit"
+        [disabled]="disabled">
+      <div header *ngIf="showHeaderAndFooter">Pick multiple</div>
+      <div footer *ngIf="showHeaderAndFooter" class="end-justified">
+        <material-button dense (trigger)="multiModel.clear()">
+          Clear Selection
+        </material-button>
+      </div>
+    </material-auto-suggest-input>
+
+    <div>Model's selected values:</div>
+    <div *ngFor="let v of multiModel.selectedValues">{{v}}</div>
+  </div>
+  <div class="options-pane">
+    <h3>Options</h3>
+    <material-checkbox [(checked)]="useLabelFactory">
+      Use label factory
+    </material-checkbox>
+    <br>
+    <material-checkbox [(checked)]="useFactoryRenderer">
+      Use factory renderer
+    </material-checkbox>
+    <br>
+    <material-checkbox [(checked)]="filterSuggestions">
+      Filter suggestions
+    </material-checkbox>
+    <br>
+    <material-checkbox [(checked)]="shouldClearOnSelection">
+      Clear on selection
+    </material-checkbox>
+    <br>
+    <material-checkbox [(checked)]="popupMatchInputWidth">
+      Popup match input width
+    </material-checkbox>
+    <br>
+    <material-checkbox [(checked)]="showHeaderAndFooter">
+      Show header and footer
+    </material-checkbox>
+    <br>
+    <material-checkbox [(checked)]="showPopup">
+      Show popup
+    </material-checkbox>
+    <br>
+    <material-checkbox [(checked)]="showClearIcon">
+      Show clear icon
+    </material-checkbox>
+    <br>
+    <material-checkbox [(checked)]="showClearIconTooltip">
+      Show clear icon tooltip
+    </material-checkbox>
+    <br>
+    <material-input
+        floatingLabel label="Clear Icon Tooltip"
+        [(ngModel)]="tooltip"
+        [displayBottomPanel]="false">
+    </material-input>
+    <br>
+    <material-checkbox [(checked)]="hideCheckbox">
+      Hide checkbox for multi selection
+    </material-checkbox>
+     <material-checkbox [(checked)]="disabled">
+      Disable input
+    </material-checkbox>
+    <br>
+    <material-input
+        floatingLabel label="Label"
+        [(ngModel)]="label"
+        [displayBottomPanel]="false">
+    </material-input>
+    <material-input
+        floatingLabel label="Empty placeholder"
+        [(ngModel)]="emptyPlaceholder"
+        [displayBottomPanel]="false">
+    </material-input>
+    <material-input
+        floatingLabel label="Leading glyph"
+        [(ngModel)]="leadingGlyph"
+        [displayBottomPanel]="false">
+    </material-input>
+    <material-input
+        floatingLabel label="Limit"
+        [(ngModel)]="limitInput"
+        [displayBottomPanel]="false">
+    </material-input>
+    <br>
+    <label>Popup position: </label>
+    <material-dropdown-select
+        [buttonText]="popupPositionSelectButtonText"
+        [selection]="popupPositionSelection"
+        [options]="popupPositionOptions">
+    </material-dropdown-select>
+    <br>
+  </div>
+</div>
+
+<div class="example">
+  <h2>Show loading indicator</h2>
+  <material-auto-suggest-input
+      label="Loading..."
+      loading
+      [popupMatchInputWidth]="true"
+      [selectionOptions]="emptySuggestionOptions">
+    <div header *ngIf="showHeaderAndFooter">Popup header</div>
+    <div footer *ngIf="showHeaderAndFooter">Popup footer</div>
+  </material-auto-suggest-input>
+</div>
+
+<div class="example">
+  <h2>Using Forms API instead of using two-way binding</h2>
+  <material-auto-suggest-input label="Using forms API"
+      [ngFormControl]="formControl"
+      [selectionOptions]="options">
+    <div header *ngIf="showHeaderAndFooter">Popup header</div>
+    <div footer *ngIf="showHeaderAndFooter">Popup footer</div>
+  </material-auto-suggest-input>
+</div>

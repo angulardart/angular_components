@@ -1,0 +1,68 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_button/mixins';
+
+
+@mixin colorize($selector, $color) {
+  $raised: $selector + '[raised]';
+  @include button-background-color($raised, $color);
+  @include button-color($raised, $mat-white);
+
+  $not-raised: $selector + ':not([raised])';
+  @include button-color($not-raised, $color);
+}
+
+:host {
+  font-family: Roboto,"Helvetica Neue",Arial,Helvetica,sans-serif;
+
+  @include colorize("material-button.red", $mat-red);
+  @include colorize("material-button.blue", $mat-blue);
+  @include colorize("material-button.green", $mat-green);
+  @include colorize("material-fab.red", $mat-red);
+  @include colorize("material-fab.blue", $mat-blue);
+  @include colorize("material-fab.green", $mat-green);
+  @include icon-button-color("material-button.blue-icon", $mat-blue);
+  @include raised-button('material-button.raised-color-example', $mat-blue);
+  @include raised-button('.raised-example');
+  @include button-dense-theme('.dense-example');
+}
+
+material-button,
+material-fab {
+  font-size: 1;
+
+  &.no-mixin-red {
+    background-color: $mat-red;
+    color: $mat-white;
+  }
+}
+
+h2 {
+  color: #222;
+  font-family: Roboto,"Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 40px;
+  margin: 20px;
+}
+
+[card] {
+  display: inline-flex;
+  flex: 1;
+  flex-direction: column;
+  border-radius: 3px;
+  margin-top: $mat-grid;
+  padding: $mat-grid * 2;
+}
+
+.dark-theme {
+  color: $mat-white;
+  background: $mat-grey-800;
+}
+
+[flex] {
+  justify-content: space-between;
+}

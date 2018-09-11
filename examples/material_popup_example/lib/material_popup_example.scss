@@ -1,0 +1,81 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+@import 'package:angular_components/material_popup/mixins';
+
+.card {
+  margin: $mat-grid;
+  padding: $mat-grid;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  @include shadow-elevation();
+
+  material-dropdown-select {
+    width: $mat-grid * 25;
+    padding: $mat-grid * 2 0;
+  }
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.centered-trigger {
+  height: $mat-grid * 10;
+  display: flex;
+  align-items: center;
+
+  .trigger {
+    margin: 0 auto;
+  }
+}
+
+.dont-panic {
+  height: $mat-grid * 20;
+  padding: $mat-grid;
+  width: $mat-grid * 60;
+}
+
+.scroll-container {
+  height: 400px;
+  width: 400px;
+  overflow: auto;
+}
+
+.content-container {
+  height: 600px;
+  width: 600px;
+  background: radial-gradient(
+    $mat-white,
+    $mat-white $mat-grid,
+    $mat-blue-100 $mat-grid,
+    $mat-blue-100 2 * $mat-grid) center repeat;
+  background-size: 2 * $mat-grid;
+}
+
+$top-right: $mat-grid * 2;
+$top-left: $mat-grid * 3;
+$bottom-right: $mat-grid * 4;
+$bottom-left: $mat-grid * 5;
+
+.custom-border-radius {
+  @include material-popup-border-radius(
+      $top-left $top-right $bottom-right $bottom-left);
+}
+
+.custom-background {
+  @include material-popup-background-color($mat-blue);
+}

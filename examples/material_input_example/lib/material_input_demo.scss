@@ -1,0 +1,61 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+
+material-button {
+  background: $mat-blue;
+  color: $mat-white;
+}
+
+p {
+  margin: 0;
+}
+
+.auto-focus-section {
+  height: $mat-grid * 10;
+
+  material-button {
+    width: $mat-grid * 13;
+  }
+}
+
+.align-with-font-size {
+  font-size: $mat-font-size-headline;
+  line-height: $mat-font-size-body;
+}
+
+.align-with-line-height {
+  font-size: $mat-font-size-body;
+  line-height: $mat-font-size-headline;
+}
+
+.fill-width {
+  align-items: baseline;
+  border: 1px solid $mat-transparent-black;
+  display: flex;
+  padding: $mat-grid;
+  width: $mat-grid * 100;
+
+  material-input {
+    flex-grow: 1;
+    margin-left: $mat-grid;
+  }
+}
+
+.block-width {
+  display: block;
+  width: $mat-grid * 40;
+}
+
+[tooltipTarget] {
+  color: $mat-light-transparent-black;
+  cursor: pointer;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    color: $mat-blue-700;
+  }
+}

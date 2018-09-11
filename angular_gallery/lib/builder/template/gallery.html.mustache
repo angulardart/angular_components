@@ -1,0 +1,42 @@
+{{= | | =}}
+<material-drawer persistent #drawer="drawer">
+  <h1>
+    <a href="#" class="galleryTitle">|galleryTitle|</a>
+  </h1>
+  <material-select-searchbox #searchbox
+        autoFocus
+        label="Search"
+        [filterable]="exampleOptions">
+  </material-select-searchbox>
+  <material-list>
+    <div group *ngFor="let exampleGroup of exampleOptions.optionGroups">
+      <div label *ngIf="searchbox.inputText.isNotEmpty">Search Results</div>
+      <material-list-item *ngFor="let example of exampleGroup"
+                          [routerLink]="example.link"
+                          routerLinkActive="router-link-active">
+        <highlight-value [value]="example"></highlight-value>
+      </material-list-item>
+      <material-list-item *ngIf="exampleOptions.optionsList.isEmpty"
+                          class="no-matches"
+                          disabled>
+        No matches.
+      </material-list-item>
+    </div>
+  </material-list>
+</material-drawer>
+<material-content>
+  <div class="container">
+    <header class="material-header shadow">
+      <div class="material-header-row">
+        <material-button icon
+            class="material-drawer-button" (trigger)="drawer.toggle()">
+          <material-icon icon="menu"></material-icon>
+        </material-button>
+        <span class="material-header-title" *ngIf="hasBreadcrumb">
+          {{ breadcrumb }}
+        </span>
+      </div>
+    </header>
+    <router-outlet [routes]="routes"></router-outlet>
+  </div>
+</material-content>

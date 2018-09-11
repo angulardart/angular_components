@@ -1,0 +1,27 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+Effort level: <material-input type="percent" keypressUpdate required [(ngModel)]="effort">
+</material-input>
+<br>
+At work, I always give {{effort}}% effort.
+<button (click)="effort = effort - 1">Slack off</button>
+
+<h3>With manual event listeners</h3>
+<material-input type="percent"
+                keypressUpdate
+                [ngModel]="initialValue"
+                (ngModelChange)="recordChange($event)">
+</material-input>
+<ul>
+  <li *ngFor="let change of changes">Percentage changed to {{change}}</li>
+</ul>
+
+<h3>With forms API</h3>
+<material-input type="percent" keypressUpdate [ngFormControl]="formControl">
+</material-input>
+<br />
+{{formControl.value}}: {{formControl.status}}
+<button (click)="formControl.updateValue(100)">Reset to 100</button>

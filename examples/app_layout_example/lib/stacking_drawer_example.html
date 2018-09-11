@@ -1,0 +1,57 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<material-drawer class="drawer1" stackable [(visible)]="drawerVisible"
+    [attr.end]="end ? '' : null"
+    [attr.overlay]="overlay ? '' : null">
+  <div *deferredContent>
+    Here is some drawer content.
+    <material-button (trigger)="drawer2Visible = true">
+      Click for more.
+    </material-button>
+    <material-drawer class="drawer2" stackable [(visible)]="drawer2Visible"
+                     [attr.end]="end ? '' : null"
+                     [attr.overlay]="overlay ? '' : null">
+      <div *deferredContent>
+        Here is some more drawer content.
+      </div>
+    </material-drawer>
+  </div>
+</material-drawer>
+<div class="material-content">
+  <header class="material-header shadow">
+    <div class="material-header-row">
+      <material-button class="material-drawer-button" icon (trigger)="drawerVisible = true">
+        <material-icon icon="menu"></material-icon>
+      </material-button>
+      <span class="material-header-title">Stacking Drawers</span>
+      <div class="material-spacer"></div>
+      <nav class="material-navigation">
+        <a>Link 1</a>
+      </nav>
+      <nav class="material-navigation">
+        <a>Link 2</a>
+      </nav>
+      <nav class="material-navigation">
+        <a>Link 3</a>
+      </nav>
+    </div>
+  </header>
+  <div>
+    Lorem ipsum dolor sit amet, ad erat postea ullamcorper nec, veri veniam quo
+    et. Diam phaedrum ei mea, quaeque voluptaria efficiantur duo no. Eu adhuc
+    veritus civibus nec, sumo invidunt mel id, in vim dictas detraxit. Per an
+    legere iriure blandit. Veri iisque accusamus an pri.
+  </div>
+  <div class="controls">
+    <h3>Options</h3>
+
+    <material-toggle [(checked)]="end" label="end">
+    </material-toggle>
+
+    <material-toggle [(checked)]="overlay" label="overlay">
+    </material-toggle>
+  </div>
+</div>
