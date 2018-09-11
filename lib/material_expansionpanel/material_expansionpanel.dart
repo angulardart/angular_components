@@ -355,12 +355,14 @@ class MaterialExpansionPanel
     _saveController.add(actionCtrl.action);
     _activeSaveCancelAction = true;
     _changeDetector.markForCheck();
+    final stateWasInitialized = initialized;
     actionCtrl.execute(() {
       if (closeOnSave) {
         _isExpanded = false;
         _isExpandedChange.add(false);
         _isExpandedChangeByUserAction.add(false);
         _changeDetector.markForCheck();
+        if (stateWasInitialized) _transitionHeightChange(false);
       }
       return true;
     }, valueOnCancel: false);
@@ -376,11 +378,13 @@ class MaterialExpansionPanel
     _cancelController.add(actionCtrl.action);
     _activeSaveCancelAction = true;
     _changeDetector.markForCheck();
+    final stateWasInitialized = initialized;
     actionCtrl.execute(() {
       _isExpanded = false;
       _isExpandedChange.add(false);
       _isExpandedChangeByUserAction.add(false);
       _changeDetector.markForCheck();
+      if (stateWasInitialized) _transitionHeightChange(false);
       return true;
     }, valueOnCancel: false);
     return actionCtrl.action.onDone.then((result) {
