@@ -80,7 +80,7 @@
 @include icon-button-padding('.preset-dropdown-button', 0);
 
 .preset-dropdown-item {
-  font-size: $mat-body-font-size;
+  font-size: $mat-font-size-body;
 }
 
 .basic-preset-list {
@@ -102,7 +102,7 @@
 
 .range-title {
   color: $mat-lighter-transparent-black;
-  font-size: $mat-body-font-size;
+  font-size: $mat-font-size-body;
   padding: 2px $date-range-picker-horizontal-padding;
 }
 
@@ -143,7 +143,9 @@
 }
 
 .visible-month {
-  @include mat-type-body-2();
+  // TODO(google): Migrate to extended mixin mat-font-body-2
+  font-size: $mat-font-size-body;
+  font-weight: $mat-font-weight-medium;
   text-transform: uppercase;
 }
 

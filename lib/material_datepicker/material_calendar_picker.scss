@@ -83,7 +83,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  font-size: $mat-body-font-size;
+  font-size: $mat-font-size-body;
   text-transform: uppercase;
   color: $mat-transparent-black;
   contain: content;
@@ -91,7 +91,7 @@
   .header-day {
     display: inline-block;
     text-align: center;
-    font-size: $mat-caption-font-size;
+    font-size: $mat-font-size-caption;
     color: $mat-light-transparent-black;
   }
 
@@ -136,7 +136,7 @@
     top: 0;
     left: 0;
     margin: 0;
-    font-size: $mat-body-font-size;
+    font-size: $mat-font-size-body;
     color: $mat-light-transparent-black;
     z-index: 1;
     pointer-events: none;

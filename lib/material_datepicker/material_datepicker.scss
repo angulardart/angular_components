@@ -65,12 +65,12 @@ material-select-item {
 }
 
 .primary-label {
-  font-size: $mat-caption-font-size;
+  font-size: $mat-font-size-caption;
 }
 
 .inner-label-wrapper {
   color: $mat-blue-500;
-  font-size: $mat-caption-font-size;
+  font-size: $mat-font-size-caption;
   padding: $picker-vertical-padding $picker-horizontal-padding;
   padding-bottom: $mat-grid;
 

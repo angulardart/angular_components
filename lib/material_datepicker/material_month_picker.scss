@@ -38,7 +38,7 @@ $top-layer-index: 0;
   width: 4 * $month-width;
   line-height: $month-height;
   text-transform: uppercase;
-  font-size: $mat-body-font-size;
+  font-size: $mat-font-size-body;
 }
 
 // ::ng-deep is used to selectively disable Angular shimming so that the
@@ -53,7 +53,7 @@ $top-layer-index: 0;
     position: relative;
     height: $month-height;
     padding-left: 2 * $mat-grid;
-    font-size: $mat-body-font-size;
+    font-size: $mat-font-size-body;
     color: $mat-light-transparent-black;
     margin: 0;
 
