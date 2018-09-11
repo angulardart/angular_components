@@ -186,18 +186,3 @@ $mat-font-leading-caption: 20px;
   }
 }
 
-
-// Deprecated: use $mat-font-size-STYLE instead.
-// TODO(google): remove.
-$mat-headline-font-size: $mat-font-size-headline;
-$mat-subhead-font-size: $mat-font-size-subhead;
-$mat-button-font-size: $mat-font-size-button;
-
-// Deprecated: use the extended mixins, above.
-// TODO(google): remove.
-
-@mixin mat-type-button() {
-  font-size: $mat-button-font-size;
-  font-weight: $mat-font-weight-medium;
-  text-transform: uppercase;
-}
