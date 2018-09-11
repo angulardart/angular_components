@@ -1,0 +1,79 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h1>Material Button</h1>
+
+<div>
+
+  <section>
+    <div flex>
+      <div card>
+        <p>Light Theme</p>
+        <buttons></buttons>
+      </div>
+      <div card class="dark-theme" darkTheme>
+        <p>Dark Theme</p>
+        <buttons></buttons>
+      </div>
+    </div>
+  </section>
+
+  <section class="margin">
+    <h2>Custom text</h2>
+    <material-button raised>{{content}}</material-button>
+    <material-button raised class="blue">Colored {{content}}</material-button>
+    <material-button raised disabled>Disabled {{content}}</material-button>
+  </section>
+
+  <section class="margin">
+    <h2>Disabled using mixin</h2>
+    <p>Mixin is preferred over external CSS because it sets the right disabled color.</p>
+    <material-button raised class="red disabled">button</material-button>
+    <material-button raised disabled class="red disabled">disabled</material-button>
+    <h2>Disabled not using mixin</h2>
+    <material-button raised class="no-mixin-red">button</material-button>
+    <material-button raised disabled class="no-mixin-red">disabled</material-button>
+    <h2>Raised using mixin</h2>
+    <material-button class="raised-example">Raised Mixin</material-button>
+    <material-button disabled class="raised-example">Disabled Raised</material-button>
+    <material-button class="raised-color-example">Raised Color</material-button>
+    <material-button disabled class="raised-color-example">Disabled Color</material-button>
+    <h2>Dense using mixin</h2>
+    <material-button class="dense-example">Dense Mixin</material-button>
+    <material-button disabled class="dense-example">Disabled Dense</material-button>
+    <material-button raised class="blue dense-example">Dense Color</material-button>
+    <material-button raised disabled class="blue dense-example">Disabled Color</material-button>
+    <h2>Raised and highlighted</h2>
+    <material-button raised class="highlighted">Raised and highlighted</material-button>
+    <material-button raised disabled class="highlighted">Disabled raised and highlighted</material-button>
+  </section>
+
+  <section class="margin">
+    <h2>Without min-width and margin</h2>
+    <p>Regular</p>
+    <material-button raised class="red">button</material-button>
+    <material-button raised class="red">A</material-button>
+    <p>Without min-width and margin</p>
+    <material-button raised clear-size class="red">button</material-button>
+    <material-button raised clear-size class="red">A</material-button>
+  </section>
+
+  <section class="margin">
+    <h2>
+      <strong>F</strong>loating
+      <strong>A</strong>ction
+      <strong>B</strong>utton
+    </h2>
+    <material-fab raised class="red">
+      <material-icon icon="add"></material-icon>
+    </material-fab>
+    <material-fab mini raised class="blue">
+      <material-icon icon="reply"></material-icon>
+    </material-fab>
+    <material-fab mini raised class="green">
+      <material-icon icon="check"></material-icon>
+    </material-fab>
+  </section>
+</div>

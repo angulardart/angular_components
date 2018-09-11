@@ -1,0 +1,44 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h2>material-month-picker</h2>
+<div class="inline-block">
+  <h3>Default month picker</h3>
+  <material-month-picker class="calendar" [state]="plainModel">
+  </material-month-picker>
+</div>
+
+<div class="inline-block">
+  <h3>Single month selection</h3>
+  <p>Click on the calendar to select a single month.</p>
+  <p>Selected date: {{singleDateModel.selection(singleDateModel.currentSelection).start}}</p>
+  <material-month-picker class="calendar"
+                         mode="single-date"
+                         [minDate]="limitToRange.start"
+                         [maxDate]="limitToRange.end"
+                         [(state)]="singleDateModel">
+  </material-month-picker>
+</div>
+
+<div class="inline-block">
+  <h3>Month range selection</h3>
+  <p>Drag the month on the calendar to select month ranges.</p>
+  <p>Clicking two different months is also supported.</p>
+  <p>Selected range: {{dateRangeModel.selection(dateRangeModel.currentSelection)}}</p>
+  <material-month-picker class="calendar"
+                         mode="date-range"
+                         [minDate]="limitToRange.start"
+                         [maxDate]="limitToRange.end"
+                         [(state)]="dateRangeModel">
+  </material-month-picker>
+</div>
+
+<p>
+  Limit to date range:
+  <date-range-input
+     [(range)]="limitToRange"
+     style="width:400px; display: inline-flex">
+  </date-range-input>
+</p>

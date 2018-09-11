@@ -1,0 +1,284 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section class="auto-focus-section">
+  <h2>Auto Focus</h2>
+  <material-button raised (trigger)="showAuto = !showAuto">
+    {{showAuto ? 'Hide' : 'Show'}} Input
+  </material-button>
+  <material-input *ngIf="showAuto" autoFocus></material-input>
+</section>
+
+<section>
+  <h2>Single Line</h2>
+  <material-input></material-input>
+  <br>
+  <material-input label="Label" type="text"></material-input>
+  <br>
+  <material-input label="Right aligned content" [rightAlign]="true" type="text"></material-input>
+  <br>
+  <material-input label="Label" type="text" ngModel="Initial Value"></material-input>
+  <br>
+  <material-input label="Long labels get truncated"></material-input>
+  <br>
+  <material-input label="Type something [required]"
+                  type="text"
+                  required
+                  requiredErrorMsg="This input requires a value!">
+  </material-input>
+  <br>
+  <material-input [checkValid]="checkValid"
+                  label="With custom validation function.">
+  </material-input>
+  <br>
+  <material-input [disabled]="true" label="I'm disabled"></material-input>
+</section>
+
+<section>
+  <h2>Leading and Trailing</h2>
+  <material-input label="Leading and trailing text"
+                  leadingText="$"
+                  trailingText=".00"
+                  [rightAlign]="true"
+                  type="text">
+  </material-input>
+  <br>
+  <material-input label="Leading/trailing glyph"
+                  leadingGlyph="link"
+                  leadingGlyphAriaLabel="Link"
+                  trailingGlyph="cloud_off"
+                  trailingGlyphAriaLabel="Disconnected">
+  </material-input>
+  <br>
+  <p>Use the [trailing] content selector to add a tooltip.</p>
+  <material-input label="With a tooltip">
+    <material-icon
+        trailing
+        tooltipTarget
+        size="medium"
+        icon="help_outline"
+        #tooltipRef="tooltipTarget">
+    </material-icon>
+  </material-input>
+  <material-tooltip-card [for]="tooltipRef">
+    This is a paper tooltip!
+  </material-tooltip-card>
+</section>
+
+<section>
+  <h2>Floating Label</h2>
+  <material-input floatingLabel type="text" label="Floating label"></material-input>
+  <br>
+  <material-input floatingLabel
+                  type="text"
+                  ngModel="Initial Value"
+                  label="Floating label, not empty">
+  </material-input>
+</section>
+
+<section>
+  <h2>Blur Update</h2>
+  <material-input blurUpdate [(ngModel)]="boundText"></material-input>
+  <div>Value: {{boundText}}</div>
+</section>
+
+<section>
+  <h2>Change Update</h2>
+  <material-input changeUpdate [(ngModel)]="boundText"></material-input>
+  <div>Value: {{boundText}}</div>
+</section>
+
+<section>
+  <h2>Hints</h2>
+  <p>Hints will always be replaced by an error.</p>
+  <material-input type="text"
+                  hintText="Set hintText to display a hint"
+                  required>
+  </material-input>
+  <br>
+  <p>Hints can be set to be shown only on focus</p>
+  <material-input type="text"
+                  hintText="using showHintOnlyOnFocus"
+                  showHintOnlyOnFocus
+                  required>
+  </material-input>
+</section>
+
+<section>
+  <h2>Align with Text</h2>
+  <div>
+    Aligned with
+    <material-input type="text" label="surrounding"></material-input>
+    text
+  </div>
+  <div class="align-with-font-size">
+    Aligned with
+    <material-input type="text"
+                    label="large"
+                    floatingLabel
+                    leadingText="*"
+                    trailingText="*">
+    </material-input>
+    font sizes
+  </div>
+  <div class="align-with-line-height">
+    Aligned with
+    <material-input type="text"
+                    label="large"
+                    floatingLabel
+                    leadingText="*"
+                    trailingText="*">
+    </material-input>
+    line heights
+  </div>
+
+  <div class="fill-width">
+    Fills up
+    <material-input type="text" label="horizontal space"></material-input>
+  </div>
+
+  <material-input class="block-width"
+                  type="text"
+                  label="Has correct width when set to block">
+  </material-input>
+
+  <material-input class="block-width"
+                  multiline
+                  rows="10"
+                  type="text"
+                  label="Block width also works for multiline inputs">
+  </material-input>
+
+</section>
+
+<section>
+  <h2>Input Types</h2>
+  <material-input label="Type only numbers" type="number" [ngModel]="1"></material-input>
+  <br>
+  <material-input floatingLabel
+                  label="Type positive numbers from 10 to 99999"
+                  type="number"
+                  [(ngModel)]="numericValue"
+                  checkPositive
+                  [lowerBound]="10"
+                  [upperBound]="99999">
+
+  </material-input>
+  <p>Number input is: {{numericValue}}</p>
+  <br>
+  <material-input floatingLabel
+                  label="Type an URL here"
+                  type="url"
+                  ngModel
+                  (urlValueChange)="urlValue=$event">
+  </material-input>
+  <p>URL input is: {{urlValue}}</p>
+  <br>
+  <material-input floatingLabel
+                  label="Type an email here (floating label)"
+                  type="email"
+                  errorMsg="Input is not an email!">
+  </material-input>
+</section>
+
+<section>
+  <h2>Listeners</h2>
+  <material-input label="Check console for logs of handled events"
+                  ngModel
+                  (ngModelChange)="onChange($event)"
+                  (click)="logEvent('click')"
+                  (keyup)="logEvent('keyup')"
+                  (keydown)="logEvent('keydown')"
+                  (keypress)="logEvent('keypress')"
+                  (focus)="logEvent('focus')"
+                  (blur)="logEvent('blur')"
+                  (change)="logEvent('change')"
+                  (input)="logEvent('input')"></material-input>
+  <p>Text input is : {{manualUpdateInputText}}</p>
+</section>
+
+<section>
+  <h2>Two-Way Binding</h2>
+  <material-input label="Using [(two-way-binding)]"
+                  floatingLabel
+                  [(ngModel)]="boundText">
+  </material-input>
+  <material-button raised (trigger)="boundText = 'banana'">Set to "banana"</material-button>
+  <p>Text input is: {{boundText}}</p>
+</section>
+
+<section>
+  <h2>Using Forms API</h2>
+  <p>
+    This form has multiple Forms API Validators applied to it. One prevents the text 'abc' from
+    being in the string, the other prevents 'def' from being in the text.
+  </p>
+  <material-input [ngFormControl]="form"
+                  textValidator="abc"
+                  floatingLabel
+                  label="Using form API">
+  </material-input>
+  <material-button raised (trigger)="resetForm()">Reset text input</material-button>
+  <p>Text input is : {{form.value}}</p>
+  <p>Form validity is : {{form.status}}</p>
+</section>
+
+<section>
+  <h2>Character Counting</h2>
+  <material-input [maxCount]="10" label="Character counting input"></material-input>
+  <br>
+  <material-input [maxCount]="10"
+                  label="Character counting input with custom error"
+                  errorMsg="maximum characters exceeded">
+  </material-input>
+  <br>
+  <material-input [maxCount]="25"
+                  [characterCounter]="characterCount"
+                  label="With custom character counter">
+  </material-input>
+    <br>
+  <material-input [showCharacterCount]="true"
+                  [characterCounter]="characterCount"
+                  label="Display character count without maxCount">
+  </material-input>
+</section>
+
+<section>
+  <h2>Multiline</h2>
+  <material-input multiline label="Type multiple lines here"></material-input>
+  <br>
+  <material-input floatingLabel
+                  multiline
+                  rows="2"
+                  maxRows="4"
+                  label="Multi-line with default and max rows">
+  </material-input>
+  <br>
+  <material-input multiline
+                  [maxCount]="80"
+                  label="Multi-line character counting input">
+  </material-input>
+  <br>
+  <material-input multiline
+                  [showCharacterCount]="true"
+                  label="Display character count without maxCount">
+  </material-input>
+</section>
+
+<section>
+  <h2>Select all</h2>
+  <material-input #manualSelectInput label="Enter some text" type="text"></material-input>
+  <material-button raised (trigger)="selectAllManualInput()">Select all text</material-button>
+  <br>
+  <!-- Click handler is needed for FF and Safari because click events fire after the focus
+       event, causing any selection to be lost. Focus listener is needed for non-mouse
+       ways of focusing the element and does not interfere with the click handler. -->
+  <material-input multiline
+                  #autoSelectInput
+                  ngModel="Auto-selecting input"
+                  (click)="selectAllAutoInput()"
+                  (focus)="selectAllAutoInput()">
+  </material-input>
+</section>

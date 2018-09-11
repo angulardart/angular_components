@@ -1,0 +1,11 @@
+name: material_datepicker_example
+author: Dart Team <misc@dartlang.org>
+environment:
+  sdk: '>=2.0.0-dev.69.5 <3.0.0'
+dependencies:
+  angular: ^5.0.0
+  angular_components: 0.9.1
+  angular_gallery_section:
+    path: ../../angular_gallery_section
+  build_config: '>=0.2.6 <0.4.0'
+  quiver: '>=0.24.0 <0.30.0'

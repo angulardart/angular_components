@@ -1,0 +1,121 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section class="independent-radio-buttons">
+  <h2>Independent Radio Buttons</h2>
+
+  <material-radio [(ngModel)]="unselected">
+    Selectable radio button
+  </material-radio>
+
+  <material-radio [(ngModel)]="preselected">
+    Pre-selected radio button
+  </material-radio>
+
+  <material-radio [disabled]="true" [(checked)]="impossible">
+    Disabled radio button
+  </material-radio>
+
+  <material-radio [disabled]="true" [(checked)]="always">
+    Disabled pre-selected radio button
+  </material-radio>
+
+  <div class="debug-info">
+    unlabeled = {{custom}}<br>
+    selectable = {{unselected}}<br>
+    pre-selected = {{preselected}}<br>
+    impossible = {{impossible}}<br>
+    always = {{always}}<br>
+  </div>
+</section>
+
+<section class="themed">
+  <h2>Themed Radio Button</h2>
+
+  <material-radio-group>
+    <material-radio [checked]="true">Option 1</material-radio>
+    <material-radio>Option 2</material-radio>
+  </material-radio-group>
+</section>
+
+<section>
+  <h2>Group with Pre-selection</h2>
+  <p><em>using ng-model at group level</em></p>
+
+  <material-radio-group [(ngModel)]="selected">
+    <material-radio
+        *ngFor="let option of ex2Options"
+        [disabled]="option.disabled"
+        [value]="option">{{option.label}}
+    </material-radio>
+  </material-radio-group>
+
+  <div class="debug-info">selected: {{ex2SelectedValue}}</div>
+</section>
+
+<section>
+  <h1>Group without Pre-selection</h1>
+  <p><em>with custom style: no ripple on click, vertical list via `display: flex`</em></p>
+  <material-radio-group [selectionModel]="ex1SelectionModel">
+    <material-radio
+        *ngFor="let option of ex1Options"
+        class="radio-per-line"
+        [(checked)]="option.selected"
+        [value]="option.label"
+        no-ink>
+      {{option.label}}
+    </material-radio>
+  </material-radio-group>
+
+  <div class="debug-info">selected: {{ex1SelectedValue}}</div>
+</section>
+
+<section class="radio-button-alignment">
+  <h2>Radio Button Alignment</h2>
+
+  <material-radio class="top-aligned">
+    <p>Top-aligned radio button.</p>
+    <textarea></textarea>
+    <a href="https://www.google.com" target="_blank">External Link</a>
+  </material-radio>
+
+  <hr />
+
+  <material-radio class="center-aligned radio-no-left-margin">
+    <p>Center-aligned radio button without left margin</p>
+    <textarea></textarea>
+    <a href="https://www.google.com" target="_blank">External Link</a>
+  </material-radio>
+
+  <hr />
+
+  <material-radio class="bottom-aligned">
+    <p>Bottom-aligned radio button</p>
+    <textarea></textarea>
+    <a href="https://www.google.com" target="_blank">External Link</a>
+  </material-radio>
+
+  <hr />
+
+  <material-radio>
+    <p>
+      By default, radio buttons are aligned at the baseline. <div class="block"></div><br>
+      This radio aligns with the first line of text despite the large gray block.
+    </p>
+    <textarea></textarea>
+    <a href="https://www.google.com" target="_blank">External Link</a>
+  </material-radio>
+</section>
+
+<section>
+  <h2>No Left Margin for Radio Group</h2>
+  <p><em>using CSS class</em></p>
+
+  <material-radio-group class="no-left-margin">
+    <material-radio>Option A</material-radio>
+    <material-radio>Option B</material-radio>
+  </material-radio-group>
+</section>
+

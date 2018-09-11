@@ -1,0 +1,55 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// This file is mostly a port from the mdc-card example here:
+// https://github.com/material-components/material-components-web/blob/master/demos/card.scss
+
+@import 'package:angular_components/css/material/material';
+
+$mdc-card-image: 'http://material-components-web.appspot.com/images/16-9.jpg';
+
+:host {
+  display: flex;
+}
+
+// Provide a size for the card. Cards normally take up the complete space of
+// their parent.
+.demo-size {
+  width: $mat-grid * 44;
+}
+
+// Provide material styling for the title.
+.demo-card__title {
+  @include mat-font-title;
+  line-height: 1em; // legacy setting
+  margin: 0;
+}
+
+// Provider material styling for the subtitle.
+.demo-card__subtitle {
+  @include mat-font-subhead;
+  margin: 0;
+}
+
+// Use the same image as the mdc-web example.
+.demo-card__media {
+  background-image: url($mdc-card-image);
+}
+
+.demo-card__primary {
+  padding: $mat-grid * 2;
+}
+
+.demo-card__secondary {
+  @include mat-font-body;
+  padding: 0 $mat-grid * 2 $mat-grid;
+}
+
+section {
+  display: block;
+
+  + section {
+    margin-left: $mat-grid * 4;
+  }
+}

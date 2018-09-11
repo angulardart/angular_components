@@ -1,0 +1,179 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>Dropdown Selections</h2>
+  <h3>Example Panel</h3>
+  <div class="example example-with-options">
+    <div class="example-pane">
+      <h2>Single selection</h2>
+      <material-dropdown-select
+          [buttonText]="singleSelectLanguageLabel"
+          [selection]="singleSelectModel"
+          [options]="languageOptions"
+          [itemRenderer]="itemRenderer"
+          [factoryRenderer]="factoryRenderer"
+          [labelFactory]="labelFactory"
+          [width]="width"
+          [popupMatchInputWidth]="popupMatchInputWidth"
+          [preferredPositions]="preferredPositions"
+          [slide]="slide"
+          [visible]="visible"
+          [deselectOnActivate]="deselectOnActivate"
+          [deselectLabel]="deselectLabel">
+        <div header>
+          <div *ngIf="withHeaderAndFooter">---Custom Header Section---</div>
+        </div>
+        <div listHeader>
+          <div *ngIf="withHeaderAndFooter">------Custom List Header Section------</div>
+        </div>
+        <div listFooter>
+          <div *ngIf="withHeaderAndFooter">------Custom List Footer Section------</div>
+        </div>
+        <div footer>
+          <div *ngIf="withHeaderAndFooter">---Custom Footer Section---</div>
+        </div>
+      </material-dropdown-select>
+
+      <div>Model's selected value</div>
+      <div>{{singleSelectedLanguage}}</div>
+      <br><br><br>
+
+      <h2>Multi selection</h2>
+      <material-dropdown-select
+          [buttonText]="multiSelectLanguageLabel"
+          [selection]="multiSelectModel"
+          [options]="languageOptions"
+          [itemRenderer]="itemRenderer"
+          [factoryRenderer]="factoryRenderer"
+          [labelFactory]="labelFactory"
+          [width]="width"
+          [preferredPositions]="preferredPositions"
+          [slide]="slide"
+          [visible]="visible">
+        <div header>
+          <div *ngIf="withHeaderAndFooter">---Custom Header Section---</div>
+        </div>
+        <div listHeader>
+          <div *ngIf="withHeaderAndFooter">------Custom List Header Section------</div>
+        </div>
+        <div listFooter>
+          <div *ngIf="withHeaderAndFooter">------Custom List Footer Section------</div>
+        </div>
+        <div footer>
+          <div *ngIf="withHeaderAndFooter">---Custom Footer Section---</div>
+        </div>
+      </material-dropdown-select>
+
+      <div>Model's selected values</div>
+      <div>{{multiSelectedLanguages}}</div>
+    </div>
+    <div class="options-pane">
+      <h3>Options</h3>
+      <material-checkbox [(checked)]="useItemRenderer">
+        Use item renderer
+      </material-checkbox>
+      <br>
+      <material-checkbox [(checked)]="useFactoryRenderer">
+        Use factory renderer
+      </material-checkbox>
+      <br>
+      <material-checkbox [(checked)]="useLabelFactory">
+        Use label factory
+      </material-checkbox>
+      <br>
+      <material-checkbox [(checked)]="useOptionGroup">
+        Use option group
+      </material-checkbox>
+      <br>
+      <material-checkbox [(checked)]="withHeaderAndFooter">
+        With custom header & footer
+      </material-checkbox>
+      <br>
+      <material-checkbox [(checked)]="popupMatchInputWidth">
+        Popup match inputs width
+      </material-checkbox>
+      <br>
+      <material-checkbox [(checked)]="visible">
+        Popup visibility
+      </material-checkbox>
+      <br>
+      <material-checkbox [(checked)]="deselectOnActivate">
+        Deselect on click (for single select)
+      </material-checkbox>
+      <br>
+      <label>Deselect label: </label>
+      <material-input
+          [displayBottomPanel]="false"
+          [(ngModel)]="deselectLabel">
+      </material-input>
+      <br>
+      <label>Width: </label>
+      <material-dropdown-select
+          [buttonText]="widthButtonText"
+          [selection]="widthSelection"
+          [options]="widthOptions">
+      </material-dropdown-select>
+      <br>
+      <label>Popup position: </label>
+      <material-dropdown-select
+          [buttonText]="popupPositionButtonText"
+          [selection]="popupPositionSelection"
+          [options]="popupPositionOptions">
+      </material-dropdown-select>
+      <br>
+      <label>Slide direction: </label>
+      <material-dropdown-select
+          [buttonText]="slideButtonText"
+          [selection]="slideSelection"
+          [options]="slideOptions">
+      </material-dropdown-select>
+      <br>
+    </div>
+  </div>
+  <h3>Multiple Selection w/ searchbox</h3>
+  <material-dropdown-select
+      buttonAriaRole="combobox"
+      [buttonText]="multiSelectLanguageLabel"
+      [options]="languageOptions"
+      [selection]="multiSelectModel"
+      [itemRenderer]="itemRenderer"
+      [listAutoFocus]="false"
+      (visibleChange)="onDropdownVisibleChange($event)">
+    <div header>
+      <material-select-searchbox
+          label="Search..."
+          [filterable]="languageOptions">
+      </material-select-searchbox>
+    </div>
+  </material-dropdown-select>
+  <h3>Single Selection w/ Angular Forms</h3>
+  <material-dropdown-select
+      [buttonText]="selectionValue == null ? 'Select Language' : itemRenderer(selectionValue)"
+      [options]="languageOptions"
+      [itemRenderer]="itemRenderer"
+      [(ngModel)]="selectionValue">
+  </material-dropdown-select>
+  <h3>Multiple Selection w/ Angular Forms</h3>
+  <material-dropdown-select multi
+      [buttonText]="selectionValuesLabel"
+      [options]="languageOptions"
+      [itemRenderer]="itemRenderer"
+      [(ngModel)]="selectionValues">
+  </material-dropdown-select>
+</section>
+<section>
+  <h3>Dropdown button</h3>
+  <dropdown-button [disabled]="true"
+                   [buttonText]="'Disabled'">
+  </dropdown-button>
+  <p>I don&#39;t have a dropdown myself. I&#39;m just a button with that style.</p>
+  <dropdown-button [disabled]="false"
+                   [buttonText]="'Implement a dropdown'"
+                   (trigger)="alert('Implement a dropdown')">
+  </dropdown-button>
+</section>
+<!-- space for dropdowns -->
+<div style="height:200px"></div>

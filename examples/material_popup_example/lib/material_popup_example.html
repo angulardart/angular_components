@@ -1,0 +1,329 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h1>Material Popup</h1>
+<section>
+  <div class="card">
+    <h2>Basic Usage</h2>
+    <div>
+      <material-button
+          raised
+          popupSource
+          #source="popupSource"
+          (trigger)="visible[0] = !visible[0]">
+        {{visible[0] ? 'Close' : 'Open'}} Popup
+      </material-button>
+      <material-popup [source]="source" [(visible)]="visible[0]">
+        <div style="height: 200px;">
+          Hello, Hello, Hello.
+        </div>
+      </material-popup>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="flex-column">
+    <div class="flex-row">
+      <div class="card">
+        <h2>Advanced Positioning</h2>
+        Choose Position:
+        <material-dropdown-select
+            [selection]="position"
+            [options]="positions"
+            [itemRenderer]="positionLabel"
+            [buttonText]="ddLabel">
+        </material-dropdown-select>
+        <div class="centered-trigger">
+          <material-button
+              raised
+              popupSource
+              #customsrc="popupSource"
+              class="trigger"
+              (trigger)="visible[1] = !visible[1]">
+            {{visible[1] ? 'Close' : 'Open'}} Popup
+          </material-button>
+          <material-popup [source]="customsrc"
+                          [(visible)]="visible[1]"
+                          [enforceSpaceConstraints]="true"
+                          [preferredPositions]="[popupPosition]">
+            <div style="height: 200px; padding: 24px;">
+              <p>Popup Content</p>
+              <material-button
+                  raised
+                  (trigger)="visible[1] = false">
+                Close
+              </material-button>
+            </div>
+          </material-popup>
+        </div>
+        <div style="height:80px"></div>
+        <div class="centered-trigger">
+          <material-button
+              raised
+              popupSource
+              #slidexsrc="popupSource"
+              class="trigger"
+              (trigger)="visible[2] = !visible[2]">
+            {{visible[2] ? 'Close' : 'Open'}} x-scaling Popup
+          </material-button>
+          <material-popup [source]="slidexsrc"
+                          [(visible)]="visible[2]"
+                          [enforceSpaceConstraints]="true"
+                          [preferredPositions]="[popupPosition]"
+                          slide="x">
+            <div style="height: 200px; padding: 24px;">
+              <p>Popup Content</p>
+              <material-button
+                  raised
+                  (trigger)="visible[2] = false">
+                Close
+              </material-button>
+            </div>
+          </material-popup>
+        </div>
+        <div style="height:80px"></div>
+        <div class="centered-trigger">
+          <material-button
+              raised
+              popupSource
+              #slideysrc="popupSource"
+              class="trigger"
+              (trigger)="visible[3] = !visible[3]">
+            {{visible[3] ? 'Close' : 'Open'}} y-scaling Popup
+          </material-button>
+          <material-popup [source]="slideysrc"
+                          [(visible)]="visible[3]"
+                          [enforceSpaceConstraints]="true"
+                          [preferredPositions]="[popupPosition]"
+                          slide="y">
+            <div style="height: 200px; padding: 24px;">
+              <p>Popup Content</p>
+              <material-button
+                  raised
+                  (trigger)="visible[3] = false">
+                Close
+              </material-button>
+            </div>
+          </material-popup>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <p>Comprehensive positions:</p>
+      <pre>
+AB  C  DE
+P+-----+F
+ |     |
+ |     |
+O|     |G
+ |     |
+ |     |
+N+-----+H
+ML  K  JI
+      </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Stacked Popups</h2>
+    <p>A tooltip inside a popup</p>
+    <div>
+      <material-button
+              raised
+              popupSource
+              #stackedExampleSource="popupSource"
+              (trigger)="visible[4] = !visible[4]">
+        {{visible[4] ? 'Close' : 'Open'}} Popup
+      </material-button>
+      <material-popup
+              enforceSpaceConstraints
+              [source]="stackedExampleSource"
+              [(visible)]="visible[4]">
+        <div class="dont-panic">
+          <p materialTooltip="42">
+            The answer to the ultimate question of life, the universe and everything.
+          </p>
+        </div>
+      </material-popup>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>PopupSizeProvider</h2>
+    <h3>
+      Using the default <em>PercentagePopupSizeProvider</em> to limit max width
+      to be 70% of the viewport width and max height to be 50% of the viewport
+      height.
+    </h3>
+    <div>
+      <material-button
+              raised
+              popupSource
+              #mixinExampleSource="popupSource"
+              (trigger)="visible[5] = !visible[5]">
+        {{visible[5] ? 'Close' : 'Open'}} Popup
+      </material-button>
+      <material-popup
+              defaultPopupSizeProvider
+              enforceSpaceConstraints
+              [source]="mixinExampleSource"
+              [(visible)]="visible[5]">
+        <div *deferredContent style="background: yellow; height: 1000px; width: 1000px;">
+          Hello, Hello, Hello.
+          This is a long content that needs a scroll bar because the content
+          is so long. We cap it at 50% of the viewport height as a reasonable
+          default. It is also deferred.
+        </div>
+      </material-popup>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Headers and Footers</h2>
+    <p>
+      A popup with a header and a footer and really long content.
+    </p>
+    <div>
+      <material-button
+              raised
+              popupSource
+              #headerExampleSource="popupSource"
+              (trigger)="visible[6] = !visible[6]">
+        {{visible[6] ? 'Close' : 'Open'}} Popup
+      </material-button>
+      <material-popup
+              defaultPopupSizeProvider
+              enforceSpaceConstraints
+              [source]="headerExampleSource"
+              [(visible)]="visible[6]">
+        <div header style="background: darkred; color: white; font-weight: bold;">
+          This is a Header demo
+        </div>
+        <div style="background: lightblue; height: 1000px; width: 150px;">
+          Hello,
+          Hello,
+          Hello.
+          This is a
+          vertically long
+          content
+          that
+          needs
+          a scroll bar
+          because
+          the content
+          is so long.
+        </div>
+        <div footer style="background: darkred; color: white; font-weight: bold;">
+          This is a Footer demo
+        </div>
+      </material-popup>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Popup with custom border radius</h2>
+    <div>
+      <material-button
+          raised
+          popupSource
+          #customBorderRadius="popupSource"
+          (trigger)="visible[7] = !visible[7]">
+        {{visible[7] ? 'Close' : 'Open'}} Popup
+      </material-button>
+      <material-popup
+          class="custom-border-radius"
+          [source]="customBorderRadius"
+          [(visible)]="visible[7]">
+        <div style="height: 200px;">
+          hello hello hello
+        </div>
+      </material-popup>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Popup with custom background color</h2>
+    <div>
+      <material-button
+          raised
+          popupSource
+          #customBackground="popupSource"
+          (trigger)="visible[8] = !visible[8]">
+        {{visible[8] ? 'Close' : 'Open'}} Popup
+      </material-button>
+      <material-popup
+          class="custom-background"
+          [source]="customBackground"
+          [(visible)]="visible[8]">
+        <div style="height: 200px;">
+          hello hello hello
+        </div>
+      </material-popup>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Popup inside a scrolling container</h2>
+    <div class="flex-row">
+      <div class="flex-column">
+        <code>overlayRepositionLoop = false</code>
+        <div class="scroll-container">
+          <div dontUseRepositionLoop class="content-container">
+            <material-button
+                raised
+                popupSource
+                #scrollingPopup="popupSource"
+                (trigger)="visible[9] = !visible[9]">
+              {{visible[9] ? 'Close' : 'Open'}} Popup
+            </material-button>
+            <material-popup
+                [source]="scrollingPopup"
+                [(visible)]="visible[9]">
+              <div style="height: 200px;">
+                hello hello hello
+              </div>
+            </material-popup>
+          </div>
+        </div>
+      </div>
+      <div class="flex-column">
+        <code>overlayRepositionLoop = true</code>
+        <div class="scroll-container">
+          <div class="content-container">
+            <material-button
+                raised
+                popupSource
+                #repositioningPopup="popupSource"
+                (trigger)="visible[10] = !visible[10]">
+              {{visible[10] ? 'Close' : 'Open'}} Popup
+            </material-button>
+            <material-popup
+                [source]="repositioningPopup"
+                [(visible)]="visible[10]">
+              <div style="height: 200px;">
+                hello hello hello
+              </div>
+            </material-popup>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

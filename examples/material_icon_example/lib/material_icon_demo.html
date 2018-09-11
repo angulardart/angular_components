@@ -1,0 +1,125 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>Basic Usage</h2>
+  <p>
+    See <a href="https://www.google.com/design/icons/" target="_blank">available icons</a>.
+  </p>
+
+  <h3>Using a string identifier</h3>
+  <div>
+    <material-icon [icon]="iconName"></material-icon>
+  </div>
+  <div>
+    <material-input #iconNameInput label="Enter a new icon identifier here"></material-input>
+    <material-button raised (trigger)="iconName = iconNameInput.inputText">Apply</material-button>
+  </div>
+  <div>
+    Current icon identifier: {{iconName}}
+  </div>
+
+  <h3>Using an icon model</h3>
+  <material-icon [icon]="iconModel"></material-icon>
+  <div>
+    <material-button raised (trigger)="iconModel = done">done</material-button>
+    <material-button raised (trigger)="iconModel = doneAll">done_all</material-button>
+    <material-button raised (trigger)="iconModel = doneOutline">done_outline</material-button>
+  </div>
+</section>
+<section>
+  <h2>Styling</h2>
+
+  <h3>Color</h3>
+  <p>Set the color of the icon using the css color property.</p>
+  <material-icon [style.color]="iconColor" icon="pets" ariaLabel="Pet Friendly"></material-icon>
+  <div>
+    <material-input #iconColorInput label="Enter a new color here"></material-input>
+    <material-button raised (trigger)="iconColor = iconColorInput.inputText">Apply</material-button>
+  </div>
+
+  <h3>Size</h3>
+  <p>Set the size of the icon using the size attribute.</p>
+  <material-icon size="x-small" icon="bug_report"></material-icon>
+  <material-icon size="small" icon="bug_report"></material-icon>
+  <material-icon size="medium" icon="bug_report"></material-icon>
+  <material-icon size="large" icon="bug_report"></material-icon>
+  <material-icon size="x-large" icon="bug_report"></material-icon>
+  <material-icon icon="bug_report"></material-icon>
+
+  <p>
+    x-small 12px <material-icon size="x-small" icon="bug_report" baseline></material-icon><br/>
+    small 13px <material-icon size="small" icon="bug_report" baseline></material-icon><br/>
+    medium 16px <material-icon size="medium" icon="bug_report" baseline></material-icon><br/>
+    large 18px <material-icon size="large" icon="bug_report" baseline></material-icon><br/>
+    x-large 20px <material-icon size="x-large" icon="bug_report" baseline></material-icon><br/>
+    Default (unspecified) 24px <material-icon icon="bug_report" baseline></material-icon>
+  </p>
+
+  <p>Set the icon to a non-standard size using the material-icon-size mixin.</p>
+  <material-icon class="custom-size" icon="bug_report"></material-icon>
+
+  <h3>Baseline</h3>
+  <p>Use the baseline attribute to align an icon with surrounding text.</p>
+  <p>
+    This
+    <material-icon icon="flight_land"></material-icon>
+    is <b>not</b> aligned with surrounding text.
+  </p>
+  <p>
+    This
+    <material-icon icon="flight_land" baseline></material-icon>
+    is aligned with surrounding text.
+  </p>
+
+  <h3>Light</h3>
+  <p>Use the light attribute to reduce the opacity of the icon.</p>
+  <p>
+    Light <material-icon icon="settings" baseline light></material-icon>
+  </p>
+  <p>
+    Not light <material-icon icon="settings" baseline></material-icon>
+  </p>
+</section>
+
+<section>
+  <h2>I18n</h2>
+
+  <h3>RTL</h3>
+  <p>Use the flip attribute to automatically mirror an icon when the direction is RTL.</p>
+  <p><material-icon icon="forward" flip></material-icon></p>
+  <p>
+    Icons listed in _flippedIcons in material_icon.dart are always flipped when the direction RTL.
+    If an icon you're using should always be flipped for RTL, please add it to the list so others
+    can benefit.
+  </p>
+  <p>
+    <material-icon icon="first_page" baseline></material-icon> is automatically flipped when the
+    direction is RTL, without using the flip attribute.
+  </p>
+  <p>
+    Not all icons should be flipped when the direction is RTL. In general, icons that deal with
+    spatial relationships should be mirrored, while icons that represent temporal relationships,
+    physical objects, or product logos should not be mirrored. Consult
+    <a
+        href="https://material.io/guidelines/usability/bidirectionality.html#bidirectionality-rtl-mirroring-guidelines"
+        target="_blank">
+      the material guidelines
+    </a>
+    for detailed advice on when to flip icons.
+  </p>
+
+  <p>Icons that should be flipped:</p>
+  <material-icon icon="forward" flip></material-icon>
+  <material-icon icon="check_box" flip></material-icon>
+  <material-icon icon="last_page" flip></material-icon>
+  <material-icon icon="format_indent_increase" flip></material-icon>
+
+  <p>Icons that should <b>not</b> be flipped:</p>
+  <material-icon icon="restaurant"></material-icon>
+  <material-icon icon="refresh"></material-icon>
+  <material-icon icon="undo"></material-icon>
+  <material-icon icon="phone"></material-icon>
+</section>

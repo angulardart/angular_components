@@ -1,0 +1,53 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+
+@mixin card() {
+  @include shadow-elevation();
+}
+
+@mixin demo-style() {
+  .demo-section {
+    display: flex;
+    flex-direction: row;
+    padding: $mat-grid;
+  }
+
+  .demo-container,
+  .knob-container {
+    margin: $mat-grid;
+    padding: $mat-grid;
+    max-width: $mat-grid * 75;
+
+    display: flex;
+    flex: 1;
+    @include shadow-elevation();
+
+    .caption {
+      // TODO(google): Migrate to extended mixin mat-font-caption
+      font-size: $mat-font-size-caption;
+      font-weight: $mat-font-weight-regular;
+    }
+  }
+
+  [row] {
+    flex-direction: row;
+  }
+
+  [column] {
+    flex-direction: column;
+  }
+
+  [flex] {
+    display: flex;
+    flex: 1;
+  }
+
+  [inline-flex] {
+    display: inline-flex;
+    flex: 1;
+  }
+}

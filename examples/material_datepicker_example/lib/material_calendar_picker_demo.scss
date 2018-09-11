@@ -1,0 +1,37 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_datepicker/mixins';
+
+.calendar {
+  height: 400px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+// Some custom calendar colors
+@include calendar-highlights('.pretty', (
+  range: $mat-deep-purple-map,
+  comparison: $mat-pink-map,
+));
+
+// More custom colors: blue for the selected range; google-yellow for the
+// comparison range; green if they overlap.
+@include calendar-highlights('.overlap', (
+  range: $mat-blue-map,
+  comparison: $mat-google-yellow-map,
+  range comparison: $mat-green-map,
+));
+
+// Remove the padding from the circle around the current date if it falls on
+// the edge of the comparison highlight, but keep it if it falls on the edge
+// of the range highlight.
+@include calendar-today-circle-remove-padding(
+  '.overlap',
+  comparison,
+  $exclude: range
+);

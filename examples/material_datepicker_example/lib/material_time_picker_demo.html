@@ -1,0 +1,25 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h2>material-time-picker</h2>
+<div style="height: 100px; width: 250px; display: inline-block">
+  <h3>Required</h3>
+  <material-time-picker [(time)]="time"
+                        [required]="true">
+  </material-time-picker>
+</div>
+<div style="height: 100px; width: 250px; display: inline-block">
+  <h3>Optional</h3>
+  <material-time-picker [(time)]="optionalTime"
+                        [required]="false">
+  </material-time-picker>
+</div>
+<div style="height: 100px; width: 250px; display: inline-block">
+  <h3>Disabled</h3>
+  <material-time-picker [(time)]="time"
+                        [disabled]="true"
+                        [required]="false">
+  </material-time-picker>
+</div>

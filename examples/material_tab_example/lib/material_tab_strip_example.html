@@ -1,0 +1,23 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<section>
+  <h2>A tab strip with 3 tabs</h2>
+  <material-tab-strip (beforeTabChange)="onBeforeTabChange($event)"
+                      (tabChange)="onTabChange($event)"
+                      [tabLabels]="tabLabels">
+  </material-tab-strip>
+  <p>Active Tab Index {{tabIndex}}</p>
+  <material-toggle [(checked)]="stopChange" label="Stop Tab Change"></material-toggle>
+</section>
+
+<section class="margin">
+  <h2>A tab strip with set width</h2>
+  <material-tab-strip style="width: 480px;"
+                      (tabChange)="tabIndex2 = $event.newIndex"
+                      [tabLabels]="centeredTabLabels">
+  </material-tab-strip>
+  <p>Active Tab Index {{tabIndex2}}</p>
+</section>

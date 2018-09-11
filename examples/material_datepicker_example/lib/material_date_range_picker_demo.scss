@@ -1,0 +1,46 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
+
+.main-example {
+  display: flex;
+}
+
+.options-pane {
+  @include material-shadow;
+
+  margin: 0 $mat-grid * 4;
+  padding: $mat-grid * 2 $mat-grid;
+  width: $mat-grid * 42;
+}
+
+h4 {
+  margin: $mat-grid;
+  margin-top: 0;
+}
+
+.limit-label {
+  margin: $mat-grid $mat-grid 0;
+}
+
+date-range-input {
+  display: inline-flex;
+  width: 100%;
+}
+
+.selection-label {
+  margin: 0 $mat-grid;
+}
+
+.simplified-example {
+  display: inline-block;
+  margin: 0 $mat-grid * 4;
+}
+
+.message-bar {
+  border-top: 1px solid $mat-gray-300;
+  display: flex;
+}

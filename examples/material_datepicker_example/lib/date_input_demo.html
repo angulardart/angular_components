@@ -1,0 +1,51 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h2>date-input</h2>
+<p>This directive globs onto a material-input and automatically tries to parse
+dates on change events (enter or blur). It recognizes a bunch of localized
+formats:</p>
+
+  <ul>
+    <li>7/20/2015 (or 20/7/2015, depending on locale)</li>
+    <li>Mon, 7/20/2015 (or Mon, 20/7/2015)</li>
+    <li>Jul 20, 2015</li>
+    <li>Mon, Jul 20, 2015</li>
+    <li>July 20, 2015</li>
+    <li>Monday, July 20, 2015</li>
+    <li>2015-07-20 (ISO format)</li>
+  </ul>
+
+<p>When a valid date is entered, this directive will reformat the input. It
+defaultly chooses the "Jul 20, 2015" format, but this can be changed using the
+[date-format] property.</p>
+
+<p>If the input date has a two-digit year, then the input will try to guess what
+the input actually means. E.g. 8/3/89 would get interpreted as August 3, 1989.
+(Until some point in the distant future, when it'll start interpreting that as
+2089).</p>
+
+<div style="display: inline-flex">
+  <span style="padding: 8px">Date (optional):</span>
+  <material-input dateParsing
+                  [(date)]="optionalDate">
+  </material-input>
+</div>
+<br>
+Selected date in ISO format: {{formatDate(optionalDate)}}
+<br>
+<br>
+<div style="display: inline-flex">
+  <span style="padding: 8px">Date (required):</span>
+  <material-input dateParsing
+                  [(date)]="requiredDate"
+                  [required]="true">
+  </material-input>
+</div>
+<br>
+Selected date in ISO format: {{formatDate(requiredDate)}}
+<br>
+<br>
+<button (click)="requiredDate = today; optionalDate = today">Reset to today</button>

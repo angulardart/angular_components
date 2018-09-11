@@ -1,0 +1,62 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/scorecard/mixins';
+
+@include acx-scorecard-apply-change-color-on-primary($selector: '.customize');
+
+@include acx-scorecard-description-color(
+    $glyph-color: $mat-blue-500,
+    $text-color: $mat-orange-500,
+    $selector: '.customize-description-color');
+
+@include acx-scorecard-description-positive-negative-colors(
+    $positive-color: $mat-indigo-500,
+    $negative-color: $mat-pink-500,
+    $selector: '.customize-positive-negative-colors');
+
+@include acx-scorecard-suggestion-color(
+    $color: $mat-purple-500, $selector: '.customize-suggestion-color');
+
+@include acx-scorecard-suggestion-to-separate-line(
+    $selector: '.customize-suggestion-to-separate-line');
+
+@include acx-scorecard-vertical-align(
+    top, $selector: '.vertically-align-scorecard-top');
+
+@include acx-scorecard-vertical-align(
+    bottom, $selector: '.vertically-align-scorecard-bottom');
+
+@include acx-scorecard-description-min-height(
+    15px, $selector: '.description-with-min-height');
+
+.custom-rule {
+  @include acx-scorecard-title() {
+    color: $mat-blue-500;
+  }
+
+  @include acx-scorecard-value() {
+    color: $mat-orange-500;
+  }
+}
+
+.vertical-scoreboard-container {
+  height: 600px;
+}
+
+.injected-div {
+  border: 1px solid $mat-red-100;
+  margin: 3px 0;
+  width: 100%;
+}
+
+.flex-scoreboard-container {
+  border: 1px solid $mat-red-100;
+  width: 300px;
+
+  @include acx-scorecard-flex-display(
+      $flex-direction: column,
+      $scorecard-flex: 1);
+}
