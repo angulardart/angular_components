@@ -189,72 +189,13 @@ $mat-font-leading-caption: 20px;
 
 // Deprecated: use $mat-font-size-STYLE instead.
 // TODO(google): remove.
-$mat-display-4-font-size: $mat-font-size-display-4;
-$mat-display-3-font-size: $mat-font-size-display-3;
-$mat-display-2-font-size: $mat-font-size-display-2;
-$mat-display-1-font-size: $mat-font-size-display-1;
-$mat-headline-font-size: $mat-font-size-headline;
-$mat-title-font-size: $mat-font-size-title;
-$mat-subhead-font-size: $mat-font-size-subhead;
 $mat-button-font-size: $mat-font-size-button;
-$mat-body-font-size: $mat-font-size-body;
-$mat-caption-font-size: $mat-font-size-caption;
 
 // Deprecated: use the extended mixins, above.
 // TODO(google): remove.
-
-@mixin mat-type-display-4() {
-  font-size: $mat-display-4-font-size;
-  font-weight: $mat-font-weight-light;
-}
-
-@mixin mat-type-display-3() {
-  font-size: $mat-display-3-font-size;
-  font-weight: $mat-font-weight-regular;
-}
-
-@mixin mat-type-display-2() {
-  font-size: $mat-display-2-font-size;
-  font-weight: $mat-font-weight-regular;
-}
-
-@mixin mat-type-display-1() {
-  font-size: $mat-display-1-font-size;
-  font-weight: $mat-font-weight-regular;
-}
-
-@mixin mat-type-headline() {
-  font-size: $mat-headline-font-size;
-  font-weight: $mat-font-weight-regular;
-}
-
-@mixin mat-type-title() {
-  font-size: $mat-title-font-size;
-  font-weight: $mat-font-weight-medium;
-}
-
-@mixin mat-type-subhead() {
-  font-size: $mat-subhead-font-size;
-  font-weight: $mat-font-weight-regular;
-}
 
 @mixin mat-type-button() {
   font-size: $mat-button-font-size;
   font-weight: $mat-font-weight-medium;
   text-transform: uppercase;
-}
-
-@mixin mat-type-body() {
-  font-size: $mat-body-font-size;
-  font-weight: $mat-font-weight-regular;
-}
-
-@mixin mat-type-body-2() {
-  font-size: $mat-body-font-size;
-  font-weight: $mat-font-weight-medium;
-}
-
-@mixin mat-type-caption() {
-  font-size: $mat-caption-font-size;
-  font-weight: $mat-font-weight-regular;
 }
