@@ -168,7 +168,7 @@ class MaterialTreeNode<T> {
     if (expandAll && childGroups != null) {
       for (var group in childGroups) {
         for (var option in group) {
-          expandOption(option);
+          await expandOption(option);
         }
       }
     }
