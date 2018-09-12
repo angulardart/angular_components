@@ -237,6 +237,16 @@ $_panel: 'div.panel.themeable';
   }
 }
 
+@mixin expansionpanel-shadow($shadow) {
+  ::ng-deep #{$_panel} {
+    box-shadow: $shadow;
+
+    &.open {
+      box-shadow: $shadow;
+    }
+  }
+}
+
 @mixin expansionpanel-top-align-expand-button($margin-top: $mat-grid-type * 3) {
   ::ng-deep #{$_panel} {
     &.open > header > .header .expand-button {
