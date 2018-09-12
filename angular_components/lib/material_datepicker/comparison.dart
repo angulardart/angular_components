@@ -48,6 +48,8 @@ class DatepickerComparison implements DateRangeComparison {
   /// Checks the comparison date range has same logic as given comparisonOption.
   bool comparesTo(ComparisonOption option) =>
       comparison != null &&
+      option != null &&
+      range != null &&
       comparison.unclamped() ==
           option.computeComparisonRange(range.unclamped());
 
