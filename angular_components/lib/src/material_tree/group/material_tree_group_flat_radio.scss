@@ -6,4 +6,5 @@
 
 material-radio {
   @include list-item-button;
+  align-items: flex-start;
 }
