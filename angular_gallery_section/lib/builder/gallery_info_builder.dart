@@ -71,8 +71,9 @@ class GalleryInfoBuilder extends Builder {
                   config.demoClassNames, rootLibrary, assetReader))
               .then((demos) => resolved.demos =
                   demos.where((demo) => demo != null).toList()),
-          _resolveDemo(config.mainDemoName, rootLibrary, assetReader)
-              .then((demos) => resolved.mainDemo = demos),
+          _resolveDemoFromRootLibrary(
+                  config.mainDemoName, rootLibrary, assetReader)
+              .then((demo) => resolved.mainDemo = demo),
         ]);
         return resolved;
       }));
@@ -245,15 +246,25 @@ class GalleryInfoBuilder extends Builder {
   Iterable<Future<DemoInfo>> _resolveDemos(Iterable<String> demoClassNames,
       LibraryElement rootLibrary, AssetReader assetReader) {
     if (demoClassNames == null) return const Iterable.empty();
-    return demoClassNames.map((demoClassName) async {
-      final demoLibrary = _searchFor(demoClassName, rootLibrary);
+    return demoClassNames.map((demoClassName) async =>
+        _resolveDemoFromRootLibrary(demoClassName, rootLibrary, assetReader));
+  }
 
-      if (demoLibrary == null) {
-        log.warning('Could not find Demo class: $demoClassName.');
-        return null;
-      }
-      return _resolveDemo(demoClassName, demoLibrary, assetReader);
-    });
+  /// Resolve [demoClassName] into [_DemoInfo].
+  ///
+  /// Will search imports starting at [rootLibrary] for the demo class. Reads
+  /// files with [assetReader] during the search.
+  Future<DemoInfo> _resolveDemoFromRootLibrary(String demoClassName,
+      LibraryElement rootLibrary, AssetReader assetReader) async {
+    if (demoClassName == null) return null;
+
+    final demoLibrary = _searchFor(demoClassName, rootLibrary);
+
+    if (demoLibrary == null) {
+      log.warning('Could not find Demo class: $demoClassName.');
+      return null;
+    }
+    return _resolveDemo(demoClassName, demoLibrary, assetReader);
   }
 
   /// Find the file that defines [demoClassName] and extract the information
