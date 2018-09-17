@@ -23,12 +23,13 @@ specific styling so you can easily override style values as needed.
 class MyComponent {}
 ```
 
+
 ## App Bar
 
 An app bar has the following classes which can be used together to create a
 header:
 
-<!-- mdformat off(Basic table formatting for Github markdown compatibility) -->
+<!-- mdformat off(Basic table formatting for GitHub markdown compatibility) -->
 
 Class                   | Description
 ----------------------- | ------------------------------------------------------
