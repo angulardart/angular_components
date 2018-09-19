@@ -382,9 +382,24 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     });
   }
 
-  /// The available options for this container.
-  @override
+  /// Sets the available options for the input.
+  ///
+  /// Accepts either a [SelectionOptions] or a [List]. If a [List] is passed,
+  /// the [StringSelectionOptions] class will be used to create the selection
+  /// options.
   @Input('selectionOptions')
+  set selectionOptionsInput(dynamic value) {
+    if (value == null) return;
+    if (value is SelectionOptions) {
+      options = value;
+    } else if (value is List) {
+      options = StringSelectionOptions(value, toFilterableString: itemRenderer);
+    } else {
+      throw ArgumentError('Unsupported selection options type.');
+    }
+  }
+
+  @override
   set options(SelectionOptions options) {
     if (options == null) return;
     super.options = options;
