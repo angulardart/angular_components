@@ -13,9 +13,19 @@ jobs:
       script: ./tool/travis.sh dartanalyzer
       env: PKG="angular_components"
       dart: stable
+    - stage: unit_test
+      name: "SDK: stable - DIR: angular_components - TASKS: pub run test --run-skipped"
+      ##########################################################################
+      # HAND EDITS
+      before_script: ./angular_components/tool/travis/install_protoc.sh
+      ##########################################################################
+      script: ./tool/travis.sh test
+      env: PKG="angular_components"
+      dart: stable
 
 stages:
   - analyze_and_format
+  - unit_test
 
 # Only building master means that we don't run two builds for each pull request.
 branches:

@@ -2,7 +2,6 @@
 //  Generated code. Do not modify.
 ///
 // ignore_for_file: non_constant_identifier_names,library_prefixes
-library angular_components.material_datepicker_date;
 
 // ignore: UNUSED_SHOWN_NAME
 import 'dart:core' show int, bool, double, String, List, override;
@@ -37,7 +36,7 @@ class Date extends GeneratedMessage {
 
   int get year => $_get(0, 0);
   set year(int v) {
-    $_setUnsignedInt32(0, v);
+    $_setSignedInt32(0, v);
   }
 
   bool hasYear() => $_has(0);
@@ -45,7 +44,7 @@ class Date extends GeneratedMessage {
 
   int get month => $_get(1, 0);
   set month(int v) {
-    $_setUnsignedInt32(1, v);
+    $_setSignedInt32(1, v);
   }
 
   bool hasMonth() => $_has(1);
@@ -53,7 +52,7 @@ class Date extends GeneratedMessage {
 
   int get day => $_get(2, 0);
   set day(int v) {
-    $_setUnsignedInt32(2, v);
+    $_setSignedInt32(2, v);
   }
 
   bool hasDay() => $_has(2);
