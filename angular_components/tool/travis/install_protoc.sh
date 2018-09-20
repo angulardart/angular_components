@@ -8,7 +8,6 @@ if type protoc > /dev/null; then
 fi
 
 echo "Installing protoc..."
-exit 1
 
 set -ev
 PROTOC_VERSION=3.6.0
