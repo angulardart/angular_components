@@ -20,7 +20,14 @@ void main() {
           'to match the current directory ($currentDir).');
     }
 
-    final protocPath = _runProc('which', ['protoc']);
+    // By default try to run from a pre-determined location for Travis.
+    var protocPath = '${Platform.environment['HOME']}/protoc/bin/protoc';
+
+    // Use the version of protoc on the $PATH if available.
+    var result = Process.runSync('which', ['protoc']);
+    if (result.exitCode == 0) {
+      protocPath = (result.stdout as String).trim();
+    }
 
     // 1 - get a list of modified `.pb.dart` files - should be empty
     expect(_changedGeneratedFiles(), isEmpty);

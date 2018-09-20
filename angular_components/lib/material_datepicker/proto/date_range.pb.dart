@@ -2,15 +2,13 @@
 //  Generated code. Do not modify.
 ///
 // ignore_for_file: non_constant_identifier_names,library_prefixes
-library third_party.dart_src.acx.material_datepicker_date_range;
 
 // ignore: UNUSED_SHOWN_NAME
 import 'dart:core' show int, bool, double, String, List, override;
 
 import 'package:protobuf/protobuf.dart';
 
-import 'package:angular_components/material_datepicker/proto/date.pb.dart'
-    as $date$type;
+import 'date.pb.dart';
 
 class DatepickerDateRange extends GeneratedMessage {
   static final BuilderInfo _i = new BuilderInfo('DatepickerDateRange')
@@ -62,7 +60,7 @@ class DatepickerDateRange extends GeneratedMessage {
 
   int get daysAgo => $_get(1, 0);
   set daysAgo(int v) {
-    $_setUnsignedInt32(1, v);
+    $_setSignedInt32(1, v);
   }
 
   bool hasDaysAgo() => $_has(1);
@@ -70,7 +68,7 @@ class DatepickerDateRange extends GeneratedMessage {
 
   int get weeksAgo => $_get(2, 0);
   set weeksAgo(int v) {
-    $_setUnsignedInt32(2, v);
+    $_setSignedInt32(2, v);
   }
 
   bool hasWeeksAgo() => $_has(2);
@@ -78,7 +76,7 @@ class DatepickerDateRange extends GeneratedMessage {
 
   int get monthsAgo => $_get(3, 0);
   set monthsAgo(int v) {
-    $_setUnsignedInt32(3, v);
+    $_setSignedInt32(3, v);
   }
 
   bool hasMonthsAgo() => $_has(3);
@@ -86,7 +84,7 @@ class DatepickerDateRange extends GeneratedMessage {
 
   int get yearsAgo => $_get(4, 0);
   set yearsAgo(int v) {
-    $_setUnsignedInt32(4, v);
+    $_setSignedInt32(4, v);
   }
 
   bool hasYearsAgo() => $_has(4);
@@ -94,7 +92,7 @@ class DatepickerDateRange extends GeneratedMessage {
 
   int get lastNDays => $_get(5, 0);
   set lastNDays(int v) {
-    $_setUnsignedInt32(5, v);
+    $_setSignedInt32(5, v);
   }
 
   bool hasLastNDays() => $_has(5);
@@ -110,7 +108,7 @@ class DatepickerDateRange extends GeneratedMessage {
 
   int get broadcastMonthsAgo => $_get(7, 0);
   set broadcastMonthsAgo(int v) {
-    $_setUnsignedInt32(7, v);
+    $_setSignedInt32(7, v);
   }
 
   bool hasBroadcastMonthsAgo() => $_has(7);
@@ -118,7 +116,7 @@ class DatepickerDateRange extends GeneratedMessage {
 
   int get lastNDaysToToday => $_get(8, 0);
   set lastNDaysToToday(int v) {
-    $_setUnsignedInt32(8, v);
+    $_setSignedInt32(8, v);
   }
 
   bool hasLastNDaysToToday() => $_has(8);
@@ -126,7 +124,7 @@ class DatepickerDateRange extends GeneratedMessage {
 
   int get quartersAgo => $_get(9, 0);
   set quartersAgo(int v) {
-    $_setUnsignedInt32(9, v);
+    $_setSignedInt32(9, v);
   }
 
   bool hasQuartersAgo() => $_has(9);
@@ -134,7 +132,7 @@ class DatepickerDateRange extends GeneratedMessage {
 
   int get startWeekday => $_get(10, 0);
   set startWeekday(int v) {
-    $_setUnsignedInt32(10, v);
+    $_setSignedInt32(10, v);
   }
 
   bool hasStartWeekday() => $_has(10);
@@ -146,10 +144,8 @@ class _ReadonlyDatepickerDateRange extends DatepickerDateRange
 
 class DateRange extends GeneratedMessage {
   static final BuilderInfo _i = new BuilderInfo('DateRange')
-    ..a<$date$type.Date>(1, 'start', PbFieldType.OM, $date$type.Date.getDefault,
-        $date$type.Date.create)
-    ..a<$date$type.Date>(2, 'end', PbFieldType.OM, $date$type.Date.getDefault,
-        $date$type.Date.create)
+    ..a<Date>(1, 'start', PbFieldType.OM, Date.getDefault, Date.create)
+    ..a<Date>(2, 'end', PbFieldType.OM, Date.getDefault, Date.create)
     ..hasRequiredFields = false;
 
   DateRange() : super();
@@ -172,16 +168,16 @@ class DateRange extends GeneratedMessage {
     if (v is! DateRange) checkItemFailed(v, 'DateRange');
   }
 
-  $date$type.Date get start => $_getN(0);
-  set start($date$type.Date v) {
+  Date get start => $_getN(0);
+  set start(Date v) {
     setField(1, v);
   }
 
   bool hasStart() => $_has(0);
   void clearStart() => clearField(1);
 
-  $date$type.Date get end => $_getN(1);
-  set end($date$type.Date v) {
+  Date get end => $_getN(1);
+  set end(Date v) {
     setField(2, v);
   }
 
