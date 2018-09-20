@@ -29,22 +29,31 @@ void main() {
       protocPath = (result.stdout as String).trim();
     }
 
+    final datepickerProtoPath = './lib/material_datepicker/proto';
+
     // 1 - get a list of modified `.pb.dart` files - should be empty
     expect(_changedGeneratedFiles(), isEmpty);
     // 2 - run build - should be no output, since nothing should change
-    print(_runProc(protocPath, [
-      '--proto_path=./lib/material_datepicker/proto',
-      '--dart_out=./lib/material_datepicker/proto',
-      './lib/material_datepicker/proto/date.proto'
-    ]));
     _runProc(protocPath, [
-      '--proto_path=./lib/material_datepicker/proto',
-      '--dart_out=./lib/material_datepicker/proto',
-      './lib/material_datepicker/proto/date_range.proto'
+      '--proto_path=$datepickerProtoPath',
+      '--dart_out=$datepickerProtoPath',
+      '$datepickerProtoPath/date.proto'
     ]);
-    print(_runProc('dartfmt', ['-w', './lib/material_datepicker/proto']));
+    _runProc(protocPath, [
+      '--proto_path=$datepickerProtoPath',
+      '--dart_out=$datepickerProtoPath',
+      '$datepickerProtoPath/date_range.proto'
+    ]);
+    _runProc('dartfmt', ['-w', datepickerProtoPath]);
     // 3 - get a list of modified `.pb.dart` files - should still be empty
+
+    printOnFailure(
+        _runProc('git', ['diff', '$datepickerProtoPath/date.pb.dart']));
+    printOnFailure(
+        _runProc('git', ['diff', '$datepickerProtoPath/date_range.pb.dart']));
+
     expect(_changedGeneratedFiles(), isEmpty);
+    // Print diffs to make it easier to find the problem if one exists.
   });
 }
 
