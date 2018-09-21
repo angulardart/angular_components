@@ -16,9 +16,8 @@ import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/selection/string_selection_options.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
-import 'package:angular_gallery_section/annotation/gallery_section_config.dart';
 
-import 'material_auto_suggest_input_demo.template.dart' as demo;
+import 'material_auto_suggest_input_full_demo.template.dart' as demo;
 
 List<String> _numberNames = <String>[
   'one',
@@ -63,13 +62,8 @@ List<OptionGroup<List<int>>> _optionGroups = <OptionGroup<List<int>>>[
   ], "Even less than 20")
 ];
 
-@GallerySectionConfig(
-  displayName: 'Material Auto Suggest Input',
-  docs: [MaterialAutoSuggestInputComponent],
-  demos: [MaterialAutoSuggestInputDemoComponent],
-)
 @Component(
-  selector: 'material-auto-suggest-input-demo',
+  selector: 'material-auto-suggest-input-full-demo',
   directives: [
     formDirectives,
     MaterialAutoSuggestInputComponent,
@@ -80,11 +74,11 @@ List<OptionGroup<List<int>>> _optionGroups = <OptionGroup<List<int>>>[
     NgFor,
     NgIf,
   ],
-  templateUrl: 'material_auto_suggest_input_demo.html',
+  templateUrl: 'material_auto_suggest_input_full_demo.html',
   styleUrls: ['material_auto_suggest_input_demo.scss.css'],
   preserveWhitespace: true,
 )
-class MaterialAutoSuggestInputDemoComponent {
+class MaterialAutoSuggestInputFullDemoComponent {
   static const _popupPositionsAboveInput = [
     RelativePosition.AdjacentTopLeft,
     RelativePosition.AdjacentTopRight,
