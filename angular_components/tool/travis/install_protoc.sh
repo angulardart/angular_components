@@ -9,7 +9,7 @@ if type protoc > /dev/null; then
   echo "protoc already installed."
 
   # Activate dart protoc plugin.
-  pub global activate protoc_plugin $PROTOC_PLUGIN_VERSION
+  pub global activate protoc_plugin "$PROTOC_PLUGIN_VERSION"
   exit 0
 fi
 
@@ -27,4 +27,4 @@ popd
 $HOME/protoc/bin/protoc --version
 
 # Activate dart protoc plugin.
-pub global activate protoc_plugin $PROTOC_PLUGIN_VERSION
+pub global activate protoc_plugin "$PROTOC_PLUGIN_VERSION"
