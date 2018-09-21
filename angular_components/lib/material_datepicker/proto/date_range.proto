@@ -1,8 +1,8 @@
 syntax = "proto2";
 
-package third_party.dart_src.acx.material_datepicker;
+package angular_components.lib.material_datepicker.proto;
 
-import "google/type/date.proto";
+import "date.proto";
 
 // Represents a date range selected in a material-date-range-picker.
 // Supports "relative presets" which update depending on the current date,
@@ -91,8 +91,8 @@ message DatepickerDateRange {
 // A concrete date range between two calendar dates, inclusive.
 message DateRange {
   // First day of the range
-  optional google.type.Date start = 1;
+  optional Date start = 1;
 
   // Last day of the range
-  optional google.type.Date end = 2;
+  optional Date end = 2;
 }
