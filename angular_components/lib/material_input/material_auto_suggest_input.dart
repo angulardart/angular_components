@@ -220,6 +220,8 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Listener for selection options changes.
   StreamSubscription _optionsListener;
 
+  StreamController _selectionChangeController;
+
   /// Direction of popup scaling.
   ///
   /// Valid values are `x`, `y`, or `null`.
@@ -347,12 +349,37 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     }
   }
 
-  /// If set, auto suggest will use the supplied observable [SelectionModel]
-  /// object.
+  /// Emits the selected value(s) whenever selection changes.
   ///
-  /// Uses a single selection model by default.
+  /// For single select, it will either be the selected value or null.
+  /// For multi select, it will a list of selected values or an empty list.
+  @Output()
+  Stream get selectionChange {
+    if (_selectionChangeController == null) {
+      _selectionChangeController = new StreamController();
+    }
+    return _selectionChangeController.stream;
+  }
+
+  /// Sets the selected value or selection model for the input.
+  ///
+  /// Accepts either a [SelectionModel], a selected value or null.
+  @Input('selection')
+  set selectionInput(dynamic value) {
+    if (value is SelectionModel) {
+      selection = value;
+    } else if (value == null) {
+      selection.clear();
+    } else {
+      assert(
+          isSingleSelect,
+          'Passing selected value through `selection` input is only supported '
+          'for single select.');
+      selection.select(value);
+    }
+  }
+
   @override
-  @Input()
   set selection(SelectionModel selection) {
     super.selection = selection;
 
@@ -377,6 +404,15 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
           _lastSelectedItem = selectedItem;
           inputText =
               _lastSelectedItem != null ? itemRenderer(_lastSelectedItem) : '';
+        }
+      }
+      if (_selectionChangeController != null) {
+        if (isSingleSelect) {
+          _selectionChangeController.add(selection.selectedValues.isNotEmpty
+              ? selection.selectedValues.first
+              : null);
+        } else {
+          _selectionChangeController.add(selection.selectedValues);
         }
       }
     });
