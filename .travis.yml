@@ -4,18 +4,19 @@ language: dart
 jobs:
   include:
     - stage: analyze_and_format
-      name: "SDK: stable - DIR: angular_components - TASKS: dartfmt -n --set-exit-if-changed ."
-      script: ./tool/travis.sh dartfmt
+      name: "SDK: stable - DIR: angular_components - TASKS: [dartfmt -n --set-exit-if-changed ., dartanalyzer --fatal-warnings .]"
+      script: ./tool/travis.sh dartfmt dartanalyzer
       env: PKG="angular_components"
       dart: stable
-    - stage: analyze_and_format
-      name: "SDK: stable - DIR: angular_components - TASKS: dartanalyzer --fatal-warnings ."
-      script: ./tool/travis.sh dartanalyzer
+    - stage: unit_test
+      name: "SDK: stable - DIR: angular_components - TASKS: [./tool/travis/install_protoc.sh, pub run test --run-skipped]"
+      script: ./tool/travis.sh command test
       env: PKG="angular_components"
       dart: stable
 
 stages:
   - analyze_and_format
+  - unit_test
 
 # Only building master means that we don't run two builds for each pull request.
 branches:
