@@ -246,8 +246,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 // The color given is not applied to disabled button, as it could otherwise look
 // as an enabled button.
 //
-// TODO(google): Remove $hover-color argument since it is no longer used.
-@mixin button-color($selector, $color, $hover-color: $color) {
+@mixin button-color($selector, $color) {
   ::ng-deep #{$selector}:not([disabled]):not([icon]) {
     color: $color;
   }
@@ -266,8 +265,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
-// TODO(google): Remove $hover-color argument since it is no longer used.
-@mixin icon-button-color($selector, $color, $hover-color: $color) {
+@mixin icon-button-color($selector, $color) {
   ::ng-deep #{$selector}[icon]:not([disabled]) {
     // Set the color here to be found by the ripple
     color: $color;
