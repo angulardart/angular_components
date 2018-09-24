@@ -56,7 +56,7 @@ class MaterialSelectSearchboxComponent extends FocusableMixin
 
   void _filter() {
     _lastFilterFuture?.dispose();
-    _lastFilterFuture = _filterable.filter(_inputText ?? '');
+    _lastFilterFuture = _filterable?.filter(_inputText ?? '');
   }
 
   @ViewChild(MaterialInputComponent)
