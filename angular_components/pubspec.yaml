@@ -1,5 +1,5 @@
 name: angular_components
-version: 0.9.1
+version: 0.9.2
 description: >
   The official Material Design components for AngularDart. Used at Google in
   production apps.
@@ -14,7 +14,7 @@ dependencies:
   async: ^2.0.8
   build: '>=0.11.1 <0.13.0'
   build_config: '>=0.2.6 <0.4.0'
-  built_collection: '>=1.6.0 <4.0.0'
+  built_collection: ^4.0.0
   collection: ^1.14.10
   fixnum: ^0.10.7
   intl: '>=0.14.0 <0.16.0'

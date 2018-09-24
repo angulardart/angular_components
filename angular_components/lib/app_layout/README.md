@@ -68,7 +68,7 @@ Here is an example:
 </header>
 ```
 
-![Simple App Bar](/dart-lang/angular_components/master/lib/app_layout/g3doc/simple_app_bar.png)
+![Simple App Bar](/dart-lang/angular_components/master/angular_components/lib/app_layout/g3doc/simple_app_bar.png)
 
 ## Drawers
 
@@ -271,7 +271,7 @@ using a mixin.
 Example scss drawer content component:
 
 ```scss
-@import 'third_party/dart_src/acx/app_layout/lib/mixins';
+@import 'package:angular_components/lib/app_layout/mixins';
 
 :host {
   @include mat-drawer-list-items;

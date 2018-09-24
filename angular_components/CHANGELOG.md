@@ -1,3 +1,60 @@
+## 0.9.2
+
+### Component Updates
+
+#### Material Auto Suggest Input
+* Implement `HasDisabled`.
+* Allow `selection` input to take selected value for single selection in
+  addition to `SelectionModel`.
+* Expose `selection` output to emit selected value(s) on selection changes.
+* Add `shouldClearSelectionOnInput` input.
+
+#### Material Button
+* Remove unused `hover-color` argument from button color Sass mixins.
+
+#### Material Datepicker
+* Add Sass mixins for rendering the range title to the left of the dropdown
+  component and for removing some padding to save vertical space.
+* Harden `DatepickerComparison.comparesTo()` against nulls.
+
+#### Material Expansion Panel
+* Add transition to save/cancel collapse.
+* Add Sass mixin for custom `box-shadow`.
+
+#### Material Input
+* Add Sass mixin to set the bottom section margins.
+* Allow `MaterialPercentInputDirective` to follow `NumberFormat` specification
+  for percent.
+* Allow `selectionOptions` input to accept a `List` in addition to
+  `SelectionOptions`.
+
+#### Material Menu
+* Remove Sass mixin `material-fab-menu-icon-size`.
+
+#### Material Tooltip
+* Change the ink tooltip stay open if the mouse is currently in it's bounds.
+
+#### Material Tree
+* Allows dropdown component to accept custom popup positions.
+* Fix off-center alignment issue between radio button and text in
+  `MaterialTreeGroupFlatRadioComponent`.
+
+#### Scorecard
+* Expose `ScorecardBarDirective` so it can be resued by other card bar
+  implementations.
+
+### Miscellaneous
+* Improvements to `StickyController` for the __single-stickyKey case__: Add
+  `enableSmoothPushing` setting, and partially support stickyKey'd elements of
+  differing heights.
+* Replace all deprecated Material typography variables/mixins with their
+  canonical versions, and inline mixins with no replacement.
+* Fix `unawaited_futures` lint warnings by adding missing `await`s.
+
+### Documentation
+* Add new readme for Material Auto-suggest Input.
+* Minor docs fixes.
+
 ## 0.9.1
 
 ### Component Updates
