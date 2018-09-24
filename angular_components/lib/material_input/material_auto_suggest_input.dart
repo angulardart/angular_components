@@ -124,8 +124,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     RelativePosition.AdjacentTopRight
   ];
 
-  final SelectionModel _defaultSelection = SelectionModel.single();
-
   final String popupId;
   final String inputId;
 
@@ -135,24 +133,42 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   bool _isInitialized = false;
 
-  /// Whether to clear the text once the item is selected from the menu.
+  /// Whether to clear the input text once the item is selected from the menu.
+  ///
+  /// Defaults to false.
+  // TODO(google): rename this to shouldClearInputOnSelection.
   @Input()
   bool shouldClearOnSelection = false;
 
+  /// Whether to clear the selected value from the selection model when the
+  /// input text changes.
+  ///
+  /// Defaults to true.
+  @Input()
+  bool shouldClearSelectionOnInput = true;
+
   /// Whether to cause dropdown to be closed on activation.
+  ///
+  /// Defaults to true.
   @Input()
   bool closeOnActivate = true;
 
   /// Whether to hide the checkbox before the selection item for multi-select.
+  ///
+  /// Defaults to false.
   @Input()
   bool hideCheckbox = false;
 
   /// Whether the popup should automatically reposition itself based on space
   /// available relative to the viewport.
+  ///
+  /// Defaults to true.
   @Input()
   bool enforceSpaceConstraints = true;
 
   /// Whether to clamp the popup position so that it never goes offscreen.
+  ///
+  /// Defaults to false.
   @Input()
   bool constrainToViewport = false;
 
@@ -187,6 +203,8 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// [selection] are changed:
   /// 1) first selected value in [selection] is active in [options]
   /// 2) if [selection] has no selected values, nothing is active in [options]
+  ///
+  /// Defaults to false.
   @Input()
   bool initialActivateSelection = false;
 
@@ -195,10 +213,13 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Allow filtering of suggestions as the user is typing.
   ///
   /// When `false` always show the full list of suggestions.
+  /// Defaults to true.
   @Input()
   bool filterSuggestions = true;
 
   /// Whether to close on enter even for string non matching options.
+  ///
+  /// Defaults to false.
   @Input()
   bool closeOnEnter = false;
 
@@ -208,6 +229,8 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   /// Whether or not the suggestion popup width is at least as wide as the input
   /// width.
+  ///
+  /// Defaults to false.
   @Input()
   bool popupMatchInputWidth = false;
 
@@ -231,6 +254,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Show or hide the trailing close icon.
   ///
   /// Clicking on the icon clears the input text and hides the popup.
+  /// Defaults to false.
   @Input()
   bool showClearIcon = false;
 
@@ -312,7 +336,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     if (_cd != null) {
       _cd.valueAccessor = this;
     }
-    selection = _defaultSelection;
+    selection = SelectionModel.single();
   }
 
   /// Publishes events when input text changes (on keypress.)
@@ -575,7 +599,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
       return false;
     }
 
-    if (selection != _defaultSelection &&
+    if (shouldClearSelectionOnInput &&
         !shouldClearOnSelection &&
         _lastSelectedItem != null) {
       // deselect previously selected item as the component was not asked to

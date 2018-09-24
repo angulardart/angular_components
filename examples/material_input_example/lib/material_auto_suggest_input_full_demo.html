@@ -42,6 +42,7 @@
         [clearIconTooltip]="clearIconTooltip"
         [hideCheckbox]="hideCheckbox"
         [shouldClearOnSelection]="shouldClearOnSelection"
+        [shouldClearSelectionOnInput]="shouldClearSelectionOnInput"
         [label]="label"
         [labelFactory]="labelFactory"
         [leadingGlyph]="leadingGlyph"
@@ -80,7 +81,10 @@
     </material-checkbox>
     <br>
     <material-checkbox [(checked)]="shouldClearOnSelection">
-      Clear on selection
+      Clear input on selection
+    </material-checkbox>
+    <material-checkbox [(checked)]="shouldClearSelectionOnInput">
+      Clear selection on input
     </material-checkbox>
     <br>
     <material-checkbox [(checked)]="popupMatchInputWidth">
