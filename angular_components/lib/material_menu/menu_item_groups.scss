@@ -40,6 +40,8 @@ $menu-item-selector: '.menu-item';
 
 #{$menu-item-selector} {
   @include list-item-button();
+
+  min-height: $list-item-height;
   outline: none;
 
   material-icon.disabled {
@@ -95,6 +97,8 @@ $menu-item-selector: '.menu-item';
   display: inline-flex;
   flex: 1;
   flex-direction: column;
+  line-height: normal;
+  padding: $mat-grid-type 0;
 }
 
 .menu-item-secondary-label {
