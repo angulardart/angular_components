@@ -9,51 +9,18 @@ interface, while what is selected is represented by the
 [`SelectionModel`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/selection_model.dart)
 interface.
 
-Material Auto Suggest Input is an input field which provides suggestions to
-auto-complete the input as the user types. It uses these two interfaces via the
-`selectionOptions` and `selection` inputs, but additionally it has `inputText`
-which presents the text the user has entered.
-
-Which input combinations to use for Material Auto Suggest Input depends on your
-use case.
-
-If you are using the component to accept user entered content, and the list of
-options is used to assist content entry, you want to use `selectionOptions` and
-`inputText`. Together with the `inputTextChange` output, you can setup two-way
-binding for the input text.
+Material Dropdown Select is a button-triggered dropdown. It uses these two
+interfaces via the `options` and `selection` inputs. Together with the
+`selectionChange` output, you can setup two-way binding for the selected value.
 
 HTML:
 
 ```html
-<material-auto-suggest-input
-    [selectionOptions]="myOptions"
-    [(inputText)]="myInput"
-    ...>
-</material-auto-suggest-input>
-```
-
-Dart:
-
-```dart
-class MyView {
-  final myOptions = ['Foo', 'Bar', 'Baz'];
-  String myInput = 'Bar';
-}
-```
-
-If you are using the component to select one or more items from a list of
-options, and the input is used for filtering, you want to use `selectionOptions`
-and `selection`. Together with the `selectionChange` output, you can setup
-two-way binding for the selected value.
-
-HTML:
-
-```html
-<material-auto-suggest-input
-    [selectionOptions]="myOptions"
+<material-dropdown-select
+    [options]="myOptions"
     [(selection)]="mySelection"
-    ...>
-</material-auto-suggest-input>
+    [buttonText]="...">
+</material-dropdown-select>
 ```
 
 Dart:
@@ -65,10 +32,10 @@ class MyView {
 }
 ```
 
-# The selectionOptions input
+# The options input
 
-The `selectionOptions` input accepts either a `SelectionOptions` class or a
-generic `List`.
+The `options` input accepts either a `SelectionOptions` class or a generic
+`List`.
 
 If a `List` is passed, a
 [`StringSelectionOptions`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/string_selection_options.dart)
@@ -83,7 +50,7 @@ async search, you could also pass an implementation of `SelectionOptions`.
 The `selection` input accepts either a `SelectionModel`, a selected value or
 null.
 
-By default Material Auto Suggest Input uses
+By default Material Dropdown Select uses
 [`SingleSelectionModel`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/src/model/selection/single_selection_model_impl.dart).
 If a selected value is passed to the `selection` input, this value will be
 selected by the default selection model. If a null value is passed to the input,

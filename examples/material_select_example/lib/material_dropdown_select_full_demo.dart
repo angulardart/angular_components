@@ -22,17 +22,11 @@ import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/selection/string_selection_options.dart';
 import 'package:angular_components/model/ui/display_name.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
-import 'package:angular_gallery_section/annotation/gallery_section_config.dart';
 
-import 'material_dropdown_select_demo.template.dart' as demo;
+import 'material_dropdown_select_full_demo.template.dart' as demo;
 
-@GallerySectionConfig(
-  displayName: 'Material Dropdown Select',
-  docs: [MaterialDropdownSelectComponent],
-  demos: [MaterialDropdownSelectDemoComponent],
-)
 @Component(
-  selector: 'material-dropdown-select-demo',
+  selector: 'material-dropdown-select-full-demo',
   // popupBindings should ideally be in a top level or root component.
   // In demos, this is the top level/root component.
   providers: popupBindings,
@@ -47,11 +41,11 @@ import 'material_dropdown_select_demo.template.dart' as demo;
     NgIf,
     DropdownButtonComponent,
   ],
-  templateUrl: 'material_dropdown_select_demo.html',
+  templateUrl: 'material_dropdown_select_full_demo.html',
   styleUrls: ['material_dropdown_select_demo.scss.css'],
   preserveWhitespace: true,
 )
-class MaterialDropdownSelectDemoComponent {
+class MaterialDropdownSelectFullDemoComponent {
   static const List<Language> _languagesList = <Language>[
     Language('en-US', 'US English'),
     Language('en-UK', 'UK English'),
