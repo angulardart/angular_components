@@ -45,7 +45,10 @@
 @mixin menu-item-text-wrap {
   ::ng-deep .menu-item-label {
     white-space: normal;
-    line-height: 1.25em;
+  }
+
+  ::ng-deep .menu-item-secondary-label {
+    white-space: normal;
   }
 }
 

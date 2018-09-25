@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
@@ -15,6 +16,7 @@ import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/model/menu/menu.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// The Material Menu renders a menu based on a [MenuModel] object. This menu
@@ -41,15 +43,23 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 class MaterialMenuComponent extends Object
     with FocusableMixin, MenuPopupWrapper
     implements AfterViewInit, HasDisabled, OnDestroy {
+  final HtmlElement _root;
   final _onTrigger = StreamController<void>();
   final _disposer = Disposer.oneShot();
+
+  MaterialMenuComponent(this._root);
+
+  String _popupClass;
+  String get popupClass => _popupClass;
 
   /// CSS classes to append onto the menu popup.
   ///
   /// These CSS classes will be copied into the popup overlay. The classes can
   /// be used to select DOM elements within the overlay when the popup is open.
   @Input()
-  String popupClass;
+  set popupClass(String className) {
+    _popupClass = constructEncapsulatedCss(className, _root.classes);
+  }
 
   /// Trigger button text. Ignored if the [MenuModel] has an icon.
   @Input()

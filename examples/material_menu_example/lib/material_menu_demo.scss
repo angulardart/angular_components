@@ -7,3 +7,7 @@
 .nounderline {
   @include dropdown-menu-nounderline;
 }
+
+.menu-item-text-wrap {
+  @include menu-item-text-wrap;
+}
