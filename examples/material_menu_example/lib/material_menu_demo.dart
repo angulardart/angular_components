@@ -61,8 +61,10 @@ class MaterialMenuDemoComponent implements OnDestroy {
 
   factory MaterialMenuDemoComponent() {
     var colorSelection = SelectionModel<String>.single();
-    var makeColorMenuItem = (String color, {MenuModel<MenuItem> subMenu}) =>
-        ColorMenuItem(color, colorSelection, subMenu: subMenu);
+    var makeColorMenuItem = (String color,
+            {MenuModel<MenuItem> subMenu, String secondaryLabel}) =>
+        ColorMenuItem(color, colorSelection,
+            subMenu: subMenu, secondaryLabel: secondaryLabel);
     var menuModel = MenuModel<ColorMenuItem>([
       MenuItemGroup<ColorMenuItem>([
         makeColorMenuItem('red'),
@@ -87,12 +89,14 @@ class MaterialMenuDemoComponent implements OnDestroy {
                         makeColorMenuItem('lightblue'),
                         makeColorMenuItem('lightskyblue'),
                       ])
-                    ])),
+                    ]),
+                    secondaryLabel: 'Lighter shades of blue'),
                 makeColorMenuItem('lightgreen'),
                 makeColorMenuItem('lightsalmon'),
                 makeColorMenuItem('lightyellow'),
               ])
-            ])),
+            ]),
+            secondaryLabel: 'Lighter shades of colors'),
         MenuItem('Darks',
             subMenu: MenuModel<ColorMenuItem>([
               MenuItemGroup<ColorMenuItem>([
@@ -257,8 +261,9 @@ class MaterialMenuDemoComponent implements OnDestroy {
 
 class ColorMenuItem extends MenuItem<ColorMenuItem> {
   ColorMenuItem(String label, SelectionModel selection,
-      {Icon icon, MenuModel<MenuItem> subMenu})
-      : super(label, icon: icon, subMenu: subMenu) {
+      {Icon icon, MenuModel<MenuItem> subMenu, String secondaryLabel})
+      : super(label,
+            icon: icon, subMenu: subMenu, secondaryLabel: secondaryLabel) {
     this.action = () {
       selection.select(label);
     };

@@ -134,6 +134,7 @@ class MenuModel<T> implements HasIcon, AcceptsWidth {
 ///                  action:action, icon:icon, subMenu:subMenu);
 class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   final String label;
+  final String secondaryLabel;
   final String tooltip;
   final MenuModel<T> subMenu;
 
@@ -171,6 +172,7 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   bool get showTooltip => isNotEmpty(tooltip);
   @override
   String get uiDisplayName => label;
+  bool get hasSecondaryLabel => secondaryLabel != null;
 
   /// The constructor for a [MenuItem] which displays [label].
   ///
@@ -196,7 +198,8 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
       ObservableList<MenuItemAffix> itemSuffixes,
       @Deprecated('Please use itemSuffixes instead')
           ObservableReference<IconVisibility> secondaryIconVisibility,
-      this.subMenu})
+      this.subMenu,
+      this.secondaryLabel})
       : _secondaryIconVisibility = secondaryIconVisibility ??
             ObservableReference<IconVisibility>(IconVisibility.visible),
         itemSuffixes = itemSuffixes ?? ObservableList<MenuItemAffix>(),
@@ -210,6 +213,7 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   @override
   String toString() => {
         'label': label,
+        'secondaryLabel': secondaryLabel,
         'enabled': enabled,
         'icon': icon,
         'secondaryIcon': secondaryIcon,

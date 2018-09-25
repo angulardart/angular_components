@@ -91,8 +91,14 @@ $menu-item-selector: '.menu-item';
   }
 }
 
-.menu-item-label {
+.menu-item-label-section {
+  display: inline-flex;
   flex: 1;
+  flex-direction: column;
+}
+
+.menu-item-secondary-label {
+  @include mat-font-caption;
 }
 
 .item-group-list {

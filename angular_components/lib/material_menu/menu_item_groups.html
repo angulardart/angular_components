@@ -66,12 +66,17 @@
                 class="material-list-item-primary"
                 [icon]="item.icon">
             </material-icon>
-            <span *ngIf="hasHighlight" class="menu-item-label">
-              <highlighted-text [segments]="highlighted(item.uiDisplayName)">
-              </highlighted-text>
-            </span>
-            <span *ngIf="!hasHighlight" class="menu-item-label">
-              {{item.uiDisplayName}}
+            <span class="menu-item-label-section">
+              <span *ngIf="hasHighlight" class="menu-item-label">
+                <highlighted-text [segments]="highlighted(item.uiDisplayName)">
+                </highlighted-text>
+              </span>
+              <span *ngIf="!hasHighlight" class="menu-item-label">
+                {{item.uiDisplayName}}
+              </span>
+              <span *ngIf="item.hasSecondaryLabel" class="menu-item-secondary-label">
+                {{item.secondaryLabel}}
+              </span>
             </span>
             <menu-item-affix-list
                 *ngIf="item.itemSuffixes.isNotEmpty"
