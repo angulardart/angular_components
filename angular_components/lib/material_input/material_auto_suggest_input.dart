@@ -136,9 +136,14 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Whether to clear the input text once the item is selected from the menu.
   ///
   /// Defaults to false.
-  // TODO(google): rename this to shouldClearInputOnSelection.
   @Input()
-  bool shouldClearOnSelection = false;
+  bool shouldClearInputOnSelection = false;
+
+  @Input()
+  @Deprecated('Use [shouldClearInputOnSelection] instead')
+  set shouldClearOnSelection(bool value) {
+    shouldClearInputOnSelection = value;
+  }
 
   /// Whether to clear the selected value from the selection model when the
   /// input text changes.
@@ -417,7 +422,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     _selectionListener = selection.selectionChanges.listen((_) {
       // If the input fields shows the selected value then update it if the
       // selection changes or clear it if the selection model is empty.
-      if (shouldClearOnSelection) {
+      if (shouldClearInputOnSelection) {
         inputText = '';
       } else if (isSingleSelect) {
         var selectedItem = selection.selectedValues.isNotEmpty
@@ -600,12 +605,11 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     }
 
     if (shouldClearSelectionOnInput &&
-        !shouldClearOnSelection &&
+        !shouldClearInputOnSelection &&
         _lastSelectedItem != null) {
-      // deselect previously selected item as the component was not asked to
+      // Deselect previously selected item as the component was not asked to
       // clear the text upon selection, indicating that the selection is bound
       // to the text.
-      // TODO(google): Should we clear the selection if they erase even a letter?
       if (inputText != itemRenderer(_lastSelectedItem)) {
         selection.deselect(_lastSelectedItem);
         _lastSelectedItem = null;
