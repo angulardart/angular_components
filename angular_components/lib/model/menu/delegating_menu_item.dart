@@ -77,4 +77,10 @@ class DelegatingMenuItem<SubMenuType> implements MenuItem<SubMenuType> {
 
   @override
   BuiltList<String> get cssClasses => _delegate.cssClasses;
+
+  @override
+  bool get hasSecondaryLabel => _delegate.hasSecondaryLabel;
+
+  @override
+  String get secondaryLabel => _delegate.secondaryLabel;
 }
