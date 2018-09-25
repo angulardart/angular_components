@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_73.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/material_list/material_list.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_list/material_list.dart","../packages/angular/src/core/linker/component_factory.dart"],
+  "names": ["viewFactory_MaterialListComponentHost0","AppView","_ViewMaterialListComponentHost0","initReflector","registerComponent","_ViewMaterialListComponentHost0.build","MaterialListComponent","ComponentRef","_ViewMaterialListComponentHost0.detectChangesInternal","AppView.cdState","_ViewMaterialListComponentHost0.destroyInternal"],
+  "mappings": "A;;IA6FuCA,cCuF9BC,MDnHPC;ACwHaD;AD3FbD,QACFA,C;GAQKG,WACHA,SACEA,MAUJA;;AExEEC,WAAWA;AFqEXD,KAGFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAhD8CE,WAAQA;AACpCA;AAAdA;AACAA;AGpCEC;AHqCFD;AACAA;AACAA;AACAA,OIpDFE,oCJqDAF,C;EAGKG,WC0IuBC;ADpI1BD;AACAA,UACFA,C;EAGKE,WACHA;cAAaA,KACfA,C"
+}

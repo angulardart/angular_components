@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_12.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/model/selection/selection_container.dart"],
+  "names": ["SelectionContainer.selection","SelectionContainer.options","SelectionContainer.itemRenderer","SelectionContainer.componentRenderer","SelectionContainer.factoryRenderer"],
+  "mappings": "A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAcwBA,WAAaA,aAAUA,C;IACzCA,YACFA,QACFA,C;IAIwBC,YAAWA,aAAQA,C;IACvCA,cACFA,QACFA,C;IAMoBC,WAAgBA,aAAaA,C;IAE7CA,YACFA,QACFA,C;IAMsBC,WAAqBA,aAAkBA,C;IAYzCC,WAAmBA,aAAgBA,C;IAEnDA,YACFA,QACFA,C"
+}

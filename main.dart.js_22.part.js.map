@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_22.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/model/selection/selection_model.dart","../packages/angular_components/src/model/selection/single_selection_model_impl.dart","org-dartlang-sdk:///sdk/lib/_internal/js_runtime/lib/js_rti.dart","../packages/observable/src/observable.dart","../packages/observable/src/change_notifier.dart","org-dartlang-sdk:///sdk/lib/_internal/js_runtime/lib/js_array.dart"],
+  "names": ["SingleSelectionModel","_SingleSelectionModelImpl._selectedValues","TypeImpl","TypeImpl.==","Observable._isNotGeneric","_SingleSelectionModelImpl","ChangeNotifier","_SingleSelectionModelImpl.clear","_SingleSelectionModelImpl.select","JSArray.clear","_SingleSelectionModelImpl.deselect","_SingleSelectionModelImpl._isKeySelected","_SingleSelectionModelImpl.isSelected","_SingleSelectionModelImpl.isEmpty","_SingleSelectionModelImpl.isNotEmpty","_SingleSelectionModelImpl.selectedValues"],
+  "mappings": "A;;GAyHUA,gBACJA;AChH4BC;;AC6ChCC,cAagCC;AAAmBA;AC5CXC,SD+BxCF,cAagCC,QAAmBA;KFuDrBH;AAAGA,EC7GjCK,6BGAIC;AHCFD,YD4G+BL,YC3GdK;AACfA,UDyGAL,QACiDA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GCrGhDO,YACHA;gBACEA,QAAyBA,WAE7BA,C;GAGKC,cACHA;WACEA,UAAoBA;AAETA;AACTA,iBACFA,QAgBJA;AAdsBA;AAAiDA;AAErEA;AI4MAC;AJzMED;AACFA,YACEA;AACAA;AAI6CA,YAF9BA;AAEjBA,QAA6BA;AAC7BA,QACFA,C;GAGKE,YACHA;WACEA,UAAoBA;AAElBA;AAiB0BC,2CAhB5BD,QAaJA;AAXuEA;AAErEA;AIoLAD;AJlLAC,YACEA;AACAA;AACeA,yBAEyBA;AAA1CA,QAA6BA;AAC7BA,QACFA,C;GAMKE,YACHA,WACEA,UAAoBA;AAEtBA,OAP8BD,wBAQhCC,C;IAGSC,YAAWA,wBAAuBA,C;IAGlCC,YAAcA,wBAA0BA,C;IAGjCC,WAAkBA,aAAeA,C"
+}

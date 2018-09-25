@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_71.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/utils/color/material.template.dart","../packages/angular_components/material_ripple/material_ripple.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular/src/core/linker/component_factory.dart"],
+  "names": ["initReflector","viewFactory_MaterialRippleComponentHost0","AppView","_ViewMaterialRippleComponentHost0","registerComponent","_ViewMaterialRippleComponentHost0.build","ComponentRef","_ViewMaterialRippleComponentHost0.detectChangesInternal","_ViewMaterialRippleComponentHost0.destroyInternal"],
+  "mappings": "A;;IAWKA,WACHA,SACEA,MAKJA;S;ICiEyCC,cCiGhCC,MD5HPC;ACiIaD;ADrGbD,QACFA,C;GAQKD,WACHA,SACEA,MASJA;;AE7DEI,WAAWA;AFyDXJ;AACAA;AAEAA,OACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EA9CgDK,WAC9BA;AAAdA;AACqBA;AAArBA;AACuCA;AAAvCA;AACAA;AACAA;AACAA,OG3CFC,oCH4CAD,C;EAGKE,WAKHA,UACFA,C;EAGKC,WACHA;cAAaA;AACbA,UACFA,C"
+}

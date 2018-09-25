@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_72.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/material_icon/material_icon.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_icon/material_icon.dart","../packages/angular/src/core/linker/component_factory.dart"],
+  "names": ["viewFactory_MaterialIconComponentHost0","AppView","_ViewMaterialIconComponentHost0","initReflector","registerComponent","_ViewMaterialIconComponentHost0.build","MaterialIconComponent","ComponentRef","_ViewMaterialIconComponentHost0.detectChangesInternal","_ViewMaterialIconComponentHost0.destroyInternal"],
+  "mappings": "A;;IAyGuCA,cC2E9BC,MDrGPC;AC0GaD;AD/EbD,QACFA,C;GAQKG,WACHA,SACEA,MAOJA;;AEjFEC,WAAWA;AF+EXD,KAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EA3C8CE,WAAQA;AACpCA;AAAdA;AACqBA;AAArBA;AGCFC;AHAED;AACAA;AACAA;AACAA,OIlEFE,mCJmEAF,C;EAGKG,WAKHA,UACFA,C;EAGKC,WACHA;cAAaA,KACfA,C"
+}

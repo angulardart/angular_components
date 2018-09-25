@@ -1,0 +1,22 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  color: #212121;
+  font-family: Roboto, Noto, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+}
+body::before, body::after {
+  content: " ";
+  display: table;
+}
+body::after {
+  clear: both;
+}

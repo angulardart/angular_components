@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_24.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_forms/src/directives/ng_form_control.dart","../packages/angular_forms/src/directives/ng_control.dart","../packages/angular_forms/src/directives/shared.dart","org-dartlang-sdk:///sdk/lib/internal/iterable.dart","org-dartlang-sdk:///sdk/lib/_internal/js_runtime/lib/js_array.dart","org-dartlang-sdk:///sdk/lib/async/broadcast_stream_controller.dart"],
+  "names": ["NgFormControl","NgControl","composeValidators","MappedListIterable","JSArray.map","_AsyncBroadcastStreamController","NgFormControl.model","NgFormControl.update","_BroadcastStream","_BroadcastStreamController.stream","NgFormControl.ngAfterChanges","NgFormControl.path","NgFormControl.control","NgFormControl.viewToModelUpdate"],
+  "mappings": "A;;GAqFEA,cAAaA;ACnESC;ACyCLC,eC+VjBC,WD9VoCD,SEsMvBE,qDFtM2CF;AFyBxDF,mBKsUAK,oCLtUAL,AASuCA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAZ3BM,WAASA,aAAMA,C;IAehBC,YAAUA;OK1FrBC,WAoH4BC,UL1BOF,C;GAG9BG,WACHA;WACEA;AACAA;AACAA,cAEFA,WACEA;AACeA;AAAQA;AAAvBA,0BACEA;AACAA,eAGNA,C;IAGiBC,YAAQA,oBAAEA,C;IAGfC,YAAWA,aAAIA,C;GAGtBC,YACHA;AACAA,aACFA,C"
+}

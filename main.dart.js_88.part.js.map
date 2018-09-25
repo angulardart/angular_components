@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_88.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/model/collection/labeled_list.dart"],
+  "names": ["LabeledList.withLabel.<anonymous function>"],
+  "mappings": "A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GA0BqCA,WAAMA,aAAKA,C"
+}

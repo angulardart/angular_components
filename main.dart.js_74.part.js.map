@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_74.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/material_list/material_list_item.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular/src/core/linker/component_factory.dart","../packages/angular_components/material_list/material_list_item.dart"],
+  "names": ["viewFactory_MaterialListItemComponentHost0","AppView","_ViewMaterialListItemComponentHost0","initReflector","registerComponent","_ViewMaterialListItemComponentHost0.build","ComponentRef","_ViewMaterialListItemComponentHost0.injectorGetInternal","_ViewMaterialListItemComponentHost0.detectChangesInternal","_ViewMaterialListItemComponentHost0.destroyInternal","MaterialListItemComponent.ngOnDestroy"],
+  "mappings": "A;;IAyI2CA,cC2ClCC,MDnFPC;ACwFaD;AD/CbD,QACFA,C;GAQKG,WACHA,SACEA,MAUJA;;AEpHEC,WAAWA;AF+GXD;AACAA;AAEAA,MAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EA5DkDE,WAChCA;AAAdA;AACqBA;AAArBA;AACyCA,SAAuCA;AAAhFA;AACAA;AACAA;AACAA,OGpFFC,oCHqFAD,C;EAGQE,gBACNA,kBACEA,aAGJA;AADEA,QACFA,C;EAGKC,WAEqBA;AAIxBA,KACEA;AAEFA;AACAA,UACFA,C;EAGKC,WACHA;cAAaA;AI9DbC,YJgEFD,C"
+}

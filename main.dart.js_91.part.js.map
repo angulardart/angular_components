@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_91.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/intl/intl.dart"],
+  "names": ["Intl.defaultLocale"],
+  "mappings": "A;;GA+FoBA,WACMA;AACtBA,sBACFA,C"
+}

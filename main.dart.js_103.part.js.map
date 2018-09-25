@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_103.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/model/selection/string_selection_options.template.dart"],
+  "names": ["initReflector"],
+  "mappings": "A;;GAkBKA,WACHA,SACEA,MAQJA;;AAJEA;AACAA;AAEAA,MACFA,C"
+}

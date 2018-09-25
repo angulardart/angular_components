@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_50.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/focus/focus.dart"],
+  "names": ["FocusMoveEvent.fromKeyboardEvent","FocusMoveEvent._isNextKey","FocusMoveEvent","FocusMoveEvent.preventDefault","FocusMoveEvent.fromKeyboardEvent.<anonymous function>"],
+  "mappings": "A;;IAqGUA,cAEFA;AAAkBA;AAUKC;AATFD,iBAAGA;KAAHA;AAAzBA,KAAkDA,MAKpDA;AAH8BA;AAA5BA,OATFE,aASsCF,YAGtCA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAlBKG,YACkCA,WACvCA,C;;;GAasCC,WAClCA,uBACDA,C"
+}

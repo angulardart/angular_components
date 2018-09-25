@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_18.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/material_spinner/material_spinner.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_spinner/material_spinner.dart","../packages/angular/src/core/linker/component_factory.dart","../packages/angular_components/material_spinner/material_spinner.scss.css.shim.dart"],
+  "names": ["ViewMaterialSpinnerComponent0","AppView","viewFactory_MaterialSpinnerComponentHost0","_ViewMaterialSpinnerComponentHost0","initReflector","registerComponent","ViewMaterialSpinnerComponent0.build","_ViewMaterialSpinnerComponentHost0.build","MaterialSpinnerComponent","ComponentRef","_ViewMaterialSpinnerComponentHost0.detectChangesInternal","_ViewMaterialSpinnerComponentHost0.destroyInternal","styles","styles$MaterialSpinnerComponent"],
+  "mappings": "A;;GA6BEA,cAAgLA;ACuJzKC,EDvJPD;AC4JaC;;AD3JXD;AACAA;YAAwBA;gBAA8JA;QACtLA;AAHFA,QAIAA,C;IAsDwCE,cC6FjCD,MDnHPE;ACwHaF;ADjGbC,QACFA,C;IAQKE,WACHA,SACEA,MAMJA;;AE9DEC,WAAWA;AF6DXD,KACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAtEiDE,WACvCA;AACuCA;AAElBA;AAAnBA;AAARA;AACMA;AACNA;AACQA;AAARA;AACMA;AACNA;AACQA;AAARA;AACMA;AACNA;AACQA;AAARA;AACMA;AACNA;AACAA;AACAA,MACFA,C;;;EAc+CC,WAAQA;AACvCA;AAAdA;AACAA;AG/CEC;AHgDFD;AACAA;AACAA;AACAA,OIpDFE,oCJqDAF,C;EAGKG,WACHA,UACFA,C;EAGKC,WACHA;cAAaA,KACfA,C;;;;;;;+DKjFkBC,quD;qBLkBAC,kBAA2CA,aAA3CA,C"
+}

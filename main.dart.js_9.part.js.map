@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_9.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/model/selection/selection_model.template.dart","../packages/angular_components/src/model/selection/delegating_selection_model.template.dart","../packages/angular_components/model/selection/selection_model.dart","../packages/angular_components/src/model/selection/radio_group_single_selection_model.template.dart","../packages/angular_components/src/model/selection/selection_change_notifier.dart","org-dartlang-sdk:///sdk/lib/collection/collections.dart","org-dartlang-sdk:///sdk/lib/async/broadcast_stream_controller.dart"],
+  "names": ["initReflector","_defaultKeyProvider","SelectionChangeNotifier.deliverSelectionChanges","UnmodifiableListView","SelectionChangeNotifier.notifySelectionChange","_SelectionChangeRecordImpl._","SelectionChangeNotifier.notifySelectionChange[function-entry$0$added]","SelectionChangeNotifier.notifySelectionChange[function-entry$0$removed]","SelectionChangeNotifier.hasSelectionObservers","SelectionChangeNotifier.selectionChanges","_SyncBroadcastStreamController","_BroadcastStream","_BroadcastStreamController.stream","_SelectionChangeRecordImpl.toString"],
+  "mappings": "A;;GAgBKA,WACHA,SACEA,MAOJA;;AAHEA;AACAA;AACAA,OACFA,C;ICZKA,WACHA,SACEA,MAKJA;;AADEA,MACFA,C;ICUOC,YAAiCA,QAACA,C;;;;;;;ICjBpCD,WACHA,SACEA,MAMJA;;AAFEA;AACAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ICSOE,WACCA,eACAA;AADsBA,6BACUA;AADpCA,MAIMA;AACJA;AACAA,aChBJC;ADiBID,QAIJA,MAFIA,QAEJA,C;GAGKE,cAEHA;AAAIA,eACWA;;AACbA,mBAC4BA;AAC1BA,KAAkBA,aAEpBA,cAoCJC,SCpEAF,kCDkCAC,C;IAVKE,mC;GAAAC,mC;IAaIC,WACAA;AAAPA,yBAEFA,C;IAG2CC,WACrCA;AAAJA,cEqSFC;AFpSID,WAIFA,OE/DFE,WAoH4BC,UFpD5BH,C;AAsBmCI;EAD5BA,YACHA,gEAAgDA,eAASA,C"
+}

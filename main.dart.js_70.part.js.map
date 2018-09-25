@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_70.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/material_button/material_button.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/theme/module.template.dart","../packages/angular_components/theme/dark_theme.template.dart","../packages/angular/src/core/linker/component_factory.dart"],
+  "names": ["viewFactory_MaterialButtonComponentHost0","AppView","_ViewMaterialButtonComponentHost0","initReflector","registerComponent","registerFactory","registerDependencies","_ViewMaterialButtonComponentHost0.build","ComponentRef","_ViewMaterialButtonComponentHost0.injectorGetInternal","_ViewMaterialButtonComponentHost0.detectChangesInternal","_ViewMaterialButtonComponentHost0.destroyInternal","initReflector.<anonymous function>"],
+  "mappings": "A;;IA2MyCA,cCvBhCC,MDpBPC;ACyBaD;ADmBbD,QACFA,C;GAQKG,WACHA,SACEA,MAWJA;;AEvLEC,WAAWA;AFiLXD;AACAA;AACAA;AAEAA;AACAA,MACFA,C;;;;;;IGvNKA,WACHA,SACEA,MAKJA;;AADEA,KACFA,C;GCFKA,WACHA,SACEA,MAUJA;;AFkCEE,YAAUA,SExC2BF;AF+ErCG,YAAaA;AE3EbH;AACAA,OACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EJsIgDI,WAC9BA;AAAdA;AACAA;AAC6BA,MAAkBA;AAA/CA;AACuCA;AAAvCA;AACAA;AACAA;AACAA,OKpJFC,oCLqJAD,C;EAGQE,gBACNA,mBACEA,aAMJA;AAJEA,uCACEA,aAGJA;AADEA,QACFA,C;EAGKC,WAEqBA;AAIxBA,KACEA;AAEFA;AACAA,UACFA,C;EAGKC,WACHA;cAAaA,KACfA,C;;;AIlLsDC;GAAjBA,YAAaA,aAAoBA,C"
+}

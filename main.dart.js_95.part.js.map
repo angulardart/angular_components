@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_95.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/model/selection/selection_options.dart","org-dartlang-sdk:///sdk/lib/async/broadcast_stream_controller.dart"],
+  "names": ["SelectionOptions.fromList","_SyncBroadcastStreamController","SelectionOptions"],
+  "mappings": "A;;IA+FEA,gBAAyBA;AACEA;ACsQ3BC,EDvQAD;AALOE;AAKPF,QACsEA,C"
+}

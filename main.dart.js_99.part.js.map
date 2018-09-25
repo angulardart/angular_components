@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_99.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/angular_components/material_button/material_button_base.template.dart"],
+  "names": ["initReflector"],
+  "mappings": "A;;IAeKA,WACHA,SACEA,MAMJA;;AAFEA;AACAA,MACFA,C"
+}

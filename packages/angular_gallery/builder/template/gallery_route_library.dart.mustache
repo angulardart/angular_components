@@ -1,0 +1,26 @@
+import 'package:angular_router/angular_router.dart';
+
+{{# examples }}
+import '{{{ dartImport }}}' deferred as {{ name }};
+{{/ examples }}
+
+import 'home.template.dart' as home;
+
+/// Route definitions and loaders for each "@GallerySectionConfig" component.
+final List<RouteDefinition> galleryRoutes = [
+  RouteDefinition(
+    path: '/',
+    component: home.HomeViewComponentNgFactory,
+    useAsDefault: true,
+  ),
+{{# examples }}
+  RouteDefinition.defer(
+    path: '{{ name }}',
+    loader: () async {
+      await {{ name }}.loadLibrary();
+      {{ name }}.initReflector();
+      return {{ name }}.{{ component }}NgFactory;
+    }
+  ),
+{{/ examples }}
+];
