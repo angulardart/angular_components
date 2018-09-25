@@ -12,7 +12,7 @@ import 'package:angular_components/utils/browser/events/events.dart' as events;
 /// Tracks a hierarchy of visible popup and provides it closing logic.
 @Injectable()
 class PopupHierarchy {
-  static bool useMultiModalDismissal = false;
+  static bool useMultiModalDismissal = true;
 
   final _visiblePopupStack = <PopupHierarchyElement>[];
 
