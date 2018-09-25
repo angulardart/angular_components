@@ -26,6 +26,7 @@ import 'package:angular_components/material_spinner/material_spinner.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/mixins/highlight_assistant_mixin.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/mixins/selection_input_adapter.dart';
 import 'package:angular_components/model/a11y/active_item.dart';
 import 'package:angular_components/model/a11y/active_item_directive.dart';
 import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
@@ -46,18 +47,8 @@ import 'material_input.dart';
 
 typedef String _InputChangeCallback(String inputText);
 
-/// `material-auto-suggest-input` is an input field which provides the
-/// suggestions to auto-complete the input as the user types.
-///
-/// The caller of this component has to provide the list of initial/unfiltered
-/// suggestions which are filtered by component as user types. The filter is
-/// case insensitive.
-///
-/// Supports async suggestions through the [ObserveAware] interface implemented
-/// by [SelectionOptions].
-///
-/// The popup suggestion list has a max height and auto overflow. We can add a
-/// property for custom max height once there's a use case.
+/// See material_auto_suggest_input.md for an overview of the component.
+/// See examples for usage.
 @Component(
   selector: 'material-auto-suggest-input',
   providers: [
@@ -102,7 +93,11 @@ typedef String _InputChangeCallback(String inputText);
   visibility: Visibility.all,
 )
 class MaterialAutoSuggestInputComponent extends MaterialSelectBase
-    with MaterialInputWrapper, KeyboardHandlerMixin, HighlightAssistantMixin
+    with
+        SelectionInputAdapter,
+        MaterialInputWrapper,
+        KeyboardHandlerMixin,
+        HighlightAssistantMixin
     implements
         ControlValueAccessor,
         Focusable,
@@ -248,8 +243,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// Listener for selection options changes.
   StreamSubscription _optionsListener;
 
-  StreamController _selectionChangeController;
-
   /// Direction of popup scaling.
   ///
   /// Valid values are `x`, `y`, or `null`.
@@ -378,36 +371,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     }
   }
 
-  /// Emits the selected value(s) whenever selection changes.
-  ///
-  /// For single select, it will either be the selected value or null.
-  /// For multi select, it will a list of selected values or an empty list.
-  @Output()
-  Stream get selectionChange {
-    if (_selectionChangeController == null) {
-      _selectionChangeController = new StreamController();
-    }
-    return _selectionChangeController.stream;
-  }
-
-  /// Sets the selected value or selection model for the input.
-  ///
-  /// Accepts either a [SelectionModel], a selected value or null.
-  @Input('selection')
-  set selectionInput(dynamic value) {
-    if (value is SelectionModel) {
-      selection = value;
-    } else if (value == null) {
-      selection.clear();
-    } else {
-      assert(
-          isSingleSelect,
-          'Passing selected value through `selection` input is only supported '
-          'for single select.');
-      selection.select(value);
-    }
-  }
-
   @override
   set selection(SelectionModel selection) {
     super.selection = selection;
@@ -435,33 +398,19 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
               _lastSelectedItem != null ? itemRenderer(_lastSelectedItem) : '';
         }
       }
-      if (_selectionChangeController != null) {
-        if (isSingleSelect) {
-          _selectionChangeController.add(selection.selectedValues.isNotEmpty
-              ? selection.selectedValues.first
-              : null);
-        } else {
-          _selectionChangeController.add(selection.selectedValues);
-        }
-      }
+      emitSelectionChange();
     });
   }
 
-  /// Sets the available options for the input.
+  /// Sets the available options for the selection component.
   ///
   /// Accepts either a [SelectionOptions] or a [List]. If a [List] is passed,
   /// the [StringSelectionOptions] class will be used to create the selection
   /// options.
   @Input('selectionOptions')
-  set selectionOptionsInput(dynamic value) {
-    if (value == null) return;
-    if (value is SelectionOptions) {
-      options = value;
-    } else if (value is List) {
-      options = StringSelectionOptions(value, toFilterableString: itemRenderer);
-    } else {
-      throw ArgumentError('Unsupported selection options type.');
-    }
+  @override
+  set optionsInput(dynamic value) {
+    super.optionsInput = value;
   }
 
   @override

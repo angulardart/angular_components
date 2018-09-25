@@ -24,6 +24,7 @@ import 'package:angular_components/material_select/material_select_dropdown_item
 import 'package:angular_components/material_select/shift_click_selection.dart';
 import 'package:angular_components/mixins/button_wrapper.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/mixins/selection_input_adapter.dart';
 import 'package:angular_components/mixins/track_layout_changes.dart';
 import 'package:angular_components/model/a11y/active_item.dart';
 import 'package:angular_components/model/a11y/active_item_directive.dart';
@@ -37,30 +38,7 @@ import 'package:angular_components/model/ui/template_support.dart';
 import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
 
-/// Material Dropdown Select is a button-triggered dropdown.
-///
-/// The `material-dropdown-select` component combines the APIs of
-/// `material-select`, and `material-button-dropdown`.
-///
-/// When used with a single selection model, the dropdown closes upon selection.
-/// When using a multi-selection model, the user must close the dropdown by
-/// clicking outside of it.
-///
-/// Selection options may be declared manually by passing `material-select-item`
-/// elements. When using the declarative API, the `SelectionModel` and
-/// `SelectionOptions` are not injected, so marking the item as selected is not
-/// automatic.
-///
-/// If an `OptionGroup` is empty and has an `emptyLabel` defined, the dropdown
-/// will include it with the other groups. If `emptyLabel` is not defined for
-/// an empty group it will not appear in the list.
-///
-/// Supports async suggestions through the [ObserveAware] interface implemented
-/// by [SelectionOptions].
-///
-/// The material-select has a fixed max height and auto overflow. We can add a
-/// property for custom max height once there's a use case.
-///
+/// See material_dropdown_select.md for an overview of the component.
 /// See examples for usage.
 ///
 /// __Attributes:__
@@ -102,6 +80,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 class MaterialDropdownSelectComponent extends MaterialSelectBase
     with
         MaterialDropdownBase,
+        SelectionInputAdapter,
         MaterialButtonWrapper,
         TrackLayoutChangesMixin,
         KeyboardHandlerMixin,
@@ -280,8 +259,17 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     resetEnteredKeys();
   }
 
-  /// The options to use for this selection model.
-  @Input()
+  /// Sets the available options for the selection component.
+  ///
+  /// Accepts either a [SelectionOptions] or a [List]. If a [List] is passed,
+  /// the [StringSelectionOptions] class will be used to create the selection
+  /// options.
+  @Input('options')
+  @override
+  set optionsInput(dynamic value) {
+    super.optionsInput = value;
+  }
+
   @override
   set options(SelectionOptions newOptions) {
     super.options = newOptions;
@@ -316,8 +304,6 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     _blur.add(event);
   }
 
-  /// The selection model this component controls.
-  @Input()
   @override
   set selection(SelectionModel newSelection) {
     super.selection = newSelection;
@@ -331,6 +317,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
       if (added != null && !activeModel.isActive(added)) {
         activeModel.activate(added);
       }
+      emitSelectionChange();
     });
   }
 
