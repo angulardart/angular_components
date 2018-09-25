@@ -109,10 +109,12 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
 
   @override
   void writeValue(newValue) {
+    // Treat null as special as an invalid input will also parse as null.
+    if (newValue == null) super.writeValue('');
     if (_parseNumber(input.inputText) != newValue) {
       // If the numeric value of the current input text doesn't equal to the
       // new numeric value, update the input text accordingly.
-      super.writeValue(newValue == null ? '' : _numberFormat.format(newValue));
+      super.writeValue(_numberFormat.format(newValue));
     }
   }
 
