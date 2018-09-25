@@ -12,7 +12,7 @@
         [popupMatchInputWidth]="popupMatchInputWidth"
         [showClearIcon]="showClearIcon"
         [clearIconTooltip]="clearIconTooltip"
-        [shouldClearOnSelection]="shouldClearOnSelection"
+        [shouldClearInputOnSelection]="shouldClearInputOnSelection"
         [label]="label"
         [labelFactory]="labelFactory"
         [leadingGlyph]="leadingGlyph"
@@ -41,7 +41,7 @@
         [showClearIcon]="showClearIcon"
         [clearIconTooltip]="clearIconTooltip"
         [hideCheckbox]="hideCheckbox"
-        [shouldClearOnSelection]="shouldClearOnSelection"
+        [shouldClearInputOnSelection]="shouldClearInputOnSelection"
         [shouldClearSelectionOnInput]="shouldClearSelectionOnInput"
         [label]="label"
         [labelFactory]="labelFactory"
@@ -80,7 +80,7 @@
       Filter suggestions
     </material-checkbox>
     <br>
-    <material-checkbox [(checked)]="shouldClearOnSelection">
+    <material-checkbox [(checked)]="shouldClearInputOnSelection">
       Clear input on selection
     </material-checkbox>
     <material-checkbox [(checked)]="shouldClearSelectionOnInput">

@@ -111,7 +111,7 @@ class MaterialAutoSuggestInputFullDemoComponent {
   bool showClearIcon = false;
   bool showClearIconTooltip = false;
   bool hideCheckbox = false;
-  bool shouldClearOnSelection = false;
+  bool shouldClearInputOnSelection = false;
   bool shouldClearSelectionOnInput = true;
   bool useLabelFactory = false;
   bool useFactoryRenderer = false;
