@@ -12,7 +12,6 @@ import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
-import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_datepicker/calendar.dart';
@@ -25,6 +24,7 @@ import 'package:angular_components/material_datepicker/preset.dart';
 import 'package:angular_components/material_datepicker/range.dart';
 import 'package:angular_components/src/material_datepicker/comparison_range_editor.dart';
 import 'package:angular_components/src/material_datepicker/date_range_editor_model.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
@@ -58,10 +58,10 @@ export 'package:angular_components/src/material_datepicker/date_range_editor_mod
     ButtonDirective,
     ComparisonRangeEditorComponent,
     DateRangeInputComponent,
-    GlyphComponent,
     KeyboardOnlyFocusIndicatorDirective,
     MaterialButtonComponent,
     MaterialCalendarPickerComponent,
+    MaterialIconComponent,
     materialInputDirectives,
     MaterialMonthPickerComponent,
     MaterialPopupComponent,

@@ -24,7 +24,7 @@
           {{customRangeDescription}}
         </div>
       </div>
-      <glyph *ngIf="isBasic" buttonDecorator class="expend-more" icon="expand_more"></glyph>
+      <material-icon *ngIf="isBasic" buttonDecorator class="expend-more" icon="expand_more"></material-icon>
     </material-select-item>
   </div>
   <div role="listbox" class="group">
@@ -46,7 +46,7 @@
                          (click)="$event.stopPropagation()"
                          (keypress)="$event.stopPropagation()"
                          (trigger)="popup.toggle()">
-          <glyph icon="arrow_drop_down"></glyph>
+          <material-icon icon="arrow_drop_down"></material-icon>
         </material-button>
         <material-popup #popup
                         [offsetX]="9"
@@ -99,7 +99,7 @@
                         class="button-decorator"
                         (trigger)="disableCustomMode">
     <div class="custom-tab-right">{{customRangeMsg}}</div>
-    <glyph class="expand-less" icon="expand_less"></glyph>
+    <material-icon class="expand-less" icon="expand_less"></material-icon>
   </div>
   <div *ngIf="isBasic" class="content-separator"></div>
   <div class="range-input">
@@ -136,9 +136,9 @@
          keyboardOnlyFocusIndicator
          (trigger)="onMonthSelectorDropdownClicked">
       <span class="visible-month">{{visibleMonthName}}</span>
-      <glyph icon="arrow_drop_down"
+      <material-icon icon="arrow_drop_down"
              class="month-selector-dropdown-icon"
-             [class.flipped]="showMonthSelector"></glyph>
+             [class.flipped]="showMonthSelector"></material-icon>
     </div>
     <next-prev-buttons class="next-prev-range"
                        [model]="nextPrevModel">
