@@ -134,12 +134,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   @Input()
   bool shouldClearInputOnSelection = false;
 
-  @Input()
-  @Deprecated('Use [shouldClearInputOnSelection] instead')
-  set shouldClearOnSelection(bool value) {
-    shouldClearInputOnSelection = value;
-  }
-
   /// Whether to clear the selected value from the selection model when the
   /// input text changes.
   ///
