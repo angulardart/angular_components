@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
 import 'package:angular_components/focus/focus.dart';
@@ -63,6 +64,7 @@ class MaterialRadioComponent extends RootFocusable
     cd?.valueAccessor = this;
   }
 
+  @visibleForTemplate
   @HostBinding('class')
   static const hostClass = 'themeable';
 
@@ -127,11 +129,14 @@ class MaterialRadioComponent extends RootFocusable
   bool _checked = false;
 
   /// Current icon, depends on the state of [checked].
+  @visibleForTemplate
   Icon get icon => _checked ? checkedIcon : uncheckedIcon;
 
   /// Current tab index, depends on state of [disabled] and selection status
   /// if in group.
   @HostBinding('attr.tabindex')
+  @visibleForTesting
+  @visibleForTemplate
   int get tabIndex => disabled ? -1 : _enabledTabIndex;
 
   int _enabledTabIndex = 0;
@@ -152,6 +157,7 @@ class MaterialRadioComponent extends RootFocusable
 
   // Capture keydown to forward event to radio group when cycling focus.
   @HostListener('keydown')
+  @visibleForTemplate
   void handleKeyDown(KeyboardEvent event) {
     if (event.target != _root) return;
     var focusEvent = FocusMoveEvent.fromKeyboardEvent(this, event);
@@ -168,6 +174,7 @@ class MaterialRadioComponent extends RootFocusable
 
   // Capture keyup when we are the target of event.
   @HostListener('keyup')
+  @visibleForTemplate
   void handleKeyUp(KeyboardEvent event) {
     if (event.target != _root) return;
     _isKeyboardEvent = true;
@@ -177,15 +184,20 @@ class MaterialRadioComponent extends RootFocusable
   bool _isKeyboardEvent = false;
 
   /// Whether focus should be drawn.
+  @visibleForTemplate
   bool get showFocus => _isFocused && _isKeyboardEvent;
 
   @HostListener('focus')
+  @visibleForTesting
+  @visibleForTemplate
   void onFocus() {
     _isFocused = true;
     if (_group != null) _group.focusSelection.select(this);
   }
 
   @HostListener('blur')
+  @visibleForTemplate
+  @visibleForTesting
   void onBlur() {
     _isFocused = false;
     if (_group != null) _group.focusSelection.deselect(this);
@@ -197,12 +209,14 @@ class MaterialRadioComponent extends RootFocusable
   }
 
   @HostListener('click')
+  @visibleForTemplate
   void handleClick() {
     _isKeyboardEvent = false;
     select();
   }
 
   @HostListener('keypress')
+  @visibleForTemplate
   void handleKeyPress(KeyboardEvent event) {
     if (event.target != _root || !isSpaceKey(event)) return;
     // Required to prevent window from scrolling.
@@ -219,5 +233,4 @@ class MaterialRadioComponent extends RootFocusable
   // Unimplemented in M1.
   Future get focusDelegate async => null;
   String radioGroupName;
-  set radioInputElement(HtmlElement _) {}
 }
