@@ -6,8 +6,8 @@ import 'dart:html' show Event;
 
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
-import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/src/material_datepicker/sequential.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 export 'package:angular_components/src/material_datepicker/sequential.dart';
@@ -32,18 +32,22 @@ export 'package:angular_components/src/material_datepicker/sequential.dart';
         attr.aria-disabled="{{isPrevDisabled}}"
         attr.tabindex="{{isPrevDisabled ? -1 : 0}}"
         (click)="prev()">
-  <glyph icon="navigate_before" [attr.aria-label]="prevLabel"></glyph>
+  <material-icon icon="navigate_before"
+                 [attr.aria-label]="prevLabel">
+  </material-icon>
 </button>
 <button class="next"
         [class.disabled]="isNextDisabled"
         attr.aria-disabled="{{isNextDisabled}}"
         attr.tabindex="{{isNextDisabled ? -1 : 0}}"
         (click)="next()">
-  <glyph icon="navigate_next" [attr.aria-label]="nextLabel"></glyph>
+  <material-icon icon="navigate_next"
+                 [attr.aria-label]="nextLabel">
+  </material-icon>
 </button>
 ''',
   styleUrls: ['next_prev_buttons.scss.css'],
-  directives: [GlyphComponent],
+  directives: [MaterialIconComponent],
 )
 class NextPrevComponent implements OnDestroy {
   final ChangeDetectorRef _changeDetector;

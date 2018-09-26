@@ -68,7 +68,7 @@
   margin-left: auto;
   left: $mat-grid;
 
-  glyph {
+  material-icon {
     transform: rotate(-90deg);
 
     :host-context([dir="rtl"]) & {
