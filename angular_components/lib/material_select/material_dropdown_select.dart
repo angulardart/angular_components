@@ -145,18 +145,12 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
 
   bool get deselectOnActivate => isMultiSelect || _deselectOnActivate;
 
-  @Input()
-  @Deprecated(
-      'Use labelFactory instead it allows for better tree-shakable code.')
-  ComponentRenderer labelRenderer;
-
   /// Factory that returns a component to be used for rendering group labels.
   @Input()
   FactoryRenderer labelFactory;
 
   // Whether a custom label render is used.
-  bool get hasCustomLabelRenderer =>
-      labelRenderer != null || labelFactory != null;
+  bool get hasCustomLabelRenderer => labelFactory != null;
 
   /// CSS classes from the root element, passed to the popup to allow scoping of
   /// mixins.
