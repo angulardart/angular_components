@@ -650,6 +650,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   void handleUpKey(html.KeyboardEvent event) {
     if (showPopup) {
       event.preventDefault(); // Prevent input caret from jumping.
+      if (!_isFocused) focus();
       activeModel.activatePrevious();
     }
   }
@@ -658,6 +659,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   void handleDownKey(html.KeyboardEvent event) {
     if (showPopup) {
       event.preventDefault(); // Prevent input caret from jumping.
+      if (!_isFocused) focus();
       activeModel.activateNext();
     }
   }
@@ -666,6 +668,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   void handlePageUp(html.KeyboardEvent event) {
     if (showPopup) {
       event.preventDefault(); // Prevent page from scrolling.
+      if (!_isFocused) focus();
       activeModel.activateFirst();
     }
   }
@@ -674,6 +677,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   void handlePageDown(html.KeyboardEvent event) {
     if (showPopup) {
       event.preventDefault(); // Prevent page from scrolling.
+      if (!_isFocused) focus();
       activeModel.activateLast();
     }
   }

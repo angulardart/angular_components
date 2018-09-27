@@ -75,7 +75,10 @@
     <ng-content select="[header]"></ng-content>
   </div>
   <!-- Deferred to prevent child content from being created too early. -->
-  <focus-trap *cachedDeferredContent (keyup)="onKeyUp">
+  <focus-trap *cachedDeferredContent
+      (keydown)="onKeyDown"
+      (keypress)="onKeyPress"
+      (keyup)="onKeyUp">
     <div *ngIf="showLoadingSpinner" class="loading">
       <material-spinner></material-spinner>
     </div>
