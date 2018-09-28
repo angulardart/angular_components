@@ -340,11 +340,13 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     event.preventDefault();
     activateFunction();
     // Only select if the popup is not visible.
-    if (!visible &&
-        selection != null &&
-        isSingleSelect &&
-        activeModel.activeItem != null) {
-      selection.select(activeModel.activeItem);
+    if (!visible && selection != null && isSingleSelect) {
+      var item = activeModel.activeItem;
+      if (item == deselectLabel) {
+        deselectCurrentSelection();
+      } else if (item != null && !isOptionDisabled(item)) {
+        selection.select(item);
+      }
     }
   }
 
@@ -388,7 +390,9 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
         if (item == deselectLabel) {
           deselectCurrentSelection();
         } else if (!selection.isSelected(item)) {
-          selection.select(item);
+          if (!isOptionDisabled(item)) {
+            selection.select(item);
+          }
         } else if (deselectOnActivate) {
           selection.deselect(item);
         }
@@ -486,7 +490,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     // The prior code did a check for `!= SelectableOption.Selected`. It is
     // possible there are existing users that are relying on `.Hidden` to mean
     // disabled, for example.
-    return !Selectable.isSelectableIn(options, item, true);
+    return !Selectable.isSelectableIn(options, item);
   }
 
   /// Whether to hide [item].
@@ -541,7 +545,8 @@ class ActivateItemOnKeyPressMixin {
       return searchString.startsWith(keys);
     };
     var maybeSelectOption = (option, String keys) {
-      if (startsWith(option, keys)) {
+      if (Selectable.isSelectableIn(options, option) &&
+          startsWith(option, keys)) {
         activeModel.activate(option);
         selection?.select(option);
         _enteredKeys = keys;

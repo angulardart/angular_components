@@ -651,14 +651,16 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   bool get deselectOnActivate => isMultiSelect;
 
   @protected
-  void onListItemSelected(suggestion) {
+  void onListItemSelected(item) {
     if (isSingleSelect) {
       showPopup = false;
     }
-    if (!selection.isSelected(suggestion)) {
-      selection.select(suggestion);
+    if (!selection.isSelected(item)) {
+      if (!isOptionDisabled(item)) {
+        selection.select(item);
+      }
     } else if (deselectOnActivate) {
-      selection.deselect(suggestion);
+      selection.deselect(item);
     }
   }
 
