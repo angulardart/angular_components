@@ -17,7 +17,6 @@
   cursor: pointer;
 
   &.disabled {
-    background: none;
     color: $mat-lighter-transparent-black;
     cursor: default;
   }
