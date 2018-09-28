@@ -7,6 +7,7 @@ import 'dart:html' as html;
 
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'package:meta/meta.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
@@ -646,6 +647,21 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     }
   }
 
+  /// Whether to deselect a selected item on click or keyboard enter.
+  bool get deselectOnActivate => isMultiSelect;
+
+  @protected
+  void onListItemSelected(suggestion) {
+    if (isSingleSelect) {
+      showPopup = false;
+    }
+    if (!selection.isSelected(suggestion)) {
+      selection.select(suggestion);
+    } else if (deselectOnActivate) {
+      selection.deselect(suggestion);
+    }
+  }
+
   @override
   void handleUpKey(html.KeyboardEvent event) {
     if (showPopup) {
@@ -732,17 +748,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
       _focusPending = true;
     } else {
       _input.focus();
-    }
-  }
-
-  void onListItemSelected(suggestion) {
-    if (isSingleSelect) {
-      showPopup = false;
-    }
-    if (selection.isSelected(suggestion)) {
-      selection.deselect(suggestion);
-    } else {
-      selection.select(suggestion);
     }
   }
 
