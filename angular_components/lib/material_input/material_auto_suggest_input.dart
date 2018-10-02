@@ -102,7 +102,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
     implements
         ControlValueAccessor,
         Focusable,
-        AfterChanges,
         OnInit,
         OnDestroy,
         HasRenderer,
@@ -171,9 +170,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   bool _focusPending = false;
   MaterialInputComponent _input;
   _InputChangeCallback _callback;
-  bool _sorted = true;
-  List _suggestions = [];
-  bool _refreshOptions = false;
 
   /// The current text being displayed.
   String _inputText = '';
@@ -263,15 +259,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   // The fields below are deprecated.
 
-  @Deprecated('Use [options] instead')
-  @Input()
-  set suggestions(List value) {
-    _suggestions = value;
-    _refreshOptions = true;
-  }
-
-  List get suggestion => _suggestions;
-
   // Override renderer here to just add the @Input annotation and keep the
   // angular dependency out of models.
   /// A simple function to render the an item to string.
@@ -291,15 +278,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   @override
   @Input()
   set factoryRenderer(FactoryRenderer value) => super.factoryRenderer = value;
-
-  @Deprecated('Caller should call .sort() on the options instead.')
-  @Input()
-  set sorted(bool value) {
-    _sorted = value;
-    _refreshOptions = true;
-  }
-
-  bool get sorted => _sorted;
 
   /// Function for use by NgFor for optionGroup to avoid recreating the
   /// DOM for the optionGroup.
@@ -349,21 +327,6 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
       if (stringValue != null) return stringValue as String;
     }
     return null;
-  }
-
-  @override
-  ngAfterChanges() {
-    // If either the suggestions were changed or the value of sort was changed,
-    // rebuild the list of options.
-    if (_refreshOptions) {
-      var optionsList = List.from(_suggestions);
-      if (_sorted) {
-        optionsList.sort();
-      }
-      options =
-          StringSelectionOptions(optionsList, toFilterableString: itemRenderer);
-      _refreshOptions = false;
-    }
   }
 
   @override
