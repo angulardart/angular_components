@@ -2,9 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+@JS()
+library angular_components.scaffolding.gallery_section.components.gallery_component;
+
 import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular/security.dart';
+import 'package:js/js.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/laminate/popup/module.dart';
@@ -76,5 +80,34 @@ class GalleryComponent {
       path = componentPath.substring(componentPath.indexOf('/'));
     }
     return '$repo$path';
+  }
+}
+
+/// Applies code highlighting on `<pre><code>` elements within [htmlFragment].
+///
+/// Relies on syntax higlighting from highlight.js
+/// https://github.com/highlightjs/highlight.js which must be loaded in the page
+/// first.
+String applyHighlighting(String htmlFragment) {
+  // Create a temporary document containing the fragment.
+  final fragment = DocumentFragment.html(htmlFragment,
+      treeSanitizer: _NullNodeTreeSanitizer());
+
+  // Add syntax highlighting css classes.
+  fragment
+      .querySelectorAll('pre code')
+      .forEach((block) => highlightBlock(block));
+
+  return fragment.innerHtml;
+}
+
+@JS('hljs.highlightBlock')
+external highlightBlock(block);
+
+/// A [NodeTreeSanitizer] that provides no sanitiztion.
+class _NullNodeTreeSanitizer implements NodeTreeSanitizer {
+  @override
+  void sanitizeTree(Node node) {
+    // Do no sanitization.
   }
 }
