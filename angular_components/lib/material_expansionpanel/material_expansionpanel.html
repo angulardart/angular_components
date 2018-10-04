@@ -79,23 +79,25 @@
       </material-icon>
     </div>
 
-    <div *ngIf="!showSaveCancel" class="toolbelt">
-      <ng-content select="[toolbelt]"></ng-content>
-    </div>
+   <ng-container *deferredContent>
+      <div *ngIf="!showSaveCancel" class="toolbelt">
+        <ng-content select="[toolbelt]"></ng-content>
+      </div>
 
-    <material-yes-no-buttons
-        *ngIf="showSaveCancel"
-        reverse
-        class="action-buttons"
-        [pending]="activeSaveCancelAction"
-        [yesText]="saveText"
-        [noText]="cancelText"
-        [yesDisabled]="saveDisabled"
-        [enterAccepts]="enterAccepts"
-        [noDisplayed]="cancelDisplayed"
-        (yes)="doSave"
-        (no)="doCancel">
-    </material-yes-no-buttons>
+      <material-yes-no-buttons
+          *ngIf="showSaveCancel"
+          reverse
+          class="action-buttons"
+          [pending]="activeSaveCancelAction"
+          [yesText]="saveText"
+          [noText]="cancelText"
+          [yesDisabled]="saveDisabled"
+          [enterAccepts]="enterAccepts"
+          [noDisplayed]="cancelDisplayed"
+          (yes)="doSave"
+          (no)="doCancel">
+      </material-yes-no-buttons>
+  </ng-container>
   </div>
 </main>
 
