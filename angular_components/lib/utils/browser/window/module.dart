@@ -49,5 +49,5 @@ Location getLocation(Window window) => window.location;
 
 /// Provides [Location] bound for use within Angular.
 const locationBindings = [
-  Provider(Location, useFactory: getLocation),
+  FactoryProvider(Location, getLocation),
 ];
