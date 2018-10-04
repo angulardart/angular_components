@@ -116,23 +116,21 @@ h2 {
 
 ::ng-deep code,
 ::ng-deep pre {
-  background-color: $mat-gray-50;
-  border: 1px $mat-gray-100 solid;
-  color: $mat-gray-800;
   font: $mat-font-size-caption 'Roboto Mono', monospace;
-  padding: $mat-grid-type / 2 $mat-grid-type;
+  padding: $mat-grid;
+  background-color: $mat-gray-50;
+  min-width: min-content;
 }
 
 ::ng-deep pre {
-  margin-top: $mat-grid * -2;
-  min-width: min-content;
-  padding: $mat-grid * 2;
+  border: 1px $mat-gray-100 solid;
+}
 
-  code {
-    background: none;
-    border: 0;
-    padding: 0;
-  }
+// Styling for code inline code blocks that are not provided classes for syntax
+// highlighting by highlight.js.
+::ng-deep code:not(.hljs) {
+  border: 1px $mat-gray-100 solid;
+  padding: $mat-grid-type / 4 $mat-grid-type / 2;
 }
 
 :not(.demo) ::ng-deep li:not(:last-of-type) {
