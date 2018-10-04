@@ -2,8 +2,10 @@
 
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>{{galleryTitle}}</title>
     <link rel="stylesheet" type="text/css" href="style.scss.css" />
+    <link rel="stylesheet" type="text/css" href="syntax_highlight.scss.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Mono">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
@@ -23,7 +25,15 @@
 
       gtag('config', 'UA-26406144-23');
     </script>
-    <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&lang=dart"></script>
+    <script type="application/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js">
+    </script>
+    <script type="application/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dart.min.js">
+    </script>
+    <script type="application/javascript"
+            src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scss.min.js">
+    </script>
   </head>
   <body>
     <root></root>
