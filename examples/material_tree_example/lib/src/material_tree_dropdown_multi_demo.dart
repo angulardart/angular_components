@@ -12,7 +12,7 @@ import 'package:angular_components/model/selection/selection_options.dart';
   selector: 'material-tree-dropdown-multi-demo',
   directives: [MaterialTreeDropdownComponent],
   template: r'''
-      <h1>Mutli selection dropdown</h1>
+      <h1>Multi selection dropdown</h1>
       <div class="shadow" style="width: 400px; margin: 24px;">
         <div style="padding: 8px">
           <strong>Selected:</strong>
