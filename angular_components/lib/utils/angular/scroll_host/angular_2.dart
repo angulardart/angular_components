@@ -49,6 +49,10 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
   final HtmlElement element;
   final GestureListenerFactory _gestureListenerFactory;
 
+  // This is sync to reduce the time between StickyController writing to the
+  // DOM and clients writing to the DOM, making scrolling smoother.
+  StreamController<Null> _onUpdate = StreamController.broadcast(sync: true);
+
   ElementScrollHostBase _scrollHost;
 
   bool _disableAutoScroll;
@@ -69,6 +73,10 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
         _domService, _ngZone, _gestureListenerFactory, element,
         usePositionSticky: _usePositionSticky);
     stickyController.enableSmoothPushing = _enableSmoothPushing;
+
+    if (!_usePositionSticky) {
+      _onUpdate.addStream(stickyController.onUpdate);
+    }
   }
 
   /// If true, forces a vertical scrollbar to appear even if the contents are
@@ -114,8 +122,26 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
     }
   }
 
+  /// Fires an event immediately after [StickyController] updates the DOM.
+  ///
+  /// The intended use case is to allow manually positioning elements relative
+  /// to stuck elements, with reasonable efficiency. Do note that reading the
+  /// DOM during a listener may cause an extra reflow, as the event is fired
+  /// immediately after reading and then writing to the DOM (during a
+  /// requestAnimationFrame triggered by a scroll event).
+  ///
+  /// Not supported if [usePositionSticky] is true.
+  ///
+  /// While this is an @Output() to provide flexibility, note that subscribing
+  /// via the template adds some overhead.
+  @Output()
+  Stream<Null> get onUpdate => _onUpdate.stream;
+
   @override
-  void dispose() => _scrollHost?.dispose();
+  void dispose() {
+    _scrollHost?.dispose();
+    _onUpdate.close();
+  }
 
   @override
   Rectangle calcViewportRect() => _scrollHost.calcViewportRect();

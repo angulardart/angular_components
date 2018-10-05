@@ -24,6 +24,7 @@ import 'package:angular_components/utils/browser/feature_detector/feature_detect
 /// - [stickyClass] is always applied (not just when the element is fixed) if
 ///   IntersectionObserver is not supported.
 /// - [trackFloating] / [untrackFloating] not implemented.
+/// - [onUpdate] not implemented (will throw an exception if called)
 class PositionStickyController implements StickyController {
   final ScrollHost _scrollHost;
   final _stickyElements = <_StickyElement>[];
@@ -77,6 +78,10 @@ class PositionStickyController implements StickyController {
   void untrackFloating(Element element) {
     // not implemented
   }
+
+  @override
+  Stream<Null> get onUpdate =>
+      throw UnsupportedError('PositionStickyController.onUpdate');
 
   @override
   bool get enableSmoothPushing => false;
