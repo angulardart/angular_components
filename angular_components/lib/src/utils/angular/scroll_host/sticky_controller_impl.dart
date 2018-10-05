@@ -12,6 +12,7 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 class StickyControllerImpl implements StickyController {
   final DomService _domService;
   final ScrollHost _scrollHost;
+  StreamController<Null> _onUpdateController;
 
   @override
   final bool usePositionSticky = false;
@@ -77,6 +78,12 @@ class StickyControllerImpl implements StickyController {
   }
 
   @override
+  Stream<Null> get onUpdate {
+    _onUpdateController ??= StreamController<Null>.broadcast(sync: true);
+    return _onUpdateController.stream;
+  }
+
+  @override
   bool enableSmoothPushing = false;
 
   @override
@@ -87,6 +94,7 @@ class StickyControllerImpl implements StickyController {
         unstick(element);
       }
     }
+    _onUpdateController?.close();
   }
 
   // Making sure that at least one layout observe will happen: a layout write
@@ -162,6 +170,9 @@ class StickyControllerImpl implements StickyController {
     StickyContainerLayout<_StickyRow> layout = _getLayout();
     if (layout != _currentLayout && _orderedRows != null) {
       _updateContainer(layout);
+      if (_onUpdateController?.hasListener ?? false) {
+        _onUpdateController.add(null);
+      }
     }
   }
 

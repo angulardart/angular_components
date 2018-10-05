@@ -119,6 +119,19 @@ abstract class StickyController implements Disposable {
   /// Unregisters the tracking of a floating [element].
   void untrackFloating(Element element);
 
+  /// Fires an event immediately after this [StickyController] updates the DOM.
+  ///
+  /// The intended use case is to allow manually positioning elements relative
+  /// to stuck elements, with reasonable efficiency. Do note that reading the
+  /// DOM during a listener may cause an extra reflow, as the event is fired
+  /// immediately after reading and then writing to the DOM (during a
+  /// requestAnimationFrame triggered by a scroll event).
+  ///
+  /// Not supported if [usePositionSticky] is true.
+  // TODO(google): Compute and pass updated position information to the
+  // callback, to avoid implementations needing to read the DOM.
+  Stream<Null> get onUpdate;
+
   /// Clears resources.
   @override
   void dispose();
