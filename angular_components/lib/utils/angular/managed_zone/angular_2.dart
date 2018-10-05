@@ -56,5 +56,5 @@ class Angular2ManagedZone extends ManagedZoneBase {
   T runInside<T>(T fn()) => _ngZone.run(fn);
 
   @override
-  T runOutside<T>(T fn()) => _ngZone.runOutsideAngular(fn) as T;
+  T runOutside<T>(T fn()) => _ngZone.runOutsideAngular(fn);
 }
