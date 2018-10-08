@@ -112,6 +112,7 @@
             (mouseenter)="activeModel.activate(null)">
         </dynamic-component>
         <material-select-dropdown-item
+            #emptyLabel
             *ngIf="suggestionGroup.isEmpty && suggestionGroup.hasEmptyLabel"
             keyboardOnlyFocusIndicator
             [disabled]="true"

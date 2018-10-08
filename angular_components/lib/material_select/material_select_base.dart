@@ -21,7 +21,7 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
 /// __Expected Binding:__
 ///
 /// `HasRenderer`
-abstract class MaterialSelectBase extends SelectionContainer
+abstract class MaterialSelectBase<T> extends SelectionContainer<T>
     implements AcceptsWidth {
   bool get isMultiSelect => selection is MultiSelectionModel;
   bool get isSingleSelect => !isMultiSelect;
@@ -41,5 +41,5 @@ abstract class MaterialSelectBase extends SelectionContainer
   int _width = 0;
 
   @override
-  ItemRenderer get itemRenderer => super.itemRenderer ?? defaultItemRenderer;
+  ItemRenderer<T> get itemRenderer => super.itemRenderer ?? defaultItemRenderer;
 }

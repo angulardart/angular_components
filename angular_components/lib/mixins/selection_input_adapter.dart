@@ -13,7 +13,7 @@ import 'package:angular_components/model/selection/string_selection_options.dart
 
 /// A mixin to provide a simplier API for accepting [SelectionModel] and
 /// [SelectionOptions] for [SelectionContainer] components.
-abstract class SelectionInputAdapter implements SelectionContainer {
+abstract class SelectionInputAdapter<T> implements SelectionContainer<T> {
   StreamController _selectionChangeController;
 
   void _initSelectionModel() {
@@ -27,7 +27,7 @@ abstract class SelectionInputAdapter implements SelectionContainer {
   @Output()
   Stream get selectionChange {
     if (_selectionChangeController == null) {
-      _selectionChangeController = new StreamController();
+      _selectionChangeController = StreamController();
     }
     _initSelectionModel();
     return _selectionChangeController.stream;
@@ -36,7 +36,7 @@ abstract class SelectionInputAdapter implements SelectionContainer {
   @protected
   void emitSelectionChange() {
     if (_selectionChangeController == null) return;
-    if (selection is SingleSelectionModel) {
+    if (selection is SingleSelectionModel<T>) {
       _selectionChangeController.add(selection.selectedValues.isNotEmpty
           ? selection.selectedValues.first
           : null);
@@ -50,7 +50,7 @@ abstract class SelectionInputAdapter implements SelectionContainer {
   /// Accepts either a [SelectionModel], a selected value or null.
   @Input('selection')
   set selectionInput(dynamic value) {
-    if (value is SelectionModel) {
+    if (value is SelectionModel<T>) {
       selection = value;
       return;
     }
@@ -59,7 +59,7 @@ abstract class SelectionInputAdapter implements SelectionContainer {
       selection.clear();
     } else {
       assert(
-          selection is SingleSelectionModel,
+          selection is SingleSelectionModel<T>,
           'Passing selected value through `selection` input is only supported '
           'for single select.');
       selection.select(value);
@@ -72,9 +72,9 @@ abstract class SelectionInputAdapter implements SelectionContainer {
   /// the [StringSelectionOptions] class will be used to create the selection
   /// options.
   set optionsInput(dynamic value) {
-    if (value == null || value is SelectionOptions) {
+    if (value == null || value is SelectionOptions<T>) {
       options = value;
-    } else if (value is List) {
+    } else if (value is List<T>) {
       options = StringSelectionOptions(value, toFilterableString: itemRenderer);
     } else {
       throw ArgumentError('Unsupported selection options type.');

@@ -85,6 +85,10 @@ typedef String _InputChangeCallback(String inputText);
     NgIf,
     StopPropagationDirective,
   ],
+  directiveTypes: [
+    Typed<MaterialSelectDropdownItemComponent<String>>(on: 'emptyLabel'),
+    Typed<MaterialSelectDropdownItemComponent>.of([#T]),
+  ],
   templateUrl: 'material_auto_suggest_input.html',
   styleUrls: [
     'material_auto_suggest_input.scss.css',
@@ -93,18 +97,18 @@ typedef String _InputChangeCallback(String inputText);
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class MaterialAutoSuggestInputComponent extends MaterialSelectBase
+class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     with
-        SelectionInputAdapter,
+        SelectionInputAdapter<T>,
         MaterialInputWrapper,
         KeyboardHandlerMixin,
-        HighlightAssistantMixin
+        HighlightAssistantMixin<T>
     implements
         ControlValueAccessor,
         Focusable,
         OnInit,
         OnDestroy,
-        HasRenderer,
+        HasRenderer<T>,
         HasComponentRenderer,
         HasFactoryRenderer,
         DropdownHandle,
@@ -124,7 +128,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
 
   /// Keeps track of the item matching the filter as the suggestions are
   /// being updated.
-  final ActiveItemModel activeModel;
+  final ActiveItemModel<T> activeModel;
 
   bool _isInitialized = false;
 
@@ -264,7 +268,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   /// A simple function to render the an item to string.
   @override
   @Input()
-  set itemRenderer(ItemRenderer<dynamic> value) => super.itemRenderer = value;
+  set itemRenderer(ItemRenderer<T> value) => super.itemRenderer = value;
 
   // Override renderer here to just add the @Input annotation and keep the
   // angular dependency out of models.
@@ -330,7 +334,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   }
 
   @override
-  set selection(SelectionModel selection) {
+  set selection(SelectionModel<T> selection) {
     super.selection = selection;
 
     if (isSingleSelect && selection.selectedValues.isNotEmpty) {
@@ -372,7 +376,7 @@ class MaterialAutoSuggestInputComponent extends MaterialSelectBase
   }
 
   @override
-  set options(SelectionOptions options) {
+  set options(SelectionOptions<T> options) {
     if (options == null) return;
     super.options = options;
     _filterSuggestions();
