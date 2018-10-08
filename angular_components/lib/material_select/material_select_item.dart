@@ -40,11 +40,11 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   ],
   templateUrl: 'material_select_item.html',
 )
-class MaterialSelectItemComponent extends ButtonDirective
+class MaterialSelectItemComponent<T> extends ButtonDirective
     implements
         OnDestroy,
-        SelectionItem,
-        HasRenderer,
+        SelectionItem<T>,
+        HasRenderer<T>,
         HasComponentRenderer,
         HasFactoryRenderer {
   @HostBinding('class')
@@ -91,9 +91,9 @@ class MaterialSelectItemComponent extends ButtonDirective
   @HostBinding('class.hidden')
   bool get isHidden => _isHidden;
 
-  dynamic _value;
+  T _value;
   @override
-  dynamic get value => _value;
+  T get value => _value;
 
   /// The value this selection item represents.
   ///
@@ -103,7 +103,7 @@ class MaterialSelectItemComponent extends ButtonDirective
   /// (via the `itemRenderer` property).
   @Input()
   @override
-  set value(val) {
+  set value(T val) {
     _value = val;
   }
 
@@ -124,9 +124,9 @@ class MaterialSelectItemComponent extends ButtonDirective
     _hideCheckbox = getBool(value);
   }
 
-  ItemRenderer _itemRenderer = nullRenderer;
+  ItemRenderer<T> _itemRenderer = nullRenderer;
   @override
-  ItemRenderer get itemRenderer => _itemRenderer;
+  ItemRenderer<T> get itemRenderer => _itemRenderer;
 
   /// A function to render an item as a String.
   ///
@@ -134,7 +134,7 @@ class MaterialSelectItemComponent extends ButtonDirective
   /// as content).
   @Input()
   @override
-  set itemRenderer(ItemRenderer value) {
+  set itemRenderer(ItemRenderer<T> value) {
     _itemRenderer = value;
   }
 
@@ -195,16 +195,16 @@ class MaterialSelectItemComponent extends ButtonDirective
     return null;
   }
 
-  SelectionModel _selection;
+  SelectionModel<T> _selection;
   @override
-  SelectionModel get selection => _selection;
+  SelectionModel<T> get selection => _selection;
 
   /// Selection model to update with changes.
   @Input()
   @override
-  set selection(SelectionModel sel) {
+  set selection(SelectionModel<T> sel) {
     _selection = sel;
-    _supportsMultiSelect = sel is MultiSelectionModel;
+    _supportsMultiSelect = sel is MultiSelectionModel<T>;
 
     // Eventually change this component to onpush. This should be step in that
     // direction to support onpush components that use this component. There may

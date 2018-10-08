@@ -33,8 +33,8 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
   ],
   templateUrl: 'material_select_item.html',
 )
-class MaterialSelectDropdownItemComponent extends MaterialSelectItemComponent
-    implements OnDestroy {
+class MaterialSelectDropdownItemComponent<T>
+    extends MaterialSelectItemComponent<T> implements OnDestroy {
   @HostBinding('class')
   static const hostClass = 'item';
 
