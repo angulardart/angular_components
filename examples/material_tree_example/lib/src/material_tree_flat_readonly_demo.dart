@@ -14,28 +14,27 @@ import 'package:angular_components/model/selection/selection_options.dart';
   template: r'''
       <h1>Flat options (no hierarchy) in readonly mode (no selection model)</h1>
       <pre>
-        final SelectionOptions simpleFlatOptions =
-            new SelectionOptions.fromList([
-                'Pinocchio',
-                'Fantasia',
-                'The Reluctant Dragon',
-                'Dumbo',
-                'Bambi',
-                'Saludos Amigos',
-                'Victory Through Air Power',
-                'The Three Caballeros',
-                'Make Mine Music',
-                'Song of the South',
-                'Fun and Fancy Free',
-                'Melody Time',
-                'So Dear to My Heart',
-                'The Adventures of Ichabod and Mr. Toad'
-            ]);
+  final SelectionOptions simpleFlatOptions = new SelectionOptions.fromList([
+    'Pinocchio',
+    'Fantasia',
+    'The Reluctant Dragon',
+    'Dumbo',
+    'Bambi',
+    'Saludos Amigos',
+    'Victory Through Air Power',
+    'The Three Caballeros',
+    'Make Mine Music',
+    'Song of the South',
+    'Fun and Fancy Free',
+    'Melody Time',
+    'So Dear to My Heart',
+    'The Adventures of Ichabod and Mr. Toad'
+  ]);
       </pre>
       <pre>
-        &lt;material-tree
-          [options]="simpleFlatOptions"&gt;
-        &lt;/material-tree&gt;
+  &lt;material-tree
+    [options]="simpleFlatOptions"&gt;
+  &lt;/material-tree&gt;
       </pre>
       <div class="shadow" style="width: 400px; margin: 24px;">
         <material-tree [options]="simpleFlatOptions"></material-tree>

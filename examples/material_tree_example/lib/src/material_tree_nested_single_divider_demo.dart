@@ -25,16 +25,16 @@ import 'package:angular_components/model/selection/selection_options.dart';
   template: r'''
       <h1>Nested single selection with expansion dividers</h1>
       <pre>
-        // See material_tree_nested_single_demo.dart
-        final SelectionOptions nestedOptions = data.nestedOptions;
+  // See material_tree_nested_single_demo.dart
+  final SelectionOptions nestedOptions = data.nestedOptions;
 
-        final SelectionModel singleSelection = new SelectionModel.single();
+  final SelectionModel singleSelection = new SelectionModel.single();
       </pre>
       <pre>
-        &lt;material-tree [ngClass]="selected"
-          [options]="nestedOptions"
-          [selection]="singleSelection"&gt;
-        &lt;/material-tree&gt;
+  &lt;material-tree [ngClass]="selected"
+    [options]="nestedOptions"
+    [selection]="singleSelection"&gt;
+  &lt;/material-tree&gt;
       </pre>
       <material-radio-group [selected]="selected" (selectedChange)="selected = $event">
         <material-radio *ngFor="let option of dividerOptions"
@@ -54,8 +54,6 @@ import 'package:angular_components/model/selection/selection_options.dart';
       </div>
     ''',
   styleUrls: ['material_shadow.scss.css', 'dividers.scss.css'],
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialTreeNestedSingleDividerDemoComponent {
   final SelectionOptions nestedOptions = data.nestedOptions;

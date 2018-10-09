@@ -17,18 +17,18 @@ import 'package:angular_components/model/ui/has_renderer.dart';
   template: r'''
       <h1>Nested with item renderer</h1>
       <pre>
-        // See material_tree_nested_single_demo.dart
-        final SelectionOptions nestedOptions = data.nestedOptions;
+  // See material_tree_nested_single_demo.dart
+  final SelectionOptions nestedOptions = data.nestedOptions;
 
-        ItemRenderer&lt;String&gt; sampleItemRenderer =
-            (String movieTitle) =&gt; movieTitle.toUpperCase();
-        String itemRenderer(item) =&gt; sampleItemRenderer(item);
+  ItemRenderer&lt;String&gt; sampleItemRenderer =
+      (String movieTitle) =&gt; movieTitle.toUpperCase();
+  String itemRenderer(item) =&gt; sampleItemRenderer(item);
       </pre>
       <pre>
-        &lt;material-tree
-          [options]="nestedOptions"
-          [itemRenderer]="itemRenderer"&gt;
-        &lt;/material-tree&gt;
+  &lt;material-tree
+    [options]="nestedOptions"
+    [itemRenderer]="itemRenderer"&gt;
+  &lt;/material-tree&gt;
       </pre>
       <div class="shadow" style="width: 400px; margin: 24px;">
         <material-tree
