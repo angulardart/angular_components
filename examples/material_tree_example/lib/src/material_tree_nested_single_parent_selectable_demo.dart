@@ -18,17 +18,17 @@ import 'package:angular_components/model/selection/selection_options.dart';
   template: r'''
       <h1>Nested with single selection and parents selectable</h1>
       <pre>
-        // See material_tree_nested_single_parent_selectable_demo.dart
-        final SelectionOptions nestedOptions = data.nestedOptions;
+  // See material_tree_nested_single_parent_selectable_demo.dart
+  final SelectionOptions nestedOptions = data.nestedOptions;
 
-        final SelectionModel singleSelection = new SelectionModel.single();
+  final SelectionModel singleSelection = new SelectionModel.single();
       </pre>
       <pre>
-        &lt;material-tree
-          [options]="nestedOptions"
-          [selection]="singleSelection"
-          [allowParentSingleSelection]="true"&gt;
-        &lt;/material-tree&gt;
+  &lt;material-tree
+    [options]="nestedOptions"
+    [selection]="singleSelection"
+    [allowParentSingleSelection]="true"&gt;
+  &lt;/material-tree&gt;
       </pre>
       <div class="shadow" style="width: 400px; margin: 24px;">
         <div style="padding: 8px">
@@ -46,8 +46,6 @@ import 'package:angular_components/model/selection/selection_options.dart';
     ''',
   styleUrls: ['material_shadow.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialTreeNestedSingleParentSelectableDemoComponent {
   final SelectionOptions nestedOptions = data.nestedOptions;

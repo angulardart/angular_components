@@ -18,19 +18,20 @@ import 'package:angular_components/model/ui/has_renderer.dart';
   template: r'''
       <h1>Nested with multi selection preserving expansion state</h1>
       <pre>
-        // See material_tree_nested_multi_demo.dart
-        final SelectionOptions nestedOptions = data.expandStateOptions;
+  // See material_tree_nested_multi_demo.dart
+  final SelectionOptions nestedOptions = data.expandStateOptions;
 
-        final SelectionModel multiSelection = new SelectionModel.multi();
-        final ItemRenderer&lt;data.CategoryTargetNode&gt; nameRenderer = (node) =&gt; node.name;
-        String itemRenderer(item) =&gt; nameRenderer(item);
+  final SelectionModel multiSelection = new SelectionModel.multi();
+  final ItemRenderer&lt;data.CategoryTargetNode&gt; nameRenderer =
+      (node) =&gt; node.name;
+  String itemRenderer(item) =&gt; nameRenderer(item);
       </pre>
       <pre>
-        &lt;material-tree
-          [options]="nestedOptions"
-          [selection]="multiSelection"
-          [itemRenderer]="itemRenderer"&gt;
-        &lt;/material-tree&gt;
+  &lt;material-tree
+    [options]="nestedOptions"
+    [selection]="multiSelection"
+    [itemRenderer]="itemRenderer"&gt;
+  &lt;/material-tree&gt;
       </pre>
       <div class="shadow" style="width: 400px; margin: 24px;">
         <div style="padding: 8px">
@@ -48,8 +49,6 @@ import 'package:angular_components/model/ui/has_renderer.dart';
     ''',
   styleUrls: ['material_shadow.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
 )
 class MaterialTreeNestedExpandDemoComponent {
   final SelectionOptions<data.CategoryNode> nestedOptions =

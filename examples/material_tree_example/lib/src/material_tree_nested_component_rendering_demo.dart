@@ -18,18 +18,17 @@ import 'package:angular_components/model/ui/has_factory.dart';
   template: r'''
       <h1>Nested with custom component renderer</h1>
       <pre>
-        // See material_tree_nested_single_demo.dart
-        final SelectionOptions nestedOptions = data.nestedOptions;
+  // See material_tree_nested_single_demo.dart
+  final SelectionOptions nestedOptions = data.nestedOptions;
 
-        // See material_tree_component_renderer.dart
-        ComponentRenderer sampleComponentRenderer =
-            (_) => ComponentRendererExample;
+  // See material_tree_component_renderer.dart
+  ComponentRenderer sampleComponentRenderer = (_) => ComponentRendererExample;
       </pre>
       <pre>
-        &lt;material-tree
-          [options]="nestedOptions"
-          [factoryRenderer]="sampleComponentFactory"&gt;
-        &lt;/material-tree&gt;
+  &lt;material-tree
+    [options]="nestedOptions"
+    [factoryRenderer]="sampleComponentFactory"&gt;
+  &lt;/material-tree&gt;
       </pre>
       <div class="shadow" style="width: 400px; margin: 24px;">
         <material-tree

@@ -19,19 +19,19 @@ import 'package:angular_components/model/selection/selection_options.dart';
   template: r'''
     <h1>Nested with "View more" link</h1>
     <pre>
-      // See material_tree_view_more_demo.dart
-      final SelectionOptions nestedOptions = data.nestedOptionsVariation;
+  // See material_tree_view_more_demo.dart
+  final SelectionOptions nestedOptions = data.nestedOptionsVariation;
 
-      final SelectionModel singleSelection = new SelectionModel.single();
+  final SelectionModel singleSelection = new SelectionModel.single();
     </pre>
     <pre>
-      &lt;material-tree
-        [options]="nestedOptions"
-        [selection]="singleSelection"
-        [optimizeForDropdown]="true"
-        [expandFirstRoot]="true"
-        [firstRootMaxInitialOptionsShown]="2"&gt;
-      &lt;/material-tree&gt;
+  &lt;material-tree
+    [options]="nestedOptions"
+    [selection]="singleSelection"
+    [optimizeForDropdown]="true"
+    [expandFirstRoot]="true"
+    [firstRootMaxInitialOptionsShown]="2"&gt;
+  &lt;/material-tree&gt;
     </pre>
     <div style="width: 400px; margin: 24px;">
       <div class="shadow" style="margin-bottom: 24px;">
@@ -49,8 +49,6 @@ import 'package:angular_components/model/selection/selection_options.dart';
       </div>
     </div>''',
   styleUrls: ['material_shadow.scss.css'],
-  // Preserve the <pre> format.
-  preserveWhitespace: true,
 )
 class MaterialTreeViewMoreDemoComponent {
   final SelectionOptions nestedOptions = data.nestedOptionsVariation;
