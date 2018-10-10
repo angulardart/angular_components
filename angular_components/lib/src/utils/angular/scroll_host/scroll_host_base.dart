@@ -279,6 +279,7 @@ class WindowScrollHostBase extends ScrollHostBase {
   @override
   void scrollToPosition(int newPosition) {
     _window.scrollTo(_window.scrollX, newPosition);
+    stickyController.syncOnScroll();
   }
 
   @override
@@ -333,6 +334,7 @@ class ElementScrollHostBase extends ScrollHostBase {
   @override
   void scrollToPosition(int newPosition) {
     element.scrollTop = newPosition;
+    stickyController.syncOnScroll();
   }
 
   @override
