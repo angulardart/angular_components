@@ -88,6 +88,20 @@ $left-icon-width: $mat-grid * 4;
   }
 }
 
+/// Use this mixin to add a border to each of the chips.
+@mixin material-chip-border($border) {
+  ::ng-deep material-chip {
+    border: $border;
+  }
+}
+
+/// Use this mixin to change the font size of each of the chips.
+@mixin material-chip-font-size($size) {
+  ::ng-deep material-chip {
+    font-size: $size;
+  }
+}
+
 $main-hover-bg-color: $mat-gray-400;
 $main-selected-bg-color: $mat-gray-600;
 
@@ -98,6 +112,27 @@ $emphasis-selected-bg-color: $mat-blue-900;
 @mixin material-chips-margin($margin: 0) {
   ::ng-deep .material-chips-root {
     margin: $margin;
+  }
+}
+
+/// Use this mixin to change the background color of the chips container.
+@mixin material-chips-background-color($color) {
+  ::ng-deep material-chips {
+    background-color: $color;
+  }
+}
+
+/// Use this mixin to add a bottom border to the chips container.
+@mixin material-chips-border-bottom($border-bottom) {
+  ::ng-deep material-chips {
+    border-bottom: $border-bottom;
+  }
+}
+
+/// Use this mixin to change the padding of the chips container.
+@mixin material-chips-padding($padding) {
+  ::ng-deep material-chips {
+    padding: $padding;
   }
 }
 
