@@ -2,11 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/// Interface that defines how a type `T` should be formatted.
+/// Interface that defines how a type `T` should be formatted into a String.
 abstract class Formatter<T> {
   String format(T value, [String parameters]);
 }
 
+/// Generates list of css classes based on cell value.
 abstract class StyleFormatter<T> implements Formatter<T> {
   /// Returns list of classes to style value.
   List<String> computeStyle(T value, [String parameters]) => const [];
