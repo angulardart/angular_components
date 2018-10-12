@@ -11,7 +11,11 @@ builders:
   angular_gallery:
     target: ":angular_gallery"
     import: "package:angular_gallery/builders.dart"
-    builder_factories: [galleryAppBuilder, galleryLibBuilder]
+    builder_factories: [
+      galleryAppBuilder,
+      galleryLibBuilder,
+      syntaxHighlightBuilder,
+    ]
     build_extensions: {
       ".html": [".dart"],
       "$web$": ["index.html", "main.dart", "style.scss"]}
