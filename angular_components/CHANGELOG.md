@@ -1,3 +1,69 @@
+## 0.10.0
+
+### Component Updates
+
+#### Material Auto Suggest Input
+* Rename `shouldClearOnSelection` to `shouldClearInputOnSelection`.
+* Improve keyboard navigation after mouse interactions in the popup.
+* Only allow deselection via in multi-selection mode in material auto suggest
+  input.
+* Disallow selecting disabled options via keyboard.
+* Remove deprecated `suggestions` and `sorted` inputs.
+* Update to support generics.
+
+#### Material Button
+* Mark certain fields as `visibleForTemplate` and drop the copied value where
+  not needed.
+
+#### Material Chips
+* Add Sass mixins to adjust border and font size of a single chip and border
+  padding, and background color, border, and padding of a set of chips.
+
+#### Material Expansion Panel
+* Wrap the buttons in a `defferredContent` directive. This is to help
+  accessibility and have those buttons not be available for screen readers.
+
+#### Material Input
+* Fix bug in `MaterialNumberValueAccessor` where null value won't clear previous
+  input.
+
+#### Material Dropdown Select
+* Provide the simplified selection and options inputs. Pull the common logic
+  into SelectionInputAdapter mixin class.
+* Migrate `ComponentRenderer` to `FactoryRenderer`.
+* Disallow selecting disabled options via keyboard.
+* Highlight disabled items when activated via keyboard.
+
+#### Material Menu
+* Add a secondary-label field. The appearance of this label is subject to minor
+  changes in the near future as the UX is still experimental.
+* Properly use the sub-menu's width, not the parent menu's width, to determine
+  the width of the menu.
+
+#### Material Radio
+* Tighten down the public API surface of the radio component by marking many of
+  them as `visibleForTemplate`.
+
+#### Material Select Searchbox
+* Add in null pointer protection when input is set without a filterable.
+
+#### Modal/Overlay
+* Enable useMultiModalDismissal by default.
+
+### Miscellaneous
+* Use typed provider for location providers.
+* Also corrected the type signature of `runOutsideAngular`, which in turn may
+  enable hint-level warnings by the analyzer. Users may be impacted if they fail
+  the build on hints.
+* Add `StickyController.onUpdate`, a stream which fires events immediately after
+  `StickyController` writes to the DOM, and expose it as an output on
+  `ElementScrollHost`.
+* Trigger the sticky controller sync on `scrollToPosition` calls.
+
+### Documentation
+* Add new readme for Material Dropdown Select.
+* Minor docs fixes.
+
 ## 0.9.2
 
 ### Component Updates
