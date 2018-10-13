@@ -1,18 +1,18 @@
-# Created with https://github.com/dart-lang/mono_repo
+# Created with package:mono_repo v1.2.1
 language: dart
 
 jobs:
   include:
     - stage: analyze_and_format
-      name: "SDK: stable - DIR: angular_components - TASKS: [dartfmt -n --set-exit-if-changed ., dartanalyzer --fatal-warnings .]"
+      name: "SDK: dev - DIR: angular_components - TASKS: [dartfmt -n --set-exit-if-changed ., dartanalyzer --fatal-warnings .]"
       script: ./tool/travis.sh dartfmt dartanalyzer
       env: PKG="angular_components"
-      dart: stable
+      dart: dev
     - stage: unit_test
-      name: "SDK: stable - DIR: angular_components - TASKS: [./tool/travis/install_protoc.sh, pub run test --run-skipped]"
+      name: "SDK: dev - DIR: angular_components - TASKS: [./tool/travis/install_protoc.sh, pub run test --run-skipped]"
       script: ./tool/travis.sh command test
       env: PKG="angular_components"
-      dart: stable
+      dart: dev
 
 stages:
   - analyze_and_format
