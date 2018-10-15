@@ -11,8 +11,6 @@
 
 // Programmatic access to material colors in SassScript.
 
-@import 'color';
-
 $mat-red-map: (
   50: $mat-red-50,
   100: $mat-red-100,
