@@ -22,6 +22,7 @@ import 'package:angular_gallery_section/annotation/gallery_section_config.dart';
     MaterialTreeNestedExpandDemoComponent,
     MaterialTreeDropdownSingleDemoComponent,
     MaterialTreeDropdownMultiDemoComponent,
+    MaterialTreeDropdownMultiClearDemoComponent,
     MaterialTreeDropdownFilterableDemoComponent,
     MaterialTreeDropdownNestedFilterableDemoComponent,
     MaterialTreeDropdownNestedFilterInPopupDemoComponent,
