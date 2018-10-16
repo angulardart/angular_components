@@ -1,26 +1,26 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,d,e,f,g,h,i,j,k,l,m,$){var C={},H={},J={},P={},W={},G={},Y={},R={},K={},V={},S={},N={
-aE5:function(n,o){var x=new N.Td(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-amU:function(){return C.dq},
-aux:function(){if($.adY)return
-$.adY=!0
-$.$get$F().u(0,C.n8,C.dq)
-E.w()
-K.ck()
-D.cc()
-T.auy()},
-MK:function MK(n,o){var _=this
+$__dart_deferred_initializers__.current=function(a,b,c,d,e,f,g,h,i,j,k,l,m,$){var C,H,J,P,W,G,Y,R,K,V,S,N={
+aDq:function(n,o){var y=new N.SA(P.e(P.c,null),n)
+y.a=S.h(y,3,C.k,o)
+return y},
+amE:function(){return C.ds},
+aum:function(){if($.adE)return
+$.adE=!0
+$.$get$G().u(0,C.nb,C.ds)
+E.y()
+K.cA()
+D.cp()
+T.aun()},
+LT:function LT(n,o){var _=this
 _.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
-Td:function Td(n,o){var _=this
+SA:function SA(n,o){var _=this
 _.a=_.x=_.r=null
 _.b=n
 _.c=o
-_.f=_.e=_.d=null}},E={},M={},B={},Q={},D={eY:function eY(n){this.a=n}},L={},Z={eZ:function eZ(n,o,p,q,r,s,t,u){var _=this
+_.f=_.e=_.d=null}},E,M,B,Q,D={eZ:function eZ(n){this.a=n}},L,Z={f_:function f_(n,o,p,q,r,s,t,u){var _=this
 _.b=_.a=null
 _.c=n
 _.d=o
@@ -29,1494 +29,1310 @@ _.f=q
 _.r=r
 _.x=s
 _.y=t
-_.z=u},F4:function F4(){},lE:function lE(n,o){this.a=n
-this.b=o}},A={},U={},T={
-aE8:function(n,o){var x=new T.xx(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.MM
-return x},
-aE9:function(n,o){var x=new T.Tg(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.MM
-return x},
-aEa:function(n,o){var x=new T.Th(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-auy:function(){if($.adZ)return
-$.adZ=!0
-$.$get$F().u(0,C.na,C.cU)
-E.w()
-U.d4()
+_.z=u},Ep:function Ep(){},lG:function lG(n,o){this.a=n
+this.b=o}},A,U,T={
+aDt:function(n,o){var y=new T.x5(P.Y(["$implicit",null],P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.LV
+return y},
+aDu:function(n,o){var y=new T.SD(P.Y(["$implicit",null],P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.LV
+return y},
+aDv:function(n,o){var y=new T.SE(P.e(P.c,null),n)
+y.a=S.h(y,3,C.k,o)
+return y},
+aun:function(){if($.adF)return
+$.adF=!0
+$.$get$G().u(0,C.nd,C.cW)
+E.y()
+U.da()
 G.lZ()
-M.by()
-Q.d3()
-Q.m0()
-K.cC()},
-uD:function uD(n,o){var _=this
-_.L=_.T=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.aF=_.aH=_.ap=_.au=_.aA=_.al=_.ai=_.aw=_.ah=_.am=_.aj=_.ad=_.ao=_.X=_.ag=_.an=_.ae=_.aa=_.a8=_.a4=_.a6=_.V=_.a0=_.Y=_.a_=_.N=_.I=_.K=_.M=_.U=null
-_.b3=_.az=_.bk=_.b7=_.bs=_.bK=_.b1=_.bf=_.bn=_.bd=_.bb=_.aV=_.b2=_.ar=_.aQ=_.ay=_.aN=_.aK=_.aY=_.aq=_.aD=_.at=_.aM=_.aE=_.aX=_.ax=_.aU=_.aP=_.ab=_.as=null
-_.cn=_.bU=_.b6=_.bu=_.bM=_.bL=_.bH=_.bc=_.bz=_.bT=_.bi=_.by=_.bx=_.bt=_.c3=_.bh=_.b5=_.ba=_.c2=_.bG=_.bA=_.bq=_.bw=_.aW=_.bj=_.b9=_.br=_.bl=_.bg=_.b8=null
-_.cb=_.cq=_.cO=_.cp=_.cE=_.bZ=_.cD=_.ca=_.cs=_.cz=_.bS=_.bC=_.bR=_.bJ=_.ck=_.bB=_.cT=_.cj=_.bI=_.c9=_.co=_.bv=_.bW=_.cf=_.bV=_.aL=_.bN=_.bQ=_.c8=_.c7=null
-_.dm=_.cM=_.dr=_.cg=_.dA=_.dE=_.dl=_.d7=_.dq=_.dg=_.dk=_.cL=_.d2=_.dd=_.d6=_.dJ=_.cQ=_.d5=_.cw=_.ct=_.cA=_.cG=_.c4=_.cv=_.cF=_.cU=_.cP=_.cK=_.cc=_.cr=null
-_.a=_.dR=_.dK=null
+M.bv()
+Q.d9()
+Q.m_()
+K.cK()},
+uc:function uc(n,o){var _=this
+_.T=_.U=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.aB=_.ay=_.aD=_.al=_.ar=_.a8=_.aw=_.ae=_.ap=_.av=_.ad=_.am=_.ac=_.aj=_.ai=_.ab=_.ah=_.ak=_.af=_.a2=_.a9=_.aa=_.a_=_.a3=_.a1=_.M=_.O=_.J=_.R=_.W=null
+_.aX=_.bk=_.ba=_.aW=_.b6=_.bx=_.bu=_.b4=_.bh=_.aS=_.be=_.bG=_.aL=_.aH=_.aK=_.bd=_.aR=_.aY=_.aZ=_.aI=_.aA=_.aN=_.aO=_.aU=_.au=_.aG=_.aQ=_.aJ=_.an=_.aC=null
+_.c5=_.bT=_.c4=_.bN=_.ce=_.bt=_.bn=_.bM=_.bw=_.bj=_.br=_.bF=_.bc=_.bs=_.bS=_.bL=_.bE=_.bD=_.bl=_.bR=_.bz=_.bq=_.bv=_.b3=_.bg=_.bf=_.bi=_.bO=_.b7=_.b5=null
+_.a=_.bZ=_.c8=_.ci=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
-xx:function xx(n,o){var _=this
+x5:function x5(n,o){var _=this
 _.a=_.ch=_.Q=_.z=_.y=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
-Tg:function Tg(n,o){var _=this
-_.a=_.Q=_.z=_.y=_.x=_.r=null
+SD:function SD(n,o){var _=this
+_.a=_.z=_.y=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
-Th:function Th(n,o){var _=this
+SE:function SE(n,o){var _=this
 _.a=_.x=_.r=null
 _.b=n
 _.c=o
-_.f=_.e=_.d=null}},O={},X={},F={}
-var z=[C,H,J,P,W,G,Y,R,K,V,S,N,E,M,B,Q,D,L,Z,A,U,T,O,X,F]
-g([C,H,J,P,W,G,Y,R,K,V,S,N,E,M,B,Q,D,L,Z,A,U,T,O,X,F])
-C=h(m[0],C)
-H=h(m[1],H)
-J=h(m[2],J)
-P=h(m[3],P)
-W=h(m[4],W)
-G=h(m[5],G)
-Y=h(m[6],Y)
-R=h(m[7],R)
-K=h(m[8],K)
-V=h(m[9],V)
-S=h(m[10],S)
+_.f=_.e=_.d=null}},O,X,F
+g([N,D,Z,T])
+C=m[0]
+H=m[1]
+J=m[2]
+P=m[3]
+W=m[4]
+G=m[5]
+Y=m[6]
+R=m[7]
+K=m[8]
+V=m[9]
+S=m[10]
 N=h(m[11],N)
-E=h(m[12],E)
-M=h(m[13],M)
-B=h(m[14],B)
-Q=h(m[15],Q)
+E=m[12]
+M=m[13]
+B=m[14]
+Q=m[15]
 D=h(m[16],D)
-L=h(m[17],L)
+L=m[17]
 Z=h(m[18],Z)
-A=h(m[19],A)
-U=h(m[20],U)
+A=m[19]
+U=m[20]
 T=h(m[21],T)
-O=h(m[22],O)
-X=h(m[23],X)
-F=h(m[24],F)
-D.eY.prototype={
-gb_:function(){return this.a}}
-N.MK.prototype={
-gp2:function(){var x=this.z
-if(x==null){x=document
-this.z=x}return x},
-gCA:function(){var x=this.Q
-if(x==null){x=window
-this.Q=x}return x},
-gp3:function(){var x=this.ch
-if(x==null){x=this.c
-x=T.aQ(x.l(C.d,this.a.Q,null),x.l(C.A,this.a.Q,null),x.n(C.f,this.a.Q),this.gCA())
-this.ch=x}return x},
-gCx:function(){var x=this.cx
-if(x==null){x=new O.aB(this.c.n(C.R,this.a.Q),this.gp3())
-this.cx=x}return x},
-gux:function(){var x=this.cy
-if(x==null){x=new K.az(this.gp2(),this.gp3(),P.aN(null))
-this.cy=x}return x},
-guy:function(){var x=this.dx
-if(x==null){x=G.b0(this.c.l(C.w,this.a.Q,null))
-this.dx=x}return x},
-gCC:function(){var x=this.dy
-if(x==null){x=G.b3(this.gp2(),this.c.l(C.x,this.a.Q,null))
-this.dy=x}return x},
-gCD:function(){var x=this.fr
-if(x==null){x=G.aT(this.guy(),this.gCC(),this.c.l(C.v,this.a.Q,null))
-this.fr=x}return x},
-guz:function(){var x=this.fx
-if(x==null){this.fx=!0
-x=!0}return x},
-gCE:function(){var x=this.fy
-if(x==null){this.fy=!0
-x=!0}return x},
-gCz:function(){var x=this.go
-if(x==null){x=this.gp2()
-x=new R.aI(x.querySelector("head"),!1,x)
-this.go=x}return x},
-gCB:function(){var x=this.id
-if(x==null){x=X.aZ()
-this.id=x}return x},
-gCy:function(){var x=this.k1
-if(x==null){x=K.aX(this.gCz(),this.gCD(),this.guy(),this.gux(),this.gp3(),this.gCx(),this.guz(),this.gCE(),this.gCB())
-this.k1=x}return x},
-p:function(){var x,w
-x=this.a3(this.e)
-w=K.c_(this,0)
-this.x=w
-w=w.e
-this.r=w
-x.appendChild(w)
-w=new U.an(this.c.n(C.a7,this.a.Q))
-this.y=w
-this.x.k(0,w,[])
-this.P(C.a,null)
-return},
-R:function(n,o,p){var x,w,v,u
-if(n===C.L&&0===o)return this.gp2()
-if(n===C.G&&0===o)return this.gCA()
-if(n===C.d&&0===o)return this.gp3()
-if(n===C.N&&0===o)return this.gCx()
-if(n===C.M&&0===o)return this.gux()
-if(n===C.S&&0===o){x=this.db
-if(x==null){x=T.aV(this.c.n(C.f,this.a.Q))
-this.db=x}return x}if(n===C.w&&0===o)return this.guy()
-if(n===C.x&&0===o)return this.gCC()
-if(n===C.v&&0===o)return this.gCD()
-if(n===C.Q&&0===o)return this.guz()
-if(n===C.E&&0===o)return this.gCE()
-if(n===C.P&&0===o)return this.gCz()
-if(n===C.C&&0===o)return this.gCB()
-if(n===C.O&&0===o)return this.gCy()
-if(n===C.n&&0===o){x=this.k2
-if(x==null){x=this.c
-w=x.n(C.f,this.a.Q)
-v=this.guz()
-u=this.gCy()
-x.l(C.n,this.a.Q,null)
-u=new X.aG(v,w,u)
-this.k2=u
-x=u}return x}if(n===C.F&&0===o){x=this.k3
-if(x==null){this.k3=C.z
-x=C.z}return x}if(n===C.y&&0===o){x=this.k4
-if(x==null){x=new K.aJ(this.gux())
-this.k4=x}return x}return p},
-q:function(){var x,w
-x=this.f.a
-w=this.r1
-if(w!==x){this.y.a=x
-this.r1=x}this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[D.eY]}}
-N.Td.prototype={
-p:function(){var x,w,v
-x=P.c
-w=new N.MK(P.e(x,null),this)
-w.a=S.f(w,3,C.j,0)
-v=document.createElement("material-checkbox-api")
-w.e=v
-v=$.a6u
-if(v==null){v=$.D
-v=v.a2(null,C.V,C.a)
-$.a6u=v}w.a1(v)
-this.r=w
-this.e=w.e
-w=[R.h]
-w=H.a([new R.a2("MaterialCheckboxComponent","material-checkbox","","angular_components/lib/material_checkbox/material_checkbox.dart","<p><code>material-checkbox</code> is a button that can be either checked or unchecked.</p>\n<p>User can tap the checkbox to check or uncheck it.  Usually you use\ncheckboxes to allow user to select multiple options from a set.  If you\nhave a single ON/OFF option, avoid using a single checkbox and use\n<code>material-toggle</code> instead.</p>\n<p>We are not extending ButtonDecorator because we need to override several\nattributes, including role, tabindex, but most importantly because checkbox\nshould only be interactible with SPACE, while button is for both SPACE and\nENTER.</p>\n<p><strong>Attributes:</strong></p><ul><li><code>no-ink</code> -- set this attribute to disable the ripple effect on the chip.</li></ul>\n",H.a([new R.h("Input","checked","","bool","<p>Current state of the checkbox. This is user set-able state, via\n<code>toggleChecked()</code>, so when checked, the <code>indeterminate</code> state gets\ncleared.</p>\n<p><code>true</code> is CHECKED and <code>false</code> is not.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.h("Input","disabled","","bool","<p>Whether the checkbox should not respond to events, and have a style that\nsuggests that interaction is not allowed.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.h("Input","indeterminate","","bool","<p>Alternative state of the checkbox, not user set-able state. Between\n<code>checked</code> and <code>indeterminate</code>, only one can be true, though both can be\nfalse.</p>\n<p><code>true</code> is INDETERMINATE and <code>false</code> is not.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.h("Input","indeterminateToChecked","","bool","<p>Determines the state to go into when <code>indeterminate</code> state is toggled.</p>\n<p><code>true</code> will go to checked and <code>false</code> will go to unchecked.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.h("Input","label","","String","<p>Label for the checkbox, alternatively use content.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.h("Input","readOnly","","bool","<p>Whether the checkbox can be changed by user interaction.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.h("Input","themeColor","","String","<p>Color of the checkbox and ripple when checked.</p>\n<p>Example: '#FF00FF'. By default it is $mat-blue-500. Note that the\nthemeColor is applied to the checkbox even when the box is unchecked,\nwhich deviates from the standard material spec. Use mixin to set\nthemeColor unless you want this behavior.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,"")],w),H.a([new R.h("Output","onChange","change","Stream<dynamic>","<p>Fired when checkbox state changes, sends <code>checkedStr</code>, i.e. ARIA state.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.h("Output","onChecked","checkedChange","Stream<dynamic>","<p>Fired when checkbox is checked or unchecked, but not when set\nindeterminate. Sends the state of <code>checked</code>.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.h("Output","onIndeterminate","indeterminateChange","Stream<dynamic>","<p>Fired when checkbox goes in and out of indeterminate state, but not when\nset to checked.</p>\n<p>Sends the state of <code>indeterminate</code>.</p>\n","angular_components/lib/material_checkbox/material_checkbox.dart",!1,"")],w))],[R.a2])
-v=H.a([new R.a6(C.cU,"MaterialCheckboxExample","material_checkbox_example/lib/material_checkbox_example.dart")],[R.a6])
-x=new D.eY(R.c6(H.a([],[x]),v,w,null,C.J,P.e(x,x),!0,C.J))
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[D.eY])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[D.eY]}}
-Z.eZ.prototype={
-a1j:function(){var x=this.c
-this.a.push(new Z.lE(x.b,!1))
-x.mm("")},
-a6w:function(){var x=this.a
-x=new H.dA(x,new Z.F4(),[H.i(x,0)])
-return x.gJ(x)},
-Lz:function(){var x=this.y
-this.x=x.b
-x.mm("")},
-sa2m:function(n){return this.d=n},
-sa1L:function(n){return this.e=n},
-sJs:function(n){return this.f=n},
-sa4_:function(n){return this.r=n},
-sLX:function(n){return this.z=n}}
-Z.lE.prototype={}
-T.uD.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,h0,h1,h2,h3,h4,h5,h6,h7,h8,h9,i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,j0,j1,j2,j3,j4,j5,j6,j7,j8,j9,k0,k1,k2,k3,k4,k5,k6,k7,k8,k9,l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,m0,m1,m2,m3,m4,m5
-x=this.a3(this.e)
-w=document
-x.appendChild(w.createTextNode("\n"))
-v=S.d(w,"section",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("\n  ")
-this.r.appendChild(u)
-v=S.d(w,"h1",this.r)
-this.x=v
-this.m(v)
-t=w.createTextNode("Todo list:")
-this.x.appendChild(t)
-s=w.createTextNode("\n  ")
-this.r.appendChild(s)
-v=S.d(w,"p",this.r)
-this.y=v
-this.m(v)
-v=S.d(w,"em",this.y)
-this.z=v
-this.m(v)
-r=w.createTextNode("using `ng-model`")
-this.z.appendChild(r)
-q=w.createTextNode("\n  Remaining: ")
-this.r.appendChild(q)
-v=w.createTextNode("")
-this.Q=v
-this.r.appendChild(v)
-p=w.createTextNode("\n  ")
-this.r.appendChild(p)
-v=S.o(w,this.r)
-this.ch=v
-this.h(v)
-o=w.createTextNode("\n    ")
-this.ch.appendChild(o)
-v=$.$get$I()
-n=v.cloneNode(!1)
-this.ch.appendChild(n)
-n=new V.n(14,12,this,n)
-this.cx=n
-this.cy=new R.ap(n,new D.p(n,T.avT()))
-a0=w.createTextNode("\n  ")
-this.ch.appendChild(a0)
-a1=w.createTextNode("\n  ")
-this.r.appendChild(a1)
-n=S.o(w,this.r)
-this.db=n
-this.h(n)
-a2=w.createTextNode("\n    ")
-this.db.appendChild(a2)
-n=Q.ah(this,19)
-this.dy=n
-n=n.e
-this.dx=n
-this.db.appendChild(n)
-this.dx.setAttribute("errorMsg","This input requires a value!")
-this.dx.setAttribute("label","add new todo here")
-this.dx.setAttribute("required","")
-this.dx.setAttribute("type","text")
-this.h(this.dx)
-n=[{func:1,ret:[P.a9,P.c,,],args:[[Z.bj,,]]}]
-a3=new L.a7(H.a([],n))
-this.fr=a3
-a3=[a3]
-this.fx=a3
-a3=T.oQ(a3,null)
-this.fy=a3
-this.go=a3
-a3=L.ag("text",null,null,a3,this.dy.a.b,this.fr)
-this.id=a3
-this.k1=a3
-a4=this.go
-a5=new Z.ak(new R.y(!0,!1),a3,a4)
-a5.bE(a3,a4)
-this.k2=a5
-w.createTextNode("\n    ")
-this.dy.k(0,this.id,[C.a,C.a])
-a6=w.createTextNode("\n    ")
-this.db.appendChild(a6)
-a5=U.R(this,22)
-this.k4=a5
-a5=a5.e
-this.k3=a5
-this.db.appendChild(a5)
-this.k3.setAttribute("raised","")
-this.h(this.k3)
-a5=this.c
-a4=F.N(a5.l(C.m,this.a.Q,null))
-this.r1=a4
-a4=B.Q(this.k3,a4,this.k4.a.b,null)
-this.r2=a4
-a7=w.createTextNode("add it")
-a3=[W.aK]
-this.k4.k(0,a4,[H.a([a7],a3)])
-a8=w.createTextNode("\n  ")
-this.db.appendChild(a8)
-a9=w.createTextNode("\n  ")
-this.r.appendChild(a9)
-a4=S.o(w,this.r)
-this.rx=a4
-a4.className="debug-info"
-this.h(a4)
-b0=w.createTextNode("\n    Form entry = ")
-this.rx.appendChild(b0)
-a4=w.createTextNode("")
-this.ry=a4
-this.rx.appendChild(a4)
-a4=S.d(w,"br",this.rx)
-this.x1=a4
-this.m(a4)
-b1=w.createTextNode("\n    Model dump:\n    ")
-this.rx.appendChild(b1)
-a4=S.d(w,"ul",this.rx)
-this.x2=a4
-this.h(a4)
-b2=w.createTextNode("\n      ")
-this.x2.appendChild(b2)
-v=v.cloneNode(!1)
-this.x2.appendChild(v)
-v=new V.n(33,31,this,v)
-this.y1=v
-this.y2=new R.ap(v,new D.p(v,T.avU()))
-b3=w.createTextNode("\n    ")
-this.x2.appendChild(b3)
-b4=w.createTextNode("\n  ")
-this.rx.appendChild(b4)
-b5=w.createTextNode("\n")
-this.r.appendChild(b5)
-x.appendChild(w.createTextNode("\n\n"))
-v=S.d(w,"hr",x)
-this.T=v
-this.m(v)
-x.appendChild(w.createTextNode("\n\n"))
-v=S.d(w,"section",x)
-this.L=v
-this.m(v)
-b6=w.createTextNode("\n  ")
-this.L.appendChild(b6)
-v=S.d(w,"h1",this.L)
-this.U=v
-this.m(v)
-b7=w.createTextNode("Custom:")
-this.U.appendChild(b7)
-b8=w.createTextNode("\n  ")
-this.L.appendChild(b8)
-v=S.d(w,"p",this.L)
-this.M=v
-this.m(v)
-v=S.d(w,"em",this.M)
-this.K=v
-this.m(v)
-b9=w.createTextNode("Tab Index")
-this.K.appendChild(b9)
-c0=w.createTextNode("\n  ")
-this.L.appendChild(c0)
-v=S.o(w,this.L)
-this.I=v
-this.h(v)
-c1=w.createTextNode("\n    ")
-this.I.appendChild(c1)
-v=G.aP(this,51)
-this.a_=v
-v=v.e
-this.N=v
-this.I.appendChild(v)
-this.N.setAttribute("label","Custom tab index")
-this.N.setAttribute("no-ink","")
-v=this.N
-v.tabIndex=2
-this.h(v)
-v=B.aO(this.N,this.a_.a.b,null,"2",null)
-this.Y=v
-c2=w.createTextNode("\n    ")
-this.a_.k(0,v,[H.a([c2],a3)])
-c3=w.createTextNode("\n  ")
-this.I.appendChild(c3)
-c4=w.createTextNode("\n  ")
-this.L.appendChild(c4)
-v=S.d(w,"p",this.L)
-this.a0=v
-this.m(v)
-v=S.d(w,"em",this.a0)
-this.V=v
-this.m(v)
-c5=w.createTextNode("no ripple on click, using events and properties")
-this.V.appendChild(c5)
-c6=w.createTextNode("\n  ")
-this.L.appendChild(c6)
-v=S.o(w,this.L)
-this.a6=v
-this.h(v)
-c7=w.createTextNode("\n    ")
-this.a6.appendChild(c7)
-v=G.aP(this,61)
-this.a8=v
-v=v.e
-this.a4=v
-this.a6.appendChild(v)
-this.a4.setAttribute("no-ink","")
-this.h(this.a4)
-v=B.aO(this.a4,this.a8.a.b,null,null,null)
-this.aa=v
-c8=w.createTextNode("\n    ")
-this.a8.k(0,v,[H.a([c8],a3)])
-c9=w.createTextNode("\n  ")
-this.a6.appendChild(c9)
-d0=w.createTextNode("\n  ")
-this.L.appendChild(d0)
-v=S.o(w,this.L)
-this.ae=v
-this.h(v)
-d1=w.createTextNode("\n    ")
-this.ae.appendChild(d1)
-v=Q.ah(this,67)
-this.ag=v
-v=v.e
-this.an=v
-this.ae.appendChild(v)
-this.an.setAttribute("label","enter new label here")
-this.an.setAttribute("type","text")
-this.h(this.an)
-n=new L.a7(H.a([],n))
-this.X=n
-n=[n]
-this.ao=n
-n=T.oQ(n,null)
-this.ad=n
-this.aj=n
-n=L.ag("text",null,null,n,this.ag.a.b,this.X)
-this.am=n
-this.ah=n
-v=this.aj
-a4=new Z.ak(new R.y(!0,!1),n,v)
-a4.bE(n,v)
-this.aw=a4
-w.createTextNode("\n    ")
-this.ag.k(0,this.am,[C.a,C.a])
-d2=w.createTextNode("\n    ")
-this.ae.appendChild(d2)
-a4=U.R(this,70)
-this.al=a4
-a4=a4.e
-this.ai=a4
-this.ae.appendChild(a4)
-this.ai.setAttribute("raised","")
-this.h(this.ai)
-a5=F.N(a5.l(C.m,this.a.Q,null))
-this.aA=a5
-a5=B.Q(this.ai,a5,this.al.a.b,null)
-this.au=a5
-d3=w.createTextNode("update label")
-this.al.k(0,a5,[H.a([d3],a3)])
-a5=S.d(w,"br",this.ae)
-this.ap=a5
-this.m(a5)
-d4=w.createTextNode("\n    ")
-this.ae.appendChild(d4)
-a5=Q.c0(this,74)
-this.aF=a5
-a5=a5.e
-this.aH=a5
-this.ae.appendChild(a5)
-this.h(this.aH)
-a5=D.bW(this.aF.a.b,null)
-this.as=a5
-d5=w.createTextNode("\n    ")
-this.aF.k(0,a5,[H.a([d5],a3)])
-a5=S.d(w,"br",this.ae)
-this.ab=a5
-this.m(a5)
-d6=w.createTextNode("\n    ")
-this.ae.appendChild(d6)
-a5=Q.c0(this,78)
-this.aU=a5
-a5=a5.e
-this.aP=a5
-this.ae.appendChild(a5)
-this.h(this.aP)
-a5=D.bW(this.aU.a.b,null)
-this.ax=a5
-d7=w.createTextNode("\n    ")
-this.aU.k(0,a5,[H.a([d7],a3)])
-a5=S.d(w,"br",this.ae)
-this.aX=a5
-this.m(a5)
-d8=w.createTextNode("\n    ")
-this.ae.appendChild(d8)
-a5=Q.c0(this,82)
-this.aM=a5
-a5=a5.e
-this.aE=a5
-this.ae.appendChild(a5)
-this.h(this.aE)
-a5=D.bW(this.aM.a.b,null)
-this.at=a5
-d9=w.createTextNode("\n    ")
-this.aM.k(0,a5,[H.a([d9],a3)])
-a5=S.d(w,"br",this.ae)
-this.aD=a5
-this.m(a5)
-e0=w.createTextNode("\n  ")
-this.ae.appendChild(e0)
-e1=w.createTextNode("\n  ")
-this.L.appendChild(e1)
-a5=S.o(w,this.L)
-this.aq=a5
-a5.className="debug-info"
-this.h(a5)
-e2=w.createTextNode("\n    new label = ")
-this.aq.appendChild(e2)
-a5=w.createTextNode("")
-this.aY=a5
-this.aq.appendChild(a5)
-a5=S.d(w,"br",this.aq)
-this.aK=a5
-this.m(a5)
-e3=w.createTextNode("\n    current label = ")
-this.aq.appendChild(e3)
-a5=w.createTextNode("")
-this.aN=a5
-this.aq.appendChild(a5)
-a5=S.d(w,"br",this.aq)
-this.ay=a5
-this.m(a5)
-e4=w.createTextNode("\n    status = ")
-this.aq.appendChild(e4)
-a5=w.createTextNode("")
-this.aQ=a5
-this.aq.appendChild(a5)
-a5=S.d(w,"br",this.aq)
-this.ar=a5
-this.m(a5)
-e5=w.createTextNode("\n    checked = ")
-this.aq.appendChild(e5)
-a5=w.createTextNode("")
-this.b2=a5
-this.aq.appendChild(a5)
-a5=S.d(w,"br",this.aq)
-this.aV=a5
-this.m(a5)
-e6=w.createTextNode("\n    disabled = ")
-this.aq.appendChild(e6)
-a5=w.createTextNode("")
-this.bb=a5
-this.aq.appendChild(a5)
-a5=S.d(w,"br",this.aq)
-this.bd=a5
-this.m(a5)
-e7=w.createTextNode("\n    indeterminate = ")
-this.aq.appendChild(e7)
-a5=w.createTextNode("")
-this.bn=a5
-this.aq.appendChild(a5)
-a5=S.d(w,"br",this.aq)
-this.bf=a5
-this.m(a5)
-e8=w.createTextNode("\n    indeterminateToChecked = ")
-this.aq.appendChild(e8)
-a5=w.createTextNode("")
-this.b1=a5
-this.aq.appendChild(a5)
-a5=S.d(w,"br",this.aq)
-this.bK=a5
-this.m(a5)
-e9=w.createTextNode("\n  ")
-this.aq.appendChild(e9)
-f0=w.createTextNode("\n")
-this.L.appendChild(f0)
-x.appendChild(w.createTextNode("\n\n"))
-a5=S.d(w,"hr",x)
-this.bs=a5
-this.m(a5)
-x.appendChild(w.createTextNode("\n\n"))
-a5=S.d(w,"section",x)
-this.b7=a5
-this.m(a5)
-f1=w.createTextNode("\n  ")
-this.b7.appendChild(f1)
-a5=S.d(w,"h1",this.b7)
-this.bk=a5
-this.m(a5)
-f2=w.createTextNode("Various states:")
-this.bk.appendChild(f2)
-f3=w.createTextNode("\n  ")
-this.b7.appendChild(f3)
-a5=S.o(w,this.b7)
-this.az=a5
-this.h(a5)
-f4=w.createTextNode("\n    ")
-this.az.appendChild(f4)
-a5=S.d(w,"h3",this.az)
-this.b3=a5
-this.m(a5)
-f5=w.createTextNode("No label")
-this.b3.appendChild(f5)
-f6=w.createTextNode("\n    ")
-this.az.appendChild(f6)
-a5=G.aP(this,124)
-this.bg=a5
-a5=a5.e
-this.b8=a5
-this.az.appendChild(a5)
-this.h(this.b8)
-a5=B.aO(this.b8,this.bg.a.b,null,null,null)
-this.bl=a5
-this.bg.k(0,a5,[C.a])
-f7=w.createTextNode("\n    ")
-this.az.appendChild(f7)
-a5=S.d(w,"h3",this.az)
-this.br=a5
-this.m(a5)
-f8=w.createTextNode("Unchecked")
-this.br.appendChild(f8)
-f9=w.createTextNode("\n    ")
-this.az.appendChild(f9)
-a5=G.aP(this,129)
-this.bj=a5
-a5=a5.e
-this.b9=a5
-this.az.appendChild(a5)
-this.b9.setAttribute("label","plain unchecked")
-this.h(this.b9)
-a5=B.aO(this.b9,this.bj.a.b,null,null,null)
-this.aW=a5
-this.bj.k(0,a5,[C.a])
-g0=w.createTextNode("\n    ")
-this.az.appendChild(g0)
-a5=S.d(w,"h3",this.az)
-this.bw=a5
-this.m(a5)
-g1=w.createTextNode("Checked")
-this.bw.appendChild(g1)
-g2=w.createTextNode("\n    ")
-this.az.appendChild(g2)
-a5=G.aP(this,134)
-this.bA=a5
-a5=a5.e
-this.bq=a5
-this.az.appendChild(a5)
-this.bq.setAttribute("label","plain checked")
-this.h(this.bq)
-a5=B.aO(this.bq,this.bA.a.b,null,null,null)
-this.bG=a5
-this.bA.k(0,a5,[C.a])
-g3=w.createTextNode("\n    ")
-this.az.appendChild(g3)
-a5=S.d(w,"h3",this.az)
-this.c2=a5
-this.m(a5)
-g4=w.createTextNode("Indeterminate")
-this.c2.appendChild(g4)
-g5=w.createTextNode("\n    ")
-this.az.appendChild(g5)
-a5=G.aP(this,139)
-this.b5=a5
-a5=a5.e
-this.ba=a5
-this.az.appendChild(a5)
-this.ba.setAttribute("label","work in progress")
-this.h(this.ba)
-a5=B.aO(this.ba,this.b5.a.b,null,null,null)
-this.bh=a5
-this.b5.k(0,a5,[C.a])
-g6=w.createTextNode("\n    ")
-this.az.appendChild(g6)
-a5=S.d(w,"h3",this.az)
-this.c3=a5
-this.m(a5)
-g7=w.createTextNode("Disabled")
-this.c3.appendChild(g7)
-g8=w.createTextNode("\n    ")
-this.az.appendChild(g8)
-a5=G.aP(this,144)
-this.bx=a5
-a5=a5.e
-this.bt=a5
-this.az.appendChild(a5)
-this.bt.setAttribute("label","mission impossible")
-this.h(this.bt)
-a5=B.aO(this.bt,this.bx.a.b,null,null,null)
-this.by=a5
-this.bx.k(0,a5,[C.a])
-g9=w.createTextNode("\n    ")
-this.az.appendChild(g9)
-a5=S.d(w,"h3",this.az)
-this.bi=a5
-this.m(a5)
-h0=w.createTextNode("Checked and disabled")
-this.bi.appendChild(h0)
-h1=w.createTextNode("\n    ")
-this.az.appendChild(h1)
-a5=G.aP(this,149)
-this.bz=a5
-a5=a5.e
-this.bT=a5
-this.az.appendChild(a5)
-this.bT.setAttribute("label","done and done")
-this.h(this.bT)
-a5=B.aO(this.bT,this.bz.a.b,null,null,null)
-this.bc=a5
-h2=w.createTextNode("\n    ")
-this.bz.k(0,a5,[H.a([h2],a3)])
-h3=w.createTextNode("\n    ")
-this.az.appendChild(h3)
-a5=S.d(w,"h3",this.az)
-this.bH=a5
-this.m(a5)
-h4=w.createTextNode("Indeterminate and disabled")
-this.bH.appendChild(h4)
-h5=w.createTextNode("\n    ")
-this.az.appendChild(h5)
-a5=G.aP(this,155)
-this.bM=a5
-a5=a5.e
-this.bL=a5
-this.az.appendChild(a5)
-this.bL.setAttribute("label","done and done")
-this.h(this.bL)
-a5=B.aO(this.bL,this.bM.a.b,null,null,null)
-this.bu=a5
-h6=w.createTextNode("\n    ")
-this.bM.k(0,a5,[H.a([h6],a3)])
-h7=w.createTextNode("\n    ")
-this.az.appendChild(h7)
-a5=S.d(w,"h3",this.az)
-this.b6=a5
-this.m(a5)
-h8=w.createTextNode("Checked and indeterminate = indeterminate")
-this.b6.appendChild(h8)
-h9=w.createTextNode("\n    ")
-this.az.appendChild(h9)
-a5=G.aP(this,161)
-this.cn=a5
-a5=a5.e
-this.bU=a5
-this.az.appendChild(a5)
-this.bU.setAttribute("label","indeterminate?")
-this.h(this.bU)
-a5=B.aO(this.bU,this.cn.a.b,null,null,null)
-this.c7=a5
-i0=w.createTextNode("\n    ")
-this.cn.k(0,a5,[H.a([i0],a3)])
-i1=w.createTextNode("\n    ")
-this.az.appendChild(i1)
-a5=S.d(w,"h3",this.az)
-this.c8=a5
-this.m(a5)
-i2=w.createTextNode("Programmatically set checkbox color")
-this.c8.appendChild(i2)
-i3=w.createTextNode("\n    ")
-this.az.appendChild(i3)
-a5=G.aP(this,167)
-this.bN=a5
-a5=a5.e
-this.bQ=a5
-this.az.appendChild(a5)
-this.bQ.setAttribute("label","A red checkbox")
-this.bQ.setAttribute("themeColor","#FF0000")
-this.h(this.bQ)
-a5=B.aO(this.bQ,this.bN.a.b,null,null,null)
-this.aL=a5
-i4=w.createTextNode("\n    ")
-this.bN.k(0,a5,[H.a([i4],a3)])
-i5=w.createTextNode("\n    ")
-this.az.appendChild(i5)
-a5=G.aP(this,170)
-this.cf=a5
-a5=a5.e
-this.bV=a5
-this.az.appendChild(a5)
-this.bV.setAttribute("label","A magenta checkbox")
-this.bV.setAttribute("themeColor","#FF00FF")
-this.h(this.bV)
-a5=B.aO(this.bV,this.cf.a.b,null,null,null)
-this.bW=a5
-i6=w.createTextNode("\n    ")
-this.cf.k(0,a5,[H.a([i6],a3)])
-i7=w.createTextNode("\n    ")
-this.az.appendChild(i7)
-a5=S.d(w,"h3",this.az)
-this.bv=a5
-this.m(a5)
-i8=w.createTextNode("Label wrapped if width limit is enforced")
-this.bv.appendChild(i8)
-i9=w.createTextNode("\n    ")
-this.az.appendChild(i9)
-a5=G.aP(this,176)
-this.c9=a5
-a5=a5.e
-this.co=a5
-this.az.appendChild(a5)
-this.co.className=Q.bw("","limited-width"," ","themeable","")
-this.co.setAttribute("label","long label is bad label, but internationalisation has its own opinions")
-this.h(this.co)
-a5=B.aO(this.co,this.c9.a.b,null,null,null)
-this.bI=a5
-j0=w.createTextNode("\n    ")
-this.c9.k(0,a5,[H.a([j0],a3)])
-j1=w.createTextNode("\n    ")
-this.az.appendChild(j1)
-a3=S.d(w,"h3",this.az)
-this.cj=a3
-this.m(a3)
-j2=w.createTextNode("Custom content; align top")
-this.cj.appendChild(j2)
-j3=w.createTextNode("\n    ")
-this.az.appendChild(j3)
-a3=G.aP(this,182)
-this.bB=a3
-a3=a3.e
-this.cT=a3
-this.az.appendChild(a3)
-this.cT.className=Q.bw("","top"," ","themeable","")
-this.h(this.cT)
-this.ck=B.aO(this.cT,this.bB.a.b,null,null,null)
-j4=w.createTextNode("\n      ")
-v=w.createElement("div")
-this.bJ=v
-v.className="custom"
-this.h(v)
-j5=w.createTextNode("\n        Your feedback ")
-this.bJ.appendChild(j5)
-v=S.d(w,"a",this.bJ)
-this.bR=v
-v.setAttribute("href","http://google.com")
-this.bR.setAttribute("target","_blank")
-this.h(this.bR)
-j6=w.createTextNode("more info")
-this.bR.appendChild(j6)
-j7=w.createTextNode("\n        ")
-this.bJ.appendChild(j7)
-v=M.Z(this,189)
-this.bS=v
-v=v.e
-this.bC=v
-this.bJ.appendChild(v)
-this.bC.setAttribute("baseline","")
-v=this.bC
-v.className="help-icon"
-v.setAttribute("icon","help")
-this.h(this.bC)
-v=new Y.S(this.bC)
-this.cz=v
-this.bS.k(0,v,[])
-v=S.d(w,"br",this.bJ)
-this.cs=v
-this.m(v)
-j8=w.createTextNode("\n        ")
-this.bJ.appendChild(j8)
-v=S.d(w,"textarea",this.bJ)
-this.ca=v
-v.setAttribute("cols","40")
-this.ca.setAttribute("rows","2")
-this.h(this.ca)
-j9=w.createTextNode("\n      ")
-this.bJ.appendChild(j9)
-k0=w.createTextNode("\n    ")
-this.bB.k(0,this.ck,[H.a([j4,this.bJ,k0],[W.ae])])
-k1=w.createTextNode("\n  ")
-this.az.appendChild(k1)
-k2=w.createTextNode("\n")
-this.b7.appendChild(k2)
-x.appendChild(w.createTextNode("\n\n"))
-v=S.d(w,"section",x)
-this.cD=v
-this.m(v)
-k3=w.createTextNode("\n  ")
-this.cD.appendChild(k3)
-v=S.d(w,"h1",this.cD)
-this.bZ=v
-this.m(v)
-k4=w.createTextNode("Custom theme:")
-this.bZ.appendChild(k4)
-k5=w.createTextNode("\n  ")
-this.cD.appendChild(k5)
-v=S.o(w,this.cD)
-this.cE=v
-this.h(v)
-k6=w.createTextNode("\n    ")
-this.cE.appendChild(k6)
-v=S.d(w,"h3",this.cE)
-this.cp=v
-this.m(v)
-v=S.d(w,"em",this.cp)
-this.cO=v
-this.m(v)
-k7=w.createTextNode("material-checkbox-color($mat-pink-500)")
-this.cO.appendChild(k7)
-k8=w.createTextNode("\n    ")
-this.cE.appendChild(k8)
-v=G.aP(this,209)
-this.cb=v
-v=v.e
-this.cq=v
-this.cE.appendChild(v)
-this.cq.className=Q.bw("","custom-theme"," ","themeable","")
-this.cq.setAttribute("label","Themed!")
-this.h(this.cq)
-v=B.aO(this.cq,this.cb.a.b,null,null,null)
-this.cr=v
-this.cb.k(0,v,[C.a])
-k9=w.createTextNode("\n  ")
-this.cE.appendChild(k9)
-l0=w.createTextNode("\n")
-this.cD.appendChild(l0)
-x.appendChild(w.createTextNode("\n\n"))
-v=S.d(w,"section",x)
-this.cc=v
-this.m(v)
-l1=w.createTextNode("\n  ")
-this.cc.appendChild(l1)
-v=S.d(w,"h1",this.cc)
-this.cK=v
-this.m(v)
-l2=w.createTextNode("Custom mixins:")
-this.cK.appendChild(l2)
-l3=w.createTextNode("\n  ")
-this.cc.appendChild(l3)
-v=S.o(w,this.cc)
-this.cP=v
-this.h(v)
-l4=w.createTextNode("\n    ")
-this.cP.appendChild(l4)
-v=S.d(w,"h3",this.cP)
-this.cU=v
-this.m(v)
-l5=w.createTextNode("checkbox-no-left-margin")
-this.cU.appendChild(l5)
-l6=w.createTextNode("\n    ")
-this.cP.appendChild(l6)
-v=G.aP(this,223)
-this.cv=v
-v=v.e
-this.cF=v
-this.cP.appendChild(v)
-this.cF.className=Q.bw("","material-checkbox-no-left-margin"," ","themeable","")
-this.h(this.cF)
-v=B.aO(this.cF,this.cv.a.b,null,null,null)
-this.c4=v
-this.cv.k(0,v,[C.a])
-l7=w.createTextNode("\n  ")
-this.cP.appendChild(l7)
-l8=w.createTextNode("\n")
-this.cc.appendChild(l8)
-x.appendChild(w.createTextNode("\n"))
-w=this.r2.b
-v=W.a_
-l9=new P.l(w,[H.i(w,0)]).B(this.ac(this.f.ga1i(),v))
-w=this.aa.f
-m0=new P.l(w,[H.i(w,0)]).B(this.w(this.gPN(),null,null))
-w=this.aa.r
-m1=new P.l(w,[H.i(w,0)]).B(this.w(this.gRl(),null,null))
-w=this.aa.x
-m2=new P.l(w,[H.i(w,0)]).B(this.w(this.gP5(),null,null))
-w=this.au.b
-m3=new P.l(w,[H.i(w,0)]).B(this.ac(this.f.gLy(),v))
-v=this.as.f
-w=P.x
-m4=new P.l(v,[H.i(v,0)]).B(this.w(this.gPV(),w,w))
-v=this.ax.f
-m5=new P.l(v,[H.i(v,0)]).B(this.w(this.gXh(),w,w))
-v=this.at.f
-this.P(C.a,[l9,m0,m1,m2,m3,m4,m5,new P.l(v,[H.i(v,0)]).B(this.w(this.gQ0(),w,w))])
-return},
-R:function(n,o,p){var x,w,v,u,t,s,r,q
-x=n===C.af
-if(x&&19<=o&&o<=20)return this.fr
-w=n===C.aq
-if(w&&19<=o&&o<=20)return this.go
-v=n!==C.aj
-if((!v||n===C.r||n===C.o||n===C.c)&&19<=o&&o<=20)return this.id
-u=n===C.ae
-if(u&&19<=o&&o<=20)return this.k1
-t=n===C.av
-if(t&&19<=o&&o<=20)return this.k2
-s=n===C.a4
-if(s&&22<=o&&o<=23)return this.r1
-r=n!==C.aa
-if((!r||n===C.l||n===C.c)&&22<=o&&o<=23)return this.r2
-q=n===C.c
-if(q&&51<=o&&o<=52)return this.Y
-if(q&&61<=o&&o<=62)return this.aa
-if(x&&67<=o&&o<=68)return this.X
-if(w&&67<=o&&o<=68)return this.aj
-if((!v||n===C.r||n===C.o||q)&&67<=o&&o<=68)return this.am
-if(u&&67<=o&&o<=68)return this.ah
-if(t&&67<=o&&o<=68)return this.aw
-if(s&&70<=o&&o<=71)return this.aA
-if((!r||n===C.l||q)&&70<=o&&o<=71)return this.au
-if(q&&74<=o&&o<=75)return this.as
-if(q&&78<=o&&o<=79)return this.ax
-if(q&&82<=o&&o<=83)return this.at
-if(q&&124===o)return this.bl
-if(q&&129===o)return this.aW
-if(q&&134===o)return this.bG
-if(q&&139===o)return this.bh
-if(q&&144===o)return this.by
-if(q&&149<=o&&o<=150)return this.bc
-if(q&&155<=o&&o<=156)return this.bu
-if(q&&161<=o&&o<=162)return this.c7
-if(q&&167<=o&&o<=168)return this.aL
-if(q&&170<=o&&o<=171)return this.bW
-if(q&&176<=o&&o<=177)return this.bI
-if(q&&182<=o&&o<=194)return this.ck
-if(q&&209===o)return this.cr
-if(q&&223===o)return this.c4
-return p},
-q:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6
-x=this.f
-w=this.a.cy===0
-v=x.a
-u=this.cA
-if(u!==v){this.cy.scd(v)
-this.cA=v}this.cy.bO()
-t=x.c
-u=this.ct
-if(u!==t){u=this.fy
-u.f=t
-u.e=!0
-this.ct=t
-s=!0}else s=!1
-if(s)this.fy.aZ()
-if(w){u=this.id
-u.fr="add new todo here"
-u.dx="This input requires a value!"
-u.h9()
-this.id.siw(0,!0)
-s=!0}else s=!1
-if(s)this.dy.a.st(1)
-if(w){this.r2.cx=!0
-s=!0}else s=!1
-if(s)this.k4.a.st(1)
-if(w)this.r2.D()
-r=x.a
-u=this.d5
-if(u!==r){this.y2.scd(r)
-this.d5=r}this.y2.bO()
-if(w){this.Y.fx="Custom tab index"
-s=!0}else s=!1
-if(s)this.a_.a.st(1)
-q=x.r
-u=this.cQ
-if(u==null?q!=null:u!==q){this.aa.y=q
-this.cQ=q
-s=!0}else s=!1
-p=x.d
-u=this.dJ
-if(u==null?p!=null:u!==p){this.aa.z=p
-this.dJ=p
-s=!0}o=x.x
-u=this.d6
-if(u==null?o!=null:u!==o){this.aa.fx=o
-this.d6=o
-s=!0}n=x.e
-u=this.dd
-if(u==null?n!=null:u!==n){this.aa.scm(0,n)
-this.dd=n
-s=!0}a0=x.f
-u=this.d2
-if(u==null?a0!=null:u!==a0){this.aa.sk_(0,a0)
-this.d2=a0
-s=!0}if(s)this.a8.a.st(1)
-a1=x.y
-u=this.cL
-if(u!==a1){u=this.ad
-u.f=a1
-u.e=!0
-this.cL=a1
-s=!0}else s=!1
-if(s)this.ad.aZ()
-if(w){this.am.fr="enter new label here"
-s=!0}else s=!1
-if(s)this.ag.a.st(1)
-if(w){this.au.cx=!0
-s=!0}else s=!1
-if(s)this.al.a.st(1)
-if(w)this.au.D()
-u=x.d?"enable":"disable"
-a2="Tap to "+u
-u=this.dk
-if(u!==a2){this.as.r=a2
-this.dk=a2
-s=!0}else s=!1
-a3=x.d
-u=this.dg
-if(u==null?a3!=null:u!==a3){u=this.as
-u.e=a3
-u.ce()
-this.dg=a3
-s=!0}if(s)this.aF.a.st(1)
-u=x.f?"unset indeterminate":"set indeterminate"
-a4="Tap to "+u
-u=this.dq
-if(u!==a4){this.ax.r=a4
-this.dq=a4
-s=!0}else s=!1
-a5=x.f
-u=this.d7
-if(u==null?a5!=null:u!==a5){u=this.ax
-u.e=a5
-u.ce()
-this.d7=a5
-s=!0}if(s)this.aU.a.st(1)
-u=x.r?"go from indeterminate to unchecked":"go from indeterminate to checked"
-a6="Tap to "+u
-u=this.dl
-if(u!==a6){this.at.r=a6
-this.dl=a6
-s=!0}else s=!1
-a7=x.r
-u=this.dE
-if(u==null?a7!=null:u!==a7){u=this.at
-u.e=a7
-u.ce()
-this.dE=a7
-s=!0}if(s)this.aM.a.st(1)
-if(w){this.aW.fx="plain unchecked"
-s=!0}else s=!1
-if(s)this.bj.a.st(1)
-if(w){u=this.bG
-u.fx="plain checked"
-u.scm(0,!0)
-s=!0}else s=!1
-if(s)this.bA.a.st(1)
-if(w){u=this.bh
-u.fx="work in progress"
-u.sk_(0,!0)
-s=!0}else s=!1
-if(s)this.b5.a.st(1)
-if(w){u=this.by
-u.z=!0
-u.fx="mission impossible"
-s=!0}else s=!1
-if(s)this.bx.a.st(1)
-if(w){u=this.bc
-u.z=!0
-u.fx="done and done"
-u.scm(0,!0)
-s=!0}else s=!1
-if(s)this.bz.a.st(1)
-if(w){u=this.bu
-u.z=!0
-u.fx="done and done"
-u.sk_(0,!0)
-s=!0}else s=!1
-if(s)this.bM.a.st(1)
-if(w){u=this.c7
-u.fx="indeterminate?"
-u.scm(0,!0)
-this.c7.sk_(0,!0)
-s=!0}else s=!1
-if(s)this.cn.a.st(1)
-if(w){u=this.aL
-u.fr="#FF0000"
-u.fx="A red checkbox"
-s=!0}else s=!1
-if(s)this.bN.a.st(1)
-if(w){u=this.bW
-u.fr="#FF00FF"
-u.fx="A magenta checkbox"
-s=!0}else s=!1
-if(s)this.cf.a.st(1)
-if(w){this.bI.fx="long label is bad label, but internationalisation has its own opinions"
-s=!0}else s=!1
-if(s)this.c9.a.st(1)
-if(w){this.cz.sak(0,"help")
-s=!0}else s=!1
-if(s)this.bS.a.st(1)
-if(w){u=this.cr
-u.fx="Themed!"
-u.scm(0,!0)
-s=!0}else s=!1
-if(s)this.cb.a.st(1)
-this.cx.H()
-this.y1.H()
-a8=Q.H(x.a6w())
-u=this.cG
-if(u!==a8){this.Q.textContent=a8
-this.cG=a8}this.k4.A(w)
-a9=Q.H(t.b)
-u=this.cw
-if(u!==a9){this.ry.textContent=a9
-this.cw=a9}this.a_.A(w)
-this.a8.A(w)
-this.al.A(w)
-b0=Q.H(a1.b)
-u=this.dA
-if(u!==b0){this.aY.textContent=b0
-this.dA=b0}b1=x.x
-if(b1==null)b1=""
-u=this.cg
-if(u!==b1){this.aN.textContent=b1
-this.cg=b1}b2=x.z
-if(b2==null)b2=""
-u=this.dr
-if(u!==b2){this.aQ.textContent=b2
-this.dr=b2}b3=Q.H(x.e)
-u=this.cM
-if(u!==b3){this.b2.textContent=b3
-this.cM=b3}b4=Q.H(x.d)
-u=this.dm
-if(u!==b4){this.bb.textContent=b4
-this.dm=b4}b5=Q.H(x.f)
-u=this.dK
-if(u!==b5){this.bn.textContent=b5
-this.dK=b5}b6=Q.H(x.r)
-u=this.dR
-if(u!==b6){this.b1.textContent=b6
-this.dR=b6}this.bg.A(w)
-this.bj.A(w)
-this.bA.A(w)
-this.b5.A(w)
-this.bx.A(w)
-this.bz.A(w)
-this.bM.A(w)
-this.cn.A(w)
-this.bN.A(w)
-this.cf.A(w)
-this.c9.A(w)
-this.bB.A(w)
-this.cb.A(w)
-this.cv.A(w)
-this.dy.j()
-this.k4.j()
-this.a_.j()
-this.a8.j()
-this.ag.j()
-this.al.j()
-this.aF.j()
-this.aU.j()
-this.aM.j()
-this.bg.j()
-this.bj.j()
-this.bA.j()
-this.b5.j()
-this.bx.j()
-this.bz.j()
-this.bM.j()
-this.cn.j()
-this.bN.j()
-this.cf.j()
-this.c9.j()
-this.bB.j()
-this.bS.j()
-this.cb.j()
-this.cv.j()
-if(w){this.id.a5()
-this.am.a5()
-this.as.ce()
-this.ax.ce()
-this.at.ce()}},
-v:function(){var x=this.cx
-if(!(x==null))x.G()
-x=this.y1
-if(!(x==null))x.G()
-x=this.dy
-if(!(x==null))x.i()
-x=this.k4
-if(!(x==null))x.i()
-x=this.a_
-if(!(x==null))x.i()
-x=this.a8
-if(!(x==null))x.i()
-x=this.ag
-if(!(x==null))x.i()
-x=this.al
-if(!(x==null))x.i()
-x=this.aF
-if(!(x==null))x.i()
-x=this.aU
-if(!(x==null))x.i()
-x=this.aM
-if(!(x==null))x.i()
-x=this.bg
-if(!(x==null))x.i()
-x=this.bj
-if(!(x==null))x.i()
-x=this.bA
-if(!(x==null))x.i()
-x=this.b5
-if(!(x==null))x.i()
-x=this.bx
-if(!(x==null))x.i()
-x=this.bz
-if(!(x==null))x.i()
-x=this.bM
-if(!(x==null))x.i()
-x=this.cn
-if(!(x==null))x.i()
-x=this.bN
-if(!(x==null))x.i()
-x=this.cf
-if(!(x==null))x.i()
-x=this.c9
-if(!(x==null))x.i()
-x=this.bB
-if(!(x==null))x.i()
-x=this.bS
-if(!(x==null))x.i()
-x=this.cb
-if(!(x==null))x.i()
-x=this.cv
-if(!(x==null))x.i()
-x=this.id
-x.b4()
-x.K=null
-x.I=null
-this.k2.a.F()
-this.Y.toString
-this.aa.toString
-x=this.am
-x.b4()
-x.K=null
-x.I=null
-this.aw.a.F()
-this.bl.toString
-this.aW.toString
-this.bG.toString
-this.bh.toString
-this.by.toString
-this.bc.toString
-this.bu.toString
-this.c7.toString
-this.aL.toString
-this.bW.toString
-this.bI.toString
-this.ck.toString
-this.cr.toString
-this.c4.toString},
-P6:function(n){this.f.sLX(n)},
-PO:function(n){this.f.sa1L(n)},
-Rm:function(n){this.f.sJs(n)},
-PW:function(n){this.f.sa2m(n)},
-Xi:function(n){this.f.sJs(n)},
-Q1:function(n){this.f.sa4_(n)},
-$asb:function(){return[Z.eZ]}}
-T.xx.prototype={
-p:function(){var x,w,v
-x=G.aP(this,0)
+O=m[22]
+X=m[23]
+F=m[24]
+D.eZ.prototype={
+gaM:function(){return this.a}}
+N.LT.prototype={
+go4:function(){var y=this.z
+if(y==null){y=document
+this.z=y}return y},
+gBq:function(){var y=this.Q
+if(y==null){y=window
+this.Q=y}return y},
+go5:function(){var y=this.ch
+if(y==null){y=this.c
+y=T.aT(y.m(C.d,this.a.Q,null),y.m(C.C,this.a.Q,null),y.n(C.f,this.a.Q),this.gBq())
+this.ch=y}return y},
+gBn:function(){var y,x
+y=this.cx
+if(y==null){y=this.c.n(C.R,this.a.Q)
+x=this.go5()
+y=new O.aJ(y,x)
+this.cx=y}return y},
+gtv:function(){var y=this.cy
+if(y==null){y=new K.aG(this.go4(),this.go5(),P.aQ(null))
+this.cy=y}return y},
+gWC:function(){var y=this.db
+if(y==null){y=T.aW(this.c.n(C.f,this.a.Q))
+this.db=y}return y},
+gtw:function(){var y=this.dx
+if(y==null){y=G.b0(this.c.m(C.w,this.a.Q,null))
+this.dx=y}return y},
+gBs:function(){var y=this.dy
+if(y==null){y=G.b3(this.go4(),this.c.m(C.x,this.a.Q,null))
+this.dy=y}return y},
+gBt:function(){var y=this.fr
+if(y==null){y=G.aV(this.gtw(),this.gBs(),this.c.m(C.v,this.a.Q,null))
+this.fr=y}return y},
+gtx:function(){var y=this.fx
+if(y==null){this.fx=!0
+y=!0}return y},
+gBu:function(){var y=this.fy
+if(y==null){this.fy=!0
+y=!0}return y},
+gBp:function(){var y=this.go
+if(y==null){y=this.go4()
+y=new R.aL(y.querySelector("head"),!1,y)
+this.go=y}return y},
+gBr:function(){var y=this.id
+if(y==null){y=X.aZ()
+this.id=y}return y},
+gBo:function(){var y=this.k1
+if(y==null){y=K.aX(this.gBp(),this.gBt(),this.gtw(),this.gtv(),this.go5(),this.gBn(),this.gtx(),this.gBu(),this.gBr())
+this.k1=y}return y},
+gWD:function(){var y,x,w,v
+y=this.k2
+if(y==null){y=this.c
+x=y.n(C.f,this.a.Q)
+w=this.gtx()
+v=this.gBo()
+y.m(C.n,this.a.Q,null)
+y=new X.aH(w,x,v)
+this.k2=y}return y},
+p:function(){var y,x
+y=this.Z(this.e)
+x=K.c6(this,0)
 this.x=x
 x=x.e
 this.r=x
-this.h(x)
-x=U.bg(null,null)
+y.appendChild(x)
+x=this.c.n(C.a6,this.a.Q)
+x=new X.an(x)
 this.y=x
-this.z=x
-x=B.aO(this.r,this.x.a.b,x,null,null)
-this.Q=x
-w=document.createTextNode("\n    ")
-this.x.k(0,x,[H.a([w],[W.aK])])
-x=this.y.f
-x.toString
-v=new P.l(x,[H.i(x,0)]).B(this.w(this.gXj(),null,null))
-this.P([this.r],[v])
-return},
-R:function(n,o,p){var x
-if(n===C.ar)x=o<=1
-else x=!1
-if(x)return this.y
-if(n===C.aq)x=o<=1
-else x=!1
-if(x)return this.z
-if(n===C.c)x=o<=1
-else x=!1
-if(x)return this.Q
-return p},
-q:function(){var x,w,v,u,t
-x=this.a.cy===0
-w=this.b.C(0,"$implicit")
-this.y.sb_(w.b)
-this.y.aZ()
-if(x)this.y.D()
-v=w.a
-u=this.ch
-if(u==null?v!=null:u!==v){this.Q.fx=v
-this.ch=v
-t=!0}else t=!1
-if(t)this.x.a.st(1)
-this.x.A(x)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()
-this.Q.toString},
-Xk:function(n){this.b.C(0,"$implicit").b=n},
-$asb:function(){return[Z.eZ]}}
-T.Tg.prototype={
-p:function(){var x,w,v
-x=document
-w=x.createElement("li")
-this.r=w
-this.m(w)
-w=x.createTextNode("")
-this.x=w
-this.r.appendChild(w)
-v=x.createTextNode(": ")
-this.r.appendChild(v)
-w=x.createTextNode("")
-this.y=w
-this.r.appendChild(w)
-this.E(this.r)
-return},
-q:function(){var x,w,v,u
-x=this.b.C(0,"$implicit")
-w=Q.H(x.a)
-v=this.z
-if(v!==w){this.x.textContent=w
-this.z=w}u=Q.H(x.b)
-v=this.Q
-if(v!==u){this.y.textContent=u
-this.Q=u}},
-$asb:function(){return[Z.eZ]}}
-T.Th.prototype={
-p:function(){var x,w,v,u,t
-x=P.c
-w=new T.uD(P.e(x,null),this)
-w.a=S.f(w,3,C.j,0)
-v=document.createElement("material-checkbox-example")
-w.e=v
-v=$.MM
-if(v==null){v=$.D
-v=v.a2(null,C.p,$.$get$ahQ())
-$.MM=v}w.a1(v)
-this.r=w
-this.e=w.e
-w=[null]
-x=[x]
-v=[P.x]
-u=[null]
-t=new Z.jq(null,"",new P.a0(null,null,0,w),new P.a0(null,null,0,x),new P.a0(null,null,0,v),!0,!1,u)
-t.iA(!1,!0)
-x=new Z.jq(null,"",new P.a0(null,null,0,w),new P.a0(null,null,0,x),new P.a0(null,null,0,v),!0,!1,u)
-x.iA(!1,!0)
-x=new Z.eZ(t,!1,!1,!1,!1,"custom label",x,"???")
-x.a=H.a([new Z.lE("learn angular",!0),new Z.lE("build an angular app",!1),new Z.lE("profit!",!1)],[Z.lE])
-this.x=x
-this.r.k(0,x,this.a.e)
+this.x.k(0,x,[])
+this.L(C.a,null)},
+N:function(n,o,p){var y
+if(n===C.L&&0===o)return this.go4()
+if(n===C.G&&0===o)return this.gBq()
+if(n===C.d&&0===o)return this.go5()
+if(n===C.N&&0===o)return this.gBn()
+if(n===C.M&&0===o)return this.gtv()
+if(n===C.S&&0===o)return this.gWC()
+if(n===C.w&&0===o)return this.gtw()
+if(n===C.x&&0===o)return this.gBs()
+if(n===C.v&&0===o)return this.gBt()
+if(n===C.Q&&0===o)return this.gtx()
+if(n===C.E&&0===o)return this.gBu()
+if(n===C.P&&0===o)return this.gBp()
+if(n===C.D&&0===o)return this.gBr()
+if(n===C.O&&0===o)return this.gBo()
+if(n===C.n&&0===o)return this.gWD()
+if(n===C.F&&0===o){y=this.k3
+if(y==null){this.k3=C.z
+y=C.z}return y}if(n===C.y&&0===o){y=this.k4
+if(y==null){y=new K.aM(this.gtv())
+this.k4=y}return y}return p},
+q:function(){var y,x
+y=this.f.a
+x=this.r1
+if(x!==y){this.y.a=y
+this.r1=y}this.x.j()},
+v:function(){var y=this.x
+if(!(y==null))y.i()},
+$asb:function(){return[D.eZ]}}
+N.SA.prototype={
+p:function(){var y,x,w
+y=P.c
+x=new N.LT(P.e(y,null),this)
+x.a=S.h(x,3,C.j,0)
+w=document.createElement("material-checkbox-api")
+x.e=w
+w=$.a67
+if(w==null){w=$.D
+w=w.Y(null,C.V,C.a)
+$.a67=w}x.X(w)
+this.r=x
+this.e=x.e
+x=[R.i]
+x=H.a([new R.a1("MaterialCheckboxComponent","material-checkbox","","angular_components/lib/material_checkbox/material_checkbox.dart",X.f("<p><code>material-checkbox</code> is a button that can be either checked or unchecked.</p>\n<p>User can tap the checkbox to check or uncheck it.  Usually you use\ncheckboxes to allow user to select multiple options from a set.  If you\nhave a single ON/OFF option, avoid using a single checkbox and use\n<code>material-toggle</code> instead.</p>\n<p>We are not extending ButtonDecorator because we need to override several\nattributes, including role, tabindex, but most importantly because checkbox\nshould only be interactible with SPACE, while button is for both SPACE and\nENTER.</p>\n<p><strong>Attributes:</strong></p><ul><li><code>no-ink</code> -- set this attribute to disable the ripple effect on the chip.</li></ul>\n"),H.a([new R.i("Input","checked","","bool",X.f("<p>Current state of the checkbox. This is user set-able state, via\n<code>toggleChecked()</code>, so when checked, the <code>indeterminate</code> state gets\ncleared.</p>\n<p><code>true</code> is CHECKED and <code>false</code> is not.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.i("Input","disabled","","bool",X.f("<p>Whether the checkbox should not respond to events, and have a style that\nsuggests that interaction is not allowed.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.i("Input","indeterminate","","bool",X.f("<p>Alternative state of the checkbox, not user set-able state. Between\n<code>checked</code> and <code>indeterminate</code>, only one can be true, though both can be\nfalse.</p>\n<p><code>true</code> is INDETERMINATE and <code>false</code> is not.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.i("Input","indeterminateToChecked","","bool",X.f("<p>Determines the state to go into when <code>indeterminate</code> state is toggled.</p>\n<p><code>true</code> will go to checked and <code>false</code> will go to unchecked.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.i("Input","label","","String",X.f("<p>Label for the checkbox, alternatively use content.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.i("Input","readOnly","","bool",X.f("<p>Whether the checkbox can be changed by user interaction.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.i("Input","themeColor","","String",X.f("<p>Color of the checkbox and ripple when checked.</p>\n<p>Example: '#FF00FF'. By default it is $mat-blue-500. Note that the\nthemeColor is applied to the checkbox even when the box is unchecked,\nwhich deviates from the standard material spec. Use mixin to set\nthemeColor unless you want this behavior.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,"")],x),H.a([new R.i("Output","onChange","change","Stream<dynamic>",X.f("<p>Fired when checkbox state changes, sends <code>checkedStr</code>, i.e. ARIA state.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.i("Output","onChecked","checkedChange","Stream<dynamic>",X.f("<p>Fired when checkbox is checked or unchecked, but not when set\nindeterminate. Sends the state of <code>checked</code>.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,""),new R.i("Output","onIndeterminate","indeterminateChange","Stream<dynamic>",X.f("<p>Fired when checkbox goes in and out of indeterminate state, but not when\nset to checked.</p>\n<p>Sends the state of <code>indeterminate</code>.</p>\n"),"angular_components/lib/material_checkbox/material_checkbox.dart",!1,"")],x))],[R.a1])
+w=H.a([new R.a6(C.cW,"MaterialCheckboxExample","material_checkbox_example/lib/material_checkbox_example.dart")],[R.a6])
+y=new D.eZ(R.cd(H.a([],[y]),w,x,null,C.J,P.e(y,y),!0,C.J))
+this.x=y
+this.r.k(0,y,this.a.e)
 this.E(this.e)
-return new D.z(this,0,this.e,this.x,[Z.eZ])},
+return new D.A(this,0,this.e,this.x,[D.eZ])},
 q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[Z.eZ]}}
-var y=i([{func:1,ret:-1,args:[,]},{func:1,ret:[S.b,Z.eZ],args:[[S.b,,],P.j]},{func:1,ret:-1},{func:1,ret:[S.b,D.eY],args:[[S.b,,],P.j]}])
-Z.F4.prototype={
-$1:function(n){return!n.b}};(function installTearOffs(){f(N,"avS",1,0,0,null,["$2"],["aE5"],3,0)
-var x
-f(x=Z.eZ.prototype,"ga1i",0,0,0,null,["$0"],["a1j"],2,0)
-f(x,"gLy",0,0,0,null,["$0"],["Lz"],2,0)
-f(T,"avT",1,0,0,null,["$2"],["aE8"],1,0)
-f(T,"avU",1,0,0,null,["$2"],["aE9"],1,0)
-f(T,"avV",1,0,0,null,["$2"],["aEa"],1,0)
-f(x=T.uD.prototype,"gP5",0,0,0,null,["$1"],["P6"],0,0)
-f(x,"gPN",0,0,0,null,["$1"],["PO"],0,0)
-f(x,"gRl",0,0,0,null,["$1"],["Rm"],0,0)
-f(x,"gPV",0,0,0,null,["$1"],["PW"],0,0)
-f(x,"gXh",0,0,0,null,["$1"],["Xi"],0,0)
-f(x,"gQ0",0,0,0,null,["$1"],["Q1"],0,0)
-f(T.xx.prototype,"gXj",0,0,0,null,["$1"],["Xk"],0,0)})();(function inheritance(){var x=P.q
-a(D.eY,x)
-a(Z.eZ,x)
-a(Z.lE,x)
-x=S.b
-a(N.MK,x)
-a(N.Td,x)
-a(T.uD,x)
-a(T.xx,x)
-a(T.Tg,x)
-a(T.Th,x)
-a(Z.F4,H.aE)})();(function constants(){C.cU=new D.v("material-checkbox-example",T.avV(),[Z.eZ])
-C.dq=new D.v("material-checkbox-api",N.avS(),[D.eY])
-C.n8=H.r(D.eY)
-C.na=H.r(Z.eZ)})();(function staticFields(){$.a6u=null
-$.adY=!1
-$.MM=null
-$.adZ=!1})();(function lazyInitializers(){c($,"akM","$get$akM",function(){return["._nghost-%ID%  material-checkbox.custom-theme:not(.disabled) .icon-container .icon.filled{color:#e91e63;}.limited-width._ngcontent-%ID%{width:160px;}.debug-info._ngcontent-%ID%{background:#eee;}.help-icon._ngcontent-%ID%{margin:0 4px;}material-checkbox.top._ngcontent-%ID%{align-items:flex-start;}.material-checkbox-no-left-margin._ngcontent-%ID%{margin-left:-3px;}"]})
-c($,"ahQ","$get$ahQ",function(){return[$.$get$akM()]})})();(function nativeSupport(){j({})
-k({})})()}
-$__dart_deferred_initializers__["lM1V99zB1UKfhBxBxJkgx86RUsc="] = $__dart_deferred_initializers__.current
+v:function(){var y=this.r
+if(!(y==null))y.i()},
+$asb:function(){return[D.eZ]}}
+Z.f_.prototype={
+a1w:function(){var y=this.c
+this.a.push(new Z.lG(y.b,!1))
+y.n7("")},
+a6A:function(){var y=this.a
+y=new H.dB(y,new Z.Ep(),[H.j(y,0)])
+return y.gI(y)},
+Kf:function(){var y=this.y
+this.x=y.b
+y.n7("")},
+sa2y:function(n){return this.d=n},
+sa1X:function(n){return this.e=n},
+sI8:function(n){return this.f=n},
+sa45:function(n){return this.r=n},
+sKC:function(n){return this.z=n}}
+Z.lG.prototype={}
+T.uc.prototype={
+p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0
+y=this.Z(this.e)
+x=document
+y.appendChild(x.createTextNode("\n"))
+w=S.d(x,"section",y)
+this.l(w)
+w.appendChild(x.createTextNode("\n  "))
+v=S.d(x,"h1",w)
+this.l(v)
+v.appendChild(x.createTextNode("Todo list:"))
+w.appendChild(x.createTextNode("\n  "))
+u=S.d(x,"p",w)
+this.l(u)
+t=S.d(x,"em",u)
+this.l(t)
+t.appendChild(x.createTextNode("using `ng-model`"))
+w.appendChild(x.createTextNode("\n  Remaining: "))
+s=x.createTextNode("")
+this.r=s
+w.appendChild(s)
+w.appendChild(x.createTextNode("\n  "))
+r=S.p(x,w)
+this.h(r)
+r.appendChild(x.createTextNode("\n    "))
+s=$.$get$J()
+q=s.cloneNode(!1)
+r.appendChild(q)
+q=new V.o(14,12,this,q)
+this.x=q
+this.y=new R.aq(q,new D.r(q,T.avy()))
+r.appendChild(x.createTextNode("\n  "))
+w.appendChild(x.createTextNode("\n  "))
+p=S.p(x,w)
+this.h(p)
+p.appendChild(x.createTextNode("\n    "))
+q=Q.ah(this,19)
+this.Q=q
+q=q.e
+this.z=q
+p.appendChild(q)
+this.z.setAttribute("errorMsg","This input requires a value!")
+this.z.setAttribute("label","add new todo here")
+this.z.setAttribute("required","")
+this.z.setAttribute("type","text")
+this.h(this.z)
+q=[{func:1,ret:[P.ac,P.c,,],args:[[Z.bj,,]]}]
+o=new L.a8(H.a([],q))
+this.ch=o
+o=[o]
+this.cx=o
+o=T.oJ(o,null)
+this.cy=o
+this.db=o
+o=L.ag("text",null,null,o,this.Q.a.b,this.ch)
+this.dx=o
+this.dy=o
+n=this.db
+a0=new Z.ak(new R.z(!0,!1),o,n)
+a0.b9(o,n)
+this.fr=a0
+x.createTextNode("\n    ")
+this.Q.k(0,this.dx,[C.a,C.a])
+p.appendChild(x.createTextNode("\n    "))
+a0=U.S(this,22)
+this.fy=a0
+a0=a0.e
+this.fx=a0
+p.appendChild(a0)
+this.fx.setAttribute("raised","")
+this.h(this.fx)
+o=this.c
+n=F.N(o.m(C.m,this.a.Q,null))
+this.go=n
+n=B.R(this.fx,n,this.fy.a.b,null)
+this.id=n
+a1=x.createTextNode("add it")
+a0=[W.aN]
+this.fy.k(0,n,[H.a([a1],a0)])
+p.appendChild(x.createTextNode("\n  "))
+w.appendChild(x.createTextNode("\n  "))
+a2=S.p(x,w)
+a2.className="debug-info"
+this.h(a2)
+a2.appendChild(x.createTextNode("\n    Form entry = "))
+n=x.createTextNode("")
+this.k1=n
+a2.appendChild(n)
+this.l(S.d(x,"br",a2))
+a2.appendChild(x.createTextNode("\n    Model dump:\n    "))
+a3=S.d(x,"ul",a2)
+this.h(a3)
+a3.appendChild(x.createTextNode("\n      "))
+s=s.cloneNode(!1)
+a3.appendChild(s)
+s=new V.o(33,31,this,s)
+this.k2=s
+this.k3=new R.aq(s,new D.r(s,T.avz()))
+a3.appendChild(x.createTextNode("\n    "))
+a2.appendChild(x.createTextNode("\n  "))
+w.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n\n"))
+this.l(S.d(x,"hr",y))
+y.appendChild(x.createTextNode("\n\n"))
+a4=S.d(x,"section",y)
+this.l(a4)
+a4.appendChild(x.createTextNode("\n  "))
+a5=S.d(x,"h1",a4)
+this.l(a5)
+a5.appendChild(x.createTextNode("Custom:"))
+a4.appendChild(x.createTextNode("\n  "))
+a6=S.d(x,"p",a4)
+this.l(a6)
+a7=S.d(x,"em",a6)
+this.l(a7)
+a7.appendChild(x.createTextNode("Tab Index"))
+a4.appendChild(x.createTextNode("\n  "))
+a8=S.p(x,a4)
+this.h(a8)
+a8.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,51)
+this.r1=s
+s=s.e
+this.k4=s
+a8.appendChild(s)
+this.k4.setAttribute("label","Custom tab index")
+this.k4.setAttribute("no-ink","")
+s=this.k4
+s.tabIndex=2
+this.h(s)
+s=B.aR(this.k4,this.r1.a.b,null,"2",null)
+this.r2=s
+a9=x.createTextNode("\n    ")
+this.r1.k(0,s,[H.a([a9],a0)])
+a8.appendChild(x.createTextNode("\n  "))
+a4.appendChild(x.createTextNode("\n  "))
+b0=S.d(x,"p",a4)
+this.l(b0)
+b1=S.d(x,"em",b0)
+this.l(b1)
+b1.appendChild(x.createTextNode("no ripple on click, using events and properties"))
+a4.appendChild(x.createTextNode("\n  "))
+b2=S.p(x,a4)
+this.h(b2)
+b2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,61)
+this.ry=s
+s=s.e
+this.rx=s
+b2.appendChild(s)
+this.rx.setAttribute("no-ink","")
+this.h(this.rx)
+s=B.aR(this.rx,this.ry.a.b,null,null,null)
+this.x1=s
+b3=x.createTextNode("\n    ")
+this.ry.k(0,s,[H.a([b3],a0)])
+b2.appendChild(x.createTextNode("\n  "))
+a4.appendChild(x.createTextNode("\n  "))
+b4=S.p(x,a4)
+this.h(b4)
+b4.appendChild(x.createTextNode("\n    "))
+s=Q.ah(this,67)
+this.y1=s
+s=s.e
+this.x2=s
+b4.appendChild(s)
+this.x2.setAttribute("label","enter new label here")
+this.x2.setAttribute("type","text")
+this.h(this.x2)
+q=new L.a8(H.a([],q))
+this.y2=q
+q=[q]
+this.U=q
+q=T.oJ(q,null)
+this.T=q
+this.W=q
+q=L.ag("text",null,null,q,this.y1.a.b,this.y2)
+this.R=q
+this.J=q
+s=this.W
+n=new Z.ak(new R.z(!0,!1),q,s)
+n.b9(q,s)
+this.O=n
+x.createTextNode("\n    ")
+this.y1.k(0,this.R,[C.a,C.a])
+b4.appendChild(x.createTextNode("\n    "))
+n=U.S(this,70)
+this.a1=n
+n=n.e
+this.M=n
+b4.appendChild(n)
+this.M.setAttribute("raised","")
+this.h(this.M)
+s=F.N(o.m(C.m,this.a.Q,null))
+this.a3=s
+s=B.R(this.M,s,this.a1.a.b,null)
+this.a_=s
+b5=x.createTextNode("update label")
+this.a1.k(0,s,[H.a([b5],a0)])
+this.l(S.d(x,"br",b4))
+b4.appendChild(x.createTextNode("\n    "))
+s=Q.c7(this,74)
+this.a9=s
+s=s.e
+this.aa=s
+b4.appendChild(s)
+this.h(this.aa)
+s=D.c1(this.a9.a.b,null)
+this.a2=s
+b6=x.createTextNode("\n    ")
+this.a9.k(0,s,[H.a([b6],a0)])
+this.l(S.d(x,"br",b4))
+b4.appendChild(x.createTextNode("\n    "))
+s=Q.c7(this,78)
+this.ak=s
+s=s.e
+this.af=s
+b4.appendChild(s)
+this.h(this.af)
+s=D.c1(this.ak.a.b,null)
+this.ah=s
+b7=x.createTextNode("\n    ")
+this.ak.k(0,s,[H.a([b7],a0)])
+this.l(S.d(x,"br",b4))
+b4.appendChild(x.createTextNode("\n    "))
+s=Q.c7(this,82)
+this.ai=s
+s=s.e
+this.ab=s
+b4.appendChild(s)
+this.h(this.ab)
+s=D.c1(this.ai.a.b,null)
+this.aj=s
+b8=x.createTextNode("\n    ")
+this.ai.k(0,s,[H.a([b8],a0)])
+this.l(S.d(x,"br",b4))
+b4.appendChild(x.createTextNode("\n  "))
+a4.appendChild(x.createTextNode("\n  "))
+b9=S.p(x,a4)
+b9.className="debug-info"
+this.h(b9)
+b9.appendChild(x.createTextNode("\n    new label = "))
+s=x.createTextNode("")
+this.ac=s
+b9.appendChild(s)
+this.l(S.d(x,"br",b9))
+b9.appendChild(x.createTextNode("\n    current label = "))
+s=x.createTextNode("")
+this.am=s
+b9.appendChild(s)
+this.l(S.d(x,"br",b9))
+b9.appendChild(x.createTextNode("\n    status = "))
+s=x.createTextNode("")
+this.ad=s
+b9.appendChild(s)
+this.l(S.d(x,"br",b9))
+b9.appendChild(x.createTextNode("\n    checked = "))
+s=x.createTextNode("")
+this.av=s
+b9.appendChild(s)
+this.l(S.d(x,"br",b9))
+b9.appendChild(x.createTextNode("\n    disabled = "))
+s=x.createTextNode("")
+this.ap=s
+b9.appendChild(s)
+this.l(S.d(x,"br",b9))
+b9.appendChild(x.createTextNode("\n    indeterminate = "))
+s=x.createTextNode("")
+this.ae=s
+b9.appendChild(s)
+this.l(S.d(x,"br",b9))
+b9.appendChild(x.createTextNode("\n    indeterminateToChecked = "))
+s=x.createTextNode("")
+this.aw=s
+b9.appendChild(s)
+this.l(S.d(x,"br",b9))
+b9.appendChild(x.createTextNode("\n  "))
+a4.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n\n"))
+this.l(S.d(x,"hr",y))
+y.appendChild(x.createTextNode("\n\n"))
+c0=S.d(x,"section",y)
+this.l(c0)
+c0.appendChild(x.createTextNode("\n  "))
+c1=S.d(x,"h1",c0)
+this.l(c1)
+c1.appendChild(x.createTextNode("Various states:"))
+c0.appendChild(x.createTextNode("\n  "))
+c2=S.p(x,c0)
+this.h(c2)
+c2.appendChild(x.createTextNode("\n    "))
+c3=S.d(x,"h3",c2)
+this.l(c3)
+c3.appendChild(x.createTextNode("No label"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,124)
+this.ar=s
+s=s.e
+this.a8=s
+c2.appendChild(s)
+this.h(this.a8)
+s=B.aR(this.a8,this.ar.a.b,null,null,null)
+this.al=s
+this.ar.k(0,s,[C.a])
+c2.appendChild(x.createTextNode("\n    "))
+c4=S.d(x,"h3",c2)
+this.l(c4)
+c4.appendChild(x.createTextNode("Unchecked"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,129)
+this.ay=s
+s=s.e
+this.aD=s
+c2.appendChild(s)
+this.aD.setAttribute("label","plain unchecked")
+this.h(this.aD)
+s=B.aR(this.aD,this.ay.a.b,null,null,null)
+this.aB=s
+this.ay.k(0,s,[C.a])
+c2.appendChild(x.createTextNode("\n    "))
+c5=S.d(x,"h3",c2)
+this.l(c5)
+c5.appendChild(x.createTextNode("Checked"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,134)
+this.an=s
+s=s.e
+this.aC=s
+c2.appendChild(s)
+this.aC.setAttribute("label","plain checked")
+this.h(this.aC)
+s=B.aR(this.aC,this.an.a.b,null,null,null)
+this.aJ=s
+this.an.k(0,s,[C.a])
+c2.appendChild(x.createTextNode("\n    "))
+c6=S.d(x,"h3",c2)
+this.l(c6)
+c6.appendChild(x.createTextNode("Indeterminate"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,139)
+this.aG=s
+s=s.e
+this.aQ=s
+c2.appendChild(s)
+this.aQ.setAttribute("label","work in progress")
+this.h(this.aQ)
+s=B.aR(this.aQ,this.aG.a.b,null,null,null)
+this.au=s
+this.aG.k(0,s,[C.a])
+c2.appendChild(x.createTextNode("\n    "))
+c7=S.d(x,"h3",c2)
+this.l(c7)
+c7.appendChild(x.createTextNode("Disabled"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,144)
+this.aO=s
+s=s.e
+this.aU=s
+c2.appendChild(s)
+this.aU.setAttribute("label","mission impossible")
+this.h(this.aU)
+s=B.aR(this.aU,this.aO.a.b,null,null,null)
+this.aN=s
+this.aO.k(0,s,[C.a])
+c2.appendChild(x.createTextNode("\n    "))
+c8=S.d(x,"h3",c2)
+this.l(c8)
+c8.appendChild(x.createTextNode("Checked and disabled"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,149)
+this.aI=s
+s=s.e
+this.aA=s
+c2.appendChild(s)
+this.aA.setAttribute("label","done and done")
+this.h(this.aA)
+s=B.aR(this.aA,this.aI.a.b,null,null,null)
+this.aZ=s
+c9=x.createTextNode("\n    ")
+this.aI.k(0,s,[H.a([c9],a0)])
+c2.appendChild(x.createTextNode("\n    "))
+d0=S.d(x,"h3",c2)
+this.l(d0)
+d0.appendChild(x.createTextNode("Indeterminate and disabled"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,155)
+this.aR=s
+s=s.e
+this.aY=s
+c2.appendChild(s)
+this.aY.setAttribute("label","done and done")
+this.h(this.aY)
+s=B.aR(this.aY,this.aR.a.b,null,null,null)
+this.bd=s
+d1=x.createTextNode("\n    ")
+this.aR.k(0,s,[H.a([d1],a0)])
+c2.appendChild(x.createTextNode("\n    "))
+d2=S.d(x,"h3",c2)
+this.l(d2)
+d2.appendChild(x.createTextNode("Checked and indeterminate = indeterminate"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,161)
+this.aH=s
+s=s.e
+this.aK=s
+c2.appendChild(s)
+this.aK.setAttribute("label","indeterminate?")
+this.h(this.aK)
+s=B.aR(this.aK,this.aH.a.b,null,null,null)
+this.aL=s
+d3=x.createTextNode("\n    ")
+this.aH.k(0,s,[H.a([d3],a0)])
+c2.appendChild(x.createTextNode("\n    "))
+d4=S.d(x,"h3",c2)
+this.l(d4)
+d4.appendChild(x.createTextNode("Programmatically set checkbox color"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,167)
+this.be=s
+s=s.e
+this.bG=s
+c2.appendChild(s)
+this.bG.setAttribute("label","A red checkbox")
+this.bG.setAttribute("themeColor","#FF0000")
+this.h(this.bG)
+s=B.aR(this.bG,this.be.a.b,null,null,null)
+this.aS=s
+d5=x.createTextNode("\n    ")
+this.be.k(0,s,[H.a([d5],a0)])
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,170)
+this.b4=s
+s=s.e
+this.bh=s
+c2.appendChild(s)
+this.bh.setAttribute("label","A magenta checkbox")
+this.bh.setAttribute("themeColor","#FF00FF")
+this.h(this.bh)
+s=B.aR(this.bh,this.b4.a.b,null,null,null)
+this.bu=s
+d6=x.createTextNode("\n    ")
+this.b4.k(0,s,[H.a([d6],a0)])
+c2.appendChild(x.createTextNode("\n    "))
+d7=S.d(x,"h3",c2)
+this.l(d7)
+d7.appendChild(x.createTextNode("Label wrapped if width limit is enforced"))
+c2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,176)
+this.b6=s
+s=s.e
+this.bx=s
+c2.appendChild(s)
+this.bx.className=Q.bw("","limited-width"," ","themeable","")
+this.bx.setAttribute("label","long label is bad label, but internationalisation has its own opinions")
+this.h(this.bx)
+s=B.aR(this.bx,this.b6.a.b,null,null,null)
+this.aW=s
+d8=x.createTextNode("\n    ")
+this.b6.k(0,s,[H.a([d8],a0)])
+c2.appendChild(x.createTextNode("\n    "))
+d9=S.d(x,"h3",c2)
+this.l(d9)
+d9.appendChild(x.createTextNode("Custom content; align top"))
+c2.appendChild(x.createTextNode("\n    "))
+a0=G.aS(this,182)
+this.bk=a0
+a0=a0.e
+this.ba=a0
+c2.appendChild(a0)
+this.ba.className=Q.bw("","top"," ","themeable","")
+this.h(this.ba)
+this.aX=B.aR(this.ba,this.bk.a.b,null,null,null)
+e0=x.createTextNode("\n      ")
+e1=x.createElement("div")
+e1.className="custom"
+this.h(e1)
+e1.appendChild(x.createTextNode("\n        Your feedback "))
+e2=S.d(x,"a",e1)
+e2.setAttribute("href","http://google.com")
+e2.setAttribute("target","_blank")
+this.h(e2)
+e2.appendChild(x.createTextNode("more info"))
+e1.appendChild(x.createTextNode("\n        "))
+s=M.U(this,189)
+this.b7=s
+s=s.e
+this.b5=s
+e1.appendChild(s)
+this.b5.setAttribute("baseline","")
+s=this.b5
+s.className="help-icon"
+s.setAttribute("icon","help")
+this.h(this.b5)
+s=new Y.O(this.b5)
+this.bO=s
+this.b7.k(0,s,[])
+this.l(S.d(x,"br",e1))
+e1.appendChild(x.createTextNode("\n        "))
+e3=S.d(x,"textarea",e1)
+e3.setAttribute("cols","40")
+e3.setAttribute("rows","2")
+this.h(e3)
+e1.appendChild(x.createTextNode("\n      "))
+e4=x.createTextNode("\n    ")
+this.bk.k(0,this.aX,[H.a([e0,e1,e4],[W.ao])])
+c2.appendChild(x.createTextNode("\n  "))
+c0.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n\n"))
+e5=S.d(x,"section",y)
+this.l(e5)
+e5.appendChild(x.createTextNode("\n  "))
+e6=S.d(x,"h1",e5)
+this.l(e6)
+e6.appendChild(x.createTextNode("Custom theme:"))
+e5.appendChild(x.createTextNode("\n  "))
+e7=S.p(x,e5)
+this.h(e7)
+e7.appendChild(x.createTextNode("\n    "))
+e8=S.d(x,"h3",e7)
+this.l(e8)
+e9=S.d(x,"em",e8)
+this.l(e9)
+e9.appendChild(x.createTextNode("material-checkbox-color($mat-pink-500)"))
+e7.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,209)
+this.bf=s
+s=s.e
+this.bi=s
+e7.appendChild(s)
+this.bi.className=Q.bw("","custom-theme"," ","themeable","")
+this.bi.setAttribute("label","Themed!")
+this.h(this.bi)
+s=B.aR(this.bi,this.bf.a.b,null,null,null)
+this.bg=s
+this.bf.k(0,s,[C.a])
+e7.appendChild(x.createTextNode("\n  "))
+e5.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n\n"))
+f0=S.d(x,"section",y)
+this.l(f0)
+f0.appendChild(x.createTextNode("\n  "))
+f1=S.d(x,"h1",f0)
+this.l(f1)
+f1.appendChild(x.createTextNode("Custom mixins:"))
+f0.appendChild(x.createTextNode("\n  "))
+f2=S.p(x,f0)
+this.h(f2)
+f2.appendChild(x.createTextNode("\n    "))
+f3=S.d(x,"h3",f2)
+this.l(f3)
+f3.appendChild(x.createTextNode("checkbox-no-left-margin"))
+f2.appendChild(x.createTextNode("\n    "))
+s=G.aS(this,223)
+this.bv=s
+s=s.e
+this.b3=s
+f2.appendChild(s)
+this.b3.className=Q.bw("","material-checkbox-no-left-margin"," ","themeable","")
+this.h(this.b3)
+s=B.aR(this.b3,this.bv.a.b,null,null,null)
+this.bq=s
+this.bv.k(0,s,[C.a])
+f2.appendChild(x.createTextNode("\n  "))
+f0.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n"))
+x=this.id.b
+s=W.a_
+f4=new P.m(x,[H.j(x,0)]).B(this.a6(this.f.ga1v(),s))
+x=this.x1.f
+f5=new P.m(x,[H.j(x,0)]).B(this.w(this.gOZ(),null,null))
+x=this.x1.r
+f6=new P.m(x,[H.j(x,0)]).B(this.w(this.gQx(),null,null))
+x=this.x1.x
+f7=new P.m(x,[H.j(x,0)]).B(this.w(this.gOh(),null,null))
+x=this.a_.b
+f8=new P.m(x,[H.j(x,0)]).B(this.a6(this.f.gKe(),s))
+s=this.a2.f
+x=P.q
+f9=new P.m(s,[H.j(s,0)]).B(this.w(this.gP6(),x,x))
+s=this.ah.f
+g0=new P.m(s,[H.j(s,0)]).B(this.w(this.gWE(),x,x))
+s=this.aj.f
+this.L(C.a,[f4,f5,f6,f7,f8,f9,g0,new P.m(s,[H.j(s,0)]).B(this.w(this.gPc(),x,x))])},
+N:function(n,o,p){var y,x,w,v,u,t,s,r
+y=n===C.ag
+if(y&&19<=o&&o<=20)return this.ch
+x=n===C.aq
+if(x&&19<=o&&o<=20)return this.db
+w=n!==C.aj
+if((!w||n===C.r||n===C.p||n===C.c)&&19<=o&&o<=20)return this.dx
+v=n===C.af
+if(v&&19<=o&&o<=20)return this.dy
+u=n===C.av
+if(u&&19<=o&&o<=20)return this.fr
+t=n===C.a3
+if(t&&22<=o&&o<=23)return this.go
+s=n!==C.a9
+if((!s||n===C.l||n===C.c)&&22<=o&&o<=23)return this.id
+r=n===C.c
+if(r&&51<=o&&o<=52)return this.r2
+if(r&&61<=o&&o<=62)return this.x1
+if(y&&67<=o&&o<=68)return this.y2
+if(x&&67<=o&&o<=68)return this.W
+if((!w||n===C.r||n===C.p||r)&&67<=o&&o<=68)return this.R
+if(v&&67<=o&&o<=68)return this.J
+if(u&&67<=o&&o<=68)return this.O
+if(t&&70<=o&&o<=71)return this.a3
+if((!s||n===C.l||r)&&70<=o&&o<=71)return this.a_
+if(r&&74<=o&&o<=75)return this.a2
+if(r&&78<=o&&o<=79)return this.ah
+if(r&&82<=o&&o<=83)return this.aj
+if(r&&124===o)return this.al
+if(r&&129===o)return this.aB
+if(r&&134===o)return this.aJ
+if(r&&139===o)return this.au
+if(r&&144===o)return this.aN
+if(r&&149<=o&&o<=150)return this.aZ
+if(r&&155<=o&&o<=156)return this.bd
+if(r&&161<=o&&o<=162)return this.aL
+if(r&&167<=o&&o<=168)return this.aS
+if(r&&170<=o&&o<=171)return this.bu
+if(r&&176<=o&&o<=177)return this.aW
+if(r&&182<=o&&o<=194)return this.aX
+if(r&&209===o)return this.bg
+if(r&&223===o)return this.bq
+return p},
+q:function(){var y,x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5
+y=this.f
+x=this.a.cy===0
+w=y.a
+v=this.bR
+if(v!==w){this.y.sbJ(w)
+this.bR=w}this.y.bm()
+u=y.c
+v=this.bl
+if(v!==u){v=this.cy
+v.f=u
+v.e=!0
+this.bl=u
+t=!0}else t=!1
+if(t)this.cy.aT()
+if(x){v=this.dx
+v.fr="add new todo here"
+v.dx="This input requires a value!"
+v.f4()
+this.dx.shh(0,!0)
+t=!0}else t=!1
+if(t)this.Q.a.st(1)
+if(x){this.id.cx=!0
+t=!0}else t=!1
+if(t)this.fy.a.st(1)
+if(x)this.id.D()
+s=y.a
+v=this.bE
+if(v!==s){this.k3.sbJ(s)
+this.bE=s}this.k3.bm()
+if(x){this.r2.fx="Custom tab index"
+t=!0}else t=!1
+if(t)this.r1.a.st(1)
+r=y.r
+v=this.bL
+if(v!=r){this.x1.y=r
+this.bL=r
+t=!0}else t=!1
+q=y.d
+v=this.bS
+if(v!=q){this.x1.z=q
+this.bS=q
+t=!0}p=y.x
+v=this.bs
+if(v!=p){this.x1.fx=p
+this.bs=p
+t=!0}o=y.e
+v=this.bc
+if(v!=o){this.x1.sbY(0,o)
+this.bc=o
+t=!0}n=y.f
+v=this.bF
+if(v!=n){this.x1.siX(0,n)
+this.bF=n
+t=!0}if(t)this.ry.a.st(1)
+a0=y.y
+v=this.br
+if(v!==a0){v=this.T
+v.f=a0
+v.e=!0
+this.br=a0
+t=!0}else t=!1
+if(t)this.T.aT()
+if(x){this.R.fr="enter new label here"
+t=!0}else t=!1
+if(t)this.y1.a.st(1)
+if(x){this.a_.cx=!0
+t=!0}else t=!1
+if(t)this.a1.a.st(1)
+if(x)this.a_.D()
+v=y.d?"enable":"disable"
+a1="Tap to "+v
+v=this.bj
+if(v!==a1){this.a2.r=a1
+this.bj=a1
+t=!0}else t=!1
+a2=y.d
+v=this.bw
+if(v!=a2){v=this.a2
+v.e=a2
+v.bK()
+this.bw=a2
+t=!0}if(t)this.a9.a.st(1)
+v=y.f?"unset indeterminate":"set indeterminate"
+a3="Tap to "+v
+v=this.bM
+if(v!==a3){this.ah.r=a3
+this.bM=a3
+t=!0}else t=!1
+a4=y.f
+v=this.bn
+if(v!=a4){v=this.ah
+v.e=a4
+v.bK()
+this.bn=a4
+t=!0}if(t)this.ak.a.st(1)
+v=y.r?"go from indeterminate to unchecked":"go from indeterminate to checked"
+a5="Tap to "+v
+v=this.bt
+if(v!==a5){this.aj.r=a5
+this.bt=a5
+t=!0}else t=!1
+a6=y.r
+v=this.ce
+if(v!=a6){v=this.aj
+v.e=a6
+v.bK()
+this.ce=a6
+t=!0}if(t)this.ai.a.st(1)
+if(x){this.aB.fx="plain unchecked"
+t=!0}else t=!1
+if(t)this.ay.a.st(1)
+if(x){v=this.aJ
+v.fx="plain checked"
+v.sbY(0,!0)
+t=!0}else t=!1
+if(t)this.an.a.st(1)
+if(x){v=this.au
+v.fx="work in progress"
+v.siX(0,!0)
+t=!0}else t=!1
+if(t)this.aG.a.st(1)
+if(x){v=this.aN
+v.z=!0
+v.fx="mission impossible"
+t=!0}else t=!1
+if(t)this.aO.a.st(1)
+if(x){v=this.aZ
+v.z=!0
+v.fx="done and done"
+v.sbY(0,!0)
+t=!0}else t=!1
+if(t)this.aI.a.st(1)
+if(x){v=this.bd
+v.z=!0
+v.fx="done and done"
+v.siX(0,!0)
+t=!0}else t=!1
+if(t)this.aR.a.st(1)
+if(x){v=this.aL
+v.fx="indeterminate?"
+v.sbY(0,!0)
+this.aL.siX(0,!0)
+t=!0}else t=!1
+if(t)this.aH.a.st(1)
+if(x){v=this.aS
+v.fr="#FF0000"
+v.fx="A red checkbox"
+t=!0}else t=!1
+if(t)this.be.a.st(1)
+if(x){v=this.bu
+v.fr="#FF00FF"
+v.fx="A magenta checkbox"
+t=!0}else t=!1
+if(t)this.b4.a.st(1)
+if(x){this.aW.fx="long label is bad label, but internationalisation has its own opinions"
+t=!0}else t=!1
+if(t)this.b6.a.st(1)
+if(x){this.bO.sag(0,"help")
+t=!0}else t=!1
+if(t)this.b7.a.st(1)
+if(x){v=this.bg
+v.fx="Themed!"
+v.sbY(0,!0)
+t=!0}else t=!1
+if(t)this.bf.a.st(1)
+this.x.H()
+this.k2.H()
+a7=Q.I(y.a6A())
+v=this.bz
+if(v!==a7){this.r.textContent=a7
+this.bz=a7}this.fy.A(x)
+a8=Q.I(u.b)
+v=this.bD
+if(v!==a8){this.k1.textContent=a8
+this.bD=a8}this.r1.A(x)
+this.ry.A(x)
+this.a1.A(x)
+a9=Q.I(a0.b)
+v=this.bN
+if(v!==a9){this.ac.textContent=a9
+this.bN=a9}b0=y.x
+if(b0==null)b0=""
+v=this.c4
+if(v!==b0){this.am.textContent=b0
+this.c4=b0}b1=y.z
+if(b1==null)b1=""
+v=this.bT
+if(v!==b1){this.ad.textContent=b1
+this.bT=b1}b2=Q.I(y.e)
+v=this.c5
+if(v!==b2){this.av.textContent=b2
+this.c5=b2}b3=Q.I(y.d)
+v=this.ci
+if(v!==b3){this.ap.textContent=b3
+this.ci=b3}b4=Q.I(y.f)
+v=this.c8
+if(v!==b4){this.ae.textContent=b4
+this.c8=b4}b5=Q.I(y.r)
+v=this.bZ
+if(v!==b5){this.aw.textContent=b5
+this.bZ=b5}this.ar.A(x)
+this.ay.A(x)
+this.an.A(x)
+this.aG.A(x)
+this.aO.A(x)
+this.aI.A(x)
+this.aR.A(x)
+this.aH.A(x)
+this.be.A(x)
+this.b4.A(x)
+this.b6.A(x)
+this.bk.A(x)
+this.bf.A(x)
+this.bv.A(x)
+this.Q.j()
+this.fy.j()
+this.r1.j()
+this.ry.j()
+this.y1.j()
+this.a1.j()
+this.a9.j()
+this.ak.j()
+this.ai.j()
+this.ar.j()
+this.ay.j()
+this.an.j()
+this.aG.j()
+this.aO.j()
+this.aI.j()
+this.aR.j()
+this.aH.j()
+this.be.j()
+this.b4.j()
+this.b6.j()
+this.bk.j()
+this.b7.j()
+this.bf.j()
+this.bv.j()
+if(x){this.dx.a0()
+this.R.a0()
+this.a2.bK()
+this.ah.bK()
+this.aj.bK()}},
+v:function(){var y=this.x
+if(!(y==null))y.G()
+y=this.k2
+if(!(y==null))y.G()
+y=this.Q
+if(!(y==null))y.i()
+y=this.fy
+if(!(y==null))y.i()
+y=this.r1
+if(!(y==null))y.i()
+y=this.ry
+if(!(y==null))y.i()
+y=this.y1
+if(!(y==null))y.i()
+y=this.a1
+if(!(y==null))y.i()
+y=this.a9
+if(!(y==null))y.i()
+y=this.ak
+if(!(y==null))y.i()
+y=this.ai
+if(!(y==null))y.i()
+y=this.ar
+if(!(y==null))y.i()
+y=this.ay
+if(!(y==null))y.i()
+y=this.an
+if(!(y==null))y.i()
+y=this.aG
+if(!(y==null))y.i()
+y=this.aO
+if(!(y==null))y.i()
+y=this.aI
+if(!(y==null))y.i()
+y=this.aR
+if(!(y==null))y.i()
+y=this.aH
+if(!(y==null))y.i()
+y=this.be
+if(!(y==null))y.i()
+y=this.b4
+if(!(y==null))y.i()
+y=this.b6
+if(!(y==null))y.i()
+y=this.bk
+if(!(y==null))y.i()
+y=this.b7
+if(!(y==null))y.i()
+y=this.bf
+if(!(y==null))y.i()
+y=this.bv
+if(!(y==null))y.i()
+y=this.dx
+y.aP()
+y.J=null
+y.O=null
+this.fr.a.F()
+this.r2.toString
+this.x1.toString
+y=this.R
+y.aP()
+y.J=null
+y.O=null
+this.O.a.F()
+this.al.toString
+this.aB.toString
+this.aJ.toString
+this.au.toString
+this.aN.toString
+this.aZ.toString
+this.bd.toString
+this.aL.toString
+this.aS.toString
+this.bu.toString
+this.aW.toString
+this.aX.toString
+this.bg.toString
+this.bq.toString},
+Oi:function(n){this.f.sKC(n)},
+P_:function(n){this.f.sa1X(n)},
+Qy:function(n){this.f.sI8(n)},
+P7:function(n){this.f.sa2y(n)},
+WF:function(n){this.f.sI8(n)},
+Pd:function(n){this.f.sa45(n)},
+$asb:function(){return[Z.f_]}}
+T.x5.prototype={
+p:function(){var y,x,w
+y=G.aS(this,0)
+this.x=y
+y=y.e
+this.r=y
+this.h(y)
+y=U.bh(null,null)
+this.y=y
+this.z=y
+y=B.aR(this.r,this.x.a.b,y,null,null)
+this.Q=y
+x=document.createTextNode("\n    ")
+this.x.k(0,y,[H.a([x],[W.aN])])
+y=this.y.f
+y.toString
+w=new P.m(y,[H.j(y,0)]).B(this.w(this.gWG(),null,null))
+this.L([this.r],[w])},
+N:function(n,o,p){var y
+if(n===C.ar)y=o<=1
+else y=!1
+if(y)return this.y
+if(n===C.aq)y=o<=1
+else y=!1
+if(y)return this.z
+if(n===C.c)y=o<=1
+else y=!1
+if(y)return this.Q
+return p},
+q:function(){var y,x,w,v,u
+y=this.a.cy===0
+x=this.b.C(0,"$implicit")
+this.y.saM(x.b)
+this.y.aT()
+if(y)this.y.D()
+w=x.a
+v=this.ch
+if(v!=w){this.Q.fx=w
+this.ch=w
+u=!0}else u=!1
+if(u)this.x.a.st(1)
+this.x.A(y)
+this.x.j()},
+v:function(){var y=this.x
+if(!(y==null))y.i()
+this.Q.toString},
+WH:function(n){this.b.C(0,"$implicit").b=n},
+$asb:function(){return[Z.f_]}}
+T.SD.prototype={
+p:function(){var y,x,w
+y=document
+x=y.createElement("li")
+this.l(x)
+w=y.createTextNode("")
+this.r=w
+x.appendChild(w)
+x.appendChild(y.createTextNode(": "))
+w=y.createTextNode("")
+this.x=w
+x.appendChild(w)
+this.E(x)},
+q:function(){var y,x,w,v
+y=this.b.C(0,"$implicit")
+x=Q.I(y.a)
+w=this.y
+if(w!==x){this.r.textContent=x
+this.y=x}v=Q.I(y.b)
+w=this.z
+if(w!==v){this.x.textContent=v
+this.z=v}},
+$asb:function(){return[Z.f_]}}
+T.SE.prototype={
+p:function(){var y,x,w,v,u
+y=P.c
+x=new T.uc(P.e(y,null),this)
+x.a=S.h(x,3,C.j,0)
+w=document.createElement("material-checkbox-example")
+x.e=w
+w=$.LV
+if(w==null){w=$.D
+w=w.Y(null,C.o,$.$get$ahy())
+$.LV=w}x.X(w)
+this.r=x
+this.e=x.e
+x=[null]
+y=[y]
+w=[P.q]
+v=[null]
+u=new Z.jp(null,"",new P.a0(null,null,0,x),new P.a0(null,null,0,y),new P.a0(null,null,0,w),!0,!1,v)
+u.hM(!1,!0)
+y=new Z.jp(null,"",new P.a0(null,null,0,x),new P.a0(null,null,0,y),new P.a0(null,null,0,w),!0,!1,v)
+y.hM(!1,!0)
+y=new Z.f_(u,!1,!1,!1,!1,"custom label",y,"???")
+y.a=H.a([new Z.lG("learn angular",!0),new Z.lG("build an angular app",!1),new Z.lG("profit!",!1)],[Z.lG])
+this.x=y
+this.r.k(0,y,this.a.e)
+this.E(this.e)
+return new D.A(this,0,this.e,this.x,[Z.f_])},
+q:function(){this.r.j()},
+v:function(){var y=this.r
+if(!(y==null))y.i()},
+$asb:function(){return[Z.f_]}}
+var z=i([{func:1,ret:-1,args:[,]},{func:1,ret:[S.b,Z.f_],args:[[S.b,,],P.k]},{func:1,ret:-1},{func:1,ret:[S.b,D.eZ],args:[[S.b,,],P.k]}])
+Z.Ep.prototype={
+$1:function(n){return!n.b}};(function installTearOffs(){f(N,"avx",1,0,0,null,["$2"],["aDq"],3,0)
+var y
+f(y=Z.f_.prototype,"ga1v",0,0,0,null,["$0"],["a1w"],2,0)
+f(y,"gKe",0,0,0,null,["$0"],["Kf"],2,0)
+f(T,"avy",1,0,0,null,["$2"],["aDt"],1,0)
+f(T,"avz",1,0,0,null,["$2"],["aDu"],1,0)
+f(T,"avA",1,0,0,null,["$2"],["aDv"],1,0)
+f(y=T.uc.prototype,"gOh",0,0,0,null,["$1"],["Oi"],0,0)
+f(y,"gOZ",0,0,0,null,["$1"],["P_"],0,0)
+f(y,"gQx",0,0,0,null,["$1"],["Qy"],0,0)
+f(y,"gP6",0,0,0,null,["$1"],["P7"],0,0)
+f(y,"gWE",0,0,0,null,["$1"],["WF"],0,0)
+f(y,"gPc",0,0,0,null,["$1"],["Pd"],0,0)
+f(T.x5.prototype,"gWG",0,0,0,null,["$1"],["WH"],0,0)})();(function inheritance(){var y=P.u
+a(D.eZ,y)
+a(Z.f_,y)
+a(Z.lG,y)
+y=S.b
+a(N.LT,y)
+a(N.SA,y)
+a(T.uc,y)
+a(T.x5,y)
+a(T.SD,y)
+a(T.SE,y)
+a(Z.Ep,H.aK)})();(function constants(){C.cW=new D.x("material-checkbox-example",T.avA(),[Z.f_])
+C.ds=new D.x("material-checkbox-api",N.avx(),[D.eZ])
+C.nb=H.v(D.eZ)
+C.nd=H.v(Z.f_)})();(function staticFields(){$.a67=null
+$.adE=!1
+$.LV=null
+$.adF=!1})();(function lazyInitializers(){c($,"aku","$get$aku",function(){return["._nghost-%ID%  material-checkbox.custom-theme:not(.disabled) .icon-container .icon.filled{color:#e91e63}.limited-width._ngcontent-%ID%{width:160px}.debug-info._ngcontent-%ID%{background:#eee}.help-icon._ngcontent-%ID%{margin:0 4px}material-checkbox.top._ngcontent-%ID%{align-items:flex-start}.material-checkbox-no-left-margin._ngcontent-%ID%{margin-left:-3px}"]})
+c($,"ahy","$get$ahy",function(){return[$.$get$aku()]})})()}
+$__dart_deferred_initializers__["iGDJdrEkkNxbVEjGr5ezvCyrSLQ="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_29.part.js.map

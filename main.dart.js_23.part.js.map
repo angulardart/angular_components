@@ -3,7 +3,14 @@
   "engine": "v2",
   "file": "main.dart.js_23.part.js",
   "sourceRoot": "",
-  "sources": ["../packages/angular_components/model/selection/selection_model.dart","../packages/angular_components/src/model/selection/multi_selection_model_impl.dart","org-dartlang-sdk:///sdk/lib/_internal/js_runtime/lib/js_rti.dart","../packages/observable/src/observable.dart","../packages/observable/src/change_notifier.dart"],
-  "names": ["MultiSelectionModel","_MultiSelectionModelImpl","TypeImpl","TypeImpl.==","Observable._isNotGeneric","ChangeNotifier","_MultiSelectionModelImpl.clear","_MultiSelectionModelImpl.deselect","_MultiSelectionModelImpl.select","_MultiSelectionModelImpl.isSelected","_MultiSelectionModelImpl.isEmpty","_MultiSelectionModelImpl.isNotEmpty","_MultiSelectionModelImpl.<anonymous function>","_MultiSelectionModelImpl_closure"],
-  "mappings": "A;;GAkIUA,gBAEJA;eAC+CA,UAAoBA,C;ICxHvEC,gBAAwBA;AAEDA,OACLA,cACEA;AACZA;;ACqCRC,cAagCC;AAAmBA;AC5CXC,SD+BxCF,cAagCC,QAAmBA;KAAnCA;ADvDhBF,4BGCII,uBHDJJ,AAKkCA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAG7BK,YACHA;AAAIA;AAAJA,YACqBA;AACnBA;AACAA;AACAA;AACAA,WAEJA,C;GAGKC,YACHA;WACEA,UAAMA;AAEJA;cACFA,YACEA;AACAA,oBAEFA,QAA+BA;AAC/BA,QAGJA,CADEA,QACFA,C;GAGKC,cACHA;WACEA,UAAMA;AAEJA;aACFA,YACEA;AACAA,oBAEFA,SAA6BA;AAC7BA,QAIJA,MAFIA,QAEJA,C;GAmCKC,YACHA,WACEA,UAAMA;AAERA,OAAOA,cACTA,C;IAGSC,YAAWA,mBAAsBA,C;IAGjCC,YAAcA,mBAAyBA,C;;;;;;;;;GA5F9BC,cAAUA;OAAWA,IAAXA,QAAkBA,QAAcA,C;;;GAA1CC;kC;AACwBD;GAAtBA,YAAOA,yBAAuBA,C;;;GAA9BC,gD"
+  "sources": ["../packages/angular_components/model/selection/selection_model.dart","../packages/angular_components/src/model/selection/multi_selection_model_impl.dart","org-dartlang-sdk:///sdk/lib/_internal/js_runtime/lib/js_rti.dart","../packages/observable/src/observable.dart","../packages/observable/src/change_notifier.dart","org-dartlang-sdk:///sdk/lib/_internal/js_runtime/lib/collection_patch.dart"],
+  "names": ["MultiSelectionModel","_MultiSelectionModelImpl","createRuntimeType","Observable._isNotGeneric","Observable","Observable._delegate","_MultiSelectionModelImpl.clear","_MultiSelectionModelImpl.deselect","_MultiSelectionModelImpl.select","_MultiSelectionModelImpl.isSelected","_MultiSelectionModelImpl.isEmpty","_MultiSelectionModelImpl.isNotEmpty","_MultiSelectionModelImpl.<anonymous function>","_MultiSelectionModelImpl_closure","","_isNotGeneric","==","_delegate","clear"],
+  "mappings": "A;;GAkIUA,gBAEJA;eAC+CA,UAAoBA,C;ICxHvEC,gBAAwBA;AAEDA,OACLA,cACEA;AACZA;;ACqCRC,cAUgCC;AAAmBA;ACzCXC,SD+BxCF,cAUgCC,QAAmBA;KAAnCA;ADpDhBF,4BGCII,uBHDJJ,AAKkCA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAG7BK,YACHA;AAAIA;AAAJA,YACqBA;AI23CrBA,UACsCA;AAATA;AAARA;AAARA;AAAXA;AACAA;AACAA,OJ53CAA;AACAA;AACAA,WAEJA,C;GAGKC,YACHA;WACEA,UAAMA;AAEJA;cACFA,YACEA;AACAA,oBAEFA,QAA+BA;AAC/BA,QAGJA,CADEA,QACFA,C;GAGKC,cACHA;WACEA,UAAMA;AAEJA;aACFA,YACEA;AACAA,oBAEFA,SAA6BA;AAC7BA,QAIJA,MAFIA,QAEJA,C;GAmCKC,YACHA,WACEA,UAAMA;AAERA,OAAOA,cACTA,C;IAGSC,YAAWA,mBAAsBA,C;IAGjCC,YAAcA,mBAAyBA,C;;;;;;;;;GA5F9BC,cAAUA;OAAWA,IAAXA,QAAkBA,QAAcA,C;;;GAA1CC;kC;AACwBD;GAAtBA,YAAOA,yBAAuBA,C;;;GAA9BC,gD",
+  "x_org_dartlang_dart2js": {
+    "minified_names": {
+      "global": {},
+      "instance": {}
+    },
+    "frames": [[377,[1,13,2,14],[3,24,42,15],[3,24,29,2],[2,46,13,14]],[391,-1,-1,[3,24,29,16]],[410,-1],[419,[3,24,45,2],[2,46,13,14]],[433,-1,-1,[3,24,45,16]],[457,-1,[3,24,29,16]],[462,-1,-1,0],[490,[1,13,2,14],[3,21,42,17],[3,21,42,14]],[513,-1,-1,0],[1011,[1,24,6,18]],[1079,0]]
+  }
 }

@@ -3,7 +3,14 @@
   "engine": "v2",
   "file": "main.dart.js_8.part.js",
   "sourceRoot": "",
-  "sources": ["../packages/angular_components/focus/keyboard_only_focus_indicator.template.dart","../packages/angular_components/focus/keyboard_only_focus_indicator.dart","org-dartlang-sdk:///sdk/lib/html/dart2js/html_dart2js.dart"],
-  "names": ["initReflector","KeyboardOnlyFocusIndicatorDirective.resetOutline","KeyboardOnlyFocusIndicatorDirective.hideOutline","KeyboardOnlyFocusIndicatorDirective.focus","KeyboardOnlyFocusIndicatorDirective.focus[function-entry$0]","KeyboardOnlyFocusIndicatorDirective.resetOutline.<anonymous function>","CssStyleDeclaration.outline","KeyboardOnlyFocusIndicatorDirective.hideOutline.<anonymous function>","KeyboardOnlyFocusIndicatorDirective.focus.<anonymous function>"],
-  "mappings": "A;;GAcKA,WACHA,SACEA,MAMJA;;AAFEA;AACAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GCEOC,WACHA,UAA0BA,eAG5BA,C;GAIKC,WACHA,UAA0BA,eAG5BA,C;GAiBKC,cACHA,UAA0BA;AAGhBA,kBACRA;KAEAA,SAEJA,C;GATKC,mC;;;GA5BuBC,WACfA;AC86IXC,YD76ICD,C;;;GAMyBE,WACfA;ACs6IXD,gBDr6ICC,C;;;GAmByBC,WACxBA,gBACDA,C"
+  "sources": ["../packages/observable/src/internal.dart","../packages/observable/src/change_notifier.dart","org-dartlang-sdk:///sdk/lib/async/broadcast_stream_controller.dart","../packages/observable/src/observable.dart","../packages/observable/src/records/property_change_record.dart","org-dartlang-sdk:///sdk/lib/async/stream_controller.dart"],
+  "names": ["freezeInDevMode","ChangeNotifier.changes","StreamController.broadcast","_BroadcastStreamController.stream","ChangeNotifier.observed","ChangeNotifier.unobserved","ChangeNotifier.deliverChanges","ChangeNotifier.hasObservers","ChangeNotifier.notifyChange","Observable.hasObservers","Observable.notifyPropertyChange","Observable.notifyPropertyChange[function-entry$3]","Observable.notifyChange","PropertyChangeRecord.toString","broadcast","","stream"],
+  "mappings": "A;;IAIQA,cACNA,WAAkBA,WAMpBA;AADEA,QACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ICasBC,WACVA;YC6UVC,UD3UcD,YACAA;AAHJA,SAARA,OClBFE,WAoH4BF,UD5F5BA,C;IAMKG,WAAYA,C;IAMZC,WACQA;AAAXA,WACFA,C;IAOKC,WACgBA;AACDA,uBACZA;AAAJA,YACYA;AACVA,iBAEuBA;AAEzBA;AACAA,mBAEKA;AAAPA,cACFA,C;IAMSC,WAAgBA;mCAA6BA,C;GAQjDC,YACHA;AAAKA,eACHA,MASJA;AANKA;YAAcA;AAAdA,SAAkBA;AAErBA,YACEA,KAAkBA;AAClBA,UAEJA,C;AEzCyBC;IAAhBA,WAAgBA,kBAAUA,KAAYA,C;IA0B7CC,gBAKIA,qBACEA,cACFA,QAMIA,KCpEJA;AD4EJA,QACFA,C;GAtBEC,4C;GA8BGC,YAA4BA,kBAAUA,KAAoBA,C;;;;AC5EvDC;EADDA,YAAcA,yBACSA,qBAAWA,oBAAcA,WAASA,C",
+  "x_org_dartlang_dart2js": {
+    "minified_names": {
+      "global": {},
+      "instance": {}
+    },
+    "frames": [[729,[1,25,29,14],[5,142,14,15]],[739,-1,0],[808,[1,30,9,16],[2,123,30,15]],[819,-1],[829,0],[1399,[3,83,14,15]],[1440,0]]
+  }
 }

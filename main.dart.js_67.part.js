@@ -1,634 +1,64 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,d,e,f,g,h,i,j,k,l,m,$){var C={},H={},J={},P={},W={},G={cN:function cN(n,o,p,q,r,s,t,u,v,w,x){var _=this
-_.f=n
-_.r=o
-_.x=p
-_.y=q
-_.Q=_.z=null
-_.ch=r
-_.cx=s
-_.cy=t
-_.db=u
-_.dx$=v
-_.dy$=w
-_.fr$=x
-_.e=_.d=_.c=_.b=_.a=null},wr:function wr(){},ws:function ws(){},oK:function oK(){},iL:function iL(n,o){this.a=n
-this.b=o
-this.c=null},iO:function iO(n,o){this.a=n
-this.b=o
-this.c=null},iK:function iK(n,o){this.a=n
-this.b=o
-this.c=null}},Y={
-a0O:function(n){var x=[null]
-x=new Y.dU(new P.k(null,null,0,x),new P.k(null,null,0,x),n,"")
-if((n==null?null:!!J.J(n.b).$isdl)===!0)x.slX(H.e5(n.b,"$isdl"))
-return x},
-dU:function dU(n,o,p,q){var _=this
+$__dart_deferred_initializers__.current=function(a,b,c,d,e,f,g,h,i,j,k,l,m,$){var C,H,J,P,W,G,Y={
+agq:function(){if($.abO)return
+$.abO=!0
+V.a2y()
+V.a2y()}},R,K={dJ:function dJ(n,o,p,q){var _=this
 _.a=n
 _.b=o
 _.c=p
-_.e=_.d=null
-_.f=q
-_.y=_.x=_.r=null},
-tg:function tg(){},
-aHu:function(n,o){var x=new Y.Wa(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-ann:function(){return C.dn},
-asK:function(){if($.aal)return
-$.aal=!0
-$.$get$F().u(0,C.o8,C.dn)
-E.w()
-K.ck()
-D.cc()
-A.asL()
-S.asM()
-Y.asN()
-L.asO()
-B.asP()
-A.asQ()
-M.asR()
-Z.asS()
-L.asT()
-E.asU()
-M.asV()
-M.asW()
-S.asX()
-X.asY()
-O.asZ()
-B.at_()},
-O1:function O1(n,o){var _=this
-_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wa:function Wa(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-aHL:function(n,o){var x=new Y.Wn(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asN:function(){if($.ab3)return
-$.ab3=!0
-$.$get$F().u(0,C.mL,C.e7)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
+_.d=q}},V={fu:function fu(n){this.a=n}},S,N={
+b1:function(n,o){var y,x
+y=new N.O7(P.e(P.c,null),n)
+y.a=S.h(y,1,C.j,o)
+x=document.createElement("acx-scorecard")
+y.e=x
+x.className="themeable"
+x=$.nf
+if(x==null){x=$.D
+x=x.Y(null,C.o,$.$get$aj0())
+$.nf=x}y.X(x)
+return y},
+aI8:function(n,o){var y=new N.WQ(P.e(P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.nf
+return y},
+aI9:function(n,o){var y=new N.WR(P.e(P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.nf
+return y},
+aIa:function(n,o){var y=new N.WS(P.e(P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.nf
+return y},
+aIb:function(n,o){var y=new N.WT(P.e(P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.nf
+return y},
+aIc:function(n,o){var y=new N.WU(P.e(P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.nf
+return y},
+aId:function(n,o){var y=new N.WV(P.e(P.c,null),n)
+y.a=S.h(y,3,C.k,o)
+return y},
+agz:function(){if($.abD)return
+$.abD=!0
+$.$get$G().u(0,C.ov,C.hr)
+E.y()
+R.jg()
+M.bv()
+L.nD()
+V.dp()
+V.fB()
+Y.agq()},
 O7:function O7(n,o){var _=this
-_.a=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wn:function Wn(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-ag4:function(){if($.aay)return
-$.aay=!0
-E.w()
-N.dG()
-K.b8()
-N.bD()
-F.hd()
-A.qq()
-X.i1()},
-ag3:function(){if($.aau)return
-$.aau=!0
-N.bD()}},R={iP:function iP(n,o,p){this.a=n
-this.b=o
-this.c=p},iR:function iR(n,o){this.a=n
-this.b=o}},K={
-a7x:function(n,o){var x,w
-x=new K.Oj(P.e(P.c,null),n)
-x.a=S.f(x,3,C.j,o)
-w=document.createElement("material-tree-group-flat-list")
-x.e=w
-w=$.vj
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj0())
-$.vj=w}x.a1(w)
-return x},
-aI8:function(n,o){var x=new K.WH(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.vj
-return x},
-aI9:function(n,o){var x=new K.WI(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.vj
-return x},
-aIa:function(n,o){var x=new K.WJ(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.vj
-return x},
-aIb:function(n,o){var x=new K.WK(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-a7y:function(n,o){var x,w
-x=new K.Ok(!0,P.e(P.c,null),n)
-x.a=S.f(x,3,C.j,o)
-w=document.createElement("material-tree-group-flat-radio")
-x.e=w
-w=$.vk
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj1())
-$.vk=w}x.a1(w)
-return x},
-aIc:function(n,o){var x=new K.y0(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.vk
-return x},
-aId:function(n,o){var x=new K.WL(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.vk
-return x},
-aIe:function(n,o){var x=new K.WM(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.vk
-return x},
-aIf:function(n,o){var x=new K.WN(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-a7w:function(n,o){var x,w
-x=new K.Oi(P.e(P.c,null),n)
-x.a=S.f(x,3,C.j,o)
-w=document.createElement("material-tree-group-flat-check")
-x.e=w
-w=$.vi
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj_())
-$.vi=w}x.a1(w)
-return x},
-aI4:function(n,o){var x=new K.y_(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.vi
-return x},
-aI5:function(n,o){var x=new K.WE(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.vi
-return x},
-aI6:function(n,o){var x=new K.WF(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.vi
-return x},
-aI7:function(n,o){var x=new K.WG(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-at2:function(){if($.aax)return
-$.aax=!0
-var x=$.$get$F()
-x.u(0,C.mc,C.hX)
-x.u(0,C.mQ,C.i5)
-x.u(0,C.m6,C.he)
-E.w()
-R.dF()
-Q.nI()
-G.lZ()
-L.ZL()
-L.ZM()
-U.jg()
-K.b8()
-Y.ag4()
-A.qq()},
-Oj:function Oj(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WH:function WH(n,o){var _=this
-_.a=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WI:function WI(n,o){var _=this
-_.a=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WJ:function WJ(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WK:function WK(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Ok:function Ok(n,o,p){var _=this
-_.z=_.y=_.x=_.r=null
-_.Q=n
-_.a=_.cx=_.ch=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null},
-Ol:function Ol(){},
-y0:function y0(n,o){var _=this
-_.a=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WL:function WL(n,o){var _=this
-_.a=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WM:function WM(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WN:function WN(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Oi:function Oi(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-y_:function y_(n,o){var _=this
-_.a=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WE:function WE(n,o){var _=this
-_.a=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WF:function WF(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WG:function WG(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-dV:function dV(){},
-Hg:function Hg(n){this.a=n},
-Hh:function Hh(n,o){this.a=n
-this.b=o},
-Pf:function Pf(n){this.$ti=n},
-QK:function QK(n){this.$ti=n},
-aCk:function(n,o){var x=new K.RH(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-at4:function(){if($.ab_)return
-$.ab_=!0
-$.$get$F().u(0,C.mt,C.dc)
-E.w()
-M.by()},
-Mi:function Mi(n,o){var _=this
-_.a=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-RH:function RH(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-ek:function(){if($.aat)return
-$.aat=!0
-V.ag1()
-L.at1()
-D.ag2()
-Y.ag3()}},V={
-a1t:function(n,o){var x,w
-x=new V.Oh(P.e(P.c,null),n)
-x.a=S.f(x,3,C.j,o)
-w=document.createElement("material-tree-group")
-x.e=w
-w.setAttribute("role","group")
-w=$.j8
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiZ())
-$.j8=w}x.a1(w)
-return x},
-aHV:function(n,o){var x=new V.xY(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j8
-return x},
-aHW:function(n,o){var x=new V.Ww(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j8
-return x},
-aHX:function(n,o){var x=new V.Wx(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j8
-return x},
-aHY:function(n,o){var x=new V.Wy(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j8
-return x},
-aHZ:function(n,o){var x=new V.Wz(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j8
-return x},
-aI_:function(n,o){var x=new V.WA(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j8
-return x},
-aI0:function(n,o){var x=new V.xZ(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j8
-return x},
-aI1:function(n,o){var x=new V.WB(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j8
-return x},
-aI2:function(n,o){var x=new V.WC(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j8
-return x},
-aI3:function(n,o){var x=new V.WD(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-ag1:function(){if($.aaN)return
-$.aaN=!0
-$.$get$F().u(0,C.ob,C.hO)
-E.w()
-R.dF()
-Q.nI()
-R.jh()
-G.lZ()
-M.by()
-U.jg()
-N.bD()
-Y.ag4()
-A.qq()},
-Oh:function Oh(n,o){var _=this
-_.a=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-xY:function xY(n,o){var _=this
-_.a=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Ww:function Ww(n,o){var _=this
-_.a=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wx:function Wx(n,o){var _=this
-_.a=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wy:function Wy(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wz:function Wz(n,o){var _=this
-_.a=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WA:function WA(n,o){var _=this
-_.a=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-xZ:function xZ(n,o){var _=this
-_.a=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WB:function WB(n,o){var _=this
-_.a=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WC:function WC(n,o){var _=this
-_.a=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WD:function WD(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-a1r:function(n,o){var x,w
-x=new V.Oc(!0,P.e(P.c,null),n)
-x.a=S.f(x,3,C.j,o)
-w=document.createElement("material-tree-filter")
-x.e=w
-w=$.a1s
-if(w==null){w=$.D
-w=w.a2(null,C.V,C.a)
-$.a1s=w}x.a1(w)
-return x},
-aHQ:function(n,o){var x=new V.qa(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.a1s
-return x},
-aHR:function(n,o){var x=new V.Ws(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-at3:function(){if($.aaJ)return
-$.aaJ=!0
-$.$get$F().u(0,C.oa,C.hv)
-E.w()
-Q.d3()
-N.dG()
-A.qq()
-X.i1()},
-Oc:function Oc(n,o,p){var _=this
-_.r=null
-_.x=n
-_.a=_.y=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null},
-Od:function Od(){},
-qa:function qa(n,o){var _=this
-_.a=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Ws:function Ws(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-a80:function(n,o,p){var x=new V.wB(o,new P.k(null,null,0,[[P.C,[F.al,p]]]),[p])
-x.sfF(n)
-return x},
-wB:function wB(n,o,p){var _=this
-_.d=n
-_.a=o
-_.c=_.b=null
-_.$ti=p},
-QG:function QG(n,o,p,q){var _=this
-_.x=n
-_.z=_.y=null
-_.d=o
-_.a=p
-_.c=_.b=null
-_.$ti=q},
-AH:function AH(){},
-dI:function dI(n,o,p,q,r,s){var _=this
-_.c=n
-_.x1$=o
-_.x2$=p
-_.y1$=q
-_.a=r
-_.b=s},
-I1:function I1(n){this.a=n
-this.c=this.b=null},
-Z5:function Z5(){},
-vD:function vD(){},
-yq:function yq(){},
-iQ:function iQ(n){this.a=n},
-iV:function iV(n,o,p,q){var _=this
-_.a=n
-_.b=o
-_.c=p
-_.d=null
-_.e=q}},S={
-aHP:function(n,o){var x=new S.Wr(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asM:function(){if($.ab4)return
-$.ab4=!0
-$.$get$F().u(0,C.m8,C.e4)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-Ob:function Ob(n,o){var _=this
-_.a=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wr:function Wr(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-iS:function iS(n,o){this.a=n
-this.b=o
-this.c=null},
-Hd:function Hd(){},
-hH:function hH(n,o,p){var _=this
-_.a=n
-_.b=o
-_.c=p
-_.d=null},
-He:function He(){},
-iT:function iT(n,o){this.a=n
-this.b=o
-this.c=null},
-aIk:function(n,o){var x=new S.WS(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asX:function(){if($.aaS)return
-$.aaS=!0
-$.$get$F().u(0,C.ma,C.dV)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-Oq:function Oq(n,o){var _=this
-_.a=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WS:function WS(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null}},N={},E={
-aHN:function(n,o){var x=new E.Wp(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asU:function(){if($.aaV)return
-$.aaV=!0
-$.$get$F().u(0,C.ox,C.dz)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-O9:function O9(n,o){var _=this
-_.a=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wp:function Wp(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null}},M={
-aIg:function(n,o){var x=new M.WO(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asR:function(){if($.aaZ)return
-$.aaZ=!0
-$.$get$F().u(0,C.oY,C.e5)
-K.at4()
-M.ej()
-E.w()
-K.ek()
-N.bD()
-F.hd()},
-Om:function Om(n,o){var _=this
-_.a=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WO:function WO(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-aIi:function(n,o){var x=new M.WQ(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asV:function(){if($.aaU)return
-$.aaU=!0
-$.$get$F().u(0,C.p0,C.dP)
-M.ej()
-E.w()
-K.ek()
-N.bD()},
-Oo:function Oo(n,o){var _=this
-_.a=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.a=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
 WQ:function WQ(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-aIj:function(n,o){var x=new M.WR(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asW:function(){if($.aaT)return
-$.aaT=!0
-$.$get$F().u(0,C.m7,C.eb)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-Op:function Op(n,o){var _=this
-_.a=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.a=_.y=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
@@ -637,441 +67,13 @@ _.a=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
-ej:function(){if($.aaO)return
-$.aaO=!0
-N.dG()
-N.bD()
-N.yM()
-X.i1()}},B={
-a0P:function(n,o,p,q){var x=new B.cy(p,0,!1,!1,n,""+(q==null?24:q)+"px",!0,new F.al(null,null,C.am,[null]),new P.ja(0,[null,[P.O,[F.al,,]]]),new R.y(!1,!1),n,o,!1,!1)
-x.kq(n,o,null,null)
-return x},
-cy:function cy(n,o,p,q,r,s,t,u,v,w,x,a0,a1,a2){var _=this
-_.ch=n
-_.cx=o
-_.cy=p
-_.db=q
-_.dx=r
-_.fr=_.dy=null
-_.fx=s
-_.fy=t
-_.a=u
-_.b=v
-_.c=w
-_.d=x
-_.e=a0
-_.f=a1
-_.z=_.y=_.x=_.r=null
-_.Q=a2},
-aHT:function(n,o){var x=new B.Wu(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asP:function(){if($.ab1)return
-$.ab1=!0
-$.$get$F().u(0,C.mh,C.dd)
-M.ej()
-E.w()
-K.ek()
-N.bD()},
-Of:function Of(n,o){var _=this
-_.a=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wu:function Wu(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-aIo:function(n,o){var x=new B.WV(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-at_:function(){if($.aam)return
-$.aam=!0
-$.$get$F().u(0,C.mj,C.dk)
-$.$get$c1().u(0,C.oX,new B.a_e())
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-Ot:function Ot(n,o){var _=this
-_.a=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WV:function WV(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-a_e:function a_e(){}},Q={iU:function iU(n,o,p,q){var _=this
-_.a=n
-_.b=o
-_.c=p
-_.d=null
-_.e=q},hJ:function hJ(n,o,p,q){var _=this
-_.a=n
-_.b=o
-_.c=p
-_.d=q
-_.e=null},ls:function ls(n,o){this.a=n
-this.b=o}},D={
-h9:function(n,o){var x,w
-x=new D.O2(!0,P.e(P.c,null),n)
-x.a=S.f(x,3,C.j,o)
-w=document.createElement("material-tree")
-x.e=w
-w=$.j7
-if(w==null){w=$.D
-w=w.a2(null,C.V,C.a)
-$.j7=w}x.a1(w)
-return x},
-aHv:function(n,o){var x=new D.xV(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j7
-return x},
-aHw:function(n,o){var x=new D.xW(P.Y(["$implicit",null,"index",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j7
-return x},
-aHx:function(n,o){var x=new D.Wb(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j7
-return x},
-aHy:function(n,o){var x=new D.Wc(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j7
-return x},
-aHz:function(n,o){var x=new D.Wd(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j7
-return x},
-aHA:function(n,o){var x=new D.We(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j7
-return x},
-aHB:function(n,o){var x=new D.Wf(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j7
-return x},
-aHC:function(n,o){var x=new D.Wg(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j7
-return x},
-aHD:function(n,o){var x=new D.Wh(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.j7
-return x},
-aHE:function(n,o){var x=new D.Wi(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-ag2:function(){if($.aav)return
-$.aav=!0
-$.$get$F().u(0,C.o9,C.i1)
-E.w()
-N.dG()
-T.k_()
-K.b8()
-N.bD()
-F.hd()
-V.ag1()
-K.at2()
-Y.ag3()
-A.qq()},
-O2:function O2(n,o,p){var _=this
-_.r=null
-_.x=n
-_.a=_.cy=_.cx=_.ch=_.Q=_.z=_.y=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null},
-O4:function O4(){},
-O3:function O3(){},
-xV:function xV(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-xW:function xW(n,o){var _=this
-_.a=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wb:function Wb(n,o){var _=this
-_.a=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wc:function Wc(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wd:function Wd(n,o){var _=this
+WS:function WS(n,o){var _=this
 _.a=_.z=_.y=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
-We:function We(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wf:function Wf(n,o){var _=this
+WT:function WT(n,o){var _=this
 _.a=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wg:function Wg(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wh:function Wh(n,o){var _=this
-_.a=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wi:function Wi(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-iN:function iN(n,o){this.a=n
-this.b=o
-this.c=null}},L={
-pn:function(n,o){var x,w
-x=new L.vh(!0,P.e(P.c,null),n)
-x.a=S.f(x,3,C.j,o)
-w=document.createElement("material-tree-dropdown")
-x.e=w
-w=$.nj
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiQ())
-$.nj=w}x.a1(w)
-return x},
-aHF:function(n,o){var x=new L.Wj(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.nj
-return x},
-aHG:function(n,o){var x=new L.Wk(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.nj
-return x},
-aHH:function(n,o){var x=new L.q9(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.nj
-return x},
-aHI:function(n,o){var x=new L.xX(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.nj
-return x},
-aHJ:function(n,o){var x=new L.Wl(P.e(P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.nj
-return x},
-aHK:function(n,o){var x=new L.Wm(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-at1:function(){if($.aaI)return
-$.aaI=!0
-$.$get$F().u(0,C.b6,C.hD)
-D.ag2()
-E.w()
-V.el()
-G.c2()
-R.jh()
-L.cI()
-M.by()
-A.eL()
-U.jg()
-N.dG()
-T.k_()
-K.b8()
-N.bD()
-F.hd()
-V.at3()
-A.qq()
-V.dj()},
-vh:function vh(n,o,p){var _=this
-_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.db=n
-_.a=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null},
-O5:function O5(){},
-O6:function O6(){},
-Wj:function Wj(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wk:function Wk(n,o){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-q9:function q9(n,o){var _=this
-_.a=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-xX:function xX(n,o){var _=this
-_.a=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wl:function Wl(n,o){var _=this
-_.a=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wm:function Wm(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-aHS:function(n,o){var x=new L.Wt(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asO:function(){if($.ab2)return
-$.ab2=!0
-$.$get$F().u(0,C.ok,C.d_)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-Oe:function Oe(n,o){var _=this
-_.a=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wt:function Wt(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-aHO:function(n,o){var x=new L.Wq(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asT:function(){if($.aaW)return
-$.aaW=!0
-$.$get$F().u(0,C.om,C.dJ)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-Oa:function Oa(n,o){var _=this
-_.a=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wq:function Wq(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null}},Z={
-aIh:function(n,o){var x=new Z.WP(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asS:function(){if($.aaY)return
-$.aaY=!0
-$.$get$F().u(0,C.oW,C.e3)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-On:function On(n,o){var _=this
-_.a=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-WP:function WP(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null}},A={
-aHM:function(n,o){var x=new A.Wo(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asL:function(){if($.ab5)return
-$.ab5=!0
-$.$get$F().u(0,C.mV,C.e6)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-O8:function O8(n,o){var _=this
-_.a=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wo:function Wo(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-aHU:function(n,o){var x=new A.Wv(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asQ:function(){if($.ab0)return
-$.ab0=!0
-$.$get$F().u(0,C.oK,C.dB)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-Og:function Og(n,o){var _=this
-_.a=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-Wv:function Wv(n,o){var _=this
-_.a=_.x=_.r=null
-_.b=n
-_.c=o
-_.f=_.e=_.d=null},
-qq:function(){if($.aaw)return
-$.aaw=!0
-N.dG()
-T.k_()
-F.hd()}},U={ln:function ln(){},Hc:function Hc(n){this.a=n},
-fZ:function(n,o){var x=new U.dc((n==null?null:n.gm9())===!0,o,!1,!1,!1,null)
-x.dQ(C.ag)
-return x},
-dc:function dc(n,o,p,q,r,s){var _=this
-_.f=n
-_.r=o
-_.x=p
-_.y=q
-_.z=null
-_.dx$=r
-_.dy$=s
-_.e=_.d=_.c=_.b=_.a=null},
-wq:function wq(){},
-fH:function fH(){this.a=null}},T={},O={iM:function iM(n,o){this.a=n
-this.b=o
-this.c=null},
-aIn:function(n,o){var x=new O.WU(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asZ:function(){if($.aaQ)return
-$.aaQ=!0
-$.$get$F().u(0,C.oQ,C.cX)
-M.ej()
-E.w()
-K.ek()
-K.b8()
-N.bD()},
-Os:function Os(n,o){var _=this
-_.a=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
@@ -1079,4338 +81,3133 @@ WU:function WU(n,o){var _=this
 _.a=_.x=_.r=null
 _.b=n
 _.c=o
-_.f=_.e=_.d=null}},X={
-aIl:function(n,o){var x=new X.y1(P.Y(["$implicit",null],P.c,null),n)
-x.a=S.f(x,3,C.b,o)
-x.d=$.a1u
-return x},
-aIm:function(n,o){var x=new X.WT(P.e(P.c,null),n)
-x.a=S.f(x,3,C.k,o)
-return x},
-asY:function(){if($.aaR)return
-$.aaR=!0
-$.$get$F().u(0,C.mm,C.dR)
-M.ej()
-E.w()
-L.ZL()
-L.ZM()
-K.ek()
-K.b8()
-N.bD()},
-vl:function vl(n,o,p){var _=this
-_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.cy=n
-_.a=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=null
-_.b=o
-_.c=p
 _.f=_.e=_.d=null},
-Or:function Or(){},
-y1:function y1(n,o){var _=this
-_.a=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+WV:function WV(n,o){var _=this
+_.a=_.x=_.r=null
+_.b=n
+_.c=o
+_.f=_.e=_.d=null}},E={
+aIe:function(n,o){var y=new E.xH(P.Y(["$implicit",null],P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.O8
+return y},
+aIf:function(n,o){var y=new E.xI(P.Y(["$implicit",null],P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.O8
+return y},
+aIg:function(n,o){var y=new E.WW(P.e(P.c,null),n)
+y.a=S.h(y,3,C.k,o)
+return y},
+ats:function(){if($.a8r)return
+$.a8r=!0
+$.$get$G().u(0,C.ow,C.dO)
+E.y()
+U.m3()
+N.Zl()
+U.auD()
+N.agz()
+K.cK()},
+v_:function v_(n,o,p,q){var _=this
+_.T=_.U=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.aB=_.ay=_.aD=_.al=_.ar=_.a8=_.aw=_.ae=_.ap=_.av=_.ad=_.am=_.ac=_.aj=_.ai=_.ab=_.ah=_.ak=_.af=_.a2=_.a9=_.aa=_.a_=_.a3=_.a1=_.M=_.O=_.J=_.R=_.W=null
+_.bu=_.b4=_.bh=_.aS=_.be=_.bG=_.aL=_.aH=_.aK=_.bd=_.aR=_.aY=_.aZ=_.aI=_.aA=_.aN=_.aO=_.aU=_.au=_.aG=_.aQ=_.aJ=_.an=_.aC=null
+_.bx=n
+_.aX=_.bk=_.ba=_.aW=_.b6=null
+_.b5=o
+_.ci=_.c5=_.bT=_.c4=_.bN=_.ce=_.bt=_.bn=_.bM=_.bw=_.bj=_.br=_.bF=_.bc=_.bs=_.bS=_.bL=_.bE=_.bD=_.bl=_.bR=_.bz=_.bq=_.bv=_.b3=_.bg=_.bf=_.bi=_.bO=_.b7=null
+_.dq=_.dn=_.ew=_.de=_.dd=_.dL=_.dK=_.eb=_.cN=_.d0=_.cI=_.cD=_.cU=_.d_=_.cH=_.ck=_.dc=_.cj=_.cB=_.cZ=_.cv=_.cG=_.ca=_.cC=_.co=_.cT=_.c6=_.cn=_.bZ=_.c8=null
+_.eW=_.ee=_.ez=_.dC=_.em=_.dM=_.e2=_.dB=_.ed=_.dV=_.d6=_.eG=_.cV=_.dh=_.f9=_.d9=_.dA=_.ds=_.ey=_.d8=_.df=_.dr=_.dE=_.ec=_.d5=_.d4=_.dz=_.d7=_.e1=_.ex=null
+_.a=_.h7=_.eX=_.eI=_.dF=_.dt=_.fG=_.en=_.dY=_.eH=_.dX=_.dN=_.dW=null
+_.b=p
+_.c=q
+_.f=_.e=_.d=null},
+O9:function O9(){},
+Oa:function Oa(){},
+xH:function xH(n,o){var _=this
+_.a=_.Q=_.z=_.y=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
-WT:function WT(n,o){var _=this
+xI:function xI(n,o){var _=this
+_.a=_.Q=_.z=_.y=_.x=_.r=null
+_.b=n
+_.c=o
+_.f=_.e=_.d=null},
+WW:function WW(n,o){var _=this
+_.a=_.y=_.x=_.r=null
+_.b=n
+_.c=o
+_.f=_.e=_.d=null}},M,B,Q,D,L={ap:function ap(n,o,p,q,r,s,t,u,v,w,x,y){var _=this
+_.c=n
+_.d=o
+_.e=p
+_.f=q
+_.r=r
+_.x=s
+_.y=t
+_.ch=_.Q=_.z=null
+_.cx=u
+_.dx=_.db=_.cy=null
+_.dy=v
+_.fr=w
+_.fx=null
+_.a=x
+_.b=y}},Z,A={
+aI7:function(n,o){var y=new A.WP(P.e(P.c,null),n)
+y.a=S.h(y,3,C.k,o)
+return y},
+any:function(){return C.dJ},
+as5:function(){if($.a8q)return
+$.a8q=!0
+$.$get$G().u(0,C.ou,C.dJ)
+E.y()
+K.cA()
+D.cp()
+E.ats()},
+O6:function O6(n,o){var _=this
+_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.b=n
+_.c=o
+_.f=_.e=_.d=null},
+WP:function WP(n,o){var _=this
 _.a=_.x=_.r=null
 _.b=n
 _.c=o
 _.f=_.e=_.d=null},
-iW:function iW(n,o){this.a=n
+auG:function(){if($.aej)return
+$.aej=!0
+E.y()
+U.m3()
+R.m4()}},U={
+dA:function(n,o){var y,x
+y=new U.O4(P.e(P.c,null),n)
+y.a=S.h(y,1,C.j,o)
+x=document.createElement("acx-scoreboard")
+y.e=x
+x=$.O5
+if(x==null){x=$.D
+x=x.Y(null,C.o,$.$get$aj_())
+$.O5=x}y.X(x)
+return y},
+aI4:function(n,o){var y=new U.WM(P.e(P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.O5
+return y},
+aI5:function(n,o){var y=new U.WN(P.e(P.c,null),n)
+y.a=S.h(y,3,C.b,o)
+y.d=$.O5
+return y},
+aI6:function(n,o){var y=new U.WO(P.e(P.c,null),n)
+y.a=S.h(y,3,C.k,o)
+return y},
+auD:function(){if($.aei)return
+$.aei=!0
+$.$get$G().u(0,C.ot,C.hO)
+E.y()
+U.da()
+M.bv()
+K.b4()
+R.m4()
+Y.agq()
+N.agz()
+A.auG()},
+O4:function O4(n,o){var _=this
+_.a=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.b=n
+_.c=o
+_.f=_.e=_.d=null},
+WM:function WM(n,o){var _=this
+_.a=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.b=n
+_.c=o
+_.f=_.e=_.d=null},
+WN:function WN(n,o){var _=this
+_.a=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.b=n
+_.c=o
+_.f=_.e=_.d=null},
+WO:function WO(n,o){var _=this
+_.a=_.x=_.r=null
+_.b=n
+_.c=o
+_.f=_.e=_.d=null}},T={
+anz:function(n,o,p){var y=new T.ts(new P.a0(null,null,0,[P.q]),new R.z(!0,!1),o,n,0,0)
+y.e=p==null?!1:p
+return y},
+ts:function ts(n,o,p,q,r,s){var _=this
+_.a=n
+_.b=o
+_.c=p
+_.d=q
+_.y=_.x=_.r=_.f=_.e=null
+_.z=r
+_.Q=s},
+Jd:function Jd(n){this.a=n},
+Je:function Je(n){this.a=n},
+Jg:function Jg(n){this.a=n},
+Jh:function Jh(n){this.a=n},
+Jf:function Jf(n){this.a=n},
+Jc:function Jc(n){this.a=n}},O,X,F={qQ:function qQ(){},
+dy:function(n,o,p){var y=new F.ft(new R.z(!0,!1),new R.z(!1,!1),p,o,"chevron_left","chevron_right",!1,!1,!1,C.fk,!1,!1,!1)
+y.z=!0
+return y},
+ft:function ft(n,o,p,q,r,s,t,u,v,w,x,y,a0){var _=this
+_.a=n
+_.b=o
+_.c=p
+_.d=q
+_.r=_.f=_.e=null
+_.x=r
+_.y=s
+_.z=null
+_.Q=t
+_.ch=u
+_.cx=v
+_.cy=w
+_.db=x
+_.dx=y
+_.dy=a0},
+Jb:function Jb(n){this.a=n},
+Ja:function Ja(n,o){this.a=n
+this.b=o},
+J8:function J8(){},
+J9:function J9(n,o,p){this.a=n
 this.b=o
-this.c=null},
-lc:function lc(){},
-ON:function ON(){}},F={eB:function eB(n,o,p,q,r,s,t,u){var _=this
-_.ch=n
-_.a=o
-_.b=p
-_.c=q
-_.d=r
-_.e=s
-_.f=t
-_.z=_.y=_.x=_.r=null
-_.Q=u},eC:function eC(n,o,p,q,r,s,t,u,v,w){var _=this
-_.ch=n
-_.cx=o
-_.cy=p
-_.a=q
-_.b=r
-_.c=s
-_.d=t
-_.e=u
-_.f=v
-_.z=_.y=_.x=_.r=null
-_.Q=w},eA:function eA(n,o,p,q,r,s,t,u,v){var _=this
-_.ch=n
-_.cx=o
-_.a=p
-_.b=q
-_.c=r
-_.d=s
-_.e=t
-_.f=u
-_.z=_.y=_.x=_.r=null
-_.Q=v},fo:function fo(n){this.a=n},hI:function hI(n,o){this.a=n
+this.c=p},
+J7:function J7(n,o,p){this.a=n
 this.b=o
-this.c=null},Hf:function Hf(){}}
-var z=[C,H,J,P,W,G,Y,R,K,V,S,N,E,M,B,Q,D,L,Z,A,U,T,O,X,F]
-g([C,H,J,P,W,G,Y,R,K,V,S,N,E,M,B,Q,D,L,Z,A,U,T,O,X,F])
-C=h(m[0],C)
-H=h(m[1],H)
-J=h(m[2],J)
-P=h(m[3],P)
-W=h(m[4],W)
-G=h(m[5],G)
+this.c=p},
+J6:function J6(n,o,p){this.a=n
+this.b=o
+this.c=p},
+lE:function lE(n,o){this.a=n
+this.b=o},
+a5h:function(n){return P.mz(n,new F.Ji(),!0,P.k)},
+h4:function h4(n,o,p,q,r){var _=this
+_.a=n
+_.b=o
+_.c=p
+_.d=q
+_.e=r},
+Ji:function Ji(){}}
+g([Y,K,V,N,E,L,A,U,T,F])
+C=m[0]
+H=m[1]
+J=m[2]
+P=m[3]
+W=m[4]
+G=m[5]
 Y=h(m[6],Y)
-R=h(m[7],R)
+R=m[7]
 K=h(m[8],K)
 V=h(m[9],V)
-S=h(m[10],S)
+S=m[10]
 N=h(m[11],N)
 E=h(m[12],E)
-M=h(m[13],M)
-B=h(m[14],B)
-Q=h(m[15],Q)
-D=h(m[16],D)
+M=m[13]
+B=m[14]
+Q=m[15]
+D=m[16]
 L=h(m[17],L)
-Z=h(m[18],Z)
+Z=m[18]
 A=h(m[19],A)
 U=h(m[20],U)
 T=h(m[21],T)
-O=h(m[22],O)
-X=h(m[23],X)
+O=m[22]
+X=m[23]
 F=h(m[24],F)
-B.cy.prototype={
-sJP:function(n){this.dy=n
-if(n!=null)this.H6(n)},
-yU:function(n){var x,w
-x=this.cx
-if(x>0){w=(x-1)*$.$get$a5j()
-if(!!J.J(this.gfc().a).$iscp||!this.gfc().gm9())x=this.js(n)||this.kk(n)
-else x=!1
-if(!x||this.cy)w+=$.$get$a5i()}else w=0
-return""+w+"px"},
-a3l:function(n,o){this.KO(o)
-n.stopPropagation()},
-a3A:function(n,o){var x,w
-if(!(!this.y.$1(o)&&this.js(o)))if(!(this.db&&this.js(o)))x=!!J.J(this.gfc().a).$iscp&&this.js(o)
-else x=!0
-else x=!0
-if(x){x=this.dx
-w=x.dy$
-x.dy$=o
-this.oi(o,!this.gfc().a.dh(o))
-if(!!J.J(this.gfc().a).$iscp&&w!=null&&!!J.J(n).$isa8&&n.shiftKey)this.a7f(w,o,this.gfc().a.dh(w))
-if(!J.J(this.gfc().a).$iscp&&!this.db){x=this.ch
-if(!(x==null))x.aT(0)}}else this.KO(o)
-n.stopPropagation()},
-H6:function(n){var x=this.r
-if(n<x.a.length)this.fr=x.LS(0,n)
-else this.fr=x},
-ski:function(n){var x
-this.Mn(n)
-x=this.dy
-if(x==null){this.fr=this.r
-return}this.H6(x)},
-a7F:function(n){n.preventDefault()
-n.stopImmediatePropagation()
-this.fr=this.r},
-$asdV:function(){},
-gHD:function(){return this.db},
-gir:function(){return this.fy}}
-V.Oh.prototype={
-p:function(){var x,w,v
-x=this.a3(this.e)
-w=S.d(document,"ul",x)
+F.qQ.prototype={
+lk:function(n){var y
+if(n.b==null){y=n.ch
+y=!(y==null||C.i.n5(y).length===0)}else y=!1
+if(y)return P.Y(["check-integer",$.$get$bg().cE("Enter an integer",null,null,null,"Error message when input number is not an integer.")],P.c,null)
+return},
+$isp8:1}
+F.ft.prototype={
+gmJ:function(){if(this.db){var y=this.r
+y=y==null?null:y.gmJ()
+if(y==null)y=!1}else y=!1
+return y},
+sek:function(n){this.f=n
+if(this.Q)P.cb(this.gF_())},
+D:function(){switch(this.cy){case C.fl:case C.bS:case C.fm:this.e=Z.cx(null,null,null)
+break
+case C.cv:this.e=Z.dU(null,null,null)
+break
+default:this.e=new Z.pI(!1,!1,!0,!1,C.an,[null])
+break}if(!this.Q){this.Q=!0
+P.cb(this.gF_())}},
+sJQ:function(n){var y
+this.r=n
+y=n.a
+this.a.dT(new P.m(y,[H.j(y,0)]).B(new F.Jb(this)))},
+nh:function(){this.r.nh()
+this.v2()},
+ni:function(){this.r.ni()
+this.v2()},
+v0:function(){var y,x,w
+if(this.db){y=this.r
+x=y==null
+w=x?null:y.z===0
+this.ch=w==null?!1:w
+y=x?null:y.gGo()
+this.cx=y==null?!1:y
+this.c.a.aF()
+if(this.db)this.v2()}},
+v2:function(){var y,x,w,v,u,t,s,r
+for(y=this.f,x=y.length,w=0;w<y.length;y.length===x||(0,H.av)(y),++w){v=y[w]
+u=v.gfk()
+t=this.dy?C.B.by(u.offsetTop)+C.B.by(u.offsetHeight):C.B.by(u.offsetLeft)
+u=this.r
+s=Math.abs(u.z)
+r=u.f?u.c.parentElement.clientHeight:u.c.parentElement.clientWidth
+if(t<s+r-u.Q&&t>s)v.gfk().tabIndex=0
+else v.gfk().tabIndex=-1}},
+a_3:function(){var y,x,w,v,u,t,s
+y=this.b
+y.F()
+if(this.z)this.Wr()
+for(x=this.f,w=x.length,v=0;v<x.length;x.length===w||(0,H.av)(x),++v){u=x[v]
+t=this.cy
+u.sp2(t===C.fm?u.gp2():t!==C.fk)
+u.gML().a.aF()
+t=J.a3d(u)
+if(t)this.e.cL(0,u)
+t=u.ga0n()
+y.dT(new P.m(t,[H.j(t,0)]).eC(new F.Ja(this,u),null,null,!1))}if(this.cy===C.bS){y=this.e
+y=y.gbA(y)}else y=!1
+if(y){y=this.e
+x=this.f
+y.cL(0,(x&&C.e).gaE(x))}this.G5()
+if(this.db){y=this.r
+if(!(y==null))y.Ji(0)}if(this.cy===C.cv)for(y=this.f,x=y.length,s=0,v=0;v<y.length;y.length===x||(0,H.av)(y),++v){u=y[v]
+if(u.glr()==null)u.slr(C.lx[s%12]);++s}this.v0()},
+Wr:function(){var y,x,w
+y={}
+x=this.f
+x.toString
+w=new H.cM(x,new F.J8(),[H.j(x,0),W.ar]).dv(0)
+y.a=0
+this.a.dT(this.d.dR(new F.J9(y,this,w)))},
+G5:function(){var y,x,w,v
+for(y=this.f,x=y.length,w=0;w<y.length;y.length===x||(0,H.av)(y),++w){v=y[w]
+if(v.gp2())J.a_B(v,this.e.cw(v))}},
+gc2:function(n){return this.cy}}
+F.lE.prototype={
+K:function(n){return this.b},
+gdP:function(n){return this.a}}
+U.O4.prototype={
+p:function(){var y,x,w,v
+y=this.Z(this.e)
+x=document
+w=S.p(x,y)
 this.r=w
+w.className="acx-scoreboard"
 this.h(w)
-w=$.$get$I()
+w=$.$get$J()
 v=w.cloneNode(!1)
 this.r.appendChild(v)
-v=new V.n(1,0,this,v)
+v=new V.o(1,0,this,v)
 this.x=v
-this.y=new R.ap(v,new D.p(v,V.azS()))
+this.y=new K.B(new D.r(v,U.aBg()),v,!1)
+v=S.p(x,this.r)
+this.z=v
+v.className="scorecard-bar"
+v.setAttribute("scorecardBar","")
+this.h(this.z)
+v=this.c
+v=T.anz(v.n(C.d,this.a.Q),this.z,v.m(C.ae,this.a.Q,null))
+this.Q=v
+this.bW(this.z,0)
 w=w.cloneNode(!1)
 this.r.appendChild(w)
-w=new V.n(2,0,this,w)
-this.z=w
-this.Q=new K.A(new D.p(w,V.aA_()),w,!1)
-this.P(C.a,null)
-return},
-q:function(){var x,w,v,u,t
-x=this.f
-w=x.fr
-v=this.ch
-if(v==null?w!=null:v!==w){this.y.scd(w)
-this.ch=w}this.y.bO()
-v=this.Q
-if(x.dy!=null){u=x.fr
-t=x.r
-t=u==null?t!=null:u!==t
-u=t}else u=!1
-v.sZ(u)
-this.x.H()
-this.z.H()},
-v:function(){var x=this.x
-if(!(x==null))x.G()
-x=this.z
-if(!(x==null))x.G()},
-A:function(n){var x
-if(n){this.f.gir()
-x=this.e
-this.f.gir()
-this.bp(x,"material-tree-group",!0)}},
-$asb:function(){return[B.cy]}}
-V.xY.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p
-x=document
-w=x.createElement("li")
-this.r=w
-w.setAttribute("buttonDecorator","")
-w=this.r
-w.className="material-tree-option"
-w.setAttribute("keyboardOnlyFocusIndicator","")
-this.m(this.r)
-w=this.r
-v=W.a_
-this.x=new R.cm(new T.bz(new P.k(null,null,0,[v]),null,!1,!0,null,w),!1)
-u=this.c
-this.y=new O.cK(w,u.c.n(C.d,u.a.Q))
-u=S.o(x,this.r)
-this.z=u
-u.className="material-tree-item"
-u.setAttribute("role","treeitem")
-this.h(this.z)
-u=S.o(x,this.z)
-this.Q=u
-u.className="material-tree-shift"
-this.h(u)
-u=$.$get$I()
-w=u.cloneNode(!1)
-this.Q.appendChild(w)
-w=new V.n(3,2,this,w)
+w=new V.o(3,0,this,w)
 this.ch=w
-this.cx=new K.A(new D.p(w,V.azT()),w,!1)
-w=S.o(x,this.Q)
-this.cy=w
-w.className="material-tree-border"
-this.h(w)
-t=x.createTextNode(" ")
-this.Q.appendChild(t)
-w=u.cloneNode(!1)
-this.Q.appendChild(w)
-w=new V.n(6,2,this,w)
-this.db=w
-this.dx=new K.A(new D.p(w,V.azW()),w,!1)
-w=u.cloneNode(!1)
-this.Q.appendChild(w)
-w=new V.n(7,2,this,w)
-this.dy=w
-this.fr=new K.A(new D.p(w,V.azX()),w,!1)
-s=x.createTextNode(" ")
-this.Q.appendChild(s)
-r=x.createTextNode(" ")
-this.Q.appendChild(r)
-w=u.cloneNode(!1)
-this.Q.appendChild(w)
-w=new V.n(10,2,this,w)
-this.fx=w
-this.fy=new K.A(new D.p(w,V.azY()),w,!1)
-q=x.createTextNode(" ")
-this.r.appendChild(q)
-u=u.cloneNode(!1)
-this.r.appendChild(u)
-u=new V.n(12,0,this,u)
-this.go=u
-this.id=new R.ap(u,new D.p(u,V.azZ()))
-u=W.B
-J.G(this.r,"click",this.w(this.gQk(),u,u))
-J.G(this.r,"keypress",this.w(this.x.e.gdB(),u,W.X))
-J.G(this.r,"keyup",this.ac(this.y.ge7(),u))
-J.G(this.r,"blur",this.ac(this.y.ge7(),u))
-J.G(this.r,"mousedown",this.ac(this.y.ge4(),u))
-u=this.x.e.b
-p=new P.l(u,[H.i(u,0)]).B(this.w(this.gvN(),v,v))
-this.P([this.r],[p])
-return},
-R:function(n,o,p){var x
-if(n===C.l)x=o<=12
-else x=!1
-if(x)return this.x.e
-return p},
-q:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2
-x=this.f
-w=this.a.cy===0
-v=this.b.C(0,"$implicit")
-if(w)this.x.e.D()
-u=this.cx
-if(!!J.J(x.gfc().a).$iscp||!x.gfc().gm9())t=x.js(v)||x.kk(v)
-else t=!1
-u.sZ(t)
-this.dx.sZ(x.gke())
-this.fr.sZ(!x.gke())
-this.fy.sZ(x.x.jZ(v))
-t=x.b
-u=t.C(0,v)
-s=this.ry
-if(s==null?u!=null:s!==u){this.id.scd(u)
-this.ry=u}this.id.bO()
+this.cx=new K.B(new D.r(w,U.aBh()),w,!1)
+this.f.sJQ(this.Q)
+this.L(C.a,null)},
+q:function(){var y,x,w,v,u,t
+y=this.f
+x=this.a.cy
+this.y.sV(y.gmJ())
+w=y.dy
+v=this.dx
+if(v!==w){this.Q.f=w
+this.dx=w}if(x===0)this.Q.D()
+this.cx.sV(y.gmJ())
+this.x.H()
 this.ch.H()
-this.db.H()
-this.dy.H()
-this.fx.H()
-this.go.H()
-r=x.gfc().a.dh(v)
-u=this.k1
-if(u!==r){this.aG(this.r,"selected",r)
-this.k1=r}q=x.js(v)
-u=this.k2
-if(u!==q){this.aG(this.r,"selectable",q)
-this.k2=q}this.x.dc(this,this.r)
-p=x.yU(v)
-u=this.k3
-if(u!==p){u=this.z.style
-s=(u&&C.X).dt(u,"padding-left")
-u.setProperty(s,p,"")
-this.k3=p}o=Q.H(x.gfc().a.dh(v))
-u=this.k4
-if(u!==o){u=this.z
-s=J.bG(o)
-this.a9(u,"aria-selected",s)
-this.k4=o}if(w){u=this.Q.style
-n=x.fx
-s=(u&&C.X).dt(u,"padding-left")
-u.setProperty(s,n,"")}a0=x.x.jZ(v)
-u=this.r1
-if(u!==a0){this.aG(this.cy,"is-parent",a0)
-this.r1=a0}a1=t.cY(0,v)
-u=this.r2
-if(u!==a1){this.aG(this.cy,"is-expanded",a1)
-this.r2=a1}a2=x.cx===0
-u=this.rx
-if(u!==a2){this.aG(this.cy,"root-border",a2)
-this.rx=a2}},
-v:function(){var x=this.ch
-if(!(x==null))x.G()
+u=!y.dy
+x=this.cy
+if(x!==u){this.at(this.r,"acx-scoreboard-horizontal",u)
+this.cy=u}t=y.dy
 x=this.db
-if(!(x==null))x.G()
-x=this.dy
-if(!(x==null))x.G()
-x=this.fx
-if(!(x==null))x.G()
-x=this.go
-if(!(x==null))x.G()},
-vO:function(n){var x=this.b.C(0,"$implicit")
-this.f.a3A(n,x)},
-Ql:function(n){this.x.e.i_(n)
-this.y.i0()},
-$asb:function(){return[B.cy]}}
-V.Ww.prototype={
-p:function(){var x,w
-x=document.createElement("div")
-this.r=x
-x.className="tree-selection-state"
-this.h(x)
-x=$.$get$I()
-w=x.cloneNode(!1)
-this.r.appendChild(w)
-w=new V.n(1,0,this,w)
-this.x=w
-this.y=new K.A(new D.p(w,V.azU()),w,!1)
-x=x.cloneNode(!1)
-this.r.appendChild(x)
-x=new V.n(2,0,this,x)
-this.z=x
-this.Q=new K.A(new D.p(x,V.azV()),x,!1)
-this.E(this.r)
-return},
-q:function(){var x,w,v
-x=this.f
-w=this.c.b.C(0,"$implicit")
-this.y.sZ(!!J.J(x.gfc().a).$iscp)
-v=this.Q
-v.sZ(!J.J(x.gfc().a).$iscp&&x.gfc().a.dh(w))
-this.x.H()
-this.z.H()},
-v:function(){var x=this.x
-if(!(x==null))x.G()
-x=this.z
-if(!(x==null))x.G()},
-$asb:function(){return[B.cy]}}
-V.Wx.prototype={
-p:function(){var x=G.aP(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className=Q.bw("","tree-selection-state"," ","themeable","")
-this.h(this.r)
-x=B.aO(this.r,this.x.a.b,null,null,null)
-this.y=x
-this.x.k(0,x,[C.a])
-this.E(this.r)
-return},
-R:function(n,o,p){if(n===C.c&&0===o)return this.y
+if(x!==t){this.at(this.r,"acx-scoreboard-vertical",t)
+this.db=t}this.Q.AB()},
+v:function(){var y=this.x
+if(!(y==null))y.G()
+y=this.ch
+if(!(y==null))y.G()
+this.Q.b.F()},
+$asb:function(){return[F.ft]}}
+U.WM.prototype={
+p:function(){var y,x
+y=U.S(this,0)
+this.x=y
+y=y.e
+this.r=y
+y.className="scroll-button scroll-back-button"
+this.h(y)
+y=this.c
+y=F.N(y.c.m(C.m,y.a.Q,null))
+this.y=y
+this.z=B.R(this.r,y,this.x.a.b,null)
+y=M.U(this,1)
+this.ch=y
+y=y.e
+this.Q=y
+this.h(y)
+y=new Y.O(this.Q)
+this.cx=y
+this.ch.k(0,y,[])
+this.x.k(0,this.z,[H.a([this.Q],[W.ai])])
+y=this.z.b
+x=new P.m(y,[H.j(y,0)]).B(this.a6(this.f.gxN(),W.a_))
+this.L([this.r],[x])},
+N:function(n,o,p){var y
+if(n===C.a3)y=o<=1
+else y=!1
+if(y)return this.y
+if(n===C.a9||n===C.l||n===C.c)y=o<=1
+else y=!1
+if(y)return this.z
 return p},
-q:function(){var x,w,v,u,t,s,r
-x=this.f
-w=this.a.cy===0
-v=this.c.c.b.C(0,"$implicit")
-if(w){this.y.ch=!0
+q:function(){var y,x,w,v,u,t
+y=this.f
+x=this.a.cy===0
+if(x)this.z.D()
+w=y.dy?"expand_less":y.x
+v=this.db
+if(v!==w){this.cx.sag(0,w)
+this.db=w
 u=!0}else u=!1
-t=x.gfc().a===C.ag||x.kk(v)
-s=this.z
-if(s!==t){this.y.z=t
-this.z=t
-u=!0}r=x.gfc().a.dh(v)
-s=this.Q
-if(s!==r){this.y.scm(0,r)
-this.Q=r
-u=!0}if(u)this.x.a.st(1)
-this.x.A(w)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()
-this.y.toString},
-$asb:function(){return[B.cy]}}
-V.Wy.prototype={
-p:function(){var x=M.Z(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className="tree-selection-state"
-x.setAttribute("icon","check")
-this.h(this.r)
-x=new Y.S(this.r)
-this.y=x
-this.x.k(0,x,[])
-this.E(this.r)
-return},
-q:function(){if(this.a.cy===0){this.y.sak(0,"check")
-var x=!0}else x=!1
-if(x)this.x.a.st(1)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[B.cy]}}
-V.Wz.prototype={
-p:function(){var x,w,v
-x=Q.j5(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className="item component"
-this.h(x)
-this.y=new V.n(0,null,this,this.r)
-x=this.c.c
-x=x.c.n(C.az,x.a.Q)
-w=this.x
-v=w.a.b
-v=new Z.cJ(x,this.y,v,P.as(null,null,null,null,!1,[D.z,,]),!1,!1,!1,!1)
-this.z=v
-w.k(0,v,[])
-this.E(this.y)
-return},
-q:function(){var x,w,v,u,t,s
-x=this.f
-w=this.c.b.C(0,"$implicit")
-v=x.o8(w)
-u=this.Q
-if(u==null?v!=null:u!==v){this.z.shv(v)
-this.Q=v
-t=!0}else t=!1
-s=x.o7(w)
-u=this.ch
-if(u==null?s!=null:u!==s){this.z.sfX(s)
-this.ch=s
-t=!0}u=this.cx
-if(u==null?w!=null:u!==w){u=this.z
-u.ch=w
-u.cx=!0
-this.cx=w
-t=!0}if(t)this.z.aZ()
-this.y.H()
-this.x.j()},
-v:function(){var x=this.y
-if(!(x==null))x.G()
-x=this.x
-if(!(x==null))x.i()
-x=this.z
-x.hM()
-x.e=null},
-$asb:function(){return[B.cy]}}
-V.WA.prototype={
-p:function(){var x,w
-x=document
-w=x.createElement("span")
-this.r=w
-w.className="text"
-this.m(w)
-w=x.createTextNode("")
-this.x=w
-this.r.appendChild(w)
-this.E(this.r)
-return},
-q:function(){var x,w,v,u,t,s
-x=this.f
-w=this.c.b.C(0,"$implicit")
-v=!x.kk(w)
-u=this.y
-if(u!==v){this.aG(this.r,"item",v)
-this.y=v}t=x.kk(w)
-u=this.z
-if(u!==t){this.aG(this.r,"disabled-item",t)
-this.z=t}s=Q.H(x.o9(w))
-u=this.Q
-if(u!==s){this.x.textContent=s
-this.Q=s}},
-$asb:function(){return[B.cy]}}
-V.xZ.prototype={
-p:function(){var x,w,v
-x=M.Z(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.setAttribute("buttonDecorator","")
-x=this.r
-x.className="tree-expansion-state"
-this.h(x)
-x=this.r
-w=W.a_
-this.y=new R.cm(new T.bz(new P.k(null,null,0,[w]),null,!1,!0,null,x),!1)
-x=new Y.S(x)
-this.z=x
-this.x.k(0,x,[])
-x=W.B
-J.G(this.r,"click",this.w(this.y.e.gdG(),x,W.a8))
-J.G(this.r,"keypress",this.w(this.y.e.gdB(),x,W.X))
-x=this.y.e.b
-v=new P.l(x,[H.i(x,0)]).B(this.w(this.gvN(),w,w))
-this.P([this.r],[v])
-return},
-R:function(n,o,p){if(n===C.l&&0===o)return this.y.e
+if(u)this.ch.a.st(1)
+t=y.ch
+v=this.cy
+if(v!==t){this.b_(this.r,"hide",t)
+this.cy=t}this.x.A(x)
+if(x){v=$.$get$a5f()
+if(v!=null)this.a5(this.Q,"aria-label",v)}this.x.j()
+this.ch.j()},
+v:function(){var y=this.x
+if(!(y==null))y.i()
+y=this.ch
+if(!(y==null))y.i()},
+$asb:function(){return[F.ft]}}
+U.WN.prototype={
+p:function(){var y,x
+y=U.S(this,0)
+this.x=y
+y=y.e
+this.r=y
+y.className="scroll-button scroll-forward-button"
+this.h(y)
+y=this.c
+y=F.N(y.c.m(C.m,y.a.Q,null))
+this.y=y
+this.z=B.R(this.r,y,this.x.a.b,null)
+y=M.U(this,1)
+this.ch=y
+y=y.e
+this.Q=y
+this.h(y)
+y=new Y.O(this.Q)
+this.cx=y
+this.ch.k(0,y,[])
+this.x.k(0,this.z,[H.a([this.Q],[W.ai])])
+y=this.z.b
+x=new P.m(y,[H.j(y,0)]).B(this.a6(this.f.gxO(),W.a_))
+this.L([this.r],[x])},
+N:function(n,o,p){var y
+if(n===C.a3)y=o<=1
+else y=!1
+if(y)return this.y
+if(n===C.a9||n===C.l||n===C.c)y=o<=1
+else y=!1
+if(y)return this.z
 return p},
-q:function(){var x,w,v,u,t,s,r
-x=this.f
-w=this.a.cy
-v=this.c.b.C(0,"$implicit")
-if(w===0)this.y.e.D()
-w=x.b
-u=w.cY(0,v)?"expand_less":"expand_more"
-t=this.ch
-if(t!==u){this.z.sak(0,u)
-this.ch=u
-s=!0}else s=!1
-if(s)this.x.a.st(1)
-r=w.cY(0,v)
-w=this.Q
-if(w!==r){this.bp(this.r,"expanded",r)
-this.Q=r}this.y.dc(this.x,this.r)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-vO:function(n){var x=this.c.b.C(0,"$implicit")
-this.f.a3l(n,x)},
-$asb:function(){return[B.cy]}}
-V.WB.prototype={
-p:function(){var x,w
-x=V.a1t(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className="child-tree"
-this.h(x)
-x=this.c.c
-w=x.c
-x=B.a0P(w.n(C.U,x.a.Q),this.x.a.b,w.l(C.q,x.a.Q,null),w.l(C.cn,x.a.Q,null))
-this.y=x
-this.x.k(0,x,[])
-this.E(this.r)
-return},
-q:function(){var x,w,v,u,t,s,r,q,p,o
-x=this.f
-w=this.a.cy
-v=this.b.C(0,"$implicit")
-u=this.c.b.C(0,"$implicit")
-t=this.z
-if(t==null?v!=null:t!==v){this.y.ski(v)
-this.z=v}s=x.cx+1
-t=this.Q
-if(t!==s){this.y.cx=s
-this.Q=s}if(!!J.J(x.gfc().a).$iscp||!x.gfc().gm9())r=x.js(u)||x.kk(u)
-else r=!1
-t=this.ch
-if(t!==r){this.y.cy=r
-this.ch=r}q=x.db
-t=this.cx
-if(t!==q){this.y.db=q
-this.cx=q}p=x.dy
-t=this.cy
-if(t==null?p!=null:t!==p){this.y.sJP(p)
-this.cy=p}o=x.f
-t=this.db
-if(t!==o){this.y.zy(o)
-this.db=o}this.x.A(w===0)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()
-x=this.y
-x.c.F()
-x.c=null},
-$asb:function(){return[B.cy]}}
-V.WC.prototype={
-p:function(){var x,w,v,u,t
-x=document
-w=x.createElement("li")
-this.r=w
-this.m(w)
-w=S.o(x,this.r)
-this.x=w
-w.className="view-more-link-item"
-this.h(w)
-w=S.o(x,this.x)
-this.y=w
-w.className="material-tree-shift"
-this.h(w)
-w=S.d(x,"a",this.y)
-this.z=w
-w.setAttribute("buttonDecorator","")
-w=this.z
-w.className="view-more-link"
-w.setAttribute("href","#")
-this.h(this.z)
-w=this.z
-v=W.a_
-this.Q=new R.cm(new T.bz(new P.k(null,null,0,[v]),null,!1,!0,null,w),!1)
-u=$.$get$a5k()
-if(u==null)u=""
-u=x.createTextNode(u)
-this.ch=u
-w.appendChild(u)
-u=this.z
-w=W.B;(u&&C.aW).a7(u,"click",this.w(this.Q.e.gdG(),w,W.a8))
-u=this.z;(u&&C.aW).a7(u,"keypress",this.w(this.Q.e.gdB(),w,W.X))
-w=this.Q.e.b
-t=new P.l(w,[H.i(w,0)]).B(this.w(this.f.ga7E(),v,v))
-this.P([this.r],[t])
-return},
-R:function(n,o,p){if(n===C.l&&3<=o&&o<=4)return this.Q.e
-return p},
-q:function(){var x,w,v,u,t,s
-x=this.f
-w=this.a.cy===0
-if(w)this.Q.e.D()
-v=x.yU(C.e.gcu(x.fr.a))
-u=this.cx
-if(u!==v){u=this.x.style
-t=(u&&C.X).dt(u,"padding-left")
-u.setProperty(t,v,"")
-this.cx=v}if(w){u=this.y.style
-s=x.fx
-t=(u&&C.X).dt(u,"padding-left")
-u.setProperty(t,s,"")}this.Q.dc(this,this.z)},
-$asb:function(){return[B.cy]}}
-V.WD.prototype={
-p:function(){var x=V.a1t(this,0)
-this.r=x
-this.e=x.e
-x=B.a0P(this.n(C.U,this.a.Q),this.r.a.b,this.l(C.q,this.a.Q,null),this.l(C.cn,this.a.Q,null))
-this.x=x
-this.r.k(0,x,this.a.e)
+q:function(){var y,x,w,v,u,t
+y=this.f
+x=this.a.cy===0
+if(x)this.z.D()
+w=y.dy?"expand_more":y.y
+v=this.db
+if(v!==w){this.cx.sag(0,w)
+this.db=w
+u=!0}else u=!1
+if(u)this.ch.a.st(1)
+t=y.cx
+v=this.cy
+if(v!==t){this.b_(this.r,"hide",t)
+this.cy=t}this.x.A(x)
+if(x){v=$.$get$a5g()
+if(v!=null)this.a5(this.Q,"aria-label",v)}this.x.j()
+this.ch.j()},
+v:function(){var y=this.x
+if(!(y==null))y.i()
+y=this.ch
+if(!(y==null))y.i()},
+$asb:function(){return[F.ft]}}
+U.WO.prototype={
+p:function(){var y=U.dA(this,0)
+this.r=y
+this.e=y.e
+y=F.dy(null,this.n(C.d,this.a.Q),this.r.a.b)
+this.x=y
+y.sek(H.a([],[L.ap]))
+this.r.k(0,this.x,this.a.e)
 this.E(this.e)
-return new D.z(this,0,this.e,this.x,[B.cy])},
-q:function(){var x=this.a.cy
-this.r.A(x===0)
+return new D.A(this,0,this.e,this.x,[F.ft])},
+q:function(){var y=this.a.cy
+if(y===0)this.x.D()
 this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()
-x=this.x
-x.c.F()
-x.c=null},
-$asb:function(){return[B.cy]}}
-F.eB.prototype={
-$asdV:function(){},
-gir:function(){return this.ch}}
-F.eC.prototype={
-oi:function(n,o){var x,w
-x=this.Mo(n,o)
-w=this.ch
-if(!(w==null))w.aT(0)
-return x},
-$asdV:function(){},
-gir:function(){return this.cy}}
-F.eA.prototype={
-$asdV:function(){},
-gir:function(){return this.cx}}
-K.Oj.prototype={
-p:function(){var x,w
-x=this.a3(this.e)
-w=$.$get$I().cloneNode(!1)
-x.appendChild(w)
-w=new V.n(0,null,this,w)
-this.r=w
-this.x=new R.ap(w,new D.p(w,K.azK()))
-this.P(C.a,null)
-return},
-q:function(){var x,w
-x=this.f.r
-w=this.y
-if(w==null?x!=null:w!==x){this.x.scd(x)
-this.y=x}this.x.bO()
-this.r.H()},
-v:function(){var x=this.r
-if(!(x==null))x.G()},
-A:function(n){var x
-if(n){this.f.gir()
-x=this.e
-this.f.gir()
-this.bp(x,"material-tree-group",!0)}},
-$asb:function(){return[F.eB]}}
-K.WH.prototype={
-p:function(){var x,w
-x=document.createElement("div")
-this.r=x
-x.className="material-tree-option"
-this.h(x)
-x=$.$get$I()
-w=x.cloneNode(!1)
-this.r.appendChild(w)
-w=new V.n(1,0,this,w)
-this.x=w
-this.y=new K.A(new D.p(w,K.azL()),w,!1)
-x=x.cloneNode(!1)
-this.r.appendChild(x)
-x=new V.n(2,0,this,x)
-this.z=x
-this.Q=new K.A(new D.p(x,K.azM()),x,!1)
-this.E(this.r)
-return},
-q:function(){var x=this.f
-this.y.sZ(x.gke())
-this.Q.sZ(!x.gke())
-this.x.H()
-this.z.H()},
-v:function(){var x=this.x
-if(!(x==null))x.G()
-x=this.z
-if(!(x==null))x.G()},
-$asb:function(){return[F.eB]}}
-K.WI.prototype={
-p:function(){var x,w,v
-x=Q.j5(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className="item component"
-this.h(x)
-this.y=new V.n(0,null,this,this.r)
-x=this.c
-x=x.c.n(C.az,x.a.Q)
-w=this.x
-v=w.a.b
-v=new Z.cJ(x,this.y,v,P.as(null,null,null,null,!1,[D.z,,]),!1,!1,!1,!1)
-this.z=v
-w.k(0,v,[])
-this.E(this.y)
-return},
-q:function(){var x,w,v,u,t,s
-x=this.f
-w=this.c.b.C(0,"$implicit")
-v=x.o8(w)
-u=this.Q
-if(u==null?v!=null:u!==v){this.z.shv(v)
-this.Q=v
-t=!0}else t=!1
-s=x.o7(w)
-u=this.ch
-if(u==null?s!=null:u!==s){this.z.sfX(s)
-this.ch=s
-t=!0}u=this.cx
-if(u==null?w!=null:u!==w){u=this.z
-u.ch=w
-u.cx=!0
-this.cx=w
-t=!0}if(t)this.z.aZ()
-this.y.H()
-this.x.j()},
-v:function(){var x=this.y
-if(!(x==null))x.G()
-x=this.x
-if(!(x==null))x.i()
-x=this.z
-x.hM()
-x.e=null},
-$asb:function(){return[F.eB]}}
-K.WJ.prototype={
-p:function(){var x,w
-x=document
-w=x.createElement("span")
-this.r=w
-w.className="item text"
-this.m(w)
-w=x.createTextNode("")
-this.x=w
-this.r.appendChild(w)
-this.E(this.r)
-return},
-q:function(){var x,w
-x=Q.H(this.f.o9(this.c.b.C(0,"$implicit")))
-w=this.y
-if(w!==x){this.x.textContent=x
-this.y=x}},
-$asb:function(){return[F.eB]}}
-K.WK.prototype={
-p:function(){var x,w,v
-x=K.a7x(this,0)
-this.r=x
-this.e=x.e
-x=this.n(C.U,this.a.Q)
-w=this.r.a.b
-v=new F.eB(!0,new F.al(null,null,C.am,[null]),new P.ja(0,[null,[P.O,[F.al,,]]]),new R.y(!1,!1),x,w,!1,!1)
-v.kq(x,w,null,null)
-this.x=v
-this.r.k(0,v,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[F.eB])},
-q:function(){var x=this.a.cy
-this.r.A(x===0)
-this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[F.eB]}}
-K.Ok.prototype={
-p:function(){var x,w
-x=this.a3(this.e)
-w=L.ne(this,0)
-this.x=w
-w=w.e
-this.r=w
-x.appendChild(w)
-this.h(this.r)
-this.y=T.mM(this.c.n(C.f,this.a.Q),null)
-w=new V.n(1,0,this,$.$get$I().cloneNode(!1))
-this.z=w
-this.ch=new R.ap(w,new D.p(w,K.azO()))
-this.x.k(0,this.y,[H.a([w],[V.n])])
-this.P(C.a,null)
-return},
-R:function(n,o,p){var x
-if(n===C.bn)x=o<=1
-else x=!1
-if(x)return this.y
-return p},
-q:function(){var x,w,v,u,t
-x=this.f
-w=this.a.cy===0
-if(w){v=x.cx
-if(v!=null){this.y.e=v
-u=!0}else u=!1}else u=!1
-if(u)this.x.a.st(1)
-t=x.r
-v=this.cx
-if(v==null?t!=null:v!==t){this.ch.scd(t)
-this.cx=t}this.ch.bO()
-this.z.H()
-if(this.Q){this.y.sl5(this.z.cW(new K.Ol(),R.cw,K.y0))
-this.Q=!1}if(w)this.y.kY()
-this.x.j()},
-v:function(){var x=this.z
-if(!(x==null))x.G()
-x=this.x
-if(!(x==null))x.i()
-this.y.b.F()},
-A:function(n){var x
-if(n){this.f.gir()
-x=this.e
-this.f.gir()
-this.bp(x,"material-tree-group",!0)}},
-$asb:function(){return[F.eC]},
-gNb:function(){return this.y},
-sa_o:function(n){return this.Q=n}}
-K.y0.prototype={
-p:function(){var x,w
-x=L.e0(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className=Q.bw("","material-tree-option tree-selection-state"," ","themeable","")
-this.r.setAttribute("role","option")
-this.h(this.r)
-this.y=R.dS(this.r,this.x.a.b,this.c.gNb(),null,"option")
-x=$.$get$I()
-w=new V.n(1,0,this,x.cloneNode(!1))
-this.z=w
-this.Q=new K.A(new D.p(w,K.azP()),w,!1)
-x=new V.n(2,0,this,x.cloneNode(!1))
-this.ch=x
-this.cx=new K.A(new D.p(x,K.azQ()),x,!1)
-this.x.k(0,this.y,[H.a([this.z,x],[V.n])])
-this.E(this.r)
-return},
-R:function(n,o,p){var x
-if(n===C.c)x=o<=2
-else x=!1
-if(x)return this.y
-return p},
-q:function(){var x,w,v,u,t,s,r,q,p
-x=this.f
-w=this.a.cy
-v=this.b.C(0,"$implicit")
-u=this.dx
-if(u==null?v!=null:u!==v){this.y.r=v
-this.dx=v
-t=!0}else t=!1
-u=x.d
-s=u.a===C.ag
-r=this.dy
-if(r!==s){this.y.x=s
-this.dy=s
-t=!0}if(t)this.x.a.st(1)
-this.Q.sZ(x.gke())
-this.cx.sZ(!x.gke())
-this.z.H()
-this.ch.H()
-q=u.a.dh(v)
-u=this.cy
-if(u!==q){this.bp(this.r,"selected",q)
-this.cy=q}p=x.js(v)
-u=this.db
-if(u!==p){this.bp(this.r,"selectable",p)
-this.db=p}this.x.A(w===0)
-this.x.j()},
-dj:function(){this.c.sa_o(!0)},
-v:function(){var x=this.z
-if(!(x==null))x.G()
-x=this.ch
-if(!(x==null))x.G()
-x=this.x
-if(!(x==null))x.i()
-this.y.e.F()},
-$asb:function(){return[F.eC]}}
-K.WL.prototype={
-p:function(){var x,w,v
-x=Q.j5(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className="item component"
-this.h(x)
-this.y=new V.n(0,null,this,this.r)
-x=this.c.c
-x=x.c.n(C.az,x.a.Q)
-w=this.x
-v=w.a.b
-v=new Z.cJ(x,this.y,v,P.as(null,null,null,null,!1,[D.z,,]),!1,!1,!1,!1)
-this.z=v
-w.k(0,v,[])
-this.E(this.y)
-return},
-q:function(){var x,w,v,u,t,s
-x=this.f
-w=this.c.b.C(0,"$implicit")
-v=x.o8(w)
-u=this.Q
-if(u==null?v!=null:u!==v){this.z.shv(v)
-this.Q=v
-t=!0}else t=!1
-s=x.o7(w)
-u=this.ch
-if(u==null?s!=null:u!==s){this.z.sfX(s)
-this.ch=s
-t=!0}u=this.cx
-if(u==null?w!=null:u!==w){u=this.z
-u.ch=w
-u.cx=!0
-this.cx=w
-t=!0}if(t)this.z.aZ()
-this.y.H()
-this.x.j()},
-v:function(){var x=this.y
-if(!(x==null))x.G()
-x=this.x
-if(!(x==null))x.i()
-x=this.z
-x.hM()
-x.e=null},
-$asb:function(){return[F.eC]}}
-K.WM.prototype={
-p:function(){var x,w
-x=document
-w=x.createElement("span")
-this.r=w
-w.className="item text"
-this.m(w)
-w=x.createTextNode("")
-this.x=w
-this.r.appendChild(w)
-this.E(this.r)
-return},
-q:function(){var x,w
-x=Q.H(this.f.o9(this.c.b.C(0,"$implicit")))
-w=this.y
-if(w!==x){this.x.textContent=x
-this.y=x}},
-$asb:function(){return[F.eC]}}
-K.WN.prototype={
-p:function(){var x,w,v
-x=K.a7y(this,0)
-this.r=x
-this.e=x.e
-x=this.n(C.U,this.a.Q)
-w=this.r.a.b
-v=new F.eC(this.l(C.q,this.a.Q,null),x.a,!0,new F.al(null,null,C.am,[null]),new P.ja(0,[null,[P.O,[F.al,,]]]),new R.y(!1,!1),x,w,!1,!1)
-v.kq(x,w,null,null)
-this.x=v
-this.r.k(0,v,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[F.eC])},
-q:function(){var x=this.a.cy
-this.r.A(x===0)
-this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[F.eC]}}
-K.Oi.prototype={
-p:function(){var x,w
-x=this.a3(this.e)
-w=$.$get$I().cloneNode(!1)
-x.appendChild(w)
-w=new V.n(0,null,this,w)
-this.r=w
-this.x=new R.ap(w,new D.p(w,K.azG()))
-this.P(C.a,null)
-return},
-q:function(){var x,w
-x=this.f.r
-w=this.y
-if(w==null?x!=null:w!==x){this.x.scd(x)
-this.y=x}this.x.bO()
-this.r.H()},
-v:function(){var x=this.r
-if(!(x==null))x.G()},
-A:function(n){var x
-if(n){this.f.gir()
-x=this.e
-this.f.gir()
-this.bp(x,"material-tree-group",!0)}},
-$asb:function(){return[F.eA]}}
-K.y_.prototype={
-p:function(){var x,w,v
-x=G.aP(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className=Q.bw("","material-tree-option tree-selection-state"," ","themeable","")
-this.r.setAttribute("role","option")
-this.h(this.r)
-this.y=B.aO(this.r,this.x.a.b,null,null,"option")
-x=$.$get$I()
-w=new V.n(1,0,this,x.cloneNode(!1))
-this.z=w
-this.Q=new K.A(new D.p(w,K.azH()),w,!1)
-x=new V.n(2,0,this,x.cloneNode(!1))
-this.ch=x
-this.cx=new K.A(new D.p(x,K.azI()),x,!1)
-this.x.k(0,this.y,[H.a([this.z,x],[V.n])])
-x=this.y.f
-v=new P.l(x,[H.i(x,0)]).B(this.w(this.gP7(),null,null))
-this.P([this.r],[v])
-return},
-R:function(n,o,p){var x
-if(n===C.c)x=o<=2
-else x=!1
-if(x)return this.y
-return p},
-q:function(){var x,w,v,u,t,s,r,q,p,o
-x=this.f
-w=this.a.cy
-v=this.b.C(0,"$implicit")
-u=x.d
-t=u.a===C.ag||x.kk(v)
-s=this.dx
-if(s!==t){this.y.z=t
-this.dx=t
-r=!0}else r=!1
-q=u.a.dh(v)
-s=this.dy
-if(s!==q){this.y.scm(0,q)
-this.dy=q
-r=!0}if(r)this.x.a.st(1)
-this.Q.sZ(x.gke())
-this.cx.sZ(!x.gke())
-this.z.H()
-this.ch.H()
-p=u.a.dh(v)
-u=this.cy
-if(u!==p){this.bp(this.r,"selected",p)
-this.cy=p}o=x.js(v)
-u=this.db
-if(u!==o){this.bp(this.r,"selectable",o)
-this.db=o}this.x.A(w===0)
-this.x.j()},
-v:function(){var x=this.z
-if(!(x==null))x.G()
-x=this.ch
-if(!(x==null))x.G()
-x=this.x
-if(!(x==null))x.i()
-this.y.toString},
-P8:function(n){var x=this.b.C(0,"$implicit")
-this.f.oi(x,n)},
-$asb:function(){return[F.eA]}}
-K.WE.prototype={
-p:function(){var x,w,v
-x=Q.j5(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className="item component"
-this.h(x)
-this.y=new V.n(0,null,this,this.r)
-x=this.c
-x=x.c.n(C.az,x.a.Q)
-w=this.x
-v=w.a.b
-v=new Z.cJ(x,this.y,v,P.as(null,null,null,null,!1,[D.z,,]),!1,!1,!1,!1)
-this.z=v
-w.k(0,v,[])
-this.E(this.y)
-return},
-q:function(){var x,w,v,u,t,s
-x=this.f
-w=this.c.b.C(0,"$implicit")
-v=x.o8(w)
-u=this.Q
-if(u==null?v!=null:u!==v){this.z.shv(v)
-this.Q=v
-t=!0}else t=!1
-s=x.o7(w)
-u=this.ch
-if(u==null?s!=null:u!==s){this.z.sfX(s)
-this.ch=s
-t=!0}u=this.cx
-if(u==null?w!=null:u!==w){u=this.z
-u.ch=w
-u.cx=!0
-this.cx=w
-t=!0}if(t)this.z.aZ()
-this.y.H()
-this.x.j()},
-v:function(){var x=this.y
-if(!(x==null))x.G()
-x=this.x
-if(!(x==null))x.i()
-x=this.z
-x.hM()
-x.e=null},
-$asb:function(){return[F.eA]}}
-K.WF.prototype={
-p:function(){var x,w
-x=document
-w=x.createElement("span")
-this.r=w
-w.className="item text"
-this.m(w)
-w=x.createTextNode("")
-this.x=w
-this.r.appendChild(w)
-this.E(this.r)
-return},
-q:function(){var x,w
-x=Q.H(this.f.o9(this.c.b.C(0,"$implicit")))
-w=this.y
-if(w!==x){this.x.textContent=x
-this.y=x}},
-$asb:function(){return[F.eA]}}
-K.WG.prototype={
-p:function(){var x,w,v
-x=K.a7w(this,0)
-this.r=x
-this.e=x.e
-x=this.n(C.U,this.a.Q)
-w=this.r.a.b
-v=new F.eA(this.l(C.q,this.a.Q,null),!0,new F.al(null,null,C.am,[null]),new P.ja(0,[null,[P.O,[F.al,,]]]),new R.y(!1,!1),x,w,!1,!1)
-v.kq(x,w,null,null)
-this.x=v
-this.r.k(0,v,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[F.eA])},
-q:function(){var x=this.a.cy
-this.r.A(x===0)
-this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[F.eA]}}
-G.cN.prototype={
-gJ3:function(){var x=this.b
-return!!J.J(x).$isdl?x:H.E(P.a4("The SlectionOptions provided should implement Filterable"))},
-gyp:function(n){var x,w
-x=this.a
-w=J.J(x)
-if(!w.$iscp&&w.gde(x)){x=this.c
-if(x==null)x=G.cU()
-return x.$1(J.k3(this.a.gf0()))}return this.x},
-sbY:function(n){this.dQ(n)},
-gbm:function(n){return this.y},
-sbm:function(n,o){var x=this.y
-if(x==null?o!=null:x!==o){this.y=o
-this.ch.S(0,o)
-if(this.cx&&!this.y){x=this.Q
-if(!(x==null))x.seC("")}}},
-hp:function(n){this.sbm(0,!0)},
-aT:function(n){this.sbm(0,!1)},
-ci:function(n){this.sbm(0,!0)
-this.iJ()},
-iJ:function(){var x=0,w=P.be(null),v=this,u
-var $async$iJ=P.b7(function(n,o){if(n===1)return P.bb(o,w)
-while(true)switch(x){case 0:x=v.y&&!!J.J(v.b).$isdl?2:3
+v:function(){var y=this.r
+if(!(y==null))y.i()
+y=this.x
+y.a.F()
+y.b.F()},
+$asb:function(){return[F.ft]}}
+L.ap.prototype={
+sdw:function(n){this.f=!1
+this.e=!1
+this.d=!1
+switch(n.toUpperCase()){case"POSITIVE":this.d=!0
 break
-case 2:x=4
-return P.b_(v.f.gk5(),$async$iJ)
-case 4:u=v.Q
-if(!(u==null))u.d.lc(0)
-case 3:return P.bc(null,w)}})
-return P.bd($async$iJ,w)},
-gm9:function(){return this.db},
-sa4U:function(n){return this.Q=n}}
-G.wr.prototype={}
-G.ws.prototype={}
-L.vh.prototype={
-p:function(){var x,w,v,u,t,s
-x=this.a3(this.e)
-w=document
-v=S.o(w,x)
-this.r=v
-v.className="button"
-v.setAttribute("keyboardOnlyFocusIndicator","")
-this.r.setAttribute("popupSource","")
-this.h(this.r)
-v=this.c
-this.x=new O.cK(this.r,v.n(C.d,this.a.Q))
-this.y=L.cF(v.n(C.y,this.a.Q),this.r,v.l(C.r,this.a.Q,null),v.l(C.o,this.a.Q,null),null)
-u=$.$get$I()
-t=u.cloneNode(!1)
-this.r.appendChild(t)
-t=new V.n(1,0,this,t)
-this.z=t
-this.Q=new K.A(new D.p(t,L.azu()),t,!1)
-t=u.cloneNode(!1)
-this.r.appendChild(t)
-t=new V.n(2,0,this,t)
-this.ch=t
-this.cx=new K.A(new D.p(t,L.azv()),t,!1)
-t=u.cloneNode(!1)
-this.r.appendChild(t)
-t=new V.n(3,0,this,t)
-this.cy=t
-this.dx=new K.A(new D.p(t,L.azw()),t,!1)
-t=A.cA(this,4)
-this.fr=t
-t=t.e
-this.dy=t
-x.appendChild(t)
-this.dy.setAttribute("enforceSpaceConstraints","")
-this.dy.setAttribute("trackLayoutChanges","")
-this.h(this.dy)
-this.fx=new V.n(4,null,this,this.dy)
-this.fy=G.cv(v.l(C.Y,this.a.Q,null),v.l(C.W,this.a.Q,null),null,v.n(C.f,this.a.Q),v.n(C.n,this.a.Q),v.n(C.C,this.a.Q),v.n(C.F,this.a.Q),v.n(C.E,this.a.Q),v.l(C.I,this.a.Q,null),this.fr.a.b,this.fx,new Z.bA(this.dy))
-v=w.createElement("div")
-this.k1=v
-v.setAttribute("header","")
-this.h(this.k1)
-this.cB(this.k1,0)
-v=u.cloneNode(!1)
-this.k1.appendChild(v)
-v=new V.n(6,5,this,v)
-this.k2=v
-this.k3=new K.A(new D.p(v,L.azx()),v,!1)
-u=new V.n(7,4,this,u.cloneNode(!1))
-this.k4=u
-this.r1=K.es(u,new D.p(u,L.azy()),this.fy)
-this.fr.k(0,this.fy,[H.a([this.k1],[W.d6]),H.a([this.k4],[V.n]),C.a])
-u=this.r
-v=W.B;(u&&C.u).a7(u,"focus",this.w(this.gYK(),v,v))
-u=this.r;(u&&C.u).a7(u,"click",this.w(this.gYI(),v,v))
-u=this.r;(u&&C.u).a7(u,"keyup",this.ac(this.x.ge7(),v))
-u=this.r;(u&&C.u).a7(u,"blur",this.ac(this.x.ge7(),v))
-u=this.r;(u&&C.u).a7(u,"mousedown",this.ac(this.x.ge4(),v))
-v=this.fy.k4$
-u=P.x
-s=new P.l(v,[H.i(v,0)]).B(this.w(this.gWC(),u,u))
-u=this.fy.a
-this.P(C.a,[s,new P.l(u,[H.i(u,0)]).B(this.ac(J.alm(this.f),-1))])
-return},
-R:function(n,o,p){var x
-if((n===C.W||n===C.t||n===C.q)&&4<=o&&o<=7)return this.fy
-if(n===C.Y&&4<=o&&o<=7){x=this.go
-if(x==null){x=this.fy.ge_()
-this.go=x}return x}if(n===C.a5&&4<=o&&o<=7){x=this.id
-if(x==null){x=this.fy.fx
-this.id=x}return x}return p},
-q:function(){var x,w,v,u,t,s,r,q
-x=this.f
-w=this.a.cy===0
-v=this.y
-u=this.Q
-u.sZ(!(!!J.J(x.b).$isdl&&!x.cx))
-u=this.cx
-u.sZ(!(!!J.J(x.b).$isdl&&!x.cx))
-u=this.dx
-u.sZ(!!J.J(x.b).$isdl&&!x.cx)
-if(w){this.fy.N.a.u(0,C.ai,!0)
-this.fy.N.a.u(0,C.aD,!0)}t=!!J.J(x.b).$isdl&&!x.cx?C.kA:C.z
-u=this.rx
-if(u!==t){this.fy.N.a.u(0,C.ap,t)
-this.rx=t}u=this.ry
-if(u==null?v!=null:u!==v){this.fy.se8(0,v)
-this.ry=v}s=x.y
-u=this.x1
-if(u==null?s!=null:u!==s){this.fy.sbm(0,s)
-this.x1=s}u=this.k3
-u.sZ(!!J.J(x.b).$isdl&&x.cx)
-if(w)this.r1.f=!0
-this.z.H()
+case"NEGATIVE":this.e=!0
+break
+case"NEUTRAL":this.f=!0
+break
+default:throw H.n(P.eQ(n,"changeType",null))}},
+ga4l:function(){return this.d},
+ga4k:function(){return this.e},
+gxS:function(){return this.r},
+gmF:function(){return this.r?0:null},
+ga3Z:function(){return this.r?"button":null},
+ga1I:function(){if(this.fr){var y=this.fx
+y=y==null?null:y.gI5()
+if(y==null)y=C.cS.gI5()}else y="inherit"
+return y},
+pQ:function(){this.fQ()
+if(this.r){var y=!this.fr
+this.fr=y
+this.c.P(0,y)}},
+a3A:function(n){var y,x
+y=n.keyCode
+if(this.r)x=y===13||Z.jj(n)
+else x=!1
+if(x){n.preventDefault()
+this.pQ()}},
+ga0n:function(){return this.c},
+gp2:function(){return this.r},
+gML:function(){return this.x},
+gfk:function(){return this.y},
+gda:function(n){return this.z},
+ga7:function(n){return this.Q},
+ga2R:function(){return this.dy},
+geB:function(n){return this.fr},
+glr:function(){return this.fx},
+sp2:function(n){return this.r=n},
+sda:function(n,o){return this.z=o},
+sa7:function(n,o){return this.Q=o},
+shL:function(n){return this.ch=n},
+seB:function(n,o){return this.fr=o},
+slr:function(n){return this.fx=n}}
+N.O7.prototype={
+p:function(){var y,x,w,v,u,t,s,r
+y=this.f
+x=this.e
+w=this.Z(x)
+v=$.$get$J()
+u=v.cloneNode(!1)
+w.appendChild(u)
+u=new V.o(0,null,this,u)
+this.r=u
+this.x=new K.B(new D.r(u,N.aBn()),u,!1)
+t=document
+s=S.d(t,"h3",w)
+this.l(s)
+u=t.createTextNode("")
+this.y=u
+s.appendChild(u)
+this.bW(s,0)
+u=S.d(t,"h2",w)
+this.z=u
+this.l(u)
+u=t.createTextNode("")
+this.Q=u
+this.z.appendChild(u)
+this.bW(this.z,1)
+u=v.cloneNode(!1)
+w.appendChild(u)
+u=new V.o(5,null,this,u)
+this.ch=u
+this.cx=new K.B(new D.r(u,N.aBo()),u,!1)
+w.appendChild(t.createTextNode("\n"))
+u=v.cloneNode(!1)
+w.appendChild(u)
+u=new V.o(7,null,this,u)
+this.cy=u
+this.db=new K.B(new D.r(u,N.aBp()),u,!1)
+w.appendChild(t.createTextNode("\n"))
+v=v.cloneNode(!1)
+w.appendChild(v)
+v=new V.o(9,null,this,v)
+this.dx=v
+this.dy=new K.B(new D.r(v,N.aBr()),v,!1)
+w.appendChild(t.createTextNode("\n"))
+this.bW(w,3)
+this.L(C.a,null)
+v=y.gdk()
+u=W.E
+r=J.Z(x)
+r.a4(x,"keyup",this.a6(v,u))
+r.a4(x,"blur",this.a6(v,u))
+r.a4(x,"mousedown",this.a6(y.gdi(),u))
+r.a4(x,"click",this.a6(y.gcO(),u))
+r.a4(x,"keypress",this.w(y.ga3z(),u,W.a4))},
+q:function(){var y,x,w,v,u
+y=this.f
+this.x.sV(y.r)
+x=this.cx
+y.cy
+x.sV(!1)
+this.db.sV(y.db!=null)
+this.dy.sV(y.dx!=null)
+this.r.H()
 this.ch.H()
 this.cy.H()
-this.fx.H()
-this.k2.H()
-this.k4.H()
-if(this.db){u=this.f
-r=Y.dU
-r=Q.yE(H.a([this.cy.cW(new L.O5(),r,L.q9),this.k2.cW(new L.O6(),r,L.xX)],[[P.C,Y.dU]]),r)
-u.sa4U(r.length!==0?C.e.gaO(r):null)
-this.db=!1}q=!(!!J.J(x.b).$isdl&&!x.cx)
-u=this.r2
-if(u!==q){this.aG(this.r,"border",q)
-this.r2=q}this.fr.A(w)
-this.fr.j()
-if(w){this.y.a5()
-this.fy.e9()}},
-v:function(){var x=this.z
-if(!(x==null))x.G()
-x=this.ch
-if(!(x==null))x.G()
-x=this.cy
-if(!(x==null))x.G()
-x=this.fx
-if(!(x==null))x.G()
-x=this.k2
-if(!(x==null))x.G()
-x=this.k4
-if(!(x==null))x.G()
-x=this.fr
-if(!(x==null))x.i()
-this.y.W()
-this.r1.W()
-this.fy.W()},
-YL:function(n){J.zc(this.f,!0)},
-YJ:function(n){var x,w
-x=this.f
-w=J.K(x)
-w.sbm(x,!w.gbm(x))
-this.x.i0()},
-WD:function(n){J.zc(this.f,n)},
-$asb:function(){return[G.cN]},
-sGx:function(n){return this.db=n}}
-L.Wj.prototype={
-p:function(){var x,w
-x=document
-w=x.createElement("span")
-this.r=w
-w.className="button-text"
-this.m(w)
-w=x.createTextNode("")
-this.x=w
-this.r.appendChild(w)
-this.E(this.r)
-return},
-q:function(){var x,w,v
-x=this.f
-w=x.gyp(x)
+this.dx.H()
+w=y.z
 if(w==null)w=""
-v=this.y
-if(v!==w){this.x.textContent=w
-this.y=w}},
-$asb:function(){return[G.cN]}}
-L.Wk.prototype={
-p:function(){var x=M.Z(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className="icon"
-x.setAttribute("icon","arrow_drop_down")
-this.h(this.r)
-x=new Y.S(this.r)
-this.y=x
-this.x.k(0,x,[])
-this.E(this.r)
-return},
-q:function(){if(this.a.cy===0){this.y.sak(0,"arrow_drop_down")
-var x=!0}else x=!1
-if(x)this.x.a.st(1)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[G.cN]}}
-L.q9.prototype={
-p:function(){var x,w
-x=V.a1r(this,0)
-this.x=x
-x=x.e
-this.r=x
-this.h(x)
-x=this.c
-x=Y.a0O(x.c.l(C.U,x.a.Q,null))
-this.y=x
-this.x.k(0,x,[])
-x=this.y.b
-w=new P.l(x,[H.i(x,0)]).B(this.w(this.gRb(),null,null))
-this.P([this.r],[w])
-return},
-q:function(){var x,w,v,u
-x=this.f
-w=x.gyp(x)
-v=this.z
-if(v==null?w!=null:v!==w){this.y.y=w
-this.z=w}u=x.gJ3()
-v=this.Q
-if(v==null?u!=null:v!==u){this.y.slX(u)
-this.Q=u}this.x.j()},
-dj:function(){this.c.sGx(!0)},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-Rc:function(n){J.zc(this.f,!0)},
-$asb:function(){return[G.cN]}}
-L.xX.prototype={
-p:function(){var x=V.a1r(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.className="search-box"
-x.setAttribute("leadingGlyph","search")
-this.h(this.r)
-x=this.c
-x=Y.a0O(x.c.l(C.U,x.a.Q,null))
-this.y=x
-this.x.k(0,x,[])
-this.E(this.r)
-return},
-q:function(){var x,w,v,u
-x=this.f
-if(this.a.cy===0)this.y.x="search"
-w=x.gyp(x)
-v=this.z
-if(v==null?w!=null:v!==w){this.y.y=w
-this.z=w}u=x.gJ3()
-v=this.Q
-if(v==null?u!=null:v!==u){this.y.slX(u)
-this.Q=u}this.x.j()},
-dj:function(){this.c.sGx(!0)},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[G.cN]}}
-L.Wl.prototype={
-p:function(){var x=D.h9(this,0)
-this.x=x
-x=x.e
-this.r=x
-this.h(x)
-x=this.c
-x=U.fZ(x.c.l(C.U,x.a.Q,null),null)
-this.y=x
-this.x.k(0,x,[])
-this.E(this.r)
-return},
-R:function(n,o,p){if(n===C.U&&0===o)return this.y
-return p},
-q:function(){var x,w,v,u,t,s,r
-x=this.f
-w=this.a.cy
-if(x.dx$){x.cy
-v=!0}else v=!1
-u=this.z
-if(u!==v){this.y.x=v
-this.z=v}t=x.c
-u=this.ch
-if(u==null?t!=null:u!==t){this.y.ld(t)
-this.ch=t}s=x.b
-u=this.cx
-if(u==null?s!=null:u!==s){this.y.eR(0,s)
-this.cx=s}r=x.a
-u=this.cy
-if(u==null?r!=null:u!==r){this.y.dQ(r)
-this.cy=r}this.x.A(w===0)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[G.cN]}}
-L.Wm.prototype={
-p:function(){var x=L.pn(this,0)
-this.r=x
-this.e=x.e
-x=this.n(C.d,this.a.Q)
-x=new G.cN(x,!1,"Select",!1,new P.k(null,null,0,[P.x]),!1,!0,!0,!1,null,null)
-x.dQ(C.ag)
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[G.cN])},
-R:function(n,o,p){if((n===C.b6||n===C.o||n===C.U)&&0===o)return this.x
-return p},
-q:function(){var x=this.a.cy
-if(x===0)this.x.iJ()
-this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[G.cN]}}
-U.ln.prototype={
-sx6:function(n,o){if(this.x2$===o)return
-this.x2$=o
-if(!this.x1$){this.x1$=!0
-P.c3(new U.Hc(this))}}}
-Y.dU.prototype={
-seC:function(n){var x=this.f
-if(x==null?n!=null:x!==n){this.f=n
-this.Ho()}},
-slX:function(n){var x,w
-x=this.e
-if(x==null?n!=null:x!==n){this.e=n
-w=n.gwV()
-if(w!=null)this.f=w
-this.Ho()}},
-a3m:function(){this.a.S(0,null)},
-ci:function(n){this.d.lc(0)},
-gf_:function(n){var x=this.a
-return new P.l(x,[H.i(x,0)])},
-Ho:function(){var x=this.r
-if(!(x==null)){x.c=!0
-x.b.$0()}this.r=this.e.xx(0,this.f)
-this.c.dx$=this.f.length!==0
-this.b.S(0,null)},
-sa4T:function(n){return this.d=n},
-snL:function(n){return this.x=n}}
-V.Oc.prototype={
-p:function(){var x,w
-x=this.a3(this.e)
-w=$.$get$I().cloneNode(!1)
-x.appendChild(w)
-w=new V.n(0,null,this,w)
+x=this.fr
+if(x!==w){this.y.textContent=w
+this.fr=w}v=y.ch
+x=this.fx
+if(x!=v){this.z.title=v
+this.fx=v}u=y.Q
+if(u==null)u=""
+x=this.fy
+if(x!==u){this.Q.textContent=u
+this.fy=u}},
+v:function(){var y=this.r
+if(!(y==null))y.G()
+y=this.ch
+if(!(y==null))y.G()
+y=this.cy
+if(!(y==null))y.G()
+y=this.dx
+if(!(y==null))y.G()},
+A:function(n){var y,x,w,v,u,t,s,r,q
+y=this.f.ga4l()
+x=this.go
+if(x!==y){this.b_(this.e,"is-change-positive",y)
+this.go=y}w=this.f.ga4k()
+x=this.id
+if(x!==w){this.b_(this.e,"is-change-negative",w)
+this.id=w}v=this.f.gxS()
+x=this.k1
+if(x!==v){this.b_(this.e,"selectable",v)
+this.k1=v}u=this.f.gmF()
+x=this.k2
+if(x!=u){x=this.e
+this.a5(x,"tabindex",u==null?null:C.h.K(u))
+this.k2=u}t=this.f.ga3Z()
+x=this.k3
+if(x!=t){this.a5(this.e,"role",t)
+this.k3=t}s=this.f.ga1I()
+x=this.k4
+if(x!==s){x=this.e.style
+C.A.cM(x,(x&&C.A).cz(x,"background"),s,null)
+this.k4=s}r=this.f.ga2R()
+x=this.r1
+if(x!==r){this.b_(this.e,"extra-big",r)
+this.r1=r}q=J.a3d(this.f)
+x=this.r2
+if(x!=q){this.b_(this.e,"selected",q)
+this.r2=q}},
+$asb:function(){return[L.ap]}}
+N.WQ.prototype={
+p:function(){var y=L.n9(this,0)
+this.x=y
+y=y.e
+this.r=y
+this.h(y)
+y=B.mJ(this.r)
+this.y=y
+this.x.k(0,y,[])
+this.E(this.r)},
+q:function(){this.x.j()},
+v:function(){var y=this.x
+if(!(y==null))y.i()
+this.y.S()},
+$asb:function(){return[L.ap]}}
+N.WR.prototype={
+p:function(){var y,x,w
+y=document
+x=y.createElement("span")
+x.className="suggestion before"
+this.l(x)
+w=y.createTextNode("")
 this.r=w
-this.y=new K.A(new D.p(w,V.azA()),w,!1)
-this.P(C.a,null)
-return},
-q:function(){var x,w,v
-x=this.f
-this.y.sZ(x.e!=null)
-this.r.H()
-if(this.x){w=this.f
-v=this.r.cW(new V.Od(),L.c8,V.qa)
-w.sa4T(v.length!==0?C.e.gaO(v):null)
-this.x=!1}},
-v:function(){var x=this.r
-if(!(x==null))x.G()},
-$asb:function(){return[Y.dU]},
-sa_A:function(n){return this.x=n}}
-V.qa.prototype={
-p:function(){var x,w,v,u,t
-x=Q.ah(this,0)
-this.x=x
-x=x.e
-this.r=x
-x.setAttribute("style","width: 100%;")
-x=new L.a7(H.a([],[{func:1,ret:[P.a9,P.c,,],args:[[Z.bj,,]]}]))
-this.y=x
-x=[x]
-this.z=x
-x=U.bg(x,null)
-this.Q=x
-this.ch=x
-x=L.ag(null,null,null,x,this.x.a.b,this.y)
-this.cx=x
-this.cy=x
-w=this.ch
-v=new Z.ak(new R.y(!0,!1),x,w)
-v.bE(x,w)
-this.db=v
-this.x.k(0,this.cx,[C.a,C.a])
-v=this.cx.r$
-u=new P.l(v,[H.i(v,0)]).B(this.ac(this.f.gjX(),W.aW))
-v=this.cx.x1
-w=P.c
-t=new P.l(v,[H.i(v,0)]).B(this.w(this.gRn(),w,w))
-this.P([this.r],[u,t])
-return},
-R:function(n,o,p){if(n===C.af&&0===o)return this.y
-if(n===C.ar&&0===o)return this.Q
-if(n===C.aq&&0===o)return this.ch
-if((n===C.aj||n===C.r||n===C.o||n===C.c)&&0===o)return this.cx
-if(n===C.ae&&0===o)return this.cy
-if(n===C.av&&0===o)return this.db
-return p},
-q:function(){var x,w,v,u,t,s
-x=this.f
-w=this.a.cy===0
-this.Q.sb_(x.f)
-this.Q.aZ()
-if(w)this.Q.D()
-if(w){this.cx.k4=!1
-v=!0}else v=!1
-u=x.y
-t=this.dx
-if(t==null?u!=null:t!==u){this.cx.fr=u
-this.dx=u
-v=!0}s=x.x
-t=this.dy
-if(t==null?s!=null:t!==s){this.cx.a6=s
-this.dy=s
-v=!0}if(v)this.x.a.st(1)
-this.x.j()
-if(w)this.cx.a5()},
-dj:function(){this.c.sa_A(!0)},
-v:function(){var x=this.x
-if(!(x==null))x.i()
-x=this.cx
-x.b4()
-x.K=null
-x.I=null
-this.db.a.F()},
-Ro:function(n){this.f.seC(n)},
-$asb:function(){return[Y.dU]}}
-V.Ws.prototype={
-p:function(){var x=V.a1r(this,0)
-this.r=x
-this.e=x.e
-x=Y.a0O(this.l(C.U,this.a.Q,null))
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[Y.dU])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[Y.dU]}}
-U.dc.prototype={
-sbY:function(n){this.dQ(n)},
-LJ:function(n,o){if(this.r==null)return this.x
-return this.x||o===0},
-a4V:function(n,o){if(this.r==null)return
-return o===0?2:null},
-gk9:function(n){var x,w
-if(!!J.J(this.b).$isjF)return"tree"
-else{x=this.a
-w=!J.J(x).$iscp
-if(w)x=x!==C.ag&&w
-else x=!0
-if(x)return"listbox"
-else return"list"}},
-ga3R:function(){return""+!!J.J(this.a).$iscp},
-ga3S:function(){return""+(this.a===C.ag)},
-gm9:function(){return this.f},
-sa7m:function(n){return this.z=n}}
-U.wq.prototype={}
-D.O2.prototype={
-p:function(){var x,w,v
-x=this.a3(this.e)
-w=$.$get$I()
-v=w.cloneNode(!1)
-x.appendChild(v)
-v=new V.n(0,null,this,v)
-this.r=v
-this.y=new K.A(new D.p(v,D.aA1()),v,!1)
-w=w.cloneNode(!1)
 x.appendChild(w)
-w=new V.n(1,null,this,w)
-this.z=w
-this.Q=new K.A(new D.p(w,D.aA3()),w,!1)
-this.P(C.a,null)
-return},
-q:function(){var x=this.f
-this.y.sZ(!!J.J(x.b).$isjF)
-this.Q.sZ(!J.J(x.b).$isjF)
+this.E(x)},
+q:function(){this.f.cy
+var y=this.x
+if(y!==""){this.r.textContent=""
+this.x=""}},
+$asb:function(){return[L.ap]}}
+N.WS.prototype={
+p:function(){var y,x,w
+y=document
+x=y.createElement("span")
+x.className="description"
+this.l(x)
+w=$.$get$J().cloneNode(!1)
+x.appendChild(w)
+w=new V.o(1,0,this,w)
+this.r=w
+this.x=new K.B(new D.r(w,N.aBq()),w,!1)
+x.appendChild(y.createTextNode(" "))
+w=y.createTextNode("")
+this.y=w
+x.appendChild(w)
+x.appendChild(y.createTextNode("  "))
+this.bW(x,2)
+this.E(x)},
+q:function(){var y,x,w
+y=this.f
+x=this.x
+x.sV(y.cx&&y.db!==""&&!y.f)
 this.r.H()
-this.z.H()
-if(this.x){this.f.sa7m(this.r.cW(new D.O4(),B.cy,D.xV))
-this.x=!1}},
-v:function(){var x=this.r
-if(!(x==null))x.G()
+w=y.db
+if(w==null)w=""
 x=this.z
-if(!(x==null))x.G()},
-A:function(n){var x,w,v,u
-x=J.qI(this.f)
-w=this.ch
-if(w==null?x!=null:w!==x){w=this.e
-this.a9(w,"role",x==null?null:x)
-this.ch=x}v=this.f.ga3R()
-w=this.cx
-if(w!==v){w=this.e
-this.a9(w,"aria-multiselectable",v)
-this.cx=v}u=this.f.ga3S()
-w=this.cy
-if(w!==u){w=this.e
-this.a9(w,"aria-readonly",u)
-this.cy=u}},
-$asb:function(){return[U.dc]},
-sa_s:function(n){return this.x=n}}
-D.xV.prototype={
-p:function(){var x=new V.n(0,null,this,$.$get$I().cloneNode(!1))
-this.r=x
-this.x=new R.ap(x,new D.p(x,D.aA2()))
-this.E(x)
-return},
-q:function(){var x,w
-x=this.f.b.c
-w=this.y
-if(w==null?x!=null:w!==x){this.x.scd(x)
-this.y=x}this.x.bO()
-this.r.H()},
-v:function(){var x=this.r
-if(!(x==null))x.G()},
-$asb:function(){return[U.dc]}}
-D.xW.prototype={
-p:function(){var x=V.a1t(this,0)
-this.x=x
-this.r=x.e
-x=this.c
-x=B.a0P(x.n(C.U,this.a.Q),this.x.a.b,x.l(C.q,this.a.Q,null),x.l(C.cn,this.a.Q,null))
-this.y=x
-this.x.k(0,x,[])
-this.E(this.r)
-return},
-q:function(){var x,w,v,u,t,s,r,q
-x=this.f
-w=this.a.cy
-v=this.b
-u=v.C(0,"$implicit")
-t=v.C(0,"index")
-v=this.z
-if(v==null?u!=null:v!==u){this.y.ski(u)
-this.z=u}s=x.y
-v=this.Q
-if(v!==s){this.y.db=s
-this.Q=s}r=x.a4V(u,t)
-v=this.ch
-if(v==null?r!=null:v!==r){this.y.sJP(r)
-this.ch=r}q=x.LJ(u,t)
-v=this.cx
-if(v!==q){this.y.zy(q)
-this.cx=q}this.x.A(w===0)
-this.x.j()},
-dj:function(){this.c.c.sa_s(!0)},
-v:function(){var x=this.x
-if(!(x==null))x.i()
-x=this.y
-x.c.F()
-x.c=null},
-$asb:function(){return[U.dc]}}
-D.Wb.prototype={
-p:function(){var x,w
-x=$.$get$I()
-w=new V.n(0,null,this,x.cloneNode(!1))
-this.r=w
-this.x=new K.A(new D.p(w,D.aA4()),w,!1)
-w=new V.n(1,null,this,x.cloneNode(!1))
-this.y=w
-this.z=new K.A(new D.p(w,D.aA6()),w,!1)
-x=new V.n(2,null,this,x.cloneNode(!1))
-this.Q=x
-this.ch=new K.A(new D.p(x,D.aA8()),x,!1)
-this.P([this.r,this.y,x],null)
-return},
-q:function(){var x,w,v
-x=this.f
-this.x.sZ(x.a===C.ag)
-w=this.z
-v=x.a
-w.sZ(v!==C.ag&&!J.J(v).$iscp)
-this.ch.sZ(!!J.J(x.a).$iscp)
-this.r.H()
-this.y.H()
-this.Q.H()},
-v:function(){var x=this.r
-if(!(x==null))x.G()
-x=this.y
-if(!(x==null))x.G()
-x=this.Q
-if(!(x==null))x.G()},
-$asb:function(){return[U.dc]}}
-D.Wc.prototype={
-p:function(){var x=new V.n(0,null,this,$.$get$I().cloneNode(!1))
-this.r=x
-this.x=new R.ap(x,new D.p(x,D.aA5()))
-this.E(x)
-return},
-q:function(){var x,w
-x=this.f.b.c
-w=this.y
-if(w==null?x!=null:w!==x){this.x.scd(x)
-this.y=x}this.x.bO()
-this.r.H()},
-v:function(){var x=this.r
-if(!(x==null))x.G()},
-$asb:function(){return[U.dc]}}
-D.Wd.prototype={
-p:function(){var x,w,v
-x=K.a7x(this,0)
-this.x=x
-this.r=x.e
-x=this.c.n(C.U,this.a.Q)
-w=this.x.a.b
-v=new F.eB(!0,new F.al(null,null,C.am,[null]),new P.ja(0,[null,[P.O,[F.al,,]]]),new R.y(!1,!1),x,w,!1,!1)
-v.kq(x,w,null,null)
-this.y=v
-this.x.k(0,v,[])
-this.E(this.r)
-return},
-q:function(){var x,w,v
-x=this.a.cy
-w=this.b.C(0,"$implicit")
-v=this.z
-if(v==null?w!=null:v!==w){this.y.ski(w)
-this.z=w}this.x.A(x===0)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[U.dc]}}
-D.We.prototype={
-p:function(){var x=new V.n(0,null,this,$.$get$I().cloneNode(!1))
-this.r=x
-this.x=new R.ap(x,new D.p(x,D.aA7()))
-this.E(x)
-return},
-q:function(){var x,w
-x=this.f.b.c
-w=this.y
-if(w==null?x!=null:w!==x){this.x.scd(x)
-this.y=x}this.x.bO()
-this.r.H()},
-v:function(){var x=this.r
-if(!(x==null))x.G()},
-$asb:function(){return[U.dc]}}
-D.Wf.prototype={
-p:function(){var x,w,v
-x=K.a7y(this,0)
-this.x=x
-this.r=x.e
-x=this.c
-w=x.n(C.U,this.a.Q)
-v=this.x.a.b
-x=new F.eC(x.l(C.q,this.a.Q,null),w.a,!0,new F.al(null,null,C.am,[null]),new P.ja(0,[null,[P.O,[F.al,,]]]),new R.y(!1,!1),w,v,!1,!1)
-x.kq(w,v,null,null)
-this.y=x
-this.x.k(0,x,[])
-this.E(this.r)
-return},
-q:function(){var x,w,v
-x=this.a.cy
-w=this.b.C(0,"$implicit")
-v=this.z
-if(v==null?w!=null:v!==w){this.y.ski(w)
-this.z=w}this.x.A(x===0)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[U.dc]}}
-D.Wg.prototype={
-p:function(){var x=new V.n(0,null,this,$.$get$I().cloneNode(!1))
-this.r=x
-this.x=new R.ap(x,new D.p(x,D.aA9()))
-this.E(x)
-return},
-q:function(){var x,w
-x=this.f.b.c
-w=this.y
-if(w==null?x!=null:w!==x){this.x.scd(x)
-this.y=x}this.x.bO()
-this.r.H()},
-v:function(){var x=this.r
-if(!(x==null))x.G()},
-$asb:function(){return[U.dc]}}
-D.Wh.prototype={
-p:function(){var x,w,v
-x=K.a7w(this,0)
-this.x=x
-this.r=x.e
-x=this.c
-w=x.n(C.U,this.a.Q)
-v=this.x.a.b
-x=new F.eA(x.l(C.q,this.a.Q,null),!0,new F.al(null,null,C.am,[null]),new P.ja(0,[null,[P.O,[F.al,,]]]),new R.y(!1,!1),w,v,!1,!1)
-x.kq(w,v,null,null)
-this.y=x
-this.x.k(0,x,[])
-this.E(this.r)
-return},
-q:function(){var x,w,v
-x=this.a.cy
-w=this.b.C(0,"$implicit")
-v=this.z
-if(v==null?w!=null:v!==w){this.y.ski(w)
-this.z=w}this.x.A(x===0)
-this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[U.dc]}}
-D.Wi.prototype={
-p:function(){var x=D.h9(this,0)
-this.r=x
-this.e=x.e
-x=U.fZ(this.l(C.U,this.a.Q,null),null)
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[U.dc])},
-R:function(n,o,p){if(n===C.U&&0===o)return this.x
-return p},
-q:function(){var x=this.a.cy
-this.r.A(x===0)
-this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[U.dc]}}
-K.dV.prototype={
-kq:function(n,o,p,q){var x,w
-this.r=this.a
-x=this.d.b
-if(!J.J(x).$isjF){this.y=new K.Hg(q)
-this.x=C.fV}else{this.y=this.ga3E()
-this.x=H.akS(x,"$isjF",[q,[P.O,[F.al,q]]],"$asjF")}w=H.eK(x,"$isj2",[q],"$asj2")
-if(w)this.z=x
-else this.z=new K.Pf([q])},
-sa2B:function(n){this.f=n
-if(n)this.a2C()
-else this.a1Q()},
-ski:function(n){var x,w,v,u,t,s
-this.c.F()
-this.r=n
-if(!this.f)this.b.e0(0)
-for(x=n.a,x=new J.dH(x,x.length,0);x.av();){w=x.d
-if(!!J.J(w).$isln){v=w.x2$
-u=this.c
-t=w.y1$
-s=H.i(t,0)
-u.c1(new P.hX(null,new P.l(t,[s]),[s]).fH(new K.Hh(this,w),null,null,!1))}else v=!1
-if(this.f||v)this.jk(w)}this.e.a.aS()},
-a1Q:function(){var x,w,v
-this.b.e0(0)
-for(x=this.r.a,x=new J.dH(x,x.length,0);x.av();){w=x.d
-v=J.J(w)
-if(!!v.$isln)v.sx6(w,!1)}this.e.a.aS()},
-a2C:function(){for(var x=this.r.a,x=new J.dH(x,x.length,0);x.av();)this.jk(x.d)},
-jZ:function(n){return this.x.jZ(n)},
-gi1:function(){return!!J.J(this.d.a).$iscp},
-js:function(n){var x
-if(!((!!J.J(this.d.a).$iscp||this.gHD())&&this.z.kh(n)===C.ad))x=!this.y.$1(n)&&this.z.kh(n)===C.ad
-else x=!0
-return x},
-kk:function(n){return this.z.kh(n)===C.b2&&!this.x.jZ(n)},
-dh:function(n){return this.d.a.dh(n)},
-jk:function(n){return this.a2E(n,[P.O,[F.al,H.aD(this,"dV",0)]])},
-a2E:function(n,o){var x=0,w=P.be(o),v,u=this,t,s,r
-var $async$jk=P.b7(function(p,q){if(p===1)return P.bb(q,w)
-while(true)switch(x){case 0:x=3
-return P.b_(u.x.wL(n),$async$jk)
-case 3:t=q
-s=J.J(n)
-if(!!s.$isln)s.sx6(n,!0)
-x=u.f&&t!=null?4:5
-break
-case 4:s=J.bE(t)
-case 6:if(!s.av()){x=7
-break}r=s.gb0(s).a,r=new J.dH(r,r.length,0)
-case 8:if(!r.av()){x=9
-break}x=10
-return P.b_(u.jk(r.d),$async$jk)
-case 10:x=8
-break
-case 9:x=6
-break
-case 7:case 5:u.e.a.aS()
-u.b.u(0,n,t)
-v=t
-x=1
-break
-case 1:return P.bc(v,w)}})
-return P.bd($async$jk,w)},
-HU:function(n){var x,w
-x=this.b.c6(0,n)
-w=J.J(n)
-if(!!w.$isln)w.sx6(n,!1)
-this.e.a.aS()
-return x!=null},
-KO:function(n){var x
-if(!this.HU(n))return this.jk(n)
-x=new P.aa(0,$.P,[[P.O,[F.al,H.aD(this,"dV",0)]]])
-x.dU(null)
-return x},
-oi:function(n,o){var x=this.d
-if(x.a.dh(n)===o)return o
-if(!o)return!x.a.ex(n)
-else return x.a.dw(0,n)},
-a7f:function(n,o,p){var x,w,v,u,t
-if(!C.e.bF(this.r.a,n)||!C.e.bF(this.r.a,o))return
-for(x=this.r.a,x=new J.dH(x,x.length,0),w=this.d,v=!1;x.av();){u=x.d
-t=J.J(u)
-if(!t.bD(u,n)&&!t.bD(u,o)&&!v)continue
-if(p)w.a.dw(0,u)
-else w.a.ex(u)
-if(t.bD(u,n)||t.bD(u,o)){if(!!v)break
-v=!0}}},
-gke:function(){var x=this.d
-if(x.e==null){x.d
-x=!1}else x=!0
-return x},
-o8:function(n){this.d.d
-return},
-o7:function(n){var x=this.d
-return x.e!=null?x.a2G(n):null},
-o9:function(n){var x=this.d.c
-return(x==null?G.cU():x).$1(n)},
-gfc:function(){return this.d},
-gHD:function(){return this.Q}}
-K.Pf.prototype={
-kh:function(n){return C.ad},
-$isj2:1}
-K.QK.prototype={
-jZ:function(n){return!1},
-n9:function(n,o){throw H.m(P.a3("Does not support hierarchy"))},
-wL:function(n){return this.n9(n,null)},
-$isjF:1}
-Y.tg.prototype={}
-G.oK.prototype={
-gm9:function(){return!1}}
-F.fo.prototype={
-gb_:function(){return this.a}}
-Y.O1.prototype={
-gpS:function(){var x=this.z
-if(x==null){x=document
-this.z=x}return x},
-gFS:function(){var x=this.Q
-if(x==null){x=window
-this.Q=x}return x},
-gpT:function(){var x=this.ch
-if(x==null){x=this.c
-x=T.aQ(x.l(C.d,this.a.Q,null),x.l(C.A,this.a.Q,null),x.n(C.f,this.a.Q),this.gFS())
-this.ch=x}return x},
-gFP:function(){var x=this.cx
-if(x==null){x=new O.aB(this.c.n(C.R,this.a.Q),this.gpT())
-this.cx=x}return x},
-gvK:function(){var x=this.cy
-if(x==null){x=new K.az(this.gpS(),this.gpT(),P.aN(null))
-this.cy=x}return x},
-gvL:function(){var x=this.dx
-if(x==null){x=G.b0(this.c.l(C.w,this.a.Q,null))
-this.dx=x}return x},
-gFU:function(){var x=this.dy
-if(x==null){x=G.b3(this.gpS(),this.c.l(C.x,this.a.Q,null))
-this.dy=x}return x},
-gFV:function(){var x=this.fr
-if(x==null){x=G.aT(this.gvL(),this.gFU(),this.c.l(C.v,this.a.Q,null))
-this.fr=x}return x},
-gvM:function(){var x=this.fx
-if(x==null){this.fx=!0
-x=!0}return x},
-gFW:function(){var x=this.fy
-if(x==null){this.fy=!0
-x=!0}return x},
-gFR:function(){var x=this.go
-if(x==null){x=this.gpS()
-x=new R.aI(x.querySelector("head"),!1,x)
-this.go=x}return x},
-gFT:function(){var x=this.id
-if(x==null){x=X.aZ()
-this.id=x}return x},
-gFQ:function(){var x=this.k1
-if(x==null){x=K.aX(this.gFR(),this.gFV(),this.gvL(),this.gvK(),this.gpT(),this.gFP(),this.gvM(),this.gFW(),this.gFT())
-this.k1=x}return x},
-p:function(){var x,w
-x=this.a3(this.e)
-w=K.c_(this,0)
-this.x=w
-w=w.e
-this.r=w
-x.appendChild(w)
-w=new U.an(this.c.n(C.a7,this.a.Q))
-this.y=w
-this.x.k(0,w,[])
-this.P(C.a,null)
-return},
-R:function(n,o,p){var x,w,v,u
-if(n===C.L&&0===o)return this.gpS()
-if(n===C.G&&0===o)return this.gFS()
-if(n===C.d&&0===o)return this.gpT()
-if(n===C.N&&0===o)return this.gFP()
-if(n===C.M&&0===o)return this.gvK()
-if(n===C.S&&0===o){x=this.db
-if(x==null){x=T.aV(this.c.n(C.f,this.a.Q))
-this.db=x}return x}if(n===C.w&&0===o)return this.gvL()
-if(n===C.x&&0===o)return this.gFU()
-if(n===C.v&&0===o)return this.gFV()
-if(n===C.Q&&0===o)return this.gvM()
-if(n===C.E&&0===o)return this.gFW()
-if(n===C.P&&0===o)return this.gFR()
-if(n===C.C&&0===o)return this.gFT()
-if(n===C.O&&0===o)return this.gFQ()
-if(n===C.n&&0===o){x=this.k2
-if(x==null){x=this.c
-w=x.n(C.f,this.a.Q)
-v=this.gvM()
-u=this.gFQ()
-x.l(C.n,this.a.Q,null)
-u=new X.aG(v,w,u)
-this.k2=u
-x=u}return x}if(n===C.F&&0===o){x=this.k3
-if(x==null){this.k3=C.z
-x=C.z}return x}if(n===C.y&&0===o){x=this.k4
-if(x==null){x=new K.aJ(this.gvK())
-this.k4=x}return x}return p},
-q:function(){var x,w
-x=this.f.a
-w=this.r1
-if(w!==x){this.y.a=x
-this.r1=x}this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[F.fo]}}
-Y.Wa.prototype={
-p:function(){var x,w,v
-x=P.c
-w=new Y.O1(P.e(x,null),this)
-w.a=S.f(w,3,C.j,0)
-v=document.createElement("material-tree-api")
-w.e=v
-v=$.a7n
-if(v==null){v=$.D
-v=v.a2(null,C.V,C.a)
-$.a7n=v}w.a1(v)
-this.r=w
-this.e=w.e
-w=[R.h]
-w=H.a([new R.a2("MaterialTreeComponent","material-tree","","angular_components/lib/src/material_tree/material_tree_impl.dart","<p>A material selection component that supports a tree of options.</p>\n<p>To use, simply pass in a minimum of <code>options</code> to see items.</p>\n<p>If <code>SelectionOptions</code> implements the <code>Parent</code> interface, a handle is shown\nfor each option that <code>Parent.hasChildren</code> is set for, and toggling the\nhandle will create an additional tree from the results of\n<code>Parent.childrenOf</code>.</p>\n<p>If <code>SelectionOptions</code> implements the <code>Filterable</code> interface.</p>\n<p>To receive feedback from the component, a <code>selection</code> model is required.</p>\n<p>To customize, specify an <code>itemRenderer</code> and/or <code>factoryRenderer</code>.</p>\n",H.a([new R.h("Input","allowParentSingleSelection","","bool","<p>Whether the widgets supports the selection of non-leaf nodes</p>\n<p>When <code>false</code>, and the widget is using a single selection model clicking\nthe widget should toggle expansion when a non-leaf node is clicked. When\n<code>true</code> the widget should select non-leaf nodes when clicked and only\ntoggle expansion when the expansion icon is clicked.</p>\n","angular_components/lib/src/material_tree/material_tree_impl.dart",!1,""),new R.h("Input","componentRenderer","","(dynamic) \u2192 Type","","angular_components/lib/src/material_tree/material_tree_impl.dart",!0,"Use [factoryRenderer] instead"),new R.h("Input","expandAll","","bool","<p>Whether to always expand an option group.</p>\n","angular_components/lib/src/material_tree/material_tree_impl.dart",!1,""),new R.h("Input","factoryRenderer","","(dynamic) \u2192 ComponentFactory<dynamic>","<p>Specifies the factoryRenderer to use to determine the factory for\nrendering an item.</p>\n","angular_components/lib/src/material_tree/material_tree_impl.dart",!1,""),new R.h("Input","itemRenderer","","(dynamic) \u2192 String","<p>A simple function to render the item to string.</p>\n","angular_components/lib/src/material_tree/material_tree_impl.dart",!1,""),new R.h("Input","optimizeForDropdown","","bool","<p>Whether to hide check-marks in a single select dropdown</p>\n","angular_components/lib/src/material_tree/material_tree_impl.dart",!1,""),new R.h("Input","options","","SelectionOptions<dynamic>","<p>The available options for this contianer.</p>\n","angular_components/lib/src/material_tree/material_tree_impl.dart",!1,""),new R.h("Input","selection","","SelectionModel<dynamic>","<p>The selection model this container represents.</p>\n","angular_components/lib/src/material_tree/material_tree_impl.dart",!1,"")],w),H.a([],w)),new R.a2("MaterialTreeDropdownComponent","material-tree-dropdown","","angular_components/lib/src/material_tree/material_tree_dropdown.dart","<p>A button-triggered dropdown containing a <code>MaterialTreeComponent</code>.</p>\n",H.a([new R.h("Input","componentRenderer","","(dynamic) \u2192 Type","","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!0,"Use [factoryRenderer] instead"),new R.h("Input","expandAll","","bool","<p>Whether to always expand an option group.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,""),new R.h("Input","factoryRenderer","","(dynamic) \u2192 ComponentFactory<dynamic>","<p>Specifies the factoryRenderer to use to determine the factory for\nrendering an item.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,""),new R.h("Input","itemRenderer","","(dynamic) \u2192 String","<p>A simple function to render the item to string.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,""),new R.h("Input","options","","SelectionOptions<dynamic>","<p>The available options for this contianer.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,""),new R.h("Input","placeholder","","String","<p>Placeholder to be used for the dropdown text when nothing is selected.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,""),new R.h("Input","popupPositions","","List<dynamic>","<p>List of positions to try and draw the options popup.</p>\n<p>If left unset or if explicitly set to null, <code>_defaultPopupPositions</code> will\nbe used. See <code>MaterialPopupComponent</code> for more information.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,""),new R.h("Input","selection","","SelectionModel<dynamic>","<p>The selection model this container represents.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,""),new R.h("Input","shouldExpandAllWhenFiltered","","bool","<p>When <code>true</code> expand all items when the tree is being filtered.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,""),new R.h("Input","showFilterInsidePopup","","bool","<p>Place the filter input inside of the popup.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,""),new R.h("Input","visible","","bool","<p>Whether to show the dropdown or not.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,"")],w),H.a([new R.h("Output","visibleChange","","Stream<bool>","<p>Fired when the dropdown's visibility changes.</p>\n","angular_components/lib/src/material_tree/material_tree_dropdown.dart",!1,"")],w))],[R.a2])
-v=H.a([new R.a6(C.dd,"MaterialTreeFlatReadonlyDemoComponent","material_tree_example/lib/src/material_tree_flat_readonly_demo.dart"),new R.a6(C.dB,"MaterialTreeFlatSelectableDemoComponent","material_tree_example/lib/src/material_tree_flat_selectable_demo.dart"),new R.a6(C.d_,"MaterialTreeFlatMultiDemoComponent","material_tree_example/lib/src/material_tree_flat_multi_demo.dart"),new R.a6(C.dV,"MaterialTreeNestedSingleDemoComponent","material_tree_example/lib/src/material_tree_nested_single_demo.dart"),new R.a6(C.cX,"MaterialTreeNestedSingleParentSelectableDemoComponent","material_tree_example/lib/src/material_tree_nested_single_parent_selectable_demo.dart"),new R.a6(C.eb,"MaterialTreeNestedMultiDemoComponent","material_tree_example/lib/src/material_tree_nested_multi_demo.dart"),new R.a6(C.dP,"MaterialTreeNestedItemRenderingComponent","material_tree_example/lib/src/material_tree_nested_item_rendering_demo.dart"),new R.a6(C.e5,"MaterialTreeNestedComponentRenderingComponent","material_tree_example/lib/src/material_tree_nested_component_rendering_demo.dart"),new R.a6(C.e3,"MaterialTreeNestedExpandDemoComponent","material_tree_example/lib/src/material_tree_nested_expansion_state_demo.dart"),new R.a6(C.e4,"MaterialTreeDropdownSingleDemoComponent","material_tree_example/lib/src/material_tree_dropdown_single_demo.dart"),new R.a6(C.e6,"MaterialTreeDropdownMultiDemoComponent","material_tree_example/lib/src/material_tree_dropdown_multi_demo.dart"),new R.a6(C.e7,"MaterialTreeDropdownFilterableDemoComponent","material_tree_example/lib/src/material_tree_flat_filter_demo.dart"),new R.a6(C.dJ,"MaterialTreeDropdownNestedFilterableDemoComponent","material_tree_example/lib/src/material_tree_nested_filter_demo.dart"),new R.a6(C.dz,"MaterialTreeDropdownNestedFilterInPopupDemoComponent","material_tree_example/lib/src/material_tree_nested_filter_in_popup_demo.dart"),new R.a6(C.dR,"MaterialTreeNestedSingleDividerDemoComponent","material_tree_example/lib/src/material_tree_nested_single_divider_demo.dart"),new R.a6(C.dk,"MaterialTreeViewMoreDemoComponent","material_tree_example/lib/src/material_tree_view_more_demo.dart")],[R.a6])
-x=new F.fo(R.c6(H.a([],[x]),v,w,null,C.J,P.e(x,x),!0,C.J))
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[F.fo])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[F.fo]}}
-U.fH.prototype={$isdv:1,
-$asdv:function(){return[P.c]},
-gaf:function(n){return this.a},
-saf:function(n,o){return this.a=o}}
-K.Mi.prototype={
-p:function(){var x,w
-x=this.a3(this.e)
-w=M.Z(this,0)
-this.x=w
-w=w.e
-this.r=w
-x.appendChild(w)
-this.r.setAttribute("icon","android")
-this.r.setAttribute("size","small")
+if(x!==w){this.y.textContent=w
+this.z=w}},
+v:function(){var y=this.r
+if(!(y==null))y.G()},
+$asb:function(){return[L.ap]}}
+N.WT.prototype={
+p:function(){var y=M.U(this,0)
+this.x=y
+y=y.e
+this.r=y
+y.className="change-glyph"
+y.setAttribute("size","small")
 this.h(this.r)
-w=new Y.S(this.r)
-this.y=w
-this.x.k(0,w,[])
-w=document.createTextNode("")
-this.z=w
-x.appendChild(w)
-this.P(C.a,null)
-return},
-q:function(){var x,w,v,u
-x=this.f
-if(this.a.cy===0){this.y.sak(0,"android")
+y=new Y.O(this.r)
+this.y=y
+this.x.k(0,y,[])
+this.E(this.r)},
+q:function(){var y,x,w
+y=this.f.d?"arrow_upward":"arrow_downward"
+x=this.z
+if(x!==y){this.y.sag(0,y)
+this.z=y
 w=!0}else w=!1
 if(w)this.x.a.st(1)
-v=x.a
-if(v==null)v=""
-u=this.Q
-if(u!==v){this.z.textContent=v
-this.Q=v}this.x.j()},
-v:function(){var x=this.x
-if(!(x==null))x.i()},
-$asb:function(){return[U.fH]}}
-K.RH.prototype={
-p:function(){var x,w
-x=new K.Mi(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("component-renderer-example")
-x.e=w
-w=$.a67
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$ahp())
-$.a67=w}x.a1(w)
-this.r=x
-this.e=x.e
-w=new U.fH()
-this.x=w
-x.k(0,w,this.a.e)
+this.x.j()},
+v:function(){var y=this.x
+if(!(y==null))y.i()},
+$asb:function(){return[L.ap]}}
+N.WU.prototype={
+p:function(){var y,x,w
+y=document
+x=y.createElement("span")
+x.className="suggestion after"
+this.l(x)
+w=y.createTextNode("")
+this.r=w
+x.appendChild(w)
+this.E(x)},
+q:function(){var y,x
+y=this.f.dx
+if(y==null)y=""
+x=this.x
+if(x!==y){this.r.textContent=y
+this.x=y}},
+$asb:function(){return[L.ap]}}
+N.WV.prototype={
+p:function(){var y,x,w
+y=N.b1(this,0)
+this.r=y
+x=y.e
+this.e=x
+y=y.a.b
+w=this.n(C.d,this.a.Q)
+y=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,y,x,!1,!1,!1,x,w)
+this.x=y
+this.r.k(0,y,this.a.e)
 this.E(this.e)
-return new D.z(this,0,this.e,this.x,[U.fH])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[U.fH]}}
-V.wB.prototype={
-jZ:function(n){return this.d.cY(0,n)},
-n9:function(n,o){return Q.C4(this.d.C(0,n),[P.C,[F.al,H.i(this,0)]])},
-wL:function(n){return this.n9(n,null)},
-$isjF:1,
-$asjF:function(n){return[n,[P.C,[F.al,n]]]}}
-V.QG.prototype={
-qR:function(n,o,p){var x,w,v,u,t
-x=H.a([],[[F.al,H.i(this,0)]])
-for(w=this.z,v=w.length,u=0;u<w.length;w.length===v||(0,H.at)(w),++u){t=this.Oo(o,w[u])
-if(t!=null)x.push(t)}this.ol(x)
-return Q.C4(!0,P.x)},
-xx:function(n,o){return this.qR(n,o,-1)},
-Oo:function(n,o){var x,w,v,u
-x=this.$ti
-w=H.a([],x)
-for(v=o.a,v=new J.dH(v,v.length,0);v.av();){u=v.d
-if(C.i.eP(J.ze(u),n.toLowerCase()))w.push(u)}return w.length!==0?new F.al(null,null,w,x):null},
-sfF:function(n){this.z=n
-this.ol(n)},
-gwV:function(){return this.y}}
-V.AH.prototype={
-gbe:function(n){return this.a},
-gf6:function(){return this.b},
-sbe:function(n,o){return this.a=o}}
-V.dI.prototype={}
-V.I1.prototype={
-n9:function(n,o){return Q.C4(H.a([new F.al(null,null,n.c,[V.dI])],[[F.al,V.dI]]),[P.C,[F.al,V.dI]])},
-wL:function(n){return this.n9(n,null)},
-jZ:function(n){return n.c.length!==0},
-$isjF:1,
-$asjF:function(){return[V.dI,[P.C,[F.al,V.dI]]]},
-$aseD:function(){return[V.dI]}}
-V.vD.prototype={}
-V.yq.prototype={}
-G.iL.prototype={
-sju:function(n){return this.c=n}}
-A.O8.prototype={
-p:function(){var x,w,v,u,t,s,r
-x=this.a3(this.e)
-w=document
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Mutli selection dropdown")
-this.r.appendChild(u)
-v=S.o(w,x)
-this.x=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.x)
-v=S.o(w,this.x)
-this.y=v
-v.setAttribute("style","padding: 8px")
-this.h(this.y)
-v=S.d(w,"strong",this.y)
-this.z=v
-this.m(v)
-t=w.createTextNode("Selected:")
-this.z.appendChild(t)
-s=w.createTextNode(" ")
-this.y.appendChild(s)
-v=w.createTextNode("")
-this.Q=v
-this.y.appendChild(v)
-r=w.createTextNode(" items")
-this.y.appendChild(r)
-v=S.o(w,x)
-this.ch=v
-v.className="shadow"
-v.setAttribute("style","width: 388px; margin: 24px; padding: 12px;")
-this.h(this.ch)
-v=L.pn(this,10)
-this.cy=v
-v=v.e
-this.cx=v
-this.ch.appendChild(v)
-this.h(this.cx)
-v=this.c.n(C.d,this.a.Q)
-v=new G.cN(v,!1,"Select",!1,new P.k(null,null,0,[P.x]),!1,!0,!0,!1,null,null)
-v.dQ(C.ag)
-this.db=v
-this.cy.k(0,v,[C.a])
-this.f.sju(this.db)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if((n===C.b6||n===C.o||n===C.U)&&10===o)return this.db
-return p},
-q:function(){var x,w,v,u
-x=this.f
-w=this.a.cy===0
-if(w){v=x.a
-if(v!=null)this.db.eR(0,v)
-this.db.dQ(x.b)}if(w)this.db.iJ()
-u=Q.H(x.b.a.a)
-v=this.dx
-if(v!==u){this.Q.textContent=u
-this.dx=u}this.cy.j()},
-v:function(){var x=this.cy
-if(!(x==null))x.i()},
-$asb:function(){return[G.iL]}}
-A.Wo.prototype={
-p:function(){var x,w
-x=new A.O8(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-dropdown-multi-demo")
+return new D.A(this,0,this.e,this.x,[L.ap])},
+q:function(){var y=this.a.cy
+this.r.A(y===0)
+this.r.j()},
+v:function(){var y=this.r
+if(!(y==null))y.i()},
+$asb:function(){return[L.ap]}}
+T.ts.prototype={
+D:function(){var y,x
+y=this.b
+x=this.d
+y.dT(x.eR(this.ga_P()))
+y.dT(x.a7m(new T.Jd(this),new T.Je(this),!0))},
+gmJ:function(){var y,x
+y=this.r
+if(y!=null){x=this.x
+y=x!=null&&y<x}else y=!1
+return y},
+gGo:function(){var y=this.r
+return y!=null&&Math.abs(this.z)+y>=this.x},
+gGN:function(){var y=this.c
+return this.f?y.parentElement.clientHeight:y.parentElement.clientWidth},
+nh:function(){this.b.dT(this.d.eR(new T.Jg(this)))},
+ni:function(){this.b.dT(this.d.eR(new T.Jh(this)))},
+Ji:function(n){if(this.z!==0){this.z=0
+this.vn()}this.b.dT(this.d.eR(new T.Jf(this)))},
+vn:function(){this.b.dT(this.d.dR(new T.Jc(this)))},
+v_:function(n){var y,x,w,v
+this.r=this.gGN()
+y=this.c
+this.x=this.f?C.B.by(y.scrollHeight):C.B.by(y.scrollWidth)
+if(n&&!this.gmJ()&&this.z!==0){this.Ji(0)
+return}this.AB()
+x=new W.vc(y,y.children)
+x=!x.gbA(x)&&this.x>0
+w=this.r
+if(x){v=this.x/y.children.length
+this.y=C.B.il(C.aF.il((w-this.Q*2)/v)*v)}else this.y=w},
+oX:function(){return this.v_(!1)},
+AB:function(){var y,x,w,v,u,t,s
+if(this.Q===0){y=new W.kM(this.c.parentElement.querySelectorAll(".scroll-button"),[W.ai])
+for(x=new H.jz(y,y.gI(y),0);x.ao();){w=x.d
+v=this.f?"height":"width"
+w.toString
+w=window.getComputedStyle(w,"")
+u=w.getPropertyValue((w&&C.A).cz(w,v))
+t=u==null?"":u
+if(t!=="auto"){x=P.cT("[^0-9.]",!0,!1)
+s=H.a58(H.k1(t,x,""))
+this.Q=C.B.il(s==null?0:s)
+break}}}}}
+K.dJ.prototype={
+gI5:function(){var y,x
+y="#"+C.i.dH(C.h.hK(C.h.hj(this.a),16),2,"0")+C.i.dH(C.h.hK(C.h.hj(this.b),16),2,"0")+C.i.dH(C.h.hK(C.h.hj(this.c),16),2,"0")
+x=this.d
+return y+(x===1?"":C.i.dH(C.h.hK(C.h.hj(255*x),16),2,"0"))},
+K:function(n){var y,x,w,v
+y=this.d
+x=this.a
+w=this.b
+v=this.c
+if(y===1)y="rgb("+x+","+w+","+v+")"
+else{x="rgba("+x+","+w+","+v+","
+y=x+(y<0.01?"0":C.h.a76(y,2))+")"}return y},
+b8:function(n,o){var y
+if(o==null)return!1
+if(this!==o)y=o instanceof K.dJ&&this.a===o.a&&this.b===o.b&&this.c===o.c&&Math.abs(this.d-o.d)<0.01
+else y=!0
+return y},
+gbH:function(n){return X.afh(this.a,this.b,this.c,this.d)}}
+V.fu.prototype={
+gaM:function(){return this.a}}
+A.O6.prototype={
+gns:function(){var y=this.z
+if(y==null){y=document
+this.z=y}return y},
+gyT:function(){var y=this.Q
+if(y==null){y=window
+this.Q=y}return y},
+gnt:function(){var y=this.ch
+if(y==null){y=this.c
+y=T.aT(y.m(C.d,this.a.Q,null),y.m(C.C,this.a.Q,null),y.n(C.f,this.a.Q),this.gyT())
+this.ch=y}return y},
+gyG:function(){var y,x
+y=this.cx
+if(y==null){y=this.c.n(C.R,this.a.Q)
+x=this.gnt()
+y=new O.aJ(y,x)
+this.cx=y}return y},
+gqT:function(){var y=this.cy
+if(y==null){y=new K.aG(this.gns(),this.gnt(),P.aQ(null))
+this.cy=y}return y},
+gLP:function(){var y=this.db
+if(y==null){y=T.aW(this.c.n(C.f,this.a.Q))
+this.db=y}return y},
+guX:function(){var y=this.dx
+if(y==null){y=G.b0(this.c.m(C.w,this.a.Q,null))
+this.dx=y}return y},
+gF3:function(){var y=this.dy
+if(y==null){y=G.b3(this.gns(),this.c.m(C.x,this.a.Q,null))
+this.dy=y}return y},
+gF4:function(){var y=this.fr
+if(y==null){y=G.aV(this.guX(),this.gF3(),this.c.m(C.v,this.a.Q,null))
+this.fr=y}return y},
+guY:function(){var y=this.fx
+if(y==null){this.fx=!0
+y=!0}return y},
+gF5:function(){var y=this.fy
+if(y==null){this.fy=!0
+y=!0}return y},
+gyM:function(){var y=this.go
+if(y==null){y=this.gns()
+y=new R.aL(y.querySelector("head"),!1,y)
+this.go=y}return y},
+gyU:function(){var y=this.id
+if(y==null){y=X.aZ()
+this.id=y}return y},
+gyL:function(){var y=this.k1
+if(y==null){y=K.aX(this.gyM(),this.gF4(),this.guX(),this.gqT(),this.gnt(),this.gyG(),this.guY(),this.gF5(),this.gyU())
+this.k1=y}return y},
+gLY:function(){var y,x,w,v
+y=this.k2
+if(y==null){y=this.c
+x=y.n(C.f,this.a.Q)
+w=this.guY()
+v=this.gyL()
+y.m(C.n,this.a.Q,null)
+y=new X.aH(w,x,v)
+this.k2=y}return y},
+p:function(){var y,x
+y=this.Z(this.e)
+x=K.c6(this,0)
+this.x=x
+x=x.e
+this.r=x
+y.appendChild(x)
+x=this.c.n(C.a6,this.a.Q)
+x=new X.an(x)
+this.y=x
+this.x.k(0,x,[])
+this.L(C.a,null)},
+N:function(n,o,p){var y
+if(n===C.L&&0===o)return this.gns()
+if(n===C.G&&0===o)return this.gyT()
+if(n===C.d&&0===o)return this.gnt()
+if(n===C.N&&0===o)return this.gyG()
+if(n===C.M&&0===o)return this.gqT()
+if(n===C.S&&0===o)return this.gLP()
+if(n===C.w&&0===o)return this.guX()
+if(n===C.x&&0===o)return this.gF3()
+if(n===C.v&&0===o)return this.gF4()
+if(n===C.Q&&0===o)return this.guY()
+if(n===C.E&&0===o)return this.gF5()
+if(n===C.P&&0===o)return this.gyM()
+if(n===C.D&&0===o)return this.gyU()
+if(n===C.O&&0===o)return this.gyL()
+if(n===C.n&&0===o)return this.gLY()
+if(n===C.F&&0===o){y=this.k3
+if(y==null){this.k3=C.z
+y=C.z}return y}if(n===C.y&&0===o){y=this.k4
+if(y==null){y=new K.aM(this.gqT())
+this.k4=y}return y}return p},
+q:function(){var y,x
+y=this.f.a
+x=this.r1
+if(x!==y){this.y.a=y
+this.r1=y}this.x.j()},
+v:function(){var y=this.x
+if(!(y==null))y.i()},
+$asb:function(){return[V.fu]}}
+A.WP.prototype={
+p:function(){var y,x,w
+y=P.c
+x=new A.O6(P.e(y,null),this)
+x.a=S.h(x,3,C.j,0)
+w=document.createElement("scorecard-api")
 x.e=w
 w=$.a7p
 if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiS())
-$.a7p=w}x.a1(w)
+w=w.Y(null,C.V,C.a)
+$.a7p=w}x.X(w)
 this.r=x
 this.e=x.e
-x=new G.iL($.$get$kU(),Z.dX(null,null,null))
-this.x=x
-this.r.k(0,x,this.a.e)
+x=[R.i]
+x=H.a([new R.a1("ScorecardComponent","acx-scorecard","","angular_components/lib/scorecard/scorecard.dart",X.f("<p>Standalone scorecard component.</p>\n<p>This component is meant to be reused/embedded in larger components.</p>\n<p><strong>ng-content:</strong></p><ul><li><code>name</code> -- Custom content in the label area.</li><li><code>value</code> -- Custom content in the value area.</li><li><code>description</code> -- Custom content in the description area.</li></ul>\n"),H.a([new R.i("Input","changeGlyph","","bool",X.f("<p>Whether to display a small change arrow glyph in the description;\noptional.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","changeType","","String",X.f("<p>Set the type of change depicted by scorecard.</p>\n<p>This determines the style of the description. Possible values are:</p><ul><li>'POSITIVE'</li><li>'NEGATIVE'</li><li>'NEUTRAL' (default)</li></ul>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","description","","String",X.f("<p>Short description on the scorecard; optional.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","extraBig","","bool",X.f('<p>Whether to use the "big" class style for scorecards; optional.</p>\n'),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","label","","String",X.f("<p>The title of the scorecard.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","selectable","","bool",X.f("<p>Whether the selection state of the scorecard can be changed by clicking.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","selected","","bool",X.f("<p>Whether the scorecard is selected.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","selectedColor","","Color",X.f("<p>The <code>Color</code> to apply to the scorecard background when it is selected.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","suggestionAfter","","String",X.f("<p>A piece of suggestion text after the description; optional.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","suggestionBefore","","String",X.f("<p>A piece of suggestion text before the description; optional.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","tooltip","","String",X.f("<p>The value displayed in a tooltip when the users hovers over the value.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,""),new R.i("Input","value","","String",X.f("<p>The value displayed to the user.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,"")],x),H.a([new R.i("Output","selectedChange","","Stream<bool>",X.f("<p>Fired when the selection state changes.</p>\n"),"angular_components/lib/scorecard/scorecard.dart",!1,"")],x)),new R.a1("ScoreboardComponent","acx-scoreboard","","angular_components/lib/scorecard/scoreboard.dart",X.f("<p>This component manages a row of scorecards.</p>\n<p><strong>Attributes:</strong></p><ul><li><code>enableUniformWidths: bool</code> -- Whether scorecards in the scoreboard\nshould have uniform widths.</li></ul>\n"),H.a([new R.i("Input","isVertical","","bool",X.f("<p>Whether the scorecard is displayed vertically. Defaults to false.</p>\n"),"angular_components/lib/scorecard/scoreboard.dart",!1,""),new R.i("Input","resetOnCardChanges","","bool",X.f("<p>Whether to reset the card selection when there are card changes.</p>\n<p>If a card is added or removed, and this is set to true, then all\ncards will be deselected. For <code>ScoreboardType.radio</code>, the first card will\nbe selected.</p>\n"),"angular_components/lib/scorecard/scoreboard.dart",!1,""),new R.i("Input","scrollable","","bool",X.f("<p>Whether allow scrolling the scoreboard via scroll buttons.</p>\n<p>Scrollable property can be set dynamically during app runtime -- will add\nor remove window resize listener depending on state of <code>scrollable</code>.</p>\n"),"angular_components/lib/scorecard/scoreboard.dart",!1,""),new R.i("Input","type","","ScoreboardType",X.f("<p>Type of scoreboard, e.g., standard, selectable, radio, toggle.</p>\n"),"angular_components/lib/scorecard/scoreboard.dart",!1,"")],x),H.a([],x))],[R.a1])
+w=H.a([new R.a6(C.dO,"ScorecardDemoComponent","scorecard_example/lib/scorecard_demo.dart")],[R.a6])
+y=new V.fu(R.cd(H.a([],[y]),w,x,null,C.J,P.e(y,y),!0,C.J))
+this.x=y
+this.r.k(0,y,this.a.e)
 this.E(this.e)
-return new D.z(this,0,this.e,this.x,[G.iL])},
+return new D.A(this,0,this.e,this.x,[V.fu])},
 q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[G.iL]}}
-G.iO.prototype={
-sju:function(n){return this.c=n}}
-S.Ob.prototype={
-p:function(){var x,w,v,u,t,s
-x=this.a3(this.e)
-w=document
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Single selection dropdown")
-this.r.appendChild(u)
-v=S.o(w,x)
+v:function(){var y=this.r
+if(!(y==null))y.i()},
+$asb:function(){return[V.fu]}}
+F.h4.prototype={
+sx5:function(n){if(n==null||n<=0)return
+this.e=n
+this.d=F.a5h(n)},
+gxS:function(){return this.a},
+gd1:function(){return this.d},
+sd1:function(n){return this.d=n}}
+E.v_.prototype={
+p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,h0,h1,h2,h3,h4,h5,h6,h7,h8,h9,i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,j0,j1,j2,j3,j4,j5,j6,j7,j8,j9,k0,k1,k2,k3,k4,k5,k6,k7,k8,k9,l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,n0,n1,n2,n3,n4,n5,n6,n7,n8,n9,o0,o1,o2,o3,o4,o5,o6,o7,o8,o9,p0
+y=this.Z(this.e)
+x=document
+y.appendChild(x.createTextNode("\n"))
+w=S.d(x,"h2",y)
+this.l(w)
+w.appendChild(x.createTextNode("Single Scorecards"))
+y.appendChild(x.createTextNode("\n"))
+v=N.b1(this,4)
 this.x=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.x)
-v=S.o(w,this.x)
+v=v.e
+this.r=v
+y.appendChild(v)
+this.r.setAttribute("changeType","POSITIVE")
+this.r.setAttribute("description","+$24.20 (15%)")
+this.r.setAttribute("label","Embed me!")
+this.r.setAttribute("value","$158.22")
+this.h(this.r)
+v=this.x.a.b
+u=this.r
+t=this.c
+s=t.n(C.d,this.a.Q)
+v=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,v,u,!1,!1,!1,u,s)
 this.y=v
-v.setAttribute("style","padding: 8px")
-this.h(this.y)
-v=S.d(w,"strong",this.y)
-this.z=v
-this.m(v)
-t=w.createTextNode("Selected:")
-this.z.appendChild(t)
-s=w.createTextNode(" ")
-this.y.appendChild(s)
-v=w.createTextNode("")
+r=x.createTextNode("\n")
+u=[W.aN]
+this.x.k(0,v,[C.a,C.a,C.a,H.a([r],u)])
+y.appendChild(x.createTextNode("\n"))
+v=N.b1(this,7)
 this.Q=v
-this.y.appendChild(v)
-v=S.o(w,x)
+v=v.e
+this.z=v
+y.appendChild(v)
+this.z.setAttribute("changeType","POSITIVE")
+this.z.setAttribute("description","+$24.20 (15%)")
+this.z.setAttribute("label","Selected")
+this.z.setAttribute("value","$158.22")
+this.h(this.z)
+v=this.Q.a.b
+s=this.z
+q=t.n(C.d,this.a.Q)
+v=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,v,s,!1,!1,!1,s,q)
 this.ch=v
-v.className="shadow"
-v.setAttribute("style","width: 388px; margin: 24px; padding: 12px;")
-this.h(this.ch)
-v=L.pn(this,9)
+p=x.createTextNode("\n")
+this.Q.k(0,v,[C.a,C.a,C.a,H.a([p],u)])
+y.appendChild(x.createTextNode("\n"))
+v=N.b1(this,10)
 this.cy=v
 v=v.e
 this.cx=v
-this.ch.appendChild(v)
+y.appendChild(v)
+this.cx.setAttribute("changeType","POSITIVE")
+this.cx.className=Q.bw("","right-align"," ","themeable","")
+this.cx.setAttribute("description","+$24.20 (15%)")
+this.cx.setAttribute("label","Right aligned")
+this.cx.setAttribute("value","$158.22")
 this.h(this.cx)
-v=this.c.n(C.d,this.a.Q)
-v=new G.cN(v,!1,"Select",!1,new P.k(null,null,0,[P.x]),!1,!0,!0,!1,null,null)
-v.dQ(C.ag)
+v=this.cy.a.b
+s=this.cx
+q=t.n(C.d,this.a.Q)
+v=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,v,s,!1,!1,!1,s,q)
 this.db=v
-this.cy.k(0,v,[C.a])
-this.f.sju(this.db)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if((n===C.b6||n===C.o||n===C.U)&&9===o)return this.db
-return p},
-q:function(){var x,w,v,u
-x=this.f
-w=this.a.cy===0
-if(w){v=x.a
-if(v!=null)this.db.eR(0,v)
-this.db.dQ(x.b)}if(w)this.db.iJ()
-u=Q.H(x.b.b)
-v=this.dx
-if(v!==u){this.Q.textContent=u
-this.dx=u}this.cy.j()},
-v:function(){var x=this.cy
-if(!(x==null))x.i()},
-$asb:function(){return[G.iO]}}
-S.Wr.prototype={
-p:function(){var x,w
-x=new S.Ob(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-dropdown-single-demo")
-x.e=w
-w=$.a7s
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiV())
-$.a7s=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=new G.iO($.$get$kU(),Z.cz(null,null,null))
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[G.iO])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[G.iO]}}
-G.iK.prototype={
-sju:function(n){return this.c=n}}
-Y.O7.prototype={
-p:function(){var x,w,v,u,t,s
-x=this.a3(this.e)
-w=document
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Dropdown with filtering (flat)")
-this.r.appendChild(u)
-v=S.o(w,x)
-this.x=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.x)
-v=S.o(w,this.x)
-this.y=v
-v.setAttribute("style","padding: 8px")
-this.h(this.y)
-v=S.d(w,"strong",this.y)
-this.z=v
-this.m(v)
-t=w.createTextNode("Selected:")
-this.z.appendChild(t)
-s=w.createTextNode(" ")
-this.y.appendChild(s)
-v=w.createTextNode("")
-this.Q=v
-this.y.appendChild(v)
-v=S.o(w,x)
-this.ch=v
-v.className="shadow"
-v.setAttribute("style","width: 388px; margin: 24px; padding: 12px;")
-this.h(this.ch)
-v=L.pn(this,9)
-this.cy=v
-v=v.e
-this.cx=v
-this.ch.appendChild(v)
-this.h(this.cx)
-v=this.c.n(C.d,this.a.Q)
-v=new G.cN(v,!1,"Select",!1,new P.k(null,null,0,[P.x]),!1,!0,!0,!1,null,null)
-v.dQ(C.ag)
-this.db=v
-this.cy.k(0,v,[C.a])
-this.f.sju(this.db)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if((n===C.b6||n===C.o||n===C.U)&&9===o)return this.db
-return p},
-q:function(){var x,w,v,u
-x=this.f
-w=this.a.cy===0
-if(w){v=x.a
-if(v!=null)this.db.eR(0,v)
-this.db.dQ(x.b)}if(w)this.db.iJ()
-u=Q.H(x.b.b)
-v=this.dx
-if(v!==u){this.Q.textContent=u
-this.dx=u}this.cy.j()},
-v:function(){var x=this.cy
-if(!(x==null))x.i()},
-$asb:function(){return[G.iK]}}
-Y.Wn.prototype={
-p:function(){var x,w
-x=new Y.O7(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-flat-filterable-demo")
-x.e=w
-w=$.a7o
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiR())
-$.a7o=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=new G.iK($.$get$aft(),Z.cz(null,null,null))
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[G.iK])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[G.iK]}}
-R.iP.prototype={}
-L.Oe.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2
-x=this.a3(this.e)
-w=document
-x.appendChild(w.createTextNode("      "))
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Flat (no hierarchy) with multi selection")
-this.r.appendChild(u)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("\n        final SelectionOptions simpleFlatOptions =\n            new SelectionOptions.fromList([\n                'Pinocchio',\n                'Fantasia',\n                'The Reluctant Dragon',\n                'Dumbo',\n                'Bambi',\n                'Saludos Amigos',\n                'Victory Through Air Power',\n                'The Three Caballeros',\n                'Make Mine Music',\n                'Song of the South',\n                'Fun and Fancy Free',\n                'Melody Time',\n                'So Dear to My Heart',\n                'The Adventures of Ichabod and Mr. Toad'\n            ]);\n\n        final SelectionModel multiSelection =\n            new SelectionModel.multi();\n      ")
-this.x.appendChild(t)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('\n        <material-tree\n          [options]="simpleFlatOptions"\n          [selection]="singleSelection">\n        </material-tree>\n      ')
-this.y.appendChild(s)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.z=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-r=w.createTextNode("\n        ")
-this.z.appendChild(r)
-v=S.o(w,this.z)
-this.Q=v
-v.setAttribute("style","padding: 8px")
-this.h(this.Q)
-q=w.createTextNode("\n          ")
-this.Q.appendChild(q)
-v=S.d(w,"strong",this.Q)
-this.ch=v
-this.m(v)
-p=w.createTextNode("Selected:")
-this.ch.appendChild(p)
-o=w.createTextNode("\n          ")
-this.Q.appendChild(o)
-v=w.createTextNode("")
-this.cx=v
-this.Q.appendChild(v)
-n=w.createTextNode(" items\n        ")
-this.Q.appendChild(n)
-a0=w.createTextNode("\n      ")
-this.z.appendChild(a0)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.cy=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.cy)
-a1=w.createTextNode("\n        ")
-this.cy.appendChild(a1)
-v=D.h9(this,23)
-this.dx=v
-v=v.e
-this.db=v
-this.cy.appendChild(v)
-this.h(this.db)
-v=U.fZ(this.c.l(C.U,this.a.Q,null),null)
-this.dy=v
-w.createTextNode("\n        ")
-this.dx.k(0,v,[])
-a2=w.createTextNode("\n      ")
-this.cy.appendChild(a2)
-x.appendChild(w.createTextNode("\n    "))
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.U&&23<=o&&o<=24)return this.dy
-return p},
-q:function(){var x,w,v,u,t
-x=this.f
-w=this.a.cy===0
-if(w)this.dy.dQ(x.a)
-v=x.c
-u=this.fx
-if(u==null?v!=null:u!==v){this.dy.eR(0,v)
-this.fx=v}t=Q.H(x.a.a.a)
-u=this.fr
-if(u!==t){this.cx.textContent=t
-this.fr=t}this.dx.A(w)
-this.dx.j()},
-v:function(){var x=this.dx
-if(!(x==null))x.i()},
-$asb:function(){return[R.iP]}}
-L.Wt.prototype={
-p:function(){var x,w
-x=new L.Oe(P.e(P.c,null),this)
-x.a=S.f(x,3,C.j,0)
-w=document.createElement("material-tree-flat-multi-demo")
-x.e=w
-w=$.a7t
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiW())
-$.a7t=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=x.a.b
-x=new R.iP(Z.dX(null,null,null),x,$.$get$a_P())
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[R.iP])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[R.iP]}}
-V.iQ.prototype={}
-B.Of.prototype={
-p:function(){var x,w,v,u,t,s
-x=this.a3(this.e)
-w=document
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Flat options (no hierarchy) in readonly mode (no selection model)")
-this.r.appendChild(u)
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("final SelectionOptions simpleFlatOptions = new SelectionOptions.fromList([ 'Pinocchio', 'Fantasia', 'The Reluctant Dragon', 'Dumbo', 'Bambi', 'Saludos Amigos', 'Victory Through Air Power', 'The Three Caballeros', 'Make Mine Music', 'Song of the South', 'Fun and Fancy Free', 'Melody Time', 'So Dear to My Heart', 'The Adventures of Ichabod and Mr. Toad' ]);")
-this.x.appendChild(t)
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('<material-tree [options]="simpleFlatOptions"> </material-tree>')
-this.y.appendChild(s)
-v=S.o(w,x)
-this.z=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-v=D.h9(this,7)
-this.ch=v
-v=v.e
-this.Q=v
-this.z.appendChild(v)
-this.h(this.Q)
-v=U.fZ(this.c.l(C.U,this.a.Q,null),null)
-this.cx=v
-this.ch.k(0,v,[])
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.U&&7===o)return this.cx
-return p},
-q:function(){var x,w,v
-x=this.f
-w=this.a.cy===0
-if(w){v=x.a
-if(v!=null)this.cx.eR(0,v)}this.ch.A(w)
-this.ch.j()},
-v:function(){var x=this.ch
-if(!(x==null))x.i()},
-$asb:function(){return[V.iQ]}}
-B.Wu.prototype={
-p:function(){var x,w
-x=new B.Of(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-flat-readonly-demo")
-x.e=w
-w=$.a7u
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiX())
-$.a7u=w}x.a1(w)
-this.r=x
-this.e=x.e
-w=new V.iQ($.$get$a_P())
-this.x=w
-x.k(0,w,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[V.iQ])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[V.iQ]}}
-R.iR.prototype={}
-A.Og.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2
-x=this.a3(this.e)
-w=document
-x.appendChild(w.createTextNode("      "))
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Flat (no hierarchy) with single selection")
-this.r.appendChild(u)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("\n        final SelectionOptions simpleFlatOptions =\n            new SelectionOptions.fromList([\n                'Pinocchio',\n                'Fantasia',\n                'The Reluctant Dragon',\n                'Dumbo',\n                'Bambi',\n                'Saludos Amigos',\n                'Victory Through Air Power',\n                'The Three Caballeros',\n                'Make Mine Music',\n                'Song of the South',\n                'Fun and Fancy Free',\n                'Melody Time',\n                'So Dear to My Heart',\n                'The Adventures of Ichabod and Mr. Toad'\n            ]);\n\n        final SelectionModel singleSelection = new SelectionModel.single();\n      ")
-this.x.appendChild(t)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('\n        <material-tree\n          [options]="simpleFlatOptions"\n          [selection]="singleSelection">\n        </material-tree>\n      ')
-this.y.appendChild(s)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.z=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-r=w.createTextNode("\n        ")
-this.z.appendChild(r)
-v=S.o(w,this.z)
-this.Q=v
-v.setAttribute("style","padding: 8px")
-this.h(this.Q)
-q=w.createTextNode("\n          ")
-this.Q.appendChild(q)
-v=S.d(w,"strong",this.Q)
-this.ch=v
-this.m(v)
-p=w.createTextNode("Selected:")
-this.ch.appendChild(p)
-o=w.createTextNode(" ")
-this.Q.appendChild(o)
-v=w.createTextNode("")
-this.cx=v
-this.Q.appendChild(v)
-n=w.createTextNode("\n        ")
-this.Q.appendChild(n)
-a0=w.createTextNode("\n      ")
-this.z.appendChild(a0)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.cy=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.cy)
-a1=w.createTextNode("\n        ")
-this.cy.appendChild(a1)
-v=D.h9(this,23)
-this.dx=v
-v=v.e
-this.db=v
-this.cy.appendChild(v)
-this.h(this.db)
-v=U.fZ(this.c.l(C.U,this.a.Q,null),null)
-this.dy=v
-w.createTextNode("\n        ")
-this.dx.k(0,v,[])
-a2=w.createTextNode("\n      ")
-this.cy.appendChild(a2)
-x.appendChild(w.createTextNode("\n    "))
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.U&&23<=o&&o<=24)return this.dy
-return p},
-q:function(){var x,w,v,u
-x=this.f
-w=this.a.cy===0
-if(w){v=x.a
-if(v!=null)this.dy.eR(0,v)
-this.dy.dQ(x.b)}u=Q.H(x.b.b)
-v=this.fr
-if(v!==u){this.cx.textContent=u
-this.fr=u}this.dx.A(w)
-this.dx.j()},
-v:function(){var x=this.dx
-if(!(x==null))x.i()},
-$asb:function(){return[R.iR]}}
-A.Wv.prototype={
-p:function(){var x,w
-x=new A.Og(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-flat-selectable-demo")
-x.e=w
-w=$.a7v
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiY())
-$.a7v=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=new R.iR($.$get$a_P(),Z.cz(null,null,null))
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[R.iR])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[R.iR]}}
-S.iS.prototype={
-sh4:function(n){return this.c=n}}
-M.Om.prototype={
-p:function(){var x,w,v,u,t,s
-x=this.a3(this.e)
-w=document
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Nested with custom component renderer")
-this.r.appendChild(u)
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("// See material_tree_nested_single_demo.dart final SelectionOptions nestedOptions = data.nestedOptions; // See material_tree_component_renderer.dart ComponentRenderer sampleComponentRenderer = (_) => ComponentRendererExample;")
-this.x.appendChild(t)
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('<material-tree [options]="nestedOptions" [factoryRenderer]="sampleComponentFactory"> </material-tree>')
-this.y.appendChild(s)
-v=S.o(w,x)
-this.z=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-v=D.h9(this,7)
-this.ch=v
-v=v.e
-this.Q=v
-this.z.appendChild(v)
-this.h(this.Q)
-v=U.fZ(this.c.l(C.U,this.a.Q,null),null)
-this.cx=v
-this.ch.k(0,v,[])
-this.f.sh4(this.cx)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.U&&7===o)return this.cx
-return p},
-q:function(){var x,w,v,u
-x=this.f
-w=this.a.cy===0
-if(w){v=x.a
-if(v!=null)this.cx.eR(0,v)}u=x.b
-v=this.cy
-if(v!==u){this.cx.mx(u)
-this.cy=u}this.ch.A(w)
-this.ch.j()},
-v:function(){var x=this.ch
-if(!(x==null))x.i()},
-$asb:function(){return[S.iS]}}
-M.WO.prototype={
-p:function(){var x,w
-x=new M.Om(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-nested-component-rendering-demo")
-x.e=w
-w=$.a7z
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj2())
-$.a7z=w}x.a1(w)
-this.r=x
-this.e=x.e
-w=new S.iS($.$get$kU(),new S.Hd())
-this.x=w
-x.k(0,w,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[S.iS])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[S.iS]}}
-S.hH.prototype={
-f7:function(n){return this.c.$1(n)},
-sh4:function(n){return this.d=n}}
-Z.On.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2
-x=this.a3(this.e)
-w=document
-x.appendChild(w.createTextNode("      "))
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Nested with multi selection preserving expansion state")
-this.r.appendChild(u)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("\n        // See material_tree_nested_multi_demo.dart\n        final SelectionOptions nestedOptions = data.expandStateOptions;\n\n        final SelectionModel multiSelection = new SelectionModel.multi();\n        final ItemRenderer<data.CategoryTargetNode> nameRenderer = (node) => node.name;\n        String itemRenderer(item) => nameRenderer(item);\n      ")
-this.x.appendChild(t)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('\n        <material-tree\n          [options]="nestedOptions"\n          [selection]="multiSelection"\n          [itemRenderer]="itemRenderer">\n        </material-tree>\n      ')
-this.y.appendChild(s)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.z=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-r=w.createTextNode("\n        ")
-this.z.appendChild(r)
-v=S.o(w,this.z)
-this.Q=v
-v.setAttribute("style","padding: 8px")
-this.h(this.Q)
-q=w.createTextNode("\n          ")
-this.Q.appendChild(q)
-v=S.d(w,"strong",this.Q)
-this.ch=v
-this.m(v)
-p=w.createTextNode("Selected:")
-this.ch.appendChild(p)
-o=w.createTextNode("\n          ")
-this.Q.appendChild(o)
-v=w.createTextNode("")
-this.cx=v
-this.Q.appendChild(v)
-n=w.createTextNode(" items\n        ")
-this.Q.appendChild(n)
-a0=w.createTextNode("\n      ")
-this.z.appendChild(a0)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.cy=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.cy)
-a1=w.createTextNode("\n        ")
-this.cy.appendChild(a1)
-v=D.h9(this,23)
-this.dx=v
-v=v.e
-this.db=v
-this.cy.appendChild(v)
-this.h(this.db)
-v=U.fZ(this.c.l(C.U,this.a.Q,null),null)
-this.dy=v
-w.createTextNode("\n        ")
-this.dx.k(0,v,[])
-a2=w.createTextNode("\n      ")
-this.cy.appendChild(a2)
-x.appendChild(w.createTextNode("\n    "))
-this.f.sh4(this.dy)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.U&&23<=o&&o<=24)return this.dy
-return p},
-q:function(){var x,w,v,u
-x=this.f
-w=this.a.cy===0
-if(w){v=x.gd9()
-this.dy.ld(v)
-this.dy.eR(0,x.a)
-this.dy.dQ(x.b)}u=Q.H(x.b.a.a)
-v=this.fr
-if(v!==u){this.cx.textContent=u
-this.fr=u}this.dx.A(w)
-this.dx.j()},
-v:function(){var x=this.dx
-if(!(x==null))x.i()},
-$asb:function(){return[S.hH]}}
-Z.WP.prototype={
-p:function(){var x,w,v,u,t,s
-x=new Z.On(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-nested-expand-demo")
-x.e=w
-w=$.a7A
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj3())
-$.a7A=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=$.$get$fB()
-w=x.$1("Survival")
-v=$.$get$fB()
-u=V.dI
-t=[u]
-v=x.$2("Adventure",H.a([w,v.$2("Fantasy",H.a([v.$1("Medieval"),$.$get$fB().$1("Modern-day Fantasy")],t))],t))
-w=$.$get$fB()
-w=x.$2("Action/Adventure",H.a([v,w.$2("Action",H.a([w.$1("Thriller"),$.$get$fB().$1("Chessboxing")],t))],t))
-v=$.$get$fB()
-x=v.$2("2D Animated",H.a([v.$1("Childrens' Animation"),$.$get$fB().$1("Adults' Animation")],t))
-s=$.$get$fB()
-s=v.$2("Animated",H.a([x,s.$2("3D Animated",H.a([s.$1("Disney Movies"),$.$get$fB().$1("Pixar Movies")],t)),$.$get$fB().$1("Claymation")],t))
-x=$.$get$fB()
-t=H.a([new F.al(null,null,H.a([w,s,x.$2("Horror",H.a([x.$1("Paranormal"),$.$get$fB().$1("Disaster"),$.$get$fB().$1("Psychological")],t))],t),[u])],[[F.al,V.dI]])
-x=new V.I1(new P.k(null,null,0,[[P.C,[F.al,u]]]))
-x.sfF(t)
-u=new S.hH(x,Z.dX(null,null,u),new S.He())
-this.x=u
-this.r.k(0,u,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[S.hH])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[S.hH]}}
-D.iN.prototype={
-sju:function(n){return this.c=n}}
-L.Oa.prototype={
-p:function(){var x,w,v,u,t,s
-x=this.a3(this.e)
-w=document
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Dropdown with filtering (nested)")
-this.r.appendChild(u)
-v=S.o(w,x)
-this.x=v
-v.className="shadow"
-v.setAttribute("elevation","1")
-this.x.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.x)
-v=S.o(w,this.x)
-this.y=v
-v.setAttribute("style","padding: 8px")
-this.h(this.y)
-v=S.d(w,"strong",this.y)
-this.z=v
-this.m(v)
-t=w.createTextNode("Selected:")
-this.z.appendChild(t)
-s=w.createTextNode(" ")
-this.y.appendChild(s)
-v=w.createTextNode("")
-this.Q=v
-this.y.appendChild(v)
-v=S.o(w,x)
-this.ch=v
-v.className="shadow"
-v.setAttribute("style","width: 388px; margin: 24px; padding: 12px;")
-this.h(this.ch)
-v=L.pn(this,9)
-this.cy=v
-v=v.e
-this.cx=v
-this.ch.appendChild(v)
-this.h(this.cx)
-v=this.c.n(C.d,this.a.Q)
-v=new G.cN(v,!1,"Select",!1,new P.k(null,null,0,[P.x]),!1,!0,!0,!1,null,null)
-v.dQ(C.ag)
-this.db=v
-this.cy.k(0,v,[C.a])
-this.f.sju(this.db)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if((n===C.b6||n===C.o||n===C.U)&&9===o)return this.db
-return p},
-q:function(){var x,w,v,u
-x=this.f
-w=this.a.cy===0
-if(w){v=x.a
-if(v!=null)this.db.eR(0,v)
-this.db.dQ(x.b)}if(w)this.db.iJ()
-u=Q.H(x.b.b)
-v=this.dx
-if(v!==u){this.Q.textContent=u
-this.dx=u}this.cy.j()},
-v:function(){var x=this.cy
-if(!(x==null))x.i()},
-$asb:function(){return[D.iN]}}
-L.Wq.prototype={
-p:function(){var x,w
-x=new L.Oa(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-nested-filterable-demo")
-x.e=w
-w=$.a7r
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiU())
-$.a7r=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=new D.iN($.$get$a2m(),Z.cz(null,null,null))
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[D.iN])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[D.iN]}}
-O.iM.prototype={
-sju:function(n){return this.c=n}}
-E.O9.prototype={
-p:function(){var x,w,v,u,t,s
-x=this.a3(this.e)
-w=document
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Dropdown with filtering inside popup(nested)")
-this.r.appendChild(u)
-v=S.o(w,x)
-this.x=v
-v.className="shadow"
-v.setAttribute("elevation","1")
-this.x.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.x)
-v=S.o(w,this.x)
-this.y=v
-v.setAttribute("style","padding: 8px")
-this.h(this.y)
-v=S.d(w,"strong",this.y)
-this.z=v
-this.m(v)
-t=w.createTextNode("Selected:")
-this.z.appendChild(t)
-s=w.createTextNode(" ")
-this.y.appendChild(s)
-v=w.createTextNode("")
-this.Q=v
-this.y.appendChild(v)
-v=S.o(w,x)
-this.ch=v
-v.className="shadow"
-v.setAttribute("style","width: 388px; margin: 24px; padding: 12px;")
-this.h(this.ch)
-v=L.pn(this,9)
-this.cy=v
-v=v.e
-this.cx=v
-this.ch.appendChild(v)
-this.h(this.cx)
-v=this.c.n(C.d,this.a.Q)
-v=new G.cN(v,!1,"Select",!1,new P.k(null,null,0,[P.x]),!1,!0,!0,!1,null,null)
-v.dQ(C.ag)
-this.db=v
-this.cy.k(0,v,[C.a])
-this.f.sju(this.db)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if((n===C.b6||n===C.o||n===C.U)&&9===o)return this.db
-return p},
-q:function(){var x,w,v,u,t
-x=this.f
-w=this.a.cy===0
-if(w){v=this.db
-v.cx=!0
-u=x.a
-if(u!=null)v.eR(0,u)
-this.db.dQ(x.b)}if(w)this.db.iJ()
-t=Q.H(x.b.b)
-v=this.dx
-if(v!==t){this.Q.textContent=t
-this.dx=t}this.cy.j()},
-v:function(){var x=this.cy
-if(!(x==null))x.i()},
-$asb:function(){return[O.iM]}}
-E.Wp.prototype={
-p:function(){var x,w
-x=new E.O9(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-nested-filter-in-dropdown-demo")
-x.e=w
-w=$.a7q
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aiT())
-$.a7q=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=new O.iM($.$get$a2m(),Z.cz(null,null,null))
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[O.iM])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[O.iM]}}
-F.hI.prototype={
-f7:function(n){return this.b.$1(n)},
-sh4:function(n){return this.c=n}}
-M.Oo.prototype={
-p:function(){var x,w,v,u,t,s
-x=this.a3(this.e)
-w=document
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Nested with item renderer")
-this.r.appendChild(u)
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("// See material_tree_nested_single_demo.dart final SelectionOptions nestedOptions = data.nestedOptions; ItemRenderer<String> sampleItemRenderer = (String movieTitle) => movieTitle.toUpperCase(); String itemRenderer(item) => sampleItemRenderer(item);")
-this.x.appendChild(t)
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('<material-tree [options]="nestedOptions" [itemRenderer]="itemRenderer"> </material-tree>')
-this.y.appendChild(s)
-v=S.o(w,x)
-this.z=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-v=D.h9(this,7)
-this.ch=v
-v=v.e
-this.Q=v
-this.z.appendChild(v)
-this.h(this.Q)
-v=U.fZ(this.c.l(C.U,this.a.Q,null),null)
-this.cx=v
-this.ch.k(0,v,[])
-this.f.sh4(this.cx)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.U&&7===o)return this.cx
-return p},
-q:function(){var x,w,v
-x=this.f
-w=this.a.cy===0
-if(w){v=x.gd9()
-this.cx.ld(v)
-v=x.a
-if(v!=null)this.cx.eR(0,v)}this.ch.A(w)
-this.ch.j()},
-v:function(){var x=this.ch
-if(!(x==null))x.i()},
-$asb:function(){return[F.hI]}}
-M.WQ.prototype={
-p:function(){var x,w
-x=new M.Oo(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-nested-item-rendering-demo")
-x.e=w
-w=$.a7B
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj4())
-$.a7B=w}x.a1(w)
-this.r=x
-this.e=x.e
-w=new F.hI($.$get$kU(),new F.Hf())
-this.x=w
-x.k(0,w,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[F.hI])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[F.hI]}}
-S.iT.prototype={
-sh4:function(n){return this.c=n}}
-M.Op.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2
-x=this.a3(this.e)
-w=document
-x.appendChild(w.createTextNode("      "))
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Nested with multi selection")
-this.r.appendChild(u)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("\n        // See material_tree_nested_single_demo.dart\n        final SelectionOptions nestedOptions = data.nestedOptions;\n\n        final SelectionModel multiSelection = new SelectionModel.multi();\n      ")
-this.x.appendChild(t)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('\n        <material-tree\n          [options]="nestedOptions"\n          [selection]="multiSelection">\n        </material-tree>\n      ')
-this.y.appendChild(s)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.z=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-r=w.createTextNode("\n        ")
-this.z.appendChild(r)
-v=S.o(w,this.z)
-this.Q=v
-v.setAttribute("style","padding: 8px")
-this.h(this.Q)
-q=w.createTextNode("\n          ")
-this.Q.appendChild(q)
-v=S.d(w,"strong",this.Q)
-this.ch=v
-this.m(v)
-p=w.createTextNode("Selected:")
-this.ch.appendChild(p)
-o=w.createTextNode("\n          ")
-this.Q.appendChild(o)
-v=w.createTextNode("")
-this.cx=v
-this.Q.appendChild(v)
-n=w.createTextNode(" items\n        ")
-this.Q.appendChild(n)
-a0=w.createTextNode("\n      ")
-this.z.appendChild(a0)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.cy=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.cy)
-a1=w.createTextNode("\n        ")
-this.cy.appendChild(a1)
-v=D.h9(this,23)
-this.dx=v
-v=v.e
-this.db=v
-this.cy.appendChild(v)
-this.h(this.db)
-v=U.fZ(this.c.l(C.U,this.a.Q,null),null)
-this.dy=v
-w.createTextNode("\n        ")
-this.dx.k(0,v,[])
-a2=w.createTextNode("\n      ")
-this.cy.appendChild(a2)
-x.appendChild(w.createTextNode("\n    "))
-this.f.sh4(this.dy)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.U&&23<=o&&o<=24)return this.dy
-return p},
-q:function(){var x,w,v,u
-x=this.f
-w=this.a.cy===0
-if(w){v=x.a
-if(v!=null)this.dy.eR(0,v)
-this.dy.dQ(x.b)}u=Q.H(x.b.a.a)
-v=this.fr
-if(v!==u){this.cx.textContent=u
-this.fr=u}this.dx.A(w)
-this.dx.j()},
-v:function(){var x=this.dx
-if(!(x==null))x.i()},
-$asb:function(){return[S.iT]}}
-M.WR.prototype={
-p:function(){var x,w
-x=new M.Op(P.e(P.c,null),this)
-x.a=S.f(x,3,C.j,0)
-w=document.createElement("material-tree-nested-multi-demo")
-x.e=w
-w=$.a7C
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj5())
-$.a7C=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=new S.iT($.$get$kU(),Z.dX(null,null,null))
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[S.iT])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[S.iT]}}
-Q.iU.prototype={
-sh4:function(n){return this.d=n}}
-S.Oq.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2
-x=this.a3(this.e)
-w=document
-x.appendChild(w.createTextNode("      "))
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Nested with single selection")
-this.r.appendChild(u)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("\n        // See material_tree_nested_single_demo.dart\n        final SelectionOptions nestedOptions = data.nestedOptions;\n\n        final SelectionModel singleSelection = new SelectionModel.single();\n      ")
-this.x.appendChild(t)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('\n        <material-tree\n          [options]="nestedOptions"\n          [selection]="singleSelection">\n        </material-tree>\n      ')
-this.y.appendChild(s)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.z=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-r=w.createTextNode("\n        ")
-this.z.appendChild(r)
-v=S.o(w,this.z)
-this.Q=v
-v.setAttribute("style","padding: 8px")
-this.h(this.Q)
-q=w.createTextNode("\n          ")
-this.Q.appendChild(q)
-v=S.d(w,"strong",this.Q)
-this.ch=v
-this.m(v)
-p=w.createTextNode("Selected:")
-this.ch.appendChild(p)
-o=w.createTextNode(" ")
-this.Q.appendChild(o)
-v=w.createTextNode("")
-this.cx=v
-this.Q.appendChild(v)
-n=w.createTextNode("\n        ")
-this.Q.appendChild(n)
-a0=w.createTextNode("\n      ")
-this.z.appendChild(a0)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.cy=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.cy)
-a1=w.createTextNode("\n        ")
-this.cy.appendChild(a1)
-v=D.h9(this,23)
-this.dx=v
-v=v.e
-this.db=v
-this.cy.appendChild(v)
-this.h(this.db)
-v=U.fZ(this.c.l(C.U,this.a.Q,null),null)
-this.dy=v
-w.createTextNode("\n        ")
-this.dx.k(0,v,[])
-a2=w.createTextNode("\n      ")
-this.cy.appendChild(a2)
-x.appendChild(w.createTextNode("\n    "))
-this.f.sh4(this.dy)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.U&&23<=o&&o<=24)return this.dy
-return p},
-q:function(){var x,w,v,u
-x=this.f
-w=this.a.cy===0
-if(w){v=x.a
-if(v!=null)this.dy.eR(0,v)
-this.dy.dQ(x.b)}x.e
-v=this.fx
-if(v!==!1){this.dy.x=!1
-this.fx=!1}u=Q.H(x.b.b)
-v=this.fr
-if(v!==u){this.cx.textContent=u
-this.fr=u}this.dx.A(w)
-this.dx.j()},
-v:function(){var x=this.dx
-if(!(x==null))x.i()},
-$asb:function(){return[Q.iU]}}
-S.WS.prototype={
-p:function(){var x,w
-x=new S.Oq(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-nested-single-demo")
-x.e=w
-w=$.a7D
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj6())
-$.a7D=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=x.a.b
-x=new Q.iU($.$get$kU(),Z.cz(null,null,null),x,!1)
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[Q.iU])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[Q.iU]}}
-Q.hJ.prototype={
-gem:function(n){return this.d},
-sem:function(n,o){return this.d=o},
-sh4:function(n){return this.e=n}}
-Q.ls.prototype={
-gd_:function(n){return this.b},
-sd_:function(n,o){return this.b=o}}
-X.vl.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2,a3,a4,a5,a6
-x=this.a3(this.e)
-w=document
-x.appendChild(w.createTextNode("      "))
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Nested single selection with expansion dividers")
-this.r.appendChild(u)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("\n        // See material_tree_nested_single_demo.dart\n        final SelectionOptions nestedOptions = data.nestedOptions;\n\n        final SelectionModel singleSelection = new SelectionModel.single();\n      ")
-this.x.appendChild(t)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('\n        <material-tree [ngClass]="selected"\n          [options]="nestedOptions"\n          [selection]="singleSelection">\n        </material-tree>\n      ')
-this.y.appendChild(s)
-x.appendChild(w.createTextNode("\n      "))
-v=L.ne(this,10)
-this.Q=v
-v=v.e
-this.z=v
-x.appendChild(v)
-this.h(this.z)
-v=this.c
-this.ch=T.mM(v.n(C.f,this.a.Q),null)
-r=w.createTextNode("\n        ")
-q=new V.n(12,10,this,$.$get$I().cloneNode(!1))
-this.cx=q
-this.db=new R.ap(q,new D.p(q,X.aAi()))
-p=w.createTextNode("\n      ")
-this.Q.k(0,this.ch,[H.a([r,q,p],[P.q])])
-q=S.d(w,"br",x)
-this.dx=q
-this.m(q)
-x.appendChild(w.createTextNode("\n      "))
-q=S.o(w,x)
-this.dy=q
-q.className="shadow"
-q.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.dy)
-o=w.createTextNode("\n        ")
-this.dy.appendChild(o)
-q=S.o(w,this.dy)
-this.fr=q
-q.setAttribute("style","padding: 8px")
-this.h(this.fr)
-n=w.createTextNode("\n          ")
-this.fr.appendChild(n)
-q=S.d(w,"strong",this.fr)
-this.fx=q
-this.m(q)
-a0=w.createTextNode("Selected:")
-this.fx.appendChild(a0)
-a1=w.createTextNode(" ")
-this.fr.appendChild(a1)
-q=w.createTextNode("")
-this.fy=q
-this.fr.appendChild(q)
-a2=w.createTextNode("\n        ")
-this.fr.appendChild(a2)
-a3=w.createTextNode("\n      ")
-this.dy.appendChild(a3)
-x.appendChild(w.createTextNode("\n      "))
-q=S.o(w,x)
-this.go=q
-q.className="shadow"
-q.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.go)
-a4=w.createTextNode("\n        ")
-this.go.appendChild(a4)
-q=D.h9(this,29)
-this.k1=q
-q=q.e
-this.id=q
-this.go.appendChild(q)
-this.h(this.id)
-this.k2=U.fZ(v.l(C.U,this.a.Q,null),null)
-this.k3=new Y.lq(this.id,H.a([],[P.c]))
-w.createTextNode("\n        ")
-this.k1.k(0,this.k2,[])
-a5=w.createTextNode("\n      ")
-this.go.appendChild(a5)
-x.appendChild(w.createTextNode("\n    "))
-w=this.ch.d
-a6=new P.l(w,[H.i(w,0)]).B(this.w(this.gTv(),null,null))
-this.f.sh4(this.k2)
-this.P(C.a,[a6])
-return},
-R:function(n,o,p){if(n===C.bn&&10<=o&&o<=13)return this.ch
-if(n===C.U&&29<=o&&o<=30)return this.k2
-return p},
-q:function(){var x,w,v,u,t,s,r
-x=this.f
-w=this.a.cy===0
-v=x.d
-u=this.k4
-if(u==null?v!=null:u!==v){this.ch.sem(0,v)
-this.k4=v
-t=!0}else t=!1
-if(t)this.Q.a.st(1)
-if(w)this.db.scd(x.c)
-this.db.bO()
-if(w){u=x.a
-if(u!=null)this.k2.eR(0,u)
-this.k2.dQ(x.b)}s=x.d
-u=this.r2
-if(u==null?s!=null:u!==s){this.k3.syz(s)
-this.r2=s}this.k3.bO()
-this.cx.H()
-if(this.cy){this.ch.sl5(this.cx.cW(new X.Or(),R.cw,X.y1))
-this.cy=!1}if(w)this.ch.kY()
-r=Q.H(x.b.b)
-u=this.r1
-if(u!==r){this.fy.textContent=r
-this.r1=r}this.k1.A(w)
-this.Q.j()
-this.k1.j()},
-v:function(){var x=this.cx
-if(!(x==null))x.G()
-x=this.Q
-if(!(x==null))x.i()
-x=this.k1
-if(!(x==null))x.i()
-this.ch.b.F()
-x=this.k3
-x.kt(x.e,!0)
-x.jK(!1)},
-Tw:function(n){J.a07(this.f,n)},
-$asb:function(){return[Q.hJ]},
-gNc:function(){return this.ch},
-sa_p:function(n){return this.cy=n}}
-X.y1.prototype={
-p:function(){var x,w,v,u
-x=L.e0(this,0)
-this.x=x
-x=x.e
-this.r=x
-this.h(x)
-x=R.dS(this.r,this.x.a.b,this.c.gNc(),null,null)
-this.y=x
-w=document
-v=w.createTextNode("")
-this.z=v
-u=w.createTextNode("\n        ")
-this.x.k(0,x,[H.a([v,u],[W.aK])])
-this.E(this.r)
-return},
-R:function(n,o,p){var x
-if(n===C.c)x=o<=2
-else x=!1
-if(x)return this.y
-return p},
-q:function(){var x,w,v,u,t,s
-x=this.a.cy
-w=this.b.C(0,"$implicit")
-v=w.a
-u=this.Q
-if(u!==v){this.y.r=v
-this.Q=v
-t=!0}else t=!1
-if(t)this.x.a.st(1)
-this.x.A(x===0)
-s=Q.H(w.b)
-x=this.ch
-if(x!==s){this.z.textContent=s
-this.ch=s}this.x.j()},
-dj:function(){this.c.sa_p(!0)},
-v:function(){var x=this.x
-if(!(x==null))x.i()
-this.y.e.F()},
-$asb:function(){return[Q.hJ]}}
-X.WT.prototype={
-p:function(){var x,w
-x=new X.vl(!0,P.e(P.c,null),this)
-x.a=S.f(x,3,C.j,0)
-w=document.createElement("material-tree-nested-single-divider-demo")
-x.e=w
-w=$.a1u
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj7())
-$.a1u=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=new Q.hJ($.$get$kU(),Z.cz(null,null,null),H.a([new Q.ls("","Hidden"),new Q.ls("tree-border-expanded","Expanded nodes"),new Q.ls("tree-border-parent","Parent nodes"),new Q.ls("tree-border-all","All rows")],[Q.ls]),"tree-border-expanded")
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[Q.hJ])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[Q.hJ]}}
-V.iV.prototype={
-sh4:function(n){return this.d=n}}
-O.Os.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2
-x=this.a3(this.e)
-w=document
-x.appendChild(w.createTextNode("      "))
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode("Nested with single selection and parents selectable")
-this.r.appendChild(u)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("\n        // See material_tree_nested_single_parent_selectable_demo.dart\n        final SelectionOptions nestedOptions = data.nestedOptions;\n\n        final SelectionModel singleSelection = new SelectionModel.single();\n      ")
-this.x.appendChild(t)
-x.appendChild(w.createTextNode("\n      "))
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('\n        <material-tree\n          [options]="nestedOptions"\n          [selection]="singleSelection"\n          [allowParentSingleSelection]="true">\n        </material-tree>\n      ')
-this.y.appendChild(s)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.z=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-r=w.createTextNode("\n        ")
-this.z.appendChild(r)
-v=S.o(w,this.z)
-this.Q=v
-v.setAttribute("style","padding: 8px")
-this.h(this.Q)
-q=w.createTextNode("\n          ")
-this.Q.appendChild(q)
-v=S.d(w,"strong",this.Q)
-this.ch=v
-this.m(v)
-p=w.createTextNode("Selected:")
-this.ch.appendChild(p)
-o=w.createTextNode(" ")
-this.Q.appendChild(o)
-v=w.createTextNode("")
-this.cx=v
-this.Q.appendChild(v)
-n=w.createTextNode("\n        ")
-this.Q.appendChild(n)
-a0=w.createTextNode("\n      ")
-this.z.appendChild(a0)
-x.appendChild(w.createTextNode("\n      "))
-v=S.o(w,x)
-this.cy=v
-v.className="shadow"
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.cy)
-a1=w.createTextNode("\n        ")
-this.cy.appendChild(a1)
-v=D.h9(this,23)
-this.dx=v
-v=v.e
-this.db=v
-this.cy.appendChild(v)
-this.h(this.db)
-v=U.fZ(this.c.l(C.U,this.a.Q,null),null)
-this.dy=v
-w.createTextNode("\n        ")
-this.dx.k(0,v,[])
-a2=w.createTextNode("\n      ")
-this.cy.appendChild(a2)
-x.appendChild(w.createTextNode("\n    "))
-this.f.sh4(this.dy)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.U&&23<=o&&o<=24)return this.dy
-return p},
-q:function(){var x,w,v,u,t
-x=this.f
-w=this.a.cy===0
-if(w){v=this.dy
-v.y=!0
-u=x.a
-if(u!=null)v.eR(0,u)
-this.dy.dQ(x.b)}x.e
-v=this.fx
-if(v!==!1){this.dy.x=!1
-this.fx=!1}t=Q.H(x.b.b)
-v=this.fr
-if(v!==t){this.cx.textContent=t
-this.fr=t}this.dx.A(w)
-this.dx.j()},
-v:function(){var x=this.dx
-if(!(x==null))x.i()},
-$asb:function(){return[V.iV]}}
-O.WU.prototype={
-p:function(){var x,w
-x=new O.Os(P.e(P.c,null),this)
-x.a=S.f(x,1,C.j,0)
-w=document.createElement("material-tree-nested-single-parent-selectable-demo")
-x.e=w
-w=$.a7E
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj8())
-$.a7E=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=x.a.b
-x=new V.iV($.$get$kU(),Z.cz(null,null,null),x,!1)
-this.x=x
-this.r.k(0,x,this.a.e)
-this.E(this.e)
-return new D.z(this,0,this.e,this.x,[V.iV])},
-q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[V.iV]}}
-X.iW.prototype={
-sh4:function(n){return this.c=n}}
-X.lc.prototype={}
-X.ON.prototype={}
-B.Ot.prototype={
-p:function(){var x,w,v,u,t,s,r,q,p,o,n,a0,a1,a2,a3,a4,a5
-x=this.a3(this.e)
-w=document
-x.appendChild(w.createTextNode("    "))
-v=S.d(w,"h1",x)
-this.r=v
-this.m(v)
-u=w.createTextNode('Nested with "View more" link')
-this.r.appendChild(u)
-x.appendChild(w.createTextNode("\n    "))
-v=S.d(w,"pre",x)
-this.x=v
-this.m(v)
-t=w.createTextNode("\n      // See material_tree_view_more_demo.dart\n      final SelectionOptions nestedOptions = data.nestedOptionsVariation;\n\n      final SelectionModel singleSelection = new SelectionModel.single();\n    ")
-this.x.appendChild(t)
-x.appendChild(w.createTextNode("\n    "))
-v=S.d(w,"pre",x)
-this.y=v
-this.m(v)
-s=w.createTextNode('\n      <material-tree\n        [options]="nestedOptions"\n        [selection]="singleSelection"\n        [optimizeForDropdown]="true"\n        [expandFirstRoot]="true"\n        [firstRootMaxInitialOptionsShown]="2">\n      </material-tree>\n    ')
-this.y.appendChild(s)
-x.appendChild(w.createTextNode("\n    "))
-v=S.o(w,x)
-this.z=v
-v.setAttribute("style","width: 400px; margin: 24px;")
-this.h(this.z)
-r=w.createTextNode("\n      ")
-this.z.appendChild(r)
-v=S.o(w,this.z)
-this.Q=v
-v.className="shadow"
-v.setAttribute("style","margin-bottom: 24px;")
-this.h(this.Q)
-q=w.createTextNode("\n        ")
-this.Q.appendChild(q)
-v=S.o(w,this.Q)
-this.ch=v
-v.setAttribute("style","padding: 8px")
-this.h(this.ch)
-p=w.createTextNode("\n          ")
-this.ch.appendChild(p)
-v=S.d(w,"strong",this.ch)
-this.cx=v
-this.m(v)
-o=w.createTextNode("Selected:")
-this.cx.appendChild(o)
-n=w.createTextNode(" ")
-this.ch.appendChild(n)
-v=w.createTextNode("")
-this.cy=v
-this.ch.appendChild(v)
-a0=w.createTextNode("\n        ")
-this.ch.appendChild(a0)
-a1=w.createTextNode("\n      ")
-this.Q.appendChild(a1)
-a2=w.createTextNode("\n      ")
-this.z.appendChild(a2)
-v=S.o(w,this.z)
-this.db=v
-v.className="shadow"
-this.h(v)
-a3=w.createTextNode("\n        ")
-this.db.appendChild(a3)
-v=D.h9(this,25)
+o=x.createTextNode("\n")
+this.cy.k(0,v,[C.a,C.a,C.a,H.a([o],u)])
+y.appendChild(x.createTextNode("\n\n"))
+n=S.d(x,"h2",y)
+this.l(n)
+n.appendChild(x.createTextNode("Scoreboards"))
+y.appendChild(x.createTextNode("\n"))
+a0=S.d(x,"h3",y)
+this.l(a0)
+a0.appendChild(x.createTextNode("Standard"))
+y.appendChild(x.createTextNode("\n"))
+v=U.dA(this,19)
 this.dy=v
 v=v.e
 this.dx=v
-this.db.appendChild(v)
-this.dx.setAttribute("renderingOptions","")
+y.appendChild(v)
 this.h(this.dx)
-this.fr=new X.lc()
-v=U.fZ(this.c.l(C.U,this.a.Q,null),this.fr)
+v=F.dy(null,t.n(C.d,this.a.Q),this.dy.a.b)
+this.fr=v
+a1=x.createTextNode("\n  ")
+v=N.b1(this,21)
+this.fy=v
+v=v.e
 this.fx=v
-this.fy=new X.ON()
-w.createTextNode("\n        ")
-this.dy.k(0,v,[])
-a4=w.createTextNode("\n      ")
-this.db.appendChild(a4)
-a5=w.createTextNode("\n    ")
-this.z.appendChild(a5)
-this.f.sh4(this.fx)
-this.P(C.a,null)
-return},
-R:function(n,o,p){if(n===C.oc&&25<=o&&o<=26)return this.fr
-if(n===C.U&&25<=o&&o<=26)return this.fx
+v.setAttribute("changeType","POSITIVE")
+this.fx.setAttribute("description","+$24.20 (15%)")
+this.fx.setAttribute("label","Estimated earnings")
+this.fx.setAttribute("value","$158.22")
+this.h(this.fx)
+v=this.fy.a.b
+s=this.fx
+q=t.n(C.d,this.a.Q)
+v=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,v,s,!1,!1,!1,s,q)
+this.go=v
+a2=x.createTextNode("\n  ")
+this.fy.k(0,v,[C.a,C.a,C.a,H.a([a2],u)])
+a3=x.createTextNode("\n  ")
+v=N.b1(this,24)
+this.k1=v
+v=v.e
+this.id=v
+v.setAttribute("changeType","NEGATIVE")
+this.id.setAttribute("description","-$0.02 (3%)")
+this.id.setAttribute("label","Ad RPM")
+this.id.setAttribute("value","$0.58")
+this.h(this.id)
+v=this.k1.a.b
+s=this.id
+q=t.n(C.d,this.a.Q)
+v=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,v,s,!1,!1,!1,s,q)
+this.k2=v
+a4=x.createTextNode("\n  ")
+this.k1.k(0,v,[C.a,C.a,C.a,H.a([a4],u)])
+a5=x.createTextNode("\n  ")
+v=N.b1(this,27)
+this.k4=v
+v=v.e
+this.k3=v
+v.setAttribute("description","Suggestions to add")
+this.k3.setAttribute("label","Keywords")
+this.k3.setAttribute("value","412")
+this.h(this.k3)
+v=this.k4.a.b
+s=this.k3
+q=t.n(C.d,this.a.Q)
+v=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,v,s,!1,!1,!1,s,q)
+this.r1=v
+a6=x.createTextNode("\n  ")
+this.k4.k(0,v,[C.a,C.a,C.a,H.a([a6],u)])
+a7=x.createTextNode("\n")
+v=[L.ap]
+this.fr.sek(H.a([this.go,this.k2,this.r1],v))
+s=[W.ao]
+this.dy.k(0,this.fr,[H.a([a1,this.fx,a3,this.id,a5,this.k3,a7],s)])
+y.appendChild(x.createTextNode("\n\n"))
+a8=S.d(x,"h3",y)
+this.l(a8)
+a8.appendChild(x.createTextNode("Selectable"))
+y.appendChild(x.createTextNode("\n"))
+q=U.dA(this,34)
+this.rx=q
+q=q.e
+this.r2=q
+y.appendChild(q)
+this.h(this.r2)
+q=F.dy(null,t.n(C.d,this.a.Q),this.rx.a.b)
+this.ry=q
+a9=x.createTextNode("\n  ")
+q=N.b1(this,36)
+this.x2=q
+q=q.e
+this.x1=q
+q.setAttribute("changeType","POSITIVE")
+this.x1.setAttribute("description","+$24.20 (15%)")
+this.x1.setAttribute("label","Estimated earnings")
+this.x1.setAttribute("value","$158.22")
+this.h(this.x1)
+q=this.x2.a.b
+b0=this.x1
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.y1=q
+b2=x.createTextNode("\n  ")
+this.x2.k(0,q,[C.a,C.a,C.a,H.a([b2],u)])
+b3=x.createTextNode("\n  ")
+q=N.b1(this,39)
+this.U=q
+q=q.e
+this.y2=q
+q.setAttribute("changeType","NEGATIVE")
+this.y2.setAttribute("description","-$0.02 (3%)")
+this.y2.setAttribute("label","Ad RPM")
+this.y2.setAttribute("value","$0.58")
+this.h(this.y2)
+q=this.U.a.b
+b0=this.y2
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.T=q
+b4=x.createTextNode("\n  ")
+this.U.k(0,q,[C.a,C.a,C.a,H.a([b4],u)])
+b5=x.createTextNode("\n  ")
+q=N.b1(this,42)
+this.R=q
+q=q.e
+this.W=q
+q.setAttribute("description","Suggestions to add")
+this.W.setAttribute("label","Keywords")
+this.W.setAttribute("value","412")
+this.h(this.W)
+q=this.R.a.b
+b0=this.W
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.J=q
+b6=x.createTextNode("\n  ")
+this.R.k(0,q,[C.a,C.a,C.a,H.a([b6],u)])
+b7=x.createTextNode("\n")
+this.ry.sek(H.a([this.y1,this.T,this.J],v))
+this.rx.k(0,this.ry,[H.a([a9,this.x1,b3,this.y2,b5,this.W,b7],s)])
+y.appendChild(x.createTextNode("\n\n"))
+b8=S.d(x,"h3",y)
+this.l(b8)
+b8.appendChild(x.createTextNode("Toggle"))
+y.appendChild(x.createTextNode("\n"))
+q=U.dA(this,49)
+this.M=q
+q=q.e
+this.O=q
+y.appendChild(q)
+this.h(this.O)
+q=F.dy(null,t.n(C.d,this.a.Q),this.M.a.b)
+this.a1=q
+b9=x.createTextNode("\n  ")
+q=N.b1(this,51)
+this.a_=q
+q=q.e
+this.a3=q
+q.setAttribute("changeType","POSITIVE")
+this.a3.setAttribute("description","+$24.20 (15%)")
+this.a3.setAttribute("label","Estimated earnings")
+this.a3.setAttribute("value","$158.22")
+this.h(this.a3)
+q=this.a_.a.b
+b0=this.a3
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.aa=q
+c0=x.createTextNode("\n  ")
+this.a_.k(0,q,[C.a,C.a,C.a,H.a([c0],u)])
+c1=x.createTextNode("\n  ")
+q=N.b1(this,54)
+this.a2=q
+q=q.e
+this.a9=q
+q.setAttribute("changeType","NEGATIVE")
+this.a9.setAttribute("description","-$0.02 (3%)")
+this.a9.setAttribute("label","Ad RPM")
+this.a9.setAttribute("value","$0.58")
+this.h(this.a9)
+q=this.a2.a.b
+b0=this.a9
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.af=q
+c2=x.createTextNode("\n  ")
+this.a2.k(0,q,[C.a,C.a,C.a,H.a([c2],u)])
+c3=x.createTextNode("\n  ")
+q=N.b1(this,57)
+this.ah=q
+q=q.e
+this.ak=q
+q.setAttribute("description","Suggestions to add")
+this.ak.setAttribute("label","Keywords")
+this.ak.setAttribute("value","412")
+this.h(this.ak)
+q=this.ah.a.b
+b0=this.ak
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.ab=q
+c4=x.createTextNode("\n  ")
+this.ah.k(0,q,[C.a,C.a,C.a,H.a([c4],u)])
+c5=x.createTextNode("\n")
+this.a1.sek(H.a([this.aa,this.af,this.ab],v))
+this.M.k(0,this.a1,[H.a([b9,this.a3,c1,this.a9,c3,this.ak,c5],s)])
+y.appendChild(x.createTextNode("\n\n"))
+c6=S.d(x,"h3",y)
+this.l(c6)
+c6.appendChild(x.createTextNode("Radio"))
+y.appendChild(x.createTextNode("\n"))
+q=U.dA(this,64)
+this.aj=q
+q=q.e
+this.ai=q
+y.appendChild(q)
+this.h(this.ai)
+q=F.dy(null,t.n(C.d,this.a.Q),this.aj.a.b)
+this.ac=q
+c7=x.createTextNode("\n  ")
+q=N.b1(this,66)
+this.ad=q
+q=q.e
+this.am=q
+q.setAttribute("changeType","POSITIVE")
+this.am.setAttribute("description","+$24.20 (15%)")
+this.am.setAttribute("label","Estimated earnings")
+this.am.setAttribute("value","$158.22")
+this.h(this.am)
+q=this.ad.a.b
+b0=this.am
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.av=q
+c8=x.createTextNode("\n  ")
+this.ad.k(0,q,[C.a,C.a,C.a,H.a([c8],u)])
+c9=x.createTextNode("\n  ")
+q=N.b1(this,69)
+this.ae=q
+q=q.e
+this.ap=q
+q.setAttribute("changeType","NEGATIVE")
+this.ap.setAttribute("description","-$0.02 (3%)")
+this.ap.setAttribute("label","Ad RPM")
+this.ap.setAttribute("value","$0.58")
+this.h(this.ap)
+q=this.ae.a.b
+b0=this.ap
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.aw=q
+d0=x.createTextNode("\n  ")
+this.ae.k(0,q,[C.a,C.a,C.a,H.a([d0],u)])
+d1=x.createTextNode("\n  ")
+q=N.b1(this,72)
+this.ar=q
+q=q.e
+this.a8=q
+q.setAttribute("description","Suggestions to add")
+this.a8.setAttribute("label","Keywords")
+this.a8.setAttribute("value","412")
+this.h(this.a8)
+q=this.ar.a.b
+b0=this.a8
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.al=q
+d2=x.createTextNode("\n  ")
+this.ar.k(0,q,[C.a,C.a,C.a,H.a([d2],u)])
+d3=x.createTextNode("\n")
+this.ac.sek(H.a([this.av,this.aw,this.al],v))
+this.aj.k(0,this.ac,[H.a([c7,this.am,c9,this.ap,d1,this.a8,d3],s)])
+y.appendChild(x.createTextNode("\n\n"))
+d4=S.d(x,"h3",y)
+this.l(d4)
+d4.appendChild(x.createTextNode("Vertical"))
+y.appendChild(x.createTextNode("\n"))
+q=U.dA(this,79)
+this.ay=q
+q=q.e
+this.aD=q
+y.appendChild(q)
+this.aD.setAttribute("isVertical","")
+this.h(this.aD)
+q=F.dy(null,t.n(C.d,this.a.Q),this.ay.a.b)
+this.aB=q
+d5=x.createTextNode("\n  ")
+q=N.b1(this,81)
+this.an=q
+q=q.e
+this.aC=q
+q.setAttribute("changeType","POSITIVE")
+this.aC.setAttribute("description","+$24.20 (15%)")
+this.aC.setAttribute("label","Estimated earnings")
+this.aC.setAttribute("value","$158.22")
+this.h(this.aC)
+q=this.an.a.b
+b0=this.aC
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.aJ=q
+d6=x.createTextNode("\n  ")
+this.an.k(0,q,[C.a,C.a,C.a,H.a([d6],u)])
+d7=x.createTextNode("\n  ")
+q=N.b1(this,84)
+this.aG=q
+q=q.e
+this.aQ=q
+q.setAttribute("changeType","NEGATIVE")
+this.aQ.setAttribute("description","-$0.02 (3%)")
+this.aQ.setAttribute("label","Ad RPM")
+this.aQ.setAttribute("value","$0.58")
+this.h(this.aQ)
+q=this.aG.a.b
+b0=this.aQ
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.au=q
+d8=x.createTextNode("\n  ")
+this.aG.k(0,q,[C.a,C.a,C.a,H.a([d8],u)])
+d9=x.createTextNode("\n  ")
+q=N.b1(this,87)
+this.aO=q
+q=q.e
+this.aU=q
+q.setAttribute("description","Suggestions to add")
+this.aU.setAttribute("label","Keywords")
+this.aU.setAttribute("value","412")
+this.h(this.aU)
+q=this.aO.a.b
+b0=this.aU
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.aN=q
+e0=x.createTextNode("\n  ")
+this.aO.k(0,q,[C.a,C.a,C.a,H.a([e0],u)])
+e1=x.createTextNode("\n")
+this.aB.sek(H.a([this.aJ,this.au,this.aN],v))
+this.ay.k(0,this.aB,[H.a([d5,this.aC,d7,this.aQ,d9,this.aU,e1],s)])
+y.appendChild(x.createTextNode("\n\n"))
+e2=S.d(x,"h3",y)
+this.l(e2)
+e2.appendChild(x.createTextNode("Scrollable"))
+y.appendChild(x.createTextNode("\n\n"))
+q=Q.ah(this,94)
+this.aI=q
+q=q.e
+this.aA=q
+y.appendChild(q)
+this.aA.setAttribute("checkInteger","")
+this.aA.setAttribute("checkPositive","")
+this.aA.setAttribute("floatingLabel","")
+this.aA.setAttribute("keypressUpdate","")
+this.aA.setAttribute("label","Number of scorecards")
+this.aA.setAttribute("type","number")
+this.h(this.aA)
+q=new L.a8(H.a([],[{func:1,ret:[P.ac,P.c,,],args:[[Z.bj,,]]}]))
+this.aZ=q
+b0=new F.qQ()
+this.aY=b0
+b1=new T.oR(!0)
+this.aR=b1
+b1=[q,b0,b1]
+this.bd=b1
+b1=U.bh(b1,null)
+this.aK=b1
+this.aH=b1
+b1=L.ag("number",null,null,b1,this.aI.a.b,this.aZ)
+this.aL=b1
+this.bG=b1
+q=F.iz(b1,this.aH,t.m(C.aE,this.a.Q,null),null,"","",null)
+this.be=q
+this.aI.k(0,this.aL,[C.a,C.a])
+y.appendChild(x.createTextNode("\n\n"))
+q=U.dA(this,96)
+this.bh=q
+q=q.e
+this.aS=q
+y.appendChild(q)
+this.aS.setAttribute("scrollable","")
+this.h(this.aS)
+q=F.dy(null,t.n(C.d,this.a.Q),this.bh.a.b)
+this.b4=q
+e3=x.createTextNode("\n  ")
+q=$.$get$J()
+b0=new V.o(98,96,this,q.cloneNode(!1))
+this.bu=b0
+this.b6=new R.aq(b0,new D.r(b0,E.aBk()))
+e4=x.createTextNode("\n")
+b1=[P.u]
+this.bh.k(0,this.b4,[H.a([e3,b0,e4],b1)])
+y.appendChild(x.createTextNode("\n\n"))
+e5=S.d(x,"section",y)
+e5.className="vertical-scoreboard-container"
+this.l(e5)
+e5.appendChild(x.createTextNode("\n  "))
+b0=U.dA(this,103)
+this.ba=b0
+b0=b0.e
+this.aW=b0
+e5.appendChild(b0)
+this.aW.setAttribute("isVertical","")
+this.aW.setAttribute("scrollable","")
+this.h(this.aW)
+b0=F.dy(null,t.n(C.d,this.a.Q),this.ba.a.b)
+this.bk=b0
+e6=x.createTextNode("\n    ")
+q=new V.o(105,103,this,q.cloneNode(!1))
+this.aX=q
+this.b7=new R.aq(q,new D.r(q,E.aBl()))
+e7=x.createTextNode("\n  ")
+this.ba.k(0,this.bk,[H.a([e6,q,e7],b1)])
+e5.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n\n"))
+e8=S.d(x,"h3",y)
+this.l(e8)
+e8.appendChild(x.createTextNode("Customization"))
+y.appendChild(x.createTextNode("\n"))
+e9=S.d(x,"p",y)
+this.l(e9)
+e9.appendChild(x.createTextNode("\n  Using the "))
+f0=S.d(x,"em",e9)
+this.l(f0)
+f0.appendChild(x.createTextNode("acx-scorecard-apply-change-color-on-primary"))
+e9.appendChild(x.createTextNode(" mixin:\n"))
+y.appendChild(x.createTextNode("\n"))
+f1=S.p(x,y)
+f1.className="customize"
+this.h(f1)
+f1.appendChild(x.createTextNode("\n  "))
+b1=U.dA(this,120)
+this.bi=b1
+b1=b1.e
+this.bO=b1
+f1.appendChild(b1)
+this.h(this.bO)
+q=F.dy(null,t.n(C.d,this.a.Q),this.bi.a.b)
+this.bf=q
+f2=x.createTextNode("\n    ")
+q=N.b1(this,122)
+this.b3=q
+q=q.e
+this.bg=q
+q.setAttribute("changeType","POSITIVE")
+this.bg.setAttribute("description","+$24.20 (15%)")
+this.bg.setAttribute("label","Estimated earnings")
+this.bg.setAttribute("value","$158.22")
+this.h(this.bg)
+q=this.b3.a.b
+b0=this.bg
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.bv=q
+f3=x.createTextNode("\n    ")
+this.b3.k(0,q,[C.a,C.a,C.a,H.a([f3],u)])
+f4=x.createTextNode("\n    ")
+q=N.b1(this,125)
+this.bz=q
+q=q.e
+this.bq=q
+q.setAttribute("changeType","NEGATIVE")
+this.bq.setAttribute("description","-$0.02 (3%)")
+this.bq.setAttribute("label","Ad RPM")
+this.bq.setAttribute("value","$0.58")
+this.h(this.bq)
+q=this.bz.a.b
+b0=this.bq
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.bR=q
+f5=x.createTextNode("\n    ")
+this.bz.k(0,q,[C.a,C.a,C.a,H.a([f5],u)])
+f6=x.createTextNode("\n    ")
+q=N.b1(this,128)
+this.bD=q
+q=q.e
+this.bl=q
+q.setAttribute("description","Suggestions to add")
+this.bl.setAttribute("label","Keywords")
+this.bl.setAttribute("value","412")
+this.h(this.bl)
+q=this.bD.a.b
+b0=this.bl
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.bE=q
+f7=x.createTextNode("\n    ")
+this.bD.k(0,q,[C.a,C.a,C.a,H.a([f7],u)])
+f8=x.createTextNode("\n  ")
+this.bf.sek(H.a([this.bv,this.bR,this.bE],v))
+this.bi.k(0,this.bf,[H.a([f2,this.bg,f4,this.bq,f6,this.bl,f8],s)])
+f1.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n"))
+f9=S.d(x,"p",y)
+this.l(f9)
+f9.appendChild(x.createTextNode("\n  Using the "))
+g0=S.d(x,"em",f9)
+this.l(g0)
+g0.appendChild(x.createTextNode("acx-scorecard-title"))
+f9.appendChild(x.createTextNode(" and "))
+g1=S.d(x,"em",f9)
+this.l(g1)
+g1.appendChild(x.createTextNode("acx-scorecard-value"))
+f9.appendChild(x.createTextNode(" mixins:\n"))
+y.appendChild(x.createTextNode("\n"))
+q=U.dA(this,142)
+this.bS=q
+q=q.e
+this.bL=q
+y.appendChild(q)
+q=this.bL
+q.className="custom-rule"
+this.h(q)
+q=F.dy(null,t.n(C.d,this.a.Q),this.bS.a.b)
+this.bs=q
+g2=x.createTextNode("\n  ")
+q=N.b1(this,144)
+this.bF=q
+q=q.e
+this.bc=q
+q.setAttribute("changeType","POSITIVE")
+this.bc.setAttribute("description","+$24.20 (15%)")
+this.bc.setAttribute("label","Estimated earnings")
+this.bc.setAttribute("value","$158.22")
+this.h(this.bc)
+q=this.bF.a.b
+b0=this.bc
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.br=q
+g3=x.createTextNode("\n  ")
+this.bF.k(0,q,[C.a,C.a,C.a,H.a([g3],u)])
+g4=x.createTextNode("\n  ")
+q=N.b1(this,147)
+this.bw=q
+q=q.e
+this.bj=q
+q.setAttribute("changeType","NEGATIVE")
+this.bj.setAttribute("description","-$0.02 (3%)")
+this.bj.setAttribute("label","Ad RPM")
+this.bj.setAttribute("value","$0.58")
+this.h(this.bj)
+q=this.bw.a.b
+b0=this.bj
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.bM=q
+g5=x.createTextNode("\n  ")
+this.bw.k(0,q,[C.a,C.a,C.a,H.a([g5],u)])
+g6=x.createTextNode("\n  ")
+q=N.b1(this,150)
+this.bt=q
+q=q.e
+this.bn=q
+q.setAttribute("description","Suggestions to add")
+this.bn.setAttribute("label","Keywords")
+this.bn.setAttribute("value","412")
+this.h(this.bn)
+q=this.bt.a.b
+b0=this.bn
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.ce=q
+g7=x.createTextNode("\n  ")
+this.bt.k(0,q,[C.a,C.a,C.a,H.a([g7],u)])
+g8=x.createTextNode("\n")
+this.bs.sek(H.a([this.br,this.bM,this.ce],v))
+this.bS.k(0,this.bs,[H.a([g2,this.bc,g4,this.bj,g6,this.bn,g8],s)])
+y.appendChild(x.createTextNode("\n"))
+g9=S.d(x,"p",y)
+this.l(g9)
+g9.appendChild(x.createTextNode("\n  Using the "))
+h0=S.d(x,"em",g9)
+this.l(h0)
+h0.appendChild(x.createTextNode("acx-scorecard-description-color"))
+g9.appendChild(x.createTextNode(" mixin:\n"))
+y.appendChild(x.createTextNode("\n"))
+h1=S.p(x,y)
+h1.className="customize-description-color"
+this.h(h1)
+h1.appendChild(x.createTextNode("\n  "))
+q=U.dA(this,162)
+this.c4=q
+q=q.e
+this.bN=q
+h1.appendChild(q)
+this.h(this.bN)
+q=F.dy(null,t.n(C.d,this.a.Q),this.c4.a.b)
+this.bT=q
+h2=x.createTextNode("\n    ")
+q=N.b1(this,164)
+this.ci=q
+q=q.e
+this.c5=q
+q.setAttribute("changeType","POSITIVE")
+this.c5.setAttribute("description","+$24.20 (15%)")
+this.c5.setAttribute("label","Estimated earnings")
+this.c5.setAttribute("value","$158.22")
+this.h(this.c5)
+q=this.ci.a.b
+b0=this.c5
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.c8=q
+h3=x.createTextNode("\n    ")
+this.ci.k(0,q,[C.a,C.a,C.a,H.a([h3],u)])
+h4=x.createTextNode("\n  ")
+this.bT.sek(H.a([this.c8],v))
+this.c4.k(0,this.bT,[H.a([h2,this.c5,h4],s)])
+h1.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n"))
+h5=S.d(x,"p",y)
+this.l(h5)
+h5.appendChild(x.createTextNode("\n  Using the "))
+h6=S.d(x,"em",h5)
+this.l(h6)
+h6.appendChild(x.createTextNode("acx-scorecard-description-positive-negative-colors"))
+h5.appendChild(x.createTextNode(" mixin:\n"))
+y.appendChild(x.createTextNode("\n"))
+h7=S.p(x,y)
+h7.className="customize-positive-negative-colors"
+this.h(h7)
+h7.appendChild(x.createTextNode("\n  "))
+q=U.dA(this,177)
+this.cn=q
+q=q.e
+this.bZ=q
+h7.appendChild(q)
+this.h(this.bZ)
+q=F.dy(null,t.n(C.d,this.a.Q),this.cn.a.b)
+this.c6=q
+h8=x.createTextNode("\n    ")
+q=N.b1(this,179)
+this.co=q
+q=q.e
+this.cT=q
+q.setAttribute("changeType","POSITIVE")
+this.cT.setAttribute("description","+$24.20 (15%)")
+this.cT.setAttribute("label","Estimated earnings")
+this.cT.setAttribute("value","$158.22")
+this.h(this.cT)
+q=this.co.a.b
+b0=this.cT
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.cC=q
+h9=x.createTextNode("\n    ")
+this.co.k(0,q,[C.a,C.a,C.a,H.a([h9],u)])
+i0=x.createTextNode("\n    ")
+q=N.b1(this,182)
+this.cG=q
+q=q.e
+this.ca=q
+q.setAttribute("changeType","NEGATIVE")
+this.ca.setAttribute("description","-$24.20 (15%)")
+this.ca.setAttribute("label","Estimated earnings")
+this.ca.setAttribute("value","$158.22")
+this.h(this.ca)
+q=this.cG.a.b
+b0=this.ca
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.cv=q
+i1=x.createTextNode("\n    ")
+this.cG.k(0,q,[C.a,C.a,C.a,H.a([i1],u)])
+i2=x.createTextNode("\n  ")
+this.c6.sek(H.a([this.cC,this.cv],v))
+this.cn.k(0,this.c6,[H.a([h8,this.cT,i0,this.ca,i2],s)])
+h7.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n"))
+i3=S.d(x,"p",y)
+this.l(i3)
+i3.appendChild(x.createTextNode("\n  Using the "))
+i4=S.d(x,"em",i3)
+this.l(i4)
+i4.appendChild(x.createTextNode("acx-scorecard-suggestion-color"))
+i3.appendChild(x.createTextNode(" mixin:\n"))
+y.appendChild(x.createTextNode("\n"))
+i5=S.p(x,y)
+i5.className="customize-suggestion-color"
+this.h(i5)
+i5.appendChild(x.createTextNode("\n  "))
+q=U.dA(this,195)
+this.cB=q
+q=q.e
+this.cZ=q
+i5.appendChild(q)
+this.h(this.cZ)
+q=F.dy(null,t.n(C.d,this.a.Q),this.cB.a.b)
+this.cj=q
+i6=x.createTextNode("\n    ")
+q=N.b1(this,197)
+this.ck=q
+q=q.e
+this.dc=q
+q.setAttribute("label","Estimated earnings")
+this.dc.setAttribute("suggestionAfter","Suggestions to add")
+this.dc.setAttribute("value","$158.22")
+this.h(this.dc)
+q=this.ck.a.b
+b0=this.dc
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.cH=q
+i7=x.createTextNode("\n    ")
+this.ck.k(0,q,[C.a,C.a,C.a,H.a([i7],u)])
+i8=x.createTextNode("\n  ")
+this.cj.sek(H.a([this.cH],v))
+this.cB.k(0,this.cj,[H.a([i6,this.dc,i8],s)])
+i5.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n"))
+i9=S.d(x,"p",y)
+this.l(i9)
+i9.appendChild(x.createTextNode("\n  Using the "))
+j0=S.d(x,"em",i9)
+this.l(j0)
+j0.appendChild(x.createTextNode("acx-scorecard-suggestion-to-separate-line"))
+i9.appendChild(x.createTextNode(" mixin:\n"))
+y.appendChild(x.createTextNode("\n"))
+q=U.dA(this,208)
+this.cU=q
+q=q.e
+this.d_=q
+y.appendChild(q)
+q=this.d_
+q.className="customize-suggestion-to-separate-line"
+this.h(q)
+q=F.dy(null,t.n(C.d,this.a.Q),this.cU.a.b)
+this.cD=q
+j1=x.createTextNode("\n  ")
+q=N.b1(this,210)
+this.d0=q
+q=q.e
+this.cI=q
+q.setAttribute("changeType","POSITIVE")
+this.cI.setAttribute("description","+$24.20 (15%)")
+this.cI.setAttribute("label","Estimated earnings")
+this.cI.setAttribute("suggestionAfter","suggestion in separate line")
+this.cI.setAttribute("value","$158.22")
+this.h(this.cI)
+q=this.d0.a.b
+b0=this.cI
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.cN=q
+j2=x.createTextNode("\n  ")
+this.d0.k(0,q,[C.a,C.a,C.a,H.a([j2],u)])
+j3=x.createTextNode("\n")
+this.cD.sek(H.a([this.cN],v))
+this.cU.k(0,this.cD,[H.a([j1,this.cI,j3],s)])
+y.appendChild(x.createTextNode("\n"))
+j4=S.d(x,"p",y)
+this.l(j4)
+j4.appendChild(x.createTextNode("\n  Using the "))
+j5=S.d(x,"em",j4)
+this.l(j5)
+j5.appendChild(x.createTextNode("acx-scorecard-vertical-align"))
+j4.appendChild(x.createTextNode(" mixin to top align scorecards:\n"))
+y.appendChild(x.createTextNode("\n"))
+q=U.dA(this,220)
+this.dK=q
+q=q.e
+this.eb=q
+y.appendChild(q)
+q=this.eb
+q.className="vertically-align-scorecard-top"
+this.h(q)
+q=F.dy(null,t.n(C.d,this.a.Q),this.dK.a.b)
+this.dL=q
+j6=x.createTextNode("\n  ")
+q=N.b1(this,222)
+this.de=q
+q=q.e
+this.dd=q
+q.setAttribute("description","+$24.20 (15%)")
+this.dd.setAttribute("label","Estimated earnings")
+this.dd.setAttribute("value","$158.22")
+this.h(this.dd)
+q=this.de.a.b
+b0=this.dd
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.ew=q
+j7=x.createTextNode("\n    ")
+j8=x.createElement("div")
+this.h(j8)
+j8.appendChild(x.createTextNode("\n      This"))
+this.l(S.d(x,"br",j8))
+j8.appendChild(x.createTextNode("\n      injected"))
+this.l(S.d(x,"br",j8))
+j8.appendChild(x.createTextNode("\n      content"))
+this.l(S.d(x,"br",j8))
+j8.appendChild(x.createTextNode("\n      takes"))
+this.l(S.d(x,"br",j8))
+j8.appendChild(x.createTextNode("\n      up"))
+this.l(S.d(x,"br",j8))
+j8.appendChild(x.createTextNode("\n      a"))
+this.l(S.d(x,"br",j8))
+j8.appendChild(x.createTextNode("\n      lot"))
+this.l(S.d(x,"br",j8))
+j8.appendChild(x.createTextNode("\n      of"))
+this.l(S.d(x,"br",j8))
+j8.appendChild(x.createTextNode("\n      lines"))
+this.l(S.d(x,"br",j8))
+j8.appendChild(x.createTextNode("\n    "))
+j9=x.createTextNode("\n  ")
+this.de.k(0,this.ew,[C.a,C.a,C.a,H.a([j7,j8,j9],s)])
+k0=x.createTextNode("\n  ")
+q=N.b1(this,246)
+this.dq=q
+q=q.e
+this.dn=q
+q.setAttribute("description","-$39.63 (15%)")
+this.dn.setAttribute("label","Estimated cost")
+this.dn.setAttribute("value","$264.23")
+this.h(this.dn)
+q=this.dq.a.b
+b0=this.dn
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.ex=q
+k1=x.createTextNode("\n    ")
+k2=x.createElement("div")
+this.h(k2)
+k2.appendChild(x.createTextNode("\n      This"))
+this.l(S.d(x,"br",k2))
+k2.appendChild(x.createTextNode("\n      has"))
+this.l(S.d(x,"br",k2))
+k2.appendChild(x.createTextNode("\n      less"))
+this.l(S.d(x,"br",k2))
+k2.appendChild(x.createTextNode("\n      lines"))
+this.l(S.d(x,"br",k2))
+k2.appendChild(x.createTextNode("\n    "))
+k3=x.createTextNode("\n  ")
+this.dq.k(0,this.ex,[C.a,C.a,C.a,H.a([k1,k2,k3],s)])
+k4=x.createTextNode("\n")
+this.dL.sek(H.a([this.ew,this.ex],v))
+this.dK.k(0,this.dL,[H.a([j6,this.dd,k0,this.dn,k4],s)])
+y.appendChild(x.createTextNode("\n"))
+k5=S.d(x,"p",y)
+this.l(k5)
+k5.appendChild(x.createTextNode("\n  Using the "))
+k6=S.d(x,"em",k5)
+this.l(k6)
+k6.appendChild(x.createTextNode("acx-scorecard-vertical-align"))
+k5.appendChild(x.createTextNode(" mixin to bottom align scorecards:\n"))
+y.appendChild(x.createTextNode("\n"))
+q=U.dA(this,267)
+this.d7=q
+q=q.e
+this.e1=q
+y.appendChild(q)
+q=this.e1
+q.className="vertically-align-scorecard-bottom"
+this.h(q)
+q=F.dy(null,t.n(C.d,this.a.Q),this.d7.a.b)
+this.dz=q
+k7=x.createTextNode("\n  ")
+q=N.b1(this,269)
+this.d5=q
+q=q.e
+this.d4=q
+q.setAttribute("description","+$24.20 (15%)")
+this.d4.setAttribute("label","Estimated earnings")
+this.d4.setAttribute("value","$158.22")
+this.h(this.d4)
+q=this.d5.a.b
+b0=this.d4
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.ec=q
+k8=x.createTextNode("\n    ")
+k9=x.createElement("div")
+this.h(k9)
+k9.appendChild(x.createTextNode("\n      This"))
+this.l(S.d(x,"br",k9))
+k9.appendChild(x.createTextNode("\n      injected"))
+this.l(S.d(x,"br",k9))
+k9.appendChild(x.createTextNode("\n      content"))
+this.l(S.d(x,"br",k9))
+k9.appendChild(x.createTextNode("\n      takes"))
+this.l(S.d(x,"br",k9))
+k9.appendChild(x.createTextNode("\n      up"))
+this.l(S.d(x,"br",k9))
+k9.appendChild(x.createTextNode("\n      a"))
+this.l(S.d(x,"br",k9))
+k9.appendChild(x.createTextNode("\n      lot"))
+this.l(S.d(x,"br",k9))
+k9.appendChild(x.createTextNode("\n      of"))
+this.l(S.d(x,"br",k9))
+k9.appendChild(x.createTextNode("\n      lines"))
+this.l(S.d(x,"br",k9))
+k9.appendChild(x.createTextNode("\n    "))
+l0=x.createTextNode("\n  ")
+this.d5.k(0,this.ec,[C.a,C.a,C.a,H.a([k8,k9,l0],s)])
+l1=x.createTextNode("\n  ")
+q=N.b1(this,293)
+this.dr=q
+q=q.e
+this.dE=q
+q.setAttribute("description","-$39.63 (15%)")
+this.dE.setAttribute("label","Estimated cost")
+this.dE.setAttribute("value","$264.23")
+this.h(this.dE)
+q=this.dr.a.b
+b0=this.dE
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.df=q
+l2=x.createTextNode("\n    ")
+l3=x.createElement("div")
+this.h(l3)
+l3.appendChild(x.createTextNode("\n      This"))
+this.l(S.d(x,"br",l3))
+l3.appendChild(x.createTextNode("\n      has"))
+this.l(S.d(x,"br",l3))
+l3.appendChild(x.createTextNode("\n      less"))
+this.l(S.d(x,"br",l3))
+l3.appendChild(x.createTextNode("\n      lines"))
+this.l(S.d(x,"br",l3))
+l3.appendChild(x.createTextNode("\n    "))
+l4=x.createTextNode("\n  ")
+this.dr.k(0,this.df,[C.a,C.a,C.a,H.a([l2,l3,l4],s)])
+l5=x.createTextNode("\n")
+this.dz.sek(H.a([this.ec,this.df],v))
+this.d7.k(0,this.dz,[H.a([k7,this.d4,l1,this.dE,l5],s)])
+y.appendChild(x.createTextNode("\n"))
+l6=S.d(x,"p",y)
+this.l(l6)
+l6.appendChild(x.createTextNode("\n  Using the "))
+l7=S.d(x,"em",l6)
+this.l(l7)
+l7.appendChild(x.createTextNode("acx-scorecard-description-min-height"))
+l6.appendChild(x.createTextNode(" mixin to add a min height to description\n  to ensure injected content is aligned if description is optional (Description has to be an empty\n  String, not null to ensure it shows up correctly):\n"))
+y.appendChild(x.createTextNode("\n"))
+q=U.dA(this,314)
+this.ey=q
+q=q.e
+this.d8=q
+y.appendChild(q)
+q=this.d8
+q.className="vertically-align-scorecard-top"
+this.h(q)
+q=F.dy(null,t.n(C.d,this.a.Q),this.ey.a.b)
+this.ds=q
+l8=x.createTextNode("\n  ")
+q=N.b1(this,316)
+this.d9=q
+q=q.e
+this.dA=q
+q.setAttribute("description","+$24.20 (15%)")
+this.dA.setAttribute("label","Scorecard with description")
+this.dA.setAttribute("value","$158.22")
+this.h(this.dA)
+q=this.d9.a.b
+b0=this.dA
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.f9=q
+l9=x.createTextNode("\n    ")
+m0=x.createElement("div")
+this.h(m0)
+m0.appendChild(x.createTextNode("\n      Some injected content.\n    "))
+m1=x.createTextNode("\n  ")
+this.d9.k(0,this.f9,[C.a,C.a,C.a,H.a([l9,m0,m1],s)])
+m2=x.createTextNode("\n  ")
+q=N.b1(this,322)
+this.cV=q
+q=q.e
+this.dh=q
+q.setAttribute("description","")
+this.dh.setAttribute("label","Scorecard without description")
+this.dh.setAttribute("value","$264.23")
+this.h(this.dh)
+q=this.cV.a.b
+b0=this.dh
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.eG=q
+m3=x.createTextNode("\n    ")
+m4=x.createElement("div")
+this.h(m4)
+m4.appendChild(x.createTextNode("\n      Some injected content.\n    "))
+m5=x.createTextNode("\n  ")
+this.cV.k(0,this.eG,[C.a,C.a,C.a,H.a([m3,m4,m5],s)])
+m6=x.createTextNode("\n  ")
+q=N.b1(this,328)
+this.dV=q
+q=q.e
+this.d6=q
+q.className=Q.bw("","description-with-min-height"," ","themeable","")
+this.d6.setAttribute("description","")
+this.d6.setAttribute("label","Scorecard without description with min-height mixin")
+this.d6.setAttribute("value","$264.23")
+this.h(this.d6)
+q=this.dV.a.b
+b0=this.d6
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.ed=q
+m7=x.createTextNode("\n    ")
+m8=x.createElement("div")
+this.h(m8)
+m8.appendChild(x.createTextNode("\n      Some injected content.\n    "))
+m9=x.createTextNode("\n  ")
+this.dV.k(0,this.ed,[C.a,C.a,C.a,H.a([m7,m8,m9],s)])
+n0=x.createTextNode("\n")
+this.ds.sek(H.a([this.f9,this.eG,this.ed],v))
+this.ey.k(0,this.ds,[H.a([l8,this.dA,m2,this.dh,m6,this.d6,n0],s)])
+y.appendChild(x.createTextNode("\n"))
+n1=S.d(x,"p",y)
+this.l(n1)
+n1.appendChild(x.createTextNode("\n  Using the "))
+n2=S.d(x,"em",n1)
+this.l(n2)
+n2.appendChild(x.createTextNode("acx-scorecard-flex-display"))
+n1.appendChild(x.createTextNode(" mixin to change the display to flex.\n"))
+y.appendChild(x.createTextNode("\n"))
+n3=S.p(x,y)
+n3.className="flex-scoreboard-container"
+this.h(n3)
+n3.appendChild(x.createTextNode("\n  "))
+q=U.dA(this,343)
+this.e2=q
+q=q.e
+this.dB=q
+n3.appendChild(q)
+this.h(this.dB)
+q=F.dy(null,t.n(C.d,this.a.Q),this.e2.a.b)
+this.dM=q
+n4=x.createTextNode("\n    ")
+q=N.b1(this,345)
+this.dC=q
+q=q.e
+this.em=q
+q.setAttribute("description","+$24.20 (15%)")
+this.em.setAttribute("label","Scorecard with flex display")
+this.em.setAttribute("value","$158.22")
+this.h(this.em)
+q=this.dC.a.b
+b0=this.em
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.ez=q
+n5=x.createTextNode("\n    ")
+this.dC.k(0,q,[C.a,C.a,C.a,H.a([n5],u)])
+n6=x.createTextNode("\n    ")
+q=N.b1(this,348)
+this.eW=q
+q=q.e
+this.ee=q
+q.setAttribute("description","-$39.63 (15%)")
+this.ee.setAttribute("label","Scorecard with flex display")
+this.ee.setAttribute("value","$264.23")
+this.h(this.ee)
+q=this.eW.a.b
+b0=this.ee
+b1=t.n(C.d,this.a.Q)
+q=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,q,b0,!1,!1,!1,b0,b1)
+this.dW=q
+n7=x.createTextNode("\n    ")
+this.eW.k(0,q,[C.a,C.a,C.a,H.a([n7],u)])
+n8=x.createTextNode("\n  ")
+this.dM.sek(H.a([this.ez,this.dW],v))
+this.e2.k(0,this.dM,[H.a([n4,this.em,n6,this.ee,n8],s)])
+n3.appendChild(x.createTextNode("\n"))
+y.appendChild(x.createTextNode("\n"))
+n9=S.d(x,"p",y)
+this.l(n9)
+n9.appendChild(x.createTextNode("\n  Using the ng-content directive to inject other components into the scorecard.\n"))
+y.appendChild(x.createTextNode("\n"))
+v=N.b1(this,356)
+this.dX=v
+v=v.e
+this.dN=v
+y.appendChild(v)
+this.dN.setAttribute("changeType","POSITIVE")
+this.dN.setAttribute("description","+$24.20 (15%)")
+this.dN.setAttribute("label","Estimated earnings")
+this.dN.setAttribute("value","$158.22")
+this.h(this.dN)
+v=this.dX.a.b
+q=this.dN
+b0=t.n(C.d,this.a.Q)
+v=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,v,q,!1,!1,!1,q,b0)
+this.eH=v
+o0=x.createTextNode("\n  ")
+o1=x.createElement("name")
+o1.className="injected-div"
+this.l(o1)
+o1.appendChild(x.createTextNode("This div was injected after the label"))
+o2=x.createTextNode("\n  ")
+o3=x.createElement("value")
+o3.className="injected-div"
+this.l(o3)
+o3.appendChild(x.createTextNode("This div was injected after the value"))
+o4=x.createTextNode("\n  ")
+o5=x.createElement("div")
+o5.className="injected-div"
+this.h(o5)
+o5.appendChild(x.createTextNode("This div was injected under the scorecard"))
+o6=x.createTextNode("\n")
+v=[W.ai]
+this.dX.k(0,this.eH,[H.a([o1],v),H.a([o3],v),C.a,H.a([o0,o2,o4,o5,o6],s)])
+y.appendChild(x.createTextNode("\n"))
+o7=S.d(x,"p",y)
+this.l(o7)
+o7.appendChild(x.createTextNode("\n  Using the extraBig input to display a bigger version of the scorecard,\n  with margins, instead of padding.\n"))
+y.appendChild(x.createTextNode("\n"))
+s=N.b1(this,371)
+this.en=s
+s=s.e
+this.dY=s
+y.appendChild(s)
+this.dY.setAttribute("changeType","POSITIVE")
+this.dY.setAttribute("description","+$24.20 (15%)")
+this.dY.setAttribute("extraBig","")
+this.dY.setAttribute("label","Estimated earnings")
+this.dY.setAttribute("value","$158.22")
+this.h(this.dY)
+v=this.en.a.b
+s=this.dY
+q=t.n(C.d,this.a.Q)
+v=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,v,s,!1,!1,!1,s,q)
+this.fG=v
+o8=x.createTextNode("\n")
+this.en.k(0,v,[C.a,C.a,C.a,H.a([o8],u)])
+y.appendChild(x.createTextNode("\n"))
+o9=S.d(x,"p",y)
+this.l(o9)
+o9.appendChild(x.createTextNode("\n  Using the changeGlyph input to display an arrow glyph next to the description,\n  which depends on the changeType set.\n"))
+y.appendChild(x.createTextNode("\n"))
+v=N.b1(this,377)
+this.dF=v
+v=v.e
+this.dt=v
+y.appendChild(v)
+this.dt.setAttribute("changeType","POSITIVE")
+this.dt.setAttribute("description","$24.20 (15%)")
+this.dt.setAttribute("label","Estimated earnings")
+this.dt.setAttribute("value","$158.22")
+this.h(this.dt)
+v=this.dF.a.b
+s=this.dt
+t=t.n(C.d,this.a.Q)
+v=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,v,s,!1,!1,!1,s,t)
+this.eI=v
+p0=x.createTextNode("\n")
+this.dF.k(0,v,[C.a,C.a,C.a,H.a([p0],u)])
+y.appendChild(x.createTextNode("\n"))
+x=this.aK.f
+x.toString
+this.L(C.a,[new P.m(x,[H.j(x,0)]).B(this.w(this.gS5(),null,null))])},
+N:function(n,o,p){if(n===C.ag&&94===o)return this.aZ
+if(n===C.mw&&94===o)return this.aY
+if(n===C.fA&&94===o)return this.aR
+if(n===C.ar&&94===o)return this.aK
+if(n===C.aq&&94===o)return this.aH
+if((n===C.aj||n===C.r||n===C.p||n===C.c)&&94===o)return this.aL
+if(n===C.af&&94===o)return this.bG
+if(n===C.bX&&94===o)return this.be
 return p},
-q:function(){var x,w,v,u,t
-x=this.f
-w=this.a.cy===0
-if(w){v=this.fx
-v.f=!0
-u=x.a
-if(u!=null)v.eR(0,u)
-this.fx.dQ(x.b)}t=Q.H(x.b.b)
-v=this.go
-if(v!==t){this.cy.textContent=t
-this.go=t}this.dy.A(w)
-this.dy.j()},
-v:function(){var x=this.dy
-if(!(x==null))x.i()},
-$asb:function(){return[X.iW]}}
-B.WV.prototype={
-p:function(){var x,w
-x=new B.Ot(P.e(P.c,null),this)
-x.a=S.f(x,3,C.j,0)
-w=document.createElement("material-tree-section-demo")
-x.e=w
-w=$.a7F
-if(w==null){w=$.D
-w=w.a2(null,C.p,$.$get$aj9())
-$.a7F=w}x.a1(w)
-this.r=x
-this.e=x.e
-x=new X.iW($.$get$ah5(),Z.cz(null,null,null))
-this.x=x
-this.r.k(0,x,this.a.e)
+q:function(){var y,x,w,v,u,t
+y=this.f
+x=this.a.cy===0
+if(x){w=this.y
+w.z="Embed me!"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.x.a.st(1)
+if(x){w=this.ch
+w.z="Selected"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.fr=!0
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.Q.a.st(1)
+if(x){w=this.db
+w.z="Right aligned"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.cy.a.st(1)
+if(x)this.fr.D()
+if(x){w=this.go
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.fy.a.st(1)
+if(x){w=this.k2
+w.z="Ad RPM"
+w.Q="$0.58"
+w.db="-$0.02 (3%)"
+w.sdw("NEGATIVE")
+v=!0}else v=!1
+if(v)this.k1.a.st(1)
+if(x){w=this.r1
+w.z="Keywords"
+w.Q="412"
+w.db="Suggestions to add"
+v=!0}else v=!1
+if(v)this.k4.a.st(1)
+if(x){this.ry.cy=y.a
+v=!0}else v=!1
+if(v)this.rx.a.st(1)
+if(x)this.ry.D()
+if(x){w=this.y1
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.x2.a.st(1)
+if(x){w=this.T
+w.z="Ad RPM"
+w.Q="$0.58"
+w.db="-$0.02 (3%)"
+w.sdw("NEGATIVE")
+v=!0}else v=!1
+if(v)this.U.a.st(1)
+if(x){w=this.J
+w.z="Keywords"
+w.Q="412"
+w.db="Suggestions to add"
+v=!0}else v=!1
+if(v)this.R.a.st(1)
+if(x){this.a1.cy=y.b
+v=!0}else v=!1
+if(v)this.M.a.st(1)
+if(x)this.a1.D()
+if(x){w=this.aa
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.a_.a.st(1)
+if(x){w=this.af
+w.z="Ad RPM"
+w.Q="$0.58"
+w.db="-$0.02 (3%)"
+w.sdw("NEGATIVE")
+v=!0}else v=!1
+if(v)this.a2.a.st(1)
+if(x){w=this.ab
+w.z="Keywords"
+w.Q="412"
+w.db="Suggestions to add"
+v=!0}else v=!1
+if(v)this.ah.a.st(1)
+if(x){this.ac.cy=y.c
+v=!0}else v=!1
+if(v)this.aj.a.st(1)
+if(x)this.ac.D()
+if(x){w=this.av
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.ad.a.st(1)
+if(x){w=this.aw
+w.z="Ad RPM"
+w.Q="$0.58"
+w.db="-$0.02 (3%)"
+w.sdw("NEGATIVE")
+v=!0}else v=!1
+if(v)this.ae.a.st(1)
+if(x){w=this.al
+w.z="Keywords"
+w.Q="412"
+w.db="Suggestions to add"
+v=!0}else v=!1
+if(v)this.ar.a.st(1)
+if(x){this.aB.dy=!0
+v=!0}else v=!1
+if(v)this.ay.a.st(1)
+if(x)this.aB.D()
+if(x){w=this.aJ
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.an.a.st(1)
+if(x){w=this.au
+w.z="Ad RPM"
+w.Q="$0.58"
+w.db="-$0.02 (3%)"
+w.sdw("NEGATIVE")
+v=!0}else v=!1
+if(v)this.aG.a.st(1)
+if(x){w=this.aN
+w.z="Keywords"
+w.Q="412"
+w.db="Suggestions to add"
+v=!0}else v=!1
+if(v)this.aO.a.st(1)
+if(x)this.aR.a=!0
+this.aK.saM(y.e)
+this.aK.aT()
+if(x)this.aK.D()
+if(x){w=this.aL
+w.fr="Number of scorecards"
+w.ry=!0
+v=!0}else v=!1
+if(v)this.aI.a.st(1)
+if(x){w=this.b4
+w.cy=y.b
+w.db=!0
+v=!0}else v=!1
+if(v)this.bh.a.st(1)
+if(x)this.b4.D()
+u=y.d
+w=this.eX
+if(w==null?u!=null:w!==u){this.b6.sbJ(u)
+this.eX=u}this.b6.bm()
+if(x){w=this.bk
+w.cy=y.b
+w.db=!0
+w.dy=!0
+v=!0}else v=!1
+if(v)this.ba.a.st(1)
+if(x)this.bk.D()
+t=y.d
+w=this.h7
+if(w==null?t!=null:w!==t){this.b7.sbJ(t)
+this.h7=t}this.b7.bm()
+if(x)this.bf.D()
+if(x){w=this.bv
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.b3.a.st(1)
+if(x){w=this.bR
+w.z="Ad RPM"
+w.Q="$0.58"
+w.db="-$0.02 (3%)"
+w.sdw("NEGATIVE")
+v=!0}else v=!1
+if(v)this.bz.a.st(1)
+if(x){w=this.bE
+w.z="Keywords"
+w.Q="412"
+w.db="Suggestions to add"
+v=!0}else v=!1
+if(v)this.bD.a.st(1)
+if(x)this.bs.D()
+if(x){w=this.br
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.bF.a.st(1)
+if(x){w=this.bM
+w.z="Ad RPM"
+w.Q="$0.58"
+w.db="-$0.02 (3%)"
+w.sdw("NEGATIVE")
+v=!0}else v=!1
+if(v)this.bw.a.st(1)
+if(x){w=this.ce
+w.z="Keywords"
+w.Q="412"
+w.db="Suggestions to add"
+v=!0}else v=!1
+if(v)this.bt.a.st(1)
+if(x)this.bT.D()
+if(x){w=this.c8
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.cx=!0
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.ci.a.st(1)
+if(x)this.c6.D()
+if(x){w=this.cC
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.cx=!0
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.co.a.st(1)
+if(x){w=this.cv
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.cx=!0
+w.db="-$24.20 (15%)"
+w.sdw("NEGATIVE")
+v=!0}else v=!1
+if(v)this.cG.a.st(1)
+if(x)this.cj.D()
+if(x){w=this.cH
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.dx="Suggestions to add"
+v=!0}else v=!1
+if(v)this.ck.a.st(1)
+if(x)this.cD.D()
+if(x){w=this.cN
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.dx="suggestion in separate line"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.d0.a.st(1)
+if(x)this.dL.D()
+if(x){w=this.ew
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+v=!0}else v=!1
+if(v)this.de.a.st(1)
+if(x){w=this.ex
+w.z="Estimated cost"
+w.Q="$264.23"
+w.db="-$39.63 (15%)"
+v=!0}else v=!1
+if(v)this.dq.a.st(1)
+if(x)this.dz.D()
+if(x){w=this.ec
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+v=!0}else v=!1
+if(v)this.d5.a.st(1)
+if(x){w=this.df
+w.z="Estimated cost"
+w.Q="$264.23"
+w.db="-$39.63 (15%)"
+v=!0}else v=!1
+if(v)this.dr.a.st(1)
+if(x)this.ds.D()
+if(x){w=this.f9
+w.z="Scorecard with description"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+v=!0}else v=!1
+if(v)this.d9.a.st(1)
+if(x){w=this.eG
+w.z="Scorecard without description"
+w.Q="$264.23"
+w.db=""
+v=!0}else v=!1
+if(v)this.cV.a.st(1)
+if(x){w=this.ed
+w.z="Scorecard without description with min-height mixin"
+w.Q="$264.23"
+w.db=""
+v=!0}else v=!1
+if(v)this.dV.a.st(1)
+if(x)this.dM.D()
+if(x){w=this.ez
+w.z="Scorecard with flex display"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+v=!0}else v=!1
+if(v)this.dC.a.st(1)
+if(x){w=this.dW
+w.z="Scorecard with flex display"
+w.Q="$264.23"
+w.db="-$39.63 (15%)"
+v=!0}else v=!1
+if(v)this.eW.a.st(1)
+if(x){w=this.eH
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.dX.a.st(1)
+if(x){w=this.fG
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.db="+$24.20 (15%)"
+w.dy=!0
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.en.a.st(1)
+if(x){w=this.eI
+w.z="Estimated earnings"
+w.Q="$158.22"
+w.cx=!0
+w.db="$24.20 (15%)"
+w.sdw("POSITIVE")
+v=!0}else v=!1
+if(v)this.dF.a.st(1)
+this.bu.H()
+this.aX.H()
+if(this.bx){this.b4.sek(this.bu.cd(new E.O9(),L.ap,E.xH))
+this.bx=!1}if(this.b5){this.bk.sek(this.aX.cd(new E.Oa(),L.ap,E.xI))
+this.b5=!1}this.x.A(x)
+this.Q.A(x)
+this.cy.A(x)
+this.fy.A(x)
+this.k1.A(x)
+this.k4.A(x)
+this.x2.A(x)
+this.U.A(x)
+this.R.A(x)
+this.a_.A(x)
+this.a2.A(x)
+this.ah.A(x)
+this.ad.A(x)
+this.ae.A(x)
+this.ar.A(x)
+this.an.A(x)
+this.aG.A(x)
+this.aO.A(x)
+this.b3.A(x)
+this.bz.A(x)
+this.bD.A(x)
+this.bF.A(x)
+this.bw.A(x)
+this.bt.A(x)
+this.ci.A(x)
+this.co.A(x)
+this.cG.A(x)
+this.ck.A(x)
+this.d0.A(x)
+this.de.A(x)
+this.dq.A(x)
+this.d5.A(x)
+this.dr.A(x)
+this.d9.A(x)
+this.cV.A(x)
+this.dV.A(x)
+this.dC.A(x)
+this.eW.A(x)
+this.dX.A(x)
+this.en.A(x)
+this.dF.A(x)
+this.x.j()
+this.Q.j()
+this.cy.j()
+this.dy.j()
+this.fy.j()
+this.k1.j()
+this.k4.j()
+this.rx.j()
+this.x2.j()
+this.U.j()
+this.R.j()
+this.M.j()
+this.a_.j()
+this.a2.j()
+this.ah.j()
+this.aj.j()
+this.ad.j()
+this.ae.j()
+this.ar.j()
+this.ay.j()
+this.an.j()
+this.aG.j()
+this.aO.j()
+this.aI.j()
+this.bh.j()
+this.ba.j()
+this.bi.j()
+this.b3.j()
+this.bz.j()
+this.bD.j()
+this.bS.j()
+this.bF.j()
+this.bw.j()
+this.bt.j()
+this.c4.j()
+this.ci.j()
+this.cn.j()
+this.co.j()
+this.cG.j()
+this.cB.j()
+this.ck.j()
+this.cU.j()
+this.d0.j()
+this.dK.j()
+this.de.j()
+this.dq.j()
+this.d7.j()
+this.d5.j()
+this.dr.j()
+this.ey.j()
+this.d9.j()
+this.cV.j()
+this.dV.j()
+this.e2.j()
+this.dC.j()
+this.eW.j()
+this.dX.j()
+this.en.j()
+this.dF.j()
+if(x)this.aL.a0()},
+v:function(){var y=this.bu
+if(!(y==null))y.G()
+y=this.aX
+if(!(y==null))y.G()
+y=this.x
+if(!(y==null))y.i()
+y=this.Q
+if(!(y==null))y.i()
+y=this.cy
+if(!(y==null))y.i()
+y=this.dy
+if(!(y==null))y.i()
+y=this.fy
+if(!(y==null))y.i()
+y=this.k1
+if(!(y==null))y.i()
+y=this.k4
+if(!(y==null))y.i()
+y=this.rx
+if(!(y==null))y.i()
+y=this.x2
+if(!(y==null))y.i()
+y=this.U
+if(!(y==null))y.i()
+y=this.R
+if(!(y==null))y.i()
+y=this.M
+if(!(y==null))y.i()
+y=this.a_
+if(!(y==null))y.i()
+y=this.a2
+if(!(y==null))y.i()
+y=this.ah
+if(!(y==null))y.i()
+y=this.aj
+if(!(y==null))y.i()
+y=this.ad
+if(!(y==null))y.i()
+y=this.ae
+if(!(y==null))y.i()
+y=this.ar
+if(!(y==null))y.i()
+y=this.ay
+if(!(y==null))y.i()
+y=this.an
+if(!(y==null))y.i()
+y=this.aG
+if(!(y==null))y.i()
+y=this.aO
+if(!(y==null))y.i()
+y=this.aI
+if(!(y==null))y.i()
+y=this.bh
+if(!(y==null))y.i()
+y=this.ba
+if(!(y==null))y.i()
+y=this.bi
+if(!(y==null))y.i()
+y=this.b3
+if(!(y==null))y.i()
+y=this.bz
+if(!(y==null))y.i()
+y=this.bD
+if(!(y==null))y.i()
+y=this.bS
+if(!(y==null))y.i()
+y=this.bF
+if(!(y==null))y.i()
+y=this.bw
+if(!(y==null))y.i()
+y=this.bt
+if(!(y==null))y.i()
+y=this.c4
+if(!(y==null))y.i()
+y=this.ci
+if(!(y==null))y.i()
+y=this.cn
+if(!(y==null))y.i()
+y=this.co
+if(!(y==null))y.i()
+y=this.cG
+if(!(y==null))y.i()
+y=this.cB
+if(!(y==null))y.i()
+y=this.ck
+if(!(y==null))y.i()
+y=this.cU
+if(!(y==null))y.i()
+y=this.d0
+if(!(y==null))y.i()
+y=this.dK
+if(!(y==null))y.i()
+y=this.de
+if(!(y==null))y.i()
+y=this.dq
+if(!(y==null))y.i()
+y=this.d7
+if(!(y==null))y.i()
+y=this.d5
+if(!(y==null))y.i()
+y=this.dr
+if(!(y==null))y.i()
+y=this.ey
+if(!(y==null))y.i()
+y=this.d9
+if(!(y==null))y.i()
+y=this.cV
+if(!(y==null))y.i()
+y=this.dV
+if(!(y==null))y.i()
+y=this.e2
+if(!(y==null))y.i()
+y=this.dC
+if(!(y==null))y.i()
+y=this.eW
+if(!(y==null))y.i()
+y=this.dX
+if(!(y==null))y.i()
+y=this.en
+if(!(y==null))y.i()
+y=this.dF
+if(!(y==null))y.i()
+y=this.fr
+y.a.F()
+y.b.F()
+y=this.ry
+y.a.F()
+y.b.F()
+y=this.a1
+y.a.F()
+y.b.F()
+y=this.ac
+y.a.F()
+y.b.F()
+y=this.aB
+y.a.F()
+y.b.F()
+y=this.aL
+y.aP()
+y.J=null
+y.O=null
+this.be.a.F()
+y=this.b4
+y.a.F()
+y.b.F()
+y=this.bk
+y.a.F()
+y.b.F()
+y=this.bf
+y.a.F()
+y.b.F()
+y=this.bs
+y.a.F()
+y.b.F()
+y=this.bT
+y.a.F()
+y.b.F()
+y=this.c6
+y.a.F()
+y.b.F()
+y=this.cj
+y.a.F()
+y.b.F()
+y=this.cD
+y.a.F()
+y.b.F()
+y=this.dL
+y.a.F()
+y.b.F()
+y=this.dz
+y.a.F()
+y.b.F()
+y=this.ds
+y.a.F()
+y.b.F()
+y=this.dM
+y.a.F()
+y.b.F()},
+S6:function(n){this.f.sx5(n)},
+$asb:function(){return[F.h4]},
+sa_I:function(n){return this.bx=n},
+sa_H:function(n){return this.b5=n}}
+E.xH.prototype={
+p:function(){var y,x,w,v
+y=N.b1(this,0)
+this.x=y
+y=y.e
+this.r=y
+y.setAttribute("description","Suggestions to add")
+this.h(this.r)
+y=this.x.a.b
+x=this.r
+w=this.c
+w=w.c.n(C.d,w.a.Q)
+y=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,y,x,!1,!1,!1,x,w)
+this.y=y
+v=document.createTextNode("\n  ")
+this.x.k(0,y,[C.a,C.a,C.a,H.a([v],[W.aN])])
+this.E(this.r)},
+q:function(){var y,x,w,v,u,t
+y=this.a.cy===0
+x=this.b.C(0,"$implicit")
+if(y){this.y.db="Suggestions to add"
+w=!0}else w=!1
+v="More Item "+(x==null?"":H.w(x))
+u=this.z
+if(u!==v){this.y.z=v
+this.z=v
+w=!0}t=Q.I(x)
+u=this.Q
+if(u!==t){this.y.Q=t
+this.Q=t
+w=!0}if(w)this.x.a.st(1)
+this.x.A(y)
+this.x.j()},
+cA:function(){this.c.sa_I(!0)},
+v:function(){var y=this.x
+if(!(y==null))y.i()},
+$asb:function(){return[F.h4]}}
+E.xI.prototype={
+p:function(){var y,x,w,v
+y=N.b1(this,0)
+this.x=y
+y=y.e
+this.r=y
+y.setAttribute("description","Suggestions to add")
+this.h(this.r)
+y=this.x.a.b
+x=this.r
+w=this.c
+w=w.c.n(C.d,w.a.Q)
+y=new L.ap(new P.l(null,null,0,[P.q]),!1,!1,!0,!1,y,x,!1,!1,!1,x,w)
+this.y=y
+v=document.createTextNode("\n    ")
+this.x.k(0,y,[C.a,C.a,C.a,H.a([v],[W.aN])])
+this.E(this.r)},
+q:function(){var y,x,w,v,u,t
+y=this.a.cy===0
+x=this.b.C(0,"$implicit")
+if(y){this.y.db="Suggestions to add"
+w=!0}else w=!1
+v="More Item "+(x==null?"":H.w(x))
+u=this.z
+if(u!==v){this.y.z=v
+this.z=v
+w=!0}t=Q.I(x)
+u=this.Q
+if(u!==t){this.y.Q=t
+this.Q=t
+w=!0}if(w)this.x.a.st(1)
+this.x.A(y)
+this.x.j()},
+cA:function(){this.c.sa_H(!0)},
+v:function(){var y=this.x
+if(!(y==null))y.i()},
+$asb:function(){return[F.h4]}}
+E.WW.prototype={
+gWl:function(){var y=this.y
+if(y==null){y=S.qe(this.n(C.L,this.a.Q))
+this.y=y}return y},
+p:function(){var y,x
+y=new E.v_(!0,!0,P.e(P.c,null),this)
+y.a=S.h(y,3,C.j,0)
+x=document.createElement("scorecard-demo")
+y.e=x
+x=$.O8
+if(x==null){x=$.D
+x=x.Y(null,C.o,$.$get$aj1())
+$.O8=x}y.X(x)
+this.r=y
+this.e=y.e
+y=new F.h4(C.cv,C.fl,C.bS,F.a5h(10),10)
+this.x=y
+this.r.k(0,y,this.a.e)
 this.E(this.e)
-return new D.z(this,0,this.e,this.x,[X.iW])},
+return new D.A(this,0,this.e,this.x,[F.h4])},
+N:function(n,o,p){if(n===C.ae&&0===o)return this.gWl()
+return p},
 q:function(){this.r.j()},
-v:function(){var x=this.r
-if(!(x==null))x.i()},
-$asb:function(){return[X.iW]}}
-var y=i([{func:1,ret:-1,args:[,]},{func:1,ret:[S.b,B.cy],args:[[S.b,,],P.j]},{func:1,ret:[S.b,U.dc],args:[[S.b,,],P.j]},{func:1,ret:[S.b,G.cN],args:[[S.b,,],P.j]},{func:1,ret:-1},{func:1,ret:[S.b,F.eB],args:[[S.b,,],P.j]},{func:1,ret:[S.b,F.eC],args:[[S.b,,],P.j]},{func:1,ret:[S.b,F.eA],args:[[S.b,,],P.j]},{func:1,ret:P.x,args:[P.q]},{func:1,ret:P.c,args:[,]},{func:1,ret:[S.b,Y.dU],args:[[S.b,,],P.j]},{func:1,ret:[S.b,Q.hJ],args:[[S.b,,],P.j]},{func:1,ret:-1,args:[W.B]},{func:1,ret:V.dI,args:[P.c],opt:[[P.C,V.dI]]},{func:1,ret:[D.v,U.fH],args:[,]},{func:1,ret:X.lc},{func:1,ret:[S.b,F.fo],args:[[S.b,,],P.j]},{func:1,ret:[S.b,U.fH],args:[[S.b,,],P.j]},{func:1,ret:[S.b,G.iL],args:[[S.b,,],P.j]},{func:1,ret:[S.b,G.iO],args:[[S.b,,],P.j]},{func:1,ret:[S.b,G.iK],args:[[S.b,,],P.j]},{func:1,ret:[S.b,R.iP],args:[[S.b,,],P.j]},{func:1,ret:[S.b,V.iQ],args:[[S.b,,],P.j]},{func:1,ret:[S.b,R.iR],args:[[S.b,,],P.j]},{func:1,ret:[S.b,S.iS],args:[[S.b,,],P.j]},{func:1,ret:[S.b,S.hH],args:[[S.b,,],P.j]},{func:1,ret:[S.b,D.iN],args:[[S.b,,],P.j]},{func:1,ret:[S.b,O.iM],args:[[S.b,,],P.j]},{func:1,ret:[S.b,F.hI],args:[[S.b,,],P.j]},{func:1,ret:[S.b,S.iT],args:[[S.b,,],P.j]},{func:1,ret:[S.b,Q.iU],args:[[S.b,,],P.j]},{func:1,ret:[S.b,V.iV],args:[[S.b,,],P.j]},{func:1,ret:[S.b,X.iW],args:[[S.b,,],P.j]}])
-K.Ol.prototype={
-$1:function(n){return H.a([n.y],[R.cw])}}
-L.O5.prototype={
-$1:function(n){return H.a([n.y],[Y.dU])}}
-L.O6.prototype={
-$1:function(n){return H.a([n.y],[Y.dU])}}
-U.Hc.prototype={
-$0:function(){var x=this.a
-x.x1$=!1
-x.y1$.S(0,x.x2$)},
-"call*":"$0",
-$R:0,
+v:function(){var y=this.r
+if(!(y==null))y.i()},
+$asb:function(){return[F.h4]}}
+var z=i([{func:1,ret:-1},{func:1,ret:[S.b,L.ap],args:[[S.b,,],P.k]},{func:1,ret:[S.b,F.ft],args:[[S.b,,],P.k]},{func:1,ret:[S.b,F.h4],args:[[S.b,,],P.k]},{func:1,ret:-1,args:[W.a4]},{func:1,ret:-1,named:{windowResize:null}},{func:1,ret:-1,args:[,]},{func:1,ret:[S.b,V.fu],args:[[S.b,,],P.k]}])
+F.Jb.prototype={
+$1:function(n){return this.a.v0()},
+"call*":"$1",
+$R:1}
+F.Ja.prototype={
+$1:function(n){var y,x
+y=this.a
+x=this.b
+if(y.e.cw(x)){if(y.cy!==C.bS)y.e.dJ(x)}else y.e.cL(0,x)
+y.G5()
+return},
+"call*":"$1",
+$R:1}
+F.J8.prototype={
+$1:function(n){return n.y},
+"call*":"$1",
+$R:1}
+F.J9.prototype={
+$0:function(){var y,x,w,v
+for(y=this.c,x=y.length,w=0;w<y.length;y.length===x||(0,H.av)(y),++w){v=J.a3g(y[w])
+v.minWidth=""}x=this.b
+x.a.dT(x.d.eR(new F.J7(this.a,x,y)))},
 $S:0}
-V.Od.prototype={
-$1:function(n){return H.a([n.cx],[L.c8])}}
-D.O4.prototype={
-$1:function(n){return n.r.cW(new D.O3(),B.cy,D.xW)}}
-D.O3.prototype={
-$1:function(n){return H.a([n.y],[B.cy])}}
-K.Hg.prototype={
-$1:function(n){return!1},
-$S:function(){return{func:1,ret:P.x,args:[this.a]}}}
-K.Hh.prototype={
-$1:function(n){var x,w
-x=this.a
-w=this.b
-if(n===x.b.cY(0,w))return
-if(n)x.jk(w)
-else x.HU(w)},
-"call*":"$1",
-$R:1}
-V.Z5.prototype={
-$2:function(n,o){return new V.dI(o,!1,!1,new P.k(null,null,0,[P.x]),n,!1)},
-$1:function(n){return this.$2(n,C.kX)},
-$S:y+13}
-S.Hd.prototype={
-$1:function(n){return C.dc},
-"call*":"$1",
-$R:1,
-$S:y+14}
-S.He.prototype={
-$1:function(n){return n.a},
-"call*":"$1",
-$R:1}
-F.Hf.prototype={
-$1:function(n){return n.toUpperCase()},
-"call*":"$1",
-$R:1,
-$S:17}
-X.Or.prototype={
-$1:function(n){return H.a([n.y],[R.cw])}}
-B.a_e.prototype={
-$0:function(){return new X.lc()},
+F.J7.prototype={
+$0:function(){var y,x,w,v,u,t,s,r,q
+for(y=this.c,x=y.length,w=this.a,v=0;v<y.length;y.length===x||(0,H.av)(y),++v){u=y[v]
+u.toString
+t=window.getComputedStyle(u,"").width
+s=P.cT("[^0-9.]",!0,!1)
+r=H.k1(t,s,"")
+q=r.length===0?0:P.a1S(r,null)
+if(q>w.a)w.a=q}w.a=w.a+1
+x=this.b
+x.a.dT(x.d.dR(new F.J6(w,x,y)))},
+$S:0}
+F.J6.prototype={
+$0:function(){var y,x,w,v,u,t
+for(y=this.c,x=y.length,w=this.a,v=0;v<y.length;y.length===x||(0,H.av)(y),++v){u=J.a3g(y[v])
+t=H.w(w.a)+"px"
+u.minWidth=t}this.b.v0()},
+$S:0}
+T.Jd.prototype={
+$0:function(){var y,x,w
+y=this.a
+x=J.bH(y.gGN())+" "
+w=y.c
+return x+C.h.K(y.f?C.B.by(w.scrollHeight):C.B.by(w.scrollWidth))},
 "call*":"$0",
 $R:0,
-$S:y+15}
-K.dV.prototype.zy=K.dV.prototype.sa2B
-K.dV.prototype.Mn=K.dV.prototype.ski
-K.dV.prototype.Mo=K.dV.prototype.oi;(function installTearOffs(){f(B.cy.prototype,"ga7E",0,0,0,null,["$1"],["a7F"],12,0)
-f(V,"azS",1,0,0,null,["$2"],["aHV"],1,0)
-f(V,"azT",1,0,0,null,["$2"],["aHW"],1,0)
-f(V,"azU",1,0,0,null,["$2"],["aHX"],1,0)
-f(V,"azV",1,0,0,null,["$2"],["aHY"],1,0)
-f(V,"azW",1,0,0,null,["$2"],["aHZ"],1,0)
-f(V,"azX",1,0,0,null,["$2"],["aI_"],1,0)
-f(V,"azY",1,0,0,null,["$2"],["aI0"],1,0)
-f(V,"azZ",1,0,0,null,["$2"],["aI1"],1,0)
-f(V,"aA_",1,0,0,null,["$2"],["aI2"],1,0)
-f(V,"aA0",1,0,0,null,["$2"],["aI3"],1,0)
-var x
-f(x=V.xY.prototype,"gvN",0,0,0,null,["$1"],["vO"],0,0)
-f(x,"gQk",0,0,0,null,["$1"],["Ql"],0,0)
-f(V.xZ.prototype,"gvN",0,0,0,null,["$1"],["vO"],0,0)
-f(K,"azK",1,0,0,null,["$2"],["aI8"],5,0)
-f(K,"azL",1,0,0,null,["$2"],["aI9"],5,0)
-f(K,"azM",1,0,0,null,["$2"],["aIa"],5,0)
-f(K,"azN",1,0,0,null,["$2"],["aIb"],5,0)
-f(K,"azO",1,0,0,null,["$2"],["aIc"],6,0)
-f(K,"azP",1,0,0,null,["$2"],["aId"],6,0)
-f(K,"azQ",1,0,0,null,["$2"],["aIe"],6,0)
-f(K,"azR",1,0,0,null,["$2"],["aIf"],6,0)
-f(K,"azG",1,0,0,null,["$2"],["aI4"],7,0)
-f(K,"azH",1,0,0,null,["$2"],["aI5"],7,0)
-f(K,"azI",1,0,0,null,["$2"],["aI6"],7,0)
-f(K,"azJ",1,0,0,null,["$2"],["aI7"],7,0)
-f(K.y_.prototype,"gP7",0,0,0,null,["$1"],["P8"],0,0)
-f(x=G.cN.prototype,"gho",0,1,0,null,["$0"],["hp"],4,0)
-f(x,"gdn",0,1,0,null,["$0"],["aT"],4,0)
-f(x,"gee",0,1,0,null,["$0"],["ci"],4,0)
-f(L,"azu",1,0,0,null,["$2"],["aHF"],3,0)
-f(L,"azv",1,0,0,null,["$2"],["aHG"],3,0)
-f(L,"azw",1,0,0,null,["$2"],["aHH"],3,0)
-f(L,"azx",1,0,0,null,["$2"],["aHI"],3,0)
-f(L,"azy",1,0,0,null,["$2"],["aHJ"],3,0)
-f(L,"azz",1,0,0,null,["$2"],["aHK"],3,0)
-f(x=L.vh.prototype,"gYK",0,0,0,null,["$1"],["YL"],0,0)
-f(x,"gYI",0,0,0,null,["$1"],["YJ"],0,0)
-f(x,"gWC",0,0,0,null,["$1"],["WD"],0,0)
-f(L.q9.prototype,"gRb",0,0,0,null,["$1"],["Rc"],0,0)
-f(x=Y.dU.prototype,"gjX",0,0,0,null,["$0"],["a3m"],4,0)
-f(x,"gee",0,1,0,null,["$0"],["ci"],4,0)
-f(V,"azA",1,0,0,null,["$2"],["aHQ"],10,0)
-f(V,"azB",1,0,0,null,["$2"],["aHR"],10,0)
-f(V.qa.prototype,"gRn",0,0,0,null,["$1"],["Ro"],0,0)
-f(D,"aA1",1,0,0,null,["$2"],["aHv"],2,0)
-f(D,"aA2",1,0,0,null,["$2"],["aHw"],2,0)
-f(D,"aA3",1,0,0,null,["$2"],["aHx"],2,0)
-f(D,"aA4",1,0,0,null,["$2"],["aHy"],2,0)
-f(D,"aA5",1,0,0,null,["$2"],["aHz"],2,0)
-f(D,"aA6",1,0,0,null,["$2"],["aHA"],2,0)
-f(D,"aA7",1,0,0,null,["$2"],["aHB"],2,0)
-f(D,"aA8",1,0,0,null,["$2"],["aHC"],2,0)
-f(D,"aA9",1,0,0,null,["$2"],["aHD"],2,0)
-f(D,"aAa",1,0,0,null,["$2"],["aHE"],2,0)
-f(x=K.dV.prototype,"ga3E",0,0,0,null,["$1"],["jZ"],8,0)
-f(x,"gf6",0,0,1,null,["$1"],["dh"],8,0)
-f(Y,"azr",1,0,0,null,["$2"],["aHu"],16,0)
-f(K,"azq",1,0,0,null,["$2"],["aCk"],17,0)
-f(A,"azs",1,0,0,null,["$2"],["aHM"],18,0)
-f(S,"azt",1,0,0,null,["$2"],["aHP"],19,0)
-f(Y,"azC",1,0,0,null,["$2"],["aHL"],20,0)
-f(L,"azD",1,0,0,null,["$2"],["aHS"],21,0)
-f(B,"azE",1,0,0,null,["$2"],["aHT"],22,0)
-f(A,"azF",1,0,0,null,["$2"],["aHU"],23,0)
-f(M,"aAb",1,0,0,null,["$2"],["aIg"],24,0)
-f(S.hH.prototype,"gd9",0,0,1,null,["$1"],["f7"],9,0)
-f(Z,"aAc",1,0,0,null,["$2"],["aIh"],25,0)
-f(L,"aAd",1,0,0,null,["$2"],["aHO"],26,0)
-f(E,"aAe",1,0,0,null,["$2"],["aHN"],27,0)
-f(F.hI.prototype,"gd9",0,0,1,null,["$1"],["f7"],9,0)
-f(M,"aAf",1,0,0,null,["$2"],["aIi"],28,0)
-f(M,"aAg",1,0,0,null,["$2"],["aIj"],29,0)
-f(S,"aAh",1,0,0,null,["$2"],["aIk"],30,0)
-f(X,"aAi",1,0,0,null,["$2"],["aIl"],11,0)
-f(X,"aAj",1,0,0,null,["$2"],["aIm"],11,0)
-f(X.vl.prototype,"gTv",0,0,0,null,["$1"],["Tw"],0,0)
-f(O,"aAk",1,0,0,null,["$2"],["aIn"],31,0)
-f(B,"aAl",1,0,0,null,["$2"],["aIo"],32,0)})();(function inheritance(){var x=P.q
-a(K.dV,x)
-a(U.ln,x)
-a(Y.dU,x)
-a(K.Pf,x)
-a(K.QK,x)
-a(Y.tg,x)
-a(G.oK,x)
-a(F.fo,x)
-a(U.fH,x)
-a(V.AH,x)
-a(G.iL,x)
-a(G.iO,x)
-a(G.iK,x)
-a(R.iP,x)
-a(V.iQ,x)
-a(R.iR,x)
-a(S.iS,x)
-a(S.hH,x)
-a(D.iN,x)
-a(O.iM,x)
-a(F.hI,x)
-a(S.iT,x)
-a(Q.iU,x)
-a(Q.hJ,x)
-a(Q.ls,x)
-a(V.iV,x)
-a(X.iW,x)
-a(X.ON,x)
-x=K.dV
-a(B.cy,x)
-a(F.eB,x)
-a(F.eC,x)
-a(F.eA,x)
-x=S.b
-a(V.Oh,x)
-a(V.xY,x)
-a(V.Ww,x)
-a(V.Wx,x)
-a(V.Wy,x)
-a(V.Wz,x)
-a(V.WA,x)
-a(V.xZ,x)
-a(V.WB,x)
-a(V.WC,x)
-a(V.WD,x)
-a(K.Oj,x)
-a(K.WH,x)
-a(K.WI,x)
-a(K.WJ,x)
-a(K.WK,x)
-a(K.Ok,x)
-a(K.y0,x)
-a(K.WL,x)
-a(K.WM,x)
-a(K.WN,x)
-a(K.Oi,x)
-a(K.y_,x)
-a(K.WE,x)
-a(K.WF,x)
-a(K.WG,x)
-a(L.vh,x)
-a(L.Wj,x)
-a(L.Wk,x)
-a(L.q9,x)
-a(L.xX,x)
-a(L.Wl,x)
-a(L.Wm,x)
-a(V.Oc,x)
-a(V.qa,x)
-a(V.Ws,x)
-a(D.O2,x)
-a(D.xV,x)
-a(D.xW,x)
-a(D.Wb,x)
-a(D.Wc,x)
-a(D.Wd,x)
-a(D.We,x)
-a(D.Wf,x)
-a(D.Wg,x)
-a(D.Wh,x)
-a(D.Wi,x)
-a(Y.O1,x)
-a(Y.Wa,x)
-a(K.Mi,x)
-a(K.RH,x)
-a(A.O8,x)
-a(A.Wo,x)
-a(S.Ob,x)
-a(S.Wr,x)
-a(Y.O7,x)
-a(Y.Wn,x)
-a(L.Oe,x)
-a(L.Wt,x)
-a(B.Of,x)
-a(B.Wu,x)
-a(A.Og,x)
-a(A.Wv,x)
-a(M.Om,x)
-a(M.WO,x)
-a(Z.On,x)
-a(Z.WP,x)
-a(L.Oa,x)
-a(L.Wq,x)
-a(E.O9,x)
-a(E.Wp,x)
-a(M.Oo,x)
-a(M.WQ,x)
-a(M.Op,x)
-a(M.WR,x)
-a(S.Oq,x)
-a(S.WS,x)
-a(X.vl,x)
-a(X.y1,x)
-a(X.WT,x)
-a(O.Os,x)
-a(O.WU,x)
-a(B.Ot,x)
-a(B.WV,x)
-x=H.aE
-a(K.Ol,x)
-a(L.O5,x)
-a(L.O6,x)
-a(U.Hc,x)
-a(V.Od,x)
-a(D.O4,x)
-a(D.O3,x)
-a(K.Hg,x)
-a(K.Hh,x)
-a(V.Z5,x)
-a(S.Hd,x)
-a(S.He,x)
-a(F.Hf,x)
-a(X.Or,x)
-a(B.a_e,x)
-x=L.cq
-a(G.wr,x)
-a(U.wq,x)
-a(G.ws,G.wr)
-a(G.cN,G.ws)
-a(U.dc,U.wq)
-x=F.eD
-a(V.wB,x)
-a(V.I1,x)
-a(V.yq,V.wB)
-a(V.QG,V.yq)
-a(V.vD,V.AH)
-a(V.dI,V.vD)
-a(X.lc,Y.tg)
-b(G.wr,M.rx)
-b(G.ws,G.oK)
-b(U.wq,G.oK)
-b(V.vD,U.ln)
-b(V.yq,U.dl)})();(function constants(){C.fV=new K.QK([P.ai,[P.O,[F.al,P.ai]]])
-C.he=new D.v("material-tree-group-flat-check",K.azJ(),[F.eA])
-C.cX=new D.v("material-tree-nested-single-parent-selectable-demo",O.aAk(),[V.iV])
-C.d_=new D.v("material-tree-flat-multi-demo",L.azD(),[R.iP])
-C.hv=new D.v("material-tree-filter",V.azB(),[Y.dU])
-C.dc=new D.v("component-renderer-example",K.azq(),[U.fH])
-C.dd=new D.v("material-tree-flat-readonly-demo",B.azE(),[V.iQ])
-C.dk=new D.v("material-tree-section-demo",B.aAl(),[X.iW])
-C.hD=new D.v("material-tree-dropdown",L.azz(),[G.cN])
-C.dn=new D.v("material-tree-api",Y.azr(),[F.fo])
-C.dz=new D.v("material-tree-nested-filter-in-dropdown-demo",E.aAe(),[O.iM])
-C.hO=new D.v("material-tree-group",V.aA0(),[B.cy])
-C.dB=new D.v("material-tree-flat-selectable-demo",A.azF(),[R.iR])
-C.dJ=new D.v("material-tree-nested-filterable-demo",L.aAd(),[D.iN])
-C.dP=new D.v("material-tree-nested-item-rendering-demo",M.aAf(),[F.hI])
-C.hX=new D.v("material-tree-group-flat-list",K.azN(),[F.eB])
-C.dR=new D.v("material-tree-nested-single-divider-demo",X.aAj(),[Q.hJ])
-C.dV=new D.v("material-tree-nested-single-demo",S.aAh(),[Q.iU])
-C.i1=new D.v("material-tree",D.aAa(),[U.dc])
-C.i5=new D.v("material-tree-group-flat-radio",K.azR(),[F.eC])
-C.e4=new D.v("material-tree-dropdown-single-demo",S.azt(),[G.iO])
-C.e3=new D.v("material-tree-nested-expand-demo",Z.aAc(),[S.hH])
-C.e5=new D.v("material-tree-nested-component-rendering-demo",M.aAb(),[S.iS])
-C.e6=new D.v("material-tree-dropdown-multi-demo",A.azs(),[G.iL])
-C.e7=new D.v("material-tree-flat-filterable-demo",Y.azC(),[G.iK])
-C.eb=new D.v("material-tree-nested-multi-demo",M.aAg(),[S.iT])
-C.jT=H.a(d([C.fg,C.bz,C.bR]),[K.aY])
-C.kA=d([C.bA,C.cc,C.bz,C.jT])
-C.kX=H.a(d([]),[V.dI])
-C.cn=new S.dr("MaterialTreeGroupComponent_materialTreeLeftPaddingToken",[null])
-C.m6=H.r(F.eA)
-C.m7=H.r(S.iT)
-C.m8=H.r(G.iO)
-C.ma=H.r(Q.iU)
-C.mc=H.r(F.eB)
-C.mh=H.r(V.iQ)
-C.mj=H.r(X.iW)
-C.mm=H.r(Q.hJ)
-C.mt=H.r(U.fH)
-C.mL=H.r(G.iK)
-C.mQ=H.r(F.eC)
-C.mV=H.r(G.iL)
-C.o8=H.r(F.fo)
-C.o9=H.r(U.dc)
-C.oa=H.r(Y.dU)
-C.ob=H.r(B.cy)
-C.oc=H.r(Y.tg)
-C.U=H.r([G.oK,,])
-C.ok=H.r(R.iP)
-C.om=H.r(D.iN)
-C.ox=H.r(O.iM)
-C.b6=H.r(G.cN)
-C.oK=H.r(R.iR)
-C.oQ=H.r(V.iV)
-C.oW=H.r(S.hH)
-C.oX=H.r(X.lc)
-C.oY=H.r(S.iS)
-C.p0=H.r(F.hI)})();(function staticFields(){$.aat=!1
-$.j8=null
-$.aaN=!1
-$.vj=null
-$.vk=null
-$.vi=null
-$.aax=!1
-$.nj=null
-$.aaI=!1
-$.a1s=null
-$.aaJ=!1
-$.j7=null
-$.aav=!1
-$.aay=!1
-$.aau=!1
-$.aaw=!1
-$.a7n=null
-$.aal=!1
-$.a67=null
-$.ab_=!1
-$.aaO=!1
+$S:4}
+T.Je.prototype={
+$1:function(n){var y=this.a
+y.v_(!0)
+y.a.P(0,!0)},
+$S:2}
+T.Jg.prototype={
+$0:function(){var y,x,w,v
+y=this.a
+y.oX()
+x=y.y
+if(y.gGo())x-=y.Q
+w=y.z
+v=Math.abs(w)
+if(v-x<0)x=v
+if(y.f||!y.e)y.z=w+x
+else y.z=w-x
+y.vn()},
+$S:0}
+T.Jh.prototype={
+$0:function(){var y,x,w,v,u
+y=this.a
+y.oX()
+x=y.y
+w=y.z
+if(w===0)x-=y.Q
+v=y.x+w
+u=y.r
+if(v<x+u)x=v-u
+if(y.f||!y.e)y.z=w-x
+else y.z=w+x
+y.vn()},
+$S:0}
+T.Jf.prototype={
+$0:function(){var y=this.a
+y.oX()
+y.a.P(0,!0)},
+$S:0}
+T.Jc.prototype={
+$0:function(){var y,x,w
+y=this.a
+x=y.c.style
+w="translate"+(y.f?"Y":"X")+"("+y.z+"px)"
+C.A.cM(x,(x&&C.A).cz(x,"transform"),w,"")
+y.a.P(0,!0)},
+$S:0}
+F.Ji.prototype={
+$1:function(n){return n+1},
+$S:18}
+E.O9.prototype={
+$1:function(n){return H.a([n.y],[L.ap])}}
+E.Oa.prototype={
+$1:function(n){return H.a([n.y],[L.ap])}};(function installTearOffs(){var y
+f(y=F.ft.prototype,"gxN",0,0,0,null,["$0"],["nh"],0,0)
+f(y,"gxO",0,0,0,null,["$0"],["ni"],0,0)
+f(y,"gF_",0,0,0,null,["$0"],["a_3"],0,0)
+f(U,"aBg",1,0,0,null,["$2"],["aI4"],2,0)
+f(U,"aBh",1,0,0,null,["$2"],["aI5"],2,0)
+f(U,"aBi",1,0,0,null,["$2"],["aI6"],2,0)
+f(y=L.ap.prototype,"gcO",0,0,0,null,["$0"],["pQ"],0,0)
+f(y,"ga3z",0,0,0,null,["$1"],["a3A"],4,0)
+f(N,"aBn",1,0,0,null,["$2"],["aI8"],1,0)
+f(N,"aBo",1,0,0,null,["$2"],["aI9"],1,0)
+f(N,"aBp",1,0,0,null,["$2"],["aIa"],1,0)
+f(N,"aBq",1,0,0,null,["$2"],["aIb"],1,0)
+f(N,"aBr",1,0,0,null,["$2"],["aIc"],1,0)
+f(N,"aBs",1,0,0,null,["$2"],["aId"],1,0)
+f(y=T.ts.prototype,"gxN",0,0,0,null,["$0"],["nh"],0,0)
+f(y,"gxO",0,0,0,null,["$0"],["ni"],0,0)
+f(y,"ga_P",0,0,0,null,["$1$windowResize","$0"],["v_","oX"],5,0)
+f(A,"aBj",1,0,0,null,["$2"],["aI7"],7,0)
+f(E,"aBk",1,0,0,null,["$2"],["aIe"],3,0)
+f(E,"aBl",1,0,0,null,["$2"],["aIf"],3,0)
+f(E,"aBm",1,0,0,null,["$2"],["aIg"],3,0)
+f(E.v_.prototype,"gS5",0,0,0,null,["$1"],["S6"],6,0)})();(function inheritance(){var y=P.u
+a(F.qQ,y)
+a(F.ft,y)
+a(F.lE,y)
+a(T.ts,y)
+a(K.dJ,y)
+a(V.fu,y)
+a(F.h4,y)
+y=H.aK
+a(F.Jb,y)
+a(F.Ja,y)
+a(F.J8,y)
+a(F.J9,y)
+a(F.J7,y)
+a(F.J6,y)
+a(T.Jd,y)
+a(T.Je,y)
+a(T.Jg,y)
+a(T.Jh,y)
+a(T.Jf,y)
+a(T.Jc,y)
+a(F.Ji,y)
+a(E.O9,y)
+a(E.Oa,y)
+y=S.b
+a(U.O4,y)
+a(U.WM,y)
+a(U.WN,y)
+a(U.WO,y)
+a(N.O7,y)
+a(N.WQ,y)
+a(N.WR,y)
+a(N.WS,y)
+a(N.WT,y)
+a(N.WU,y)
+a(N.WV,y)
+a(A.O6,y)
+a(A.WP,y)
+a(E.v_,y)
+a(E.xH,y)
+a(E.xI,y)
+a(E.WW,y)
+a(L.ap,O.cQ)})();(function constants(){C.cS=new K.dJ(66,133,244,1)
+C.hr=new D.x("acx-scorecard",N.aBs(),[L.ap])
+C.hO=new D.x("acx-scoreboard",U.aBi(),[F.ft])
+C.dJ=new D.x("scorecard-api",A.aBj(),[V.fu])
+C.dO=new D.x("scorecard-demo",E.aBm(),[F.h4])
+C.hc=new K.dJ(219,68,55,1)
+C.he=new K.dJ(244,180,0,1)
+C.h9=new K.dJ(15,157,88,1)
+C.ha=new K.dJ(171,71,188,1)
+C.h7=new K.dJ(0,172,193,1)
+C.hf=new K.dJ(255,112,67,1)
+C.h8=new K.dJ(158,157,36,1)
+C.hg=new K.dJ(92,107,192,1)
+C.hd=new K.dJ(240,98,146,1)
+C.h6=new K.dJ(0,121,107,1)
+C.hb=new K.dJ(194,24,91,1)
+C.lx=H.a(d([C.cS,C.hc,C.he,C.h9,C.ha,C.h7,C.hf,C.h8,C.hg,C.hd,C.h6,C.hb]),[K.dJ])
+C.fk=new F.lE(0,"ScoreboardType.standard")
+C.cv=new F.lE(1,"ScoreboardType.selectable")
+C.fl=new F.lE(2,"ScoreboardType.toggle")
+C.bS=new F.lE(3,"ScoreboardType.radio")
+C.fm=new F.lE(4,"ScoreboardType.custom")
+C.mw=H.v(F.qQ)
+C.ot=H.v(F.ft)
+C.ou=H.v(V.fu)
+C.ov=H.v(L.ap)
+C.ow=H.v(F.h4)})();(function staticFields(){$.O5=null
+$.aei=!1
+$.nf=null
+$.abD=!1
+$.aej=!1
+$.abO=!1
 $.a7p=null
-$.ab5=!1
-$.a7s=null
-$.ab4=!1
-$.a7o=null
-$.ab3=!1
-$.a7t=null
-$.ab2=!1
-$.a7u=null
-$.ab1=!1
-$.a7v=null
-$.ab0=!1
-$.a7z=null
-$.aaZ=!1
-$.a7A=null
-$.aaY=!1
-$.a7r=null
-$.aaW=!1
-$.a7q=null
-$.aaV=!1
-$.a7B=null
-$.aaU=!1
-$.a7C=null
-$.aaT=!1
-$.a7D=null
-$.aaS=!1
-$.a1u=null
-$.aaR=!1
-$.a7E=null
-$.aaQ=!1
-$.a7F=null
-$.aam=!1})();(function lazyInitializers(){c($,"a5j","$get$a5j",function(){return 40})
-c($,"a5i","$get$a5i",function(){return 40})
-c($,"a5k","$get$a5k",function(){return T.b4("View more",null,"Label for a link that allows user to see the collapsed options.",C.D,null,null,null,null)})
-c($,"ajB","$get$ajB",function(){return["._nghost-%ID%:first-of-type li:first-of-type._ngcontent-%ID% .root-border._ngcontent-%ID%{opacity:0;}.material-tree-border._ngcontent-%ID%{background:#e0e0e0;display:none;height:1px;left:0;pointer-events:none;position:absolute;right:0;top:0;}ul._ngcontent-%ID%{list-style:none;margin:0;padding:0;}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID%{display:block;font-family:inherit;font-size:15px;line-height:32px;padding:0 24px;position:relative;white-space:nowrap;display:flex;align-items:center;color:rgba(0, 0, 0, 0.87);cursor:pointer;padding-right:16px;}ul._ngcontent-%ID% .material-tree-item.disabled._ngcontent-%ID%{pointer-events:none;}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID%  .material-list-item-primary{color:rgba(0, 0, 0, 0.54);width:40px;}ul._ngcontent-%ID% .material-tree-item.disabled._ngcontent-%ID%  .material-list-item-primary{color:rgba(0, 0, 0, 0.38);}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID%  .material-list-item-secondary{color:rgba(0, 0, 0, 0.54);margin-left:auto;}ul._ngcontent-%ID% .material-tree-item.disabled._ngcontent-%ID%  .material-list-item-secondary{color:rgba(0, 0, 0, 0.38);}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID%  .submenu-icon{transform:rotate(-90deg);}ul._ngcontent-%ID% .material-tree-item:not([separator=present]):hover._ngcontent-%ID%,ul._ngcontent-%ID% .material-tree-item:not([separator=present]):focus._ngcontent-%ID%,ul._ngcontent-%ID% .material-tree-item:not([separator=present]).active._ngcontent-%ID%{background:#eee;}ul._ngcontent-%ID% .material-tree-item:not([separator=present]).disabled._ngcontent-%ID%{background:none;color:rgba(0, 0, 0, 0.38);cursor:default;pointer-events:all;}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID% > .material-tree-shift._ngcontent-%ID%{position:relative;flex-grow:1;display:flex;align-items:center;}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID% > .material-tree-shift._ngcontent-%ID% > *._ngcontent-%ID%{flex-shrink:0;}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID% > .material-tree-shift._ngcontent-%ID% .tree-selection-state._ngcontent-%ID% + .material-tree-border._ngcontent-%ID%{left:40px;}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID% .tree-expansion-state._ngcontent-%ID%{display:inline-flex;margin-left:auto;}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID% .tree-selection-state._ngcontent-%ID%{display:inline-flex;vertical-align:middle;width:40px;}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID% .disabled-item._ngcontent-%ID%{color:#9e9e9e;}ul._ngcontent-%ID% .material-tree-item._ngcontent-%ID% material-icon._ngcontent-%ID%{opacity:0.54;}.view-more-link-item._ngcontent-%ID%{padding:8px 0;}.view-more-link._ngcontent-%ID%{color:#4285f4;text-decoration:none;}"]})
-c($,"aiZ","$get$aiZ",function(){return[$.$get$ajB()]})
-c($,"aj0","$get$aj0",function(){return[$.$get$ajA()]})
-c($,"aj1","$get$aj1",function(){return[$.$get$ajz()]})
-c($,"aj_","$get$aj_",function(){return[$.$get$ajv()]})
-c($,"ajv","$get$ajv",function(){return["material-checkbox._ngcontent-%ID%{display:block;font-family:inherit;font-size:15px;line-height:32px;padding:0 24px;position:relative;white-space:nowrap;display:flex;align-items:center;color:rgba(0, 0, 0, 0.87);cursor:pointer;}material-checkbox.disabled._ngcontent-%ID%{pointer-events:none;}material-checkbox._ngcontent-%ID%  .material-list-item-primary{color:rgba(0, 0, 0, 0.54);width:40px;}material-checkbox.disabled._ngcontent-%ID%  .material-list-item-primary{color:rgba(0, 0, 0, 0.38);}material-checkbox._ngcontent-%ID%  .material-list-item-secondary{color:rgba(0, 0, 0, 0.54);margin-left:auto;}material-checkbox.disabled._ngcontent-%ID%  .material-list-item-secondary{color:rgba(0, 0, 0, 0.38);}material-checkbox._ngcontent-%ID%  .submenu-icon{transform:rotate(-90deg);}material-checkbox:not([separator=present]):hover._ngcontent-%ID%,material-checkbox:not([separator=present]):focus._ngcontent-%ID%,material-checkbox:not([separator=present]).active._ngcontent-%ID%{background:#eee;}material-checkbox:not([separator=present]).disabled._ngcontent-%ID%{background:none;color:rgba(0, 0, 0, 0.38);cursor:default;pointer-events:all;}"]})
-c($,"ajA","$get$ajA",function(){return["div._ngcontent-%ID%{display:block;font-family:inherit;font-size:15px;line-height:32px;padding:0 24px;position:relative;white-space:nowrap;}div.disabled._ngcontent-%ID%{pointer-events:none;}div._ngcontent-%ID%  .material-list-item-primary{color:rgba(0, 0, 0, 0.54);width:40px;}div.disabled._ngcontent-%ID%  .material-list-item-primary{color:rgba(0, 0, 0, 0.38);}div._ngcontent-%ID%  .material-list-item-secondary{color:rgba(0, 0, 0, 0.54);margin-left:auto;}div.disabled._ngcontent-%ID%  .material-list-item-secondary{color:rgba(0, 0, 0, 0.38);}div._ngcontent-%ID%  .submenu-icon{transform:rotate(-90deg);}"]})
-c($,"ajz","$get$ajz",function(){return["material-radio._ngcontent-%ID%{display:block;font-family:inherit;font-size:15px;line-height:32px;padding:0 24px;position:relative;white-space:nowrap;display:flex;align-items:center;color:rgba(0, 0, 0, 0.87);cursor:pointer;align-items:flex-start;}material-radio.disabled._ngcontent-%ID%{pointer-events:none;}material-radio._ngcontent-%ID%  .material-list-item-primary{color:rgba(0, 0, 0, 0.54);width:40px;}material-radio.disabled._ngcontent-%ID%  .material-list-item-primary{color:rgba(0, 0, 0, 0.38);}material-radio._ngcontent-%ID%  .material-list-item-secondary{color:rgba(0, 0, 0, 0.54);margin-left:auto;}material-radio.disabled._ngcontent-%ID%  .material-list-item-secondary{color:rgba(0, 0, 0, 0.38);}material-radio._ngcontent-%ID%  .submenu-icon{transform:rotate(-90deg);}material-radio:not([separator=present]):hover._ngcontent-%ID%,material-radio:not([separator=present]):focus._ngcontent-%ID%,material-radio:not([separator=present]).active._ngcontent-%ID%{background:#eee;}material-radio:not([separator=present]).disabled._ngcontent-%ID%{background:none;color:rgba(0, 0, 0, 0.38);cursor:default;pointer-events:all;}"]})
-c($,"ajE","$get$ajE",function(){return["._nghost-%ID%{display:inline-flex;}.button._ngcontent-%ID%{display:flex;align-items:center;flex-grow:1;cursor:pointer;padding-right:48px;position:relative;}.button.border._ngcontent-%ID%{border-bottom:1px solid rgba(0, 0, 0, 0.12);padding-bottom:1px;}.icon._ngcontent-%ID%{opacity:0.54;position:absolute;right:0;top:calc(50% - 13px);}.search-box._ngcontent-%ID%{width:100%;}"]})
-c($,"aiQ","$get$aiQ",function(){return[$.$get$ajE()]})
-c($,"ajC","$get$ajC",function(){return[".tree-border-expanded._ngcontent-%ID%  .material-tree-item > .material-tree-shift > .material-tree-border.is-parent.is-expanded{display:block;}.tree-border-parent._ngcontent-%ID%  .material-tree-item > .material-tree-shift > .material-tree-border.is-parent{display:block;}.tree-border-all._ngcontent-%ID%  .material-tree-item > .material-tree-shift > .material-tree-border{display:block;}"]})
-c($,"e7","$get$e7",function(){return[".shadow._ngcontent-%ID%{box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);}"]})
-c($,"ahp","$get$ahp",function(){return["._nghost-%ID%{display:inline-block;}"]})
-c($,"a1P","$get$a1P",function(){return H.a(["Pinocchio","Fantasia","The Reluctant Dragon","Dumbo","Bambi","Saludos Amigos","Victory Through Air Power","The Three Caballeros","Make Mine Music","Song of the South","Fun and Fancy Free","Melody Time","So Dear to My Heart","The Adventures of Ichabod and Mr. Toad"],[P.c])})
-c($,"a_P","$get$a_P",function(){return F.anM($.$get$a1P(),null,null)})
-c($,"aft","$get$aft",function(){return R.n2($.$get$a1P(),R.cW(),!1,null,null,null)})
-c($,"Y0","$get$Y0",function(){var x,w,v
-x=P.c
-w=[x]
-v=[[F.al,P.c]]
-return P.Y(["Animated Feature Films",H.a([F.jE(H.a(["Cinderalla","Alice In Wonderland","Peter Pan","Lady and the Tramp"],w),null,x)],v),"Live-Action Films",H.a([F.jE(H.a(["Treasure Island","The Littlest Outlaw","Old Yeller","Star Wars"],w),null,x)],v),"Documentary Films",H.a([F.jE(H.a(["Frank and Ollie","Sacred Planet"],w),null,x)],v),"Star Wars",H.a([F.jE(H.a(["By George Lucas"],w),null,x)],v),"By George Lucas",H.a([F.jE(H.a(["A New Hope","Empire Strikes Back","Return of the Jedi"],w),null,x)],v)],x,[P.C,[F.al,P.c]])})
-c($,"kU","$get$kU",function(){return V.a80(H.a([F.jE(["Animated Feature Films","Live-Action Films","Documentary Films"],null,null)],[[F.al,,]]),$.$get$Y0(),null)})
-c($,"ah5","$get$ah5",function(){return V.a80(H.a([F.jE(["Animated Feature Films"],null,null),F.jE(["Live-Action Films"],null,null),F.jE(["Documentary Films"],null,null)],[[F.al,,]]),$.$get$Y0(),null)})
-c($,"a2m","$get$a2m",function(){var x,w,v
-x=P.c
-w=H.a([F.jE(H.a(["Animated Feature Films","Live-Action Films","Documentary Films"],[x]),null,x)],[[F.al,P.c]])
-v=new V.QG(-1,$.$get$Y0(),P.anW(null,null,!0,[P.C,[F.al,x]]),[x])
-v.N5(w,x)
-v.z=w
-return v})
-c($,"fB","$get$fB",function(){return new V.Z5()})
-c($,"aiS","$get$aiS",function(){return[$.$get$e7()]})
-c($,"aiV","$get$aiV",function(){return[$.$get$e7()]})
-c($,"aiR","$get$aiR",function(){return[$.$get$e7()]})
-c($,"aiW","$get$aiW",function(){return[$.$get$e7()]})
-c($,"aiX","$get$aiX",function(){return[$.$get$e7()]})
-c($,"aiY","$get$aiY",function(){return[$.$get$e7()]})
-c($,"aj2","$get$aj2",function(){return[$.$get$e7()]})
-c($,"aj3","$get$aj3",function(){return[$.$get$e7()]})
-c($,"aiU","$get$aiU",function(){return[$.$get$e7()]})
-c($,"aiT","$get$aiT",function(){return[$.$get$e7()]})
-c($,"aj4","$get$aj4",function(){return[$.$get$e7()]})
-c($,"aj5","$get$aj5",function(){return[$.$get$e7()]})
-c($,"aj6","$get$aj6",function(){return[$.$get$e7()]})
-c($,"aj7","$get$aj7",function(){return[$.$get$e7(),$.$get$ajC()]})
-c($,"aj8","$get$aj8",function(){return[$.$get$e7()]})
-c($,"aj9","$get$aj9",function(){return[$.$get$e7()]})})();(function nativeSupport(){j({})
-k({})})()}
-$__dart_deferred_initializers__["G8DqJzKCOIF7adLJVTPegdQmmO8="] = $__dart_deferred_initializers__.current
+$.a8q=!1
+$.O8=null
+$.a8r=!1})();(function lazyInitializers(){c($,"a5g","$get$a5g",function(){return T.b5("Scroll scorecard bar forward",null,null,null,null)})
+c($,"a5f","$get$a5f",function(){return T.b5("Scroll scorecard bar backward",null,null,null,null)})
+c($,"akg","$get$akg",function(){return[".acx-scoreboard._ngcontent-%ID%{display:block;overflow:hidden;position:relative;z-index:0}.acx-scoreboard._ngcontent-%ID% .scroll-button._ngcontent-%ID%{display:flex;flex-shrink:0;background:rgba(255,255,255,0.87);color:rgba(0,0,0,0.54);margin:0;padding:0 8px;position:absolute;z-index:1}.acx-scoreboard._ngcontent-%ID% .scroll-button.hide._ngcontent-%ID%{display:none}.acx-scoreboard._ngcontent-%ID% .scroll-button:not([icon])._ngcontent-%ID%{border-radius:0;min-width:inherit}.scorecard-bar._ngcontent-%ID%{display:inline-block;margin:0;padding:0;position:relative;transition:transform cubic-bezier(0.4,0,0.2,1) 436ms;white-space:nowrap}.acx-scoreboard-horizontal._ngcontent-%ID% .scroll-button._ngcontent-%ID%{height:100%;min-width:inherit;top:0}.acx-scoreboard-horizontal._ngcontent-%ID% .scroll-forward-button._ngcontent-%ID%{right:0}.acx-scoreboard-horizontal._ngcontent-%ID% .scroll-back-button._ngcontent-%ID%{left:0}.acx-scoreboard-horizontal._ngcontent-%ID% acx-scorecard._ngcontent-%ID%{vertical-align:top}.acx-scoreboard-vertical._ngcontent-%ID%{display:inline-block;height:100%}.acx-scoreboard-vertical._ngcontent-%ID% .scroll-button._ngcontent-%ID%{justify-content:center;width:100%}.acx-scoreboard-vertical._ngcontent-%ID% .scroll-forward-button._ngcontent-%ID%{bottom:0}.acx-scoreboard-vertical._ngcontent-%ID% .scroll-back-button._ngcontent-%ID%{top:0}.acx-scoreboard-vertical._ngcontent-%ID% .scorecard-bar._ngcontent-%ID%{display:flex;flex-direction:column}"]})
+c($,"aj_","$get$aj_",function(){return[$.$get$akg()]})
+c($,"akr","$get$akr",function(){return["._nghost-%ID%{color:rgba(0,0,0,0.87);display:inline-block;font-size:13px;padding:24px;position:relative}._nghost-%ID%:hover.selectable{cursor:pointer}._nghost-%ID%:hover:not(.selected){background:rgba(0,0,0,0.06)}._nghost-%ID%:not(.selected).is-change-positive .description._ngcontent-%ID%{color:#0f9d58}._nghost-%ID%:not(.selected).is-change-negative .description._ngcontent-%ID%{color:#db4437}._nghost-%ID%.selected{color:#fff}._nghost-%ID%.selected .description._ngcontent-%ID%,._nghost-%ID%.selected .suggestion._ngcontent-%ID%{color:#fff}._nghost-%ID%.right-align{text-align:right}._nghost-%ID%.extra-big{margin:0;padding:24px}._nghost-%ID%.extra-big h3._ngcontent-%ID%{font-size:14px;padding-bottom:4px}._nghost-%ID%.extra-big h2._ngcontent-%ID%{font-size:34px}._nghost-%ID%.extra-big .description._ngcontent-%ID%{padding-top:4px;font-size:14px;display:block}h3._ngcontent-%ID%,h2._ngcontent-%ID%{clear:both;color:inherit;font-weight:normal;line-height:initial;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}h3._ngcontent-%ID%{font-size:13px;padding-bottom:8px}h2._ngcontent-%ID%{font-size:32px}h2._ngcontent-%ID% value._ngcontent-%ID%{line-height:1}.description._ngcontent-%ID%,.suggestion._ngcontent-%ID%{color:rgba(0,0,0,0.54);padding-top:8px}.change-glyph._ngcontent-%ID%{color:rgba(0,0,0,0.54);display:inline-block}"]})
+c($,"aj0","$get$aj0",function(){return[$.$get$akr()]})
+c($,"aj5","$get$aj5",function(){return[".customize acx-scorecard .description{color:rgba(0,0,0,0.54)!important} .customize acx-scorecard.is-change-positive h2{color:#0f9d58} .customize acx-scorecard.is-change-negative h2{color:#db4437} .customize-description-color acx-scorecard .change-glyph{color:#4285f4} .customize-description-color acx-scorecard:not(.selected).themeable .description{color:#ff9800} .customize-positive-negative-colors acx-scorecard:not(.selected).themeable.is-change-positive .description{color:#3f51b5} .customize-positive-negative-colors acx-scorecard:not(.selected).themeable.is-change-negative .description{color:#e91e63} .customize-suggestion-color acx-scorecard .suggestion{color:#9c27b0} .customize-suggestion-to-separate-line acx-scorecard .suggestion{display:block} .vertically-align-scorecard-top acx-scorecard{vertical-align:top} .vertically-align-scorecard-bottom acx-scorecard{vertical-align:bottom} .description-with-min-height .description{display:block;min-height:15px}.custom-rule._ngcontent-%ID%  acx-scorecard h3{color:#4285f4}.custom-rule._ngcontent-%ID%  acx-scorecard h2{color:#ff9800}.vertical-scoreboard-container._ngcontent-%ID%{height:600px}.injected-div._ngcontent-%ID%{border:1px solid #f4c7c3;margin:3px 0;width:100%}.flex-scoreboard-container._ngcontent-%ID%{border:1px solid #f4c7c3;width:300px}.flex-scoreboard-container._ngcontent-%ID%  acx-scorecard{flex:1}.flex-scoreboard-container._ngcontent-%ID%  .scorecard-bar{display:flex;flex-direction:column}"]})
+c($,"aj1","$get$aj1",function(){return[$.$get$aj5()]})})()}
+$__dart_deferred_initializers__["58lZMmx+SOMrSHISD0gCv3Mj+hc="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_67.part.js.map

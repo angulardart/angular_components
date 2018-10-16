@@ -1,9 +1,0 @@
-{
-  "version": 3,
-  "engine": "v2",
-  "file": "main.dart.js_84.part.js",
-  "sourceRoot": "",
-  "sources": ["../packages/angular_components/model/ui/has_renderer.dart"],
-  "names": ["_nullRenderer"],
-  "mappings": "A;8EAgEIA;IADGA,YACHA,WAAMA,4CAAiDA,C"
-}

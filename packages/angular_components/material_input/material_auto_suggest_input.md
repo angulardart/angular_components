@@ -7,7 +7,10 @@ In ACX selection widgets, what is selectable is represented by the
 [`SelectionOptions`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/selection_options.dart)
 interface, while what is selected is represented by the
 [`SelectionModel`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/selection_model.dart)
-interface. Material auto select input uses these two interfaces via the
+interface.
+
+Material Auto Suggest Input is an input field which provides suggestions to
+auto-complete the input as the user types. It uses these two interfaces via the
 `selectionOptions` and `selection` inputs, but additionally it has `inputText`
 which presents the text the user has entered.
 

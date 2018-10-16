@@ -3,7 +3,14 @@
   "engine": "v2",
   "file": "main.dart.js_70.part.js",
   "sourceRoot": "",
-  "sources": ["../packages/angular_components/material_button/material_button.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/theme/module.template.dart","../packages/angular_components/theme/dark_theme.template.dart","../packages/angular/src/core/linker/component_factory.dart"],
-  "names": ["viewFactory_MaterialButtonComponentHost0","AppView","_ViewMaterialButtonComponentHost0","initReflector","registerComponent","registerFactory","registerDependencies","_ViewMaterialButtonComponentHost0.build","ComponentRef","_ViewMaterialButtonComponentHost0.injectorGetInternal","_ViewMaterialButtonComponentHost0.detectChangesInternal","_ViewMaterialButtonComponentHost0.destroyInternal","initReflector.<anonymous function>"],
-  "mappings": "A;;IA2MyCA,cCvBhCC,MDpBPC;ACyBaD;ADmBbD,QACFA,C;GAQKG,WACHA,SACEA,MAWJA;;AEvLEC,WAAWA;AFiLXD;AACAA;AACAA;AAEAA;AACAA,MACFA,C;;;;;;IGvNKA,WACHA,SACEA,MAKJA;;AADEA,KACFA,C;GCFKA,WACHA,SACEA,MAUJA;;AFkCEE,YAAUA,SExC2BF;AF+ErCG,YAAaA;AE3EbH;AACAA,OACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EJsIgDI,WAC9BA;AAAdA;AACAA;AAC6BA,MAAkBA;AAA/CA;AACuCA;AAAvCA;AACAA;AACAA;AACAA,OKpJFC,oCLqJAD,C;EAGQE,gBACNA,mBACEA,aAMJA;AAJEA,uCACEA,aAGJA;AADEA,QACFA,C;EAGKC,WAEqBA;AAIxBA,KACEA;AAEFA;AACAA,UACFA,C;EAGKC,WACHA;cAAaA,KACfA,C;;;AIlLsDC;GAAjBA,YAAaA,aAAoBA,C"
+  "sources": ["../packages/angular_components/material_icon/material_icon.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_icon/material_icon.dart","../packages/angular/src/core/linker/component_factory.dart"],
+  "names": ["viewFactory_MaterialIconComponentHost0","AppView","initReflector","_ViewMaterialIconComponentHost0.build","_ViewMaterialIconComponentHost0.detectChangesInternal","_ViewMaterialIconComponentHost0.destroyInternal","","registerComponent"],
+  "mappings": "A;;IAwGuCA,cA1BrCA,eAA6GA;AC0GhGC;AD/EbD,QACFA,C;GAQKE,WACHA,SACEA,MAOJA;;AEhFEA,WAAWA;AF8EXA,KAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EA3C8CC,WAAQA;AACpCA;AAAdA;AACqBA;AAArBA;AGEFA;AHDEA;AACAA;AACAA;AACAA,OIlEFA,mCJmEAA,C;EAGKC,WAKHA,UACFA,C;EAGKC,WACHA;cAAaA,KACfA,C",
+  "x_org_dartlang_dart2js": {
+    "minified_names": {
+      "global": {},
+      "instance": {}
+    },
+    "frames": [[225,[0,105,9,6]],[257,[1,177,2,6],[0,78,2,6]],[276,-1,-1,0],[326,[0,120,2,7]],[352,0],[739,[0,83,41,6]],[752,0],[801,[0,86,11,6]],[836,0]]
+  }
 }

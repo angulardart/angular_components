@@ -17,33 +17,40 @@ class {{component}}Api {
   GalleryInfo model = GalleryInfo(
       docs: [
         {{#docs}}
-          Doc('{{name}}', '{{selector}}', '{{exportAs}}', '{{path}}', r"""{{comment}}""", [
-            {{#inputs}}
-              Property(
-                '{{annotation}}',
-                '{{name}}',
-                '{{bindingAlias}}',
-                '{{type}}',
-                r"""{{comment}}""",
-                '{{classPath}}',
-                {{deprecated}},
-                '{{deprecatedMessage}}'
-              ),
-            {{/inputs}}
-          ], [
-            {{#outputs}}
-              Property(
-                '{{annotation}}',
-                '{{name}}',
-                '{{bindingAlias}}',
-                '{{type}}',
-                r"""{{comment}}""",
-                '{{classPath}}',
-                {{deprecated}},
-                '{{deprecatedMessage}}'
-              ),
-            {{/outputs}}
-          ]),
+          Doc(
+              '{{name}}',
+              '{{selector}}',
+              '{{exportAs}}',
+              '{{path}}',
+              applyHighlighting(r"""{{comment}}"""),
+              [
+                {{#inputs}}
+                Property(
+                    '{{annotation}}',
+                    '{{name}}',
+                    '{{bindingAlias}}',
+                    '{{type}}',
+                    applyHighlighting(r"""{{comment}}"""),
+                    '{{classPath}}',
+                    {{deprecated}},
+                    '{{deprecatedMessage}}'
+                ),
+                {{/inputs}}
+              ],
+              [
+                {{#outputs}}
+                Property(
+                    '{{annotation}}',
+                    '{{name}}',
+                    '{{bindingAlias}}',
+                    '{{type}}',
+                    applyHighlighting(r"""{{comment}}"""),
+                    '{{classPath}}',
+                    {{deprecated}},
+                    '{{deprecatedMessage}}'
+                ),
+                {{/outputs}}
+              ]),
         {{/docs}}
       ],
       demos: [

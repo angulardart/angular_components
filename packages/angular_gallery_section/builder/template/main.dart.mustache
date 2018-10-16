@@ -1,0 +1,23 @@
+import 'package:angular/angular.dart';
+import 'package:logging/logging.dart';
+
+import 'package:{{{example_import}}}' as app;
+import 'main.template.dart' as ng;
+
+void main() {
+  Logger.root.onRecord.listen((record) {
+    var msg = '${record.time}: ${record.message}';
+    if (record.error != null) msg += '\n\nCaused by:\n\n${record.error}';
+    if (record.stackTrace != null) msg+= '\n${record.stackTrace}';
+    print(msg);
+  });
+
+  runApp(app.GallerySectionNgFactory, createInjector: appInjectorFactory);
+}
+
+@GenerateInjector([
+    FactoryProvider(ExceptionHandler, exceptionHandlerFactory),
+])
+final InjectorFactory appInjectorFactory = ng.appInjectorFactory$Injector;
+
+ExceptionHandler exceptionHandlerFactory() => ExceptionHandler(Logger.root);

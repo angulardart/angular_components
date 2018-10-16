@@ -1,9 +1,0 @@
-{
-  "version": 3,
-  "engine": "v2",
-  "file": "main.dart.js_92.part.js",
-  "sourceRoot": "",
-  "sources": ["org-dartlang-sdk:///sdk/lib/async/future.dart","org-dartlang-sdk:///sdk/lib/async/future_impl.dart"],
-  "names": ["Future.delayed","_Future","Future.delayed.<anonymous function>"],
-  "mappings": "A;;GAmTUA,gBCnGRC;ADqGMD,OAAgBA;AAOpBA,QACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GARsBE;IAEcA;AAA9BA,sBAFgBA;;AAIhBA,iBAEHA,C"
-}
