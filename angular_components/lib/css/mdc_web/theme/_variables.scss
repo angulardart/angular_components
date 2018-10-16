@@ -79,36 +79,36 @@ $mdc-theme-text-emphasis: (
 //
 
 $mdc-theme-property-values: (
-  
+
   // Primary
   primary: $mdc-theme-primary,
-  
+
   // Secondary
   secondary: $mdc-theme-secondary,
-  
+
   // Background
   background: $mdc-theme-background,
-  
+
   // Surface
   surface: $mdc-theme-surface,
   on-primary: $mdc-theme-on-primary,
   on-secondary: $mdc-theme-on-secondary,
   on-surface: $mdc-theme-on-surface,
-  
+
   // Text-primary on "background" background
   text-primary-on-background: mdc-theme-ink-color-for-fill_(primary, $mdc-theme-background),
   text-secondary-on-background: mdc-theme-ink-color-for-fill_(secondary, $mdc-theme-background),
   text-hint-on-background: mdc-theme-ink-color-for-fill_(hint, $mdc-theme-background),
   text-disabled-on-background: mdc-theme-ink-color-for-fill_(disabled, $mdc-theme-background),
   text-icon-on-background: mdc-theme-ink-color-for-fill_(icon, $mdc-theme-background),
-  
+
   // Text-primary on "light" background
   text-primary-on-light: mdc-theme-ink-color-for-fill_(primary, light),
   text-secondary-on-light: mdc-theme-ink-color-for-fill_(secondary, light),
   text-hint-on-light: mdc-theme-ink-color-for-fill_(hint, light),
   text-disabled-on-light: mdc-theme-ink-color-for-fill_(disabled, light),
   text-icon-on-light: mdc-theme-ink-color-for-fill_(icon, light),
-  
+
   // Text-primary on "dark" background
   text-primary-on-dark: mdc-theme-ink-color-for-fill_(primary, dark),
   text-secondary-on-dark: mdc-theme-ink-color-for-fill_(secondary, dark),
