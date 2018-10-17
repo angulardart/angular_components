@@ -44,7 +44,8 @@
                    class="expand-button"
                    [icon]="expandIcon"
                    [class.expand-more]="shouldFlipExpandIcon"
-                   (trigger)="handleExpandIconClick">
+                   (trigger)="handleExpandIconClick"
+                   [attr.aria-label]="expandAriaMsg">
     </material-icon>
   </div>
   <div class="action" *ngIf="!shouldShowExpandIcon">

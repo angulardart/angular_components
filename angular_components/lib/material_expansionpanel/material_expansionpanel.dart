@@ -281,6 +281,9 @@ class MaterialExpansionPanel
           desc: 'ARIA label for a button that opens the panel.',
           examples: const {'panelName': 'Conversions'});
 
+  static final expandAriaMsg = Intl.message('Expand',
+      desc: 'Aria label used for the button used to expand the panel.');
+
   final _openController =
       StreamController<AsyncAction<bool>>.broadcast(sync: true);
   final _closeController =
