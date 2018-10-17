@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+@import 'package:angular_components/css/material/material';
+
 /// Changes the size of an icon.
 ///
 /// Only use this mixin if your UI calls for an icon size which is not one of
@@ -36,5 +38,16 @@
 @mixin material-icon-weight($weight) {
   ::ng-deep .material-icon-i {
     font-weight: $weight;
+  }
+}
+
+/// Use an SVG for an icon instead of the font-icon by passing a URL or data
+/// as svgUrl.
+///
+/// This requires setting the icon to the material-icon as blank so that it is
+/// not shown.
+@mixin svg-icon($svg-icon) {
+  ::ng-deep .material-icon-i {
+    background-image: $svg-icon;
   }
 }

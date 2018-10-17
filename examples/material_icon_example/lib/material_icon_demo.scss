@@ -5,10 +5,16 @@
 @import 'package:angular_components/css/material/material';
 @import 'package:angular_components/material_icon/mixins';
 
+$test-svg-icon: 'third_party/dart_src/acx/material_icon/testing/icons/google_ads.svg';
+
 .custom-size {
   @include material-icon-size($mat-grid * 5);
 }
 
 material-input {
   width: 250px;
+}
+
+.svg-icon {
+  @include svg-icon(inline-image($test-svg-icon));
 }
