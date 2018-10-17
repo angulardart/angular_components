@@ -144,7 +144,7 @@ class MaterialDropdownSelectFullDemoComponent {
 
   /// Label for the button for single selection.
   String get singleSelectLanguageLabel =>
-      singleSelectModel.selectedValues.length > 0
+      singleSelectModel.selectedValues.isNotEmpty
           ? itemRenderer(singleSelectModel.selectedValues.first)
           : 'Select Language';
 
