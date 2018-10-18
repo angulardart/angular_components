@@ -32,8 +32,8 @@ class HighlightAssistant {
       : _optionHighlighter = optionHighlighter,
         _matchFromStartOfWord = matchFromStartOfWord;
 
-  List<HighlightedTextSegment> highlightOption(
-      String _lastQuery, dynamic item, ItemRenderer itemRenderer) {
+  List<HighlightedTextSegment> highlightOption<T>(
+      String _lastQuery, dynamic item, ItemRenderer<T> itemRenderer) {
     var _queryHighlightCache = _highlightCache[_lastQuery] ??= {};
     var value = _queryHighlightCache[item];
     if (value == null) {
