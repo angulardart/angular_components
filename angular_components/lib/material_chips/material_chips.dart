@@ -15,9 +15,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   templateUrl: 'material_chips.html',
   styleUrls: ['material_chips.scss.css'],
   directives: [MaterialChipComponent, NgFor],
+  directiveTypes: [
+    Typed<MaterialChipComponent>.of([#T])
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
-class MaterialChipsComponent implements HasRenderer, OnDestroy {
+class MaterialChipsComponent<T> implements HasRenderer<T>, OnDestroy {
   final ChangeDetectorRef _changeDetector;
   final Disposer _disposer = Disposer.multi();
 
@@ -28,11 +31,11 @@ class MaterialChipsComponent implements HasRenderer, OnDestroy {
   /// The list of `HasUIDisplayName` objects to render.
   //  TODO(google): update this to be selection, not selectionModel, in order
   //  to match SelectionModel properties from other components
-  SelectionModel _selectionModel = const SelectionModel.empty();
+  SelectionModel<T> _selectionModel = const SelectionModel.empty();
 
   /// The selection model this component controls.
   @Input()
-  set selectionModel(SelectionModel model) {
+  set selectionModel(SelectionModel<T> model) {
     _selectionModel = model;
     _disposer
       ..dispose()
@@ -41,7 +44,7 @@ class MaterialChipsComponent implements HasRenderer, OnDestroy {
       }));
   }
 
-  SelectionModel get selectionModel => _selectionModel;
+  SelectionModel<T> get selectionModel => _selectionModel;
 
   ///  A function to render items as a string.
   ///
@@ -54,15 +57,15 @@ class MaterialChipsComponent implements HasRenderer, OnDestroy {
   /// itself must change in order to take effect.
   @Input()
   @override
-  set itemRenderer(ItemRenderer value) {
+  set itemRenderer(ItemRenderer<T> value) {
     _itemRenderer = value;
   }
 
-  ItemRenderer _itemRenderer = _defaultItemRenderer;
+  ItemRenderer<T> _itemRenderer = _defaultItemRenderer;
   @override
-  ItemRenderer get itemRenderer => _itemRenderer;
+  ItemRenderer<T> get itemRenderer => _itemRenderer;
 
-  Iterable get selectedItems => selectionModel.selectedValues;
+  Iterable<T> get selectedItems => selectionModel.selectedValues;
 
   /// Default item renderer if none is provided by the user of this widget.
   static String _defaultItemRenderer(Object value) => value?.toString();

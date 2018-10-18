@@ -30,7 +30,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
   directives: [ButtonDirective, NgIf],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
-class MaterialChipComponent extends RootFocusable implements HasRenderer {
+class MaterialChipComponent<T> extends RootFocusable implements HasRenderer<T> {
   @HostBinding('class')
   static const hostClass = 'themeable';
 
@@ -49,7 +49,7 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
   /// Chips can be deselected from the model via user interaction unless
   /// `removable` is set to false.
   @Input()
-  SelectionModel selectionModel;
+  SelectionModel<T> selectionModel;
 
   /// Whether the chip should show remove button, default to true.
   @Input()
@@ -68,14 +68,14 @@ class MaterialChipComponent extends RootFocusable implements HasRenderer {
   /// When provided, it is used to generate a label for the chip.
   @Input()
   @override
-  set itemRenderer(ItemRenderer value) {
+  set itemRenderer(ItemRenderer<T> value) {
     _itemRenderer = value;
     _genLabel();
   }
 
-  ItemRenderer _itemRenderer = nullRenderer;
+  ItemRenderer<T> _itemRenderer = nullRenderer;
   @override
-  ItemRenderer get itemRenderer => _itemRenderer;
+  ItemRenderer<T> get itemRenderer => _itemRenderer;
 
   /// Data model to render.
   ///
