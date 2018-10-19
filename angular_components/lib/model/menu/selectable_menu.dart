@@ -89,9 +89,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
   final String tooltip;
 
   @override
-  final String labelAnnotation;
-
-  @override
   final ObservableList<MenuItemAffix> itemSuffixes;
 
   @override
@@ -108,7 +105,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
       this.subMenu,
       this.tooltip,
       this.secondaryLabel,
-      this.labelAnnotation,
       Iterable<String> cssClasses,
       Function action = _noOp,
       SelectableOption selectableState = SelectableOption.Selectable,
