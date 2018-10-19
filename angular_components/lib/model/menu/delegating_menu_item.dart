@@ -46,9 +46,6 @@ class DelegatingMenuItem<SubMenuType> implements MenuItem<SubMenuType> {
   Icon get icon => _delegate.icon;
 
   @override
-  String get labelAnnotation => _delegate.labelAnnotation;
-
-  @override
   ObservableList<MenuItemAffix> get itemSuffixes => _delegate.itemSuffixes;
 
   @override

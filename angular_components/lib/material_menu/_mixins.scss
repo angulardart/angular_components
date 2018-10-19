@@ -91,11 +91,3 @@
     color: $color;
   }
 }
-
-// Sets the color of the label annotation. $selector should be one of the css
-// classes passed in through MenuItem.
-@mixin label-annotation-color($selector, $color) {
-  ::ng-deep #{$selector}.menu-item .menu-item-label-section .label-annotation {
-    color: $color;
-  }
-}

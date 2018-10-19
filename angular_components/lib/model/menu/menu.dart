@@ -136,13 +136,6 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   final String label;
   final String secondaryLabel;
   final String tooltip;
-
-  /// A superscript annotation that is shown to the right of the label.
-  ///
-  /// Note that this annotation cannot be one of the [itemSuffixes] because
-  /// [itemSuffixes] are right aligned in the menu, while this should be left
-  /// aligned close to the label.
-  final String labelAnnotation;
   final MenuModel<T> subMenu;
 
   Function action;
@@ -199,7 +192,6 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
       this.tooltip,
       this.action,
       this.icon,
-      this.labelAnnotation,
       Iterable<String> cssClasses,
       @Deprecated('Please use itemSuffixes instead')
           this.secondaryIcon,
@@ -222,7 +214,6 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   String toString() => {
         'label': label,
         'secondaryLabel': secondaryLabel,
-        'labelAnnotation': labelAnnotation,
         'enabled': enabled,
         'icon': icon,
         'secondaryIcon': secondaryIcon,
