@@ -70,9 +70,17 @@
               <span *ngIf="hasHighlight" class="menu-item-label">
                 <highlighted-text [segments]="highlighted(item.uiDisplayName)">
                 </highlighted-text>
+                <sup *ngIf="item.labelAnnotation != null && item.labelAnnotation.isNotEmpty"
+                     class="label-annotation">
+                {{item.labelAnnotation}}
+              </sup>
               </span>
               <span *ngIf="!hasHighlight" class="menu-item-label">
                 {{item.uiDisplayName}}
+                <sup *ngIf="item.labelAnnotation != null && item.labelAnnotation.isNotEmpty"
+                     class="label-annotation">
+                {{item.labelAnnotation}}
+                </sup>
               </span>
               <span *ngIf="item.hasSecondaryLabel" class="menu-item-secondary-label">
                 {{item.secondaryLabel}}
