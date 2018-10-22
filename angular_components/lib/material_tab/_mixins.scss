@@ -5,6 +5,7 @@
 // SASS mixins that deal with the material tab panel.
 
 @import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/material/shadow';
 
 // Allows users of the tab panel component to define the width and tab
 // colors(selected and unselected) for the tabs in the panel.
@@ -109,6 +110,19 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
 
   ::ng-deep #{$selector} #{$_scrollingStripNaviBar} .tab-indicator {
     background: $accent-color;
+  }
+}
+
+// Sets the tab strip bottom style: border and drop shadow to bottom of the whole tab strip.
+@mixin tab-strip-show-bottom-shadow() {
+  ::ng-deep #{$_fixedStripNaviBar} {
+    border-bottom: 1px solid $mat-border-light;
+    @include shadow-elevation();
+  }
+
+  ::ng-deep #{$_scrollingStripNaviBar} {
+    border-bottom: 1px solid $mat-border-light;
+    @include shadow-elevation();
   }
 }
 
