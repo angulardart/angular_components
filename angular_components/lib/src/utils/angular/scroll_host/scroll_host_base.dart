@@ -8,6 +8,7 @@ import 'dart:math' show max;
 
 import 'package:angular/angular.dart';
 import 'package:js/js.dart' as js;
+import 'package:logging/logging.dart' show Logger;
 import 'package:angular_components/src/utils/angular/scroll_host/gestures.dart';
 import 'package:angular_components/src/utils/angular/scroll_host/pan_controller_impl.dart';
 import 'package:angular_components/src/utils/angular/scroll_host/position_sticky_controller.dart';
@@ -22,6 +23,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// Base implementation of [ScrollHost] with common methods.
 abstract class ScrollHostBase implements ScrollHost {
+  static final _logger = Logger('ScrollHostBase');
   final DomService _domService;
   final NgZone _ngZone;
   PanController _panController;
@@ -180,10 +182,39 @@ abstract class ScrollHostBase implements ScrollHost {
         // with embedded APIs (e.g. Maps zooms the map when CTRL is pressed).
         if ((event?.ctrlKey ?? false) || (event?.shiftKey ?? false)) return;
 
+        // Use default values from WheelEvent if deltaX/deltaY not supported by
+        // the browser (currently occurred in Firefox). Vertical scrolling still
+        // works if deltaX does not have a value while deltaY has value greater
+        // than 0.
+        num deltaX;
+        num deltaY;
+
+        // html_dart2js throws UnsupportedError if deltaX/deltaY is 'undefined'.
+        // Catch the error here and also handle 'null' value.
+        try {
+          deltaX = event.deltaX;
+          if (deltaX == null) {
+            _logger.severe('deltaX is null in event: $event');
+          }
+        } on UnsupportedError catch (error) {
+          _logger.severe('deltaX is not supported in event: $event', error);
+        }
+        deltaX ??= 0;
+
+        try {
+          deltaY = event.deltaY;
+          if (deltaY == null) {
+            _logger.severe('deltaY is null in event: $event');
+          }
+        } on UnsupportedError catch (error) {
+          _logger.severe('deltaY is not supported in event: $event', error);
+        }
+        deltaY ??= 0;
+
         // [event.deltaY] is negated because [scrollDirection] treats the bottom
         // as the y-axis whereas [event] treats the top as the y-axis.
-        var d = scrollDirection(event.deltaX, -event.deltaY);
-        if (event.deltaY == 0 || !_isDirectionScrollable(d)) return;
+        final d = scrollDirection(deltaX, -deltaY);
+        if (deltaY == 0 || !_isDirectionScrollable(d)) return;
         if (innerScrollableDirections(anchorElement, event.target)[d]) return;
 
         event.preventDefault();
@@ -193,7 +224,7 @@ abstract class ScrollHostBase implements ScrollHost {
         // correct way to covert lines to pixels, but 16 pixels/line is works
         // reasonably well.
         int pixelsPerDeltaUnit = event.deltaMode == 0 ? 1 : 16;
-        int deltaYPixels = event.deltaY.toInt() * pixelsPerDeltaUnit;
+        int deltaYPixels = deltaY.toInt() * pixelsPerDeltaUnit;
         _nativeOnScrollController.add(ScrollHostEventImpl(0, deltaYPixels));
       }));
     }
