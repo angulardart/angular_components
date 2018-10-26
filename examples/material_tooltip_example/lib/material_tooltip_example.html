@@ -14,18 +14,21 @@
             <material-icon
                 icon="print"
                 class="demo-glyph"
+                tabIndex="0"
                 materialTooltip="Print">
             </material-icon>
             <br>
             <material-icon
                 icon="save"
                 class="demo-glyph"
+                tabIndex="0"
                 materialTooltip="Save">
             </material-icon>
             <br>
             <material-icon
                 icon="lock"
                 class="demo-glyph"
+                tabIndex="0"
                 [materialTooltip]="tooltipMsg">
             </material-icon>
             <br>
@@ -35,18 +38,21 @@
           <material-icon
               icon="print"
               class="demo-glyph"
+              tabIndex="0"
               materialTooltip="Print">
           </material-icon>
           <br>
           <material-icon
               icon="save"
               class="demo-glyph"
+              tabIndex="0"
               materialTooltip="Save">
           </material-icon>
           <br>
           <material-icon
               icon="lock"
               class="demo-glyph"
+              tabIndex="0"
               [materialTooltip]="tooltipMsg">
           </material-icon>
           <br>
@@ -87,7 +93,7 @@
     <div class="demo-container" column>
       <div flex>
         <div>
-          <span tooltipTarget #ref="tooltipTarget">
+          <span tabIndex="0" tooltipTarget #ref="tooltipTarget">
             Explicitly declare a tooltip component
           </span>
           <material-tooltip-text [for]="ref">
@@ -121,6 +127,7 @@
             <material-icon
                 icon="help_outline"
                 tooltipTarget
+                tabIndex="0"
                 keyboardOnlyFocusIndicator
                 size="medium"
                 #ref2="tooltipTarget">
@@ -172,6 +179,7 @@
                 icon="help_outline"
                 tooltipTarget
                 size="medium"
+                tabindex="0"
                 #deferredRef="tooltipTarget">
             </material-icon>
           </p>
