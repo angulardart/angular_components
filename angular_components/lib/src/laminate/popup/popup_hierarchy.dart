@@ -57,6 +57,9 @@ class PopupHierarchy {
   }
 
   void _onTriggersOutside(Event event) {
+    // Some weird event, ignore it.
+    if (event?.target == null) return;
+
     // Find parent pane if any, done dynamically as the modal pane can be
     // created by another app using ACX.
     // TODO(google): Find a way to compute it only when needed and make it
