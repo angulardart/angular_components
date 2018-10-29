@@ -46,6 +46,8 @@
 ///
 /// This requires setting the icon to the material-icon as blank so that it is
 /// not shown.
+///
+/// Note: This mixin should target material-icon.
 @mixin svg-icon($svg-icon) {
   ::ng-deep .material-icon-i {
     background-image: $svg-icon;
