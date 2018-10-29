@@ -20,7 +20,14 @@
 // THE SOFTWARE.
 //
 
-@import "../theme/mixins";
+// Shape categories
+$mdc-shape-small-component-radius: 4px !default;
+$mdc-shape-medium-component-radius: 4px !default;
+$mdc-shape-large-component-radius: 0 !default;
 
-$mdc-card-outline-color: mix(mdc-theme-prop-value(on-surface), mdc-theme-prop-value(surface), 12%);
-$mdc-card-outline-width: 1px;
+// Shape category mapping.
+$mdc-shape-category-values: (
+  small: $mdc-shape-small-component-radius,
+  medium: $mdc-shape-medium-component-radius,
+  large: $mdc-shape-large-component-radius,
+);

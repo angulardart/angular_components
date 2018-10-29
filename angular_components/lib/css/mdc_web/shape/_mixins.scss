@@ -20,7 +20,15 @@
 // THE SOFTWARE.
 //
 
-@import "../theme/mixins";
+@import "./variables";
+@import "./functions";
 
-$mdc-card-outline-color: mix(mdc-theme-prop-value(on-surface), mdc-theme-prop-value(surface), 12%);
-$mdc-card-outline-width: 1px;
+@mixin mdc-shape-radius($radius, $rtl-reflexive: false) {
+  border-radius: mdc-shape-prop-value($radius);
+
+  @if ($rtl-reflexive) {
+    @include mdc-rtl {
+      border-radius: mdc-shape-flip-radius($radius);
+    }
+  }
+}
