@@ -105,6 +105,14 @@ $menu-item-selector: '.menu-item';
   @include mat-font-caption;
 }
 
+.label-annotation {
+  color: $mat-green;
+  font-size: $mat-font-size-caption - 2;
+  font-weight: $mat-font-weight-bold;
+  line-height: $mat-font-size-caption - 2;
+  text-transform: uppercase;
+}
+
 .item-group-list {
   padding: $mat-grid 0;
 }
