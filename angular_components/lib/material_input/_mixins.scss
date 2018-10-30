@@ -234,3 +234,12 @@
     }
   }
 }
+
+/// Disable wrapping for bottom section hint text.
+@mixin material-input-hint-text-nowrap() {
+  ::ng-deep {
+    .hint-text {
+      white-space: nowrap;
+    }
+  }
+}
