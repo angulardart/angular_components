@@ -4,6 +4,7 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <material-input popupSource
+    initPopupAriaAttributes="false"
     alignPositionY="after"
     #input="popupSource"
     [id]="inputId"
@@ -23,7 +24,7 @@
     [floatingLabel]="floatingLabel"
     role="combobox"
     [inputAriaLabel]="ariaLabel"
-    [inputAriaOwns]="popupId"
+    [inputAriaOwns]="showPopup ? popupId : null"
     inputAriaHasPopup="listbox"
     [inputAriaExpanded]="showPopup"
     [inputAriaActivedescendent]="activeModel.activeId"
