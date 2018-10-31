@@ -12,8 +12,9 @@ import '../src/template_util.dart';
 /// component gallery.
 class GalleryWebBuilder extends Builder {
   final String _galleryTitle;
+  final String _direction;
 
-  GalleryWebBuilder(this._galleryTitle);
+  GalleryWebBuilder(this._direction, this._galleryTitle);
 
   @override
   Future build(BuildStep buildStep) async {
@@ -23,7 +24,10 @@ class GalleryWebBuilder extends Builder {
   }
 
   Future _generateIndexHtml(BuildStep buildStep) async {
-    final mustacheContext = {'galleryTitle': _galleryTitle};
+    final mustacheContext = {
+      'direction': _direction,
+      'galleryTitle': _galleryTitle
+    };
     final newAssetId = AssetId(buildStep.inputId.package, 'web/index.html');
     await writeAsset(buildStep, 'lib/builder/template/index.html.mustache',
         mustacheContext, newAssetId);
