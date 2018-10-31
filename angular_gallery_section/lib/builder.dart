@@ -28,4 +28,4 @@ Builder gallerySectionBuilder(BuilderOptions options) => MultiplexingBuilder([
     ]);
 
 Builder exampleAppBuilder(BuilderOptions options) =>
-    ExampleAppBuilder(options.config['direction']);
+    ExampleAppBuilder(options.config['direction'] ?? 'ltr');

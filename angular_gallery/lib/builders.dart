@@ -9,7 +9,8 @@ import 'package:angular_gallery/builder/syntax_highlight_builder.dart';
 
 /// Builders used to generate files in the gallery app target.
 Builder galleryAppBuilder(BuilderOptions options) => MultiplexingBuilder([
-      GalleryWebBuilder(options.config['galleryTitle'] ?? 'Example Gallery'),
+      GalleryWebBuilder(options.config['direction'] ?? 'ltr',
+          options.config['galleryTitle'] ?? 'Example Gallery'),
       HomeDartBuilder(),
     ]);
 
