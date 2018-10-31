@@ -39,6 +39,13 @@
   }
 }
 
+/// Overrides the default maximum height of <material-tooltip-card>.
+@mixin material-tooltip-card-max-height($max-height: 50 * $mat-grid) {
+  ::ng-deep .popup .material-popup-content .paper-container {
+    max-height: $max-height;
+  }
+}
+
 /// Overrides the default padding of <material-tooltip-card>.
 @mixin material-tooltip-card-padding($padding: $mat-grid * 3) {
   ::ng-deep .popup .material-popup-content .paper-container {
