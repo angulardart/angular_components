@@ -27,7 +27,7 @@
     [inputAriaOwns]="showPopup ? popupId : null"
     inputAriaHasPopup="listbox"
     [inputAriaExpanded]="showPopup"
-    [inputAriaActivedescendent]="activeModel.activeId"
+    [inputAriaActivedescendent]="showPopup ? activeModel.activeId : null"
     inputAriaAutocomplete="list"
     [leadingText]="leadingText"
     [leadingGlyph]="leadingGlyph"
