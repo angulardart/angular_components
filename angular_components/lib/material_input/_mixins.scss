@@ -109,6 +109,20 @@
   }
 }
 
+/// Hides leading text in cases where it is managed by a separate element.
+@mixin material-input-hide-leading-text() {
+  ::ng-deep .leading-text {
+    display: none;
+  }
+}
+
+/// Hides trailing text in cases where it is managed by a separate element.
+@mixin material-input-hide-trailing-text() {
+  ::ng-deep .trailing-text {
+    display: none;
+  }
+}
+
 /// Changes the `$primary-color`in the material-input which includes the label
 /// text and underline.
 // TODO(google): Modifier shouldn't be needed but this mixin is poorly written
