@@ -523,6 +523,9 @@ class MaterialPopupComponent extends Object
     // Start listening to autodismiss triggers.
     attachToVisibleHierarchy();
 
+    // Tell the source that it is open.
+    state.source.onOpen();
+
     if (hasBox) {
       // If animating, wait until the animation has finished before notifying
       // listeners.
@@ -576,6 +579,9 @@ class MaterialPopupComponent extends Object
     // Start the closing animation.
     showPopup = false;
     _changeDetector.markForCheck();
+
+    // Tell the source that it is open.
+    state.source.onClose();
 
     if (hasBox) {
       // If animating, wait until the animation has finished before removing

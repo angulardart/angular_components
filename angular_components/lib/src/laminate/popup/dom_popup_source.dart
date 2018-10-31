@@ -79,6 +79,7 @@ class DomPopupSource implements ElementPopupSource {
 
   Alignment _alignOriginX;
   Alignment _alignOriginY;
+  String _id;
 
   @override
   Alignment get alignOriginX => _alignOriginX;
@@ -99,10 +100,9 @@ class DomPopupSource implements ElementPopupSource {
 
   @override
   set popupId(String id) {
-    if (id == null || !_initAriaAttributes) return;
-    sourceElement
-      ..setAttribute('aria-owns', id)
-      ..setAttribute('aria-haspopup', 'true');
+    _id = id;
+    if (_id == null || !_initAriaAttributes) return;
+    sourceElement.setAttribute('aria-haspopup', 'true');
   }
 
   @override
@@ -116,8 +116,14 @@ class DomPopupSource implements ElementPopupSource {
       {'alignOriginX': alignOriginX, 'alignOriginY': alignOriginY}.toString();
 
   @override
-  void onOpen() {}
+  void onOpen() {
+    if (_id == null || !_initAriaAttributes) return;
+    sourceElement.setAttribute('aria-owns', _id);
+  }
 
   @override
-  void onClose() {}
+  void onClose() {
+    if (_id == null || !_initAriaAttributes) return;
+    sourceElement.attributes.remove('aria-owns');
+  }
 }
