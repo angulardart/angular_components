@@ -145,4 +145,14 @@ class PopupSourceDirective
       _element.focus();
     }
   }
+
+  @override
+  void onOpen() {
+    _popupSource?.onOpen();
+  }
+
+  @override
+  void onClose() {
+    _popupSource?.onClose();
+  }
 }

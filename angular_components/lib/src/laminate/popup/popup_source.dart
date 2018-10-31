@@ -64,6 +64,12 @@ abstract class PopupSource {
   ///
   /// Setting this ensures that popups get ARIA a11y attributes.
   set popupId(String id);
+
+  /// Called when the popup is opened.
+  void onOpen();
+
+  /// Called when the popup is closed.
+  void onClose();
 }
 
 /// An [PopupSource] that's based on an element.
@@ -105,4 +111,10 @@ class _RectanglePopupSource implements PopupSource {
   set popupId(String id) {
     // There's no DOM element, so ARIA attributes aren't applicable.
   }
+
+  /// Called when the popup is opened.
+  void onOpen() {}
+
+  /// Called when the popup is closed.
+  void onClose() {}
 }
