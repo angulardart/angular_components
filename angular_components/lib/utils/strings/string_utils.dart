@@ -25,6 +25,23 @@ String underscore(String s) => _split(s).join('_').toLowerCase();
 /// This is a very simple function: it merely replaces usual delimiters (spaces,
 /// hyphens, underscores) and the following word-character, with the upper case
 /// form of the word-character. It doesn't change the case of any other letters.
+///
+/// Examples:
+///
+///  * "foo bar" => "FooBar"
+///  * "foo-bar" => "FooBar"
+///  * "foo_bar" => "FooBar"
+///  * "foo\bar" => "FooBar"
+///  * "foo" => "Foo"
+///  * "foo " => "Foo"
+///  * "foo-" => "Foo"
+///  * "_foo" => "Foo"
+///  * "" => ""
+///  * "   " => "   "
+///  * "   -word" => "   Word"
+///  * "1337" => "1337"
+///  * "foo3bar" => "Foo3bar"
+///  * "3bar" => "3bar"
 String camelCase(String s) =>
     s.replaceAllMapped(_wordBreak, (m) => m[2].toUpperCase());
 
