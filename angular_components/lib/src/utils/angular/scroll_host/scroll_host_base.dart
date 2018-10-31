@@ -349,6 +349,9 @@ class ElementScrollHostBase extends ScrollHostBase {
             usePositionSticky: usePositionSticky) {
     element.style.overflowY = 'auto';
 
+    // Allows scroll host which contains huge iframe be able to scroll on iOS.
+    element.style.setProperty('-webkit-overflow-scrolling', 'touch');
+
     if (usePositionSticky) {
       // Moves the container to a separate render layer (for multithreaded
       // scrolling) and establishes a containing block for position: sticky.
