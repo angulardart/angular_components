@@ -57,7 +57,7 @@ $vertical-space: $mat-grid * .25;
   width: 100%;
 }
 
-.material-toggle.checked .tgl-bar {
+.material-toggle.checked:not(.disabled) .tgl-bar {
   background-color: $default-on-color;
   opacity: .5;
 }
