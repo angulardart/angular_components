@@ -19,11 +19,11 @@
     }
   }
 
-  ::ng-deep #{$selector} material-toggle.themeable .material-toggle.checked .tgl-bar {
+  ::ng-deep #{$selector} material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar {
     background-color: $primary-color;
   }
 
-  ::ng-deep #{$selector} material-toggle.themeable .material-toggle.checked .tgl-btn {
+  ::ng-deep #{$selector} material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn {
     background-color: $primary-color;
   }
 }
