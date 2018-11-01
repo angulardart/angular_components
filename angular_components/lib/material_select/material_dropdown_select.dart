@@ -251,6 +251,15 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   set visible(bool value) {
     super.visible = value;
     resetEnteredKeys();
+    if (value) {
+      // Ensure that the current active item matches the current value.
+      // For instance it is cleared on mouse out.
+      // Note we don't allow deactivation because some teams incorrectly use
+      // activeItemLabel instead of selectedItemLabel, and this breaks them.
+      // TODO(google): remove allowDeactivate when client tests are fixed.
+      // https://test.corp.google.com/ui#id=OCL:219567674:BASE:219582901:1541045481973:dd9a971c
+      _setInitialActiveItem(allowDeactivate: false);
+    }
   }
 
   /// Sets the available options for the selection component.
@@ -323,9 +332,9 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
     activeModel.items = items;
   }
 
-  void _setInitialActiveItem() {
+  void _setInitialActiveItem({bool allowDeactivate = true}) {
     if (selection == null || selection.selectedValues.isEmpty) {
-      activeModel.activate(null);
+      if (allowDeactivate) activeModel.activate(null);
     } else if (activeModel.activeItem == null ||
         (showDeselectItem && activeModel.activeItem == deselectLabel) ||
         !selection.isSelected(activeModel.activeItem)) {
