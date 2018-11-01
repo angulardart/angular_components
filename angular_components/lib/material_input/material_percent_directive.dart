@@ -22,16 +22,16 @@ class MaterialPercentInputDirective {
   MaterialPercentInputDirective(
       MaterialInputComponent input, HtmlElement element) {
     input.rightAlign = true;
+    element.dir = 'ltr';
     final percentPattern = NumberFormat.percentPattern();
-    input.trailingText = percentPattern.symbols.PERCENT;
     final percentLocation = percentPattern.symbols.PERCENT_PATTERN
         .indexOf(percentPattern.symbols.PERCENT);
     // If the percent symbol is closer to the end of the pattern make sure it is
     // trailing.
     if (percentLocation > percentPattern.symbols.PERCENT_PATTERN.length / 2) {
-      element.dir = 'ltr';
+      input.trailingText = percentPattern.symbols.PERCENT;
     } else {
-      element.dir = 'rtl';
+      input.leadingText = percentPattern.symbols.PERCENT;
     }
     input.errorRenderer = _replaceErrorMessage;
   }
