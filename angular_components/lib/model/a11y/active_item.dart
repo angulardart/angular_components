@@ -133,6 +133,7 @@ class ActiveItemModel<T> {
 
   /// Returns an unique id for [item].
   String id(T item) {
+    if (item == null) return null;
     if (!_ids.containsKey(item)) {
       _ids[item] = _idGenerator.nextId();
     }
