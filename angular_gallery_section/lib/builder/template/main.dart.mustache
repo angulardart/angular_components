@@ -1,5 +1,6 @@
 import 'package:angular/angular.dart';
 import 'package:logging/logging.dart';
+import 'package:angular_components/material_datepicker/module.dart';
 
 import 'package:{{{example_import}}}' as app;
 import 'main.template.dart' as ng;
@@ -16,6 +17,7 @@ void main() {
 }
 
 @GenerateInjector([
+    datepickerBindings,
     FactoryProvider(ExceptionHandler, exceptionHandlerFactory),
 ])
 final InjectorFactory appInjectorFactory = ng.appInjectorFactory$Injector;
