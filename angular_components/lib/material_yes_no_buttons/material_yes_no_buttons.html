@@ -20,7 +20,7 @@
                  *ngIf="!pending && noDisplayed"
                  class="btn btn-no"
                  [raised]="raised"
-                 [disabled]="disabled"
+                 [disabled]="noDisabled || disabled"
                  (trigger)="onNo($event)">
   {{noText}}
 </material-button>
