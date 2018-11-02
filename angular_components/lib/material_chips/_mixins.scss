@@ -136,6 +136,23 @@ $emphasis-selected-bg-color: $mat-blue-900;
   }
 }
 
+/// Allow the chip to wrap instead of triggering ellipses.
+@mixin material-chip-wrapping() {
+  material-chip {
+    ::ng-deep .content {
+      white-space: normal;
+
+      // This ensures that the multi-line content has the same margins as the
+      // single-line content.
+      margin-top: $mat-grid;
+      margin-bottom: $mat-grid;
+    }
+
+    height: auto;
+    min-height: $mat-grid * 4;
+  }
+}
+
 /// Use this mixin when chips are clickable for cursor, hover, and focus
 /// styling.
 ///
