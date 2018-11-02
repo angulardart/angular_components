@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
+import 'package:angular_components/laminate/popup/popup.dart';
 
 /// A simple handle for Dropdown components.
 /// Components wishing to control an ancestral dropdown can have this interface
@@ -34,7 +35,8 @@ abstract class DropdownHandle {
 /// - `DropdownHandle` -- Provides a common interface to open/close dropodowns.
 /// - `DeferredContentAware` -- Provides a means to lazily create/attach
 ///   content.
-class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
+class MaterialDropdownBase
+    implements DropdownHandle, DeferredContentAware, PopupRef {
   /// Fired when the dropdown's visibility changes.
   @Output('visibleChange')
   Stream<bool> get visibleStream => _visibleStream.stream;
@@ -105,4 +107,10 @@ class MaterialDropdownBase implements DropdownHandle, DeferredContentAware {
 
   @override
   Stream<bool> get contentVisible => _contentVisible.stream;
+
+  @override
+  bool get isVisible => visible;
+
+  @override
+  Stream<bool> get onVisibleChanged => visibleStream;
 }
