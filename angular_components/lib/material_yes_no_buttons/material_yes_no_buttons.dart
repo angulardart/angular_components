@@ -99,6 +99,12 @@ class MaterialYesNoButtonsComponent implements HasDisabled {
   @Input()
   bool yesDisplayed = true;
 
+  /// Whether the no button should be disabled.
+  ///
+  /// Default value is `false`.
+  @Input()
+  bool noDisabled = false;
+
   /// Whether the no button should be displayed.
   ///
   /// Default value is `true`.
