@@ -34,6 +34,9 @@ import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
+/// Custom date range formatter interface.
+typedef RangeFormatter = String Function(DateRange range);
+
 /// A material-design-styled date range picker.
 ///
 /// Users can choose preset date ranges, type in custom date ranges, or select
@@ -305,6 +308,10 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
     }
   }
 
+  /// Custom date range formatter function to apply to dropdown button text.
+  @Input()
+  RangeFormatter rangeFormatter = formatRange;
+
   List<ComparisonOption> _comparisonOptions;
 
   @ViewChild('focusOnClose')
@@ -548,14 +555,14 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   String _formattedRange;
   String get formattedRange => _formattedRange;
   String _getFormattedRange(DatepickerComparison value) =>
-      value?.range != null ? formatRange(value.range) : placeHolderMsg;
+      value?.range != null ? rangeFormatter(value.range) : placeHolderMsg;
 
   bool get hasComparison => selection.value?.comparison != null;
 
   String _formattedComparison;
   String get formattedComparison => _formattedComparison;
   String _getFormattedComparison(DatepickerComparison value) =>
-      _compareMsg(formatRange(value?.comparison));
+      _compareMsg(rangeFormatter(value?.comparison));
 
   void _updateFormattedRanges(DatepickerComparison value) {
     _formattedRange = _getFormattedRange(value);
