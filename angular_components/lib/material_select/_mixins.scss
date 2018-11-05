@@ -143,22 +143,22 @@
 }
 
 /// Sets the font size of the dropdown item.
-@mixin material-select-dropdown-item-font-size($font-size, $selector: '') {
-  ::ng-deep #{$selector} material-select-dropdown-item {
+@mixin material-select-dropdown-item-font-size($font-size) {
+  ::ng-deep material-select-dropdown-item {
     font-size: $font-size;
   }
 }
 
 /// Sets the line height of the dropdown item.
-@mixin material-select-dropdown-item-line-height($line-height, $selector: '') {
-  ::ng-deep #{$selector} material-select-dropdown-item {
+@mixin material-select-dropdown-item-line-height($line-height) {
+  ::ng-deep material-select-dropdown-item {
     line-height: $line-height;
   }
 }
 
 /// Sets the padding of the dropdown list.
-@mixin material-select-dropdown-padding($padding, $selector: '') {
-  ::ng-deep #{$selector} material-list {
+@mixin material-select-dropdown-padding($padding) {
+  ::ng-deep material-list {
     padding: $padding;
   }
 }
