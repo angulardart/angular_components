@@ -33,15 +33,18 @@ import 'material_select_item.dart';
     Provider(SelectionContainer, useExisting: MaterialSelectComponent)
   ],
   directives: [MaterialListComponent, MaterialSelectItemComponent, NgIf, NgFor],
+  directiveTypes: [
+    Typed<MaterialSelectItemComponent>.of([#T]),
+  ],
   templateUrl: 'material_select.html',
   styleUrls: ['material_select.scss.css'],
 )
-class MaterialSelectComponent extends MaterialSelectBase
+class MaterialSelectComponent<T> extends MaterialSelectBase<T>
     implements HasDisabled {
   @HostBinding('attr.role')
   static const hostRole = 'listbox';
 
-  List<SelectionItem> _selectItems;
+  List<SelectionItem<T>> _selectItems;
 
   /// Function for use by NgFor for optionGroup to avoid recreating the
   /// DOM for the optionGroup.
@@ -56,7 +59,7 @@ class MaterialSelectComponent extends MaterialSelectBase
   /// The [SelectionOptions] instance providing options to render.
   @Input()
   @override
-  set options(SelectionOptions value) {
+  set options(SelectionOptions<T> value) {
     super.options = value;
   }
 
@@ -85,17 +88,17 @@ class MaterialSelectComponent extends MaterialSelectBase
   /// The [SelectionModel] for this container.
   @Input()
   @override
-  set selection(value) {
+  set selection(SelectionModel<T> value) {
     super.selection = value;
     _refreshItems();
   }
 
   @override
-  SelectionModel get selection => super.selection;
+  SelectionModel<T> get selection => super.selection;
 
   /// If selectionOptions implements Selectable, it is called to decided
   /// whether an item is disabled.
-  bool isOptionDisabled(Object item) {
+  bool isOptionDisabled(T item) {
     // TODO: Verify if this can be simplified to .isDisabledIn.
     //
     // The prior code did a check for `!= SelectableOption.Selected`. It is
@@ -118,19 +121,19 @@ class MaterialSelectComponent extends MaterialSelectBase
   String get disabledStr => '$_disabled';
 
   @override
-  ItemRenderer get itemRenderer => _itemRenderer;
-  ItemRenderer _itemRenderer;
+  ItemRenderer<T> get itemRenderer => _itemRenderer;
+  ItemRenderer<T> _itemRenderer;
 
   /// A rendering function to render selection options to a String, if given a
   /// `value`.
   @Input()
-  set itemRenderer(ItemRenderer renderer) {
+  set itemRenderer(ItemRenderer<T> renderer) {
     _itemRenderer = renderer;
     _refreshItems();
   }
 
   @ContentChildren(SelectionItem)
-  set selectItems(List<SelectionItem> value) {
+  set selectItems(List<SelectionItem<T>> value) {
     if (value != null) {
       // ContentChildren call is inside change detection. We can't alter
       // state inside change detector therefore schedule a microtask.
@@ -144,12 +147,12 @@ class MaterialSelectComponent extends MaterialSelectBase
   void _refreshItems() {
     if (_selectItems == null) return;
     if (selection != null) {
-      for (SelectionItem item in _selectItems) {
+      for (SelectionItem<T> item in _selectItems) {
         item.selection = selection;
       }
     }
     if (itemRenderer != null) {
-      for (SelectionItem item in _selectItems) {
+      for (SelectionItem<T> item in _selectItems) {
         item.itemRenderer = itemRenderer;
       }
     }

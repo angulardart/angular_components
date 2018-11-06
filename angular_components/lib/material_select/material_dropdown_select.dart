@@ -73,19 +73,24 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     NgIf,
     PopupSourceDirective,
   ],
+  directiveTypes: [
+    Typed<MaterialSelectDropdownItemComponent<String>>(on: 'deselectItem'),
+    Typed<MaterialSelectDropdownItemComponent<String>>(on: 'emptyGroupLabel'),
+    Typed<MaterialSelectDropdownItemComponent>.of([#T]),
+  ],
   templateUrl: 'material_dropdown_select.html',
   styleUrls: ['material_dropdown_select.scss.css'],
   visibility: Visibility.all, // injected by directives
 )
-class MaterialDropdownSelectComponent extends MaterialSelectBase
+class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
     with
         MaterialDropdownBase,
-        SelectionInputAdapter,
+        SelectionInputAdapter<T>,
         MaterialButtonWrapper,
         TrackLayoutChangesMixin,
         KeyboardHandlerMixin,
         ActivateItemOnKeyPressMixin,
-        ShiftClickSelectionMixin
+        ShiftClickSelectionMixin<T>
     implements PopupSizeProvider, OnChanges, OnDestroy {
   /// Function for use by NgFor for optionGroup.
   ///
@@ -112,10 +117,10 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   String buttonAriaLabelledBy;
 
   /// Listener for options changes.
-  StreamSubscription _optionsListener;
+  StreamSubscription<List<OptionGroup<T>>> _optionsListener;
 
   /// Listener for selection changes.
-  StreamSubscription _selectionListener;
+  StreamSubscription<List<SelectionChangeRecord<T>>> _selectionListener;
 
   /// If a parent provides a [PopupSizeProvider], the provider will be used
   /// instead of the implementation of this class.
@@ -223,6 +228,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
 
   /// Function to convert an option object to string.
   ///
+  // TODO(google): Fix this now that generics are supported.
   // Ideally, [value] would be a [ItemRenderer<T>], where T is also the type
   // parameter of the SelectionOptions and the SelectionModel, as parent
   // components typically use a function that accepts a specific type (T).
@@ -274,7 +280,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   @override
-  set options(SelectionOptions newOptions) {
+  set options(SelectionOptions<T> newOptions) {
     super.options = newOptions;
 
     _updateActiveModel();
@@ -308,7 +314,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   @override
-  set selection(SelectionModel newSelection) {
+  set selection(SelectionModel<T> newSelection) {
     super.selection = newSelection;
     _setInitialActiveItem();
 
@@ -493,7 +499,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   /// If selectionOptions implements Selectable, it is called.
-  bool isOptionDisabled(Object item) {
+  bool isOptionDisabled(T item) {
     // TODO: Verify if this can be simplified to .isDisabledIn.
     //
     // The prior code did a check for `!= SelectableOption.Selected`. It is
@@ -503,7 +509,7 @@ class MaterialDropdownSelectComponent extends MaterialSelectBase
   }
 
   /// Whether to hide [item].
-  bool isOptionHidden(Object item) {
+  bool isOptionHidden(T item) {
     return Selectable.isHiddenIn(options, item, false);
   }
 
