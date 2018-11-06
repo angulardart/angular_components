@@ -10,7 +10,7 @@
     <div class="track"></div>
   </div>
   <div class="knob" role="slider"
-         tabindex="0"
+         [attr.tabindex]="disabled ? -1 : 0"
          (keydown)="knobKeyDown($event)"
          [style.margin-left.px]="isRtl ? 0 : -8"
          [style.margin-right.px]="isRtl ? -8 : 0"
