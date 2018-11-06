@@ -6,11 +6,7 @@
 ///
 /// An example is a checkbox (isChecked) or an expansion panel (isExpanded).
 abstract class Toggleable {
-  bool _isOn = false;
-  bool get isOn => _isOn;
-  set isOn(bool value) {
-    _isOn = value;
-  }
+  bool isOn = false;
 
   void toggle() {
     isOn = !isOn;
