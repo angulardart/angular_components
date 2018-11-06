@@ -62,6 +62,7 @@
     <ng-content></ng-content>
     <div class="options-wrapper" *ngIf="options != null">
       <material-select-dropdown-item
+          #deselectItem
           *ngIf="showDeselectItem"
           keyboardOnlyFocusIndicator
           [class.empty]="options.optionGroups.length == 1"
@@ -103,6 +104,7 @@
             </material-select-dropdown-item>
           </template>
           <material-select-dropdown-item
+              #emptyGroupLabel
               *ngIf="group.isEmpty && group.hasEmptyLabel"
               keyboardOnlyFocusIndicator
               [tabbable]="false"
