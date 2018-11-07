@@ -157,6 +157,11 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   // Whether a custom label render is used.
   bool get hasCustomLabelRenderer => labelFactory != null;
 
+  /// Whether to activate (visually focus but not select) the first available
+  /// option when the dropdown opens.
+  @Input()
+  bool activateFirstOption = false;
+
   /// CSS classes from the root element, passed to the popup to allow scoping of
   /// mixins.
   ///
@@ -347,6 +352,9 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
       // If the current active item is not selected, activate the first selected
       // item.
       activeModel.activate(selection.selectedValues.first);
+    }
+    if (activateFirstOption && activeModel.activeItem == null) {
+      activeModel.activateFirst();
     }
   }
 
