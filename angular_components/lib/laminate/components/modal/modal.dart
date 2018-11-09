@@ -24,6 +24,9 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 class GlobalModalStack {
   final List<Modal> _stack = List<Modal>();
 
+  /// Size of the stack.
+  int get length => _stack.length;
+
   /// Should be triggered when [modal] is closed.
   void onModalClosed(Modal modal) {
     assert(_stack.last == modal);
@@ -152,6 +155,7 @@ class ModalComponent
   final Element _element;
   final Modal _parentModal;
   final GlobalModalStack _stack;
+  final NgZone _ngZone;
 
   @override
   Stream<AsyncAction> get onOpen => _onOpen.stream;
@@ -171,11 +175,19 @@ class ModalComponent
   bool _isHidden = false;
   bool _isVisible = false;
   OverlayRef _resolvedOverlayRef;
+  Element _lastFocusedElement;
+
+  /// Whether to return focus to the last focused element before the modal
+  /// opened.
+  ///
+  /// Defaults to true.
+  @Input()
+  bool restoreFocus = true;
 
   Future<bool> _pendingOpen;
   Future<bool> _pendingClose;
 
-  ModalComponent(OverlayService overlayService, this._element,
+  ModalComponent(OverlayService overlayService, this._element, this._ngZone,
       @Optional() @SkipSelf() this._parentModal, @Optional() this._stack) {
     _createdOverlayRef(
         overlayService.createOverlayRefSync(OverlayState.Dialog));
@@ -239,6 +251,7 @@ class ModalComponent
   //
   // If it has a parent, we should temporarily hide it.
   void _showModalOverlay({bool temporary = false}) {
+    _saveFocus();
     if (!temporary) {
       if (_stack != null) {
         _stack.onModalOpened(this);
@@ -253,6 +266,7 @@ class ModalComponent
   //
   // If it has a parent, we should re-show it.
   void _hideModalOverlay({bool temporary = false}) {
+    _restoreFocus();
     if (!temporary) {
       if (_stack != null) {
         _stack.onModalClosed(this);
@@ -261,6 +275,28 @@ class ModalComponent
       }
     }
     _resolvedOverlayRef.setVisible(false);
+  }
+
+  void _saveFocus() {
+    _lastFocusedElement = restoreFocus ? document.activeElement : null;
+  }
+
+  void _restoreFocus() {
+    if (_lastFocusedElement == null) return;
+    if (_stack != null && _stack.length > 1 || _parentModal != null) return;
+    // Only restore focus if the current active element is inside this overlay.
+    // Note in a browser activeElement is never null and the null check below is
+    // only for testing.
+    if (document.activeElement == null ||
+        !_resolvedOverlayRef.overlayElement.contains(document.activeElement)) {
+      return;
+    }
+    final elementToFocus = _lastFocusedElement;
+    scheduleMicrotask(() {
+      // Note that if the [elementToFocus] is no longer in the document,
+      // the body element will be focused instead.
+      elementToFocus.focus();
+    });
   }
 
   @override
