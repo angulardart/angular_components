@@ -4,6 +4,7 @@
 
 import 'dart:async';
 import 'dart:html';
+import 'dart:math';
 
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
@@ -93,9 +94,29 @@ class MaterialExpansionPanel
     }));
   }
 
+  HtmlElement _headerPanel;
+  @ViewChild('headerPanel')
+  set headerPanel(HtmlElement headerPanel) {
+    _headerPanel = headerPanel;
+    _disposer.addStreamSubscription(_headerPanel.onTransitionEnd.listen((_) {
+      // Clear height override so it will match the active child's height.
+      _headerPanel.style.height = '';
+    }));
+  }
+
   HtmlElement _mainContent;
   @ViewChild('mainContent')
   set mainContent(HtmlElement mainContent) => _mainContent = mainContent;
+
+  HtmlElement _headerContent;
+  @ViewChild('headerContent')
+  set headerContent(HtmlElement headerContent) =>
+      _headerContent = headerContent;
+
+  HtmlElement _actionContent;
+  @ViewChild('action')
+  set actionContent(HtmlElement headerContent) =>
+      _actionContent = headerContent;
 
   HtmlElement _contentWrapper;
   @ViewChild('contentWrapper')
@@ -441,6 +462,23 @@ class MaterialExpansionPanel
     } else {
       _domService.nextFrame.then((_) => _mainPanel.style.height = '');
     }
+
+    // If the header has to disappear, animate that transition as well
+    if (hideExpandedHeader) {
+      // Make current height explicit as a starting point for animation.
+      _headerPanel.style.height = '${_headerPanel.scrollHeight}px';
+
+      // On next frame, set target height for animation.
+      if (expand) {
+        _domService.nextFrame.then((_) {
+          _headerPanel.style.height = '';
+        });
+      } else {
+        _readExpandedHeaderHeight().then((expandedHeaderHeight) {
+          _headerPanel.style.height = expandedHeaderHeight;
+        });
+      }
+    }
   }
 
   /// Reads the DOM state to calculate the height of the "expanded" panel in its
@@ -448,24 +486,49 @@ class MaterialExpansionPanel
   ///
   /// This defined end point will be used to animate expansion.
   Future<String> _readExpandedPanelHeight() {
-    var completeExpandedHeight = Completer<String>();
+    final completeExpandedHeight = Completer<String>();
 
     _domService.scheduleRead(() {
-      var contentHeight = _mainContent.scrollHeight;
+      final contentHeight = _mainContent.scrollHeight;
       var expandedPanelHeight = '';
 
-      var mainPanelStyle = _mainPanel.getComputedStyle();
+      final mainPanelStyle = _mainPanel.getComputedStyle();
       // Do our best to make sure that onTransitionEnd will fire later.
-      var hasHeightTransition =
+      final hasHeightTransition =
           contentHeight > 0 && mainPanelStyle.transition.contains('height');
 
       if (hasHeightTransition) {
         // If the content-wrapper has a top margin, it is not reflected in the
         // scroll height.
-        var topMargin = _contentWrapper.getComputedStyle().marginTop;
+        final topMargin = _contentWrapper.getComputedStyle().marginTop;
         expandedPanelHeight = 'calc(${contentHeight}px + ${topMargin})';
       }
       completeExpandedHeight.complete(expandedPanelHeight);
+    });
+
+    return completeExpandedHeight.future;
+  }
+
+  /// Reads the DOM state to calculate the height of the header in its
+  /// current condition.
+  ///
+  /// This defined end point will be used to animate expansion.
+  Future<String> _readExpandedHeaderHeight() {
+    final completeExpandedHeight = Completer<String>();
+
+    _domService.scheduleRead(() {
+      final contentHeight =
+          max(_headerContent.scrollHeight, _actionContent?.scrollHeight ?? 0);
+      var expandedHeaderHeight = '';
+
+      final headerPanelStyle = _headerPanel.getComputedStyle();
+      // Do our best to make sure that onTransitionEnd will fire later.
+      final hasHeightTransition =
+          contentHeight > 0 && headerPanelStyle.transition.contains('height');
+
+      if (hasHeightTransition) expandedHeaderHeight = '${contentHeight}px';
+
+      completeExpandedHeight.complete(expandedHeaderHeight);
     });
 
     return completeExpandedHeight.future;

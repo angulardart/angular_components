@@ -61,7 +61,8 @@
 header {
   display: flex;
   color: $mat-transparent-black;
-  transition: min-height $mat-transition-slow $mat-transition-standard,
+  transition: height $mat-transition $mat-transition-standard,
+              min-height $mat-transition $mat-transition-standard,
               opacity $mat-transition-slow $mat-transition-standard;
 
   &.hidden {
@@ -84,7 +85,7 @@ header {
   min-width: 0;
   outline: none;
   padding: 0 $mat-grid * 3;
-  transition: min-height $mat-transition-slow $mat-transition-standard;
+  transition: min-height $mat-transition $mat-transition-standard;
 
   &.closed:not(.is-disabled) {
     &:hover,
@@ -99,7 +100,7 @@ header {
   }
 }
 
-.panel.open > header > .header {
+.panel.open > header:not(.hidden) > .header {
   min-height: $mat-grid * 8;
 }
 

@@ -146,11 +146,11 @@ $_panel: 'div.panel.themeable';
 
 @mixin expansionpanel-header-min-height($min-height, $open-min-height) {
   ::ng-deep #{$_panel} {
-    header > .header {
+    header:not(.hidden) > .header {
       min-height: $min-height;
     }
 
-    &.open > header > .header[buttonDecorator] {
+    &.open > header:not(.hidden)  > .header[buttonDecorator] {
       min-height: $open-min-height;
     }
   }
@@ -173,7 +173,7 @@ $_panel: 'div.panel.themeable';
   ::ng-deep #{$_panel} {
     transition: none;
 
-    &.open > header > .header {
+    &.open > header:not(.hidden) > .header {
       // Need to override the min-height increase which happens by default.
       min-height: $mat-grid * 6;
     }
@@ -192,7 +192,7 @@ $_panel: 'div.panel.themeable';
 @mixin expansionpanel-dense-theme() {
   ::ng-deep #{$_panel} {
     .header,
-    &.open .header {
+    &.open > header:not(.hidden) > .header {
       min-height: $mat-grid * 4;
     }
 
@@ -249,7 +249,7 @@ $_panel: 'div.panel.themeable';
 
 @mixin expansionpanel-top-align-expand-button($margin-top: $mat-grid-type * 3) {
   ::ng-deep #{$_panel} {
-    &.open > header > .header .expand-button {
+    &.open > header:not(.hidden) > .header .expand-button {
       margin-top: $margin-top + $mat-grid;
     }
 
