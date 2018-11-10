@@ -18,8 +18,9 @@
       Maintain range length when moving start date
     </material-checkbox>
     <div class="limit-label">Limit to date range:</div>
-    <date-range-input [(range)]="limitToRange"></date-range-input>
+    <date-range-input class="range-limit" [(range)]="limitToRange"></date-range-input>
     <div class="selection-label">The current selection is: {{range}}</div>
+    <div class="height-info">This picker's popup is restricted to 50% of the screen height.</div>
   </div>
   <div>
     <material-date-range-picker
@@ -29,6 +30,8 @@
        [supportsComparison]="supportsComparison"
        [showNextPrevButtons]="showNextPrevButtons"
        [movingStartMaintainsLength]="movingStartMaintainsLength"
+       popupMaxWidth="1000px"
+       popupMaxHeight="50%"
        [(range)]="range">
       <div *ngIf="showMessageBar" messageBar class="message-bar">
         Custom message

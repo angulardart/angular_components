@@ -26,13 +26,13 @@ h4 {
   margin: $mat-grid $mat-grid 0;
 }
 
-date-range-input {
-  display: inline-flex;
-  width: 100%;
+.range-limit {
+  margin: 0 $mat-grid;
 }
 
-.selection-label {
-  margin: 0 $mat-grid;
+.selection-label,
+.height-info {
+  margin: $mat-grid;
 }
 
 .simplified-example {

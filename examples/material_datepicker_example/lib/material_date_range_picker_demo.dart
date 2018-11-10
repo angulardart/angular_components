@@ -4,6 +4,7 @@
 
 import 'package:angular/angular.dart';
 import 'package:quiver/time.dart';
+import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_checkbox/material_checkbox.dart';
 import 'package:angular_components/material_datepicker/comparison.dart';
 import 'package:angular_components/material_datepicker/date_range_input.dart';
@@ -45,7 +46,8 @@ List<DatepickerPreset> manyPresets(Clock clock) => [
     MaterialCheckboxComponent,
     MaterialDateRangePickerComponent,
     NgIf,
-    DateRangeInputComponent
+    DateRangeInputComponent,
+    PopupSizeProviderDirective,
   ],
   styleUrls: ['material_date_range_picker_demo.scss.css'],
   templateUrl: 'material_date_range_picker_demo.html',
