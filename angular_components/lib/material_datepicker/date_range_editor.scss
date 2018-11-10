@@ -28,10 +28,6 @@
   overflow-x: hidden;
   overflow-y: auto;
 
-  // Stops the date-range-editor from increasing its height to match a
-  // lengthy preset list.
-  max-height: $preset-list-max-height;
-
   .group {
     padding: $date-range-picker-vertical-padding 0;
     border-bottom: 1px solid $mat-gray-300;

@@ -37,6 +37,10 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// Custom date range formatter interface.
 typedef RangeFormatter = String Function(DateRange range);
 
+/// Default height of the date range picker, if no [PopupSizeProvider] is
+/// provided.
+const _defaultMaxHeight = 600;
+
 /// A material-design-styled date range picker.
 ///
 /// Users can choose preset date ranges, type in custom date ranges, or select
@@ -52,6 +56,10 @@ typedef RangeFormatter = String Function(DateRange range);
 /// component can also read from and write to an [ObservableReference] instance.
 /// (The [DatepickerModel] class is also provided to make using it easier in
 /// dependency injection.)
+///
+/// To control the size of the popup, provide a [PopupSizeProvider] through
+/// dependency injection. If no PopupSizeProvider is provided, the maximum
+/// height of the popup is 600px.
 ///
 /// __Attributes:__
 ///
@@ -76,9 +84,9 @@ typedef RangeFormatter = String Function(DateRange range);
     FocusTrapComponent,
   ],
   providers: [
-    Provider(DateRangeEditorHost,
-        useExisting: MaterialDateRangePickerComponent),
-    Provider(HasDisabled, useExisting: MaterialDateRangePickerComponent),
+    ExistingProvider(DateRangeEditorHost, MaterialDateRangePickerComponent),
+    ExistingProvider(HasDisabled, MaterialDateRangePickerComponent),
+    ExistingProvider(PopupSizeProvider, MaterialDateRangePickerComponent),
   ],
 )
 class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
@@ -87,9 +95,11 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
         OnInit,
         AfterChanges,
         OnDestroy,
-        DateRangeEditorHost {
+        DateRangeEditorHost,
+        PopupSizeProvider {
   DateRangeEditorComponent _dateRangeEditor;
   bool _focusOnDateRangeEditorInit = false;
+  PopupSizeProvider _popupSizeProvider;
 
   List<RelativePosition> get overlapAlignments =>
       RelativePosition.overlapAlignments;
@@ -377,6 +387,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
       Clock legacyClock,
       @Optional() DatepickerConfig config,
       @Attribute('popupClass') String popupClass,
+      @Optional() @SkipSelf() this._popupSizeProvider,
       HtmlElement element,
       this._domService,
       this._ngZone)
@@ -507,6 +518,23 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
       });
     });
   }
+
+  @override
+  num getMaxHeight(num positionY, num viewportHeight) =>
+      _popupSizeProvider?.getMaxHeight(positionY, viewportHeight) ??
+      _defaultMaxHeight;
+
+  // Width and min-height are unconstrained by default (return null), but
+  // do delegate to the popupSizeProvider if one is provided.
+  @override
+  num getMaxWidth(num positionX, num viewportWidth) =>
+      _popupSizeProvider?.getMaxWidth(positionX, viewportWidth);
+  @override
+  num getMinHeight(num positionY, num viewportHeight) =>
+      _popupSizeProvider?.getMinHeight(positionY, viewportHeight);
+  @override
+  num getMinWidth(num positionX, num viewportWidth) =>
+      _popupSizeProvider?.getMinWidth(positionX, viewportWidth);
 
   @override
   void handleEscapeKey(KeyboardEvent event) {

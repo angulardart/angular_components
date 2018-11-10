@@ -109,3 +109,10 @@ class _PercentSizeDefinition implements _SizeDefinition {
   @override
   num getPixels(num viewportSize) => viewportSize * _percent / 100;
 }
+
+/// Applies a [WithinViewportPopupSizeProvider] to the attached element and
+/// its descendants.
+@Directive(selector: '[popupWithinViewport]', providers: [
+  ClassProvider(PopupSizeProvider, useClass: WithinViewportPopupSizeProvider)
+])
+class PopupWithinViewportDirective {}

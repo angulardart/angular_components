@@ -64,6 +64,30 @@ class PercentagePopupSizeProvider implements PopupSizeProvider {
       viewportHeight * _maxHeightPercentage;
 }
 
+/// Constrains popups to fit within the viewport's bottom and right edges.
+///
+/// This assumes that the position of the popup source does not change, and is
+/// intended for use in cases where the popup source is not within a scrollable
+/// area. Since it controls only the size and not the position, it works best
+/// for popups that open to the bottom and right of the anchor.
+class WithinViewportPopupSizeProvider implements PopupSizeProvider {
+  static const _paddingPixels = 8;
+
+  @override
+  num getMaxHeight(num positionY, num viewportHeight) =>
+      viewportHeight - positionY - _paddingPixels;
+
+  @override
+  num getMaxWidth(num positionX, num viewportWidth) =>
+      viewportWidth - positionX - _paddingPixels;
+
+  @override
+  num getMinHeight(num positionY, num viewportHeight) => null;
+
+  @override
+  num getMinWidth(num positionX, num viewportWidth) => null;
+}
+
 /// Provides a popup size with a fixed maximum width and height in pixels.
 ///
 /// A null value for max width or max height indicates no limit.
