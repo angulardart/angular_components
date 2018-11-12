@@ -1,3 +1,73 @@
+## 0.10.1
+
+### Component Updates
+
+#### Material Chips
+* Improved support for generics.
+* Stop setting popup attributes as those attributes are set on the input
+  directly.
+* Only set the `aria-owns` property and `inputAriaActivedescendent` when the
+  popup is open.
+* Add Sass mixin to allow text wrapping.
+
+#### Material Date Picker
+* Use `PopupSizeProvider` to control the height of the picker.
+* Add `rangeFormatter` input to the range picker.
+
+#### Material Expansion Panel
+* Improve accessibility.
+* Smooth expansion/collapse animations when headers are hidden.
+
+#### Material Icon
+* Add Sass mixin to use an SVG for an icon instead of the standard font icons.
+
+#### Material Input
+* Add Sass mixins to disable wrapping for hint text and hide leading and
+  trailing text.
+* Fix material_percent_directive for LTR languages with leading % symbol.
+
+#### Material Menu
+* Add ability to provide extra label annotations for menu items.
+
+#### Material Select
+* Add Sass mixins to restrict item width, font size, line height, and padding.
+* Added generics support.
+* Add `activateFirstOption` input.
+
+#### Material Slider
+* No longer focusable when disabled.
+
+#### Material Tab
+* Add Sass mixin for a shadow below the tab strip.
+
+#### Material Tree
+* Add a dynamic content to accommodate custom elements.
+
+#### Material Toggle
+* Update the theme Sass mixin to include a grey color when the toggle is
+  disabled.
+
+#### Material Tooltip
+* Add Sass mixins to control padding, and max height.
+
+#### Material Yes/No Buttons
+* Allow No button to be disabled.
+
+#### Modal/Overlay
+* Add null guard check to event.
+* A11y improvements.
+* Attempt to restore focus when modal closes.
+
+### Miscellaneous
+* Update MDC Web styles to v0.40.0.
+* Improved support for generics in `HighlightAssistant`.
+* Handle unsupported `WheelEvent.deltaX` in scroll host.
+* Update scroll host support on iOS.
+* Allow dropdown components to contain an `auto_focus` directive.
+
+### Documentation
+* Minor docs fixes.
+
 ## 0.10.0
 
 ### Component Updates

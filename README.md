@@ -11,7 +11,7 @@ Angular package.
 [Material design]: https://material.io/guidelines
 [AngularDart]: https://webdev.dartlang.org/angular
 [applications]: https://news.dartlang.org/2016/03/the-new-adwords-ui-uses-dart-we-asked.html
-[AngularDart Components Gallery]: https://dart-lang.github.io/angular_components_example/
+[AngularDart Components Gallery]: https://dart-lang.github.io/angular_components/
 
 This is a continually growing set of widgets. Recent additions include:
 
@@ -36,7 +36,7 @@ The pub transformer has been removed in favor of code generation through package
 
 ## Useful links
 
-* **[AngularDart Components Gallery](https://dart-lang.github.io/angular_components_example/)**
+* **[AngularDart Components Gallery](https://dart-lang.github.io/angular_components/)**
 * AngularDart Components resources:
   * [About AngularDart Components](https://webdev.dartlang.org/components)
   * [Google I/O 2017 codelab](https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app)
