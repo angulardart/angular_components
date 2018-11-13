@@ -580,7 +580,7 @@ class MaterialPopupComponent extends Object
     showPopup = false;
     _changeDetector.markForCheck();
 
-    // Tell the source that it is open.
+    // Tell the source that it is closed.
     state.source.onClose();
 
     if (hasBox) {
