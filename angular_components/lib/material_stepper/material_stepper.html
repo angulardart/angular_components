@@ -16,6 +16,7 @@
        [class.can-select]="step.isSelectable"
        attr.active="{{step.active}}"
        attr.selectable="{{step.isSelectable}}"
+       [disabled]="step.isNotSelectable"
        buttonDecorator
        (trigger)="jumpStep(step.index)">
     <!-- Step number in circle -->

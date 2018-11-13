@@ -110,6 +110,14 @@ $edit-icon-size: $mat-grid * 2;
   outline-width: 0;
   position: relative;
 
+  &[selectable = true]:focus {
+    background-color: $mat-grey-200;
+
+    .edit-icon {
+      color: $mat-grey-700;
+    }
+  }
+
   &[orientation = horizontal] {
     display: flex;
     flex-direction: row;
@@ -118,19 +126,6 @@ $edit-icon-size: $mat-grid * 2;
   &[orientation = vertical] {
     padding-bottom: $mini-spacing;
     width: auto;
-
-    &[active = false] {
-
-      &[selectable = true] {
-        &:hover {
-          background-color: $mat-grey-200;
-        }
-
-        &:hover .edit-icon {
-          color: $mat-grey-700;
-        }
-      }
-    }
   }
 }
 
