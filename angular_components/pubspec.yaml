@@ -1,5 +1,5 @@
 name: angular_components
-version: 0.10.1-dev
+version: 0.10.1
 description: >
   The official Material Design components for AngularDart. Used at Google in
   production apps.
@@ -7,7 +7,7 @@ homepage: https://webdev.dartlang.org/components
 documentation: https://webdev.dartlang.org/api?package=angular_components
 author: Dart Team <misc@dartlang.org>
 environment:
-  sdk: '>=2.1.0-dev.7.1 <3.0.0'
+  sdk: '>=2.1.0-dev.9.4 <3.0.0'
 dependencies:
   angular: ^5.1.0
   angular_forms: ^2.1.0

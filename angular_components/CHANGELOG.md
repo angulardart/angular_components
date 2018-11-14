@@ -24,7 +24,8 @@
 #### Material Input
 * Add Sass mixins to disable wrapping for hint text and hide leading and
   trailing text.
-* Fix material_percent_directive for LTR languages with leading % symbol.
+* Fix `MaterialPercentInputDirective` for LTR languages with leading % symbol.
+* Fix inconsistent margins in Safari browser.
 
 #### Material Menu
 * Add ability to provide extra label annotations for menu items.
@@ -36,6 +37,9 @@
 
 #### Material Slider
 * No longer focusable when disabled.
+
+#### Material Stepper
+* Ensure items that can't be selected also can't be tabbed to.
 
 #### Material Tab
 * Add Sass mixin for a shadow below the tab strip.
