@@ -147,4 +147,8 @@ class DropdownButtonComponent extends Object
   /// Event fired when the button is clicked or keyboard activated.
   @Output()
   Stream<UIEvent> get trigger => _button.trigger;
+
+  /// Is the component tabbable.
+  @Input()
+  bool tabbable = true;
 }
