@@ -189,6 +189,10 @@ $emphasis-selected-bg-color: $mat-blue-900;
         fill: $mat-white;
       }
     }
+
+    ::ng-deep .delete-icon:focus {
+      fill: $mat-gray-300;
+    }
   }
 }
 
