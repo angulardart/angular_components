@@ -70,6 +70,10 @@
     <a [href]="getCodeSearchLink(doc.path)" target="_blank">Source Code</a>
   </h2>
 
+  <p class="declaration-deprecated" *ngIf="doc.deprecated">
+    {{doc.deprecatedMessage}}
+  </p>
+
   <p *ngIf="doc.selector.isNotEmpty">
     <strong>Selector:</strong>
     <code>&lt;{{doc.selector}}&gt;</code>

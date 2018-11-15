@@ -78,6 +78,8 @@ class ResolvedConfig {
 /// to the values used by the gallery generators.
 class DocInfo {
   String name;
+  bool deprecated;
+  String deprecatedMessage;
   String selector;
   String exportAs;
   String path;
@@ -90,6 +92,8 @@ class DocInfo {
   /// Constructs a new [DocInfo] from a decoded json map.
   DocInfo.fromJson(Map<String, dynamic> jsonMap) {
     name = jsonMap['name'] as String;
+    deprecated = jsonMap['deprecated'] as bool;
+    deprecatedMessage = jsonMap['deprecatedMessage'] as String;
     selector = jsonMap['selector'] as String;
     exportAs = jsonMap['exportAs'] as String;
     path = jsonMap['path'] as String;
@@ -103,6 +107,8 @@ class DocInfo {
   /// Returns a json encodeable representation of this [DocInfo].
   Map<String, dynamic> toJson() => {
         'name': name,
+        'deprecated': deprecated,
+        'deprecatedMessage': deprecatedMessage,
         'selector': selector,
         'exportAs': exportAs,
         'path': path,
