@@ -8,9 +8,9 @@
   "mappings": "A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAkEaA;GAjCNC,YAAmBA,C;GAcnBC,YAASA,C;GAGTC,cAAaA,QAAKA,C;GAGlBC,YAAeA,QAAKA,C;GAGpBC,YAAiBA,QAAKA,C;IASgBL,WACvCA,2CAA6BA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
-      "global": {},
-      "instance": {}
+      "global": "",
+      "instance": ""
     },
-    "frames": []
+    "frames": ""
   }
 }

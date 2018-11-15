@@ -5,12 +5,12 @@
   "sourceRoot": "",
   "sources": ["../packages/angular_components/content/deferred_content.dart","../packages/angular_components/utils/disposer/disposer.dart","../packages/angular_components/content/deferred_content.template.dart","../packages/angular/src/core/linker/app_view.dart","org-dartlang-sdk:///sdk/lib/html/dart2js/html_dart2js.dart","../packages/angular/src/core/linker/view_container.dart","../packages/angular/src/core/linker/element_ref.dart","../packages/angular/src/core/linker/view_ref.dart"],
   "names": ["DeferredContentDirective","DeferredContentDirective._disposer","initReflector","DeferredContentDirective._setVisible","AppView.flatRootNodes","ViewContainer.element","ViewContainer.elementRef","DeferredContentDirective.ngOnDestroy","_disposer","oneShot","","rootNodes","flatRootNodes","ViewRefImpl.rootNodes","_flattenNestedViews","width","height","element","elementRef"],
-  "mappings": "A;;GA8EEA,gBACsEA;ACctEC;ADfAD;AAEEA,KAAuCA,QAAeA,EAAOA;AAF/DA,QAGAA,C;;;;;;;;;GEjEGE,WACHA,SACEA,MAOJA;;AAFEA,KAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;GFgBOC,YACHA;aAAuBA,MAkCzBA;AAjCEA,MACEA,UAEEA;AAESA,8BAEXA,WAEkBA;AG8nBfC,4BAA2CA;WH9nBLD;AACQA;AACnCA,mBAGOA;AACJA;;AIssJnBA;;AApgBAA,YJ3rIEA;AAEAA,WAEkBA;AKvCOE;YClBvBC;ADkBuBD;;ALuCiBF;AACxCA,qCACYA,qCAIhBA,QACFA,C;EAQKI,WACHA;AACAA;AACAA,WACFA,C",
+  "mappings": "A;;GA8EEA,gBACsEA;ACctEC;ADfAD;AAEEA,KAAuCA,QAAeA,EAAOA;AAF/DA,QAGAA,C;;;;;;;;;GEjEGE,WACHA,SACEA,MAOJA;;AAFEA,KAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;GFgBOC,YACHA;aAAuBA,MAkCzBA;AAjCEA,MACEA,UAEEA;AAESA,8BAEXA,WAEkBA;AG8nBfC,4BAA2CA;WH9nBLD;AACQA;AACnCA,mBAGOA;AACJA;;AI2qJnBA;;AApgBAA,YJhqIEA;AAEAA,WAEkBA;AKvCOE;YClBvBC;ADkBuBD;;ALuCiBF;AACxCA,qCACYA,qCAIhBA,QACFA,C;EAQKI,WACHA;AACAA;AACAA,WACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
-      "global": {},
-      "instance": {}
+      "global": "",
+      "instance": ""
     },
-    "frames": [[224,[0,22,29,8],[0,22,29,9]],[241,-1,0],[295,[0,78,2,10],[0,78,2,10]],[320,-1,0],[856,[0,52,34,11],[7,83,38,12],[3,352,6,14]],[911,-1,-1,0],[1041,[0,59,14,15]],[1072,0,[0,60,14,16]],[1084,0],[1117,[0,69,39,17],[5,49,28,18]],[1135,[5,30,47,10]],[1151,-1],[1170,-1,0]]
+    "frames": "kOAsB6BQAAAACiB,A;sDAwD3BCAAAAAyB,A;whBA1BgCCAO+BICAJ6QhCEuD,A,A;kIHrSQC+B;AACACY;iCASyBCAKpBXCkBAnBmBRgB,mB,A;"
   }
 }

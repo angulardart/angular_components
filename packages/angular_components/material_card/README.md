@@ -6,7 +6,7 @@ applications. For documentation on how to use these styling please see the [mdc
 documentation][docs]. Examples can be found [here][demo].
 
 [docs]: https://github.com/material-components/material-components-web/tree/master/packages/mdc-card
-[demo]: https://material-components-web.appspot.com/card.html
+[demo]: https://material-components.github.io/material-components-web-catalog/#/component/card
 
 ## Setup
 

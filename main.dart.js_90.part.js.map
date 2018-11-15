@@ -3,14 +3,14 @@
   "engine": "v2",
   "file": "main.dart.js_90.part.js",
   "sourceRoot": "",
-  "sources": ["org-dartlang-sdk:///sdk/lib/async/future.dart","org-dartlang-sdk:///sdk/lib/async/future_impl.dart"],
-  "names": ["Future.delayed","Future.delayed.<anonymous function>",""],
-  "mappings": "A;;GAuTUA,gBCvGRA;ADyGMA,OAAgBA;AAOpBA,QACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GARsBC;IAEcA;AAA9BA,sBAFgBA;AAGhBA;AACAA,iBAEHA,C",
+  "sources": ["../packages/intl/intl.dart"],
+  "names": ["Intl.defaultLocale"],
+  "mappings": "A;;GA+FoBA,WACMA;AACtBA,sBACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
-      "global": {},
-      "instance": {}
+      "global": "",
+      "instance": ""
     },
-    "frames": [[206,[0,312,28,2]],[232,0]]
+    "frames": ""
   }
 }
