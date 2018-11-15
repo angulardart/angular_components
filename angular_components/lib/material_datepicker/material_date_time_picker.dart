@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
@@ -40,6 +41,10 @@ import 'package:angular_components/model/date/date.dart';
 )
 class MaterialDateTimePickerComponent implements HasDisabled {
   final Clock _clock;
+
+  @visibleForTemplate
+  @HostBinding('tabIndex')
+  static const tabIndex = -1;
 
   /// The format used to format dates.
   ///
