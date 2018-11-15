@@ -58,7 +58,7 @@
     </a>
   </ng-container>
 
-  <ng-container *ngIf="model.benchmarks.isNotEmpty">
+  <ng-container *ngIf="latencyChartsEnabled && model.benchmarks.isNotEmpty">
     <label>Latency</label>
     <a buttonDecorator (trigger)="scroll('#latency')">Latency Charts</a>
   </ng-container>
@@ -142,7 +142,7 @@
   <dynamic-component [componentFactory]="demo.demoFactory"></dynamic-component>
 </section>
 
-<section *ngIf="model.benchmarks.isNotEmpty" class="latency-chart">
+<section *ngIf="latencyChartsEnabled && model.benchmarks.isNotEmpty" class="latency-chart">
   <h2 id="latency">Latency Charts</h2>
   <latency-chart *ngFor="let url of model.benchmarks" linkUrl="{{url}}">
   </latency-chart>
