@@ -7,6 +7,8 @@ import 'package:angular_components/model/ui/icon.dart';
 
 /// Represents a menu item content affix.
 abstract class MenuItemAffix {
+  const MenuItemAffix();
+
   IconVisibility get visibility;
 
   bool get isVisibleOnHover => visibility == IconVisibility.hover;
@@ -45,7 +47,7 @@ class IconAffix extends MenuItemAffix {
   @override
   final String cssClass;
 
-  IconAffix(
+  const IconAffix(
       {@required this.icon,
       this.visibility = IconVisibility.visible,
       this.cssClass});
@@ -76,7 +78,7 @@ class CaptionAffix extends MenuItemAffix {
   @override
   final String cssClass;
 
-  CaptionAffix(
+  const CaptionAffix(
       {this.text, this.visibility = IconVisibility.visible, this.cssClass});
 
   @override
