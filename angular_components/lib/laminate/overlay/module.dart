@@ -5,6 +5,7 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:meta/meta.dart';
 import 'package:angular_components/laminate/overlay/constants.dart';
 import 'package:angular_components/src/laminate/overlay/overlay_service.dart';
 import 'package:angular_components/src/laminate/overlay/render/overlay_dom_render_service.dart';
@@ -24,16 +25,14 @@ export 'package:angular_components/src/laminate/overlay/render/overlay_dom_rende
         overlayRepositionLoop,
         overlaySyncDom;
 
-/// Either finds, or creates an "acx-overlay-container" div at the end of body.
-@Injectable()
-HtmlElement getDefaultContainer(
-    @Inject(overlayContainerName) String name,
-    @Inject(overlayContainerParent) HtmlElement parent,
-    @Optional() @SkipSelf() @Inject(overlayContainerToken) container) {
-  if (container != null) return container;
-
-  var element = parent.querySelector('#$overlayDefaultContainerId');
-  if (element == null) {
+/// Creates an overlay container inside the [parent] if one does not exist
+/// already.
+/// A hidden focusable element is inserted before and after the overlay
+/// container to support a11y features.
+HtmlElement createAcxOverlayContainer(HtmlElement parent,
+    {@required String id, @required String name, String className}) {
+  var container = parent.querySelector('#$id');
+  if (container == null) {
     // Add a hidden focusable element before overlay container to prevent screen
     // reader from picking up content from a random element when users shift tab
     // out of the first visible overlay.
@@ -41,10 +40,11 @@ HtmlElement getDefaultContainer(
       ..tabIndex = 0
       ..classes.add(overlayFocusablePlaceholderClassName));
 
-    element = DivElement()
-      ..id = overlayDefaultContainerId
+    container = DivElement()
+      ..id = id
       ..classes.add(overlayContainerClassName);
-    parent.append(element);
+    if (className != null) container.classes.add(className);
+    parent.append(container);
 
     // Add a hidden focusable element after overlay container to ensure there's
     // a focusable element when users tab out of the last visible overlay.
@@ -52,8 +52,19 @@ HtmlElement getDefaultContainer(
       ..tabIndex = 0
       ..classes.add(overlayFocusablePlaceholderClassName));
   }
-  element.attributes[overlayContainerNameAttribute] = name;
-  return element;
+  container.attributes[overlayContainerNameAttribute] = name;
+  return container;
+}
+
+/// Either finds, or creates an "acx-overlay-container" div at the end of body.
+@Injectable()
+HtmlElement getDefaultContainer(
+    @Inject(overlayContainerName) String name,
+    @Inject(overlayContainerParent) HtmlElement parent,
+    @Optional() @SkipSelf() @Inject(overlayContainerToken) container) {
+  if (container != null) return container;
+  return createAcxOverlayContainer(parent,
+      id: overlayDefaultContainerId, name: name);
 }
 
 @Injectable()
