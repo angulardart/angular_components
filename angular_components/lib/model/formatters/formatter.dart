@@ -11,6 +11,10 @@ abstract class Formatter<T> {
 abstract class StyleFormatter<T> implements Formatter<T> {
   /// Returns list of classes to style value.
   List<String> computeStyle(T value, [String parameters]) => const [];
+
+  /// Base name to style table column containing these values, actual style
+  /// values are derived using this name.
+  String get primaryStyle => null;
 }
 
 /// Formats a value using parameters and the entity containing the
