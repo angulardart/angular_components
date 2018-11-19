@@ -56,7 +56,6 @@ class MenuItemGroupWithSelection<SelectionItemType>
 class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
     implements MenuItem {
   Function _action;
-  IconVisibility _secondaryIconVisibility;
   SelectableOption _selectableState;
 
   /// Converts [ItemType] into a string.
@@ -79,9 +78,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
 
   @override
   final Icon icon;
-
-  @override
-  final Icon secondaryIcon;
 
   @override
   final MenuModel subMenu;
@@ -117,7 +113,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
       {@required this.value,
       this.itemRenderer = defaultItemRenderer,
       this.icon,
-      @Deprecated('Please use itemSuffixes instead') this.secondaryIcon,
       this.subMenu,
       this.tooltip,
       this.secondaryLabel,
@@ -130,7 +125,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
       ObservableList<MenuItemAffix> itemSuffixes})
       : _action = action,
         _selectableState = selectableState,
-        _secondaryIconVisibility = IconVisibility.visible,
         shouldSelectOnItemClick = shouldSelectOnItemClick ?? subMenu == null,
         itemSuffixes = itemSuffixes ??
             ObservableList<MenuItemAffix>.from(
@@ -138,10 +132,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
         cssClasses = BuiltList<String>(cssClasses ?? const []) {
     assert(itemSuffix == null || itemSuffixes == null,
         'Only one of itemSuffix or itemSuffixes should be provided');
-    if (secondaryIcon != null) {
-      this.itemSuffixes.add(
-          IconAffix(icon: secondaryIcon, visibility: _secondaryIconVisibility));
-    }
   }
 
   @override
@@ -154,12 +144,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
   bool get hasIcon => icon != null;
 
   @override
-  bool get hasSecondaryIcon => itemSuffixes.any((suffix) => suffix.isVisible);
-
-  @override
-  bool get hasSecondaryHoverIcon => uiHoverIcon != null;
-
-  @override
   bool get hasSubMenu => subMenu != null;
 
   @override
@@ -167,14 +151,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
 
   @override
   Icon get uiIcon => icon;
-
-  @override
-  Icon get uiHoverIcon {
-    final suffix = itemSuffixes.firstWhere(
-        (suffix) => suffix is IconAffix && suffix.isVisibleOnHover,
-        orElse: () => null);
-    return (suffix as IconAffix).icon;
-  }
 
   @override
   String get uiDisplayName => label;
@@ -201,12 +177,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
 
   @override
   bool get hasSecondaryLabel => secondaryLabel != null;
-
-  /// Visibility state of the secondary icon.
-  ///
-  /// In a menu item, the secondary icon appears to the right of the text
-  /// content.
-  IconVisibility get secondaryIconVisibility => _secondaryIconVisibility;
 
   /// Display state of this menu item.
   SelectableOption get selectableState => _selectableState;

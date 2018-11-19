@@ -133,7 +133,7 @@ class MenuModel<T> implements HasIcon, AcceptsWidth {
 /// Example code for creating a menu item with tooltip
 ///     new MenuItem(label, tooltip: tooltip,
 ///                  action:action, icon:icon, subMenu:subMenu);
-class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
+class MenuItem<T> implements HasUIDisplayName, HasIcon {
   final String label;
   final String secondaryLabel;
   final String tooltip;
@@ -152,26 +152,11 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   @override
   Icon get uiIcon => icon;
 
-  @Deprecated('Use itemSuffixes instead for getting any secondary icons; icon '
-      'is not longer the sole type of suffix and items may have '
-      'multiple suffixes')
-  final Icon secondaryIcon;
-  // See deprecation warning for secondaryIcon - visibility is now stored in
-  // the affix model.
-  final ObservableReference<IconVisibility> _secondaryIconVisibility;
-
   /// List of rendered suffixes for this menu item.
   final ObservableList<MenuItemAffix> itemSuffixes;
 
   /// Additional CSS classes to be attached to the root menu item element.
   final BuiltList<String> cssClasses;
-
-  @Deprecated("uiHoverIcon isn't used anywhere - use itemSuffixes instead to "
-      "get the correct and up-to-date list of suffixes")
-  @override
-  Icon get uiHoverIcon => _secondaryIconVisibility.value == IconVisibility.hover
-      ? secondaryIcon
-      : null;
 
   void _noop() {}
   Function get nullAwareActionHandler => action != null ? action : _noop;
@@ -180,15 +165,6 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   bool enabled;
   bool get hasIcon => icon != null;
 
-  @Deprecated('See deprecation warning for secondaryIcon - check itemSuffixes '
-      'for existance of any suffixes')
-  bool get hasSecondaryIcon =>
-      secondaryIcon != null &&
-      _secondaryIconVisibility.value != IconVisibility.hidden;
-
-  @Deprecated('See deprecation warning for secondaryIcon - check itemSuffixes '
-      'for existance of any suffixes')
-  bool get hasSecondaryHoverIcon => uiHoverIcon != null;
   bool get hasSubMenu => subMenu != null;
   bool get showTooltip => isNotEmpty(tooltip);
   @override
@@ -212,34 +188,23 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   ///     convenient way to pass a single item suffix in rather than
   ///     constructing an ObservableList and using [itemSuffixes]. If
   ///     [itemSuffixes] is also passed in, [itemSuffixes] takes precedence.
-  MenuItem(
-      this.label,
+  MenuItem(this.label,
       {this.enabled = true,
       this.tooltip,
       this.action,
       this.icon,
       this.labelAnnotation,
       Iterable<String> cssClasses,
-      @Deprecated('Please use itemSuffix instead')
-          this.secondaryIcon,
       MenuItemAffix itemSuffix,
       ObservableList<MenuItemAffix> itemSuffixes,
-      @Deprecated('Please use itemSuffixes instead')
-          ObservableReference<IconVisibility> secondaryIconVisibility,
       this.subMenu,
       this.secondaryLabel})
-      : _secondaryIconVisibility = secondaryIconVisibility ??
-            ObservableReference<IconVisibility>(IconVisibility.visible),
-        itemSuffixes = itemSuffixes ??
+      : itemSuffixes = itemSuffixes ??
             ObservableList<MenuItemAffix>.from(
                 Optional.fromNullable(itemSuffix)),
         cssClasses = BuiltList<String>(cssClasses ?? const []) {
     assert(itemSuffix == null || itemSuffixes == null,
         'Only one of itemSuffix or itemSuffixes should be provided');
-    if (secondaryIcon != null) {
-      this.itemSuffixes.add(IconAffix(
-          icon: secondaryIcon, visibility: _secondaryIconVisibility.value));
-    }
   }
 
   @override
