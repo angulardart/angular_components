@@ -47,10 +47,27 @@ The pub transformer has been removed in favor of code generation through package
   * [angular pub package](https://pub.dartlang.org/packages/angular)
 * [Material Design site](https://material.io)
 
-## Required Icon Font
+## Required Fonts
 
-For icons to appear, add the following icon font download to your page.
-[Example](https://github.com/dart-lang/angular_components_example/blob/ae323a593cbb5508fa6fbe33afb7f5d40ea96a7e/angular_gallery/lib/builder/template/index.html.mustache#L8)
+Add the folowing font downloads to the head element on your page.
+
+### Roboto Font
+
+The typography Sass mixins for are designed to work best with the Roboto font.
+[Example](https://github.com/dart-lang/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L9)
+
+```html
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+
+```
+
+### Material Icon Font
+
+These components depend on the Material Icon font.
+[Example](https://github.com/dart-lang/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L11)
 
 ```html
 <link
@@ -89,4 +106,4 @@ imports in your Sass files.
 ## Project Roadmap
 
 Our current work is summarized in the
-[roadmap for this quarter](https://github.com/dart-lang/angular_components/issues/312).
+[roadmap for this quarter](https://github.com/dart-lang/angular_components/issues/356).
