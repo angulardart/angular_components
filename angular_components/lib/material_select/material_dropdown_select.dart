@@ -89,7 +89,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
         MaterialButtonWrapper,
         TrackLayoutChangesMixin,
         KeyboardHandlerMixin,
-        ActivateItemOnKeyPressMixin,
+        ActivateItemOnKeyPressMixin<T>,
         ShiftClickSelectionMixin<T>
     implements PopupSizeProvider, OnChanges, OnDestroy {
   /// Function for use by NgFor for optionGroup.
@@ -536,7 +536,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
 // TODO(google): Move it to a common home to increase reusability.
 // TODO(google): Better comparison of characters to better support i18n.
-class ActivateItemOnKeyPressMixin {
+class ActivateItemOnKeyPressMixin<T> {
   static Map<int, String> _charCodeMap = <int, String>{};
 
   String _enteredKeys = '';
@@ -548,7 +548,7 @@ class ActivateItemOnKeyPressMixin {
       ActiveItemModel activeModel,
       int charCode,
       SelectionOptions options,
-      ItemRenderer itemRenderer,
+      ItemRenderer<T> itemRenderer,
       SelectionModel selection) {
     // Guard against being called when not all data is initialized.
     if (itemRenderer == null || options == null) return;
