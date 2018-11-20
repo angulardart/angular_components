@@ -429,6 +429,33 @@ class LastNDaysToTodayRange extends MultipleDaysRange {
       examples: const {'lengthInDays': 7});
 }
 
+/// A range 'N' days long, which starts today.
+///
+/// Special-cased to have titles like 'days from today', etc.
+/// [lengthInDays] should be at least 1.
+/// A range 'N' days long which starts today.
+class NextNDaysFromTodayRange extends MultipleDaysRange {
+  NextNDaysFromTodayRange(Date start, int lengthInDays, [String title])
+      : super(
+            start, lengthInDays, title ?? _nextNDaysFromTodayMsg(lengthInDays));
+
+  NextNDaysFromTodayRange.afterToday(clock, lengthInDays, [String title])
+      : super(Date.today(clock), lengthInDays,
+            title ?? _nextNDaysFromTodayMsg(lengthInDays));
+
+  proto.DatepickerDateRange toProtoBuf() =>
+      _makeProtoBuf(this)..nextNDaysFromToday = _lengthInDays;
+
+  static _nextNDaysFromTodayMsg(lengthInDays) => Intl.plural(lengthInDays,
+      one: 'Today',
+      other: '$lengthInDays days from today',
+      name: '_nextNDaysFromTodayMsg',
+      args: [lengthInDays],
+      desc: 'A date range containing the next "lengthInDays" days, '
+          'starting with today. [REL_NOTE:brockschmid/01-01-2019]',
+      examples: const {'lengthInDays': 7});
+}
+
 /// A single week. Special-cased to have titles like "This week" or "Last week".
 class WeekRange implements DatepickerDateRange {
   static Date _weekStart(Date date, int startWeekday) {
