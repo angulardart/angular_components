@@ -33,6 +33,7 @@
 
 .dynamic-item {
   flex-grow: 1;
+  width: 100%;
 }
 
 :host-context([dir="rtl"]) {
