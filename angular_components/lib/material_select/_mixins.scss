@@ -118,15 +118,6 @@
   }
 }
 
-// Disallows overflow for dropdown items to stop a scrollbar from appearing.
-//
-// This can be used to ellipsize dropdown items with overflowed text.
-@mixin material-select-restrict-item-width($selector: '') {
-  ::ng-deep #{$selector} material-select-dropdown-item .dynamic-item {
-    max-width: 100%;
-  }
-}
-
 /// Sets the margin for the error text.
 @mixin dropdown-button-error-margin($margin) {
   ::ng-deep .error-text {
