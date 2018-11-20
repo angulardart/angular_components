@@ -27,7 +27,7 @@ message DatepickerDateRange {
   // This is optional; if not present (or if your code doesn't support the
   // selected preset), fall back to using date_range.
   //
-  // Next ID: 12
+  // Next ID: 13
   oneof relative_preset {
     // A single day, this many days ago relative to the current date
     // (0 for today, +1 for yesterday, -1 for tomorrow)
@@ -75,6 +75,10 @@ message DatepickerDateRange {
     // A range with specified length in days, ending today.
     // Must be at least 1.
     int32 last_n_days_to_today = 9;
+
+    // A range with specified length in days, starting today.
+    // Must be at least 1.
+    int32 next_n_days_from_today = 12;
 
     // If present, this range begins at the date picker's minimum date, and
     // ends at its maximum date. If present, must have the value 'true'.
