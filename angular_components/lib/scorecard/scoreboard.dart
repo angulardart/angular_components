@@ -19,6 +19,11 @@ import 'scorecard_bar.dart';
 
 /// This component manages a row of scorecards.
 ///
+/// a11y note: The default selectable colors use the charting palette from
+/// palette.dart which has some colors which do not obey color contrast it is
+/// adviseable that you specify your selected colors instead of relying on the
+/// default.
+///
 /// __Attributes:__
 ///
 /// - `enableUniformWidths: bool` -- Whether scorecards in the scoreboard

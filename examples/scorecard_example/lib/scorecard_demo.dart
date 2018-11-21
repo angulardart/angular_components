@@ -9,6 +9,7 @@ import 'package:angular_components/material_input/material_number_accessor.dart'
 import 'package:angular_gallery_section/annotation/gallery_section_config.dart';
 import 'package:angular_components/scorecard/scoreboard.dart';
 import 'package:angular_components/scorecard/scorecard.dart';
+import 'package:angular_components/utils/color/material.dart';
 
 @GallerySectionConfig(
   displayName: 'Scorecard',
@@ -21,20 +22,20 @@ import 'package:angular_components/scorecard/scorecard.dart';
 class ScorecardGalleryConfig {}
 
 @Component(
-  selector: 'scorecard-demo',
-  providers: [rtlProvider],
-  directives: [
-    formDirectives,
-    materialNumberInputDirectives,
-    NgFor,
-    ScoreboardComponent,
-    ScorecardComponent
-  ],
-  styleUrls: ['scorecard_demo.scss.css'],
-  templateUrl: 'scorecard_demo.html',
-  // TODO(google): Change preserveWhitespace to false to improve codesize.
-  preserveWhitespace: true,
-)
+    selector: 'scorecard-demo',
+    providers: [rtlProvider],
+    directives: [
+      formDirectives,
+      materialNumberInputDirectives,
+      NgFor,
+      ScoreboardComponent,
+      ScorecardComponent
+    ],
+    styleUrls: ['scorecard_demo.scss.css'],
+    templateUrl: 'scorecard_demo.html',
+    // TODO(google): Change preserveWhitespace to false to improve codesize.
+    preserveWhitespace: true,
+    exports: [green500])
 class ScorecardDemoComponent {
   final ScoreboardType selectable = ScoreboardType.selectable;
   final ScoreboardType toggle = ScoreboardType.toggle;
