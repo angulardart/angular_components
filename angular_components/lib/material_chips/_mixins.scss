@@ -80,11 +80,9 @@ $left-icon-width: $mat-grid * 4;
 
 /// Applies a max-width to the material chips. If the max-width exceeded,
 /// content will be elided.
-@mixin material-chip-max-width($max-chip-width: null) {
+@mixin material-chip-max-width($max-chip-width) {
   ::ng-deep material-chip {
-    @if $max-chip-width {
-      max-width: $max-chip-width;
-    }
+    max-width: $max-chip-width;
   }
 }
 
