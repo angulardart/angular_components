@@ -310,11 +310,15 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   StreamController<FocusEvent> _blur =
       StreamController<FocusEvent>.broadcast(sync: true);
 
+  bool _isFocused = false;
+
   void onFocus(FocusEvent event) {
+    _isFocused = true;
     _focus.add(event);
   }
 
   void onBlur(FocusEvent event) {
+    _isFocused = false;
     _blur.add(event);
   }
 
@@ -361,6 +365,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   void _handleNavigationKey(KeyboardEvent event, Function activateFunction) {
     if (disabled) return;
     event.preventDefault();
+    if (!_isFocused) dropdownButton.focus();
     activateFunction();
     // Only select if the popup is not visible.
     if (!visible && selection != null && isSingleSelect) {
