@@ -35,6 +35,7 @@ import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
 import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/angular/managed_zone/interface.dart';
+import 'package:angular_components/utils/angular/scroll_host/angular_2.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/showhide/showhide.dart';
 
@@ -74,6 +75,7 @@ export 'package:angular_components/src/material_datepicker/date_range_editor_mod
     NgIf,
     PopupSourceDirective,
     ShowHideDirective,
+    ElementScrollHost,
   ],
 )
 class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {

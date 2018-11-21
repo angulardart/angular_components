@@ -16,6 +16,7 @@ import 'package:angular_components/material_select/material_dropdown_select.dart
 import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/material_toggle/material_toggle.dart';
 import 'package:angular_components/model/date/date.dart';
+import 'package:angular_components/utils/angular/scroll_host/angular_2.dart';
 
 /// Component used to edit the `comparison` field of a [DateRangeComparison].
 /// This is meant for use in the `material-date-range-picker`, and doesn't make
@@ -41,12 +42,29 @@ import 'package:angular_components/model/date/date.dart';
   ],
 )
 class ComparisonRangeEditorComponent {
+  final NgZone _ngZone;
+  final ScrollHost _scrollHost;
+  ComparisonRangeEditorComponent(this._ngZone, @Optional() this._scrollHost);
+
   /// A mutable model describing a comparison date range. The only expected
   /// non-test implementation is [DateRangeEditorModel].
   @Input()
   HasComparisonRange model;
   Map<ComparisonOption, String> _optionMsgCache = {};
   DatepickerDateRange _primaryDateRange;
+
+  // Handle the comparison toggle.
+  bool get comparisonEnabled => model.comparisonEnabled;
+
+  set comparisonEnabled(bool enabled) {
+    model.comparisonEnabled = enabled;
+    if (enabled && _scrollHost != null) {
+      // When users turn on toggle, scrolls to the end to make
+      // comparison options discoverable.
+      _ngZone.runAfterChangesObserved(
+          () => _scrollHost?.scrollToPosition(_scrollHost.scrollLength));
+    }
+  }
 
   String get comparisonHeaderMsg => Intl.message('Compare',
       name: 'comparisonHeaderMsg',

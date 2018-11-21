@@ -6,7 +6,7 @@
 <material-select [width]="0"
                  class="preset-list"
                  [class.basic-preset-list]="isBasic"
-                 *ngIf="presets.isNotEmpty && shouldShowPredefinedList">
+                 *ngIf="presets.isNotEmpty && shouldShowPredefinedList" acxScrollHost>
   <div *ngIf="supportsClearRange" class="group">
     <material-select-item (trigger)="onClearRangeClicked">
       {{clearRangeMsg}}
