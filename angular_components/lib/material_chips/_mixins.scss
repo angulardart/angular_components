@@ -106,13 +106,6 @@ $main-selected-bg-color: $mat-gray-600;
 $emphasis-hover-bg-color: $mat-blue-700;
 $emphasis-selected-bg-color: $mat-blue-900;
 
-/// Use this mixin to align the chips container.
-@mixin material-chips-margin($margin: 0) {
-  ::ng-deep .material-chips-root {
-    margin: $margin;
-  }
-}
-
 /// Use this mixin to change the background color of the chips container.
 @mixin material-chips-background-color($color) {
   ::ng-deep material-chips {
