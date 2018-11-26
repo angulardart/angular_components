@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @import 'common_temporary_drawer_styles';
-@import 'mixins';
+@import 'package:angular_components/app_layout/mixins';
 @import 'package:angular_components/css/material/material';
 
 @include mat-temporary-drawer-width(
