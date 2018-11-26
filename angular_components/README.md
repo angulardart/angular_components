@@ -102,8 +102,3 @@ imports in your Sass files.
     color: $mat-blue;
   }
   ```
-
-## Project Roadmap
-
-Our current work is summarized in the
-[roadmap for this quarter](https://github.com/dart-lang/angular_components/issues/356).
