@@ -15,6 +15,7 @@ import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_datepicker/calendar.dart';
+import 'package:angular_components/material_datepicker/date_range_editor_host.dart';
 import 'package:angular_components/material_datepicker/date_range_input.dart';
 import 'package:angular_components/material_datepicker/material_calendar_picker.dart';
 import 'package:angular_components/material_datepicker/material_month_picker.dart';
@@ -552,10 +553,6 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   static final rangeDisabledTooltip = Intl.message('No days available',
       name: 'DateRangeEditorComponent_rangeDisabledTooltip',
       desc: 'Message that explains why a date range is invalid.');
-}
-
-abstract class DateRangeEditorHost {
-  void dateRangeEditorCreated(DateRangeEditorComponent editor);
 }
 
 typedef void NextPrevCallback();

@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
+import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
@@ -19,7 +20,9 @@ import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_datepicker/comparison.dart';
 import 'package:angular_components/material_datepicker/comparison_option.dart';
 import 'package:angular_components/material_datepicker/config.dart';
+import 'package:angular_components/material_datepicker/date_range_editor_host.dart';
 import 'package:angular_components/material_datepicker/date_range_editor.dart';
+import 'package:angular_components/material_datepicker/model.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/material_datepicker/next_prev_buttons.dart';
 import 'package:angular_components/material_datepicker/preset.dart';
@@ -97,7 +100,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
         OnDestroy,
         DateRangeEditorHost,
         PopupSizeProvider {
-  DateRangeEditorComponent _dateRangeEditor;
+  Focusable _dateRangeEditor;
   bool _focusOnDateRangeEditorInit = false;
   PopupSizeProvider _popupSizeProvider;
 
@@ -597,7 +600,7 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
     _formattedComparison = _getFormattedComparison(value);
   }
 
-  void dateRangeEditorCreated(DateRangeEditorComponent editor) {
+  void dateRangeEditorCreated(Focusable editor) {
     _dateRangeEditor = editor;
     if (_dateRangeEditor != null && _focusOnDateRangeEditorInit) {
       _focusOnDateRangeEditorInit = false;
