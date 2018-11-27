@@ -25,21 +25,6 @@ enum Action {
   cancel
 }
 
-/// Possible date range picker configurations.
-enum DateRangePickerConfiguration {
-  /// Basic configuration. Only show pre-defined list initially.
-  ///
-  /// When "Custom" date range is selected, .right-column will be shown and
-  /// pre-defined list will be hidden.
-  basic,
-
-  /// Only a dropdown of pre-defined ranges will be shown.
-  predefinedRangesOnly,
-
-  /// Custom date range picker will be shown along with pre-defined ranges.
-  fullyLoaded
-}
-
 /// Info needed to edit comparison ranges.
 abstract class HasComparisonRange {
   /// The current date range.

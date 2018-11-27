@@ -17,3 +17,18 @@ export 'range.dart' show DatepickerDateRange;
 class DatepickerModel extends ObservableReference<DatepickerComparison> {
   DatepickerModel([DatepickerComparison value]) : super(value);
 }
+
+/// Possible date range picker configurations.
+enum DateRangePickerConfiguration {
+  /// Basic configuration. Only show pre-defined list initially.
+  ///
+  /// When "Custom" date range is selected, .right-column will be shown and
+  /// pre-defined list will be hidden.
+  basic,
+
+  /// Only a dropdown of pre-defined ranges will be shown.
+  predefinedRangesOnly,
+
+  /// Custom date range picker will be shown along with pre-defined ranges.
+  fullyLoaded
+}
