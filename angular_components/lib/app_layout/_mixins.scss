@@ -35,10 +35,7 @@
 
   &[persistent].mat-drawer-collapsed {
     &:not([end]) {
-      // TODO(google): Using a fake property to get around bug with
-      // CSSJanus
       transform: translateX(-100%);
-      -acx-workaround: true;
 
       // If the drawer is collapsed, which needs to be an element before the
       // content, set the content to the left edge.
@@ -49,10 +46,7 @@
     }
 
     &[end] {
-      // TODO(google): Using a fake property to get around bug with
-      // CSSJanus
       transform: translateX(100%);
-      -acx-workaround: true;
 
       // [end] drawer is positioned on the opposite side
       ~ material-content,
