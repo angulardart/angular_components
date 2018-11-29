@@ -151,5 +151,23 @@
 @mixin material-select-dropdown-padding($padding) {
   ::ng-deep material-list {
     padding: $padding;
+
+    &:focus {
+      // This is a workaround for scrolling bug:
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=909097
+      border-bottom: solid 1px transparent;
+      $bottomPadding: 0;
+      @if length($padding) > 2 {
+        $bottomPadding: nth($padding, 3);
+      } @else {
+        $bottomPadding: nth($padding, 1);
+      }
+      // Compensate for the added border.
+      @if $bottomPadding == 0 {
+        padding-bottom: 0;
+      } @else {
+        padding-bottom: $bottomPadding - 1;
+      }
+    }
   }
 }
