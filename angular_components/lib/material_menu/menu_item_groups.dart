@@ -367,8 +367,11 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
       _submenuParent = null;
       if (_isMouseDriven) return;
 
-      // Refocus the previous active item if any
-      _focusActiveItem();
+      // Refocus the previous active item if any as long as the whole menu
+      // isn't closing.
+      if (_menuRoot.visible) {
+        _focusActiveItem();
+      }
     }
   }
 
