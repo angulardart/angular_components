@@ -1,0 +1,11 @@
+name: simple_html_example
+author: Dart Team <misc@dartlang.org>
+environment:
+  sdk: '>=2.1.0-dev.9.4 <3.0.0'
+dependencies:
+  angular: ^5.1.0
+  angular_components: 0.10.1
+  angular_gallery_section:
+    path: ../../angular_gallery_section
+  build_config: '>=0.2.6 <0.4.0'
+  intl: '>=0.14.0 <0.16.0'

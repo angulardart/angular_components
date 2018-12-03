@@ -1,0 +1,28 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<h2>SimpleHTML with default URI whitelist</h2>
+
+<p>
+  <simple-html [contents]="messages.messageWithFormatting()"></simple-html>
+</p>
+
+<ul>
+  <li><simple-html [contents]="messages.messageWithLink()"></simple-html></li>
+  <li><simple-html [contents]="messages.messageWithLinkInNewTab()"></simple-html></li>
+</ul>
+
+<p>
+  The following message is removed due to disallowed HTML:
+  [<simple-html [contents]="messages.messageWithDisallowedLink()"></simple-html>]
+</p>
+
+<p>
+  <simple-html class="click-target"
+               [contents]="messageWithClickHandler"
+               (trigger)="clicked()"></simple-html>
+</p>
+
+<simple-html-block [contents]="messages.blockMessage()"></simple-html-block>

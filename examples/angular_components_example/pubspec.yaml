@@ -57,6 +57,8 @@ dependencies:
     path: ../material_tree_example
   material_yes_no_buttons_example:
     path: ../material_yes_no_buttons_example
+  simple_html_example:
+    path: ../simple_html_example
   scorecard_example:
     path: ../scorecard_example
 
