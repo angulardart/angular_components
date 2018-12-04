@@ -50,21 +50,42 @@ Stream<Event> triggersOutside(dynamic /* Element | ElementRef */ element) {
   return triggersOutsideAny((node) => node == element);
 }
 
+/// Flag to enable new trigger logic which will use mouse down to determine if
+/// a mouse up or click event should be listened to.
+///
+/// Defaults to true for DDC tests/development, and false for
+/// dart2js tests/production when it is not explicitly set.
+bool enableNewTriggerLogic;
+
 /// A stream of click, mouseup or focus events of any node none of whose parents
 /// pass the check inside function.
 Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
   StreamController<Event> controller;
   StreamSubscription<MouseEvent> clickListener;
+  StreamSubscription<MouseEvent> mouseDownListener;
   StreamSubscription<MouseEvent> mouseUpListener;
   EventListener listener;
+
+  if (enableNewTriggerLogic == null) {
+    assert(() {
+      // For tests and development set the flag to true if not set.
+      enableNewTriggerLogic ??= true;
+      return true;
+    }());
+    // If flag is still not set set the flag to false. This is the default for
+    // production.
+    enableNewTriggerLogic ??= false;
+  }
 
   controller = StreamController.broadcast(
       sync: true,
       onListen: () {
         assert(clickListener == null);
+        assert(mouseDownListener == null);
         assert(mouseUpListener == null);
 
         Event lastEvent;
+        Event lastDownEvent;
 
         listener = (Event e) {
           lastEvent = e;
@@ -79,19 +100,47 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
           controller.add(e);
         };
 
-        // Handle cases where the mouse is down on one element, dragged, and
-        // then released on another element. This catches clicks too, in real
-        // browsers.
-        mouseUpListener = document.onMouseUp.listen(listener);
+        // If new trigger logic is enabled listen to mouse down events. When it
+        // is not enabled old logic will be used because the lastMouseDown event
+        // will always be null.
+        if (enableNewTriggerLogic) {
+          // Keep track of mousedown events so that we can filter mouseup events
+          // that occurred on a different element than the mousedown.
+          mouseDownListener = document.onMouseDown.listen((MouseEvent e) {
+            lastDownEvent = e;
+          });
+        }
 
-        // In tests, we generally only see click events and not mouseups. So
-        // listen to those too.
+        // Listen to mouseup to prevent scenarios where a single click event
+        // both opens and closes an element.
+        mouseUpListener = document.onMouseUp.listen((MouseEvent e) {
+          // Allow for the event to be listened to if there was no down event
+          // for example if it was canceled or if the target is the same as
+          // where the 'click' started.
+          if (lastDownEvent == null || e.target == lastDownEvent.target) {
+            listener(e);
+          }
+          lastEvent = e;
+        });
+
         clickListener = document.onClick.listen((MouseEvent e) {
           // Ignore the click if we just saw a mouseup on the same element... it
-          // probably means that that mouseup was part of this same click
-          if (lastEvent?.type == 'mouseup' && e.target == lastEvent?.target)
+          // probably means that the mouseup was part of this same click.
+          //
+          // This prevents scenarios where clicking an element that displays
+          // another element (e.g. a button to open a popup) inadvertently
+          // triggers an "outside" event, immediately hiding the just-displayed
+          // element.
+          if (lastEvent?.type == 'mouseup' && e.target == lastEvent?.target) {
             return;
-          listener(e);
+          }
+          // Allow for the event to be listened to if there was no down event
+          // for example if it was canceled or if the target is the same as
+          // where the 'click' started.
+          if (lastDownEvent == null || e.target == lastDownEvent.target) {
+            listener(e);
+          }
+          lastDownEvent = null;
         });
 
         // Since 'focusin' event is not supported in Firefox, listen to 'focus'
@@ -106,6 +155,8 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
       onCancel: () {
         clickListener.cancel();
         clickListener = null;
+        mouseDownListener?.cancel();
+        mouseDownListener = null;
         mouseUpListener.cancel();
         mouseUpListener = null;
         document.removeEventListener('focus', listener, true);
