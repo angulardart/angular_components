@@ -66,7 +66,7 @@ class ComparisonRangeEditorComponent {
     }
   }
 
-  String get comparisonHeaderMsg => Intl.message('Compare',
+  static final comparisonHeaderMsg = Intl.message('Compare',
       name: 'comparisonHeaderMsg',
       desc: 'Label for a toggle that turns time comparison on/off.');
 
