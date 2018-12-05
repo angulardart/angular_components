@@ -15,6 +15,11 @@
   display: inline-flex;
   color: $mat-transparent-black;
 
+  // Scrolling children should inherit their height from the enclosing popup
+  // (if any), not the editor's intrinsic height. Setting `min-height: 0;` is
+  // necessary to achieve this in most browsers (except Chrome).
+  min-height: 0;
+
   // See 'position: absolute' in .preset-list
   position: relative;
 }
