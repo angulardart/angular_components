@@ -6,13 +6,14 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
+import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart' show PopupSource;
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_tooltip/module.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 
 import 'tooltip_controller.dart';
 import 'tooltip_target.dart';
@@ -28,7 +29,9 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
 /// link, etc. The target may also be the `help_outline` icon, which acts as a
 /// proxy for the actual target.
 ///
-/// Use this component in conjunction with the [MaterialTooltipTargetDirective].
+/// Use this component in conjunction with the
+/// [ClickableTooltipTargetDirective]. Consider setting `focusContents` to true
+/// to improve a11y.
 ///
 /// This component supports deferred content.
 ///
@@ -49,7 +52,12 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
     Provider(Tooltip, useFactory: getTooltipHandle),
     Provider(DeferredContentAware, useExisting: MaterialPaperTooltipComponent)
   ],
-  directives: [DeferredContentDirective, NgIf, MaterialPopupComponent],
+  directives: [
+    AutoFocusDirective,
+    DeferredContentDirective,
+    MaterialPopupComponent,
+    NgIf,
+  ],
   template: '''
 <material-popup *ngIf="popupSource != null"
                 [visible]="showPopup"
@@ -58,11 +66,12 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
                 [preferredPositions]="preferredPositions"
                 [offsetX]="offsetX"
                 [offsetY]="offsetY"
-                [autoDismiss]="false"
+                [autoDismiss]="focusContents"
                 [class]="popupClassName"
                 [source]="popupSource"
                 role="tooltip">
   <div class="paper-container"
+       [autoFocus]="focusContents"
        (mouseover)="onMouseOver()"
        (mouseleave)="onMouseLeave()">
     <div class="header"><ng-content select="header"></ng-content></div>
@@ -158,6 +167,12 @@ class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
     _tooltipSource = target;
     target.setTooltip(tooltipHandle);
   }
+
+  /// Whether or not the tooltip contents should auto focus when opened.
+  ///
+  /// This also makes the tooltip auto-dismissable when true.
+  @Input()
+  bool focusContents = false;
 }
 
 /// [RelativePosition] list for the ink tooltip.
