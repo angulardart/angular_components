@@ -51,8 +51,8 @@ class TooltipController {
 
   /// Deactivates [tooltip] without any delay.
   void deactivateImmediately(Tooltip tooltip) {
-    _activeTooltip?.deactivate();
-    _activeTooltip = null;
+    tooltip?.deactivate();
+    if (tooltip == _activeTooltip) _activeTooltip = null;
   }
 
   void keepOpen(Tooltip tooltip) {
