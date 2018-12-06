@@ -19,6 +19,12 @@ class PopupHierarchy {
 
   StreamSubscription _dismissListener;
 
+  Event _lastTriggerEvent;
+
+  /// Whether last trigger event is a keyboard event or focus event.
+  bool get islastTriggerWithKeyboard =>
+      _lastTriggerEvent is KeyboardEvent || _lastTriggerEvent is FocusEvent;
+
   /// Closes every popup element present in the hierarchy.
   void closeHierarchy() {
     for (var popup in _visiblePopupStack) {
@@ -39,8 +45,7 @@ class PopupHierarchy {
 
     if (_dismissListener == null) {
       // Passing null to triggersOutside listens to triggers on any elements.
-      _dismissListener =
-          events.triggersOutside(null).listen(_onTriggersOutside);
+      _dismissListener = events.triggersOutside(null).listen(_onTrigger);
     }
   }
 
@@ -56,9 +61,11 @@ class PopupHierarchy {
     }
   }
 
-  void _onTriggersOutside(Event event) {
+  void _onTrigger(Event event) {
     // Some weird event, ignore it.
     if (event?.target == null) return;
+
+    _lastTriggerEvent = event;
 
     // Find parent pane if any, done dynamically as the modal pane can be
     // created by another app using ACX.
