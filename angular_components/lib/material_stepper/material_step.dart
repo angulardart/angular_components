@@ -10,6 +10,11 @@ import 'package:angular_components/model/action/async_action.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 
 /// A step within the stepper.
+///
+/// Warning: content is reparented to the stepper component itself so any
+/// @ViewChild(ren) queries for content inside of a step or summary template
+/// will not work in the original component.
+///
 @Directive(
   selector: '[step]',
   exportAs: 'step',
@@ -167,6 +172,11 @@ class StepDirective extends TemplatePortal {
 ///   <template step name="A" #stepA="step">Step</template>
 ///   <template [summary]="stepA"><h3>Summary A</h3></template>
 /// </material-stepper>
+///
+///
+/// Warning: content is reparented to the stepper component itself so any
+/// @ViewChild(ren) queries for content inside of a step or summary template
+/// will not work in the original component.
 ///
 @Directive(
   selector: '[summary]',
