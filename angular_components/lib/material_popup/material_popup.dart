@@ -570,14 +570,14 @@ class MaterialPopupComponent extends Object
     // seemingly random DOM location.
     // TODO(google): removed the islastTriggerWithKeyboard to better support
     // mouse/keyboard mixed interactions.
-    if (state.source is Focusable &&
-        hierarchy.islastTriggerWithKeyboard &&
-        (window.document.activeElement.classes
+    if (state.source is Focusable && hierarchy.islastTriggerWithKeyboard) {
+      _domService.scheduleWrite(() {
+        if (window.document.activeElement.classes
                 .contains(overlayFocusablePlaceholderClassName) ||
             _overlayRef.overlayElement
-                .contains(window.document.activeElement))) {
-      _domService.scheduleWrite(() {
-        (state.source as Focusable).focus();
+                .contains(window.document.activeElement)) {
+          (state.source as Focusable).focus();
+        }
       });
     }
 
