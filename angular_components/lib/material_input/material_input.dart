@@ -127,7 +127,10 @@ class MaterialInputComponent extends BaseMaterialInput
 
   /// The role to assign to the inner input element.
   final String inputRole;
-  final labelId = new SequentialIdGenerator.fromUUID().nextId();
+  final _labelId = new SequentialIdGenerator.fromUUID().nextId();
+
+  String get labelId => inputAriaLabel != null ? null : _labelId;
+
   // Overriden to add a HostListener event.
   @HostListener('focus')
   @override
