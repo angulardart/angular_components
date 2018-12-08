@@ -221,10 +221,23 @@ abstract class TooltipTarget extends PopupSourceDirective {
     _tooltip = component;
   }
 
+  String _id;
   @override
   set popupId(String id) {
     super.popupId = id;
+    _id = id;
     if (id == null) return;
-    _element.setAttribute('aria-describedby', id);
+  }
+
+  @override
+  void onOpen() {
+    if (_id == null) return;
+    _element.setAttribute('aria-describedby', _id);
+  }
+
+  @override
+  void onClose() {
+    if (_id == null) return;
+    _element.attributes.remove('aria-describedby');
   }
 }
