@@ -38,6 +38,11 @@
           {{ breadcrumb }}
         </span>
       </div>
+      <div class="key-nav">
+        <material-checkbox [(checked)]="focusIndicatorController.enabled">
+          Enable focus indicator
+        </material-checkbox>
+      </div>
     </header>
     <router-outlet [routes]="routes"></router-outlet>
   </div>
