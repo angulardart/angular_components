@@ -10,6 +10,7 @@ import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/src/laminate/components/modal/modal_controller_directive.dart';
 import 'package:angular_components/laminate/overlay/overlay.dart';
 import 'package:angular_components/model/action/async_action.dart';
+import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// May be added to DI to enforce that a single [Modal] is visible at a time.
@@ -46,6 +47,13 @@ class GlobalModalStack {
       _stack.last.hidden = true;
     }
     _stack.add(modal);
+  }
+
+  /// Tell all the modals to close in reverse order.
+  Future<void> closeAll() async {
+    for (var modal in _stack.reversed.toList()) {
+      await modal.close();
+    }
   }
 }
 
@@ -155,7 +163,7 @@ class ModalComponent
   final Element _element;
   final Modal _parentModal;
   final GlobalModalStack _stack;
-  final NgZone _ngZone;
+  final DomService _domService;
 
   @override
   Stream<AsyncAction> get onOpen => _onOpen.stream;
@@ -187,7 +195,7 @@ class ModalComponent
   Future<bool> _pendingOpen;
   Future<bool> _pendingClose;
 
-  ModalComponent(OverlayService overlayService, this._element, this._ngZone,
+  ModalComponent(OverlayService overlayService, this._element, this._domService,
       @Optional() @SkipSelf() this._parentModal, @Optional() this._stack) {
     _createdOverlayRef(
         overlayService.createOverlayRefSync(OverlayState.Dialog));
@@ -251,8 +259,8 @@ class ModalComponent
   //
   // If it has a parent, we should temporarily hide it.
   void _showModalOverlay({bool temporary = false}) {
-    _saveFocus();
     if (!temporary) {
+      _saveFocus();
       if (_stack != null) {
         _stack.onModalOpened(this);
       } else if (_parentModal != null) {
@@ -266,8 +274,8 @@ class ModalComponent
   //
   // If it has a parent, we should re-show it.
   void _hideModalOverlay({bool temporary = false}) {
-    _restoreFocus();
     if (!temporary) {
+      _restoreFocus();
       if (_stack != null) {
         _stack.onModalClosed(this);
       } else if (_parentModal != null) {
@@ -284,18 +292,20 @@ class ModalComponent
   void _restoreFocus() {
     if (_lastFocusedElement == null) return;
     if (_stack != null && _stack.length > 1 || _parentModal != null) return;
-    // Only restore focus if the current active element is inside this overlay.
-    // Note in a browser activeElement is never null and the null check below is
-    // only for testing.
-    if (document.activeElement == null ||
-        !_resolvedOverlayRef.overlayElement.contains(document.activeElement)) {
-      return;
-    }
     final elementToFocus = _lastFocusedElement;
-    scheduleMicrotask(() {
-      // Note that if the [elementToFocus] is no longer in the document,
-      // the body element will be focused instead.
-      elementToFocus.focus();
+    _domService.scheduleWrite(() {
+      // Only restore focus if the current active element is inside this overlay
+      // or the focus was lost.
+      // Note in a browser activeElement is never null and the null check below
+      // is only for testing.
+      if (document.activeElement != null &&
+          (_resolvedOverlayRef.overlayElement
+                  .contains(document.activeElement) ||
+              document.activeElement == document.body)) {
+        // Note that if the [elementToFocus] is no longer in the document,
+        // the body element will be focused instead.
+        elementToFocus.focus();
+      }
     });
   }
 
