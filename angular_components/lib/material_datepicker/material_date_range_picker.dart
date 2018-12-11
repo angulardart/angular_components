@@ -29,7 +29,6 @@ import 'package:angular_components/material_datepicker/preset.dart';
 import 'package:angular_components/material_datepicker/range.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
-import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
 import 'package:angular_components/model/observable/observable.dart';
@@ -92,7 +91,7 @@ const _defaultMaxHeight = 600;
     ExistingProvider(PopupSizeProvider, MaterialDateRangePickerComponent),
   ],
 )
-class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
+class MaterialDateRangePickerComponent
     implements
         HasDisabled,
         OnInit,
@@ -538,12 +537,6 @@ class MaterialDateRangePickerComponent extends KeyboardHandlerMixin
   @override
   num getMinWidth(num positionX, num viewportWidth) =>
       _popupSizeProvider?.getMinWidth(positionX, viewportWidth);
-
-  @override
-  void handleEscapeKey(KeyboardEvent event) {
-    close();
-    focusOnClose.focus();
-  }
 
   /// Whether or not the given range is "complicated" -- i.e. if it has a
   /// comparison or a custom range.

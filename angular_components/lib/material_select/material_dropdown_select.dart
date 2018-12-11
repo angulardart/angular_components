@@ -451,15 +451,6 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   }
 
   @override
-  void handleEscapeKey(KeyboardEvent event) {
-    if (visible) {
-      close();
-      event.stopPropagation();
-      dropdownButton.focus();
-    }
-  }
-
-  @override
   void handleCharCodeKey(KeyboardEvent event) {
     if (itemRenderer != null && options != null && !disabled) {
       // Don't activate or select if the widget is disabled.
