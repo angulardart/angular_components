@@ -10,6 +10,8 @@
 // #############################################################################
 
 // Programmatic access to material colors in SassScript.
+// Inspired by the Angular2 material palettes:
+// https://github.com/angular/angular/blob/master/modules/angular2_material/src/core/style/palette.scss
 
 $mat-red-map: (
   50: $mat-red-50,
