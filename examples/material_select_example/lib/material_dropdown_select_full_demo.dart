@@ -129,11 +129,11 @@ class MaterialDropdownSelectFullDemoComponent {
   String deselectLabel = 'None';
 
   /// Languages to choose from.
-  ExampleSelectionOptions<Language> languageListOptions =
-      ExampleSelectionOptions<Language>(_languagesList);
+  ExampleSelectionOptions languageListOptions =
+      ExampleSelectionOptions(_languagesList);
 
-  ExampleSelectionOptions<Language> languageGroupedOptions =
-      ExampleSelectionOptions<Language>.withOptionGroups(_languagesGroups);
+  ExampleSelectionOptions languageGroupedOptions =
+      ExampleSelectionOptions.withOptionGroups(_languagesGroups);
 
   StringSelectionOptions<Language> get languageOptions =>
       useOptionGroup ? languageGroupedOptions : languageListOptions;
@@ -305,15 +305,16 @@ class ExampleLabelRendererComponent implements RendersValue<OptionGroup> {
 
 /// If the option does not support toString() that shows the label, the
 /// toFilterableString parameter must be passed to StringSelectionOptions.
-class ExampleSelectionOptions<T> extends StringSelectionOptions<T>
-    implements Selectable {
-  ExampleSelectionOptions(List<T> options)
-      : super(options, toFilterableString: (T option) => option.toString());
+class ExampleSelectionOptions extends StringSelectionOptions<Language>
+    implements Selectable<Language> {
+  ExampleSelectionOptions(List<Language> options)
+      : super(options,
+            toFilterableString: (Language option) => option.toString());
   ExampleSelectionOptions.withOptionGroups(List<OptionGroup> optionGroups)
       : super.withOptionGroups(optionGroups,
-            toFilterableString: (T option) => option.toString());
+            toFilterableString: (Language option) => option.toString());
   @override
-  SelectableOption getSelectable(item) =>
+  SelectableOption getSelectable(Language item) =>
       item is Language && item.code.contains('en')
           ? SelectableOption.Disabled
           : SelectableOption.Selectable;
