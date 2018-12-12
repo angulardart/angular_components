@@ -118,6 +118,7 @@ abstract class TooltipBehavior extends TooltipTarget {
   /// of tooltip activate / deactivate.
   @override
   void onClose() {
+    super.onClose();
     hideTooltip(immediate: true);
   }
 }
