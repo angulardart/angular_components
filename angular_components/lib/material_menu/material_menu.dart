@@ -6,8 +6,8 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_menu/menu_popup.dart';
@@ -76,6 +76,10 @@ class MaterialMenuComponent extends Object
   /// Whether the menu is disabled or not.
   @Input()
   bool disabled = false;
+
+  /// Whether the menu is tabbable or not.
+  @Input()
+  bool tabbable = true;
 
   /// Aria label for button trigger.
   @Input()
