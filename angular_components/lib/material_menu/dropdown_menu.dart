@@ -67,6 +67,10 @@ class DropdownMenuComponent extends Object
     focusable = _focusTarget;
   }
 
+  /// Whether the menu is tabbable or not.
+  @Input()
+  bool tabbable = true;
+
   bool get dropdownStyle => _dropdownStyle;
   bool _dropdownStyle = false;
 
