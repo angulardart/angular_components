@@ -87,12 +87,6 @@ $mat-icon-dark-opacity: 1;
 $mat-icon-dark-opacity-disabled: .30;
 $mat-icon-dark-opacity-hover: 1;
 
-/// Common colors for scrollbars.
-/// Note: Prefer using @mixin material-scrollbars(...).
-$mat-scrollbar-thumb: $mat-lightest-transparent-black;
-$mat-scrollbar-background: rgba($mat-black, 0);
-$mat-scrollbar-background-hover: rgba($mat-black, .12);
-
 /// Google Red
 $mat-red-50: #fbe9e7;
 $mat-red-100: #f4c7c3;
