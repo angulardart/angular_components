@@ -2,27 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// #############################################################################
-//
-// WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF
-// THIRD_PARTY/DART_SRC/ACX/CSS/MATERIAL
-//
-// #############################################################################
-
+@import 'package:angular_components/css/core';
 @import 'package:angular_components/css/transition_material';
 @import 'package:angular_components/css/color_material';
-
-// Options that can be set before importing
-$mat-option-inline-icons: false !default;
-$mat-option-export-classes: false !default;
-$mat-option-export-partials: false !default;
-
-// Used because of an intermittent transition bug that sometimes causes opacity
-// transitions to not execute properly if opacity starts at exactly zero.
-$almost-zero: .0001;
-$almost-one: 1 - $almost-zero;
-
-// Grid
-$mat-grid: 8px;
-$mat-grid-type: 4px;
-
