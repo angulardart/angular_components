@@ -13,6 +13,8 @@
               [tooltipPositions]="tooltipPositions"
               [attr.aria-label]="ariaLabel"
               [attr.navi-id]="naviId"
+              (keydown)="onKeyDown($event)"
+              (keypress)="onKeyPress($event)"
               (trigger)="trigger">
   <material-icon [icon]="glyph"></material-icon>
 </material-fab>
@@ -38,6 +40,8 @@
         <material-icon class="close-icon material-list-item-primary" icon="close"></material-icon>
       </material-list-item>
       <menu-item-groups [menu]="menuItem.subMenu"
+                        [activeModel]="activeModel"
+                        [attr.aria-activedescendant]="activeModel.activeId"
                         class="menu-groups"
                         autoFocus
                         menu-root
