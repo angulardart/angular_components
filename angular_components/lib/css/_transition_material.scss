@@ -1,0 +1,38 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// Duration and easing constants.
+//
+// Spec: https://material.io/guidelines/motion/duration-easing.html
+
+// Common Durations.
+//
+// Multiply the mobile values by 1.3 for tablets, and 0.7 for wearables.
+$mat-transition-desktop: 150ms;
+$mat-transition-desktop-complex: 200ms;
+$mat-transition-mobile: 300ms;
+$mat-transition-mobile-complex: 375ms;
+$mat-transition-mobile-entering: 225ms;
+$mat-transition-mobile-leaving: 195ms;
+
+// Standard natural easing curve.
+$mat-transition-standard: cubic-bezier(.4, 0, .2, 1);
+
+// Curves for movement, in and out of the screen bounds, of independent elements
+// (those which don't affect the position of other on-screen content).
+//
+// Spec: https://material.io/guidelines/motion/movement.html
+//
+// *   Deceleration is used for content entering the screen.
+// *   Acceleration is used for content leaving the screen permanently.
+// *   Sharp is used for content leaving the screen temporarily.
+$mat-transition-deceleration: cubic-bezier(0, 0, .2, 1);
+$mat-transition-acceleration: cubic-bezier(.4, 0, 1, 1);
+$mat-transition-sharp: cubic-bezier(.4, 0, .6, 1);
+
+// Deprecated: use the new values, above.
+// TODO(google): remove.
+$mat-transition: 218ms;
+$mat-transition-slow: $mat-transition * 2;
+$mat-transition-fast: 130ms;
