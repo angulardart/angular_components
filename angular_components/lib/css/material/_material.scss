@@ -14,6 +14,17 @@
 // within the material stylesheet are prefixed with "mat-" in order to give a
 // clear distinction between them and the styles in components that are using
 // these material styles.
+//
+// Example:
+//
+// small-example.scss
+//     @import "package:angular_components/css/material/material";
+//
+//     .my-app {
+//       background-color: $mat-blue-700;
+//     }
+
+// TODO: See if we can reference go/icon svgs instead of copying them to res/
 
 // Behold, the import of all things:
 @import 'const/global',
