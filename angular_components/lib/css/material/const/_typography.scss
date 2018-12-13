@@ -5,12 +5,12 @@
 // #############################################################################
 //
 // WARNING: DO NOT IMPORT DIRECTLY OUTSIDE OF
-// LIB/CSS/MATERIAL
+// THIRD_PARTY/DART_SRC/ACX/CSS/MATERIAL
 //
 // #############################################################################
 
 // Typography constants
-// https://material.io/guidelines/style/typography.html
+// https://material.googleplex.com/style/typography.html
 
 // Roboto font stack.
 $mat-font-family: Roboto, Noto, sans-serif;
@@ -75,7 +75,7 @@ $mat-font-leading-caption: 20px;
 //   * nowrap (for styles that should "exist as single lines")
 //
 // "/" in CSS font property has to be specified with #{} interpolation to
-// prevent the sass compiler from trying to perform division (goo.gl/H76dyp).
+// prevent the sass compiler from trying to perform division (go/sass-slash).
 
 @mixin mat-font-display-4 {
   @include nowrap;

@@ -46,7 +46,7 @@ const borderDark = Color.rgba(255, 255, 255, dividerOpacity);
 const borderDottedLight = lightestTransparentBlack;
 
 // Text colors.
-// https://material.io/guidelines/style/color.html#color-usability
+// https://material.io/design/color
 const textPrimary = transparentBlack;
 const textSecondary = lightTransparentBlack;
 const textHint = lighterTransparentBlack;
