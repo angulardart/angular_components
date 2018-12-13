@@ -2,29 +2,4 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-@charset 'UTF-8';
-// Make sure the charset is set appropriately
-
-
-// How to use me:
-//
-// This set of scss files should never output any css unless sass classes are
-// extended in the importing file. This allows you to import _material without
-// bloating the css files for your components. All variables and components
-// within the material stylesheet are prefixed with "mat-" in order to give a
-// clear distinction between them and the styles in components that are using
-// these material styles.
-//
-// Example:
-//
-// small-example.scss
-//     @import "package:angular_components/css/material/material";
-//
-//     .my-app {
-//       background-color: $mat-blue-700;
-//     }
-
-// TODO: See if we can reference go/icon svgs instead of copying them to res/
-
-// Behold, the import of all things:
-@import 'const/global';
+@import 'package:angular_components/css/all_material';
