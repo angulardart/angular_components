@@ -232,22 +232,10 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   }
 
   /// Function to convert an option object to string.
-  ///
-  // TODO(google): Fix this now that generics are supported.
-  // Ideally, [value] would be a [ItemRenderer<T>], where T is also the type
-  // parameter of the SelectionOptions and the SelectionModel, as parent
-  // components typically use a function that accepts a specific type (T).
-  //
-  // However, we don't have a T. Angular doesn't support injecting a
-  // type-annotated component yet, and setters, like [itemRenderer], cannot
-  // be type-annotated. This forces us to accept a plain old [Function] as
-  // [value], in order to avoid uses_dynamic_as_bottom errors. (Basically, a
-  // function like [MaterialTimePicker]'s `String renderTime(DateTime time)`
-  // cannot work as a [ItemRenderer], since it expects DateTime, not dynamic.)
   @Input()
   @override
-  set itemRenderer(Function value) {
-    super.itemRenderer = (item) => value(item);
+  set itemRenderer(ItemRenderer<T> value) {
+    super.itemRenderer = value;
   }
 
   /// Width of the dropdown/list, default none, valid values are 0-5.
