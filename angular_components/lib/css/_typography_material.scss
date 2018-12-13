@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // Typography constants
-// https://material.googleplex.com/style/typography.html
+// https://material.io/design/typography
 
 // Roboto font stack.
 $mat-font-family: Roboto, Noto, sans-serif;
@@ -68,7 +68,7 @@ $mat-font-leading-caption: 20px;
 //   * nowrap (for styles that should "exist as single lines")
 //
 // "/" in CSS font property has to be specified with #{} interpolation to
-// prevent the sass compiler from trying to perform division (go/sass-slash).
+// prevent the sass compiler from trying to perform division (goo.gl/H76dyp).
 
 @mixin mat-font-display-4 {
   @include nowrap;
@@ -171,7 +171,7 @@ $mat-font-leading-caption: 20px;
 }
 
 // Set link colors across encapsulation boundaries. This can be used at the
-// top level of an application to ensure that all links are ACX-styled, even
+// top level of an application to ensure that all links are styled, even
 // if generated dynamically.
 @mixin mat-link-deep {
   ::ng-deep a {

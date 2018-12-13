@@ -153,7 +153,7 @@ $mat-option-inline-icons: false !default;
 }
 
 // Similar to icon button, but to be used with a button containing an
-// acx `<glyph>` element.
+// `<glyph>` element.
 // DEPRECATED: use <material-button icon> instead.
 @mixin glyph-button($button-size: 6 * $mat-grid, $circle: false) {
 
@@ -206,97 +206,3 @@ $mat-option-inline-icons: false !default;
   box-sizing: $type;      // Chrome, IE 8+, Opera, Safari 5.1
 }
 
-@mixin flex-block() {
-  display: -ms-flexbox;  // IE 10
-  display: -webkit-flex; // Chrome
-  display: flex;         // Spec
-}
-
-@mixin flex-justify-start() {
-  -ms-flex-pack: start; // IE 10
-  -webkit-flex-align: start;
-  -webkit-justify-content: flex-start; // safari
-  justify-content: flex-start;
-}
-
-@mixin flex-justify-end() {
-  -ms-flex-pack: end; // IE 10
-  -webkit-flex-align: end;
-  -webkit-justify-content: flex-end; // safari
-  justify-content: flex-end;
-}
-
-@mixin flex-justify-center() {
-  -ms-flex-pack: center; // IE 10
-  -webkit-flex-align: center;
-  -webkit-justify-content: center; // safari
-  justify-content: center;
-}
-
-@mixin flex-justify-space-between() {
-  -ms-flex-pack: justify; // IE 10
-  -webkit-flex-align: justify;
-  -webkit-justify-content: space-between; // safari
-  justify-content: space-between;
-}
-
-// DOES NOT WORK IN IE 10, it is the same as 'space-between'
-@mixin flex-justify-space-around() {
-  -ms-flex-pack: justify; // IE 10
-  -webkit-flex-align: justify;
-  justify-content: space-around;
-}
-
-@mixin flex-align-start() {
-  -ms-flex-align: start; // IE 10
-  -webkit-flex-align: start;
-  align-items: flex-start;
-}
-
-@mixin flex-align-end() {
-  -ms-flex-align: end; // IE 10
-  -webkit-flex-align: end;
-  align-items: flex-end;
-}
-
-@mixin flex-align-center() {
-  -ms-flex-align: center; // IE 10
-  -webkit-flex-align: center;
-  align-items: center;
-}
-
-@mixin flex-align-stretch() {
-  -ms-flex-align: stretch; // IE 10
-  -webkit-flex-align: stretch;
-  align-items: stretch;
-}
-
-@mixin flex-align-baseline() {
-  -ms-flex-align: baseline; // IE 10
-  -webkit-flex-align: baseline;
-  align-items: baseline;
-}
-
-@mixin flex-direction($direction) {
-  -ms-flex-direction: $direction; // IE 10
-  -webkit-flex-direction: $direction;
-  flex-direction: $direction;
-}
-
-@mixin flex-grow($amount) {
-  -ms-flex-positive: $amount;  // IE 10
-  -webkit-flex-grow: $amount;
-  flex-grow: $amount;
-}
-
-@mixin flex-shrink($amount) {
-  -ms-flex-negative: $amount;  // IE 10
-  -webkit-flex-shrink: $amount;
-  flex-shrink: $amount;
-}
-
-@mixin flex($values...) {
-  -ms-flex: $values;  // IE 10
-  -webkit-flex: $values;
-  flex: $values;
-}
