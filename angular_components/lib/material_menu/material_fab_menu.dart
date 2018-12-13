@@ -130,7 +130,7 @@ class MaterialFabMenuComponent extends Object
 
   bool get hasIcons => _viewModel.hasIcons;
 
-  /// Keypress callback is used to handle Up and Down keys.
+  /// Keypress callback is used to handle UP and DOWN keys.
   ///
   /// Unprintable keys use this listener while printable keys
   /// use [handleKeyPress].
@@ -138,12 +138,17 @@ class MaterialFabMenuComponent extends Object
   /// accessibility and improves with a11y navigation.
   @HostListener('keydown')
   void handleKeyDown(KeyboardEvent event) {
-    if (event.keyCode == KeyCode.DOWN || event.keyCode == KeyCode.UP) {
-      openMenuAndActivateFirstItem();
+    switch (event.keyCode) {
+      case KeyCode.UP:
+        openMenuAndActivateLastItem();
+        break;
+      case KeyCode.DOWN:
+        openMenuAndActivateFirstItem();
+        break;
     }
   }
 
-  /// Keypress callback is used to handle Enter and Space keys.
+  /// Keypress callback is used to handle ENTER and SPACE keys.
   @HostListener('keypress')
   void handleKeyPress(KeyboardEvent event) {
     if (event.keyCode == KeyCode.ENTER || isSpaceKey(event)) {
@@ -165,6 +170,15 @@ class MaterialFabMenuComponent extends Object
   void openMenuAndActivateFirstItem() {
     if (hasMenu) {
       activeModel.menu = menuItem.subMenu;
+    }
+    _viewModel.trigger();
+  }
+
+  /// Sets the [activeModel.menu] and activates the last item in the menu.
+  void openMenuAndActivateLastItem() {
+    if (hasMenu) {
+      activeModel.menu = menuItem.subMenu;
+      activeModel.activateLast();
     }
     _viewModel.trigger();
   }
