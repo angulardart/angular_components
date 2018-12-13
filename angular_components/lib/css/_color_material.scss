@@ -79,6 +79,14 @@ $mat-icon-dark-focused: $mat-transparent-white;
 $mat-icon-dark: $mat-light-transparent-white;
 $mat-icon-dark-inactive: $mat-lighter-transparent-white;
 
+// DEPRECATED; use icon colors, above.scss.
+$mat-icon-opacity: $mat-opacity-light;
+$mat-icon-opacity-disabled: .38;
+$mat-icon-opacity-hover: $mat-opacity-strong;
+$mat-icon-dark-opacity: 1;
+$mat-icon-dark-opacity-disabled: .30;
+$mat-icon-dark-opacity-hover: 1;
+
 /// Common colors for scrollbars.
 /// Note: Prefer using @mixin material-scrollbars(...).
 $mat-scrollbar-thumb: $mat-lightest-transparent-black;
