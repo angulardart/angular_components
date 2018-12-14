@@ -37,6 +37,8 @@ class GalleryComponent {
 
   DomSanitizationService _santizationService;
 
+  final _sanitizedHtml = <String, SafeHtml>{};
+
   /// Used to disable latency charts in testing environments where they can't
   /// load successfully.
   final latencyChartsEnabled =
@@ -47,8 +49,14 @@ class GalleryComponent {
   bool get showToc =>
       (model.docs.length + model.demos.length + model.benchmarks.length) > 1;
 
-  SafeHtml getSafeHtml(String value) =>
-      _santizationService.bypassSecurityTrustHtml(value);
+  SafeHtml getSafeHtml(String value) {
+    var html = _sanitizedHtml[value];
+    if (html == null) {
+      html = _santizationService.bypassSecurityTrustHtml(value);
+      _sanitizedHtml[value] = html;
+    }
+    return html;
+  }
 
   String getDocId(Doc doc) => '${doc.name}Doc';
 
