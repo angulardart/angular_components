@@ -3,14 +3,14 @@
   "engine": "v2",
   "file": "main.dart.js_26.part.js",
   "sourceRoot": "",
-  "sources": [],
-  "names": [],
-  "mappings": "A",
+  "sources": ["../packages/angular_components/material_button/material_fab.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_button/material_fab.dart","../packages/angular/src/core/linker/view_ref.dart","org-dartlang-sdk:///sdk/lib/async/broadcast_stream_controller.dart","../packages/angular/src/core/linker/component_factory.dart","../packages/angular_components/material_button/material_fab.scss.css.shim.dart","../packages/angular_components/material_button/material_button_base.dart","../packages/angular_components/button_decorator/button_decorator.dart","org-dartlang-sdk:///sdk/lib/async/stream_controller.dart"],
+  "names": ["ViewMaterialFabComponent0","AppView","viewFactory_MaterialFabComponentHost0","initReflector","MaterialFabComponent.focusedStateChanged","MaterialFabComponent.hostDisabled","MaterialFabComponent.hostRaised","MaterialFabComponent.hostClassIsFocused","MaterialFabComponent.hostClassIsPressed","ViewMaterialFabComponent0.build","ViewMaterialFabComponent0.detectChangesInternal","ViewMaterialFabComponent0.destroyInternal","ViewMaterialFabComponent0.detectHostChanges","_ViewMaterialFabComponentHost0.build","StreamController.broadcast","_ViewMaterialFabComponentHost0.detectChangesInternal","_ViewMaterialFabComponentHost0.destroyInternal","styles","styles$MaterialFabComponent","","createAttr","registerComponent","markForCheck","ref","MaterialFabComponent","MaterialButtonBase","_trigger","ButtonDirective","broadcast","ButtonDirective._trigger"],
+  "mappings": "A;;;;;;;;;;;;;;;GAqCEA,cAA4KA;AAA5KA,WAA4GA;ACmJ/FC;;ADlJXD;ACwcAA;ADtcAA;YAAwBA;eAA0JA;QAClLA;AAJFA,QAKAA,C;IAuIoCE,cA/BpCA,eAA4GA;ACsC/FD;ADNbC,QACFA,C;IAGKC,WACHA,SACEA,MAQJA;;AErKEA,WAAWA;AFkKXA;AACAA;AACAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GGhIOC,WCiCHA,cD/BFA,C;IAGWC,WAAgBA,qBAAoBA,C;IAGpCC,WAAcA,sBAAkBA,C;IAGlCC,WAAsBA,aAAWA,C;KAGjCC,WAAsBA,8BAASA,C;;EHlCGC,WACNA;AAAOA;AAC1BA;AAC6BA;;AAE7CA,cAAwBA;AAEVA;AACRA;AACNA;AACAA;AACsBA;AAAtBA;AAC0BA;AAC1BA;AACAA;AACuCA;AAAvCA;AACAA;;AACAA;kBAAoCA,OAAkBA;AACtDA,gBAAkCA,OAAkBA;AACpDA;AACAA;cAAkCA,OAAmBA;AACrDA,iBAAqCA,OAAmBA;AACxDA,kBAAsCA,OAAmBA;AACzDA,gBAAoCA,OAAmBA;;AACvDA,cAAkCA,OAAmBA;AACrDA,aAAiCA,OAAmBA,cACtDA,C;EAGKC,WAMHA,UACFA,C;EAGKC,WACHA;AACAA,UACFA,C;EAEKC,YACGA;AAAgBA;AACGA;AAAzBA;AAEEA,SAEoBA;AACGA;AAAzBA,SACEA;AACAA,SAEoBA;AACGA;AAAzBA,UACEA;AACAA,SAEoBA;AACGA;AAAzBA,SACEA;AACAA,UAEoBA;AACGA;AAAzBA,SACEA;AACAA,UAEoBA;AACGA;AAAzBA,SACEA;AACAA,UAEoBA;AACGA;AAAzBA,UACEA;AACAA,UAEoBA;AACGA;AAAzBA,UACEA;AACAA,UAEJA,C;;;EAmB2CC,WAAQA;AACnCA;AAAdA;AACqBA;AAArBA;ACmE8BA;AE/JhCA,yBE4SAC;AL/MED;AACAA;AACAA;AACAA,OMvIFA,oCNwIAA,C;EAGKE,WAEqBA;AAIxBA,KACEA;AAEFA;AACAA,UACFA,C;EAGKC,WACHA,UACFA,C;;;;;;+DO3KkBC,46K;qBPoBAC,kBAAuCA,aAAvCA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": ""
+    "frames": "0ZCiLEmBAD5IAAiE,A;AAAAAAAAAAMAEECkC,sE,A;6BA2IKDgCCDPAAD/BAAwB,A,A;mDA0CAE0B;wdG3HECc;0jDHsF6ECQ;AAAzCJyBG5FhCAAKpBiDAACNxCOAAAAEAC6GHT+C,A,A,A,A,A;iDVYHAoC;"
   }
 }

@@ -26,7 +26,6 @@ T=n[21]
 O=n[22]
 X=n[23]
 F=n[24]
-var z=j([]);(function constants(){C.eI=H.a(e([C.bB,C.bQ]),[K.aY])
-C.eT=H.a(e([C.bA,C.bS]),[K.aY])})()}
-$__dart_deferred_initializers__["Jxj3EnLZxD1OV3qSccYK+WDuqOU="] = $__dart_deferred_initializers__.current
+var z=j([]);(function constants(){C.af=new S.dV("isRtl",[null])})()}
+$__dart_deferred_initializers__["5MndH8JKHODd3oDgPsta8YhWUz0="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_104.part.js.map

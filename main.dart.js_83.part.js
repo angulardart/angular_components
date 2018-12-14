@@ -1,6 +1,5 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,$){var C,H,J,P,W,G={
-aq8:function(o){return H.F(P.a3("nullRenderer should never be called"))}},Y,R,K,V,S,N,E,M,B,Q,D,L,Z,A,U,T,O,X,F
+$__dart_deferred_initializers__.current=function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,$){var C,H,J,P,W,G={pR:function pR(o){this.a=o}},Y,R,K,V,S,N,E,M,B,Q,D,L,Z,A,U,T,O,X,F
 h([G])
 C=n[0]
 H=n[1]
@@ -27,6 +26,12 @@ T=n[21]
 O=n[22]
 X=n[23]
 F=n[24]
-var z=j([{func:1,ret:P.c,args:[,]}]);(function installTearOffs(){g(G,"dn",1,0,1,null,["$1"],["aq8"],0,0)})();(function constants(){C.I=H.v([G.Dn,,])})()}
-$__dart_deferred_initializers__["FwETnWw2o10ZXpM3BfrqeL/AXN8="] = $__dart_deferred_initializers__.current
+var z=j([])
+G.pR.prototype={
+$0:function(){return this.a},
+"call*":"$0",
+$R:0,
+$S:4};(function inheritance(){var y=a
+y(G.pR,H.aS)})()}
+$__dart_deferred_initializers__["eLYyjLknMf4NeucyfxKjhWdI0Ek="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_83.part.js.map

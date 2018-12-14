@@ -4,13 +4,13 @@
   "file": "main.dart.js_45.part.js",
   "sourceRoot": "",
   "sources": ["../packages/angular_components/src/material_tooltip/tooltip_target.dart"],
-  "names": ["MaterialTooltipTargetDirective.ngOnDestroy"],
-  "mappings": "A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAyCOA,WACHA,WACFA,C",
+  "names": ["MaterialTooltipTargetDirective.onFocus","MaterialTooltipTargetDirective.ngOnDestroy","showTooltipWithDelay"],
+  "mappings": "A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GA6COA,YAoCHA,aAlCFA,C;EAGKC,WACHA,WACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": ""
+    "frames": "soBA8CIEa;"
   }
 }
