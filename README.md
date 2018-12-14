@@ -5,15 +5,15 @@ The [AngularDart Components Gallery] contains live examples and documentation.
 
 This productive and stable set of widgets, contributed to by hundreds of
 Googlers, make debugging and deploying your app easier. Strict latency and
-testing policies make these widgets an excellent fit for projects using the
-Angular package.
+testing policies make these widgets an excellent fit for projects using
+[AngularDart].
 
 [Material design]: https://material.io/guidelines
 [AngularDart]: https://webdev.dartlang.org/angular
 [applications]: https://news.dartlang.org/2016/03/the-new-adwords-ui-uses-dart-we-asked.html
 [AngularDart Components Gallery]: https://dart-lang.github.io/angular_components/
 
-These packages provide the components as well as code generation for the
+The following packages provide the components as well as code generation for the
 AngularDart Components gallery.
 
 ## [angular_components]&nbsp;[![Pub Package](https://img.shields.io/pub/v/angular_components.svg)](https://pub.dartlang.org/packages/angular_components)
@@ -40,7 +40,7 @@ for building the AngularDart gallery.
 [angular_gallery]: (https://github.com/dart-lang/angular_components/tree/master/angular_gallery)
 [angular_gallery_section]: (https://github.com/dart-lang/angular_components/tree/master/angular_gallery_section)
 [examples]: (https://github.com/dart-lang/angular_components/tree/master/examples)
-[example/angular_components_example]: (https://github.com/dart-lang/angular_components/tree/master/examples/angular_components_example)
+[examples/angular_components_example]: (https://github.com/dart-lang/angular_components/tree/master/examples/angular_components_example)
 
 ## Project Roadmap
 

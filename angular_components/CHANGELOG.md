@@ -23,10 +23,13 @@
 * Fix size of full screen dialog.
 * Close parent modal on escape key by default.
 
+#### Material Icon
+* Add `MaterialIconToggleDirective` to allow for an icon with two states.
+
 #### Material Input
 * Update the integer error message per Editorial feedback.
 * Add Sass mixin for changing the color of the counter.
-* Fix a11y fix when there is a `labeledby` id and a aria label specified.
+* Fix a11y when there is a `labeledby` id and a aria label specified.
 
 #### Material Menu
 * Add a drop-in replacement for `secondaryIcon` - `itemSuffix` that removes the
@@ -36,6 +39,9 @@
 * Remove usages of secondary icon and related fields/methods from menu item
   model.
 * Prevent refocus on a menu item when the menu is closing.
+* Add `isTabbable` to `MenuItemComponent`.
+* Improve a11y in Material Fab Menu.
+* Fix focus target when pressing Up Arrow key.
 
 #### Material Popup
 * Correctly restore focus in nested popups.
@@ -45,16 +51,19 @@
 * Set max-width to 100% on `dynamic-item`.
 * Removing Sass mixin for setting the width of the container element in
   dropdowns with factoryRenderers to 100%, as this was adopted as the standard.
-* Use the generic type parameter from MaterialDropdownSelectComponent on the
-  ActivateItemOnKeyPressMixin.
+* Use the generic type parameter from `MaterialDropdownSelectComponent` on the
+  `ActivateItemOnKeyPressMixin`.
 * Fix focus bugs when mixing keyboard and mouse navigation.
 * Add temporary fix for scrolling bug in Chrome browser.
+* Fix `MaterialDropdownSelect` type error when clicking a deselect item.
+* Fix the type of `itemRenderer` in `MaterialDropdownSelectComponent`.
 
 #### Material Tabs
 * Make default width of `tab-content` to 100%.
 
 #### Material Tooltip
 * Improve a11y and keyboard navigation.
+* Fix removing describe-by.
 
 #### Modal/Overlay
 * Add ability to create an accessible overlay container for clients that
