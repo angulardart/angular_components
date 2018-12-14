@@ -50,9 +50,11 @@ class MaterialTooltipDirective extends TooltipTarget
       HtmlElement element,
       this._viewLoader,
       this._changeDetector,
-      this._window)
+      this._window,
+      @Attribute('initPopupAriaAttributes') String initAriaAttributes)
       : this.element = element,
-        super(domPopupSourceFactory, viewContainerRef, element) {
+        super(domPopupSourceFactory, viewContainerRef, element,
+            initAriaAttributes) {
     inLongPress = false;
     _delayedActivate = DelayedAction(tooltipShowDelay, _activate);
   }
