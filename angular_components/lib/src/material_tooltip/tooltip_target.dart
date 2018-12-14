@@ -34,9 +34,10 @@ class MaterialTooltipTargetDirective extends TooltipBehavior
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
       HtmlElement element,
-      ChangeDetectorRef changeDetector)
-      : super(
-            domPopupSourceFactory, viewContainerRef, element, changeDetector) {
+      ChangeDetectorRef changeDetector,
+      @Attribute('initPopupAriaAttributes') String initAriaAttributes)
+      : super(domPopupSourceFactory, viewContainerRef, element, changeDetector,
+            initAriaAttributes) {
     this.element = element;
   }
 
@@ -71,8 +72,10 @@ abstract class TooltipBehavior extends TooltipTarget {
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
       HtmlElement element,
-      this._changeDetector)
-      : super(domPopupSourceFactory, viewContainerRef, element) {
+      this._changeDetector,
+      String initAriaAttributes)
+      : super(domPopupSourceFactory, viewContainerRef, element,
+            initAriaAttributes) {
     _show = DelayedAction(tooltipShowDelay, showTooltip);
   }
 
@@ -147,9 +150,10 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
       HtmlElement element,
-      ChangeDetectorRef changeDetector)
-      : super(
-            domPopupSourceFactory, viewContainerRef, element, changeDetector) {
+      ChangeDetectorRef changeDetector,
+      @Attribute('initPopupAriaAttributes') String initAriaAttributes)
+      : super(domPopupSourceFactory, viewContainerRef, element, changeDetector,
+            initAriaAttributes) {
     this.element = element;
     _tooltipSubscription = tooltipActivate.listen((visible) {
       _tooltipVisible = visible;
@@ -209,13 +213,13 @@ abstract class TooltipTarget extends PopupSourceDirective {
   final HtmlElement _element;
 
   TooltipTarget(DomPopupSourceFactory domPopupSourceFactory,
-      this.viewContainerRef, this._element)
+      this.viewContainerRef, this._element, String initAriaAttributes)
       : super(
             domPopupSourceFactory,
             _element,
             /* referenceDirective */ null,
             /* focusable */ null,
-            /* initAriaAttributes */ null);
+            initAriaAttributes);
 
   /// Sets the tooltip associated with this target.
   void setTooltip(Tooltip component) {

@@ -49,14 +49,16 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
   bool _isMouseInside = false;
 
   MaterialTooltipSourceDirective(
-      DomPopupSourceFactory domPopupSourceFactory, HtmlElement element)
+      DomPopupSourceFactory domPopupSourceFactory,
+      HtmlElement element,
+      @Attribute('initPopupAriaAttributes') String initAriaAttributes)
       : this.element = element,
         super(
             domPopupSourceFactory,
             element,
             /* referenceDirective */ null,
             /* focusable */ null,
-            /* initAriaAttributes */ null) {
+            initAriaAttributes) {
     _show = DelayedAction(tooltipShowDelay, activate);
   }
 
