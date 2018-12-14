@@ -49,32 +49,27 @@ The pub transformer has been removed in favor of code generation through package
 
 ## Required Fonts
 
-Add the folowing font downloads to the head element on your page.
+Add the folowing font downloads to the head element of your page:
 
-### Roboto Font
+* __Roboto Font__
+([example](https://github.com/dart-lang/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L9))
 
-The typography Sass mixins for are designed to work best with the Roboto font.
-[Example](https://github.com/dart-lang/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L9)
+  ```html
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  ```
 
-```html
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+* __Material Icon Font__
+([example](https://github.com/dart-lang/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L11))
 
-```
-
-### Material Icon Font
-
-These components depend on the Material Icon font.
-[Example](https://github.com/dart-lang/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L11)
-
-```html
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://fonts.googleapis.com/icon?family=Material+Icons">
-```
+  ```html
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  ```
 
 ## Custom component styles
 
