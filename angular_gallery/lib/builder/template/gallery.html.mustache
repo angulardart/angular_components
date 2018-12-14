@@ -9,10 +9,11 @@
           label="Search"
           [filterable]="exampleOptions">
     </material-select-searchbox>
-    <material-list>
+    <material-list focusList>
       <div group *ngFor="let exampleGroup of exampleOptions.optionGroups">
         <div label *ngIf="searchbox.inputText.isNotEmpty">Search Results</div>
         <material-list-item *ngFor="let example of exampleGroup"
+                            focusItem
                             [routerLink]="example.link"
                             routerLinkActive="router-link-active">
           <highlight-value [value]="example"></highlight-value>
