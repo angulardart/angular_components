@@ -27,9 +27,6 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     materialInputDirectives,
     NgStyle,
   ],
-  directiveTypes: [
-    Typed<MaterialDropdownSelectComponent<DateTime>>(),
-  ],
   providers: [
     Provider(HasDisabled, useExisting: MaterialTimePickerComponent),
   ],
@@ -356,7 +353,7 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
 ///
 /// Only options between [minTime] and [maxTime] are selectable.
 class TimeSelectionOptions extends StringSelectionOptions<DateTime>
-    implements Selectable<DateTime> {
+    implements Selectable {
   DateTime _minTime;
   DateTime _maxTime;
 
@@ -366,7 +363,7 @@ class TimeSelectionOptions extends StringSelectionOptions<DateTime>
   set maxTime(DateTime time) => _maxTime = time;
 
   @override
-  SelectableOption getSelectable(DateTime item) {
+  SelectableOption getSelectable(item) {
     return item is DateTime &&
             ((_minTime != null && item.isBefore(_minTime)) ||
                 (_maxTime != null && item.isAfter(_maxTime)))

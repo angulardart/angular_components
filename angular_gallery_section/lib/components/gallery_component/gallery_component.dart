@@ -58,17 +58,6 @@ class GalleryComponent {
 
   String getTeamsLink(String ldap) => 'http://who/$ldap';
 
-  String getBuganizerLink(Doc doc) {
-    var params = <String>[];
-    if (doc.path.startsWith('ads/acx2') ||
-        doc.path.startsWith('third_party/dart_src/acx')) {
-      params.add('component=105665');
-      params.add('template=38109');
-    }
-    params.add('title=${doc.name} bug:');
-    return 'http://b/issues/new?' + params.join('&');
-  }
-
   /// Reformats a library path name to a link path that can be used by
   /// CodeSearch.
   String getCodeSearchLink(String componentPath) {
