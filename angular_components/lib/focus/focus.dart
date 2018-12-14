@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html' show KeyCode, KeyboardEvent, Element, HtmlElement;
 
 import 'package:angular/angular.dart';
+import 'package:meta/meta.dart';
 import 'package:angular_components/laminate/components/modal/modal.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
@@ -85,6 +86,12 @@ class FocusMoveEvent {
   /// The position, relative the item, of where to set focus.
   final int offset;
 
+  /// Home key was pressed.
+  final bool home;
+
+  /// End key was pressed.
+  final bool end;
+
   /// Prevent Default action for occuring. When the `FocusMoveEvent` is created
   /// from a KeyboardEvent, this method delegates to the `preventDefault` method
   /// of the `KeyboardEvent`, allowing consumers of this event to control the
@@ -95,18 +102,40 @@ class FocusMoveEvent {
 
   final Function _preventDefaultDelegate;
 
-  FocusMoveEvent(this.focusItem, this.offset, [this._preventDefaultDelegate]);
+  @visibleForTesting
+  FocusMoveEvent(this.focusItem, this.offset, [this._preventDefaultDelegate])
+      : home = false,
+        end = false;
+
+  @visibleForTesting
+  FocusMoveEvent.homeKey(this.focusItem, [this._preventDefaultDelegate])
+      : offset = 0,
+        home = true,
+        end = false;
+
+  @visibleForTesting
+  FocusMoveEvent.endKey(this.focusItem, [this._preventDefaultDelegate])
+      : offset = 0,
+        home = false,
+        end = true;
 
   /// Builds a `FocusMoveEvent` instance from a keyboard event, iff the keycode
-  /// is a next or previous key (i.e. up/down/left/right).
+  /// is a next, previous, home or end key (i.e. up/down/left/right/home/end).
   factory FocusMoveEvent.fromKeyboardEvent(
       FocusableItem item, KeyboardEvent kbEvent) {
     int keyCode = kbEvent.keyCode;
+    final preventDefaultFn = () {
+      kbEvent.preventDefault();
+    };
+    if (_isHomeKey(keyCode)) {
+      return FocusMoveEvent.homeKey(item, preventDefaultFn);
+    }
+    if (_isEndKey(keyCode)) {
+      return FocusMoveEvent.endKey(item, preventDefaultFn);
+    }
     if (!_isNextKey(keyCode) && !_isPrevKey(keyCode)) return null;
     int offset = _isNextKey(keyCode) ? 1 : -1;
-    return FocusMoveEvent(item, offset, () {
-      kbEvent.preventDefault();
-    });
+    return FocusMoveEvent(item, offset, preventDefaultFn);
   }
 
   // TODO(google): account for RTL.
@@ -114,6 +143,8 @@ class FocusMoveEvent {
       keyCode == KeyCode.RIGHT || keyCode == KeyCode.DOWN;
   static bool _isPrevKey(int keyCode) =>
       keyCode == KeyCode.LEFT || keyCode == KeyCode.UP;
+  static bool _isHomeKey(int keyCode) => keyCode == KeyCode.HOME;
+  static bool _isEndKey(int keyCode) => keyCode == KeyCode.END;
 }
 
 /// The element will be focused as soon as directive is initialized.

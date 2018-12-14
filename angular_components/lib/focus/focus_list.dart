@@ -62,9 +62,15 @@ class FocusListDirective implements OnDestroy {
   }
 
   void _moveFocus(FocusMoveEvent event) {
-    var i = _children.indexOf(event.focusItem);
-    if (i != -1) {
-      focus(i + event.offset);
+    if (event.home) {
+      focus(0);
+    } else if (event.end) {
+      focus(_length - 1);
+    } else {
+      var i = _children.indexOf(event.focusItem);
+      if (i != -1) {
+        focus(i + event.offset);
+      }
     }
     event.preventDefault();
   }
