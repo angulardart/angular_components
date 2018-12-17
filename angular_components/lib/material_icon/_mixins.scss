@@ -49,5 +49,6 @@
 @mixin svg-icon($svg-icon) {
   ::ng-deep .material-icon-i {
     background-image: $svg-icon;
+    background-size: cover;
   }
 }
