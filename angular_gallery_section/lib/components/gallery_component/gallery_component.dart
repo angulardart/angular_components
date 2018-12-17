@@ -37,6 +37,11 @@ class GalleryComponent {
 
   DomSanitizationService _santizationService;
 
+  /// Used to disable latency charts in testing environments where they can't
+  /// load successfully.
+  final latencyChartsEnabled =
+      !window.location.href.contains('enableLatencyCharts=false');
+
   GalleryComponent(this._santizationService);
 
   bool get showToc =>

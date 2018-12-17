@@ -127,6 +127,8 @@ class GalleryInfoBuilder extends Builder {
 
     return DocInfo()
       ..name = basenameWithoutExtension(assetId.path)
+      // Markdown docs have no annotations to signal they are deprecated.
+      ..deprecated = false
       ..path = path_utils.assetToPath(assetId.toString())
       ..comment = htmlContent;
   }

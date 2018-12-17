@@ -1,0 +1,208 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// Grid
+$mat-grid: 8px;
+$mat-grid-type: 4px;
+
+// Option that can be set before importing
+$mat-option-inline-icons: false !default;
+
+// Creates a reference for the given file in either data or package url format,
+// depending on the value of the global variable $mat-option-inline-icons.
+@function mat-icon-image($file) {
+  @if $mat-option-inline-icons {
+    @return inline-image($file)
+  } @else {
+    @return url("package:#{$file}")
+  }
+}
+
+// Forces an element to take up the same space as its closest, positioned
+// ancestor or, if none exists, the root element.
+@mixin fit {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+// clearfix forces the containing element to contain and be the same height as
+// the floated child elements.
+@mixin clearfix() {
+  &::before,
+  &::after {
+    content: ' ';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+// Prefixed cursors
+// http://caniuse.com/#feat=css3-cursors-newer
+@mixin cursor-grab() {
+  cursor: move; // fall back to move if unavailable (IE)
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+@mixin cursor-grabbing() {
+  cursor: move; // fall back to move if unavailable (IE)
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+@mixin button-bar-layout() {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+// Styles text that is used as a floating label over a material component.
+@mixin mat-input-header() {
+  color: $mat-gray-600;
+  // TODO(google): Migrate to extended mixin mat-font-caption
+  font-size: $mat-font-size-caption;
+  font-weight: $mat-font-weight-regular;
+}
+
+@mixin clear-button() {
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  position: relative;
+}
+
+// Note: this only supports square icons.
+@mixin icon-background(
+    $icon-url, $background-size: 6 * $mat-grid, $icon-size: 3 * $mat-grid) {
+
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  background-image: mat-icon-image($icon-url);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: $icon-size $icon-size;
+  height: $background-size;
+  padding: (($background-size - $icon-size) / 2);
+  width: $background-size;
+}
+
+// TODO(google): remove icon-button and glyph-button in favor of a more
+// standard way of creating glyph buttons (e.g. a glyph button component)
+// DEPRECATED: use <material-button icon> instead.
+@mixin icon-button(
+    $icon-url, $button-size: 6 * $mat-grid, $icon-size: 3 * $mat-grid) {
+
+  @include clear-button();
+  font-size: 0;
+  height: $button-size;
+  outline: none;
+  width: $button-size;
+
+  // Icon is in after pseudo element to isolate opacity fiddling.
+  &::after {
+    @include icon-background($icon-url, $button-size, $icon-size);
+    content: '';
+    display: block;
+    opacity: $mat-icon-opacity;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity $mat-transition-standard $mat-transition;
+  }
+
+  // Light theme - default
+  &:focus::after,
+  &:hover::after,
+  &:active::after {
+    opacity: $mat-icon-opacity-hover;
+  }
+
+  &:disabled::after {
+    opacity: $mat-icon-opacity-disabled;
+  }
+
+  // Dark theme
+  &.dark::after {
+    opacity: $mat-icon-dark-opacity;
+  }
+
+  &.dark:focus::after,
+  &.dark:hover::after,
+  &.dark:active::after {
+    opacity: $mat-icon-dark-opacity-hover;
+    outline: none;
+  }
+
+  &.dark:disabled::after {
+    opacity: $mat-icon-dark-opacity-disabled;
+  }
+}
+
+// Similar to icon button, but to be used with a button containing an
+// `<glyph>` element.
+// DEPRECATED: use <material-button icon> instead.
+@mixin glyph-button($button-size: 6 * $mat-grid, $circle: false) {
+
+  @include clear-button();
+  height: $button-size;
+  opacity: $mat-icon-opacity;
+  outline: none;
+  padding: 0;
+  transition: opacity $mat-transition-standard $mat-transition;
+  width: $button-size;
+
+  @if $circle {
+    border-radius: $button-size / 2;
+  }
+
+  // Light theme - default
+  &:focus,
+  &:hover,
+  &:active {
+    opacity: $mat-icon-opacity-hover;
+  }
+
+  &:disabled {
+    opacity: $mat-icon-opacity-disabled;
+  }
+
+  // Dark theme
+  &.dark {
+    opacity: $mat-icon-dark-opacity;
+  }
+
+  &.dark:focus,
+  &.dark:hover,
+  &.dark:active {
+    opacity: $mat-icon-dark-opacity-hover;
+    outline: none;
+  }
+
+  &.dark:disabled {
+    opacity: $mat-icon-dark-opacity-disabled;
+  }
+}
+
+// *** Deprecated
+// The following functions are deprecated.
+// The equivalent native CSS is available in all supported browsers.
+
+@mixin box-sizing($type:border-box) {
+  -moz-box-sizing: $type; // Firefox < 29
+  box-sizing: $type;      // Chrome, IE 8+, Opera, Safari 5.1
+}
+

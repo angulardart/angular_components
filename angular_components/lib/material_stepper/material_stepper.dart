@@ -21,7 +21,12 @@ import 'package:angular_components/utils/browser/events/events.dart';
 /// A material-design-styled stepper.
 ///
 /// A stepper is a numbered indicator used to convey progress or function as a
-/// navigational tool
+/// navigational tool.
+///
+/// Warning: content is reparented to the stepper component itself so any
+/// @ViewChild(ren) queries for content inside of a step or summary template
+/// will not work in the original component.
+///
 @Component(
   selector: 'material-stepper',
   directives: [

@@ -4,14 +4,19 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/app_layout/material_persistent_drawer.dart';
+import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/focus/focus_item.dart';
+import 'package:angular_components/focus/focus_list.dart';
 import 'package:angular_components/highlighted_text/highlighted_value.dart';
 import 'package:angular_components/material_button/material_button.dart';
+import 'package:angular_components/material_checkbox/material_checkbox.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/material_list/material_list_item.dart';
 import 'package:angular_components/material_select/material_select_searchbox.dart';
 import 'package:angular_components/model/selection/string_selection_options.dart';
+import 'package:angular_components/model/a11y/focus_indicator_controller.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/highlight_assistant.dart';
 import 'package:angular_components/model/ui/highlight_provider.dart';
@@ -24,8 +29,12 @@ import 'gallery_route_library.dart';
     selector: 'root',
     directives: [
       AutoFocusDirective,
+      DeferredContentDirective,
+      FocusItemDirective,
+      FocusListDirective,
       HighlightedValueComponent,
       MaterialButtonComponent,
+      MaterialCheckboxComponent,
       MaterialIconComponent,
       MaterialListComponent,
       MaterialListItemComponent,
@@ -36,6 +45,7 @@ import 'gallery_route_library.dart';
       NgModel,
       routerDirectives,
     ],
+    providers: [focusIndicatorProviders],
     viewProviders: [
       Provider(HighlightProvider, useExisting: GalleryComponent)
     ],
@@ -51,10 +61,11 @@ class GalleryComponent implements HighlightProvider {
   final ItemRenderer _highlightRenderer =
       (item) => item is _Example ? item.displayName : item?.toString();
   final List<RouteDefinition> routes = galleryRoutes;
+  final FocusIndicatorController focusIndicatorController;
   StringSelectionOptions<_Example> exampleOptions;
   String _breadcrumb = '';
 
-  GalleryComponent(Router router) {
+  GalleryComponent(this.focusIndicatorController, Router router) {
     router.stream.listen((newRoute) {
         _breadcrumb = breadcrumbs[newRoute.path];
         querySelector('material-content').scrollTop = 0;

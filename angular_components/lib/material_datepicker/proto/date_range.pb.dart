@@ -27,6 +27,7 @@ class DatepickerDateRange extends $pb.GeneratedMessage {
     ..a<int>(9, 'lastNDaysToToday', $pb.PbFieldType.O3)
     ..a<int>(10, 'quartersAgo', $pb.PbFieldType.O3)
     ..a<int>(11, 'startWeekday', $pb.PbFieldType.O3)
+    ..a<int>(12, 'nextNDaysFromToday', $pb.PbFieldType.O3)
     ..hasRequiredFields = false;
 
   DatepickerDateRange() : super();
@@ -138,6 +139,14 @@ class DatepickerDateRange extends $pb.GeneratedMessage {
 
   bool hasStartWeekday() => $_has(10);
   void clearStartWeekday() => clearField(11);
+
+  int get nextNDaysFromToday => $_get(11, 0);
+  set nextNDaysFromToday(int v) {
+    $_setSignedInt32(11, v);
+  }
+
+  bool hasNextNDaysFromToday() => $_has(11);
+  void clearNextNDaysFromToday() => clearField(12);
 }
 
 class DateRange extends $pb.GeneratedMessage {

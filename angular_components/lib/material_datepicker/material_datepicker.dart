@@ -27,7 +27,6 @@ import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
 import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
-import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/utils/angular/css/css.dart';
 
@@ -68,7 +67,7 @@ import 'package:angular_components/utils/angular/css/css.dart';
   styleUrls: ['material_datepicker.scss.css'],
   templateUrl: 'material_datepicker.html',
 )
-class MaterialDatepickerComponent extends KeyboardHandlerMixin
+class MaterialDatepickerComponent
     with FocusableMixin
     implements AfterViewInit, HasDisabled {
   /// CSS classes from the root element, passed to the popup to allow scoping of
@@ -223,11 +222,6 @@ class MaterialDatepickerComponent extends KeyboardHandlerMixin
   /// Opens the calendar picker popup if not in a [disabled] state.
   void onTrigger() {
     popupVisible = !disabled;
-  }
-
-  @override
-  void handleEscapeKey(KeyboardEvent event) {
-    popupVisible = false;
   }
 
   List<SingleDayRange> get presetDates => _presetDates;

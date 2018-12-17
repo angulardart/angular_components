@@ -5,6 +5,8 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
+import 'package:meta/meta.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 /// [KeyboardOnlyFocusIndicatorDirective] is a decorator that hides the outline
@@ -17,23 +19,55 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 class KeyboardOnlyFocusIndicatorDirective {
   final HtmlElement _element;
   final DomService _domService;
+  _InteractionType _lastInteraction = _InteractionType.none;
 
   KeyboardOnlyFocusIndicatorDirective(this._element, this._domService);
 
-  @HostListener('keyup')
-  @HostListener('blur')
-  void resetOutline() {
-    _domService.scheduleWrite(() {
-      _element.style.outline = '';
-    });
+  @visibleForTemplate
+  @HostListener('keydown')
+  void keydown(KeyboardEvent e) {
+    _lastInteraction = _InteractionType.keyboard;
+    resetOutline();
   }
 
+  @visibleForTemplate
+  @HostListener('blur')
+  void resetOutline() {
+    if (_element.style.outline != '') {
+      _domService.scheduleWrite(() {
+        _element.style.outline = '';
+      });
+    }
+  }
+
+  @visibleForTemplate
   @HostListener('mousedown')
   @HostListener('click')
+  void onMouseInteraction() {
+    _lastInteraction = _InteractionType.mouse;
+    hideOutline();
+  }
+
+  @protected
   void hideOutline() {
-    _domService.scheduleWrite(() {
-      _element.style.outline = 'none';
-    });
+    if (_element.style.outline != 'none') {
+      _domService.scheduleWrite(() {
+        _element.style.outline = 'none';
+      });
+    }
+  }
+
+  @visibleForTemplate
+  @HostListener('focus')
+  void onFocus(Event event) {
+    // Use the focus event to style the element so that when the element is
+    // styled programmatically it will obey the last known state of the
+    // directive.
+    if (_lastInteraction == _InteractionType.mouse) {
+      hideOutline();
+    } else {
+      resetOutline();
+    }
   }
 
   /// Programmatically set focus on the underlying element, managing outline
@@ -62,3 +96,5 @@ class KeyboardOnlyFocusIndicatorDirective {
     }
   }
 }
+
+enum _InteractionType { mouse, keyboard, none }

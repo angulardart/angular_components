@@ -19,6 +19,7 @@
   <div class="dropdown-and-comparison">
     <span class="main-line">
       <dropdown-button class="menu-lookalike primary-range"
+          [tabbable]="false"
           [disabled]="disabled"
           [buttonText]="formattedRange"
           [error]="error">
@@ -48,10 +49,7 @@
                 (close)="close">
   <focus-trap *ngIf="isEditorCreated"
               class="popup-contents"
-              [class.compact]="compact"
-              (keypress)="onKeyPress"
-              (keydown)="onKeyDown"
-              (keyup)="onKeyUp">
+              [class.compact]="compact">
     <div class="wrapper">
       <date-range-editor [model]="model"
                          [presets]="presets"

@@ -142,7 +142,7 @@ class PopupSourceDirective
     if (_focusable != null) {
       _focusable.focus();
     } else {
-      _element.focus();
+      _element?.focus();
     }
   }
 

@@ -17,7 +17,14 @@ class PopupHierarchy {
   /// Parent pane of the first popup hierarchy element.
   Element _rootPane;
 
-  StreamSubscription _dismissListener;
+  StreamSubscription _triggerListener;
+  StreamSubscription _keyUpListener;
+
+  Event _lastTriggerEvent;
+
+  /// Whether last trigger event is a keyboard event or focus event.
+  bool get islastTriggerWithKeyboard =>
+      _lastTriggerEvent is KeyboardEvent || _lastTriggerEvent is FocusEvent;
 
   /// Closes every popup element present in the hierarchy.
   void closeHierarchy() {
@@ -26,7 +33,7 @@ class PopupHierarchy {
     }
 
     _visiblePopupStack.clear();
-    _disposeDismissListener();
+    _disposeListeners();
   }
 
   void _attach(PopupHierarchyElement child) {
@@ -37,29 +44,30 @@ class PopupHierarchy {
     }
     _visiblePopupStack.add(child);
 
-    if (_dismissListener == null) {
+    if (_triggerListener == null) {
       // Passing null to triggersOutside listens to triggers on any elements.
-      _dismissListener =
-          events.triggersOutside(null).listen(_onTriggersOutside);
+      _triggerListener = events.triggersOutside(null).listen(_onTrigger);
+    }
+    if (_keyUpListener == null) {
+      _keyUpListener = document.onKeyUp.listen(_onKeyUp);
     }
   }
 
-  void _disposeDismissListener() {
-    _dismissListener.cancel();
-    _dismissListener = null;
+  void _disposeListeners() {
+    _triggerListener.cancel();
+    _keyUpListener.cancel();
+    _triggerListener = null;
+    _keyUpListener = null;
   }
 
   void _detach(PopupHierarchyElement child) {
     if (_visiblePopupStack.remove(child) && _visiblePopupStack.isEmpty) {
       _rootPane = null;
-      _disposeDismissListener();
+      _disposeListeners();
     }
   }
 
-  void _onTriggersOutside(Event event) {
-    // Some weird event, ignore it.
-    if (event?.target == null) return;
-
+  bool _isInHiddenModal() {
     // Find parent pane if any, done dynamically as the modal pane can be
     // created by another app using ACX.
     // TODO(google): Find a way to compute it only when needed and make it
@@ -74,9 +82,19 @@ class PopupHierarchy {
       // well.
       if (_rootPane == null ||
           (_rootPane != modalPanes.last && modalPanes.contains(_rootPane))) {
-        return;
+        return true;
       }
     }
+    return false;
+  }
+
+  void _onTrigger(Event event) {
+    // Some weird event, ignore it.
+    if (event?.target == null) return;
+
+    _lastTriggerEvent = event;
+
+    if (_isInHiddenModal()) return;
 
     for (int i = _visiblePopupStack.length - 1; i >= 0; i--) {
       final current = _visiblePopupStack[i];
@@ -89,6 +107,36 @@ class PopupHierarchy {
       }
 
       if (current.autoDismiss) current.onAutoDismiss(event);
+    }
+  }
+
+  void _onKeyUp(KeyboardEvent event) {
+    // Some weird event, ignore it.
+    if (event?.target == null) return;
+
+    _lastTriggerEvent = event;
+
+    if (_isInHiddenModal()) return;
+
+    if (event.keyCode == KeyCode.ESC) {
+      for (int i = _visiblePopupStack.length - 1; i >= 0; i--) {
+        final current = _visiblePopupStack[i];
+        if (current?.container == null) continue;
+
+        if (events.isParentOf(current.container, event.target)) {
+          event.stopPropagation();
+          current.onDismiss();
+          return;
+        }
+
+        for (var blockerElement in current.autoDismissBlockers) {
+          if (events.isParentOf(blockerElement, event.target)) {
+            event.stopPropagation();
+            current.onDismiss();
+            return;
+          }
+        }
+      }
     }
   }
 }

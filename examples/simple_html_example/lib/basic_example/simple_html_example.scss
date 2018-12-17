@@ -1,0 +1,15 @@
+// Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+$highlightColor: #f11;
+
+:host {
+  // Use ng-deep with extreme caution here; it should only be used to apply
+  // styles that are internal to the SimpleHTML contents, and should always be
+  // scoped to the host.
+  ::ng-deep .highlight {
+    color: $highlightColor;
+    font-variant: small-caps;
+  }
+}

@@ -6,7 +6,7 @@
 // TODO(google): Remove once glyph has been replaced with material-icon.
 @import 'package:angular_components/glyph/mixins';
 @import 'package:angular_components/material_icon/mixins';
-@import 'mixins';
+@import 'package:angular_components/material_button/mixins';
 
 :host {
   @include fab;

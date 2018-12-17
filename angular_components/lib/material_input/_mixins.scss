@@ -141,6 +141,13 @@
   }
 }
 
+/// Changes the counter text color.
+@mixin material-input-counter-color($color) {
+  ::ng-deep .counter {
+    color: $color;
+  }
+}
+
 /// Changes the bottom section of the material input to not wrap.
 @mixin error-text-nowrap() {
   ::ng-deep .error-text {

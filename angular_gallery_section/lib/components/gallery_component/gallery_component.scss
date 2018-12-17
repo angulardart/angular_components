@@ -144,9 +144,15 @@ h2 {
   font-size: smaller;
 }
 
-.property-deprecated::before {
+.property-deprecated::before,
+.declaration-deprecated::before {
   color: $mat-red-600;
   content: 'Deprecated! ';
+}
+
+.declaration-deprecated {
+  font-weight: $mat-font-weight-bold;
+  font-size: $mat-font-size-subhead;
 }
 
 ::ng-deep table {

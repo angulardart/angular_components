@@ -34,6 +34,9 @@ export 'reorder_events.dart';
 ///
 /// User is responsible for listening to reorder events
 /// and updating order of elements accordingly
+///
+/// Warning: Reorder list does not work with a keyboard and so is not
+/// accessible.
 @Component(
   selector: 'reorder-list',
   templateUrl: 'reorder_list.html',

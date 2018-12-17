@@ -349,19 +349,14 @@ class SingleDayRange implements DatepickerDateRange {
       examples: const {'daysFromNow': 2});
 }
 
-/// A range 'N' days long, which ends yesterday (today is not included).
-///
-/// Special-cased to have titles like 'Last 7 days', etc.
-/// 'lengthInDays' should be at least 1.
-class LastNDaysRange implements DatepickerDateRange {
+/// A range 'N' days long, where N is at least one.
+abstract class MultipleDaysRange implements DatepickerDateRange {
   final Date _start;
   final int _lengthInDays;
   final String title;
-  LastNDaysRange(this._start, int lengthInDays, [String title])
-      : title = title ?? _lastNDaysMsg(lengthInDays),
-        _lengthInDays = lengthInDays;
-  LastNDaysRange.beforeToday(clock, lengthInDays, [String title])
-      : this(Date.today(clock).add(days: -lengthInDays), lengthInDays, title);
+
+  MultipleDaysRange(this._start, this._lengthInDays, this.title);
+
   Date get start => _start;
   Date get end => _start.add(days: _lengthInDays - 1);
   DatepickerDateRange get next => _genericNext(this);
@@ -376,12 +371,28 @@ class LastNDaysRange implements DatepickerDateRange {
       _clamp(this, min: min, max: max);
   DatepickerDateRange unclamped() => this;
   DateRange asPlainRange() => _plainRange(this);
-  proto.DatepickerDateRange toProtoBuf() =>
-      _makeProtoBuf(this)..lastNDays = _lengthInDays;
+  proto.DatepickerDateRange toProtoBuf();
 
   bool operator ==(o) => rangeEqual(this, o);
   int get hashCode => rangeHash(this);
   String toString() => _rangeString(this);
+}
+
+/// A range 'N' days long, which ends yesterday (today is not included).
+///
+/// Special-cased to have titles like 'Last 7 days', etc.
+/// [lengthInDays] should be at least 1.
+class LastNDaysRange extends MultipleDaysRange {
+  LastNDaysRange(Date start, int lengthInDays, [String title])
+      : super(start, lengthInDays, title ?? _lastNDaysMsg(lengthInDays));
+
+  LastNDaysRange.beforeToday(clock, lengthInDays, [String title])
+      : super(Date.today(clock).add(days: -lengthInDays), lengthInDays,
+            title ?? _lastNDaysMsg(lengthInDays));
+
+  @override
+  proto.DatepickerDateRange toProtoBuf() =>
+      _makeProtoBuf(this)..lastNDays = _lengthInDays;
 
   static _lastNDaysMsg(lengthInDays) => Intl.plural(lengthInDays,
       one: 'Yesterday',
@@ -396,37 +407,17 @@ class LastNDaysRange implements DatepickerDateRange {
 /// A range 'N' days long which ends today.
 ///
 /// Special-cased to have titles like '7 days to today', etc.
-/// 'lengthInDays' should be at least 1.
-class LastNDaysToTodayRange implements DatepickerDateRange {
-  final Date _start;
-  final int _lengthInDays;
-  final String title;
-  LastNDaysToTodayRange(this._start, int lengthInDays, [String title])
-      : title = title ?? _lastNDaysToTodayMsg(lengthInDays),
-        _lengthInDays = lengthInDays;
+/// [lengthInDays] should be at least 1.
+class LastNDaysToTodayRange extends MultipleDaysRange {
+  LastNDaysToTodayRange(Date start, int lengthInDays, [String title])
+      : super(start, lengthInDays, title ?? _lastNDaysToTodayMsg(lengthInDays));
+
   LastNDaysToTodayRange.beforeToday(clock, lengthInDays, [String title])
-      : this(Date.today(clock).add(days: -(lengthInDays - 1)), lengthInDays,
-            title);
-  Date get start => _start;
-  Date get end => _start.add(days: _lengthInDays - 1);
-  DatepickerDateRange get next => _genericNext(this);
-  DatepickerDateRange get prev => _genericPrev(this);
-  bool get isPredefined => true;
-  bool get isAllTime => false;
+      : super(Date.today(clock).add(days: -(lengthInDays - 1)), lengthInDays,
+            title ?? _lastNDaysToTodayMsg(lengthInDays));
 
-  /// Length of the range in number of days.
-  int get lengthInDays => _lengthInDays;
-
-  DatepickerDateRange clamp({Date min, Date max}) =>
-      _clamp(this, min: min, max: max);
-  DatepickerDateRange unclamped() => this;
-  DateRange asPlainRange() => _plainRange(this);
   proto.DatepickerDateRange toProtoBuf() =>
       _makeProtoBuf(this)..lastNDaysToToday = _lengthInDays;
-
-  bool operator ==(o) => rangeEqual(this, o);
-  int get hashCode => rangeHash(this);
-  String toString() => _rangeString(this);
 
   static _lastNDaysToTodayMsg(lengthInDays) => Intl.plural(lengthInDays,
       one: 'Today',
@@ -435,6 +426,33 @@ class LastNDaysToTodayRange implements DatepickerDateRange {
       args: [lengthInDays],
       desc: 'A date range containing the last "lengthInDays" days, '
           'ending today.',
+      examples: const {'lengthInDays': 7});
+}
+
+/// A range 'N' days long, which starts today.
+///
+/// Special-cased to have titles like 'days from today', etc.
+/// [lengthInDays] should be at least 1.
+/// A range 'N' days long which starts today.
+class NextNDaysFromTodayRange extends MultipleDaysRange {
+  NextNDaysFromTodayRange(Date start, int lengthInDays, [String title])
+      : super(
+            start, lengthInDays, title ?? _nextNDaysFromTodayMsg(lengthInDays));
+
+  NextNDaysFromTodayRange.afterToday(clock, lengthInDays, [String title])
+      : super(Date.today(clock), lengthInDays,
+            title ?? _nextNDaysFromTodayMsg(lengthInDays));
+
+  proto.DatepickerDateRange toProtoBuf() =>
+      _makeProtoBuf(this)..nextNDaysFromToday = _lengthInDays;
+
+  static _nextNDaysFromTodayMsg(lengthInDays) => Intl.plural(lengthInDays,
+      one: 'Today',
+      other: '$lengthInDays days from today',
+      name: '_nextNDaysFromTodayMsg',
+      args: [lengthInDays],
+      desc: 'A date range containing the next "lengthInDays" days, '
+          'starting with today. [REL_NOTE:brockschmid/01-01-2019]',
       examples: const {'lengthInDays': 7});
 }
 

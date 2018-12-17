@@ -85,5 +85,9 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
 
   .delete-icon {
     fill: $mat-white;
+
+    &:focus {
+      fill: $mat-gray-300;
+    }
   }
 }

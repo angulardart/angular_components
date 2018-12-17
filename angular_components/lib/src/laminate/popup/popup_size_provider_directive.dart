@@ -5,16 +5,16 @@
 import 'package:angular/angular.dart';
 import 'package:angular_components/src/laminate/popup/popup_size_provider.dart';
 
-/// Directive to provide maximum sizes to a popup from html.
+/// Directive to provide maximum and minimum sizes to a popup from html.
 ///
 /// Example usage (somefile.html):
 /// <my-popup-using-component popupMaxHeight="400px" popupMaxWidth="40%">
 /// </my-popup-using-component>
 ///
-/// If popupMaxHeight or popupMaxWidth is not specified, delegates to parent
-/// popup provider.
+/// If a maximum or minimum size is not specified, it delegates to parent popup
+/// size provider.
 @Directive(
-  selector: '[popupMaxHeight],[popupMaxWidth]',
+  selector: '[popupMinHeight],[popupMinWidth],[popupMaxHeight],[popupMaxWidth]',
   providers: [
     Provider(PopupSizeProvider, useClass: PopupSizeProviderDirective),
   ],

@@ -1,9 +1,99 @@
+## 0.11.0
+
+### New Component
+* Simple HTML Component.
+
+### Component Updates
+
+#### Material Chips
+* Add a focused style to delete icon.
+* Remove default value from `$max-chip-width` in the `material-chip-max-width`
+  Sass mixin.
+* Remove `material-chips-margin` Sass mixin.
+
+#### Material Date Range Picker
+* Make dropdown not tabbable so it can be opened using the top level button
+  decorator.
+* Add NextNDaysFromToday class.
+* Auto scroll to the bottom when comparison is turned on by the user.
+* Fix constrained sizing on Firefox browser.
+* Make intl messages `final`.
+
+#### Material Dialog
+* Fix size of full screen dialog.
+* Close parent modal on escape key by default.
+
+#### Material Icon
+* Add `MaterialIconToggleDirective` to allow for an icon with two states.
+
+#### Material Input
+* Update the integer error message per Editorial feedback.
+* Add Sass mixin for changing the color of the counter.
+* Fix a11y when there is a `labeledby` id and a aria label specified.
+
+#### Material Menu
+* Add a drop-in replacement for `secondaryIcon` - `itemSuffix` that removes the
+  boilerplate of creating an observable list for a single element.
+* Automatically expand a collapsed category when keyboard navigating to a child
+  item.
+* Remove usages of secondary icon and related fields/methods from menu item
+  model.
+* Prevent refocus on a menu item when the menu is closing.
+* Add `isTabbable` to `MenuItemComponent`.
+* Improve a11y in Material Fab Menu.
+* Fix focus target when pressing Up Arrow key.
+
+#### Material Popup
+* Correctly restore focus in nested popups.
+
+#### Material Select
+* Add type parameters on `BaseDropdownSelectValueAccessor` and subclasses.
+* Set max-width to 100% on `dynamic-item`.
+* Removing Sass mixin for setting the width of the container element in
+  dropdowns with factoryRenderers to 100%, as this was adopted as the standard.
+* Use the generic type parameter from `MaterialDropdownSelectComponent` on the
+  `ActivateItemOnKeyPressMixin`.
+* Fix focus bugs when mixing keyboard and mouse navigation.
+* Add temporary fix for scrolling bug in Chrome browser.
+* Fix `MaterialDropdownSelect` type error when clicking a deselect item.
+* Fix the type of `itemRenderer` in `MaterialDropdownSelectComponent`.
+
+#### Material Tabs
+* Make default width of `tab-content` to 100%.
+
+#### Material Tooltip
+* Improve a11y and keyboard navigation.
+* Fix removing describe-by.
+
+#### Modal/Overlay
+* Add ability to create an accessible overlay container for clients that
+  currently provide custom overlay container.
+* Fix selector of `PopupSizeProviderDirective`.
+* Restore focus to popup source element if the popup is closed via keyboard from
+  inside itself.
+* Close popup on escape if the focus is inside the popup or on the popup source
+  element.
+
+### Miscellaneous
+* Improve error message when selection type is wrong in `SelectionInputAdapter`.
+* Add `primaryStyle` to `StyleFormatter`.
+* Refactor the keyboard only focus indicator so that when an element is focused
+  programmatically it will obey the focus state of the last known interaction.
+* Only consider mouseup events as part of `triggersOutside()` if the
+  corresponding mousedown event came from the same element.
+* Set attached portals on portals attached to `DomPortalHosts`
+* Fix focus issues with modal dialogs.
+* Add `FocusIndicatorController` for use in debug environments.
+
+### Documentation
+* Minor docs fixes.
+
 ## 0.10.1
 
 ### Component Updates
 
 #### Material Chips
-* Improved support for generics.
+* Improve support for generics.
 * Stop setting popup attributes as those attributes are set on the input
   directly.
 * Only set the `aria-owns` property and `inputAriaActivedescendent` when the

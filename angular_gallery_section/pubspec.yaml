@@ -3,9 +3,9 @@ author: Dart Team <misc@dartlang.org>
 environment:
   sdk: '>=2.1.0-dev.9.4 <3.0.0'
 dependencies:
-  analyzer: ^0.33.0
-  angular: ^5.1.0
-  angular_components: 0.10.1
+  analyzer: ^0.34.0
+  angular: ^5.2.0
+  angular_components: 0.11.0
   build: '>=0.11.1 <2.0.0'
   build_config: '>=0.2.6 <0.4.0'
   glob: ^1.1.5

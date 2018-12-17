@@ -58,7 +58,7 @@
     </a>
   </ng-container>
 
-  <ng-container *ngIf="model.benchmarks.isNotEmpty">
+  <ng-container *ngIf="latencyChartsEnabled && model.benchmarks.isNotEmpty">
     <label>Latency</label>
     <a buttonDecorator (trigger)="scroll('#latency')">Latency Charts</a>
   </ng-container>
@@ -69,6 +69,10 @@
     {{doc.name}}
     <a [href]="getCodeSearchLink(doc.path)" target="_blank">Source Code</a>
   </h2>
+
+  <p class="declaration-deprecated" *ngIf="doc.deprecated">
+    {{doc.deprecatedMessage}}
+  </p>
 
   <p *ngIf="doc.selector.isNotEmpty">
     <strong>Selector:</strong>
@@ -138,7 +142,7 @@
   <dynamic-component [componentFactory]="demo.demoFactory"></dynamic-component>
 </section>
 
-<section *ngIf="model.benchmarks.isNotEmpty" class="latency-chart">
+<section *ngIf="latencyChartsEnabled && model.benchmarks.isNotEmpty" class="latency-chart">
   <h2 id="latency">Latency Charts</h2>
   <latency-chart *ngFor="let url of model.benchmarks" linkUrl="{{url}}">
   </latency-chart>

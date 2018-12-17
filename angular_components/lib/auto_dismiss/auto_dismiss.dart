@@ -8,11 +8,15 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 
-/// A directive that publishes a (dismiss) event when the user clicks outside of
-/// it.
+/// A directive that publishes a (dismiss) event when a focus, click or mouseup
+/// event occurs outside of it.
 ///
 /// Note: For [MaterialExpansionPanel] please consider using the dedicated
 ///       directive [MaterialExpansionPanelAutoDismiss].
+///
+/// Note: When popups close they automatically re-focus the trigger element
+///       which will call dismiss. In this case please follow best practice and
+///       set [autoDismissable] to be the visibility of the popup itself.
 ///
 /// __Example Usage:__
 ///
@@ -29,13 +33,13 @@ import 'package:angular_components/utils/browser/events/events.dart';
   selector: '[autoDismissable]:not(material-expansionpanel)',
 )
 class AutoDismissDirective {
-  final Stream _click;
+  final Stream _dismissEvents;
   final NgZone _zone;
 
   AutoDismissDirective(HtmlElement element, this._zone)
-      : _click = triggersOutside(element);
+      : _dismissEvents = triggersOutside(element);
 
-  bool _ignoreClicks = false;
+  bool _ignoreEvents = false;
   bool _autoDismissable = false;
   bool get autoDismissable => _autoDismissable;
 
@@ -44,19 +48,21 @@ class AutoDismissDirective {
   set autoDismissable(bool b) {
     _autoDismissable = b;
 
-    // If a click set autoDismissable to `true`, then we don't want the same
-    // click to dismiss right away. Stop listening for clicks until we see a
-    // click event, or until the next event loop.
-    _ignoreClicks = _autoDismissable;
-    _click.first.then(_listenForClicks);
+    // If an event set autoDismissable to `true`, then we don't want the same
+    // event to dismiss right away. Stop listening for events until we see a
+    // appropriate event, or until the next event loop.
+    _ignoreEvents = _autoDismissable;
+    _dismissEvents.first.then(_listenForEvents);
     // Run the timer outside of Angular so that it doesn't trigger a new digest
     // cycle.
-    _zone.runOutsideAngular(() => Timer.run(_listenForClicks));
+    _zone.runOutsideAngular(() => Timer.run(_listenForEvents));
   }
 
-  /// Event which is published when the user clicks outside of the element.
+  /// Event which is published when a focus, mouseup, or click occurs outside of
+  /// the element.
   @Output()
-  Stream get dismiss => _click.where((_) => _autoDismissable && !_ignoreClicks);
+  Stream get dismiss =>
+      _dismissEvents.where((_) => _autoDismissable && !_ignoreEvents);
 
-  _listenForClicks([_]) => _ignoreClicks = false;
+  _listenForEvents([_]) => _ignoreEvents = false;
 }

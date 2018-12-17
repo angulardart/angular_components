@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:observable/observable.dart';
+import 'package:quiver/core.dart' show Optional;
 import 'package:quiver/strings.dart' show isNotEmpty;
 import 'package:angular_components/model/a11y/active_item.dart';
 import 'package:angular_components/model/collection/combined_list.dart';
@@ -132,7 +133,7 @@ class MenuModel<T> implements HasIcon, AcceptsWidth {
 /// Example code for creating a menu item with tooltip
 ///     new MenuItem(label, tooltip: tooltip,
 ///                  action:action, icon:icon, subMenu:subMenu);
-class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
+class MenuItem<T> implements HasUIDisplayName, HasIcon {
   final String label;
   final String secondaryLabel;
   final String tooltip;
@@ -151,19 +152,11 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   @override
   Icon get uiIcon => icon;
 
-  final Icon secondaryIcon;
-  final ObservableReference<IconVisibility> _secondaryIconVisibility;
-
   /// List of rendered suffixes for this menu item.
   final ObservableList<MenuItemAffix> itemSuffixes;
 
   /// Additional CSS classes to be attached to the root menu item element.
   final BuiltList<String> cssClasses;
-
-  @override
-  Icon get uiHoverIcon => _secondaryIconVisibility.value == IconVisibility.hover
-      ? secondaryIcon
-      : null;
 
   void _noop() {}
   Function get nullAwareActionHandler => action != null ? action : _noop;
@@ -171,10 +164,7 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   @virtual
   bool enabled;
   bool get hasIcon => icon != null;
-  bool get hasSecondaryIcon =>
-      secondaryIcon != null &&
-      _secondaryIconVisibility.value != IconVisibility.hidden;
-  bool get hasSecondaryHoverIcon => uiHoverIcon != null;
+
   bool get hasSubMenu => subMenu != null;
   bool get showTooltip => isNotEmpty(tooltip);
   @override
@@ -193,29 +183,28 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
   ///   [label], and when this item is triggered it will open [subMenu].
   /// If [itemSuffixes] is passed, the list of suffixes will be rendered after
   ///   the item content.
-  MenuItem(
-      this.label,
+  ///
+  /// [itemSuffix] - singular item suffix to be rendered after the item content;
+  ///     convenient way to pass a single item suffix in rather than
+  ///     constructing an ObservableList and using [itemSuffixes]. If
+  ///     [itemSuffixes] is also passed in, [itemSuffixes] takes precedence.
+  MenuItem(this.label,
       {this.enabled = true,
       this.tooltip,
       this.action,
       this.icon,
       this.labelAnnotation,
       Iterable<String> cssClasses,
-      @Deprecated('Please use itemSuffixes instead')
-          this.secondaryIcon,
+      MenuItemAffix itemSuffix,
       ObservableList<MenuItemAffix> itemSuffixes,
-      @Deprecated('Please use itemSuffixes instead')
-          ObservableReference<IconVisibility> secondaryIconVisibility,
       this.subMenu,
       this.secondaryLabel})
-      : _secondaryIconVisibility = secondaryIconVisibility ??
-            ObservableReference<IconVisibility>(IconVisibility.visible),
-        itemSuffixes = itemSuffixes ?? ObservableList<MenuItemAffix>(),
+      : itemSuffixes = itemSuffixes ??
+            ObservableList<MenuItemAffix>.from(
+                Optional.fromNullable(itemSuffix)),
         cssClasses = BuiltList<String>(cssClasses ?? const []) {
-    if (secondaryIcon != null) {
-      this.itemSuffixes.add(IconAffix(
-          icon: secondaryIcon, visibility: _secondaryIconVisibility.value));
-    }
+    assert(itemSuffix == null || itemSuffixes == null,
+        'Only one of itemSuffix or itemSuffixes should be provided');
   }
 
   @override
@@ -225,8 +214,7 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon, HasHoverIcon {
         'labelAnnotation': labelAnnotation,
         'enabled': enabled,
         'icon': icon,
-        'secondaryIcon': secondaryIcon,
-        'secondaryIconVisibility': _secondaryIconVisibility.value
+        'suffixes': itemSuffixes.map((affix) => '$affix').join(','),
       }.toString();
 }
 

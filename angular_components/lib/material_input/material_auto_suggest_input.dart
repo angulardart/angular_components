@@ -667,18 +667,6 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     }
   }
 
-  @override
-  void handleEscapeKey(html.KeyboardEvent event) {
-    if (showPopup) {
-      showPopup = false;
-      event.stopPropagation();
-      // If the popup was clicked, giving it focus, return focus to the input
-      // combo box. But avoid the side-effects of handleFocus.
-      _isFocused = true;
-      focus();
-    }
-  }
-
   /// Act as a validator.
   /// TODO(google): Please don't add validation support this way.
   call(_) {

@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content.dart';
@@ -16,8 +17,11 @@ import 'package:angular_components/material_menu/menu_root.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/mixins/track_layout_changes.dart';
+import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/menu/menu.dart';
 import 'package:angular_components/model/observable/observable.dart';
+import 'package:angular_components/utils/browser/events/events.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 import 'menu_item_groups.dart';
 
@@ -45,8 +49,9 @@ import 'menu_item_groups.dart';
   preserveWhitespace: true,
 )
 class MaterialFabMenuComponent extends Object
-    with TrackLayoutChangesMixin
+    with KeyboardHandlerMixin, TrackLayoutChangesMixin
     implements OnDestroy {
+  final ActiveMenuItemModel<MenuItem> activeModel;
   final ChangeDetectorRef _changeDetector;
 
   /// Popup positions for the menu popup to show up in.
@@ -57,7 +62,13 @@ class MaterialFabMenuComponent extends Object
 
   MaterialFabMenuModel _viewModel;
 
-  MaterialFabMenuComponent(this._changeDetector);
+  factory MaterialFabMenuComponent(ChangeDetectorRef changeDetector,
+          @Optional() IdGenerator idGenerator) =>
+      MaterialFabMenuComponent._(
+          changeDetector, idGenerator ?? new SequentialIdGenerator.fromUUID());
+
+  MaterialFabMenuComponent._(this._changeDetector, IdGenerator idGenerator)
+      : activeModel = ActiveMenuItemModel<MenuItem>(idGenerator);
 
   /// Emits when fab is opened.
   @Output()
@@ -119,11 +130,57 @@ class MaterialFabMenuComponent extends Object
 
   bool get hasIcons => _viewModel.hasIcons;
 
+  /// Keypress callback is used to handle UP and DOWN keys.
+  ///
+  /// Unprintable keys use this listener while printable keys
+  /// use [handleKeyPress].
+  /// Enabling [MaterialFabMenu] to be opened with the keyboard improves
+  /// accessibility and improves with a11y navigation.
+  @HostListener('keydown')
+  void handleKeyDown(KeyboardEvent event) {
+    switch (event.keyCode) {
+      case KeyCode.UP:
+        openMenuAndActivateLastItem();
+        break;
+      case KeyCode.DOWN:
+        openMenuAndActivateFirstItem();
+        break;
+    }
+  }
+
+  /// Keypress callback is used to handle ENTER and SPACE keys.
+  @HostListener('keypress')
+  void handleKeyPress(KeyboardEvent event) {
+    if (event.keyCode == KeyCode.ENTER || isSpaceKey(event)) {
+      openMenuAndActivateFirstItem();
+    }
+  }
+
   @override
   void ngOnDestroy() {
     _viewModelStreamSub?.cancel();
     _viewModelStreamSub = null;
     _onShow.close();
+  }
+
+  /// Sets the [activeModel.menu] before the popup is opened so that
+  /// the first item will already be activated when the menu is expanded.
+  ///
+  /// [MenuItemGroupsComponent] handles the logic to activate the first item.
+  void openMenuAndActivateFirstItem() {
+    if (hasMenu) {
+      activeModel.menu = menuItem.subMenu;
+    }
+    _viewModel.trigger();
+  }
+
+  /// Sets the [activeModel.menu] and activates the last item in the menu.
+  void openMenuAndActivateLastItem() {
+    if (hasMenu) {
+      activeModel.menu = menuItem.subMenu;
+      activeModel.activateLast();
+    }
+    _viewModel.trigger();
   }
 
   void onPopupOpened() {

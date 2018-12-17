@@ -108,8 +108,14 @@ class GalleryDocumentaionExtraction extends SimpleAstVisitor<DocInfo> {
   DocInfo _extractDocumentation(NamedCompilationUnitMember node) {
     if (node.name.name != _name) return null;
 
+    final deprecatedAnnotationNode = _deprecatedAnnotation(node);
     _info = DocInfo()
       ..name = node.name.name
+      ..deprecated = deprecatedAnnotationNode != null
+      ..deprecatedMessage = deprecatedAnnotationNode?.arguments?.arguments
+          // Visit the first arg or null if no args.
+          ?.firstWhere((_) => true, orElse: () => null)
+          ?.accept(StringExtractor())
       ..comment = g3docMarkdownToHtml(parseComment(node.documentationComment))
       ..path = _filePath;
     node.metadata

@@ -2,6 +2,7 @@
 @import 'package:angular_components/css/material/material';
 @import 'package:angular_components/css/material/mixins';
 @import 'package:angular_components/css/material/shadow';
+@import 'package:angular_components/material_checkbox/mixins';
 @import 'package:angular_components/material_input/mixins';
 
 material-drawer {
@@ -61,5 +62,12 @@ material-content {
     position: sticky;
     top: 0;
     z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: $mat-grid * 5;
+
+    @include material-checkbox-color($mat-orange-500);
   }
 }

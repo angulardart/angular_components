@@ -1,5 +1,6 @@
 import 'package:angular/angular.dart';
 import 'package:angular_components/laminate/popup/module.dart';
+import 'package:angular_components/model/a11y/focus_indicator_controller.dart';
 
 // Import each demo.
 {{#imports}}
@@ -15,17 +16,28 @@ final _showDocs = Uri.base.queryParameters['showDocs'];
 
 @Component(
   selector: 'gallery-section',
-  providers: [popupBindings],
+  providers: [focusIndicatorProviders, popupBindings],
   template: r'''
+  <a class="focus-indicator-toggle"
+      tabindex="0"
+      (click)="focusIndicatorController.enabled = !focusIndicatorController.enabled">
+    <template [ngIf]="!focusIndicatorController.enabled">
+      Enable focus indicator
+    </template>
+    <template [ngIf]="focusIndicatorController.enabled">
+      Disable focus indicator
+    </template>
+  </a>
   <div *ngIf="!showDocsPage">
-    <div class="docs-toggle" (click)="toggleDocsPage()">Show Gallery Page</div>
+    <a class="docs-toggle" tabindex="0"
+        (click)="toggleDocsPage()">Show Gallery Page</a>
       {{#demos}}
       <{{selector}}></{{selector}}>
       {{/demos}}
   </div>
   <div *ngIf="showDocsPage">
-    <div class="docs-toggle" *ngIf="!paramShowDocs"
-        (click)="toggleDocsPage()">Show Demo Only</div>
+    <a class="docs-toggle" tabindex="0" *ngIf="!paramShowDocs"
+        (click)="toggleDocsPage()">Show Demo Only</a>
       {{#apis}}
       {{#docs}}
       <{{selector}}></{{selector}}>
@@ -43,11 +55,21 @@ final _showDocs = Uri.base.queryParameters['showDocs'];
     {{/docs}}
     {{/apis}}
   ],
-  styles: ['.docs-toggle {color: #4285f4; cursor: pointer;}'],
+  styles: ['''
+    .focus-indicator-toggle,
+    .docs-toggle {
+      color: #4285f4;
+      cursor: pointer;
+    }
+  '''],
 )
 class GallerySection {
+  final FocusIndicatorController focusIndicatorController;
+
   bool get paramShowDocs => _showDocs != null;
   bool _showDocsPage = _showDocs != null;
   bool get showDocsPage => _showDocsPage;
   void toggleDocsPage() => _showDocsPage = !showDocsPage;
+
+  GallerySection(this.focusIndicatorController);
 }

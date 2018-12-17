@@ -100,6 +100,10 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   bool _closeOnPressLeft = true;
 
   /// Whether the mouse is driving the selection.
+  ///
+  /// This is set to true when mouse moved and is reset to false when a keyboard
+  /// event captured or roughly [_menuDelay] after the last mouse move event
+  /// triggered.
   bool get isMouseDriven => _isMouseDriven;
   bool _isMouseDriven = false;
 
@@ -208,7 +212,9 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
 
   @HostListener('mouseover')
   void onMouseOver(MouseEvent event) {
-    _isMouseDriven = true;
+    // If not triggered by mouse movement, don't handle it. This can happen when
+    // the DOM moved but mouse didn't.
+    if (!_isMouseDriven) return;
 
     var item = _itemForTarget(event.target);
     if (item == null) return;
@@ -222,7 +228,9 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
 
   @HostListener('mouseout')
   void onMouseOut(MouseEvent event) {
-    _isMouseDriven = false;
+    // If not triggered by mouse movement, don't handle it. This can happen when
+    // the DOM moved but mouse didn't.
+    if (!_isMouseDriven) return;
 
     MenuItem item = _itemForTarget(event.target);
     if (item == null) return;
@@ -231,6 +239,11 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
       _hoveredItem = null;
     }
     _subMenuOpener.cancel();
+  }
+
+  @HostListener('mousemove')
+  void onMouseMove(MouseEvent _) {
+    _isMouseDriven = true;
   }
 
   void onSubMenuItemSelected(MenuItem item) {
@@ -354,8 +367,11 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
       _submenuParent = null;
       if (_isMouseDriven) return;
 
-      // Refocus the previous active item if any
-      _focusActiveItem();
+      // Refocus the previous active item if any as long as the whole menu
+      // isn't closing.
+      if (_menuRoot.visible) {
+        _focusActiveItem();
+      }
     }
   }
 
@@ -454,6 +470,14 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
     for (var item in focusableItems) {
       if (item.key == activeModel.activeId) {
         item.focus();
+        break;
+      }
+    }
+
+    // If the group containing the active item is collapsed, expand it.
+    for (final group in menu.itemGroups) {
+      if (group.contains(activeModel.activeItem) && group.isCollapsible) {
+        group.isExpanded = true;
         break;
       }
     }
