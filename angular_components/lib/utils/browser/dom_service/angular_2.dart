@@ -32,6 +32,9 @@ const domServiceBinding = FactoryProvider(
   ],
 );
 
+/// DI module for dom service.
+const domServiceModule = Module(provide: [domServiceBinding]);
+
 // Shared DomService resource. Currently there is only one per application.
 DomService _singletonService;
 
