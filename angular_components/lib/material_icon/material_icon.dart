@@ -71,10 +71,6 @@ class MaterialIconComponent {
     }
   }
 
-  /// Aria label to add to the icon.
-  @Input()
-  String ariaLabel;
-
   dynamic _icon;
 
   /// The icon identifier.
