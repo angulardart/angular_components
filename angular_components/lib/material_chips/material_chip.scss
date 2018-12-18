@@ -9,7 +9,7 @@ $mat-option-inline-icons: true;
 $chip-height: $mat-grid * 4;
 $chip-border-radius: $chip-height / 2;
 
-$main-bg-color: $mat-gray-300;
+$main-bg-color: $mat-grey-300;
 
 $emphasis-bg-color: $mat-blue-500;
 
@@ -40,8 +40,8 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
 
 .left-icon {
   // make it easy to use either <svg> or <material-icon>
-  color: $mat-gray-500;
-  fill: $mat-gray-500;
+  color: $mat-grey-500;
+  fill: $mat-grey-500;
 
   display: flex;
   align-items: center;
@@ -65,7 +65,7 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
   padding: $delete-icon-padding;
   width: $delete-icon-size;
 
-  fill: $mat-gray-500;
+  fill: $mat-grey-500;
 
   &:focus {
     fill: $mat-white;
@@ -87,7 +87,7 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
     fill: $mat-white;
 
     &:focus {
-      fill: $mat-gray-300;
+      fill: $mat-grey-300;
     }
   }
 }

@@ -100,8 +100,8 @@ $left-icon-width: $mat-grid * 4;
   }
 }
 
-$main-hover-bg-color: $mat-gray-400;
-$main-selected-bg-color: $mat-gray-600;
+$main-hover-bg-color: $mat-grey-400;
+$main-selected-bg-color: $mat-grey-600;
 
 $emphasis-hover-bg-color: $mat-blue-700;
 $emphasis-selected-bg-color: $mat-blue-900;
@@ -182,7 +182,7 @@ $emphasis-selected-bg-color: $mat-blue-900;
     }
 
     ::ng-deep .delete-icon:focus {
-      fill: $mat-gray-300;
+      fill: $mat-grey-300;
     }
   }
 }
