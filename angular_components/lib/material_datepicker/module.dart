@@ -69,6 +69,8 @@ const defaultDateComparison = OpaqueToken('defaultDateComparison');
 ///     ];
 ///
 /// (where `last7Days` comes from this package's `range.dart` library).
+@Deprecated('These bindings are not generally useful for most use cases and '
+    'thus do not belong in this general-purpose library. Will be removed soon.')
 const globalDateRangeBindings = [
   Provider(DatepickerModel, useFactory: modelFactory),
   Provider(DatepickerSelection, useFactory: selectionFactory),
