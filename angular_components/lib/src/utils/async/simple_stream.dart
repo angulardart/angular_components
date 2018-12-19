@@ -8,34 +8,37 @@ typedef void StreamCallContextFunc(dynamic func());
 typedef void StreamCallbackFunc<T>(T value);
 typedef void SubscriptionChangeListener<T>(StreamSubscription<T> subscription);
 
-/// A ListenOnly Implementation of a Stream.  It only supports the listen
+/// A ListenOnly Implementation of a [Stream].  It only supports the listen
 /// method with the onData parameter.  Additionally, the streamsubscription can
 /// only be cancelled.
-/// This also acts as a StreamController via the add method.
+/// This also acts like a [StreamController] via the add method.
 ///
-/// Usage: Stream stream = SimpleStream();
+/// Usage:
+/// ```
+/// Stream stream = SimpleStream();
 /// StreamSubscription sub = stream.listen((item) {print('$item'));
 /// stream.add('hi');
 /// sub.cancel();
 /// stream.add(hi);
+/// ```
 ///
-/// This does not behave like an actual stream.   A callback throwing an
+/// This does not behave like an actual stream.  A callback throwing an
 /// exception will cause other callbacks to not execute and the if the stream
 /// is synchronous, the error will propagate back to code adding the object
 /// to the stream.
 ///
 /// When a subscription is cancelled, it gets cleaned up and will not get
 /// called but will remain in the stream's list of subscriptions until the
-/// the cleanup microtask executes.  As such, calling hasListener on the
+/// the cleanup microtask executes.  As such, calling [hasListener] on the
 /// stream give the wrong result until the cleanup executes.  Cleanups for all
-/// SimpleStreams will occur in the same microtask.
+/// [SimpleStreams] will occur in the same microtask.
 ///
-class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
+class SimpleStream<T> extends Stream<T> implements EventSink<T> {
   /// Determines if the stream is synchronous or asynchronous.
   final bool _isSync;
 
-  /// Determines if the stream runs callbacks in the zone that the listeners
-  /// were registered in. If this is false, callbacks from SimpleStream might
+  /// The zone that the listeners were registered in.
+  /// If this is null, callbacks from SimpleStream might
   /// run outside of ng change detection.
   final bool _runInZone;
 
@@ -53,7 +56,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   /// smarter.  If it is null, it means that the stream is closed.
   List<SimpleStreamSubscription<T>> _subscriptions = const [];
 
-  /// List of items to send to avoid scheduling multiple micro tasks for each
+  /// List of items to send to avoid scheduling multiple microtasks for each
   /// item to be sent.
   List<T> _itemsToSend;
 
@@ -66,8 +69,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
 
   SimpleStream({bool isSync = false, bool runInZone = false})
       : _isSync = isSync,
-        _runInZone = runInZone,
-        super(const Stream<Null>.empty());
+        _runInZone = runInZone;
 
   SimpleStream.broadcast(
       {bool isSync = false,
@@ -77,8 +79,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
       : _isSync = isSync,
         _runInZone = runInZone,
         _onListen = onListen,
-        _onCancel = onCancel,
-        super(const Stream<Null>.empty());
+        _onCancel = onCancel;
 
   bool get isSync => _isSync;
 
@@ -104,15 +105,11 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
       _sendItem(_subscriptions, item);
     } else {
       /// Only schedule a single micro-task for async streams.
-      bool schedule = false;
       if (_itemsToSend == null) {
         _itemsToSend = [];
-        schedule = true;
-      }
-      _itemsToSend.add(item);
-      if (schedule) {
         scheduleMicrotask(_sendAsync);
       }
+      _itemsToSend.add(item);
     }
   }
 
@@ -131,19 +128,26 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
       // Loop over them all is faster than keeping track of a list and
       // looking up each one separately.
       List<SimpleStreamSubscription<T>> listeners = _subscriptions;
-      SimpleStreamSubscription<T> lastSubscription;
-      int i = listeners.length - 1;
-      while (i >= 0) {
-        var stream = listeners[i]._stream;
-        if (stream == null) {
-          lastSubscription = listeners.removeAt(i);
+      assert(listeners.isNotEmpty);
+
+      for (var liveCount = 0; liveCount < listeners.length; liveCount++) {
+        var firstRemovedListener = listeners[liveCount];
+        if (firstRemovedListener._stream != null) continue;
+        // At least one removed listener. Collect live listeners at beginning
+        // and truncate the list to only the live listeners.
+        for (var i = liveCount + 1; i < listeners.length; i++) {
+          var listener = listeners[i];
+          if (listener._stream != null) {
+            listeners[liveCount++] = listener;
+          }
         }
-        i--;
-      }
-      // If there are no listeners left and onCancel is set, then call onCancel
-      // to indicate that the last subscription has been removed.
-      if (listeners.isEmpty && lastSubscription != null && _onCancel != null) {
-        _onCancel(lastSubscription);
+        listeners.length = liveCount;
+        // If there are no listeners left and onCancel is set, then call
+        // onCancel to indicate that the last subscription has been removed.
+        if (liveCount == 0 && _onCancel != null) {
+          _onCancel(firstRemovedListener);
+        }
+        break;
       }
     }
     _subscriptionRemoved = false;
@@ -223,7 +227,7 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
   /// Remove a subscription.
   /// It marks a subscription for removal during a microtask to ensure that
   /// a subscription wasn't cancelled as a result of processing a callback.
-  void _scheduleCleanup(SimpleStreamSubscription<T> subscription) {
+  void _scheduleCleanup() {
     if (!_subscriptionRemoved) {
       _subscriptionRemoved = true;
       _cleanupStreams.add(this);
@@ -245,12 +249,12 @@ class SimpleStream<T> extends StreamView<T> implements EventSink<T> {
     // non checked mode since subscriptions will be null once the stream is
     // closed.
     assert(_subscriptions != null);
-    StreamCallContextFunc contextFunc;
+    Zone contextZone;
     if (_runInZone) {
-      contextFunc = Zone.current.run;
+      contextZone = Zone.current;
     }
     var sub = SimpleStreamSubscription<T>(
-        this, onData, onDone, onError, cancelOnError, contextFunc);
+        this, onData, onDone, onError, cancelOnError, contextZone);
     if (_subscriptions.isEmpty) {
       _subscriptions = [sub];
     } else {
@@ -319,19 +323,18 @@ class EmptySimpleStream<T> extends SimpleStream<T> {
   }
 }
 
-/// A SimpleStream implementation of [StreamSubscription].
+/// A [SimpleStream] implementation of [StreamSubscription].
 ///
 /// Major differences:
-///   Future returned by cancel is shared by all subscriptions.
-///   Using [pause] is not supported.
-///   _onError is not implemented by SimpleStream.
+/// * [cancel] returns null.
+/// * Using [pause] is not supported.
 ///
 class SimpleStreamSubscription<T> implements StreamSubscription<T> {
   @override
   final bool isPaused = false;
   SimpleStream<T> _stream;
   StreamCallbackFunc<T> _callback;
-  StreamCallContextFunc _contextFunc;
+  Zone _contextZone;
   Function _doneCallback;
   Function _onError;
   bool _cancelOnError = false;
@@ -340,7 +343,7 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
       SimpleStreamSubscription(null, null, null, null, false, null);
 
   SimpleStreamSubscription(this._stream, this._callback, this._doneCallback,
-      this._onError, this._cancelOnError, this._contextFunc);
+      this._onError, this._cancelOnError, this._contextZone);
 
   @override
   Future cancel() {
@@ -350,7 +353,7 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
       var stream = _stream;
       _doneCallback = null;
       _closeSubscription();
-      stream._scheduleCleanup(this);
+      stream._scheduleCleanup();
     }
     return null;
   }
@@ -367,8 +370,8 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
 
   void _add(T data) {
     if (_callback != null) {
-      if (_contextFunc != null) {
-        _contextFunc(() => _callback(data));
+      if (_contextZone != null) {
+        _contextZone.runUnary(_callback, data);
       } else {
         _callback(data);
       }
@@ -410,7 +413,7 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
   }
 }
 
-/// Provides an interface for both StreamController & and Stream for use with
+/// Provides an interface for both [StreamController] and [Stream] for use with
 /// output events in Angular components.
 ///
 /// Reduces the amount of boilerplate needed by removing the need for a getter
@@ -426,9 +429,6 @@ class SimpleEmitter<T> extends SimpleStream<T> {
             runInZone: runInZone,
             onListen: onListen,
             onCancel: onCancel);
-
-  /// Returns `this`.
-  Stream<T> get stream => this;
 
   /// Returns `this`.
   EventSink<T> get sink => this;
