@@ -13,6 +13,7 @@
                  [raised]="yesRaised || raised"
                  [class.highlighted]="yesHighlighted"
                  [disabled]="yesDisabled || disabled"
+                 [attr.aria-label]="yesAriaLabel"
                  (trigger)="onYes($event)">
   {{yesText}}
 </material-button>
@@ -21,6 +22,7 @@
                  class="btn btn-no"
                  [raised]="raised"
                  [disabled]="noDisabled || disabled"
+                 [attr.aria-label]="noAriaLabel"
                  (trigger)="onNo($event)">
   {{noText}}
 </material-button>
