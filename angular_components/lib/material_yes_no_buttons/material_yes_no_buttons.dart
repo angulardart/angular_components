@@ -121,6 +121,20 @@ class MaterialYesNoButtonsComponent implements HasDisabled {
   @Input()
   bool pending = false;
 
+  /// The text to be used as an ARIA label on the save button.
+  ///
+  /// For example, `Ok`, `Apply`, etc. Defaults to `null` so screen readers will
+  /// read the button text as the label.
+  @Input()
+  String yesAriaLabel;
+
+  /// The text to be used as an ARIA label on the cancel button.
+  ///
+  /// For example, `Dismiss`, `Not now`, etc. Defaults to `null` so screen
+  /// readers will read the button text as the label.
+  @Input()
+  String noAriaLabel;
+
   @ViewChild('yesButton')
   MaterialButtonComponent yesButton;
 
