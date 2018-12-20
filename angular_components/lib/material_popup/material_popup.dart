@@ -13,7 +13,6 @@ import 'package:angular_components/focus/focus_interface.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/enums/visibility.dart'
     as visibility;
-import 'package:angular_components/laminate/overlay/constants.dart';
 import 'package:angular_components/laminate/overlay/module.dart';
 import 'package:angular_components/laminate/overlay/overlay.dart';
 import 'package:angular_components/laminate/overlay/zindexer.dart';
@@ -565,17 +564,14 @@ class MaterialPopupComponent extends Object
       _stopRepositionLoop();
     }
 
-    // If user tabs out of the popup or if the focus is inside of popup when the
-    // popup closes, restore focus on the popup source element instead of some
-    // seemingly random DOM location.
+    // If the focus is inside of popup when the popup closes, restore focus on
+    // the popup source element instead of some seemingly random DOM location.
     // TODO(google): removed the islastTriggerWithKeyboard to better support
     // mouse/keyboard mixed interactions.
     if (state.source is Focusable && hierarchy.islastTriggerWithKeyboard) {
       _domService.scheduleWrite(() {
-        if (window.document.activeElement.classes
-                .contains(overlayFocusablePlaceholderClassName) ||
-            _overlayRef.overlayElement
-                .contains(window.document.activeElement)) {
+        if (_overlayRef.overlayElement
+            .contains(window.document.activeElement)) {
           (state.source as Focusable).focus();
         }
       });
