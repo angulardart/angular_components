@@ -6,6 +6,10 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/material_datepicker/material_month_picker.dart';
+import 'package:angular_components/material_icon/material_icon.dart';
+import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/utils/showhide/showhide.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
@@ -60,6 +64,9 @@ import 'package:angular_components/utils/angular/css/css.dart';
     NgFor,
     NgIf,
     PopupSourceDirective,
+    MaterialMonthPickerComponent,
+    ShowHideDirective,
+    MaterialIconComponent,
   ],
   providers: [
     Provider(HasDisabled, useExisting: MaterialDatepickerComponent),
@@ -282,11 +289,67 @@ class MaterialDatepickerComponent
   @Input()
   String error;
 
+  /// Whether to display the month selector dropdown.
+  ///
+  /// Defaults to true.
+  @Input()
+  bool supportsMonthSelector = true;
+
+  @ViewChild(MaterialCalendarPickerComponent)
+  MaterialCalendarPickerComponent calendarPicker;
+
+  @ViewChild(MaterialMonthPickerComponent)
+  MaterialMonthPickerComponent monthSelector;
+
+  void onMonthSelectorDropdownClicked() {
+    showMonthSelector = !showMonthSelector;
+    if (showMonthSelector) {
+      _domService.scheduleWrite(() {
+        monthSelector.scrollToYear(_visibleMonth.year);
+      });
+    }
+  }
+
+  set monthSelectorState(CalendarState state) {
+    _monthSelectorState = state;
+    if (state.has(state.currentSelection)) {
+      // A month was selected - switch back to the calendar picker and scroll
+      // the month into view.
+      showMonthSelector = false;
+      _monthSelectorState =
+          CalendarState.empty(resolution: CalendarResolution.months);
+      final selectedMonth = state.selection(state.currentSelection);
+      _domService.scheduleWrite(() {
+        calendarPicker.scrollToDate(selectedMonth.start);
+      });
+    }
+  }
+
+  CalendarState get monthSelectorState => _monthSelectorState;
+  CalendarState _monthSelectorState =
+      CalendarState.empty(resolution: CalendarResolution.months);
+
+  static final _monthFormatter = DateFormat.yMMM();
+  Date _visibleMonth;
+
+  String get visibleMonthName => _visibleMonthName;
+  String _visibleMonthName = '';
+
+  void onVisibleMonthChange(Date month) {
+    _visibleMonth = month;
+    _visibleMonthName = _monthFormatter.format(month.asUtcTime());
+  }
+
+  bool showMonthSelector = false;
+
+  final DomService _domService;
+
   MaterialDatepickerComponent(
-      HtmlElement element,
-      @Attribute('popupClass') String popupClass,
-      @Optional() @Inject(datepickerClock) Clock clock)
-      : popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
+    HtmlElement element,
+    @Attribute('popupClass') String popupClass,
+    @Optional() @Inject(datepickerClock) Clock clock,
+    this._domService,
+  ) : popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
     clock ??= Clock();
 
     // Init minDate and maxDate to sensible defaults

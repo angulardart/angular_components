@@ -40,8 +40,13 @@ $main-font-size: 13px;
   }
 }
 
-.popup-content.compact .date-input {
-  padding: 0 $picker-compact-horizontal-padding;
+.popup-content.compact {
+
+  .date-input,
+  .month-selector-toolbar {
+    padding: 0 $picker-compact-horizontal-padding;
+  }
+
 }
 
 .icon {
@@ -78,4 +83,75 @@ material-select-item {
     padding: $picker-compact-vertical-padding $picker-compact-horizontal-padding;
     padding-bottom: 0;
   }
+}
+
+// note(lejard-h) share month selector style with date_range_editor ?
+.picker-container {
+  @include calendar-height(7);
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+
+  &.compact {
+    @include calendar-compact-height(7);
+  }
+}
+
+.calendar-picker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(0);
+  transition: transform $mat-transition $mat-transition-standard;
+  will-change: transform;
+
+  &.acx-showhide-hide {
+    transform: translateY(100%);
+  }
+
+  &.acx-showhide-hidden {
+    visibility: hidden;
+  }
+}
+
+.month-selector {
+  border-top: 1px solid $mat-border-light;
+
+  &.acx-showhide-hide {
+    transform: translateY(-100%);
+  }
+}
+
+.month-selector-toolbar {
+  align-items: center;
+  color: $mat-transparent-black;
+  display: flex;
+  flex-shrink: 0;
+  margin-bottom: $picker-horizontal-padding;
+  padding: 0 $picker-horizontal-padding;
+}
+
+.month-selector-dropdown {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.month-selector-dropdown-icon {
+  will-change: transform;
+  transition: transform $mat-transition $mat-transition-standard;
+
+  &.flipped {
+    transform: scaleY(-1);
+  }
+}
+
+.visible-month {
+  // TODO(google): Migrate to extended mixin mat-font-body-2
+  font-size: $mat-font-size-body;
+  font-weight: $mat-font-weight-medium;
+  text-transform: uppercase;
 }
