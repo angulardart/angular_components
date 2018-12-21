@@ -52,6 +52,12 @@ class IconAffix extends MenuItemAffix {
       this.visibility = IconVisibility.visible,
       this.cssClass});
 
+  /// Creates a simple icon without any trigger action.
+  const IconAffix.simple(
+      {@required this.icon,
+      this.visibility = IconVisibility.visible,
+      this.cssClass});
+
   @override
   bool get shouldCloseMenuOnTrigger =>
       icon is IconWithAction &&
