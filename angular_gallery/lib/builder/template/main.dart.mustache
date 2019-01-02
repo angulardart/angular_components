@@ -12,11 +12,21 @@ import 'main.template.dart' as ng;
 
 Logger _logger = Logger("angular_dart_gallery");
 
+ComponentRef<app.GalleryComponent> gallery;
+
 void main() {
   Logger.root.onRecord.listen((x) => print("${x.level}: ${x.message}"));
 
   // Start angular.
-  runApp(app.GalleryComponentNgFactory, createInjector: galleryInjector);
+  gallery = runApp(app.GalleryComponentNgFactory, createInjector: galleryInjector);
+}
+
+/// The [onReloadStart] method is invoked immediately after the call to
+/// dart_library.reload(), and the app will be in the same state as it was
+/// before the reload. After this call, all invalidated modules will be
+/// reloaded. go/dart-dc#warm-reload-with-ddc-dogfood
+void onReloadStart() {
+  gallery.destroy();
 }
 
 @Injectable()
