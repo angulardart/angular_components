@@ -68,6 +68,7 @@ class MaterialExpansionPanel
   final _disposer = Disposer.oneShot();
   final _defaultExpandIcon = 'expand_less';
   final bool shouldExpandOnLeft;
+  final _pendingExpandedPanelHeightReads = <Completer<String>>[];
 
   bool initialized = false;
 
@@ -106,7 +107,17 @@ class MaterialExpansionPanel
 
   HtmlElement _mainContent;
   @ViewChild('mainContent')
-  set mainContent(HtmlElement mainContent) => _mainContent = mainContent;
+  set mainContent(HtmlElement mainContent) {
+    _mainContent = mainContent;
+    if (_mainContent == null) return;
+    if (_pendingExpandedPanelHeightReads.isNotEmpty) {
+      var height = _readMainContentHeight();
+      for (var completer in _pendingExpandedPanelHeightReads) {
+        completer.complete(height);
+      }
+      _pendingExpandedPanelHeightReads.clear();
+    }
+  }
 
   HtmlElement _headerContent;
   @ViewChild('headerContent')
@@ -489,24 +500,32 @@ class MaterialExpansionPanel
     final completeExpandedHeight = Completer<String>();
 
     _domService.scheduleRead(() {
-      final contentHeight = _mainContent.scrollHeight;
-      var expandedPanelHeight = '';
-
-      final mainPanelStyle = _mainPanel.getComputedStyle();
-      // Do our best to make sure that onTransitionEnd will fire later.
-      final hasHeightTransition =
-          contentHeight > 0 && mainPanelStyle.transition.contains('height');
-
-      if (hasHeightTransition) {
-        // If the content-wrapper has a top margin, it is not reflected in the
-        // scroll height.
-        final topMargin = _contentWrapper.getComputedStyle().marginTop;
-        expandedPanelHeight = 'calc(${contentHeight}px + ${topMargin})';
+      if (_mainContent != null) {
+        completeExpandedHeight.complete(_readMainContentHeight());
+      } else {
+        _pendingExpandedPanelHeightReads.add(completeExpandedHeight);
       }
-      completeExpandedHeight.complete(expandedPanelHeight);
     });
 
     return completeExpandedHeight.future;
+  }
+
+  String _readMainContentHeight() {
+    final contentHeight = _mainContent.scrollHeight;
+    var expandedPanelHeight = '';
+
+    final mainPanelStyle = _mainPanel.getComputedStyle();
+    // Do our best to make sure that onTransitionEnd will fire later.
+    final hasHeightTransition =
+        contentHeight > 0 && mainPanelStyle.transition.contains('height');
+
+    if (hasHeightTransition) {
+      // If the content-wrapper has a top margin, it is not reflected in the
+      // scroll height.
+      final topMargin = _contentWrapper.getComputedStyle().marginTop;
+      expandedPanelHeight = 'calc(${contentHeight}px + ${topMargin})';
+    }
+    return expandedPanelHeight;
   }
 
   /// Reads the DOM state to calculate the height of the header in its
