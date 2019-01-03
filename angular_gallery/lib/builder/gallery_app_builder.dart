@@ -13,8 +13,11 @@ import '../src/template_util.dart';
 class GalleryWebBuilder extends Builder {
   final String _galleryTitle;
   final String _direction;
+  final String _galleryBindingName;
+  final String _galleryBindingImport;
 
-  GalleryWebBuilder(this._direction, this._galleryTitle);
+  GalleryWebBuilder(this._direction, this._galleryTitle,
+      this._galleryBindingName, this._galleryBindingImport);
 
   @override
   Future build(BuildStep buildStep) async {
@@ -36,8 +39,13 @@ class GalleryWebBuilder extends Builder {
   Future _generateMainDart(BuildStep buildStep) async {
     final mustacheContext = {
       'galleryImportUri':
-          'package:${buildStep.inputId.package}/gallery/gallery.template.dart'
+          'package:${buildStep.inputId.package}/gallery/gallery.template.dart',
+      'hasBinding':
+          _galleryBindingName.isNotEmpty && _galleryBindingImport.isNotEmpty,
+      'bindingName': _galleryBindingName,
+      'bindingImport': _galleryBindingImport,
     };
+
     final newAssetId = AssetId(buildStep.inputId.package, 'web/main.dart');
     await writeAsset(buildStep, 'lib/builder/template/main.dart.mustache',
         mustacheContext, newAssetId);

@@ -7,6 +7,9 @@ import 'package:angular_components/laminate/popup/module.dart';
 import 'package:angular_components/laminate/overlay/module.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import '{{{ galleryImportUri }}}' as app;
+{{# hasBinding }}
+import '{{{ bindingImport }}}' as binding;
+{{/ hasBinding }}
 
 import 'main.template.dart' as ng;
 
@@ -39,6 +42,9 @@ HtmlElement materialContentElement(Document document) {
   popupBindings,
   datepickerBindings,
   Provider(overlayContainerParent, useFactory: materialContentElement),
+  {{# hasBinding }}
+  binding.{{ bindingName }},
+  {{/ hasBinding }}
 ])
 
 final InjectorFactory galleryInjector = ng.galleryInjector$Injector;
