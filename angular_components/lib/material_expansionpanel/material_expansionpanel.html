@@ -12,12 +12,12 @@
      keyupBoundary>
 
   <!-- Title section -->
-<header [class.hidden]="isExpanded && hideExpandedHeader" #headerPanel>
+<header [class.hidden]="headerHidden" #headerPanel>
   <div class="header"
           buttonDecorator
           #expandCollapseButton
           #headerContent
-          [disabled]="disabled"
+          [disabled]="disabled || headerHidden"
           [class.closed] = "!isExpanded"
           [class.disable-header-expansion]="disableHeaderExpansion"
           [attr.aria-label]="headerMsg"
@@ -26,6 +26,7 @@
         buttonDecorator
         *ngIf="shouldShowExpandIcon && shouldExpandOnLeft"
         class="expand-button expand-on-left"
+        [disabled]="headerHidden"
         [icon]="expandIcon"
         [class.expand-more]="shouldFlipExpandIcon"
         (trigger)="handleExpandIconClick">
@@ -44,6 +45,7 @@
                    *ngIf="shouldShowExpandIcon && !shouldExpandOnLeft"
                    class="expand-button"
                    [icon]="expandIcon"
+                   [disabled]="headerHidden"
                    [class.expand-more]="shouldFlipExpandIcon"
                    (trigger)="handleExpandIconClick"
                    [attr.aria-label]="expandAriaMsg">
