@@ -96,47 +96,50 @@
         [id]="popupId"
         [width]="width"
         (mouseleave)="activeModel.activate(null)">
-      <div
-          *ngFor="let suggestionGroup of visibleSuggestionGroups; trackBy: trackByIndexFn"
-          group
-          class="list-group">
+      <ng-container
+          *ngFor="let suggestionGroup of visibleSuggestionGroups; trackBy: trackByIndexFn">
+        <div
+            *ngIf="suggestionGroup.isNotEmpty || suggestionGroup.hasEmptyLabel"
+            group
+            class="list-group">
         <span *ngIf="suggestionGroup.hasLabel && !hasCustomLabelRenderer"
-            label
-            class="list-group-label"
-            (mouseenter)="activeModel.activate(null)">
+              label
+              class="list-group-label"
+              (mouseenter)="activeModel.activate(null)">
           {{suggestionGroup.uiDisplayName}}
         </span>
-        <dynamic-component *ngIf="hasCustomLabelRenderer"
-            [componentType]="labelRenderer != null ? labelRenderer(suggestionGroup) : null"
-            [componentFactory]="labelFactory != null ? labelFactory(suggestionGroup) : null"
-            [value]="suggestionGroup"
-            (mouseenter)="activeModel.activate(null)">
-        </dynamic-component>
-        <material-select-dropdown-item
-            #emptyLabel
-            *ngIf="suggestionGroup.isEmpty && suggestionGroup.hasEmptyLabel"
-            keyboardOnlyFocusIndicator
-            [disabled]="true"
-            [value]="suggestionGroup.emptyLabel">
-        </material-select-dropdown-item>
-        <material-select-dropdown-item
-            *ngFor="let suggestion of suggestionGroup"
-            class="list-item"
-            keyboardOnlyFocusIndicator
-            [itemRenderer]="itemRenderer"
-            [componentRenderer]="componentRenderer"
-            [factoryRenderer]="factoryRenderer"
-            [selection]="selection"
-            [disabled]="isOptionDisabled(suggestion)"
-            [value]="suggestion"
-            [closeOnActivate]="closeOnActivate"
-            [deselectOnActivate]="isMultiSelect"
-            [hideCheckbox]="hideCheckbox"
-            [itemActive]="popup.showPopup && activeModel.isActive(suggestion)"
-            [id]="activeModel.id(suggestion)"
-            (mouseenter)="activeModel.activate(suggestion)">
-        </material-select-dropdown-item>
-      </div>
+          <dynamic-component *ngIf="hasCustomLabelRenderer"
+              [componentType]="labelRenderer != null ? labelRenderer(suggestionGroup) : null"
+              [componentFactory]="labelFactory != null ? labelFactory(suggestionGroup) : null"
+              [value]="suggestionGroup"
+              (mouseenter)="activeModel.activate(null)">
+          </dynamic-component>
+          <material-select-dropdown-item
+              #emptyLabel
+              *ngIf="suggestionGroup.isEmpty && suggestionGroup.hasEmptyLabel"
+              keyboardOnlyFocusIndicator
+              [disabled]="true"
+              [value]="suggestionGroup.emptyLabel">
+          </material-select-dropdown-item>
+          <material-select-dropdown-item
+              *ngFor="let suggestion of suggestionGroup"
+              class="list-item"
+              keyboardOnlyFocusIndicator
+              [itemRenderer]="itemRenderer"
+              [componentRenderer]="componentRenderer"
+              [factoryRenderer]="factoryRenderer"
+              [selection]="selection"
+              [disabled]="isOptionDisabled(suggestion)"
+              [value]="suggestion"
+              [closeOnActivate]="closeOnActivate"
+              [deselectOnActivate]="isMultiSelect"
+              [hideCheckbox]="hideCheckbox"
+              [itemActive]="popup.showPopup && activeModel.isActive(suggestion)"
+              [id]="activeModel.id(suggestion)"
+              (mouseenter)="activeModel.activate(suggestion)">
+          </material-select-dropdown-item>
+        </div>
+      </ng-container>
     </material-list>
   </focus-trap>
   <div footer
