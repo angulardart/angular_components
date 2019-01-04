@@ -459,6 +459,8 @@ class MaterialExpansionPanel
     return actionCtrl.action.onDone;
   }
 
+  bool get headerHidden => isExpanded && hideExpandedHeader;
+
   /// Sets necessary explicit heights to allow CSS transitions when expanding
   /// or collapsing.
   void _transitionHeightChange(bool expand) {
