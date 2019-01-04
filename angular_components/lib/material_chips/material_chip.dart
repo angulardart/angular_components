@@ -41,6 +41,10 @@ class MaterialChipComponent<T> extends RootFocusable implements HasRenderer<T> {
       desc: 'Label for a button which removes the item when clicked.',
       meaning: 'Label for a button which removes the item when clicked.');
 
+  /// Aria label for delete button.
+  @Input()
+  String deleteButtonAriaMessage = chipDeleteButtonMessage;
+
   /// A selection model to render as chips.
   ///
   /// This model should not be used for rendering, changes will not be
