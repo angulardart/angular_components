@@ -82,7 +82,11 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
         value?.minute != _time?.minute ||
         value?.isUtc != _time?.isUtc)) {
       _time = value;
-      selectedTime.clear();
+      if (time != null) {
+        selectedTime.select(time);
+      } else {
+        selectedTime.clear();
+      }
       _timeChangeController.add(time);
     }
     setInputErrorText(_validateTime(time));
