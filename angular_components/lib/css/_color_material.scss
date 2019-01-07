@@ -56,7 +56,7 @@ $mat-border-dark: rgba($mat-white, $mat-divider-opacity);
 $mat-border-dotted-light: $mat-lightest-transparent-black;
 
 // Text colors
-// https://material.io/design/color/text-legibility.html
+// https://material.io/design/color
 $mat-text-primary: $mat-transparent-black;
 $mat-text-secondary: $mat-light-transparent-black;
 $mat-text-hint: $mat-lighter-transparent-black;
@@ -70,7 +70,7 @@ $mat-text-dark-disabled: $mat-lighter-transparent-white;
 $mat-text-dark-divider: $mat-border-dark;
 
 // Icon colors
-// https://material.io/design/color/text-legibility.html#text-types
+// https://material.io/guidelines/style/icons.html
 $mat-icon-focused: $mat-transparent-black;
 $mat-icon: $mat-light-transparent-black;
 $mat-icon-inactive: $mat-lighter-transparent-black;
