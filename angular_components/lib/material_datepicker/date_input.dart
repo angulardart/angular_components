@@ -216,6 +216,7 @@ class DateInputDirective implements OnDestroy {
   /// Parse the given string as a date using one of the listed formats.
   /// Returns the parsed date, or null if the string didn't match any format.
   Date _parseDateUsingFormatList(String input, List<DateFormat> formatList) {
+    Date date;
     formatList.any((format) {
       date = _parseDateUsingFormat(input, format);
       return date != null;
