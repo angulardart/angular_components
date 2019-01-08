@@ -264,3 +264,12 @@
     }
   }
 }
+
+/// Changes the vertical-align of the label text.
+@mixin material-input-label-text-vertical-align($vertical-align) {
+  ::ng-deep {
+    .label-text {
+      vertical-align: $vertical-align;
+    }
+  }
+}
