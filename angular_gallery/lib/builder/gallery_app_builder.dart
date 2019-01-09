@@ -41,7 +41,7 @@ class GalleryWebBuilder extends Builder {
       'galleryImportUri':
           'package:${buildStep.inputId.package}/gallery/gallery.template.dart',
       'hasBinding':
-          _galleryBindingName.isNotEmpty && _galleryBindingImport.isNotEmpty,
+          _galleryBindingName != null && _galleryBindingImport != null,
       'bindingName': _galleryBindingName,
       'bindingImport': _galleryBindingImport,
     };
