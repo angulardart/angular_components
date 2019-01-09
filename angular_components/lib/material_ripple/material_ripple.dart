@@ -217,5 +217,10 @@ class MaterialRippleComponent implements OnDestroy {
   void ngOnDestroy() {
     _element.removeEventListener('mousedown', _onMouseDown);
     _element.removeEventListener('keydown', _onKeyDown);
+    _ripplePool.forEach((ripple) {
+      if (ripple?.parent == _element) {
+        ripple.remove();
+      }
+    });
   }
 }
