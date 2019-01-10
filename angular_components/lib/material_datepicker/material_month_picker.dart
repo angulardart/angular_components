@@ -333,6 +333,8 @@ class MaterialMonthPickerComponent
         state.selections.isEmpty ? _today : state.selections.first.start;
     _renderAllYears();
     scrollToYear(initialDate.year);
+    _renderHighlights();
+    _renderHover();
   }
 
   // Dart returns a separate instance every time a tearoff is accessed, so we
