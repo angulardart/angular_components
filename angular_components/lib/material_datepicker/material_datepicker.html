@@ -10,6 +10,7 @@
     {{labelMsg}}
   </div>
   <dropdown-button class="menu-lookalike primary-range"
+                  [attr.aria-label]="ariaLabelForDropdownButton"
                   [disabled]="disabled"
                   [error]="error"
                   [buttonText]="formattedDate"
