@@ -7,11 +7,11 @@ library angular_components.scaffolding.gallery_section.components.gallery_compon
 
 import 'dart:html';
 import 'package:angular/angular.dart';
-import 'package:angular/security.dart';
 import 'package:js/js.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/laminate/popup/module.dart';
+import 'package:angular_gallery_section/components/gallery_component/documentation_component.dart';
 import 'package:angular_gallery_section/components/gallery_component/gallery_info.dart';
 
 /// The gallery component details page that encompass the component's dart docs,
@@ -23,11 +23,12 @@ import 'package:angular_gallery_section/components/gallery_component/gallery_inf
     DynamicComponent,
     NgFor,
     NgIf,
-    SafeInnerHtmlDirective,
+    documentationComponentDirectives,
   ],
   providers: [popupBindings],
   templateUrl: 'gallery_component.html',
   styleUrls: ['gallery_component.scss.css'],
+  exports: const [DocType],
 )
 class GalleryComponent {
   /// The base model for the gallery that gathers all of the details needed by
@@ -35,30 +36,15 @@ class GalleryComponent {
   @Input()
   GalleryInfo model;
 
-  DomSanitizationService _santizationService;
-
-  final _sanitizedHtml = <String, SafeHtml>{};
-
   /// Used to disable latency charts in testing environments where they can't
   /// load successfully.
   final latencyChartsEnabled =
       !window.location.href.contains('enableLatencyCharts=false');
 
-  GalleryComponent(this._santizationService);
-
   bool get showToc =>
       (model.docs.length + model.demos.length + model.benchmarks.length) > 1;
 
-  SafeHtml getSafeHtml(String value) {
-    var html = _sanitizedHtml[value];
-    if (html == null) {
-      html = _santizationService.bypassSecurityTrustHtml(value);
-      _sanitizedHtml[value] = html;
-    }
-    return html;
-  }
-
-  String getDocId(Doc doc) => '${doc.name}Doc';
+  String getDocId(DocInfo doc) => '${doc.name}Doc';
 
   String getDemoId(Demo demo) => '${demo.name}Demo';
 

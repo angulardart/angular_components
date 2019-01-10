@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/css/all_material';
 
 // ::ng-deep rules may apply to target tags that don't appear in the template,
 // but are inserted dynamically.
@@ -103,11 +103,6 @@ h2 {
   }
 }
 
-.doc ::ng-deep strong {
-  @include mat-font-body-2;
-  color: $mat-blue;
-}
-
 ::ng-deep p {
   // Makes it so the docs for inputs and outputs could be closer to the
   // input/output declaration.
@@ -135,24 +130,6 @@ h2 {
 
 :not(.demo) ::ng-deep li:not(:last-of-type) {
   margin-bottom: $mat-grid * 2;
-}
-
-.property-type {
-  background: none;
-  border: 0;
-  color: $mat-blue;
-  font-size: smaller;
-}
-
-.property-deprecated::before,
-.declaration-deprecated::before {
-  color: $mat-red-600;
-  content: 'Deprecated! ';
-}
-
-.declaration-deprecated {
-  font-weight: $mat-font-weight-bold;
-  font-size: $mat-font-size-subhead;
 }
 
 ::ng-deep table {

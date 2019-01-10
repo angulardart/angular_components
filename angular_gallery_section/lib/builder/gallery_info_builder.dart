@@ -14,6 +14,7 @@ import 'package:angular_gallery_section/g3doc_markdown.dart';
 import 'package:angular_gallery_section/gallery_docs_extraction.dart';
 import 'package:angular_gallery_section/gallery_section_config_extraction.dart';
 import 'package:angular_gallery_section/resolved_config.dart';
+import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
 import 'package:angular_gallery_section/visitors/path_utils.dart' as path_utils;
 
 /// A builder for generating a json summary of each occurance of a
@@ -78,7 +79,7 @@ class GalleryInfoBuilder extends Builder {
         return resolved;
       }));
 
-  /// Resolve all [docs] into a [_DocInfo] that contains the HTML to be rendered
+  /// Resolve all [docs] into a [DocInfo] that contains the HTML to be rendered
   /// in the gallery.
   ///
   /// Searches imports for documentation starting at [rootLibrary], reading
@@ -107,7 +108,7 @@ class GalleryInfoBuilder extends Builder {
   }
 
   /// Read the [markdownAsset] with [assetReader] and render as HTML.
-  Future<DocInfo> _readMarkdownAsset(
+  Future<MarkdownDocInfo> _readMarkdownAsset(
       String markdownAsset, AssetReader assetReader) async {
     final assetId = AssetId.resolve(markdownAsset);
     if (extension(assetId.path) != '.md') {
@@ -125,12 +126,10 @@ class GalleryInfoBuilder extends Builder {
     // Convert markdown to html and insert static server for images.
     final htmlContent = _replaceImgTags(g3docMarkdownToHtml(content));
 
-    return DocInfo()
+    return MarkdownDocInfo()
       ..name = basenameWithoutExtension(assetId.path)
-      // Markdown docs have no annotations to signal they are deprecated.
-      ..deprecated = false
       ..path = path_utils.assetToPath(assetId.toString())
-      ..comment = htmlContent;
+      ..contents = htmlContent;
   }
 
   /// Find the file that defines [identifier], and extract the documentation
@@ -138,11 +137,11 @@ class GalleryInfoBuilder extends Builder {
   ///
   /// Searches imports starting at [library], reading source files with
   /// [assetReader].
-  Future<DocInfo> _resolveDocFromClass(String identifier,
+  Future<DartDocInfo> _resolveDocFromClass(String identifier,
       LibraryElement library, AssetReader assetReader) async {
     final libraryId = AssetId.resolve(library.source.uri.toString());
     final docClass = library.getType(identifier);
-    DocInfo docs;
+    DartDocInfo docs;
 
     // If this a functional directive, just extract the docs and we are done.
     if (docClass == null) {
@@ -155,8 +154,8 @@ class GalleryInfoBuilder extends Builder {
 
     // Otherwise there is additional documenation for a class. Collect all
     // inherited @Input and @Output documentation.
-    final mergedInputs = <String, PropertyInfo>{};
-    final mergedOutputs = <String, PropertyInfo>{};
+    final mergedInputs = <String, DartPropertyInfo>{};
+    final mergedOutputs = <String, DartPropertyInfo>{};
 
     for (final classElement in _classHierarcy(docClass)) {
       // Must extract doumentation from AST becauses the
