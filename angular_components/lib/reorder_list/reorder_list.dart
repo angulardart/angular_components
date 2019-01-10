@@ -76,6 +76,12 @@ class ReorderListComponent implements OnDestroy {
   final _itemSelectionChanged =
       StreamController<ItemSelectionEvent>.broadcast(sync: true);
 
+  /// Emits [ReorderEvent] with the source index and the currently hovered index
+  /// during a reorder.
+  @Output()
+  Stream<ReorderEvent> get reorderProgress => _reorderProgress.stream;
+  final _reorderProgress = StreamController<ReorderEvent>.broadcast(sync: true);
+
   final NgZone _ngZone;
 
   /// If true (default), items are aligned vertically.
@@ -547,6 +553,9 @@ class ReorderListComponent implements OnDestroy {
         moveTargetIndex != -1) {
       _moveItem(_currentMoveIndex, moveTargetIndex);
       _currentMoveIndex = moveTargetIndex;
+
+      _reorderProgress
+          .add(_createReorderEvent(_moveSourceIndex, _currentMoveIndex));
 
       // Need to temporary remove drag listener for element
       // we're switching with to not trigger another event during transition
