@@ -3,13 +3,16 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
+
+// This needs to be a seperate build target for the builders but all runtime
+// uses can access it via this export.
+export 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
 
 /// The model that keeps the details for all of the gallery information
 class GalleryInfo {
-  /// A list of Doc attributes pull Dart doc comments from.
-  ///
-  /// Specify docs in the order that they should be displayed.
-  final List<Doc> docs;
+  /// The docs to show in the gallery page in the order that they should appear.
+  final List<DocInfo> docs;
 
   /// A list of example component examples to include in the section.
   ///
@@ -48,37 +51,9 @@ class GalleryInfo {
       this.showGeneratedDocs = true});
 }
 
-class Doc {
-  final String name;
-  final bool deprecated;
-  final String deprecatedMessage;
-  final String selector;
-  final String exportAs;
-  final String path;
-  final String comment;
-  final List<Property> inputs;
-  final List<Property> outputs;
-  const Doc(this.name, this.deprecated, this.deprecatedMessage, this.selector,
-      this.exportAs, this.path, this.comment, this.inputs, this.outputs);
-}
-
 class Demo {
   final ComponentFactory demoFactory;
   final String name;
   final String path;
   const Demo(this.demoFactory, this.name, this.path);
-}
-
-class Property {
-  final String annotation;
-  final String name;
-  final String bindingAlias;
-  final String type;
-  final String comment;
-  final String classPath;
-  final bool deprecated;
-  final String deprecatedMessage;
-
-  const Property(this.annotation, this.name, this.bindingAlias, this.type,
-      this.comment, this.classPath, this.deprecated, this.deprecatedMessage);
 }

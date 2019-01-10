@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
 import 'package:angular_gallery_section/visitors/path_utils.dart' as path_utils;
 import 'package:angular_components/utils/strings/string_utils.dart' as string;
 
@@ -71,89 +72,6 @@ class ResolvedConfig {
         'uxOwners': uxOwners?.toList(),
         'relatedUrls': relatedUrls,
         'showGeneratedDocs': showGeneratedDocs,
-      };
-}
-
-/// Represents the docs listed in an @GallerySectionConfig annotation resolved
-/// to the values used by the gallery generators.
-class DocInfo {
-  String name;
-  bool deprecated;
-  String deprecatedMessage;
-  String selector;
-  String exportAs;
-  String path;
-  String comment;
-  Iterable<PropertyInfo> inputs;
-  Iterable<PropertyInfo> outputs;
-
-  DocInfo();
-
-  /// Constructs a new [DocInfo] from a decoded json map.
-  DocInfo.fromJson(Map<String, dynamic> jsonMap) {
-    name = jsonMap['name'] as String;
-    deprecated = jsonMap['deprecated'] as bool;
-    deprecatedMessage = jsonMap['deprecatedMessage'] as String;
-    selector = jsonMap['selector'] as String;
-    exportAs = jsonMap['exportAs'] as String;
-    path = jsonMap['path'] as String;
-    comment = jsonMap['comment'] as String;
-    inputs = (jsonMap['inputs'] as Iterable)
-        ?.map((element) => PropertyInfo.fromJson(element));
-    outputs = (jsonMap['outputs'] as Iterable)
-        ?.map((element) => PropertyInfo.fromJson(element));
-  }
-
-  /// Returns a json encodeable representation of this [DocInfo].
-  Map<String, dynamic> toJson() => {
-        'name': name,
-        'deprecated': deprecated,
-        'deprecatedMessage': deprecatedMessage,
-        'selector': selector,
-        'exportAs': exportAs,
-        'path': path,
-        'comment': comment,
-        'inputs': inputs?.map((p) => p.toJson())?.toList(),
-        'outputs': outputs?.map((p) => p.toJson())?.toList(),
-      };
-}
-
-/// Represents an @Input or @Output property for an Angular @Component or
-/// @Directive resolved to the values used by the gallery generators.
-class PropertyInfo {
-  String annotation;
-  String name;
-  String bindingAlias;
-  String type;
-  String comment;
-  String classPath;
-  bool deprecated;
-  String deprecatedMessage;
-
-  PropertyInfo();
-
-  /// Constructs a new [PropertyInfo] from a decoded json map.
-  PropertyInfo.fromJson(Map<String, dynamic> jsonMap) {
-    annotation = jsonMap['annotation'] as String;
-    name = jsonMap['name'] as String;
-    bindingAlias = jsonMap['bindingAlias'] as String;
-    type = jsonMap['type'] as String;
-    comment = jsonMap['comment'] as String;
-    classPath = jsonMap['classPath'] as String;
-    deprecated = jsonMap['deprecated'] as bool;
-    deprecatedMessage = jsonMap['deprecatedMessage'] as String;
-  }
-
-  /// Returns a json encodeable representation of this [PropertyInfo].
-  Map<String, dynamic> toJson() => {
-        'annotation': annotation,
-        'name': name,
-        'bindingAlias': bindingAlias,
-        'type': type,
-        'comment': comment,
-        'classPath': classPath,
-        'deprecated': deprecated,
-        'deprecatedMessage': deprecatedMessage,
       };
 }
 
