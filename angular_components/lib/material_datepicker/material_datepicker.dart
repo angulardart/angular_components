@@ -76,6 +76,10 @@ class MaterialDatepickerComponent
   /// Only visible for the template.
   final String popupClassName;
 
+  /// aria-label attached to the dropdown button that opens the date picker.
+  @Input()
+  String ariaLabelForDropdownButton;
+
   /// The format used to format dates.
   ///
   /// Defaults to `yMMMd`, e.g. 'Jan 23, 2015'.
