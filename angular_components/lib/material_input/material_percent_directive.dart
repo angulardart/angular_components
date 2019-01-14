@@ -21,6 +21,9 @@ export 'package:angular_components/material_input/material_number_accessor.dart'
 class MaterialPercentInputDirective {
   MaterialPercentInputDirective(
       MaterialInputComponent input, HtmlElement element) {
+    // 'percent' is an invalid 'type' attribute value for the 'input' element.
+    // Use value 'text' instead.
+    input.type = 'text';
     input.rightAlign = true;
     element.dir = 'ltr';
     final percentPattern = NumberFormat.percentPattern();
