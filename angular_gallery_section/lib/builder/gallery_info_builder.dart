@@ -90,8 +90,8 @@ class GalleryInfoBuilder extends Builder {
 
     return docs.map((doc) async {
       if (doc.startsWith('package:')) {
-        // This is a Markdown asset, grab it directly.
-        return _readMarkdownAsset(doc, assetReader);
+        // This is an external asset to collect docs from.
+        return _readExternalAsset(doc, assetReader);
       } else {
         // Assume it is a class or function that needs to be found.
         final docLibrary = _searchFor(doc, rootLibrary);
@@ -108,28 +108,25 @@ class GalleryInfoBuilder extends Builder {
   }
 
   /// Read the [markdownAsset] with [assetReader] and render as HTML.
-  Future<MarkdownDocInfo> _readMarkdownAsset(
+  Future<DocInfo> _readExternalAsset(
       String markdownAsset, AssetReader assetReader) async {
     final assetId = AssetId.resolve(markdownAsset);
-    if (extension(assetId.path) != '.md') {
-      log.warning('Generator only supports .md files as supplementary docs. '
-          'Can not insert $assetId into gallery.');
-      return null;
-    }
 
     if (!await assetReader.canRead(assetId)) {
-      log.warning('Counld not find the asset: $markdownAsset.');
-      return null;
+      throw ('Counld not find the asset: $markdownAsset.');
     }
 
-    final content = await assetReader.readAsString(assetId);
-    // Convert markdown to html and insert static server for images.
-    final htmlContent = _replaceImgTags(g3docMarkdownToHtml(content));
+    if (extension(assetId.path) == '.md') {
+      final content = await assetReader.readAsString(assetId);
+      return MarkdownDocInfo()
+        ..name = basenameWithoutExtension(assetId.path)
+        ..path = path_utils.assetToPath(assetId.toString())
+        // Convert markdown to html and insert static server for images.
+        ..contents = _replaceImgTags(g3docMarkdownToHtml(content));
+    }
 
-    return MarkdownDocInfo()
-      ..name = basenameWithoutExtension(assetId.path)
-      ..path = path_utils.assetToPath(assetId.toString())
-      ..contents = htmlContent;
+    throw ('Documentation generator only supports external files of type .md. '
+        'Can not load documentation from $assetId.');
   }
 
   /// Find the file that defines [identifier], and extract the documentation
