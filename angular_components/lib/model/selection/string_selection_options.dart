@@ -59,6 +59,10 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
 
   final bool _shouldSort;
 
+  /// True if [filter] should return the first limit of values when the query is
+  /// empty.
+  final bool _shouldFilterEmpty;
+
   /// The list of options and optionally a function to convert the option into a
   /// string that can be used for filtering the list.
   ///
@@ -68,25 +72,32 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
   ///
   /// If the data needs to be sorted, it should be passed in sorted. The option
   /// [shouldSort] is a simple way to apply the default sorting rules.
+  ///
+  /// Set [shouldFilterEmpty] to false if [filter] should return empty when the
+  /// query is empty.
   StringSelectionOptions(List<T> options,
       {ItemRenderer<T> toFilterableString,
       StringSuggestionFilter<T> suggestionFilter,
       ItemRenderer<String> sanitizeString = _stringFormatSuggestion,
-      bool shouldSort = false})
+      bool shouldSort = false,
+      bool shouldFilterEmpty = true})
       : this.withOptionGroups([OptionGroup(options)],
             toFilterableString: toFilterableString,
             suggestionFilter: suggestionFilter,
             sanitizeString: sanitizeString,
-            shouldSort: shouldSort);
+            shouldSort: shouldSort,
+            shouldFilterEmpty: shouldFilterEmpty);
 
   StringSelectionOptions.withOptionGroups(List<OptionGroup<T>> optionGroups,
       {ItemRenderer<T> toFilterableString,
       StringSuggestionFilter<T> suggestionFilter,
       ItemRenderer<String> sanitizeString = _stringFormatSuggestion,
-      bool shouldSort = false})
+      bool shouldSort = false,
+      bool shouldFilterEmpty = true})
       : _toFilterableString =
             toFilterableString ?? _defaultRenderer(sanitizeString),
         _shouldSort = shouldSort,
+        _shouldFilterEmpty = shouldFilterEmpty,
         _sanitizeString = sanitizeString,
         super(optionGroups) {
     _suggestionFilter =
@@ -138,8 +149,10 @@ class StringSelectionOptions<T> extends SelectionOptions<T>
       list = group
           .where((suggestion) => _suggestionFilter(suggestion, filterQuery))
           .take(limit);
-    } else {
+    } else if (_shouldFilterEmpty) {
       list = group.take(limit);
+    } else {
+      list = Iterable<T>.empty();
     }
     var filteredGroup = OptionGroup<T>.withLabelFunction(
         list.toList(growable: false),
