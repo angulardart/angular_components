@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:logging/logging.dart';
 import 'package:angular_components/material_datepicker/module.dart';
@@ -7,10 +9,19 @@ import 'main.template.dart' as ng;
 
 void main() {
   Logger.root.onRecord.listen((record) {
-    var msg = '${record.time}: ${record.message}';
-    if (record.error != null) msg += '\n\nCaused by:\n\n${record.error}';
-    if (record.stackTrace != null) msg+= '\n${record.stackTrace}';
-    print(msg);
+    var message = '${record.loggerName}: ${record.message}';
+    if (record.error != null) message += '\n\nCaused by:\n\n${record.error}';
+    if (record.stackTrace != null) message += '\n${record.stackTrace}';
+
+    if (record.level == Level.SEVERE || record.level == Level.SHOUT) {
+      window.console.error(message);
+    } else if (record.level == Level.WARNING) {
+      window.console.warn(message);
+    } else if (record.level == Level.INFO || record.level == Level.CONFIG) {
+      window.console.info(message);
+    } else { // FINE, FINER, FINEST, ALL
+      window.console.debug(message);
+    }
   });
 
   runApp(app.GallerySectionNgFactory, createInjector: appInjectorFactory);
