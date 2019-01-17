@@ -11,6 +11,7 @@ import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_menu/menu_root.dart';
+import 'package:angular_components/material_menu/affix/caption_affix_model.dart';
 import 'package:angular_components/material_menu/affix/icon_affix_model.dart';
 import 'package:angular_components/model/menu/menu_item_affix.dart';
 import 'package:angular_components/model/ui/icon.dart';

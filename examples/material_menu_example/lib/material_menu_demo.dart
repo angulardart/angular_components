@@ -11,6 +11,7 @@ import 'package:angular_components/laminate/popup/module.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_menu/dropdown_menu.dart';
 import 'package:angular_components/material_menu/material_menu.dart';
+import 'package:angular_components/material_menu/affix/caption_affix_model.dart';
 import 'package:angular_components/material_menu/affix/icon_affix_model.dart';
 import 'package:angular_components/model/menu/menu.dart';
 import 'package:angular_components/model/menu/selectable_menu.dart';
