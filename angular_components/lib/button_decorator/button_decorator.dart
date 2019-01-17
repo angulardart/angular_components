@@ -26,7 +26,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
 )
 class ButtonDirective extends RootFocusable
     with HasTabIndex
-    implements OnInit, HasDisabled {
+    implements HasDisabled {
   /// Fired when the button is activated via click, tap, or key press.
   @Output()
   Stream<UIEvent> get trigger => _trigger.stream;
@@ -34,27 +34,17 @@ class ButtonDirective extends RootFocusable
   final _trigger = StreamController<UIEvent>.broadcast(sync: true);
 
   String _hostTabIndex;
-  String _role;
-  String _ariaRole;
 
   ButtonDirective(Element element, @Attribute('role') String role)
-      : _role = role,
+      : this.role = (role ?? 'button'),
         super(element);
 
   /// Role of this component used for a11y.
   @Input()
-  set role(String value) {
-    assert(ariaRole == null, 'Role can only be set before initialization.');
-    _role = value;
-  }
+  String role;
 
   @HostBinding('attr.role')
-  String get ariaRole => _ariaRole;
-
-  @override
-  void ngOnInit() {
-    _ariaRole = _role ?? 'button';
-  }
+  String get ariaRole => role;
 
   /// String value to be passed to aria-disabled.
   @HostBinding('attr.aria-disabled')
