@@ -140,7 +140,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
   bool _deselectOnActivate = true;
 
-  ///  Whether to deselect a selected option on click or enter/space key.
+  /// Whether to deselect a selected option on click or enter/space key.
   ///
   /// Single selection model only. Defaults to true.
   @Input()
