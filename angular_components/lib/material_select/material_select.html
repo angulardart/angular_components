@@ -3,7 +3,7 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<material-list [width]="width">
+<material-list [width]="width" role="none">
   <ng-content></ng-content>
   <div class="options-wrapper" *ngIf="options != null">
     <div *ngFor="let group of options.optionGroups; trackBy: trackByIndexFn" group
