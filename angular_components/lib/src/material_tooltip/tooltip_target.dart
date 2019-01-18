@@ -211,6 +211,7 @@ abstract class TooltipTarget extends PopupSourceDirective {
   Tooltip _tooltip;
   final ViewContainerRef viewContainerRef;
   final HtmlElement _element;
+  String _previousDescribedbyId;
 
   TooltipTarget(DomPopupSourceFactory domPopupSourceFactory,
       this.viewContainerRef, this._element, String initAriaAttributes)
@@ -237,12 +238,17 @@ abstract class TooltipTarget extends PopupSourceDirective {
   @override
   void onOpen() {
     if (_id == null) return;
+    _previousDescribedbyId = _element.getAttribute('aria-describedby');
     _element.setAttribute('aria-describedby', _id);
   }
 
   @override
   void onClose() {
     if (_id == null) return;
-    _element.attributes.remove('aria-describedby');
+    if (_previousDescribedbyId != null) {
+      _element.setAttribute('aria-describedby', _previousDescribedbyId);
+    } else {
+      _element.attributes.remove('aria-describedby');
+    }
   }
 }
