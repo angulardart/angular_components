@@ -5,7 +5,6 @@
 import 'package:angular/angular.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/laminate/popup/module.dart';
-import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/time_zone_aware_clock.dart';
 
 import 'model.dart';
@@ -48,40 +47,11 @@ const timeZoneAwareDatepickerProviders = [
 // TODO(google): Remove this and fix clients.
 const _legacyClockBinding = Provider(Clock, useValue: clockValue);
 
+/// DI token for specifying a default date range, intended to be consumed by
+/// some client-specified bindings for a [DatepickerModel].
 const defaultDateRange = OpaqueToken('defaultDateRange');
+
+/// DI token for specifying a default date range with a comparison range,
+/// intended to be consumed by some client-specified bindings for a
+/// [DatepickerModel].
 const defaultDateComparison = OpaqueToken('defaultDateComparison');
-
-/// Bindings to create a per-app global date range. This basically creates a
-/// mutable [DatepickerComparison] reference to feed into the
-/// material-date-range-picker component, and then exposes that same reference
-/// as the immutable [DatepickerSelection] interface that other components or
-/// services can then inject.
-///
-/// If there's a binding to either the `defaultDateRange` or
-/// `defaultDateComparison` tokens, these bindings will respect those.
-/// For instance, a sensible set of bindings might look like:
-///
-///     bindings = const [
-///       globalDateRangeBindings,
-///       const Provider(defaultDateRangeToken,
-///           useFactory: last7Days, deps: const [Clock]),
-///       const Provider(Clock, useValue: const Clock()),
-///     ];
-///
-/// (where `last7Days` comes from this package's `range.dart` library).
-@Deprecated('These bindings are not generally useful for most use cases and '
-    'thus do not belong in this general-purpose library. Will be removed soon.')
-const globalDateRangeBindings = [
-  Provider(DatepickerModel, useFactory: modelFactory),
-  Provider(DatepickerSelection, useFactory: selectionFactory),
-];
-
-@Injectable()
-DatepickerModel modelFactory(
-        @Optional() @Inject(defaultDateComparison) DatepickerComparison cmp,
-        @Optional() @Inject(defaultDateRange) DatepickerDateRange range) =>
-    DatepickerModel(cmp ?? DatepickerComparison.noComparison(range));
-
-@Injectable()
-DatepickerSelection selectionFactory(DatepickerModel model) =>
-    DatepickerSelection.wrap(model);
