@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/glyph/glyph.dart';
@@ -269,6 +270,9 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
       }
     }
   }
+
+  @visibleForTemplate
+  void onLoadCustomComponent(ComponentRef ref) {}
 
   @override
   void ngOnDestroy() {

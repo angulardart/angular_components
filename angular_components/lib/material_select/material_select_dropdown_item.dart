@@ -9,6 +9,7 @@ import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/glyph/glyph.dart';
 import 'package:angular_components/material_checkbox/material_checkbox.dart';
 import 'package:angular_components/material_select/activation_handler.dart';
+import 'package:angular_components/material_select/handles_aria.dart';
 import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
@@ -48,12 +49,14 @@ class MaterialSelectDropdownItemComponent<T>
 
   /// The id of the element.
   @HostBinding('attr.id')
-  String get id => _id ?? _generatedId;
+  String get id => _customAriaHandling ? null : (_id ?? _generatedId);
 
   @Input()
   set id(String id) {
     _id = id;
   }
+
+  bool _customAriaHandling = false;
 
   MaterialSelectDropdownItemComponent(
       HtmlElement element,
@@ -75,5 +78,11 @@ class MaterialSelectDropdownItemComponent<T>
   @HostListener('mousedown')
   void preventTextSelectionIfShiftKey(MouseEvent e) {
     if (e.shiftKey) e.preventDefault();
+  }
+
+  @override
+  void onLoadCustomComponent(ComponentRef ref) {
+    _customAriaHandling = ref?.instance is HandlesAria;
+    if (_customAriaHandling) role = null;
   }
 }

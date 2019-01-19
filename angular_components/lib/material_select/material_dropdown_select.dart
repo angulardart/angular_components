@@ -78,6 +78,10 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     Typed<MaterialSelectDropdownItemComponent<String>>(on: 'emptyGroupLabel'),
     Typed<MaterialSelectDropdownItemComponent>.of([#T]),
   ],
+  viewProviders: [
+    FactoryProvider<ActiveItemModel>(ActiveItemModel, fromDropdown,
+        deps: [MaterialDropdownSelectComponent])
+  ],
   templateUrl: 'material_dropdown_select.html',
   styleUrls: ['material_dropdown_select.scss.css'],
   visibility: Visibility.all, // injected by directives
@@ -596,3 +600,6 @@ class ActivateItemOnKeyPressMixin<T> {
     return key;
   }
 }
+
+ActiveItemModel fromDropdown(MaterialDropdownSelectComponent dropdown) =>
+    dropdown.activeModel;
