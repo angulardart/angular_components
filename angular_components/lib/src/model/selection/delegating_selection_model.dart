@@ -54,7 +54,7 @@ class DelegatingSelectionModel<T> extends Object
   }
 
   @override
-  T notifyPropertyChange<T>(Symbol field, T oldValue, T newValue) {
+  S notifyPropertyChange<S>(Symbol field, S oldValue, S newValue) {
     _delegateModel.notifyPropertyChange(field, oldValue, newValue);
     return newValue;
   }

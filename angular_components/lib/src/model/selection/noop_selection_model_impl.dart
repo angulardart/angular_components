@@ -34,7 +34,7 @@ class _NoopSelectionModelImpl<T> implements SingleSelectionModel<T> {
   void notifyChange([_]) {}
 
   @override
-  T notifyPropertyChange<T>(Symbol field, T oldValue, T newValue) => null;
+  S notifyPropertyChange<S>(Symbol field, S oldValue, S newValue) => null;
 
   @override
   void observed() {}
