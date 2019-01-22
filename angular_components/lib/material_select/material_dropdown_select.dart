@@ -174,12 +174,15 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
   String _ariaActiveDescendant;
 
+  final ChangeDetectorRef _changeDetector;
+
   MaterialDropdownSelectComponent(
       @Optional() IdGenerator idGenerator,
       @Optional() @SkipSelf() this._popupSizeDelegate,
       @Optional() @Inject(rtlToken) bool rtl,
       @Attribute('popupClass') String popupClass,
       @Attribute('buttonAriaRole') this.buttonAriaRole,
+      this._changeDetector,
       HtmlElement element)
       : activeModel = ActiveItemModel(idGenerator),
         popupClassName = constructEncapsulatedCss(popupClass, element.classes),
@@ -252,6 +255,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   /// Whether the dropdown is visible.
   @override
   set visible(bool value) {
+    _changeDetector.markForCheck();
     super.visible = value;
     resetEnteredKeys();
     if (value) {
@@ -277,6 +281,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
   @override
   set options(SelectionOptions<T> newOptions) {
+    _changeDetector.markForCheck();
     super.options = newOptions;
 
     _updateActiveModel();
@@ -284,6 +289,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
     _optionsListener?.cancel();
     _optionsListener = options?.stream?.listen((_) {
+      _changeDetector.markForCheck();
       _updateActiveModel();
       _setInitialActiveItem();
     });
@@ -315,11 +321,13 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
   @override
   set selection(SelectionModel<T> newSelection) {
+    _changeDetector.markForCheck();
     super.selection = newSelection;
     _setInitialActiveItem();
 
     _selectionListener?.cancel();
     _selectionListener = selection?.selectionChanges?.listen((changes) {
+      _changeDetector.markForCheck();
       // Update active item if new items are selected.
       var added =
           changes.last.added.isNotEmpty ? changes.last.added.first : null;
