@@ -36,13 +36,6 @@ export 'package:angular_components/laminate/popup/popup.dart'
 /// [PopupInterface].
 ///
 /// This is useful if content size is such that adds scroll to the page.
-/// - Even though this component supports [ChangeDetectionStrategy.OnPush]
-///   for the cases tested in examples, it does not set ChangeDetectionStrategy.
-///   This means that usage of this component within another component in OnPush
-///   mode is possible but at the implementors discretion since any such
-///   implementation would require all it's content children to support OnPush
-///   as well.
-///
 /// - If the contents change and need to readjust position use
 ///  [trackLayoutChanges] which is also defined in [PopupInterface].
 ///
@@ -75,6 +68,7 @@ export 'package:angular_components/laminate/popup/popup.dart'
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
   visibility: Visibility.all, // injected by hierarchy
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialPopupComponent extends Object
     with PopupBase, PopupEvents, PopupHierarchyElement
