@@ -34,7 +34,7 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
 }
 
 // Tab Panel
-// Sets the dafault color, selected tab color and selected tab indicator color
+// Sets the default color, selected tab color and selected tab indicator color
 // @Deprecated: use tab-strip-color directly instead.
 @mixin tab-panel-color($selector, $color, $accent-color) {
   @include tab-panel-tab-color($selector, $color);
@@ -66,7 +66,7 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
 }
 
 // Tab Strip
-// Sets the dafault color, selected tab color and selected tab indicator color
+// Sets the default color, selected tab color and selected tab indicator color
 @mixin tab-strip-color($selector, $color, $accent-color) {
   @include tab-strip-tab-color($selector, $color);
   @include tab-strip-accent-color($selector, $accent-color);
@@ -143,5 +143,12 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
   ::ng-deep .content {
     text-overflow: initial;
     white-space: initial;
+  }
+}
+
+// Make the tab-content a block display rather than the default, flex.
+@mixin tab-content-block {
+  ::ng-deep material-tab .tab-content.tab-content {
+    display: block;
   }
 }
