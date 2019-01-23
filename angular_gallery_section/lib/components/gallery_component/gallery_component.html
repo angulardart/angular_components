@@ -75,6 +75,11 @@
                            [doc]="doc"
                            [showGeneratedDocs]="model.showGeneratedDocs">
   </documentation-component>
+  <documentation-component *ngIf="doc.docType == DocType.sassDocInfo"
+                           sass
+                           [doc]="doc"
+                           [showGeneratedDocs]="model.showGeneratedDocs">
+  </documentation-component>
 </section>
 
 <section *ngFor="let demo of model.demos" class="demo">

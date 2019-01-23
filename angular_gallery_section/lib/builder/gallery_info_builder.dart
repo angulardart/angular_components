@@ -14,6 +14,7 @@ import 'package:angular_gallery_section/g3doc_markdown.dart';
 import 'package:angular_gallery_section/gallery_docs_extraction.dart';
 import 'package:angular_gallery_section/gallery_section_config_extraction.dart';
 import 'package:angular_gallery_section/resolved_config.dart';
+import 'package:angular_gallery_section/sass_docs_extraction.dart';
 import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
 import 'package:angular_gallery_section/visitors/path_utils.dart' as path_utils;
 
@@ -107,13 +108,20 @@ class GalleryInfoBuilder extends Builder {
     });
   }
 
-  /// Read the [markdownAsset] with [assetReader] and render as HTML.
+  /// Read the [externalAsset] with [assetReader] and collect documentation
+  /// information.
+  ///
+  /// Supports reading .md or .scss assets.
   Future<DocInfo> _readExternalAsset(
-      String markdownAsset, AssetReader assetReader) async {
-    final assetId = AssetId.resolve(markdownAsset);
+      String externalAsset, AssetReader assetReader) async {
+    final assetId = AssetId.resolve(externalAsset);
 
     if (!await assetReader.canRead(assetId)) {
-      throw ('Counld not find the asset: $markdownAsset.');
+      throw ('Counld not find the asset: $externalAsset.');
+    }
+
+    if (extension(assetId.path) == '.scss') {
+      return extractSassDocs('Sass Mixins', assetId, assetReader);
     }
 
     if (extension(assetId.path) == '.md') {
@@ -125,8 +133,8 @@ class GalleryInfoBuilder extends Builder {
         ..contents = _replaceImgTags(g3docMarkdownToHtml(content));
     }
 
-    throw ('Documentation generator only supports external files of type .md. '
-        'Can not load documentation from $assetId.');
+    throw ('Documentation generator only supports external files of type .md '
+        'or .scss. Can not load documentation from $assetId.');
   }
 
   /// Find the file that defines [identifier], and extract the documentation

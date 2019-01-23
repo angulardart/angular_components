@@ -8,7 +8,7 @@
 ///
 /// Must be applied to the component itself, e.g.:
 ///
-/// ```
+/// ```scss
 /// material-drawer {
 ///   @include mat-drawer-width(512px);
 /// }
@@ -78,7 +78,7 @@
 ///
 /// Should be applied to the component itself, e.g.:
 ///
-/// ```
+/// ```scss
 /// material-drawer[temporary] {
 ///   @include mat-temporary-drawer-width(512px);
 /// }

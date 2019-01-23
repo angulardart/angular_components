@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular_components/app_layout/material_persistent_drawer.dart';
-import 'package:angular_components/app_layout/material_temporary_drawer.dart';
 import 'package:angular_components/app_layout/material_stackable_drawer.dart';
+import 'package:angular_components/app_layout/material_temporary_drawer.dart';
 import 'stacking_drawer_example.dart';
 import 'package:angular_gallery_section/annotation/gallery_section_config.dart';
 
@@ -15,6 +15,7 @@ import 'mobile_app_layout_example.dart';
   displayName: 'App Layout',
   docs: [
     'package:angular_components/app_layout/README.md',
+    'package:angular_components/app_layout/_mixins.scss',
     MaterialPersistentDrawerDirective,
     MaterialTemporaryDrawerComponent,
     MaterialStackableDrawerComponent,

@@ -5,7 +5,7 @@
 /// Encoding for different types of documenation for the gallery builders.
 ///
 /// Simplifies translating to and from JSON files between build steps.
-enum DocType { dartDocInfo, markdownDocInfo }
+enum DocType { dartDocInfo, markdownDocInfo, sassDocInfo }
 
 /// Base class for all documentation models in the gallery app.
 abstract class DocInfo {
@@ -24,6 +24,10 @@ abstract class DocInfo {
 
     if (docType == DocType.markdownDocInfo.toString()) {
       return MarkdownDocInfo.fromJson(jsonMap);
+    }
+
+    if (docType == DocType.sassDocInfo.toString()) {
+      return SassDocInfo.fromJson(jsonMap);
     }
 
     throw FormatException(
@@ -162,5 +166,124 @@ class MarkdownDocInfo implements DocInfo {
         'name': name,
         'path': path,
         'contents': contents,
+      };
+}
+
+/// Documentation information for a Sass file listed in an @GallerySectionConfig
+/// annotation.
+class SassDocInfo implements DocInfo {
+  final String name;
+  final String path;
+  final Iterable<SassVariableInfo> variables;
+  final Iterable<SassCallableInfo> functions;
+  final Iterable<SassCallableInfo> mixins;
+
+  DocType get docType => DocType.sassDocInfo;
+
+  SassDocInfo(
+      this.name, this.path, this.variables, this.functions, this.mixins);
+
+  /// Constructs a new [SassDocInfo] from a decoded json map.
+  SassDocInfo.fromJson(Map<String, dynamic> jsonMap)
+      : name = jsonMap['name'] as String,
+        path = jsonMap['path'] as String,
+        variables = (jsonMap['variables'] as Iterable)
+            ?.map((element) => SassVariableInfo.fromJson(element)),
+        functions = (jsonMap['functions'] as Iterable)
+            ?.map((element) => SassCallableInfo.fromJson(element)),
+        mixins = (jsonMap['mixins'] as Iterable)
+            ?.map((element) => SassCallableInfo.fromJson(element));
+
+  /// Returns a json encodeable representation of this [SassDocInfo].
+  Map<String, dynamic> toJson() => {
+        'docType': docType.toString(),
+        'name': name,
+        'path': path,
+        'variables': variables?.map((v) => v.toJson())?.toList(),
+        'functions': functions?.map((f) => f.toJson())?.toList(),
+        'mixins': mixins?.map((m) => m.toJson())?.toList(),
+      };
+}
+
+/// Documentation information for a Sass variable.
+class SassVariableInfo {
+  final String name;
+  final String expression;
+  final String comment;
+
+  SassVariableInfo(this.name, this.expression, this.comment);
+
+  /// Constructs a new [SassVariableInfo] from a decoded json map.
+  SassVariableInfo.fromJson(Map<String, dynamic> jsonMap)
+      : name = jsonMap['name'] as String,
+        expression = jsonMap['expression'] as String,
+        comment = jsonMap['comment'] as String;
+
+  /// Returns a json encodeable representation of this [SassVariableInfo].
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'expression': expression,
+        'comment': comment,
+      };
+}
+
+/// Documentation information for a Sass callable (function or mixin).
+class SassCallableInfo {
+  final String name;
+  final Iterable<SassArgumentInfo> arguments;
+  final String restArgument;
+  final String comment;
+
+  SassCallableInfo(this.name, this.arguments, this.restArgument, this.comment);
+
+  /// Constructs a new [SassCallableInfo] from a decoded json map.
+  SassCallableInfo.fromJson(Map<String, dynamic> jsonMap)
+      : name = jsonMap['name'] as String,
+        arguments = (jsonMap['arguments'] as Iterable)
+            ?.map((element) => SassArgumentInfo.fromJson(element)),
+        restArgument = jsonMap['restArgument'],
+        comment = jsonMap['comment'] as String;
+
+  /// Returns a json encodeable representation of this [SassCallableInfo].
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'arguments': arguments?.map((arg) => arg.toJson())?.toList(),
+        'restArgument': restArgument,
+        'comment': comment,
+      };
+
+  /// A simple signature represtation of this callable.
+  ///
+  /// Includes the name and arguments including a rest arg.
+  String get signature {
+    if (arguments == null || arguments.isEmpty) return name;
+    var args = arguments
+        .map((a) => a.defaultValue == null || a.defaultValue.isEmpty
+            ? '\$${a.name}'
+            : '\$${a.name}: ${a.defaultValue}')
+        .join(', ');
+    if (restArgument != null && restArgument.isNotEmpty) {
+      args = '$args, \$$restArgument...';
+    }
+    return '$name( $args )';
+  }
+}
+
+/// Documentation information for a Sass callable's argument.
+class SassArgumentInfo {
+  final String name;
+  final String defaultValue;
+
+  SassArgumentInfo(this.name, this.defaultValue);
+
+  /// Constructs a new [SassArgumentInfo] from a decoded json map.
+  SassArgumentInfo.fromJson(Map<String, dynamic> jsonMap)
+      : name = jsonMap['name'] as String,
+        defaultValue = jsonMap['defaultValue'] as String;
+
+  /// Returns a json encodeable representation of this [SassArgumentInfo].
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'defaultValue': defaultValue,
       };
 }

@@ -72,8 +72,10 @@ class ComponentApiBuilder extends Builder {
         },
         'docs': config.docs?.map((doc) {
               var jsonMap = doc.toJson();
+              // Add flags to identify the DocInfo constuctor to use later.
               jsonMap['dartDoc'] = doc.docType == DocType.dartDocInfo;
               jsonMap['markdownDoc'] = doc.docType == DocType.markdownDocInfo;
+              jsonMap['sassDoc'] = doc.docType == DocType.sassDocInfo;
               return jsonMap;
             })?.toList() ??
             [],
