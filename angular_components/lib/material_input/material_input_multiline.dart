@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -54,6 +55,8 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
 
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
+
+  StreamSubscription _subscription;
 
   @ViewChild('textareaEl')
   ElementRef textareaEl;
@@ -121,10 +124,17 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
       var height = (value.nativeElement as Element).clientHeight;
       if (height != 0) {
         _inputLineHeight = height;
+        _subscription?.cancel();
+        _subscription = null;
         _changeDetector
           ..markForCheck()
           // TODO(google): remove after the bug is fixed.
           ..detectChanges();
+      } else if (_subscription == null) {
+        // Listen to dom changes until we can read the line height.
+        _subscription = _domService.onLayoutChanged.listen((_) {
+          lineHeightMeasure = value;
+        });
       }
     });
   }
@@ -161,6 +171,8 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
   @override
   void ngOnDestroy() {
     super.ngOnDestroy();
+    _subscription?.cancel();
+    _subscription = null;
     textareaEl = null;
     popupSourceEl = null;
   }
