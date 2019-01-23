@@ -10,6 +10,7 @@ import 'package:angular_gallery_section/components/gallery_component/gallery_inf
 const documentationComponentDirectives = const [
   DartDocComponent,
   MarkdownDocComponent,
+  SassDocComponent,
 ];
 
 class DocumentationComponent {
@@ -70,4 +71,27 @@ class MarkdownDocComponent extends DocumentationComponent {
   /// The documentation to display.
   @Input()
   MarkdownDocInfo doc;
+}
+
+/// Displays documentation for Sass files in the gallery application.
+///
+/// Includes documentation for all variables, functions and mixins avaliable
+/// by importing the Sass file.
+@Component(
+  selector: 'documentation-component[sass]',
+  directives: [
+    NgFor,
+    NgIf,
+    SafeInnerHtmlDirective,
+  ],
+  templateUrl: 'sass_doc_component.html',
+  styleUrls: ['documentation_component.scss.css'],
+)
+class SassDocComponent extends DocumentationComponent {
+  SassDocComponent(DomSanitizationService santizationService)
+      : super(santizationService);
+
+  /// The documentation to display.
+  @Input()
+  SassDocInfo doc;
 }

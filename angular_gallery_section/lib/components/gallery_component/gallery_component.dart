@@ -44,7 +44,7 @@ class GalleryComponent {
   bool get showToc =>
       (model.docs.length + model.demos.length + model.benchmarks.length) > 1;
 
-  String getDocId(DocInfo doc) => '${doc.name}Doc';
+  String getDocId(DocInfo doc) => '${doc.name.replaceAll(' ', '_')}Doc';
 
   String getDemoId(Demo demo) => '${demo.name}Demo';
 

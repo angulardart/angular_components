@@ -1,0 +1,38 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<ng-container *ngIf="doc.variables.isNotEmpty">
+  <strong>Variables:</strong>
+  <ul class="property-list">
+    <li *ngFor="let variable of doc.variables">
+      <code class="property-name">
+        ${{variable.name}}: {{variable.expression}};
+      </code>
+      <div *ngIf="variable.comment.isNotEmpty" [safeInnerHtml]="getSafeHtml(variable.comment)">
+      </div>
+    </li>
+  </ul>
+</ng-container>
+
+<ng-container *ngIf="doc.functions.isNotEmpty">
+  <strong>Functions:</strong>
+  <ul class="property-list">
+    <li *ngFor="let function of doc.functions">
+      <code class="property-name">{{function.signature}}</code>
+      <div *ngIf="function.comment.isNotEmpty" [safeInnerHtml]="getSafeHtml(function.comment)">
+      </div>
+    </li>
+  </ul>
+</ng-container>
+
+<ng-container *ngIf="doc.mixins.isNotEmpty">
+  <strong>Mixins:</strong>
+  <ul class="property-list">
+    <li *ngFor="let mix of doc.mixins">
+      <code class="property-name">{{mix.signature}}</code>
+      <div *ngIf="mix.comment.isNotEmpty" [safeInnerHtml]="getSafeHtml(mix.comment)"></div>
+    </li>
+  </ul>
+</ng-container>
