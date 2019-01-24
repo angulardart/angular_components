@@ -12,7 +12,7 @@ import 'package:angular/angular.dart';
 ///
 /// Visible for transformer only.
 @Injectable()
-Document getDocument() => document;
+HtmlDocument getDocument() => document;
 
 /// Returns the current browser's [Window].
 ///
@@ -20,7 +20,7 @@ Document getDocument() => document;
 @Injectable()
 Window getWindow() => window;
 
-/// Provides [Document] and [Window] bound for use within Angular.
+/// Provides [Document], [HtmlDocument], and [Window] bound for use within Angular.
 ///
 /// Ideally, an application would limit direct use of these to maintain
 /// compatibility with web workers, but there is no Angular sanitized version
@@ -29,11 +29,13 @@ const windowBindings = [
   // This strange syntax is required because we need windowBindings to be a
   // const list to be usable within component annotations.
   Provider(Document, useFactory: getDocument),
+  Provider(HtmlDocument, useFactory: getDocument),
   Provider(Window, useFactory: getWindow)
 ];
 
 const windowModule = Module(provide: [
   FactoryProvider(Document, getDocument),
+  FactoryProvider(HtmlDocument, getDocument),
   FactoryProvider(Window, getWindow),
 ]);
 
