@@ -7,6 +7,7 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/material_datepicker/material_month_picker.dart';
+import 'package:angular_components/material_datepicker/next_prev_buttons.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/showhide/showhide.dart';
@@ -67,6 +68,7 @@ import 'package:angular_components/utils/angular/css/css.dart';
     MaterialMonthPickerComponent,
     ShowHideDirective,
     MaterialIconComponent,
+    NextPrevComponent,
   ],
   providers: [
     Provider(HasDisabled, useExisting: MaterialDatepickerComponent),
@@ -95,7 +97,14 @@ class MaterialDatepickerComponent
   /// date which makes sense in your domain context. e.g. For apps which analyse
   /// historical data, this could be the current day.
   @Input()
-  Date maxDate;
+  set maxDate(Date d) {
+    _maxDate = d;
+    nextPrevModel.update(_visibleMonth, minDate, maxDate);
+  }
+
+  Date _maxDate;
+
+  Date get maxDate => _maxDate;
 
   /// Dates earlier than `minDate` cannot be chosen.
   ///
@@ -103,7 +112,14 @@ class MaterialDatepickerComponent
   /// makes sense in your domain context. e.g. The earliest date for which data
   /// is available for analysis.
   @Input()
-  Date minDate;
+  set minDate(Date d) {
+    _minDate = d;
+    nextPrevModel.update(_visibleMonth, minDate, maxDate);
+  }
+
+  Date _minDate;
+
+  Date get minDate => _minDate;
 
   /// Whether to enable compact calendar styles.
   @Input()
@@ -338,7 +354,11 @@ class MaterialDatepickerComponent
   void onVisibleMonthChange(Date month) {
     _visibleMonth = month;
     _visibleMonthName = _monthFormatter.format(month.asUtcTime());
+    nextPrevModel.update(_visibleMonth, minDate, maxDate);
   }
+
+  /// The model for scrolling to the next or previous month.
+  DatepickerNextPrevModel nextPrevModel;
 
   bool showMonthSelector = false;
 
@@ -350,6 +370,12 @@ class MaterialDatepickerComponent
     @Optional() @Inject(datepickerClock) Clock clock,
     this._domService,
   ) : popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
+    nextPrevModel = DatepickerNextPrevModel(onNext: () {
+      calendarPicker.scrollToDate(_visibleMonth.add(months: 1));
+    }, onPrev: () {
+      calendarPicker.scrollToDate(_visibleMonth.add(months: -1));
+    });
+
     clock ??= Clock();
 
     // Init minDate and maxDate to sensible defaults
