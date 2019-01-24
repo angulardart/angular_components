@@ -36,11 +36,24 @@ class DeferredContentDirective implements OnDestroy {
   @Input('deferredContent')
   bool preserveDimensions = false;
 
-  // Keep around the current state.
-  bool _visible = false;
+  /// Even when the content is not-visible force it to be on the page.
+  ///
+  /// Only use this for common components which needs to give options to it's
+  // content.
+  @Input()
+  set deferredContentForceContent(bool value) {
+    _forceContent = value;
+    _setVisible();
+  }
 
-  void _setVisible(bool value) {
-    if (value == _visible) return;
+  // Keep around the current state.
+  bool _shown = false;
+  bool _visible = false;
+  bool _forceContent = false;
+
+  void _setVisible() {
+    bool value = _visible || _forceContent;
+    if (value == _shown) return;
     if (value) {
       if (preserveDimensions) {
         // Remove the placeholder and add the deferred content.
@@ -73,12 +86,15 @@ class DeferredContentDirective implements OnDestroy {
         }
       }
     }
-    _visible = value;
+    _shown = value;
   }
 
   DeferredContentDirective(
       this._viewContainer, this._template, DeferredContentAware parent) {
-    _disposer.addStreamSubscription(parent.contentVisible.listen(_setVisible));
+    _disposer.addStreamSubscription(parent.contentVisible.listen((value) {
+      _visible = value;
+      _setVisible();
+    }));
   }
 
   @override
