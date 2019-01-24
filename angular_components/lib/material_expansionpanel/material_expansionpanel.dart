@@ -215,6 +215,16 @@ class MaterialExpansionPanel
   @Input()
   String secondaryText;
 
+  String _groupAriaLabel;
+
+  /// Aria label used to describe the header.
+  @Input()
+  set groupAriaLabel(String groupAriaLabel) {
+    _groupAriaLabel = groupAriaLabel;
+  }
+
+  String get groupAriaLabel => _groupAriaLabel == null ? name : _groupAriaLabel;
+
   /// An optional icon name to replace the expand arrows with a custom icon.
   @Input()
   set expandIcon(String expandIcon) => _expandIcon = expandIcon;
@@ -277,15 +287,17 @@ class MaterialExpansionPanel
   @Input()
   String cancelText = _msgCancel;
 
-  String get closePanelMsg =>
-      name == null ? _closePanelMsg : _closeNamedPanelMsg(name);
+  String get closePanelMsg => groupAriaLabel == null && name == null
+      ? _closePanelMsg
+      : _closeNamedPanelMsg(groupAriaLabel);
 
-  String get openPanelMsg =>
-      name == null ? _openPanelMsg : _openNamedPanelMsg(name);
+  String get openPanelMsg => groupAriaLabel == null && name == null
+      ? _openPanelMsg
+      : _openNamedPanelMsg(groupAriaLabel);
 
   String get headerMsg {
     if (disabled) {
-      return name;
+      return groupAriaLabel;
     } else {
       return _isExpanded ? closePanelMsg : openPanelMsg;
     }
