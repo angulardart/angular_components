@@ -165,7 +165,7 @@ class MaterialNumberValidator implements Validator {
     // If the control doesn't have a value, but had a value from the input then
     // it is considered an error. Producing error here as accessors can't easily
     // add errors themselves, but validators can.
-    if (control.value == null && !isBlank((control as Control).rawValue)) {
+    if (control.value == null && !isEmpty((control as Control).rawValue)) {
       return {inputNotNumberErrorKey: inputIsNotNumberMsg()};
     }
     return null;
