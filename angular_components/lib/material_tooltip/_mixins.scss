@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+@import 'package:angular_components/material_popup/mixins';
+
 /// Exposes the material-icon color of <material-icon-tooltip>.
 @mixin material-icon-tooltip-theme($primary-color,
   $active-color: $primary-color) {
@@ -34,21 +36,36 @@
 
 /// Overrides the default maximum width of <material-tooltip-card>.
 @mixin material-tooltip-card-max-width($max-width: 50 * $mat-grid) {
-  ::ng-deep .popup .material-popup-content .paper-container {
-    max-width: $max-width;
+  @include material-popup-style {
+    .paper-container {
+      max-width: $max-width;
+    }
   }
 }
 
 /// Overrides the default maximum height of <material-tooltip-card>.
 @mixin material-tooltip-card-max-height($max-height: 50 * $mat-grid) {
-  ::ng-deep .popup .material-popup-content .paper-container {
-    max-height: $max-height;
+  @include material-popup-style {
+    .paper-container {
+      max-height: $max-height;
+    }
   }
 }
 
 /// Overrides the default padding of <material-tooltip-card>.
 @mixin material-tooltip-card-padding($padding: $mat-grid * 3) {
-  ::ng-deep .popup .material-popup-content .paper-container {
-    padding: $padding;
+  @include material-popup-style {
+    .paper-container {
+      padding: $padding;
+    }
+  }
+}
+
+/// Adds a word break property to <material-tooltip-text> or [materialTooltip].
+@mixin ink-tooltip-word-break($word-break: break-word) {
+  @include material-popup-style {
+    .ink-container {
+      word-break: $word-break;
+    }
   }
 }

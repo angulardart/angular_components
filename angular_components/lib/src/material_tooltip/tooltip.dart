@@ -10,6 +10,7 @@ import 'package:angular_components/laminate/popup/popup.dart'
     show DomPopupSourceFactory;
 import 'package:angular_components/material_tooltip/module.dart';
 import 'package:angular_components/model/action/delayed_action.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/browser/feature_detector/feature_detector.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
@@ -29,6 +30,7 @@ class MaterialTooltipDirective extends TooltipTarget
   final _disposer = Disposer.multi();
   final ComponentLoader _viewLoader;
   final ChangeDetectorRef _changeDetector;
+  final String _popupClassName;
   final Window _window;
 
   String _lastText;
@@ -51,8 +53,11 @@ class MaterialTooltipDirective extends TooltipTarget
       this._viewLoader,
       this._changeDetector,
       this._window,
-      @Attribute('initPopupAriaAttributes') String initAriaAttributes)
+      @Attribute('initPopupAriaAttributes') String initAriaAttributes,
+      @Attribute('tooltipClass') String tooltipClass)
       : this.element = element,
+        _popupClassName =
+            constructEncapsulatedCss(tooltipClass, element.classes),
         super(domPopupSourceFactory, viewContainerRef, element,
             initAriaAttributes) {
     inLongPress = false;
@@ -132,6 +137,7 @@ class MaterialTooltipDirective extends TooltipTarget
     _disposer.addDisposable(_componentRef.destroy);
 
     _inkTooltip
+      ..popupClassName = _popupClassName
       ..text = _lastText
       ..tooltipRef = this;
     if (positions != null) {
