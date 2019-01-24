@@ -38,6 +38,10 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///    slightly wider then its width when collapsed.
 ///  - `flat` -- Indicates that the panel should not "float" or separate from
 ///    other panels when expanded.
+///  - `forceContentWhenClosed` -- Keeps expansion panel content in the DOM when
+///    the expansion panel is closed. This should only be used in rare
+///    circumstances as the content will be tabbable and so will be worse for
+///    accessibility.
 ///
 @Component(
   selector: 'material-expansionpanel',
@@ -68,13 +72,19 @@ class MaterialExpansionPanel
   final _disposer = Disposer.oneShot();
   final _defaultExpandIcon = 'expand_less';
   final bool shouldExpandOnLeft;
+  final bool forceContentWhenClosed;
   final _pendingExpandedPanelHeightReads = <Completer<String>>[];
 
   bool initialized = false;
 
-  MaterialExpansionPanel(this._ngZone, this._changeDetector, this._domService,
-      @Attribute('shouldExpandOnLeft') String expandOnLeft)
-      : shouldExpandOnLeft = expandOnLeft != null;
+  MaterialExpansionPanel(
+      this._ngZone,
+      this._changeDetector,
+      this._domService,
+      @Attribute('shouldExpandOnLeft') String expandOnLeft,
+      @Attribute('forceContentWhenClosed') String forceContent)
+      : shouldExpandOnLeft = expandOnLeft != null,
+        forceContentWhenClosed = forceContent != null;
 
   /// Set the auto focus child so that we can focus on it when the panel opens.
   ///

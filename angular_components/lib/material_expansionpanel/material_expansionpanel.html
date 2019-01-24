@@ -58,7 +58,7 @@
 
 <!-- Expanded section -->
 <main [class.hidden]="!isExpanded" #mainPanel>
-  <div #mainContent>
+  <div #mainContent *deferredContent="true;forceContent: forceContentWhenClosed">
     <div #contentWrapper class="content-wrapper" [class.hidden-header]="hideExpandedHeader">
       <material-icon
           *ngIf="shouldShowHiddenHeaderExpandIcon && shouldExpandOnLeft"
@@ -83,7 +83,6 @@
       </material-icon>
     </div>
 
-   <ng-container *deferredContent>
       <div *ngIf="!showSaveCancel" class="toolbelt">
         <ng-content select="[toolbelt]"></ng-content>
       </div>
@@ -101,7 +100,6 @@
           (yes)="doSave"
           (no)="doCancel">
       </material-yes-no-buttons>
-  </ng-container>
   </div>
 </main>
 
