@@ -2,12 +2,15 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart' show PopupSource;
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_tooltip/module.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 
 import 'tooltip_controller.dart';
 import 'tooltip_target.dart';
@@ -37,7 +40,7 @@ import 'tooltip_target.dart';
                         [autoDismiss]="false"
                         enforceSpaceConstraints
                         [matchMinSourceWidth]="false"
-                        class="aacmtit-ink-tooltip-shadow"
+                        class="aacmtit-ink-tooltip-shadow {{popupClassName}}"
                         trackLayoutChanges
                         [preferredPositions]="positions"
                         [source]="popupSource"
@@ -75,7 +78,15 @@ class MaterialInkTooltipComponent implements Tooltip {
   @Input()
   String text;
 
-  MaterialInkTooltipComponent(this._tooltipController, this._changeDetector);
+  /// Classname applied to material-popup for use with mixins.
+  ///
+  /// Left modifiable so that it can be set by the [MaterialTooltipDirective].
+  String popupClassName;
+
+  MaterialInkTooltipComponent(this._tooltipController, this._changeDetector,
+      HtmlElement hostElement, @Attribute('tooltipClass') String tooltipClass)
+      : popupClassName =
+            constructEncapsulatedCss(tooltipClass, hostElement.classes);
 
   @override
   void activate() {
