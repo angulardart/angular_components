@@ -39,7 +39,7 @@ class DeferredContentDirective implements OnDestroy {
   /// Even when the content is not-visible force it to be on the page.
   ///
   /// Only use this for common components which needs to give options to it's
-  // content.
+  /// content.
   @Input()
   set deferredContentForceContent(bool value) {
     _forceContent = value;
