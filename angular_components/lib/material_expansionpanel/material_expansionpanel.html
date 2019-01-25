@@ -28,6 +28,7 @@
         class="expand-button expand-on-left"
         [disabled]="headerHidden"
         [icon]="expandIcon"
+        [tabbable]="false"
         [class.expand-more]="shouldFlipExpandIcon"
         (trigger)="handleExpandIconClick">
     </material-icon>
@@ -45,6 +46,7 @@
                    *ngIf="shouldShowExpandIcon && !shouldExpandOnLeft"
                    class="expand-button"
                    [icon]="expandIcon"
+                   [tabbable]="false"
                    [disabled]="headerHidden"
                    [class.expand-more]="shouldFlipExpandIcon"
                    (trigger)="handleExpandIconClick"
