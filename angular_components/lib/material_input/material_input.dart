@@ -204,6 +204,11 @@ class MaterialInputComponent extends BaseMaterialInput
   String inputAriaOwns;
 
   /// The ID of an element which should be assigned to the inner input element's
+  /// aria-describedby attribute.
+  @Input()
+  String inputAriaDescribedBy;
+
+  /// The ID of an element which should be assigned to the inner input element's
   /// aria-activedescendant attribute.
   @Input()
   String inputAriaActivedescendent;
