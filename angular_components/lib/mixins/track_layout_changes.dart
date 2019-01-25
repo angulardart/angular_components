@@ -4,10 +4,8 @@
 
 import 'package:angular/angular.dart';
 
-/**
- * Mixin for trackLayoutChanges property pass through to material popup to
- * avoid duplicate code in multiple components.
- */
+/// Mixin for trackLayoutChanges property pass through to material popup to
+/// avoid duplicate code in multiple components.
 class TrackLayoutChangesMixin {
   /// Sets whether the suggestion list scrolls with the input box.
   ///
