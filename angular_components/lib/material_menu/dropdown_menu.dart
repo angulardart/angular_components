@@ -67,6 +67,10 @@ class DropdownMenuComponent extends Object
     focusable = _focusTarget;
   }
 
+  /// Id of element which describes the button for the drop down.
+  @Input()
+  String buttonAriaDescribedBy;
+
   /// Whether the menu is tabbable or not.
   @Input()
   bool tabbable = true;

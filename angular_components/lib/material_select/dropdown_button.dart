@@ -118,6 +118,9 @@ class DropdownButtonComponent extends Object
   String get ariaLabelledBy =>
       _ariaLabelledBy == null ? null : '$_ariaLabelledBy $uuid';
 
+  @Input()
+  String ariaDescribedBy;
+
   bool get invalid => error != null;
 
   /// Whether to show the bottom border of the dropdown button.
