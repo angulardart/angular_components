@@ -174,18 +174,20 @@ for the exact specification of what is supported. A general overview is:
 *   `<simple-html>` supports the following safe inline elements:
     *   Basic text formatting: `<b>`, `<strong>`, `<i>`, `<em>`.
     *   Line breaks: `<br>`.
-    *   Text grouping: `<span>`, including the `class` attribute.
+    *   Text grouping: `<span>`.
     *   Links: `<a href="...">` provided the destination matches the current
         [origin](https://en.wikipedia.org/wiki/Same-origin_policy)
         or points to certain permitted URIs such as the Help Center; see
         [URI whitelisting](#uri-whitelisting)).
-        *   The `class` and `rel` attributes are permitted.
+        *   The `rel` attributes are permitted.
         *   The `target` attribute is permitted provided `rel="noopener"` is
             set.
 *   `<simple-html-block>` supports all of the above and the following safe block
     elements:
     *   Unordered lists: `<ul>` and `<li>`.
     *   Paragraphs: `<p>`.
+
+The `class` attribute is permitted by all elements.
 
 ### URI whitelisting {#uri-whitelisting}
 

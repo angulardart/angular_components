@@ -296,17 +296,17 @@ NodeValidatorBuilder _inlineElementValidatorBuilder(
       ..allowElement('a',
           attributes: ['class', 'href', 'rel', 'target'],
           uriPolicy: _SafeUriPolicy(domainWhitelist))
-      ..allowElement('b')
-      ..allowElement('br')
-      ..allowElement('em')
-      ..allowElement('i')
+      ..allowElement('b', attributes: ['class'])
+      ..allowElement('br', attributes: ['class'])
+      ..allowElement('em', attributes: ['class'])
+      ..allowElement('i', attributes: ['class'])
       ..allowElement('span', attributes: ['class'])
-      ..allowElement('strong');
+      ..allowElement('strong', attributes: ['class']);
 
 /// Returns a new [NodeValidator] which allows all SimpleHtml-permissible
 /// elements (both inline and block level).
 NodeValidator _elementValidator(List<Uri> domainWhitelist) =>
     _inlineElementValidatorBuilder(domainWhitelist)
-      ..allowElement('p')
-      ..allowElement('ul')
-      ..allowElement('li');
+      ..allowElement('p', attributes: ['class'])
+      ..allowElement('ul', attributes: ['class'])
+      ..allowElement('li', attributes: ['class']);
