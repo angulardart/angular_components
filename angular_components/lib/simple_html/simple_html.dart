@@ -45,8 +45,8 @@ const _triggerSelector = 'a.trigger';
 ///       `target` attributes. If `target` is set, `rel` must also be set and
 ///       must contain `noopener` (see
 ///       https://mathiasbynens.github.io/rel-noopener/ for background).
-/// *   `<span>` with (optionally) a class attribute.
-/// *   `<b>`, `<br>`, `<em>`, and `<i>` with no attributes.
+/// *   `<span>` `<b>`, `<br>`, `<em>`, and `<i>` with (optionally) a `class`
+///       attribute.
 ///
 /// Note that any styles applied with the class attribute will need to be
 /// annotated with `::ng-deep` (or equivalent mechanism) in order to actually
