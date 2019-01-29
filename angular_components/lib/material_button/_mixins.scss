@@ -252,6 +252,12 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
+@mixin button-disabled-color($selector, $disabled-color) {
+  ::ng-deep #{$selector}[disabled] {
+    color: $disabled-color;
+  }
+}
+
 @mixin button-background-color($selector, $background-color) {
   ::ng-deep #{$selector}:not([disabled]) {
     background-color: $background-color;
