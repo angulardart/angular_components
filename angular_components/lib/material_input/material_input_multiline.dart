@@ -168,6 +168,11 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
     _changeDetector.markForCheck();
   }
 
+  /// The ID of an element which should be assigned to the inner input element's
+  /// aria-describedby attribute.
+  @Input()
+  String inputAriaDescribedBy;
+
   @override
   void ngOnDestroy() {
     super.ngOnDestroy();

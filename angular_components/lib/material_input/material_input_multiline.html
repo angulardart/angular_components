@@ -47,6 +47,7 @@
                   [class.disabledInput]="disabled"
                   [class.staticHeight]="rows == maxRows"
                   [style.height.px]="textAreaHeight"
+                  [attr.aria-describedby]="inputAriaDescribedBy"
                   attr.aria-invalid="{{invalid}}"
                   [attr.aria-label]="ariaLabel"
                   [readonly]="disabled"
