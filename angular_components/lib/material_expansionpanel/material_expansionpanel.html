@@ -53,7 +53,7 @@
                    [attr.aria-label]="expandAriaMsg">
     </material-icon>
   </div>
-  <div class="action" *ngIf="!shouldShowExpandIcon" #action>
+  <div class="action" *ngIf="!shouldShowExpandIcon && !headerHidden" #action>
     <ng-content select="[action]"></ng-content>
   </div>
 </header>
