@@ -23,6 +23,8 @@ import 'package:angular_components/utils/color/palette.dart';
 /// - `name` -- Custom content in the label area.
 /// - `value` -- Custom content in the value area.
 /// - `description` -- Custom content in the description area.
+///   For this to show up, requires also setting the `description` attribute,
+///   even if it's only set to the empty string.
 @Component(
   selector: 'acx-scorecard',
   directives: [MaterialIconComponent, MaterialRippleComponent, NgIf],
