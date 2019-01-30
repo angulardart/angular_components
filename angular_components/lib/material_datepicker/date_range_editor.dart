@@ -34,6 +34,7 @@ import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
+import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/angular/managed_zone/interface.dart';
 import 'package:angular_components/utils/angular/scroll_host/angular_2.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
@@ -334,7 +335,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     _clock ??= legacyClock;
     _today = Date.today(_clock);
     editorHost?.dateRangeEditorCreated(this);
-    nextPrevModel = DatepickerNextPrevModel(onNext: () {
+    nextPrevModel = DateRangeEditorNextPrevModel(onNext: () {
       calendarPicker.scrollToDate(_visibleMonth.add(months: 1));
     }, onPrev: () {
       calendarPicker.scrollToDate(_visibleMonth.add(months: -1));
@@ -492,7 +493,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   }
 
   /// The model for scrolling to the next or previous month.
-  DatepickerNextPrevModel nextPrevModel;
+  DateRangeEditorNextPrevModel nextPrevModel;
 
   bool showMonthSelector = false;
 
@@ -552,4 +553,33 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   static final rangeDisabledTooltip = Intl.message('No days available',
       name: 'DateRangeEditorComponent_rangeDisabledTooltip',
       desc: 'Message that explains why a date range is invalid.');
+}
+
+class DateRangeEditorNextPrevModel implements Sequential {
+  final NextPrevCallback onNext;
+  final NextPrevCallback onPrev;
+
+  DateRangeEditorNextPrevModel({this.onNext, this.onPrev});
+
+  @override
+  ObservableReference<bool> hasNext = ObservableReference<bool>(false);
+
+  @override
+  ObservableReference<bool> hasPrev = ObservableReference<bool>(false);
+
+  @override
+  void next() => onNext();
+
+  @override
+  void prev() => onPrev();
+
+  void update(Date visibleMonth, Date minDate, Date maxDate) {
+    if (visibleMonth == null) return;
+    hasPrev.value = compareDatesAtResolution(
+            visibleMonth, minDate, CalendarResolution.months) >
+        0;
+    hasNext.value = compareDatesAtResolution(
+            visibleMonth, maxDate, CalendarResolution.months) <
+        0;
+  }
 }

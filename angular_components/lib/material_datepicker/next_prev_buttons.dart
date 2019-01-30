@@ -5,9 +5,6 @@
 import 'dart:html' show Event;
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/material_datepicker/calendar.dart';
-import 'package:angular_components/model/date/date.dart';
-import 'package:angular_components/model/observable/observable.dart';
 import 'package:intl/intl.dart';
 import 'package:angular_components/src/material_datepicker/sequential.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
@@ -134,32 +131,3 @@ class NextPrevComponent implements OnDestroy {
 }
 
 typedef void NextPrevCallback();
-
-class DatepickerNextPrevModel implements Sequential {
-  final NextPrevCallback onNext;
-  final NextPrevCallback onPrev;
-
-  DatepickerNextPrevModel({this.onNext, this.onPrev});
-
-  @override
-  ObservableReference<bool> hasNext = ObservableReference<bool>(false);
-
-  @override
-  ObservableReference<bool> hasPrev = ObservableReference<bool>(false);
-
-  @override
-  void next() => onNext();
-
-  @override
-  void prev() => onPrev();
-
-  void update(Date visibleMonth, Date minDate, Date maxDate) {
-    if (visibleMonth == null) return;
-    hasPrev.value = compareDatesAtResolution(
-            visibleMonth, minDate, CalendarResolution.months) >
-        0;
-    hasNext.value = compareDatesAtResolution(
-            visibleMonth, maxDate, CalendarResolution.months) <
-        0;
-  }
-}
