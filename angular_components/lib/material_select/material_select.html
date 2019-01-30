@@ -5,7 +5,11 @@
 -->
 <material-list [width]="width" role="none">
   <ng-content></ng-content>
-  <div class="options-wrapper" *ngIf="options != null">
+  <div class="options-wrapper"
+       *ngIf="options != null"
+       role="group"
+       [attr.aria-labelledby]="ariaLabelledBy"
+       [attr.aria-describedby]="ariaDescribedBy">
     <div *ngFor="let group of options.optionGroups; trackBy: trackByIndexFn" group
          [class.empty]="group.isEmpty">
       <template [ngIf]="group.isNotEmpty">

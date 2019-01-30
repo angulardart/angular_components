@@ -70,6 +70,14 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
     super.width = value;
   }
 
+  /// The label which will be set to select group's aria-labelledby.
+  @Input()
+  String ariaLabelledBy;
+
+  /// The description which will be set to select groups' aria-describedby.
+  @Input()
+  String ariaDescribedBy;
+
   @Deprecated('Use factoryRenderer instead it is more tree-shakable')
   @Input()
   @override
