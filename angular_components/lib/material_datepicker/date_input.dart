@@ -202,8 +202,7 @@ class DateInputDirective implements OnDestroy {
 
   Date _parseDateUsingFormat(String input, DateFormat format) {
     try {
-      final date = Date.parseLoose(input, format);
-      return _clampDate(date);
+      return _clampDate(Date.parseLoose(input, format));
     } on FormatException {
       return null;
     } on ArgumentError {
@@ -216,12 +215,12 @@ class DateInputDirective implements OnDestroy {
   /// Parse the given string as a date using one of the listed formats.
   /// Returns the parsed date, or null if the string didn't match any format.
   Date _parseDateUsingFormatList(String input, List<DateFormat> formatList) {
-    Date date;
-    formatList.any((format) {
-      date = _parseDateUsingFormat(input, format);
-      return date != null;
-    });
-    return date;
+    for (DateFormat format in formatList) {
+      final d = _parseDateUsingFormat(input, format);
+
+      if (d != null) return d;
+    }
+    return null;
   }
 
   /// A cache for _parseDate, to speed up change detection.
