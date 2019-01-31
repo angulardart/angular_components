@@ -43,9 +43,11 @@ class TooltipController {
 
     // Use a small delay just in case the user mouses into the tooltip.
     final tooltipToClose = tooltip;
-    _closeTimer = Timer(keepAliveDuration, () {
+    _closeTimerByTooltip[tooltipToClose]?.cancel();
+    _closeTimerByTooltip[tooltipToClose] = Timer(keepAliveDuration, () {
       tooltipToClose.deactivate();
       if (tooltipToClose == _activeTooltip) _activeTooltip = null;
+      _closeTimerByTooltip.remove(tooltipToClose);
     });
   }
 
@@ -57,15 +59,19 @@ class TooltipController {
 
   void keepOpen(Tooltip tooltip) {
     if (tooltip != _activeTooltip) return;
-    _closeTimer?.cancel();
-    _closeTimer = null;
+    _cancelTooltipCloseTimer(tooltip);
+  }
+
+  void _cancelTooltipCloseTimer(Tooltip tooltip) {
+    _closeTimerByTooltip[tooltip]?.cancel();
+    _closeTimerByTooltip.remove(tooltip);
   }
 
   /// The currently active tooltip.
   Tooltip _activeTooltip;
 
-  /// Timer to close the previous tooltip.
-  Timer _closeTimer;
+  /// Timers to close each tooltip.
+  var _closeTimerByTooltip = <Tooltip, Timer>{};
 
   Tooltip proxyFor(Tooltip tooltip) => _ProxyTooltip(tooltip, this);
 }
