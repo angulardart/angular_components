@@ -34,6 +34,9 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 class MaterialDialogComponent
     with KeyboardHandlerMixin
     implements AfterContentChecked, OnDestroy {
+  @HostBinding('attr.role')
+  static const hostRole = 'dialog';
+
   final HtmlElement _rootElement;
   final DomService _domService;
   final ChangeDetectorRef _changeDetector;
