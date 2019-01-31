@@ -273,3 +273,12 @@
     }
   }
 }
+
+@mixin input-center-text() {
+  ::ng-deep {
+    .input,
+    .textarea {
+      text-align: center;
+    }
+  }
+}
