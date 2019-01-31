@@ -267,7 +267,7 @@ class MaterialStepperComponent {
   @Output('activeStepChanged')
   Stream<StepDirective> get activeStepChanged => _activeStepController.stream;
 
-  static final optionalMsg = Intl.message('(Optional)',
+  static final optionalMsg = Intl.message('Optional',
       name: 'optionalMsg',
       desc: 'Label denoting that a step in a task flow is optional.');
 
