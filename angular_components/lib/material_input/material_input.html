@@ -115,6 +115,7 @@
   <div class="spaceholder"
        *ngSwitchWhen="emptyState"
        tabindex="-1"
+       aria-hidden="true"
        (focus)="$event.stopPropagation()">
     &nbsp;
   </div>
