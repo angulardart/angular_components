@@ -21,11 +21,14 @@ const timeZoneAwareClock = OpaqueToken('timeZoneAwareClock');
 
 /// Provides [timeZoneAwareClock], an instance of [Clock] set to
 /// [SettableTimeZone], which can change at runtime.
-const timeZoneAwareClockProviders = [
-  Provider(SettableTimeZone, useFactory: settableTimeZoneFactory),
-  TimeZoneAwareClock,
-  Provider(timeZoneAwareClock, useExisting: TimeZoneAwareClock),
+const timeZoneAwareClockProviders = <Provider>[
+  FactoryProvider(SettableTimeZone, settableTimeZoneFactory),
+  ClassProvider(TimeZoneAwareClock),
+  ExistingProvider.forToken(timeZoneAwareClock, TimeZoneAwareClock),
 ];
+
+/// DI module for [timeZoneAwareClock].
+const timeZoneAwareClockModule = Module(provide: timeZoneAwareClockProviders);
 
 /// Clock set to [SettableTimeZone], which can change at runtime.
 ///
