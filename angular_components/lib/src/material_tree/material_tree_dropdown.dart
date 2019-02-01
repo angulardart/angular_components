@@ -18,8 +18,8 @@ import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
+import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 import 'material_tree_impl.dart';
@@ -68,6 +68,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   String _placeholder = _DEFAULT_PLACEHOLDER;
   bool _visible = false;
   List<RelativePosition> _customPopupPositions;
+  String _buttonText;
 
   @ViewChild(MaterialTreeFilterComponent)
   MaterialTreeFilterComponent materialTreeFilterComponent;
@@ -92,21 +93,32 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   @Input()
   bool shouldExpandAllWhenFiltered = true;
 
+  /// Function to convert the selected value to a string to be displayed as the
+  /// button text.
+  @Input()
+  ItemRenderer labelRenderer;
+
   bool get showFilterInsideButton =>
       supportsFiltering && !showFilterInsidePopup;
 
   Filterable get filterableOptions => options is Filterable
       ? options as Filterable
       : throw StateError(
-          'The SlectionOptions provided should implement Filterable');
+          'The SelectionOptions provided should implement Filterable');
 
   bool get expandAll =>
       _expandAll || (isFiltered && shouldExpandAllWhenFiltered);
 
+  /// Returns the text to be displayed in the button or in the filter (if
+  /// enabled).
+  ///
+  /// If a value has been selected for a single-select dropdown, this will
+  /// render the selected value with [labelRenderer], [itemRenderer], or
+  /// [defaultItemRenderer] in that order of preference.
   String get placeholder {
     if (selection is! MultiSelectionModel && selection.isNotEmpty) {
-      return (itemRenderer ??
-          defaultItemRenderer)(selection.selectedValues.first);
+      return (labelRenderer ?? (itemRenderer ?? defaultItemRenderer))(
+          selection.selectedValues.first);
     }
     return _placeholder;
   }
