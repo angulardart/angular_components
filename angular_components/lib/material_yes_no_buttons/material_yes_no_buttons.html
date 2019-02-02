@@ -10,6 +10,7 @@
 <material-button #yesButton
                  *ngIf="!pending && yesDisplayed"
                  class="btn btn-yes"
+                 [autoFocus]="yesAutoFocus"
                  [raised]="yesRaised || raised"
                  [class.highlighted]="yesHighlighted"
                  [disabled]="yesDisabled || disabled"
@@ -20,6 +21,7 @@
 <material-button #noButton
                  *ngIf="!pending && noDisplayed"
                  class="btn btn-no"
+                 [autoFocus]="noAutoFocus"
                  [raised]="raised"
                  [disabled]="noDisabled || disabled"
                  [attr.aria-label]="noAriaLabel"
