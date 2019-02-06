@@ -120,6 +120,11 @@ class MaterialExpansionPanel
   set mainContent(HtmlElement mainContent) {
     _mainContent = mainContent;
     if (_mainContent == null) return;
+    _completeExpandedPanelHeightReadsIfPossible();
+  }
+
+  void _completeExpandedPanelHeightReadsIfPossible() {
+    if (_mainContent == null || _contentWrapper == null) return;
     if (_pendingExpandedPanelHeightReads.isNotEmpty) {
       var height = _readMainContentHeight();
       for (var completer in _pendingExpandedPanelHeightReads) {
@@ -143,6 +148,7 @@ class MaterialExpansionPanel
   @ViewChild('contentWrapper')
   set contentWrapper(HtmlElement contentWrapper) {
     _contentWrapper = contentWrapper;
+    _completeExpandedPanelHeightReadsIfPossible();
   }
 
   /// If true, after a successful save, the panel will attempt to close.
@@ -524,7 +530,7 @@ class MaterialExpansionPanel
     final completeExpandedHeight = Completer<String>();
 
     _domService.scheduleRead(() {
-      if (_mainContent != null) {
+      if (_mainContent != null && _contentWrapper != null) {
         completeExpandedHeight.complete(_readMainContentHeight());
       } else {
         _pendingExpandedPanelHeightReads.add(completeExpandedHeight);
