@@ -66,3 +66,10 @@
     margin-right: -$mat-grid * 2;
   }
 }
+
+/// Applies @content styling to material tree items in a nested material tree.
+@mixin nested-material-tree-item-style {
+  material-tree-group ul .material-tree-option .material-tree-item {
+    @content;
+  }
+}
