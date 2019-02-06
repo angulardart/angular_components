@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content.dart';
@@ -20,6 +21,7 @@ import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 import 'material_tree_impl.dart';
@@ -79,6 +81,12 @@ class MaterialTreeDropdownComponent extends SelectionContainer
 
   final _visibleStream = StreamController<bool>.broadcast(sync: true);
 
+  /// CSS classes from the root element, passed to the popup to allow scoping of
+  /// mixins.
+  ///
+  /// Only visible for the template.
+  final String popupClassName;
+
   /// Whether to always expand an option group.
   @Input()
   set expandAll(bool value) {
@@ -126,7 +134,9 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   @override
   final bool optimizeForDropdown = true;
 
-  MaterialTreeDropdownComponent(this._domService) {
+  MaterialTreeDropdownComponent(this._domService,
+      @Attribute('popupClass') String popupClass, HtmlElement element)
+      : popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
     selection = const SelectionModel.empty();
   }
 
