@@ -52,6 +52,16 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
   padding: $delete-icon-padding;
 }
 
+.delete-button {
+  border: 0;
+  cursor: pointer;
+  outline: none;
+
+  &:focus .delete-icon {
+    fill: $mat-white;
+  }
+}
+
 .delete-icon {
   display: flex;
   background-size: $delete-icon-size $delete-icon-size;
@@ -66,11 +76,6 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
   width: $delete-icon-size;
 
   fill: $mat-grey-500;
-
-  &:focus {
-    fill: $mat-white;
-    outline: none;
-  }
 }
 
 // emphasis colors
@@ -85,9 +90,9 @@ $delete-icon-padding: ($clickable-size - $delete-icon-size) / 2;
 
   .delete-icon {
     fill: $mat-white;
+  }
 
-    &:focus {
-      fill: $mat-grey-300;
-    }
+  .delete-button:focus .delete-icon-svg {
+    fill: $mat-grey-300;
   }
 }
