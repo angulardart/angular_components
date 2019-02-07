@@ -108,6 +108,8 @@
                       [maxDate]="maxDate"
                       [isClearRangeSelected]="isClearRangeSelected"
                       [rangeId]="model.rangeId"
+                      [dateFormat]="dateFormat"
+                      [activeDateFormat]="activeDateFormat"
                       [(state)]="model.calendar.value"
                       [(range)]="model.range.value">
     </date-range-input>
@@ -124,6 +126,8 @@
                       [maxDate]="model.maxDate"
                       [isClearRangeSelected]="isClearRangeSelected"
                       [rangeId]="model.comparisonId"
+                      [dateFormat]="dateFormat"
+                      [activeDateFormat]="activeDateFormat"
                       [(state)]="model.calendar.value"
                       [(range)]="model.comparison.value"
                       [disabled]="!isCustomComparisonValid">

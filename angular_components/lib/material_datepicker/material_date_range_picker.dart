@@ -283,6 +283,14 @@ class MaterialDateRangePickerComponent
   Date get maxDate => _maxDate;
   Date _maxDate;
 
+  /// The [DateFormat] used to format dates.
+  @Input()
+  DateFormat dateFormat;
+
+  /// The [DateFormat] used to format dates when the input is active.
+  @Input()
+  DateFormat activeDateFormat;
+
   /// When 'requireFullPeriods' is true, 'prev/next' button will be disabled
   /// if previous or next period is not a full predefined period, like 'week'.
   @Input()
