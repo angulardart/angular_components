@@ -176,7 +176,8 @@ abstract class ScrollHostBase implements ScrollHost {
     // doesn't jump around when position: sticky is used).
     if (!usePositionSticky) {
       _elementListenersDisposer.addStreamSubscription(
-          anchorElement.onMouseWheel.listen((WheelEvent event) {
+          anchorElement.onWheel.listen((WheelEvent event) {
+        if (event is! WheelEvent) return;
         // Ignore mouse wheel event if the CTRL key or SHIFT key is pressed.
         // This is consistent with other Google sites and ensures compatibility
         // with embedded APIs (e.g. Maps zooms the map when CTRL is pressed).
