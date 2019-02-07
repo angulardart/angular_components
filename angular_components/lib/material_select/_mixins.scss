@@ -95,6 +95,15 @@
   }
 }
 
+/// Sets the background color of the selected dropdown item.
+@mixin material-select-selected-background-color($color) {
+  ::ng-deep {
+    material-select-dropdown-item:not(.multiselect).selected {
+      background: $color;
+    }
+  }
+}
+
 /// Enables pointer events on disabled MaterialSelectDropdownItems
 ///
 /// This can be scoped to a specific selector in cases where
