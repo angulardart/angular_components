@@ -209,6 +209,14 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   Date _maxDate = Date(9999, DateTime.december, 31);
   Date get maxDate => _maxDate;
 
+  /// The [DateFormat] used to format dates.
+  @Input()
+  DateFormat dateFormat;
+
+  /// The [DateFormat] used to format dates when the input is active.
+  @Input()
+  DateFormat activeDateFormat;
+
   final Element _elementRef;
   final DomService _domService;
   final ManagedZone _managedZone;
