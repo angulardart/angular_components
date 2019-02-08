@@ -58,6 +58,8 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   providers: [
     Provider(DeferredContentAware, useExisting: MaterialExpansionPanel),
     Provider(HasDisabled, useExisting: MaterialExpansionPanel),
+    Provider(FocusableItem, useExisting: MaterialExpansionPanel),
+    Provider(Focusable, useExisting: MaterialExpansionPanel),
   ],
   templateUrl: 'material_expansionpanel.html',
   styleUrls: ['material_expansionpanel.scss.css'],
@@ -65,7 +67,12 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   visibility: Visibility.all, // injected
 )
 class MaterialExpansionPanel
-    implements DeferredContentAware, HasDisabled, OnInit, OnDestroy {
+    implements
+        DeferredContentAware,
+        HasDisabled,
+        OnInit,
+        OnDestroy,
+        FocusableItem {
   final NgZone _ngZone;
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
@@ -403,6 +410,29 @@ class MaterialExpansionPanel
   @ViewChild('expandCollapseButton', read: ButtonDirective)
   set expandCollapse(ButtonDirective button) {
     _expandCollapseButton = button;
+  }
+
+  @override
+  void focus() {
+    _expandCollapseButton?.focus();
+  }
+
+  final _focusMoveCtrl = StreamController<FocusMoveEvent>.broadcast(sync: true);
+  @override
+  Stream<FocusMoveEvent> get focusmove => _focusMoveCtrl.stream;
+
+  @HostListener('keydown')
+  void keydown(KeyboardEvent event) {
+    var focusEvent = FocusMoveEvent.fromKeyboardEvent(this, event);
+    if (focusEvent != null) {
+      _focusMoveCtrl.add(focusEvent);
+    }
+  }
+
+  @override
+  set tabbable(bool value) {
+    // We don't implement this as we still want the individual panels to be
+    // tabbable.
   }
 
   Future<bool> expand({bool byUserAction = true}) {
