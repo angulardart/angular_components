@@ -136,6 +136,12 @@ class MaterialInputComponent extends BaseMaterialInput
   @override
   void focus() => super.focus();
 
+  /// Input element tabindex.
+  ///
+  /// Used to prevent focus/blur events on disabled inputs that caused weird
+  /// behavior of floating label, input validations, etc.
+  int get inputTabIndex => disabled ? -1 : 0;
+
   bool get hasLeadingText => isNotEmpty(leadingText);
   String get leadingText => _leadingText;
   String _leadingText;
