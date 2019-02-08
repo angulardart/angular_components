@@ -33,9 +33,9 @@
         (trigger)="handleExpandIconClick">
     </material-icon>
     <div class="panel-name">
+      <ng-content select="[name]"></ng-content>
       <p class="primary-text">{{name}}</p>
       <p class="secondary-text" *ngIf="secondaryText != null">{{secondaryText}}</p>
-      <ng-content select="[name]"></ng-content>
     </div>
 
     <div class="panel-description">
