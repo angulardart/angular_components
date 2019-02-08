@@ -93,10 +93,24 @@ $left-icon-width: $mat-grid * 4;
   }
 }
 
+/// Use this mixin to change the font weight of each of the chips.
+@mixin material-chip-font-weight($weight) {
+  ::ng-deep material-chip {
+    font-weight: $weight;
+  }
+}
+
 /// Use this mixin to change the font size of each of the chips.
 @mixin material-chip-font-size($size) {
   ::ng-deep material-chip {
     font-size: $size;
+  }
+}
+
+/// Use this mixin to change the padding of each of the chips.
+@mixin material-chip-padding($padding) {
+  ::ng-deep material-chip {
+    padding: $padding;
   }
 }
 
