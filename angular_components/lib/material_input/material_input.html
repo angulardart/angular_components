@@ -61,6 +61,7 @@
              (input)="inputKeypress(inputEl.value, inputEl.validity.valid, inputEl.validationMessage)"
              [multiple]="multiple"
              [readonly]="disabled"
+             [tabindex]="inputTabIndex"
              [type]="type">
     </label>
     <span *ngIf="hasTrailingText"
