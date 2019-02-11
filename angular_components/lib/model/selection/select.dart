@@ -42,7 +42,7 @@ abstract class Filterable {
   /// filter('re', limit: 5) for return colors whose names start with 're'
   /// filter(new DateTime.now(), limit: 10) for showing only meeting that are in
   /// the future.
-  DisposableFuture<bool> filter(Object filterQuery, {int limit = -1});
+  DisposableFuture<bool> filter(Object filterQuery, {int limit});
 }
 
 /// Interface implemented by classes that support children.
