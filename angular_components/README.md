@@ -15,9 +15,9 @@ Angular package.
 
 This is a continually growing set of widgets. Recent additions include:
 
+* Simple HTML Component
 * Material Card styling
 * Material Stacking Drawer
-* Material Stepper
 
 At this time we are not taking pull requests, but please
 [file an issue](https://github.com/dart-lang/angular_components/issues)

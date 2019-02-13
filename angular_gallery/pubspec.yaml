@@ -4,7 +4,7 @@ environment:
   sdk: '>=2.1.0-dev.9.4 <3.0.0'
 dependencies:
   angular: ^5.2.0
-  angular_components: 0.11.0
+  angular_components: 0.12.0
   angular_forms: ^2.1.0
   angular_router: 2.0.0-alpha+21
   build: '>=0.11.1 <2.0.0'
