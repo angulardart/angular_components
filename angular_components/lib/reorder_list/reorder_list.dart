@@ -651,7 +651,7 @@ class ReorderItemDirective {
   /// Optional. If not specified, the host element for this directive will also
   /// be the handle.
   @Input()
-  set reorderHandle(HtmlElement element) {
+  set useHandle(HtmlElement element) {
     _handleElement = element;
   }
 
