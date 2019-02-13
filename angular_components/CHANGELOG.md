@@ -1,3 +1,129 @@
+## 0.12.0
+
+### Component Updates
+
+#### Material Auto-Suggest Input
+* Disable clear icon when the input is disabled.
+* Hide an empty suggestion group.
+
+#### Material Button
+* Add Sass mixin to change the color of a disabled button.
+
+#### Material Card
+* Update elevation appearance to match spec.
+
+#### Material Chips
+* Allow setting a custom aria label for the delete button.
+* Fix issue that prevented removing chips while using JAWS screen reader.
+* Add Sass mixins for font-weight and padding.
+
+#### Material Datepicker
+* Remove `globalDateRangeBindings`.
+* Allow setting a custom aria label to the dropdown button.
+* Allow passing custom `DateFormat` from the `material-date-range-picker` to the
+  `date-range-input`.
+
+#### Material Dialog
+* Allow setting a custom aria label and describe by.
+
+#### Material Expansion Panel
+* Ensure height calculations are completed after the main content is destroyed.
+* Fix keyboard controls to prevent focusing a hidden header button.
+* Allow setting a custom aria label to the panel.
+* Make the entire content of the panel deferred rather than just the buttons.
+* Make the expansion button not be tabbable since the heading is tabbable.
+* Prevent hidden buttons from being focused in the header.
+* Improve panel resizing.
+* Implement `focusableItem` so that it can work with a `focusList`.
+* Move name ng-content above the input name and description.
+
+#### Material Icon
+* Correctly stretch SVG icon.
+* Remove aria label from the icon.
+
+#### Material Input
+* Add Sass mixin for label text vertical-align.
+* `'percent'` is an invalid type attribute, `'text'` instead.
+* If the multi-line input is not currently in the DOM listen to DOM updates
+  until the line height can be read.
+* Ensure only whitespace is considered an invalid number input.
+* Allow specifying an aria described by id on the input.
+* Add Sass mixin to center align text.
+* Hide place holder on input field from screen reader.
+* Fix focus behavior in disabled state.
+
+#### Material List
+* Change the default roles to `list` and `listitem`.
+
+#### Material Menu
+* Create standalone menu item affix components.
+* Load standalone menu item affix components via `DynamicComponent` instead of
+  using `NgIf`s.
+* Allow described by id to be specified for a dropdown button.
+* Create `MenuItemMixin`.
+
+#### Material Month Picker
+* Re-render highlights when view is reset.
+
+#### Material Popup
+* Move the overlay focus placeholder elements inside of Material Popup.
+* Enable `OnPush` change detection.
+
+#### Material Ripple
+* Remove ripple elements when component is destroyed.
+
+#### Material Select
+* Support custom aria handling for each list item in dropdown.
+* Support `OnPush` change detection.
+* Revert change that attempted to fix strange behavior when mixing keyboard and
+  mouse input because it broke some keyboard navigation.
+* Allow setting a custom aria label and describe by.
+* Add Sass mixin to customize dropdown item selected background color.
+
+#### Material Tab
+* Add Sass mixin to make the tab contents `display: block`.
+
+#### Material Time Picker
+* Fix regression where time cannot be set by user a programmatic change.
+
+#### Material Tooltip
+* `initPopupAriaAttributes` is now passed through to all the tooltip variations.
+* Restore any previously defined `aria-describedby` value, after popup closes.
+* Add Sass mixin to set `word-break`.
+* Fix nested tooltip targets preventing tooltips from staying open when hovered.
+
+#### Material Tree
+* Add ability to specify a label renderer for dropdown button text.
+* Add ability to style items in the tree dropdown.
+
+#### Material Yes/No Buttons
+* Add optional ARIA label inputs.
+* Add Sass mixin to remove the `margin-left`.
+* Add autofocus functionality for use in confirmation dialogs.
+
+#### Scorecard
+* Vertically align the change glyph to the middle.
+
+#### Simple HTML Component
+* Allow 'class' attribute for all elements.
+
+### Miscellaneous
+* Add home/end key modifiers to focus_list to focus the first or last value.
+* Remove `$mat-gray` as an alias for `$mat-grey` in Sass mixins.
+* Add `shouldFilterEmpty` parameter to `StringSelectionOptions` to return empty
+  filtered values when query is empty.
+* Make the role of a button mutable, after initialization.
+* Update MDC Web styles to v0.44.0.
+* Add `HtmlDocument` in addition to `Document` as a provided `windowBinding`.
+* Modularize clock bindings.
+* Remove default values for optional parameters on `notifySelectionChange()`.
+* Use `WheelEvent` instead of `MouseEvent` in scroll host.
+* Fix previously uncaught violations of invalid override method parameter
+  default values.
+
+### Documentation
+* Minor docs fixes.
+
 ## 0.11.0
 
 ### New Component
