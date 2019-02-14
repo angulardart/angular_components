@@ -257,8 +257,11 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
 
   void handleActivate(UIEvent e) {
     var hasCheckbox = supportsMultiSelect && !hideCheckbox;
-    if (closeOnActivate && !hasCheckbox) {
-      _dropdown?.close();
+    if (_dropdown != null && closeOnActivate && !hasCheckbox) {
+      _dropdown.close();
+      if (e is KeyboardEvent) {
+        e.stopPropagation();
+      }
     }
 
     if (_activationHandler?.handle(e, value) ?? false) return;
