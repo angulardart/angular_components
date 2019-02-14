@@ -156,6 +156,7 @@ class MaterialPopupComponent extends Object
   int _repositionOffsetX = 0;
   int _repositionOffsetY = 0;
   int _repositionLoopId;
+  List<Element> _autoDismissBlockers = [];
 
   @override
   bool get autoDismiss => state.autoDismiss;
@@ -176,6 +177,7 @@ class MaterialPopupComponent extends Object
 
   /// Direction of popup scaling.
   String _slide;
+
   String get slide => _slide;
 
   /// Direction of popup scaling.
@@ -230,6 +232,13 @@ class MaterialPopupComponent extends Object
   /// animation delayed is applied.
   @Input()
   bool hasBox = true;
+
+  /// Page elements that do not auto-dismiss the popup in addition to the popup
+  /// up source element.
+  @Input()
+  set autoDismissBlockers(List<Element> elements) {
+    _autoDismissBlockers = elements;
+  }
 
   MaterialPopupComponent(
       @Optional() @SkipSelf() this._hierarchy,
@@ -398,7 +407,9 @@ class MaterialPopupComponent extends Object
     var sourceElement = state.source is ElementPopupSource
         ? (state.source as ElementPopupSource).sourceElement
         : null;
-    return sourceElement != null ? <Element>[sourceElement] : <Element>[];
+    return sourceElement != null
+        ? (_autoDismissBlockers.toList()..add(sourceElement))
+        : _autoDismissBlockers.toList();
   }
 
   @override
