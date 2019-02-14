@@ -3,14 +3,14 @@
   "engine": "v2",
   "file": "main.dart.js_72.part.js",
   "sourceRoot": "",
-  "sources": ["../packages/angular_components/material_list/material_list_item.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular/src/core/linker/component_factory.dart","../packages/angular_components/material_list/material_list_item.dart"],
-  "names": ["viewFactory_MaterialListItemComponentHost0","AppView","initReflector","_ViewMaterialListItemComponentHost0.build","_ViewMaterialListItemComponentHost0.injectorGetInternal","_ViewMaterialListItemComponentHost0.detectChangesInternal","_ViewMaterialListItemComponentHost0.destroyInternal","","registerComponent","ngOnDestroy"],
-  "mappings": "A;;IA2I2CA,cA5CzCA,eAAiHA;ACyFpGC;AD5CbD,QACFA,C;GAGKE,WACHA,SACEA,MAUJA;;AEjIEA,WAAWA;AF4HXA;AACAA;AAEAA,MAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EA3DkDC,WAChCA;AAAdA;AACqBA;AAArBA;AAKcA,SAAuCA;AAJrDA;AAKAA;AACAA;AACAA,OGxFFA,oCHyFAA,C;EAGQC,gBACNA,kBACEA,aAGJA;AADEA,QACFA,C;EAGKC,WAEqBA;AAIxBA,KACEA;AAEFA;AACAA,UACFA,C;EAGKC,WACHA;AIhEAA,YJkEFA,C",
+  "sources": ["../packages/angular_components/material_icon/material_icon.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_icon/material_icon.dart","../packages/angular/src/core/linker/component_factory.dart"],
+  "names": ["viewFactory_MaterialIconComponentHost0","AppView","initReflector","_ViewMaterialIconComponentHost0.build","_ViewMaterialIconComponentHost0.detectChangesInternal","_ViewMaterialIconComponentHost0.destroyInternal","","registerComponent","MaterialIconComponentNgFactory","projectableNodes"],
+  "mappings": "A;;IAkGuCA,cA1BrCA,eAA6GA;ACgHhGC,CAAXA,YDhHqGD;AA2BvGA,QACFA,C;GAGKE,eACCA,KACFA,MAOJA;;AErFEA,MAAWA,KFkFcA,KA7ClBA;AA8CPA,KAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAtC8CC,WAAQA;AACpCA;IAAdA;GACqBA;IAArBA;AGIFA;IHHEA;AACAA,YC8IEA,EAASA;AD7IXA,WAAMA;AACNA,OI7DFA,mBJ6D+BA,OAAQA,SACvCA,C;EAGKC,WAKHA,UACFA,C;EAGKC,WACHA,UACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "iOA4ISOgCCqCPAADlFAAwB,A,A;kDAuDAC0B;ofA3CSDoC;kKA4BPEY;"
+    "frames": "6MAmGSMgCC8EPAADzGAAa,A,U;kDAqCACW;KAAgDCK;4aAhCTFiB;iBACUGM;sBAExCHmB;"
   }
 }

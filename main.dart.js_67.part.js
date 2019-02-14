@@ -1,715 +1,672 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,$){var C,H,J,P={
-a9G:function(o,p,q,a0){var y,x,w,v,u,t,s,r
-y=p.length
-if(y!==0){v=0
-while(!0){if(!(v<y)){x=""
-w=0
-break}if(C.h.bM(p,v)===64){x=C.h.bo(p,0,v)
-w=v+1
-break}++v}if(w<y&&C.h.bM(p,w)===91){for(u=w;u<y;++u)if(C.h.bM(p,u)===93)break
-if(u===y)throw H.m(P.bx("Invalid IPv6 host entry.",p,w))
-P.a22(p,w+1,u);++u
-if(u!==y&&C.h.bM(p,u)!==58)throw H.m(P.bx("Invalid end of authority",p,u))}else u=w
-while(!0){if(!(u<y)){t=null
-break}if(C.h.bM(p,u)===58){s=C.h.cR(p,u+1)
-t=s.length!==0?P.eI(s,null,null):null
-break}++u}r=C.h.bo(p,w,u)}else{x=""
-r=null
-t=null}return P.aqA(null,r,null,H.a(q.split("/"),[P.c]),t,null,a0,o,x)}},W,G={
-ly:function(o,p){var y,x
-y=new G.P4(P.e(P.c,null),o)
-y.a=S.i(y,3,C.j,p,F.hU)
-x=document.createElement("simple-html")
-y.e=x
-x=$.a9b
-if(x==null){x=$.D
-x=x.Y(null,C.o,$.$get$ald())
-$.a9b=x}y.X(x)
+$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K={
+aoF:function(){return C.ei},
+aIW:function(d,e){var y=new K.WQ(P.e(P.c,null),d)
+y.a=S.i(y,3,C.k,e,Q.fy)
 return y},
-aKg:function(o,p){var y=new G.Yj(P.e(P.c,null),o)
-y.a=S.i(y,3,C.k,p,F.hU)
-return y},
-a99:function(o,p){var y,x
-y=new G.P3(P.e(P.c,null),o)
-y.a=S.i(y,3,C.j,p,F.hT)
-x=document.createElement("simple-html-block")
-y.e=x
-x=$.a9a
-if(x==null){x=$.D
-x=x.Y(null,C.o,$.$get$alc())
-$.a9a=x}y.X(x)
-return y},
-aKf:function(o,p){var y=new G.Yi(P.e(P.c,null),o)
-y.a=S.i(y,3,C.k,p,F.hT)
-return y},
-aiH:function(){if($.aat)return
-$.aat=!0
-var y=$.$get$G()
-y.w(0,C.oW,C.ie)
-y.w(0,C.oV,C.iE)
+auc:function(){if($.a9S)return
+$.a9S=!0
+$.F().w(0,C.p9,C.ei)
 E.z()
-V.dB()},
-P4:function P4(o,p){var _=this
-_.a=null
-_.b=o
-_.c=p
+K.cD()
+D.cn()
+X.aud()},
+NI:function NI(d,e){var _=this
+_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.b=d
+_.c=e
 _.f=_.e=_.d=null},
-Yj:function Yj(o,p){var _=this
+WQ:function WQ(d,e){var _=this
 _.a=_.x=_.r=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null},
-P3:function P3(o,p){var _=this
-_.a=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null},
-Yi:function Yi(o,p){var _=this
-_.a=_.x=_.r=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null},
-fH:function fH(o){this.a=o}},Y={Kv:function Kv(){}},R={hV:function hV(o){this.a=o}},K,V,S={iS:function iS(){}},N,E={
-apV:function(){return C.e7},
-aKe:function(o,p){var y=new E.Yh(P.e(P.c,null),o)
-y.a=S.i(y,3,C.k,p,G.fH)
+_.b=d
+_.c=e
+_.f=_.e=_.d=null}},V,S,N,E={tN:function tN(){},lY:function lY(d){this.b=d
+this.a=null}},M,Q={fy:function fy(d){this.a=d}},D,L,Z={hD:function hD(){this.a=!1},GJ:function GJ(d){this.a=d}},A,U,T,O,X={
+aJ0:function(d,e){var y=new X.WT(P.e(P.c,null),d)
+y.a=S.i(y,3,C.k,e,Z.hD)
 return y},
-aun:function(){if($.aar)return
-$.aar=!0
-$.$get$G().w(0,C.oU,C.e7)
+aud:function(){if($.a9T)return
+$.a9T=!0
+$.F().w(0,C.pa,C.e8)
 E.z()
-K.cM()
-D.cz()
-A.avJ()
-F.awE()},
-P2:function P2(o,p){var _=this
-_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=o
-_.c=p
+M.ZQ()},
+vB:function vB(d,e){var _=this
+_.S=_.T=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.a=_.aa=_.ab=_.a4=_.a2=_.R=_.a0=_.M=_.L=_.a_=_.V=null
+_.b=d
+_.c=e
 _.f=_.e=_.d=null},
-Yh:function Yh(o,p){var _=this
+WT:function WT(d,e){var _=this
 _.a=_.x=_.r=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null}},M,B,Q,D,L,Z,A={
-aKi:function(o,p){var y=new A.Yl(P.e(P.c,null),o)
-y.a=S.i(y,3,C.k,p,R.hV)
-return y},
-avJ:function(){if($.adP)return
-$.adP=!0
-$.$get$G().w(0,C.oX,C.e_)
-E.z()
-G.aiH()},
-P6:function P6(o,p){var _=this
-_.a=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null},
-Yl:function Yl(o,p){var _=this
-_.a=_.x=_.r=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null}},U,T,O,X,F={
-ls:function(o,p,q){var y=F.aa8(q==null?$.$get$a36():q)
-return new F.hU(p,o,new P.l(null,null,0,[W.a0]),new R.B(!1,!1),new F.xn(y))},
-a71:function(o,p,q){var y=F.aa8(q==null?$.$get$a36():q)
-y.fT("p",null,null,null)
-y.fT("ul",null,null,null)
-y.fT("li",null,null,null)
-return new F.hT(p,o,new P.l(null,null,0,[W.a0]),new R.B(!1,!1),new F.xn(y))},
-a2V:function(o,p){return new F.xM(!1,null,null,"Unsafe URI "+H.u(o)+" because "+p)},
-QH:function(o,p){return new F.wB(!1,null,null,"Element "+H.u(o)+" was malformed: "+p)},
-aqx:function(o){var y=new F.Re(P.mb(o,P.fK))
-y.Mi(o)
-return y},
-aa8:function(o){var y,x
-y=new W.qa(H.a([],[W.hN]))
-x=[P.c]
-y.fT("a",H.a(["class","href","rel","target"],x),null,F.aqx(o))
-y.fT("b",null,null,null)
-y.fT("br",null,null,null)
-y.fT("em",null,null,null)
-y.fT("i",null,null,null)
-y.fT("span",H.a(["class"],x),null,null)
-y.fT("strong",null,null,null)
-return y},
-hU:function hU(o,p,q,r,s){var _=this
-_.f=o
-_.a=p
-_.b=null
-_.c=q
-_.d=r
-_.e=s},
-hT:function hT(o,p,q,r,s){var _=this
-_.f=o
-_.a=p
-_.b=null
-_.c=q
-_.d=r
-_.e=s},
-Ri:function Ri(){},
-Rl:function Rl(o,p){this.a=o
-this.b=p},
-Rk:function Rk(o){this.a=o},
-Rj:function Rj(o){this.a=o},
-xM:function xM(o,p,q,r){var _=this
-_.a=o
-_.b=p
-_.c=q
-_.d=r},
-wB:function wB(o,p,q,r){var _=this
-_.a=o
-_.b=p
-_.c=q
-_.d=r},
-xn:function xn(o){this.a=o},
-Re:function Re(o){this.a=o},
-Rg:function Rg(){},
-Rf:function Rf(o){this.a=o},
-aKh:function(o,p){var y=new F.Yk(P.e(P.c,null),o)
-y.a=S.i(y,3,C.k,p,S.iS)
-return y},
-awE:function(){if($.aas)return
-$.aas=!0
-$.$get$G().w(0,C.pv,C.el)
-E.z()
-G.aiH()},
-P5:function P5(o,p){var _=this
-_.a=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null},
-Yk:function Yk(o,p){var _=this
-_.a=_.y=_.x=_.r=null
-_.b=o
-_.c=p
-_.f=_.e=_.d=null}}
-h([P,G,Y,R,S,E,A,F])
-C=n[0]
-H=n[1]
-J=n[2]
-P=i(n[3],P)
-W=n[4]
-G=i(n[5],G)
-Y=i(n[6],Y)
-R=i(n[7],R)
-K=n[8]
-V=n[9]
-S=i(n[10],S)
-N=n[11]
-E=i(n[12],E)
-M=n[13]
-B=n[14]
-Q=n[15]
-D=n[16]
-L=n[17]
-Z=n[18]
-A=i(n[19],A)
-U=n[20]
-T=n[21]
-O=n[22]
-X=n[23]
-F=i(n[24],F)
-F.hU.prototype={
-gJG:function(o){var y,x
-y=this.f
-x=y.children
-if(y.firstElementChild==null)y=null
-else{y=new W.oi(y,x)
-y=y.gdK(y)}return y}}
-F.hT.prototype={
-gJG:function(o){var y,x
-y=this.f
-x=y.children
-if(y.firstElementChild==null)y=null
-else{y=new W.oi(y,x)
-y=y.gdK(y)}return y}}
-F.Ri.prototype={
-shv:function(o){return this.a.cQ(new F.Rl(this,o))},
-gmN:function(){var y=this.c
-return new P.n(y,[H.f(y,0)])}}
-F.xM.prototype={}
-F.wB.prototype={}
-F.xn.prototype={
-fU:function(o){if(!this.a.fU(o))throw H.m(F.QH(o,"prohibited element"))
+_.b=d
+_.c=e
+_.f=_.e=_.d=null}},B,F
+a.setFunctionNamesIfNecessary([K,E,Q,Z,X])
+C=c[0]
+H=c[1]
+J=c[2]
+P=c[3]
+W=c[4]
+G=c[5]
+Y=c[6]
+R=c[7]
+K=a.updateHolder(c[8],K)
+V=c[9]
+S=c[10]
+N=c[11]
+E=a.updateHolder(c[12],E)
+M=c[13]
+Q=a.updateHolder(c[14],Q)
+D=c[15]
+L=c[16]
+Z=a.updateHolder(c[17],Z)
+A=c[18]
+U=c[19]
+T=c[20]
+O=c[21]
+X=a.updateHolder(c[22],X)
+B=c[23]
+F=c[24]
+E.tN.prototype={}
+E.lY.prototype={
+qN:function(d){var y
+if(d.keyCode!==27)return!1
+y=this.b.fx
+if(y==null||y.e)return!1
 return!0},
-fp:function(o,p,q){var y
-if(o.tagName.toLowerCase()==="a"&&p==="target"){if(!o.hasAttribute("rel"))throw H.m(F.QH(o,"did not set rel attribute"))
-y=o.getAttribute("rel")
-if(!C.e.aP(H.a(y.split(" "),[P.c]),"noopener"))throw H.m(F.QH(o,"did not set link type noopener (only "+y+")"))}if(!this.a.fp(o,p,q))throw H.m(F.QH(o,"prohibited attribute "+p+" with value "+H.u(q)))
-return!0},
-$ishN:1}
-F.Re.prototype={
-Mi:function(o){C.e.b1(this.a,new F.Rg())},
-p9:function(o){var y,x,w,v,u,t
-y=null
-try{y=P.a21(o,0,null)}catch(v){H.av(v)
-u=F.a2V(o,"Could not parse")
-throw H.m(u)}x=P.a7j().q3(y)
-w=null
-try{w=J.any(x)}catch(v){H.av(v)
-u=F.a2V(o,"Resolved URI "+H.u(x)+" had no origin")
-throw H.m(u)}u=w
-t=P.a7j()
-if(!J.X(u,t.gmB(t))&&!this.WA(x))throw H.m(F.a2V(o,"Different origin and non-whitelisted URL"))
-return!0},
-WA:function(o){return C.e.eE(this.a,new F.Rf(o))}}
-G.P4.prototype={
-p:function(){var y=this.Z(this.e)
-this.m(S.dd(document,y))
-this.M(C.a,null)},
-$asb:function(){return[F.hU]}}
-G.Yj.prototype={
-p:function(){var y=G.ly(this,0)
-this.r=y
-this.e=y.e
-y=F.ls(this.n(C.b,this.a.Q),this.e,this.l(C.aI,this.a.Q,null))
+tw:function(d){this.b.b.N(0,d)
+return}}
+Q.fy.prototype={}
+K.NI.prototype={
+gnM:function(){var y=this.y
+if(y==null){y=document
+this.y=y}return y},
+gCX:function(){var y=this.Q
+if(y==null){y=window
+this.Q=y}return y},
+gnN:function(){var y=this.ch
+if(y==null){y=this.c
+y=T.aY(y.l(C.b,this.a.Q,null),y.l(C.D,this.a.Q,null),y.n(C.f,this.a.Q),this.gCX())
+this.ch=y}return y},
+gCU:function(){var y,x
+y=this.cx
+if(y==null){y=this.c.n(C.S,this.a.Q)
+x=this.gnN()
+y=new O.aC(y,x)
+this.cx=y}return y},
+gtm:function(){var y=this.cy
+if(y==null){y=new K.aH(this.gnM(),this.gnN(),P.aU(null,[P.o,P.c]))
+this.cy=y}return y},
+gWt:function(){var y=this.db
+if(y==null){y=T.b2(this.c.n(C.f,this.a.Q))
+this.db=y}return y},
+gtn:function(){var y=this.dx
+if(y==null){y=G.b6(this.c.l(C.w,this.a.Q,null))
+this.dx=y}return y},
+gCZ:function(){var y=this.dy
+if(y==null){y=G.b9(this.gnM(),this.c.l(C.x,this.a.Q,null))
+this.dy=y}return y},
+gD_:function(){var y=this.fr
+if(y==null){y=G.b1(this.gtn(),this.gCZ(),this.c.l(C.v,this.a.Q,null))
+this.fr=y}return y},
+gto:function(){var y=this.fx
+if(y==null){this.fx=!0
+y=!0}return y},
+gD0:function(){var y=this.fy
+if(y==null){this.fy=!0
+y=!0}return y},
+gCW:function(){var y=this.go
+if(y==null){y=this.gnM()
+y=new R.aF(y.querySelector("head"),y)
+this.go=y}return y},
+gCY:function(){var y=this.id
+if(y==null){y=X.b4()
+this.id=y}return y},
+gCV:function(){var y=this.k1
+if(y==null){y=K.b3(this.gCW(),this.gD_(),this.gtn(),this.gtm(),this.gnN(),this.gCU(),this.gto(),this.gD0(),this.gCY())
+this.k1=y}return y},
+gWu:function(){var y,x,w,v
+y=this.k2
+if(y==null){y=this.c
+x=y.n(C.f,this.a.Q)
+w=this.gto()
+v=this.gCV()
+y.l(C.n,this.a.Q,null)
+y=new X.az(w,x,v)
+this.k2=y}return y},
+p:function(){var y,x
+y=this.Z(this.e)
+x=K.cd(this,0)
+this.r=x
+y.appendChild(x.e)
+x=new X.af(!J.bp(window.location.href,"enableLatencyCharts=false"))
+this.x=x
+this.r.k(0,x,[])
+this.J(C.a,null)},
+K:function(d,e,f){var y
+if(d===C.M&&0===e)return this.gnM()
+if(d===C.T&&0===e){y=this.z
+if(y==null){y=document
+this.z=y}return y}if(d===C.I&&0===e)return this.gCX()
+if(d===C.b&&0===e)return this.gnN()
+if(d===C.O&&0===e)return this.gCU()
+if(d===C.N&&0===e)return this.gtm()
+if(d===C.U&&0===e)return this.gWt()
+if(d===C.w&&0===e)return this.gtn()
+if(d===C.x&&0===e)return this.gCZ()
+if(d===C.v&&0===e)return this.gD_()
+if(d===C.R&&0===e)return this.gto()
+if(d===C.G&&0===e)return this.gD0()
+if(d===C.Q&&0===e)return this.gCW()
+if(d===C.F&&0===e)return this.gCY()
+if(d===C.P&&0===e)return this.gCV()
+if(d===C.n&&0===e)return this.gWu()
+if(d===C.H&&0===e){y=this.k3
+if(y==null){this.k3=C.A
+y=C.A}return y}if(d===C.y&&0===e){y=this.k4
+if(y==null){y=new K.aL(this.gtm())
+this.k4=y}return y}return f},
+q:function(){var y,x
+y=this.f.a
+x=this.r1
+if(x!==y){this.x.a=y
+this.r1=y}this.r.j()},
+v:function(){this.r.i()},
+$aa:function(){return[Q.fy]}}
+K.WQ.prototype={
+p:function(){var y,x,w,v
+y=P.c
+x=new K.NI(P.e(y,null),this)
+w=Q.fy
+x.a=S.i(x,3,C.j,0,w)
+v=document.createElement("material-yes-no-buttons-api")
+x.e=v
+v=$.a7b
+if(v==null){v=$.D
+v=v.Y(null,C.X,C.a)
+$.a7b=v}x.X(v)
+this.r=x
+this.e=x.e
+x=[D.c4]
+x=H.b([D.at("MaterialYesNoButtonsComponent",!1,"","material-yes-no-buttons","","angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",X.h("<p>A component for the two buttons horizontally next to each other, like\nyes/no, save/cancel, agree/not agree, etc.</p>\n<p>Text on the buttons can be changed, they can also be raised.\nThe 'yes' button can be optionally highlighted.</p>\n<p>Basic text customization can be provided with directives like\n<code>MaterialSaveCancelButtonsDirective</code> that replaces yes/no with save/cancel.</p>\n<p>To display buttons in reversed order add a <code>reverse</code> attribute.</p>\n"),H.b([D.j("Input","disabled","","bool",X.h("<p>Whether the buttons should be disabled.</p>\n<p>Default value is <code>false</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","noAriaLabel","","String",X.h("<p>The text to be used as an ARIA label on the cancel button.</p>\n<p>For example, <code>Dismiss</code>, <code>Not now</code>, etc. Defaults to <code>null</code> so screen\nreaders will read the button text as the label.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","noAutoFocus","","bool",X.h("<p>Whether the no button should be auto-focused.</p>\n<p>Default value is <code>false</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","noDisabled","","bool",X.h("<p>Whether the no button should be disabled.</p>\n<p>Default value is <code>false</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","noDisplayed","","bool",X.h("<p>Whether the no button should be displayed.</p>\n<p>Default value is <code>true</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","noText","","String",X.h("<p>The text to be shown on the cancel button.</p>\n<p>For example, <code>Dismiss</code>, <code>Not now</code>, etc. Default value is <code>No</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","pending","","bool",X.h("<p>When pending is <code>true</code>, the yes and no buttons are\nhidden, and a spinner is shown.</p>\n<p>This should be used to indicate asynchronous actions, such as saving or\nvalidating input.</p>\n<p>Default value is <code>false</code></p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","raised","","bool",X.h("<p>Whether the buttons should be raised.</p>\n<p>Default value is <code>false</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","yesAriaLabel","","String",X.h("<p>The text to be used as an ARIA label on the save button.</p>\n<p>For example, <code>Ok</code>, <code>Apply</code>, etc. Defaults to <code>null</code> so screen readers will\nread the button text as the label.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","yesAutoFocus","","bool",X.h("<p>Whether the yes button should be auto-focused.</p>\n<p>Default value is <code>false</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","yesDisabled","","bool",X.h("<p>Whether the yes button should be disabled.</p>\n<p>Default value is <code>false</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","yesDisplayed","","bool",X.h("<p>Whether the yes button should be displayed.</p>\n<p>Default value is <code>true</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","yesHighlighted","","bool",X.h("<p>Whether the yes button should be highlighted.</p>\n<p>Default value is <code>false</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","yesRaised","","bool",X.h("<p>Whether the yes button should be raised.</p>\n<p>Default value is <code>false</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Input","yesText","","String",X.h("<p>The text to be shown on the save button.</p>\n<p>For example, <code>Ok</code>, <code>Apply</code>, etc. Default value is <code>yes</code>.</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,"")],x),H.b([D.j("Output","no","","Stream<UIEvent>",X.h("<p>The callback that is to be invoked, when no button is pressed.</p>\n<p>Published events are either KeyboardEvent or MouseEvent</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,""),D.j("Output","yes","","Stream<UIEvent>",X.h("<p>The callback that is to be invoked, when yes button is pressed.</p>\n<p>Published events are either KeyboardEvent or MouseEvent</p>\n"),"angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",!1,"")],x)),D.at("MaterialSaveCancelButtonsDirective",!1,"","material-yes-no-buttons[saveCancel]","","angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",X.h("<p>Provides messages from yes/no buttons to be Save/Cancel.</p>\n"),H.b([],x),H.b([],x)),D.at("MaterialSubmitCancelButtonsDirective",!1,"","material-yes-no-buttons[submitCancel]","","angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",X.h("<p>Provides default messages from yes/no buttons to be Submit/Cancel.</p>\n"),H.b([],x),H.b([],x)),D.at("KeyUpBoundaryDirective",!1,"","[keyupBoundary]","","angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",X.h("<p>Marks a subtree of the dom that should handle <code>keyup</code> events for a\n<code>BoundaryAwareKeyUpDirective</code> implementation.</p>\n"),H.b([],x),H.b([],x)),D.at("EscapeCancelsDirective",!1,"","material-yes-no-buttons[escCancels]","","angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",X.h("<p>If attached to the yes-no buttons it will listen for escape <code>keyup</code> event\nand trigger <code>no</code> action on it.</p>\n"),H.b([],x),H.b([],x))],[D.bW])
+v=H.b([new R.a7(C.e8,"MaterialYesNoButtonsExample","material_yes_no_buttons_example/lib/material_yes_no_buttons_example.dart")],[R.a7])
+y=new Q.fy(R.ch(H.b([],[y]),v,x,P.e(y,y),!0))
 this.x=y
 this.r.k(0,y,this.a.e)
-this.E(this.e)
-return new D.A(this,0,this.e,this.x,[F.hU])},
+this.D(this.e)
+return new D.A(this,0,this.e,this.x,[w])},
 q:function(){this.r.j()},
-v:function(){this.r.i()
-this.x.d.F()},
-$asb:function(){return[F.hU]}}
-G.P3.prototype={
-p:function(){var y=this.Z(this.e)
-this.h(S.r(document,y))
-this.M(C.a,null)},
-$asb:function(){return[F.hT]}}
-G.Yi.prototype={
-p:function(){var y=G.a99(this,0)
-this.r=y
-this.e=y.e
-y=F.a71(this.n(C.b,this.a.Q),this.e,this.l(C.aI,this.a.Q,null))
-this.x=y
-this.r.k(0,y,this.a.e)
-this.E(this.e)
-return new D.A(this,0,this.e,this.x,[F.hT])},
-q:function(){this.r.j()},
-v:function(){this.r.i()
-this.x.d.F()},
-$asb:function(){return[F.hT]}}
-R.hV.prototype={
-a2B:function(){return this.a++}}
-A.P6.prototype={
-p:function(){var y,x,w,v,u,t,s,r,q,p,o,a0,a1,a2,a3,a4,a5
+v:function(){this.r.i()},
+$aa:function(){return[Q.fy]}}
+Z.hD.prototype={
+In:function(){this.a=!0
+P.Db(C.j4,new Z.GJ(this),P.q)}}
+X.vB.prototype={
+p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7
 y=this.Z(this.e)
 x=document
-w=S.d(x,"h2",y)
+w=S.d(x,"section",y)
 this.m(w)
-w.appendChild(x.createTextNode("SimpleHTML with default URI whitelist"))
-v=S.d(x,"p",y)
+v=S.d(x,"h2",w)
 this.m(v)
-u=G.ly(this,3)
+v.appendChild(x.createTextNode("Flat"))
+u=M.dg(this,3)
 this.r=u
 t=u.e
-v.appendChild(t)
+w.appendChild(t)
 this.h(t)
-u=this.c
-s=F.ls(u.n(C.b,this.a.Q),t,u.l(C.aI,this.a.Q,null))
-this.x=s
-this.r.k(0,s,[])
-r=S.d(x,"ul",y)
-this.h(r)
-q=S.d(x,"li",r)
-this.m(q)
-s=G.ly(this,6)
-this.y=s
-p=s.e
-q.appendChild(p)
-this.h(p)
-s=F.ls(u.n(C.b,this.a.Q),p,u.l(C.aI,this.a.Q,null))
-this.z=s
-this.y.k(0,s,[])
-o=S.d(x,"li",r)
+u=W.a2
+s=[u]
+r=$.p1()
+q=$.p0()
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.x=p
+this.r.k(0,p,[])
+o=S.d(x,"section",y)
 this.m(o)
-s=G.ly(this,8)
-this.Q=s
-a0=s.e
-o.appendChild(a0)
-this.h(a0)
-s=F.ls(u.n(C.b,this.a.Q),a0,u.l(C.aI,this.a.Q,null))
-this.ch=s
-this.Q.k(0,s,[])
-a1=S.d(x,"p",y)
+n=S.d(x,"h2",o)
+this.m(n)
+n.appendChild(x.createTextNode("Raised"))
+p=M.dg(this,7)
+this.y=p
+m=p.e
+o.appendChild(m)
+m.setAttribute("raised","")
+this.h(m)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.z=p
+this.y.k(0,p,[])
+l=S.d(x,"section",y)
+this.m(l)
+k=S.d(x,"h2",l)
+this.m(k)
+k.appendChild(x.createTextNode("Highlight"))
+p=M.dg(this,11)
+this.Q=p
+j=p.e
+l.appendChild(j)
+j.setAttribute("yesHighlighted","")
+this.h(j)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.ch=p
+this.Q.k(0,p,[])
+i=S.d(x,"section",y)
+this.m(i)
+h=S.d(x,"h2",i)
+this.m(h)
+h.appendChild(x.createTextNode("Highlight + Raised (yes button only)"))
+p=M.dg(this,15)
+this.cx=p
+g=p.e
+i.appendChild(g)
+g.setAttribute("yesHighlighted","")
+g.setAttribute("yesRaised","")
+this.h(g)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.cy=p
+this.cx.k(0,p,[])
+f=S.d(x,"section",y)
+this.m(f)
+e=S.d(x,"h2",f)
+this.m(e)
+e.appendChild(x.createTextNode("Save cancel"))
+p=M.dg(this,19)
+this.db=p
+d=p.e
+f.appendChild(d)
+d.setAttribute("saveCancel","")
+this.h(d)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.dx=p
+p.c=$.ahU()
+p.d=$.ahT()
+this.dy=new E.tN()
+this.db.k(0,p,[])
+a0=S.d(x,"section",y)
+this.m(a0)
+a1=S.d(x,"h2",a0)
 this.m(a1)
-a1.appendChild(x.createTextNode("The following message is removed due to disallowed HTML: ["))
-s=G.ly(this,11)
-this.cx=s
-a2=s.e
-a1.appendChild(a2)
+a1.appendChild(x.createTextNode("Custom text"))
+p=M.dg(this,23)
+this.fr=p
+a2=p.e
+a0.appendChild(a2)
+a2.setAttribute("noText","Never")
+a2.setAttribute("yesText","Agree")
 this.h(a2)
-s=F.ls(u.n(C.b,this.a.Q),a2,u.l(C.aI,this.a.Q,null))
-this.cy=s
-this.cx.k(0,s,[])
-a1.appendChild(x.createTextNode("]"))
-a3=S.d(x,"p",y)
-this.m(a3)
-s=G.ly(this,14)
-this.db=s
-a4=s.e
-a3.appendChild(a4)
-a4.className="click-target"
-this.h(a4)
-s=F.ls(u.n(C.b,this.a.Q),a4,u.l(C.aI,this.a.Q,null))
-this.dx=s
-this.db.k(0,s,[])
-s=G.a99(this,15)
-this.dy=s
-a5=s.e
-y.appendChild(a5)
-this.h(a5)
-u=F.a71(u.n(C.b,this.a.Q),a5,u.l(C.aI,this.a.Q,null))
-this.fr=u
-this.dy.k(0,u,[])
-u=this.dx.c
-this.M(C.a,[new P.n(u,[H.f(u,0)]).B(this.a7(this.f.ga2A(),W.a0))])},
-q:function(){var y,x,w,v,u,t,s,r,q
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.fx=p
+this.fr.k(0,p,[])
+p=M.dg(this,24)
+this.fy=p
+a3=p.e
+a0.appendChild(a3)
+a3.setAttribute("dense","")
+a3.setAttribute("noText","Condensed Never")
+a3.setAttribute("yesText","Condensed Agree")
+this.h(a3)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.go=p
+this.fy.k(0,p,[])
+a4=S.d(x,"section",y)
+this.m(a4)
+a5=S.d(x,"h2",a4)
+this.m(a5)
+a5.appendChild(x.createTextNode("Escape triggers `no` action"))
+p=M.dg(this,28)
+this.id=p
+a6=p.e
+a4.appendChild(a6)
+a6.setAttribute("escCancels","")
+this.h(a6)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.k1=p
+a7=this.c.l(C.cI,this.a.Q,null)
+p=new E.lY(p)
+p.mf(a6,a7)
+this.k2=p
+this.id.k(0,this.k1,[])
+a8=S.d(x,"section",y)
+a8.setAttribute("keyupBoundary","")
+this.m(a8)
+p=[W.Z]
+this.k3=new E.nz(new W.c8(a8,"keyup",!1,p))
+a9=S.d(x,"h2",a8)
+this.m(a9)
+a9.appendChild(x.createTextNode("Escape anywhere in the section triggers `no`"))
+a8.appendChild(x.createTextNode("Dummy input: "))
+this.h(S.d(x,"input",a8))
+this.m(S.d(x,"br",a8))
+a8.appendChild(x.createTextNode(" "))
+b0=S.d(x,"button",a8)
+this.h(b0)
+b0.appendChild(x.createTextNode("Dummy button"))
+this.m(S.d(x,"br",a8))
+a7=M.dg(this,39)
+this.k4=a7
+b1=a7.e
+a8.appendChild(b1)
+b1.setAttribute("escCancels","")
+this.h(b1)
+a7=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.r1=a7
+a7=new E.lY(a7)
+a7.mf(b1,this.k3)
+this.r2=a7
+this.k4.k(0,this.r1,[])
+b2=S.d(x,"section",y)
+b2.setAttribute("keyupBoundary","")
+this.m(b2)
+this.rx=new E.nz(new W.c8(b2,"keyup",!1,p))
+b3=S.d(x,"h2",b2)
+this.m(b3)
+b3.appendChild(x.createTextNode("Escape anywhere except stopped section triggers `no`"))
+b4=S.d(x,"h3",b2)
+this.m(b4)
+b4.appendChild(x.createTextNode("Propagation works here"))
+b2.appendChild(x.createTextNode("Dummy input: "))
+this.h(S.d(x,"input",b2))
+this.m(S.d(x,"br",b2))
+b5=S.p(x,b2)
+this.h(b5)
+b6=S.d(x,"h3",b5)
+this.m(b6)
+b6.appendChild(x.createTextNode("No propagation up"))
+b5.appendChild(x.createTextNode("Dummy input: "))
+this.h(S.d(x,"input",b5))
+this.m(S.d(x,"br",b5))
+b5.appendChild(x.createTextNode(" "))
+b7=S.d(x,"button",b5)
+this.h(b7)
+b7.appendChild(x.createTextNode("Dummy button"))
+this.m(S.d(x,"br",b5))
+b8=S.d(x,"h3",b2)
+this.m(b8)
+b8.appendChild(x.createTextNode("Propagation works here"))
+b2.appendChild(x.createTextNode("Dummy input: "))
+this.h(S.d(x,"input",b2))
+this.m(S.d(x,"br",b2))
+b2.appendChild(x.createTextNode(" "))
+b9=S.d(x,"button",b2)
+this.h(b9)
+b9.appendChild(x.createTextNode("Dummy button"))
+this.m(S.d(x,"br",b2))
+p=M.dg(this,67)
+this.ry=p
+c0=p.e
+b2.appendChild(c0)
+c0.setAttribute("escCancels","")
+this.h(c0)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.x1=p
+p=new E.lY(p)
+p.mf(c0,this.rx)
+this.x2=p
+this.ry.k(0,this.x1,[])
+c1=S.d(x,"section",y)
+c1.setAttribute("pending","")
+this.m(c1)
+c2=S.d(x,"h2",c1)
+this.m(c2)
+c2.appendChild(x.createTextNode("When doing async stuff, use the pending state"))
+c3=S.d(x,"h3",c1)
+this.m(c3)
+c3.appendChild(x.createTextNode("Show the pending state for 2s when the yes button is clicked"))
+p=M.dg(this,73)
+this.y1=p
+c4=p.e
+c1.appendChild(c4)
+this.h(c4)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.y2=p
+this.y1.k(0,p,[])
+c5=S.d(x,"h2",c1)
+this.m(c5)
+c5.appendChild(x.createTextNode("Reverse order"))
+c6=S.p(x,c1)
+c6.setAttribute("style","width: 400px; border: 1px solid black;")
+this.h(c6)
+p=M.dg(this,77)
+this.T=p
+c7=p.e
+c6.appendChild(c7)
+c7.setAttribute("reverse","")
+this.h(c7)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.S=p
+this.T.k(0,p,[])
+c8=S.d(x,"section",y)
+c8.setAttribute("colors","")
+this.m(c8)
+c9=S.d(x,"h2",c8)
+this.m(c9)
+c9.appendChild(x.createTextNode("Use mixin to change colors"))
+p=M.dg(this,81)
+this.V=p
+d0=p.e
+c8.appendChild(d0)
+d0.className="red-yes"
+d0.setAttribute("raised","")
+d0.setAttribute("yesHighlighted","")
+this.h(d0)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.a_=p
+this.V.k(0,p,[])
+this.m(S.d(x,"br",c8))
+p=M.dg(this,83)
+this.L=p
+d1=p.e
+c8.appendChild(d1)
+d1.className="red-no"
+d1.setAttribute("raised","")
+this.h(d1)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.M=p
+this.L.k(0,p,[])
+this.m(S.d(x,"br",c8))
+p=M.dg(this,85)
+this.a0=p
+d2=p.e
+c8.appendChild(d2)
+d2.className="red-text-yes"
+this.h(d2)
+p=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.R=p
+this.a0.k(0,p,[])
+this.m(S.d(x,"br",c8))
+p=M.dg(this,87)
+this.a2=p
+d3=p.e
+c8.appendChild(d3)
+d3.className="red-text-no"
+this.h(d3)
+s=new E.bn(new P.a3(null,null,0,s),new P.a3(null,null,0,s),r,q)
+this.a4=s
+this.a2.k(0,s,[])
+s=this.k1.b
+d4=new P.m(s,[H.f(s,0)]).B(this.u(this.gPM(),u,u))
+s=this.r1.b
+d5=new P.m(s,[H.f(s,0)]).B(this.u(this.gPO(),u,u))
+s=W.C
+C.C.P(b5,"keyup",this.u(this.gOH(),s,s))
+s=this.x1.b
+d6=new P.m(s,[H.f(s,0)]).B(this.u(this.gPQ(),u,u))
+s=this.y2.a
+d7=new P.m(s,[H.f(s,0)]).B(this.a6(this.f.gwv(),u))
+s=this.S.a
+this.J(C.a,[d4,d5,d6,d7,new P.m(s,[H.f(s,0)]).B(this.a6(this.f.gwv(),u))])},
+K:function(d,e,f){var y,x,w
+y=d===C.d
+if(y&&3===e)return this.x
+if(y&&7===e)return this.z
+if(y&&11===e)return this.ch
+if(y&&15===e)return this.cy
+if(y&&19===e)return this.dx
+if(d===C.n7&&19===e)return this.dy
+if(y&&23===e)return this.fx
+if(y&&24===e)return this.go
+if(y&&28===e)return this.k1
+x=d===C.nC
+if(x&&28===e)return this.k2
+if(y&&39===e)return this.r1
+if(x&&39===e)return this.r2
+w=d===C.cI
+if(w&&29<=e&&e<=39)return this.k3
+if(y&&67===e)return this.x1
+if(x&&67===e)return this.x2
+if(w&&40<=e&&e<=67)return this.rx
+if(y&&73===e)return this.y2
+if(y&&77===e)return this.S
+if(y&&81===e)return this.a_
+if(y&&83===e)return this.M
+if(y&&85===e)return this.R
+if(y&&87===e)return this.a4
+return f},
+q:function(){var y,x,w,v,u,t
 y=this.f
-y.toString
-x=$.$get$b6().c_('I <b>love</b> using <span class="highlight">HTML</span>.',null,"SimpleHtmlExampleMessages_messageWithFormatting",["<b>","</b>",'<span class="highlight">',"</span>"],null)
-w=this.fx
-if(w!=x){this.x.shv(x)
-this.fx=x}v=$.$get$b6().c_('Please consult our <a href="localpage.html?param=1#test_fragment">docs</a>.',null,"SimpleHtmlExampleMessages_messageLink",['<a href="localpage.html?param=1#test_fragment">',"</a>"],null)
-w=this.fy
-if(w!=v){this.z.shv(v)
-this.fy=v}u=$.$get$b6().c_('Alternatively, open our <a href="localpage.html?param=1#test_fragment" target="_blank" rel="noopener">docs</a> in a new window.',null,"SimpleHtmlExampleMessages_messageWithLinkInNewTab",['<a href="localpage.html?param=1#test_fragment" target="_blank" rel="noopener">',"</a>"],null)
-w=this.go
-if(w!=u){this.ch.shv(u)
-this.go=u}t=$.$get$b6().c_('Please consult my <a href="https://hecuba.org">suspicious website</a>.',null,"SimpleHtmlExampleMessages_messageWithDisallowedHtml",['<a href="https://hecuba.org">',"</a>"],null)
-w=this.id
-if(w!=t){this.cy.shv(t)
-this.id=t}w=y.a
-s='You <a class="trigger">clicked here</a> '+w+" times."
-r=$.$get$b6().c_(s,null,"SimpleHtmlExampleMessages_messageWithClickHandler",[w,'<a class="trigger">',"</a>"],null)
-w=this.k1
-if(w!=r){this.dx.shv(r)
-this.k1=r}q=$.$get$b6().c_("            A list!\n\n            <ul>\n              <li>\n                Here's an <b>element</b>.\n              </li>\n              <li>\n                And here's another.\n              </li>\n            </ul>\n\n            And that's the end of the list.",null,"SimpleHtmlExampleMessages_blockMessage",["<b>","</b>","<ul>","</ul>","<li>","</li>"],null)
-w=this.k2
-if(w!=q){this.fr.shv(q)
-this.k2=q}this.r.j()
+x=this.a.cy===0
+if(x){this.z.f=!0
+w=!0}else w=!1
+if(w)this.y.a.st(1)
+if(x){this.ch.e=!0
+w=!0}else w=!1
+if(w)this.Q.a.st(1)
+if(x){v=this.cy
+v.e=!0
+v.r=!0
+w=!0}else w=!1
+if(w)this.cx.a.st(1)
+if(x){v=this.fx
+v.c="Agree"
+v.d="Never"
+w=!0}else w=!1
+if(w)this.fr.a.st(1)
+if(x){v=this.go
+v.c="Condensed Agree"
+v.d="Condensed Never"
+w=!0}else w=!1
+if(w)this.fy.a.st(1)
+u=y.a
+v=this.ab
+if(v!==u){this.y2.cx=u
+this.ab=u
+w=!0}else w=!1
+if(w)this.y1.a.st(1)
+t=y.a
+v=this.aa
+if(v!==t){this.S.cx=t
+this.aa=t
+w=!0}else w=!1
+if(w)this.T.a.st(1)
+if(x){v=this.a_
+v.e=!0
+v.f=!0
+w=!0}else w=!1
+if(w)this.V.a.st(1)
+if(x){this.M.f=!0
+w=!0}else w=!1
+if(w)this.L.a.st(1)
+this.r.j()
 this.y.j()
 this.Q.j()
 this.cx.j()
 this.db.j()
-this.dy.j()},
+this.fr.j()
+this.fy.j()
+this.id.j()
+this.k4.j()
+this.ry.j()
+this.y1.j()
+this.T.j()
+this.V.j()
+this.L.j()
+this.a0.j()
+this.a2.j()},
 v:function(){this.r.i()
 this.y.i()
 this.Q.i()
 this.cx.i()
 this.db.i()
-this.dy.i()
-this.x.d.F()
-this.z.d.F()
-this.ch.d.F()
-this.cy.d.F()
-this.dx.d.F()
-this.fr.d.F()},
-$asb:function(){return[R.hV]}}
-A.Yl.prototype={
+this.fr.i()
+this.fy.i()
+this.id.i()
+this.k4.i()
+this.ry.i()
+this.y1.i()
+this.T.i()
+this.V.i()
+this.L.i()
+this.a0.i()
+this.a2.i()
+var y=this.k2
+y.a.au(0)
+y.a=null
+y=this.r2
+y.a.au(0)
+y.a=null
+y=this.x2
+y.a.au(0)
+y.a=null},
+PN:function(d){this.f.toString
+window.alert("no-pressed")},
+PP:function(d){this.f.toString
+window.alert("no-pressed")},
+OI:function(d){J.i3(d)},
+PR:function(d){this.f.toString
+window.alert("no-pressed")},
+$aa:function(){return[Z.hD]}}
+X.WT.prototype={
 p:function(){var y,x,w
-y=new A.P6(P.e(P.c,null),this)
-x=R.hV
+y=new X.vB(P.e(P.c,null),this)
+x=Z.hD
 y.a=S.i(y,3,C.j,0,x)
-w=document.createElement("simple-html-example")
+w=document.createElement("material-yes-no-buttons-example")
 y.e=w
-w=$.a9d
+w=$.a7c
 if(w==null){w=$.D
-w=w.Y(null,C.o,$.$get$ale())
-$.a9d=w}y.X(w)
+w=w.Y(null,C.m,$.akA())
+$.a7c=w}y.X(w)
 this.r=y
 this.e=y.e
-w=new R.hV(0)
+w=new Z.hD()
 this.x=w
 y.k(0,w,this.a.e)
-this.E(this.e)
+this.D(this.e)
 return new D.A(this,0,this.e,this.x,[x])},
 q:function(){this.r.j()},
 v:function(){this.r.i()},
-$asb:function(){return[R.hV]}}
-S.iS.prototype={}
-F.P5.prototype={
-p:function(){var y,x,w,v,u,t,s,r,q,p,o
-y=this.Z(this.e)
-x=document
-S.d(x,"h2",y).appendChild(x.createTextNode("SimpleHTML with a custom URI whitelist"))
-w=S.d(x,"ul",y)
-v=S.d(x,"li",w)
-u=G.ly(this,4)
-this.r=u
-t=u.e
-v.appendChild(t)
-u=this.c
-s=F.ls(u.n(C.b,this.a.Q),t,u.l(C.aI,this.a.Q,null))
-this.x=s
-this.r.k(0,s,[])
-r=S.d(x,"li",w)
-s=G.ly(this,6)
-this.y=s
-q=s.e
-r.appendChild(q)
-s=F.ls(u.n(C.b,this.a.Q),q,u.l(C.aI,this.a.Q,null))
-this.z=s
-this.y.k(0,s,[])
-r.appendChild(x.createTextNode("(removed)"))
-p=S.d(x,"li",w)
-s=G.ly(this,9)
-this.Q=s
-o=s.e
-p.appendChild(o)
-u=F.ls(u.n(C.b,this.a.Q),o,u.l(C.aI,this.a.Q,null))
-this.ch=u
-this.Q.k(0,u,[])
-p.appendChild(x.createTextNode("(removed)"))
-this.M(C.a,null)},
-q:function(){var y,x,w,v
-this.f.toString
-y=C.c4.t2('<a href="'+H.u(P.os(C.cn,"https://wordpress.org/plugins/amp/",C.aL,!1))+'">',"</a>")
-x=this.cx
-if(x!=y){this.x.shv(y)
-this.cx=y}w=C.c4.t2('<a href="'+H.u(P.os(C.cn,"https://wordpress.org/plugins/malware/",C.aL,!1))+'">',"</a>")
-x=this.cy
-if(x!=w){this.z.shv(w)
-this.cy=w}v=C.c4.t2('<a href="'+H.u(P.os(C.cn,"javascript:alert('!')",C.aL,!1))+'">',"</a>")
-x=this.db
-if(x!=v){this.ch.shv(v)
-this.db=v}this.r.j()
-this.y.j()
-this.Q.j()},
-v:function(){this.r.i()
-this.y.i()
-this.Q.i()
-this.x.d.F()
-this.z.d.F()
-this.ch.d.F()},
-$asb:function(){return[S.iS]}}
-F.Yk.prototype={
-p:function(){var y,x,w
-y=new F.P5(P.e(P.c,null),this)
-x=S.iS
-y.a=S.i(y,3,C.j,0,x)
-w=document.createElement("simple-html-custom-whitelist-example")
-y.e=w
-w=$.a9c
-if(w==null){w=$.D
-w=w.Y(null,C.W,C.a)
-$.a9c=w}y.X(w)
-this.r=y
-this.e=y.e
-w=new S.iS()
-this.x=w
-y.k(0,w,this.a.e)
-this.E(this.e)
-return new D.A(this,0,this.e,this.x,[x])},
-N:function(o,p,q){var y
-if(o===C.aI&&0===p){y=this.y
-if(y==null){y=P.fK
-y=P.mb(H.a([P.a9G("https","developers.google.com","",null),P.a9G("https","wordpress.org","plugins/amp/",null)],[y]),y)
-this.y=y}return y}return q},
-q:function(){this.r.j()},
-v:function(){this.r.i()},
-$asb:function(){return[S.iS]}}
-Y.Kv.prototype={
-t2:function(o,p){var y="Visit "+o+"this site"+o+"!"
-return $.$get$b6().c_(y,null,"SimpleHtmlCustomWhitelistExampleMessages_linkTo",[o,p],null)}}
-G.fH.prototype={
-gaB:function(){return this.a}}
-E.P2.prototype={
-gnd:function(){var y=this.y
-if(y==null){y=document
-this.y=y}return y},
-gyN:function(){var y=this.z
-if(y==null){y=window
-this.z=y}return y},
-gne:function(){var y=this.Q
-if(y==null){y=this.c
-y=T.aY(y.l(C.b,this.a.Q,null),y.l(C.C,this.a.Q,null),y.n(C.f,this.a.Q),this.gyN())
-this.Q=y}return y},
-gyz:function(){var y,x
-y=this.ch
-if(y==null){y=this.c.n(C.S,this.a.Q)
-x=this.gne()
-y=new O.aC(y,x)
-this.ch=y}return y},
-gqF:function(){var y=this.cx
-if(y==null){y=new K.aH(this.gnd(),this.gne(),P.aU(null,[P.q,P.c]))
-this.cx=y}return y},
-gM3:function(){var y=this.cy
-if(y==null){y=T.b1(this.c.n(C.f,this.a.Q))
-this.cy=y}return y},
-guJ:function(){var y=this.db
-if(y==null){y=G.b5(this.c.l(C.v,this.a.Q,null))
-this.db=y}return y},
-gF0:function(){var y=this.dx
-if(y==null){y=G.b9(this.gnd(),this.c.l(C.w,this.a.Q,null))
-this.dx=y}return y},
-gF1:function(){var y=this.dy
-if(y==null){y=G.b0(this.guJ(),this.gF0(),this.c.l(C.u,this.a.Q,null))
-this.dy=y}return y},
-guK:function(){var y=this.fr
-if(y==null){this.fr=!0
-y=!0}return y},
-gF2:function(){var y=this.fx
-if(y==null){this.fx=!0
-y=!0}return y},
-gyF:function(){var y=this.fy
-if(y==null){y=this.gnd()
-y=new R.aE(y.querySelector("head"),!1,y)
-this.fy=y}return y},
-gyO:function(){var y=this.go
-if(y==null){y=X.b3()
-this.go=y}return y},
-gyE:function(){var y=this.id
-if(y==null){y=K.b2(this.gyF(),this.gF1(),this.guJ(),this.gqF(),this.gne(),this.gyz(),this.guK(),this.gF2(),this.gyO())
-this.id=y}return y},
-gMc:function(){var y,x,w,v
-y=this.k1
-if(y==null){y=this.c
-x=y.n(C.f,this.a.Q)
-w=this.guK()
-v=this.gyE()
-y.l(C.m,this.a.Q,null)
-y=new X.aB(w,x,v)
-this.k1=y}return y},
-p:function(){var y,x
-y=this.Z(this.e)
-x=K.cj(this,0)
-this.r=x
-y.appendChild(x.e)
-x=this.c.n(C.a5,this.a.Q)
-x=new X.a6(x,!J.bs(window.location.href,"enableLatencyCharts=false"))
-this.x=x
-this.r.k(0,x,[])
-this.M(C.a,null)},
-N:function(o,p,q){var y
-if(o===C.M&&0===p)return this.gnd()
-if(o===C.H&&0===p)return this.gyN()
-if(o===C.b&&0===p)return this.gne()
-if(o===C.O&&0===p)return this.gyz()
-if(o===C.N&&0===p)return this.gqF()
-if(o===C.T&&0===p)return this.gM3()
-if(o===C.v&&0===p)return this.guJ()
-if(o===C.w&&0===p)return this.gF0()
-if(o===C.u&&0===p)return this.gF1()
-if(o===C.R&&0===p)return this.guK()
-if(o===C.F&&0===p)return this.gF2()
-if(o===C.Q&&0===p)return this.gyF()
-if(o===C.E&&0===p)return this.gyO()
-if(o===C.P&&0===p)return this.gyE()
-if(o===C.m&&0===p)return this.gMc()
-if(o===C.G&&0===p){y=this.k2
-if(y==null){this.k2=C.y
-y=C.y}return y}if(o===C.x&&0===p){y=this.k3
-if(y==null){y=new K.aL(this.gqF())
-this.k3=y}return y}return q},
-q:function(){var y,x
-y=this.f.a
-x=this.k4
-if(x!==y){this.x.a=y
-this.k4=y}this.r.j()},
-v:function(){this.r.i()},
-$asb:function(){return[G.fH]}}
-E.Yh.prototype={
-p:function(){var y,x,w,v
-y=P.c
-x=new E.P2(P.e(y,null),this)
-w=G.fH
-x.a=S.i(x,3,C.j,0,w)
-v=document.createElement("simple-html-api")
-x.e=v
-v=$.a98
-if(v==null){v=$.D
-v=v.Y(null,C.W,C.a)
-$.a98=v}x.X(v)
-this.r=x
-this.e=x.e
-x=[R.j]
-x=H.a([new R.a2("README",!1,"","","","angular_components/lib/simple_html/README.md",X.h('<h1>Simple HTML</h1>\n<p>Displays low-trust HTML with strict and flexible sanitization.</p>\n<p>This component is focused on displaying localized or otherwise partially-trusted\nHTML in the following use cases:</p><ul><li>  Light formatting (bold, italic, newlines).</li><li>  Links to external domains (with a customisable whitelist).</li><li>  Arbitrary click handlers on substrings within the text.</li></ul>\n<p>Mixing these features with text that cannot appear verbatim in the template (due\nto, for example, use of the <code>Intl</code> library for localization) is otherwise\ndifficult. This component is the recommended alternative to calling methods like\n<a href="https://pub.dartlang.org/documentation/angular/latest/angular.security/DomSanitizationService/bypassSecurityTrustHtml.html"><code>bypassSecurityTrustHtml()</code></a>\nwhen inserting HTML into the DOM.</p>\n<h2>Usage</h2>\n<p>Using the <code>&lt;simple-html&gt;</code> and <code>&lt;simple-html-block&gt;</code> components is generally\nrecommended in the following cases:</p><ul><li>  Displaying\n<a href="https://en.wikipedia.org/wiki/Internationalization_and_localization">i18n</a>\nmessages that need to contain light text formatting (such as bold, italics,\nlists, or custom styles), links to URLs outside the current app, or custom\nclick handlers.</li><li>  Displaying HTML generated outside of a template (e.g. HTML that is built\nserver-side but displayed client-side).</li></ul>\n<p>The alternatives include:</p><ul><li>  Standard Angular interpolation with <code>{{</code> ... <code>}}</code>.<ul><li>  This is the fastest and safest option and should always be preferred if\nyou do not need any sort of mark-up inside the string.</li></ul></li><li>  Using the <code>[innerHtml]</code> directive with a string argument.<ul><li>  This is secure but very strict; only very limited tags are allowed.</li><li>  The behaviour in case of mistakes may be surprising. (For example,\ninvalid links are silently removed.)</li><li>  The permitted elements and attributes are defined by the\n<a href="https://raw.githubusercontent.com/dart-lang/sdk/master/sdk/lib/html/dart2js/html_dart2js.dart">_SimpleNodeValidator</a>\nand the permitted URLs by the\n<a href="https://raw.githubusercontent.com/dart-lang/sdk/master/sdk/lib/html/dart2js/html_dart2js.dart">_SameOriginUriPolicy</a>.</li></ul></li><li>  Using the <code>[safeInnerHtml]</code> directive, or the <code>[innerHtml]</code> directive with a\n<code>SafeHtml</code> argument generated by <code>bypassSecurityTrustHtml()</code>.<ul><li>  This is generally not secure, since absolutely all tags are allowed and\nthere is no further line of defense between you and\n<a href="https://en.wikipedia.org/wiki/Cross-site_scripting">XSS</a>. This should\nbe used only if there is no alternative.</li></ul></li></ul>\n<h2>Motivating example</h2>\n<p>You have a message for translation that contains simple HTML tags and can\'t\neasily be broken into separate parts. A typical example would be an inline link:</p>\n<pre><code class="language-html">Please see our &lt;a href="https://support.google.com"&gt;Help Center&lt;/a&gt; for more information.\n</code></pre>\n<p>or some light formatting</p>\n<pre><code class="language-html">This is the &lt;b&gt;best&lt;/b&gt; feature in Google history!\n</code></pre>\n<p>You have a few options:</p><ol><li>\n<p> Include the message in the template in the normal way, <code>{{myMessage}}</code>. This\nwon\'t work because the tags are stripped out by the sanitizer \u2014 the text\nappears, but the links and bold don\'t work.</p></li><li>\n<p> Move the tags into the template and split one message into three:</p>\n<pre><code class="language-html">{{pleaseSeeMessage}}&lt;a href="https://support.google.com"&gt;{{helpCenterMessage}}&lt;/a&gt;{{forMoreInformationMessage}}\n</code></pre>\n<p>This is a problem for localization because the word order is very different\nin different languages; for example, in some languages the link would\nnaturally be at the end of the sentence. This is also problematic for\ntranslators who have to translate sentence fragments.</p></li><li>\n<p> Define a "micro-language" inside the message and parse each message on the\nway to the template. For example, you could include sentinel values in the\nmessage and then decompose the string with some custom code:</p>\n<pre><code>List&lt;String&gt; get messageFragments =&gt; someMessage(_sentinel, _sentinel).split(_sentinel)\n</code></pre>\n<p>Then refer to the fragments inside the template:</p>\n<pre><code class="language-html">{{fragments[0]}} &lt;a href="https://support.google.com"&gt;{{fragments[1]}}&lt;/a&gt; {{fragments[2]}}\n</code></pre>\n<p>This becomes quite complex and error-prone if the message includes more than\na single tag, and also requires explicit handling and delegation for every\nmessage.</p></li><li>\n<p> Include the message straight into the DOM using the <code>innerHtml</code> directive:</p>\n<pre><code class="language-html">&lt;div [innerHtml]="seeHelpCenterMessage"&gt;\n</code></pre>\n<p>If <code>seeHelpCenterMessage</code> is a plain string, it will be strictly sanitized\nand disallowed elements silently removed. To work around this,\n<code>seeHelpCenterMessage</code> may instead return a\n<a href="https://pub.dartlang.org/documentation/angular/latest/angular.security/SafeHtml-class.html"><code>SafeHtml</code></a>\nobject. This object can be constructed by calling\n<a href="https://pub.dartlang.org/documentation/angular/latest/angular.security/DomSanitizationService/bypassSecurityTrustHtml.html"><code>bypassSecurityTrustHtml()</code></a>\non the string. However, this is very dangerous because it disables <em>all</em>\nsanitization and allows all tags (even <code>&lt;script&gt;</code>). If the string\naccidentally contains user-controlled data, or the translator made a mistake\nand included a dubious tag (such as <code>&lt;script&gt;</code>) in their translation, it\nwould also be placed straight into the DOM and open up the application to\nsevere security risks such as XSS.</p></li></ol>\n<p><code>&lt;simple-html&gt;</code> addresses many of these issues.</p>\n<h2>Features</h2>\n<p>The <code>&lt;simple-html&gt;</code> component is an inline element that allows you the\nflexibility to include basic text elements, such as bold, span, and links, while\nretaining very strong sanitization for other tags and attributes. It also\nsimplifies the code because there is no need to wrap the message in a <code>SafeHtml</code>\nobject; you can just use the message directly.</p>\n<p><em>Before:</em></p>\n<pre><code class="language-dart">MyComponent {\n  SafeHtml get myMessage =&gt; _sanitizer.bypassSecurityTrustHtml(messages.someMessage);\n}\n</code></pre>\n<pre><code class="language-html">&lt;my-template&gt;\n  &lt;span [innerHtml]="myMessage"&gt;&lt;/span&gt; &lt;!-- Uh-oh, XSS risk. --&gt;\n&lt;/my-template&gt;\n</code></pre>\n<p><em>Now:</em></p>\n<pre><code class="language-dart">MyComponent {\n  // No code required!\n}\n</code></pre>\n<pre><code class="language-html">&lt;my-template&gt;\n  &lt;simple-html [contents]="messages.someMessage"&gt;&lt;/simple-html&gt; &lt;!-- No XSS risk --&gt;\n&lt;/my-template&gt;\n</code></pre>\n<p>The <code>&lt;simple-html-block&gt;</code> component behaves similarly but is a block-level\nelement that can contain further block-level elements such as <code>&lt;ul&gt;</code>.</p>\n<h3>Atomic updates</h3>\n<p>To simplify debugging, any unsupported HTML will blank the entire component and\nprint a loud debug message. This makes it less likely that you overlook these\nerrors in testing.</p>\n<h3>Supported tags</h3>\n<p>See the\n<a href="https://github.com/dart-lang/angular_components/blob/master/lib/simple_html/simple_html.dart">component\'s documentation</a>\nfor the exact specification of what is supported. A general overview is:</p><ul><li>  <code>&lt;simple-html&gt;</code> supports the following safe inline elements:<ul><li>  Basic text formatting: <code>&lt;b&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;em&gt;</code>.</li><li>  Line breaks: <code>&lt;br&gt;</code>.</li><li>  Text grouping: <code>&lt;span&gt;</code>, including the <code>class</code> attribute.</li><li>  Links: <code>&lt;a href="..."&gt;</code> provided the destination matches the current\n<a href="https://en.wikipedia.org/wiki/Same-origin_policy">origin</a>\nor points to certain permitted URIs such as the Help Center; see\n<a href="#uri-whitelisting">URI whitelisting</a>).<ul><li>  The <code>class</code> and <code>rel</code> attributes are permitted.</li><li>  The <code>target</code> attribute is permitted provided <code>rel="noopener"</code> is\nset.</li></ul></li></ul></li><li>  <code>&lt;simple-html-block&gt;</code> supports all of the above and the following safe block\nelements:<ul><li>  Unordered lists: <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>.</li><li>  Paragraphs: <code>&lt;p&gt;</code>.</li></ul></li></ul>\n<h3>URI whitelisting {#uri-whitelisting}</h3>\n<p>By default, only links with the\n<a href="https://en.wikipedia.org/wiki/Same-origin_policy">same origin</a> as the host page\nas permitted.</p>\n<p>Additional paths can be permitted through an optional Angular dependency. See\nthe\n<a href="https://github.com/dart-lang/angular_components/blob/master/lib/simple_html/simple_html.dart">simpleHtmlUriWhitelist</a>\ntoken for details.</p>\n<h3>Custom click handling</h3>\n<p>The component provides a <code>(trigger)</code> output, which is fired whenever an <code>&lt;a&gt;</code>\nelement with the CSS class <code>trigger</code> is clicked by the user. This is intended\nfor introducing custom click handlers to specified portions of the text. A\nsimple example, firing an Analytics event when a certain word is clicked, might\ndefine a message and handler in the component:</p>\n<pre><code class="language-dart">String get someMessage =&gt; \'Click &lt;a class="trigger"&gt;here&lt;/a&gt;.\';\n\nvoid recordAnalyticsEvent =&gt; _analytics.fire();\n</code></pre>\n<p>and then include it in the template:</p>\n<pre><code class="language-html">&lt;simple-html [contents]="someMessage"\n             (trigger)="recordAnalyticsEvent()"&gt;&lt;/simple-html&gt;\n</code></pre>\n<p>By default, the normal behaviour of the link also occurs, such as navigation. So\nif a user clicks "here" in this message</p>\n<pre><code class="language-html">Click &lt;a href="//example.com" class="trigger" (trigger)="myTrigger()"&gt;here&lt;/a&gt;\n</code></pre>\n<p>then they will navigate to example.com <em>and</em> <code>myTrigger</code> will be executed.</p>\n<p>The trigger definition can also refer to the original Angular\n<a href="https://webdev.dartlang.org/angular/guide/template-syntax#event-and-event-handling-statements"><code>$event</code></a>.\nThis can be useful for more advanced features such as:</p><ul><li>  Selectively preventing the default behaviour (such as navigation) by calling\n<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault"><code>$event.preventDefault</code></a>.</li><li>  Having multiple <code>trigger</code> elements with different behaviour in the same\nmessage. Which element was clicked can be identified by reading the\n<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/target"><code>$event.target</code></a>\nfield.</li></ul>\n<h3>Limitations</h3>\n<p>The following is not yet supported:</p><ul><li>  Other elements and attributes that are probably safe but are not yet in\ndemand (such as <code>blockquote</code>).</li><li>  More dangerous cases (such as setting the URL of an iframe) must still\nbe done using <code>bypassSecurity*</code> methods. (But preferably don\'t do this at\nall.)</li></ul>\n<h2>Migration</h2>\n<p>Migration from an existing <code>bypassSecurityTrustHtml()</code> solution is generally\nstraightforward. Basic steps:</p><ol><li> Import the Dart library\n<code>package:angular_components/simple_html/simple_html.dart</code> in your component\nfile.</li><li> Add the <code>SimpleHtmlComponent</code> to your\n<a href="https://pub.dartlang.org/documentation/angular/latest/angular/Component-class.html">@Component</a>\'s\ndirective list.</li><li> For each message that previously used <code>bypassSecurityTrustHtml()</code>, remove\nthat call and use the string directly.</li><li> In your template file, bind the message with either:<ul><li>  <code>&lt;simple-html [contents]="msg"&gt;&lt;/simple-html&gt;</code> rather than <code>&lt;span\n[innerHtml]="msg"&gt;&lt;/span&gt;</code> (if only inline elements are required).</li><li>  <code>&lt;simple-html-block [contents]="msg"&gt;&lt;/simple-html-block&gt;</code> rather than\n<code>&lt;div [innerHtml]="msg"&gt;&lt;/div&gt;</code> (if inline and block elements are\nrequired).</li></ul></li><li> Verify that it works! See <a href="#testing"><em>Testing</em></a>.</li><li> Clean up unused dependencies (e.g. remove the <code>DomSanitizer</code> if your\ncomponent no longer needs it).</li><li> If possible, prevent future usage of the unsafe methods by adding a\npresubmit check.</li></ol>\n<p>Remember that <code>&lt;simple-html&gt;</code> is an\n<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">inline-block</a> element\nso, if you need other display types, you will need to apply a custom CSS class\nor wrap it inside another element. Likewise <code>&lt;simple-html-block&gt;</code> is a\nblock-level element and therefore should not be placed inside inline elements.</p>\n<h3>Testing</h3>\n<p>The easiest way to debug quickly is to test that the text appears correctly in a\nlocal build of your application. Due to SimpleHtml\'s atomic updates, you will\neither see the message in full or no message at all, and in the latter case a\nhelpful debug message will be printed to the browser console.</p>\n<h3>Troubleshooting</h3>\n<p>Some common issues and remedies include:</p><ul><li>  <strong>The message appears empty</strong><ul><li>  Check the console for error messages. If your HTML was rejected, you\nshould see a log message at <code>SHOUT</code> severity describing the problem.</li></ul></li></ul>\n'),H.a([],x),H.a([],x)),new R.a2("SimpleHtmlComponent",!1,"","simple-html","","angular_components/lib/simple_html/simple_html.dart",X.h('<p>A component that allows the inclusion of some limited HTML in a safe way.\nThis is ideal if you have internationalized messages with simple inline\nHTML. It is generally much preferable to using <code>bypassSecurityTrustHtml</code>,\nwhich disables all sanitization.</p>\n<p>The specific subset of HTML that is permitted is:</p><ul><li>  <code>&lt;a&gt;</code> with <code>href</code> pointing to a same-origin URL or a permitted external\n  URL (see <code>simpleHtmlUriWhitelist</code>) and (optionally) <code>class</code>, <code>rel</code>, or\n  <code>target</code> attributes. If <code>target</code> is set, <code>rel</code> must also be set and\n  must contain <code>noopener</code> (see\n  <a href="https://mathiasbynens.github.io/rel-noopener/">https://mathiasbynens.github.io/rel-noopener/</a> for background).</li><li>  <code>&lt;span&gt;</code> with (optionally) a class attribute.</li><li>  <code>&lt;b&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;em&gt;</code>, and <code>&lt;i&gt;</code> with no attributes.</li></ul>\n<p>Note that any styles applied with the class attribute will need to be\nannotated with <code>::ng-deep</code> (or equivalent mechanism) in order to actually\nreach the content elements.</p>\n<p>Prohibited HTML (including invalid elements, attributes, or URLs) will blank\nthe entire component and print a loud log message.</p>\n<p>If the <code>(trigger)</code> output is bound, anchor elements with the sentinel class\n"trigger" will send an event to this output. The event is the original\nAngular <code>$event</code>.</p>\n'),H.a([new R.j("Input","contents","","String",X.h("<p>HTML to display in the component.</p>\n"),"angular_components/lib/simple_html/simple_html.dart",!1,"")],x),H.a([new R.j("Output","trigger","","Stream<UIEvent>",X.h("<p>Propagates events from internal anchor elements with the class trigger\nsending the original angular event.</p>\n"),"angular_components/lib/simple_html/simple_html.dart",!1,"")],x))],[R.a2])
-v=H.a([new R.a7(C.e_,"SimpleHtmlExampleComponent","simple_html_example/lib/basic_example/simple_html_example.dart"),new R.a7(C.el,"SimpleHtmlCustomWhitelistExampleComponent","simple_html_example/lib/custom_whitelist_example/simple_html_custom_whitelist_example.dart")],[R.a7])
-y=new G.fH(R.cp(H.a([],[y]),v,x,null,C.J,P.e(y,y),!0,C.J))
-this.x=y
-this.r.k(0,y,this.a.e)
-this.E(this.e)
-return new D.A(this,0,this.e,this.x,[w])},
-q:function(){this.r.j()},
-v:function(){this.r.i()},
-$asb:function(){return[G.fH]}}
-var z=j([{func:1,ret:-1},{func:1,ret:[S.b,F.hU],args:[[S.b,,],P.k]},{func:1,ret:[S.b,F.hT],args:[[S.b,,],P.k]},{func:1,ret:[S.b,R.hV],args:[[S.b,,],P.k]},{func:1,ret:[S.b,S.iS],args:[[S.b,,],P.k]},{func:1,ret:[S.b,G.fH],args:[[S.b,,],P.k]}])
-F.Rl.prototype={
-$0:function(){var y,x,w,v
-x=this.a
-if(x.b==null)x.b=x.gJG(x)
-x.d.F()
-w=x.b
-if(w==null)return
-try{J.anV(w,this.b,x.e)}catch(v){y=H.av(v)
-if(y instanceof F.xM)$.$get$a2S().kG(C.eO,"simple-html used untrusted URI: "+H.u(y),y,null)
-else if(y instanceof F.wB)$.$get$a2S().kG(C.eO,"simple-html used malformed element: "+H.u(y),y,null)
-else throw v}x.a.dJ(new F.Rk(x))},
-$S:0}
-F.Rk.prototype={
-$0:function(){var y,x
-y=this.a
-x=W.ap
-new H.cF(new W.kD(y.b.querySelectorAll("a.trigger"),[x]),new F.Rj(y),[x,[P.cI,W.am]]).b1(0,H.n8(y.d.ga20(),W.am))},
-$S:0}
-F.Rj.prototype={
-$1:function(o){var y,x
-y=J.anw(o)
-x=this.a.c
-return W.bV(y.a,y.b,x.gj2(x),!1,H.f(y,0))},
-"call*":"$1",
-$R:1,
-$S:218}
-F.Rg.prototype={
-$1:function(o){var y,x
-y=o.gcD(o).length===0||J.a4H(o.gcD(o),"/")
-x="Whitelisted URIs with a path must end with a slash, which "+o.J(0)+" does not"
-if(!y)H.F(P.cm(N.arD(x,null)))
-return},
-$S:219}
-F.Rf.prototype={
-$1:function(o){var y=this.a
-return o.gmB(o)===y.gmB(y)&&J.i6(y.gcD(y),o.gcD(o))},
-$S:220};(function installTearOffs(){g(G,"aDG",1,0,0,null,["$2"],["aKg"],1,0)
-g(G,"aDF",1,0,0,null,["$2"],["aKf"],2,0)
-g(R.hV.prototype,"ga2A",0,0,0,null,["$0"],["a2B"],0,0)
-g(A,"aDE",1,0,0,null,["$2"],["aKi"],3,0)
-g(F,"aDD",1,0,0,null,["$2"],["aKh"],4,0)
-g(E,"atR",1,0,0,null,["$2"],["aKe"],5,0)})();(function inheritance(){var y=b
-y(P.t,[F.Ri,F.xn,F.Re,R.hV,S.iS,Y.Kv,G.fH])
-y(F.Ri,[F.hU,F.hT])
-y(H.aS,[F.Rl,F.Rk,F.Rj,F.Rg,F.Rf])
-y(P.f8,[F.xM,F.wB])
-y(S.b,[G.P4,G.Yj,G.P3,G.Yi,A.P6,A.Yl,F.P5,F.Yk,E.P2,E.Yh])})();(function constants(){C.c4=new Y.Kv()
-C.ie=new D.y("simple-html",G.aDG(),[F.hU])
-C.e_=new D.y("simple-html-example",A.aDE(),[R.hV])
-C.e7=new D.y("simple-html-api",E.atR(),[G.fH])
-C.el=new D.y("simple-html-custom-whitelist-example",F.aDD(),[S.iS])
-C.iE=new D.y("simple-html-block",G.aDF(),[F.hT])
-C.cn=H.a(e([0,0,65498,45055,65535,34815,65534,18431]),[P.k])
-C.aI=new S.dV("simpleHtmlUriWhitelist",[[P.q,P.fK]])
-C.oU=H.x(G.fH)
-C.oV=H.x(F.hT)
-C.oW=H.x(F.hU)
-C.oX=H.x(R.hV)
-C.pv=H.x(S.iS)})();(function staticFields(){$.a9b=null
-$.a9a=null
-$.aat=!1
-$.a9d=null
-$.adP=!1
-$.a9c=null
-$.aas=!1
-$.a98=null
-$.aar=!1})();(function lazyInitializers(){d($,"a36","$get$a36",function(){var y=P.fK
-return P.mb(H.a([],[y]),y)})
-d($,"a2S","$get$a2S",function(){return N.tI("_SimpleHtmlBase")})
-d($,"a4A","$get$a4A",function(){return["._nghost-%ID%  a{color:#3367d6;cursor:pointer;text-decoration:none}._nghost-%ID%  a:visited{color:#673ab7}._nghost-%ID%  a:active{color:#c53929}"]})
-d($,"ald","$get$ald",function(){return[$.$get$a4A()]})
-d($,"alc","$get$alc",function(){return[$.$get$a4A()]})
-d($,"alj","$get$alj",function(){return["._nghost-%ID%  .highlight{color:#f11;font-variant:small-caps}"]})
-d($,"ale","$get$ale",function(){return[$.$get$alj()]})})()}
-$__dart_deferred_initializers__["64izWufoeq8LPZA14XBK7EXJNt8="] = $__dart_deferred_initializers__.current
+$aa:function(){return[Z.hD]}}
+var z=a.updateTypes([{func:1,ret:-1,args:[,]},{func:1,ret:P.q,args:[W.Z]},{func:1,ret:-1,args:[W.Z]},{func:1,ret:-1},{func:1,ret:[S.a,Q.fy],args:[[S.a,,],P.k]},{func:1,ret:[S.a,Z.hD],args:[[S.a,,],P.k]}])
+Z.GJ.prototype={
+$0:function(){this.a.a=!1
+return!1},
+$S:6};(function installTearOffs(){var y=a._instance_1u,x=a._static_2,w=a._instance_0u
+var v
+y(v=E.lY.prototype,"gz4","qN",1)
+y(v,"gDb","tw",2)
+x(K,"aBl","aIW",4)
+w(Z.hD.prototype,"gwv","In",3)
+x(X,"aBm","aJ0",5)
+y(v=X.vB.prototype,"gPM","PN",0)
+y(v,"gPO","PP",0)
+y(v,"gOH","OI",0)
+y(v,"gPQ","PR",0)})();(function inheritance(){var y=a.inheritMany,x=a.inherit
+y(P.w,[E.tN,Q.fy,Z.hD])
+x(E.lY,E.rI)
+y(S.a,[K.NI,K.WQ,X.vB,X.WT])
+x(Z.GJ,H.aS)})();(function constants(){C.e8=new D.y("material-yes-no-buttons-example",X.aBm(),[Z.hD])
+C.ei=new D.y("material-yes-no-buttons-api",K.aBl(),[Q.fy])
+C.j4=new P.bN(2e6)
+C.n7=H.v(E.tN)
+C.nC=H.v(E.lY)
+C.p9=H.v(Q.fy)
+C.pa=H.v(Z.hD)})();(function staticFields(){$.a7b=null
+$.a9S=!1
+$.a7c=null
+$.a9T=!1})();(function lazyInitializers(){var y=a.lazy
+y($,"aLj","ahU",function(){return T.ae("Save",null,"Text on save button.",C.z,"Text on save button.",null,null)})
+y($,"aLi","ahT",function(){return T.ae("Cancel",null,"Text on cancel button.",C.z,"Text on cancel button.",null,null)})
+y($,"aQn","al2",function(){return[".red-yes._ngcontent-%ID%  .btn-yes[raised],.red-yes._ngcontent-%ID%  .btn-yes.btn:not([disabled]).highlighted[raised]{background-color:#db4437}.red-no._ngcontent-%ID%  .btn-no[raised]{background-color:#db4437}.red-no._ngcontent-%ID%  .btn-no.btn:not([disabled]){color:#fff}.red-text-yes._ngcontent-%ID%  .btn-yes.btn:not([disabled]),.red-text-yes._ngcontent-%ID%  .btn-yes.btn:not([disabled]).highlighted,.red-text-yes._ngcontent-%ID%  .btn-yes.btn:not([disabled]).highlighted[raised]{color:#db4437}.red-text-no._ngcontent-%ID%  .btn-no.btn:not([disabled]){color:#db4437}"]})
+y($,"aOY","akA",function(){return[$.al2()]})})()}
+$__dart_deferred_initializers__["LiyrsU8PdU+sBVpFUtlScH7EkzM="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_67.part.js.map

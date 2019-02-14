@@ -65,3 +65,9 @@ multi select, it will a list of selected values or an empty list.
 
 For simpler single select use cases, you can use the `[(selection)]` syntax to
 setup two-way binding for your selected value.
+
+**Important** If using SingleSelectionModel, this component will both deselect
+and then reselect on selection changes (two events) and
+SingleSelectionModel.selectedValue may become null unless
+[`deselectOnActivate`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/material_select/material_dropdown_select.dart?q=deselectOnActivate)
+is set to false.

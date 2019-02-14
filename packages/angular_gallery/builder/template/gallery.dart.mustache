@@ -67,7 +67,9 @@ class GalleryComponent implements HighlightProvider {
 
   GalleryComponent(this.focusIndicatorController, Router router) {
     router.stream.listen((newRoute) {
-        _breadcrumb = breadcrumbs[newRoute.path];
+        var example = newRoute.path;
+        if (example.startsWith('/')) example = example.substring(1);
+        _breadcrumb = breadcrumbs[example];
         querySelector('material-content').scrollTop = 0;
       });
     exampleOptions = StringSelectionOptions<_Example>(allExamples,

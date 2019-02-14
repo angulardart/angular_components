@@ -5,7 +5,7 @@
   "sourceRoot": "",
   "sources": ["../packages/angular_components/src/laminate/popup/popup_size_provider.dart"],
   "names": ["PercentagePopupSizeProvider","PercentagePopupSizeProvider.getMinHeight","PercentagePopupSizeProvider.getMinWidth","PercentagePopupSizeProvider.getMaxWidth","PercentagePopupSizeProvider.getMaxHeight"],
-  "mappings": "A;;IAqCQA,kBAA2BA;AAA3BA,oCAQiDA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAGnDC,cACAA,MAE2CA,C;GAG3CC,cACAA,MAAwEA,C;GAGxEC,cACAA,eAAmCA,C;GAGnCC,cACAA,eAAqCA,C",
+  "mappings": "A;;IAqCQA,cAA2BA;AAA3BA,0CAQiDA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAGnDC,cACAA,MAE2CA,C;GAG3CC,cACAA,MAAwEA,C;GAGxEC,cACAA,aAAgBA,EAAmBA,C;GAGnCC,cACAA,aAAiBA,EAAoBA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
