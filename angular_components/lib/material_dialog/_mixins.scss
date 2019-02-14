@@ -101,6 +101,14 @@
   }
 }
 
+@mixin simple-dialog-font-size($font-size) {
+  ::ng-deep .modal material-dialog.simple-dialog {
+    .message {
+      font-size: $font-size
+    }
+  }
+}
+
 @mixin material-dialog-fullscreen(
     $width-threshold: 100vw,
     $height-threshold: 100vh) {
