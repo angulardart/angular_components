@@ -103,14 +103,18 @@ class MaterialDateRangePickerComponent
   bool _focusOnDateRangeEditorInit = false;
   PopupSizeProvider _popupSizeProvider;
 
-  List<RelativePosition> get overlapAlignments =>
-      RelativePosition.overlapAlignments;
-
   @Deprecated('Use [presets] instead.')
   @Input('predefinedRanges')
   set predefinedRanges(List<DatepickerDateRange> ranges) {
     presets = ranges.map((range) => DatepickerPreset.fromRange(range)).toList();
   }
+
+  /// A list of positions for popup alignment.
+  ///
+  /// Defaults to [RelativePosition.overlapAlignments].
+  @Input()
+  List<RelativePosition> preferredPositions =
+      RelativePosition.overlapAlignments;
 
   /// A list of preset date ranges which the user can choose from.
   ///
