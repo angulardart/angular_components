@@ -38,6 +38,9 @@ class MaterialPopupDemoComponent {}
     MaterialTooltipDirective,
     PopupSourceDirective,
   ],
+  directiveTypes: [
+    Typed<MaterialDropdownSelectComponent<RelativePosition>>(),
+  ],
   templateUrl: 'material_popup_example.html',
   styleUrls: ['material_popup_example.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -109,14 +109,13 @@ class MaterialDropdownSelectFullDemoComponent {
     RelativePosition.AdjacentBottomRight
   ];
 
-  static ItemRenderer<Language> _displayNameRenderer =
-      (HasUIDisplayName item) => item.uiDisplayName;
+  static ItemRenderer _displayNameRenderer =
+      (item) => (item as HasUIDisplayName).uiDisplayName;
 
   // Specifying an itemRenderer avoids the selected item from knowing how to
   // display itself.
-  static ItemRenderer<Language> _itemRenderer =
-      newCachingItemRenderer<Language>(
-          (language) => "${language.label} (${language.code})");
+  static ItemRenderer _itemRenderer = newCachingItemRenderer<Language>(
+      (language) => "${language.label} (${language.code})");
 
   bool useFactoryRenderer = false;
   bool useItemRenderer = false;
