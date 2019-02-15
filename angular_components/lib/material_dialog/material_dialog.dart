@@ -11,6 +11,7 @@ import 'package:angular_components/laminate/components/modal/modal.dart';
 import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 /// A styled container following the Material Spec for Dialogs.
 ///
@@ -37,11 +38,18 @@ class MaterialDialogComponent
   @HostBinding('attr.role')
   static const hostRole = 'dialog';
 
+  @HostBinding('attr.aria-modal')
+  static const ariaModel = 'true';
+
+  @HostBinding('attr.aria-labelledby')
+  String get headerId => shouldShowHeader ? _uid : null;
+
   final HtmlElement _rootElement;
   final DomService _domService;
   final ChangeDetectorRef _changeDetector;
   final ModalComponent _modal;
   final _disposer = Disposer.oneShot();
+  final _uid = SequentialIdGenerator.fromUUID().nextId();
 
   HtmlElement _mainElement;
   bool _shouldShowHeader = true;
