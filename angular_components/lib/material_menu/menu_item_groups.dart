@@ -296,9 +296,6 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
           _dropdownHandle.close();
         }
         break;
-      case KeyCode.ESC:
-        _dropdownHandle.close();
-        break;
       default:
         // Try triggering any affix shortcut actions. If successful, then
         // prevent browser default behaviour for this key down action.
