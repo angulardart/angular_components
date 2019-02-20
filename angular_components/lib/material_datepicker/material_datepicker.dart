@@ -206,12 +206,14 @@ class MaterialDatepickerComponent
       disabled ? null : (_popupVisible ? textInput : dropdownButton);
 
   /// Gets the i18n'ed "Select a date" placeholder text.
-  get selectDatePlaceHolderMsg => Intl.message('Select a date',
+  @Input()
+  String selectDatePlaceHolderMsg = Intl.message('Select a date',
       name: 'selectDatePlaceHolderMsg',
       desc: 'Placeholder text for datepicker with an empty date.');
 
   /// Gets the i18n'ed "Enter date" placeholder text.
-  get placeholderMsg => Intl.message('Enter date',
+  @Input()
+  String placeholderMsg = Intl.message('Enter date',
       name: 'placeholderMsg',
       desc: 'Placeholder text for an empty date picker text box.');
 
