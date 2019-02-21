@@ -69,9 +69,10 @@ class MaterialPercentInputDirective {
   };
 
   static final _negativePercentageErrMsg = Intl.message(
-      'Percentages must be positive',
+      'Percentages must not be negative',
       desc: 'Validation error message when input precentage is negative, it '
-          'must be a positive number.');
+          'must be a positive number or zero.'
+          '[BACKUP_MESSAGE_ID:4311805941549841920]');
 
   static final _percentTooSmallErrMsg = Intl.message('Enter a larger number',
       desc: 'Validation error message for when the input percentage is too '
