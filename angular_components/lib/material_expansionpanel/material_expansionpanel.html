@@ -17,6 +17,7 @@
           buttonDecorator
           #expandCollapseButton
           #headerContent
+          keyboardOnlyFocusIndicator
           [disabled]="disabled || headerHidden"
           [class.closed] = "!isExpanded"
           [class.disable-header-expansion]="disableHeaderExpansion"
@@ -68,6 +69,7 @@
           [icon]="expandIcon"
           class="expand-button expand-on-left"
           buttonDecorator
+          keyboardOnlyFocusIndicator
           (trigger)="collapse()"
           [attr.aria-label]="closePanelMsg">
       </material-icon>
@@ -80,6 +82,7 @@
           [icon]="expandIcon"
           class="expand-button"
           buttonDecorator
+          keyboardOnlyFocusIndicator
           (trigger)="collapse()"
           [attr.aria-label]="closePanelMsg">
       </material-icon>
