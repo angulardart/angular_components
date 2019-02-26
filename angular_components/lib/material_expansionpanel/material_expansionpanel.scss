@@ -83,7 +83,6 @@ header {
   cursor: pointer;
   min-height: $mat-grid * 6;
   min-width: 0;
-  outline: none;
   padding: 0 $mat-grid * 3;
   transition: min-height $mat-transition $mat-transition-standard;
 
@@ -159,10 +158,6 @@ main {
     align-self: flex-start;
     flex-shrink: 0;
     margin-left: $mat-grid * 2;
-
-    &:focus {
-      outline: none;
-    }
 
     &.expand-on-left {
       margin: 0 $mat-grid-type 0 0;
