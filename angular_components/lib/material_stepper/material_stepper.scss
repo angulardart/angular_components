@@ -242,3 +242,12 @@ $edit-icon-size: $mat-grid * 2;
   display: block;
   padding-top: $mat-grid * 3;
 }
+
+.visible-to-screen-reader-only {
+  height: 1px;
+  left: -9999px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
