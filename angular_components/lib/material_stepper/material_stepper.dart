@@ -78,6 +78,10 @@ class MaterialStepperComponent {
   bool _stickyHeader = false;
   bool get stickyHeader => _stickyHeader;
 
+  /// When true, assertively announces the current step via aria live region.
+  @Input()
+  bool announceCurrentStep = false;
+
   /// Indicates whether the header, which lists the available steps,
   /// should stick to the top of the page.
   ///
@@ -263,6 +267,10 @@ class MaterialStepperComponent {
     }
   }
 
+  String get stepAriaAnnounce => activeStep == null
+      ? ''
+      : _stepAriaAnnounce(activeStepIndex + 1, steps.length, activeStep?.name);
+
   /// Event that fires when the active step has changed.
   @Output('activeStepChanged')
   Stream<StepDirective> get activeStepChanged => _activeStepController.stream;
@@ -278,6 +286,20 @@ class MaterialStepperComponent {
   static final _cancelMsg = Intl.message('Cancel',
       name: '_cancelMsg',
       desc: 'Button for cancelling the current step in a task flow.');
+
+  static String _stepAriaAnnounce(
+          int currentStepNumber, int totalSteps, String stepLabel) =>
+      Intl.message('Step $currentStepNumber of $totalSteps, $stepLabel',
+          name: '_stepAriaAnnounce',
+          args: [currentStepNumber, totalSteps, stepLabel],
+          desc: 'Message announced to visually impaired users about '
+              'which step of a multi step process a user is on. '
+              '[REL_NOTE: xilli/03-31-19]',
+          examples: const {
+            'currentStepNumber': 1,
+            'totalSteps': 4,
+            'stepLabel': 'Select campaign settings'
+          });
 }
 
 @Directive(
