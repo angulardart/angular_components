@@ -50,6 +50,7 @@
               class="menu-item"
               [ngClass]="item.cssClasses"
               [class.is-menu-parent]="isSubMenuVisible(item)"
+              [attr.aria-label]="item.ariaLabel"
               [attr.aria-disabled]="!item.enabled"
               [attr.aria-haspopup]="item.hasSubMenu"
 

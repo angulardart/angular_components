@@ -137,6 +137,7 @@ class MenuItem<T> with MenuItemMixin implements HasUIDisplayName, HasIcon {
   final String label;
   final String secondaryLabel;
   final String tooltip;
+  final String ariaLabel;
 
   /// A superscript annotation that is shown to the right of the label.
   ///
@@ -186,11 +187,13 @@ class MenuItem<T> with MenuItemMixin implements HasUIDisplayName, HasIcon {
       MenuItemAffix itemSuffix,
       ObservableList<MenuItemAffix> itemSuffixes,
       this.subMenu,
-      this.secondaryLabel})
+      this.secondaryLabel,
+      String ariaLabel})
       : itemSuffixes = itemSuffixes ??
             ObservableList<MenuItemAffix>.from(
                 Optional.fromNullable(itemSuffix)),
-        cssClasses = BuiltList<String>(cssClasses ?? const []) {
+        cssClasses = BuiltList<String>(cssClasses ?? const []),
+        ariaLabel = ariaLabel ?? label {
     assert(itemSuffix == null || itemSuffixes == null,
         'Only one of itemSuffix or itemSuffixes should be provided');
   }

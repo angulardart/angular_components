@@ -49,6 +49,9 @@ class DelegatingMenuItem<SubMenuType> implements MenuItem<SubMenuType> {
   String get label => _delegate.label;
 
   @override
+  String get ariaLabel => _delegate.ariaLabel;
+
+  @override
   Function get nullAwareActionHandler => _delegate.nullAwareActionHandler;
 
   @override
