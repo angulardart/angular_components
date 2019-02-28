@@ -138,6 +138,9 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
   String get label => itemRenderer(value);
 
   @override
+  String get ariaLabel => label;
+
+  @override
   Function get nullAwareActionHandler => _action ?? _noOp;
 
   @override
