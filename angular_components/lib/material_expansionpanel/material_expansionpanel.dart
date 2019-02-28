@@ -218,6 +218,14 @@ class MaterialExpansionPanel
   @Input()
   bool saveDisabled = false;
 
+  /// Whether the save button is highlighted
+  @Input()
+  bool saveHighlighted = false;
+
+  /// Whether the save button is raised
+  @Input()
+  bool saveRaised = false;
+
   // Whether there is an in-progress action from the save/cancel buttons
   bool _activeSaveCancelAction = false;
   bool get activeSaveCancelAction => _activeSaveCancelAction;
