@@ -64,10 +64,12 @@ class MaterialStepperComponent {
   List<StepDirective> _stepDirectiveList;
   final _activeStepController =
       StreamController<StepDirective>.broadcast(sync: true);
+  final _stepAriaLabel = <StepDirective, String>{};
 
   @ContentChildren(StepDirective)
   set stepsQuery(List<StepDirective> value) {
     if (_stepDirectiveList == value) return;
+    _stepAriaLabel.clear();
     _stepDirectiveList = value;
     activeStepIndex ??= 0;
     scheduleMicrotask(() {
@@ -267,9 +269,11 @@ class MaterialStepperComponent {
     }
   }
 
-  String get stepAriaAnnounce => activeStep == null
-      ? ''
-      : _stepAriaAnnounce(activeStepIndex + 1, steps.length, activeStep?.name);
+  String stepAriaLabel(StepDirective step) => _stepAriaLabel[step] ??=
+      _stepAriaAnnounce(step.index + 1, steps.length, step.name);
+
+  String get stepAriaAnnounce =>
+      activeStep == null ? '' : stepAriaLabel(activeStep);
 
   /// Event that fires when the active step has changed.
   @Output('activeStepChanged')
