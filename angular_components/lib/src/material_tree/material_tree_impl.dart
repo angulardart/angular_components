@@ -92,7 +92,7 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
     super.selection = value;
   }
 
-  /// Whether to always expand an option group.
+  /// Whether to initially expand an option group.
   @Input()
   bool expandAll = false;
 
@@ -129,13 +129,23 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   @ViewChildren(MaterialTreeGroupComponent)
   List<MaterialTreeGroupComponent> treeGroupNodes;
 
-  /// Collapses all expanded tree groups.
+  /// Collapses all tree groups.
   ///
   /// Remember to set expandAll to false in your component. This will not
   /// override that behavior.
   void collapseAllTreeGroups() {
     for (var tree in treeGroupNodes) {
       tree.clearExpansions();
+    }
+  }
+
+  /// Expands all tree groups.
+  ///
+  /// Remember to set expandAll to true in your component. This will not
+  /// override that behavior.
+  void expandAllTreeGroups() {
+    for (var tree in treeGroupNodes) {
+      tree.expandAllOptions();
     }
   }
 
