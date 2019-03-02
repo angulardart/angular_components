@@ -81,6 +81,10 @@ class MaterialMenuComponent extends Object
   @Input()
   bool tabbable = true;
 
+  /// Whether the menu is raised or not.
+  @Input()
+  bool raised = false;
+
   /// Aria label for button trigger.
   @Input()
   String ariaLabel;
