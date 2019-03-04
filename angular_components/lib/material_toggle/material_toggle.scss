@@ -15,6 +15,8 @@ $container-size: $mat-grid * 4.5;
 $button-size: $mat-grid * 2.5;
 $bar-height: $mat-grid * 1.75;
 $vertical-space: $mat-grid * .25;
+$focus-size: $button-size * 2;
+$margin-nudge: $button-size / 2;
 
 :host {
   display: inline-block;
@@ -70,18 +72,36 @@ $vertical-space: $mat-grid * .25;
   position: absolute;
   top: 0;
   width: $button-size;
+  overflow: visible;
 }
 
 .material-toggle.checked .tgl-btn-container {
   width: $container-size;
+  color: $default-on-color;
+}
+
+.tgl-btn-underlay {
+  width: $focus-size;
+  height: $focus-size;
+  border-radius: 50%;
+  margin: $margin-nudge * -1;
+
+  &.under-focus {
+    background-color: rgba(#bcbcbc, $mat-ripple-focused-opacity);
+
+    &.under-checked {
+      background-color: rgba($default-on-color, $mat-ripple-focused-opacity);
+    }
+  }
 }
 
 .tgl-btn {
   transition: background-color $mat-transition-fast $mat-transition-standard;
 
   @include material-shadow;
-
+  margin: $margin-nudge;
   background-color: $off-btn-color;
+  opacity: 1;
   border-radius: 50%;
   height: $button-size;
   position: relative;
