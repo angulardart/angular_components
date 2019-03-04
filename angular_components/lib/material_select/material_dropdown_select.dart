@@ -370,6 +370,9 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
         selection.select(item);
       }
     }
+    if (!visible) {
+      open();
+    }
   }
 
   @override
