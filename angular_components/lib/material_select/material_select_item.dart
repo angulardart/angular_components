@@ -51,10 +51,6 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   @HostBinding('class')
   static const hostClass = 'item';
 
-  // The qualified name is long because button_directive.dart uses hostTabIndex.
-  @HostBinding('tabIndex')
-  static const hostTabIndexForSelectItem = 0;
-
   final _disposer = Disposer.oneShot();
   final ActivationHandler _activationHandler;
   final ChangeDetectorRef _cdRef;
