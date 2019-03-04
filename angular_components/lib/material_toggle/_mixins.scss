@@ -12,6 +12,7 @@
 ///         $off-btn-color: $mat-teal-500,
 ///         $selector: '.custom-area');
 // TODO(google): Remove selector it shouldn't be needed as there aren't host styling.
+
 @mixin material-toggle-theme($primary-color, $off-btn-color: null, $selector: '') {
   @if $off-btn-color != null {
     ::ng-deep #{$selector} material-toggle.themeable .material-toggle .tgl-btn {
@@ -25,6 +26,19 @@
 
   ::ng-deep #{$selector} material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn {
     background-color: $primary-color;
+  }
+
+  ::ng-deep #{$selector} material-toggle.themeable .tgl-btn-underlay.under-focus {
+    @if $off-btn-color != null {
+      background-color: rgba($off-btn-color, $mat-ripple-focused-opacity);
+
+    } else {
+      background-color: rgba(#bcbcbc, $mat-ripple-focused-opacity);
+    }
+  }
+
+  ::ng-deep #{$selector} material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked {
+    background-color: rgba($primary-color, $mat-ripple-focused-opacity);
   }
 }
 
