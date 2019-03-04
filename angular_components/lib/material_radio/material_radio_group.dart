@@ -134,7 +134,7 @@ class MaterialRadioGroupComponent
     });
   }
 
-  /// Published when selection changes. Prefer `(ngModelChanged)`.
+  /// Published when selection changes. Prefer `(ngModelChange)`.
   @Output('selectedChange')
   Stream<dynamic> get onChange => _onChange.stream;
   final _onChange = StreamController<dynamic>.broadcast();
