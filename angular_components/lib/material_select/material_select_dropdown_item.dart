@@ -39,10 +39,6 @@ class MaterialSelectDropdownItemComponent<T>
   @HostBinding('class')
   static const hostClass = 'item';
 
-  // The qualified name is long because button_directive.dart uses hostTabIndex.
-  @HostBinding('tabIndex')
-  static const hostTabIndexForSelectDropdown = 0;
-
   final String _generatedId;
 
   String _id;
