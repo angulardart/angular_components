@@ -33,7 +33,7 @@ class ButtonDirective extends RootFocusable
 
   final _trigger = StreamController<UIEvent>.broadcast(sync: true);
 
-  String _hostTabIndex;
+  String _hostTabIndex = '0';
 
   ButtonDirective(Element element, @Attribute('role') String role)
       : this.role = (role ?? 'button'),
