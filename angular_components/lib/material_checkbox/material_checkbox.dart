@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
 import 'package:angular_components/focus/focus.dart';
@@ -14,6 +15,7 @@ import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/model/ui/icon.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 const Icon uncheckedIcon = Icon('check_box_outline_blank');
 const Icon checkedIcon = Icon('check_box');
@@ -242,9 +244,13 @@ class MaterialCheckboxComponent
   String get rippleColor => checked ? themeColor : '';
 
   /// Label for the checkbox, alternatively use content.
-  @HostBinding('attr.aria-label')
   @Input()
   String label;
+
+  /// Id for the checkbox label and content.
+  @visibleForTemplate
+  @HostBinding('attr.aria-labelledby')
+  final contentId = SequentialIdGenerator.fromUUID().nextId();
 
   /// Toggles checkbox via user action.
   ///
