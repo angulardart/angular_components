@@ -36,16 +36,15 @@ class MaterialListItemComponent extends ButtonDirective implements OnDestroy {
   final _disposer = Disposer.oneShot();
   final DropdownHandle _dropdown;
 
-  final String _hostTabIndex;
-
   @override
-  String get hostTabIndex => _hostTabIndex;
+  final String hostTabIndex;
 
   dom.HtmlElement element;
 
   MaterialListItemComponent(this.element, @Optional() this._dropdown,
-      @Attribute('tabindex') this._hostTabIndex, @Attribute('role') String role)
-      : super(element, role ?? 'listitem') {
+      @Attribute('tabindex') tabIndex, @Attribute('role') String role)
+      : hostTabIndex = tabIndex ?? '0',
+        super(element, role ?? 'listitem') {
     if (_dropdown != null) {
       _disposer.addDisposable(trigger.listen(handleActivate));
     }
