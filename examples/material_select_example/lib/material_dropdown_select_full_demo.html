@@ -176,5 +176,16 @@
                    (trigger)="alert('Implement a dropdown')">
   </dropdown-button>
 </section>
+<section>
+  <h3>Template driven</h3>
+  <p>Note: Template driven forms are not as accessible and are not suggested for production.</p>
+  <material-dropdown-select [buttonText]="languageButtonLabel">
+    <material-select-dropdown-item
+        *ngFor="let language of languagesList"
+        (trigger)="languageButtonLabel = language.label">
+      {{language.label}}
+    </material-select-dropdown-item>
+  </material-dropdown-select>
+</section>
 <!-- space for dropdowns -->
 <div style="height:200px"></div>

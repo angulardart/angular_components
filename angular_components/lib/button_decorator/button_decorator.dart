@@ -34,9 +34,15 @@ class ButtonDirective extends RootFocusable
   final _trigger = StreamController<UIEvent>.broadcast(sync: true);
 
   String _hostTabIndex = '0';
+  final String _nonTabbableIndex;
 
-  ButtonDirective(Element element, @Attribute('role') String role)
+  ButtonDirective(Element element, @Attribute('role') String role,
+      {bool removeTabIndexNonTabbable = false})
       : this.role = (role ?? 'button'),
+        // Allow the subclass to define how the element should be made
+        // untabbable.
+        // TODO(google): Consider making this the default for all components.
+        _nonTabbableIndex = removeTabIndexNonTabbable ? null : '-1',
         super(element);
 
   /// Role of this component used for a11y.
@@ -59,7 +65,8 @@ class ButtonDirective extends RootFocusable
   @Input()
   bool tabbable = true;
 
-  String get hostTabIndex => tabbable && !disabled ? _hostTabIndex : '-1';
+  String get hostTabIndex =>
+      tabbable && !disabled ? _hostTabIndex : _nonTabbableIndex;
 
   /// The tab index of the component.
   ///

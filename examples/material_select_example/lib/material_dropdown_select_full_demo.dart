@@ -14,6 +14,7 @@ import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
 import 'package:angular_components/material_select/material_dropdown_select.dart';
+import 'package:angular_components/material_select/material_select_dropdown_item.dart';
 import 'package:angular_components/material_select/material_dropdown_select_accessor.dart';
 import 'package:angular_components/material_select/material_select_searchbox.dart';
 import 'package:angular_components/model/selection/select.dart';
@@ -37,8 +38,10 @@ import 'material_dropdown_select_full_demo.template.dart' as demo;
     MaterialSelectSearchboxComponent,
     DropdownSelectValueAccessor,
     MultiDropdownSelectValueAccessor,
+    MaterialSelectDropdownItemComponent,
     NgModel,
     NgIf,
+    NgFor,
     DropdownButtonComponent,
   ],
   templateUrl: 'material_dropdown_select_full_demo.html',
@@ -252,6 +255,9 @@ class MaterialDropdownSelectFullDemoComponent {
   String selectionOption;
 
   void alert(String message) => window.alert(message);
+
+  String languageButtonLabel = 'Select Language';
+  List<Language> get languagesList => _languagesList;
 }
 
 class Language implements HasUIDisplayName {
