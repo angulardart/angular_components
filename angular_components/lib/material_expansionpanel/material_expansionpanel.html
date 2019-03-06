@@ -20,6 +20,7 @@
           keyboardOnlyFocusIndicator
           [disabled]="disabled || headerHidden"
           [class.closed] = "!isExpanded"
+          [attr.aria-expanded]="isExpanded"
           [class.disable-header-expansion]="disableHeaderExpansion"
           [attr.aria-label]="headerMsg"
           (trigger)="handleHeaderClick">
@@ -71,6 +72,7 @@
           buttonDecorator
           keyboardOnlyFocusIndicator
           (trigger)="collapse()"
+          [attr.aria-expanded]="isExpanded"
           [attr.aria-label]="closePanelMsg">
       </material-icon>
       <div class="content">
@@ -84,6 +86,7 @@
           buttonDecorator
           keyboardOnlyFocusIndicator
           (trigger)="collapse()"
+          [attr.aria-expanded]="isExpanded"
           [attr.aria-label]="closePanelMsg">
       </material-icon>
     </div>
