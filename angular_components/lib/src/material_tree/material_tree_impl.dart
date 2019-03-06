@@ -153,7 +153,7 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   bool get showFlatCheck => selection is MultiSelectionModel;
 
   /// Whether to show a flat list of items without any selection.
-  bool get showFlatList => selection == const SelectionModel.empty();
+  bool get showFlatList => selection is NullSelectionModel;
 
   /// Whether to show a flat list of items with single-selection.
   bool get showFlatRadio => !showFlatList && !showFlatCheck;

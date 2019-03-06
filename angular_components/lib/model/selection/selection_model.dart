@@ -43,7 +43,7 @@ abstract class SelectionModel<T> extends Object
     with CastIterable<T>
     implements Observable<ChangeRecord>, SelectionObservable<T> {
   /// Creates an immutable, constant model.
-  const factory SelectionModel.empty() = _NoopSelectionModelImpl<T>;
+  const factory SelectionModel.empty() = NullSelectionModel<T>;
 
   /// Creates a single-selection model.
   ///
@@ -116,6 +116,10 @@ abstract class SelectionModel<T> extends Object
 
   /// Casts [values] into an Iterable<T>.
   Iterable<T> castIterable(Iterable values);
+}
+
+abstract class NullSelectionModel<T> extends SingleSelectionModel<T> {
+  const factory NullSelectionModel() = _NoopSelectionModelImpl<T>;
 }
 
 abstract class SingleSelectionModel<T> extends SelectionModel<T> {
