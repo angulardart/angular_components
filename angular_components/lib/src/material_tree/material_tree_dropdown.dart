@@ -39,16 +39,19 @@ import 'material_tree_impl.dart';
     NgIf,
     PopupSourceDirective
   ],
+  directiveTypes: [
+    Typed<MaterialTreeComponent>.of([#T]),
+  ],
   providers: [
-    Provider(Focusable, useExisting: MaterialTreeDropdownComponent),
-    Provider(MaterialTreeRoot, useExisting: MaterialTreeDropdownComponent)
+    ExistingProvider(Focusable, MaterialTreeDropdownComponent),
+    ExistingProvider(MaterialTreeRoot, MaterialTreeDropdownComponent)
   ],
   templateUrl: 'material_tree_dropdown.html',
   styleUrls: ['material_tree_dropdown.scss.css'],
   visibility: Visibility.all, // injected by clients
 )
-class MaterialTreeDropdownComponent extends SelectionContainer
-    with DropdownHandle, MaterialTreeRoot
+class MaterialTreeDropdownComponent<T>
+    with DropdownHandle, MaterialTreeRoot<T>, SelectionContainer<T>
     implements OnInit, Focusable {
   // Popup positioning to use when filtering is enabled.
   static const List /*RelativePosition | List<RelativePosition>*/
@@ -70,7 +73,6 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   String _placeholder = _DEFAULT_PLACEHOLDER;
   bool _visible = false;
   List<RelativePosition> _customPopupPositions;
-  String _buttonText;
 
   @ViewChild(MaterialTreeFilterComponent)
   MaterialTreeFilterComponent materialTreeFilterComponent;
@@ -146,7 +148,7 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   MaterialTreeDropdownComponent(this._domService,
       @Attribute('popupClass') String popupClass, HtmlElement element)
       : popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
-    selection = const SelectionModel.empty();
+    selection = SelectionModel<T>.empty();
   }
 
   @Deprecated('Use [factoryRenderer] instead')
@@ -167,21 +169,21 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   /// A simple function to render the item to string.
   @Input()
   @override
-  set itemRenderer(ItemRenderer value) {
+  set itemRenderer(ItemRenderer<T> value) {
     super.itemRenderer = value;
   }
 
   /// The available options for this contianer.
   @Input()
   @override
-  set options(SelectionOptions value) {
+  set options(SelectionOptions<T> value) {
     super.options = value;
   }
 
   /// The selection model this container represents.
   @Input()
   @override
-  set selection(SelectionModel value) {
+  set selection(SelectionModel<T> value) {
     super.selection = value;
   }
 

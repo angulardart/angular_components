@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:collection';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/src/material_tree/material_tree_expand_state.dart';
@@ -24,8 +23,8 @@ typedef bool IsExpandable<T>(T option);
 class MaterialTreeNode<T> {
   final OptionGroup<T> _EMPTY_OPTION_GROUP = OptionGroup<T>(const []);
 
-  final Map<T, Iterable<OptionGroup<T>>> _expandedNodes;
-  Disposer _disposer;
+  final _expandedNodes = Map<T, Iterable<OptionGroup<T>>>.identity();
+  var _disposer = Disposer.multi();
   final MaterialTreeRoot<T> _root;
   final ChangeDetectorRef _changeDetector;
 
@@ -41,9 +40,7 @@ class MaterialTreeNode<T> {
   ///
   /// May specify a custom [isExpandable].
   MaterialTreeNode(this._root, this._changeDetector,
-      {IsExpandable<T> isExpandable})
-      : _expandedNodes = HashMap<T, Iterable<OptionGroup<T>>>.identity(),
-        _disposer = Disposer.multi() {
+      {IsExpandable<T> isExpandable}) {
     _group = _EMPTY_OPTION_GROUP;
     if (!_root.supportsHierarchy) {
       _isExpandable = (_) => false;

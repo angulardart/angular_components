@@ -38,10 +38,14 @@ const materialTreeLeftPaddingToken =
     NgIf,
     NgClass
   ],
+  directiveTypes: [
+    Typed<MaterialTreeGroupComponent>.of([#T]),
+  ],
   templateUrl: 'material_tree_group.html',
   styleUrls: ['material_tree_group.scss.css'],
 )
-class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
+class MaterialTreeGroupComponent<T> extends MaterialTreeNode<T>
+    implements OnDestroy {
   @HostBinding('attr.role')
   static const hostRole = 'group';
 

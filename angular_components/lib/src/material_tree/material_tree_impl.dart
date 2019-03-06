@@ -3,15 +3,16 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/src/material_tree/group/material_tree_group.dart';
-import 'package:angular_components/src/material_tree/group/material_tree_group_flat.dart';
-import 'package:angular_components/src/material_tree/material_tree_rendering_options.dart';
-import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
+
+import 'group/material_tree_group.dart';
+import 'group/material_tree_group_flat.dart';
+import 'material_tree_rendering_options.dart';
+import 'material_tree_root.dart';
 
 /// A material selection component that supports a tree of options.
 ///
@@ -37,12 +38,16 @@ import 'package:angular_components/model/ui/has_factory.dart';
     NgFor,
     NgIf
   ],
-  viewProviders: [
-    Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
+  directiveTypes: [
+    Typed<MaterialTreeGroupComponent>.of([#T]),
+    Typed<MaterialTreeGroupFlatCheckComponent>.of([#T]),
+    Typed<MaterialTreeGroupFlatListComponent>.of([#T]),
+    Typed<MaterialTreeGroupFlatRadioComponent>.of([#T]),
   ],
+  viewProviders: [ExistingProvider(MaterialTreeRoot, MaterialTreeComponent)],
   templateUrl: 'material_tree_impl.html',
 )
-class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
+class MaterialTreeComponent<T> with MaterialTreeRoot<T>, SelectionContainer<T> {
   /// Whether to hide check-marks in a single select dropdown
   @Input()
   @override
@@ -53,7 +58,7 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   MaterialTreeComponent(@Optional() @SkipSelf() MaterialTreeRoot parentTreeRoot,
       @Optional() @Self() this.renderingOptions)
       : optimizeForDropdown = parentTreeRoot?.optimizeForDropdown == true {
-    selection = const SelectionModel.empty();
+    selection = SelectionModel<T>.empty();
   }
 
   @Deprecated('Use [factoryRenderer] instead')
@@ -74,21 +79,21 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   /// A simple function to render the item to string.
   @Input()
   @override
-  set itemRenderer(ItemRenderer value) {
+  set itemRenderer(ItemRenderer<T> value) {
     super.itemRenderer = value;
   }
 
   /// The available options for this contianer.
   @Input()
   @override
-  set options(SelectionOptions value) {
+  set options(SelectionOptions<T> value) {
     super.options = value;
   }
 
   /// The selection model this container represents.
   @Input()
   @override
-  set selection(SelectionModel value) {
+  set selection(SelectionModel<T> value) {
     super.selection = value;
   }
 
