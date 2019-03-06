@@ -5,7 +5,7 @@
 part of angular_components.model.selection.selection_model;
 
 /// Returned internally as a blank selection model.
-class _NoopSelectionModelImpl<T> implements SingleSelectionModel<T> {
+class _NoopSelectionModelImpl<T> implements NullSelectionModel<T> {
   const _NoopSelectionModelImpl();
 
   // Selection observable.
