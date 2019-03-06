@@ -49,7 +49,7 @@
              [attr.aria-invalid]="invalid"
              [attr.aria-label]="inputAriaLabel"
              [attr.aria-labelledby]="labelId"
-             [attr.aria-describedby]="inputAriaDescribedBy"
+             [attr.aria-describedby]="ariaDescribedBy"
              [attr.aria-owns]="inputAriaOwns"
              [attr.aria-disabled]="disabled"
              [attr.role]="inputRole"
@@ -102,7 +102,7 @@
      *ngIf="displayBottomPanel"
      [ngSwitch]="bottomPanelState">
   <div class="error-text"
-       role="alert"
+       [attr.id]="errorTextId"
        attr.aria-hidden="{{!invalid}}"
        [class.focused]="focused"
        [class.invalid]="invalid"

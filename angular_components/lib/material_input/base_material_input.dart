@@ -14,6 +14,7 @@ import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/forms/error_renderer.dart' show ErrorFn;
 import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 import 'deferred_validator.dart';
 
@@ -43,6 +44,8 @@ class BaseMaterialInput extends FocusableMixin
   final errorState = BottomPanelState.error;
   final hintState = BottomPanelState.hint;
 
+  final errorTextId = SequentialIdGenerator.fromUUID().nextId();
+
   bool _invalid = false;
   // Error message coming from the browser.
   String _validationMessage;
@@ -61,6 +64,9 @@ class BaseMaterialInput extends FocusableMixin
 
   /// Controls what section of the BottomPanel is displayed.
   BottomPanelState bottomPanelState = BottomPanelState.empty;
+
+  /// Controls the aria-describedby attribute on the input element.
+  String ariaDescribedBy;
 
   String _errorMsg;
   String get errorMsg => _errorMsg;
@@ -82,6 +88,16 @@ class BaseMaterialInput extends FocusableMixin
   @Input()
   set error(String error) {
     _error = error;
+    updateBottomPanelState();
+  }
+
+  String _inputAriaDescribedBy;
+
+  /// The ID of an element which should be assigned to the inner input element's
+  /// aria-describedby attribute.
+  @Input()
+  set inputAriaDescribedBy(String elementID) {
+    _inputAriaDescribedBy = elementID;
     updateBottomPanelState();
   }
 
@@ -442,10 +458,15 @@ class BaseMaterialInput extends FocusableMixin
     var oldState = bottomPanelState;
     if (invalid && isNotEmpty(errorMessage)) {
       bottomPanelState = BottomPanelState.error;
+      ariaDescribedBy = _inputAriaDescribedBy == null
+          ? errorTextId
+          : '$_inputAriaDescribedBy $errorTextId';
     } else if ((!showHintOnlyOnFocus || focused) && isNotEmpty(_hintText)) {
       bottomPanelState = BottomPanelState.hint;
+      ariaDescribedBy = _inputAriaDescribedBy;
     } else {
       bottomPanelState = BottomPanelState.empty;
+      ariaDescribedBy = _inputAriaDescribedBy;
     }
 
     if (oldState != bottomPanelState) {
