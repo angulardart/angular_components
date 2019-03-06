@@ -63,7 +63,8 @@ class MaterialSelectDropdownItemComponent<T>
       ChangeDetectorRef cdRef)
       : _generatedId =
             (idGenerator ?? SequentialIdGenerator.fromUUID()).nextId(),
-        super(element, dropdown, activationHandler, cdRef, role ?? 'option') {
+        super(element, dropdown, activationHandler, cdRef, role ?? 'option',
+            removeTabIndexNonTabbable: true) {
     this.itemRenderer = defaultItemRenderer;
   }
 

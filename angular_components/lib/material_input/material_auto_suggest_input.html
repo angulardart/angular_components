@@ -117,14 +117,12 @@
           <material-select-dropdown-item
               #emptyLabel
               *ngIf="suggestionGroup.isEmpty && suggestionGroup.hasEmptyLabel"
-              keyboardOnlyFocusIndicator
               [disabled]="true"
               [value]="suggestionGroup.emptyLabel">
           </material-select-dropdown-item>
           <material-select-dropdown-item
               *ngFor="let suggestion of suggestionGroup"
               class="list-item"
-              keyboardOnlyFocusIndicator
               [itemRenderer]="itemRenderer"
               [componentRenderer]="componentRenderer"
               [factoryRenderer]="factoryRenderer"
