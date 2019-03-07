@@ -6,7 +6,9 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/src/material_tooltip/tooltip_controller.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-const materialTooltipBindings = [TooltipController];
+const materialTooltipBindings = [ClassProvider(TooltipController)];
+
+const materialTooltipModule = Module(provide: materialTooltipBindings);
 
 // This is a pattern which allows a singleton service to be shared in an
 // application without binding the service at the application level, while
