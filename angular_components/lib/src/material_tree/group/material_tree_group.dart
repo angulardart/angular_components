@@ -105,12 +105,6 @@ class MaterialTreeGroupComponent<T> extends MaterialTreeNode<T>
       : fixedPadding = '${constantLeftPadding ?? defaultConstantLeftPadding}px',
         super(_root, changeDetector);
 
-  @Input()
-  @override
-  set expandAll(bool value) {
-    super.expandAll = value;
-  }
-
   // This is only used to standardize all the different group components.
   @HostBinding('class.material-tree-group')
   final bool isMaterialTreeGroup = true;
