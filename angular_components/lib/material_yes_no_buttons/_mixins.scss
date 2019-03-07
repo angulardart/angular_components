@@ -2,6 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+@import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_button/mixins';
+
 // Change the color of the yes button.
 //
 // Apply directly to the <material-yes-no-buttons> element.
@@ -53,5 +56,16 @@
 
   &:not([reverse]) ::ng-deep .btn.btn-yes {
     margin-left: 0;
+  }
+}
+
+// Change the yes-button to be raised and highlighted.
+//
+// Apply directly to the <material-yes-no-buttons> element.
+@mixin material-yes-button-raised-highlighted($color, $text-color) {
+  ::ng-deep .btn-yes.btn:not([disabled]) {
+    @include _button-raised;
+    background-color: $color;
+    color: $text-color;
   }
 }

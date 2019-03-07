@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_yes_no_buttons/mixins';
 
 /// Mixins for Material ExpansionPanel. These mixins should be applied with
 /// standard Sass scoping logic, such as:
@@ -265,6 +266,15 @@ $_panel: 'div.panel.themeable';
   ::ng-deep #{$_panel} {
     header {
       flex-direction: column;
+    }
+  }
+}
+
+// Change the save button to be raised and highlighted.
+@mixin expansionpanel-save-raised-highlighted($color, $text-color) {
+  ::ng-deep #{$_panel} {
+    material-yes-no-buttons {
+      @include material-yes-button-raised-highlighted($color, $text-color);
     }
   }
 }
