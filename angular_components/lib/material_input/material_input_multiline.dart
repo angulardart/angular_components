@@ -173,6 +173,11 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
   @Input()
   String inputAriaDescribedBy;
 
+  /// Textarea element tabindex.
+  ///
+  /// Disabled textarea is not interactive and should not receive focus on TAB.
+  int get inputTabIndex => disabled ? -1 : 0;
+
   @override
   void ngOnDestroy() {
     super.ngOnDestroy();

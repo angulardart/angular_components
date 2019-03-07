@@ -55,7 +55,8 @@
                   (blur)="inputBlurAction($event, textareaEl.validity.valid, textareaEl.validationMessage)"
                   (change)="inputChange(textareaEl.value, textareaEl.validity.valid, textareaEl.validationMessage);$event.stopPropagation()"
                   (focus)="inputFocusAction"
-                  (input)="inputKeypress(textareaEl.value, textareaEl.validity.valid, textareaEl.validationMessage)"></textarea>
+                  (input)="inputKeypress(textareaEl.value, textareaEl.validity.valid, textareaEl.validationMessage)"
+                  [tabindex]="inputTabIndex"></textarea>
       </div>
     </div>
     <ng-content select="[trailing]"></ng-content>
