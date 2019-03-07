@@ -60,7 +60,10 @@ class MaterialTreeNode<T> {
 
   /// Whether all visible options should be expanded.
   bool get expandAll => _expandAll;
+
+  @Input()
   set expandAll(bool expandAll) {
+    if (identical(expandAll, _expandAll)) return;
     _expandAll = expandAll;
     expandAll ? expandAllOptions() : clearExpansions();
   }
@@ -84,10 +87,11 @@ class MaterialTreeNode<T> {
         // When we receive an expansion state change event, update the option
         _disposer.addStreamSubscription(key.expandEvents.listen((bool newVal) {
           if (newVal == _expandedNodes.containsKey(key)) return;
-          if (newVal)
+          if (newVal) {
             expandOption(key);
-          else
+          } else {
             closeOption(key);
+          }
         }));
       }
       if (expandAll || manualExpand) {
