@@ -373,6 +373,10 @@ class MaterialDateRangePickerComponent
     selection.value = _maybeStripComparison(cmp);
   }
 
+  /// If should apply selected range when popup close without apply button
+  @Input()
+  bool applyOnClose = false;
+
   /// Published when the selected date range or comparison range changes.
   @Output()
   Stream<DatepickerComparison> get rangeChange => selection.stream;
@@ -512,6 +516,11 @@ class MaterialDateRangePickerComponent
     _popupVisible = false;
     _onPopupVisible.add(false);
     popup.close();
+
+    if (applyOnClose == true) {
+      _isApplying = true;
+      selection.value = model.value;
+    }
 
     _domService.nextFrame.then((_) {
       // Double-check that the popup is still closing.
