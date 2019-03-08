@@ -69,3 +69,14 @@
     color: $text-color;
   }
 }
+
+@mixin material-no-button-highlight($color, $raised-text-color: $mat-white) {
+  ::ng-deep .btn-no[raised] {
+    background-color: $color;
+    color: $raised-text-color;
+  }
+
+  ::ng-deep .btn-no:not([raised]) {
+    color: $color;
+  }
+}
