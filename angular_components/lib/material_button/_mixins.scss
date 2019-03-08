@@ -132,18 +132,20 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
     }
   }
 
-  @include _button-hover {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: currentColor;
-    opacity: $mat-divider-opacity;
-    border-radius: inherit;
-    pointer-events: none;
+  @media (hover: hover) {
+    @include _button-hover {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: currentColor;
+      opacity: $mat-divider-opacity;
+      border-radius: inherit;
+      pointer-events: none;
+    }
   }
 
   &[raised] {
