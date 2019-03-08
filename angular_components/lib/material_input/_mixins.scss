@@ -274,6 +274,21 @@
   }
 }
 
+/// For multiline input, make the top section grow to take up
+/// as much space as possible, and show scroll when necessary.
+@mixin material-input-multiline-flex-grow-and-scroll() {
+  ::ng-deep .baseline {
+    flex-grow: 1;
+    overflow: hidden;
+    height: 90%; // Leave some space for bottom-section.
+  }
+
+  ::ng-deep .top-section {
+    flex-grow: 1;
+    overflow: auto;
+  }
+}
+
 @mixin input-center-text() {
   ::ng-deep {
     .input,
