@@ -6,12 +6,14 @@
 <div
     class="progress-container"
     role="progressbar"
+    [attr.aria-label]="ariaValue"
     attr.aria-valuemin="{{min}}"
     attr.aria-valuemax="{{max}}"
-    [attr.aria-valuenow]="ariaValue"
+    [attr.aria-valuenow]="ariaValueNow"
     [class.indeterminate]="indeterminate"
     [class.fallback]="useFallbackAnimation">
   <div #secondary
+       [attr.aria-label]="activeAndSecondaryProgressValue"
        class="secondary-progress"
        [style.transform]="secondaryTransform"></div>
   <div #primary
