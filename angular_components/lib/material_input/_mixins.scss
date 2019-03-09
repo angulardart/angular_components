@@ -42,6 +42,13 @@
   }
 }
 
+/// Changes the flex-grow property of the material-input.
+@mixin input-flex-grow($grow) {
+  ::ng-deep material-input.themeable {
+    flex-grow: $grow;
+  }
+}
+
 /// Changes the line-height of the top section (without underline) of material
 /// input.
 @mixin input-top-section-line-height($line-height) {
