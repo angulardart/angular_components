@@ -66,9 +66,6 @@ abstract class SelectionModel<T> extends Object
       {List<T> selectedValues,
       KeyProvider<T> keyProvider}) = MultiSelectionModel<T>;
 
-  @Deprecated('Use SelectionModel.empty instead.')
-  const factory SelectionModel() = SelectionModel<T>.empty;
-
   @Deprecated('Use SelectionModel.single or SelectionModel.multi instead.')
   factory SelectionModel.withList(
       {List<T> selectedValues,
