@@ -124,10 +124,10 @@ class StickyControllerImpl implements StickyController {
   /// Gets the available area for the sticking elements.
   ///
   /// Starting from the scroll host's area, we subtract the regions of the
-  /// already sticking elements. Each element is compared to the top or bottom
-  /// border of the current area, and will be assumed to belong to the closer
-  /// one. The area will be reduced to exclude the element's area on their
-  /// respective border.
+  /// already sticking elements (i.e tracked by [acxStickyFloating] directive).
+  /// Each element is compared to the top or bottom border of the current area,
+  /// and will be assumed to belong to the closer one. The area will be reduced
+  /// to exclude the element's area on their respective border.
   Rectangle _getAvailableArea() {
     Rectangle hostRect = _scrollHost.calcViewportRect();
     // assuming that floating elements are either at the top or at the bottom
@@ -183,8 +183,18 @@ class StickyControllerImpl implements StickyController {
     for (int i = 0; i < _orderedRows.length; i++) {
       _orderedRows[i].readRowPositions();
     }
-    _orderedRows.sort((_StickyRow a, _StickyRow b) =>
-        a.rowPosition.top.compareTo(b.rowPosition.top));
+    // For rows that have StickyPosition.TOP, they are sorted from top down.
+    // For rows that have StickyPosition.BOTTOM, they are sorted from bottom up.
+    // Rows that have StickyPosition.TOP are stored before those have
+    // StickyPosition.BOTTOM.
+    _orderedRows.sort((a, b) {
+      if (a.isTop != b.isTop) {
+        return a.isTop ? -1 : 1;
+      }
+      return a.isTop
+          ? a.rowPosition.top.compareTo(b.rowPosition.top)
+          : b.rowPosition.top.compareTo(a.rowPosition.top);
+    });
   }
 
   void _updateContainer(StickyContainerLayout<_StickyRow> layout) {
@@ -198,7 +208,7 @@ class StickyControllerImpl implements StickyController {
     }
     if (layout.bottomRows != null) {
       num top = layout.hostPosition.bottom;
-      for (int i = layout.bottomRows.length - 1; i >= 0; i--) {
+      for (int i = 0; i < layout.bottomRows.length; i++) {
         final data = layout.bottomRows[i];
         top -= data.row.rowPosition.height;
         data.row.moveToTop(top + data.offsetY);
