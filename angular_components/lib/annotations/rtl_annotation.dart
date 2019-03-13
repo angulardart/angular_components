@@ -10,12 +10,12 @@ import 'package:angular/angular.dart';
 /// web page is RTL.
 ///
 /// This is used to only read the DOM once for an app to determine if the app
-/// itself is RTL. Only use this for components whose RTL is not independant
+/// itself is RTL. Only use this for components whose RTL is not independent
 /// of the application as a whole.
 const rtlToken = OpaqueToken('isRtl');
 
 const rtlProvider =
-    Provider(rtlToken, useFactory: determineRtl, deps: [Document]);
+    FactoryProvider.forToken(rtlToken, determineRtl, deps: [Document]);
 
 @Injectable()
 bool determineRtl(Document document) =>
