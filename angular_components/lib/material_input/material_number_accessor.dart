@@ -152,7 +152,7 @@ class MaterialNumberValueAccessor extends BaseMaterialInputValueAccessor
   selector: 'material-input[type=number]:not([checkInteger]),'
       'material-input[type=percent]:not([checkInteger])',
   providers: [
-    Provider(NG_VALIDATORS, useExisting: MaterialNumberValidator, multi: true)
+    ExistingProvider.forToken(NG_VALIDATORS, MaterialNumberValidator)
   ],
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
@@ -180,9 +180,7 @@ class MaterialNumberValidator implements Validator {
 @Directive(
   selector: 'material-input[type=number][checkInteger],'
       'material-input[type=percent][checkInteger]',
-  providers: [
-    Provider(NG_VALIDATORS, useExisting: CheckIntegerValidator, multi: true)
-  ],
+  providers: [ExistingProvider.forToken(NG_VALIDATORS, CheckIntegerValidator)],
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )

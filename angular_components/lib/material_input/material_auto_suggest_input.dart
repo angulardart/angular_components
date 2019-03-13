@@ -53,18 +53,15 @@ typedef String _InputChangeCallback(String inputText);
 @Component(
   selector: 'material-auto-suggest-input',
   providers: [
-    Provider(HasDisabled, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(HasRenderer, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(SelectionContainer,
-        useExisting: MaterialAutoSuggestInputComponent),
-    Provider(HighlightProvider, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(DropdownHandle, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(HasComponentRenderer,
-        useExisting: MaterialAutoSuggestInputComponent),
-    Provider(HasFactoryRenderer,
-        useExisting: MaterialAutoSuggestInputComponent),
-    Provider(Focusable, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(PopupSizeProvider, useExisting: MaterialAutoSuggestInputComponent)
+    ExistingProvider(HasDisabled, MaterialAutoSuggestInputComponent),
+    ExistingProvider(HasRenderer, MaterialAutoSuggestInputComponent),
+    ExistingProvider(SelectionContainer, MaterialAutoSuggestInputComponent),
+    ExistingProvider(HighlightProvider, MaterialAutoSuggestInputComponent),
+    ExistingProvider(DropdownHandle, MaterialAutoSuggestInputComponent),
+    ExistingProvider(HasComponentRenderer, MaterialAutoSuggestInputComponent),
+    ExistingProvider(HasFactoryRenderer, MaterialAutoSuggestInputComponent),
+    ExistingProvider(Focusable, MaterialAutoSuggestInputComponent),
+    ExistingProvider(PopupSizeProvider, MaterialAutoSuggestInputComponent),
   ],
   directives: [
     ActiveItemDirective,

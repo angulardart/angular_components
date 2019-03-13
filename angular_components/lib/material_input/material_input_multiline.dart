@@ -25,11 +25,11 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     DeferredValidator,
-    Provider(HasDisabled, useExisting: MaterialMultilineInputComponent),
-    Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
-    Provider(ReferenceDirective, useExisting: MaterialMultilineInputComponent),
-    Provider(Focusable, useExisting: MaterialMultilineInputComponent),
-    Provider(BaseMaterialInput, useExisting: MaterialMultilineInputComponent)
+    ExistingProvider(HasDisabled, MaterialMultilineInputComponent),
+    ExistingProvider.forToken(NG_VALIDATORS, DeferredValidator),
+    ExistingProvider(ReferenceDirective, MaterialMultilineInputComponent),
+    ExistingProvider(Focusable, MaterialMultilineInputComponent),
+    ExistingProvider(BaseMaterialInput, MaterialMultilineInputComponent),
   ],
   templateUrl: 'material_input_multiline.html',
   styleUrls: ['material_input.scss.css', 'material_input_multiline.scss.css'],
