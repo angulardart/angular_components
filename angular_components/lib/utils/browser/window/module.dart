@@ -28,9 +28,9 @@ Window getWindow() => window;
 const windowBindings = [
   // This strange syntax is required because we need windowBindings to be a
   // const list to be usable within component annotations.
-  Provider(Document, useFactory: getDocument),
-  Provider(HtmlDocument, useFactory: getDocument),
-  Provider(Window, useFactory: getWindow)
+  FactoryProvider(Document, getDocument),
+  FactoryProvider(HtmlDocument, getDocument),
+  FactoryProvider(Window, getWindow),
 ];
 
 const windowModule = Module(provide: [

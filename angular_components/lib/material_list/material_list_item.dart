@@ -22,9 +22,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 // TODO(google): should activate/deactivate on mouse hover
 @Component(
   selector: 'material-list-item',
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialListItemComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialListItemComponent)],
   styleUrls: ['material_list_item.scss.css'],
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
