@@ -55,11 +55,11 @@ const String materialInputErrorKey = 'material-input-error';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     DeferredValidator,
-    Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
-    Provider(ReferenceDirective, useExisting: MaterialInputComponent),
-    Provider(Focusable, useExisting: MaterialInputComponent),
-    Provider(HasDisabled, useExisting: MaterialInputComponent),
-    Provider(BaseMaterialInput, useExisting: MaterialInputComponent)
+    ExistingProvider.forToken(NG_VALIDATORS, DeferredValidator),
+    ExistingProvider(ReferenceDirective, MaterialInputComponent),
+    ExistingProvider(Focusable, MaterialInputComponent),
+    ExistingProvider(HasDisabled, MaterialInputComponent),
+    ExistingProvider(BaseMaterialInput, MaterialInputComponent),
   ],
   templateUrl: 'material_input.html',
   styleUrls: ['material_input.scss.css'],
