@@ -22,8 +22,8 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 @Component(
   selector: 'material-select-dropdown-item',
   providers: [
-    Provider(SelectionItem, useExisting: MaterialSelectDropdownItemComponent),
-    Provider(HasRenderer, useExisting: MaterialSelectDropdownItemComponent)
+    ExistingProvider(SelectionItem, MaterialSelectDropdownItemComponent),
+    ExistingProvider(HasRenderer, MaterialSelectDropdownItemComponent)
   ],
   styleUrls: ['material_select_dropdown_item.scss.css'],
   directives: [

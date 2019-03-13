@@ -19,9 +19,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
 @Component(
   selector: 'material-select-searchbox',
   directives: [materialInputDirectives, NgModel],
-  providers: [
-    Provider(Focusable, useExisting: MaterialSelectSearchboxComponent)
-  ],
+  providers: [ExistingProvider(Focusable, MaterialSelectSearchboxComponent)],
   styleUrls: ['material_select_searchbox.scss.css'],
   templateUrl: 'material_select_searchbox.html',
 )

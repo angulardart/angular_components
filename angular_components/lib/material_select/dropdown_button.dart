@@ -37,8 +37,8 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     NgIf,
   ],
   providers: [
-    Provider(HasDisabled, useExisting: DropdownButtonComponent),
-    Provider(Focusable, useExisting: DropdownButtonComponent),
+    ExistingProvider(HasDisabled, DropdownButtonComponent),
+    ExistingProvider(Focusable, DropdownButtonComponent),
   ],
 )
 class DropdownButtonComponent extends Object

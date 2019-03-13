@@ -50,14 +50,13 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 @Component(
   selector: 'material-dropdown-select',
   providers: [
-    Provider(DropdownHandle, useExisting: MaterialDropdownSelectComponent),
-    Provider(HasDisabled, useExisting: MaterialDropdownSelectComponent),
-    Provider(HasRenderer, useExisting: MaterialDropdownSelectComponent),
-    Provider(DeferredContentAware,
-        useExisting: MaterialDropdownSelectComponent),
-    Provider(SelectionContainer, useExisting: MaterialDropdownSelectComponent),
-    Provider(PopupSizeProvider, useExisting: MaterialDropdownSelectComponent),
-    Provider(ActivationHandler, useExisting: MaterialDropdownSelectComponent),
+    ExistingProvider(DropdownHandle, MaterialDropdownSelectComponent),
+    ExistingProvider(HasDisabled, MaterialDropdownSelectComponent),
+    ExistingProvider(HasRenderer, MaterialDropdownSelectComponent),
+    ExistingProvider(DeferredContentAware, MaterialDropdownSelectComponent),
+    ExistingProvider(SelectionContainer, MaterialDropdownSelectComponent),
+    ExistingProvider(PopupSizeProvider, MaterialDropdownSelectComponent),
+    ExistingProvider(ActivationHandler, MaterialDropdownSelectComponent),
   ],
   directives: [
     ActiveItemDirective,
