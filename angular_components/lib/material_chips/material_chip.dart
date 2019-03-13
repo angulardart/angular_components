@@ -24,7 +24,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// Chip components are rendered in a `material-chips` component.
 @Component(
   selector: 'material-chip',
-  providers: [Provider(HasRenderer, useExisting: MaterialChipComponent)],
+  providers: [ExistingProvider(HasRenderer, MaterialChipComponent)],
   templateUrl: 'material_chip.html',
   styleUrls: ['material_chip.scss.css'],
   directives: [ButtonDirective, NgIf],
