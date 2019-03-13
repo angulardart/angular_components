@@ -21,9 +21,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     MenuPopupComponent,
     PopupSourceDirective
   ],
-  providers: [
-    Provider(HasDisabled, useExisting: DropdownMenuComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, DropdownMenuComponent)],
   templateUrl: 'dropdown_menu.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
@@ -36,7 +34,7 @@ class DropdownMenuComponent extends Object
 
   DropdownMenuComponent(ChangeDetectorRef _changeDetector) {
     // Let Angular pick up changes to [isExpanded] in [MenuPopupWrapper] when
-    // it's toggled programatically, e.g. TabMenuComponent.
+    // it's toggled programmatically, e.g. TabMenuComponent.
     _disposer.addStreamSubscription(isExpandedChange.listen((_) {
       focusable = _focusTarget;
       _changeDetector.markForCheck();
