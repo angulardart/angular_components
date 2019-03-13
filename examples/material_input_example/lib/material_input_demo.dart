@@ -2,8 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:async';
-
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/focus/focus.dart';
@@ -11,6 +9,7 @@ import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/material_input/material_input_multiline.dart';
+import 'package:angular_components/material_input/material_input_auto_select.dart';
 import 'package:angular_components/material_input/material_number_accessor.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 
@@ -68,6 +67,7 @@ int countIgnoringAdCustomizers(String inputText) {
     MaterialIconComponent,
     materialInputDirectives,
     MaterialMultilineInputComponent,
+    MaterialInputAutoSelectDirective,
     materialNumberInputDirectives,
     MaterialPaperTooltipComponent,
     MaterialTooltipTargetDirective,
@@ -88,9 +88,6 @@ class MaterialInputDemoComponent {
 
   @ViewChild('manualSelectInput')
   MaterialInputComponent manualSelectInput;
-
-  @ViewChild('autoSelectInput')
-  MaterialMultilineInputComponent autoSelectInput;
 
   MaterialInputDemoComponent() {
     form = Control(
@@ -115,11 +112,5 @@ class MaterialInputDemoComponent {
 
   void selectAllManualInput() {
     manualSelectInput.selectAll();
-  }
-
-  void selectAllAutoInput() {
-    // Delay the selection as focus might not have been completely transferred
-    // in some browsers.
-    Timer.run(autoSelectInput.selectAll);
   }
 }
