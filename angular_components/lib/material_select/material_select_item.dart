@@ -28,9 +28,9 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 @Component(
   selector: 'material-select-item',
   providers: [
-    Provider(SelectionItem, useExisting: MaterialSelectItemComponent),
-    Provider(HasDisabled, useExisting: MaterialSelectItemComponent),
-    Provider(HasRenderer, useExisting: MaterialSelectItemComponent),
+    ExistingProvider(SelectionItem, MaterialSelectItemComponent),
+    ExistingProvider(HasDisabled, MaterialSelectItemComponent),
+    ExistingProvider(HasRenderer, MaterialSelectItemComponent),
   ],
   styleUrls: ['material_select_item.scss.css'],
   directives: [

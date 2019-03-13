@@ -28,9 +28,9 @@ import 'material_select_item.dart';
 @Component(
   selector: 'material-select',
   providers: [
-    Provider(HasDisabled, useExisting: MaterialSelectComponent),
-    Provider(HasRenderer, useExisting: MaterialSelectComponent),
-    Provider(SelectionContainer, useExisting: MaterialSelectComponent)
+    ExistingProvider(HasDisabled, MaterialSelectComponent),
+    ExistingProvider(HasRenderer, MaterialSelectComponent),
+    ExistingProvider(SelectionContainer, MaterialSelectComponent),
   ],
   directives: [MaterialListComponent, MaterialSelectItemComponent, NgIf, NgFor],
   directiveTypes: [
