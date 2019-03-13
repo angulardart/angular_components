@@ -12,7 +12,7 @@ import 'package:angular_components/focus/focus.dart';
 @Directive(
   selector: '[focusActivableItem]',
   providers: [
-    Provider(FocusableActivateItem, useExisting: FocusActivableItemDirective)
+    ExistingProvider(FocusableActivateItem, FocusActivableItemDirective)
   ],
 )
 class FocusActivableItemDirective extends RootFocusable

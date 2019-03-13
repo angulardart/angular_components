@@ -235,7 +235,7 @@ class AutoFocusDirective extends RootFocusable implements OnInit, OnDestroy {
 @Directive(
     selector: '[focusableElement]',
     exportAs: 'focusableElement',
-    providers: [Provider(Focusable, useExisting: FocusableDirective)])
+    providers: [ExistingProvider(Focusable, FocusableDirective)])
 class FocusableDirective extends RootFocusable {
   FocusableDirective(HtmlElement node) : super(node);
 }

@@ -13,7 +13,7 @@ import 'package:angular_components/focus/focus.dart';
 /// by way of keyboard interaction.
 @Directive(
   selector: '[focusItem]',
-  providers: [Provider(FocusableItem, useExisting: FocusItemDirective)],
+  providers: [ExistingProvider(FocusableItem, FocusItemDirective)],
 )
 class FocusItemDirective extends RootFocusable implements FocusableItem {
   @HostBinding('attr.role')
