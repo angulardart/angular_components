@@ -34,8 +34,8 @@ abstract class Tab extends Focusable {
 @Component(
   selector: 'material-tab',
   providers: [
-    Provider(Tab, useExisting: MaterialTabComponent),
-    Provider(DeferredContentAware, useExisting: MaterialTabComponent)
+    ExistingProvider(Tab, MaterialTabComponent),
+    ExistingProvider(DeferredContentAware, MaterialTabComponent),
   ],
   template: '''
         <div class="tab-content" *ngIf="active">

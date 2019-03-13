@@ -43,9 +43,7 @@ const indeterminateAriaState = 'mixed';
 ///
 @Component(
   selector: 'material-checkbox',
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialCheckboxComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialCheckboxComponent)],
   directives: [MaterialIconComponent, MaterialRippleComponent, NgIf],
   templateUrl: 'material_checkbox.html',
   styleUrls: ['material_checkbox.scss.css'],
