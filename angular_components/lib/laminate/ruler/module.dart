@@ -13,7 +13,7 @@ import 'package:angular_components/utils/browser/window/module.dart';
 const rulerBindings = [
   DomRuler,
   domServiceBinding,
-  Provider(ManagedZone, useClass: Angular2ManagedZone),
+  ClassProvider(ManagedZone, useClass: Angular2ManagedZone),
   NgRuler,
   windowBindings
 ];

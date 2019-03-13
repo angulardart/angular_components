@@ -36,8 +36,8 @@ const scrollHostNewModule = Module(
 @Directive(
   selector: '[acxScrollHost]',
   providers: [
-    Provider(ScrollHost, useExisting: ElementScrollHost),
-    Provider(Clock, useValue: clockValue),
+    ExistingProvider(ScrollHost, ElementScrollHost),
+    ValueProvider(Clock, clockValue),
     GestureListenerFactory,
   ],
   exportAs: 'acxScrollHost',

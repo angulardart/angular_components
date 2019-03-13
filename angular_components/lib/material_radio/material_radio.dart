@@ -34,9 +34,7 @@ const Icon checkedIcon = Icon('radio_button_checked');
 @Component(
     selector: 'material-radio',
     directives: [MaterialIconComponent, MaterialRippleComponent, NgIf],
-    providers: [
-      Provider(HasDisabled, useExisting: MaterialRadioComponent),
-    ],
+    providers: [ExistingProvider(HasDisabled, MaterialRadioComponent)],
     templateUrl: 'material_radio.html',
     styleUrls: ['material_radio.scss.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)

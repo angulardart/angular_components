@@ -145,8 +145,8 @@ abstract class Modal {
 @Component(
   selector: 'modal',
   providers: [
-    Provider(DeferredContentAware, useExisting: ModalComponent),
-    Provider(Modal, useExisting: ModalComponent)
+    ExistingProvider(DeferredContentAware, ModalComponent),
+    ExistingProvider(Modal, ModalComponent),
   ],
   directives: [ModalControllerDirective],
   template: r'''

@@ -71,7 +71,7 @@ class ExpandFirstRootRenderingOptions extends MaterialTreeRenderingOptions {
 @Directive(
   selector: '[renderingOptions]',
   providers: [
-    Provider(MaterialTreeRenderingOptions,
+    ClassProvider(MaterialTreeRenderingOptions,
         useClass: ExpandFirstRootRenderingOptions),
   ],
 )
