@@ -25,9 +25,7 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 /// the result.
 @Component(
   selector: 'material-slider',
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialSliderComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialSliderComponent)],
   templateUrl: 'material_slider.html',
   styleUrls: ['material_slider.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

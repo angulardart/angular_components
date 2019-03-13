@@ -19,11 +19,14 @@ const materialTooltipModule = Module(provide: materialTooltipBindings);
 // using dart's factory pattern.
 
 /// Factory for [TooltipController].
-const tooltipControllerBinding =
-    Provider(TooltipController, useFactory: createTooltipController, deps: [
-  [TooltipController, Optional(), SkipSelf()],
-  [Disposer, Optional()]
-]);
+const tooltipControllerBinding = FactoryProvider(
+  TooltipController,
+  createTooltipController,
+  deps: [
+    [TooltipController, Optional(), SkipSelf()],
+    [Disposer, Optional()],
+  ],
+);
 
 // Shared [TooltipController] resource. Currently there is only one per
 // application.
