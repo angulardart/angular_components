@@ -272,13 +272,5 @@
   <material-input #manualSelectInput label="Enter some text" type="text"></material-input>
   <material-button raised (trigger)="selectAllManualInput()">Select all text</material-button>
   <br>
-  <!-- Click handler is needed for FF and Safari because click events fire after the focus
-       event, causing any selection to be lost. Focus listener is needed for non-mouse
-       ways of focusing the element and does not interfere with the click handler. -->
-  <material-input multiline
-                  #autoSelectInput
-                  ngModel="Auto-selecting input"
-                  (click)="selectAllAutoInput()"
-                  (focus)="selectAllAutoInput()">
-  </material-input>
+  <material-input autoSelect ngModel="Auto-selecting input"></material-input>
 </section>
