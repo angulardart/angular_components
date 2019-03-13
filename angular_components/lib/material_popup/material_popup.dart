@@ -58,10 +58,10 @@ export 'package:angular_components/laminate/popup/popup.dart'
 @Component(
   selector: 'material-popup',
   providers: [
-    Provider(DeferredContentAware, useExisting: MaterialPopupComponent),
-    Provider(DropdownHandle, useExisting: MaterialPopupComponent),
-    Provider(PopupHierarchy, useFactory: getHierarchy),
-    Provider(PopupRef, useFactory: getResolvedPopupRef),
+    ExistingProvider(DeferredContentAware, MaterialPopupComponent),
+    ExistingProvider(DropdownHandle, MaterialPopupComponent),
+    FactoryProvider(PopupHierarchy, getHierarchy),
+    FactoryProvider(PopupRef, getResolvedPopupRef),
   ],
   templateUrl: 'material_popup.html',
   styleUrls: ['material_popup.scss.css'],

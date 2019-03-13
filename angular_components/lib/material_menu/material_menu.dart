@@ -35,9 +35,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
       NgIf,
       PopupSourceDirective
     ],
-    providers: [
-      Provider(HasDisabled, useExisting: MaterialMenuComponent),
-    ],
+    providers: [ExistingProvider(HasDisabled, MaterialMenuComponent)],
     templateUrl: 'material_menu.html',
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialMenuComponent extends Object
