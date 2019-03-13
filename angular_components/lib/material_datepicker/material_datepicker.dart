@@ -61,9 +61,7 @@ import 'package:angular_components/utils/angular/css/css.dart';
     NgIf,
     PopupSourceDirective,
   ],
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialDatepickerComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialDatepickerComponent)],
   styleUrls: ['material_datepicker.scss.css'],
   templateUrl: 'material_datepicker.html',
 )

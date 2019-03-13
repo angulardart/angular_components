@@ -22,7 +22,7 @@ const datepickerClock =
 const datepickerBindings = [
   popupBindings,
   _legacyClockBinding,
-  Provider(datepickerClock, useExisting: Clock),
+  ExistingProvider.forToken(datepickerClock, Clock),
 ];
 
 /// Bindings needed by material datepicker components, for clients who need to
@@ -39,7 +39,7 @@ const datepickerBindings = [
 const timeZoneAwareDatepickerProviders = [
   _legacyClockBinding,
   timeZoneAwareClockProviders,
-  Provider(datepickerClock, useExisting: timeZoneAwareClock),
+  ExistingProvider.forToken(datepickerClock, timeZoneAwareClock),
 ];
 
 /// Binding for [Clock] without annotations. The datepicker no longer needs
