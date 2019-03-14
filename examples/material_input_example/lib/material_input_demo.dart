@@ -28,7 +28,7 @@ typedef String ValidityCheck(String inputText);
 /// This will prevent "abc" from being in the text controlled by 'form'.
 @Directive(
   selector: '[textValidator]',
-  providers: [Provider(NG_VALIDATORS, useExisting: TextValidator, multi: true)],
+  providers: [ExistingProvider.forToken(NG_VALIDATORS, TextValidator)],
 )
 class TextValidator {
   @Input('textValidator')

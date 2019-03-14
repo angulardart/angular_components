@@ -58,10 +58,10 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     KeyUpBoundaryDirective
   ],
   providers: [
-    Provider(DeferredContentAware, useExisting: MaterialExpansionPanel),
-    Provider(HasDisabled, useExisting: MaterialExpansionPanel),
-    Provider(FocusableItem, useExisting: MaterialExpansionPanel),
-    Provider(Focusable, useExisting: MaterialExpansionPanel),
+    ExistingProvider(DeferredContentAware, MaterialExpansionPanel),
+    ExistingProvider(HasDisabled, MaterialExpansionPanel),
+    ExistingProvider(FocusableItem, MaterialExpansionPanel),
+    ExistingProvider(Focusable, MaterialExpansionPanel),
   ],
   templateUrl: 'material_expansionpanel.html',
   styleUrls: ['material_expansionpanel.scss.css'],

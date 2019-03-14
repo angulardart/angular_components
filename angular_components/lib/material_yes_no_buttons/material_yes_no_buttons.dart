@@ -31,9 +31,7 @@ import 'package:angular_components/material_spinner/material_spinner.dart';
     NgClass,
     NgIf,
   ],
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialYesNoButtonsComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialYesNoButtonsComponent)],
   templateUrl: 'material_yes_no_buttons.html',
   styleUrls: ['material_yes_no_buttons.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
