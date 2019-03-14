@@ -5,6 +5,7 @@
 import 'dart:async';
 import 'dart:html';
 
+import 'package:meta/meta.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// The object that gets sent on scroll events.
@@ -83,6 +84,11 @@ abstract class ScrollHost implements Disposable {
   /// [IntersectionObserver](caniuse.com/intersectionobserver). Check
   /// [supportsIntersectionObserver] from feature_detector.dart before using.
   Stream<IntersectionObserverEntry> onIntersection(Element element);
+
+  /// Stop an event.
+  // When listening from the document body the event cannot be prevented.
+  @protected
+  void stopEvent(WheelEvent event);
 }
 
 /// The position  of the sticky row.
