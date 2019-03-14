@@ -5,14 +5,16 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/focus/focus_item.dart';
+import 'package:angular_components/focus/focus_list.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
+import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/template_support.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 
@@ -32,7 +34,14 @@ import 'material_select_item.dart';
     ExistingProvider(HasRenderer, MaterialSelectComponent),
     ExistingProvider(SelectionContainer, MaterialSelectComponent),
   ],
-  directives: [MaterialListComponent, MaterialSelectItemComponent, NgIf, NgFor],
+  directives: [
+    FocusItemDirective,
+    FocusListDirective,
+    MaterialListComponent,
+    MaterialSelectItemComponent,
+    NgIf,
+    NgFor
+  ],
   directiveTypes: [
     Typed<MaterialSelectItemComponent>.of([#T]),
   ],

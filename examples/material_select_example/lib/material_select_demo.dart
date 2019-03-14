@@ -3,6 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/focus/focus_item.dart';
+import 'package:angular_components/focus/focus_list.dart';
 import 'package:angular_components/material_select/display_name.dart';
 import 'package:angular_components/material_select/material_select.dart';
 import 'package:angular_components/material_select/material_select_item.dart';
@@ -14,6 +16,8 @@ import 'package:angular_components/model/ui/display_name.dart';
   selector: 'material-select-demo',
   directives: [
     displayNameRendererDirective,
+    FocusItemDirective,
+    FocusListDirective,
     MaterialSelectComponent,
     MaterialSelectItemComponent,
     NgFor,
@@ -39,6 +43,12 @@ class MaterialSelectDemoComponent {
 
   final SelectionOptions<Language> languageOptions =
       SelectionOptions.fromList(languagesList);
+
+  final languageOptionsGrouped = SelectionOptions([
+    OptionGroup<Language>.withLabel(languagesList, 'North America'),
+    OptionGroup<Language>.withLabel(
+        [Language('ja', 'Japanese'), Language('ko', 'Korean')], 'Asia')
+  ]);
 }
 
 class Language implements HasUIDisplayName {
