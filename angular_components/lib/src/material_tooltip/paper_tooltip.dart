@@ -49,8 +49,8 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
   selector: 'material-tooltip-card',
   providers: [
     tooltipControllerBinding,
-    Provider(Tooltip, useFactory: getTooltipHandle),
-    Provider(DeferredContentAware, useExisting: MaterialPaperTooltipComponent)
+    FactoryProvider(Tooltip, getTooltipHandle),
+    ExistingProvider(DeferredContentAware, MaterialPaperTooltipComponent),
   ],
   directives: [
     AutoFocusDirective,

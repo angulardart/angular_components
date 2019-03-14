@@ -36,7 +36,7 @@ import 'tooltip_target.dart';
   selector: 'material-icon-tooltip',
   providers: [
     AcxDarkTheme,
-    Provider(DeferredContentAware, useExisting: MaterialIconTooltipComponent)
+    ExistingProvider(DeferredContentAware, MaterialIconTooltipComponent),
   ],
   template: r'''
     <material-icon

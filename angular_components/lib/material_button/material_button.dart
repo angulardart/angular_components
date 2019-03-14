@@ -78,8 +78,8 @@ import 'material_button_base.dart';
   templateUrl: 'material_button.html',
   providers: [
     AcxDarkTheme,
-    Provider(ButtonDirective, useExisting: MaterialButtonComponent),
-    Provider(HasDisabled, useExisting: MaterialButtonComponent),
+    ExistingProvider(ButtonDirective, MaterialButtonComponent),
+    ExistingProvider(HasDisabled, MaterialButtonComponent),
   ],
   styleUrls: ['material_button.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
