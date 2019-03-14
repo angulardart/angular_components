@@ -96,7 +96,7 @@ PopupSizeProvider createPopupSizeProvider() {
 
 @Directive(
   selector: '[defaultPopupSizeProvider]',
-  providers: [Provider(PopupSizeProvider, useFactory: createPopupSizeProvider)],
+  providers: [FactoryProvider(PopupSizeProvider, createPopupSizeProvider)],
 )
 class DefaultPopupSizeProvider {}
 
@@ -104,7 +104,7 @@ class DefaultPopupSizeProvider {}
   selector: '[dontUseRepositionLoop]',
   providers: [
     popupBindings,
-    Provider(overlayRepositionLoop, useValue: false),
+    ValueProvider.forToken(overlayRepositionLoop, false),
   ],
 )
 class DontUseRepositionLoopProvider {}

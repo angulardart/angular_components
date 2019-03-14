@@ -16,7 +16,7 @@ import 'package:angular_components/src/laminate/popup/popup_size_provider.dart';
 @Directive(
   selector: '[popupMinHeight],[popupMinWidth],[popupMaxHeight],[popupMaxWidth]',
   providers: [
-    Provider(PopupSizeProvider, useClass: PopupSizeProviderDirective),
+    ClassProvider(PopupSizeProvider, useClass: PopupSizeProviderDirective),
   ],
 )
 class PopupSizeProviderDirective implements PopupSizeProvider {
