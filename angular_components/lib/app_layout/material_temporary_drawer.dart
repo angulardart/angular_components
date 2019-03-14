@@ -14,8 +14,7 @@ import 'material_drawer_base.dart';
   selector: 'material-drawer[temporary]',
   exportAs: 'drawer',
   providers: [
-    Provider(DeferredContentAware,
-        useExisting: MaterialTemporaryDrawerComponent),
+    ExistingProvider(DeferredContentAware, MaterialTemporaryDrawerComponent),
   ],
   templateUrl: 'material_temporary_drawer.html',
   styleUrls: ['material_temporary_drawer.scss.css'],
