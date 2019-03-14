@@ -99,21 +99,21 @@ class MaterialCheckboxComponent
   /// Fired when checkbox is checked or unchecked, but not when set
   /// indeterminate. Sends the state of [checked].
   @Output('checkedChange')
-  Stream get onChecked => _onChecked.stream;
-  final _onChecked = StreamController.broadcast();
+  Stream<bool> get onChecked => _onChecked.stream;
+  final _onChecked = StreamController<bool>.broadcast();
 
   /// Fired when checkbox goes in and out of indeterminate state, but not when
   /// set to checked.
   ///
   /// Sends the state of [indeterminate].
   @Output('indeterminateChange')
-  Stream get onIndeterminate => _onIndeterminate.stream;
-  final _onIndeterminate = StreamController.broadcast();
+  Stream<bool> get onIndeterminate => _onIndeterminate.stream;
+  final _onIndeterminate = StreamController<bool>.broadcast();
 
   /// Fired when checkbox state changes, sends [checkedStr], i.e. ARIA state.
   @Output('change')
-  Stream get onChange => _onChange.stream;
-  final _onChange = StreamController.broadcast();
+  Stream<String> get onChange => _onChange.stream;
+  final _onChange = StreamController<String>.broadcast();
 
   /// Determines the state to go into when [indeterminate] state is toggled.
   ///
