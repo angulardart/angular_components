@@ -209,6 +209,9 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
   void ngOnDestroy() {
     dispose();
   }
+
+  @override
+  void stopEvent(WheelEvent event) => _scrollHost.stopEvent(event);
 }
 
 /// Provides a scroll host that uses the browser window content area.

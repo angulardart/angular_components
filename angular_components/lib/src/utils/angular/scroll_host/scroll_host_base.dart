@@ -218,8 +218,7 @@ abstract class ScrollHostBase implements ScrollHost {
         if (deltaY == 0 || !_isDirectionScrollable(d)) return;
         if (innerScrollableDirections(anchorElement, event.target)[d]) return;
 
-        event.preventDefault();
-        event.stopPropagation();
+        stopEvent(event);
         // Firefox sends wheel events with [event.deltaMode] set to 1, meaning
         // [event.deltaY] uses 'lines' rather than pixels as a unit. There is no
         // correct way to covert lines to pixels, but 16 pixels/line is works
@@ -338,6 +337,11 @@ class WindowScrollHostBase extends ScrollHostBase {
 
   @override
   Element get anchorElement => _window.document.documentElement;
+
+  @override
+  void stopEvent(WheelEvent event) {
+    event.stopPropagation();
+  }
 }
 
 class ElementScrollHostBase extends ScrollHostBase {
@@ -400,6 +404,12 @@ class ElementScrollHostBase extends ScrollHostBase {
       default:
         return false;
     }
+  }
+
+  @override
+  void stopEvent(WheelEvent event) {
+    event.preventDefault();
+    event.stopPropagation();
   }
 }
 
