@@ -88,6 +88,15 @@
   }
 }
 
+/// Sets the background color of the "selected" item.
+@mixin material-select-selected-item-background-color($color) {
+  ::ng-deep {
+    material-select-item:not(.multiselect).selected {
+      background: $color;
+    }
+  }
+}
+
 /// Sets the color of the "disabled" item.
 @mixin material-select-disabled-color($color) {
   ::ng-deep material-select-dropdown-item.item.disabled {
