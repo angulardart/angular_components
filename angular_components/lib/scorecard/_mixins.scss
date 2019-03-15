@@ -37,18 +37,18 @@ $acx-neutral-increase-color: $mat-light-transparent-black;
 }
 
 // A mixin for applying styles to the title of a scorecard.
-@mixin acx-scorecard-title($selector: '') {
+@mixin acx-scorecard-title($selector: '', $modifier: '') {
   ::ng-deep #{$selector} {
-    acx-scorecard h3 {
+    acx-scorecard#{$modifier} h3 {
       @content;
     }
   }
 }
 
 // A mixin for applying styles to the value of a scorecard.
-@mixin acx-scorecard-value($selector: '') {
+@mixin acx-scorecard-value($selector: '', $modifier: '') {
   ::ng-deep #{$selector} {
-    acx-scorecard h2 {
+    acx-scorecard#{$modifier} h2 {
       @content;
     }
   }
