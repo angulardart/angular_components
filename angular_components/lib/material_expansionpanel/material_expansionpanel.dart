@@ -17,6 +17,7 @@ import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_yes_no_buttons/material_yes_no_buttons.dart';
 import 'package:angular_components/model/action/async_action.dart';
+import 'package:angular_components/utils/angular/id/id.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
@@ -47,6 +48,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 @Component(
   selector: 'material-expansionpanel',
   directives: [
+    AutoIdDirective,
     ButtonDirective,
     DeferredContentDirective,
     MaterialIconComponent,
