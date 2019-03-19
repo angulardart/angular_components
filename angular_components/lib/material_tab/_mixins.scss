@@ -114,15 +114,15 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
 }
 
 // Sets the tab strip bottom style: border and drop shadow to bottom of the whole tab strip.
-@mixin tab-strip-show-bottom-shadow() {
+@mixin tab-strip-show-bottom-shadow($dp: 2) {
   ::ng-deep #{$_fixedStripNaviBar} {
     border-bottom: 1px solid $mat-border-light;
-    @include shadow-elevation();
+    @include shadow-elevation($dp);
   }
 
   ::ng-deep #{$_scrollingStripNaviBar} {
     border-bottom: 1px solid $mat-border-light;
-    @include shadow-elevation();
+    @include shadow-elevation($dp);
   }
 }
 
