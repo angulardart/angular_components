@@ -12,6 +12,7 @@ import 'package:angular_components/src/laminate/overlay/render/overlay_dom_rende
 import 'package:angular_components/src/laminate/overlay/render/overlay_style_config.dart';
 import 'package:angular_components/laminate/overlay/zindexer.dart';
 import 'package:angular_components/laminate/ruler/dom_ruler.dart';
+import 'package:angular_components/model/math/box.dart';
 import 'package:angular_components/utils/angular/imperative_view/imperative_view.dart';
 import 'package:angular_components/utils/angular/managed_zone/angular_2.dart';
 import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
@@ -23,7 +24,8 @@ export 'package:angular_components/src/laminate/overlay/render/overlay_dom_rende
         overlayContainerParent,
         overlayContainerToken,
         overlayRepositionLoop,
-        overlaySyncDom;
+        overlaySyncDom,
+        overlayViewportBoundaries;
 
 /// Creates an overlay container inside the [parent] if one does not exist
 /// already.
@@ -94,6 +96,7 @@ const _overlayProviders = <Provider>[
   // Applications may experimentally make this true to increase performance.
   ValueProvider.forToken(overlaySyncDom, true),
   ValueProvider.forToken(overlayRepositionLoop, true),
+  ValueProvider.forToken(overlayViewportBoundaries, Box()),
   ClassProvider(OverlayDomRenderService),
   ClassProvider(OverlayStyleConfig),
   ClassProvider(OverlayService),
