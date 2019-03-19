@@ -19,6 +19,7 @@ import 'package:angular_components/laminate/overlay/zindexer.dart';
 import 'package:angular_components/laminate/popup/module.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/model/math/box.dart';
 import 'package:angular_components/model/ui/toggle.dart';
 import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
@@ -135,6 +136,10 @@ class MaterialPopupComponent extends Object
   // will be in the viewport vector space).
   static MutableRectangle _viewportRect;
 
+  // The top/bottom/left/right boundaries for the popup within the viewport
+  // rect.
+  final Box _viewportBoundaries;
+
   // The window.resize event is throttled because it can occur at a high
   // frequency (> 20 times per second).
   static const _resizeThrottleDuration = Duration(milliseconds: 100);
@@ -250,6 +255,7 @@ class MaterialPopupComponent extends Object
       this._zIndexer,
       @Inject(defaultPopupPositions) this._defaultPreferredPositions,
       @Inject(overlayRepositionLoop) this._useRepositionLoop,
+      @Inject(overlayViewportBoundaries) this._viewportBoundaries,
       @Optional() this._popupSizeProvider,
       this._changeDetector,
       this._viewContainer,
@@ -675,7 +681,10 @@ class MaterialPopupComponent extends Object
       var popupRect = _overlayRef.overlayElement.getBoundingClientRect();
       popupRect =
           _shiftRectangle(popupRect, left: scrollShiftX, top: scrollShiftY);
-      var viewportShift = _shiftRectangleToFitWithin(popupRect, _viewportRect);
+      var boundedViewportRect =
+          _boundRectangle(_viewportRect, _viewportBoundaries);
+      var viewportShift =
+          _shiftRectangleToFitWithin(popupRect, boundedViewportRect);
       _repositionOffsetX += viewportShift.left;
       _repositionOffsetY += viewportShift.top;
     }
@@ -686,14 +695,16 @@ class MaterialPopupComponent extends Object
 
   void _updatePopupMinMaxSize() {
     if (_popupSizeProvider == null) return;
+    var boundedViewportRect =
+        _boundRectangle(_viewportRect, _viewportBoundaries);
     minHeight = _popupSizeProvider.getMinHeight(
-        _overlayRef.state.top ?? 0, _viewportRect.height);
+        _overlayRef.state.top ?? 0, boundedViewportRect.height);
     minWidth = _popupSizeProvider.getMinWidth(
-        _overlayRef.state.left ?? 0, _viewportRect.width);
+        _overlayRef.state.left ?? 0, boundedViewportRect.width);
     maxHeight = _popupSizeProvider.getMaxHeight(
-        _overlayRef.state.top ?? 0, _viewportRect.height);
+        _overlayRef.state.top ?? 0, boundedViewportRect.height);
     maxWidth = _popupSizeProvider.getMaxWidth(
-        _overlayRef.state.left ?? 0, _viewportRect.width);
+        _overlayRef.state.left ?? 0, boundedViewportRect.width);
   }
 
   Iterable get _preferredPositions {
@@ -899,6 +910,12 @@ Rectangle _resizeRectangle(Rectangle rect, {num width, num height}) =>
 
 Rectangle _shiftRectangle(Rectangle rect, {num top = 0, num left = 0}) =>
     Rectangle(rect.left + left, rect.top + top, rect.width, rect.height);
+
+Rectangle _boundRectangle(Rectangle rect, Box boundaries) => Rectangle(
+    rect.left + boundaries.left,
+    rect.top + boundaries.top,
+    rect.width - boundaries.left - boundaries.right,
+    rect.height - boundaries.top - boundaries.bottom);
 
 /// Returns a transformation which, when applied to [rect], will cause [rect] to
 /// be entirely within [container].
