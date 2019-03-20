@@ -4,9 +4,6 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <div class="panel themeable"
-     role="group"
-     [attr.aria-label]="groupAriaLabel"
-     [attr.aria-expanded]="isExpanded"
      [class.open]="isExpanded"
      [class.background]="anotherExpanded"
      keyupBoundary>
@@ -24,16 +21,14 @@
           [class.disable-header-expansion]="disableHeaderExpansion"
           [attr.aria-label]="headerMsg"
           [attr.aria-describedby]="panelDescription.id"
+          [attr.aria-controls]="mainId.id"
           (trigger)="handleHeaderClick">
     <material-icon
-        buttonDecorator
         *ngIf="shouldShowExpandIcon && shouldExpandOnLeft"
         class="expand-button expand-on-left"
-        [disabled]="headerHidden"
         [icon]="expandIcon"
-        [tabbable]="false"
         [class.expand-more]="shouldFlipExpandIcon"
-        (trigger)="handleExpandIconClick">
+        (click)="handleExpandIconClick">
     </material-icon>
     <div class="panel-name">
       <ng-content select="[name]"></ng-content>
@@ -45,15 +40,11 @@
       <ng-content select="[value]"></ng-content>
     </div>
 
-    <material-icon buttonDecorator
-                   *ngIf="shouldShowExpandIcon && !shouldExpandOnLeft"
+    <material-icon *ngIf="shouldShowExpandIcon && !shouldExpandOnLeft"
                    class="expand-button"
                    [icon]="expandIcon"
-                   [tabbable]="false"
-                   [disabled]="headerHidden"
                    [class.expand-more]="shouldFlipExpandIcon"
-                   (trigger)="handleExpandIconClick"
-                   [attr.aria-label]="expandAriaMsg">
+                   (click)="handleExpandIconClick">
     </material-icon>
   </div>
   <div class="action" *ngIf="!shouldShowExpandIcon && !headerHidden" #action>
@@ -62,7 +53,7 @@
 </header>
 
 <!-- Expanded section -->
-<main [class.hidden]="!isExpanded" #mainPanel role="presentation">
+<main [class.hidden]="!isExpanded" #mainPanel role="presentation" autoId #mainId="autoId">
   <div #mainContent *deferredContent="true;forceContent: forceContentWhenClosed">
     <div #contentWrapper class="content-wrapper" [class.hidden-header]="hideExpandedHeader">
       <material-icon
@@ -74,6 +65,7 @@
           keyboardOnlyFocusIndicator
           (trigger)="collapse()"
           [attr.aria-expanded]="isExpanded"
+          [attr.aria-controls]="mainId.id"
           [attr.aria-label]="closePanelMsg">
       </material-icon>
       <div class="content">
