@@ -316,11 +316,11 @@ class MaterialExpansionPanel
 
   String get closePanelMsg => groupAriaLabel == null && name == null
       ? _closePanelMsg
-      : _closeNamedPanelMsg(groupAriaLabel);
+      : _namedPanelMsg(groupAriaLabel);
 
   String get openPanelMsg => groupAriaLabel == null && name == null
       ? _openPanelMsg
-      : _openNamedPanelMsg(groupAriaLabel);
+      : _namedPanelMsg(groupAriaLabel);
 
   String get headerMsg {
     if (disabled) {
@@ -330,27 +330,19 @@ class MaterialExpansionPanel
     }
   }
 
-  static final _closePanelMsg = Intl.message('Close panel',
+  static final _closePanelMsg = Intl.message('Hide panel',
       name: '_closePanelMsg',
-      desc: 'ARIA label for a button that closes the panel.');
+      desc: 'ARIA label for a button that hides the panel.');
 
-  static final _openPanelMsg = Intl.message('Open panel',
+  static final _openPanelMsg = Intl.message('Show panel',
       name: '_openPanelMsg',
-      desc: 'ARIA label for a button that opens the panel.');
+      desc: 'ARIA label for a button that shows the panel.');
 
-  String _closeNamedPanelMsg(String panelName) =>
-      Intl.message('Close $panelName panel',
-          name: '_closeNamedPanelMsg',
-          args: [panelName],
-          desc: 'ARIA label for a button that closes the panel.',
-          examples: const {'panelName': 'Conversions'});
-
-  String _openNamedPanelMsg(String panelName) =>
-      Intl.message('Open $panelName panel',
-          name: '_openNamedPanelMsg',
-          args: [panelName],
-          desc: 'ARIA label for a button that opens the panel.',
-          examples: const {'panelName': 'Conversions'});
+  String _namedPanelMsg(String panelName) => Intl.message('$panelName panel',
+      name: '_namedPanelMsg',
+      args: [panelName],
+      desc: 'ARIA label for a button that shows or hides the panel.',
+      examples: const {'panelName': 'Conversions'});
 
   static final expandAriaMsg = Intl.message('Expand',
       desc: 'Aria label used for the button used to expand the panel.');
