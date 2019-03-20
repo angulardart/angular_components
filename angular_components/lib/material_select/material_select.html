@@ -3,7 +3,7 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<material-list focusList role="none" [width]="width">
+<material-list focusList [autoFocusIndex]="autoFocusIndex" role="none" [width]="width">
   <ng-content></ng-content>
   <div class="options-wrapper"
        *ngIf="options != null"

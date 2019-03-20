@@ -41,6 +41,12 @@ class FocusListDirective implements OnDestroy {
   @Input()
   bool loop = false;
 
+  /// Index of the element to focus on when the list appears.
+  ///
+  /// If null, focus will not be changed automatically.
+  @Input()
+  int autoFocusIndex;
+
   @ContentChildren(FocusableItem)
   set listItems(List<FocusableItem> listItems) {
     _children.clear();
@@ -56,7 +62,11 @@ class FocusListDirective implements OnDestroy {
         c.tabbable = false;
       });
       if (_children.isNotEmpty) {
-        _children.first.tabbable = true;
+        if (autoFocusIndex != null) {
+          focus(autoFocusIndex); // This will also make the item tabbable.
+        } else {
+          _children.first.tabbable = true;
+        }
       }
     });
   }

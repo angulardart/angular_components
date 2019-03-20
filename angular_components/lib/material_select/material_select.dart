@@ -49,7 +49,7 @@ import 'material_select_item.dart';
   styleUrls: ['material_select.scss.css'],
 )
 class MaterialSelectComponent<T> extends MaterialSelectBase<T>
-    implements HasDisabled {
+    implements HasDisabled, OnInit {
   @HostBinding('attr.role')
   static const hostRole = 'listbox';
 
@@ -60,6 +60,8 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
   final Function trackByIndexFn = indexIdentityFn;
 
   bool _disabled = false;
+  bool _listAutoFocus = false;
+  int _autoFocusIndex;
 
   @HostBinding('attr.aria-multiselectable')
   @override
@@ -149,6 +151,18 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
     _refreshItems();
   }
 
+  /// Whether to auto-focus the list as soon as it appears.
+  ///
+  /// Must be enabled before the component is initialized. If an item is
+  /// initially selected, that item will be focused, otherwise the first item is
+  /// focused. Only supported when selectable options are provided in [options].
+  @Input()
+  set listAutoFocus(bool value) {
+    _listAutoFocus = value;
+  }
+
+  int get autoFocusIndex => _autoFocusIndex;
+
   @ContentChildren(SelectionItem)
   set selectItems(List<SelectionItem<T>> value) {
     if (value != null) {
@@ -159,6 +173,14 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
         _refreshItems();
       });
     }
+  }
+
+  @override
+  void ngOnInit() {
+    if (!_listAutoFocus || options == null) return;
+    _autoFocusIndex = selection.isNotEmpty
+        ? options.optionsList.indexOf(selection.selectedValues.first)
+        : 0;
   }
 
   void _refreshItems() {
