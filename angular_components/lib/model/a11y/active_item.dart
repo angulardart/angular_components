@@ -27,15 +27,29 @@ class ActiveItemModel<T> {
   /// [loop] decides whether the active items loops from the end of the list to
   /// the beginning of the list, and vise versa. Default is false.
   /// Common a11y practice for select components, loop is set to false.
-  /// Example: http://oaa-accessibility.org/example/12/
+  /// Reference: https://www.w3.org/TR/wai-aria-practices/#Listbox
   /// Common a11y practice for menu components, loop is set to true.
-  /// Example: http://oaa-accessibility.org/examplep/menubar1/
+  /// Reference: https://www.w3.org/TR/wai-aria-practices/#menu
+  ///
+  /// [activateOnListChange] decides whether the first list item should
+  /// activate whenever list items change. Default is true.
+  /// If an item is active when the list changes and that item is in the new
+  /// list, the item will remain active regardless of what this flag is set to.
+  /// Auto-activating the first result may slightly speed up keyboard nav for
+  /// users. It can also be detremental to a11y in others. For example, to
+  /// avoid screen reader issues, multi-select comboboxes toggle list item
+  /// selection via <Space> not <Enter>. To allow a space in their search query,
+  /// no items can be active or else their selection will be toggled. Setting
+  /// this value to false will prevent items from auto-activating when the
+  /// search query changes.
   ActiveItemModel(IdGenerator idGenerator,
-      {bool loop = false, List<T> items = const []})
+      {bool loop = false,
+      this.activateFirstItemByDefault = true,
+      List<T> items = const []})
       : _idGenerator = idGenerator ?? SequentialIdGenerator.fromUUID() {
     _loop = loop;
     _items = items;
-    if (_items.isNotEmpty) _activeIndex = 0;
+    if (_items.isNotEmpty) _activeIndex = activateFirstItemByDefault ? 0 : -1;
   }
 
   /// Stream of model change events
@@ -67,7 +81,7 @@ class ActiveItemModel<T> {
         return;
       }
     }
-    _activeIndex = 0;
+    _activeIndex = activateFirstItemByDefault ? 0 : -1;
     _modelChanged.add(null);
   }
 
@@ -139,6 +153,19 @@ class ActiveItemModel<T> {
     }
     return _ids[item];
   }
+
+  /// Whether the first list item should activate whenever the changes.
+  ///
+  /// Default is true. This value is disregarded if a previously active item
+  /// remains in the new list.
+  ///
+  /// Auto-activating the first result may slightly speed up keyboard nav for
+  /// users. It can also be detremental to a11y in others. For example, to
+  /// avoid screen reader issues, multi-select comboboxes toggle list item
+  /// selection via <Space> not <Enter>. If as the results list changes the
+  /// first item is auto-activated, that would block the user from including a
+  /// space in their search query.
+  bool activateFirstItemByDefault = true;
 
   final Map<T, String> _ids = HashMap<T, String>();
   final IdGenerator _idGenerator;

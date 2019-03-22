@@ -190,15 +190,55 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
 
   bool _isDisposed = false;
 
-  /// The first suggestion in the popup is active and highlighted by default.
-  /// Setting this to true changes behavior so that when [options] or
-  /// [selection] are changed:
-  /// 1) first selected value in [selection] is active in [options]
-  /// 2) if [selection] has no selected values, nothing is active in [options]
+  /// Whether suggestions should be smartly activated / highlighted.
   ///
-  /// Defaults to false.
+  /// Defaults to true.
+  ///
+  /// When true:
+  /// * If [selection] has selected values, the first selected value in
+  ///   [options] is activated / highlighted when the suggestions list opens.
+  ///   Justification - "If one or more options are selected before the listbox
+  ///                   receives focus, focus is set on the first option in the
+  ///                   list that is selected".
+  ///                   https://www.w3.org/TR/wai-aria-practices/#Listbox
+  ///
+  /// * If [selection] is empty, the first value in [options] is activated /
+  ///   highlighted when the suggestions list opens.
+  ///   Justification - "If none of the options are selected before the listbox
+  ///                   receives focus, focus is set on the first option...".
+  ///                   https://www.w3.org/TR/wai-aria-practices/#Listbox
+  ///
+  /// * If [selection] is a [MultiSelectionModel], deactivate any active
+  ///   suggestions when the search text changes. This does not apply for any
+  ///   text changes caused by [shouldClearInputOnSelection] or when the
+  ///   suggestions list opens.
+  ///   Justification - The W3 listbox spec (see above for link) says that
+  ///                   <Space> "changes the selection state of the focused
+  ///                   option" for multi-select listboxes.
+  ///                   This means that a user cannot type a space into the
+  ///                   textbox with an option focused, the space would be
+  ///                   captured and used to toggle selection instead of typing
+  ///                   a space. Clearing "focus" (deactivating) on any option
+  ///                   makes it easy for the user to type a space into the
+  ///                   textbox.
+  ///
+  /// When false:
+  /// * if [selection] [isSingleSelect], don't auto activate / highlight any
+  ///   options.
+  ///
+  /// * if [selection] [isMultiSelect], activate / highlight the first value
+  ///   when the suggestions list opens. Also, do not clear the active item when
+  ///   the search text changes.
   @Input()
-  bool initialActivateSelection = false;
+  set accessibleItemActivation(bool value) {
+    if (value == null) return;
+    _accessibleItemActivation = value;
+    activeModel.activateFirstItemByDefault =
+        (isSingleSelect && value) || (isMultiSelect && !value);
+  }
+
+  bool get accessibleItemActivation => _accessibleItemActivation;
+  bool _accessibleItemActivation = true;
 
   int _limit = 10;
 
@@ -333,6 +373,9 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
   @override
   set selection(SelectionModel<T> selection) {
     super.selection = selection;
+    activeModel.activateFirstItemByDefault =
+        (isSingleSelect && accessibleItemActivation) ||
+            (isMultiSelect && !accessibleItemActivation);
 
     if (isSingleSelect && selection.selectedValues.isNotEmpty) {
       _lastSelectedItem = selection.selectedValues.first;
@@ -381,7 +424,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     _optionsListener?.cancel();
     _optionsListener = options.stream.listen((_) {
       activeModel.items = options.optionsList;
-      _setInitialActiveItem();
+      _updateItemActivation();
     });
   }
 
@@ -461,7 +504,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     if (value != _showPopup) {
       _showPopup = value;
       _showPopupController.add(_showPopup);
-      _setInitialActiveItem();
+      _updateItemActivation(popupOpening: true);
     }
 
     if (!_showPopup && !_isFocused) {
@@ -525,6 +568,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     }
     _inputText = inputText;
     _inputChange.add(inputText);
+    _updateItemActivation(textChanging: true);
     _filterSuggestions();
     return true;
   }
@@ -582,16 +626,36 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     });
   }
 
-  void _setInitialActiveItem() {
-    if (!showPopup || !initialActivateSelection) return;
+  void _updateItemActivation(
+      {bool textChanging = false, bool popupOpening = false}) {
+    if (!showPopup) return;
 
-    if (selection == null || selection.selectedValues.isEmpty) {
+    if (selection == null) {
       activeModel.activate(null);
-    } else if (activeModel.activeItem == null ||
-        !selection.isSelected(activeModel.activeItem)) {
-      // If the current active item is not selected, activate the first
-      // selected item.
-      activeModel.activate(selection.selectedValues.first);
+    } else if (accessibleItemActivation) {
+      if (popupOpening) {
+        // The first value in selection.selectedValues is not necessarily the
+        // first option in the suggestions list.
+        var firstSelection = selection.selectedValues.isEmpty
+            ? null
+            : options.optionsList.firstWhere((opt) => selection.isSelected(opt),
+                orElse: () => null);
+        if (firstSelection == null) {
+          activeModel.activateFirst();
+        } else {
+          activeModel.activate(firstSelection);
+        }
+      } else if (shouldClearInputOnSelection && inputText.isEmpty) {
+        activeModel.activateFirst();
+      } else if (textChanging && isMultiSelect) {
+        activeModel.activate(null);
+      }
+    } else if (popupOpening) {
+      if (isSingleSelect) {
+        activeModel.activate(null);
+      } else {
+        activeModel.activateFirst();
+      }
     }
   }
 
@@ -604,10 +668,39 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
       if (item != null) {
         if (!isOptionDisabled(item)) {
           onListItemSelected(item);
+
+          if (isMultiSelect) {
+            showPopup = false;
+          }
         }
       } else if (closeOnEnter) {
         showPopup = false;
       }
+    }
+  }
+
+  /// Toggle an active list item in multi-select comboboxes.
+  ///
+  /// Type a space into the search box in all other cases including a
+  /// multi-select input with no active item.
+  @override
+  void handleSpaceKey(html.KeyboardEvent event) {
+    if (!showPopup || !isMultiSelect) return;
+
+    final item = activeModel.activeItem;
+    if (item == null || isOptionDisabled(item)) return;
+
+    onListItemSelected(item);
+    event.preventDefault();
+  }
+
+  /// Return focus to the textbox and delete a character.
+  ///
+  /// WAI-ARIA Guidelines: https://www.w3.org/TR/wai-aria-practices/#combobox
+  @override
+  void handleBackspaceKey(html.KeyboardEvent event) {
+    if (activeModel.activeItem != null) {
+      activeModel.activate(null);
     }
   }
 
