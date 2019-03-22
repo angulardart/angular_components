@@ -27,7 +27,7 @@ String constructEncapsulatedCss(String className, CssClassSet classes) {
   var result = className ?? '';
   for (final i in classes) {
     // Add encapsulation classes from host
-    if (i.startsWith('_')) result += ' $i';
+    if (i.startsWith('_ngcontent')) result += ' $i';
   }
   return result;
 }
