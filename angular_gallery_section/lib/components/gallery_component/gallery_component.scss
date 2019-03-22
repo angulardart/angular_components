@@ -131,26 +131,3 @@ h2 {
 :not(.demo) ::ng-deep li:not(:last-of-type) {
   margin-bottom: $mat-grid * 2;
 }
-
-::ng-deep table {
-  border-collapse: collapse;
-  margin: $mat-grid * 3 0;
-  text-align: left;
-
-  strong {
-    color: $mat-transparent-black;
-  }
-
-  td,
-  th {
-    border: $border;
-    padding: $mat-grid;
-    vertical-align: top;
-  }
-
-  th {
-    background: $mat-blue-50;
-    color: $mat-blue;
-    font-weight: $mat-font-weight-medium;
-  }
-}

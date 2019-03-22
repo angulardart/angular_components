@@ -27,4 +27,27 @@
     font-weight: $mat-font-weight-bold;
     font-size: $mat-font-size-subhead;
   }
+
+  ::ng-deep table {
+    border-collapse: collapse;
+    margin: $mat-grid * 3 0;
+    text-align: left;
+
+    strong {
+      color: $mat-transparent-black;
+    }
+
+    td,
+    th {
+      border: 1px $mat-border-light solid;
+      padding: $mat-grid;
+      vertical-align: top;
+    }
+
+    th {
+      background: $mat-blue-50;
+      color: $mat-blue;
+      font-weight: $mat-font-weight-medium;
+    }
+  }
 }
