@@ -7,7 +7,6 @@
 @import 'package:angular_components/material_select/mixins';
 
 $apply-height: $mat-grid * 6;
-$datepicker-main-content-height: $mat-grid * 9;
 
 $main-font-size: 13px;
 
@@ -62,7 +61,6 @@ $main-font-size: 13px;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  height: $datepicker-main-content-height;
 
   :host(.disabled) & {
     cursor: not-allowed;
