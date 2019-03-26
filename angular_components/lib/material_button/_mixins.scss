@@ -273,6 +273,28 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
+@mixin icon-button-hover-color($selector, $color) {
+  @media (hover: hover) {
+    ::ng-deep #{$selector}[icon]:not([disabled]):hover {
+      > .content > material-icon,
+      // TODO(google): Remove once glyph has been replaced with material-icon.
+      > .content > glyph {
+        color: $color;
+      }
+    }
+  }
+}
+
+@mixin icon-button-focus-color($selector, $color) {
+  ::ng-deep #{$selector}[icon]:not([disabled]):focus {
+    > .content > material-icon,
+    // TODO(google): Remove once glyph has been replaced with material-icon.
+    > .content > glyph {
+      color: $color;
+    }
+  }
+}
+
 @mixin icon-button-color($selector, $color) {
   ::ng-deep #{$selector}[icon]:not([disabled]) {
     // Set the color here to be found by the ripple
