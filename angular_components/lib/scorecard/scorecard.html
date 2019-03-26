@@ -4,8 +4,8 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <material-ripple *ngIf="selectable"></material-ripple>
-<h3>{{label}}<ng-content select="name"></ng-content></h3>
-<h2 [title]="tooltip">{{value}}<ng-content select="value"></ng-content></h2>
+<div class="label-name">{{label}}<ng-content select="name"></ng-content></div>
+<div class="label-value" [title]="tooltip">{{value}}<ng-content select="value"></ng-content></div>
 <span *ngIf="suggestionBefore != null" class="suggestion before">{{suggestionBefore}}</span>
 <span *ngIf="description != null" class="description">
   <material-icon *ngIf="changeGlyph && description != '' && !isChangeNeutral"
