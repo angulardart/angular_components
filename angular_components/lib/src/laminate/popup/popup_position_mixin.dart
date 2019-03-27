@@ -56,6 +56,8 @@ class PopupPositionMixin implements PopupSizeProvider {
 
   List<RelativePosition> get popupPositions => _popupPositions;
 
+  /// Position relative to popup source.
+  /// Optional, defaults to PopupPosition.AUTO.
   @Input()
   set popupPosition(String position) {
     _popupPosition = position;
