@@ -3,9 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @import 'package:angular_components/css/material/material';
+@import 'package:angular_components/button_decorator/mixins';
 
 :host {
   display: inline-flex;
+  @include disabled-cursor(not-allowed);
 }
 
 .clear-icon {
