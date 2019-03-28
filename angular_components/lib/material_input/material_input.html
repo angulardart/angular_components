@@ -102,6 +102,7 @@
      *ngIf="displayBottomPanel"
      [ngSwitch]="bottomPanelState">
   <div class="error-text"
+       role="alert"
        [attr.id]="errorTextId"
        attr.aria-hidden="{{!invalid}}"
        [class.focused]="focused"
