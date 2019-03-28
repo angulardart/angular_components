@@ -67,14 +67,7 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
   EventListener listener;
 
   if (enableNewTriggerLogic == null) {
-    assert(() {
-      // For tests and development set the flag to true if not set.
-      enableNewTriggerLogic ??= true;
-      return true;
-    }());
-    // If flag is still not set set the flag to false. This is the default for
-    // production.
-    enableNewTriggerLogic ??= false;
+    enableNewTriggerLogic ??= true;
   }
 
   controller = StreamController.broadcast(
