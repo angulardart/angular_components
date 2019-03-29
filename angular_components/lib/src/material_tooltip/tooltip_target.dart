@@ -92,7 +92,6 @@ abstract class TooltipBehavior extends TooltipTarget {
     _tooltip?.activate();
   }
 
-  @HostListener('blur')
   @HostListener('click')
   void onBlurOrClick() => hideTooltip();
 
@@ -122,6 +121,20 @@ abstract class TooltipBehavior extends TooltipTarget {
   @override
   void onClose() {
     super.onClose();
+    hideTooltip(immediate: true);
+  }
+
+  @HostListener('blur')
+  void onBlur(FocusEvent event) {
+    // Don't hide the tooltip if the user clicked an empty area on the page.
+    if (event.relatedTarget == null) return;
+
+    // Don't hide the tooltip if focus went to an element inside the tooltip.
+    HtmlElement el;
+    for (el = event.relatedTarget; el.parent != null; el = el.parent) {
+      if (el.className == overlayContainerClassName) return;
+    }
+
     hideTooltip(immediate: true);
   }
 }
@@ -158,20 +171,6 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
     _tooltipSubscription = tooltipActivate.listen((visible) {
       _tooltipVisible = visible;
     });
-  }
-
-  @HostListener('blur')
-  void onBlur(FocusEvent event) {
-    // Don't hide the tooltip if the user clicked an empty area on the page.
-    if (event.relatedTarget == null) return;
-
-    // Don't hide the tooltip if focus went to an element inside the tooltip.
-    HtmlElement el;
-    for (el = event.relatedTarget; el.parent != null; el = el.parent) {
-      if (el.className == overlayContainerClassName) return;
-    }
-
-    hideTooltip(immediate: true);
   }
 
   @HostListener('click')
