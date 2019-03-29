@@ -67,8 +67,8 @@
 
   .main {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    min-height: inherit;
     min-width: inherit;
     max-height: inherit;
     max-width: inherit;
