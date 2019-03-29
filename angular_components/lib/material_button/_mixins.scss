@@ -266,6 +266,12 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
+/// Offsets the button content so it's left aligned, without removing the
+/// padding.
+@mixin button-left-aligned-content {
+  margin-left: -$button-horizontal-padding;
+}
+
 /// Applies letter-spacing to the text of <material-button>.
 @mixin button-letter-spacing($selector, $letter-spacing) {
   ::ng-deep #{$selector} div {
