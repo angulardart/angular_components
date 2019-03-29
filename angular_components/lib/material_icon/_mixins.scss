@@ -46,7 +46,7 @@
 /// not shown.
 ///
 /// Note: This mixin should target material-icon.
-@mixin svg-icon($svg-icon, $size: null) {
+@mixin svg-icon($svg-icon) {
   ::ng-deep .material-icon-i {
     background-image: $svg-icon;
     background-size: cover;
