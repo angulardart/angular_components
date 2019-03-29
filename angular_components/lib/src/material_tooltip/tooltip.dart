@@ -59,7 +59,7 @@ class MaterialTooltipDirective extends TooltipTarget
         _popupClassName =
             constructEncapsulatedCss(tooltipClass, element.classes),
         super(domPopupSourceFactory, viewContainerRef, element,
-            initAriaAttributes) {
+            initAriaAttributes ?? 'false') {
     inLongPress = false;
     _delayedActivate = DelayedAction(tooltipShowDelay, _activate);
   }
