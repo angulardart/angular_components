@@ -50,6 +50,53 @@ $bg-color-ink: $mat-grey-700;
   }
 }
 
+// Applies custom overflow on <material-popup>.
+// Overrides the overflow for elements inside of header and footer.
+//
+// Please note that if $main-overflow set to a custom value the content may not
+// scroll depending on the overriding value.
+//
+// NOTE: As with most mixins, you MUST scope the mixin or it will apply to all
+// material-popups on the page.
+//
+// Example Usage:
+//     <material-popup class="my-popup" ...>
+//     </material-popup>
+//
+//     .my-popup {
+//       @include material-popup-overflow(visible);
+//     }
+@mixin material-popup-overflow($overflow) {
+  @include material-popup-style {
+    &.shadow .popup {
+      overflow: $overflow;
+    }
+  }
+}
+
+// Applies custom overflow on <material-popup>.
+// Overrides the overflow of the content of the popup.
+// Please note that if $overflow set to a custom value the content may not
+// scroll depending on the overriding value.
+//
+// NOTE: As with most mixins, you MUST scope the mixin or it will apply to all
+// material-popups on the page.
+//
+// Example Usage:
+//     <material-popup class="my-popup" ...>
+//     </material-popup>
+//
+//     .my-popup {
+//       @include material-popup-content-overflow(visible);
+//     }
+@mixin material-popup-content-overflow($overflow) {
+  @include material-popup-style {
+    &.shadow .popup .main {
+      overflow: $overflow;
+    }
+  }
+}
+
 // Applies the given CSS to the material-popup .popup-wrapper element.
 //
 // NOTE: As with most mixins, you MUST scope the mixin or it will apply to all
