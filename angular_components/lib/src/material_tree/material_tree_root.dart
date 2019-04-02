@@ -8,7 +8,10 @@ import 'package:angular_components/model/ui/has_factory.dart';
 
 /// An limited interface for child groups to use to access the tree.
 abstract class MaterialTreeRoot<T>
-    implements SelectionContainer<T>, HasComponentRenderer, HasFactoryRenderer {
+    implements
+        SelectionContainer<T>,
+        HasComponentRenderer<RendersValue, Object>,
+        HasFactoryRenderer<RendersValue, T> {
   /// Whether a filter is currently applied.
   bool isFiltered = false;
 

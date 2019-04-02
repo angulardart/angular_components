@@ -54,7 +54,7 @@ class MaterialTreeDropdownComponent<T>
     with DropdownHandle, MaterialTreeRoot<T>, SelectionContainer<T>
     implements OnInit, Focusable {
   // Popup positioning to use when filtering is enabled.
-  static const List /*RelativePosition | List<RelativePosition>*/
+  static const List<Object /*RelativePosition | List<RelativePosition>*/ >
       _popupPositionsOffset = [
     RelativePosition.AdjacentBottomLeft,
     RelativePosition.AdjacentBottomEdge,
@@ -162,7 +162,7 @@ class MaterialTreeDropdownComponent<T>
   /// rendering an item.
   @Input()
   @override
-  set factoryRenderer(FactoryRenderer value) {
+  set factoryRenderer(FactoryRenderer<RendersValue, T> value) {
     super.factoryRenderer = value;
   }
 

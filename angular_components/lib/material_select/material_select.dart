@@ -100,7 +100,7 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
   /// from a given option allowing for a more expressive option.
   @Input()
   @override
-  set factoryRenderer(FactoryRenderer value) {
+  set factoryRenderer(FactoryRenderer<RendersValue, T> value) {
     super.factoryRenderer = value;
   }
 
