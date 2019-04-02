@@ -100,6 +100,7 @@ class MaterialPopupComponent extends Object
   final ChangeDetectorRef _changeDetector;
   final ViewContainerRef _viewContainer;
   final Disposer _disposer = Disposer.oneShot();
+  final Disposer _visibleDisposer = Disposer.multi();
   final NgZone _ngZone;
   final OverlayService _overlayService;
   final DomService _domService;
@@ -107,10 +108,6 @@ class MaterialPopupComponent extends Object
 
   final List<RelativePosition> _defaultPreferredPositions;
   RelativePosition _alignmentPosition;
-
-  StreamSubscription _layoutChangeSub;
-  StreamSubscription _layoutInternalSub;
-  StreamSubscription _windowResizeSub;
 
   OverlayRef _overlayRef;
 
@@ -134,7 +131,7 @@ class MaterialPopupComponent extends Object
   // The top/left of this [Rectangle] is always (0, 0). A Rectangle returned by
   // getBoundingClientRect() will be positioned relative to this point (i.e.
   // will be in the viewport vector space).
-  static MutableRectangle _viewportRect;
+  final MutableRectangle _viewportRect = MutableRectangle(0, 0, 0, 0);
 
   // The top/bottom/left/right boundaries for the popup within the viewport
   // rect.
@@ -263,32 +260,12 @@ class MaterialPopupComponent extends Object
       : this.role = role ?? 'dialog' {
     // Close popup if parent closes.
     if (parentPopup != null) {
-      parentPopup.onClose.listen((_) => close());
+      _disposer
+          .addStreamSubscription(parentPopup.onClose.listen((_) => close()));
     }
 
     // Create the PopupRef for the ACX focus library.
     _resolvedPopupRef = MaterialPopupRef(this);
-
-    // Start the shared window.resize listener (if it hasn't been already).
-    _initViewportRect();
-  }
-
-  void _initViewportRect() {
-    if (_viewportRect != null) return;
-    // The reason a separate variable is maintained instead of using
-    // window.innerWidth/window.innerHeight directly is because accessing
-    // window.innerWidth/window.innerHeight can cause reflows.
-    _viewportRect =
-        MutableRectangle(0, 0, window.innerWidth, window.innerHeight);
-    _ngZone.runOutsideAngular(() {
-      window.onResize
-          .transform(
-              throttleStream(_resizeThrottleDuration, guaranteeLast: true))
-          .listen((_) {
-        _viewportRect.width = window.innerWidth;
-        _viewportRect.height = window.innerHeight;
-      });
-    });
   }
 
   @override
@@ -317,9 +294,7 @@ class MaterialPopupComponent extends Object
     if (_repositionLoopId != null) {
       window.cancelAnimationFrame(_repositionLoopId);
     }
-    _layoutInternalSub?.cancel();
-    _layoutChangeSub?.cancel();
-    _windowResizeSub?.cancel();
+    _visibleDisposer.dispose();
     _disposer.dispose();
     _animationTimer?.cancel();
     _isVisible = false;
@@ -452,9 +427,18 @@ class MaterialPopupComponent extends Object
       throw StateError('Cannot open popup: no source set.');
     }
 
+    // Update the viewport size.
+    _updateViewportSize();
     // Initialize the minimum/maximum size and content size based on the
     // viewport size before popup position is populated.
     _updatePopupMinMaxSize();
+
+    _visibleDisposer.addStreamSubscription(window.onResize
+        .transform(throttleStream(_resizeThrottleDuration, guaranteeLast: true))
+        .listen((_) {
+      _updateViewportSize();
+      _updatePopupMinMaxSize();
+    }));
 
     // Put the overlay in the live DOM so we can measure its size.
     _overlayRef.state.visibility = visibility.Visibility.Hidden;
@@ -468,10 +452,9 @@ class MaterialPopupComponent extends Object
 
     // Start listening to both the popup and the source's layout.
     var initialData = Completer<Rectangle>();
-    var popupContentsLayoutStream =
-        _overlayRef.measureSizeChanges().asBroadcastStream(onCancel: (sub) {
-      _layoutInternalSub = sub;
-    });
+    var popupContentsLayoutStream = _overlayRef
+        .measureSizeChanges()
+        .asBroadcastStream(onCancel: _visibleDisposer.addStreamSubscription);
     var popupSourceLayoutStream =
         state.source.onDimensionsChanged(track: state.trackLayoutChanges);
     if (!state.trackLayoutChanges) {
@@ -481,7 +464,8 @@ class MaterialPopupComponent extends Object
     // Merge the results of both streams.
     var mergedLayoutStream =
         _mergeStreams([popupContentsLayoutStream, popupSourceLayoutStream]);
-    _layoutChangeSub = mergedLayoutStream.listen((layoutRects) {
+    _visibleDisposer
+        .addStreamSubscription(mergedLayoutStream.listen((layoutRects) {
       // Ignore partial results.
       if (layoutRects.every((r) => r != null)) {
         if (!initialData.isCompleted) {
@@ -491,15 +475,7 @@ class MaterialPopupComponent extends Object
         _initialSourceDimensions = null;
         _schedulePositionUpdate(layoutRects[0], layoutRects[1]);
       }
-    });
-
-    if (_popupSizeProvider != null) {
-      _windowResizeSub = window.onResize
-          .transform(debounceStream(const Duration(milliseconds: 200)))
-          .listen((_) {
-        _updatePopupMinMaxSize();
-      });
-    }
+    }));
 
     // Resolve when the popup has started opening.
     return initialData.future;
@@ -566,9 +542,7 @@ class MaterialPopupComponent extends Object
     if (_isOpening) return;
 
     // Stop listening to popup layout changes.
-    _layoutInternalSub?.cancel();
-    _layoutChangeSub?.cancel();
-    _windowResizeSub?.cancel();
+    _visibleDisposer.dispose();
 
     // Stop the reposition loop (if it's running).
     if (_repositionLoopId != null) {
@@ -691,6 +665,11 @@ class MaterialPopupComponent extends Object
 
     _overlayRef.overlayElement.style.transform =
         'translate(${_repositionOffsetX}px, ${_repositionOffsetY}px)';
+  }
+
+  void _updateViewportSize() {
+    _viewportRect.width = window.innerWidth;
+    _viewportRect.height = window.innerHeight;
   }
 
   void _updatePopupMinMaxSize() {
