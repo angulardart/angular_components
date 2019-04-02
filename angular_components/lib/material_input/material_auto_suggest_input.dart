@@ -101,13 +101,13 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
         KeyboardHandlerMixin,
         HighlightAssistantMixin<T>
     implements
-        ControlValueAccessor,
+        ControlValueAccessor<Object>,
         Focusable,
         OnInit,
         OnDestroy,
         HasRenderer<T>,
-        HasComponentRenderer,
-        HasFactoryRenderer,
+        HasComponentRenderer<RendersValue, Object>,
+        HasFactoryRenderer<RendersValue, T>,
         DropdownHandle,
         PopupSizeProvider {
   /// How to automatically position the dropdown popup by default.
@@ -318,7 +318,8 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
   /// [FactoryRenderer] used to display the item.
   @override
   @Input()
-  set factoryRenderer(FactoryRenderer value) => super.factoryRenderer = value;
+  set factoryRenderer(FactoryRenderer<RendersValue, T> value) =>
+      super.factoryRenderer = value;
 
   /// Function for use by NgFor for optionGroup to avoid recreating the
   /// DOM for the optionGroup.

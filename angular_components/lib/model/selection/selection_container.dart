@@ -9,7 +9,10 @@ import 'package:angular_components/model/ui/has_factory.dart';
 /// A type of component which renders items from a `SelectionModel` and may
 /// show options from a `SelectionOptions` model.
 abstract class SelectionContainer<T>
-    implements HasRenderer<T>, HasComponentRenderer, HasFactoryRenderer {
+    implements
+        HasRenderer<T>,
+        HasComponentRenderer<RendersValue, Object>,
+        HasFactoryRenderer<RendersValue, T> {
   /// The selection model this container represents.
   SelectionModel<T> _selection;
   SelectionModel<T> get selection => _selection;
@@ -48,11 +51,11 @@ abstract class SelectionContainer<T>
 
   /// Specifies the factoryRenderer to use to determine the factory for
   /// rendering an item.
-  FactoryRenderer _factoryRenderer;
+  FactoryRenderer<RendersValue, T> _factoryRenderer;
   @override
-  FactoryRenderer get factoryRenderer => _factoryRenderer;
+  FactoryRenderer<RendersValue, T> get factoryRenderer => _factoryRenderer;
   @override
-  set factoryRenderer(FactoryRenderer value) {
+  set factoryRenderer(FactoryRenderer<RendersValue, T> value) {
     _factoryRenderer = value;
   }
 }
