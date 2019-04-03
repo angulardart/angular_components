@@ -19,6 +19,13 @@
   }
 }
 
+@mixin material-input-clear-icon-color($color) {
+  ::ng-deep .clear-icon {
+    color: $color;
+    opacity: 1;
+  }
+}
+
 /// Changes the padding of the top section (without underline) of material
 /// input.
 @mixin input-top-section-padding($padding) {
