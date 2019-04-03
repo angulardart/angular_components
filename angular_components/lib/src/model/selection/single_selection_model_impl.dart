@@ -9,6 +9,8 @@ class _SingleSelectionModelImpl<T> extends Observable<ChangeRecord>
     implements SingleSelectionModel<T> {
   final KeyProvider<T> _keyOf;
   final List<T> _selectedValues = [];
+  @override
+  final isSingleSelect = true;
 
   var _selectedKey;
 

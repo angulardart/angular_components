@@ -8,6 +8,9 @@ part of angular_components.model.selection.selection_model;
 class _NoopSelectionModelImpl<T> implements NullSelectionModel<T> {
   const _NoopSelectionModelImpl();
 
+  @override
+  final bool isSingleSelect = null;
+
   // Selection observable.
 
   @override

@@ -45,6 +45,9 @@ abstract class SelectionModel<T> extends Object
   /// Creates an immutable, constant model.
   const factory SelectionModel.empty() = NullSelectionModel<T>;
 
+  /// Whether or not the selection model is single select.
+  final bool isSingleSelect;
+
   /// Creates a single-selection model.
   ///
   /// [keyProvider] is used for equality checking. For example, [select] will
