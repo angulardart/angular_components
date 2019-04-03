@@ -74,7 +74,7 @@ int _dayOfWeek(int year, int month, int day) {
 /// automatically.
 ///
 @Component(
-  changeDetection: ChangeDetectionStrategy.Detached,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   directives: [NgFor],
   selector: 'material-calendar-picker',
   styleUrls: ['material_calendar_picker.scss.css'],

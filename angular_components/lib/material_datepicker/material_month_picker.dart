@@ -24,7 +24,7 @@ import '../src/material_datepicker/enum_parsing.dart';
 /// - `mode` -- What sort of interaction this calendar supports. Valid values
 ///   are "none", "single-date", or "date-range". Defaults to "none".
 @Component(
-  changeDetection: ChangeDetectionStrategy.Detached,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'material-month-picker',
   styleUrls: ['material_month_picker.scss.css'],
   templateUrl: 'material_month_picker.html',
