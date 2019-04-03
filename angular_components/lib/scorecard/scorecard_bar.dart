@@ -203,8 +203,12 @@ class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
       // Find the average size of the cards. This assumes cards are of uniform
       // size (as required in ACUX specs).
       var avg = _scrollSize / _element.children.length;
-      var temp = ((_clientSize - _buttonSize * 2) / avg).floor();
-      _scrollingMove = (temp * avg).floor();
+      if (_clientSize < avg) {
+        _scrollingMove = _clientSize;
+      } else {
+        var temp = ((_clientSize - _buttonSize * 2) / avg).floor();
+        _scrollingMove = (temp * avg).floor();
+      }
     } else {
       _scrollingMove = _clientSize;
     }
