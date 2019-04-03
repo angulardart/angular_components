@@ -13,7 +13,11 @@ class DelegatingSelectionModel<T> extends Object
     implements SelectionModel<T> {
   final SelectionModel<T> _delegateModel;
 
-  DelegatingSelectionModel(this._delegateModel);
+  @override
+  final bool isSingleSelect;
+
+  DelegatingSelectionModel(this._delegateModel)
+      : isSingleSelect = _delegateModel.isSingleSelect;
 
   // Delegate to SelectionModel.
 
