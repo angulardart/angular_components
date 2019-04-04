@@ -151,6 +151,16 @@
   }
 }
 
+/// Override the minimum height of the dropdown button.
+///
+/// This is useful for cases where the main dropdown button styling is not being
+/// used, such as when custom button contents are used.
+@mixin dropdown-button-min-height($min-height) {
+  ::ng-deep dropdown-button {
+    min-height: $min-height;
+  }
+}
+
 /// Sets the font size of the dropdown item.
 @mixin material-select-dropdown-item-font-size($font-size) {
   ::ng-deep material-select-dropdown-item {
