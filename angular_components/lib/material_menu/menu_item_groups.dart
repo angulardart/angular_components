@@ -66,7 +66,8 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
 )
-class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
+class MenuItemGroupsComponent
+    implements AfterViewInit, Focusable, OnInit, OnDestroy {
   final IdGenerator _idGenerator;
   final ChangeDetectorRef _changeDetector;
 
@@ -125,12 +126,18 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   /// Whether the first item of the activeModel should be selected on init.
   ///
   /// Defaults to `false`.
+  /// This input must be set before the view loads as it does one-time item
+  /// activation on initialization.
   @Input()
-  set activateFirstItemOnInit(activate) {
-    _activateFirstItemOnInit = getBool(activate);
-  }
+  bool activateFirstItemOnInit = false;
 
-  bool _activateFirstItemOnInit = false;
+  /// Whether the last item of the activeModel should be selected on init.
+  ///
+  /// Defaults to `false`.
+  /// This input must be set before the view loads as it does one-time item
+  /// activation on initialization.
+  @Input()
+  bool activateLastItemOnInit = false;
 
   /// The top most menu node.
   ///
@@ -385,6 +392,13 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   }
 
   @override
+  void ngAfterViewInit() {
+    // Focusing the active item happens after the view initializes to wait for
+    // the `focusableItems` view children to be set.
+    if (activateFirstItemOnInit || activateLastItemOnInit) _focusActiveItem();
+  }
+
+  @override
   void ngOnDestroy() {
     _activeModelChange?.cancel();
     _activeModelChange = null;
@@ -445,16 +459,22 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
     if ((menu != null) && (activeModel == null)) {
       activeModel = ActiveMenuItemModel(_idGenerator,
           menu: menu, filterOutUnselectableItems: true);
-      if (_activateFirstItemOnInit) {
-        // Set auto-focus to the currently selected list item if this menu is
-        // a sub-menu and was opened via keyboard shortcut.
-        _autoFocusItemId =
-            qc.Optional.of(activeModel.id(activeModel.activeItem));
+      if (activateLastItemOnInit) {
+        activeModel.activateLast();
+        _autoFocusActiveItem();
+      } else if (activateFirstItemOnInit) {
+        _autoFocusActiveItem();
       } else {
         // Don't activate any item.
         activeModel.activate(null);
       }
     }
+  }
+
+  void _autoFocusActiveItem() {
+    // Set auto-focus to the currently selected list item if this menu is
+    // a sub-menu and was opened via keyboard shortcut.
+    _autoFocusItemId = qc.Optional.of(activeModel.id(activeModel.activeItem));
   }
 
   /// Focus the active item if any.
