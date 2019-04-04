@@ -29,6 +29,13 @@ class MenuItemGroup<T> extends LabeledList<T> {
   final ObservableReference<bool> _isExpanded;
   final ObservableReference<bool> _hasSeparator;
 
+  /// The `role` attribute that all items should have.
+  ///
+  /// The `role` attribute is used for a11y purposes and should be the same for
+  /// each menu item in a group. If the menu items are not selectable the role
+  /// should be `menuitem`. https://www.w3.org/TR/wai-aria-1.1/#menuitem
+  final itemsRole = 'menuitem';
+
   MenuItemGroup(List<T> items,
       [String label,
       bool hasSeparator = true,
