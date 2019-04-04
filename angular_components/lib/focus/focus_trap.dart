@@ -37,6 +37,10 @@ class FocusTrapComponent implements OnDestroy {
     }
   }
 
+  /// Whether or not the focus trap is active
+  @Input()
+  bool isActive = true;
+
   @override
   void ngOnDestroy() {
     _disposer.dispose();
