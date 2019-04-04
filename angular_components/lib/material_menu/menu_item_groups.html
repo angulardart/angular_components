@@ -39,7 +39,7 @@
               [autoFocus]="hasAutoFocus(activeModel?.id(item))"
               [focusActivableItem]="activeModel?.id(item)"
 
-              role="menuitem"
+              role="{{group.itemsRole}}"
               [attr.data-group-index]="i"
               [attr.data-item-index]="j"
               [attr.id]="activeModel?.id(item)"
@@ -54,6 +54,8 @@
               [attr.aria-label]="item.ariaLabel"
               [attr.aria-disabled]="!item.enabled"
               [attr.aria-haspopup]="item.hasSubMenu"
+              [attr.aria-expanded]="item.hasSubMenu ? isSubMenuVisible(item) : null"
+              [attr.aria-checked]="itemAriaChecked(item)"
 
               closeOnActivate="false"
               useCheckMarks="true"
