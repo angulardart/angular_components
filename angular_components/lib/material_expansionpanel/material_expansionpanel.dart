@@ -17,6 +17,7 @@ import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_yes_no_buttons/material_yes_no_buttons.dart';
 import 'package:angular_components/model/action/async_action.dart';
+import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/angular/id/id.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
@@ -166,13 +167,13 @@ class MaterialExpansionPanel
   @Input()
   bool closeOnSave = true;
 
-  bool _isExpanded = false;
-  bool get isExpanded => _isExpanded;
+  ObservableReference<bool> _isExpanded = ObservableReference(false);
+  bool get isExpanded => _isExpanded.value;
 
   /// If true, the panel is expanded by default, if false, the panel is closed.
   @Input('expanded')
   set isExpanded(bool value) {
-    if (value == _isExpanded) return;
+    if (value == isExpanded) return;
     if (value) {
       expand(byUserAction: false);
     } else {
@@ -182,8 +183,7 @@ class MaterialExpansionPanel
 
   /// Event fired when the panel is either collapsed or expanded.
   @Output('expandedChange')
-  Stream<bool> get isExpandedChange => _isExpandedChange.stream;
-  final _isExpandedChange = StreamController<bool>.broadcast(sync: true);
+  Stream<bool> get isExpandedChange => _isExpanded.stream;
 
   /// Event fired when the panel is collapsed or expanded by the user.
   @Output('expandedChangeByUser')
@@ -326,7 +326,7 @@ class MaterialExpansionPanel
     if (disabled) {
       return groupAriaLabel;
     } else {
-      return _isExpanded ? closePanelMsg : openPanelMsg;
+      return isExpanded ? closePanelMsg : openPanelMsg;
     }
   }
 
@@ -449,8 +449,7 @@ class MaterialExpansionPanel
     final stateWasInitialized = initialized;
     actionCtrl.execute(() {
       if (closeOnSave) {
-        _isExpanded = false;
-        _isExpandedChange.add(false);
+        _isExpanded.value = false;
         _isExpandedChangeByUserAction.add(false);
         _changeDetector.markForCheck();
         if (stateWasInitialized) _transitionHeightChange(false);
@@ -471,8 +470,7 @@ class MaterialExpansionPanel
     _changeDetector.markForCheck();
     final stateWasInitialized = initialized;
     actionCtrl.execute(() {
-      _isExpanded = false;
-      _isExpandedChange.add(false);
+      _isExpanded.value = false;
       _isExpandedChangeByUserAction.add(false);
       _changeDetector.markForCheck();
       if (stateWasInitialized) _transitionHeightChange(false);
@@ -491,15 +489,14 @@ class MaterialExpansionPanel
   /// the user has cancelled the operation.
   Future<bool> changeState(
       bool expand, bool byUserAction, StreamController stream) {
-    if (_isExpanded == expand) {
+    if (isExpanded == expand) {
       return Future.value(true);
     }
     var actionCtrl = AsyncActionController<bool>();
     stream.add(actionCtrl.action);
     var stateWasInitialized = initialized;
     actionCtrl.execute(() {
-      _isExpanded = expand;
-      _isExpandedChange.add(expand);
+      _isExpanded.value = expand;
       if (byUserAction) _isExpandedChangeByUserAction.add(expand);
       _changeDetector.markForCheck();
       if (expand && autoFocusChild != null) {
