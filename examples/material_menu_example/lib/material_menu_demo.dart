@@ -158,7 +158,7 @@ class MaterialMenuDemoComponent implements OnDestroy {
           MenuItemGroup<MenuItem>([
             MenuItem('Help',
                 itemSuffixes: ObservableList.from([
-                  IconAffix(
+                  IconAffix.simple(
                       icon: Icon('help_outline'),
                       visibility: IconVisibility.hover)
                 ]),
@@ -243,10 +243,11 @@ class MaterialMenuDemoComponent implements OnDestroy {
         MenuItem('With an icon suffix',
             action: () => window.alert('2'),
             itemSuffixes: ObservableList.from([
-              IconAffix(
-                  icon: IconWithAction(
-                      'delete', () => window.alert('action'), 'ariaLabel', null,
-                      shouldCloseMenuOnTrigger: true))
+              IconAffix.withAction(
+                  icon: Icon('delete'),
+                  action: () => window.alert('action'),
+                  ariaLabel: 'ariaLabel',
+                  shouldCloseMenuOnTrigger: true)
             ])),
         MenuItem('With text suffix',
             action: () => window.alert('3'),
@@ -255,12 +256,13 @@ class MaterialMenuDemoComponent implements OnDestroy {
         MenuItem('With multiple suffixes',
             action: () => window.alert('4'),
             itemSuffixes: ObservableList.from([
-              IconAffix(
-                  icon: IconWithAction('delete', () => window.alert('action 1'),
-                      'ariaLabel', null)),
-              IconAffix(icon: Icon('accessible')),
+              IconAffix.withAction(
+                  icon: Icon('delete'),
+                  action: () => window.alert('action 1'),
+                  ariaLabel: 'ariaLabel'),
+              IconAffix.simple(icon: Icon('accessible')),
               CaptionAffix(text: 'some text'),
-              IconAffix(icon: Icon('autorenew')),
+              IconAffix.simple(icon: Icon('autorenew')),
             ])),
       ]),
     ]);
