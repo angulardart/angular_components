@@ -5,7 +5,6 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:meta/meta.dart';
 import 'package:observable/observable.dart';
 import 'package:quiver/core.dart' show Optional;
 import 'package:quiver/strings.dart' show isNotEmpty;
@@ -164,7 +163,6 @@ class MenuItem<T> with MenuItemMixin implements HasUIDisplayName, HasIcon {
   /// Additional CSS classes to be attached to the root menu item element.
   final BuiltList<String> cssClasses;
 
-  @virtual
   bool enabled;
 
   /// The constructor for a [MenuItem] which displays [label].
