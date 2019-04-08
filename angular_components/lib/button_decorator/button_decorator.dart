@@ -38,12 +38,11 @@ class ButtonDirective extends RootFocusable
   bool _shouldHandleSpaceKey;
 
   ButtonDirective(Element element, @Attribute('role') String role,
-      {bool removeTabIndexNonTabbable = false, bool handleSpacePresses = true})
+      {bool addTabIndexWhenNonTabbable = false, bool handleSpacePresses = true})
       : this.role = (role ?? 'button'),
         // Allow the subclass to define how the element should be made
         // untabbable.
-        // TODO(google): Consider making this the default for all components.
-        _nonTabbableIndex = removeTabIndexNonTabbable ? null : '-1',
+        _nonTabbableIndex = addTabIndexWhenNonTabbable ? '-1' : null,
         _shouldHandleSpaceKey = handleSpacePresses ?? true,
         super(element);
 
