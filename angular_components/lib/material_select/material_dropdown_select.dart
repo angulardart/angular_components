@@ -94,7 +94,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
         KeyboardHandlerMixin,
         ActivateItemOnKeyPressMixin<T>,
         ShiftClickSelectionMixin<T>
-    implements PopupSizeProvider, OnChanges, OnDestroy {
+    implements PopupSizeProvider, AfterChanges, OnDestroy {
   /// Function for use by NgFor for optionGroup.
   ///
   /// Avoids recreating the DOM for the optionGroup.
@@ -174,6 +174,14 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   String _ariaActiveDescendant;
 
   final ChangeDetectorRef _changeDetector;
+
+  bool _disabledChanged = false;
+
+  @override
+  set disabled(bool value) {
+    super.disabled = value;
+    _disabledChanged = true;
+  }
 
   MaterialDropdownSelectComponent(
       @Optional() IdGenerator idGenerator,
@@ -457,14 +465,15 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   }
 
   @override
-  ngOnChanges(Map<String, SimpleChange> changes) {
-    if (changes.containsKey('disabled') && disabled) {
+  void ngAfterChanges() {
+    if (_disabledChanged && disabled) {
       close();
     }
+    _disabledChanged = false;
   }
 
   @override
-  ngOnDestroy() {
+  void ngOnDestroy() {
     _optionsListener?.cancel();
     _selectionListener?.cancel();
   }
