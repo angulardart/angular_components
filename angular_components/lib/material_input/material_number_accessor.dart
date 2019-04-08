@@ -6,6 +6,7 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'package:fixnum/fixnum.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
@@ -23,6 +24,7 @@ const List<Type> materialNumberInputDirectives = [
   CheckIntegerValidator,
   LowerBoundValidator,
   MaterialInputComponent,
+  MaterialInt64ValueAccessor,
   MaterialNumberValueAccessor,
   MaterialNumberValidator,
   PositiveNumValidator,
@@ -108,6 +110,75 @@ abstract class BaseMaterialNumberValueAccessor<T>
   }
 }
 
+/// [ControlValueAccessor] which will coerce an input into an [Int64].
+///
+/// There is currently no Int64-specific formatter, so note that numberFormat
+/// cannot be safely used if your values are vulnerable to overflowing in size.
+///
+/// Use [materialNumberInputDirectives] to get a set of directives to use with
+/// the input to provide validations. Such as the default to ensure it is a
+/// number, `checkInteger`, `checkPositive`, `checkNonNegative` (allows 0,)
+/// `lowerBound`, and `upperBound`.
+///
+/// `keypressUpdate` attribute has the value update on every keypress while
+/// the default is the value only updating on a blur event.
+/// `blurFormat` attribute causes the input to be formatted on blur events.
+@Directive(
+  selector: 'material-input[type=int64]',
+)
+class MaterialInt64ValueAccessor
+    extends BaseMaterialNumberValueAccessor<Int64> {
+  MaterialInt64ValueAccessor(
+      BaseMaterialInput input,
+      @Self() NgControl control,
+      @Attribute('changeUpdate') String changeUpdateAttr,
+      @Attribute('keypressUpdate') String keypressUpdateAttr,
+      @Attribute('checkInteger') String checkInteger,
+      @Attribute('blurFormat') String blurFormat,
+      @Optional() NumberFormat numberFormat)
+      : super(
+            input,
+            control,
+            attributeToBool(changeUpdateAttr, defaultValue: false),
+            attributeToBool(keypressUpdateAttr, defaultValue: false),
+            attributeToBool(blurFormat, defaultValue: false),
+            numberFormat) {
+    assert(
+        _checkValues(
+            numberFormat, attributeToBool(blurFormat, defaultValue: false)),
+        'You must supply a NumberFormat if using blurFormat');
+  }
+
+  bool _checkValues(NumberFormat numberFormat, bool blurFormat) {
+    if (numberFormat != null) {
+      print('Warning: numberFormat only works with num and will overflow '
+          'if the number is larger than a native int, even when using '
+          'material-input[type=int64].');
+      return blurFormat;
+    }
+    return true;
+  }
+
+  @override
+  Int64 parseNumber(String input) {
+    if (input == null || input.isEmpty) {
+      return null;
+    }
+
+    try {
+      // If using formatting, we must firsrt parse back to a non-formatted
+      // String representation as Int64 cannot handle commas.
+      if (_numberFormat != null) {
+        input = _numberFormat.parse(input).toString();
+      }
+
+      return Int64.parseInt(input);
+    } on FormatException {
+      return null;
+    }
+  }
+}
+
 /// [ControlValueAccessor] which will coerce an input into a [num].
 ///
 /// Use [materialNumberInputDirectives] to get a set of directives to use with
@@ -166,8 +237,6 @@ class MaterialNumberValueAccessor extends BaseMaterialNumberValueAccessor<num> {
   providers: [
     ExistingProvider.forToken(NG_VALIDATORS, MaterialNumberValidator)
   ],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class MaterialNumberValidator implements Validator {
   /// Validation that works in concert with the number accessor.
@@ -191,10 +260,9 @@ class MaterialNumberValidator implements Validator {
 /// [Validator] which will validate a number input is an integer.
 @Directive(
   selector: 'material-input[type=number][checkInteger],'
-      'material-input[type=percent][checkInteger]',
+      'material-input[type=percent][checkInteger],'
+      'material-input[type=int64]',
   providers: [ExistingProvider.forToken(NG_VALIDATORS, CheckIntegerValidator)],
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
 class CheckIntegerValidator implements Validator {
   /// Validation that works in concert with the number accessor.
@@ -213,3 +281,16 @@ class CheckIntegerValidator implements Validator {
       desc: 'Error message when input number is not an integer.',
       meaning: 'Error message when input number is not an integer.');
 }
+
+NumberFormat decimalNumberFormat() => NumberFormat.decimalPattern();
+
+/// Helper directive to provide a basic [NumberFormat] pattern for use with
+/// number accessors.
+///
+/// This is not necessary for standard material-input[type=num] as it's provided
+/// as the default.  It should only be used with material-input[type=int64].
+@Directive(
+  selector: '[decimalNumberFormat]',
+  providers: [Provider(NumberFormat, useFactory: decimalNumberFormat)],
+)
+class DecimalNumberFormatDirective {}
