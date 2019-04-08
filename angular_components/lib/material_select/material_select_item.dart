@@ -66,9 +66,9 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
       @Optional() this._activationHandler,
       this._cdRef,
       @Attribute('role') String role,
-      {bool removeTabIndexNonTabbable = false})
+      {bool addTabIndexWhenNonTabbable = false})
       : super(element, role ?? 'option',
-            removeTabIndexNonTabbable: removeTabIndexNonTabbable) {
+            addTabIndexWhenNonTabbable: addTabIndexWhenNonTabbable) {
     _disposer
       ..addStreamSubscription(trigger.listen(handleActivate))
       ..addFunction(() => _selectionChangeStreamSub?.cancel());
