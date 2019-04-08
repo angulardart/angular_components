@@ -12,6 +12,7 @@ import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/laminate/popup/module.dart';
 import 'package:angular_gallery_section/components/gallery_component/documentation_component.dart';
+import 'package:angular_gallery/gallery/gallery_tokens.dart';
 import 'package:angular_gallery_section/components/gallery_component/gallery_info.dart';
 
 /// The gallery component details page that encompass the component's dart docs,
@@ -36,10 +37,20 @@ class GalleryComponent {
   @Input()
   GalleryInfo model;
 
+  /// The begining of a custom url used for the bug link on components.
+  ///
+  /// Should contain any custom url parameters. A title will be appended.
+  final String _bugUrl;
+
+  /// The begining of the link to the source code for all components.
+  final String _sourcecodeUrl;
+
   /// Used to disable latency charts in testing environments where they can't
   /// load successfully.
   final latencyChartsEnabled =
       !window.location.href.contains('enableLatencyCharts=false');
+
+  GalleryComponent(@bugUrl this._bugUrl, @sourcecodeUrl this._sourcecodeUrl);
 
   bool get showToc =>
       (model.docs.length + model.demos.length + model.benchmarks.length) > 1;
@@ -54,21 +65,10 @@ class GalleryComponent {
 
   /// Reformats a library path name to a link path that can be used by
   /// CodeSearch.
-  String getCodeSearchLink(String componentPath) {
-    String repo;
-    String path;
-
-    if (componentPath.contains('example')) {
-      repo = 'https://github.com/dart-lang/angular_components/blob/master/'
-          'examples/';
-      path = componentPath;
-    } else {
-      repo = 'https://github.com/dart-lang/angular_components/blob/master/'
-          'angular_components';
-      path = componentPath.substring(componentPath.indexOf('/'));
-    }
-    return '$repo$path';
-  }
+  String getCodeSearchLink(String componentPath) =>
+      componentPath.contains('example')
+          ? '$_sourcecodeUrl/examples/$componentPath'
+          : '$_sourcecodeUrl$componentPath';
 }
 
 /// Applies code highlighting on `<pre><code>` elements within [htmlFragment].

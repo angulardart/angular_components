@@ -13,7 +13,9 @@ Builder galleryAppBuilder(BuilderOptions options) => MultiplexingBuilder([
           options.config['direction'] ?? 'ltr',
           options.config['galleryTitle'] ?? 'Example Gallery',
           options.config['galleryBindingName'],
-          options.config['galleryBindingImport']),
+          options.config['galleryBindingImport'],
+          options.config['bugUrl'] ?? '',
+          options.config['sourcecodeUrl'] ?? ''),
       HomeDartBuilder(),
     ]);
 

@@ -15,9 +15,16 @@ class GalleryWebBuilder extends Builder {
   final String _direction;
   final String _galleryBindingName;
   final String _galleryBindingImport;
+  final String _bugUrl;
+  final String _sourcecodeUrl;
 
-  GalleryWebBuilder(this._direction, this._galleryTitle,
-      this._galleryBindingName, this._galleryBindingImport);
+  GalleryWebBuilder(
+      this._direction,
+      this._galleryTitle,
+      this._galleryBindingName,
+      this._galleryBindingImport,
+      this._bugUrl,
+      this._sourcecodeUrl);
 
   @override
   Future build(BuildStep buildStep) async {
@@ -44,6 +51,8 @@ class GalleryWebBuilder extends Builder {
           _galleryBindingName != null && _galleryBindingImport != null,
       'bindingName': _galleryBindingName,
       'bindingImport': _galleryBindingImport,
+      'bugUrl': _bugUrl,
+      'sourcecodeUrl': _sourcecodeUrl,
     };
 
     final newAssetId = AssetId(buildStep.inputId.package, 'web/main.dart');
