@@ -44,7 +44,7 @@ class MaterialTreeNode<T> {
     _group = _EMPTY_OPTION_GROUP;
     if (!_root.supportsHierarchy) {
       _isExpandable = (_) => false;
-      _parent = const _NotAParent();
+      _parent = _NotAParent();
     } else {
       _isExpandable = isExpandable ?? hasChildren;
       _parent = _root.options as Parent<T, Iterable<OptionGroup<T>>>;
@@ -292,7 +292,7 @@ class _AlwaysSelectable<T> implements Selectable<T> {
 }
 
 class _NotAParent<P, C> implements Parent<P, C> {
-  const _NotAParent();
+  _NotAParent();
 
   @override
   bool hasChildren(P item) => false;
