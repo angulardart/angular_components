@@ -16,9 +16,9 @@ import 'focus_interface.dart';
 
 export 'focus_interface.dart';
 
-/// An abstract class for components to extend if their programmatic focus
+/// A class for components to extend if their programmatic focus
 /// should simply put focus on root element.
-abstract class RootFocusable implements Focusable, Disposable {
+class RootFocusable implements Focusable, Disposable {
   Element _root;
   RootFocusable(this._root);
 
@@ -57,15 +57,11 @@ abstract class ProjectedFocus implements Focusable {
       if (delegate is Focusable) {
         _resolvedFocusable = delegate;
       } else {
-        _resolvedFocusable = _FocusableElement(delegate);
+        _resolvedFocusable = RootFocusable(delegate);
       }
       _resolvedFocusable.focus();
     });
   }
-}
-
-class _FocusableElement extends RootFocusable {
-  _FocusableElement(HtmlElement element) : super(element);
 }
 
 /// A focusable component that can publish to the
