@@ -72,6 +72,7 @@ const _externalUriAllowedSchemes = {'http', 'https', 'mailto'};
   selector: 'simple-html',
   template: '<span></span>',
   styleUrls: ['simple_html.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class SimpleHtmlComponent extends _SimpleHtmlBase {
   final Element _element;
