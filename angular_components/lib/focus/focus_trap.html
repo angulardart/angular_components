@@ -3,8 +3,8 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<div (focus)="focusLast()" [attr.tabindex]="isActive ? 0 : null"></div>
-<div focusContentWrapper [attr.tabindex]="isActive ? -1 : null" style="outline: none">
+<div (focus)="focusLast()" tabindex="0"></div>
+<div focusContentWrapper tabindex="-1" style="outline: none">
   <ng-content></ng-content>
 </div>
-<div (focus)="focusFirst()" [attr.tabindex]="isActive ? 0 : null"></div>
+<div (focus)="focusFirst()" tabindex="0"></div>
