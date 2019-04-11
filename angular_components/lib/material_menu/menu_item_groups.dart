@@ -535,7 +535,7 @@ class MenuItemGroupsComponent
   void _listenForSelectionChanges(MenuItemGroup group) {
     if (group is MenuItemGroupWithSelection) {
       _disposer.addStreamSubscription(
-          group.selectionModel.selectionChanges.listen((_) {
+          group.selectionModel?.selectionChanges?.listen((_) {
         _updateItemsAriaCheckedState(_menu);
       }));
     }
