@@ -58,6 +58,13 @@
   }
 }
 
+/// Sets the color of the icon in the dropdown button.
+@mixin dropdown-icon-color($color) {
+  ::ng-deep .icon {
+    color: $color;
+  }
+}
+
 /// Allow the button text to wrap instead of ellipsis.
 @mixin button-text-wrap {
   ::ng-deep .button.border .button-text {
