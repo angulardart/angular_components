@@ -244,6 +244,10 @@ class MaterialDateRangePickerComponent
   @Input()
   String applyButtonLabel;
 
+  /// The ARIA label for the dropdown button.
+  @Input()
+  String dropdownButtonAriaLabel;
+
   /// Whether changing the selected date range should be disabled.
   @Input()
   set disabled(bool value) {
