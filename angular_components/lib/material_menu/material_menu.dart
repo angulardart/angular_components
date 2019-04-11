@@ -2,7 +2,6 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -15,6 +14,7 @@ import 'package:angular_components/material_menu/menu_popup_wrapper.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
+import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/menu/menu.dart';
 import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
@@ -39,10 +39,13 @@ import 'package:angular_components/utils/disposer/disposer.dart';
     templateUrl: 'material_menu.html',
     changeDetection: ChangeDetectionStrategy.OnPush)
 class MaterialMenuComponent extends Object
-    with FocusableMixin, MenuPopupWrapper
+    with
+        FocusableMixin,
+        KeyboardHandlerMixin,
+        MenuPopupWrapper,
+        MenuPopupTrigger
     implements AfterViewInit, HasDisabled, OnDestroy {
   final HtmlElement _root;
-  final _onTrigger = StreamController<void>();
   final _disposer = Disposer.oneShot();
 
   MaterialMenuComponent(this._root);
@@ -63,14 +66,6 @@ class MaterialMenuComponent extends Object
   @Input()
   String buttonText;
 
-  /// If true, the material menu will be closed if the trigger button is clicked
-  /// while the menu is open.
-  ///
-  /// Otherwise, clicking the trigger button when the menu is already open will
-  /// not do anything.
-  @Input()
-  bool closeMenuOnClick = false;
-
   /// Whether the menu is disabled or not.
   @Input()
   bool disabled = false;
@@ -83,10 +78,6 @@ class MaterialMenuComponent extends Object
   @Input()
   String ariaLabel;
 
-  /// Outputs an event when the menu button is triggered.
-  @Output('trigger')
-  Stream<void> get onTrigger => _onTrigger.stream;
-
   String get tooltipText => menu?.tooltipText;
 
   bool get hasTooltip => menu?.hasTooltip ?? false;
@@ -94,11 +85,6 @@ class MaterialMenuComponent extends Object
   bool get hasSubmenu => menu?.itemGroups?.isNotEmpty ?? false;
 
   String get hasIcon => menu?.uiIcon != null ? 'true' : null;
-
-  void handleButtonClick() {
-    isExpanded = closeMenuOnClick ? !isExpanded : true;
-    _onTrigger.add(null);
-  }
 
   MaterialButtonComponent _button;
 

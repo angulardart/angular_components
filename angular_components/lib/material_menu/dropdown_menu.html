@@ -5,7 +5,8 @@
 -->
 <dropdown-button
     [ariaDescribedBy]="buttonAriaDescribedBy"
-    (trigger)="isExpanded=true"
+    (keydown)="onKeyDown($event)"
+    (trigger)="handlePopupTriggerAction"
     [buttonText]="buttonText"
     [disabled]="disabled"
     [tabbable]="tabbable"
@@ -14,7 +15,7 @@
   <ng-content select="[button-content]"></ng-content>
 </dropdown-button>
 <menu-popup
-    [(isExpanded)]="isExpanded"
+    [(expandAction)]="expandAction"
     [menu]="menu"
     [popupSource]="toggle"
     [preferredPositions]="preferredPositions"

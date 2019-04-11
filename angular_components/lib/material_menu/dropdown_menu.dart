@@ -3,13 +3,14 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_menu/menu_popup.dart';
 import 'package:angular_components/material_menu/menu_popup_wrapper.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
+import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// The [DropdownMenuComponent] combines a [DropdownButtonComponent] with a
@@ -28,7 +29,11 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   preserveWhitespace: true,
 )
 class DropdownMenuComponent extends Object
-    with FocusableMixin, MenuPopupWrapper
+    with
+        FocusableMixin,
+        KeyboardHandlerMixin,
+        MenuPopupWrapper,
+        MenuPopupTrigger
     implements AfterViewInit, HasDisabled, OnDestroy {
   final _disposer = Disposer.oneShot();
 
