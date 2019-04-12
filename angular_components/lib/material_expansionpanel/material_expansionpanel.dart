@@ -46,6 +46,11 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///    circumstances as the content will be tabbable and so will be worse for
 ///    accessibility.
 ///
+/// __Content Reference:__
+///
+/// - `focusOnOpen` -- Mark a Focusable or DOM element with #focusOnOpen in the
+///   content to have that item be focused when the expansion panel opens.
+///
 @Component(
   selector: 'material-expansionpanel',
   directives: [
@@ -98,14 +103,35 @@ class MaterialExpansionPanel
       : shouldExpandOnLeft = expandOnLeft != null,
         forceContentWhenClosed = forceContent != null;
 
+  Focusable _focusableItem;
+
   /// Set the auto focus child so that we can focus on it when the panel opens.
   ///
   /// Unfortunately, this only selects the first [AutoFocusDirective] in the
   /// contents of the expansion panel, which means that if there is another
   /// [AutoFocusDirective] in an <ng-content> that is not the .content, that
   /// will get focused instead of the [AutoFocusDirective] inside the .content.
+  @Deprecated(
+      'Please tag the element or widget to focus on open with #focusOnOpen')
   @ContentChild(AutoFocusDirective)
-  AutoFocusDirective autoFocusChild;
+  set autoFocusChild(AutoFocusDirective focus) {
+    _focusableItem = focus;
+  }
+
+  /// Sets the focus child so that we can focus on it when the panel opens.
+  @ContentChild('focusOnOpen')
+  set focusElement(dynamic element) {
+    if (element is Focusable) {
+      _focusableItem = element;
+    } else if (element is ElementRef) {
+      _focusableItem = RootFocusable(element.nativeElement);
+    } else {
+      assert(
+          element == null,
+          'Warning expansion panel content has a #focus'
+          'child which is not an Element, or Focusable');
+    }
+  }
 
   HtmlElement _mainPanel;
   @ViewChild('mainPanel')
@@ -499,9 +525,9 @@ class MaterialExpansionPanel
       _isExpanded.value = expand;
       if (byUserAction) _isExpandedChangeByUserAction.add(expand);
       _changeDetector.markForCheck();
-      if (expand && autoFocusChild != null) {
+      if (expand && _focusableItem != null) {
         _domService.scheduleWrite(() {
-          autoFocusChild.focus();
+          _focusableItem.focus();
         });
       }
       if (stateWasInitialized) _transitionHeightChange(expand);
