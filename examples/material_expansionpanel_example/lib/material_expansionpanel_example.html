@@ -13,7 +13,7 @@
 
       <div>
         <span>Change the name:</span>
-        <material-input autoFocus [ngModel]="name" (inputKeyPress)="name = $event"></material-input>
+        <material-input #focusOnOpen [ngModel]="name" (inputKeyPress)="name = $event"></material-input>
       </div>
     </material-expansionpanel>
 
@@ -49,6 +49,9 @@
       </div>
       <div value>
         Panel headers can also have custom names.
+      </div>
+      <div tabIndex="0" #focusOnOpen>
+        I want to focus this content on open.
       </div>
     </material-expansionpanel>
   </material-expansionpanel-set>
