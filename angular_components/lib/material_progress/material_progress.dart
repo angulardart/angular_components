@@ -158,10 +158,12 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
       // Fall back to the non-optimized animation if the host element does not
       // yet have a width. The non-optimized animation will automatically adjust
       // when the host element width changes.
-      _useFancyAnimation = false;
 
       // To avoid 'expression has changed after it was checked'.
-      scheduleMicrotask(_changeDetector.markForCheck);
+      scheduleMicrotask(() {
+        _useFancyAnimation = false;
+        _changeDetector.markForCheck();
+      });
       return;
     }
 
