@@ -58,30 +58,18 @@
   }
 }
 
-// It is impossible to change 'just' the transition function for visibility in hte hidden style,
-// so use a mixin to keep everything consistent except that.
-@mixin header-transition($visibility_function) {
-  transition: height $mat-transition $mat-transition-standard,
-  min-height $mat-transition $mat-transition-standard,
-  opacity $mat-transition-slow $mat-transition-standard,
-  visibility $mat-transition-slow $visibility_function;
-}
-
 header {
   display: flex;
   color: $mat-transparent-black;
-  // When switching to expanded, turn visibility on at the start.
-  @include header-transition(step-start);
-  visibility: inherit;
+  transition: height $mat-transition $mat-transition-standard,
+              min-height $mat-transition $mat-transition-standard,
+              opacity $mat-transition-slow $mat-transition-standard;
 
   &.hidden {
     min-height: 0;
     height: 0;
     opacity: 0;
     overflow: hidden;
-    // When switching to hidden, don't turn off visibility until the end.
-    @include header-transition(step-end);
-    visibility: hidden;
   }
 }
 
@@ -144,29 +132,17 @@ header {
   padding-right: $mat-grid * 2;
 }
 
-// It is impossible to change 'just' the transition function for visibility in hte hidden style,
-// so use a mixin to keep everything consistent except that.
-@mixin main-transition($visibility-function) {
-  transition: height $mat-transition $mat-transition-standard,
-              opacity $mat-transition $mat-transition-standard,
-              visibility $mat-transition $visibility-function;
-}
-
 main {
   max-height: 100%;
   opacity: 1;
   overflow: hidden;
-  // When switching to expanded, turn visibility on at the start.
-  @include main-transition(step-start);
-  visibility: inherit;
+  transition: height $mat-transition $mat-transition-standard,
+              opacity $mat-transition $mat-transition-standard;
   width: 100%;
 
   &.hidden {
     height: 0;
     opacity: 0;
-    // When switching to hidden, don't turn off visibility until the end.
-    @include main-transition(step-end);
-    visibility: hidden;
   }
 }
 
