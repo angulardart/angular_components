@@ -4,13 +4,13 @@
   "file": "main.dart.js_76.part.js",
   "sourceRoot": "",
   "sources": ["../packages/angular_components/material_checkbox/material_checkbox.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular/src/core/linker/component_factory.dart"],
-  "names": ["viewFactory_MaterialCheckboxComponentHost0","AppView","initReflector","_ViewMaterialCheckboxComponentHost0.build","_ViewMaterialCheckboxComponentHost0.injectorGetInternal","_ViewMaterialCheckboxComponentHost0.detectChangesInternal","_ViewMaterialCheckboxComponentHost0.destroyInternal","","registerComponent","MaterialCheckboxComponentNgFactory","ref","projectableNodes","cdState"],
-  "mappings": "A;;IA8Q2CA,cArCzCA,eAAiHA;ACjDpGC,CAAXA,YDiDyGD;AAsC3GA,QACFA,C;GAGKE,eACCA,KACFA,MAaJA;;AEvQEA,MAAWA,KF8PcA,KAtGlBA;AAuGPA;AACAA;AAEAA;AACAA;AAEAA;AACAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAvDkDC,WAAQA;AACxCA;IAAdA;GACqBA;IAArBA;AACyCA,UCrBpBA,EAASA;IDqB9BA;AACAA,iBCnBEA,EAASA;ADoBXA,WAAMA;AACNA,OG9NFA,mBH8N+BA,OAAQA,UACvCA,C;EAGQC,wBACyBA,UAC7BA,WAAOA,EAGXA;AADEA,QACFA,C;EAGKC,qBCvCcA,EAASA;AD6C1BA;AACAA,UACFA,C;EAGKC,WACHA;IACAA,WACFA,C",
+  "names": ["viewFactory_MaterialCheckboxComponentHost0","_ViewMaterialCheckboxComponentHost0","initReflector","_ViewMaterialCheckboxComponentHost0.build","_ViewMaterialCheckboxComponentHost0.injectorGetInternal","_ViewMaterialCheckboxComponentHost0.detectChangesInternal","_ViewMaterialCheckboxComponentHost0.destroyInternal","","registerComponent","MaterialCheckboxComponentNgFactory","projectedNodes","cdState"],
+  "mappings": "A;0DAmPEA;IAqCyCA,cACzCA,kBC9GeC,ODwE6FD,MAuC9GA,C;GAGKE,eACCA,KACFA,MAeJA;;AEnREA,SFwQyBA,KAtGlBA;AAuGPA;AACAA;AACAA;AAEAA;AACAA;AAEAA;AAEAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAzDkDC,WAChCA,cAAdA,gBACqBA;CAArBA;AACyCA;CAAzCA;AACAA,WClDiCA,EAASA;ADmD1CA,KAAMA;AACNA,OGxOFA,aHwO+BA,IAAQA,UACvCA,C;EAGQC,wBACyBA,UAC7BA,WAAOA,EAGXA;AADEA,QACFA,C;EAGKC,qBCvEcA,EAASA;AD6E1BA;AACAA,UACFA,C;EAGKC,WACHA;IACAA,WACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "6LA+QSOgCC9FPAADwDAAa,A,W;kDAgDACW;KAAoDCK;0eA3CqCCyB;sBACpCCM;sBAE5CJmB;wGAciBKM;"
+    "frames": "yJAyRSOsB;gCAAAAAAtC6EAO,M;0CAgDpFCS;KAAoDCK;kgBA1CCCM;gBAE5CHa;qGAciBIM;"
   }
 }

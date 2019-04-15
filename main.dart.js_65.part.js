@@ -1,71 +1,61 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y={GC:function GC(d){this.e=d}},R,K={h2:function h2(d){this.a=d}},V,S,N,E,M,Q={
-aoC:function(){return C.dN},
-aHX:function(d,e){var y=new Q.W0(P.e(P.c,null),d)
-y.a=S.i(y,3,C.k,e,A.fw)
+$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y={FJ:function FJ(d){this.e=d}},R,K={i2:function i2(){}},V,S,N,E,M,Q={
+al1:function(){return C.dQ},
+aHQ:function(d,e){return new Q.Vn(d,S.i(3,C.j,e))},
+ar7:function(){if($.aaT)return
+$.aaT=!0
+$.H.C(0,C.ot,C.dQ)
+E.B()
+K.cC()
+D.ck()
+Q.ar8()},
+Mf:function Mf(d,e){var _=this
+_.c=_.b=_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
+_.d=d
+_.e=e},
+Vn:function Vn(d,e){var _=this
+_.c=_.b=_.a=_.r=_.f=null
+_.d=d
+_.e=e},
+aHR:function(d,e){var y=new Q.Vo(d,S.i(3,C.c,e))
+y.c=d.c
 return y},
-auB:function(){if($.aaJ)return
-$.aaJ=!0
-$.F().w(0,C.p3,C.dN)
-E.z()
-K.cD()
-D.cn()
-Q.auC()},
-Nd:function Nd(d,e){var _=this
-_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null},
-W0:function W0(d,e){var _=this
-_.a=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null},
-aHY:function(d,e){var y=new Q.W1(P.e(P.c,null),d)
-y.a=S.i(y,3,C.c,e,K.h2)
-y.d=$.a1l
+aHS:function(d,e){return new Q.Vp(d,S.i(3,C.j,e))},
+ar8:function(){if($.aaU)return
+$.aaU=!0
+$.H.C(0,C.pg,C.d9)
+E.B()
+V.er()
+R.io()
+L.cZ()
+T.oB()
+U.d9()
+M.bJ()
+Q.dj()
+A.f0()
+R.ly()
+T.ZA()
+F.Zv()
+B.ag1()},
+uQ:function uQ(d,e){var _=this
+_.Z=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
+_.aq=_.av=_.aA=_.au=_.aC=_.aI=_.ap=_.aB=_.af=_.an=_.am=_.ak=_.aj=_.al=_.a5=_.ai=_.ab=_.ah=_.a4=_.a6=_.a9=_.a8=_.K=_.R=_.a0=_.Y=_.a2=_.X=_.a1=_.U=null
+_.bA=_.bp=_.by=_.bH=_.bm=_.bu=_.b1=_.b0=_.bf=_.aN=_.b7=_.aR=_.bi=_.aZ=_.ba=_.aE=_.aY=_.aU=_.aM=_.aT=_.b9=_.b4=_.aO=_.aw=_.aH=_.b_=_.aS=_.aQ=_.aG=_.ay=null
+_.c=_.b=_.a=_.bx=_.c7=_.bG=_.bS=_.bR=_.bl=_.cm=_.c_=_.bQ=_.c5=_.c4=_.bj=_.bB=null
+_.d=d
+_.e=e},
+Vo:function Vo(d,e){var _=this
+_.c=_.b=_.a=_.r=_.f=null
+_.d=d
+_.e=e},
+Vp:function Vp(d,e){var _=this
+_.c=_.b=_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
+_.d=d
+_.e=e}},D={
+al2:function(d,e,f){var y=new D.tf(d,E.eZ(f,!0),e,null,null,C.ac,C.ac)
+y.Q=new T.hH(y.gZ3(),C.ba)
 return y},
-aHZ:function(d,e){var y=new Q.W2(P.e(P.c,null),d)
-y.a=S.i(y,3,C.k,e,K.h2)
-return y},
-auC:function(){if($.aaK)return
-$.aaK=!0
-$.F().w(0,C.pP,C.d6)
-E.z()
-V.eC()
-R.jX()
-L.d8()
-T.oU()
-U.di()
-M.bH()
-Q.ds()
-A.fI()
-R.lB()
-T.ZU()
-F.ZP()
-B.afT()},
-vu:function vu(d,e){var _=this
-_.S=_.T=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.aC=_.aD=_.az=_.at=_.an=_.ay=_.ae=_.ap=_.a5=_.ax=_.am=_.aj=_.ac=_.ai=_.ah=_.ak=_.as=_.a7=_.ag=_.a8=_.aa=_.ab=_.a4=_.a2=_.R=_.a0=_.M=_.L=_.a_=_.V=null
-_.b2=_.bx=_.bo=_.bg=_.bC=_.bB=_.bc=_.bw=_.aT=_.bv=_.bk=_.bu=_.aS=_.b6=_.b5=_.aM=_.aR=_.bd=_.bb=_.aP=_.aI=_.aw=_.b0=_.b8=_.b3=_.b1=_.aZ=_.aW=_.aE=_.aA=null
-_.a=_.bj=_.c9=_.cg=_.bZ=_.bA=_.bJ=_.bX=_.c5=_.bD=_.bW=_.bE=_.aU=_.bK=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null},
-W1:function W1(d,e){var _=this
-_.a=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null},
-W2:function W2(d,e){var _=this
-_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null}},D={
-aoD:function(d,e,f){var y=new D.tQ(d,E.hY(f,!0),e,null,null,C.a4,C.a4)
-y.Q=new T.i8(y.gZz(),C.b2)
-return y},
-tQ:function tQ(d,e,f,g,h,i,j){var _=this
+tf:function tf(d,e,f,g,h,i,j){var _=this
 _.Q=null
 _.cx=_.ch=!1
 _.cy=null
@@ -76,7 +66,7 @@ _.d=g
 _.e=h
 _.f=i
 _.r=j
-_.y=_.x=null}},L,Z,A={fw:function fw(d){this.a=d}},U,T,O,X,B,F
+_.y=_.x=null}},L,Z,O,A={fE:function fE(d){this.a=d}},U,T,X,B,F
 a.setFunctionNamesIfNecessary([Y,K,Q,D,A])
 C=c[0]
 H=c[1]
@@ -96,1397 +86,1343 @@ Q=a.updateHolder(c[14],Q)
 D=a.updateHolder(c[15],D)
 L=c[16]
 Z=c[17]
-A=a.updateHolder(c[18],A)
-U=c[19]
-T=c[20]
-O=c[21]
+O=c[18]
+A=a.updateHolder(c[19],A)
+U=c[20]
+T=c[21]
 X=c[22]
 B=c[23]
 F=c[24]
-D.tQ.prototype={
-o9:function(){this.cy.b.saH(0,!0)},
-iD:function(){this.Q.hA(!1)
+D.tf.prototype={
+nO:function(){this.cy.b.saF(0,!0)},
+ix:function(){this.Q.hr(!1)
 var y=this.cy.b
-if(y.a4)y.saH(0,!1)},
-lJ:function(d){this.cx=!0},
-lI:function(d){this.cx=!1
-this.iD()},
-a2d:function(d){if(this.cx){this.cy.b.saH(0,!0)
+if(y.a9)y.saF(0,!1)},
+lo:function(d){this.cx=!0},
+ln:function(d){this.cx=!1
+this.ix()},
+a1H:function(d){if(this.cx){this.cy.b.saF(0,!0)
 this.cx=!1}},
-j0:function(d){if(this.ch)return
+iU:function(d){if(this.ch)return
 this.ch=!0
-this.Q.ih(0)},
-hh:function(d){this.ch=!1
-this.iD()},
-sa3I:function(d){this.cy=d},
-$iapi:1}
-Y.GC.prototype={}
-A.fw.prototype={}
-Q.Nd.prototype={
-gnG:function(){var y=this.y
-if(y==null){y=document
-this.y=y}return y},
-gCz:function(){var y=this.Q
-if(y==null){y=window
-this.Q=y}return y},
-gnH:function(){var y=this.ch
-if(y==null){y=this.c
-y=T.aY(y.l(C.b,this.a.Q,null),y.l(C.D,this.a.Q,null),y.n(C.f,this.a.Q),this.gCz())
-this.ch=y}return y},
-gCw:function(){var y,x
-y=this.cx
-if(y==null){y=this.c.n(C.S,this.a.Q)
-x=this.gnH()
-y=new O.aC(y,x)
-this.cx=y}return y},
-gtb:function(){var y=this.cy
-if(y==null){y=new K.aH(this.gnG(),this.gnH(),P.aU(null,[P.o,P.c]))
-this.cy=y}return y},
-gWj:function(){var y=this.db
-if(y==null){y=T.b2(this.c.n(C.f,this.a.Q))
-this.db=y}return y},
-gtc:function(){var y=this.dx
-if(y==null){y=G.b6(this.c.l(C.w,this.a.Q,null))
-this.dx=y}return y},
-gCB:function(){var y=this.dy
-if(y==null){y=G.b9(this.gnG(),this.c.l(C.x,this.a.Q,null))
-this.dy=y}return y},
-gCC:function(){var y=this.fr
-if(y==null){y=G.b1(this.gtc(),this.gCB(),this.c.l(C.v,this.a.Q,null))
-this.fr=y}return y},
-gtd:function(){var y=this.fx
-if(y==null){this.fx=!0
-y=!0}return y},
-gCD:function(){var y=this.fy
-if(y==null){this.fy=!0
-y=!0}return y},
-gCy:function(){var y=this.go
-if(y==null){y=this.gnG()
-y=new R.aF(y.querySelector("head"),y)
-this.go=y}return y},
-gCA:function(){var y=this.id
-if(y==null){y=X.b4()
-this.id=y}return y},
-gCx:function(){var y=this.k1
-if(y==null){y=K.b3(this.gCy(),this.gCC(),this.gtc(),this.gtb(),this.gnH(),this.gCw(),this.gtd(),this.gCD(),this.gCA())
-this.k1=y}return y},
-gWk:function(){var y,x,w,v
-y=this.k2
-if(y==null){y=this.c
-x=y.n(C.f,this.a.Q)
-w=this.gtd()
-v=this.gCx()
-y.l(C.n,this.a.Q,null)
-y=new X.az(w,x,v)
-this.k2=y}return y},
-p:function(){var y,x
-y=this.Z(this.e)
-x=K.cd(this,0)
-this.r=x
-y.appendChild(x.e)
-x=new X.af(!J.bp(window.location.href,"enableLatencyCharts=false"))
-this.x=x
-this.r.k(0,x,[])
-this.J(C.a,null)},
-K:function(d,e,f){var y
-if(d===C.M&&0===e)return this.gnG()
-if(d===C.T&&0===e){y=this.z
-if(y==null){y=document
-this.z=y}return y}if(d===C.I&&0===e)return this.gCz()
-if(d===C.b&&0===e)return this.gnH()
-if(d===C.O&&0===e)return this.gCw()
-if(d===C.N&&0===e)return this.gtb()
-if(d===C.U&&0===e)return this.gWj()
-if(d===C.w&&0===e)return this.gtc()
-if(d===C.x&&0===e)return this.gCB()
-if(d===C.v&&0===e)return this.gCC()
-if(d===C.R&&0===e)return this.gtd()
-if(d===C.G&&0===e)return this.gCD()
-if(d===C.Q&&0===e)return this.gCy()
-if(d===C.F&&0===e)return this.gCA()
-if(d===C.P&&0===e)return this.gCx()
-if(d===C.n&&0===e)return this.gWk()
-if(d===C.H&&0===e){y=this.k3
-if(y==null){this.k3=C.A
-y=C.A}return y}if(d===C.y&&0===e){y=this.k4
-if(y==null){y=new K.aL(this.gtb())
-this.k4=y}return y}return f},
-q:function(){var y,x
-y=this.f.a
-x=this.r1
-if(x!==y){this.x.a=y
-this.r1=y}this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[A.fw]}}
-Q.W0.prototype={
-p:function(){var y,x,w,v
-y=P.c
-x=new Q.Nd(P.e(y,null),this)
-w=A.fw
-x.a=S.i(x,3,C.j,0,w)
-v=document.createElement("material-tooltip-api")
-x.e=v
-v=$.a6R
-if(v==null){v=$.D
-v=v.Y(null,C.X,C.a)
-$.a6R=v}x.X(v)
-this.r=x
-this.e=x.e
-x=[D.c4]
-x=H.b([D.at("MaterialTooltipDirective",!1,"","[materialTooltip]","","angular_components/lib/src/material_tooltip/tooltip.dart",X.h("<p>An ink-based tooltip which can be attached to any element.</p>\n"),H.b([D.j("Input","alignX","alignPositionX","String",X.h("<p>Alignment of the popup in the horizontal direction.</p>\n<p>Possible values are:</p><ul><li><code>start</code>: Align popup to the start of a container. This is equivalent\nto 'flex-start'. (Default)</li><li><code>center</code>: Align popup to the center of a container. This is equivalent\nto 'center'.</li><li><code>end</code>: Align popup to the end of a container. This is equivalent to\n'flex-end'.</li><li><code>before</code>: Align popup before a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li><li><code>after</code>: Align popup after a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li></ul>\n"),"angular_components/lib/src/laminate/popup/popup_source_directive.dart",!1,""),D.j("Input","alignY","alignPositionY","String",X.h("<p>Alignment of the popup in the vertical direction.</p>\n<p>Possible values are:</p><ul><li><code>start</code>: Align popup to the start of a container. This is equivalent\nto 'flex-start'. (Default)</li><li><code>center</code>: Align popup to the center of a container. This is equivalent\nto 'center'.</li><li><code>end</code>: Align popup to the end of a container. This is equivalent to\n'flex-end'.</li><li><code>before</code>: Align popup before a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li><li><code>after</code>: Align popup after a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li></ul>\n"),"angular_components/lib/src/laminate/popup/popup_source_directive.dart",!1,""),D.j("Input","canShow","showTooltipIf","bool",X.h("<p>Condition whether to show the tooltip.</p>\n<p>Defaults to true.</p>\n"),"angular_components/lib/src/material_tooltip/tooltip.dart",!1,""),D.j("Input","positions","tooltipPositions","List<RelativePosition>",X.h("<p>Positions that the tooltip should try to show.</p>\n"),"angular_components/lib/src/material_tooltip/tooltip.dart",!1,""),D.j("Input","text","materialTooltip","String",X.h("<p>The text to show in the tooltip.</p>\n"),"angular_components/lib/src/material_tooltip/tooltip.dart",!1,"")],x),H.b([],x)),D.at("MaterialPaperTooltipComponent",!1,"","material-tooltip-card","","angular_components/lib/src/material_tooltip/paper_tooltip.dart",X.h("<p>A paper based overlay meant to convey long-form contextual information about\nits target element.</p>\n<p>The target for a tooltip card may be any element, such as a button, input,\nlink, etc. The target may also be the <code>help_outline</code> icon, which acts as a\nproxy for the actual target.</p>\n<p>Use this component in conjunction with the\n<code>ClickableTooltipTargetDirective</code>. Consider setting <code>focusContents</code> to true\nto improve a11y.</p>\n<p>This component supports deferred content.</p>\n<p>If your tooltip content is another component, use the\n<code>DeferredContentDirective</code> to load your component only when it is visible.</p>\n<p><strong>Supported Content:</strong></p>\n<p>The following selectors are automatically styled to tooltip spec:</p><ul><li><code>header</code></li><li><code>footer</code></li><li>Non header/footer content is given the tooltip body style.</li></ul>\n"),H.b([D.j("Input","focusContents","","bool",X.h("<p>Whether or not the tooltip contents should auto focus when opened.</p>\n<p>This also makes the tooltip auto-dismissable when true.</p>\n"),"angular_components/lib/src/material_tooltip/paper_tooltip.dart",!1,""),D.j("Input","offsetX","offsetX","int",X.h("<p>The x-offset to where the tooltip will be ultimately positioned.</p>\n"),"angular_components/lib/src/material_tooltip/paper_tooltip.dart",!1,""),D.j("Input","offsetY","offsetY","int",X.h("<p>The y-offset to where the tooltip will be ultimately positioned.</p>\n"),"angular_components/lib/src/material_tooltip/paper_tooltip.dart",!1,""),D.j("Input","preferredPositions","","List<RelativePosition>",X.h("<p>Relative positions where to try to show the tooltip.</p>\n<p>Defaults to:</p>\n<p><code>[RelativePosition.OffsetBottomRight,\nRelativePosition.OffsetTopLeft,\nRelativePosition.OffsetBottomLeft,\nRelativePosition.OffsetTopRight]</code></p>\n"),"angular_components/lib/src/material_tooltip/paper_tooltip.dart",!1,""),D.j("Input","tooltipRef","for","TooltipTarget",X.h("<p>The element at which this tooltip is targeted.</p>\n"),"angular_components/lib/src/material_tooltip/paper_tooltip.dart",!1,"")],x),H.b([],x)),D.at("MaterialTooltipTargetDirective",!1,"","[tooltipTarget]","tooltipTarget","angular_components/lib/src/material_tooltip/tooltip_target.dart",X.h("<p>A directive that marks the target of a tooltip and handles showing and\nhiding a tooltip on hover, click, and focus.</p>\n<p>This directive is used in conjunction with a <code>Tooltip</code> Component. Such as\nthe <code>MaterialInkTooltipComponent</code>, which gives full control over\nthe content of a simple tooltip.</p>\n"),H.b([D.j("Input","alignX","alignPositionX","String",X.h("<p>Alignment of the popup in the horizontal direction.</p>\n<p>Possible values are:</p><ul><li><code>start</code>: Align popup to the start of a container. This is equivalent\nto 'flex-start'. (Default)</li><li><code>center</code>: Align popup to the center of a container. This is equivalent\nto 'center'.</li><li><code>end</code>: Align popup to the end of a container. This is equivalent to\n'flex-end'.</li><li><code>before</code>: Align popup before a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li><li><code>after</code>: Align popup after a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li></ul>\n"),"angular_components/lib/src/laminate/popup/popup_source_directive.dart",!1,""),D.j("Input","alignY","alignPositionY","String",X.h("<p>Alignment of the popup in the vertical direction.</p>\n<p>Possible values are:</p><ul><li><code>start</code>: Align popup to the start of a container. This is equivalent\nto 'flex-start'. (Default)</li><li><code>center</code>: Align popup to the center of a container. This is equivalent\nto 'center'.</li><li><code>end</code>: Align popup to the end of a container. This is equivalent to\n'flex-end'.</li><li><code>before</code>: Align popup before a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li><li><code>after</code>: Align popup after a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li></ul>\n"),"angular_components/lib/src/laminate/popup/popup_source_directive.dart",!1,"")],x),H.b([D.j("Output","tooltipActivate","","Stream<bool>",X.h("<p>Event that fires when the tooltip is activated.</p>\n"),"angular_components/lib/src/material_tooltip/tooltip_target.dart",!1,"")],x)),D.at("ClickableTooltipTargetDirective",!1,"","[clickableTooltipTarget]","tooltipTarget","angular_components/lib/src/material_tooltip/tooltip_target.dart",X.h("<p>A directive that marks the target of a tooltip and handles activating on\nmouse over (with delay), click, enter, and space.</p>\n<p>This directive is slightly different from <code>MaterialPaperTooltipComponent</code>.\nClick / key events open the tooltip with no delay, and tooltips do not open\non focus.</p>\n<p>This directive is used in conjunction with a <code>Tooltip</code> Component. Such as\nthe <code>MaterialPaperTooltipComponent</code>, which gives full control over the\ncontent of a simple tooltip.</p>\n"),H.b([D.j("Input","alignX","alignPositionX","String",X.h("<p>Alignment of the popup in the horizontal direction.</p>\n<p>Possible values are:</p><ul><li><code>start</code>: Align popup to the start of a container. This is equivalent\nto 'flex-start'. (Default)</li><li><code>center</code>: Align popup to the center of a container. This is equivalent\nto 'center'.</li><li><code>end</code>: Align popup to the end of a container. This is equivalent to\n'flex-end'.</li><li><code>before</code>: Align popup before a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li><li><code>after</code>: Align popup after a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li></ul>\n"),"angular_components/lib/src/laminate/popup/popup_source_directive.dart",!1,""),D.j("Input","alignY","alignPositionY","String",X.h("<p>Alignment of the popup in the vertical direction.</p>\n<p>Possible values are:</p><ul><li><code>start</code>: Align popup to the start of a container. This is equivalent\nto 'flex-start'. (Default)</li><li><code>center</code>: Align popup to the center of a container. This is equivalent\nto 'center'.</li><li><code>end</code>: Align popup to the end of a container. This is equivalent to\n'flex-end'.</li><li><code>before</code>: Align popup before a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li><li><code>after</code>: Align popup after a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li></ul>\n"),"angular_components/lib/src/laminate/popup/popup_source_directive.dart",!1,"")],x),H.b([D.j("Output","tooltipActivate","","Stream<bool>",X.h("<p>Event that fires when the tooltip is activated.</p>\n"),"angular_components/lib/src/material_tooltip/tooltip_target.dart",!1,"")],x)),D.at("MaterialInkTooltipComponent",!1,"","material-tooltip-text","","angular_components/lib/src/material_tooltip/ink_tooltip.dart",X.h('<p>An ink-based overlay meant to deliver contextual information about the\nelement it targets.</p>\n<p>It is a "small" tooltip in that it ought to be one or two lines, at most,\nand has a maximum width of <code>320px</code>.</p>\n<p>Typically, the tooltips are associated with an icon or a button and provide\na label or brief helper text about that element. This component should be\nused with a <code>TooltipTarget</code> component which controls its visibility\nand provides the underlying <code>HtmlElement</code> at which the tooltip is targeted.</p>\n<p>Use this component in conjunction with the <code>MaterialTooltipTargetDirective</code>.</p>\n<p>Consider using <code>MaterialTooltipDirective</code> instead; usage is much simpler and\nit enforces text-only small tooltips.</p>\n'),H.b([D.j("Input","positions","","List<RelativePosition>",X.h("<p>Positions at which the tooltip should try to show.</p>\n"),"angular_components/lib/src/material_tooltip/ink_tooltip.dart",!1,""),D.j("Input","text","","String",X.h("<p>Text content of the tooltip.</p>\n"),"angular_components/lib/src/material_tooltip/ink_tooltip.dart",!1,""),D.j("Input","tooltipRef","for","TooltipTarget",X.h('<p>The element at which this tooltip is targeted.</p>\n<p>This is typically set in the template by using a var ref. For example:</p>\n<pre><code class="language-html">  &lt;span tooltipTarget #target="tooltipTarget"&gt;Tip&lt;/span&gt;\n  &lt;material-tooltip-text [for]="target"&gt;My tooltip&lt;/material-tooltip-text&gt;\n</code></pre>\n'),"angular_components/lib/src/material_tooltip/ink_tooltip.dart",!1,"")],x),H.b([],x)),D.at("MaterialIconTooltipComponent",!1,"","material-icon-tooltip","","angular_components/lib/src/material_tooltip/icon_tooltip.dart",X.h('<p>An icon that displays a paper tooltip on mouse-hover, click, enter,\nspace, and focus.</p>\n<p>This is essentially the same as showing <code>MaterialTooltipCard</code> on a\n<code>MaterialIconComponent</code>, except that it shows tooltip on click (as\nopposed to <code>MaterialTooltipTarget</code>, which does not have click trigger).</p>\n<p><strong>Attributes:</strong></p><ul><li>\n<p><code>icon</code> -- The name of the icon. This overrides <code>type</code>, if both are\nprovided. See <code>https://www.google.com/design/icons/</code> for available icons.</p></li><li>\n<p><code>type</code> -- The type of the icon. Possible values:</p><ul><li><code>help</code> -- Shows a "help_outline" icon (a circled "?"). (Default)</li><li><code>info</code> -- Shows an "info_outline" (a circled "i")</li><li><code>error</code> -- Shows an "error_outline" (a circled "!").</li></ul></li></ul>\n'),H.b([D.j("Input","offsetX","offsetX","int",X.h("<p>The x-offset to where the tooltip will be ultimately positioned.</p>\n"),"angular_components/lib/src/material_tooltip/icon_tooltip.dart",!1,""),D.j("Input","offsetY","offsetY","int",X.h("<p>The y-offset to where the tooltip will be ultimately positioned.</p>\n"),"angular_components/lib/src/material_tooltip/icon_tooltip.dart",!1,""),D.j("Input","preferredPositions","","List<RelativePosition>",X.h("<p>Relative positions where to try to show the tooltip.</p>\n<p>Defaults to:</p>\n<p><code>[RelativePosition.OffsetBottomRight,\nRelativePosition.OffsetTopLeft,\nRelativePosition.OffsetBottomLeft,\nRelativePosition.OffsetTopRight]</code></p>\n"),"angular_components/lib/src/material_tooltip/icon_tooltip.dart",!1,"")],x),H.b([],x))],[D.bW])
-v=H.b([new R.a7(C.d6,"MaterialTooltipExampleComponent","material_tooltip_example/lib/material_tooltip_example.dart")],[R.a7])
-y=new A.fw(R.ch(H.b([],[y]),v,x,P.e(y,y),!0))
-this.x=y
-this.r.k(0,y,this.a.e)
-this.D(this.e)
-return new D.A(this,0,this.e,this.x,[w])},
-q:function(){this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[A.fw]}}
-K.h2.prototype={}
-Q.vu.prototype={
-gJI:function(){var y=this.Q
-if(y==null){y=this.c
-y=G.cL(y.l(C.a_,this.a.Q,null),y.l(C.D,this.a.Q,null))
-this.Q=y}return y},
-gJL:function(){var y=this.dx
-if(y==null){y=this.c
-y=G.cL(y.l(C.a_,this.a.Q,null),y.l(C.D,this.a.Q,null))
-this.dx=y}return y},
-gJM:function(){var y=this.go
-if(y==null){y=this.c
-y=G.cL(y.l(C.a_,this.a.Q,null),y.l(C.D,this.a.Q,null))
-this.go=y}return y},
-gJN:function(){var y=this.k4
-if(y==null){y=this.c
-y=G.cL(y.l(C.a_,this.a.Q,null),y.l(C.D,this.a.Q,null))
-this.k4=y}return y},
-gJO:function(){var y=this.x1
-if(y==null){y=this.c
-y=G.cL(y.l(C.a_,this.a.Q,null),y.l(C.D,this.a.Q,null))
-this.x1=y}return y},
-gJP:function(){var y=this.S
-if(y==null){y=this.c
-y=G.cL(y.l(C.a_,this.a.Q,null),y.l(C.D,this.a.Q,null))
-this.S=y}return y},
-gJQ:function(){var y=this.R
-if(y==null){y=this.c
-y=G.cL(y.l(C.a_,this.a.Q,null),y.l(C.D,this.a.Q,null))
-this.R=y}return y},
-gJS:function(){var y=this.ab
-if(y==null){y=this.c
-y=G.cL(y.l(C.a_,this.a.Q,null),y.l(C.D,this.a.Q,null))
-this.ab=y}return y},
-p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,h0,h1,h2,h3,h4,h5,h6,h7,h8,h9,i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,j0,j1,j2,j3,j4,j5,j6,j7,j8,j9,k0,k1,k2,k3,k4,k5,k6
-y=this.Z(this.e)
-x=document
-y.appendChild(x.createTextNode("\n"))
-w=S.d(x,"h1",y)
-this.m(w)
-w.appendChild(x.createTextNode("Material tooltip"))
-y.appendChild(x.createTextNode("\n"))
-v=S.d(x,"section",y)
-this.m(v)
-v.appendChild(x.createTextNode("\n  "))
-u=S.d(x,"h2",v)
-this.m(u)
-u.appendChild(x.createTextNode("Ink tooltip"))
-v.appendChild(x.createTextNode("\n  "))
-t=S.p(x,v)
-t.className="demo-section"
-this.h(t)
-t.appendChild(x.createTextNode("\n    "))
-s=S.p(x,t)
-s.className="demo-container"
-s.setAttribute("row","")
-this.h(s)
-s.appendChild(x.createTextNode("\n      "))
-r=S.p(x,s)
-r.setAttribute("column","")
-this.h(r)
-r.appendChild(x.createTextNode("\n        "))
-q=S.p(x,r)
-q.setAttribute("flex","")
-this.h(q)
-q.appendChild(x.createTextNode("\n          "))
-p=S.p(x,q)
-this.h(p)
-p.appendChild(x.createTextNode("\n            "))
-o=M.U(this,19)
-this.r=o
-n=o.e
-p.appendChild(n)
-n.className="demo-glyph"
-n.setAttribute("icon","print")
-n.setAttribute("materialTooltip","Print")
-n.tabIndex=0
-this.h(n)
-this.x=new V.n(19,17,this,n)
-this.y=new Y.K(n)
-o=this.c
-m=o.n(C.y,this.a.Q)
-l=this.x
-l=S.eS(m,l,n,l,this.r.a.b,o.n(C.I,this.a.Q),null,null)
-this.z=l
-x.createTextNode("\n            ")
-this.r.k(0,this.y,[])
-p.appendChild(x.createTextNode("\n            "))
-this.m(S.d(x,"br",p))
-p.appendChild(x.createTextNode("\n            "))
-m=M.U(this,24)
-this.ch=m
-k=m.e
-p.appendChild(k)
-k.className="demo-glyph"
-k.setAttribute("icon","save")
-k.setAttribute("materialTooltip","Save")
-k.tabIndex=0
-this.h(k)
-this.cx=new V.n(24,17,this,k)
-this.cy=new Y.K(k)
-m=o.n(C.y,this.a.Q)
-l=this.cx
-l=S.eS(m,l,k,l,this.ch.a.b,o.n(C.I,this.a.Q),null,null)
-this.db=l
-x.createTextNode("\n            ")
-this.ch.k(0,this.cy,[])
-p.appendChild(x.createTextNode("\n            "))
-this.m(S.d(x,"br",p))
-p.appendChild(x.createTextNode("\n            "))
-m=M.U(this,29)
-this.dy=m
-j=m.e
-p.appendChild(j)
-j.className="demo-glyph"
-j.setAttribute("icon","lock")
-j.tabIndex=0
-this.h(j)
-this.fr=new V.n(29,17,this,j)
-this.fx=new Y.K(j)
-m=o.n(C.y,this.a.Q)
-l=this.fr
-l=S.eS(m,l,j,l,this.dy.a.b,o.n(C.I,this.a.Q),null,null)
-this.fy=l
-x.createTextNode("\n            ")
-this.dy.k(0,this.fx,[])
-p.appendChild(x.createTextNode("\n            "))
-this.m(S.d(x,"br",p))
-p.appendChild(x.createTextNode("\n          "))
-q.appendChild(x.createTextNode("\n        "))
-r.appendChild(x.createTextNode("\n        "))
-i=S.p(x,r)
-i.setAttribute("flex","")
-this.h(i)
-i.appendChild(x.createTextNode("\n          "))
-m=M.U(this,38)
-this.id=m
-h=m.e
-i.appendChild(h)
-h.className="demo-glyph"
-h.setAttribute("icon","print")
-h.setAttribute("materialTooltip","Print")
-h.tabIndex=0
-this.h(h)
-this.k1=new V.n(38,36,this,h)
-this.k2=new Y.K(h)
-m=o.n(C.y,this.a.Q)
-l=this.k1
-l=S.eS(m,l,h,l,this.id.a.b,o.n(C.I,this.a.Q),null,null)
-this.k3=l
-x.createTextNode("\n          ")
-this.id.k(0,this.k2,[])
-i.appendChild(x.createTextNode("\n          "))
-this.m(S.d(x,"br",i))
-i.appendChild(x.createTextNode("\n          "))
-m=M.U(this,43)
-this.r1=m
-g=m.e
-i.appendChild(g)
-g.className="demo-glyph"
-g.setAttribute("icon","save")
-g.setAttribute("materialTooltip","Save")
-g.tabIndex=0
-this.h(g)
-this.r2=new V.n(43,36,this,g)
-this.rx=new Y.K(g)
-m=o.n(C.y,this.a.Q)
-l=this.r2
-l=S.eS(m,l,g,l,this.r1.a.b,o.n(C.I,this.a.Q),null,null)
-this.ry=l
-x.createTextNode("\n          ")
-this.r1.k(0,this.rx,[])
-i.appendChild(x.createTextNode("\n          "))
-this.m(S.d(x,"br",i))
-i.appendChild(x.createTextNode("\n          "))
-m=M.U(this,48)
-this.x2=m
-f=m.e
-i.appendChild(f)
-f.className="demo-glyph"
-f.setAttribute("icon","lock")
-f.tabIndex=0
-this.h(f)
-this.y1=new V.n(48,36,this,f)
-this.y2=new Y.K(f)
-m=o.n(C.y,this.a.Q)
-l=this.y1
-l=S.eS(m,l,f,l,this.x2.a.b,o.n(C.I,this.a.Q),null,null)
-this.T=l
-x.createTextNode("\n          ")
-this.x2.k(0,this.y2,[])
-i.appendChild(x.createTextNode("\n          "))
-this.m(S.d(x,"br",i))
-i.appendChild(x.createTextNode("\n        "))
-r.appendChild(x.createTextNode("\n      "))
-s.appendChild(x.createTextNode("\n      "))
-e=S.p(x,s)
-e.setAttribute("flex","")
-this.h(e)
-e.appendChild(x.createTextNode("\n        "))
-d=S.d(x,"p",e)
-d.className="caption"
-this.m(d)
-d.appendChild(x.createTextNode("\n          Tooltips on Icons.\n        "))
-e.appendChild(x.createTextNode("\n      "))
-s.appendChild(x.createTextNode("\n    "))
-t.appendChild(x.createTextNode("\n    "))
-a0=S.p(x,t)
-a0.className="demo-container"
-a0.setAttribute("column","")
-this.h(a0)
-a0.appendChild(x.createTextNode("\n      "))
-a1=S.p(x,a0)
-this.h(a1)
-a1.appendChild(x.createTextNode("\n        "))
-m=U.R(this,66)
-this.V=m
-a2=m.e
-a1.appendChild(a2)
-a2.setAttribute("materialTooltip","Saves the document")
-a2.setAttribute("raised","")
-this.h(a2)
-this.a_=new V.n(66,64,this,a2)
-m=F.M(o.l(C.o,this.a.Q,null))
-this.L=m
-this.M=B.Q(a2,m,this.V.a.b,null)
-m=o.n(C.y,this.a.Q)
-l=this.a_
-l=S.eS(m,l,a2,l,this.V.a.b,o.n(C.I,this.a.Q),null,null)
-this.a0=l
-a3=x.createTextNode("\n          Save\n        ")
-m=[W.aO]
-this.V.k(0,this.M,[H.b([a3],m)])
-a1.appendChild(x.createTextNode("\n      "))
-a0.appendChild(x.createTextNode("\n      "))
-a4=S.p(x,a0)
-a4.setAttribute("flex","")
-this.h(a4)
-a4.appendChild(x.createTextNode("\n        "))
-a5=S.d(x,"p",a4)
-a5.className="caption"
-this.m(a5)
-a5.appendChild(x.createTextNode("\n          Tooltip on a button.\n        "))
-a4.appendChild(x.createTextNode("\n      "))
-a0.appendChild(x.createTextNode("\n    "))
-t.appendChild(x.createTextNode("\n    "))
-a6=S.p(x,t)
-a6.className="demo-container"
-a6.setAttribute("column","")
-this.h(a6)
-a6.appendChild(x.createTextNode("\n      "))
-a7=S.p(x,a6)
-this.h(a7)
-a7.appendChild(x.createTextNode("\n        "))
-a8=S.d(x,"a",a7)
-a8.setAttribute("href","#")
-this.h(a8)
-this.a2=new V.n(81,79,this,a8)
-l=o.n(C.y,this.a.Q)
-a9=this.a2
-b0=this.a
-b0=S.eS(l,a9,a8,a9,b0.b,o.n(C.I,b0.Q),null,null)
-this.a4=b0
-a8.appendChild(x.createTextNode("opportunities"))
-a7.appendChild(x.createTextNode("\n      "))
-a6.appendChild(x.createTextNode("\n      "))
-b1=S.p(x,a6)
-b1.setAttribute("flex","")
-this.h(b1)
-b1.appendChild(x.createTextNode("\n        "))
-b2=S.d(x,"p",b1)
-b2.className="caption"
-this.m(b2)
-b2.appendChild(x.createTextNode("\n          Long tooltip on a link.\n        "))
-b1.appendChild(x.createTextNode("\n      "))
-a6.appendChild(x.createTextNode("\n    "))
-t.appendChild(x.createTextNode("\n  "))
-v.appendChild(x.createTextNode("\n  "))
-b3=S.p(x,v)
-b3.className="demo-section"
-this.h(b3)
-b3.appendChild(x.createTextNode("\n    "))
-b4=S.p(x,b3)
-b4.className="demo-container"
-b4.setAttribute("column","")
-this.h(b4)
-b4.appendChild(x.createTextNode("\n      "))
-b5=S.p(x,b4)
-b5.setAttribute("flex","")
-this.h(b5)
-b5.appendChild(x.createTextNode("\n        "))
-b6=S.p(x,b5)
-this.h(b6)
-b6.appendChild(x.createTextNode("\n          "))
-b7=S.d7(x,b6)
-b7.tabIndex=0
-b7.setAttribute("tooltipTarget","")
-this.m(b7)
-this.aa=new V.n(101,99,this,b7)
-l=o.n(C.y,this.a.Q)
-a9=this.aa
-b0=this.a.b
-l=new A.m9(new P.x(null,null,0,[P.q]),b0,a9,b7,l,E.hY(null,!0),b7,null,null,C.a4,C.a4)
-l.k4=new T.i8(l.ghu(),C.b2)
-this.a8=l
-b7.appendChild(x.createTextNode("\n            Explicitly declare a tooltip component\n          "))
-b6.appendChild(x.createTextNode("\n          "))
-l=L.a6f(this,104)
-this.ag=l
-b8=l.e
-b6.appendChild(b8)
-this.h(b8)
-l=G.cL(o.l(C.a_,this.a.Q,null),o.l(C.D,this.a.Q,null))
-this.a7=l
-a9=this.ag.a.b
-b8.toString
-this.as=new F.dP(l,a9,C.cq,Q.h9(null,new W.dV(b8)))
-b9=x.createTextNode("\n            Allows for \xa0 ")
-c0=x.createElement("strong")
-this.m(c0)
-c0.appendChild(x.createTextNode("formatted"))
-c1=x.createTextNode(" \xa0 ")
-c2=x.createElement("em")
-this.m(c2)
-c2.appendChild(x.createTextNode("text"))
-c3=x.createTextNode(".\n          ")
-l=[W.ag]
-this.ag.k(0,this.as,[H.b([b9,c0,c1,c2,c3],l)])
-b6.appendChild(x.createTextNode("\n        "))
-b5.appendChild(x.createTextNode("\n      "))
-b4.appendChild(x.createTextNode("\n      "))
-c4=S.p(x,b4)
-c4.setAttribute("flex","")
-this.h(c4)
-c4.appendChild(x.createTextNode("\n        "))
-c5=S.d(x,"p",c4)
-c5.className="caption"
-this.m(c5)
-c5.appendChild(x.createTextNode("\n          Custom tooltip on some text.\n        "))
-c4.appendChild(x.createTextNode("\n      "))
-b4.appendChild(x.createTextNode("\n    "))
-b3.appendChild(x.createTextNode("\n    "))
-c6=S.p(x,b3)
-c6.className="knob-container"
-c6.setAttribute("column","")
-this.h(c6)
-c6.appendChild(x.createTextNode("\n      "))
-c7=S.d(x,"p",c6)
-this.m(c7)
-c8=S.d(x,"em",c7)
-this.m(c8)
-c8.appendChild(x.createTextNode("\n        Use this configuration sparingly, as the tooltip text is intended for\n        simple strings.\n      "))
-c6.appendChild(x.createTextNode("\n    "))
-b3.appendChild(x.createTextNode("\n  "))
-v.appendChild(x.createTextNode("\n"))
-y.appendChild(x.createTextNode("\n\n"))
-c9=S.d(x,"section",y)
-this.m(c9)
-c9.appendChild(x.createTextNode("\n  "))
-d0=S.d(x,"h2",c9)
-this.m(d0)
-d0.appendChild(x.createTextNode("Card Tooltip"))
-c9.appendChild(x.createTextNode("\n  "))
-d1=S.p(x,c9)
-d1.className="demo-section"
-this.h(d1)
-d1.appendChild(x.createTextNode("\n    "))
-d2=S.p(x,d1)
-d2.className="demo-container"
-d2.setAttribute("column","")
-this.h(d2)
-d2.appendChild(x.createTextNode("\n      "))
-d3=S.p(x,d2)
-d3.setAttribute("flex","")
-this.h(d3)
-d3.appendChild(x.createTextNode("\n        "))
-d4=S.p(x,d3)
-this.h(d4)
-d4.appendChild(x.createTextNode("\n          "))
-d5=S.d(x,"p",d4)
-this.m(d5)
-d5.appendChild(x.createTextNode("\n            A simple sentence about something.\n            "))
-a9=M.U(this,146)
-this.ak=a9
-d6=a9.e
-d5.appendChild(d6)
-d6.setAttribute("icon","help_outline")
-d6.setAttribute("keyboardOnlyFocusIndicator","")
-d6.setAttribute("size","medium")
-d6.tabIndex=0
-d6.setAttribute("tooltipTarget","")
-this.h(d6)
-this.ah=new V.n(146,144,this,d6)
-this.ai=new Y.K(d6)
-a9=o.n(C.b,this.a.Q)
-this.ac=new O.db(d6,a9,C.K)
-a9=o.n(C.y,this.a.Q)
-b0=this.ah
-d7=this.ak.a.b
-a9=new A.m9(new P.x(null,null,0,[P.q]),d7,b0,d6,a9,E.hY(null,!0),d6,null,null,C.a4,C.a4)
-a9.k4=new T.i8(a9.ghu(),C.b2)
-this.aj=a9
-x.createTextNode("\n            ")
-this.ak.k(0,this.ai,[])
-d5.appendChild(x.createTextNode("\n          "))
-d4.appendChild(x.createTextNode("\n          "))
-a9=E.qy(this,150)
-this.am=a9
-d8=a9.e
-d4.appendChild(d8)
-this.h(d8)
-a9=G.cL(o.l(C.a_,this.a.Q,null),o.l(C.D,this.a.Q,null))
-this.ax=a9
-b0=this.am.a.b
-d7=P.q
-d9=[d7]
-d8.toString
-this.a5=new Q.d3(Q.h9(null,new W.dV(d8)),C.b5,new P.a3(null,null,0,d9),a9,b0)
-e0=x.createTextNode("\n            ")
-e1=x.createElement("header")
-this.m(e1)
-e1.appendChild(x.createTextNode("Simple sentences about things."))
-e2=x.createTextNode("\n            ")
-e3=x.createElement("p")
-this.m(e3)
-e4=S.d(x,"b",e3)
-this.m(e4)
-e4.appendChild(x.createTextNode("How it works:"))
-e3.appendChild(x.createTextNode(" Text explains things further."))
-e5=x.createTextNode("\n          ")
-a9=[W.ar]
-this.am.k(0,this.a5,[H.b([e1],a9),H.b([e0,e2,e3,e5],l),C.a])
-d4.appendChild(x.createTextNode("\n        "))
-d3.appendChild(x.createTextNode("\n      "))
-d2.appendChild(x.createTextNode("\n      "))
-e6=S.p(x,d2)
-e6.setAttribute("flex","")
-this.h(e6)
-e6.appendChild(x.createTextNode("\n        "))
-e7=S.p(x,e6)
-this.h(e7)
-e7.appendChild(x.createTextNode("\n          "))
-e8=S.d(x,"p",e7)
-this.m(e8)
-e8.appendChild(x.createTextNode("\n            Clickable tooltip. Target will open immediately on clicks and keyboard events.\n            "))
-b0=M.U(this,169)
-this.ae=b0
-e9=b0.e
-e8.appendChild(e9)
-e9.setAttribute("clickableTooltipTarget","")
-e9.setAttribute("icon","help_outline")
-e9.setAttribute("keyboardOnlyFocusIndicator","")
-e9.setAttribute("size","medium")
-e9.tabIndex=0
-this.h(e9)
-this.ay=new V.n(169,167,this,e9)
-b0=A.a4n(o.n(C.y,this.a.Q),this.ay,e9,this.ae.a.b,null)
-this.an=b0
-this.at=new Y.K(e9)
-b0=o.n(C.b,this.a.Q)
-this.az=new O.db(e9,b0,C.K)
-x.createTextNode("\n            ")
-this.ae.k(0,this.at,[])
-e8.appendChild(x.createTextNode("\n          "))
-e7.appendChild(x.createTextNode("\n          "))
-b0=E.qy(this,173)
-this.aD=b0
-f0=b0.e
-e7.appendChild(f0)
-this.h(f0)
-b0=G.cL(o.l(C.a_,this.a.Q,null),o.l(C.D,this.a.Q,null))
-this.aC=b0
-f1=this.aD.a.b
-f0.toString
-this.aA=new Q.d3(Q.h9(null,new W.dV(f0)),C.b5,new P.a3(null,null,0,d9),b0,f1)
-f2=x.createTextNode("\n            ")
-f3=x.createElement("header")
-this.m(f3)
-f3.appendChild(x.createTextNode("Simple sentences about things."))
-f4=x.createTextNode("\n            ")
-f5=x.createElement("p")
-this.m(f5)
-f6=S.d(x,"b",f5)
-this.m(f6)
-f6.appendChild(x.createTextNode("How it works:"))
-f5.appendChild(x.createTextNode(" Text explains things further."))
-f7=x.createTextNode("\n            ")
-f8=x.createElement("p")
-this.m(f8)
-f9=S.d(x,"a",f8)
-f9.setAttribute("href","javascript: void 0")
-this.h(f9)
-f9.appendChild(x.createTextNode("Learn more"))
-g0=x.createTextNode("\n            ")
-g1=x.createElement("footer")
-this.m(g1)
-g1.appendChild(x.createTextNode("\n            "))
-g2=x.createTextNode("\n          ")
-this.aD.k(0,this.aA,[H.b([f3],a9),H.b([f2,f4,f5,f7,f8,g0,g2],l),H.b([g1],a9)])
-e7.appendChild(x.createTextNode("\n        "))
-e6.appendChild(x.createTextNode("\n      "))
-d2.appendChild(x.createTextNode("\n      "))
-g3=S.p(x,d2)
-g3.setAttribute("flex","")
-this.h(g3)
-g3.appendChild(x.createTextNode("\n        "))
-g4=S.d(x,"p",g3)
-g4.className="caption"
-this.m(g4)
-g4.appendChild(x.createTextNode("\n          Paper-based Tooltip on a help icon.\n        "))
-g3.appendChild(x.createTextNode("\n      "))
-d2.appendChild(x.createTextNode("\n    "))
-d1.appendChild(x.createTextNode("\n  "))
-c9.appendChild(x.createTextNode("\n\n  "))
-g5=S.p(x,c9)
-g5.className="demo-section"
-this.h(g5)
-g5.appendChild(x.createTextNode("\n    "))
-g6=S.p(x,g5)
-g6.className="demo-container"
-g6.setAttribute("column","")
-this.h(g6)
-g6.appendChild(x.createTextNode("\n      "))
-g7=S.p(x,g6)
-g7.setAttribute("flex","")
-this.h(g7)
-g7.appendChild(x.createTextNode("\n        "))
-g8=S.p(x,g7)
-this.h(g8)
-g8.appendChild(x.createTextNode("\n          "))
-g9=S.d(x,"p",g8)
-this.m(g9)
-g9.appendChild(x.createTextNode("\n            A Tooltip target with deferred content.\n            "))
-a9=M.U(this,211)
-this.aW=a9
-h0=a9.e
-g9.appendChild(h0)
-h0.setAttribute("icon","help_outline")
-h0.setAttribute("size","medium")
-h0.tabIndex=0
-h0.setAttribute("tooltipTarget","")
-this.h(h0)
-this.aZ=new V.n(211,209,this,h0)
-this.b1=new Y.K(h0)
-a9=o.n(C.y,this.a.Q)
-b0=this.aZ
-f1=this.aW.a.b
-a9=new A.m9(new P.x(null,null,0,[d7]),f1,b0,h0,a9,E.hY(null,!0),h0,null,null,C.a4,C.a4)
-a9.k4=new T.i8(a9.ghu(),C.b2)
-this.b3=a9
-x.createTextNode("\n            ")
-this.aW.k(0,this.b1,[])
-g9.appendChild(x.createTextNode("\n          "))
-g8.appendChild(x.createTextNode("\n          "))
-a9=E.qy(this,215)
-this.b8=a9
-h1=a9.e
-g8.appendChild(h1)
-this.h(h1)
-a9=G.cL(o.l(C.a_,this.a.Q,null),o.l(C.D,this.a.Q,null))
-this.b0=a9
-b0=this.b8.a.b
-h1.toString
-this.aw=new Q.d3(Q.h9(null,new W.dV(h1)),C.b5,new P.a3(null,null,0,d9),a9,b0)
-h2=x.createTextNode("\n            ")
-a9=new V.n(217,215,this,$.J().cloneNode(!1))
-this.aP=a9
-this.bb=K.en(a9,new D.t(a9,Q.aAm()),this.aw)
-h3=x.createTextNode("\n          ")
-this.b8.k(0,this.aw,[C.a,H.b([h2,this.aP,h3],[P.w]),C.a])
-g8.appendChild(x.createTextNode("\n        "))
-g7.appendChild(x.createTextNode("\n      "))
-g6.appendChild(x.createTextNode("\n      "))
-h4=S.p(x,g6)
-h4.setAttribute("flex","")
-this.h(h4)
-h4.appendChild(x.createTextNode("\n        "))
-h5=S.d(x,"p",h4)
-h5.className="caption"
-this.m(h5)
-h5.appendChild(x.createTextNode("\n          Use "))
-h6=S.d(x,"strong",h5)
-this.m(h6)
-h6.appendChild(x.createTextNode("DeferredContentDirective"))
-h5.appendChild(x.createTextNode(" inside\n          "))
-h7=S.d(x,"code",h5)
-this.m(h7)
-h7.appendChild(x.createTextNode("material-tooltip-card"))
-h5.appendChild(x.createTextNode(" to create your content\n          just-in-time.\n        "))
-h4.appendChild(x.createTextNode("\n      "))
-g6.appendChild(x.createTextNode("\n    "))
-g5.appendChild(x.createTextNode("\n  "))
-c9.appendChild(x.createTextNode("\n"))
-y.appendChild(x.createTextNode("\n\n"))
-h8=S.d(x,"section",y)
-this.m(h8)
-h8.appendChild(x.createTextNode("\n  "))
-h9=S.d(x,"h2",h8)
-this.m(h9)
-h9.appendChild(x.createTextNode("Icon Tooltip"))
-h8.appendChild(x.createTextNode("\n  "))
-i0=S.p(x,h8)
-i0.className="demo-section"
-this.h(i0)
-i0.appendChild(x.createTextNode("\n    "))
-i1=S.p(x,i0)
-i1.className="demo-container"
-i1.setAttribute("column","")
-this.h(i1)
-i1.appendChild(x.createTextNode("\n      "))
-i2=S.p(x,i1)
-i2.setAttribute("flex","")
-this.h(i2)
-i2.appendChild(x.createTextNode("\n        "))
-i3=S.p(x,i2)
-this.h(i3)
-i3.appendChild(x.createTextNode("\n          "))
-a9=Q.am(this,250)
-this.bd=a9
-i4=a9.e
-i3.appendChild(i4)
-i4.setAttribute("label","A dummy input to start a focus cycle.")
-i4.setAttribute("type","text")
-this.h(i4)
-a9=new L.ab(H.b([],[{func:1,ret:[P.aa,P.c,,],args:[[Z.bx,,]]}]))
-this.aR=a9
-a9=L.al("text",null,null,null,this.bd.a.b,a9)
-this.aM=a9
-x.createTextNode("\n\n          ")
-this.bd.k(0,a9,[C.a,C.a])
-i3.appendChild(x.createTextNode("\n          "))
-i5=S.d(x,"p",i3)
-this.m(i5)
-i5.appendChild(x.createTextNode("\n            A simple sentence about something, followed by an info tooltip\n            icon.\n            "))
-a9=M.Mg(this,255)
-this.b6=a9
-i6=a9.e
-i5.appendChild(i6)
-i6.setAttribute("type","info")
-this.h(i6)
-a9=F.M(o.l(C.o,this.a.Q,null))
-this.aS=a9
-a9=B.Fp(a9,i6,null,"info",null)
-this.bu=a9
-i7=x.createTextNode("\n              Simple sentences about things\n            ")
-this.b6.k(0,a9,[H.b([i7],m)])
-i5.appendChild(x.createTextNode("\n          "))
-i3.appendChild(x.createTextNode("\n          "))
-i8=S.d(x,"p",i3)
-this.m(i8)
-i8.appendChild(x.createTextNode("\n            A simple sentence about something, followed by a material tooltip\n            icon.\n            "))
-a9=M.Mg(this,261)
-this.bk=a9
-i9=a9.e
-i8.appendChild(i9)
-i9.setAttribute("icon","star")
-this.h(i9)
-a9=F.M(o.l(C.o,this.a.Q,null))
-this.bv=a9
-a9=B.Fp(a9,i9,"star",null,null)
-this.aT=a9
-j0=x.createTextNode("\n              More simple sentences about things\n            ")
-this.bk.k(0,a9,[H.b([j0],m)])
-i8.appendChild(x.createTextNode("\n          "))
-i3.appendChild(x.createTextNode("\n          "))
-j1=S.d(x,"p",i3)
-j1.className="dark-background"
-this.m(j1)
-j1.appendChild(x.createTextNode("\n            A simple dark-themed sentence about something, followed by a help\n            tooltip icon.\n            "))
-a9=M.Mg(this,267)
-this.bw=a9
-j2=a9.e
-j1.appendChild(j2)
-j2.setAttribute("darkTheme","")
-this.h(j2)
-this.bc=!0
-a9=F.M(!0)
-this.bB=a9
-a9=B.Fp(a9,j2,null,null,null)
-this.bC=a9
-j3=x.createTextNode("\n              Another simple sentences about things\n            ")
-this.bw.k(0,a9,[H.b([j3],m)])
-j1.appendChild(x.createTextNode("\n          "))
-i3.appendChild(x.createTextNode("\n        "))
-i2.appendChild(x.createTextNode("\n      "))
-i1.appendChild(x.createTextNode("\n      "))
-j4=S.p(x,i1)
-this.h(j4)
-j4.appendChild(x.createTextNode("\n        "))
-j5=S.d(x,"p",j4)
-j5.className="caption"
-this.m(j5)
-j5.appendChild(x.createTextNode("\n          Paper-based Tooltip on a help icon.\n        "))
-j4.appendChild(x.createTextNode("\n      "))
-i1.appendChild(x.createTextNode("\n    "))
-i0.appendChild(x.createTextNode("\n  "))
-h8.appendChild(x.createTextNode("\n"))
-y.appendChild(x.createTextNode("\n\n"))
-j6=S.d(x,"section",y)
-this.m(j6)
-j6.appendChild(x.createTextNode("\n  "))
-j7=S.d(x,"h2",j6)
-this.m(j7)
-j7.appendChild(x.createTextNode("Tooltip Source"))
-j6.appendChild(x.createTextNode("\n  "))
-j8=S.p(x,j6)
-j8.className="demo-section"
-this.h(j8)
-j8.appendChild(x.createTextNode("\n    "))
-j9=S.p(x,j8)
-j9.className="demo-container"
-j9.setAttribute("column","")
-this.h(j9)
-j9.appendChild(x.createTextNode("\n      "))
-k0=S.p(x,j9)
-k0.setAttribute("flex","")
-this.h(k0)
-k0.appendChild(x.createTextNode("\n        "))
-k1=S.p(x,k0)
-this.h(k1)
-k1.appendChild(x.createTextNode("\n          "))
-k2=S.d(x,"p",k1)
-this.m(k2)
-k2.appendChild(x.createTextNode("\n            Use a tooltipSource to control a popup.\n            "))
-m=M.U(this,297)
-this.bg=m
-m=m.e
-this.bj=m
-k2.appendChild(m)
-this.bj.setAttribute("aria-label",$.ahY())
-this.bj.setAttribute("icon","help_outline")
-this.bj.setAttribute("size","medium")
-m=this.bj
-m.tabIndex=0
-m.setAttribute("tooltipSource","")
-this.h(this.bj)
-this.bo=new Y.K(this.bj)
-m=D.aoD(o.n(C.y,this.a.Q),this.bj,null)
-this.bx=new Y.GC(m)
-x.createTextNode("\n            ")
-this.bg.k(0,this.bo,[])
-k2.appendChild(x.createTextNode("\n          "))
-k1.appendChild(x.createTextNode("\n          "))
-m=A.cT(this,301)
-this.b2=m
-k3=m.e
-k1.appendChild(k3)
-k3.setAttribute("enforceSpaceConstraints","")
-this.h(k3)
-this.bK=new V.n(301,293,this,k3)
-o=G.cQ(o.l(C.Z,this.a.Q,null),o.l(C.Y,this.a.Q,null),null,o.n(C.f,this.a.Q),o.n(C.n,this.a.Q),o.n(C.b,this.a.Q),o.n(C.F,this.a.Q),o.n(C.H,this.a.Q),o.n(C.G,this.a.Q),o.l(C.E,this.a.Q,null),this.b2.a.b,this.bK,new Z.bP(k3))
-this.aU=o
-k4=x.createTextNode("\n            ")
-k5=x.createElement("div")
-k5.className="source-popup"
-this.h(k5)
-k5.appendChild(x.createTextNode("\n              Content in a popup.\n            "))
-k6=x.createTextNode("\n          ")
-this.b2.k(0,this.aU,[C.a,H.b([k4,k5,k6],l),C.a])
-k1.appendChild(x.createTextNode("\n        "))
-k0.appendChild(x.createTextNode("\n      "))
-j9.appendChild(x.createTextNode("\n    "))
-j8.appendChild(x.createTextNode("\n  "))
-j6.appendChild(x.createTextNode("\n"))
-y.appendChild(x.createTextNode("\n"))
-x=W.C
-C.bG.P(b7,"blur",this.a6(this.a8.gk8(),x))
-C.bG.P(b7,"click",this.a6(this.a8.gk8(),x))
-o=this.a8
-C.bG.P(b7,"mouseover",this.a6(o.ged(o),x))
-o=this.a8
-C.bG.P(b7,"mouseleave",this.a6(o.gdf(o),x))
-o=this.a8
-C.bG.P(b7,"focus",this.a6(o.gce(o),x))
-o=W.Z
-m=J.V(d6)
-m.P(d6,"keydown",this.u(this.ac.gcv(),x,o))
-m.P(d6,"blur",this.u(this.gLK(),x,x))
-m.P(d6,"mousedown",this.a6(this.ac.gcD(),x))
-m.P(d6,"click",this.u(this.gNg(),x,x))
-m.P(d6,"focus",this.u(this.gO5(),x,x))
-l=this.aj
-m.P(d6,"mouseover",this.a6(l.ged(l),x))
-l=this.aj
-m.P(d6,"mouseleave",this.a6(l.gdf(l),x))
-l=J.V(e9)
-l.P(e9,"blur",this.u(this.gLM(),x,x))
-l.P(e9,"click",this.u(this.gNi(),x,x))
-m=this.an
-l.P(e9,"mouseover",this.a6(m.ged(m),x))
-m=this.an
-l.P(e9,"mouseleave",this.a6(m.gdf(m),x))
-l.P(e9,"keypress",this.u(this.an.gGA(),x,o))
-l.P(e9,"keydown",this.u(this.az.gcv(),x,o))
-l.P(e9,"mousedown",this.a6(this.az.gcD(),x))
-o=this.az
-l.P(e9,"focus",this.u(o.gce(o),x,x))
-o=J.V(h0)
-o.P(h0,"blur",this.a6(this.b3.gk8(),x))
-o.P(h0,"click",this.a6(this.b3.gk8(),x))
-l=this.b3
-o.P(h0,"mouseover",this.a6(l.ged(l),x))
-l=this.b3
-o.P(h0,"mouseleave",this.a6(l.gdf(l),x))
-l=this.b3
-o.P(h0,"focus",this.a6(l.gce(l),x))
-l=this.bj
-o=this.bx.e
-J.a1(l,"focus",this.a6(o.gce(o),x))
-o=this.bj
-l=this.bx.e
-J.a1(o,"blur",this.a6(l.gdT(l),x))
-l=this.bj
-o=this.bx.e
-J.a1(l,"keyup",this.a6(o.goS(o),x))
-o=this.bj
-l=this.bx.e
-J.a1(o,"mouseover",this.a6(l.ged(l),x))
-l=this.bj
-o=this.bx.e
-J.a1(l,"mouseleave",this.a6(o.gdf(o),x))
-this.J(C.a,null)},
-K:function(d,e,f){var y,x,w,v
-y=d===C.a_
-if(y&&19<=e&&e<=20)return this.gJI()
-if(y&&24<=e&&e<=25)return this.gJL()
-if(y&&29<=e&&e<=30)return this.gJM()
-if(y&&38<=e&&e<=39)return this.gJN()
-if(y&&43<=e&&e<=44)return this.gJO()
-if(y&&48<=e&&e<=49)return this.gJP()
-x=d===C.a5
-if(x&&66<=e&&e<=67)return this.L
-if((d===C.a7||d===C.l||d===C.d)&&66<=e&&e<=67)return this.M
-if(y&&66<=e&&e<=67)return this.gJQ()
-if(y&&81<=e&&e<=82)return this.gJS()
-if(y&&104<=e&&e<=111)return this.a7
-if(y&&150<=e&&e<=159)return this.ax
-w=d!==C.bu
-if((!w||d===C.t)&&150<=e&&e<=159)return this.a5
-v=d===C.c4
-if(v&&150<=e&&e<=159){y=this.ap
-if(y==null){y=this.a5.gi4()
-this.ap=y}return y}if(y&&173<=e&&e<=189)return this.aC
-if((!w||d===C.t)&&173<=e&&e<=189)return this.aA
-if(v&&173<=e&&e<=189){y=this.aE
-if(y==null){y=this.aA.gi4()
-this.aE=y}return y}if(y&&215<=e&&e<=218)return this.b0
-if((!w||d===C.t)&&215<=e&&e<=218)return this.aw
-if(v&&215<=e&&e<=218){y=this.aI
-if(y==null){y=this.aw.gi4()
-this.aI=y}return y}if(d===C.ah&&250<=e&&e<=251)return this.aR
-if((d===C.ak||d===C.r||d===C.p||d===C.d||d===C.ag)&&250<=e&&e<=251)return this.aM
-if(x&&255<=e&&e<=256)return this.aS
-y=d===C.t
-if(y&&255<=e&&e<=256)return this.bu
-if(x&&261<=e&&e<=262)return this.bv
-if(y&&261<=e&&e<=262)return this.aT
-if(d===C.o&&267<=e&&e<=268)return this.bc
-if(x&&267<=e&&e<=268)return this.bB
-if(y&&267<=e&&e<=268)return this.bC
-if((d===C.Y||y||d===C.q)&&301<=e&&e<=305)return this.aU
-if(d===C.Z&&301<=e&&e<=305){y=this.bE
-if(y==null){y=this.aU.gcr()
-this.bE=y}return y}if(d===C.a3&&301<=e&&e<=305){y=this.bW
-if(y==null){y=this.aU.fy
-this.bW=y}return y}return f},
-q:function(){var y,x,w,v,u,t,s,r,q,p,o
-y=this.f
-x=this.a.cy===0
-w=this.a8
-v=this.aj
-u=this.an
-t=this.b3
-s=this.bx.e
-if(x){this.y.sa9(0,"print")
-r=!0}else r=!1
-if(r)this.r.a.st(1)
-if(x)this.z.se6(0,"Print")
-if(x){q=this.z
-if(q.x2)q.dD()}if(x){this.cy.sa9(0,"save")
-r=!0}else r=!1
-if(r)this.ch.a.st(1)
-if(x)this.db.se6(0,"Save")
-if(x){q=this.db
-if(q.x2)q.dD()}if(x){this.fx.sa9(0,"lock")
-r=!0}else r=!1
-if(r)this.dy.a.st(1)
-y.toString
-q=this.bD
-if(q!=="A message that appears in a tooltip."){this.fy.se6(0,"A message that appears in a tooltip.")
-this.bD="A message that appears in a tooltip."}if(x){q=this.fy
-if(q.x2)q.dD()}if(x){this.k2.sa9(0,"print")
-r=!0}else r=!1
-if(r)this.id.a.st(1)
-if(x)this.k3.se6(0,"Print")
-if(x){q=this.k3
-if(q.x2)q.dD()}if(x){this.rx.sa9(0,"save")
-r=!0}else r=!1
-if(r)this.r1.a.st(1)
-if(x)this.ry.se6(0,"Save")
-if(x){q=this.ry
-if(q.x2)q.dD()}if(x){this.y2.sa9(0,"lock")
-r=!0}else r=!1
-if(r)this.x2.a.st(1)
-q=this.c5
-if(q!=="A message that appears in a tooltip."){this.T.se6(0,"A message that appears in a tooltip.")
-this.c5="A message that appears in a tooltip."}if(x){q=this.T
-if(q.x2)q.dD()}if(x){this.M.ch=!0
-r=!0}else r=!1
-if(r)this.V.a.st(1)
-if(x)this.a0.se6(0,"Saves the document")
-if(x){q=this.a0
-if(q.x2)q.dD()}q=this.bX
-if(q!=="Number of opportunities linked to this objective with positive deal value in the current quarter"){this.a4.se6(0,"Number of opportunities linked to this objective with positive deal value in the current quarter")
-this.bX="Number of opportunities linked to this objective with positive deal value in the current quarter"}if(x){q=this.a4
-if(q.x2)q.dD()}q=this.bJ
-if(q!=w){this.as.si5(w)
-this.bJ=w
-r=!0}else r=!1
-if(r)this.ag.a.st(1)
-if(x){this.ai.sa9(0,"help_outline")
-r=!0}else r=!1
-if(r)this.ak.a.st(1)
-q=this.bA
-if(q!=v){this.a5.si5(v)
-this.bA=v
-r=!0}else r=!1
-if(r)this.am.a.st(1)
-if(x){this.at.sa9(0,"help_outline")
-r=!0}else r=!1
-if(r)this.ae.a.st(1)
-q=this.bZ
-if(q!=u){this.aA.si5(u)
-this.bZ=u
-r=!0}else r=!1
-if(r)this.aD.a.st(1)
-if(x){this.b1.sa9(0,"help_outline")
-r=!0}else r=!1
-if(r)this.aW.a.st(1)
-q=this.cg
-if(q!=t){this.aw.si5(t)
-this.cg=t
-r=!0}else r=!1
-if(r)this.b8.a.st(1)
-if(x)this.bb.f=!0
-if(x){this.aM.fr="A dummy input to start a focus cycle."
-r=!0}else r=!1
-if(r)this.bd.a.st(1)
-if(x){this.bo.sa9(0,"help_outline")
-r=!0}else r=!1
-if(r)this.bg.a.st(1)
-if(x){this.aU.R.a.w(0,C.aH,!1)
-this.aU.R.a.w(0,C.aj,!0)
-q=this.aU
-p=y.a
-q.R.a.w(0,C.ao,p)
-r=!0}else r=!1
-q=this.c9
-if(q!=s){this.aU.scE(0,s)
-this.c9=s
-r=!0}if(r)this.b2.a.st(1)
-this.x.G()
-this.cx.G()
-this.fr.G()
-this.k1.G()
-this.r2.G()
-this.y1.G()
-this.a_.G()
-this.a2.G()
-this.aa.G()
-this.ah.G()
-this.ay.G()
-this.aZ.G()
-this.aP.G()
-this.bK.G()
-this.V.A(x)
-q=this.bx
-p=this.bg
-o=this.bj
-q.toString
-if(p.a.cy===0){q=o.style
-C.B.c1(q,(q&&C.B).bS(q,"cursor"),"pointer",null)}this.b2.A(x)
-this.r.j()
-this.ch.j()
-this.dy.j()
-this.id.j()
-this.r1.j()
-this.x2.j()
-this.V.j()
-this.ag.j()
-this.ak.j()
-this.am.j()
-this.ae.j()
-this.aD.j()
-this.aW.j()
-this.b8.j()
-this.bd.j()
-this.b6.j()
-this.bk.j()
-this.bw.j()
-this.bg.j()
-this.b2.j()
-if(x){this.z.a1()
-this.db.a1()
-this.fy.a1()
-this.k3.a1()
-this.ry.a1()
-this.T.a1()
-this.a0.a1()
-this.a4.a1()
-this.a8.a1()
-this.aj.a1()
-this.an.a1()
-this.b3.a1()
-this.aM.a1()
-this.bx.e.a1()
-this.aU.cG()}},
-v:function(){this.x.F()
-this.cx.F()
-this.fr.F()
-this.k1.F()
-this.r2.F()
-this.y1.F()
-this.a_.F()
-this.a2.F()
-this.aa.F()
-this.ah.F()
-this.ay.F()
-this.aZ.F()
-this.aP.F()
-this.bK.F()
-this.r.i()
-this.ch.i()
-this.dy.i()
-this.id.i()
-this.r1.i()
-this.x2.i()
-this.V.i()
-this.ag.i()
-this.ak.i()
-this.am.i()
-this.ae.i()
-this.aD.i()
-this.aW.i()
-this.b8.i()
-this.bd.i()
-this.b6.i()
-this.bk.i()
-this.bw.i()
-this.bg.i()
-this.b2.i()
-this.z.O()
-this.db.O()
-this.fy.O()
-this.k3.O()
-this.ry.O()
-this.T.O()
-this.a0.O()
-this.a4.O()
-this.a8.toString
-this.aj.toString
-this.an.R.au(0)
-this.b3.toString
-this.bb.O()
-var y=this.aM
-y.aK()
-y.L=null
-y.M=null
-this.bx.e.O()
-this.aU.O()},
-LL:function(d){this.ac.i0()
-this.aj.oH()},
-Nh:function(d){var y=this.ac
-y.c=C.aN
-y.ep()
-this.aj.oH()},
-O6:function(d){this.ac.f7(0,d)
-this.aj.k4.ih(0)},
-LN:function(d){this.an.iZ(0,d)
-this.az.i0()},
-Nj:function(d){var y
-this.an.tT()
-y=this.az
-y.c=C.aN
-y.ep()},
-$aa:function(){return[K.h2]}}
-Q.W1.prototype={
-p:function(){var y,x,w,v,u,t,s,r
-y=B.a0Z(this,0)
-this.r=y
-x=y.e
-this.h(x)
-this.x=new V.dz()
+this.Q.i7(0)},
+ha:function(d){this.ch=!1
+this.ix()},
+sa3c:function(d){this.cy=d},
+$ialF:1}
+Y.FJ.prototype={}
+A.fE.prototype={}
+Q.Mf.prototype={
+gnk:function(){var y=this.x
+return y==null?this.x=document:y},
+gBU:function(){var y=this.z
+return y==null?this.z=window:y},
+gnl:function(){var y,x=this,w=x.Q
+if(w==null){w=x.d
+y=x.e.z
+y=T.b5(w.k(C.b,y),w.k(C.G,y),w.n(C.h,y),x.gBU())
+x.Q=y
+w=y}return w},
+gBR:function(){var y,x=this,w=x.ch
+if(w==null){w=x.d.n(C.Z,x.e.z)
+y=x.gnl()
+w=x.ch=new O.aH(w,y)}return w},
+grS:function(){var y=this,x=y.cx
+return x==null?y.cx=new K.aM(y.gnk(),y.gnl(),P.b0(null,[P.r,P.k])):x},
+gVI:function(){var y=this,x=y.cy
+if(x==null){x=T.b8(y.d.n(C.h,y.e.z))
+y.cy=x}return x},
+grT:function(){var y=this,x=y.db
+if(x==null){x=G.bc(y.d.k(C.w,y.e.z))
+y.db=x}return x},
+gBW:function(){var y=this,x=y.dx
+if(x==null){x=G.be(y.gnk(),y.d.k(C.x,y.e.z))
+y.dx=x}return x},
+gBX:function(){var y=this,x=y.dy
+if(x==null){x=G.b7(y.grT(),y.gBW(),y.d.k(C.v,y.e.z))
+y.dy=x}return x},
+grU:function(){var y=this.fr
+return y==null?this.fr=!0:y},
+gBY:function(){var y=this.fx
+return y==null?this.fx=!0:y},
+gBT:function(){var y=this.go
+if(y==null){y=this.gnk()
+y=this.go=new R.aK(y.querySelector("head"),y)}return y},
+gBV:function(){var y=this.id
+return y==null?this.id=X.bb():y},
+gBS:function(){var y=this,x=y.k1
+return x==null?y.k1=K.b9(y.gBT(),y.gBX(),y.grT(),y.grS(),y.gnl(),y.gBR(),y.grU(),y.gBY(),y.gBV()):x},
+gVJ:function(){var y,x,w,v,u=this,t=u.k2
+if(t==null){t=u.d
+y=u.e.z
+x=t.n(C.h,y)
+w=u.grU()
+v=u.gBS()
+t.k(C.n,y)
+t=u.k2=new X.aG(w,x,v)}return t},
+p:function(){var y,x=this,w=x.a_(x.a),v=K.c7(x,0)
+x.f=v
+w.appendChild(v.a)
+v=x.d
+y=x.e.z
+v.n(C.af,y)
+y=v.n(C.ag,y)
+v=new X.az(y,!J.bt(window.location.href,"enableLatencyCharts=false"))
+x.r=v
+x.f.I(v)
+x.ae()},
+N:function(d,e,f){var y,x=this
+if(0===e){if(d===C.Q)return x.gnk()
+if(d===C.a_){y=x.y
+return y==null?x.y=document:y}if(d===C.M)return x.gBU()
+if(d===C.b)return x.gnl()
+if(d===C.T)return x.gBR()
+if(d===C.R)return x.grS()
+if(d===C.a0)return x.gVI()
+if(d===C.w)return x.grT()
+if(d===C.x)return x.gBW()
+if(d===C.v)return x.gBX()
+if(d===C.Y)return x.grU()
+if(d===C.I)return x.gBY()
+if(d===C.J){y=x.fy
+return y==null?x.fy=C.a3:y}if(d===C.W)return x.gBT()
+if(d===C.H)return x.gBV()
+if(d===C.V)return x.gBS()
+if(d===C.n)return x.gVJ()
+if(d===C.K){y=x.k3
+return y==null?x.k3=C.a4:y}if(d===C.z){y=x.k4
+return y==null?x.k4=new K.aS(x.grS()):y}}return f},
+q:function(){var y=this,x=y.b.a,w=y.r1
+if(w!==x)y.r1=y.r.a=x
+y.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[A.fE]}}
+Q.Vn.prototype={
+p:function(){var y,x,w=this,v="angular_components/lib/src/material_tooltip/tooltip.dart",u="Input",t="alignX",s="alignPositionX",r="String",q="<p>Alignment of the popup in the horizontal direction.</p>\n<p>Possible values are:</p><ul><li><code>start</code>: Align popup to the start of a container. This is equivalent\nto 'flex-start'. (Default)</li><li><code>center</code>: Align popup to the center of a container. This is equivalent\nto 'center'.</li><li><code>end</code>: Align popup to the end of a container. This is equivalent to\n'flex-end'.</li><li><code>before</code>: Align popup before a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li><li><code>after</code>: Align popup after a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li></ul>\n",p="angular_components/lib/src/laminate/popup/popup_source_directive.dart",o="alignY",n="alignPositionY",m="<p>Alignment of the popup in the vertical direction.</p>\n<p>Possible values are:</p><ul><li><code>start</code>: Align popup to the start of a container. This is equivalent\nto 'flex-start'. (Default)</li><li><code>center</code>: Align popup to the center of a container. This is equivalent\nto 'center'.</li><li><code>end</code>: Align popup to the end of a container. This is equivalent to\n'flex-end'.</li><li><code>before</code>: Align popup before a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li><li><code>after</code>: Align popup after a container. This is <em>not</em> equivalent to\nany CSS positioning model.</li></ul>\n",l="positions",k="List<RelativePosition>",j="angular_components/lib/src/material_tooltip/paper_tooltip.dart",i="offsetX",h="int",g="<p>The x-offset to where the tooltip will be ultimately positioned.</p>\n",f="offsetY",e="<p>The y-offset to where the tooltip will be ultimately positioned.</p>\n",d="preferredPositions",a0="<p>Relative positions where to try to show the tooltip.</p>\n<p>Defaults to:</p>\n<p><code>[RelativePosition.OffsetBottomRight,\nRelativePosition.OffsetTopLeft,\nRelativePosition.OffsetBottomLeft,\nRelativePosition.OffsetTopRight]</code></p>\n",a1="tooltipRef",a2="TooltipTarget",a3="tooltipTarget",a4="angular_components/lib/src/material_tooltip/tooltip_target.dart",a5="tooltipActivate",a6="Stream<bool>",a7="<p>Event that fires when the tooltip is activated.</p>\n",a8="angular_components/lib/src/material_tooltip/ink_tooltip.dart",a9="angular_components/lib/src/material_tooltip/icon_tooltip.dart",b0=new Q.Mf(w,S.i(3,C.i,0)),b1=$.a6I
+if(b1==null){b1=new O.b4(null,C.a,"","","")
+b1.bC()
+$.a6I=b1}b0.c=b1
+y=document.createElement("material-tooltip-api")
+b0.a=y
+w.f=b0
+w.a=y
+b0=[D.bY]
+b0=H.a([D.aw("MaterialTooltipDirective",!1,"","[materialTooltip]","",v,X.h("<p>An ink-based tooltip which can be attached to any element.</p>\n"),H.a([D.j(u,t,s,r,X.h(q),p,!1,""),D.j(u,o,n,r,X.h(m),p,!1,""),D.j(u,"canShow","showTooltipIf","bool",X.h("<p>Condition whether to show the tooltip.</p>\n<p>Defaults to true.</p>\n"),v,!1,""),D.j(u,l,"tooltipPositions",k,X.h("<p>Positions that the tooltip should try to show.</p>\n"),v,!1,""),D.j(u,"text","materialTooltip",r,X.h("<p>The text to show in the tooltip.</p>\n"),v,!1,"")],b0),H.a([],b0)),D.aw("MaterialPaperTooltipComponent",!1,"","material-tooltip-card","",j,X.h("<p>A paper based overlay meant to convey long-form contextual information about\nits target element.</p>\n<p>The target for a tooltip card may be any element, such as a button, input,\nlink, etc. The target may also be the <code>help_outline</code> icon, which acts as a\nproxy for the actual target.</p>\n<p>Use this component in conjunction with the\n<code>ClickableTooltipTargetDirective</code>. Consider setting <code>focusContents</code> to true\nto improve a11y.</p>\n<p>This component supports deferred content.</p>\n<p>If your tooltip content is another component, use the\n<code>DeferredContentDirective</code> to load your component only when it is visible.</p>\n<p><strong>Supported Content:</strong></p>\n<p>The following selectors are automatically styled to tooltip spec:</p><ul><li><code>header</code></li><li><code>footer</code></li><li>Non header/footer content is given the tooltip body style.</li></ul>\n"),H.a([D.j(u,"focusContents","","bool",X.h("<p>Whether or not the tooltip contents should auto focus when opened.</p>\n<p>This also makes the tooltip auto-dismissable when true.</p>\n"),j,!1,""),D.j(u,i,i,h,X.h(g),j,!1,""),D.j(u,f,f,h,X.h(e),j,!1,""),D.j(u,d,"",k,X.h(a0),j,!1,""),D.j(u,a1,"for",a2,X.h("<p>The element at which this tooltip is targeted.</p>\n"),j,!1,"")],b0),H.a([],b0)),D.aw("MaterialTooltipTargetDirective",!1,"","[tooltipTarget]",a3,a4,X.h("<p>A directive that marks the target of a tooltip and handles showing and\nhiding a tooltip on hover, click, and focus.</p>\n<p>This directive is used in conjunction with a <code>Tooltip</code> Component. Such as\nthe <code>MaterialInkTooltipComponent</code>, which gives full control over\nthe content of a simple tooltip.</p>\n"),H.a([D.j(u,t,s,r,X.h(q),p,!1,""),D.j(u,o,n,r,X.h(m),p,!1,"")],b0),H.a([D.j("Output",a5,"",a6,X.h(a7),a4,!1,"")],b0)),D.aw("ClickableTooltipTargetDirective",!1,"","[clickableTooltipTarget]",a3,a4,X.h("<p>A directive that marks the target of a tooltip and handles activating on\nmouse over (with delay), click, enter, and space.</p>\n<p>This directive is slightly different from <code>MaterialPaperTooltipComponent</code>.\nClick / key events open the tooltip with no delay, and tooltips do not open\non focus.</p>\n<p>This directive is used in conjunction with a <code>Tooltip</code> Component. Such as\nthe <code>MaterialPaperTooltipComponent</code>, which gives full control over the\ncontent of a simple tooltip.</p>\n"),H.a([D.j(u,t,s,r,X.h(q),p,!1,""),D.j(u,o,n,r,X.h(m),p,!1,"")],b0),H.a([D.j("Output",a5,"",a6,X.h(a7),a4,!1,"")],b0)),D.aw("MaterialInkTooltipComponent",!1,"","material-tooltip-text","",a8,X.h('<p>An ink-based overlay meant to deliver contextual information about the\nelement it targets.</p>\n<p>It is a "small" tooltip in that it ought to be one or two lines, at most,\nand has a maximum width of <code>320px</code>.</p>\n<p>Typically, the tooltips are associated with an icon or a button and provide\na label or brief helper text about that element. This component should be\nused with a <code>TooltipTarget</code> component which controls its visibility\nand provides the underlying <code>HtmlElement</code> at which the tooltip is targeted.</p>\n<p>Use this component in conjunction with the <code>MaterialTooltipTargetDirective</code>.</p>\n<p>Consider using <code>MaterialTooltipDirective</code> instead; usage is much simpler and\nit enforces text-only small tooltips.</p>\n'),H.a([D.j(u,l,"",k,X.h("<p>Positions at which the tooltip should try to show.</p>\n"),a8,!1,""),D.j(u,"text","",r,X.h("<p>Text content of the tooltip.</p>\n"),a8,!1,""),D.j(u,a1,"for",a2,X.h('<p>The element at which this tooltip is targeted.</p>\n<p>This is typically set in the template by using a var ref. For example:</p>\n<pre><code class="language-html">  &lt;span tooltipTarget #target="tooltipTarget"&gt;Tip&lt;/span&gt;\n  &lt;material-tooltip-text [for]="target"&gt;My tooltip&lt;/material-tooltip-text&gt;\n</code></pre>\n'),a8,!1,"")],b0),H.a([],b0)),D.aw("MaterialIconTooltipComponent",!1,"","material-icon-tooltip","",a9,X.h('<p>An icon that displays a paper tooltip on mouse-hover, click, enter,\nspace, and focus.</p>\n<p>This is essentially the same as showing <code>MaterialTooltipCard</code> on a\n<code>MaterialIconComponent</code>, except that it shows tooltip on click (as\nopposed to <code>MaterialTooltipTarget</code>, which does not have click trigger).</p>\n<p><strong>Attributes:</strong></p><ul><li>\n<p><code>icon</code> -- The name of the icon. This overrides <code>type</code>, if both are\nprovided. See <code>https://www.google.com/design/icons/</code> for available icons.</p></li><li>\n<p><code>type</code> -- The type of the icon. Possible values:</p><ul><li><code>help</code> -- Shows a "help_outline" icon (a circled "?"). (Default)</li><li><code>info</code> -- Shows an "info_outline" (a circled "i")</li><li><code>error</code> -- Shows an "error_outline" (a circled "!").</li></ul></li></ul>\n'),H.a([D.j(u,i,i,h,X.h(g),a9,!1,""),D.j(u,f,f,h,X.h(e),a9,!1,""),D.j(u,d,"",k,X.h(a0),a9,!1,"")],b0),H.a([],b0))],[D.bQ])
+y=H.a([new R.aa(C.d9,"MaterialTooltipExampleComponent","material_tooltip_example/lib/material_tooltip_example.dart")],[R.aa])
+x=P.k
+x=new A.fE(R.cb(H.a([],[x]),y,b0,P.ak(x,x),!0))
+w.r=x
+w.f.m(0,x,w.e.e)
+w.E(w.a)
+return new D.C(w,0,w.a,w.r,[A.fE])},
+q:function(){this.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[A.fE]}}
+K.i2.prototype={}
+Q.uQ.prototype={
+gIT:function(){var y,x=this,w=x.z
+if(w==null){w=x.d
+y=x.e.z
+y=G.cK(w.k(C.a9,y),w.k(C.G,y))
+x.z=y
+w=y}return w},
+gIW:function(){var y,x=this,w=x.db
+if(w==null){w=x.d
+y=x.e.z
+y=G.cK(w.k(C.a9,y),w.k(C.G,y))
+x.db=y
+w=y}return w},
+gIX:function(){var y,x=this,w=x.fy
+if(w==null){w=x.d
+y=x.e.z
+y=G.cK(w.k(C.a9,y),w.k(C.G,y))
+x.fy=y
+w=y}return w},
+gIY:function(){var y,x=this,w=x.k3
+if(w==null){w=x.d
+y=x.e.z
+y=G.cK(w.k(C.a9,y),w.k(C.G,y))
+x.k3=y
+w=y}return w},
+gIZ:function(){var y,x=this,w=x.ry
+if(w==null){w=x.d
+y=x.e.z
+y=G.cK(w.k(C.a9,y),w.k(C.G,y))
+x.ry=y
+w=y}return w},
+gJ_:function(){var y,x=this,w=x.Z
+if(w==null){w=x.d
+y=x.e.z
+y=G.cK(w.k(C.a9,y),w.k(C.G,y))
+x.Z=y
+w=y}return w},
+gJ0:function(){var y,x=this,w=x.a0
+if(w==null){w=x.d
+y=x.e.z
+y=G.cK(w.k(C.a9,y),w.k(C.G,y))
+x.a0=y
+w=y}return w},
+gJ2:function(){var y,x=this,w=x.a8
+if(w==null){w=x.d
+y=x.e.z
+y=G.cK(w.k(C.a9,y),w.k(C.G,y))
+x.a8=y
+w=y}return w},
+p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,h0,h1,h2,h3,h4,h5,h6,h7,h8,h9,i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,j0,j1,j2,j3,j4,j5,j6,j7,j8,j9,k0,k1,k2,k3,k4,k5,k6,k7,k8=this,k9="\n",l0=null,l1="section",l2="\n  ",l3="h2",l4="demo-section",l5="\n    ",l6="demo-container",l7="\n      ",l8="column",l9="\n        ",m0="flex",m1="\n          ",m2="\n            ",m3="demo-glyph",m4="icon",m5="materialTooltip",m6="br",m7="p",m8="caption",m9="tooltipTarget",n0="text",n1="help_outline",n2="keyboardOnlyFocusIndicator",n3="size",n4="medium",n5="Simple sentences about things.",n6="How it works:",n7=" Text explains things further.",n8="\n          Paper-based Tooltip on a help icon.\n        ",n9="click",o0="mouseover",o1="mouseleave",o2="blur",o3="focus",o4="mousedown",o5=k8.a_(k8.a)
+T.b(o5,k9)
 y=document
-w=y.createTextNode("\n              ")
-v=y.createElement("header")
-this.m(v)
-v.appendChild(y.createTextNode("Simple sentences about things."))
-u=y.createTextNode("\n              ")
-t=y.createElement("p")
-this.m(t)
-s=S.d(y,"b",t)
-this.m(s)
-s.appendChild(y.createTextNode("How it works:"))
-t.appendChild(y.createTextNode(" Text explains things further."))
-r=y.createTextNode("\n            ")
-this.r.k(0,this.x,[H.b([w,v,u,t,r],[W.ag])])
-this.D(x)},
-q:function(){var y=this.a.cy===0
-if(y)this.x.b=4
-if(y)this.x.W()
-this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[K.h2]}}
-Q.W2.prototype={
-gnI:function(){var y=this.y
-if(y==null){y=document
-this.y=y}return y},
-gCH:function(){var y=this.Q
-if(y==null){y=window
-this.Q=y}return y},
-gnJ:function(){var y=this.ch
-if(y==null){y=T.aY(this.l(C.b,this.a.Q,null),this.l(C.D,this.a.Q,null),this.n(C.f,this.a.Q),this.gCH())
-this.ch=y}return y},
-gCE:function(){var y,x
-y=this.cx
-if(y==null){y=this.n(C.S,this.a.Q)
-x=this.gnJ()
-y=new O.aC(y,x)
-this.cx=y}return y},
-gte:function(){var y=this.cy
-if(y==null){y=new K.aH(this.gnI(),this.gnJ(),P.aU(null,[P.o,P.c]))
-this.cy=y}return y},
-gWl:function(){var y=this.db
-if(y==null){y=T.b2(this.n(C.f,this.a.Q))
-this.db=y}return y},
-gtf:function(){var y=this.dx
-if(y==null){y=G.b6(this.l(C.w,this.a.Q,null))
-this.dx=y}return y},
-gCJ:function(){var y=this.dy
-if(y==null){y=G.b9(this.gnI(),this.l(C.x,this.a.Q,null))
-this.dy=y}return y},
-gCK:function(){var y=this.fr
-if(y==null){y=G.b1(this.gtf(),this.gCJ(),this.l(C.v,this.a.Q,null))
-this.fr=y}return y},
-gtg:function(){var y=this.fx
-if(y==null){this.fx=!0
-y=!0}return y},
-gCL:function(){var y=this.fy
-if(y==null){this.fy=!0
-y=!0}return y},
-gCG:function(){var y=this.go
-if(y==null){y=this.gnI()
-y=new R.aF(y.querySelector("head"),y)
-this.go=y}return y},
-gCI:function(){var y=this.id
-if(y==null){y=X.b4()
-this.id=y}return y},
-gCF:function(){var y=this.k1
-if(y==null){y=K.b3(this.gCG(),this.gCK(),this.gtf(),this.gte(),this.gnJ(),this.gCE(),this.gtg(),this.gCL(),this.gCI())
-this.k1=y}return y},
-gWm:function(){var y,x,w
-y=this.k2
-if(y==null){y=this.n(C.f,this.a.Q)
-x=this.gtg()
-w=this.gCF()
-this.l(C.n,this.a.Q,null)
-y=new X.az(x,y,w)
-this.k2=y}return y},
-p:function(){var y,x,w
-y=new Q.vu(P.e(P.c,null),this)
-x=K.h2
-y.a=S.i(y,1,C.j,0,x)
-w=document.createElement("material-tooltip-example")
-y.e=w
-w=$.a1l
-if(w==null){w=$.D
-w=w.Y(null,C.m,$.akc())
-$.a1l=w}y.X(w)
-this.r=y
-this.e=y.e
-w=new K.h2(C.kq)
-this.x=w
-y.k(0,w,this.a.e)
-this.D(this.e)
-return new D.A(this,0,this.e,this.x,[x])},
-K:function(d,e,f){var y
-if(d===C.M&&0===e)return this.gnI()
-if(d===C.T&&0===e){y=this.z
-if(y==null){y=document
-this.z=y}return y}if(d===C.I&&0===e)return this.gCH()
-if(d===C.b&&0===e)return this.gnJ()
-if(d===C.O&&0===e)return this.gCE()
-if(d===C.N&&0===e)return this.gte()
-if(d===C.U&&0===e)return this.gWl()
-if(d===C.w&&0===e)return this.gtf()
-if(d===C.x&&0===e)return this.gCJ()
-if(d===C.v&&0===e)return this.gCK()
-if(d===C.R&&0===e)return this.gtg()
-if(d===C.G&&0===e)return this.gCL()
-if(d===C.Q&&0===e)return this.gCG()
-if(d===C.F&&0===e)return this.gCI()
-if(d===C.P&&0===e)return this.gCF()
-if(d===C.n&&0===e)return this.gWm()
-if(d===C.H&&0===e){y=this.k3
-if(y==null){this.k3=C.A
-y=C.A}return y}if(d===C.y&&0===e){y=this.k4
-if(y==null){y=new K.aL(this.gte())
-this.k4=y}return y}if(d===C.a_&&0===e){y=this.r1
-if(y==null){y=new U.hQ(P.e(U.iS,P.dd))
-this.r1=y}return y}return f},
-q:function(){this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[K.h2]}}
-var z=a.updateTypes([{func:1,ret:-1},{func:1,ret:-1,args:[,]},{func:1,ret:[S.a,K.h2],args:[[S.a,,],P.k]},{func:1,ret:[S.a,A.fw],args:[[S.a,,],P.k]}]);(function installTearOffs(){var y=a._instance_0u,x=a._instance_0i,w=a._static_2,v=a._instance_1u
+x=T.e(y,o5,"h1")
+k8.l(x)
+T.b(x,"Material tooltip")
+T.b(o5,k9)
+w=T.e(y,o5,l1)
+k8.l(w)
+T.b(w,l2)
+v=T.e(y,w,l3)
+k8.l(v)
+T.b(v,"Ink tooltip")
+T.b(w,l2)
+u=T.t(y,w)
+k8.A(u,l4)
+k8.h(u)
+T.b(u,l5)
+t=T.t(y,u)
+k8.A(t,l6)
+T.d(t,"row","")
+k8.h(t)
+T.b(t,l7)
+s=T.t(y,t)
+T.d(s,l8,"")
+k8.h(s)
+T.b(s,l9)
+r=T.t(y,s)
+T.d(r,m0,"")
+k8.h(r)
+T.b(r,m1)
+q=T.t(y,r)
+k8.h(q)
+T.b(q,m2)
+p=M.Z(k8,19)
+k8.f=p
+o=p.a
+q.appendChild(o)
+k8.M(o,m3)
+T.d(o,m4,"print")
+T.d(o,m5,"Print")
+o.tabIndex=0
+k8.h(o)
+k8.r=new V.q(19,17,k8,o)
+k8.x=new Y.Q(o)
+p=k8.d
+n=k8.e.z
+m=p.n(C.z,n)
+l=k8.r
+l=S.ez(m,l,o,l,k8.f,p.n(C.M,n),l0,l0)
+k8.y=l
+k8.f.I(k8.x)
+T.b(q,m2)
+k8.l(T.e(y,q,m6))
+T.b(q,m2)
+m=M.Z(k8,24)
+k8.Q=m
+k=m.a
+q.appendChild(k)
+k8.M(k,m3)
+T.d(k,m4,"save")
+T.d(k,m5,"Save")
+k.tabIndex=0
+k8.h(k)
+k8.ch=new V.q(24,17,k8,k)
+k8.cx=new Y.Q(k)
+m=p.n(C.z,n)
+l=k8.ch
+l=S.ez(m,l,k,l,k8.Q,p.n(C.M,n),l0,l0)
+k8.cy=l
+k8.Q.I(k8.cx)
+T.b(q,m2)
+k8.l(T.e(y,q,m6))
+T.b(q,m2)
+m=M.Z(k8,29)
+k8.dx=m
+j=m.a
+q.appendChild(j)
+k8.M(j,m3)
+T.d(j,m4,"lock")
+j.tabIndex=0
+k8.h(j)
+k8.dy=new V.q(29,17,k8,j)
+k8.fr=new Y.Q(j)
+m=p.n(C.z,n)
+l=k8.dy
+l=S.ez(m,l,j,l,k8.dx,p.n(C.M,n),l0,l0)
+k8.fx=l
+k8.dx.I(k8.fr)
+T.b(q,m2)
+k8.l(T.e(y,q,m6))
+T.b(q,m1)
+T.b(r,l9)
+T.b(s,l9)
+i=T.t(y,s)
+T.d(i,m0,"")
+k8.h(i)
+T.b(i,m1)
+m=M.Z(k8,38)
+k8.go=m
+h=m.a
+i.appendChild(h)
+k8.M(h,m3)
+T.d(h,m4,"print")
+T.d(h,m5,"Print")
+h.tabIndex=0
+k8.h(h)
+k8.id=new V.q(38,36,k8,h)
+k8.k1=new Y.Q(h)
+m=p.n(C.z,n)
+l=k8.id
+l=S.ez(m,l,h,l,k8.go,p.n(C.M,n),l0,l0)
+k8.k2=l
+k8.go.I(k8.k1)
+T.b(i,m1)
+k8.l(T.e(y,i,m6))
+T.b(i,m1)
+m=M.Z(k8,43)
+k8.k4=m
+g=m.a
+i.appendChild(g)
+k8.M(g,m3)
+T.d(g,m4,"save")
+T.d(g,m5,"Save")
+g.tabIndex=0
+k8.h(g)
+k8.r1=new V.q(43,36,k8,g)
+k8.r2=new Y.Q(g)
+m=p.n(C.z,n)
+l=k8.r1
+l=S.ez(m,l,g,l,k8.k4,p.n(C.M,n),l0,l0)
+k8.rx=l
+k8.k4.I(k8.r2)
+T.b(i,m1)
+k8.l(T.e(y,i,m6))
+T.b(i,m1)
+m=M.Z(k8,48)
+k8.x1=m
+f=m.a
+i.appendChild(f)
+k8.M(f,m3)
+T.d(f,m4,"lock")
+f.tabIndex=0
+k8.h(f)
+k8.x2=new V.q(48,36,k8,f)
+k8.y1=new Y.Q(f)
+m=p.n(C.z,n)
+l=k8.x2
+l=S.ez(m,l,f,l,k8.x1,p.n(C.M,n),l0,l0)
+k8.y2=l
+k8.x1.I(k8.y1)
+T.b(i,m1)
+k8.l(T.e(y,i,m6))
+T.b(i,l9)
+T.b(s,l7)
+T.b(t,l7)
+e=T.t(y,t)
+T.d(e,m0,"")
+k8.h(e)
+T.b(e,l9)
+d=T.e(y,e,m7)
+k8.A(d,m8)
+k8.l(d)
+T.b(d,"\n          Tooltips on Icons.\n        ")
+T.b(e,l7)
+T.b(t,l5)
+T.b(u,l5)
+a0=T.t(y,u)
+k8.A(a0,l6)
+T.d(a0,l8,"")
+k8.h(a0)
+T.b(a0,l7)
+a1=T.t(y,a0)
+k8.h(a1)
+T.b(a1,l9)
+m=U.U(k8,66)
+k8.U=m
+a2=m.a
+a1.appendChild(a2)
+T.d(a2,m5,"Saves the document")
+T.d(a2,"raised","")
+k8.h(a2)
+k8.a1=new V.q(66,64,k8,a2)
+m=F.P(p.k(C.o,n))
+k8.X=m
+k8.a2=B.T(a2,m,k8.U,l0)
+m=p.n(C.z,n)
+l=k8.a1
+l=S.ez(m,l,a2,l,k8.U,p.n(C.M,n),l0,l0)
+k8.Y=l
+a3=T.n("\n          Save\n        ")
+m=[W.aT]
+l=[P.m]
+k8.U.m(0,k8.a2,H.a([H.a([a3],m)],l))
+T.b(a1,l7)
+T.b(a0,l7)
+a4=T.t(y,a0)
+T.d(a4,m0,"")
+k8.h(a4)
+T.b(a4,l9)
+a5=T.e(y,a4,m7)
+k8.A(a5,m8)
+k8.l(a5)
+T.b(a5,"\n          Tooltip on a button.\n        ")
+T.b(a4,l7)
+T.b(a0,l5)
+T.b(u,l5)
+a6=T.t(y,u)
+k8.A(a6,l6)
+T.d(a6,l8,"")
+k8.h(a6)
+T.b(a6,l7)
+a7=T.t(y,a6)
+k8.h(a7)
+T.b(a7,l9)
+a8=T.e(y,a7,"a")
+T.d(a8,"href","#")
+k8.h(a8)
+k8.R=new V.q(81,79,k8,a8)
+a9=p.n(C.z,n)
+b0=k8.R
+b0=S.ez(a9,b0,a8,b0,k8,p.n(C.M,n),l0,l0)
+k8.K=b0
+T.b(a8,"opportunities")
+T.b(a7,l7)
+T.b(a6,l7)
+b1=T.t(y,a6)
+T.d(b1,m0,"")
+k8.h(b1)
+T.b(b1,l9)
+b2=T.e(y,b1,m7)
+k8.A(b2,m8)
+k8.l(b2)
+T.b(b2,"\n          Long tooltip on a link.\n        ")
+T.b(b1,l7)
+T.b(a6,l5)
+T.b(u,l2)
+T.b(w,l2)
+b3=T.t(y,w)
+k8.A(b3,l4)
+k8.h(b3)
+T.b(b3,l5)
+b4=T.t(y,b3)
+k8.A(b4,l6)
+T.d(b4,l8,"")
+k8.h(b4)
+T.b(b4,l7)
+b5=T.t(y,b4)
+T.d(b5,m0,"")
+k8.h(b5)
+T.b(b5,l9)
+b6=T.t(y,b5)
+k8.h(b6)
+T.b(b6,m1)
+b7=T.d8(y,b6)
+b7.tabIndex=0
+T.d(b7,m9,"")
+k8.l(b7)
+k8.a9=new V.q(101,99,k8,b7)
+a9=p.n(C.z,n)
+b0=k8.a9
+a9=new A.m1(new P.z(l0,l0,[P.v]),k8,b0,b7,a9,E.eZ(l0,!0),b7,l0,l0,C.ac,C.ac)
+a9.k4=new T.hH(a9.ghm(),C.ba)
+k8.a6=a9
+T.b(b7,"\n            Explicitly declare a tooltip component\n          ")
+T.b(b6,m1)
+a9=L.a5M(k8,104)
+k8.a4=a9
+b8=a9.a
+b6.appendChild(b8)
+k8.h(b8)
+a9=G.cK(p.k(C.a9,n),p.k(C.G,n))
+k8.ah=a9
+b0=k8.a4
+b8.toString
+k8.ab=new F.eN(a9,b0,C.cw,Q.fQ(l0,new W.dK(b8)))
+b9=T.n("\n            Allows for \xa0 ")
+c0=y.createElement("strong")
+k8.l(c0)
+T.b(c0,"formatted")
+c1=T.n(" \xa0 ")
+c2=y.createElement("em")
+k8.l(c2)
+T.b(c2,n0)
+c3=T.n(".\n          ")
+a9=[W.aC]
+k8.a4.m(0,k8.ab,H.a([H.a([b9,c0,c1,c2,c3],a9)],l))
+T.b(b6,l9)
+T.b(b5,l7)
+T.b(b4,l7)
+c4=T.t(y,b4)
+T.d(c4,m0,"")
+k8.h(c4)
+T.b(c4,l9)
+c5=T.e(y,c4,m7)
+k8.A(c5,m8)
+k8.l(c5)
+T.b(c5,"\n          Custom tooltip on some text.\n        ")
+T.b(c4,l7)
+T.b(b4,l5)
+T.b(b3,l5)
+c6=T.t(y,b3)
+k8.A(c6,"knob-container")
+T.d(c6,l8,"")
+k8.h(c6)
+T.b(c6,l7)
+c7=T.e(y,c6,m7)
+k8.l(c7)
+c8=T.e(y,c7,"em")
+k8.l(c8)
+T.b(c8,"\n        Use this configuration sparingly, as the tooltip text is intended for\n        simple strings.\n      ")
+T.b(c6,l5)
+T.b(b3,l2)
+T.b(w,k9)
+T.b(o5,"\n\n")
+c9=T.e(y,o5,l1)
+k8.l(c9)
+T.b(c9,l2)
+d0=T.e(y,c9,l3)
+k8.l(d0)
+T.b(d0,"Card Tooltip")
+T.b(c9,l2)
+d1=T.t(y,c9)
+k8.A(d1,l4)
+k8.h(d1)
+T.b(d1,l5)
+d2=T.t(y,d1)
+k8.A(d2,l6)
+T.d(d2,l8,"")
+k8.h(d2)
+T.b(d2,l7)
+d3=T.t(y,d2)
+T.d(d3,m0,"")
+k8.h(d3)
+T.b(d3,l9)
+d4=T.t(y,d3)
+k8.h(d4)
+T.b(d4,m1)
+d5=T.e(y,d4,m7)
+k8.l(d5)
+T.b(d5,"\n            A simple sentence about something.\n            ")
+b0=M.Z(k8,146)
+k8.ai=b0
+d6=b0.a
+d5.appendChild(d6)
+T.d(d6,m4,n1)
+T.d(d6,n2,"")
+T.d(d6,n3,n4)
+d6.tabIndex=0
+T.d(d6,m9,"")
+k8.h(d6)
+k8.a5=new V.q(146,144,k8,d6)
+k8.al=new Y.Q(d6)
+b0=p.n(C.b,n)
+k8.aj=new O.d1(d6,b0,C.N)
+b0=p.n(C.z,n)
+d7=k8.a5
+d8=k8.ai
+b0=new A.m1(new P.z(l0,l0,[P.v]),d8,d7,d6,b0,E.eZ(l0,!0),d6,l0,l0,C.ac,C.ac)
+b0.k4=new T.hH(b0.ghm(),C.ba)
+k8.ak=b0
+k8.ai.I(k8.al)
+T.b(d5,m1)
+T.b(d4,m1)
+b0=E.q5(k8,150)
+k8.am=b0
+d9=b0.a
+d4.appendChild(d9)
+k8.h(d9)
+b0=G.cK(p.k(C.a9,n),p.k(C.G,n))
+k8.an=b0
+d7=k8.am
+d8=P.v
+e0=[d8]
+d9.toString
+k8.af=new Q.du(Q.fQ(l0,new W.dK(d9)),C.b2,new P.a7(l0,l0,e0),b0,d7)
+e1=T.n(m2)
+e2=y.createElement("header")
+k8.l(e2)
+T.b(e2,n5)
+e3=T.n(m2)
+e4=y.createElement("p")
+k8.l(e4)
+e5=T.e(y,e4,"b")
+k8.l(e5)
+T.b(e5,n6)
+T.b(e4,n7)
+e6=T.n(m1)
+b0=[W.at]
+k8.am.m(0,k8.af,H.a([H.a([e2],b0),H.a([e1,e3,e4,e6],a9),C.a],l))
+T.b(d4,l9)
+T.b(d3,l7)
+T.b(d2,l7)
+e7=T.t(y,d2)
+T.d(e7,m0,"")
+k8.h(e7)
+T.b(e7,l9)
+e8=T.t(y,e7)
+k8.h(e8)
+T.b(e8,m1)
+e9=T.e(y,e8,m7)
+k8.l(e9)
+T.b(e9,"\n            Clickable tooltip. Target will open immediately on clicks and keyboard events.\n            ")
+d7=M.Z(k8,169)
+k8.ap=d7
+f0=d7.a
+e9.appendChild(f0)
+T.d(f0,"clickableTooltipTarget","")
+T.d(f0,m4,n1)
+T.d(f0,n2,"")
+T.d(f0,n3,n4)
+f0.tabIndex=0
+k8.h(f0)
+k8.aI=new V.q(169,167,k8,f0)
+d7=A.a3p(p.n(C.z,n),k8.aI,f0,k8.ap,l0)
+k8.aC=d7
+k8.au=new Y.Q(f0)
+d7=p.n(C.b,n)
+k8.aA=new O.d1(f0,d7,C.N)
+k8.ap.I(k8.au)
+T.b(e9,m1)
+T.b(e8,m1)
+d7=E.q5(k8,173)
+k8.av=d7
+f1=d7.a
+e8.appendChild(f1)
+k8.h(f1)
+d7=G.cK(p.k(C.a9,n),p.k(C.G,n))
+k8.aq=d7
+f2=k8.av
+f1.toString
+k8.ay=new Q.du(Q.fQ(l0,new W.dK(f1)),C.b2,new P.a7(l0,l0,e0),d7,f2)
+f3=T.n(m2)
+f4=y.createElement("header")
+k8.l(f4)
+T.b(f4,n5)
+f5=T.n(m2)
+f6=y.createElement("p")
+k8.l(f6)
+f7=T.e(y,f6,"b")
+k8.l(f7)
+T.b(f7,n6)
+T.b(f6,n7)
+f8=T.n(m2)
+f9=y.createElement("p")
+k8.l(f9)
+g0=T.e(y,f9,"a")
+T.d(g0,"href","javascript: void 0")
+k8.h(g0)
+T.b(g0,"Learn more")
+g1=T.n(m2)
+g2=y.createElement("footer")
+k8.l(g2)
+T.b(g2,m2)
+g3=T.n(m1)
+k8.av.m(0,k8.ay,H.a([H.a([f4],b0),H.a([f3,f5,f6,f8,f9,g1,g3],a9),H.a([g2],b0)],l))
+T.b(e8,l9)
+T.b(e7,l7)
+T.b(d2,l7)
+g4=T.t(y,d2)
+T.d(g4,m0,"")
+k8.h(g4)
+T.b(g4,l9)
+g5=T.e(y,g4,m7)
+k8.A(g5,m8)
+k8.l(g5)
+T.b(g5,n8)
+T.b(g4,l7)
+T.b(d2,l5)
+T.b(d1,l2)
+T.b(c9,"\n\n  ")
+g6=T.t(y,c9)
+k8.A(g6,l4)
+k8.h(g6)
+T.b(g6,l5)
+g7=T.t(y,g6)
+k8.A(g7,l6)
+T.d(g7,l8,"")
+k8.h(g7)
+T.b(g7,l7)
+g8=T.t(y,g7)
+T.d(g8,m0,"")
+k8.h(g8)
+T.b(g8,l9)
+g9=T.t(y,g8)
+k8.h(g9)
+T.b(g9,m1)
+h0=T.e(y,g9,m7)
+k8.l(h0)
+T.b(h0,"\n            A Tooltip target with deferred content.\n            ")
+b0=M.Z(k8,211)
+k8.aQ=b0
+h1=b0.a
+h0.appendChild(h1)
+T.d(h1,m4,n1)
+T.d(h1,n3,n4)
+h1.tabIndex=0
+T.d(h1,m9,"")
+k8.h(h1)
+k8.aS=new V.q(211,209,k8,h1)
+k8.b_=new Y.Q(h1)
+b0=p.n(C.z,n)
+d7=k8.aS
+f2=k8.aQ
+b0=new A.m1(new P.z(l0,l0,[d8]),f2,d7,h1,b0,E.eZ(l0,!0),h1,l0,l0,C.ac,C.ac)
+b0.k4=new T.hH(b0.ghm(),C.ba)
+k8.aH=b0
+k8.aQ.I(k8.b_)
+T.b(h0,m1)
+T.b(g9,m1)
+b0=E.q5(k8,215)
+k8.aw=b0
+h2=b0.a
+g9.appendChild(h2)
+k8.h(h2)
+b0=G.cK(p.k(C.a9,n),p.k(C.G,n))
+k8.aO=b0
+d7=k8.aw
+h2.toString
+b0=new Q.du(Q.fQ(l0,new W.dK(h2)),C.b2,new P.a7(l0,l0,e0),b0,d7)
+k8.b4=b0
+h3=T.n(m2)
+d7=k8.aT=new V.q(217,215,k8,T.X())
+k8.aM=K.e9(d7,new D.w(d7,Q.awX()),b0)
+h4=T.n(m1)
+k8.aw.m(0,k8.b4,H.a([C.a,H.a([h3,k8.aT,h4],l),C.a],l))
+T.b(g9,l9)
+T.b(g8,l7)
+T.b(g7,l7)
+h5=T.t(y,g7)
+T.d(h5,m0,"")
+k8.h(h5)
+T.b(h5,l9)
+h6=T.e(y,h5,m7)
+k8.A(h6,m8)
+k8.l(h6)
+T.b(h6,"\n          Use ")
+h7=T.e(y,h6,"strong")
+k8.l(h7)
+T.b(h7,"DeferredContentDirective")
+T.b(h6," inside\n          ")
+h8=T.e(y,h6,"code")
+k8.l(h8)
+T.b(h8,"material-tooltip-card")
+T.b(h6," to create your content\n          just-in-time.\n        ")
+T.b(h5,l7)
+T.b(g7,l5)
+T.b(g6,l2)
+T.b(c9,k9)
+T.b(o5,"\n\n")
+h9=T.e(y,o5,l1)
+k8.l(h9)
+T.b(h9,l2)
+i0=T.e(y,h9,l3)
+k8.l(i0)
+T.b(i0,"Icon Tooltip")
+T.b(h9,l2)
+i1=T.t(y,h9)
+k8.A(i1,l4)
+k8.h(i1)
+T.b(i1,l5)
+i2=T.t(y,i1)
+k8.A(i2,l6)
+T.d(i2,l8,"")
+k8.h(i2)
+T.b(i2,l7)
+i3=T.t(y,i2)
+T.d(i3,m0,"")
+k8.h(i3)
+T.b(i3,l9)
+i4=T.t(y,i3)
+k8.h(i4)
+T.b(i4,m1)
+b0=Q.ao(k8,250)
+k8.aU=b0
+i5=b0.a
+i4.appendChild(i5)
+T.d(i5,"label","A dummy input to start a focus cycle.")
+T.d(i5,"type",n0)
+k8.h(i5)
+b0=new L.ag(H.a([],[{func:1,ret:[P.ae,P.k,,],args:[[Z.by,,]]}]))
+k8.aY=b0
+b0=L.an(n0,l0,l0,l0,k8.aU,b0)
+k8.aE=b0
+k8.aU.m(0,b0,H.a([C.a,C.a],l))
+T.b(i4,m1)
+i6=T.e(y,i4,m7)
+k8.l(i6)
+T.b(i6,"\n            A simple sentence about something, followed by an info tooltip\n            icon.\n            ")
+b0=M.Ld(k8,255)
+k8.aZ=b0
+i7=b0.a
+i6.appendChild(i7)
+T.d(i7,"type","info")
+k8.h(i7)
+b0=F.P(p.k(C.o,n))
+k8.bi=b0
+b0=B.Ev(b0,i7,l0,"info",l0)
+k8.aR=b0
+i8=T.n("\n              Simple sentences about things\n            ")
+k8.aZ.m(0,b0,H.a([H.a([i8],m)],l))
+T.b(i6,m1)
+T.b(i4,m1)
+i9=T.e(y,i4,m7)
+k8.l(i9)
+T.b(i9,"\n            A simple sentence about something, followed by a material tooltip\n            icon.\n            ")
+b0=M.Ld(k8,261)
+k8.b7=b0
+j0=b0.a
+i9.appendChild(j0)
+T.d(j0,m4,"star")
+k8.h(j0)
+b0=F.P(p.k(C.o,n))
+k8.aN=b0
+b0=B.Ev(b0,j0,"star",l0,l0)
+k8.bf=b0
+j1=T.n("\n              More simple sentences about things\n            ")
+k8.b7.m(0,b0,H.a([H.a([j1],m)],l))
+T.b(i9,m1)
+T.b(i4,m1)
+j2=T.e(y,i4,m7)
+k8.A(j2,"dark-background")
+k8.l(j2)
+T.b(j2,"\n            A simple dark-themed sentence about something, followed by a help\n            tooltip icon.\n            ")
+b0=M.Ld(k8,267)
+k8.b0=b0
+j3=b0.a
+j2.appendChild(j3)
+T.d(j3,"darkTheme","")
+k8.h(j3)
+k8.b1=!0
+b0=F.P(!0)
+k8.bu=b0
+b0=B.Ev(b0,j3,l0,l0,l0)
+k8.bm=b0
+j4=T.n("\n              Another simple sentences about things\n            ")
+k8.b0.m(0,b0,H.a([H.a([j4],m)],l))
+T.b(j2,m1)
+T.b(i4,l9)
+T.b(i3,l7)
+T.b(i2,l7)
+j5=T.t(y,i2)
+k8.h(j5)
+T.b(j5,l9)
+j6=T.e(y,j5,m7)
+k8.A(j6,m8)
+k8.l(j6)
+T.b(j6,n8)
+T.b(j5,l7)
+T.b(i2,l5)
+T.b(i1,l2)
+T.b(h9,k9)
+T.b(o5,"\n\n")
+j7=T.e(y,o5,l1)
+k8.l(j7)
+T.b(j7,l2)
+j8=T.e(y,j7,l3)
+k8.l(j8)
+T.b(j8,"Tooltip Source")
+T.b(j7,l2)
+j9=T.t(y,j7)
+k8.A(j9,l4)
+k8.h(j9)
+T.b(j9,l5)
+k0=T.t(y,j9)
+k8.A(k0,l6)
+T.d(k0,l8,"")
+k8.h(k0)
+T.b(k0,l7)
+k1=T.t(y,k0)
+T.d(k1,m0,"")
+k8.h(k1)
+T.b(k1,l9)
+k2=T.t(y,k1)
+k8.h(k2)
+T.b(k2,m1)
+k3=T.e(y,k2,m7)
+k8.l(k3)
+T.b(k3,"\n            Use a tooltipSource to control a popup.\n            ")
+m=M.Z(k8,297)
+k8.bH=m
+m=m.a
+k8.bx=m
+k3.appendChild(m)
+T.I(k8.bx,"aria-label",$.aid())
+T.d(k8.bx,m4,n1)
+T.d(k8.bx,n3,n4)
+m=k8.bx
+m.tabIndex=0
+T.d(m,"tooltipSource","")
+k8.h(k8.bx)
+k8.by=new Y.Q(k8.bx)
+m=D.al2(p.n(C.z,n),k8.bx,l0)
+k8.bp=new Y.FJ(m)
+k8.bH.I(k8.by)
+T.b(k3,m1)
+T.b(k2,m1)
+m=A.cN(k8,301)
+k8.bA=m
+k4=m.a
+k2.appendChild(k4)
+T.d(k4,"enforceSpaceConstraints","")
+k8.h(k4)
+k8.bB=new V.q(301,293,k8,k4)
+p=G.cM(p.k(C.X,n),p.k(C.S,n),l0,p.n(C.h,n),p.n(C.n,n),p.n(C.b,n),p.n(C.H,n),p.n(C.K,n),p.n(C.I,n),p.n(C.J,n),p.k(C.C,n),k8.bA,k8.bB,new Z.bO(k4))
+k8.bj=p
+k5=T.n(m2)
+k6=y.createElement("div")
+k8.A(k6,"source-popup")
+k8.h(k6)
+T.b(k6,"\n              Content in a popup.\n            ")
+k7=T.n(m1)
+k8.bA.m(0,k8.bj,H.a([C.a,H.a([k5,k6,k7],a9),C.a],l))
+T.b(k2,l9)
+T.b(k1,l7)
+T.b(k0,l5)
+T.b(j9,l2)
+T.b(j7,k9)
+T.b(o5,k9)
+p=W.F;(b7&&C.bF).S(b7,n9,k8.ac(k8.a6.guU(),p))
+n=k8.a6
+C.bF.S(b7,o0,k8.ac(n.ged(n),p))
+n=k8.a6
+C.bF.S(b7,o1,k8.ac(n.gdL(n),p))
+n=k8.a6
+m=W.aX
+C.bF.S(b7,o2,k8.u(n.gdw(n),p,m))
+n=k8.a6
+C.bF.S(b7,o3,k8.ac(n.gc9(n),p))
+n=W.a2
+l=J.af(d6)
+l.S(d6,"keydown",k8.u(k8.aj.gbT(),p,n))
+l.S(d6,o2,k8.u(k8.gKQ(),p,p))
+l.S(d6,o4,k8.ac(k8.aj.gcW(),p))
+l.S(d6,n9,k8.u(k8.gMo(),p,p))
+l.S(d6,o3,k8.u(k8.gNl(),p,p))
+a9=k8.ak
+l.S(d6,o0,k8.ac(a9.ged(a9),p))
+a9=k8.ak
+l.S(d6,o1,k8.ac(a9.gdL(a9),p))
+a9=J.af(f0)
+a9.S(f0,n9,k8.u(k8.gMq(),p,p))
+l=k8.aC
+a9.S(f0,o0,k8.ac(l.ged(l),p))
+l=k8.aC
+a9.S(f0,o1,k8.ac(l.gdL(l),p))
+a9.S(f0,o2,k8.u(k8.gKS(),p,p))
+a9.S(f0,"keypress",k8.u(k8.aC.gFO(),p,n))
+a9.S(f0,"keydown",k8.u(k8.aA.gbT(),p,n))
+a9.S(f0,o4,k8.ac(k8.aA.gcW(),p))
+n=k8.aA
+a9.S(f0,o3,k8.u(n.gc9(n),p,p))
+n=J.af(h1)
+n.S(h1,n9,k8.ac(k8.aH.guU(),p))
+a9=k8.aH
+n.S(h1,o0,k8.ac(a9.ged(a9),p))
+a9=k8.aH
+n.S(h1,o1,k8.ac(a9.gdL(a9),p))
+a9=k8.aH
+n.S(h1,o2,k8.u(a9.gdw(a9),p,m))
+m=k8.aH
+n.S(h1,o3,k8.ac(m.gc9(m),p))
+m=k8.bx
+n=k8.bp.e
+J.Y(m,o3,k8.ac(n.gc9(n),p))
+n=k8.bx
+m=k8.bp.e
+J.Y(n,o2,k8.ac(m.gdw(m),p))
+m=k8.bx
+n=k8.bp.e
+J.Y(m,"keyup",k8.ac(n.giT(n),p))
+n=k8.bx
+m=k8.bp.e
+J.Y(n,o0,k8.ac(m.ged(m),p))
+m=k8.bx
+n=k8.bp.e
+J.Y(m,o1,k8.ac(n.gdL(n),p))
+k8.ae()},
+N:function(d,e,f){var y=this,x=d===C.a9
+if(x&&19<=e&&e<=20)return y.gIT()
+if(x&&24<=e&&e<=25)return y.gIW()
+if(x&&29<=e&&e<=30)return y.gIX()
+if(x&&38<=e&&e<=39)return y.gIY()
+if(x&&43<=e&&e<=44)return y.gIZ()
+if(x&&48<=e&&e<=49)return y.gJ_()
+if(66<=e&&e<=67){if(d===C.p)return y.X
+if(d===C.q||d===C.m||d===C.d)return y.a2
+if(x)return y.gJ0()}if(x&&81<=e&&e<=82)return y.gJ2()
+if(x&&104<=e&&e<=111)return y.ah
+if(150<=e&&e<=159){if(x)return y.an
+if(d===C.b7||d===C.t)return y.af
+if(d===C.bu){x=y.aB
+return x==null?y.aB=y.af.ghY():x}}if(173<=e&&e<=189){if(x)return y.aq
+if(d===C.b7||d===C.t)return y.ay
+if(d===C.bu){x=y.aG
+return x==null?y.aG=y.ay.ghY():x}}if(215<=e&&e<=218){if(x)return y.aO
+if(d===C.b7||d===C.t)return y.b4
+if(d===C.bu){x=y.b9
+return x==null?y.b9=y.b4.ghY():x}}if(250<=e&&e<=251){if(d===C.A)return y.aY
+if(d===C.F||d===C.u||d===C.l||d===C.d||d===C.B)return y.aE}if(255<=e&&e<=256){if(d===C.p)return y.bi
+if(d===C.t)return y.aR}if(261<=e&&e<=262){if(d===C.p)return y.aN
+if(d===C.t)return y.bf}if(267<=e&&e<=268){if(d===C.o)return y.b1
+if(d===C.p)return y.bu
+if(d===C.t)return y.bm}if(301<=e&&e<=305){if(d===C.S||d===C.t||d===C.r)return y.bj
+if(d===C.X){x=y.c4
+return x==null?y.c4=y.bj.gcv():x}if(d===C.a6){x=y.c5
+return x==null?y.c5=y.bj.fr:x}}return f},
+q:function(){var y,x,w,v,u=this,t="A message that appears in a tooltip.",s="help_outline",r="Number of opportunities linked to this objective with positive deal value in the current quarter",q=u.b,p=u.e.cx===0,o=u.a6,n=u.ak,m=u.aC,l=u.aH,k=u.bp.e
+if(p){u.x.saa(0,"print")
+y=!0}else y=!1
+if(y)u.f.e.st(1)
+if(p)u.y.se6(0,"Print")
+if(p){x=u.y
+if(x.x2)x.dF()}if(p){u.cx.saa(0,"save")
+y=!0}else y=!1
+if(y)u.Q.e.st(1)
+if(p)u.cy.se6(0,"Save")
+if(p){x=u.cy
+if(x.x2)x.dF()}if(p){u.fr.saa(0,"lock")
+y=!0}else y=!1
+if(y)u.dx.e.st(1)
+q.toString
+x=u.bQ
+if(x!==t){u.fx.se6(0,t)
+u.bQ=t}if(p){x=u.fx
+if(x.x2)x.dF()}if(p){u.k1.saa(0,"print")
+y=!0}else y=!1
+if(y)u.go.e.st(1)
+if(p)u.k2.se6(0,"Print")
+if(p){x=u.k2
+if(x.x2)x.dF()}if(p){u.r2.saa(0,"save")
+y=!0}else y=!1
+if(y)u.k4.e.st(1)
+if(p)u.rx.se6(0,"Save")
+if(p){x=u.rx
+if(x.x2)x.dF()}if(p){u.y1.saa(0,"lock")
+y=!0}else y=!1
+if(y)u.x1.e.st(1)
+x=u.c_
+if(x!==t){u.y2.se6(0,t)
+u.c_=t}if(p){x=u.y2
+if(x.x2)x.dF()}if(p&&(u.a2.cy=!0))u.U.e.st(1)
+if(p)u.Y.se6(0,"Saves the document")
+if(p){x=u.Y
+if(x.x2)x.dF()}x=u.cm
+if(x!==r){u.K.se6(0,r)
+u.cm=r}if(p){x=u.K
+if(x.x2)x.dF()}x=u.bl
+if(x!=o){u.ab.shZ(o)
+u.bl=o
+y=!0}else y=!1
+if(y)u.a4.e.st(1)
+if(p){u.al.saa(0,s)
+y=!0}else y=!1
+if(y)u.ai.e.st(1)
+x=u.bR
+if(x!=n){u.af.shZ(n)
+u.bR=n
+y=!0}else y=!1
+if(y)u.am.e.st(1)
+if(p){u.au.saa(0,s)
+y=!0}else y=!1
+if(y)u.ap.e.st(1)
+x=u.bS
+if(x!=m){u.ay.shZ(m)
+u.bS=m
+y=!0}else y=!1
+if(y)u.av.e.st(1)
+if(p){u.b_.saa(0,s)
+y=!0}else y=!1
+if(y)u.aQ.e.st(1)
+x=u.bG
+if(x!=l){u.b4.shZ(l)
+u.bG=l
+y=!0}else y=!1
+if(y)u.aw.e.st(1)
+if(p)u.aM.f=!0
+if(p){u.aE.go="A dummy input to start a focus cycle."
+y=!0}else y=!1
+if(y)u.aU.e.st(1)
+if(p){u.by.saa(0,s)
+y=!0}else y=!1
+if(y)u.bH.e.st(1)
+if(p){u.bj.K.a.C(0,C.aL,!1)
+u.bj.K.a.C(0,C.aq,!0)
+u.bj.K.a.C(0,C.at,C.lt)
+y=!0}else y=!1
+x=u.c7
+if(x!=k){u.bj.scC(0,k)
+u.c7=k
+y=!0}if(y)u.bA.e.st(1)
+u.r.H()
+u.ch.H()
+u.dy.H()
+u.id.H()
+u.r1.H()
+u.x2.H()
+u.a1.H()
+u.R.H()
+u.a9.H()
+u.a5.H()
+u.aI.H()
+u.aS.H()
+u.aT.H()
+u.bB.H()
+u.U.w(p)
+x=u.bp
+w=u.bH
+v=u.bx
+x.toString
+if(w.e.cx===0){x=v.style
+C.E.c1(x,(x&&C.E).bP(x,"cursor"),"pointer",null)}u.bA.w(p)
+u.f.i()
+u.Q.i()
+u.dx.i()
+u.go.i()
+u.k4.i()
+u.x1.i()
+u.U.i()
+u.a4.i()
+u.ai.i()
+u.am.i()
+u.ap.i()
+u.av.i()
+u.aQ.i()
+u.aw.i()
+u.aU.i()
+u.aZ.i()
+u.b7.i()
+u.b0.i()
+u.bH.i()
+u.bA.i()
+if(p){u.y.a3()
+u.cy.a3()
+u.fx.a3()
+u.k2.a3()
+u.rx.a3()
+u.y2.a3()
+u.Y.a3()
+u.K.a3()
+u.a6.a3()
+u.ak.a3()
+u.aC.a3()
+u.aH.a3()
+u.aE.a3()
+u.bp.e.a3()
+u.bj.cD()}},
+v:function(){var y,x=this
+x.r.G()
+x.ch.G()
+x.dy.G()
+x.id.G()
+x.r1.G()
+x.x2.G()
+x.a1.G()
+x.R.G()
+x.a9.G()
+x.a5.G()
+x.aI.G()
+x.aS.G()
+x.aT.G()
+x.bB.G()
+x.f.j()
+x.Q.j()
+x.dx.j()
+x.go.j()
+x.k4.j()
+x.x1.j()
+x.U.j()
+x.a4.j()
+x.ai.j()
+x.am.j()
+x.ap.j()
+x.av.j()
+x.aQ.j()
+x.aw.j()
+x.aU.j()
+x.aZ.j()
+x.b7.j()
+x.b0.j()
+x.bH.j()
+x.bA.j()
+x.y.P()
+x.cy.P()
+x.fx.P()
+x.k2.P()
+x.rx.P()
+x.y2.P()
+x.Y.P()
+x.K.P()
+x.a6.toString
+x.ak.toString
+x.aC.R.ax(0)
+x.aH.toString
+x.aM.P()
+y=x.aE
+y.aK()
+y.K=y.R=null
+x.bp.e.P()
+x.bj.P()},
+KR:function(d){this.aj.hT()
+this.ak.hK(0,d)},
+Mp:function(d){var y=this.aj
+y.c=C.aE
+y.dU()
+this.ak.uC()},
+Nm:function(d){this.aj.f5(0,d)
+this.ak.k4.i7(0)},
+Mr:function(d){var y
+this.aC.ty()
+y=this.aA
+y.c=C.aE
+y.dU()},
+KT:function(d){this.aC.hK(0,d)
+this.aA.hT()},
+$ac:function(){return[K.i2]}}
+Q.Vo.prototype={
+p:function(){var y,x,w,v,u,t,s,r,q=this,p="\n              ",o=B.a0J(q,0)
+q.f=o
+y=o.a
+q.h(y)
+q.r=new V.ex()
+x=T.n(p)
+w=document
+v=w.createElement("header")
+q.l(v)
+T.b(v,"Simple sentences about things.")
+u=T.n(p)
+t=w.createElement("p")
+q.l(t)
+s=T.e(w,t,"b")
+q.l(s)
+T.b(s,"How it works:")
+T.b(t," Text explains things further.")
+r=T.n("\n            ")
+q.f.m(0,q.r,H.a([H.a([x,v,u,t,r],[W.aC])],[P.m]))
+q.E(y)},
+q:function(){var y=this,x=y.e.cx===0
+if(x)y.r.b=4
+if(x)y.r.W()
+y.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[K.i2]}}
+Q.Vp.prototype={
+gnm:function(){var y=this.x
+return y==null?this.x=document:y},
+gC1:function(){var y=this.z
+return y==null?this.z=window:y},
+gnn:function(){var y=this,x=y.Q
+if(x==null){x=y.e.z
+x=T.b5(y.k(C.b,x),y.k(C.G,x),y.n(C.h,x),y.gC1())
+y.Q=x}return x},
+gBZ:function(){var y,x=this,w=x.ch
+if(w==null){w=x.n(C.Z,x.e.z)
+y=x.gnn()
+w=x.ch=new O.aH(w,y)}return w},
+grV:function(){var y=this,x=y.cx
+return x==null?y.cx=new K.aM(y.gnm(),y.gnn(),P.b0(null,[P.r,P.k])):x},
+gVK:function(){var y=this,x=y.cy
+if(x==null){x=T.b8(y.n(C.h,y.e.z))
+y.cy=x}return x},
+grW:function(){var y=this,x=y.db
+if(x==null){x=G.bc(y.k(C.w,y.e.z))
+y.db=x}return x},
+gC3:function(){var y=this,x=y.dx
+if(x==null){x=G.be(y.gnm(),y.k(C.x,y.e.z))
+y.dx=x}return x},
+gC4:function(){var y=this,x=y.dy
+if(x==null){x=G.b7(y.grW(),y.gC3(),y.k(C.v,y.e.z))
+y.dy=x}return x},
+grX:function(){var y=this.fr
+return y==null?this.fr=!0:y},
+gC5:function(){var y=this.fx
+return y==null?this.fx=!0:y},
+gC0:function(){var y=this.go
+if(y==null){y=this.gnm()
+y=this.go=new R.aK(y.querySelector("head"),y)}return y},
+gC2:function(){var y=this.id
+return y==null?this.id=X.bb():y},
+gC_:function(){var y=this,x=y.k1
+return x==null?y.k1=K.b9(y.gC0(),y.gC4(),y.grW(),y.grV(),y.gnn(),y.gBZ(),y.grX(),y.gC5(),y.gC2()):x},
+gVL:function(){var y,x,w,v=this,u=v.k2
+if(u==null){u=v.e.z
+y=v.n(C.h,u)
+x=v.grX()
+w=v.gC_()
+v.k(C.n,u)
+u=v.k2=new X.aG(x,y,w)}return u},
+p:function(){var y,x=this,w=new Q.uQ(x,S.i(1,C.i,0)),v=$.a6J
+if(v==null)v=$.a6J=O.O($.aAL,null)
+w.c=v
+y=document.createElement("material-tooltip-example")
+w.a=y
+x.f=w
+x.a=y
+y=new K.i2()
+x.r=y
+w.m(0,y,x.e.e)
+x.E(x.a)
+return new D.C(x,0,x.a,x.r,[K.i2])},
+N:function(d,e,f){var y,x=this
+if(0===e){if(d===C.Q)return x.gnm()
+if(d===C.a_){y=x.y
+return y==null?x.y=document:y}if(d===C.M)return x.gC1()
+if(d===C.b)return x.gnn()
+if(d===C.T)return x.gBZ()
+if(d===C.R)return x.grV()
+if(d===C.a0)return x.gVK()
+if(d===C.w)return x.grW()
+if(d===C.x)return x.gC3()
+if(d===C.v)return x.gC4()
+if(d===C.Y)return x.grX()
+if(d===C.I)return x.gC5()
+if(d===C.J){y=x.fy
+return y==null?x.fy=C.a3:y}if(d===C.W)return x.gC0()
+if(d===C.H)return x.gC2()
+if(d===C.V)return x.gC_()
+if(d===C.n)return x.gVL()
+if(d===C.K){y=x.k3
+return y==null?x.k3=C.a4:y}if(d===C.z){y=x.k4
+return y==null?x.k4=new K.aS(x.grV()):y}if(d===C.a9){y=x.r1
+return y==null?x.r1=new U.hs(P.ak(U.li,P.d5)):y}}return f},
+q:function(){this.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[K.i2]}}
+var z=a.updateTypes([{func:1,ret:-1},{func:1,ret:-1,args:[,]},{func:1,ret:[S.c,A.fE],args:[[S.c,,],P.l]},{func:1,ret:[S.c,-1],args:[[S.c,,],P.l]},{func:1,ret:[S.c,K.i2],args:[[S.c,,],P.l]}]);(function installTearOffs(){var y=a._instance_0u,x=a._instance_0i,w=a._static_2,v=a._instance_1u
 var u
-y(u=D.tQ.prototype,"gZz","o9",0)
-x(u,"gce","lJ",0)
-x(u,"gdT","lI",0)
-x(u,"goS","a2d",0)
-x(u,"ged","j0",0)
-x(u,"gdf","hh",0)
-w(Q,"aAl","aHX",3)
-w(Q,"aAm","aHY",2)
-w(Q,"aAn","aHZ",2)
-v(u=Q.vu.prototype,"gLK","LL",1)
-v(u,"gNg","Nh",1)
-v(u,"gO5","O6",1)
-v(u,"gLM","LN",1)
-v(u,"gNi","Nj",1)})();(function inheritance(){var y=a.inherit,x=a.inheritMany
-y(D.tQ,L.md)
-y(Y.GC,E.no)
-x(P.w,[A.fw,K.h2])
-x(S.a,[Q.Nd,Q.W0,Q.vu,Q.W1,Q.W2])})();(function constants(){var y=a.makeConstList
-C.d6=new D.y("material-tooltip-example",Q.aAn(),[K.h2])
-C.dN=new D.y("material-tooltip-api",Q.aAl(),[A.fw])
-C.kq=H.b(y([C.bX]),[K.b0])
-C.p3=H.v(A.fw)
-C.pP=H.v(K.h2)})();(function staticFields(){$.a6R=null
-$.aaJ=!1
-$.a1l=null
-$.aaK=!1})();(function lazyInitializers(){var y=a.lazy
-y($,"aLr","ahY",function(){return T.ae("Mouseover or press enter on this icon for more information.",null,"Label for help icon which opens a help center tooltip.",C.z,null,"MaterialTooltipSourceDirective_tooltipLabel",null)})
-y($,"aQe","ali",function(){return["._nghost-%ID%{margin:8px}._nghost-%ID% .demo-section._ngcontent-%ID%{display:flex;flex-direction:row;padding:8px}._nghost-%ID% .demo-container._ngcontent-%ID%,._nghost-%ID% .knob-container._ngcontent-%ID%{margin:8px;padding:8px;max-width:600px;display:flex;flex:1;box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)}._nghost-%ID% .demo-container._ngcontent-%ID% .caption._ngcontent-%ID%,._nghost-%ID% .knob-container._ngcontent-%ID% .caption._ngcontent-%ID%{font-size:12px;font-weight:400}._nghost-%ID% [row]._ngcontent-%ID%{flex-direction:row}._nghost-%ID% [column]._ngcontent-%ID%{flex-direction:column}._nghost-%ID% [flex]._ngcontent-%ID%{display:flex;flex:1}._nghost-%ID% [inline-flex]._ngcontent-%ID%{display:inline-flex;flex:1}.demo-glyph._ngcontent-%ID%{margin:8px}.source-popup._ngcontent-%ID%{padding:8px}.dark-background._ngcontent-%ID%{background:#424242;color:#fff}"]})
-y($,"aOA","akc",function(){return[$.ali()]})})()}
-$__dart_deferred_initializers__["zJ+v4kLDSgHV1jIREpmkX6uMLPI="] = $__dart_deferred_initializers__.current
+y(u=D.tf.prototype,"gZ3","nO",0)
+x(u,"gc9","lo",0)
+x(u,"gdw","ln",0)
+x(u,"giT","a1H",0)
+x(u,"ged","iU",0)
+x(u,"gdL","ha",0)
+w(Q,"awW","aHQ",2)
+w(Q,"awX","aHR",3)
+w(Q,"awY","aHS",4)
+v(u=Q.uQ.prototype,"gKQ","KR",1)
+v(u,"gMo","Mp",1)
+v(u,"gNl","Nm",1)
+v(u,"gMq","Mr",1)
+v(u,"gKS","KT",1)})();(function inheritance(){var y=a.inherit,x=a.inheritMany
+y(D.tf,L.ny)
+y(Y.FJ,E.lP)
+x(P.m,[A.fE,K.i2])
+x(S.c,[Q.Mf,Q.Vn,Q.uQ,Q.Vo,Q.Vp])})();(function constants(){var y=a.makeConstList
+C.d9=new D.A("material-tooltip-example",Q.awY(),[K.i2])
+C.dQ=new D.A("material-tooltip-api",Q.awW(),[A.fE])
+C.lt=H.a(y([C.c0]),[K.b2])
+C.ot=H.y(A.fE)
+C.pg=H.y(K.i2)})();(function staticFields(){$.a6I=null
+$.aaT=!1
+$.aBR=["._nghost-%ID%{margin:8px}._nghost-%ID% .demo-section._ngcontent-%ID%{display:flex;flex-direction:row;padding:8px}._nghost-%ID% .demo-container._ngcontent-%ID%,._nghost-%ID% .knob-container._ngcontent-%ID%{margin:8px;padding:8px;max-width:600px;display:flex;flex:1;box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)}._nghost-%ID% .demo-container._ngcontent-%ID% .caption._ngcontent-%ID%,._nghost-%ID% .knob-container._ngcontent-%ID% .caption._ngcontent-%ID%{font-size:12px;font-weight:400}._nghost-%ID% [row]._ngcontent-%ID%{flex-direction:row}._nghost-%ID% [column]._ngcontent-%ID%{flex-direction:column}._nghost-%ID% [flex]._ngcontent-%ID%{display:flex;flex:1}._nghost-%ID% [inline-flex]._ngcontent-%ID%{display:inline-flex;flex:1}.demo-glyph._ngcontent-%ID%{margin:8px}.source-popup._ngcontent-%ID%{padding:8px}.dark-background._ngcontent-%ID%{background:#424242;color:#fff}"]
+$.a6J=null
+$.aaU=!1
+$.aAL=[$.aBR]})();(function lazyInitializers(){var y=a.lazy
+y($,"aKD","aid",function(){return T.bh("Mouseover or press enter on this icon for more information.",null,"MaterialTooltipSourceDirective_tooltipLabel",null,null)})})()}
+$__dart_deferred_initializers__["GiX0cn3+dHTUQjCE4BsiRPlnkHQ="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_65.part.js.map

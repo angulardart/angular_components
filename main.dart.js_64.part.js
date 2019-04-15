@@ -1,47 +1,40 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,S={iw:function iw(){this.b=this.a=!1
-this.c=null}},N,E,M,Q,D,L,Z,A,U={fv:function fv(d){this.a=d}},T={
-aHW:function(d,e){var y=new T.W_(P.e(P.c,null),d)
-y.a=S.i(y,3,C.k,e,S.iw)
-return y},
-auG:function(){if($.aaZ)return
-$.aaZ=!0
-$.F().w(0,C.pG,C.d7)
-E.z()
-Q.mW()},
-vt:function vt(d,e){var _=this
-_.S=_.T=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.a=_.L=_.a_=_.V=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null},
-W_:function W_(d,e){var _=this
-_.a=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null}},O={
-aoB:function(){return C.ds},
-aHT:function(d,e){var y=new O.VX(P.e(P.c,null),d)
-y.a=S.i(y,3,C.k,e,U.fv)
-return y},
-auF:function(){if($.aaX)return
-$.aaX=!0
-$.F().w(0,C.p1,C.ds)
-E.z()
-K.cD()
-D.cn()
-T.auG()},
-Nc:function Nc(d,e){var _=this
-_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null},
-VX:function VX(d,e){var _=this
-_.a=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null}},X,B,F
-a.setFunctionNamesIfNecessary([S,U,T,O])
+$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,S={j6:function j6(){this.b=this.a=!1
+this.c=null}},N,E,M,Q,D,L,Z,O={
+al0:function(){return C.dv},
+aHM:function(d,e){return new O.Vj(d,S.i(3,C.j,e))},
+arb:function(){if($.ab6)return
+$.ab6=!0
+$.H.C(0,C.or,C.dv)
+E.B()
+K.cC()
+D.ck()
+T.arc()},
+Me:function Me(d,e){var _=this
+_.c=_.b=_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
+_.d=d
+_.e=e},
+Vj:function Vj(d,e){var _=this
+_.c=_.b=_.a=_.r=_.f=null
+_.d=d
+_.e=e}},A,U={fD:function fD(d){this.a=d}},T={
+aHP:function(d,e){return new T.Vm(d,S.i(3,C.j,e))},
+arc:function(){if($.ab7)return
+$.ab7=!0
+$.H.C(0,C.p6,C.da)
+E.B()
+Q.mK()},
+uP:function uP(d,e,f){var _=this
+_.f=d
+_.U=_.Z=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.c=_.b=_.a=_.a1=null
+_.d=e
+_.e=f},
+Vm:function Vm(d,e){var _=this
+_.c=_.b=_.a=_.r=_.f=null
+_.d=d
+_.e=e}},X,B,F
+a.setFunctionNamesIfNecessary([S,O,U,T])
 C=c[0]
 H=c[1]
 J=c[2]
@@ -60,517 +53,481 @@ Q=c[14]
 D=c[15]
 L=c[16]
 Z=c[17]
-A=c[18]
-U=a.updateHolder(c[19],U)
-T=a.updateHolder(c[20],T)
-O=a.updateHolder(c[21],O)
+O=a.updateHolder(c[18],O)
+A=c[19]
+U=a.updateHolder(c[20],U)
+T=a.updateHolder(c[21],T)
 X=c[22]
 B=c[23]
 F=c[24]
-U.fv.prototype={}
-O.Nc.prototype={
-gnE:function(){var y=this.y
-if(y==null){y=document
-this.y=y}return y},
-gCr:function(){var y=this.Q
-if(y==null){y=window
-this.Q=y}return y},
-gnF:function(){var y=this.ch
-if(y==null){y=this.c
-y=T.aY(y.l(C.b,this.a.Q,null),y.l(C.D,this.a.Q,null),y.n(C.f,this.a.Q),this.gCr())
-this.ch=y}return y},
-gCo:function(){var y,x
-y=this.cx
-if(y==null){y=this.c.n(C.S,this.a.Q)
-x=this.gnF()
-y=new O.aC(y,x)
-this.cx=y}return y},
-gt8:function(){var y=this.cy
-if(y==null){y=new K.aH(this.gnE(),this.gnF(),P.aU(null,[P.o,P.c]))
-this.cy=y}return y},
-gWh:function(){var y=this.db
-if(y==null){y=T.b2(this.c.n(C.f,this.a.Q))
-this.db=y}return y},
-gt9:function(){var y=this.dx
-if(y==null){y=G.b6(this.c.l(C.w,this.a.Q,null))
-this.dx=y}return y},
-gCt:function(){var y=this.dy
-if(y==null){y=G.b9(this.gnE(),this.c.l(C.x,this.a.Q,null))
-this.dy=y}return y},
-gCu:function(){var y=this.fr
-if(y==null){y=G.b1(this.gt9(),this.gCt(),this.c.l(C.v,this.a.Q,null))
-this.fr=y}return y},
-gta:function(){var y=this.fx
-if(y==null){this.fx=!0
-y=!0}return y},
-gCv:function(){var y=this.fy
-if(y==null){this.fy=!0
-y=!0}return y},
-gCq:function(){var y=this.go
-if(y==null){y=this.gnE()
-y=new R.aF(y.querySelector("head"),y)
-this.go=y}return y},
-gCs:function(){var y=this.id
-if(y==null){y=X.b4()
-this.id=y}return y},
-gCp:function(){var y=this.k1
-if(y==null){y=K.b3(this.gCq(),this.gCu(),this.gt9(),this.gt8(),this.gnF(),this.gCo(),this.gta(),this.gCv(),this.gCs())
-this.k1=y}return y},
-gWi:function(){var y,x,w,v
-y=this.k2
-if(y==null){y=this.c
-x=y.n(C.f,this.a.Q)
-w=this.gta()
-v=this.gCp()
-y.l(C.n,this.a.Q,null)
-y=new X.az(w,x,v)
-this.k2=y}return y},
-p:function(){var y,x
-y=this.Z(this.e)
-x=K.cd(this,0)
-this.r=x
-y.appendChild(x.e)
-x=new X.af(!J.bp(window.location.href,"enableLatencyCharts=false"))
-this.x=x
-this.r.k(0,x,[])
-this.J(C.a,null)},
-K:function(d,e,f){var y
-if(d===C.M&&0===e)return this.gnE()
-if(d===C.T&&0===e){y=this.z
-if(y==null){y=document
-this.z=y}return y}if(d===C.I&&0===e)return this.gCr()
-if(d===C.b&&0===e)return this.gnF()
-if(d===C.O&&0===e)return this.gCo()
-if(d===C.N&&0===e)return this.gt8()
-if(d===C.U&&0===e)return this.gWh()
-if(d===C.w&&0===e)return this.gt9()
-if(d===C.x&&0===e)return this.gCt()
-if(d===C.v&&0===e)return this.gCu()
-if(d===C.R&&0===e)return this.gta()
-if(d===C.G&&0===e)return this.gCv()
-if(d===C.Q&&0===e)return this.gCq()
-if(d===C.F&&0===e)return this.gCs()
-if(d===C.P&&0===e)return this.gCp()
-if(d===C.n&&0===e)return this.gWi()
-if(d===C.H&&0===e){y=this.k3
-if(y==null){this.k3=C.A
-y=C.A}return y}if(d===C.y&&0===e){y=this.k4
-if(y==null){y=new K.aL(this.gt8())
-this.k4=y}return y}return f},
-q:function(){var y,x
-y=this.f.a
-x=this.r1
-if(x!==y){this.x.a=y
-this.r1=y}this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[U.fv]}}
-O.VX.prototype={
-p:function(){var y,x,w,v
-y=P.c
-x=new O.Nc(P.e(y,null),this)
-w=U.fv
-x.a=S.i(x,3,C.j,0,w)
-v=document.createElement("material-toggle-api")
-x.e=v
-v=$.a6P
-if(v==null){v=$.D
-v=v.Y(null,C.X,C.a)
-$.a6P=v}x.X(v)
-this.r=x
-this.e=x.e
-x=[D.c4]
-x=H.b([D.at("MaterialToggleComponent",!1,"","material-toggle","","angular_components/lib/material_toggle/material_toggle.dart",X.h("<p><code>material-toggle</code> is a button that can be either ON or OFF.</p>\n<p>User can tap the toggle button to change the state.\nUsually you use toggle buttons when you have a single ON/OFF option.\nIf you have multiple options from a set to be checked/unchecked, use\n<code>material-checkbox</code> instead.</p>\n"),H.b([D.j("Input","ariaLabel","","String",X.h("<p>ARIA label to use for the toggle button.</p>\n"),"angular_components/lib/material_toggle/material_toggle.dart",!1,""),D.j("Input","checked","","bool",X.h("<p>Current state of the toggle button.</p>\n<p><code>true</code> is ON and <code>false</code> is OFF.</p>\n"),"angular_components/lib/material_toggle/material_toggle.dart",!1,""),D.j("Input","disabled","","bool",X.h("<p>Enables/disables the toggle button.</p>\n<p><code>true</code> is disabled and <code>false</code> is enabled.</p>\n"),"angular_components/lib/material_toggle/material_toggle.dart",!1,""),D.j("Input","label","","String",X.h("<p>Label for the toggle button.</p>\n"),"angular_components/lib/material_toggle/material_toggle.dart",!1,"")],x),H.b([D.j("Output","onChecked","checkedChange","Stream<bool>",X.h("<p>Event that is fired when the toggle is checked.</p>\n"),"angular_components/lib/material_toggle/material_toggle.dart",!1,"")],x))],[D.bW])
-v=H.b([new R.a7(C.d7,"MaterialToggleExampleComponent","material_toggle_example/lib/material_toggle_example.dart")],[R.a7])
-y=new U.fv(R.ch(H.b([],[y]),v,x,P.e(y,y),!0))
-this.x=y
-this.r.k(0,y,this.a.e)
-this.D(this.e)
-return new D.A(this,0,this.e,this.x,[w])},
-q:function(){this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[U.fv]}}
-S.iw.prototype={}
-T.vt.prototype={
-p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5
-y=this.Z(this.e)
-x=document
-w=S.d(x,"section",y)
-this.m(w)
-v=S.d(x,"h2",w)
-this.m(v)
-v.appendChild(x.createTextNode("A default toggle button"))
-u=Q.cm(this,3)
-this.r=u
-t=u.e
-w.appendChild(t)
-this.h(t)
-u=D.cj(this.r.a.b,null)
-this.x=u
-this.r.k(0,u,[C.a])
-u=x.createTextNode("")
-this.L=u
-w.appendChild(u)
-s=S.d(x,"section",y)
-this.m(s)
-r=S.d(x,"h2",s)
-this.m(r)
-r.appendChild(x.createTextNode("Toggle buttons with label"))
-u=Q.cm(this,8)
-this.y=u
-q=u.e
-s.appendChild(q)
-q.setAttribute("label","Toggle button 1")
-this.h(q)
-u=D.cj(this.y.a.b,null)
-this.z=u
-this.y.k(0,u,[C.a])
-this.m(S.d(x,"br",s))
-u=Q.cm(this,10)
-this.Q=u
-p=u.e
-s.appendChild(p)
-p.setAttribute("label","Toggle button 2")
-this.h(p)
-u=D.cj(this.Q.a.b,null)
-this.ch=u
-this.Q.k(0,u,[C.a])
-this.m(S.d(x,"br",s))
-u=Q.cm(this,12)
-this.cx=u
-o=u.e
-s.appendChild(o)
-o.setAttribute("label","Toggle buttons with very long labels will look like this when\n             rendered. Probably a good idea to keep your labels short.")
-this.h(o)
-u=D.cj(this.cx.a.b,null)
-this.cy=u
-this.cx.k(0,u,[C.a])
-this.m(S.d(x,"br",s))
-u=Q.cm(this,14)
-this.db=u
-n=u.e
-s.appendChild(n)
-n.setAttribute("label","Disabled")
-this.h(n)
-u=D.cj(this.db.a.b,null)
-this.dx=u
-this.db.k(0,u,[C.a])
-m=S.d(x,"section",y)
-this.m(m)
-l=S.d(x,"h2",m)
-this.m(l)
-l.appendChild(x.createTextNode("Toggle buttons that interact with each other"))
-u=Q.cm(this,18)
-this.dy=u
-k=u.e
-m.appendChild(k)
-this.h(k)
-u=D.cj(this.dy.a.b,null)
-this.fr=u
-this.dy.k(0,u,[C.a])
-this.m(S.d(x,"br",m))
-u=Q.cm(this,20)
-this.fx=u
-j=u.e
-m.appendChild(j)
-this.h(j)
-u=D.cj(this.fx.a.b,null)
-this.fy=u
-this.fx.k(0,u,[C.a])
-i=S.d(x,"section",y)
-this.m(i)
-h=S.d(x,"h2",i)
-this.m(h)
-h.appendChild(x.createTextNode("Toggle buttons with different theme colors (using mixins)"))
-g=S.p(x,i)
-g.className="theme-red"
-this.h(g)
-u=Q.cm(this,25)
-this.go=u
-f=u.e
+U.fD.prototype={}
+O.Me.prototype={
+gni:function(){var y=this.x
+return y==null?this.x=document:y},
+gBM:function(){var y=this.z
+return y==null?this.z=window:y},
+gnj:function(){var y,x=this,w=x.Q
+if(w==null){w=x.d
+y=x.e.z
+y=T.b5(w.k(C.b,y),w.k(C.G,y),w.n(C.h,y),x.gBM())
+x.Q=y
+w=y}return w},
+gBJ:function(){var y,x=this,w=x.ch
+if(w==null){w=x.d.n(C.Z,x.e.z)
+y=x.gnj()
+w=x.ch=new O.aH(w,y)}return w},
+grP:function(){var y=this,x=y.cx
+return x==null?y.cx=new K.aM(y.gni(),y.gnj(),P.b0(null,[P.r,P.k])):x},
+gVG:function(){var y=this,x=y.cy
+if(x==null){x=T.b8(y.d.n(C.h,y.e.z))
+y.cy=x}return x},
+grQ:function(){var y=this,x=y.db
+if(x==null){x=G.bc(y.d.k(C.w,y.e.z))
+y.db=x}return x},
+gBO:function(){var y=this,x=y.dx
+if(x==null){x=G.be(y.gni(),y.d.k(C.x,y.e.z))
+y.dx=x}return x},
+gBP:function(){var y=this,x=y.dy
+if(x==null){x=G.b7(y.grQ(),y.gBO(),y.d.k(C.v,y.e.z))
+y.dy=x}return x},
+grR:function(){var y=this.fr
+return y==null?this.fr=!0:y},
+gBQ:function(){var y=this.fx
+return y==null?this.fx=!0:y},
+gBL:function(){var y=this.go
+if(y==null){y=this.gni()
+y=this.go=new R.aK(y.querySelector("head"),y)}return y},
+gBN:function(){var y=this.id
+return y==null?this.id=X.bb():y},
+gBK:function(){var y=this,x=y.k1
+return x==null?y.k1=K.b9(y.gBL(),y.gBP(),y.grQ(),y.grP(),y.gnj(),y.gBJ(),y.grR(),y.gBQ(),y.gBN()):x},
+gVH:function(){var y,x,w,v,u=this,t=u.k2
+if(t==null){t=u.d
+y=u.e.z
+x=t.n(C.h,y)
+w=u.grR()
+v=u.gBK()
+t.k(C.n,y)
+t=u.k2=new X.aG(w,x,v)}return t},
+p:function(){var y,x=this,w=x.a_(x.a),v=K.c7(x,0)
+x.f=v
+w.appendChild(v.a)
+v=x.d
+y=x.e.z
+v.n(C.af,y)
+y=v.n(C.ag,y)
+v=new X.az(y,!J.bt(window.location.href,"enableLatencyCharts=false"))
+x.r=v
+x.f.I(v)
+x.ae()},
+N:function(d,e,f){var y,x=this
+if(0===e){if(d===C.Q)return x.gni()
+if(d===C.a_){y=x.y
+return y==null?x.y=document:y}if(d===C.M)return x.gBM()
+if(d===C.b)return x.gnj()
+if(d===C.T)return x.gBJ()
+if(d===C.R)return x.grP()
+if(d===C.a0)return x.gVG()
+if(d===C.w)return x.grQ()
+if(d===C.x)return x.gBO()
+if(d===C.v)return x.gBP()
+if(d===C.Y)return x.grR()
+if(d===C.I)return x.gBQ()
+if(d===C.J){y=x.fy
+return y==null?x.fy=C.a3:y}if(d===C.W)return x.gBL()
+if(d===C.H)return x.gBN()
+if(d===C.V)return x.gBK()
+if(d===C.n)return x.gVH()
+if(d===C.K){y=x.k3
+return y==null?x.k3=C.a4:y}if(d===C.z){y=x.k4
+return y==null?x.k4=new K.aS(x.grP()):y}}return f},
+q:function(){var y=this,x=y.b.a,w=y.r1
+if(w!==x)y.r1=y.r.a=x
+y.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[U.fD]}}
+O.Vj.prototype={
+p:function(){var y,x,w=this,v="angular_components/lib/material_toggle/material_toggle.dart",u="Input",t=new O.Me(w,S.i(3,C.i,0)),s=$.a6F
+if(s==null){s=new O.b4(null,C.a,"","","")
+s.bC()
+$.a6F=s}t.c=s
+y=document.createElement("material-toggle-api")
+t.a=y
+w.f=t
+w.a=y
+t=[D.bY]
+t=H.a([D.aw("MaterialToggleComponent",!1,"","material-toggle","",v,X.h("<p><code>material-toggle</code> is a button that can be either ON or OFF.</p>\n<p>User can tap the toggle button to change the state.\nUsually you use toggle buttons when you have a single ON/OFF option.\nIf you have multiple options from a set to be checked/unchecked, use\n<code>material-checkbox</code> instead.</p>\n"),H.a([D.j(u,"ariaLabel","","String",X.h("<p>ARIA label to use for the toggle button.</p>\n"),v,!1,""),D.j(u,"checked","","bool",X.h("<p>Current state of the toggle button.</p>\n<p><code>true</code> is ON and <code>false</code> is OFF.</p>\n"),v,!1,""),D.j(u,"disabled","","bool",X.h("<p>Enables/disables the toggle button.</p>\n<p><code>true</code> is disabled and <code>false</code> is enabled.</p>\n"),v,!1,""),D.j(u,"label","","String",X.h("<p>Label for the toggle button.</p>\n"),v,!1,"")],t),H.a([D.j("Output","onChecked","checkedChange","Stream<bool>",X.h("<p>Event that is fired when the toggle is checked.</p>\n"),v,!1,"")],t))],[D.bQ])
+y=H.a([new R.aa(C.da,"MaterialToggleExampleComponent","material_toggle_example/lib/material_toggle_example.dart")],[R.aa])
+x=P.k
+x=new U.fD(R.cb(H.a([],[x]),y,t,P.ak(x,x),!0))
+w.r=x
+w.f.m(0,x,w.e.e)
+w.E(w.a)
+return new D.C(w,0,w.a,w.r,[U.fD])},
+q:function(){this.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[U.fD]}}
+S.j6.prototype={}
+T.uP.prototype={
+p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3=this,b4=null,b5="section",b6="h2",b7="label",b8="br",b9="theme-red",c0="checked",c1="theme-purple",c2="disabled",c3=b3.a_(b3.a),c4=document,c5=T.e(c4,c3,b5)
+b3.l(c5)
+y=T.e(c4,c5,b6)
+b3.l(y)
+T.b(y,"A default toggle button")
+x=Q.cj(b3,3)
+b3.r=x
+w=x.a
+c5.appendChild(w)
+b3.h(w)
+x=D.ce(b3.r,b4)
+b3.x=x
+v=[P.m]
+b3.r.m(0,x,H.a([C.a],v))
+c5.appendChild(b3.f.b)
+u=T.e(c4,c3,b5)
+b3.l(u)
+t=T.e(c4,u,b6)
+b3.l(t)
+T.b(t,"Toggle buttons with label")
+x=Q.cj(b3,8)
+b3.y=x
+s=x.a
+u.appendChild(s)
+T.d(s,b7,"Toggle button 1")
+b3.h(s)
+x=D.ce(b3.y,b4)
+b3.z=x
+b3.y.m(0,x,H.a([C.a],v))
+b3.l(T.e(c4,u,b8))
+x=Q.cj(b3,10)
+b3.Q=x
+r=x.a
+u.appendChild(r)
+T.d(r,b7,"Toggle button 2")
+b3.h(r)
+x=D.ce(b3.Q,b4)
+b3.ch=x
+b3.Q.m(0,x,H.a([C.a],v))
+b3.l(T.e(c4,u,b8))
+x=Q.cj(b3,12)
+b3.cx=x
+q=x.a
+u.appendChild(q)
+T.d(q,b7,"Toggle buttons with very long labels will look like this when\n             rendered. Probably a good idea to keep your labels short.")
+b3.h(q)
+x=D.ce(b3.cx,b4)
+b3.cy=x
+b3.cx.m(0,x,H.a([C.a],v))
+b3.l(T.e(c4,u,b8))
+x=Q.cj(b3,14)
+b3.db=x
+p=x.a
+u.appendChild(p)
+T.d(p,b7,"Disabled")
+b3.h(p)
+x=D.ce(b3.db,b4)
+b3.dx=x
+b3.db.m(0,x,H.a([C.a],v))
+o=T.e(c4,c3,b5)
+b3.l(o)
+n=T.e(c4,o,b6)
+b3.l(n)
+T.b(n,"Toggle buttons that interact with each other")
+x=Q.cj(b3,18)
+b3.dy=x
+m=x.a
+o.appendChild(m)
+b3.h(m)
+x=D.ce(b3.dy,b4)
+b3.fr=x
+b3.dy.m(0,x,H.a([C.a],v))
+b3.l(T.e(c4,o,b8))
+x=Q.cj(b3,20)
+b3.fx=x
+l=x.a
+o.appendChild(l)
+b3.h(l)
+x=D.ce(b3.fx,b4)
+b3.fy=x
+b3.fx.m(0,x,H.a([C.a],v))
+k=T.e(c4,c3,b5)
+b3.l(k)
+j=T.e(c4,k,b6)
+b3.l(j)
+T.b(j,"Toggle buttons with different theme colors (using mixins)")
+i=T.t(c4,k)
+b3.A(i,b9)
+b3.h(i)
+x=Q.cj(b3,25)
+b3.go=x
+h=x.a
+i.appendChild(h)
+T.d(h,c0,"")
+T.d(h,b7,"red")
+b3.h(h)
+x=D.ce(b3.go,b4)
+b3.id=x
+b3.go.m(0,x,H.a([C.a],v))
+g=T.t(c4,k)
+b3.A(g,c1)
+b3.h(g)
+x=Q.cj(b3,27)
+b3.k1=x
+f=x.a
 g.appendChild(f)
-f.setAttribute("checked","")
-f.setAttribute("label","red")
-this.h(f)
-u=D.cj(this.go.a.b,null)
-this.id=u
-this.go.k(0,u,[C.a])
-e=S.p(x,i)
-e.className="theme-purple"
-this.h(e)
-u=Q.cm(this,27)
-this.k1=u
-d=u.e
+T.d(f,c0,"")
+T.d(f,b7,"purple")
+b3.h(f)
+x=D.ce(b3.k1,b4)
+b3.k2=x
+b3.k1.m(0,x,H.a([C.a],v))
+e=T.t(c4,k)
+b3.A(e,b9)
+b3.h(e)
+x=Q.cj(b3,29)
+b3.k3=x
+d=x.a
 e.appendChild(d)
-d.setAttribute("checked","")
-d.setAttribute("label","purple")
-this.h(d)
-u=D.cj(this.k1.a.b,null)
-this.k2=u
-this.k1.k(0,u,[C.a])
-a0=S.p(x,i)
-a0.className="theme-red"
-this.h(a0)
-u=Q.cm(this,29)
-this.k3=u
-a1=u.e
+T.d(d,c2,"")
+T.d(d,b7,"red (disabled, OFF)")
+b3.h(d)
+x=D.ce(b3.k3,b4)
+b3.k4=x
+b3.k3.m(0,x,H.a([C.a],v))
+a0=T.t(c4,k)
+b3.A(a0,c1)
+b3.h(a0)
+x=Q.cj(b3,31)
+b3.r1=x
+a1=x.a
 a0.appendChild(a1)
-a1.setAttribute("disabled","")
-a1.setAttribute("label","red (disabled, OFF)")
-this.h(a1)
-u=D.cj(this.k3.a.b,null)
-this.k4=u
-this.k3.k(0,u,[C.a])
-a2=S.p(x,i)
-a2.className="theme-purple"
-this.h(a2)
-u=Q.cm(this,31)
-this.r1=u
-a3=u.e
-a2.appendChild(a3)
-a3.setAttribute("checked","")
-a3.setAttribute("disabled","")
-a3.setAttribute("label","purple (disabled, ON)")
-this.h(a3)
-u=D.cj(this.r1.a.b,null)
-this.r2=u
-this.r1.k(0,u,[C.a])
-a4=S.d(x,"section",y)
-this.m(a4)
-a5=S.d(x,"h2",a4)
-this.m(a5)
-a5.appendChild(x.createTextNode("Custom theme"))
-a6=S.d(x,"h5",a4)
-this.m(a6)
-a7=S.d(x,"em",a6)
-this.m(a7)
-a7.appendChild(x.createTextNode("primary-color: $mat-light-green-500, off-btn-color: $mat-lime-500"))
-a8=S.p(x,a4)
-a8.className="custom-theme"
-this.h(a8)
-u=Q.cm(this,39)
-this.rx=u
-a9=u.e
-a8.appendChild(a9)
-a9.setAttribute("label","Different 'ON' and 'OFF' colors!")
-this.h(a9)
-u=D.cj(this.rx.a.b,null)
-this.ry=u
-this.rx.k(0,u,[C.a])
-b0=S.d(x,"h2",a4)
-this.m(b0)
-b0.appendChild(x.createTextNode("Toggle label on right"))
-b1=S.p(x,a4)
-b1.className="flip-label"
-this.h(b1)
-u=Q.cm(this,43)
-this.x1=u
-b2=u.e
-b1.appendChild(b2)
-b2.setAttribute("label","Label on right")
-this.h(b2)
-u=D.cj(this.x1.a.b,null)
-this.x2=u
-this.x1.k(0,u,[C.a])
-u=this.x.f
-b3=P.q
-b4=new P.m(u,[H.f(u,0)]).B(this.u(this.gMt(),b3,b3))
-u=this.fr.f
-b5=new P.m(u,[H.f(u,0)]).B(this.u(this.gMj(),b3,b3))
-u=this.fy.f
-this.J(C.a,[b4,b5,new P.m(u,[H.f(u,0)]).B(this.u(this.gMl(),b3,b3))])},
-K:function(d,e,f){var y=d===C.d
-if(y&&3===e)return this.x
-if(y&&8===e)return this.z
-if(y&&10===e)return this.ch
-if(y&&12===e)return this.cy
-if(y&&14===e)return this.dx
-if(y&&18===e)return this.fr
-if(y&&20===e)return this.fy
-if(y&&25===e)return this.id
-if(y&&27===e)return this.k2
-if(y&&29===e)return this.k4
-if(y&&31===e)return this.r2
-if(y&&39===e)return this.ry
-if(y&&43===e)return this.x2
+T.d(a1,c0,"")
+T.d(a1,c2,"")
+T.d(a1,b7,"purple (disabled, ON)")
+b3.h(a1)
+x=D.ce(b3.r1,b4)
+b3.r2=x
+b3.r1.m(0,x,H.a([C.a],v))
+a2=T.e(c4,c3,b5)
+b3.l(a2)
+a3=T.e(c4,a2,b6)
+b3.l(a3)
+T.b(a3,"Custom theme")
+a4=T.e(c4,a2,"h5")
+b3.l(a4)
+a5=T.e(c4,a4,"em")
+b3.l(a5)
+T.b(a5,"primary-color: $mat-light-green-500, off-btn-color: $mat-lime-500")
+a6=T.t(c4,a2)
+b3.A(a6,"custom-theme")
+b3.h(a6)
+x=Q.cj(b3,39)
+b3.rx=x
+a7=x.a
+a6.appendChild(a7)
+T.d(a7,b7,"Different 'ON' and 'OFF' colors!")
+b3.h(a7)
+x=D.ce(b3.rx,b4)
+b3.ry=x
+b3.rx.m(0,x,H.a([C.a],v))
+a8=T.e(c4,a2,b6)
+b3.l(a8)
+T.b(a8,"Toggle label on right")
+a9=T.t(c4,a2)
+b3.A(a9,"flip-label")
+b3.h(a9)
+x=Q.cj(b3,43)
+b3.x1=x
+b0=x.a
+a9.appendChild(b0)
+T.d(b0,b7,"Label on right")
+b3.h(b0)
+x=D.ce(b3.x1,b4)
+b3.x2=x
+b3.x1.m(0,x,H.a([C.a],v))
+v=b3.x.f
+x=P.v
+b1=new P.p(v,[H.f(v,0)]).B(b3.u(b3.gLB(),x,x))
+v=b3.fr.f
+b2=new P.p(v,[H.f(v,0)]).B(b3.u(b3.gLp(),x,x))
+v=b3.fy.f
+b3.a7(C.O,H.a([b1,b2,new P.p(v,[H.f(v,0)]).B(b3.u(b3.gLt(),x,x))],[[P.N,-1]]))},
+N:function(d,e,f){var y=this,x=d===C.d
+if(x&&3===e)return y.x
+if(x&&8===e)return y.z
+if(x&&10===e)return y.ch
+if(x&&12===e)return y.cy
+if(x&&14===e)return y.dx
+if(x&&18===e)return y.fr
+if(x&&20===e)return y.fy
+if(x&&25===e)return y.id
+if(x&&27===e)return y.k2
+if(x&&29===e)return y.k4
+if(x&&31===e)return y.r2
+if(x&&39===e)return y.ry
+if(x&&43===e)return y.x2
 return f},
-q:function(){var y,x,w,v,u,t,s,r,q,p
-y=this.f
-x=this.a.cy===0
-if(x){this.z.r="Toggle button 1"
-w=!0}else w=!1
-if(w)this.y.a.st(1)
-if(x){v=this.ch
-v.d=!1
-v.r="Toggle button 2"
-v.e=!0
-v.bf()
-w=!0}else w=!1
-if(w)this.Q.a.st(1)
-if(x){v=this.cy
-v.r="Toggle buttons with very long labels will look like this when\n             rendered. Probably a good idea to keep your labels short."
-v.e=!1
-v.bf()
-w=!0}else w=!1
-if(w)this.cx.a.st(1)
-if(x){v=this.dx
-v.d=!0
-v.r="Disabled"
-v.e=!0
-v.bf()
-w=!0}else w=!1
-if(w)this.db.a.st(1)
-if(x){this.fr.d=!1
-w=!0}else w=!1
-v=y.a?"OFF":"ON"
-u="Tap to turn Bluetooth "+v+"."
-v=this.y2
-if(v!==u){this.fr.r=u
-this.y2=u
-w=!0}t=y.a
-v=this.T
-if(v!=t){v=this.fr
-v.e=t
-v.bf()
-this.T=t
-w=!0}if(w)this.dy.a.st(1)
-s=!y.a
-v=this.S
-if(v!==s){this.fy.d=s
-this.S=s
-w=!0}else w=!1
-v=y.b?"invisible":"visible"
-r="Tap to set device "+v+"."
-v=this.V
-if(v!==r){this.fy.r=r
-this.V=r
-w=!0}q=y.b
-v=this.a_
-if(v!=q){v=this.fy
-v.e=q
-v.bf()
-this.a_=q
-w=!0}if(w)this.fx.a.st(1)
-if(x){v=this.id
-v.r="red"
-v.e=!0
-v.bf()
-w=!0}else w=!1
-if(w)this.go.a.st(1)
-if(x){v=this.k2
-v.r="purple"
-v.e=!0
-v.bf()
-w=!0}else w=!1
-if(w)this.k1.a.st(1)
-if(x){v=this.k4
-v.d=!0
-v.r="red (disabled, OFF)"
-v.e=!1
-v.bf()
-w=!0}else w=!1
-if(w)this.k3.a.st(1)
-if(x){v=this.r2
-v.d=!0
-v.r="purple (disabled, ON)"
-v.e=!0
-v.bf()
-w=!0}else w=!1
-if(w)this.r1.a.st(1)
-if(x){v=this.ry
-v.r="Different 'ON' and 'OFF' colors!"
-v.e=!1
-v.bf()
-w=!0}else w=!1
-if(w)this.rx.a.st(1)
-if(x){v=this.x2
-v.r="Label on right"
-v.e=!1
-v.bf()
-w=!0}else w=!1
-if(w)this.x1.a.st(1)
-p=Q.I(y.c)
-v=this.y1
-if(v!==p){this.L.textContent=p
-this.y1=p}this.r.j()
-this.y.j()
-this.Q.j()
-this.cx.j()
-this.db.j()
-this.dy.j()
-this.fx.j()
-this.go.j()
-this.k1.j()
-this.k3.j()
-this.r1.j()
-this.rx.j()
-this.x1.j()
-if(x){this.x.bf()
-this.z.bf()
-this.ch.bf()
-this.cy.bf()
-this.dx.bf()
-this.fr.bf()
-this.fy.bf()
-this.id.bf()
-this.k2.bf()
-this.k4.bf()
-this.r2.bf()
-this.ry.bf()
-this.x2.bf()}},
-v:function(){this.r.i()
-this.y.i()
-this.Q.i()
-this.cx.i()
-this.db.i()
-this.dy.i()
-this.fx.i()
-this.go.i()
-this.k1.i()
-this.k3.i()
-this.r1.i()
-this.rx.i()
-this.x1.i()},
-Mu:function(d){this.f.c=d},
-Mk:function(d){this.f.a=d},
-Mm:function(d){this.f.b=d},
-$aa:function(){return[S.iw]}}
-T.W_.prototype={
-p:function(){var y,x,w
-y=new T.vt(P.e(P.c,null),this)
-x=S.iw
-y.a=S.i(y,3,C.j,0,x)
-w=document.createElement("material-toggle-example")
-y.e=w
-w=$.a6Q
-if(w==null){w=$.D
-w=w.Y(null,C.m,$.akb())
-$.a6Q=w}y.X(w)
-this.r=y
-this.e=y.e
-w=new S.iw()
-this.x=w
-y.k(0,w,this.a.e)
-this.D(this.e)
-return new D.A(this,0,this.e,this.x,[x])},
-q:function(){this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[S.iw]}}
-var z=a.updateTypes([{func:1,ret:-1,args:[,]},{func:1,ret:[S.a,U.fv],args:[[S.a,,],P.k]},{func:1,ret:[S.a,S.iw],args:[[S.a,,],P.k]}]);(function installTearOffs(){var y=a._static_2,x=a._instance_1u
-y(O,"aAh","aHT",1)
-y(T,"aAi","aHW",2)
+q:function(){var y,x,w,v,u,t,s,r=this,q=r.b,p=r.e.cx===0
+if(p){r.z.r="Toggle button 1"
+y=!0}else y=!1
+if(y)r.y.e.st(1)
+if(p){x=r.ch
+x.d=!1
+x.r="Toggle button 2"
+y=x.e=!0
+x.bh()}else y=!1
+if(y)r.Q.e.st(1)
+if(p){x=r.cy
+x.r="Toggle buttons with very long labels will look like this when\n             rendered. Probably a good idea to keep your labels short."
+x.e=!1
+x.bh()
+y=!0}else y=!1
+if(y)r.cx.e.st(1)
+if(p){x=r.dx
+x.d=!0
+x.r="Disabled"
+y=x.e=!0
+x.bh()}else y=!1
+if(y)r.db.e.st(1)
+if(p){r.fr.d=!1
+y=!0}else y=!1
+x=q.a?"OFF":"ON"
+w="Tap to turn Bluetooth "+x+"."
+x=r.y1
+if(x!==w){r.y1=r.fr.r=w
+y=!0}v=q.a
+x=r.y2
+if(x!=v){x=r.fr
+x.e=v
+x.bh()
+r.y2=v
+y=!0}if(y)r.dy.e.st(1)
+u=!q.a
+x=r.Z
+if(x!==u){r.Z=r.fy.d=u
+y=!0}else y=!1
+x=q.b?"invisible":"visible"
+t="Tap to set device "+x+"."
+x=r.U
+if(x!==t){r.U=r.fy.r=t
+y=!0}s=q.b
+x=r.a1
+if(x!=s){x=r.fy
+x.e=s
+x.bh()
+r.a1=s
+y=!0}if(y)r.fx.e.st(1)
+if(p){x=r.id
+x.r="red"
+y=x.e=!0
+x.bh()}else y=!1
+if(y)r.go.e.st(1)
+if(p){x=r.k2
+x.r="purple"
+y=x.e=!0
+x.bh()}else y=!1
+if(y)r.k1.e.st(1)
+if(p){x=r.k4
+y=x.d=!0
+x.r="red (disabled, OFF)"
+x.e=!1
+x.bh()}else y=!1
+if(y)r.k3.e.st(1)
+if(p){x=r.r2
+x.d=!0
+x.r="purple (disabled, ON)"
+y=x.e=!0
+x.bh()}else y=!1
+if(y)r.r1.e.st(1)
+if(p){x=r.ry
+x.r="Different 'ON' and 'OFF' colors!"
+x.e=!1
+x.bh()
+y=!0}else y=!1
+if(y)r.rx.e.st(1)
+if(p){x=r.x2
+x.r="Label on right"
+x.e=!1
+x.bh()
+y=!0}else y=!1
+if(y)r.x1.e.st(1)
+r.f.V(O.ad(q.c))
+r.r.i()
+r.y.i()
+r.Q.i()
+r.cx.i()
+r.db.i()
+r.dy.i()
+r.fx.i()
+r.go.i()
+r.k1.i()
+r.k3.i()
+r.r1.i()
+r.rx.i()
+r.x1.i()
+if(p){r.x.bh()
+r.z.bh()
+r.ch.bh()
+r.cy.bh()
+r.dx.bh()
+r.fr.bh()
+r.fy.bh()
+r.id.bh()
+r.k2.bh()
+r.k4.bh()
+r.r2.bh()
+r.ry.bh()
+r.x2.bh()}},
+v:function(){var y=this
+y.r.j()
+y.y.j()
+y.Q.j()
+y.cx.j()
+y.db.j()
+y.dy.j()
+y.fx.j()
+y.go.j()
+y.k1.j()
+y.k3.j()
+y.r1.j()
+y.rx.j()
+y.x1.j()},
+LC:function(d){this.b.c=d},
+Lq:function(d){this.b.a=d},
+Lu:function(d){this.b.b=d},
+$ac:function(){return[S.j6]}}
+T.Vm.prototype={
+p:function(){var y,x=this,w=new T.uP(N.G(),x,S.i(3,C.i,0)),v=$.a6H
+if(v==null)v=$.a6H=O.O($.aAK,null)
+w.c=v
+y=document.createElement("material-toggle-example")
+w.a=y
+x.f=w
+x.a=y
+y=new S.j6()
+x.r=y
+w.m(0,y,x.e.e)
+x.E(x.a)
+return new D.C(x,0,x.a,x.r,[S.j6])},
+q:function(){this.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[S.j6]}}
+var z=a.updateTypes([{func:1,ret:-1,args:[,]},{func:1,ret:[S.c,U.fD],args:[[S.c,,],P.l]},{func:1,ret:[S.c,S.j6],args:[[S.c,,],P.l]}]);(function installTearOffs(){var y=a._static_2,x=a._instance_1u
+y(O,"awS","aHM",1)
+y(T,"awT","aHP",2)
 var w
-x(w=T.vt.prototype,"gMt","Mu",0)
-x(w,"gMj","Mk",0)
-x(w,"gMl","Mm",0)})();(function inheritance(){var y=a.inheritMany
-y(P.w,[U.fv,S.iw])
-y(S.a,[O.Nc,O.VX,T.vt,T.W_])})();(function constants(){C.d7=new D.y("material-toggle-example",T.aAi(),[S.iw])
-C.ds=new D.y("material-toggle-api",O.aAh(),[U.fv])
-C.p1=H.v(U.fv)
-C.pG=H.v(S.iw)})();(function staticFields(){$.a6P=null
-$.aaX=!1
-$.a6Q=null
-$.aaZ=!1})();(function lazyInitializers(){var y=a.lazy
-y($,"aQd","alk",function(){return["material-toggle._ngcontent-%ID%{padding:12px;width:320px}.theme-red._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#db4437}.theme-red._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#db4437}.theme-purple._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#9c27b0}.theme-purple._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#9c27b0}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle .tgl-btn{background-color:#cddc39}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#8bc34a}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#8bc34a}.flip-label._ngcontent-%ID%  .material-toggle{flex-direction:row-reverse}.flip-label._ngcontent-%ID%  .material-toggle .tgl-lbl{padding-left:8px}"]})
-y($,"aOz","akb",function(){return[$.alk()]})})()}
-$__dart_deferred_initializers__["UOKoL4mTtPaRQdtdZR1TOBMqsz0="] = $__dart_deferred_initializers__.current
+x(w=T.uP.prototype,"gLB","LC",0)
+x(w,"gLp","Lq",0)
+x(w,"gLt","Lu",0)})();(function inheritance(){var y=a.inheritMany
+y(P.m,[U.fD,S.j6])
+y(S.c,[O.Me,O.Vj,T.uP,T.Vm])})();(function constants(){C.da=new D.A("material-toggle-example",T.awT(),[S.j6])
+C.dv=new D.A("material-toggle-api",O.awS(),[U.fD])
+C.or=H.y(U.fD)
+C.p6=H.y(S.j6)})();(function staticFields(){$.a6F=null
+$.ab6=!1
+$.aBT=["material-toggle._ngcontent-%ID%{padding:12px;width:320px}.theme-red._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#db4437}.theme-red._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#db4437}.theme-red._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus else{background-color:rgba(188,188,188,0.24)}.theme-red._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked{background-color:rgba(219,68,55,0.24)}.theme-purple._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#9c27b0}.theme-purple._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#9c27b0}.theme-purple._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus else{background-color:rgba(188,188,188,0.24)}.theme-purple._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked{background-color:rgba(156,39,176,0.24)}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle .tgl-btn{background-color:#cddc39}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#8bc34a}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#8bc34a}.custom-theme._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus{background-color:rgba(205,220,57,0.24)}.custom-theme._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus else{background-color:rgba(188,188,188,0.24)}.custom-theme._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked{background-color:rgba(139,195,74,0.24)}.flip-label._ngcontent-%ID%  .material-toggle{flex-direction:row-reverse}.flip-label._ngcontent-%ID%  .material-toggle .tgl-lbl{padding-left:8px}"]
+$.a6H=null
+$.ab7=!1
+$.aAK=[$.aBT]})()}
+$__dart_deferred_initializers__["wabJXM+Ic4QwPQOkyHmb/MlcPnY="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_64.part.js.map

@@ -5,7 +5,7 @@
   "sourceRoot": "",
   "sources": ["../packages/angular_components/focus/focus_item.template.dart"],
   "names": ["initReflector"],
-  "mappings": "A;;IAkCKA,eACCA,KACFA,MAMJA;;AAFEA;AACAA,MACFA,C",
+  "mappings": "A;;GAmCKA,eACCA,KACFA,MAMJA;;AAFEA;AACAA,MACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",

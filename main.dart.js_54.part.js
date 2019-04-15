@@ -1,44 +1,36 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,S,N,E,M={
-aot:function(){return C.da},
-aH3:function(d,e){var y=new M.UN(P.e(P.c,null),d)
-y.a=S.i(y,3,C.k,e,O.fn)
-return y},
-ava:function(){if($.ac_)return
-$.ac_=!0
-$.F().w(0,C.oF,C.da)
-E.z()
-K.cD()
-D.cn()
-B.avb()},
-MA:function MA(d,e){var _=this
-_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null},
-UN:function UN(d,e){var _=this
-_.a=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null}},Q,D,L,Z,A,U,T,O={fn:function fn(d){this.a=d}},X,B={ir:function ir(){},
-aH5:function(d,e){var y=new B.UP(P.e(P.c,null),d)
-y.a=S.i(y,3,C.k,e,B.ir)
-return y},
-avb:function(){if($.ac0)return
-$.ac0=!0
-$.F().w(0,C.pL,C.eu)
-E.z()
-S.afU()},
-MC:function MC(d,e){var _=this
-_.a=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null},
-UP:function UP(d,e){var _=this
-_.a=_.x=_.r=null
-_.b=d
-_.c=e
-_.f=_.e=_.d=null}},F
+akT:function(){return C.dd},
+aGW:function(d,e){return new M.Ua(d,S.i(3,C.j,e))},
+arH:function(){if($.ac9)return
+$.ac9=!0
+$.H.C(0,C.o4,C.dd)
+E.B()
+K.cC()
+D.ck()
+B.arI()},
+Lw:function Lw(d,e){var _=this
+_.c=_.b=_.a=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
+_.d=d
+_.e=e},
+Ua:function Ua(d,e){var _=this
+_.c=_.b=_.a=_.r=_.f=null
+_.d=d
+_.e=e}},Q,D,L,Z,O={fr:function fr(d){this.a=d}},A,U,T,X,B={j0:function j0(){},
+aGY:function(d,e){return new B.Uc(d,S.i(3,C.j,e))},
+arI:function(){if($.aca)return
+$.aca=!0
+$.H.C(0,C.pc,C.ex)
+E.B()
+S.ag2()},
+Ly:function Ly(d,e){var _=this
+_.c=_.b=_.a=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
+_.d=d
+_.e=e},
+Uc:function Uc(d,e){var _=this
+_.c=_.b=_.a=_.r=_.f=null
+_.d=d
+_.e=e}},F
 a.setFunctionNamesIfNecessary([M,O,B])
 C=c[0]
 H=c[1]
@@ -58,322 +50,293 @@ Q=c[14]
 D=c[15]
 L=c[16]
 Z=c[17]
-A=c[18]
-U=c[19]
-T=c[20]
-O=a.updateHolder(c[21],O)
+O=a.updateHolder(c[18],O)
+A=c[19]
+U=c[20]
+T=c[21]
 X=c[22]
 B=a.updateHolder(c[23],B)
 F=c[24]
-O.fn.prototype={}
-M.MA.prototype={
-gns:function(){var y=this.y
-if(y==null){y=document
-this.y=y}return y},
-gBE:function(){var y=this.Q
-if(y==null){y=window
-this.Q=y}return y},
-gnt:function(){var y=this.ch
-if(y==null){y=this.c
-y=T.aY(y.l(C.b,this.a.Q,null),y.l(C.D,this.a.Q,null),y.n(C.f,this.a.Q),this.gBE())
-this.ch=y}return y},
-gBB:function(){var y,x
-y=this.cx
-if(y==null){y=this.c.n(C.S,this.a.Q)
-x=this.gnt()
-y=new O.aC(y,x)
-this.cx=y}return y},
-grQ:function(){var y=this.cy
-if(y==null){y=new K.aH(this.gns(),this.gnt(),P.aU(null,[P.o,P.c]))
-this.cy=y}return y},
-gVK:function(){var y=this.db
-if(y==null){y=T.b2(this.c.n(C.f,this.a.Q))
-this.db=y}return y},
-grR:function(){var y=this.dx
-if(y==null){y=G.b6(this.c.l(C.w,this.a.Q,null))
-this.dx=y}return y},
-gBG:function(){var y=this.dy
-if(y==null){y=G.b9(this.gns(),this.c.l(C.x,this.a.Q,null))
-this.dy=y}return y},
-gBH:function(){var y=this.fr
-if(y==null){y=G.b1(this.grR(),this.gBG(),this.c.l(C.v,this.a.Q,null))
-this.fr=y}return y},
-grS:function(){var y=this.fx
-if(y==null){this.fx=!0
-y=!0}return y},
-gBI:function(){var y=this.fy
-if(y==null){this.fy=!0
-y=!0}return y},
-gBD:function(){var y=this.go
-if(y==null){y=this.gns()
-y=new R.aF(y.querySelector("head"),y)
-this.go=y}return y},
-gBF:function(){var y=this.id
-if(y==null){y=X.b4()
-this.id=y}return y},
-gBC:function(){var y=this.k1
-if(y==null){y=K.b3(this.gBD(),this.gBH(),this.grR(),this.grQ(),this.gnt(),this.gBB(),this.grS(),this.gBI(),this.gBF())
-this.k1=y}return y},
-gVL:function(){var y,x,w,v
-y=this.k2
-if(y==null){y=this.c
-x=y.n(C.f,this.a.Q)
-w=this.grS()
-v=this.gBC()
-y.l(C.n,this.a.Q,null)
-y=new X.az(w,x,v)
-this.k2=y}return y},
-p:function(){var y,x
-y=this.Z(this.e)
-x=K.cd(this,0)
-this.r=x
-y.appendChild(x.e)
-x=new X.af(!J.bp(window.location.href,"enableLatencyCharts=false"))
-this.x=x
-this.r.k(0,x,[])
-this.J(C.a,null)},
-K:function(d,e,f){var y
-if(d===C.M&&0===e)return this.gns()
-if(d===C.T&&0===e){y=this.z
-if(y==null){y=document
-this.z=y}return y}if(d===C.I&&0===e)return this.gBE()
-if(d===C.b&&0===e)return this.gnt()
-if(d===C.O&&0===e)return this.gBB()
-if(d===C.N&&0===e)return this.grQ()
-if(d===C.U&&0===e)return this.gVK()
-if(d===C.w&&0===e)return this.grR()
-if(d===C.x&&0===e)return this.gBG()
-if(d===C.v&&0===e)return this.gBH()
-if(d===C.R&&0===e)return this.grS()
-if(d===C.G&&0===e)return this.gBI()
-if(d===C.Q&&0===e)return this.gBD()
-if(d===C.F&&0===e)return this.gBF()
-if(d===C.P&&0===e)return this.gBC()
-if(d===C.n&&0===e)return this.gVL()
-if(d===C.H&&0===e){y=this.k3
-if(y==null){this.k3=C.A
-y=C.A}return y}if(d===C.y&&0===e){y=this.k4
-if(y==null){y=new K.aL(this.grQ())
-this.k4=y}return y}return f},
-q:function(){var y,x
-y=this.f.a
-x=this.r1
-if(x!==y){this.x.a=y
-this.r1=y}this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[O.fn]}}
-M.UN.prototype={
-p:function(){var y,x,w,v
-y=P.c
-x=new M.MA(P.e(y,null),this)
-w=O.fn
-x.a=S.i(x,3,C.j,0,w)
-v=document.createElement("material-progress-api")
-x.e=v
-v=$.a6r
-if(v==null){v=$.D
-v=v.Y(null,C.X,C.a)
-$.a6r=v}x.X(v)
-this.r=x
-this.e=x.e
-x=[D.c4]
-x=H.b([D.at("MaterialProgressComponent",!1,"","material-progress","","angular_components/lib/material_progress/material_progress.dart",X.h("<p>The progress bars are for situations where the percentage completed can be\ndetermined. They give users a quick sense of how much longer an operation\nwill take.</p>\n"),H.b([D.j("Input","activeProgress","","int",X.h("<p>The current progress value.</p>\n"),"angular_components/lib/material_progress/material_progress.dart",!1,""),D.j("Input","indeterminate","","bool",X.h("<p>Boolean whether the progress bar is deterministic.</p>\n<p>Defaults to <code>false</code>.</p>\n"),"angular_components/lib/material_progress/material_progress.dart",!1,""),D.j("Input","max","","int",X.h("<p>The maximum progress value.</p>\n<p>Defaults to 100.</p>\n"),"angular_components/lib/material_progress/material_progress.dart",!1,""),D.j("Input","min","","int",X.h("<p>The minimum progress value.</p>\n<p>Defaults to 0.</p>\n"),"angular_components/lib/material_progress/material_progress.dart",!1,""),D.j("Input","secondaryProgress","","int",X.h('<p>The "secondary" progress. Shows up behind the primary progress in a\nlighter color.</p>\n'),"angular_components/lib/material_progress/material_progress.dart",!1,"")],x),H.b([],x))],[D.bW])
-v=H.b([new R.a7(C.eu,"MaterialProgressDemoComponent","material_progress_example/lib/material_progress_demo.dart")],[R.a7])
-y=new O.fn(R.ch(H.b([],[y]),v,x,P.e(y,y),!0))
-this.x=y
-this.r.k(0,y,this.a.e)
-this.D(this.e)
-return new D.A(this,0,this.e,this.x,[w])},
-q:function(){this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[O.fn]}}
-B.ir.prototype={}
-B.MC.prototype={
-p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e
-y=this.Z(this.e)
-x=document
-w=S.p(x,y)
-this.h(w)
-v=S.d(x,"h2",w)
-this.m(v)
-v.appendChild(x.createTextNode("Active progress only"))
-u=S.d(x,"section",w)
-u.className="margin"
-this.m(u)
-t=S.ms(this,4)
-this.r=t
-s=t.e
-u.appendChild(s)
-this.h(s)
-t=this.r
-r=new X.dB(t.a.b,s,!0)
-this.x=r
-t.k(0,r,[])
-q=S.d(x,"h2",w)
-this.m(q)
-q.appendChild(x.createTextNode("Active and secondary progress"))
-p=S.d(x,"section",w)
-p.className="margin"
-this.m(p)
-r=S.ms(this,8)
-this.y=r
-o=r.e
+O.fr.prototype={}
+M.Lw.prototype={
+gn6:function(){var y=this.x
+return y==null?this.x=document:y},
+gAZ:function(){var y=this.z
+return y==null?this.z=window:y},
+gn7:function(){var y,x=this,w=x.Q
+if(w==null){w=x.d
+y=x.e.z
+y=T.b5(w.k(C.b,y),w.k(C.G,y),w.n(C.h,y),x.gAZ())
+x.Q=y
+w=y}return w},
+gAW:function(){var y,x=this,w=x.ch
+if(w==null){w=x.d.n(C.Z,x.e.z)
+y=x.gn7()
+w=x.ch=new O.aH(w,y)}return w},
+gru:function(){var y=this,x=y.cx
+return x==null?y.cx=new K.aM(y.gn6(),y.gn7(),P.b0(null,[P.r,P.k])):x},
+gV8:function(){var y=this,x=y.cy
+if(x==null){x=T.b8(y.d.n(C.h,y.e.z))
+y.cy=x}return x},
+grv:function(){var y=this,x=y.db
+if(x==null){x=G.bc(y.d.k(C.w,y.e.z))
+y.db=x}return x},
+gB0:function(){var y=this,x=y.dx
+if(x==null){x=G.be(y.gn6(),y.d.k(C.x,y.e.z))
+y.dx=x}return x},
+gB1:function(){var y=this,x=y.dy
+if(x==null){x=G.b7(y.grv(),y.gB0(),y.d.k(C.v,y.e.z))
+y.dy=x}return x},
+grw:function(){var y=this.fr
+return y==null?this.fr=!0:y},
+gB2:function(){var y=this.fx
+return y==null?this.fx=!0:y},
+gAY:function(){var y=this.go
+if(y==null){y=this.gn6()
+y=this.go=new R.aK(y.querySelector("head"),y)}return y},
+gB_:function(){var y=this.id
+return y==null?this.id=X.bb():y},
+gAX:function(){var y=this,x=y.k1
+return x==null?y.k1=K.b9(y.gAY(),y.gB1(),y.grv(),y.gru(),y.gn7(),y.gAW(),y.grw(),y.gB2(),y.gB_()):x},
+gV9:function(){var y,x,w,v,u=this,t=u.k2
+if(t==null){t=u.d
+y=u.e.z
+x=t.n(C.h,y)
+w=u.grw()
+v=u.gAX()
+t.k(C.n,y)
+t=u.k2=new X.aG(w,x,v)}return t},
+p:function(){var y,x=this,w=x.a_(x.a),v=K.c7(x,0)
+x.f=v
+w.appendChild(v.a)
+v=x.d
+y=x.e.z
+v.n(C.af,y)
+y=v.n(C.ag,y)
+v=new X.az(y,!J.bt(window.location.href,"enableLatencyCharts=false"))
+x.r=v
+x.f.I(v)
+x.ae()},
+N:function(d,e,f){var y,x=this
+if(0===e){if(d===C.Q)return x.gn6()
+if(d===C.a_){y=x.y
+return y==null?x.y=document:y}if(d===C.M)return x.gAZ()
+if(d===C.b)return x.gn7()
+if(d===C.T)return x.gAW()
+if(d===C.R)return x.gru()
+if(d===C.a0)return x.gV8()
+if(d===C.w)return x.grv()
+if(d===C.x)return x.gB0()
+if(d===C.v)return x.gB1()
+if(d===C.Y)return x.grw()
+if(d===C.I)return x.gB2()
+if(d===C.J){y=x.fy
+return y==null?x.fy=C.a3:y}if(d===C.W)return x.gAY()
+if(d===C.H)return x.gB_()
+if(d===C.V)return x.gAX()
+if(d===C.n)return x.gV9()
+if(d===C.K){y=x.k3
+return y==null?x.k3=C.a4:y}if(d===C.z){y=x.k4
+return y==null?x.k4=new K.aS(x.gru()):y}}return f},
+q:function(){var y=this,x=y.b.a,w=y.r1
+if(w!==x)y.r1=y.r.a=x
+y.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[O.fr]}}
+M.Ua.prototype={
+p:function(){var y,x,w=this,v="angular_components/lib/material_progress/material_progress.dart",u="Input",t="int",s=new M.Lw(w,S.i(3,C.i,0)),r=$.a67
+if(r==null){r=new O.b4(null,C.a,"","","")
+r.bC()
+$.a67=r}s.c=r
+y=document.createElement("material-progress-api")
+s.a=y
+w.f=s
+w.a=y
+s=[D.bY]
+s=H.a([D.aw("MaterialProgressComponent",!1,"","material-progress","",v,X.h("<p>The progress bars are for situations where the percentage completed can be\ndetermined. They give users a quick sense of how much longer an operation\nwill take.</p>\n"),H.a([D.j(u,"activeProgress","",t,X.h("<p>The current progress value.</p>\n"),v,!1,""),D.j(u,"indeterminate","","bool",X.h("<p>Boolean whether the progress bar is deterministic.</p>\n<p>Defaults to <code>false</code>.</p>\n"),v,!1,""),D.j(u,"max","",t,X.h("<p>The maximum progress value.</p>\n<p>Defaults to 100.</p>\n"),v,!1,""),D.j(u,"min","",t,X.h("<p>The minimum progress value.</p>\n<p>Defaults to 0.</p>\n"),v,!1,""),D.j(u,"secondaryProgress","",t,X.h('<p>The "secondary" progress. Shows up behind the primary progress in a\nlighter color.</p>\n'),v,!1,"")],s),H.a([],s))],[D.bQ])
+y=H.a([new R.aa(C.ex,"MaterialProgressDemoComponent","material_progress_example/lib/material_progress_demo.dart")],[R.aa])
+x=P.k
+x=new O.fr(R.cb(H.a([],[x]),y,s,P.ak(x,x),!0))
+w.r=x
+w.f.m(0,x,w.e.e)
+w.E(w.a)
+return new D.C(w,0,w.a,w.r,[O.fr])},
+q:function(){this.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[O.fr]}}
+B.j0.prototype={}
+B.Ly.prototype={
+p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h=this,g=null,f="h2",e="section",d="margin",a0="loading",a1=h.a_(h.a),a2=document,a3=T.t(a2,a1)
+h.h(a3)
+y=T.e(a2,a3,f)
+h.l(y)
+T.b(y,"Active progress only")
+x=T.e(a2,a3,e)
+h.A(x,d)
+h.l(x)
+w=S.mh(h,4)
+h.f=w
+v=w.a
+x.appendChild(v)
+h.h(v)
+w=new X.dT(h.f,v,!0,$.aF().bv(a0,g,g,g,g))
+h.r=w
+h.f.I(w)
+u=T.e(a2,a3,f)
+h.l(u)
+T.b(u,"Active and secondary progress")
+t=T.e(a2,a3,e)
+h.A(t,d)
+h.l(t)
+w=S.mh(h,8)
+h.x=w
+s=w.a
+t.appendChild(s)
+h.h(s)
+w=new X.dT(h.x,s,!0,$.aF().bv(a0,g,g,g,g))
+h.y=w
+h.x.I(w)
+w=S.mh(h,9)
+h.z=w
+r=w.a
+t.appendChild(r)
+h.h(r)
+w=new X.dT(h.z,r,!0,$.aF().bv(a0,g,g,g,g))
+h.Q=w
+h.z.I(w)
+q=T.e(a2,a3,f)
+h.l(q)
+T.b(q,"Indeterminate")
+p=T.e(a2,a3,e)
+h.A(p,d)
+h.l(p)
+w=S.mh(h,13)
+h.ch=w
+o=w.a
 p.appendChild(o)
-this.h(o)
-r=this.y
-t=new X.dB(r.a.b,o,!0)
-this.z=t
-r.k(0,t,[])
-t=S.ms(this,9)
-this.Q=t
-n=t.e
-p.appendChild(n)
-this.h(n)
-t=this.Q
-r=new X.dB(t.a.b,n,!0)
-this.ch=r
-t.k(0,r,[])
-m=S.d(x,"h2",w)
-this.m(m)
-m.appendChild(x.createTextNode("Indeterminate"))
-l=S.d(x,"section",w)
-l.className="margin"
-this.m(l)
-r=S.ms(this,13)
-this.cx=r
-k=r.e
-l.appendChild(k)
-this.h(k)
-r=this.cx
-t=new X.dB(r.a.b,k,!0)
-this.cy=t
-r.k(0,t,[])
-j=S.d(x,"section",w)
-j.className="custom-theme"
-this.m(j)
-i=S.d(x,"h1",j)
-this.m(i)
-i.appendChild(x.createTextNode("Custom theme"))
-h=S.p(x,j)
-this.h(h)
-g=S.d(x,"h2",h)
-this.m(g)
-g.appendChild(x.createTextNode("material-progress-theme($indeterminate-color: $mat-red-100, $active-color: $mat-red-500, $secondary-color: $mat-red-200)"))
-t=S.ms(this,20)
-this.db=t
-f=t.e
-h.appendChild(f)
-this.h(f)
-t=this.db
-r=new X.dB(t.a.b,f,!0)
-this.dx=r
-t.k(0,r,[])
-r=S.ms(this,21)
-this.dy=r
-e=r.e
-h.appendChild(e)
-this.h(e)
-r=this.dy
-t=new X.dB(r.a.b,e,!0)
-this.fr=t
-r.k(0,t,[])
-this.J(C.a,null)},
-q:function(){var y,x,w
-y=this.a.cy===0
-if(y){this.x.d=25
-x=!0}else x=!1
-if(x)this.r.a.st(1)
-if(y){w=this.z
-w.d=0
-w.e=25
-x=!0}else x=!1
-if(x)this.y.a.st(1)
-if(y){w=this.ch
-w.d=25
-w.e=75
-x=!0}else x=!1
-if(x)this.Q.a.st(1)
-if(y){this.cy.shQ(0,!0)
-x=!0}else x=!1
-if(x)this.cx.a.st(1)
-if(y){w=this.dx
-w.d=25
-w.e=75
-x=!0}else x=!1
-if(x)this.db.a.st(1)
-if(y){this.fr.shQ(0,!0)
-x=!0}else x=!1
-if(x)this.dy.a.st(1)
-this.r.j()
-this.y.j()
-this.Q.j()
-this.cx.j()
-this.db.j()
-this.dy.j()
-if(y){w=this.x
-w.y=!0
-if(w.x)w.fR()
-w=this.z
-w.y=!0
-if(w.x)w.fR()
-w=this.ch
-w.y=!0
-if(w.x)w.fR()
-w=this.cy
-w.y=!0
-if(w.x)w.fR()
-w=this.dx
-w.y=!0
-if(w.x)w.fR()
-w=this.fr
-w.y=!0
-if(w.x)w.fR()}},
-v:function(){this.r.i()
-this.y.i()
-this.Q.i()
-this.cx.i()
-this.db.i()
-this.dy.i()
-this.x.O()
-this.z.O()
-this.ch.O()
-this.cy.O()
-this.dx.O()
-this.fr.O()},
-$aa:function(){return[B.ir]}}
-B.UP.prototype={
-p:function(){var y,x,w
-y=new B.MC(P.e(P.c,null),this)
-x=B.ir
-y.a=S.i(y,3,C.j,0,x)
-w=document.createElement("material-progress-demo")
-y.e=w
-w=$.a6t
-if(w==null){w=$.D
-w=w.Y(null,C.m,$.ajO())
-$.a6t=w}y.X(w)
-this.r=y
-this.e=y.e
-w=new B.ir()
-this.x=w
-y.k(0,w,this.a.e)
-this.D(this.e)
-return new D.A(this,0,this.e,this.x,[x])},
-q:function(){this.r.j()},
-v:function(){this.r.i()},
-$aa:function(){return[B.ir]}}
-var z=a.updateTypes([{func:1,ret:[S.a,O.fn],args:[[S.a,,],P.k]},{func:1,ret:[S.a,B.ir],args:[[S.a,,],P.k]}]);(function installTearOffs(){var y=a._static_2
-y(M,"az5","aH3",0)
-y(B,"az6","aH5",1)})();(function inheritance(){var y=a.inheritMany
-y(P.w,[O.fn,B.ir])
-y(S.a,[M.MA,M.UN,B.MC,B.UP])})();(function constants(){C.da=new D.y("material-progress-api",M.az5(),[O.fn])
-C.eu=new D.y("material-progress-demo",B.az6(),[B.ir])
-C.oF=H.v(O.fn)
-C.pL=H.v(B.ir)})();(function staticFields(){$.a6r=null
-$.ac_=!1
-$.a6t=null
-$.ac0=!1})();(function lazyInitializers(){var y=a.lazy
-y($,"aPZ","alG",function(){return['h2._ngcontent-%ID%{color:#9e9e9e;font-family:Roboto,"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:16px;font-weight:normal;line-height:40px;margin:20px}.custom-theme._ngcontent-%ID%  material-progress .progress-container.indeterminate{background-color:#f4c7c3}.custom-theme._ngcontent-%ID%  material-progress .progress-container.indeterminate > .secondary-progress{background-color:#db4437}.custom-theme._ngcontent-%ID%  material-progress .active-progress{background-color:#db4437}.custom-theme._ngcontent-%ID%  material-progress .secondary-progress{background-color:#eda29b}']})
-y($,"aOb","ajO",function(){return[$.alG()]})})()}
-$__dart_deferred_initializers__["szMnI57gDcFzzJsExMCTIbumsMY="] = $__dart_deferred_initializers__.current
+h.h(o)
+w=new X.dT(h.ch,o,!0,$.aF().bv(a0,g,g,g,g))
+h.cx=w
+h.ch.I(w)
+n=T.e(a2,a3,e)
+h.A(n,"custom-theme")
+h.l(n)
+m=T.e(a2,n,"h1")
+h.l(m)
+T.b(m,"Custom theme")
+l=T.t(a2,n)
+h.h(l)
+k=T.e(a2,l,f)
+h.l(k)
+T.b(k,"material-progress-theme($indeterminate-color: $mat-red-100, $active-color: $mat-red-500, $secondary-color: $mat-red-200)")
+w=S.mh(h,20)
+h.cy=w
+j=w.a
+l.appendChild(j)
+h.h(j)
+w=new X.dT(h.cy,j,!0,$.aF().bv(a0,g,g,g,g))
+h.db=w
+h.cy.I(w)
+w=S.mh(h,21)
+h.dx=w
+i=w.a
+l.appendChild(i)
+h.h(i)
+w=new X.dT(h.dx,i,!0,$.aF().bv(a0,g,g,g,g))
+h.dy=w
+h.dx.I(w)
+h.ae()},
+q:function(){var y,x,w=this,v=w.e.cx===0
+if(v){w.r.d=25
+y=!0}else y=!1
+if(y)w.f.e.st(1)
+if(v){x=w.y
+x.d=0
+x.e=25
+y=!0}else y=!1
+if(y)w.x.e.st(1)
+if(v){x=w.Q
+x.d=25
+x.e=75
+y=!0}else y=!1
+if(y)w.z.e.st(1)
+if(v){w.cx.shH(0,!0)
+y=!0}else y=!1
+if(y)w.ch.e.st(1)
+if(v){x=w.db
+x.d=25
+x.e=75
+y=!0}else y=!1
+if(y)w.cy.e.st(1)
+if(v){w.dy.shH(0,!0)
+y=!0}else y=!1
+if(y)w.dx.e.st(1)
+w.f.i()
+w.x.i()
+w.z.i()
+w.ch.i()
+w.cy.i()
+w.dx.i()
+if(v){x=w.r
+x.y=!0
+if(x.x)x.fR()
+x=w.y
+x.y=!0
+if(x.x)x.fR()
+x=w.Q
+x.y=!0
+if(x.x)x.fR()
+x=w.cx
+x.y=!0
+if(x.x)x.fR()
+x=w.db
+x.y=!0
+if(x.x)x.fR()
+x=w.dy
+x.y=!0
+if(x.x)x.fR()}},
+v:function(){var y=this
+y.f.j()
+y.x.j()
+y.z.j()
+y.ch.j()
+y.cy.j()
+y.dx.j()
+y.r.P()
+y.y.P()
+y.Q.P()
+y.cx.P()
+y.db.P()
+y.dy.P()},
+$ac:function(){return[B.j0]}}
+B.Uc.prototype={
+p:function(){var y,x=this,w=new B.Ly(x,S.i(3,C.i,0)),v=$.a69
+if(v==null)v=$.a69=O.O($.aAm,null)
+w.c=v
+y=document.createElement("material-progress-demo")
+w.a=y
+x.f=w
+x.a=y
+y=new B.j0()
+x.r=y
+w.m(0,y,x.e.e)
+x.E(x.a)
+return new D.C(x,0,x.a,x.r,[B.j0])},
+q:function(){this.f.i()},
+v:function(){this.f.j()},
+$ac:function(){return[B.j0]}}
+var z=a.updateTypes([{func:1,ret:[S.c,O.fr],args:[[S.c,,],P.l]},{func:1,ret:[S.c,B.j0],args:[[S.c,,],P.l]}]);(function installTearOffs(){var y=a._static_2
+y(M,"avF","aGW",0)
+y(B,"avG","aGY",1)})();(function inheritance(){var y=a.inheritMany
+y(P.m,[O.fr,B.j0])
+y(S.c,[M.Lw,M.Ua,B.Ly,B.Uc])})();(function constants(){C.dd=new D.A("material-progress-api",M.avF(),[O.fr])
+C.ex=new D.A("material-progress-demo",B.avG(),[B.j0])
+C.o4=H.y(O.fr)
+C.pc=H.y(B.j0)})();(function staticFields(){$.a67=null
+$.ac9=!1
+$.aCe=['h2._ngcontent-%ID%{color:#9e9e9e;font-family:Roboto,"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:16px;font-weight:normal;line-height:40px;margin:20px}.custom-theme._ngcontent-%ID%  material-progress .progress-container.indeterminate{background-color:#f4c7c3}.custom-theme._ngcontent-%ID%  material-progress .progress-container.indeterminate > .secondary-progress{background-color:#db4437}.custom-theme._ngcontent-%ID%  material-progress .active-progress{background-color:#db4437}.custom-theme._ngcontent-%ID%  material-progress .secondary-progress{background-color:#eda29b}']
+$.a69=null
+$.aca=!1
+$.aAm=[$.aCe]})()}
+$__dart_deferred_initializers__["H8ovCLokBBzvNBP9EA0kSkhuCeI="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_54.part.js.map

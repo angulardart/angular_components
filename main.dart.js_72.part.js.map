@@ -4,13 +4,13 @@
   "file": "main.dart.js_72.part.js",
   "sourceRoot": "",
   "sources": ["../packages/angular_components/material_icon/material_icon.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_icon/material_icon.dart","../packages/angular/src/core/linker/component_factory.dart"],
-  "names": ["viewFactory_MaterialIconComponentHost0","AppView","initReflector","_ViewMaterialIconComponentHost0.build","_ViewMaterialIconComponentHost0.detectChangesInternal","_ViewMaterialIconComponentHost0.destroyInternal","","registerComponent","MaterialIconComponentNgFactory","projectableNodes"],
-  "mappings": "A;;IAkGuCA,cA1BrCA,eAA6GA;ACgHhGC,CAAXA,YDhHqGD;AA2BvGA,QACFA,C;GAGKE,eACCA,KACFA,MAOJA;;AErFEA,MAAWA,KFkFcA,KA7ClBA;AA8CPA,KAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAtC8CC,WAAQA;AACpCA;IAAdA;GACqBA;IAArBA;AGIFA;IHHEA;AACAA,YC8IEA,EAASA;AD7IXA,WAAMA;AACNA,OI7DFA,mBJ6D+BA,OAAQA,SACvCA,C;EAGKC,WAKHA,UACFA,C;EAGKC,WACHA,UACFA,C",
+  "names": ["viewFactory_MaterialIconComponentHost0","_ViewMaterialIconComponentHost0","initReflector","_ViewMaterialIconComponentHost0.build","_ViewMaterialIconComponentHost0.detectChangesInternal","_ViewMaterialIconComponentHost0.destroyInternal","","registerComponent","MaterialIconComponentNgFactory","projectedNodes"],
+  "mappings": "A;0DA2EEA;IA0BqCA,cACrCA,kBCqEeC,ODhGwFD,MA4BzGA,C;GAGKE,eACCA,KACFA,MAOJA;;AExFEA,SFqFyBA,KA7ClBA;AA8CPA,KAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAtC8CC,WAC5BA,cAAdA,eACqBA;CAArBA;AGCFA;CHAEA;AACAA,SCsHiCA,EAASA;ADrH1CA,KAAMA;AACNA,OIhEFA,aJgE+BA,IAAQA,SACvCA,C;EAGKC,WAKHA,UACFA,C;EAGKC,WACHA,UACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "6MAmGSMgCC8EPAADzGAAa,A,U;kDAqCACW;KAAgDCK;4aAhCTFiB;iBACUGM;sBAExCHmB;"
+    "frames": "yJAsGSMsC;gCAAAAAA3ByEAO,M;0CAqChFCS;KAAgDCK;2ZAhCTFc;cACUGM;gBAExCHa;"
   }
 }
