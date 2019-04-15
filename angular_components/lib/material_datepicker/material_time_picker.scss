@@ -11,7 +11,7 @@ $time-picker-width: $mat-grid * 18;
 
 :host {
   dropdown-button {
-    @include dropdown-icon-spacing($mat-grid * 2);
+    @include dropdown-icon-spacing(0 0 0 $mat-grid * 2);
     width: $time-picker-width;
 
     .button-text {

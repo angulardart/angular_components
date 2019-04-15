@@ -51,10 +51,10 @@
   }
 }
 
-/// Adds spacing between text and icon in dropdown button.
-@mixin dropdown-icon-spacing($spacing) {
+/// Sets margin around the icon in dropdown button.
+@mixin dropdown-icon-spacing($margin) {
   ::ng-deep .icon {
-    margin-left: $spacing;
+    margin: $margin;
   }
 }
 
