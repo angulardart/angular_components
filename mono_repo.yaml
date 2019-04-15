@@ -1,0 +1,16 @@
+# See with https://github.com/dart-lang/mono_repo for details on this file
+
+# TODO: Clean up stages after https://github.com/dart-lang/mono_repo/issues/149
+# and https://github.com/dart-lang/mono_repo/issues/150
+
+travis:
+  stages:
+    - name: analyze_and_format
+      if: 'true'
+    - name: unit_test
+      if: 'true'
+    - name: build
+      if: 'true'
+
+merge_stages:
+  - analyze_and_format

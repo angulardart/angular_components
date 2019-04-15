@@ -1,8 +1,4 @@
 # See https://github.com/dart-lang/mono_repo for details
-dart:
-  - 2.2.1-dev.3.0
-  - dev
-
 stages:
   - analyze_and_format:
     - group:
@@ -14,10 +10,6 @@ stages:
         - dartanalyzer: --fatal-warnings .
       dart:
         - 2.2.1-dev.3.0
-  - unit_test:
-    - group:
-      - command: ./tool/travis/install_protoc.sh
-      - test: --run-skipped
 
 cache:
   directories:
