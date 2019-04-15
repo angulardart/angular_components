@@ -27,7 +27,7 @@ bool _parseBool(String strValue) {
           strValue,
           'strValue',
           'Only "", "true", and "false" are acceptable values for parseBool. '
-          'Found: ');
+              'Found: ');
   }
 }
 
