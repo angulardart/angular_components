@@ -9,6 +9,7 @@ import 'dart:async';
 import 'package:angular_components/model/collection/labeled_list.dart';
 import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:meta/meta.dart';
 
 export 'package:angular_components/src/model/selection/delegating_selection_options.dart';
 
@@ -144,6 +145,7 @@ class SelectionOptions<T> extends GroupedOptions<T>
     optionGroups = newOptions;
   }
 
+  @mustCallSuper
   @override
   void dispose() {
     _controller.close();

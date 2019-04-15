@@ -14,5 +14,6 @@ class _StreamSelectionOptions<T> extends SelectionOptions<T> {
   @override
   void dispose() {
     _streamSub?.cancel();
+    super.dispose();
   }
 }
