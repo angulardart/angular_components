@@ -1,32 +1,43 @@
-# Created with package:mono_repo v1.2.1
+# Created with package:mono_repo v2.0.0
 language: dart
 
 jobs:
   include:
     - stage: analyze_and_format
-      name: "SDK: stable - DIR: angular_components - TASKS: [dartfmt -n --set-exit-if-changed ., dartanalyzer --fatal-warnings .]"
+      name: "SDK: dev; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: [`dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`]"
+      dart: dev
+      env: PKGS="angular_components angular_gallery angular_gallery_section"
       script: ./tool/travis.sh dartfmt dartanalyzer
-      env: PKG="angular_components"
-      dart: stable
     - stage: analyze_and_format
-      name: "SDK: dev - DIR: angular_components - TASKS: [dartfmt -n --set-exit-if-changed ., dartanalyzer --fatal-warnings .]"
-      script: ./tool/travis.sh dartfmt dartanalyzer
-      env: PKG="angular_components"
-      dart: dev
+      name: "SDK: 2.2.1-dev.3.0; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: `dartanalyzer --fatal-warnings .`"
+      dart: "2.2.1-dev.3.0"
+      env: PKGS="angular_components angular_gallery angular_gallery_section"
+      script: ./tool/travis.sh dartanalyzer
     - stage: unit_test
-      name: "SDK: stable - DIR: angular_components - TASKS: [./tool/travis/install_protoc.sh, pub run test --run-skipped]"
-      script: ./tool/travis.sh command test
-      env: PKG="angular_components"
-      dart: stable
+      name: "SDK: 2.2.1-dev.3.0; PKG: angular_components; TASKS: [`./tool/travis/install_protoc.sh`, `pub run test --run-skipped`]"
+      dart: "2.2.1-dev.3.0"
+      env: PKGS="angular_components"
+      script: ./tool/travis.sh command_0 test
     - stage: unit_test
-      name: "SDK: dev - DIR: angular_components - TASKS: [./tool/travis/install_protoc.sh, pub run test --run-skipped]"
-      script: ./tool/travis.sh command test
-      env: PKG="angular_components"
+      name: "SDK: dev; PKG: angular_components; TASKS: [`./tool/travis/install_protoc.sh`, `pub run test --run-skipped`]"
       dart: dev
+      env: PKGS="angular_components"
+      script: ./tool/travis.sh command_0 test
+    - stage: build
+      name: "SDK: 2.2.1-dev.3.0; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
+      dart: "2.2.1-dev.3.0"
+      env: PKGS="examples/angular_components_example"
+      script: ./tool/travis.sh command_1 command_2
+    - stage: build
+      name: "SDK: dev; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
+      dart: dev
+      env: PKGS="examples/angular_components_example"
+      script: ./tool/travis.sh command_1 command_2
 
 stages:
   - analyze_and_format
   - unit_test
+  - build
 
 # Only building master means that we don't run two builds for each pull request.
 branches:
@@ -37,3 +48,6 @@ cache:
   directories:
     - "$HOME/.pub-cache"
     - angular_components/.dart_tool/build
+    - angular_gallery/.dart_tool/build
+    - angular_gallery_section/.dart_tool/build
+    - examples/angular_components_example/.dart_tool/build
