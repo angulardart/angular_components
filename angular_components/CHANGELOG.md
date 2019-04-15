@@ -1,3 +1,155 @@
+## 0.13.0
+### Component Updates
+
+#### Material Autosuggest Input
+* Toggle multi-select items with `<Space>` instead of `<Enter>`.
+* Make the pointer for the clear icon consistent with other buttons when
+  disabled.
+
+#### Material Button
+* Apply media query to `_button_hover` mixin call so that we will skip hover for
+  all touchscreens (only apply hover for media supporting hover).
+* Add Sass mixins to customize icon colors and left align button text.
+* Avoid double trigger of button with a space bar keypress.
+
+#### Material Checkbox
+* Use both label and content as aria label.
+* Add types to the outputs.
+
+#### Material Date Picker
+* Make the calendar component invisible to screen readers.
+* Add `selectDatePlaceHolderMsg`, `placeholderMsg`, and
+  `dropdownButtonAriaLabel` inputs.
+
+#### Material Date Range Picker
+* Add `preferredPositions` input.
+* Improve handling of pt-BR date range formatting to remove repetitive "de"s
+  when the endpoints fall into different years.
+* Make comparison toggle label clickable.
+
+#### Material Dialog
+* Add Sass mixin to customize font size.
+* Use header as default dialog label.
+* Mark current landmarks as `role="presentation"` to avoid unnecessary grouping.
+* Add missing modal visible output.
+
+#### Material Expansion Panel
+* Add missing modal visible output.
+* Allow header to have an outline, and control it with keyboard only focus.
+* Add aria-expanded to announce when it is opened/closed.
+* Add Sass mixin to make save button raised and highlighted.
+* Improve a11y.
+* Add the ability to tag the content that you would like to focus when an
+  expansion panel opens.
+
+#### Material Icon
+* Add Sass mixin to customize svg icon size.
+
+#### Material Input
+* Update error message for negative percentage value to be "not negative"
+  instead of "positive", because zero is allowed.
+* Ensure that `aria-disabled` is set for the input when the input is disabled.
+* Use aria-describedby attribute in the to call out errors.
+* Remove TAB focus from disabled multiline input.
+* Add Sass mixin for multiline inputs to flex and scroll the text entry.
+* Add Sass mixins for setting `flex-grow` property and the clear icon color.
+* Stop hiding character counter from Aria.
+* Add `role="alert"` to error text region.
+* Add generic types to `MaterialInputDefaultValueAccessor` and
+  `MaterialNumberValueAccessor`.
+* Create new `Int64` value accessor.
+* Pass down the aria-label for leading and trailing glyphs.
+
+#### Material Menu
+* Remove unnecessary escape key handling in MenuItemGroupsComponent.
+* Add in aria-label support into the items and groups.
+* Open dropdown when navigation keys are pressed.
+* Add Sass mixin to customize the item icon size.
+* Add aria-expanded to collapsible menu groups.
+* Fix item focus bug when the fab menu is opened.
+* Improve aria roles for `MenuItemGroup` items.
+* Add keyboard accessibility functionality for active item handling.
+
+#### Material Progress
+* Fix screen reader status messages.
+
+#### Material Popup
+* Add `autoDismissBlockers` input to block click events in certain elements from
+  closing the popup.
+* Support defining custom boundaries around window viewport.
+* Ensure footer stays inside popup boundaries.
+* Add Sass mixin to override overflow value.
+* Fix memory leaks.
+
+#### Material Stepper
+* Announce the current step via the screen reader.
+* Provide custom aria label for steps.
+
+#### Material Select
+* Fix issue where a keypress on selected item would re-open dropdown.
+* Remove `tabIndex` from items and let the dropdown control focus instead. Focus
+  is now controlled by the dropdown itself.
+* Support keyboard navigation.
+* Add Sass mixins to customize:
+  * Background color of the selected item.
+  * Minimum height of the dropdown buttons.
+  * Color of the dropdown icon.
+  * Font size of items.
+* Allow auto-focusing on the active item.
+* Update Sass mixin `dropdown-icon-spacing` to accept all four margins.
+
+#### Material Tab
+* Add Sass mixin to customize tab strip elevation.
+
+#### Material Toggle
+* Add focus effect.
+
+#### Material Tooltip
+* Remove `initAriaAttributes` for ink tooltips by default.
+* Fix hiding tooltip for `MaterialTooltipTargetDirective` when focusing inside
+  of it.
+
+#### Material Tree
+* Add `allowParentSingleSelection` input.
+* Don't override state when `expandAll` hasn't been set.
+* Add component generics and pass type through to nodes.
+
+#### Material Yes/No Buttons
+* Add Sass mixin to make yes button raised and highlighted.
+* Add Sass mixin to make no button highlighted.
+
+#### Scorecard
+* Fix improper heading hierarchy.
+* Fixed scrolling when the average size of the cards is bigger than the client.
+
+#### Simple HTML Component
+* Add attribute `doNotVerifyUrlDestinations` to allow "normal" external URLs.
+
+### Other Updates
+
+#### Selection Model
+* Allow `is NullSelectionModel` as a replacement for
+  `== const SelectionModel.empty()`, necessary for typed selection models which
+  can't use const.
+* Expose null selection model type to allow type checks.
+* Remove deprecated `SelectionModel()`.
+* Add `isSingleSelect` field.
+
+#### Miscellaneous
+* Allow `HasTabIndex` to not set a `TabIndex`.
+* Fix a bug where sticky elements do not stack when sticky position is BOTTOM.
+* Use named providers instead of the soft deprecated provide(...) and
+  Provider(...).
+* Update MDC Web styles to v1.1.0
+* Tighten public APIs with `@visibleForTemplate`.
+* Enable trigger logic that only considers `mouseup` events as part of
+  `triggersOutside()` if the corresponding `mousedown` event came from the same
+   element.
+* Fix runtime cast errors.
+* Remove use of `ChangeDetectionStrategy.Detached`.
+* Non-tabbable `buttonDirectivesRemove` now have no tabIndex instead of -1.
+* Many components migrated to `OnPush` change detection.
+
 ## 0.12.0
 
 ### Component Updates

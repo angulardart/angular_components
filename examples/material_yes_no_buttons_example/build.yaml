@@ -3,3 +3,5 @@ targets:
     builders:
       angular_components|scss_builder:
         enabled: True
+      angular_gallery|angular_gallery:
+        enabled: False

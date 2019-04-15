@@ -3,8 +3,8 @@
 # Only run externally during presubmits on Travis.
 
 set -ev
-PROTOC_PLUGIN_VERSION="0.10.2"
-PROTOC_VERSION="3.6.0"
+PROTOC_PLUGIN_VERSION="16.0.5"
+PROTOC_VERSION="3.7.1"
 
 if type protoc > /dev/null; then
   echo "protoc already installed."
