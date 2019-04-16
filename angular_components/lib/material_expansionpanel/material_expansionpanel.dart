@@ -7,6 +7,7 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:intl/intl.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
@@ -103,28 +104,25 @@ class MaterialExpansionPanel
       : shouldExpandOnLeft = expandOnLeft != null,
         forceContentWhenClosed = forceContent != null;
 
-  Focusable _focusableItem;
-
   /// Set the auto focus child so that we can focus on it when the panel opens.
   ///
   /// Unfortunately, this only selects the first [AutoFocusDirective] in the
   /// contents of the expansion panel, which means that if there is another
   /// [AutoFocusDirective] in an <ng-content> that is not the .content, that
   /// will get focused instead of the [AutoFocusDirective] inside the .content.
-  @Deprecated(
-      'Please tag the element or widget to focus on open with #focusOnOpen')
+  @visibleForTemplate
   @ContentChild(AutoFocusDirective)
-  set autoFocusChild(AutoFocusDirective focus) {
-    _focusableItem = focus;
-  }
+  AutoFocusDirective autoFocusChild;
+
+  Focusable _focusOnOpenChild;
 
   /// Sets the focus child so that we can focus on it when the panel opens.
   @ContentChild('focusOnOpen')
-  set focusElement(dynamic element) {
+  set focusOnOpenChild(dynamic element) {
     if (element is Focusable) {
-      _focusableItem = element;
+      _focusOnOpenChild = element;
     } else if (element is ElementRef) {
-      _focusableItem = RootFocusable(element.nativeElement);
+      _focusOnOpenChild = RootFocusable(element.nativeElement);
     } else {
       assert(
           element == null,
@@ -525,10 +523,18 @@ class MaterialExpansionPanel
       _isExpanded.value = expand;
       if (byUserAction) _isExpandedChangeByUserAction.add(expand);
       _changeDetector.markForCheck();
-      if (expand && _focusableItem != null) {
-        _domService.scheduleWrite(() {
-          _focusableItem.focus();
-        });
+      if (expand) {
+        if (autoFocusChild != null) {
+          _domService.scheduleWrite(() {
+            autoFocusChild.focus();
+          });
+        } else if (byUserAction) {
+          _domService.scheduleWrite(() {
+            if (_focusOnOpenChild != null) {
+              _focusOnOpenChild.focus();
+            }
+          });
+        }
       }
       if (stateWasInitialized) _transitionHeightChange(expand);
       return true;
