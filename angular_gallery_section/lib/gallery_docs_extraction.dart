@@ -19,21 +19,21 @@ Future<DartDocInfo> extractDocumentation(
         String name, AssetId assetId, AssetReader assetReader) async =>
     parseCompilationUnit(await assetReader.readAsString(assetId),
             parseFunctionBodies: false)
-        .accept(GalleryDocumentaionExtraction(
+        .accept(GalleryDocumentationExtraction(
             name, path_utils.assetToPath(assetId.toString())));
 
 /// A visitor that extracts a [DartDocInfo] for an identifier [_name] and
 /// additional information from the Angular annotations @Component and
 /// @Directive (if present) for documentation purposes. [_filePath] is
-/// passed through to the extractor for [DartProperyInfo]s.
-class GalleryDocumentaionExtraction extends SimpleAstVisitor<DartDocInfo> {
+/// passed through to the extractor for [DartPropertyInfo]s.
+class GalleryDocumentationExtraction extends SimpleAstVisitor<DartDocInfo> {
   static final inputAnnotation = 'Input';
   static final outputAnnotation = 'Output';
   final String _name;
   final String _filePath;
   DartDocInfo _info;
 
-  GalleryDocumentaionExtraction(this._name, this._filePath);
+  GalleryDocumentationExtraction(this._name, this._filePath);
 
   @override
   visitCompilationUnit(CompilationUnit node) {
@@ -45,13 +45,20 @@ class GalleryDocumentaionExtraction extends SimpleAstVisitor<DartDocInfo> {
   }
 
   @override
-  DartDocInfo visitClassDeclaration(ClassDeclaration node) {
+  DartDocInfo visitClassDeclaration(ClassDeclaration node) =>
+      _visitClassOrMixinDeclaration(node);
+
+  @override
+  DartDocInfo visitMixinDeclaration(MixinDeclaration node) =>
+      _visitClassOrMixinDeclaration(node);
+
+  _visitClassOrMixinDeclaration(ClassOrMixinDeclaration node) {
     if (_extractDocumentation(node) == null) return null;
 
     var allProperties = <DartPropertyInfo>[];
     var propertyVisitor = _AllMemberDocsExtraction(_filePath);
     for (Declaration member in node.members) {
-      // Must collect the annotations early becausae class fields don't have
+      // Must collect the annotations early because class fields don't have
       // annotations attached to their actual node. The comments are attached to
       // the field nodes so we have to continue visiting.
       var propertyAnnotationNode = _angularPropertyAnnotation(member);
@@ -104,7 +111,7 @@ class GalleryDocumentaionExtraction extends SimpleAstVisitor<DartDocInfo> {
     return null;
   }
 
-  /// Collect information needed for documentaiton from [node].
+  /// Collect information needed for documentation from [node].
   DartDocInfo _extractDocumentation(NamedCompilationUnitMember node) {
     if (node.name.name != _name) return null;
 
@@ -155,7 +162,7 @@ class GalleryDocumentaionExtraction extends SimpleAstVisitor<DartDocInfo> {
 /// A visitor that extracts a [DartPropertyInfo] for every @Input and @Output
 /// property.
 ///
-/// Only passes [_filePath] through the the indivudual extractor each
+/// Only passes [_filePath] through the the individual extractor each
 /// [DartPropertyInfo].
 class _AllMemberDocsExtraction
     extends SimpleAstVisitor<Iterable<DartPropertyInfo>> {
@@ -193,7 +200,7 @@ class _MemberDocExtraction extends SimpleAstVisitor<DartPropertyInfo> {
   @override
   visitVariableDeclaration(VariableDeclaration node) => extractProperty(node);
 
-  /// Extracts information for documenentation from a [MethodDeclaration] or
+  /// Extracts information for documentation from a [MethodDeclaration] or
   /// [VariableDeclaration].
   DartPropertyInfo extractProperty(Declaration node) {
     return DartPropertyInfo()

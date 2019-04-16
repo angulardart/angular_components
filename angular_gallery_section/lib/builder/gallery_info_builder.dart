@@ -3,11 +3,13 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:collection';
 import 'dart:convert';
 
+import 'package:analyzer/dart/ast/standard_ast_factory.dart';
+import 'package:analyzer/dart/ast/token.dart';
 import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/dart/element/type.dart';
+import 'package:analyzer/src/dart/ast/token.dart';
+import 'package:analyzer/src/dart/resolver/scope.dart';
 import 'package:build/build.dart';
 import 'package:path/path.dart';
 import 'package:angular_gallery_section/g3doc_markdown.dart';
@@ -18,7 +20,7 @@ import 'package:angular_gallery_section/sass_docs_extraction.dart';
 import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
 import 'package:angular_gallery_section/visitors/path_utils.dart' as path_utils;
 
-/// A builder for generating a json summary of each occurance of a
+/// A builder for generating a json summary of each occurrence of a
 /// @GallerySectionConfig annotation.
 ///
 /// The json file will be read by other builders that might not have access to
@@ -94,8 +96,8 @@ class GalleryInfoBuilder extends Builder {
         // This is an external asset to collect docs from.
         return _readExternalAsset(doc, assetReader);
       } else {
-        // Assume it is a class or function that needs to be found.
-        final docLibrary = _searchFor(doc, rootLibrary);
+        // Assume it is a class, mixin, or function.
+        final docLibrary = _getLibrary(doc, rootLibrary);
 
         if (docLibrary == null) {
           log.warning('Could not find @Directive or @Component annotation '
@@ -117,7 +119,7 @@ class GalleryInfoBuilder extends Builder {
     final assetId = AssetId.resolve(externalAsset);
 
     if (!await assetReader.canRead(assetId)) {
-      throw ('Counld not find the asset: $externalAsset.');
+      throw ('Could not find the asset: $externalAsset.');
     }
 
     if (extension(assetId.path) == '.scss') {
@@ -144,6 +146,11 @@ class GalleryInfoBuilder extends Builder {
   /// [assetReader].
   Future<DartDocInfo> _resolveDocFromClass(String identifier,
       LibraryElement library, AssetReader assetReader) async {
+    // Outputs an error and fails the build.
+    failBuild(String missingIdentifier) =>
+        throw 'Error: Failed to extract documentation from: '
+            '$missingIdentifier.';
+
     final libraryId = AssetId.resolve(library.source.uri.toString());
     final docClass = library.getType(identifier);
     DartDocInfo docs;
@@ -151,19 +158,17 @@ class GalleryInfoBuilder extends Builder {
     // If this a functional directive, just extract the docs and we are done.
     if (docClass == null) {
       docs = await extractDocumentation(identifier, libraryId, assetReader);
-      if (docs == null) {
-        log.warning('Failed to extract documentation from: $identifier.');
-      }
+      if (docs == null) failBuild(identifier);
       return docs;
     }
 
-    // Otherwise there is additional documenation for a class. Collect all
+    // Otherwise there is additional documentation for a class. Collect all
     // inherited @Input and @Output documentation.
     final mergedInputs = <String, DartPropertyInfo>{};
     final mergedOutputs = <String, DartPropertyInfo>{};
 
-    for (final classElement in _classHierarcy(docClass)) {
-      // Must extract doumentation from AST becauses the
+    for (final classElement in _classHierarchy(docClass)) {
+      // Must extract documentation from AST because the
       // classElement.documentationComment, classElement.metadata, etc are not
       // populated in the resolved element model available here.
       var libraryId =
@@ -182,6 +187,8 @@ class GalleryInfoBuilder extends Builder {
         }
       }
 
+      if (docs == null) failBuild(classElement.name);
+
       // Merge the properties into the collections so far.
       // This is the last chance to find the resolved type while we have access
       // to the defining LibraryElement.
@@ -192,10 +199,7 @@ class GalleryInfoBuilder extends Builder {
         ..type = _propertyType(output.name, classElement));
     }
 
-    if (docs == null) {
-      log.warning('Failed to extract documentation from: $identifier.');
-      return null;
-    }
+    if (docs == null) failBuild(identifier);
 
     // Sort the inputs and outputs by name to make the display simple later.
     final inputs = mergedInputs.values.toList();
@@ -210,33 +214,27 @@ class GalleryInfoBuilder extends Builder {
     return docs;
   }
 
-  /// Returns a class hierarchy that ends at [leafClass] and ommiting [Object].
-  Iterable<ClassElement> _classHierarcy(ClassElement leafClass) {
+  /// Returns a class hierarchy that ends at [leafClass] omitting [Object].
+  Iterable<ClassElement> _classHierarchy(ClassElement leafClass) {
     final interfaces = leafClass.allSupertypes;
 
     // Object contains no interesting documentation and complicates searching.
     interfaces.removeWhere((interface) => interface.isObject);
 
-    final classes = _asClassElements(interfaces, leafClass.library);
+    final classes = <ClassElement>[];
+    for (var i in interfaces) {
+      classes.add(i.element);
+    }
 
-    // Add the leaf class at the begining of the hierarcy.
+    // Add the leaf class at the beginning of the hierarchy.
     classes.insert(0, leafClass);
 
-    // Determine property inheritence with the reversed supertypes, the same way
+    // Determine property inheritance with the reversed supertypes, the same way
     // Angular does.
     return classes.reversed;
   }
 
-  /// Returns [interfaces] as the [ClassElement]s that they represent as
-  /// reachable from [library].
-  List<ClassElement> _asClassElements(
-          Iterable<InterfaceType> interfaces, LibraryElement library) =>
-      interfaces
-          .map((interface) =>
-              _searchFor(interface.name, library).getType(interface.name))
-          .toList();
-
-  /// Returns the type of the property [name] in [classElment].
+  /// Returns the type of the property [name] in [classElement].
   String _propertyType(String name, ClassElement classElement) =>
       classElement.getField(name).type.toString();
 
@@ -263,13 +261,7 @@ class GalleryInfoBuilder extends Builder {
   Future<DemoInfo> _resolveDemoFromRootLibrary(String demoClassName,
       LibraryElement rootLibrary, AssetReader assetReader) async {
     if (demoClassName == null) return null;
-
-    final demoLibrary = _searchFor(demoClassName, rootLibrary);
-
-    if (demoLibrary == null) {
-      log.warning('Could not find Demo class: $demoClassName.');
-      return null;
-    }
+    final demoLibrary = _getLibrary(demoClassName, rootLibrary);
     return _resolveDemo(demoClassName, demoLibrary, assetReader);
   }
 
@@ -286,8 +278,7 @@ class GalleryInfoBuilder extends Builder {
         await extractDocumentation(demoClassName, libraryId, assetReader);
 
     if (extractedDemo == null) {
-      log.warning('Failed to extract demo information from: $demoClassName.');
-      return null;
+      throw 'Error: Failed to extract demo information from: $demoClassName.';
     }
     return DemoInfo()
       ..type = extractedDemo.name
@@ -296,38 +287,18 @@ class GalleryInfoBuilder extends Builder {
       ..asset = libraryId.toString();
   }
 
-  /// Search imports for the file that defines [identifier] as a class or top
-  /// level function, starting from [rootLibrary].
-  ///
-  /// Searches imports with a breadth-first search, as that should find
-  /// [identifier] faster than a depth-first search.
-  LibraryElement _searchFor(String identifier, LibraryElement rootLibrary) {
-    final visited = Set<LibraryElement>();
-    final toVisit = Queue<LibraryElement>();
+  /// Returns the library that defines [name] as a class or top level function,
+  /// as reachable from [rootLibrary].
+  LibraryElement _getLibrary(String name, LibraryElement rootLibrary) {
+    var token = SyntheticStringToken(TokenType.IDENTIFIER, name, 0);
+    var identifier = astFactory.simpleIdentifier(token);
+    var scope = LibraryScope(rootLibrary);
+    var result = scope.lookup(identifier, rootLibrary);
 
-    toVisit.add(rootLibrary);
-
-    while (toVisit.isNotEmpty) {
-      final library = toVisit.removeFirst();
-      visited.add(library);
-
-      // Search for a class name.
-      if (library.getType(identifier) != null) {
-        return library;
-      }
-
-      // Search for a function name.
-      if (library.definingCompilationUnit.functions
-          .any((function) => function.name == identifier)) {
-        return library;
-      }
-
-      toVisit.addAll(library.importedLibraries
-          .where((import) => !import.isInSdk && !visited.contains(import)));
-      toVisit.addAll(library.exportedLibraries
-          .where((export) => !export.isInSdk && !visited.contains(export)));
+    if (result == null) {
+      throw 'Error: Failed to locate a library containing $name.';
     }
-    // Never found [className] in any of [rootLibrary]'s imports.
-    return null;
+
+    return result.library;
   }
 }
