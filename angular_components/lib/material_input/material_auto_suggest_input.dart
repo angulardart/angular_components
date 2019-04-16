@@ -463,7 +463,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
 
   /// An option is disabled if the options implements Selectable, but the [item]
   /// is not selectable.
-  bool isOptionDisabled(Object item) {
+  bool isOptionDisabled(T item) {
     // TODO: Verify if this can be simplified to .isDisabledIn.
     //
     // The prior code did a check for `!= SelectableOption.Selected`. It is
@@ -471,6 +471,9 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     // disabled, for example.
     return !Selectable.isSelectableIn(options, item, true);
   }
+
+  /// Whether an option is hidden.
+  bool isOptionHidden(T item) => Selectable.isHiddenIn(options, item, false);
 
   /// Whether to highlight options.
   /// Default value is `true`.
