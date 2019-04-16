@@ -10,10 +10,16 @@ import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
 import 'package:angular_components/utils/browser/window/module.dart';
 
 /// Providers for using the ruler service.
-const rulerBindings = [
-  DomRuler,
-  domServiceBinding,
+const rulerBindings = [_rulerProviders, domServiceBinding, windowBindings];
+
+/// DI module for ruler service.
+const rulerModule = Module(include: [
+  domServiceModule,
+  windowModule,
+], provide: _rulerProviders);
+
+const _rulerProviders = [
+  ClassProvider(DomRuler),
   ClassProvider(ManagedZone, useClass: Angular2ManagedZone),
-  NgRuler,
-  windowBindings
+  ClassProvider(NgRuler),
 ];
