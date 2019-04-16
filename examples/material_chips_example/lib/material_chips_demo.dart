@@ -107,7 +107,7 @@ class MaterialChipsDemoComponent {
   ItemRenderer<dynamic /*StarWarsMovie*/ > renderMovieChip =
       (dynamic /*StarWarsMovie*/ protoChip) {
     return 'Star Wars: Episode ${arabicToRoman(protoChip.episodeIndex)}'
-        ' ${protoChip.title}'
+            ' ${protoChip.title}'
         .toUpperCase();
   };
 
