@@ -28,6 +28,14 @@ import 'tooltip_target.dart';
 /// - `icon` -- The name of the icon. This overrides `type`, if both are
 /// provided. See [https://www.google.com/design/icons/] for available icons.
 ///
+/// - `size` -- The size of the icon. Possible values:
+///   - `x-small`, `small`, `medium`, `large` and `x-large` correspond to
+///     the [MaterialIconComponent] sizes of 12px, 13px, 16px, 18px,
+///     and 20px, respectively.
+///   - No value defaults to `medium`.
+///   - `` -- The empty String corresponds to the default size of
+///   [MaterialIconComponent], which is 24px.
+///
 /// - `type` -- The type of the icon. Possible values:
 ///   - `help` -- Shows a "help_outline" icon (a circled "?"). (Default)
 ///   - `info` -- Shows an "info_outline" (a circled "i")
