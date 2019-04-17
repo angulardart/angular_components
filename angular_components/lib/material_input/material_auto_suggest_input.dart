@@ -488,7 +488,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
       : super.componentRenderer;
 
   @override
-  FactoryRenderer get factoryRenderer => highlightOptions &&
+  FactoryRenderer<RendersValue, T> get factoryRenderer => highlightOptions &&
           super.factoryRenderer == null &&
           super.componentRenderer == null
       ? highlightFactoryRenderer

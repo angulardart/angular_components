@@ -47,7 +47,7 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
         SelectionItem<T>,
         HasRenderer<T>,
         HasComponentRenderer,
-        HasFactoryRenderer {
+        HasFactoryRenderer<RendersValue, T> {
   @HostBinding('class')
   static const hostClass = 'item';
 
@@ -147,7 +147,7 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   ///  an item.
   @Input()
   @override
-  FactoryRenderer factoryRenderer;
+  FactoryRenderer<RendersValue, T> factoryRenderer;
 
   bool get useCheckMarks => _useCheckMarks;
 
