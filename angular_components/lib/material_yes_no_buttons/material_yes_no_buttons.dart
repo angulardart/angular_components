@@ -324,7 +324,7 @@ class EnterAcceptsDirective extends BoundaryAwareKeyDirective
   @override
   bool _isKeyMatching(KeyboardEvent event) {
     if (!enterAccepts) return false;
-    if (event.keyCode != KeyCode.ENTER) return false;
+    if (event.keyCode != KeyCode.ENTER || event.repeat == true) return false;
     // Make sure the yes button is visible and enabled
     if (yesButton == null || yesButton.disabled) return false;
     // If the no button is visible, it must not be focused (otherwise enter must
