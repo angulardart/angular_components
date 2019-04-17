@@ -16,10 +16,13 @@ import 'package:angular_components/focus/focus.dart';
   providers: [ExistingProvider(FocusableItem, FocusItemDirective)],
 )
 class FocusItemDirective extends RootFocusable implements FocusableItem {
+  final ChangeDetectorRef _changeDetectorRef;
+
   @HostBinding('attr.role')
   final String role;
 
-  FocusItemDirective(HtmlElement element, @Attribute('role') String role)
+  FocusItemDirective(HtmlElement element, this._changeDetectorRef,
+      @Attribute('role') String role)
       : this.role = role ?? 'listitem',
         super(element);
 
@@ -41,5 +44,6 @@ class FocusItemDirective extends RootFocusable implements FocusableItem {
   @override
   set tabbable(bool value) {
     tabIndex = value ? '0' : '-1';
+    _changeDetectorRef.markForCheck();
   }
 }
