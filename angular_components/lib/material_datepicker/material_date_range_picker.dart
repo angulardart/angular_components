@@ -427,8 +427,9 @@ class MaterialDateRangePickerComponent
       ..maxDate = maxDate
       ..requireFullPeriods = requireFullPeriods
       ..basic = isBasic;
-    if (selection.value != null)
+    if (selection.value != null) {
       model.value = _maybeStripComparison(selection.value);
+    }
     _disposer.addFunction(model.dispose);
 
     _needsApply(modelValue) =>

@@ -22,8 +22,9 @@ class PositiveNumValidator implements Validator {
 
   @override
   Map<String, dynamic> validate(AbstractControl control) {
-    if (!enabled || control.value == null)
+    if (!enabled || control.value == null) {
       return null; // Handled by accessor validator
+    }
     assert(control.value is Comparable, 'Value needs to be comparable');
     if (control.value <= 0) {
       return {positiveIntegerRequiredErrorKey: numberIsNotPositiveMsg()};

@@ -90,8 +90,9 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
     if (_disabled) {
       return;
     }
-    if (state.currentSelection == rangeId && !state.previewAnchoredAtStart)
+    if (state.currentSelection == rangeId && !state.previewAnchoredAtStart) {
       return;
+    }
     _model.value = state.select(rangeId, previewAnchoredAtStart: false);
   }
 
@@ -99,8 +100,9 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
     if (_disabled) {
       return;
     }
-    if (state.currentSelection == rangeId && state.previewAnchoredAtStart)
+    if (state.currentSelection == rangeId && state.previewAnchoredAtStart) {
       return;
+    }
     _model.value = state.select(rangeId, previewAnchoredAtStart: true);
   }
 

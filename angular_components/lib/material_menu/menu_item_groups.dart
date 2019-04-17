@@ -462,7 +462,9 @@ class MenuItemGroupsComponent
         .where((suffix) => suffix.hasShortcutKeyCode(keyCode))
         .toList();
 
-    for (final suffix in matching) suffix.triggerShortcutAction();
+    for (final suffix in matching) {
+      suffix.triggerShortcutAction();
+    }
 
     if (matching.any((suffix) => suffix.shouldCloseMenuOnTrigger)) {
       _menuRoot.closeHierarchy();

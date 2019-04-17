@@ -21,8 +21,9 @@ String formatDate(Date date, [DateFormat format]) =>
     date?.format(format ?? _dateFormat) ?? '';
 String formatRange(DateRange range) {
   if (range == null) return '';
-  if (range.start == null && range.end == null)
+  if (range.start == null && range.end == null) {
     return _DateFormatterMessages._allTimeMsg;
+  }
   if (range.start == range.end) return formatDate(range.start, _dateFormat);
 
   if (range.start == null ||
