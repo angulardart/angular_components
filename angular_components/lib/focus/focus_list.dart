@@ -57,7 +57,7 @@ class FocusListDirective implements OnDestroy {
     });
     // Since this is updating children that were already dirty-checked,
     // need to delay this change until next angular cycle.
-    _ngZone.onEventDone.first.then((_) {
+    _ngZone.runAfterChangesObserved(() {
       _children.forEach((c) {
         c.tabbable = false;
       });
