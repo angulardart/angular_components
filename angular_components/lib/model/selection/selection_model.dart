@@ -46,7 +46,7 @@ abstract class SelectionModel<T> extends Object
   const factory SelectionModel.empty() = NullSelectionModel<T>;
 
   /// Whether or not the selection model is single select.
-  final bool isSingleSelect;
+  bool get isSingleSelect;
 
   /// Creates a single-selection model.
   ///
