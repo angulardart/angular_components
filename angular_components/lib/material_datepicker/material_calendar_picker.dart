@@ -915,7 +915,9 @@ class _Month {
       months = -months;
       increment = result.prev;
     }
-    for (var i = 0; i < months; i++) increment();
+    for (var i = 0; i < months; i++) {
+      increment();
+    }
     return result;
   }
 
