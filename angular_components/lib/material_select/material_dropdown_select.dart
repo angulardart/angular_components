@@ -119,6 +119,14 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   @Input()
   String buttonAriaLabelledBy;
 
+  /// One or more space-delimited ids of elements that provide additional
+  /// description for the dropdown select.
+  ///
+  /// For example, the id of a text element that says "Select a foo to use with
+  /// your bar."
+  @Input()
+  String buttonAriaDescribedBy;
+
   /// Listener for options changes.
   StreamSubscription<List<OptionGroup<T>>> _optionsListener;
 
