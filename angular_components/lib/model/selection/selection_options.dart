@@ -6,6 +6,7 @@ library angular_components.model.selection.selection_options;
 
 import 'dart:async';
 
+import 'package:meta/meta.dart';
 import 'package:angular_components/model/collection/labeled_list.dart';
 import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
@@ -144,6 +145,7 @@ class SelectionOptions<T> extends GroupedOptions<T>
     optionGroups = newOptions;
   }
 
+  @mustCallSuper
   @override
   void dispose() {
     _controller.close();
