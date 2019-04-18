@@ -147,6 +147,14 @@ class MaterialYesNoButtonsComponent implements HasDisabled {
   @Input()
   bool noAutoFocus = false;
 
+  /// The description which will be set to yes button's aria-describedby.
+  @Input()
+  String yesAriaDescribedBy;
+
+  /// The description which will be set to no button's aria-describedby.
+  @Input()
+  String noAriaDescribedBy;
+
   @ViewChild('yesButton')
   MaterialButtonComponent yesButton;
 

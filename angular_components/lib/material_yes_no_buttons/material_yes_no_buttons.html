@@ -15,6 +15,7 @@
                  [class.highlighted]="yesHighlighted"
                  [disabled]="yesDisabled || disabled"
                  [attr.aria-label]="yesAriaLabel"
+                 [attr.aria-describedby]="yesAriaDescribedBy"
                  (trigger)="onYes($event)">
   {{yesText}}
 </material-button>
@@ -25,6 +26,7 @@
                  [raised]="raised"
                  [disabled]="noDisabled || disabled"
                  [attr.aria-label]="noAriaLabel"
+                 [attr.aria-describedby]="noAriaDescribedBy"
                  (trigger)="onNo($event)">
   {{noText}}
 </material-button>
