@@ -310,7 +310,7 @@ class _StickyRow implements StickyRowPosition {
     num newY = top - rowPosition.top;
     if (translateY != newY) {
       translateY = newY;
-      String newTransform = 'translate(0px, ${translateY}px)';
+      String newTransform = 'translate3d(0px, ${translateY}px, 0px)';
       String newZIndex = '${stickyControllerZIndex}';
       if (_currentPosition != 'relative' ||
           _currentTransform != newTransform ||
