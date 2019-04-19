@@ -25,6 +25,11 @@
   margin-right: 0;
 }
 
+/// Removes all margins of <material-checkbox>.
+@mixin checkbox-no-margin {
+  margin: 0;
+}
+
 /// Hides the text portion of <material-checkbox>.
 @mixin checkbox-hide-label {
   ::ng-deep .content {
