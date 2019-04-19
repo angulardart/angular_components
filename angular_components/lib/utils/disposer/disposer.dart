@@ -22,7 +22,6 @@ abstract class Disposable {
   factory Disposable(DisposeFunction disposeFn) = _SingleFunctionDisposable;
 
   /// Disposes this disposable and any resources it has open.
-  @mustCallSuper
   void dispose();
 }
 
@@ -154,6 +153,7 @@ class Disposer implements Disposable {
     assert(!(_oneShot && _disposeCalled), _oneShotDisposerMemoryLeakWarning);
   }
 
+  @mustCallSuper
   @override
   void dispose() {
     if (_disposeSubs != null) {
