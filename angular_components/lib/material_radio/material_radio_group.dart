@@ -109,7 +109,7 @@ class MaterialRadioGroupComponent
   void _resetTabIndex() {
     // Since this is updating children that were already dirty-checked,
     // need to delay this change until next angular cycle.
-    _ngZone.onEventDone.first.then((_) {
+    _ngZone.runAfterChangesObserved(() {
       if (_radioComponents == null) return; // Component was destroyed.
       // Disable everything first.
       for (var radioComponent in _radioComponents) {
