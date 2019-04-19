@@ -123,6 +123,7 @@ abstract class ScrollHostBase implements ScrollHost {
     _panController.dispose();
     _stickyController.dispose();
     _onScrollController?.close();
+    _onScrollController = null;
     if (_intersectionObserver != null) {
       _intersectionObserver.disconnect();
       for (var controller in _intersectionStreams.values) {
