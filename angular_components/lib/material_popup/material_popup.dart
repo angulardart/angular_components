@@ -454,7 +454,7 @@ class MaterialPopupComponent extends Object
     var initialData = Completer<Rectangle>();
     var popupContentsLayoutStream = _overlayRef
         .measureSizeChanges()
-        .asBroadcastStream(onCancel: _visibleDisposer.addStreamSubscription);
+        .asBroadcastStream(onListen: _visibleDisposer.addStreamSubscription);
     var popupSourceLayoutStream =
         state.source.onDimensionsChanged(track: state.trackLayoutChanges);
     if (!state.trackLayoutChanges) {
