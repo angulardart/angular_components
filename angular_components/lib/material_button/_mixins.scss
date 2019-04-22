@@ -381,3 +381,10 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
     @include _button-compact;
   }
 }
+
+/// Mixin to change button text to capitalized.
+@mixin button-text-capitalize {
+  ::ng-deep .content {
+    text-transform: capitalize;
+  }
+}
