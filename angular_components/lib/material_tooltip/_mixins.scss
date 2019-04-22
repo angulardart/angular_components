@@ -61,6 +61,16 @@
   }
 }
 
+/// Overrides the default maximum width of <material-tooltip-text>
+/// or [materialTooltip].
+@mixin ink-tooltip-max-width($max-width) {
+  @include material-popup-style {
+    .ink-container {
+      max-width: $max-width;
+    }
+  }
+}
+
 /// Adds a word break property to <material-tooltip-text> or [materialTooltip].
 @mixin ink-tooltip-word-break($word-break: break-word) {
   @include material-popup-style {
