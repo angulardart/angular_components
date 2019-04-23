@@ -209,7 +209,7 @@ class MaterialRadioGroupComponent
     if (_preselectedValue != null) {
       // Since this is updating children that were already dirty-checked,
       // need to delay this change until next angular cycle.
-      _ngZone.onEventDone.first.then((_) {
+      _ngZone.runAfterChangesObserved(() {
         if (_preselectedValue == null) return; // Overridden before callback.
         // Initialize preselect now, this will trigger tabIndex reset.
         selected = _preselectedValue;
