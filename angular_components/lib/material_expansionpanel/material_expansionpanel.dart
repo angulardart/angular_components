@@ -528,17 +528,13 @@ class MaterialExpansionPanel
       if (byUserAction) _isExpandedChangeByUserAction.add(expand);
       _changeDetector.markForCheck();
       if (expand) {
-        if (autoFocusChild != null) {
-          _domService.scheduleWrite(() {
+        _domService.scheduleWrite(() {
+          if (autoFocusChild != null) {
             autoFocusChild.focus();
-          });
-        } else if (byUserAction) {
-          _domService.scheduleWrite(() {
-            if (_focusOnOpenChild != null) {
-              _focusOnOpenChild.focus();
-            }
-          });
-        }
+          } else if (byUserAction && _focusOnOpenChild != null) {
+            _focusOnOpenChild.focus();
+          }
+        });
       }
       if (stateWasInitialized) _transitionHeightChange(expand);
       return true;
