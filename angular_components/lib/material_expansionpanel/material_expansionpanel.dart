@@ -135,7 +135,9 @@ class MaterialExpansionPanel
   @ViewChild('mainPanel')
   set mainPanel(HtmlElement mainPanel) {
     _mainPanel = mainPanel;
-    _disposer.addStreamSubscription(_mainPanel.onTransitionEnd.listen((_) {
+    _disposer.addStreamSubscription(_mainPanel.onTransitionEnd
+        .where((e) => e.eventPhase == Event.AT_TARGET)
+        .listen((_) {
       // Clear height override so it will match the active child's height.
       _mainPanel.style.height = '';
     }));
@@ -145,7 +147,9 @@ class MaterialExpansionPanel
   @ViewChild('headerPanel')
   set headerPanel(HtmlElement headerPanel) {
     _headerPanel = headerPanel;
-    _disposer.addStreamSubscription(_headerPanel.onTransitionEnd.listen((_) {
+    _disposer.addStreamSubscription(_headerPanel.onTransitionEnd
+        .where((e) => e.eventPhase == Event.AT_TARGET)
+        .listen((_) {
       // Clear height override so it will match the active child's height.
       _headerPanel.style.height = '';
     }));
