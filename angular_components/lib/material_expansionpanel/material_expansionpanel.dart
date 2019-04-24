@@ -135,15 +135,19 @@ class MaterialExpansionPanel
   @ViewChild('mainPanel')
   set mainPanel(HtmlElement mainPanel) {
     _mainPanel = mainPanel;
-    _disposer.addStreamSubscription(_mainPanel.onTransitionEnd
-        .where((e) => e.eventPhase == Event.AT_TARGET)
-        .listen((_) {
-      // Clear height override so it will match the active child's height.
-      _mainPanel.style.height = '';
-      // If we just finished closing, let deferred content stop rendering
-      // the panel body.
-      if (!isExpanded) _contentVisible.add(false);
-    }));
+    _ngZone.runOutsideAngular(() {
+      _disposer.addStreamSubscription(_mainPanel.onTransitionEnd
+          .where((e) => e.eventPhase == Event.AT_TARGET)
+          .listen((_) {
+        // Clear height override so it will match the active child's height.
+        _mainPanel.style.height = '';
+        // If we just finished closing, let deferred content stop rendering
+        // the panel body.
+        if (!isExpanded) {
+          _ngZone.run(() => _contentVisible.add(false));
+        }
+      }));
+    });
 
     final transitionCheck = DisposableCallback(() {
       // If we don't have a transition (because style mixins/overrides/disabled
@@ -164,12 +168,14 @@ class MaterialExpansionPanel
   @ViewChild('headerPanel')
   set headerPanel(HtmlElement headerPanel) {
     _headerPanel = headerPanel;
-    _disposer.addStreamSubscription(_headerPanel.onTransitionEnd
-        .where((e) => e.eventPhase == Event.AT_TARGET)
-        .listen((_) {
-      // Clear height override so it will match the active child's height.
-      _headerPanel.style.height = '';
-    }));
+    _ngZone.runOutsideAngular(() {
+      _disposer.addStreamSubscription(_headerPanel.onTransitionEnd
+          .where((e) => e.eventPhase == Event.AT_TARGET)
+          .listen((_) {
+        // Clear height override so it will match the active child's height.
+        _headerPanel.style.height = '';
+      }));
+    });
   }
 
   HtmlElement _mainContent;
