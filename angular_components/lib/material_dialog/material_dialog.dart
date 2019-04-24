@@ -123,7 +123,7 @@ class MaterialDialogComponent
         _changeDetector
           ..markForCheck()
           // This detectChanges() here is for updating the classes when the page
-          // initially loads.
+          // initially loads (b/31916790).
           ..detectChanges();
       }
     }));

@@ -21,6 +21,7 @@ import 'package:angular_components/model/action/async_action.dart';
 import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/angular/id/id.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
+import 'package:angular_components/utils/disposer/disposable_callback.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// A material-styled expansion-panel.
@@ -44,8 +45,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 ///    other panels when expanded.
 ///  - `forceContentWhenClosed` -- Keeps expansion panel content in the DOM when
 ///    the expansion panel is closed. This should only be used in rare
-///    circumstances as the content will be tabbable and so will be worse for
-///    accessibility.
+///    circumstances.
 ///
 /// __Content Reference:__
 ///
@@ -140,7 +140,24 @@ class MaterialExpansionPanel
         .listen((_) {
       // Clear height override so it will match the active child's height.
       _mainPanel.style.height = '';
+      // If we just finished closing, let deferred content stop rendering
+      // the panel body.
+      if (!isExpanded) _contentVisible.add(false);
     }));
+
+    final transitionCheck = DisposableCallback(() {
+      // If we don't have a transition (because style mixins/overrides/disabled
+      // in tests) just forward the isExpanded change event so deferredContent
+      // can disappear.
+      if (!_mainPanelHasHeightTransition) {
+        _disposer.addStreamSubscription(isExpandedChange.listen((expanded) {
+          // Just check for false (closed). Open (true) is always done first.
+          if (!expanded) _contentVisible.add(false);
+        }));
+      }
+    });
+    _domService.scheduleRead(transitionCheck);
+    _disposer.addDisposable(transitionCheck);
   }
 
   HtmlElement _headerPanel;
@@ -221,7 +238,8 @@ class MaterialExpansionPanel
       StreamController<bool>.broadcast(sync: true);
 
   @override
-  Stream<bool> get contentVisible => isExpandedChange;
+  Stream<bool> get contentVisible => _contentVisible.stream;
+  final _contentVisible = StreamController<bool>.broadcast(sync: true);
 
   /// Whether a different panel in the set is currently expanded.
   ///
@@ -524,7 +542,11 @@ class MaterialExpansionPanel
     stream.add(actionCtrl.action);
     var stateWasInitialized = initialized;
     actionCtrl.execute(() {
+      // Update our state before redrawing. State changes need to occur before
+      // follow ups (animation or autofocus) so that styles and deferred content
+      // can update.
       _isExpanded.value = expand;
+      if (expand) _contentVisible.add(true);
       if (byUserAction) _isExpandedChangeByUserAction.add(expand);
       _changeDetector.markForCheck();
       if (expand) {
@@ -599,10 +621,9 @@ class MaterialExpansionPanel
     final contentHeight = _mainContent.scrollHeight;
     var expandedPanelHeight = '';
 
-    final mainPanelStyle = _mainPanel.getComputedStyle();
     // Do our best to make sure that onTransitionEnd will fire later.
     final hasHeightTransition =
-        contentHeight > 0 && mainPanelStyle.transition.contains('height');
+        contentHeight > 0 && _mainPanelHasHeightTransition;
 
     if (hasHeightTransition) {
       // If the content-wrapper has a top margin, it is not reflected in the
@@ -611,6 +632,12 @@ class MaterialExpansionPanel
       expandedPanelHeight = 'calc(${contentHeight}px + ${topMargin})';
     }
     return expandedPanelHeight;
+  }
+
+  bool get _mainPanelHasHeightTransition {
+    final mainPanelStyle = _mainPanel.getComputedStyle();
+    // Do our best to make sure that onTransitionEnd will fire later.
+    return mainPanelStyle.transition.contains('height');
   }
 
   /// Reads the DOM state to calculate the height of the header in its
