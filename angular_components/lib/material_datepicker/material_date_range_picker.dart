@@ -20,8 +20,8 @@ import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_datepicker/comparison.dart';
 import 'package:angular_components/material_datepicker/comparison_option.dart';
 import 'package:angular_components/material_datepicker/config.dart';
-import 'package:angular_components/material_datepicker/date_range_editor_host.dart';
 import 'package:angular_components/material_datepicker/date_range_editor.dart';
+import 'package:angular_components/material_datepicker/date_range_editor_host.dart';
 import 'package:angular_components/material_datepicker/model.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/material_datepicker/next_prev_buttons.dart';
@@ -29,6 +29,7 @@ import 'package:angular_components/material_datepicker/preset.dart';
 import 'package:angular_components/material_datepicker/range.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
+import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
 import 'package:angular_components/model/observable/observable.dart';
@@ -77,6 +78,7 @@ const _defaultMaxHeight = 600;
     DateRangeEditorComponent,
     DeferredContentDirective,
     DropdownButtonComponent,
+    FocusableDirective,
     KeyboardOnlyFocusIndicatorDirective,
     MaterialButtonComponent,
     MaterialPopupComponent,
@@ -87,11 +89,13 @@ const _defaultMaxHeight = 600;
   ],
   providers: [
     ExistingProvider(DateRangeEditorHost, MaterialDateRangePickerComponent),
+    ExistingProvider(Focusable, MaterialDateRangePickerComponent),
     ExistingProvider(HasDisabled, MaterialDateRangePickerComponent),
     ExistingProvider(PopupSizeProvider, MaterialDateRangePickerComponent),
   ],
 )
 class MaterialDateRangePickerComponent
+    with FocusableMixin
     implements
         HasDisabled,
         OnInit,
@@ -102,6 +106,11 @@ class MaterialDateRangePickerComponent
   Focusable _dateRangeEditor;
   bool _focusOnDateRangeEditorInit = false;
   PopupSizeProvider _popupSizeProvider;
+
+  @ViewChild(ButtonDirective)
+  set focusableElement(ButtonDirective button) {
+    focusable = button;
+  }
 
   @Deprecated('Use [presets] instead.')
   @Input('predefinedRanges')
