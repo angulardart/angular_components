@@ -95,6 +95,13 @@
   }
 }
 
+/// Changes the bottom section width of material input.
+@mixin input-bottom-section-width($width) {
+  ::ng-deep .bottom-section {
+    width: $width;
+  }
+}
+
 /// Changes the padding of the leading text.
 @mixin material-input-leading-text-padding($padding) {
   ::ng-deep .leading-text {
