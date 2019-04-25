@@ -50,13 +50,6 @@ Stream<Event> triggersOutside(dynamic /* Element | ElementRef */ element) {
   return triggersOutsideAny((node) => node == element);
 }
 
-/// Flag to enable new trigger logic which will use mouse down to determine if
-/// a mouse up or click event should be listened to.
-///
-/// Defaults to true for DDC tests/development, and false for
-/// dart2js tests/production when it is not explicitly set.
-bool enableNewTriggerLogic;
-
 /// A stream of click, mouseup or focus events of any node none of whose parents
 /// pass the check inside function.
 Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
@@ -65,10 +58,6 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
   StreamSubscription<MouseEvent> mouseDownListener;
   StreamSubscription<MouseEvent> mouseUpListener;
   EventListener listener;
-
-  if (enableNewTriggerLogic == null) {
-    enableNewTriggerLogic ??= true;
-  }
 
   controller = StreamController.broadcast(
       sync: true,
@@ -93,16 +82,11 @@ Stream<Event> triggersOutsideAny(Predicate<Node> checkNodeInside) {
           controller.add(e);
         };
 
-        // If new trigger logic is enabled listen to mouse down events. When it
-        // is not enabled old logic will be used because the lastMouseDown event
-        // will always be null.
-        if (enableNewTriggerLogic) {
-          // Keep track of mousedown events so that we can filter mouseup events
-          // that occurred on a different element than the mousedown.
-          mouseDownListener = document.onMouseDown.listen((MouseEvent e) {
-            lastDownEvent = e;
-          });
-        }
+        // Keep track of mousedown events so that we can filter mouseup events
+        // that occurred on a different element than the mousedown.
+        mouseDownListener = document.onMouseDown.listen((MouseEvent e) {
+          lastDownEvent = e;
+        });
 
         // Listen to mouseup to prevent scenarios where a single click event
         // both opens and closes an element.
