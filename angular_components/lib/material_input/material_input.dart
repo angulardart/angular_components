@@ -235,6 +235,11 @@ class MaterialInputComponent extends BaseMaterialInput
   @Input()
   String inputAriaAutocomplete;
 
+  /// The ID of an element which should be assigned to the inner input element's
+  /// aria-controls attribute.
+  @Input()
+  String inputAriaControls;
+
   MaterialInputComponent(
       @Attribute('type') String type,
       @Attribute('multiple') String multiple,
