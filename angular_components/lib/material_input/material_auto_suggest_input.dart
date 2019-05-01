@@ -590,7 +590,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
 
   bool _isFocused = false;
 
-  /// Fired when the input gains focus
+  /// Fired when the input gains focus.
   @Output('focus')
   Stream<html.FocusEvent> get onFocus => _onFocus.stream;
   final _onFocus = StreamController<html.FocusEvent>.broadcast(sync: true);
@@ -603,12 +603,25 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     _isFocused = true;
   }
 
-  /// Fired when the input gains blur or auto suggest item get selected.
+  /// Fired when this component loses focus.
+  ///
+  /// This stream is fired when:
+  ///  1. the underlying material input blurs, if there is no popup and
+  ///     there are subscribers to the blur stream
+  ///  2. the suggestions popup closes and there is no focus on the
+  ///     underlying material input
   @Output('blur')
   Stream<void> get onBlur => _onBlur.stream;
   final _onBlur = StreamController<void>.broadcast(sync: true);
 
+  /// Fired when the nested MaterialInputComponent fires a blur event.
+  @Output('inputBlur')
+  Stream<void> get onInputBlur => _onInputBlur.stream;
+  final _onInputBlur = StreamController<void>.broadcast(sync: true);
+
   void handleBlur(html.FocusEvent event) {
+    _onInputBlur.add(null);
+
     _isFocused = false;
     if ((!showPopup || !hasOptions) && _onBlur != null) {
       _onBlur.add(null);
