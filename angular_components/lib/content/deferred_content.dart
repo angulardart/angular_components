@@ -90,10 +90,15 @@ class DeferredContentDirective implements OnDestroy {
   }
 
   DeferredContentDirective(
-      this._viewContainer, this._template, DeferredContentAware parent) {
+    this._viewContainer,
+    this._template,
+    DeferredContentAware parent,
+    ChangeDetectorRef changeDetector,
+  ) {
     _disposer.addStreamSubscription(parent.contentVisible.listen((value) {
       _visible = value;
       _setVisible();
+      changeDetector.markForCheck();
     }));
   }
 
@@ -132,8 +137,15 @@ class CachingDeferredContentDirective implements OnDestroy {
   }
 
   CachingDeferredContentDirective(
-      this._viewContainer, this._template, DeferredContentAware parent) {
-    _disposer.addStreamSubscription(parent.contentVisible.listen(_setVisible));
+    this._viewContainer,
+    this._template,
+    DeferredContentAware parent,
+    ChangeDetectorRef changeDetector,
+  ) {
+    _disposer.addStreamSubscription(parent.contentVisible.listen((value) {
+      _setVisible(value);
+      changeDetector.markForCheck();
+    }));
   }
 
   @override
