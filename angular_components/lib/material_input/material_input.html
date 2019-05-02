@@ -53,6 +53,7 @@
              [attr.aria-owns]="inputAriaOwns"
              [attr.aria-controls]="inputAriaControls"
              [attr.aria-disabled]="disabled"
+             [attr.autocomplete]="inputAutocomplete"
              [attr.role]="inputRole"
              [ngModel]="inputText"
              (blur)="inputBlurAction($event, inputEl.validity.valid, inputEl.validationMessage)"

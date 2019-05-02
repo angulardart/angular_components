@@ -114,6 +114,16 @@ class BaseMaterialInput extends FocusableMixin
   @Input()
   String inputAriaLabel;
 
+  /// The autocomplete attribute for the inner input element.
+  ///
+  /// Defines the type of autocomplete functionality for the input. For example,
+  /// can be `on` or `off``.
+  ///
+  /// Note: Setting this field may depend on the browser implementation and is
+  /// not guaranteed to turn off the autocomplete functionality.
+  @Input()
+  String inputAutocomplete;
+
   String _hintText;
   String get hintText => _hintText;
 
