@@ -240,6 +240,16 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
   bool get accessibleItemActivation => _accessibleItemActivation;
   bool _accessibleItemActivation = true;
 
+  /// The autocomplete attribute for the inner input element.
+  ///
+  /// Defines the type of autocomplete functionality for the input. For example,
+  /// can be `on` or `off``..
+  ///
+  /// Note: Setting this field may depend on the browser implementation and is
+  /// not guaranteed to turn off the autocomplete functionality.
+  @Input()
+  String inputAutocomplete;
+
   int _limit = 10;
 
   /// Allow filtering of suggestions as the user is typing.

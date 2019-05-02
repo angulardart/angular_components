@@ -50,6 +50,7 @@
                   [attr.aria-describedby]="inputAriaDescribedBy"
                   attr.aria-invalid="{{invalid}}"
                   [attr.aria-label]="ariaLabel"
+                  [attr.autocomplete]="inputAutocomplete"
                   [readonly]="disabled"
                   [ngModel]="inputText"
                   (blur)="inputBlurAction($event, textareaEl.validity.valid, textareaEl.validationMessage)"
