@@ -62,6 +62,8 @@ class MaterialTreeGroupComponent<T> extends MaterialTreeNode<T>
   @Input()
   @override
   bool allowParentSingleSelection = false;
+  @Input()
+  bool deselectOnTrigger = true;
   final MaterialTreeRoot _root;
 
   int _maxInitialOptionsShown;
@@ -139,7 +141,11 @@ class MaterialTreeGroupComponent<T> extends MaterialTreeNode<T>
       final previouslyToggledNode = _root.previouslyToggledNode;
       _root.previouslyToggledNode = option;
 
-      setSelectionState(option, !isSelected(option));
+      // If [option] is already selected, do not deselect it unless
+      // [deselectOnTrigger] is `true`.
+      if (!isSelected(option) || deselectOnTrigger) {
+        setSelectionState(option, !isSelected(option));
+      }
 
       // Handle shift + select behavior for multi-selection.
       if (isMultiSelect &&

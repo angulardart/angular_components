@@ -111,6 +111,11 @@ class MaterialTreeComponent<T> with MaterialTreeRoot<T>, SelectionContainer<T> {
   @override
   bool allowParentSingleSelection = false;
 
+  /// Whether clicking on a selected item should deselect it. (Only applicable
+  /// when [supportsHierarchy] is `true`.)
+  @Input()
+  bool allowDeselectInHierarchy = true;
+
   /// Whether to expand a given option group.
   ///
   /// When [expandAll] is true, always expand an option group, otherwise
