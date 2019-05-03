@@ -191,12 +191,14 @@ class GalleryInfoBuilder extends Builder {
 
       // Merge the properties into the collections so far.
       // This is the last chance to find the resolved type while we have access
-      // to the defining LibraryElement.
+      // to the defining LibraryElement. NOTE: Collecting the types like this
+      // diverges from the behavior of DartDoc which always uses the getter type
+      // when they are different.
       docs.inputs.forEach((input) => mergedInputs[input.name] = input
-        ..type = _propertyType(input.name, classElement));
+        ..type = _setterType(input.name, classElement));
 
       docs.outputs.forEach((output) => mergedOutputs[output.name] = output
-        ..type = _propertyType(output.name, classElement));
+        ..type = _getterType(output.name, classElement));
     }
 
     if (docs == null) failBuild(identifier);
@@ -234,9 +236,13 @@ class GalleryInfoBuilder extends Builder {
     return classes.reversed;
   }
 
-  /// Returns the type of the property [name] in [classElement].
-  String _propertyType(String name, ClassElement classElement) =>
-      classElement.getField(name).type.toString();
+  /// Returns the type of setter [name] in [classElement].
+  String _setterType(String name, ClassElement classElement) =>
+      classElement.getSetter(name).type.normalParameterTypes.first.toString();
+
+  /// Returns the type of the getter [name] in [classElement].
+  String _getterType(String name, ClassElement classElement) =>
+      classElement.getGetter(name).returnType.toString();
 
   /// Replace web server in `<img>` tags with the [_staticImageServer].
   String _replaceImgTags(String content) => content.replaceAllMapped(
