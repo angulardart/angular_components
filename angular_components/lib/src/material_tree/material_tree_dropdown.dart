@@ -112,6 +112,11 @@ class MaterialTreeDropdownComponent<T>
   @Input()
   bool allowParentSingleSelection = false;
 
+  /// Whether clicking on a selected item should deselect it. (Only applicable
+  /// when hierarchy is supported.)
+  @Input()
+  bool allowDeselectInHierarchy = true;
+
   /// Function to convert the selected value to a string to be displayed as the
   /// button text.
   @Input()

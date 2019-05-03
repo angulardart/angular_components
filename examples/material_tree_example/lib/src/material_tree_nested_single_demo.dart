@@ -37,6 +37,7 @@ import 'package:angular_components/model/selection/selection_options.dart';
         <material-tree
           [options]="nestedOptions"
           [expandAll]="expandAll"
+          [allowDeselectInHierarchy]="allowDeselectInHierarchy"
           [selection]="singleSelection">
         </material-tree>
       </div>
@@ -60,4 +61,6 @@ class MaterialTreeNestedSingleDemoComponent {
     _expandAll = value;
     _changeDetector.markForCheck();
   }
+
+  bool allowDeselectInHierarchy;
 }
