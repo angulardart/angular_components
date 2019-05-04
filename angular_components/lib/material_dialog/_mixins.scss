@@ -50,6 +50,12 @@
   }
 }
 
+@mixin material-dialog-footer-justify-content($justify-content) {
+  ::ng-deep .wrapper > footer [footer] {
+    justify-content: $justify-content;
+  }
+}
+
 @mixin material-dialog-header() {
   @include box-sizing(border-box);
   padding: $mat-grid * 3 $mat-grid * 3 0;
