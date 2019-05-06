@@ -54,7 +54,13 @@ class MaterialStepperComponent {
   static const defaultSize = sizeDefault;
   List<StepDirective> steps = [];
 
-  int activeStepIndex;
+  int _activeStepIndex;
+  int get activeStepIndex => _activeStepIndex;
+  set activeStepIndex(int value) {
+    _activeStepIndex = value;
+    _recalculatePropertiesOfSteps();
+  }
+
   bool stepperDone = false;
 
   var _orientation = defaultOrientation;
@@ -224,7 +230,6 @@ class MaterialStepperComponent {
     steps[index].requestStepJump(actionController.action);
     actionController.execute(() {
       activeStepIndex = index;
-      _recalculatePropertiesOfSteps();
       _activeStepController.add(activeStep);
       return true;
     }, valueOnCancel: false);
