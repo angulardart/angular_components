@@ -36,9 +36,17 @@ const datepickerBindings = [
 ///
 /// To use these bindings, you must initialize [SettableTimeZone] before
 /// constructing the datepicker, or console errors will occur.
+@Deprecated("use timeZoneAwareDatepickerModule")
 const timeZoneAwareDatepickerProviders = [
-  _legacyClockBinding,
+  _sharedClockBindings,
   timeZoneAwareClockProviders,
+];
+
+const timeZoneAwareDatepickerModule =
+    Module(include: [timeZoneAwareClockModule], provide: _sharedClockBindings);
+
+const _sharedClockBindings = [
+  _legacyClockBinding,
   ExistingProvider.forToken(datepickerClock, timeZoneAwareClock),
 ];
 
