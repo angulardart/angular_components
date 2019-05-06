@@ -152,7 +152,7 @@ class MaterialDateTimePickerComponent implements HasDisabled {
   set dateTime(DateTime value) {
     if (value != _dateTime) {
       _dateTime = value;
-      _date = (_dateTime == null ? null : Date.fromTime(_dateTime));
+      _date = (_dateTime == null ? null : Date.fromTime(_dateTime, tzOffset: DateTime.now().timeZoneOffset));
       _time = cloneDateTime(_dateTime);
     }
   }
