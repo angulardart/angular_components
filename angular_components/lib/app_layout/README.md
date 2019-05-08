@@ -106,7 +106,7 @@ done using the [reference
 variable](https://webdev.dartlang.org/angular/guide/template-syntax#!#ref-vars)
 syntax. The persistent drawer directive exports itself as `drawer` this allows
 it to be used easily by other actions. `toggle()` can be used to open/close the
-drawer. The drawer supports the `deferredConent` directive allowing a developer
+drawer. The drawer supports the `deferredContent` directive allowing a developer
 to add/remove content from the page when the drawer is not visible (closed.)
 Here is a complete example:
 
@@ -135,7 +135,7 @@ Here is a complete example:
 
 ### Temporary drawers
 
-Temporary drawers are drawers that live on top of the conent. They are provided
+Temporary drawers are drawers that live on top of the content. They are provided
 by `MaterialTemporaryDrawerComponent` which has a similar look and feel to the
 other drawers. To use a temporary drawer add the `temporary` attribute to the
 `material-drawer` element, and add `MaterialTemporaryDrawerComponent` to the
