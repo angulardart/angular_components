@@ -11,7 +11,7 @@ dependencies:
   build: '>=0.11.1 <2.0.0'
   build_config: '>=0.2.6 <0.4.0'
   glob: ^1.1.5
-  markdown: ^2.0.0
+  markdown: ^2.0.3
   mustache: ^1.0.0
   path: ^1.6.1
   sass: '>=1.15.3 <2.0.0'

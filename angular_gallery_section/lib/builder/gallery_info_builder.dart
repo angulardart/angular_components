@@ -246,8 +246,8 @@ class GalleryInfoBuilder extends Builder {
 
   /// Replace web server in `<img>` tags with the [_staticImageServer].
   String _replaceImgTags(String content) => content.replaceAllMapped(
-      RegExp(r'<img alt="(.*)" src="(\S*g3doc\S+)" \/>'),
-      (Match m) => '<img alt="${m[1]}" src="$_staticImageServer${m[2]}" />');
+      RegExp(r'<img src="(\S*g3doc\S+)" alt="(.*)" \/>'),
+      (Match m) => '<img src="$_staticImageServer${m[1]}" alt="${m[2]}" />');
 
   /// Resolve all [demoClassNames] into [_DemoInfo]s.
   ///
