@@ -57,8 +57,8 @@
               [attr.aria-expanded]="item.hasSubMenu ? isSubMenuVisible(item) : null"
               [attr.aria-checked]="itemAriaChecked(item)"
 
-              closeOnActivate="false"
-              useCheckMarks="true"
+              [closeOnActivate]="false"
+              [useCheckMarks]="true"
               [itemActive]="isItemActive(item)"
               [disabled]="!item.enabled"
               [selection]="getSelectionModel(group)"
