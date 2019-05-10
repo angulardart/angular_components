@@ -16,7 +16,6 @@ import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/template_support.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 
 import 'material_select_base.dart';
 import 'material_select_item.dart';
@@ -59,7 +58,6 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
   /// DOM for the optionGroup.
   final Function trackByIndexFn = indexIdentityFn;
 
-  bool _disabled = false;
   bool _listAutoFocus = false;
   int _autoFocusIndex;
 
@@ -130,14 +128,10 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
   ///
   /// Defaults to false.
   @Input()
-  set disabled(value) {
-    _disabled = getBool(value);
-  }
-
-  bool get disabled => _disabled;
+  bool disabled = false;
 
   @HostBinding('attr.aria-disabled')
-  String get disabledStr => '$_disabled';
+  String get disabledStr => '$disabled';
 
   @override
   ItemRenderer<T> get itemRenderer => _itemRenderer;
