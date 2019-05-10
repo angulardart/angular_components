@@ -40,7 +40,7 @@ class MaterialListItemComponent extends ButtonDirective implements OnDestroy {
   dom.HtmlElement element;
 
   MaterialListItemComponent(this.element, @Optional() this._dropdown,
-      @Attribute('tabindex') tabIndex, @Attribute('role') String role)
+      @Attribute('tabindex') String tabIndex, @Attribute('role') String role)
       : hostTabIndex = tabIndex ?? '0',
         super(element, role ?? 'listitem') {
     if (_dropdown != null) {
