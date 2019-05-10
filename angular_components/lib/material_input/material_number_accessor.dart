@@ -291,6 +291,6 @@ NumberFormat decimalNumberFormat() => NumberFormat.decimalPattern();
 /// as the default.  It should only be used with material-input[type=int64].
 @Directive(
   selector: '[decimalNumberFormat]',
-  providers: [Provider(NumberFormat, useFactory: decimalNumberFormat)],
+  providers: [FactoryProvider(NumberFormat, decimalNumberFormat)],
 )
 class DecimalNumberFormatDirective {}
