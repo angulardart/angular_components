@@ -49,7 +49,7 @@
           <material-select-item *ngFor="let presetDate of presetDates"
                                 (trigger)="onPresetClicked(presetDate)"
                                 [selected]="isPresetDateSelected(presetDate)"
-                                closeOnActivate="false">
+                                [closeOnActivate]="false">
             {{presetDate.title}}
         </material-select-item>
       </div>

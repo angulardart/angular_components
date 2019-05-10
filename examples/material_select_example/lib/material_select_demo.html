@@ -56,7 +56,7 @@
     <material-select-item *ngFor="let language of languages"
                           focusItem
                           [value]="language"
-                          useCheckMarks="true"
+                          [useCheckMarks]="true"
                           displayNameRenderer></material-select-item>
   </material-select>
 </section>

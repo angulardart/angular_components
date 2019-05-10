@@ -13,7 +13,7 @@
 
 <div *ngIf="model.comparisonEnabled">
     <material-select-item *ngFor="let option of model.validComparisonOptions"
-                          closeOnActivate="false"
+                          [closeOnActivate]="false"
                           (trigger)="model.comparisonOption = option"
                           [selected]="model.comparisonOption == option">{{comparisonOptionMsg(option)}}</material-select-item>
 </div>
