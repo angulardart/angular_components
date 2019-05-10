@@ -42,10 +42,10 @@ class MenuPopupWrapper implements AcceptsWidth {
   /// visibility. Default state means no menu items are focused when the menu
   /// popup is opened.
   @Input()
-  set isExpanded(value) {
+  set isExpanded(bool value) {
     if (isExpanded == value) return;
 
-    if (getBool(value)) {
+    if (value) {
       expandAction ??= const ExpandAction.withNoFocus();
     } else {
       expandAction = null;

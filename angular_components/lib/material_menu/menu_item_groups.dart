@@ -32,7 +32,6 @@ import 'package:angular_components/model/menu/selectable_menu.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/ui/highlighted_text_model.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
 
@@ -104,8 +103,8 @@ class MenuItemGroupsComponent
   ///
   /// Defaults to `false`.
   @Input()
-  set preventCloseOnPressLeft(value) {
-    _closeOnPressLeft = !getBool(value);
+  set preventCloseOnPressLeft(bool value) {
+    _closeOnPressLeft = !value;
   }
 
   bool _closeOnPressLeft = true;
