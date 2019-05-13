@@ -14,7 +14,6 @@ import 'package:angular_components/material_stepper/common.dart';
 import 'package:angular_components/material_stepper/material_step.dart';
 import 'package:angular_components/material_yes_no_buttons/material_yes_no_buttons.dart';
 import 'package:angular_components/model/action/async_action.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/scroll_host/angular_2.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 
@@ -83,9 +82,6 @@ class MaterialStepperComponent {
     });
   }
 
-  bool _stickyHeader = false;
-  bool get stickyHeader => _stickyHeader;
-
   /// When true, assertively announces the current step via aria live region.
   @Input()
   bool announceCurrentStep = false;
@@ -95,9 +91,7 @@ class MaterialStepperComponent {
   ///
   /// Applicable only to steppers with horizontal header.
   @Input()
-  set stickyHeader(value) {
-    _stickyHeader = getBool(value);
-  }
+  bool stickyHeader = false;
 
   // Jump to step at index if possible
   Future<bool> jumpStep(int index) {

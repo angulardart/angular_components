@@ -7,7 +7,6 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_components/laminate/portal/portal.dart';
 import 'package:angular_components/model/action/async_action.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 
 /// A step within the stepper.
 ///
@@ -33,69 +32,37 @@ class StepDirective extends TemplatePortal {
   @Input()
   String name;
 
-  bool _optional = false;
-
-  bool get optional => _optional;
-
   /// Whether the step is optional. Optional steps have an extra label denoting
   /// that they're optional and should be skip-able. Default is false.
   @Input()
-  set optional(value) {
-    _optional = getBool(value);
-  }
+  bool optional = false;
 
   /// Summary text shown when the step is completed in a vertical default-sized
   /// stepper. For other steppers, this doesn't apply.
   @Input()
   String completeSummary;
 
-  bool _hideButtons = false;
-
-  bool get hideButtons => _hideButtons;
-
   /// Whether the buttons should be hidden on this step.
   @Input()
-  set hideButtons(value) {
-    _hideButtons = getBool(value);
-  }
-
-  bool _cancelHidden = false;
-
-  bool get cancelHidden => _cancelHidden;
+  bool hideButtons = false;
 
   /// Whether the cancel button should be hidden on this step.
   @Input()
-  set cancelHidden(value) {
-    _cancelHidden = getBool(value);
-  }
-
-  bool _complete = false;
-
-  bool get complete => _complete;
+  bool cancelHidden = false;
 
   /// Whether the step is completed.
   ///
   /// This is set when the stepper goes to the next step.
   @Input()
-  set complete(value) {
-    _complete = getBool(value);
-  }
-
-  bool _canContinue = true;
-
-  bool get canContinue => _canContinue;
+  bool complete = false;
 
   /// Whether the step can continue.
   ///
   /// This can be used to prevent continuing on from a step until all parts of
   /// the current step meet validation requirements.
   @Input()
-  set canContinue(value) {
-    _canContinue = getBool(value);
-  }
+  bool canContinue = true;
 
-  /// The selection state of the step.
-  bool _active = false;
   bool busy = false;
   bool isLast = false;
   bool isSelectable = false;
@@ -107,13 +74,10 @@ class StepDirective extends TemplatePortal {
   StepDirective(TemplateRef ref, ViewContainerRef viewContainerRef)
       : super(ref, viewContainerRef);
 
-  set active(bool value) {
-    _active = value;
-  }
+  /// The selection state of the step.
+  bool active = false;
 
   bool get isOptional => optional;
-
-  bool get active => _active;
 
   bool get isFirst => index == 0;
 
