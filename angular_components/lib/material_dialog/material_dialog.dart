@@ -47,6 +47,7 @@ class MaterialDialogComponent
   final HtmlElement _rootElement;
   final DomService _domService;
   final ChangeDetectorRef _changeDetector;
+  final NgZone _ngZone;
   final ModalComponent _modal;
   final _disposer = Disposer.oneShot();
   final _uid = SequentialIdGenerator.fromUUID().nextId();
@@ -61,8 +62,13 @@ class MaterialDialogComponent
   bool _isInFullscreenMode;
   bool _shouldListenForFullscreenChanges = false;
 
-  MaterialDialogComponent(this._rootElement, this._domService,
-      this._changeDetector, @Optional() this._modal) {
+  MaterialDialogComponent(
+    this._rootElement,
+    this._domService,
+    this._changeDetector,
+    this._ngZone,
+    @Optional() this._modal,
+  ) {
     escapeHandler = _defaultEscapeHandler;
   }
 
@@ -120,11 +126,10 @@ class MaterialDialogComponent
           shouldShowBottomScrollStroke != this.shouldShowBottomScrollStroke) {
         this.shouldShowTopScrollStroke = shouldShowTopScrollStroke;
         this.shouldShowBottomScrollStroke = shouldShowBottomScrollStroke;
-        _changeDetector
-          ..markForCheck()
-          // This detectChanges() here is for updating the classes when the page
-          // initially loads (b/31916790).
-          ..detectChanges();
+        // Update the DOM based on the newly modified state.
+        _ngZone.runAfterChangesObserved(() {
+          _changeDetector.markForCheck();
+        });
       }
     }));
   }
