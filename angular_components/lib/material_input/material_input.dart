@@ -127,7 +127,7 @@ class MaterialInputComponent extends BaseMaterialInput
 
   /// The role to assign to the inner input element.
   final String inputRole;
-  final _labelId = new SequentialIdGenerator.fromUUID().nextId();
+  final _labelId = SequentialIdGenerator.fromUUID().nextId();
 
   String get labelId => inputAriaLabel != null ? null : _labelId;
 
