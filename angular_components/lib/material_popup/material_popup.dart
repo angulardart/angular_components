@@ -595,7 +595,7 @@ class MaterialPopupComponent extends Object
 
     // Set the overlay .pane to display: none.
     _overlayRef.state.visibility = visibility.Visibility.None;
-    _overlayRef.overlayElement.style..display = 'none';
+    _overlayRef.overlayElement.style.display = 'none';
 
     // Notify listeners that the popup is not visible.
     _isVisible = false;
