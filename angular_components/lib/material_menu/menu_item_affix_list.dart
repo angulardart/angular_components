@@ -118,7 +118,7 @@ class MenuItemAffixListComponent implements HasDisabled, OnDestroy {
   void _initializeItems(Iterable<BaseMenuItemAffixModel> items) {
     _clearChildren();
     _affixComponentRefs
-      ..addAll(items.map((affix) => _createComponentRef(affix)));
+        .addAll(items.map((affix) => _createComponentRef(affix)));
   }
 
   void _updateItemProperties() {
