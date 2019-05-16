@@ -68,10 +68,12 @@ class AcxImperativeViewUtils {
 
   /// Returns a future that completes with a new instance created by
   /// [componentFactory], once it is inserted [intoDomElement].
-  Future<ComponentRef> insertComponent(ComponentFactory componentFactory,
-      ViewContainerRef viewContainer, HtmlElement intoDomElement,
+  Future<ComponentRef<T>> insertComponent<T>(
+      ComponentFactory<T> componentFactory,
+      ViewContainerRef viewContainer,
+      HtmlElement intoDomElement,
       {Injector injector}) async {
-    ComponentRef ref = _componentLoader.loadNextToLocation(
+    final ref = _componentLoader.loadNextToLocation<T>(
         componentFactory, viewContainer,
         injector: injector ?? viewContainer.parentInjector);
     await _domService.onWrite();
