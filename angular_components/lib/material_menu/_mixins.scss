@@ -41,6 +41,15 @@
   }
 }
 
+// Sets the background color of the selected menu item.
+@mixin material-menu-selected-item-background-color($color) {
+  ::ng-deep {
+    material-select-item:not(.multiselect).selected.menu-item {
+      background-color: $color;
+    }
+  }
+}
+
 // Makes sure that content will wrap if the label is too wide.
 @mixin menu-item-text-wrap {
   ::ng-deep .menu-item-label {
