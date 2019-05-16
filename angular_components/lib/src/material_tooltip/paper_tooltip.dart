@@ -10,8 +10,7 @@ import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
-import 'package:angular_components/laminate/popup/popup.dart'
-    show PopupSource, ElementPopupSource;
+import 'package:angular_components/laminate/popup/popup.dart' show PopupSource;
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_tooltip/module.dart';
 import 'package:angular_components/utils/angular/css/css.dart';
@@ -70,11 +69,8 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
                 [autoDismiss]="focusContents"
                 [class]="popupClassName"
                 [source]="popupSource"
-                (autoDismissed)="onClose()"
                 [attr.role]="focusContents ? 'dialog' : 'tooltip'">
   <div class="paper-container"
-       tabindex="-1"
-       [attr.aria-label]="title"
        [autoFocus]="focusContents"
        (mouseover)="onMouseOver()"
        (mouseleave)="onMouseLeave()">
@@ -115,13 +111,6 @@ class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
   /// The y-offset to where the tooltip will be ultimately positioned.
   @Input('offsetY')
   int offsetY = 0;
-
-  /// The aria label given to the tooltip container.
-  ///
-  /// Should be used with [focusContents] so the label will be read out to
-  /// screen reader when the popup opens.
-  @Input()
-  String title;
 
   bool get showPopup => _showPopup;
 
@@ -164,14 +153,6 @@ class MaterialPaperTooltipComponent implements DeferredContentAware, Tooltip {
 
   void onMouseLeave() {
     _tooltipController.deactivate(this);
-  }
-
-  /// Set focus back to the popupSource if focus was moved to the tooltip with
-  /// [focusContents].
-  void onClose() {
-    if (focusContents && popupSource is ElementPopupSource) {
-      Future(() => (popupSource as ElementPopupSource)?.sourceElement?.focus());
-    }
   }
 
   // Proxy control of this tooltip via the tooltip controller.
