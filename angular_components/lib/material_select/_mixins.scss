@@ -104,6 +104,20 @@
   }
 }
 
+/// Sets the color of the items.
+@mixin material-select-item-color($color) {
+  ::ng-deep material-select-item {
+    color: $color;
+  }
+}
+
+/// Sets the color of the dropdown items.
+@mixin material-select-dropdown-item-color($color) {
+  ::ng-deep material-select-dropdown-item {
+    color: $color;
+  }
+}
+
 /// Sets the color of the "disabled" item.
 @mixin material-select-disabled-color($color) {
   ::ng-deep material-select-dropdown-item.item.disabled {
