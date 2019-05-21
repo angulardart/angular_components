@@ -39,6 +39,7 @@ class FixedMaterialTabStripComponent {
   final ChangeDetectorRef _changeDetector;
   int _activeTabIndex = 0;
   String _tabIndicatorTransform;
+  String _tabIndicatorTransformOrigin;
   List<String> _tabLabels;
 
   /// Stream of [TabChangeEvent] instances, published before the tab has
@@ -93,6 +94,7 @@ class FixedMaterialTabStripComponent {
       this._changeDetector, @Optional() @Inject(rtlToken) bool isRtl)
       : _transitionAmount = _calculateTransitionAmount(isRtl ?? false) {
     _updateTabIndicatorTransform();
+    _updateTabIndicatorTransformOrigin(isRtl ?? false);
   }
 
   static int _calculateTransitionAmount(bool isRtl) {
@@ -100,6 +102,7 @@ class FixedMaterialTabStripComponent {
   }
 
   String get tabIndicatorTransform => _tabIndicatorTransform;
+  String get tabIndicatorTransformOrigin => _tabIndicatorTransformOrigin;
 
   void switchTo(int index) {
     if (index == activeTabIndex) return;
@@ -121,5 +124,10 @@ class FixedMaterialTabStripComponent {
     var width = _tabLabels != null ? 1 / _tabLabels.length : 0;
     var location = _activeTabIndex * width * _transitionAmount;
     _tabIndicatorTransform = 'translateX($location%) scaleX($width)';
+  }
+
+  void _updateTabIndicatorTransformOrigin(bool isRtl) {
+    String direction = (isRtl)? "right":"left";
+    _tabIndicatorTransformOrigin = direction + ' center';
   }
 }

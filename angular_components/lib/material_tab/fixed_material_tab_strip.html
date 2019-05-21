@@ -4,7 +4,10 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <div class="navi-bar" focusList role="tablist">
-  <div class="tab-indicator" [style.transform]="tabIndicatorTransform"></div>
+  <div class="tab-indicator"
+       [style.transform]="tabIndicatorTransform"
+       [style.transform-origin]="tabIndicatorTransformOrigin"
+  ></div>
   <tab-button *ngFor="let tabLabel of tabLabels; let idx = index"
               (trigger)="switchTo(idx)"
               [id]="tabId(idx)"
