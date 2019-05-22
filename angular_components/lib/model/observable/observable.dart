@@ -89,6 +89,9 @@ class ChangeNotificationProvider<T> implements ChangeAware<T>, Disposable {
     return _changeController.stream;
   }
 
+  /// Whether there is a subscriber to [stream] or [changes].
+  bool get hasListener => _hasStreamListener || _hasChangeListener;
+
   /// Notifies the streams about a new value (or forces the notification without
   /// equality check).
   void notifyChange([T previous, T next]) {
