@@ -88,6 +88,9 @@ class FocusMoveEvent {
   /// End key was pressed.
   final bool end;
 
+  /// Up or down arrow key was pressed.
+  final bool upDown;
+
   /// Prevent Default action for occuring. When the `FocusMoveEvent` is created
   /// from a KeyboardEvent, this method delegates to the `preventDefault` method
   /// of the `KeyboardEvent`, allowing consumers of this event to control the
@@ -101,19 +104,29 @@ class FocusMoveEvent {
   @visibleForTesting
   FocusMoveEvent(this.focusItem, this.offset, [this._preventDefaultDelegate])
       : home = false,
-        end = false;
+        end = false,
+        upDown = false;
 
   @visibleForTesting
   FocusMoveEvent.homeKey(this.focusItem, [this._preventDefaultDelegate])
       : offset = 0,
         home = true,
-        end = false;
+        end = false,
+        upDown = false;
 
   @visibleForTesting
   FocusMoveEvent.endKey(this.focusItem, [this._preventDefaultDelegate])
       : offset = 0,
         home = false,
-        end = true;
+        end = true,
+        upDown = false;
+
+  @visibleForTesting
+  FocusMoveEvent.upDownKey(this.focusItem, this.offset,
+      [this._preventDefaultDelegate])
+      : home = false,
+        end = false,
+        upDown = true;
 
   /// Builds a `FocusMoveEvent` instance from a keyboard event, iff the keycode
   /// is a next, previous, home or end key (i.e. up/down/left/right/home/end).
@@ -130,7 +143,12 @@ class FocusMoveEvent {
       return FocusMoveEvent.endKey(item, preventDefaultFn);
     }
     if (!_isNextKey(keyCode) && !_isPrevKey(keyCode)) return null;
+
     int offset = _isNextKey(keyCode) ? 1 : -1;
+    if (keyCode == KeyCode.UP || keyCode == KeyCode.DOWN) {
+      return FocusMoveEvent.upDownKey(item, offset, preventDefaultFn);
+    }
+
     return FocusMoveEvent(item, offset, preventDefaultFn);
   }
 
