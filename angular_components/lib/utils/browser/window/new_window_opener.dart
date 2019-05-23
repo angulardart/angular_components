@@ -18,7 +18,7 @@ class NewWindowOpener {
 /// process.
 void openInNewWindow(String url) {
   var anchorElement = AnchorElement(href: url)
-    ..rel = 'noreferrer'
+    ..rel = 'noopener noreferrer'
     ..target = '_blank';
   document.body.append(anchorElement);
   anchorElement.click();
