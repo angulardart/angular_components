@@ -130,6 +130,20 @@
   }
 }
 
+/// Changes the background color of the trailing text.
+@mixin material-input-trailing-background-color($color) {
+  ::ng-deep .trailing-text {
+    background-color: $color;
+  }
+}
+
+/// Changes the background color of the trailing text.
+@mixin material-input-trailing-background-radius($radius) {
+  ::ng-deep .trailing-text {
+    border-radius: $radius;
+  }
+}
+
 /// Hides leading text in cases where it is managed by a separate element.
 @mixin material-input-hide-leading-text() {
   ::ng-deep .leading-text {
