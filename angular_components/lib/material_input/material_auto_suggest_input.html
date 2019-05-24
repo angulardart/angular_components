@@ -25,6 +25,7 @@
     role="combobox"
     [inputAriaLabel]="ariaLabel"
     [inputAriaOwns]="showPopup ? popupId : null"
+    [inputAriaControls]="showPopup ? popupId : null"
     inputAriaHasPopup="listbox"
     [inputAriaExpanded]="showPopup"
     [inputAriaActivedescendent]="showPopup ? activeModel.activeId : null"
