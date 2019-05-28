@@ -489,6 +489,12 @@ class BaseMaterialInput extends FocusableMixin
     inputRef.nativeElement.select();
   }
 
+  @ViewChild(FocusableDirective)
+  @override
+  set focusable(Focusable value) {
+    super.focusable = value;
+  }
+
   /// The message to display when character counter is shown.
   ///
   /// The character count in the form "[currentCount] / [maxCount]", such as

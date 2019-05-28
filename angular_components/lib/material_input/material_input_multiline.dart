@@ -89,15 +89,6 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
       : _changeDetector = changeDetector,
         super(cd, changeDetector, validator);
 
-  /// TODO(google): The following values could be set in the base class, but
-  /// there is currently no working way to set ViewChild values on the base
-  /// class.
-  @ViewChild(FocusableDirective)
-  @override
-  set focusable(Focusable value) {
-    super.focusable = value;
-  }
-
   // Overriden to add a HostListener event.
   @HostListener('focus')
   @override

@@ -86,15 +86,6 @@ class MaterialInputComponent extends BaseMaterialInput
 
   ChangeDetectorRef _changeDetector;
 
-  /// TODO(google): The following value could be set in the base class, but
-  /// there is currently no working way to set ViewChild values on the base
-  /// class.
-  @ViewChild(FocusableDirective)
-  @override
-  set focusable(Focusable value) {
-    super.focusable = value;
-  }
-
   @ViewChild('inputEl')
   ElementRef inputEl;
 
