@@ -61,8 +61,8 @@ class MaterialRadioGroupComponent
       // by focus calls.
       _resetTabIndex();
       _selected = _selectedRadioComponent?.value;
-      if (valueSelection != null && _selected != null) {
-        valueSelection.select(_selected);
+      if (_valueSelection != null && _selected != null) {
+        _valueSelection.select(_selected);
       }
       _onChange.add(_selected);
     }));
@@ -141,7 +141,19 @@ class MaterialRadioGroupComponent
 
   /// Selection model containing value object.
   @Input('selectionModel')
-  SelectionModel valueSelection;
+  set valueSelection(SelectionModel value) {
+    if (_valueSelection == value) return;
+    _selectionSubscription?.cancel();
+    _valueSelection = value;
+    _selectionSubscription = _valueSelection?.selectionChanges?.listen((_) {
+      selected = _valueSelection.selectedValues
+          .firstWhere((_) => true, orElse: () => null);
+    });
+  }
+
+  SelectionModel _valueSelection;
+  StreamSubscription<List<SelectionChangeRecord<dynamic>>>
+      _selectionSubscription;
 
   /// Internal selection model containing the radio component.
   final componentSelection = SelectionModel<MaterialRadioComponent>.single();
@@ -225,5 +237,6 @@ class MaterialRadioGroupComponent
   @override
   void ngOnDestroy() {
     _disposer.dispose();
+    _selectionSubscription?.cancel();
   }
 }
