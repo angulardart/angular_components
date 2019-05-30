@@ -7,7 +7,7 @@ import 'package:angular/security.dart';
 import 'package:angular_gallery_section/components/gallery_component/gallery_info.dart';
 
 /// A list of all documentation directives.
-const documentationComponentDirectives = const [
+const documentationComponentDirectives = [
   DartDocComponent,
   MarkdownDocComponent,
   SassDocComponent,
