@@ -10,7 +10,7 @@ dependencies:
     path: ../../angular_gallery
   app_layout_example:
     path: ../app_layout_example
-  build_config: '>=0.2.6 <0.4.0'
+  build_config: '>=0.2.6 <2.0.0'
   material_button_example:
     path: ../material_button_example
   material_card_example:
