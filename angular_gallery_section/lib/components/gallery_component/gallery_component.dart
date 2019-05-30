@@ -29,7 +29,7 @@ import 'package:angular_gallery_section/components/gallery_component/gallery_inf
   providers: [popupBindings],
   templateUrl: 'gallery_component.html',
   styleUrls: ['gallery_component.scss.css'],
-  exports: const [DocType],
+  exports: [DocType],
 )
 class GalleryComponent {
   /// The base model for the gallery that gathers all of the details needed by
