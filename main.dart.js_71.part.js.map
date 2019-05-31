@@ -5,12 +5,12 @@
   "sourceRoot": "",
   "sources": ["../packages/angular_components/utils/color/material.template.dart","../packages/angular_components/material_ripple/material_ripple.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular/src/core/linker/component_factory.dart"],
   "names": ["initReflector","viewFactory_MaterialRippleComponentHost0","_ViewMaterialRippleComponentHost0","_ViewMaterialRippleComponentHost0.build","_ViewMaterialRippleComponentHost0.detectChangesInternal","_ViewMaterialRippleComponentHost0.destroyInternal","","registerComponent","MaterialRippleComponentNgFactory","projectedNodes"],
-  "mappings": "A;;GASKA,eACCA,KACFA,MAKJA;AC4CEC,QD5CFD,C;ICuEyCC,cACvCA,kBCmFeC,OD/G0FD,MA6B3GA,C;GAGKD,eACCA,KACFA,MASJA;;AE5EEA,SFuEyBA,KA9ClBA;AA+CPA;AACAA;AAEAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAzCgDG,WAC9BA;CAAdA;GACqBA;CAArBA;AACuCA;CAAvCA;AACAA,WCqIiCA,EAASA;ADpI1CA,KAAMA;AACNA,OGjDFA,aHiD+BA,IAAQA,UACvCA,C;EAGKC,WAKHA,UACFA,C;EAGKC,WACHA;AACAA,UACFA,C",
+  "mappings": "A;;GASKA,eACCA,KACFA,MAKJA;AC8CEC,QD9CFD,C;IC+EyCC,WACvCA,qBCuEeC,ODzG4FD,SAmC7GA,C;GAGKD,eACCA,KACFA,MASJA;;AEpFEA,SF+EyBA,KArDlBA;AAsDPA;AACAA;AAEAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EA1CgDG,WAE9BA;CAAdA;GAC0BA;AACaA;CAAvCA;AACAA,WCsIiCA,EAASA;ADrI1CA;AACAA,OGnBFA,aHmBmCA,UACnCA,C;EAGKC,WAKHA,UACFA,C;EAGKC,WACHA;AACAA,UACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "iNCwFSMQ;uDAAAAAA5B2EAO,M;0CAsClFCS;KAAkDCK;qdAhCCCM;gBAE1CHa;"
+    "frames": "iNCgGSMQ;qDAAAAAAlC6EAO,S;0CA4CpFCS;KAAkDCK;mdAhCCCM;cAE1CHa;"
   }
 }

@@ -5,7 +5,7 @@
   "sourceRoot": "",
   "sources": ["../packages/angular_components/model/selection/string_selection_options.template.dart","../packages/angular_components/model/selection/selection_container.dart"],
   "names": ["initReflector","SelectionContainer.selection","SelectionContainer.options","SelectionContainer.itemRenderer","SelectionContainer.componentRenderer","SelectionContainer.factoryRenderer"],
-  "mappings": "A;;GAYKA,eACCA,KACFA,MAQJA;;AAJEA;AACAA;AAEAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;ICLwBC,WAAaA,eAAUA,C;IACzCA,gBACFA,MACFA,C;IAIwBC,YAAWA,eAAQA,C;IACvCA,kBACFA,MACFA,C;IAMoBC,WAAgBA,eAAaA,C;IAE7CA,gBACFA,MACFA,C;IAMsBC,WAAqBA,eAAkBA,C;IAYxBC,WAAmBA,eAAgBA,C;IAEpEA,gBACFA,MACFA,C",
+  "mappings": "A;;GAYKA,eACCA,KACFA,MAQJA;;AAJEA;AACAA;AAEAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;ICLwBC,WAAaA,cAAUA,C;IACzCA,gBACFA,KACFA,C;IAIwBC,YAAWA,cAAQA,C;IACvCA,kBACFA,KACFA,C;IAMoBC,WAAgBA,cAAaA,C;IAE7CA,gBACFA,KACFA,C;IAMsBC,WAAqBA,cAAkBA,C;IAYxBC,WAAmBA,eAAgBA,C;IAEpEA,gBACFA,MACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",

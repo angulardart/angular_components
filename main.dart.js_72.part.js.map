@@ -5,12 +5,12 @@
   "sourceRoot": "",
   "sources": ["../packages/angular_components/material_icon/material_icon.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_icon/material_icon.dart","../packages/angular/src/core/linker/component_factory.dart"],
   "names": ["viewFactory_MaterialIconComponentHost0","_ViewMaterialIconComponentHost0","initReflector","_ViewMaterialIconComponentHost0.build","_ViewMaterialIconComponentHost0.detectChangesInternal","_ViewMaterialIconComponentHost0.destroyInternal","","registerComponent","MaterialIconComponentNgFactory","projectedNodes"],
-  "mappings": "A;0DA2EEA;IA0BqCA,cACrCA,kBCqEeC,ODhGwFD,MA4BzGA,C;GAGKE,eACCA,KACFA,MAOJA;;AExFEA,SFqFyBA,KA7ClBA;AA8CPA,KAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAtC8CC,WAC5BA,cAAdA,eACqBA;CAArBA;AGCFA;CHAEA;AACAA,SCsHiCA,EAASA;ADrH1CA,KAAMA;AACNA,OIhEFA,aJgE+BA,IAAQA,SACvCA,C;EAGKC,WAKHA,UACFA,C;EAGKC,WACHA,UACFA,C",
+  "mappings": "A;0DA6EEA;IAgCqCA,WACrCA,qBCyDeC,OD1F0FD,SAkC3GA,C;GAGKE,eACCA,KACFA,MAOJA;;AEhGEA,SF6FyBA,KApDlBA;AAqDPA,KAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAvC8CC,WAE5BA,cAAdA,eAC0BA,KGP5BA;CHQEA;AACAA,SCuHiCA,EAASA;ADtH1CA;AACAA,OIlCFA,aJkCmCA,SACnCA,C;EAGKC,WAKHA,UACFA,C;EAGKC,WACHA,UACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "yJAsGSMsC;gCAAAAAA3ByEAO,M;0CAqChFCS;KAAgDCK;2ZAhCTFc;cACUGM;gBAExCHa;"
+    "frames": "yJA8GSMoC;gCAAAAAAjC2EAO,S;0CA2ClFCS;KAAgDCK;yZAhCTFY;cACUGM;cAExCHa;"
   }
 }

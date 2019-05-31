@@ -3,14 +3,14 @@
   "engine": "v2",
   "file": "main.dart.js_87.part.js",
   "sourceRoot": "",
-  "sources": ["../packages/intl/intl.dart","org-dartlang-sdk:///sdk/lib/async/zone.dart"],
-  "names": ["Intl.defaultLocale","current"],
-  "mappings": "A;;GA+FoBA,WACMA,OCmMGA;ADlMzBA,gBAA4BA,MAC9BA,C",
+  "sources": ["org-dartlang-sdk:///sdk/lib/async/future.dart","org-dartlang-sdk:///sdk/lib/async/future_impl.dart","org-dartlang-sdk:///sdk/lib/async/zone.dart"],
+  "names": ["Future.delayed","_Future","Future.delayed.<anonymous function>","","current"],
+  "mappings": "A;;GAoTUA,gBCvGRA,gBCsF2BC;AFmBrBD,OAAgBA;AAWpBA,QACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAZsBE,WAClBA;IAIIA,UAAiBA,sBAJrBA;AAKIA;AACAA,SAA2BA,QAGhCA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "gOAgG0BCa;"
+    "frames": "0LAqT4BGgBCxGDCQ,A;"
   }
 }

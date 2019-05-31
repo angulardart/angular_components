@@ -5,12 +5,12 @@
   "sourceRoot": "",
   "sources": ["../packages/angular_components/material_spinner/material_spinner.template.dart","../packages/angular/src/core/linker/app_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_spinner/material_spinner.dart","../packages/angular/src/core/linker/component_factory.dart"],
   "names": ["ViewMaterialSpinnerComponent0","viewFactory_MaterialSpinnerComponentHost0","_ViewMaterialSpinnerComponentHost0","initReflector","ViewMaterialSpinnerComponent0.build","_ViewMaterialSpinnerComponentHost0.build","_ViewMaterialSpinnerComponentHost0.detectChangesInternal","_ViewMaterialSpinnerComponentHost0.destroyInternal","","initComponentStyles","registerComponent","MaterialSpinnerComponentNgFactory","projectedNodes"],
-  "mappings": "A;;GAuBEA,iCCoJeA,ODpJsFA,UA8BtFA;AACbA,WAC4EA,aAAOA;CAEnFA;;AAcFC,CA9CED;AAFFA,QAGAA,C;IAmEwCC,cACxCA,kBC6EeC,ODpG2FD,MAwB5GA,C;IAGKE,eACCA,KACFA,MAMJA;;AE/EEA,SF6EyBA,KAzClBA;AA0CPA,KACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EA1EiDC,WAEAA,yBAD7BA,iBAGFA;AACTA;AACLA;AACcA;AACTA;AACLA;AACcA;AACTA;AACLA;AACcA;AACTA;AACLA;AACAA,MACFA,C;;;EAwB+CC,WAC/BA,gBAAdA;CACAA,IAAqBA;AGrDnBA;CHsDFA;AACAA,SC0HiCA,EAASA;ADzH1CA,KAAMA;AACNA,OI5DFA,aJ4D+BA,IAAQA,UACvCA,C;EAGKC,WACHA,UACFA,C;EAGKC,WACHA,UACFA,C",
+  "mappings": "A;;GAyBEA,iCC8IeA,OD9IwFA,UA6BxFA;AACbA,WAC4EA,aAAOA;CAEnFA;;AAeFC,CA9CED;AAFFA,QAGAA,C;IAyEwCC,WACxCA,qBCiEeC,OD9F6FD,SA8B9GA,C;IAGKE,eACCA,KACFA,MAMJA;;AEvFEA,SFqFyBA,KAhDlBA;AAiDPA,KACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAhFiDC,WACAA,uCAE/BA;AACTA;AACLA;AACcA;AACTA;AACLA;AACcA;AACTA;AACLA;AACcA;AACTA;AACLA;AACAA,MACFA,C;;EA8B+CC,WAE/BA,cAAdA,gBAC0BA,KG7DxBA;CH8DFA;AACAA,SC2HiCA,EAASA;AD1H1CA;AACAA,OI9BFA,aJ8BmCA,UACnCA,C;EAGKC,WACHA,UACFA,C;EAGKC,WACHA,UACFA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "sQAuBgFQO;UAA9EAAAAAAAACEC2F,A,A;AAsEKDC;AAvEPAAAAAAK,A;+CAuEOAAAvB4EAO,M;2CAiCnFES;KAAmDCK;ivBA5BTHc;cACUIM;gBAE3CJa;"
+    "frames": "wQAyBkFQO;UAAhFAAAAAAAACEC2F,A,A;AA4EKDC;AA7EPAAAAAAK,A;+CA6EOAAA7B8EAO,S;2CAuCrFES;KAAmDCK;4sBA5BTHY;cACUIM;cAE3CJa;"
   }
 }
