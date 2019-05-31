@@ -1,3 +1,111 @@
+## 0.14.0-alpha
+### Component Updates
+
+#### Material Auto Suggest Input
+* Adding generic type to `factoryRenderers` in items.
+* Update blur event logic.
+* Add `inputAutocomplete` input.
+* Improve a11y with added aria controls.
+
+#### Material Checkbox
+* Add Sass mixin to remove all margins.
+
+#### Material Date Picker
+* Fix issue where given `dateFormat` was not used to decode the input value.
+* Apply `FocusableMixin`.
+* Modularize and deprecate `timeZoneAwareDatepickerProviders`.
+* Prevent wordwrap for the range title.
+
+#### Material Dialog
+* Add Sass mixin to justify footer content.
+
+#### Material Dropdown Select
+* Pass `aria-describedby` through to the dropdown button.
+
+#### Material Expansion Panel
+* Only auto focus a child, when the panel is expanded.
+* Only fire events and DOM changes on on-target TransitionEnd events.
+* Improve a11y by toggling content visibility when the panel expands or
+  collapses.
+* Add `focusOnOpen` input.
+
+#### Material Input
+* Add Sass mixin to change bottom section width and trailing text.
+* Add `inputAriaControls` input.
+
+#### Material Menu
+* Add `popupClass` and `buttonAriaLabelledBy` inputs.
+* Add Sass mixin to configure the background color of a selected menu item.
+
+#### Material Popup
+* Fix memory leak.
+
+#### Material Radio
+* Ensure changes are picked up by Angular's change detection.
+* Add Sass mixin to configure the content margin.
+* Fix issue where programmatic changes to the value model were not shown.
+
+#### Material Select
+* Adding generic type to `factoryRenderers` in items.
+* Add Sass mixins to configure item colors.
+
+#### Material Stepper
+* Fix an issue where when `activeStepIndex` is set to a value but the step state
+  is not updated accordingly.
+
+#### Material Tab
+* Loop items and ignore up and down arrow key presses when focusing.
+
+#### Material Tooltip
+* Add Sass mixin to configure the max width of a tooltip.
+* Improve a11y with focus control.
+
+#### Material Tree
+* Properly apply `nested-material-tree-item-style` Sass mixin to nested items.
+* Introduce a `allowDeselectInHierarchy` configuration that allows clients to
+  specify if a user should be allowed to deselect an option that they have
+  already selected (by clicking on it again).
+
+#### Material Yes/No Buttons
+* Make `EnterAcceptsDirective` use key press instead of key up to align with
+  button decorator.
+* Added `aria-describedby`.
+
+#### Scorecard
+* Only apply tabindex 0 to scorecards that are selectable.
+
+### Other Updates
+
+#### Selection Model
+* Change `SelectionModel.isSingleSelect` from a field to an abstract getter.
+* Add a missing `super.dispose()` call to `_StreamSelectionOptions`
+
+#### Miscellaneous
+* Improve `OverlayService` singleton error message.
+* Modularize ruler bindings.
+* Fix a bug where scroll host would try to add events to a closed
+  `StreamController`.
+* Update `FocusItemDirective` and `FocusListDirective` to work consistently
+  under `OnPush` components.
+* Use GPU accelerated CSS translate rather than 2D translate in sticky
+  controller.
+* Make the new trigger logic the default for popups. This ignores drag mouse up
+  calls to that users can more easily select text in popups.
+* Mark `DeferredContentDirective` for change detection, after handling event
+  from deferred content aware parent.
+* Fix a scroll host issue where scroll events were not ignored when the `Meta`
+  key was pressed.
+* Cleanup uses of deprecated `getBool()`.
+* Replace uses of `detectChanges()` with `runAfterChanges...`.
+* Add generic type argument to `AcxImperativeViewUtils.insertComponent<T>()`.
+* Add the ability to ignore up and down keys (for moving focus around within
+  children) when using the focus list.
+* Update all components to use `ref="noopener noreferrer"` for `target="_blank"`
+  links.
+
+### Documentation
+* Minor documentation fixes.
+
 ## 0.13.0
 ### Component Updates
 
