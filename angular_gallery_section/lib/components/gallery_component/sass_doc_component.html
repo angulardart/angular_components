@@ -7,9 +7,7 @@
   <strong>Variables:</strong>
   <ul class="property-list">
     <li *ngFor="let variable of doc.variables">
-      <code class="property-name">
-        ${{variable.name}}: {{variable.expression}};
-      </code>
+      <code class="property-name">${{variable.name}}</code>
       <div *ngIf="variable.comment.isNotEmpty" [safeInnerHtml]="getSafeHtml(variable.comment)">
       </div>
     </li>
