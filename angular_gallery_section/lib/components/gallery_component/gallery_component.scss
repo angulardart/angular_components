@@ -107,6 +107,9 @@ h2 {
   // Makes it so the docs for inputs and outputs could be closer to the
   // input/output declaration.
   margin: $mat-grid-type 0 $mat-grid * 2;
+  // Restricted line-length for improved readability
+  // (https://en.wikipedia.org/wiki/Line_length).
+  max-width: 66ch;
 }
 
 ::ng-deep code,
