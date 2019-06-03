@@ -11,6 +11,9 @@ class GallerySectionConfig {
   /// gallery's navigation menu.
   final String displayName;
 
+  /// The name of the navigation group this component belongs to.
+  final String group;
+
   /// A list of resources to pull documentation from this can be dart documents
   /// from classes or functions, or an asset id of markdown files.
   ///
@@ -49,6 +52,7 @@ class GallerySectionConfig {
 
   const GallerySectionConfig(
       {this.displayName,
+      this.group,
       this.docs,
       this.demos,
       this.mainDemo,

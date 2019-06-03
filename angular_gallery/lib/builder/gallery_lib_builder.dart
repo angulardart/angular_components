@@ -97,6 +97,7 @@ class GalleryLibBuilder extends Builder {
           .map((m) => (m as Map).cast<String, dynamic>());
       examples.addAll(summaries.map((summary) => Example(
           summary['displayName'],
+          summary['group'],
           summary['dartImport'],
           summary['componentClass'],
           summary['docs']?.cast<String>())));
@@ -110,11 +111,12 @@ class GalleryLibBuilder extends Builder {
 
 class Example {
   final String displayName;
+  final String group;
   final String dartImport;
   final String component;
   final List<String> relatedComponents;
 
-  Example(this.displayName, this.dartImport, this.component,
+  Example(this.displayName, this.group, this.dartImport, this.component,
       this.relatedComponents);
 
   String get name => strings

@@ -62,6 +62,7 @@ class GalleryInfoBuilder extends Builder {
       Future.wait(configs.map((config) async {
         final resolved = ResolvedConfig()
           ..displayName = config.displayName
+          ..group = config.group
           ..benchmarks = config.benchmarks
           ..owners = config.owners
           ..uxOwners = config.uxOwners

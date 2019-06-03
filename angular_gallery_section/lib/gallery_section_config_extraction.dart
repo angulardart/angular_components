@@ -60,6 +60,8 @@ class _GallerySectionConfigVisitor extends SimpleAstVisitor<ConfigInfo> {
     final expression = node.expression;
     if (name == 'displayName') {
       config.displayName = expression.accept(StringExtractor());
+    } else if (name == 'group') {
+      config.group = expression.accept(StringExtractor());
     } else if (name == 'docs') {
       config.docs = expression.accept(ListStringExtractor());
     } else if (name == 'demos') {
@@ -85,6 +87,7 @@ class _GallerySectionConfigVisitor extends SimpleAstVisitor<ConfigInfo> {
 /// extracted as Strings.
 class ConfigInfo {
   String displayName;
+  String group;
   Iterable<String> docs;
   Iterable<String> demoClassNames;
   String mainDemoName;
