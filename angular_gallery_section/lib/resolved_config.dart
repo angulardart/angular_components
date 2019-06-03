@@ -12,6 +12,7 @@ final _invalidCharacters = RegExp(r'[^a-zA-Z0-9 ]');
 /// resolved from raw Strings to the values used by the gallery generators.
 class ResolvedConfig {
   String displayName;
+  String group;
   Iterable<DocInfo> docs;
   Iterable<DemoInfo> demos;
   DemoInfo mainDemo;
@@ -47,6 +48,7 @@ class ResolvedConfig {
   /// Constructs a new [ResolvedConfig] from a decoded json map.
   ResolvedConfig.fromJson(Map<String, dynamic> jsonMap) {
     displayName = jsonMap['displayName'] as String;
+    group = jsonMap['group'] as String;
     docs = (jsonMap['docs'] as Iterable)
         ?.map((element) => DocInfo.fromJson(element));
     demos = (jsonMap['demos'] as Iterable)
@@ -64,6 +66,7 @@ class ResolvedConfig {
   /// Returns a json encodeable representation of this [ResolvedConfig].
   Map<String, dynamic> toJson() => {
         'displayName': displayName,
+        'group': group,
         'docs': docs?.toList(),
         'demos': demos?.toList(),
         'mainDemo': mainDemo,
