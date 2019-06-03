@@ -174,19 +174,21 @@ class MarkdownDocInfo implements DocInfo {
 class SassDocInfo implements DocInfo {
   final String name;
   final String path;
+  final String libraryDoc;
   final Iterable<SassVariableInfo> variables;
   final Iterable<SassCallableInfo> functions;
   final Iterable<SassCallableInfo> mixins;
 
   DocType get docType => DocType.sassDocInfo;
 
-  SassDocInfo(
-      this.name, this.path, this.variables, this.functions, this.mixins);
+  SassDocInfo(this.name, this.path, this.libraryDoc, this.variables,
+      this.functions, this.mixins);
 
   /// Constructs a new [SassDocInfo] from a decoded json map.
   SassDocInfo.fromJson(Map<String, dynamic> jsonMap)
       : name = jsonMap['name'] as String,
         path = jsonMap['path'] as String,
+        libraryDoc = jsonMap['libraryDoc'] as String,
         variables = (jsonMap['variables'] as Iterable)
             ?.map((element) => SassVariableInfo.fromJson(element)),
         functions = (jsonMap['functions'] as Iterable)
@@ -199,6 +201,7 @@ class SassDocInfo implements DocInfo {
         'docType': docType.toString(),
         'name': name,
         'path': path,
+        'libraryDoc': libraryDoc,
         'variables': variables?.map((v) => v.toJson())?.toList(),
         'functions': functions?.map((f) => f.toJson())?.toList(),
         'mixins': mixins?.map((m) => m.toJson())?.toList(),
