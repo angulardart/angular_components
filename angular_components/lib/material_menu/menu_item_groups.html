@@ -16,6 +16,7 @@
     <div *ngIf="group.hasLabel"
          buttonDecorator
          class="group-header"
+         [role]="group.isCollapsible ? 'button' : 'none'"
          [attr.aria-expanded]="group.isCollapsible ? group.isExpanded.toString() : null"
          [class.is-collapsible]="group.isCollapsible"
          (trigger)="toggleExpansionIfCollapsible(group)">
