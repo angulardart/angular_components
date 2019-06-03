@@ -41,7 +41,7 @@
 
 <section class="toc" *ngIf="showToc">
   <ng-container *ngIf="model.docs.isNotEmpty">
-    <label>Dart Docs</label>
+    <label>Docs</label>
     <a *ngFor="let doc of model.docs" buttonDecorator (trigger)="scroll('#' + getDocId(doc))">
       {{doc.name}}
     </a>
