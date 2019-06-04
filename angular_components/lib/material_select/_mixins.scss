@@ -15,6 +15,7 @@
   @include select-item-padding;
 
   &:hover,
+  &:focus,
   &.active {
     background: $mat-grey-100;
   }
