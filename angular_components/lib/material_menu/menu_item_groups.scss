@@ -60,7 +60,7 @@ $menu-item-selector: '.menu-item';
 }
 
 .mouse-driven {
-  #{$menu-item-selector}:not(:hover) {
+  #{$menu-item-selector}:not(:hover):not(:focus) {
     background-color: inherit;
   }
 
