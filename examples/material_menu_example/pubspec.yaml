@@ -9,5 +9,5 @@ dependencies:
     path: ../../angular_gallery
   angular_gallery_section:
     path: ../../angular_gallery_section
-  build_config: '>=0.2.6 <0.4.0'
+  build_config: '>=0.2.6 <0.5.0'
   observable: ^0.22.2

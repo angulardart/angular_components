@@ -1,3 +1,8 @@
+## 0.13.0+1
+### Maintenance Release
+Update dependencies to support building with a globally activated version of
+`webdev: ^2.0.6`.
+
 ## 0.13.0
 ### Component Updates
 
