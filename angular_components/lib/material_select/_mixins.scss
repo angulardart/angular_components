@@ -28,8 +28,8 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 3px;
-    background: $mat-grey-500;
+    width: 0;
+    border-left: 3px solid $mat-grey-500;
   }
 
   material-checkbox {
@@ -84,7 +84,7 @@
 /// Apply to <material-select> or <material-select-item>.
 @mixin material-select-selected-color($color) {
   ::ng-deep .selected-accent.mixin.mixin {
-    background: $color;
+    border-left-color: $color;
   }
 }
 
