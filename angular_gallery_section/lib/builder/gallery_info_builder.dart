@@ -123,11 +123,17 @@ class GalleryInfoBuilder extends Builder {
       throw ('Could not find the asset: $externalAsset.');
     }
 
-    if (extension(assetId.path) == '.scss') {
-      return extractSassDocs('Sass Mixins', assetId, assetReader);
+    if (assetId.extension == '.scss') {
+      return extractSassDocs(
+          'Sass: ' +
+              basenameWithoutExtension(assetId.path)
+                  .replaceAll('_', ' ')
+                  .trim(),
+          assetId,
+          assetReader);
     }
 
-    if (extension(assetId.path) == '.md') {
+    if (assetId.extension == '.md') {
       final content = await assetReader.readAsString(assetId);
       return MarkdownDocInfo()
         ..name = basenameWithoutExtension(assetId.path)
