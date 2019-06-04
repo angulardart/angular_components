@@ -263,3 +263,17 @@
     padding-left: 0;
   }
 }
+
+// Set the margin for the next-prev-buttons container.
+@mixin next-prev-buttons-margin($margin) {
+  ::ng-deep .next-prev-buttons {
+    margin: $margin;
+  }
+}
+
+// Removes the space between the next and prev buttons.
+@mixin remove-prev-button-margin {
+  ::ng-deep .next-prev-buttons .prev {
+    margin-right: 0;
+  }
+}
