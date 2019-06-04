@@ -106,7 +106,7 @@ class GalleryComponent implements HighlightProvider {
 
 final breadcrumbs = {
   {{# examples }}
-  '{{ name }}': '{{{ displayName }}}',
+  '{{ name }}': '{{#group}}{{{ group }}} > {{/group}}{{{displayName}}}',
   {{/ examples }}
 };
 
