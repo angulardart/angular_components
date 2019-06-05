@@ -84,7 +84,7 @@ class MaterialMenuComponent extends Object
 
   bool get hasSubmenu => menu?.itemGroups?.isNotEmpty ?? false;
 
-  String get hasIcon => menu?.uiIcon != null ? 'true' : null;
+  bool get hasIcon => menu?.uiIcon != null;
 
   MaterialButtonComponent _button;
 
