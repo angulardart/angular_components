@@ -50,6 +50,13 @@
   }
 }
 
+/// Changes the margin of the footer.
+@mixin material-dialog-footer-margin($margin) {
+  ::ng-deep .wrapper > footer {
+    margin: $margin;
+  }
+}
+
 @mixin material-dialog-footer-justify-content($justify-content) {
   ::ng-deep .wrapper > footer [footer] {
     justify-content: $justify-content;
