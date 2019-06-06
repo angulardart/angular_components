@@ -503,6 +503,34 @@ class BaseMaterialInput extends FocusableMixin
       ? '$currentCount'
       : _msgCharacterCounter(currentCount, maxCount);
 
+  /// The aria label to use for the character limit label.
+  ///
+  /// The character count in the form "text is [currentCount] characters out of
+  /// [maxCount]", such as `12 characters out of  25`, when [maxCount] is
+  /// non-null; otherwise simply "Text is [currentCount] characters".
+  String msgCharacterCounterAriaLabel(int currentCount, int maxCount) =>
+      maxCount == null
+          ? _msgCharacterCounterAriaLabelNoLimitation(currentCount)
+          : _msgCharacterCounterAriaLabelNoLimitation(currentCount) +
+              _msgCharacterCounterAriaLabelWithLimitation(maxCount);
+
+  static String _msgCharacterCounterAriaLabelNoLimitation(int currentCount) =>
+      Intl.plural(currentCount,
+          args: [currentCount],
+          desc: 'aria label for the character limit label',
+          one: 'Text is 1 character',
+          other: 'Text is $currentCount characters',
+          examples: const {'currentCount': 5},
+          name: 'BaseMaterialInput__msgCharacterCounterAriaLabelNoLimitation');
+
+  static String _msgCharacterCounterAriaLabelWithLimitation(int maxCount) =>
+      Intl.message(' out of $maxCount',
+          args: [maxCount],
+          desc: 'Suffix for aria label for text limitation label',
+          examples: const {'maxCount': 25},
+          name:
+              'BaseMaterialInput__msgCharacterCounterAriaLabelWithLimitation');
+
   static String _msgCharacterCounter(int currentCount, int maxCount) =>
       Intl.message('$currentCount / $maxCount',
           name: 'BaseMaterialInput__msgCharacterCounter',
