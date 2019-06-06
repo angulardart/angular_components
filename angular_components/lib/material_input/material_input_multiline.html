@@ -93,8 +93,8 @@
     &nbsp;
   </div>
   <div *ngIf="maxCount != null || showCharacterCount"
+       [attr.aria-label]="msgCharacterCounterAriaLabel(inputTextLength, maxCount)"
        class="counter"
-       aria-hidden="true"
        [class.invalid]="invalid">
     {{msgCharacterCounter(inputTextLength, maxCount)}}
   </div>
