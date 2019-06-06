@@ -7,11 +7,6 @@
 $mat-grid: 8px;
 $mat-grid-type: 4px;
 
-// DEPRECATED: use inline-image.
-@function mat-icon-image($file) {
-  @return inline-image($file)
-}
-
 // Forces an element to take up the same space as its closest, positioned
 // ancestor or, if none exists, the root element.
 @mixin fit {
@@ -84,7 +79,7 @@ $mat-grid-type: 4px;
   flex-shrink: 0;
   flex-grow: 0;
 
-  background-image: mat-icon-image($icon-url);
+  background-image: inline-image($icon-url);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: $icon-size $icon-size;
