@@ -99,10 +99,16 @@ class FocusListDirective implements OnDestroy {
       newIndex = index.clamp(0, _length - 1);
     }
     _children[newIndex].focus();
+    setTabbable(newIndex);
+  }
+
+  /// Makes the [index] tab focusable and makes all other tabs unfocusable.
+  void setTabbable(int index) {
+    if (index < 0 || index >= _length) return;
     _children.forEach((i) {
       i.tabbable = false;
     });
-    _children[newIndex].tabbable = true;
+    _children[index].tabbable = true;
   }
 
   @override
