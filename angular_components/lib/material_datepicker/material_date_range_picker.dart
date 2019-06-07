@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
@@ -591,12 +592,24 @@ class MaterialDateRangePickerComponent
     focusOnClose.focus(event);
   }
 
+  @visibleForTemplate
+  void applyAndPreventDefault(UIEvent event) {
+    apply(event);
+    event.preventDefault();
+  }
+
   void cancel() {
     model.restore(_lastState);
     selection.value = _lastState.value;
     _showApplyBar(!_isPreset(_lastState.value));
     close();
     focusOnClose.focus();
+  }
+
+  @visibleForTemplate
+  void cancelAndPreventDefault(UIEvent event) {
+    cancel();
+    event.preventDefault();
   }
 
   bool get hasTitle => selection.value?.range?.title != null;
