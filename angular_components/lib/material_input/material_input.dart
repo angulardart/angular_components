@@ -119,8 +119,6 @@ class MaterialInputComponent extends BaseMaterialInput
   /// Only applies when type = "email", otherwise it is ignored.
   bool multiple = false;
 
-  /// The role to assign to the inner input element.
-  final String inputRole;
   final _labelId = SequentialIdGenerator.fromUUID().nextId();
 
   String get labelId => inputAriaLabel != null ? null : _labelId;
@@ -184,6 +182,12 @@ class MaterialInputComponent extends BaseMaterialInput
   @Input()
   String leadingGlyphAriaLabel;
 
+  /// The role to assign to the inner input element.
+  ///
+  /// For example, "textbox", "checkbox" and etc.
+  @Input()
+  String role;
+
   bool get rightAlign => _rightAlign;
   bool _rightAlign = false;
 
@@ -223,7 +227,7 @@ class MaterialInputComponent extends BaseMaterialInput
 
   /// The autocomplete method applied to the inner input element.
   ///
-  /// This can be used in conjunction with [inputRole] values of "combobox" or
+  /// This can be used in conjunction with [role] values of "combobox" or
   /// "textbox". If this is "list" or "both", [inputAriaHasPopup] should be
   /// set to "true".
   @Input()
@@ -237,7 +241,6 @@ class MaterialInputComponent extends BaseMaterialInput
   MaterialInputComponent(
       @Attribute('type') String type,
       @Attribute('multiple') String multiple,
-      @Attribute('role') this.inputRole,
       @Self() @Optional() NgControl cd,
       this._changeDetector,
       DeferredValidator validator)
