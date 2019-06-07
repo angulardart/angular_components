@@ -2,7 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
+
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:quiver/strings.dart' show isNotEmpty;
 import 'package:angular_components/focus/focus.dart';
@@ -257,6 +260,16 @@ class MaterialInputComponent extends BaseMaterialInput
 
   @override
   bool get labelVisible => !(numeric && invalid) && super.labelVisible;
+
+  @visibleForTemplate
+  void handleChange(Event event, InputElement element) {
+    inputChange(
+      element.value,
+      element.validity.valid,
+      element.validationMessage,
+    );
+    event.stopPropagation();
+  }
 
   @override
   void ngOnDestroy() {

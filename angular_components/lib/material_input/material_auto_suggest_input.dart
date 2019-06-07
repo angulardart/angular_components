@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html' as html;
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
@@ -585,6 +586,18 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     _updateItemActivation(textChanging: true);
     _filterSuggestions();
     return true;
+  }
+
+  @visibleForTemplate
+  void handleChange(String newValue) {
+    inputText = newValue;
+    showPopup = true;
+  }
+
+  @visibleForTemplate
+  void handleClick(html.Event event) {
+    showPopup = true;
+    event.stopPropagation();
   }
 
   /// Fired when the close icon is clicked.
