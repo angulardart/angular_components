@@ -57,7 +57,7 @@
              [attr.role]="inputRole"
              [ngModel]="inputText"
              (blur)="inputBlurAction($event, inputEl.validity.valid, inputEl.validationMessage)"
-             (change)="inputChange(inputEl.value, inputEl.validity.valid, inputEl.validationMessage);$event.stopPropagation()"
+             (change)="handleChange($event, inputEl)"
              [class.disabledInput]="disabled"
              [class.right-align]="rightAlign"
              (focus)="inputFocusAction"

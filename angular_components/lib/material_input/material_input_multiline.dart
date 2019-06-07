@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
@@ -168,6 +169,16 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
   ///
   /// Disabled textarea is not interactive and should not receive focus on TAB.
   int get inputTabIndex => disabled ? -1 : 0;
+
+  @visibleForTemplate
+  void handleChange(Event event, TextAreaElement element) {
+    inputChange(
+      element.value,
+      element.validity.valid,
+      element.validationMessage,
+    );
+    event.stopPropagation();
+  }
 
   @override
   void ngOnDestroy() {
