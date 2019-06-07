@@ -77,6 +77,11 @@ class Date extends Comparators<Date> {
   /// Returns this [Date] as a [DateTime] at midnight UTC.
   DateTime asUtcTime() => _time;
 
+  /// Subtracts the years, months, days from the Date.
+  /// Equivalent to add with negative values.
+  Date subtract({int years = 0, int months = 0, int days = 0}) =>
+      add(years: -years, months: -months, days: -days);
+
   Date add({int years = 0, int months = 0, int days = 0}) =>
       // Let Dart's [DateTime] handle all the arithmetic. It intelligently
       // handles bogus values like (2015, 43, -32) and generally does what we
