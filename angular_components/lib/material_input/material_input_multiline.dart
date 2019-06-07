@@ -89,7 +89,7 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
       : _changeDetector = changeDetector,
         super(cd, changeDetector, validator);
 
-  // Overriden to add a HostListener event.
+  // Overridden to add a HostListener event.
   @HostListener('focus')
   @override
   void focus() => super.focus();
