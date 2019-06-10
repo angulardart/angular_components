@@ -17,9 +17,8 @@ class MultiReorderEvent extends ReorderEvent {
   /// All the selected items indexes before their repositioning.
   final List<int> sourceIndexes;
 
-  MultiReorderEvent(List<int> sourceIndexes, int destIndex)
-      : sourceIndexes = sourceIndexes,
-        super(sourceIndexes[0], destIndex);
+  MultiReorderEvent(this.sourceIndexes, int destIndex)
+      : super(sourceIndexes[0], destIndex);
 }
 
 /// An event to represent each selection change.
