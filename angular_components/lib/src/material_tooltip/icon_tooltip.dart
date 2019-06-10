@@ -104,7 +104,7 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
 
   MaterialIconTooltipComponent(
       AcxDarkTheme darkTheme,
-      HtmlElement element,
+      this.element,
       @Attribute('icon') String icon,
       @Attribute('type') String type,
       @Attribute('size') String size)
@@ -117,7 +117,7 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
         iconSize == 'large' ||
         iconSize == 'x-large' ||
         iconSize == '');
-    this.element = element;
+
     darkTheme.themeElement(element);
   }
 

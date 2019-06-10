@@ -33,13 +33,11 @@ class MaterialTooltipTargetDirective extends TooltipBehavior
   MaterialTooltipTargetDirective(
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
-      HtmlElement element,
+      this.element,
       ChangeDetectorRef changeDetector,
       @Attribute('initPopupAriaAttributes') String initAriaAttributes)
       : super(domPopupSourceFactory, viewContainerRef, element, changeDetector,
-            initAriaAttributes) {
-    this.element = element;
-  }
+            initAriaAttributes);
 
   /// Show tooltip on focus to allow keyboard users to see tooltip contents.
   @visibleForTemplate
@@ -162,12 +160,11 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
   ClickableTooltipTargetDirective(
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
-      HtmlElement element,
+      this.element,
       ChangeDetectorRef changeDetector,
       @Attribute('initPopupAriaAttributes') String initAriaAttributes)
       : super(domPopupSourceFactory, viewContainerRef, element, changeDetector,
             initAriaAttributes) {
-    this.element = element;
     _tooltipSubscription = tooltipActivate.listen((visible) {
       _tooltipVisible = visible;
     });

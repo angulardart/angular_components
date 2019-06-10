@@ -49,14 +49,13 @@ class MaterialTooltipDirective extends TooltipTarget
   MaterialTooltipDirective(
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
-      HtmlElement element,
+      this.element,
       this._viewLoader,
       this._changeDetector,
       this._window,
       @Attribute('initPopupAriaAttributes') String initAriaAttributes,
       @Attribute('tooltipClass') String tooltipClass)
-      : this.element = element,
-        _popupClassName =
+      : _popupClassName =
             constructEncapsulatedCss(tooltipClass, element.classes),
         super(domPopupSourceFactory, viewContainerRef, element,
             initAriaAttributes ?? 'false') {

@@ -50,10 +50,9 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
 
   MaterialTooltipSourceDirective(
       DomPopupSourceFactory domPopupSourceFactory,
-      HtmlElement element,
+      this.element,
       @Attribute('initPopupAriaAttributes') String initAriaAttributes)
-      : this.element = element,
-        super(
+      : super(
             domPopupSourceFactory,
             element,
             /* referenceDirective */ null,
