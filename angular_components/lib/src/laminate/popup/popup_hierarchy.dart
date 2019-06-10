@@ -17,8 +17,8 @@ class PopupHierarchy {
   /// Parent pane of the first popup hierarchy element.
   Element _rootPane;
 
-  StreamSubscription _triggerListener;
-  StreamSubscription _keyUpListener;
+  StreamSubscription<Event> _triggerListener;
+  StreamSubscription<Event> _keyUpListener;
 
   Event _lastTriggerEvent;
 

@@ -100,7 +100,7 @@ class OverlayDomRenderService {
   /// Converts [state] into a set of CSS property mutations on [pane], applying
   /// them in the next DOM write queue, and returning a future that completes
   /// after applied.
-  Future applyState(OverlayState state, HtmlElement pane) async {
+  Future<void> applyState(OverlayState state, HtmlElement pane) async {
     if (!_useDomSynchronously) {
       return _domService.onWrite().then((_) {
         applyStateSync(state, pane);
