@@ -138,8 +138,9 @@ class DynamicComponent implements OnDestroy, AfterChanges {
     _changeDetectorRef.markForCheck();
 
     if (_childComponent != null) {
-      if (_childComponent.instance is RendersValue) {
-        _childComponent.instance.value = _value;
+      var instance = _childComponent.instance;
+      if (instance is RendersValue) {
+        instance.value = _value;
       }
     }
   }
