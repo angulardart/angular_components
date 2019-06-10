@@ -100,7 +100,7 @@ abstract class OverlayState {
   Visibility get visibility;
 
   /// A stream updated once per microtask queue when any property has changed.
-  Stream get onUpdate;
+  Stream<Null> get onUpdate;
 
   /// ZIndex of the pane.
   int get zIndex;
@@ -165,7 +165,7 @@ class _ImmutableOverlayState implements OverlayState {
   int get hashCode => _stateHashCode(this);
 
   @override
-  Stream get onUpdate => const Stream.empty();
+  Stream<Null> get onUpdate => const Stream.empty();
 
   @override
   String toString() =>
@@ -252,7 +252,7 @@ class MutableOverlayState implements OverlayState {
   int get hashCode => _stateHashCode(this);
 
   @override
-  Stream get onUpdate => _asyncScheduler.onUpdate;
+  Stream<Null> get onUpdate => _asyncScheduler.onUpdate;
 
   @override
   bool get captureEvents => _captureEvents;
