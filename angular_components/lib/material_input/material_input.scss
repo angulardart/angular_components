@@ -56,6 +56,10 @@ $default-input-width: $mat-grid * 22;
   margin-bottom: $mat-grid;
 }
 
+:host(.ltr) .top-section {
+  /*! @noflip */ direction: ltr;
+}
+
 .input-container {
   // Grow/shrink the input really aggressively so that we never crowd out the
   // padding around leading/trailing text when the input's stuffed into a space
