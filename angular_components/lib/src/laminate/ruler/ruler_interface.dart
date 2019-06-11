@@ -94,8 +94,7 @@ abstract class RulerBase<E> implements Ruler<E> {
   /// Override with an implementation of [DomService.onLayoutChanged].
   ///
   /// The stream should fire within a DOM read queue.
-  // TODO(google): Properly type with <DomService>.
-  Stream<dynamic /*DomService*/ > get onLayoutChanged;
+  Stream<DomService> get onLayoutChanged;
 
   /// Override with an implementation of [DomService.onRead].
   Future<void> onRead();
