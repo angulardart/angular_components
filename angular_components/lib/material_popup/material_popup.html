@@ -4,7 +4,8 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <template #template>
-  <div [attr.elevation]="z"
+  <div [attr.aria-label]="ariaLabel"
+       [attr.elevation]="z"
        id="{{uniqueId}}"
        attr.role="{{role}}"
        class="popup-wrapper mixin"
