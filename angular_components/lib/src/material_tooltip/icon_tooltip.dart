@@ -74,6 +74,8 @@ import 'tooltip_target.dart';
   preserveWhitespace: true,
 )
 class MaterialIconTooltipComponent implements DeferredContentAware {
+  final _contentVisible = StreamController<bool>.broadcast(sync: true);
+
   HtmlElement element;
 
   /// Icon identifier for [MaterialIconComponent]. See
@@ -124,8 +126,13 @@ class MaterialIconTooltipComponent implements DeferredContentAware {
   @ViewChild('tooltipRef')
   TooltipBehavior tooltipBehavior;
 
+  @ViewChild(MaterialPaperTooltipComponent)
+  set deferredContentAware(DeferredContentAware deferredContentAware) {
+    _contentVisible.addStream(deferredContentAware.contentVisible);
+  }
+
   @override
-  Stream<bool> get contentVisible => tooltipBehavior.tooltipActivate;
+  Stream<bool> get contentVisible => _contentVisible.stream;
 
   static final helpTooltipLabel = Intl.message(
       'Mouseover, click, press Enter key or Space key on this icon for more '
