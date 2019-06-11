@@ -56,11 +56,10 @@ class DomService {
   bool _insideDigest = false;
   Disposable _layoutObserveRead;
   bool _scheduledProcessQueue = false;
-  // TODO(google): Properly type with <DomService>.
-  StreamController<dynamic /*DomService*/ > _onLayoutChangedController;
-  Stream<dynamic /*DomService*/ > _onLayoutChangedStream;
-  StreamController<dynamic /*DomService*/ > _onQueuesProcessedController;
-  Stream<dynamic /*DomService*/ > _onQueuesProcessedStream;
+  StreamController<DomService> _onLayoutChangedController;
+  Stream<DomService> _onLayoutChangedStream;
+  StreamController<DomService> _onQueuesProcessedController;
+  Stream<DomService> _onQueuesProcessedStream;
   int _nextFrameId = -1;
   Completer<num> _nextFrameCompleter;
   Future<num> _nextFrameFuture;
@@ -327,7 +326,7 @@ class DomService {
   }
 
   /// A stream that fires when the queues have been processed and are now empty.
-  Stream<dynamic /*DomService*/ > get onQueuesProcessed {
+  Stream<DomService> get onQueuesProcessed {
     if (_onQueuesProcessedStream == null) {
       _onQueuesProcessedController = StreamController.broadcast(sync: true);
       _onQueuesProcessedStream = ZonedStream(
@@ -342,7 +341,7 @@ class DomService {
   /// - The stream fires *outside* of a framework managed zone
   /// - The stream fires *within* a scheduled DOM read queue, making it safe
   ///   to openly check elements size or positioning in this callback.
-  Stream<dynamic /*DomService*/ > get onLayoutChanged {
+  Stream<DomService> get onLayoutChanged {
     if (_onLayoutChangedStream == null) {
       _onLayoutChangedController = StreamController.broadcast(sync: true);
       _onLayoutChangedStream = ZonedStream(
@@ -401,7 +400,7 @@ class DomService {
   ///
   /// Returns a subscription that allows pausing, resuming and canceling the
   /// observer.
-  StreamSubscription<dynamic /*DomService*/ > trackLayoutChange<T>(
+  StreamSubscription<DomService> trackLayoutChange<T>(
       T fn(), void callback(T value),
       {int framesToStabilize = 1, bool runInAngularZone = false}) {
     // TODO(google): Move layout checking into ruler service when landed.
@@ -427,8 +426,7 @@ class DomService {
   /// Returns a subscription that allows pausing, resuming and canceling the
   /// observer.
   @Deprecated("Use onLayoutChanged instead")
-  StreamSubscription<dynamic /*DomService*/ > addLayoutObserver(
-          void domReadCallback()) =>
+  StreamSubscription<DomService> addLayoutObserver(void domReadCallback()) =>
       onLayoutChanged.listen((_) => domReadCallback());
 
   String describeStability() {

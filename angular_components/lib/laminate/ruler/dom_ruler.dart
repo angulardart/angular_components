@@ -33,9 +33,7 @@ class DomRulerImpl extends RulerBase<Element> implements DomRuler {
   }
 
   @override
-  // TODO(google): Properly type with <DomService>.
-  Stream<dynamic /*DomService*/ > get onLayoutChanged =>
-      _domService.onLayoutChanged;
+  Stream<DomService> get onLayoutChanged => _domService.onLayoutChanged;
 
   @override
   Future<void> onRead() => _domService.onRead();
