@@ -9,7 +9,7 @@ import 'package:collection/collection.dart';
 /// A [StreamIterator] that accumulates the [Stream]'s values into a priority
 /// queue and selects the one with the most priority (the least one by
 /// comparison) of all accumulated values at each [moveNext] call.
-class PriorityStreamIterator<T extends Comparable>
+class PriorityStreamIterator<T extends Comparable<Object>>
     implements StreamIterator<T> {
   final StreamIterator<T> _iterator;
   final PriorityQueue<T> _queue;
@@ -47,7 +47,7 @@ class PriorityStreamIterator<T extends Comparable>
   T get current => _current;
 
   @override
-  Future cancel() {
+  Future<Object> cancel() {
     _clear();
     return _iterator.cancel();
   }
@@ -82,7 +82,8 @@ class PriorityStreamIterator<T extends Comparable>
 ///
 /// Takes an optional [Comparator] parameter that should be used instead of the
 /// default [Comparable.compare].
-class _StablePriorityQueue<T extends Comparable> extends HeapPriorityQueue<T> {
+class _StablePriorityQueue<T extends Comparable<Object>>
+    extends HeapPriorityQueue<T> {
   _StablePriorityQueue([Comparator<T> comparison])
       : this._(_OrderedComparator(comparison ?? _defaultComparator<T>()));
 
@@ -130,12 +131,12 @@ class _StablePriorityQueue<T extends Comparable> extends HeapPriorityQueue<T> {
   }
 }
 
-Comparator<T> _defaultComparator<T extends Comparable>() =>
+Comparator<T> _defaultComparator<T extends Comparable<Object>>() =>
     (T a, T b) => a.compareTo(b);
 
 /// A [Comparator] that allows registering elements and uses the order of
 /// registration to resolve the cases when elements compare as equal.
-class _OrderedComparator<T extends Comparable> implements Function {
+class _OrderedComparator<T extends Comparable<Object>> implements Function {
   static const RENUMERATE_THRESHOLD = 1000000;
 
   final Comparator<T> _comparison;
