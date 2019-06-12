@@ -65,7 +65,7 @@ class SimpleStream<T> extends Stream<T> implements EventSink<T> {
   bool _subscriptionRemoved = false;
 
   /// List of streams to cleanup.
-  static List<SimpleStream> _cleanupStreams = [];
+  static List<SimpleStream<dynamic>> _cleanupStreams = [];
 
   SimpleStream({bool isSync = false, bool runInZone = false})
       : _isSync = isSync,
@@ -181,9 +181,9 @@ class SimpleStream<T> extends Stream<T> implements EventSink<T> {
         sub._closeSubscription();
       }
       if (callback != null) {
-        if (callback is ZoneBinaryCallback) {
+        if (callback is ZoneBinaryCallback<Object, Object, Object>) {
           callback(errorEvent, stackTrace);
-        } else if (callback is ZoneUnaryCallback) {
+        } else if (callback is ZoneUnaryCallback<Object, Object>) {
           callback(errorEvent);
         }
       }
@@ -276,8 +276,8 @@ class LastStateStream<T> extends SimpleStream<T> {
   LastStateStream(
       {bool isSync = false,
       bool runInZone = false,
-      SubscriptionChangeListener onListen,
-      SubscriptionChangeListener onCancel})
+      SubscriptionChangeListener<dynamic> onListen,
+      SubscriptionChangeListener<dynamic> onCancel})
       : super.broadcast(
             isSync: isSync,
             runInZone: runInZone,
@@ -346,7 +346,7 @@ class SimpleStreamSubscription<T> implements StreamSubscription<T> {
       this._onError, this._cancelOnError, this._contextZone);
 
   @override
-  Future cancel() {
+  Future<dynamic> cancel() {
     if (_stream != null) {
       // Set doneCallback to null so when [_closeSubscription] is called, we
       // don't call doneCallback.
@@ -422,8 +422,8 @@ class SimpleEmitter<T> extends SimpleStream<T> {
   SimpleEmitter(
       {bool isSync = true,
       bool runInZone = true,
-      SubscriptionChangeListener onListen,
-      SubscriptionChangeListener onCancel})
+      SubscriptionChangeListener<dynamic> onListen,
+      SubscriptionChangeListener<dynamic> onCancel})
       : super.broadcast(
             isSync: isSync,
             runInZone: runInZone,

@@ -75,20 +75,20 @@ class LazyStreamController<T> implements StreamController<T> {
   }
 
   @override
-  Future addStream(Stream<T> source, {bool cancelOnError = true}) {
+  Future<Object> addStream(Stream<T> source, {bool cancelOnError = true}) {
     return _initializeLazy().addStream(source, cancelOnError: cancelOnError);
   }
 
   @override
-  Future close() {
+  Future<dynamic> close() {
     if (_streamController != null) {
       return _streamController.close();
     }
-    return Future.value();
+    return Future<dynamic>.value();
   }
 
   @override
-  Future get done => _initializeLazy().done;
+  Future<Object> get done => _initializeLazy().done;
 
   @override
   StreamSink<T> get sink => _initializeLazy().sink;
