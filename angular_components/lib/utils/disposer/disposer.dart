@@ -78,8 +78,8 @@ class _SingleFunctionDisposable implements Disposable {
 /// [disposable], just treat it random.
 class Disposer implements Disposable {
   List<DisposeFunction> _disposeFunctions;
-  List<StreamSubscription> _disposeSubs;
-  List<EventSink> _disposeSinks;
+  List<StreamSubscription<Object>> _disposeSubs;
+  List<EventSink<Object>> _disposeSinks;
   List<Disposable> _disposeDisposables;
   final bool _oneShot;
   bool _disposeCalled = false;
