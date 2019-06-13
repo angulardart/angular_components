@@ -111,7 +111,7 @@ class FixedMaterialTabStripComponent implements AfterViewInit {
     activeTabIndex = index;
     _tabChange.add(event);
     _activeTabIndexChange.add(activeTabIndex);
-    focusController.setTabbable(index);
+    focusController.setTabbable(activeTabIndex);
   }
 
   String activeStr(int index) {
