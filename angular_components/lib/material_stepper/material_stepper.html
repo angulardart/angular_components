@@ -75,7 +75,7 @@
               [yesDisabled]="!activeStep.canContinue"
               (yes)="stepForward($event, activeStep)"
               (no)="stepBackward($event, activeStep)"
-              [yesText]="continueMsg"
+              [yesText]="yesText"
               [noText]="noText"
               [noDisplayed]="!activeStep.cancelHidden && activeStep.index != 0">
           </material-yes-no-buttons>
@@ -105,7 +105,7 @@
           [yesDisabled]="!activeStep.canContinue"
           (yes)="stepForward($event, activeStep)"
           (no)="stepBackward($event, activeStep)"
-          [yesText]="continueMsg"
+          [yesText]="yesText"
           [noText]="noText"
           [noDisplayed]="!activeStep.cancelHidden && activeStep.index != 0">
       </material-yes-no-buttons>
