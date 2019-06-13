@@ -141,6 +141,11 @@ class MaterialStepperComponent {
   @Input()
   String noText = _cancelMsg;
 
+  /// Text to be displayed on the button that goes to the next step.
+  /// By default, displays "Continue".
+  @Input()
+  String yesText = continueMsg;
+
   /// Orientation in which the steps are laid out.
   ///
   /// Possible values: 'horizontal' and 'vertical' (default).
