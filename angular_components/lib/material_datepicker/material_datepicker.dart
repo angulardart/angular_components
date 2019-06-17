@@ -27,6 +27,7 @@ import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
 import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
+import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/utils/angular/css/css.dart';
 
@@ -66,7 +67,7 @@ import 'package:angular_components/utils/angular/css/css.dart';
   templateUrl: 'material_datepicker.html',
 )
 class MaterialDatepickerComponent
-    with FocusableMixin
+    with FocusableMixin, KeyboardHandlerMixin
     implements AfterViewInit, HasDisabled {
   /// CSS classes from the root element, passed to the popup to allow scoping of
   /// mixins.
@@ -192,6 +193,11 @@ class MaterialDatepickerComponent
   @override
   void ngAfterViewInit() {
     focusable = _focusTarget;
+  }
+
+  @override
+  void handleEscapeKey(KeyboardEvent event) {
+    dropdownButton.focus();
   }
 
   @ViewChild(DropdownButtonComponent)
