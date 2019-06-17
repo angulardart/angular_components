@@ -19,7 +19,7 @@ class GallerySectionSummaryBuilder extends Builder {
   @override
   Future build(BuildStep buildStep) async {
     final inputId = buildStep.inputId;
-    final summaries = List<Map<String, dynamic>>();
+    final summaries = <Map<String, dynamic>>[];
 
     // Extract details from @GallerySectionConfig annotations.
     await for (var assetId

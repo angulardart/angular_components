@@ -140,7 +140,7 @@ class LazyListTracker<S, T> extends Object
 
   void _initIfRequired() {
     if (_target == null) {
-      _target = List();
+      _target = [];
       if (_source is ObservableList) {
         (_source as ObservableList).deliverListChanges();
         _subscription = (_source as ObservableList)

@@ -122,8 +122,8 @@ class ReorderListComponent implements OnDestroy {
   HtmlElement placeholder;
 
   ReorderListComponent(this._ngZone) {
-    _subscriptions = Map<HtmlElement, List<StreamSubscription>>();
-    _dragSubscriptions = Map<HtmlElement, StreamSubscription>();
+    _subscriptions = <HtmlElement, List<StreamSubscription>>{};
+    _dragSubscriptions = <HtmlElement, StreamSubscription>{};
   }
 
   @ContentChildren(ReorderItemDirective)

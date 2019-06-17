@@ -23,7 +23,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// **NOTE**: Usage of this removes [Modal]'s built in LIFO stack.
 @Injectable()
 class GlobalModalStack {
-  final List<Modal> _stack = List<Modal>();
+  final List<Modal> _stack = <Modal>[];
 
   /// Size of the stack.
   int get length => _stack.length;
