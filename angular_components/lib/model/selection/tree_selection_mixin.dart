@@ -27,7 +27,7 @@ abstract class TreeSelectionMixin<T>
 
   /// Gets a flat list of T when given a parent of type T.
   List<T> allChildrenOf(T e) {
-    List<T> allChildren = List<T>();
+    List<T> allChildren = <T>[];
     Queue<T> parentsToCheck = Queue<T>();
 
     // To prevent an accidental circular reference

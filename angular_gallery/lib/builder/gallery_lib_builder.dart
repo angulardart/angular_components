@@ -84,7 +84,7 @@ class GalleryLibBuilder extends Builder {
 
   /// Reads gallery_section_summary.json files from all `_examplePackages`.
   Future<List<Example>> loadSummaries(BuildStep buildStep) async {
-    final examples = List<Example>();
+    final examples = <Example>[];
 
     for (var package in _examplePackages) {
       final gallerySectionSummaryId =

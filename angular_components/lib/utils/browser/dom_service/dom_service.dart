@@ -47,8 +47,8 @@ class DomService {
   /// The time to increment after each layout check.
   static const int _IDLE_TIMER_INC_MILLIS = 100;
 
-  final _domReadQueue = List<DomReadWriteFn>();
-  final _domWriteQueue = List<DomReadWriteFn>();
+  final _domReadQueue = <DomReadWriteFn>[];
+  final _domWriteQueue = <DomReadWriteFn>[];
   final NgZone _ngZone;
   final Window _window;
 
