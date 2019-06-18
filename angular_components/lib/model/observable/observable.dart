@@ -55,7 +55,7 @@ abstract class ChangeAware<T> extends ObserveAware<T> {
 
 /// Provides notification coalesce support for the other [ChangeAware] classes.
 class ChangeNotificationProvider<T> implements ChangeAware<T>, Disposable {
-  bool _coalesce;
+  final bool _coalesce;
   bool _coalesceScheduled = false;
   StreamController<T> _streamController;
   StreamController<Change<T>> _changeController;
@@ -329,7 +329,7 @@ class ObservableReference<T> extends ChangeNotificationProvider<T>
 /// Merges multiple updates of [ObserveAware]s and emits a single update
 /// notification stream.
 class ObservableComposite<T> extends ChangeNotificationProvider<T> {
-  Map<Stream, StreamSubscription> _subscriptions =
+  final Map<Stream, StreamSubscription> _subscriptions =
       <Stream, StreamSubscription>{};
   final _disposer = Disposer.oneShot();
   final bool _withStackTrace;

@@ -71,7 +71,7 @@ class TooltipController {
   Tooltip _activeTooltip;
 
   /// Timers to close each tooltip.
-  var _closeTimerByTooltip = <Tooltip, Timer>{};
+  final _closeTimerByTooltip = <Tooltip, Timer>{};
 
   Tooltip proxyFor(Tooltip tooltip) => _ProxyTooltip(tooltip, this);
 }

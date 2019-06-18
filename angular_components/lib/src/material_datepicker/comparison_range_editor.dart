@@ -50,7 +50,7 @@ class ComparisonRangeEditorComponent {
   /// non-test implementation is [DateRangeEditorModel].
   @Input()
   HasComparisonRange model;
-  Map<ComparisonOption, String> _optionMsgCache = {};
+  final Map<ComparisonOption, String> _optionMsgCache = {};
   DatepickerDateRange _primaryDateRange;
 
   // Handle the comparison toggle.

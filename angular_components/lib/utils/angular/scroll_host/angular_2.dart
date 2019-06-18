@@ -50,7 +50,8 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
 
   // This is sync to reduce the time between StickyController writing to the
   // DOM and clients writing to the DOM, making scrolling smoother.
-  StreamController<Null> _onUpdate = StreamController.broadcast(sync: true);
+  final StreamController<Null> _onUpdate =
+      StreamController.broadcast(sync: true);
 
   ElementScrollHostBase _scrollHost;
 

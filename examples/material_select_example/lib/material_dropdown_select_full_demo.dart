@@ -84,7 +84,8 @@ class MaterialDropdownSelectFullDemoComponent {
     Language('de', 'German')
   ];
 
-  static List<OptionGroup<Language>> _languagesGroups = <OptionGroup<Language>>[
+  static final List<OptionGroup<Language>> _languagesGroups =
+      <OptionGroup<Language>>[
     OptionGroup<Language>.withLabel(const <Language>[
       Language('en-US', 'US English'),
       Language('fr-CA', 'Canadian English'),
@@ -103,21 +104,21 @@ class MaterialDropdownSelectFullDemoComponent {
     OptionGroup<Language>.withLabel(const <Language>[], 'Pangaea')
   ];
 
-  static List<RelativePosition> _popupPositionsAboveInput = const [
+  static final List<RelativePosition> _popupPositionsAboveInput = const [
     RelativePosition.AdjacentTopLeft,
     RelativePosition.AdjacentTopRight
   ];
-  static List<RelativePosition> _popupPositionsBelowInput = const [
+  static final List<RelativePosition> _popupPositionsBelowInput = const [
     RelativePosition.AdjacentBottomLeft,
     RelativePosition.AdjacentBottomRight
   ];
 
-  static ItemRenderer _displayNameRenderer =
+  static final ItemRenderer _displayNameRenderer =
       (item) => (item as HasUIDisplayName).uiDisplayName;
 
   // Specifying an itemRenderer avoids the selected item from knowing how to
   // display itself.
-  static ItemRenderer _itemRenderer = newCachingItemRenderer<Language>(
+  static final ItemRenderer _itemRenderer = newCachingItemRenderer<Language>(
       (language) => "${language.label} (${language.code})");
 
   bool useFactoryRenderer = false;

@@ -8,7 +8,7 @@ import 'package:angular_components/model/selection/selection_options.dart';
 
 /// A [SelectionOptions] implementation that delegates.
 class DelegatingSelectionOptions<T> implements SelectionOptions<T> {
-  SelectionOptions<T> _options;
+  final SelectionOptions<T> _options;
 
   DelegatingSelectionOptions(this._options);
 

@@ -22,7 +22,7 @@ class ShowHideDirective implements OnInit, OnDestroy {
   static const _hiddenClass = 'acx-showhide-hidden';
 
   // time after transition started, when acx-showhide-hidden is added forcefully
-  static int _transitionTimeoutMs = 16;
+  static final int _transitionTimeoutMs = 16;
 
   final Element _element;
   final DomService _domService;
@@ -49,22 +49,22 @@ class ShowHideDirective implements OnInit, OnDestroy {
   /// Fires when the hide styles are first applied to the element.
   @Output('hide')
   Stream<Element> get onHide => _onHide.stream;
-  var _onHide = StreamController<Element>.broadcast(sync: true);
+  final _onHide = StreamController<Element>.broadcast(sync: true);
 
   /// Fires when the show styles are first applied to the element.
   @Output('show')
   Stream<Element> get onShow => _onShow.stream;
-  var _onShow = StreamController<Element>.broadcast(sync: true);
+  final _onShow = StreamController<Element>.broadcast(sync: true);
 
   /// Fires when the transitions have finished and the element is fully visible.
   @Output('showEnd')
   Stream<Element> get onShowEnd => _onShowEnd.stream;
-  var _onShowEnd = StreamController<Element>.broadcast(sync: true);
+  final _onShowEnd = StreamController<Element>.broadcast(sync: true);
 
   /// Fires when the transitions have finished and the element is fully hidden.
   @Output('hideEnd')
   Stream<Element> get onHideEnd => _onHideEnd.stream;
-  var _onHideEnd = StreamController<Element>.broadcast(sync: true);
+  final _onHideEnd = StreamController<Element>.broadcast(sync: true);
 
   @Input('showhide')
   set visible(bool value) {
