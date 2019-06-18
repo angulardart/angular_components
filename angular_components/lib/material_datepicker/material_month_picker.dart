@@ -40,7 +40,7 @@ class MaterialMonthPickerComponent
   }
 
   CalendarState get state => _model.value;
-  ObservableReference<CalendarState> _model =
+  final ObservableReference<CalendarState> _model =
       ObservableReference(CalendarState.empty(), coalesce: true);
 
   /// Fired when the calendar state changes -- e.g. when the user starts

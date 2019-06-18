@@ -106,7 +106,7 @@ class MaterialDateRangePickerComponent
         PopupSizeProvider {
   Focusable _dateRangeEditor;
   bool _focusOnDateRangeEditorInit = false;
-  PopupSizeProvider _popupSizeProvider;
+  final PopupSizeProvider _popupSizeProvider;
 
   @ViewChild(ButtonDirective)
   set focusableElement(ButtonDirective button) {
@@ -377,7 +377,7 @@ class MaterialDateRangePickerComponent
   /// saved or canceled when the popup is closed.
   bool _isApplying = false;
 
-  Disposer _disposer = Disposer.oneShot();
+  final Disposer _disposer = Disposer.oneShot();
 
   DatepickerComparison get range => selection.value;
 
