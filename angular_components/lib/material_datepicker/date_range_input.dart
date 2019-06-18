@@ -56,7 +56,7 @@ import 'package:angular_components/model/observable/observable.dart';
   directives: [DateInputDirective, materialInputDirectives],
 )
 class DateRangeInputComponent implements OnInit, OnDestroy {
-  ChangeDetectorRef _changeDetector;
+  final ChangeDetectorRef _changeDetector;
   StreamSubscription _calendarStream;
 
   DateRangeInputComponent(this._changeDetector);
@@ -159,7 +159,7 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   }
 
   CalendarState get state => _model.value;
-  ObservableReference<CalendarState> _model =
+  final ObservableReference<CalendarState> _model =
       ObservableReference(CalendarState.empty(), coalesce: true);
 
   /// Fired when the calendar state changes -- e.g. when the user starts

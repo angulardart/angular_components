@@ -60,7 +60,7 @@ class BaseMaterialInput extends FocusableMixin
   bool useNativeValidation = true;
 
   bool _pristine = true;
-  NgControl _cd;
+  final NgControl _cd;
 
   /// Controls what section of the BottomPanel is displayed.
   BottomPanelState bottomPanelState = BottomPanelState.empty;

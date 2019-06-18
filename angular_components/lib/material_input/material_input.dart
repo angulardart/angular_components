@@ -87,7 +87,7 @@ class MaterialInputComponent extends BaseMaterialInput
   @HostBinding('tabIndex')
   static const hostTabIndex = -1;
 
-  ChangeDetectorRef _changeDetector;
+  final ChangeDetectorRef _changeDetector;
 
   @ViewChild('inputEl')
   ElementRef inputEl;

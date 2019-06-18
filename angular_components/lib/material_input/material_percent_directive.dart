@@ -62,7 +62,7 @@ class MaterialPercentInputDirective {
   @Input()
   Function percentErrorRenderer;
 
-  static Map<String, String> _errorOverrides = {
+  static final Map<String, String> _errorOverrides = {
     nonNegativeIntegerRequiredErrorKey: _negativePercentageErrMsg,
     numberBelowLowerBoundErrorKey: _percentTooSmallErrMsg,
     numberAboveUpperBoundErrorKey: _percentTooLargeErrMsg,

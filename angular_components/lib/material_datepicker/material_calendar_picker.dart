@@ -162,7 +162,7 @@ class MaterialCalendarPickerComponent
   }
 
   CalendarState get state => _model.value;
-  ObservableReference<CalendarState> _model =
+  final ObservableReference<CalendarState> _model =
       ObservableReference(CalendarState.empty(), coalesce: true);
 
   /// Fired when the calendar state changes -- e.g. when the user starts
@@ -700,7 +700,7 @@ class MaterialCalendarPickerComponent
   List<_Month> _renderedMonths = [];
 
   // Y-offsets corresponding to each rendered month.
-  List<int> _renderedOffsets = [];
+  final List<int> _renderedOffsets = [];
 
   // The .scroll-container element.
   HtmlElement _scroller;

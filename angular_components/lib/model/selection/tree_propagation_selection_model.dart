@@ -17,7 +17,7 @@ import 'package:angular_components/model/selection/tree_selection_options.dart';
 class TreePropagationSelectionModel<T>
     extends DelegatingMultiSelectionModel<T> {
   /// The available options for this for the tree selection.
-  TreeSelectionOptions<T> _treeOptions;
+  final TreeSelectionOptions<T> _treeOptions;
 
   TreePropagationSelectionModel(
       MultiSelectionModel<T> delegateModel, this._treeOptions)
