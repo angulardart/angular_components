@@ -92,6 +92,10 @@ class MaterialDateTimePickerComponent implements HasDisabled {
     return null;
   }
 
+  /// Increment of time dropdown options in minutes, passed on to time picker.
+  @Input()
+  int increment;
+
   bool _disabled = false;
   bool get disabled => _disabled;
 
