@@ -119,6 +119,17 @@
   }
 }
 
+
+/// Sets overflow to ellipsis for the dropdown items.
+@mixin material-select-dropdown-item-ellipsis() {
+  ::ng-deep material-select-dropdown-item {
+    .label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
 /// Sets the color of the "disabled" item.
 @mixin material-select-disabled-color($color) {
   ::ng-deep material-select-dropdown-item.item.disabled {
