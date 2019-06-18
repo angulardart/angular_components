@@ -4,7 +4,6 @@
 
 @import 'package:angular_components/css/material/material';
 @import 'package:angular_components/material_button/mixins';
-@import 'package:angular_components/material_tab/mixins';
 
 $tab-button-height: $mat-grid * 6;
 
@@ -37,10 +36,14 @@ $tab-button-height: $mat-grid * 6;
   }
 
   &.text-wrap {
-    @include allow-text-wrap;
     margin: 0;
     // TODO(google): Remove this once the issue is resolved.
     padding: 0 (2 * $mat-grid);
+
+    .content {
+      text-overflow: initial;
+      white-space: initial;
+    }
   }
 }
 

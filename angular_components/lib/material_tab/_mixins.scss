@@ -134,15 +134,18 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
   }
 }
 
-// Allow the text inside the tab to break into lines. This needs to carefully
-// scoped to tab-strip or tab-button. Example:
-// material-tab-strip {
-//   @include allow-text-wrap;
-// }
-@mixin allow-text-wrap {
-  ::ng-deep .content {
+/// Allow the text inside a tab to break across multiple lines.
+///
+/// Set `$break-word: true` to break long words across lines. This is recommend
+/// to prevent them from being cropped and unreadable, which affects some
+/// languages more than others.
+@mixin allow-text-wrap($break-word: false) {
+  ::ng-deep tab-button .content {
     text-overflow: initial;
     white-space: initial;
+    @if $break-word {
+      word-break: break-word;
+    }
   }
 }
 
