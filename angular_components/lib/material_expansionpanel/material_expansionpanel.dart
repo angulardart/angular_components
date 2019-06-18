@@ -219,7 +219,7 @@ class MaterialExpansionPanel
   @Input()
   bool closeOnSave = true;
 
-  ObservableReference<bool> _isExpanded = ObservableReference(false);
+  final ObservableReference<bool> _isExpanded = ObservableReference(false);
   bool get isExpanded => _isExpanded.value;
 
   /// If true, the panel is expanded by default, if false, the panel is closed.

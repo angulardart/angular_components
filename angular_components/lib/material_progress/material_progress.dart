@@ -80,7 +80,7 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
   String get ariaValue =>
       indeterminate ? _loadingValue : _activeProgressValue(activeProgress);
 
-  String _loadingValue =
+  final String _loadingValue =
       Intl.message('loading', desc: 'Label text for loading progress');
 
   String _activeProgressValue(int activeProgress) =>

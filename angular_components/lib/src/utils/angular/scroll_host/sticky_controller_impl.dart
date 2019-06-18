@@ -20,7 +20,7 @@ class StickyControllerImpl implements StickyController {
   StreamSubscription _layoutSubscription;
 
   final _rowMap = <Element, _StickyRow>{};
-  Set<Element> _floatingElements = Set();
+  final Set<Element> _floatingElements = Set();
 
   /// The ordered list of rows, based on their position. The order will be
   /// cached between layout checks, unless there was a register or an unregister
