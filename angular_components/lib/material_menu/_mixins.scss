@@ -50,6 +50,18 @@
   }
 }
 
+/// Sets overflow to ellipsis for menu items.
+@mixin material-menu-item-ellipsis() {
+  ::ng-deep material-select-item .menu-item-label-section {
+    overflow: hidden;
+
+    .menu-item-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
 // Makes sure that content will wrap if the label is too wide.
 @mixin menu-item-text-wrap {
   ::ng-deep .menu-item-label {
