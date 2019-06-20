@@ -24,7 +24,7 @@ class GallerySectionBuilder extends Builder {
         await buildStep.findAssets(Glob('**/*.gallery_info.json')).toList();
     if (infoAssets.isEmpty) return;
 
-    final mergedImports = Set<String>();
+    final mergedImports = <String>{};
     final mergedDemos = <String, String>{};
     final mergedMainDemo = <String, String>{};
     final apis = [];

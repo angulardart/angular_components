@@ -45,7 +45,7 @@ class ComponentApiBuilder extends Builder {
   /// Returns a context with the useful values from the [configs].
   Future<Map<String, dynamic>> _mustacheContext(
       Iterable<ResolvedConfig> configs) async {
-    final dedupedImports = Set<String>();
+    final dedupedImports = <String>{};
     final context = <String, dynamic>{'apiComponents': []};
     for (final config in configs) {
       // If multiple components are defined in a demo file, we would end up with

@@ -31,7 +31,7 @@ abstract class TreeSelectionMixin<T>
     Queue<T> parentsToCheck = Queue<T>();
 
     // To prevent an accidental circular reference
-    Set<T> visited = Set<T>();
+    Set<T> visited = <T>{};
 
     visited.add(e);
     if (hasChildren(e)) {
