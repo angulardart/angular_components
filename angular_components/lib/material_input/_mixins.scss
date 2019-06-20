@@ -19,6 +19,13 @@
   }
 }
 
+@mixin material-input-clear-icon-color($color) {
+  ::ng-deep .clear-icon {
+    color: $color;
+    opacity: 1;
+  }
+}
+
 /// Changes the padding of the top section (without underline) of material
 /// input.
 @mixin input-top-section-padding($padding) {
@@ -39,6 +46,13 @@
 @mixin input-padding($padding) {
   ::ng-deep material-input.themeable {
     padding: $padding;
+  }
+}
+
+/// Changes the flex-grow property of the material-input.
+@mixin input-flex-grow($grow) {
+  ::ng-deep material-input.themeable {
+    flex-grow: $grow;
   }
 }
 
@@ -81,6 +95,13 @@
   }
 }
 
+/// Changes the bottom section width of material input.
+@mixin input-bottom-section-width($width) {
+  ::ng-deep .bottom-section {
+    width: $width;
+  }
+}
+
 /// Changes the padding of the leading text.
 @mixin material-input-leading-text-padding($padding) {
   ::ng-deep .leading-text {
@@ -106,6 +127,20 @@
 @mixin material-input-trailing-text-color($color) {
   ::ng-deep .trailing-text {
     color: $color;
+  }
+}
+
+/// Changes the background color of the trailing text.
+@mixin material-input-trailing-background-color($color) {
+  ::ng-deep .trailing-text {
+    background-color: $color;
+  }
+}
+
+/// Changes the background color of the trailing text.
+@mixin material-input-trailing-background-radius($radius) {
+  ::ng-deep .trailing-text {
+    border-radius: $radius;
   }
 }
 
@@ -261,6 +296,39 @@
   ::ng-deep {
     .hint-text {
       white-space: nowrap;
+    }
+  }
+}
+
+/// Changes the vertical-align of the label text.
+@mixin material-input-label-text-vertical-align($vertical-align) {
+  ::ng-deep {
+    .label-text {
+      vertical-align: $vertical-align;
+    }
+  }
+}
+
+/// For multiline input, make the top section grow to take up
+/// as much space as possible, and show scroll when necessary.
+@mixin material-input-multiline-flex-grow-and-scroll() {
+  ::ng-deep .baseline {
+    flex-grow: 1;
+    overflow: hidden;
+    height: 90%; // Leave some space for bottom-section.
+  }
+
+  ::ng-deep .top-section {
+    flex-grow: 1;
+    overflow: auto;
+  }
+}
+
+@mixin input-center-text() {
+  ::ng-deep {
+    .input,
+    .textarea {
+      text-align: center;
     }
   }
 }

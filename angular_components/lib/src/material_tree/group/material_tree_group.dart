@@ -38,10 +38,14 @@ const materialTreeLeftPaddingToken =
     NgIf,
     NgClass
   ],
+  directiveTypes: [
+    Typed<MaterialTreeGroupComponent>.of([#T]),
+  ],
   templateUrl: 'material_tree_group.html',
   styleUrls: ['material_tree_group.scss.css'],
 )
-class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
+class MaterialTreeGroupComponent<T> extends MaterialTreeNode<T>
+    implements OnDestroy {
   @HostBinding('attr.role')
   static const hostRole = 'group';
 
@@ -58,6 +62,8 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
   @Input()
   @override
   bool allowParentSingleSelection = false;
+  @Input()
+  bool deselectOnTrigger = true;
   final MaterialTreeRoot _root;
 
   int _maxInitialOptionsShown;
@@ -101,12 +107,6 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
       : fixedPadding = '${constantLeftPadding ?? defaultConstantLeftPadding}px',
         super(_root, changeDetector);
 
-  @Input()
-  @override
-  set expandAll(bool value) {
-    super.expandAll = value;
-  }
-
   // This is only used to standardize all the different group components.
   @HostBinding('class.material-tree-group')
   final bool isMaterialTreeGroup = true;
@@ -141,7 +141,11 @@ class MaterialTreeGroupComponent extends MaterialTreeNode implements OnDestroy {
       final previouslyToggledNode = _root.previouslyToggledNode;
       _root.previouslyToggledNode = option;
 
-      setSelectionState(option, !isSelected(option));
+      // If [option] is already selected, do not deselect it unless
+      // [deselectOnTrigger] is `true`.
+      if (!isSelected(option) || deselectOnTrigger) {
+        setSelectionState(option, !isSelected(option));
+      }
 
       // Handle shift + select behavior for multi-selection.
       if (isMultiSelect &&

@@ -61,8 +61,8 @@ class MaterialRadioGroupComponent
       // by focus calls.
       _resetTabIndex();
       _selected = _selectedRadioComponent?.value;
-      if (valueSelection != null && _selected != null) {
-        valueSelection.select(_selected);
+      if (_valueSelection != null && _selected != null) {
+        _valueSelection.select(_selected);
       }
       _onChange.add(_selected);
     }));
@@ -109,7 +109,7 @@ class MaterialRadioGroupComponent
   void _resetTabIndex() {
     // Since this is updating children that were already dirty-checked,
     // need to delay this change until next angular cycle.
-    _ngZone.onEventDone.first.then((_) {
+    _ngZone.runAfterChangesObserved(() {
       if (_radioComponents == null) return; // Component was destroyed.
       // Disable everything first.
       for (var radioComponent in _radioComponents) {
@@ -134,14 +134,26 @@ class MaterialRadioGroupComponent
     });
   }
 
-  /// Published when selection changes. Prefer `(ngModelChanged)`.
+  /// Published when selection changes. Prefer `(ngModelChange)`.
   @Output('selectedChange')
   Stream<dynamic> get onChange => _onChange.stream;
   final _onChange = StreamController<dynamic>.broadcast();
 
   /// Selection model containing value object.
   @Input('selectionModel')
-  SelectionModel valueSelection;
+  set valueSelection(SelectionModel value) {
+    if (_valueSelection == value) return;
+    _selectionSubscription?.cancel();
+    _valueSelection = value;
+    _selectionSubscription = _valueSelection?.selectionChanges?.listen((_) {
+      selected = _valueSelection.selectedValues
+          .firstWhere((_) => true, orElse: () => null);
+    });
+  }
+
+  SelectionModel _valueSelection;
+  StreamSubscription<List<SelectionChangeRecord<dynamic>>>
+      _selectionSubscription;
 
   /// Internal selection model containing the radio component.
   final componentSelection = SelectionModel<MaterialRadioComponent>.single();
@@ -209,7 +221,7 @@ class MaterialRadioGroupComponent
     if (_preselectedValue != null) {
       // Since this is updating children that were already dirty-checked,
       // need to delay this change until next angular cycle.
-      _ngZone.onEventDone.first.then((_) {
+      _ngZone.runAfterChangesObserved(() {
         if (_preselectedValue == null) return; // Overridden before callback.
         // Initialize preselect now, this will trigger tabIndex reset.
         selected = _preselectedValue;
@@ -225,5 +237,6 @@ class MaterialRadioGroupComponent
   @override
   void ngOnDestroy() {
     _disposer.dispose();
+    _selectionSubscription?.cancel();
   }
 }

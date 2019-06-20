@@ -42,18 +42,14 @@
 <section class="toc" *ngIf="showToc">
   <ng-container *ngIf="model.docs.isNotEmpty">
     <label>Dart Docs</label>
-    <a *ngFor="let doc of model.docs"
-       buttonDecorator
-       (trigger)="scroll('#' + getDocId(doc))">
+    <a *ngFor="let doc of model.docs" buttonDecorator (trigger)="scroll('#' + getDocId(doc))">
       {{doc.name}}
     </a>
   </ng-container>
 
   <ng-container *ngIf="model.demos.isNotEmpty">
     <label>Demos</label>
-    <a *ngFor="let demo of model.demos"
-       buttonDecorator
-       (trigger)="scroll('#' + getDemoId(demo))">
+    <a *ngFor="let demo of model.demos" buttonDecorator (trigger)="scroll('#' + getDemoId(demo))">
       {{demo.name}}
     </a>
   </ng-container>
@@ -69,69 +65,21 @@
     {{doc.name}}
     <a [href]="getCodeSearchLink(doc.path)" target="_blank">Source Code</a>
   </h2>
-
-  <p class="declaration-deprecated" *ngIf="doc.deprecated">
-    {{doc.deprecatedMessage}}
-  </p>
-
-  <p *ngIf="doc.selector.isNotEmpty">
-    <strong>Selector:</strong>
-    <code>&lt;{{doc.selector}}&gt;</code>
-  </p>
-
-  <p *ngIf="doc.exportAs.isNotEmpty">
-    <strong>Exported as:</strong>
-    <code>{{doc.exportAs}}</code>
-  </p>
-
-  <div [safeInnerHtml]="getSafeHtml(doc.comment)"></div>
-
-  <ng-container *ngIf="model.showGeneratedDocs">
-    <div *ngIf="doc.inputs.isNotEmpty">
-      <strong>Inputs:</strong>
-      <ul class="property-list">
-        <li *ngFor="let input of doc.inputs">
-          <code class="property-name">
-            {{input.bindingAlias.isNotEmpty ? input.bindingAlias : input.name}}
-          </code>
-          <code class="property-type">{{input.type}}</code>
-
-          <p class="property-deprecated" *ngIf="input.deprecated">
-            {{input.deprecatedMessage}}
-          </p>
-          <p *ngIf="input.comment.isEmpty && !input.deprecated">
-            Missing a Dart Doc comment. Please update:
-            <a [href]="getCodeSearchLink(input.classPath)" target="_blank">
-              {{input.classPath}}
-            </a>
-          </p>
-          <div [safeInnerHtml]="getSafeHtml(input.comment)"></div>
-        </li>
-      </ul>
-    </div>
-
-    <div *ngIf="doc.outputs.isNotEmpty">
-      <strong>Outputs:</strong>
-      <ul class="property-list">
-        <li *ngFor="let output of doc.outputs">
-          <code class="property-name">
-            {{output.bindingAlias.isNotEmpty ? output.bindingAlias : output.name}}
-          </code>
-          <code class="property-type">{{output.type}}</code>
-          <p class="property-deprecated" *ngIf="output.deprecated">
-            {{output.deprecatedMessage}}
-          </p>
-          <p *ngIf="output.comment.isEmpty && !output.deprecated">
-            Missing a Dart Doc comment. Please update:
-            <a [href]="getCodeSearchLink(output.classPath)" target="_blank">
-              {{output.classPath}}
-            </a>
-          </p>
-          <div [safeInnerHtml]="getSafeHtml(output.comment)"></div>
-        </li>
-      </ul>
-    </div>
-  </ng-container>
+  <documentation-component *ngIf="doc.docType == DocType.dartDocInfo"
+                           dart
+                           [doc]="doc"
+                           [showGeneratedDocs]="model.showGeneratedDocs">
+  </documentation-component>
+  <documentation-component *ngIf="doc.docType == DocType.markdownDocInfo"
+                           markdown
+                           [doc]="doc"
+                           [showGeneratedDocs]="model.showGeneratedDocs">
+  </documentation-component>
+  <documentation-component *ngIf="doc.docType == DocType.sassDocInfo"
+                           sass
+                           [doc]="doc"
+                           [showGeneratedDocs]="model.showGeneratedDocs">
+  </documentation-component>
 </section>
 
 <section *ngFor="let demo of model.demos" class="demo">

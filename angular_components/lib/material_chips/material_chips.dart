@@ -11,7 +11,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// A __chips__ collection widget, displaying a list of objects as Chips.
 @Component(
   selector: 'material-chips',
-  providers: [Provider(HasRenderer, useExisting: MaterialChipsComponent)],
+  providers: [ExistingProvider(HasRenderer, MaterialChipsComponent)],
   templateUrl: 'material_chips.html',
   styleUrls: ['material_chips.scss.css'],
   directives: [MaterialChipComponent, NgFor],

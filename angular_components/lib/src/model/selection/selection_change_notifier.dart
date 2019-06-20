@@ -15,8 +15,7 @@ abstract class SelectionObservable<T> {
   bool get hasSelectionObservers;
 
   /// Schedules a [SelectionChangeRecord].
-  void notifySelectionChange(
-      {Iterable<T> added = const [], Iterable<T> removed = const []});
+  void notifySelectionChange({Iterable<T> added, Iterable<T> removed});
 
   /// A stream that returns changes to selected elements.
   Stream<List<SelectionChangeRecord<T>>> get selectionChanges;

@@ -4,59 +4,57 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <div class="panel themeable"
-     role="group"
-     [attr.aria-label]="name"
-     [attr.aria-expanded]="isExpanded"
      [class.open]="isExpanded"
      [class.background]="anotherExpanded"
      keyupBoundary>
 
   <!-- Title section -->
-<header [class.hidden]="isExpanded && hideExpandedHeader" #headerPanel>
+<header [class.hidden]="headerHidden" #headerPanel role="presentation">
   <div class="header"
           buttonDecorator
           #expandCollapseButton
           #headerContent
-          [disabled]="disabled"
+          keyboardOnlyFocusIndicator
+          [disabled]="disabled || headerHidden"
           [class.closed] = "!isExpanded"
+          [attr.aria-expanded]="isExpanded"
           [class.disable-header-expansion]="disableHeaderExpansion"
           [attr.aria-label]="headerMsg"
+          [attr.aria-describedby]="panelDescription.id"
+          [attr.aria-controls]="mainId.id"
           (trigger)="handleHeaderClick">
     <material-icon
-        buttonDecorator
         *ngIf="shouldShowExpandIcon && shouldExpandOnLeft"
         class="expand-button expand-on-left"
         [icon]="expandIcon"
         [class.expand-more]="shouldFlipExpandIcon"
-        (trigger)="handleExpandIconClick">
+        (click)="handleExpandIconClick">
     </material-icon>
     <div class="panel-name">
+      <ng-content select="[name]"></ng-content>
       <p class="primary-text">{{name}}</p>
       <p class="secondary-text" *ngIf="secondaryText != null">{{secondaryText}}</p>
-      <ng-content select="[name]"></ng-content>
     </div>
 
-    <div class="panel-description">
+    <div class="panel-description" autoId #panelDescription="autoId">
       <ng-content select="[value]"></ng-content>
     </div>
 
-    <material-icon buttonDecorator
-                   *ngIf="shouldShowExpandIcon && !shouldExpandOnLeft"
+    <material-icon *ngIf="shouldShowExpandIcon && !shouldExpandOnLeft"
                    class="expand-button"
                    [icon]="expandIcon"
                    [class.expand-more]="shouldFlipExpandIcon"
-                   (trigger)="handleExpandIconClick"
-                   [attr.aria-label]="expandAriaMsg">
+                   (click)="handleExpandIconClick">
     </material-icon>
   </div>
-  <div class="action" *ngIf="!shouldShowExpandIcon" #action>
+  <div class="action" *ngIf="!shouldShowExpandIcon && !headerHidden" #action>
     <ng-content select="[action]"></ng-content>
   </div>
 </header>
 
 <!-- Expanded section -->
-<main [class.hidden]="!isExpanded" #mainPanel>
-  <div #mainContent>
+<main [class.hidden]="!isExpanded" #mainPanel role="presentation" autoId #mainId="autoId">
+  <div #mainContent *deferredContent="forceContent: forceContentWhenClosed">
     <div #contentWrapper class="content-wrapper" [class.hidden-header]="hideExpandedHeader">
       <material-icon
           *ngIf="shouldShowHiddenHeaderExpandIcon && shouldExpandOnLeft"
@@ -64,7 +62,10 @@
           [icon]="expandIcon"
           class="expand-button expand-on-left"
           buttonDecorator
+          keyboardOnlyFocusIndicator
           (trigger)="collapse()"
+          [attr.aria-expanded]="isExpanded"
+          [attr.aria-controls]="mainId.id"
           [attr.aria-label]="closePanelMsg">
       </material-icon>
       <div class="content">
@@ -76,12 +77,13 @@
           [icon]="expandIcon"
           class="expand-button"
           buttonDecorator
+          keyboardOnlyFocusIndicator
           (trigger)="collapse()"
+          [attr.aria-expanded]="isExpanded"
           [attr.aria-label]="closePanelMsg">
       </material-icon>
     </div>
 
-   <ng-container *deferredContent>
       <div *ngIf="!showSaveCancel" class="toolbelt">
         <ng-content select="[toolbelt]"></ng-content>
       </div>
@@ -99,7 +101,6 @@
           (yes)="doSave"
           (no)="doCancel">
       </material-yes-no-buttons>
-  </ng-container>
   </div>
 </main>
 

@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
@@ -24,11 +25,11 @@ export 'base_material_input.dart' show ValidityCheck, CharacterCounter;
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     DeferredValidator,
-    Provider(HasDisabled, useExisting: MaterialMultilineInputComponent),
-    Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
-    Provider(ReferenceDirective, useExisting: MaterialMultilineInputComponent),
-    Provider(Focusable, useExisting: MaterialMultilineInputComponent),
-    Provider(BaseMaterialInput, useExisting: MaterialMultilineInputComponent)
+    ExistingProvider(HasDisabled, MaterialMultilineInputComponent),
+    ExistingProvider.forToken(NG_VALIDATORS, DeferredValidator),
+    ExistingProvider(ReferenceDirective, MaterialMultilineInputComponent),
+    ExistingProvider(Focusable, MaterialMultilineInputComponent),
+    ExistingProvider(BaseMaterialInput, MaterialMultilineInputComponent),
   ],
   templateUrl: 'material_input_multiline.html',
   styleUrls: ['material_input.scss.css', 'material_input_multiline.scss.css'],
@@ -54,6 +55,8 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
 
   final ChangeDetectorRef _changeDetector;
   final DomService _domService;
+
+  StreamSubscription _subscription;
 
   @ViewChild('textareaEl')
   ElementRef textareaEl;
@@ -86,15 +89,6 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
       : _changeDetector = changeDetector,
         super(cd, changeDetector, validator);
 
-  /// TODO(google): The following values could be set in the base class, but
-  /// there is currently no working way to set ViewChild values on the base
-  /// class.
-  @ViewChild(FocusableDirective)
-  @override
-  set focusable(Focusable value) {
-    super.focusable = value;
-  }
-
   // Overriden to add a HostListener event.
   @HostListener('focus')
   @override
@@ -121,10 +115,17 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
       var height = (value.nativeElement as Element).clientHeight;
       if (height != 0) {
         _inputLineHeight = height;
+        _subscription?.cancel();
+        _subscription = null;
         _changeDetector
           ..markForCheck()
           // TODO(google): remove after the bug is fixed.
           ..detectChanges();
+      } else if (_subscription == null) {
+        // Listen to dom changes until we can read the line height.
+        _subscription = _domService.onLayoutChanged.listen((_) {
+          lineHeightMeasure = value;
+        });
       }
     });
   }
@@ -158,9 +159,21 @@ class MaterialMultilineInputComponent extends BaseMaterialInput
     _changeDetector.markForCheck();
   }
 
+  /// The ID of an element which should be assigned to the inner input element's
+  /// aria-describedby attribute.
+  @Input()
+  String inputAriaDescribedBy;
+
+  /// Textarea element tabindex.
+  ///
+  /// Disabled textarea is not interactive and should not receive focus on TAB.
+  int get inputTabIndex => disabled ? -1 : 0;
+
   @override
   void ngOnDestroy() {
     super.ngOnDestroy();
+    _subscription?.cancel();
+    _subscription = null;
     textareaEl = null;
     popupSourceEl = null;
   }

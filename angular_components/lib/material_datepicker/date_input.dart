@@ -200,24 +200,27 @@ class DateInputDirective implements OnDestroy {
     return date;
   }
 
+  Date _parseDateUsingFormat(String input, DateFormat format) {
+    try {
+      return _clampDate(Date.parseLoose(input, format));
+    } on FormatException {
+      return null;
+    } on ArgumentError {
+      // This could be a valid date format, but a date greater than
+      // DateTime's max allowed time
+      return null;
+    }
+  }
+
   /// Parse the given string as a date using one of the listed formats.
   /// Returns the parsed date, or null if the string didn't match any format.
   Date _parseDateUsingFormatList(String input, List<DateFormat> formatList) {
-    Date date;
-    formatList.any((format) {
-      try {
-        date = Date.parseLoose(input, format);
-        date = _clampDate(date);
-        return true;
-      } on FormatException {
-        return false;
-      } on ArgumentError {
-        // This could be a valid date format, but a date greater than
-        // DateTime's max allowed time
-        return false;
-      }
-    });
-    return date;
+    for (final format in formatList) {
+      final d = _parseDateUsingFormat(input, format);
+
+      if (d != null) return d;
+    }
+    return null;
   }
 
   /// A cache for _parseDate, to speed up change detection.
@@ -250,16 +253,22 @@ class DateInputDirective implements OnDestroy {
         return invalidDateMsg;
       }
     } else {
+      // try parse with the given dateFormat
+      _lastParse = _parseDateUsingFormat(input, dateFormat);
+
       // Non-empty input is invalid iff parsing fails
       if (isMonthInput) {
-        _lastParse = _parseDateUsingFormatList(input, _inputFormats) ??
-            _parseDateUsingFormatList(input, _monthInputFormatsWithoutDay) ??
-            _guessYear(
-                _parseDateUsingFormatList(input, _monthInputFormatsMonthOnly));
+        _lastParse ??= _parseDateUsingFormatList(input, _inputFormats);
+        _lastParse ??=
+            _parseDateUsingFormatList(input, _monthInputFormatsWithoutDay);
+        _lastParse ??= _guessYear(
+          _parseDateUsingFormatList(input, _monthInputFormatsMonthOnly),
+        );
       } else {
-        _lastParse = _parseDateUsingFormatList(input, _inputFormats) ??
-            _guessYear(
-                _parseDateUsingFormatList(input, _dayInputFormatsWithoutYear));
+        _lastParse ??= _parseDateUsingFormatList(input, _inputFormats);
+        _lastParse ??= _guessYear(
+          _parseDateUsingFormatList(input, _dayInputFormatsWithoutYear),
+        );
       }
 
       if (_lastParse == null) {

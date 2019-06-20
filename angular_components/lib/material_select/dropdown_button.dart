@@ -37,8 +37,8 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     NgIf,
   ],
   providers: [
-    Provider(HasDisabled, useExisting: DropdownButtonComponent),
-    Provider(Focusable, useExisting: DropdownButtonComponent),
+    ExistingProvider(HasDisabled, DropdownButtonComponent),
+    ExistingProvider(Focusable, DropdownButtonComponent),
   ],
 )
 class DropdownButtonComponent extends Object
@@ -117,6 +117,9 @@ class DropdownButtonComponent extends Object
   /// Must also include the id of the button to read both.
   String get ariaLabelledBy =>
       _ariaLabelledBy == null ? null : '$_ariaLabelledBy $uuid';
+
+  @Input()
+  String ariaDescribedBy;
 
   bool get invalid => error != null;
 

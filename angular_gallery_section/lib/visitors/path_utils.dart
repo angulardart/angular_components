@@ -77,8 +77,9 @@ String targetToImportUri(String pathName) =>
 ///
 ///     splitPathOnPackage('a/b/lib/c.dart');  // => ['a.b', 'lib/c.dart']
 List<String> splitPathOnPackage(String p) {
-  if (!p.contains('/lib/'))
+  if (!p.contains('/lib/')) {
     throw ArgumentError('Bad argument: "$p"; must contain a "lib/" directory.');
+  }
   var parts = p.split('/lib/');
   parts[0] = parts[0].replaceAll('/', '.');
   parts[1] = 'lib/${parts[1]}';

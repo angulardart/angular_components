@@ -4,11 +4,8 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <div class="comparison-toggle-section">
-  <span class="compare-header">
-    {{comparisonHeaderMsg}}
-  </span>
   <material-toggle class="comparison-toggle"
-                   [ariaLabel]="comparisonHeaderMsg"
+                   [label]="comparisonHeaderMsg"
                    [disabled]="!model.comparisonSupported"
                    [(checked)]="comparisonEnabled">
   </material-toggle>
@@ -16,7 +13,7 @@
 
 <div *ngIf="model.comparisonEnabled">
     <material-select-item *ngFor="let option of model.validComparisonOptions"
-                          closeOnActivate="false"
+                          [closeOnActivate]="false"
                           (trigger)="model.comparisonOption = option"
                           [selected]="model.comparisonOption == option">{{comparisonOptionMsg(option)}}</material-select-item>
 </div>

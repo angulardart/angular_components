@@ -11,7 +11,7 @@
           [class.floated-label]="floatingLabel">
       <material-icon class="glyph leading"
                      icon="{{leadingGlyph}}"
-                     [ariaLabel]="leadingGlyphAriaLabel"
+                     [attr.aria-label]="leadingGlyphAriaLabel"
                      [attr.disabled]="disabled">
       </material-icon>
     </span>
@@ -49,7 +49,11 @@
              [attr.aria-invalid]="invalid"
              [attr.aria-label]="inputAriaLabel"
              [attr.aria-labelledby]="labelId"
+             [attr.aria-describedby]="ariaDescribedBy"
              [attr.aria-owns]="inputAriaOwns"
+             [attr.aria-controls]="inputAriaControls"
+             [attr.aria-disabled]="disabled"
+             [attr.autocomplete]="inputAutocomplete"
              [attr.role]="inputRole"
              [ngModel]="inputText"
              (blur)="inputBlurAction($event, inputEl.validity.valid, inputEl.validationMessage)"
@@ -60,6 +64,7 @@
              (input)="inputKeypress(inputEl.value, inputEl.validity.valid, inputEl.validationMessage)"
              [multiple]="multiple"
              [readonly]="disabled"
+             [tabindex]="inputTabIndex"
              [type]="type">
     </label>
     <span *ngIf="hasTrailingText"
@@ -72,7 +77,7 @@
           [class.floated-label]="floatingLabel">
       <material-icon class="glyph trailing"
                      icon="{{trailingGlyph}}"
-                     [ariaLabel]="trailingGlyphAriaLabel"
+                     [attr.aria-label]="trailingGlyphAriaLabel"
                      [attr.disabled]="disabled">
       </material-icon>
     </span>
@@ -100,6 +105,7 @@
      [ngSwitch]="bottomPanelState">
   <div class="error-text"
        role="alert"
+       [attr.id]="errorTextId"
        attr.aria-hidden="{{!invalid}}"
        [class.focused]="focused"
        [class.invalid]="invalid"
@@ -114,12 +120,12 @@
   <div class="spaceholder"
        *ngSwitchWhen="emptyState"
        tabindex="-1"
+       aria-hidden="true"
        (focus)="$event.stopPropagation()">
     &nbsp;
   </div>
   <div *ngIf="maxCount != null || showCharacterCount"
        class="counter"
-       aria-hidden="true"
        [class.invalid]="invalid">
     {{msgCharacterCounter(inputTextLength, maxCount)}}
   </div>

@@ -11,9 +11,7 @@ import 'material_input_error_keys.dart';
 /// [Validator] which will validate a number input is positive > 0.
 @Directive(
   selector: '[checkPositive]',
-  providers: [
-    Provider(NG_VALIDATORS, useExisting: PositiveNumValidator, multi: true)
-  ],
+  providers: [ExistingProvider.forToken(NG_VALIDATORS, PositiveNumValidator)],
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
@@ -24,8 +22,9 @@ class PositiveNumValidator implements Validator {
 
   @override
   Map<String, dynamic> validate(AbstractControl control) {
-    if (!enabled || control.value == null)
+    if (!enabled || control.value == null) {
       return null; // Handled by accessor validator
+    }
     assert(control.value is Comparable, 'Value needs to be comparable');
     if (control.value <= 0) {
       return {positiveIntegerRequiredErrorKey: numberIsNotPositiveMsg()};
@@ -42,7 +41,7 @@ class PositiveNumValidator implements Validator {
 @Directive(
   selector: '[checkNonNegative]',
   providers: [
-    Provider(NG_VALIDATORS, useExisting: CheckNonNegativeValidator, multi: true)
+    ExistingProvider.forToken(NG_VALIDATORS, CheckNonNegativeValidator)
   ],
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
@@ -71,9 +70,7 @@ class CheckNonNegativeValidator implements Validator {
 /// than [lowerBound].
 @Directive(
   selector: '[lowerBound]',
-  providers: [
-    Provider(NG_VALIDATORS, useExisting: LowerBoundValidator, multi: true)
-  ],
+  providers: [ExistingProvider.forToken(NG_VALIDATORS, LowerBoundValidator)],
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
@@ -110,9 +107,7 @@ class LowerBoundValidator implements Validator {
 /// than [upperBound].
 @Directive(
   selector: '[upperBound]',
-  providers: [
-    Provider(NG_VALIDATORS, useExisting: UpperBoundValidator, multi: true)
-  ],
+  providers: [ExistingProvider.forToken(NG_VALIDATORS, UpperBoundValidator)],
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )

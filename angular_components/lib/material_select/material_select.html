@@ -3,14 +3,19 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<material-list [width]="width">
+<material-list focusList [autoFocusIndex]="autoFocusIndex" role="none" [width]="width">
   <ng-content></ng-content>
-  <div class="options-wrapper" *ngIf="options != null">
+  <div class="options-wrapper"
+       *ngIf="options != null"
+       role="group"
+       [attr.aria-labelledby]="ariaLabelledBy"
+       [attr.aria-describedby]="ariaDescribedBy">
     <div *ngFor="let group of options.optionGroups; trackBy: trackByIndexFn" group
          [class.empty]="group.isEmpty">
       <template [ngIf]="group.isNotEmpty">
         <span *ngIf="group.hasLabel" label>{{group.uiDisplayName}}</span>
         <material-select-item *ngFor="let item of group"
+                              focusItem
                               [itemRenderer]="itemRenderer"
                               [disabled]="disabled || isOptionDisabled(item)"
                               [componentRenderer]="componentRenderer"

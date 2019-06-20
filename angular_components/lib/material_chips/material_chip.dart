@@ -24,7 +24,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 /// Chip components are rendered in a `material-chips` component.
 @Component(
   selector: 'material-chip',
-  providers: [Provider(HasRenderer, useExisting: MaterialChipComponent)],
+  providers: [ExistingProvider(HasRenderer, MaterialChipComponent)],
   templateUrl: 'material_chip.html',
   styleUrls: ['material_chip.scss.css'],
   directives: [ButtonDirective, NgIf],
@@ -40,6 +40,10 @@ class MaterialChipComponent<T> extends RootFocusable implements HasRenderer<T> {
       name: 'chipDeleteButtonMessage',
       desc: 'Label for a button which removes the item when clicked.',
       meaning: 'Label for a button which removes the item when clicked.');
+
+  /// Aria label for delete button.
+  @Input()
+  String deleteButtonAriaMessage = chipDeleteButtonMessage;
 
   /// A selection model to render as chips.
   ///

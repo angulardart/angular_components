@@ -174,18 +174,22 @@ for the exact specification of what is supported. A general overview is:
 *   `<simple-html>` supports the following safe inline elements:
     *   Basic text formatting: `<b>`, `<strong>`, `<i>`, `<em>`.
     *   Line breaks: `<br>`.
-    *   Text grouping: `<span>`, including the `class` attribute.
+    *   Text grouping: `<span>`.
     *   Links: `<a href="...">` provided the destination matches the current
-        [origin](https://en.wikipedia.org/wiki/Same-origin_policy)
-        or points to certain permitted URIs such as the Help Center; see
-        [URI whitelisting](#uri-whitelisting)).
-        *   The `class` and `rel` attributes are permitted.
+        [origin](https://en.wikipedia.org/wiki/Same-origin_policy), points to
+        certain permitted URIs such as the Help Center, or uses the
+        `doNotVerifyUrlDestinations` flag; see
+        ([URI whitelisting](#uri-whitelisting)).
+        *   The `rel` attributes are permitted.
         *   The `target` attribute is permitted provided `rel="noopener"` is
             set.
+        *   The `title` attribute is permitted.
 *   `<simple-html-block>` supports all of the above and the following safe block
     elements:
     *   Unordered lists: `<ul>` and `<li>`.
     *   Paragraphs: `<p>`.
+
+The `class` attribute is permitted by all elements.
 
 ### URI whitelisting {#uri-whitelisting}
 
@@ -197,6 +201,27 @@ Additional paths can be permitted through an optional Angular dependency. See
 the
 [simpleHtmlUriWhitelist](https://github.com/dart-lang/angular_components/blob/master/lib/simple_html/simple_html.dart)
 token for details.
+
+#### Allowing external URIs without a whitelist
+
+There are cases where you can not use a whitelist:
+
+*   when exposing a whitelist through client code is not acceptable, or
+*   the whitelist is not fixed
+
+When the URIs come from a *safe* source, such as internally sourced URIs, you
+can consider enabling the `doNotVerifyUrlDestinations` flag. This will allow any
+URI with the `http`, `https` or `mailto` scheme to be inserted, and should
+therefore be used with caution.
+
+For example:
+
+```html
+<my-template>
+  <simple-html doNotVerifyUrlDestinations
+               [contents]="internalMessages.someMessage"></simple-html>
+</my-template>
+```
 
 ### Custom click handling
 
@@ -245,9 +270,8 @@ The following is not yet supported:
 
 *   Other elements and attributes that are probably safe but are not yet in
     demand (such as `blockquote`).
-*   More dangerous cases (such as setting the URL of an iframe) must still
-    be done using `bypassSecurity*` methods. (But preferably don't do this at
-    all.)
+*   More dangerous cases (such as setting the URL of an iframe) must still be
+    done using `bypassSecurity*` methods. (But preferably don't do this at all.)
 
 ## Migration
 

@@ -19,11 +19,9 @@ import 'base_material_input.dart';
 // TODO(google): Migrate away from this being the default accessor.
 @Directive(
   selector: 'material-input:not([blurUpdate]):not([changeUpdate])',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
-class MaterialInputDefaultValueAccessor extends BaseMaterialInputValueAccessor
-    implements ControlValueAccessor, OnDestroy {
+class MaterialInputDefaultValueAccessor
+    extends BaseMaterialInputValueAccessor<String> {
   MaterialInputDefaultValueAccessor(
       BaseMaterialInput input, @Self() @Optional() NgControl control)
       : super(input, control);
@@ -40,11 +38,9 @@ class MaterialInputDefaultValueAccessor extends BaseMaterialInputValueAccessor
 /// updates on blur.
 @Directive(
   selector: 'material-input[blurUpdate]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
-class MaterialInputBlurValueAccessor extends BaseMaterialInputValueAccessor
-    implements ControlValueAccessor, OnDestroy {
+class MaterialInputBlurValueAccessor
+    extends BaseMaterialInputValueAccessor<String> {
   MaterialInputBlurValueAccessor(
       BaseMaterialInput input, @Self() @Optional() NgControl control)
       : super(input, control);
@@ -61,11 +57,9 @@ class MaterialInputBlurValueAccessor extends BaseMaterialInputValueAccessor
 /// updates on change.
 @Directive(
   selector: 'material-input[changeUpdate]',
-  // TODO(google): Change to `Visibility.local` to reduce code size.
-  visibility: Visibility.all,
 )
-class MaterialInputChangeValueAccessor extends BaseMaterialInputValueAccessor
-    implements ControlValueAccessor, OnDestroy {
+class MaterialInputChangeValueAccessor
+    extends BaseMaterialInputValueAccessor<String> {
   MaterialInputChangeValueAccessor(
       BaseMaterialInput input, @Self() @Optional() NgControl control)
       : super(input, control);
@@ -80,8 +74,8 @@ class MaterialInputChangeValueAccessor extends BaseMaterialInputValueAccessor
 
 /// Common logic for a [ControlValueAccessor] for a
 /// [BaseMaterialInputComponent].
-abstract class BaseMaterialInputValueAccessor
-    implements ControlValueAccessor, OnDestroy {
+abstract class BaseMaterialInputValueAccessor<T>
+    implements ControlValueAccessor<T>, OnDestroy {
   @protected
   final disposer = Disposer.oneShot();
   @protected
@@ -100,9 +94,15 @@ abstract class BaseMaterialInputValueAccessor
   }
 
   @override
-  void writeValue(newValue) {
-    input.inputText = newValue;
+  void writeValue(T newValue) {
+    input.inputText = formatValue(newValue);
   }
+
+  /// Handles converting input value to [String].
+  ///
+  /// Override this if you need additional formatting for your value type, ex.
+  /// if using a [NumberFormatter].
+  String formatValue(T value) => '${value ?? ''}';
 
   @override
   void registerOnTouched(callback) {

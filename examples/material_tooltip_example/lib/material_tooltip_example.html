@@ -133,8 +133,8 @@
                 #ref2="tooltipTarget">
             </material-icon>
           </p>
-          <material-tooltip-card [for]="ref2">
-            <header>Simple sentences about things.</header>
+          <material-tooltip-card [for]="ref2" focusContents>
+            <header role="presentation">Simple sentences about things.</header>
             <p><b>How it works:</b> Text explains things further.</p>
           </material-tooltip-card>
         </div>
@@ -152,12 +152,10 @@
                 #clickableRef="tooltipTarget">
             </material-icon>
           </p>
-          <material-tooltip-card [for]="clickableRef">
-            <header>Simple sentences about things.</header>
+          <material-tooltip-card [for]="clickableRef" focusContents>
+            <header role="presentation">Simple sentences about things.</header>
             <p><b>How it works:</b> Text explains things further.</p>
             <p><a href="javascript: void 0">Learn more</a></p>
-            <footer>
-            </footer>
           </material-tooltip-card>
         </div>
       </div>
@@ -183,10 +181,10 @@
                 #deferredRef="tooltipTarget">
             </material-icon>
           </p>
-          <material-tooltip-card [for]="deferredRef">
+          <material-tooltip-card [for]="deferredRef" focusContents>
             <delayed-content *deferredContent
                              [delay]="4">
-              <header>Simple sentences about things.</header>
+              <header role="presentation">Simple sentences about things.</header>
               <p><b>How it works:</b> Text explains things further.</p>
             </delayed-content>
           </material-tooltip-card>

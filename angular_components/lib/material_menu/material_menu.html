@@ -4,7 +4,8 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <material-button
-    (trigger)="handleButtonClick"
+    (keydown)="onKeyDown($event)"
+    (trigger)="handlePopupTriggerAction"
     [attr.aria-label]="ariaLabel"
     [attr.icon]="hasIcon"
     [disabled]="disabled"
@@ -23,7 +24,7 @@
 </material-button>
 <menu-popup
     *ngIf="hasSubmenu"
-    [(isExpanded)]="isExpanded"
+    [(expandAction)]="expandAction"
     [popupClass]="popupClass"
     [menu]="menu"
     [popupSource]="toggle"

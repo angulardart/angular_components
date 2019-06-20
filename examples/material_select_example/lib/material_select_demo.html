@@ -5,18 +5,27 @@
 -->
 <section>
   <h2>Basic Usage</h2>
-  <p>The template is responsible for handling item clicks and setting items as selected</p>
-  <material-select width="2" class="bordered-list">
+  <p>
+    The template is responsible for handling item clicks and setting items as selected. For
+    accessibility, add [FocusListDirective] to the material-list and [FocusItemDirective] to each
+    item, or set your options with a SelectionOptions instance (see below) and that will be handled
+    for you.
+  </p>
+  <material-select focusList width="2" class="bordered-list">
     <material-select-item (trigger)="proto = 'ftp'"
+                          focusItem
                           [selected]="proto == 'ftp'">FTP</material-select-item>
     <material-select-item (trigger)="proto = 'http'"
+                          focusItem
                           [selected]="proto == 'http'">HTTP</material-select-item>
     <material-select-item (trigger)="proto = 'https'"
+                          focusItem
                           [selected]="proto == 'https'">HTTPS</material-select-item>
   </material-select>
   <p>Or, create `material-select-item` elements using `*ngFor`.</p>
-  <material-select width="2" class="bordered-list">
+  <material-select focusList width="2" class="bordered-list">
     <material-select-item *ngFor="let p of ['ftp', 'http', 'https']"
+                          focusItem
                           (trigger)="proto = p"
                           [selected]="proto == p">{{p}}</material-select-item>
   </material-select>
@@ -28,24 +37,26 @@
   </a> for available selection models.</p>
   <p>The selection model class handles the details of maintaining a selection. Use it and unlock the
     full power of `material-select`.</p>
-  <material-select [selection]="defaultLanguageSelection" width="2" class="bordered-list">
-    <material-select-item value="en-US">US English</material-select-item>
-    <material-select-item value="en-UK">UK English</material-select-item>
-    <material-select-item value="fr-CA">Canadian French</material-select-item>
+  <material-select focusList [selection]="defaultLanguageSelection" width="2" class="bordered-list">
+    <material-select-item focusItem value="en-US">US English</material-select-item>
+    <material-select-item focusItem value="en-UK">UK English</material-select-item>
+    <material-select-item focusItem value="fr-CA">Canadian French</material-select-item>
   </material-select>
 
   <p>Using a list of options and `*ngFor`.</p>
-  <material-select [selection]="targetLanguageSelection" class="bordered-list">
+  <material-select focusList [selection]="targetLanguageSelection" class="bordered-list">
     <material-select-item *ngFor="let language of languages"
+                          focusItem
                           [value]="language"
                           displayNameRenderer></material-select-item>
   </material-select>
 
   <p>Using a list of options and `*ngFor` with check marks.</p>
-  <material-select [selection]="targetLanguageSelection" class="bordered-list">
+  <material-select focusList [selection]="targetLanguageSelection" class="bordered-list">
     <material-select-item *ngFor="let language of languages"
+                          focusItem
                           [value]="language"
-                          useCheckMarks="true"
+                          [useCheckMarks]="true"
                           displayNameRenderer></material-select-item>
   </material-select>
 </section>
@@ -58,16 +69,25 @@
                    displayNameRenderer
                    width="2"
                    class="bordered-list"></material-select>
+  <p>Using option groups.</p>
+  <material-select [selection]="targetLanguageSelection"
+                   [options]="languageOptionsGrouped"
+                   displayNameRenderer
+                   width="2"
+                   class="bordered-list"></material-select>
 </section>
 <section>
   <h2>Custom selected color</h2>
   <p>Use <code>@include material-select-selected-color($mat-green-500)</code> to change the color of the accent on the selected item.</p>
-  <material-select width="2" class="bordered-list custom-selected-color">
-    <material-select-item (trigger)="proto = 'ftp'"
+  <material-select focusList width="2" class="bordered-list custom-selected-color">
+    <material-select-item focusItem
+                          (trigger)="proto = 'ftp'"
                           [selected]="proto == 'ftp'">FTP</material-select-item>
-    <material-select-item (trigger)="proto = 'http'"
+    <material-select-item focusItem
+                          (trigger)="proto = 'http'"
                           [selected]="proto == 'http'">HTTP</material-select-item>
-    <material-select-item (trigger)="proto = 'https'"
+    <material-select-item focusItem
+                          (trigger)="proto = 'https'"
                           [selected]="proto == 'https'">HTTPS</material-select-item>
   </material-select>
 </section>

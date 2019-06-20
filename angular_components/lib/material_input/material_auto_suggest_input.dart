@@ -53,18 +53,15 @@ typedef String _InputChangeCallback(String inputText);
 @Component(
   selector: 'material-auto-suggest-input',
   providers: [
-    Provider(HasDisabled, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(HasRenderer, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(SelectionContainer,
-        useExisting: MaterialAutoSuggestInputComponent),
-    Provider(HighlightProvider, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(DropdownHandle, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(HasComponentRenderer,
-        useExisting: MaterialAutoSuggestInputComponent),
-    Provider(HasFactoryRenderer,
-        useExisting: MaterialAutoSuggestInputComponent),
-    Provider(Focusable, useExisting: MaterialAutoSuggestInputComponent),
-    Provider(PopupSizeProvider, useExisting: MaterialAutoSuggestInputComponent)
+    ExistingProvider(HasDisabled, MaterialAutoSuggestInputComponent),
+    ExistingProvider(HasRenderer, MaterialAutoSuggestInputComponent),
+    ExistingProvider(SelectionContainer, MaterialAutoSuggestInputComponent),
+    ExistingProvider(HighlightProvider, MaterialAutoSuggestInputComponent),
+    ExistingProvider(DropdownHandle, MaterialAutoSuggestInputComponent),
+    ExistingProvider(HasComponentRenderer, MaterialAutoSuggestInputComponent),
+    ExistingProvider(HasFactoryRenderer, MaterialAutoSuggestInputComponent),
+    ExistingProvider(Focusable, MaterialAutoSuggestInputComponent),
+    ExistingProvider(PopupSizeProvider, MaterialAutoSuggestInputComponent),
   ],
   directives: [
     ActiveItemDirective,
@@ -104,13 +101,13 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
         KeyboardHandlerMixin,
         HighlightAssistantMixin<T>
     implements
-        ControlValueAccessor,
+        ControlValueAccessor<Object>,
         Focusable,
         OnInit,
         OnDestroy,
         HasRenderer<T>,
-        HasComponentRenderer,
-        HasFactoryRenderer,
+        HasComponentRenderer<RendersValue, Object>,
+        HasFactoryRenderer<RendersValue, T>,
         DropdownHandle,
         PopupSizeProvider {
   /// How to automatically position the dropdown popup by default.
@@ -193,15 +190,65 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
 
   bool _isDisposed = false;
 
-  /// The first suggestion in the popup is active and highlighted by default.
-  /// Setting this to true changes behavior so that when [options] or
-  /// [selection] are changed:
-  /// 1) first selected value in [selection] is active in [options]
-  /// 2) if [selection] has no selected values, nothing is active in [options]
+  /// Whether suggestions should be smartly activated / highlighted.
   ///
-  /// Defaults to false.
+  /// Defaults to true.
+  ///
+  /// When true:
+  /// * If [selection] has selected values, the first selected value in
+  ///   [options] is activated / highlighted when the suggestions list opens.
+  ///   Justification - "If one or more options are selected before the listbox
+  ///                   receives focus, focus is set on the first option in the
+  ///                   list that is selected".
+  ///                   https://www.w3.org/TR/wai-aria-practices/#Listbox
+  ///
+  /// * If [selection] is empty, the first value in [options] is activated /
+  ///   highlighted when the suggestions list opens.
+  ///   Justification - "If none of the options are selected before the listbox
+  ///                   receives focus, focus is set on the first option...".
+  ///                   https://www.w3.org/TR/wai-aria-practices/#Listbox
+  ///
+  /// * If [selection] is a [MultiSelectionModel], deactivate any active
+  ///   suggestions when the search text changes. This does not apply for any
+  ///   text changes caused by [shouldClearInputOnSelection] or when the
+  ///   suggestions list opens.
+  ///   Justification - The W3 listbox spec (see above for link) says that
+  ///                   <Space> "changes the selection state of the focused
+  ///                   option" for multi-select listboxes.
+  ///                   This means that a user cannot type a space into the
+  ///                   textbox with an option focused, the space would be
+  ///                   captured and used to toggle selection instead of typing
+  ///                   a space. Clearing "focus" (deactivating) on any option
+  ///                   makes it easy for the user to type a space into the
+  ///                   textbox.
+  ///
+  /// When false:
+  /// * if [selection] [isSingleSelect], don't auto activate / highlight any
+  ///   options.
+  ///
+  /// * if [selection] [isMultiSelect], activate / highlight the first value
+  ///   when the suggestions list opens. Also, do not clear the active item when
+  ///   the search text changes.
   @Input()
-  bool initialActivateSelection = false;
+  set accessibleItemActivation(bool value) {
+    if (value == null) return;
+    _accessibleItemActivation = value;
+    activeModel.activateFirstItemByDefault =
+        (isSingleSelect && value) || (isMultiSelect && !value);
+  }
+
+  bool get accessibleItemActivation => _accessibleItemActivation;
+  bool _accessibleItemActivation = true;
+
+  /// The autocomplete attribute for the inner input element.
+  ///
+  /// Defines the type of autocomplete functionality for the input. For example,
+  /// can be `on` or `off``..
+  ///
+  /// Note: Setting this field may depend on the browser implementation and is
+  /// not guaranteed to turn off the autocomplete functionality.
+  @Input()
+  String inputAutocomplete;
 
   int _limit = 10;
 
@@ -281,7 +328,8 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
   /// [FactoryRenderer] used to display the item.
   @override
   @Input()
-  set factoryRenderer(FactoryRenderer value) => super.factoryRenderer = value;
+  set factoryRenderer(FactoryRenderer<RendersValue, T> value) =>
+      super.factoryRenderer = value;
 
   /// Function for use by NgFor for optionGroup to avoid recreating the
   /// DOM for the optionGroup.
@@ -336,6 +384,9 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
   @override
   set selection(SelectionModel<T> selection) {
     super.selection = selection;
+    activeModel.activateFirstItemByDefault =
+        (isSingleSelect && accessibleItemActivation) ||
+            (isMultiSelect && !accessibleItemActivation);
 
     if (isSingleSelect && selection.selectedValues.isNotEmpty) {
       _lastSelectedItem = selection.selectedValues.first;
@@ -384,7 +435,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     _optionsListener?.cancel();
     _optionsListener = options.stream.listen((_) {
       activeModel.items = options.optionsList;
-      _setInitialActiveItem();
+      _updateItemActivation();
     });
   }
 
@@ -422,7 +473,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
 
   /// An option is disabled if the options implements Selectable, but the [item]
   /// is not selectable.
-  bool isOptionDisabled(Object item) {
+  bool isOptionDisabled(T item) {
     // TODO: Verify if this can be simplified to .isDisabledIn.
     //
     // The prior code did a check for `!= SelectableOption.Selected`. It is
@@ -430,6 +481,9 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     // disabled, for example.
     return !Selectable.isSelectableIn(options, item, true);
   }
+
+  /// Whether an option is hidden.
+  bool isOptionHidden(T item) => Selectable.isHiddenIn(options, item, false);
 
   /// Whether to highlight options.
   /// Default value is `true`.
@@ -444,7 +498,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
       : super.componentRenderer;
 
   @override
-  FactoryRenderer get factoryRenderer => highlightOptions &&
+  FactoryRenderer<RendersValue, T> get factoryRenderer => highlightOptions &&
           super.factoryRenderer == null &&
           super.componentRenderer == null
       ? highlightFactoryRenderer
@@ -464,7 +518,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     if (value != _showPopup) {
       _showPopup = value;
       _showPopupController.add(_showPopup);
-      _setInitialActiveItem();
+      _updateItemActivation(popupOpening: true);
     }
 
     if (!_showPopup && !_isFocused) {
@@ -528,6 +582,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     }
     _inputText = inputText;
     _inputChange.add(inputText);
+    _updateItemActivation(textChanging: true);
     _filterSuggestions();
     return true;
   }
@@ -545,7 +600,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
 
   bool _isFocused = false;
 
-  /// Fired when the input gains focus
+  /// Fired when the input gains focus.
   @Output('focus')
   Stream<html.FocusEvent> get onFocus => _onFocus.stream;
   final _onFocus = StreamController<html.FocusEvent>.broadcast(sync: true);
@@ -558,12 +613,25 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     _isFocused = true;
   }
 
-  /// Fired when the input gains blur or auto suggest item get selected.
+  /// Fired when this component loses focus.
+  ///
+  /// This stream is fired when:
+  ///  1. the underlying material input blurs, if there is no popup and
+  ///     there are subscribers to the blur stream
+  ///  2. the suggestions popup closes and there is no focus on the
+  ///     underlying material input
   @Output('blur')
   Stream<void> get onBlur => _onBlur.stream;
   final _onBlur = StreamController<void>.broadcast(sync: true);
 
+  /// Fired when the nested MaterialInputComponent fires a blur event.
+  @Output('inputBlur')
+  Stream<void> get onInputBlur => _onInputBlur.stream;
+  final _onInputBlur = StreamController<void>.broadcast(sync: true);
+
   void handleBlur(html.FocusEvent event) {
+    _onInputBlur.add(null);
+
     _isFocused = false;
     if ((!showPopup || !hasOptions) && _onBlur != null) {
       _onBlur.add(null);
@@ -585,16 +653,36 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     });
   }
 
-  void _setInitialActiveItem() {
-    if (!showPopup || !initialActivateSelection) return;
+  void _updateItemActivation(
+      {bool textChanging = false, bool popupOpening = false}) {
+    if (!showPopup) return;
 
-    if (selection == null || selection.selectedValues.isEmpty) {
+    if (selection == null) {
       activeModel.activate(null);
-    } else if (activeModel.activeItem == null ||
-        !selection.isSelected(activeModel.activeItem)) {
-      // If the current active item is not selected, activate the first
-      // selected item.
-      activeModel.activate(selection.selectedValues.first);
+    } else if (accessibleItemActivation) {
+      if (popupOpening) {
+        // The first value in selection.selectedValues is not necessarily the
+        // first option in the suggestions list.
+        var firstSelection = selection.selectedValues.isEmpty
+            ? null
+            : options.optionsList.firstWhere((opt) => selection.isSelected(opt),
+                orElse: () => null);
+        if (firstSelection == null) {
+          activeModel.activateFirst();
+        } else {
+          activeModel.activate(firstSelection);
+        }
+      } else if (shouldClearInputOnSelection && inputText.isEmpty) {
+        activeModel.activateFirst();
+      } else if (textChanging && isMultiSelect) {
+        activeModel.activate(null);
+      }
+    } else if (popupOpening) {
+      if (isSingleSelect) {
+        activeModel.activate(null);
+      } else {
+        activeModel.activateFirst();
+      }
     }
   }
 
@@ -607,10 +695,39 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
       if (item != null) {
         if (!isOptionDisabled(item)) {
           onListItemSelected(item);
+
+          if (isMultiSelect) {
+            showPopup = false;
+          }
         }
       } else if (closeOnEnter) {
         showPopup = false;
       }
+    }
+  }
+
+  /// Toggle an active list item in multi-select comboboxes.
+  ///
+  /// Type a space into the search box in all other cases including a
+  /// multi-select input with no active item.
+  @override
+  void handleSpaceKey(html.KeyboardEvent event) {
+    if (!showPopup || !isMultiSelect) return;
+
+    final item = activeModel.activeItem;
+    if (item == null || isOptionDisabled(item)) return;
+
+    onListItemSelected(item);
+    event.preventDefault();
+  }
+
+  /// Return focus to the textbox and delete a character.
+  ///
+  /// WAI-ARIA Guidelines: https://www.w3.org/TR/wai-aria-practices/#combobox
+  @override
+  void handleBackspaceKey(html.KeyboardEvent event) {
+    if (activeModel.activeItem != null) {
+      activeModel.activate(null);
     }
   }
 

@@ -7,6 +7,7 @@
     [role]="buttonAriaRole"
     [buttonAriaLabel]="buttonAriaLabel"
     [ariaLabelledBy]="buttonAriaLabelledBy"
+    [ariaDescribedBy]="buttonAriaDescribedBy"
     [buttonText]="buttonText"
     [error]="error"
     [showButtonBorder]="showButtonBorder"
@@ -63,7 +64,6 @@
       <material-select-dropdown-item
           #deselectItem
           *ngIf="showDeselectItem"
-          keyboardOnlyFocusIndicator
           [class.empty]="options.optionGroups.length == 1"
           [tabbable]="false"
           [selected]="isDeselectItemSelected"
@@ -87,7 +87,6 @@
           </dynamic-component>
           <template [ngIf]="group.isNotEmpty">
             <material-select-dropdown-item *ngFor="let item of group"
-                keyboardOnlyFocusIndicator
                 [tabbable]="false"
                 [itemRenderer]="itemRenderer"
                 [componentRenderer]="componentRenderer"
@@ -105,7 +104,6 @@
           <material-select-dropdown-item
               #emptyGroupLabel
               *ngIf="group.isEmpty && group.hasEmptyLabel"
-              keyboardOnlyFocusIndicator
               [tabbable]="false"
               [disabled]="true"
               [value]="group.emptyLabel">

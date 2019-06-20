@@ -145,8 +145,8 @@ abstract class Modal {
 @Component(
   selector: 'modal',
   providers: [
-    Provider(DeferredContentAware, useExisting: ModalComponent),
-    Provider(Modal, useExisting: ModalComponent)
+    ExistingProvider(DeferredContentAware, ModalComponent),
+    ExistingProvider(Modal, ModalComponent),
   ],
   directives: [ModalControllerDirective],
   template: r'''
@@ -154,6 +154,7 @@ abstract class Modal {
       <ng-content></ng-content>
     </template>
   ''',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
   visibility: Visibility.all, // Injected by dialog, et al.
@@ -182,7 +183,7 @@ class ModalComponent
   bool _isDestroyed = false;
   bool _isHidden = false;
   bool _isVisible = false;
-  OverlayRef _resolvedOverlayRef;
+  final OverlayRef _resolvedOverlayRef;
   Element _lastFocusedElement;
 
   /// Whether to return focus to the last focused element before the modal
@@ -196,9 +197,13 @@ class ModalComponent
   Future<bool> _pendingClose;
 
   ModalComponent(OverlayService overlayService, this._element, this._domService,
-      @Optional() @SkipSelf() this._parentModal, @Optional() this._stack) {
-    _createdOverlayRef(
-        overlayService.createOverlayRefSync(OverlayState.Dialog));
+      @Optional() @SkipSelf() this._parentModal, @Optional() this._stack)
+      : _resolvedOverlayRef =
+            overlayService.createOverlayRefSync(OverlayState.Dialog) {
+    _disposer
+      ..addDisposable(_resolvedOverlayRef)
+      ..addStreamSubscription(_resolvedOverlayRef.onVisibleChanged
+          .listen(_onOverlayVisibleChanged));
   }
 
   @Input()
@@ -221,20 +226,6 @@ class ModalComponent
     }
     _isDestroyed = true;
     _disposer.dispose();
-  }
-
-  void _createdOverlayRef(OverlayRef overlayRef) {
-    // If the modal is closed before the overlay is created we should dispose
-    // the ref to avoid leaks since `onDestroy` was already called.
-    if (_isDestroyed) {
-      overlayRef.dispose();
-    } else {
-      _resolvedOverlayRef = overlayRef;
-      _disposer
-        ..addDisposable(_resolvedOverlayRef)
-        ..addStreamSubscription(_resolvedOverlayRef.onVisibleChanged
-            .listen(_onOverlayVisibleChanged));
-    }
   }
 
   // A callback received when the overlay reports a visibility change.

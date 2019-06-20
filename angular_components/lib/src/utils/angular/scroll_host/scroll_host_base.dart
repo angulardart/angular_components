@@ -123,6 +123,7 @@ abstract class ScrollHostBase implements ScrollHost {
     _panController.dispose();
     _stickyController.dispose();
     _onScrollController?.close();
+    _onScrollController = null;
     if (_intersectionObserver != null) {
       _intersectionObserver.disconnect();
       for (var controller in _intersectionStreams.values) {
@@ -176,11 +177,16 @@ abstract class ScrollHostBase implements ScrollHost {
     // doesn't jump around when position: sticky is used).
     if (!usePositionSticky) {
       _elementListenersDisposer.addStreamSubscription(
-          anchorElement.onMouseWheel.listen((WheelEvent event) {
-        // Ignore mouse wheel event if the CTRL key or SHIFT key is pressed.
+          anchorElement.onWheel.listen((WheelEvent event) {
+        if (event is! WheelEvent) return;
+        // Ignore mouse wheel event if the CTRL key, SHIFT key or META key
+        // (i.e. WIN key for Windows and CMD key for Mac) is pressed.
         // This is consistent with other Google sites and ensures compatibility
-        // with embedded APIs (e.g. Maps zooms the map when CTRL is pressed).
-        if ((event?.ctrlKey ?? false) || (event?.shiftKey ?? false)) return;
+        // with embedded APIs (e.g. Maps zooms the map when
+        // CTRL/CMD is pressed).
+        if ((event?.ctrlKey ?? false) ||
+            (event?.metaKey ?? false) ||
+            (event?.shiftKey ?? false)) return;
 
         // Use default values from WheelEvent if deltaX/deltaY not supported by
         // the browser (currently occurred in Firefox). Vertical scrolling still
@@ -217,8 +223,7 @@ abstract class ScrollHostBase implements ScrollHost {
         if (deltaY == 0 || !_isDirectionScrollable(d)) return;
         if (innerScrollableDirections(anchorElement, event.target)[d]) return;
 
-        event.preventDefault();
-        event.stopPropagation();
+        stopEvent(event);
         // Firefox sends wheel events with [event.deltaMode] set to 1, meaning
         // [event.deltaY] uses 'lines' rather than pixels as a unit. There is no
         // correct way to covert lines to pixels, but 16 pixels/line is works
@@ -337,6 +342,11 @@ class WindowScrollHostBase extends ScrollHostBase {
 
   @override
   Element get anchorElement => _window.document.documentElement;
+
+  @override
+  void stopEvent(WheelEvent event) {
+    event.stopPropagation();
+  }
 }
 
 class ElementScrollHostBase extends ScrollHostBase {
@@ -399,6 +409,12 @@ class ElementScrollHostBase extends ScrollHostBase {
       default:
         return false;
     }
+  }
+
+  @override
+  void stopEvent(WheelEvent event) {
+    event.preventDefault();
+    event.stopPropagation();
   }
 }
 

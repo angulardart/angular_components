@@ -99,6 +99,16 @@ class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
       ? _transform.abs() + _clientSize >= _scrollSize
       : false;
 
+  /// Whether the scoreboard will reach its starting scroll state in at most one
+  /// backwards movement.
+  bool get nearStart => _transform.abs() - _scrollingMove <= 0;
+
+  /// Whether the scoreboard will reach its ending scroll state in at most one
+  /// forwards movement.
+  bool get nearEnd => _clientSize != null
+      ? _transform.abs() + _clientSize + _scrollingMove >= _scrollSize
+      : false;
+
   /// The current size of the client.
   ///
   /// Depends upon orientation of scrollbar.
@@ -203,8 +213,12 @@ class ScorecardBarDirective implements OnInit, OnDestroy, AfterViewChecked {
       // Find the average size of the cards. This assumes cards are of uniform
       // size (as required in ACUX specs).
       var avg = _scrollSize / _element.children.length;
-      var temp = ((_clientSize - _buttonSize * 2) / avg).floor();
-      _scrollingMove = (temp * avg).floor();
+      if (_clientSize < avg) {
+        _scrollingMove = _clientSize;
+      } else {
+        var temp = ((_clientSize - _buttonSize * 2) / avg).floor();
+        _scrollingMove = (temp * avg).floor();
+      }
     } else {
       _scrollingMove = _clientSize;
     }

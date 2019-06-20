@@ -71,9 +71,7 @@ import 'package:angular_components/utils/angular/css/css.dart';
     MaterialIconComponent,
     NextPrevComponent,
   ],
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialDatepickerComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialDatepickerComponent)],
   styleUrls: ['material_datepicker.scss.css'],
   templateUrl: 'material_datepicker.html',
 )
@@ -85,6 +83,10 @@ class MaterialDatepickerComponent
   ///
   /// Only visible for the template.
   final String popupClassName;
+
+  /// aria-label attached to the dropdown button that opens the date picker.
+  @Input()
+  String ariaLabelForDropdownButton;
 
   /// The format used to format dates.
   ///
@@ -226,12 +228,14 @@ class MaterialDatepickerComponent
       disabled ? null : (_popupVisible ? textInput : dropdownButton);
 
   /// Gets the i18n'ed "Select a date" placeholder text.
-  get selectDatePlaceHolderMsg => Intl.message('Select a date',
+  @Input()
+  String selectDatePlaceHolderMsg = Intl.message('Select a date',
       name: 'selectDatePlaceHolderMsg',
       desc: 'Placeholder text for datepicker with an empty date.');
 
   /// Gets the i18n'ed "Enter date" placeholder text.
-  get placeholderMsg => Intl.message('Enter date',
+  @Input()
+  String placeholderMsg = Intl.message('Enter date',
       name: 'placeholderMsg',
       desc: 'Placeholder text for an empty date picker text box.');
 

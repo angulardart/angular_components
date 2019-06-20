@@ -4,8 +4,8 @@
 
 import 'dart:async';
 import 'dart:html';
-
 import 'package:angular/angular.dart';
+import 'package:intl/intl.dart';
 import 'package:angular_components/utils/browser/feature_detector/feature_detector.dart'
     show supportsAnimationApi;
 
@@ -75,7 +75,32 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
   bool get useFallbackAnimation =>
       indeterminate && (!_useFancyAnimation || !supportsAnimationApi);
 
-  String get ariaValue => indeterminate ? null : '$activeProgress';
+  String get ariaValueNow => indeterminate == true ? null : '${activeProgress}';
+
+  String get ariaValue =>
+      indeterminate ? _loadingValue : _activeProgressValue(activeProgress);
+
+  String _loadingValue =
+      Intl.message('loading', desc: 'Label text for loading progress');
+
+  String _activeProgressValue(int activeProgress) =>
+      Intl.message('active progress $activeProgress',
+          name: 'MaterialProgressComponent__activeProgressValue',
+          desc: 'Label text for active progress',
+          args: [activeProgress],
+          examples: const {'activeProgress': 20});
+
+  String get activeAndSecondaryProgressValue =>
+      _activeAndSecondaryProgressValue(activeProgress, secondaryProgress);
+
+  String _activeAndSecondaryProgressValue(
+          int activeProgress, int secondaryProgress) =>
+      Intl.message(
+          'active progress $activeProgress secondary progress $secondaryProgress',
+          name: 'MaterialProgressComponent__activeAndSecondaryProgressValue',
+          desc: 'Label text for active and secondary progress',
+          args: [activeProgress, secondaryProgress],
+          examples: const {'activeProgress': 5, 'secondaryProgress': 25});
 
   String get primaryTransform => 'scaleX(${_calcRatio(activeProgress)})';
 
@@ -133,10 +158,12 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
       // Fall back to the non-optimized animation if the host element does not
       // yet have a width. The non-optimized animation will automatically adjust
       // when the host element width changes.
-      _useFancyAnimation = false;
 
       // To avoid 'expression has changed after it was checked'.
-      scheduleMicrotask(_changeDetector.markForCheck);
+      scheduleMicrotask(() {
+        _useFancyAnimation = false;
+        _changeDetector.markForCheck();
+      });
       return;
     }
 

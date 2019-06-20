@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/focus/focus_list.dart';
 import 'package:angular_components/laminate/components/modal/modal.dart';
 import 'package:angular_components/laminate/overlay/module.dart';
 import 'package:angular_components/material_button/material_button.dart';
@@ -36,6 +37,7 @@ class MaterialExpansionPanelGalleryConfig {}
   providers: [overlayBindings],
   directives: [
     AutoFocusDirective,
+    FocusListDirective,
     MaterialIconComponent,
     MaterialButtonComponent,
     MaterialExpansionPanel,

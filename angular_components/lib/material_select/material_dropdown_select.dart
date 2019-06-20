@@ -50,14 +50,13 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 @Component(
   selector: 'material-dropdown-select',
   providers: [
-    Provider(DropdownHandle, useExisting: MaterialDropdownSelectComponent),
-    Provider(HasDisabled, useExisting: MaterialDropdownSelectComponent),
-    Provider(HasRenderer, useExisting: MaterialDropdownSelectComponent),
-    Provider(DeferredContentAware,
-        useExisting: MaterialDropdownSelectComponent),
-    Provider(SelectionContainer, useExisting: MaterialDropdownSelectComponent),
-    Provider(PopupSizeProvider, useExisting: MaterialDropdownSelectComponent),
-    Provider(ActivationHandler, useExisting: MaterialDropdownSelectComponent),
+    ExistingProvider(DropdownHandle, MaterialDropdownSelectComponent),
+    ExistingProvider(HasDisabled, MaterialDropdownSelectComponent),
+    ExistingProvider(HasRenderer, MaterialDropdownSelectComponent),
+    ExistingProvider(DeferredContentAware, MaterialDropdownSelectComponent),
+    ExistingProvider(SelectionContainer, MaterialDropdownSelectComponent),
+    ExistingProvider(PopupSizeProvider, MaterialDropdownSelectComponent),
+    ExistingProvider(ActivationHandler, MaterialDropdownSelectComponent),
   ],
   directives: [
     ActiveItemDirective,
@@ -78,6 +77,10 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     Typed<MaterialSelectDropdownItemComponent<String>>(on: 'emptyGroupLabel'),
     Typed<MaterialSelectDropdownItemComponent>.of([#T]),
   ],
+  viewProviders: [
+    FactoryProvider<ActiveItemModel>(ActiveItemModel, fromDropdown,
+        deps: [MaterialDropdownSelectComponent])
+  ],
   templateUrl: 'material_dropdown_select.html',
   styleUrls: ['material_dropdown_select.scss.css'],
   visibility: Visibility.all, // injected by directives
@@ -91,7 +94,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
         KeyboardHandlerMixin,
         ActivateItemOnKeyPressMixin<T>,
         ShiftClickSelectionMixin<T>
-    implements PopupSizeProvider, OnChanges, OnDestroy {
+    implements PopupSizeProvider, AfterChanges, OnDestroy {
   /// Function for use by NgFor for optionGroup.
   ///
   /// Avoids recreating the DOM for the optionGroup.
@@ -115,6 +118,14 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   /// with numerical options.
   @Input()
   String buttonAriaLabelledBy;
+
+  /// One or more space-delimited ids of elements that provide additional
+  /// description for the dropdown select.
+  ///
+  /// For example, the id of a text element that says "Select a foo to use with
+  /// your bar."
+  @Input()
+  String buttonAriaDescribedBy;
 
   /// Listener for options changes.
   StreamSubscription<List<OptionGroup<T>>> _optionsListener;
@@ -140,7 +151,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
   bool _deselectOnActivate = true;
 
-  ///  Whether to deselect a selected option on click or enter/space key.
+  /// Whether to deselect a selected option on click or enter/space key.
   ///
   /// Single selection model only. Defaults to true.
   @Input()
@@ -170,12 +181,23 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
   String _ariaActiveDescendant;
 
+  final ChangeDetectorRef _changeDetector;
+
+  bool _disabledChanged = false;
+
+  @override
+  set disabled(bool value) {
+    super.disabled = value;
+    _disabledChanged = true;
+  }
+
   MaterialDropdownSelectComponent(
       @Optional() IdGenerator idGenerator,
       @Optional() @SkipSelf() this._popupSizeDelegate,
       @Optional() @Inject(rtlToken) bool rtl,
       @Attribute('popupClass') String popupClass,
       @Attribute('buttonAriaRole') this.buttonAriaRole,
+      this._changeDetector,
       HtmlElement element)
       : activeModel = ActiveItemModel(idGenerator),
         popupClassName = constructEncapsulatedCss(popupClass, element.classes),
@@ -227,7 +249,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   /// The resulting component must implement RendersValue.
   @Input()
   @override
-  set factoryRenderer(FactoryRenderer value) {
+  set factoryRenderer(FactoryRenderer<RendersValue, T> value) {
     super.factoryRenderer = value;
   }
 
@@ -248,6 +270,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   /// Whether the dropdown is visible.
   @override
   set visible(bool value) {
+    _changeDetector.markForCheck();
     super.visible = value;
     resetEnteredKeys();
     if (value) {
@@ -256,7 +279,6 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
       // Note we don't allow deactivation because some teams incorrectly use
       // activeItemLabel instead of selectedItemLabel, and this breaks them.
       // TODO(google): remove allowDeactivate when client tests are fixed.
-      // https://test.corp.google.com/ui#id=OCL:219567674:BASE:219582901:1541045481973:dd9a971c
       _setInitialActiveItem(allowDeactivate: false);
     }
   }
@@ -274,6 +296,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
   @override
   set options(SelectionOptions<T> newOptions) {
+    _changeDetector.markForCheck();
     super.options = newOptions;
 
     _updateActiveModel();
@@ -281,6 +304,7 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
 
     _optionsListener?.cancel();
     _optionsListener = options?.stream?.listen((_) {
+      _changeDetector.markForCheck();
       _updateActiveModel();
       _setInitialActiveItem();
     });
@@ -298,25 +322,23 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   StreamController<FocusEvent> _blur =
       StreamController<FocusEvent>.broadcast(sync: true);
 
-  bool _isFocused = false;
-
   void onFocus(FocusEvent event) {
-    _isFocused = true;
     _focus.add(event);
   }
 
   void onBlur(FocusEvent event) {
-    _isFocused = false;
     _blur.add(event);
   }
 
   @override
   set selection(SelectionModel<T> newSelection) {
+    _changeDetector.markForCheck();
     super.selection = newSelection;
     _setInitialActiveItem();
 
     _selectionListener?.cancel();
     _selectionListener = selection?.selectionChanges?.listen((changes) {
+      _changeDetector.markForCheck();
       // Update active item if new items are selected.
       var added =
           changes.last.added.isNotEmpty ? changes.last.added.first : null;
@@ -353,7 +375,6 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   void _handleNavigationKey(KeyboardEvent event, Function activateFunction) {
     if (disabled) return;
     event.preventDefault();
-    if (!_isFocused) dropdownButton.focus();
     activateFunction();
     // Only select if the popup is not visible.
     if (!visible && selection != null && isSingleSelect) {
@@ -363,6 +384,9 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
       } else if (item != null && !isOptionDisabled(item)) {
         selection.select(item);
       }
+    }
+    if (!visible) {
+      open();
     }
   }
 
@@ -449,14 +473,15 @@ class MaterialDropdownSelectComponent<T> extends MaterialSelectBase<T>
   }
 
   @override
-  ngOnChanges(Map<String, SimpleChange> changes) {
-    if (changes.containsKey('disabled') && disabled) {
+  void ngAfterChanges() {
+    if (_disabledChanged && disabled) {
       close();
     }
+    _disabledChanged = false;
   }
 
   @override
-  ngOnDestroy() {
+  void ngOnDestroy() {
     _optionsListener?.cancel();
     _selectionListener?.cancel();
   }
@@ -597,3 +622,6 @@ class ActivateItemOnKeyPressMixin<T> {
     return key;
   }
 }
+
+ActiveItemModel fromDropdown(MaterialDropdownSelectComponent dropdown) =>
+    dropdown.activeModel;

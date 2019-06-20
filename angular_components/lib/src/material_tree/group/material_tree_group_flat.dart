@@ -23,9 +23,9 @@ import 'package:angular_components/model/selection/selection_model.dart';
   templateUrl: 'material_tree_group_flat_list.html',
   styleUrls: ['material_tree_group_flat_list.scss.css'],
 )
-class MaterialTreeGroupFlatListComponent extends MaterialTreeNode {
+class MaterialTreeGroupFlatListComponent<T> extends MaterialTreeNode<T> {
   MaterialTreeGroupFlatListComponent(
-      MaterialTreeRoot root, ChangeDetectorRef changeDetector)
+      MaterialTreeRoot<T> root, ChangeDetectorRef changeDetector)
       : super(root, changeDetector);
 
   // This is only used to standardize all the different group components.
@@ -50,14 +50,14 @@ class MaterialTreeGroupFlatListComponent extends MaterialTreeNode {
   templateUrl: 'material_tree_group_flat_radio.html',
   styleUrls: ['material_tree_group_flat_radio.scss.css'],
 )
-class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
+class MaterialTreeGroupFlatRadioComponent<T> extends MaterialTreeNode<T> {
   final DropdownHandle _dropdownHandle;
 
   /// Exposed for [MaterialRadioGroupComponent].
   final SelectionModel selectionModel;
 
   MaterialTreeGroupFlatRadioComponent(
-      MaterialTreeRoot root, ChangeDetectorRef changeDetector,
+      MaterialTreeRoot<T> root, ChangeDetectorRef changeDetector,
       [@Optional() this._dropdownHandle])
       : this.selectionModel = root.selection,
         super(root, changeDetector);
@@ -90,11 +90,11 @@ class MaterialTreeGroupFlatRadioComponent extends MaterialTreeNode {
   templateUrl: 'material_tree_group_flat_check.html',
   styleUrls: ['material_tree_group_flat_check.scss.css'],
 )
-class MaterialTreeGroupFlatCheckComponent extends MaterialTreeNode {
+class MaterialTreeGroupFlatCheckComponent<T> extends MaterialTreeNode<T> {
   final DropdownHandle _dropdownHandle;
 
   MaterialTreeGroupFlatCheckComponent(
-      MaterialTreeRoot root, ChangeDetectorRef changeDetector,
+      MaterialTreeRoot<T> root, ChangeDetectorRef changeDetector,
       [@Optional() this._dropdownHandle])
       : super(root, changeDetector);
 

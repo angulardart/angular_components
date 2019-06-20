@@ -5,16 +5,17 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/focus/focus_item.dart';
+import 'package:angular_components/focus/focus_list.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
+import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/template_support.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 
 import 'material_select_base.dart';
 import 'material_select_item.dart';
@@ -28,11 +29,18 @@ import 'material_select_item.dart';
 @Component(
   selector: 'material-select',
   providers: [
-    Provider(HasDisabled, useExisting: MaterialSelectComponent),
-    Provider(HasRenderer, useExisting: MaterialSelectComponent),
-    Provider(SelectionContainer, useExisting: MaterialSelectComponent)
+    ExistingProvider(HasDisabled, MaterialSelectComponent),
+    ExistingProvider(HasRenderer, MaterialSelectComponent),
+    ExistingProvider(SelectionContainer, MaterialSelectComponent),
   ],
-  directives: [MaterialListComponent, MaterialSelectItemComponent, NgIf, NgFor],
+  directives: [
+    FocusItemDirective,
+    FocusListDirective,
+    MaterialListComponent,
+    MaterialSelectItemComponent,
+    NgIf,
+    NgFor
+  ],
   directiveTypes: [
     Typed<MaterialSelectItemComponent>.of([#T]),
   ],
@@ -40,7 +48,7 @@ import 'material_select_item.dart';
   styleUrls: ['material_select.scss.css'],
 )
 class MaterialSelectComponent<T> extends MaterialSelectBase<T>
-    implements HasDisabled {
+    implements HasDisabled, OnInit {
   @HostBinding('attr.role')
   static const hostRole = 'listbox';
 
@@ -50,7 +58,8 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
   /// DOM for the optionGroup.
   final Function trackByIndexFn = indexIdentityFn;
 
-  bool _disabled = false;
+  bool _listAutoFocus = false;
+  int _autoFocusIndex;
 
   @HostBinding('attr.aria-multiselectable')
   @override
@@ -70,6 +79,14 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
     super.width = value;
   }
 
+  /// The label which will be set to select group's aria-labelledby.
+  @Input()
+  String ariaLabelledBy;
+
+  /// The description which will be set to select groups' aria-describedby.
+  @Input()
+  String ariaDescribedBy;
+
   @Deprecated('Use factoryRenderer instead it is more tree-shakable')
   @Input()
   @override
@@ -81,7 +98,7 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
   /// from a given option allowing for a more expressive option.
   @Input()
   @override
-  set factoryRenderer(FactoryRenderer value) {
+  set factoryRenderer(FactoryRenderer<RendersValue, T> value) {
     super.factoryRenderer = value;
   }
 
@@ -111,14 +128,10 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
   ///
   /// Defaults to false.
   @Input()
-  set disabled(value) {
-    _disabled = getBool(value);
-  }
-
-  bool get disabled => _disabled;
+  bool disabled = false;
 
   @HostBinding('attr.aria-disabled')
-  String get disabledStr => '$_disabled';
+  String get disabledStr => '$disabled';
 
   @override
   ItemRenderer<T> get itemRenderer => _itemRenderer;
@@ -132,6 +145,18 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
     _refreshItems();
   }
 
+  /// Whether to auto-focus the list as soon as it appears.
+  ///
+  /// Must be enabled before the component is initialized. If an item is
+  /// initially selected, that item will be focused, otherwise the first item is
+  /// focused. Only supported when selectable options are provided in [options].
+  @Input()
+  set listAutoFocus(bool value) {
+    _listAutoFocus = value;
+  }
+
+  int get autoFocusIndex => _autoFocusIndex;
+
   @ContentChildren(SelectionItem)
   set selectItems(List<SelectionItem<T>> value) {
     if (value != null) {
@@ -142,6 +167,14 @@ class MaterialSelectComponent<T> extends MaterialSelectBase<T>
         _refreshItems();
       });
     }
+  }
+
+  @override
+  void ngOnInit() {
+    if (!_listAutoFocus || options == null) return;
+    _autoFocusIndex = selection.isNotEmpty
+        ? options.optionsList.indexOf(selection.selectedValues.first)
+        : 0;
   }
 
   void _refreshItems() {

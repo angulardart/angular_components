@@ -5,5 +5,3 @@
 const overlayDefaultContainerId = 'default-acx-overlay-container';
 const overlayContainerClassName = 'acx-overlay-container';
 const overlayContainerNameAttribute = 'container-name';
-const overlayFocusablePlaceholderClassName =
-    'acx-overlay-focusable-placeholder';

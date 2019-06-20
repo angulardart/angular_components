@@ -14,7 +14,6 @@ import 'package:angular_components/material_stepper/common.dart';
 import 'package:angular_components/material_stepper/material_step.dart';
 import 'package:angular_components/material_yes_no_buttons/material_yes_no_buttons.dart';
 import 'package:angular_components/model/action/async_action.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/scroll_host/angular_2.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 
@@ -54,7 +53,13 @@ class MaterialStepperComponent {
   static const defaultSize = sizeDefault;
   List<StepDirective> steps = [];
 
-  int activeStepIndex;
+  int _activeStepIndex;
+  int get activeStepIndex => _activeStepIndex;
+  set activeStepIndex(int value) {
+    _activeStepIndex = value;
+    _recalculatePropertiesOfSteps();
+  }
+
   bool stepperDone = false;
 
   var _orientation = defaultOrientation;
@@ -64,10 +69,12 @@ class MaterialStepperComponent {
   List<StepDirective> _stepDirectiveList;
   final _activeStepController =
       StreamController<StepDirective>.broadcast(sync: true);
+  final _stepAriaLabel = <StepDirective, String>{};
 
   @ContentChildren(StepDirective)
   set stepsQuery(List<StepDirective> value) {
     if (_stepDirectiveList == value) return;
+    _stepAriaLabel.clear();
     _stepDirectiveList = value;
     activeStepIndex ??= 0;
     scheduleMicrotask(() {
@@ -75,17 +82,16 @@ class MaterialStepperComponent {
     });
   }
 
-  bool _stickyHeader = false;
-  bool get stickyHeader => _stickyHeader;
+  /// When true, assertively announces the current step via aria live region.
+  @Input()
+  bool announceCurrentStep = false;
 
   /// Indicates whether the header, which lists the available steps,
   /// should stick to the top of the page.
   ///
   /// Applicable only to steppers with horizontal header.
   @Input()
-  set stickyHeader(value) {
-    _stickyHeader = getBool(value);
-  }
+  bool stickyHeader = false;
 
   // Jump to step at index if possible
   Future<bool> jumpStep(int index) {
@@ -218,7 +224,6 @@ class MaterialStepperComponent {
     steps[index].requestStepJump(actionController.action);
     actionController.execute(() {
       activeStepIndex = index;
-      _recalculatePropertiesOfSteps();
       _activeStepController.add(activeStep);
       return true;
     }, valueOnCancel: false);
@@ -263,11 +268,17 @@ class MaterialStepperComponent {
     }
   }
 
+  String stepAriaLabel(StepDirective step) => _stepAriaLabel[step] ??=
+      _stepAriaAnnounce(step.index + 1, steps.length, step.name);
+
+  String get stepAriaAnnounce =>
+      activeStep == null ? '' : stepAriaLabel(activeStep);
+
   /// Event that fires when the active step has changed.
   @Output('activeStepChanged')
   Stream<StepDirective> get activeStepChanged => _activeStepController.stream;
 
-  static final optionalMsg = Intl.message('(Optional)',
+  static final optionalMsg = Intl.message('Optional',
       name: 'optionalMsg',
       desc: 'Label denoting that a step in a task flow is optional.');
 
@@ -278,6 +289,20 @@ class MaterialStepperComponent {
   static final _cancelMsg = Intl.message('Cancel',
       name: '_cancelMsg',
       desc: 'Button for cancelling the current step in a task flow.');
+
+  static String _stepAriaAnnounce(
+          int currentStepNumber, int totalSteps, String stepLabel) =>
+      Intl.message('Step $currentStepNumber of $totalSteps, $stepLabel',
+          name: '_stepAriaAnnounce',
+          args: [currentStepNumber, totalSteps, stepLabel],
+          desc: 'Message announced to visually impaired users about '
+              'which step of a multi step process a user is on. '
+              '[REL_NOTE: xilli/03-31-19]',
+          examples: const {
+            'currentStepNumber': 1,
+            'totalSteps': 4,
+            'stepLabel': 'Select campaign settings'
+          });
 }
 
 @Directive(

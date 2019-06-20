@@ -132,18 +132,20 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
     }
   }
 
-  @include _button-hover {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: currentColor;
-    opacity: $mat-divider-opacity;
-    border-radius: inherit;
-    pointer-events: none;
+  @media (hover: hover) {
+    @include _button-hover {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: currentColor;
+      opacity: $mat-divider-opacity;
+      border-radius: inherit;
+      pointer-events: none;
+    }
   }
 
   &[raised] {
@@ -252,16 +254,50 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
+@mixin button-disabled-color($selector, $disabled-color) {
+  ::ng-deep #{$selector}[disabled] {
+    color: $disabled-color;
+  }
+}
+
 @mixin button-background-color($selector, $background-color) {
   ::ng-deep #{$selector}:not([disabled]) {
     background-color: $background-color;
   }
 }
 
+/// Offsets the button content so it's left aligned, without removing the
+/// padding.
+@mixin button-left-aligned-content {
+  margin-left: -$button-horizontal-padding;
+}
+
 /// Applies letter-spacing to the text of <material-button>.
 @mixin button-letter-spacing($selector, $letter-spacing) {
   ::ng-deep #{$selector} div {
     letter-spacing: $letter-spacing;
+  }
+}
+
+@mixin icon-button-hover-color($selector, $color) {
+  @media (hover: hover) {
+    ::ng-deep #{$selector}[icon]:not([disabled]):hover {
+      > .content > material-icon,
+      // TODO(google): Remove once glyph has been replaced with material-icon.
+      > .content > glyph {
+        color: $color;
+      }
+    }
+  }
+}
+
+@mixin icon-button-focus-color($selector, $color) {
+  ::ng-deep #{$selector}[icon]:not([disabled]):focus {
+    > .content > material-icon,
+    // TODO(google): Remove once glyph has been replaced with material-icon.
+    > .content > glyph {
+      color: $color;
+    }
   }
 }
 
@@ -343,5 +379,12 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 @mixin button-compact-theme($selector) {
   ::ng-deep #{$selector} {
     @include _button-compact;
+  }
+}
+
+/// Mixin to change button text to capitalized.
+@mixin button-text-capitalize {
+  ::ng-deep .content {
+    text-transform: capitalize;
   }
 }

@@ -77,7 +77,8 @@ class OverlayService {
       // Overlay service should not be injected if it is already available
       if (existingInstance != null) {
         _logger.severe('OverlayService must be a singleton: '
-            'Check that there is no nested overlayBindings or popupBindings');
+            'Remove nested OverlayService providers such as overlayBindings, '
+            'popupBindings, datepickerBindings or materialProviders');
       }
       return true;
     }());

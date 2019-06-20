@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
 import 'package:angular_components/focus/focus.dart';
@@ -14,6 +15,7 @@ import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/model/ui/icon.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 const Icon uncheckedIcon = Icon('check_box_outline_blank');
 const Icon checkedIcon = Icon('check_box');
@@ -41,9 +43,7 @@ const indeterminateAriaState = 'mixed';
 ///
 @Component(
   selector: 'material-checkbox',
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialCheckboxComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialCheckboxComponent)],
   directives: [MaterialIconComponent, MaterialRippleComponent, NgIf],
   templateUrl: 'material_checkbox.html',
   styleUrls: ['material_checkbox.scss.css'],
@@ -51,6 +51,7 @@ const indeterminateAriaState = 'mixed';
 )
 class MaterialCheckboxComponent
     implements ControlValueAccessor<bool>, HasDisabled, Focusable, OnDestroy {
+  @visibleForTemplate
   @HostBinding('class')
   static const hostClass = 'themeable';
 
@@ -99,21 +100,21 @@ class MaterialCheckboxComponent
   /// Fired when checkbox is checked or unchecked, but not when set
   /// indeterminate. Sends the state of [checked].
   @Output('checkedChange')
-  Stream get onChecked => _onChecked.stream;
-  final _onChecked = StreamController.broadcast();
+  Stream<bool> get onChecked => _onChecked.stream;
+  final _onChecked = StreamController<bool>.broadcast();
 
   /// Fired when checkbox goes in and out of indeterminate state, but not when
   /// set to checked.
   ///
   /// Sends the state of [indeterminate].
   @Output('indeterminateChange')
-  Stream get onIndeterminate => _onIndeterminate.stream;
-  final _onIndeterminate = StreamController.broadcast();
+  Stream<bool> get onIndeterminate => _onIndeterminate.stream;
+  final _onIndeterminate = StreamController<bool>.broadcast();
 
   /// Fired when checkbox state changes, sends [checkedStr], i.e. ARIA state.
   @Output('change')
-  Stream get onChange => _onChange.stream;
-  final _onChange = StreamController.broadcast();
+  Stream<String> get onChange => _onChange.stream;
+  final _onChange = StreamController<String>.broadcast();
 
   /// Determines the state to go into when [indeterminate] state is toggled.
   ///
@@ -130,6 +131,7 @@ class MaterialCheckboxComponent
 
   // Current tab index.
   @HostBinding('attr.tabindex')
+  @visibleForTemplate
   String get tabIndex => disabled ? "-1" : _defaultTabIndex;
 
   /// Current state of the checkbox. This is user set-able state, via
@@ -155,9 +157,11 @@ class MaterialCheckboxComponent
   var _isKeyboardEvent = false;
 
   /// Whether focus should be drawn.
+  @visibleForTemplate
   bool get showFocus => _focused && _isKeyboardEvent;
 
   /// ARIA-checked state, like icon, has 3 states.
+  @visibleForTemplate
   String get checkedStr => _checkedStr;
   String _checkedStr = uncheckedAriaState;
 
@@ -223,6 +227,7 @@ class MaterialCheckboxComponent
   }
 
   /// Current icon, depends on the state of [checked] and [indeterminate].
+  @visibleForTemplate
   Icon get icon => _icon;
   Icon _icon = uncheckedIcon;
 
@@ -232,6 +237,7 @@ class MaterialCheckboxComponent
   /// themeColor is applied to the checkbox even when the box is unchecked,
   /// which deviates from the standard material spec. Use mixin to set
   /// themeColor unless you want this behavior.
+  @visibleForTemplate
   @Input()
   String themeColor;
 
@@ -239,12 +245,17 @@ class MaterialCheckboxComponent
   ///
   /// When the checkbox is unchecked, the ripple color does not follow theme
   /// color.
+  @visibleForTemplate
   String get rippleColor => checked ? themeColor : '';
 
   /// Label for the checkbox, alternatively use content.
-  @HostBinding('attr.aria-label')
   @Input()
   String label;
+
+  /// Id for the checkbox label and content.
+  @visibleForTemplate
+  @HostBinding('attr.aria-labelledby')
+  final contentId = SequentialIdGenerator.fromUUID().nextId();
 
   /// Toggles checkbox via user action.
   ///
@@ -275,12 +286,14 @@ class MaterialCheckboxComponent
 
   // Capture keyup when we are the target of event.
   @HostListener('keyup')
+  @visibleForTemplate
   void handleKeyUp(KeyboardEvent event) {
     if (event.target != _root) return;
     _isKeyboardEvent = true;
   }
 
   @HostListener('click')
+  @visibleForTemplate
   void handleClick(MouseEvent mouseEvent) {
     if (disabled) return;
     _isKeyboardEvent = false;
@@ -288,6 +301,7 @@ class MaterialCheckboxComponent
   }
 
   @HostListener('mousedown')
+  @visibleForTemplate
   void handleMouseDown(MouseEvent mouseEvent) {
     // This removes the text selection behavior of mousedown.
     if (readOnly) {
@@ -296,6 +310,7 @@ class MaterialCheckboxComponent
   }
 
   @HostListener('keypress')
+  @visibleForTemplate
   void handleKeyPress(KeyboardEvent event) {
     if (disabled) return;
     if (event.target != _root) return;
@@ -309,12 +324,14 @@ class MaterialCheckboxComponent
 
   // Triggered on focus.
   @HostListener('focus')
+  @visibleForTemplate
   void handleFocus(_) {
     _focused = true;
   }
 
   // Triggered on blur.
   @HostListener('blur')
+  @visibleForTemplate
   void handleBlur(Event event) {
     _focused = false;
     _onTouched?.call();
@@ -328,6 +345,5 @@ class MaterialCheckboxComponent
 
   /// Unimplemented for M1.
   Future focusDelegate;
-  set checkboxInputElement(_) {}
   void ngOnDestroy() {}
 }

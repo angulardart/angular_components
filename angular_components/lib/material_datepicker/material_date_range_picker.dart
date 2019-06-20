@@ -20,8 +20,8 @@ import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_datepicker/comparison.dart';
 import 'package:angular_components/material_datepicker/comparison_option.dart';
 import 'package:angular_components/material_datepicker/config.dart';
-import 'package:angular_components/material_datepicker/date_range_editor_host.dart';
 import 'package:angular_components/material_datepicker/date_range_editor.dart';
+import 'package:angular_components/material_datepicker/date_range_editor_host.dart';
 import 'package:angular_components/material_datepicker/model.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/material_datepicker/next_prev_buttons.dart';
@@ -29,6 +29,7 @@ import 'package:angular_components/material_datepicker/preset.dart';
 import 'package:angular_components/material_datepicker/range.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
+import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
 import 'package:angular_components/model/observable/observable.dart';
@@ -77,6 +78,7 @@ const _defaultMaxHeight = 600;
     DateRangeEditorComponent,
     DeferredContentDirective,
     DropdownButtonComponent,
+    FocusableDirective,
     KeyboardOnlyFocusIndicatorDirective,
     MaterialButtonComponent,
     MaterialPopupComponent,
@@ -87,11 +89,13 @@ const _defaultMaxHeight = 600;
   ],
   providers: [
     ExistingProvider(DateRangeEditorHost, MaterialDateRangePickerComponent),
+    ExistingProvider(Focusable, MaterialDateRangePickerComponent),
     ExistingProvider(HasDisabled, MaterialDateRangePickerComponent),
     ExistingProvider(PopupSizeProvider, MaterialDateRangePickerComponent),
   ],
 )
 class MaterialDateRangePickerComponent
+    with FocusableMixin
     implements
         HasDisabled,
         OnInit,
@@ -103,14 +107,23 @@ class MaterialDateRangePickerComponent
   bool _focusOnDateRangeEditorInit = false;
   PopupSizeProvider _popupSizeProvider;
 
-  List<RelativePosition> get overlapAlignments =>
-      RelativePosition.overlapAlignments;
+  @ViewChild(ButtonDirective)
+  set focusableElement(ButtonDirective button) {
+    focusable = button;
+  }
 
   @Deprecated('Use [presets] instead.')
   @Input('predefinedRanges')
   set predefinedRanges(List<DatepickerDateRange> ranges) {
     presets = ranges.map((range) => DatepickerPreset.fromRange(range)).toList();
   }
+
+  /// A list of positions for popup alignment.
+  ///
+  /// Defaults to [RelativePosition.overlapAlignments].
+  @Input()
+  List<RelativePosition> preferredPositions =
+      RelativePosition.overlapAlignments;
 
   /// A list of preset date ranges which the user can choose from.
   ///
@@ -240,6 +253,10 @@ class MaterialDateRangePickerComponent
   @Input()
   String applyButtonLabel;
 
+  /// The ARIA label for the dropdown button.
+  @Input()
+  String dropdownButtonAriaLabel;
+
   /// Whether changing the selected date range should be disabled.
   @Input()
   set disabled(bool value) {
@@ -282,6 +299,14 @@ class MaterialDateRangePickerComponent
 
   Date get maxDate => _maxDate;
   Date _maxDate;
+
+  /// The [DateFormat] used to format dates.
+  @Input()
+  DateFormat dateFormat;
+
+  /// The [DateFormat] used to format dates when the input is active.
+  @Input()
+  DateFormat activeDateFormat;
 
   /// When 'requireFullPeriods' is true, 'prev/next' button will be disabled
   /// if previous or next period is not a full predefined period, like 'week'.
@@ -411,8 +436,9 @@ class MaterialDateRangePickerComponent
       ..maxDate = maxDate
       ..requireFullPeriods = requireFullPeriods
       ..basic = isBasic;
-    if (selection.value != null)
+    if (selection.value != null) {
       model.value = _maybeStripComparison(selection.value);
+    }
     _disposer.addFunction(model.dispose);
 
     _needsApply(modelValue) =>

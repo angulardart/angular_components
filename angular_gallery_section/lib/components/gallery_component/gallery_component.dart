@@ -7,11 +7,12 @@ library angular_components.scaffolding.gallery_section.components.gallery_compon
 
 import 'dart:html';
 import 'package:angular/angular.dart';
-import 'package:angular/security.dart';
 import 'package:js/js.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/laminate/popup/module.dart';
+import 'package:angular_gallery_section/components/gallery_component/documentation_component.dart';
+import 'package:angular_gallery/gallery/gallery_tokens.dart';
 import 'package:angular_gallery_section/components/gallery_component/gallery_info.dart';
 
 /// The gallery component details page that encompass the component's dart docs,
@@ -23,11 +24,12 @@ import 'package:angular_gallery_section/components/gallery_component/gallery_inf
     DynamicComponent,
     NgFor,
     NgIf,
-    SafeInnerHtmlDirective,
+    documentationComponentDirectives,
   ],
   providers: [popupBindings],
   templateUrl: 'gallery_component.html',
   styleUrls: ['gallery_component.scss.css'],
+  exports: [DocType],
 )
 class GalleryComponent {
   /// The base model for the gallery that gathers all of the details needed by
@@ -35,22 +37,25 @@ class GalleryComponent {
   @Input()
   GalleryInfo model;
 
-  DomSanitizationService _santizationService;
+  /// The begining of a custom url used for the bug link on components.
+  ///
+  /// Should contain any custom url parameters. A title will be appended.
+  final String _bugUrl;
+
+  /// The begining of the link to the source code for all components.
+  final String _sourcecodeUrl;
 
   /// Used to disable latency charts in testing environments where they can't
   /// load successfully.
   final latencyChartsEnabled =
       !window.location.href.contains('enableLatencyCharts=false');
 
-  GalleryComponent(this._santizationService);
+  GalleryComponent(@bugUrl this._bugUrl, @sourcecodeUrl this._sourcecodeUrl);
 
   bool get showToc =>
       (model.docs.length + model.demos.length + model.benchmarks.length) > 1;
 
-  SafeHtml getSafeHtml(String value) =>
-      _santizationService.bypassSecurityTrustHtml(value);
-
-  String getDocId(Doc doc) => '${doc.name}Doc';
+  String getDocId(DocInfo doc) => '${doc.name.replaceAll(' ', '_')}Doc';
 
   String getDemoId(Demo demo) => '${demo.name}Demo';
 
@@ -58,34 +63,12 @@ class GalleryComponent {
 
   String getTeamsLink(String ldap) => 'http://who/$ldap';
 
-  String getBuganizerLink(Doc doc) {
-    var params = <String>[];
-    if (doc.path.startsWith('ads/acx2') ||
-        doc.path.startsWith('third_party/dart_src/acx')) {
-      params.add('component=105665');
-      params.add('template=38109');
-    }
-    params.add('title=${doc.name} bug:');
-    return 'http://b/issues/new?' + params.join('&');
-  }
-
   /// Reformats a library path name to a link path that can be used by
   /// CodeSearch.
-  String getCodeSearchLink(String componentPath) {
-    String repo;
-    String path;
-
-    if (componentPath.contains('example')) {
-      repo = 'https://github.com/dart-lang/angular_components/blob/master/'
-          'examples/';
-      path = componentPath;
-    } else {
-      repo = 'https://github.com/dart-lang/angular_components/blob/master/'
-          'angular_components';
-      path = componentPath.substring(componentPath.indexOf('/'));
-    }
-    return '$repo$path';
-  }
+  String getCodeSearchLink(String componentPath) =>
+      componentPath.contains('example')
+          ? '$_sourcecodeUrl/examples/$componentPath'
+          : '$_sourcecodeUrl$componentPath';
 }
 
 /// Applies code highlighting on `<pre><code>` elements within [htmlFragment].

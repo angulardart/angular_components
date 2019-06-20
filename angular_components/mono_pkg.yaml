@@ -1,13 +1,19 @@
 # See https://github.com/dart-lang/mono_repo for details
 dart:
-  - stable
+  - 2.3.0-dev.0.1
   - dev
 
 stages:
   - analyze_and_format:
     - group:
-      - dartfmt
-      - dartanalyzer: --fatal-warnings .
+        - dartfmt: sdk
+        - dartanalyzer: --fatal-warnings .
+      dart:
+        - dev
+    - group:
+        - dartanalyzer: --fatal-warnings .
+      dart:
+        - 2.3.0-dev.0.1
   - unit_test:
     - group:
       - command: ./tool/travis/install_protoc.sh

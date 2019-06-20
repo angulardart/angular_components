@@ -16,6 +16,7 @@
     <div *ngIf="group.hasLabel"
          buttonDecorator
          class="group-header"
+         [attr.aria-expanded]="group.isCollapsible ? group.isExpanded.toString() : null"
          [class.is-collapsible]="group.isCollapsible"
          (trigger)="toggleExpansionIfCollapsible(group)">
       <div class="group-label">
@@ -38,7 +39,7 @@
               [autoFocus]="hasAutoFocus(activeModel?.id(item))"
               [focusActivableItem]="activeModel?.id(item)"
 
-              role="menuitem"
+              role="{{group.itemsRole}}"
               [attr.data-group-index]="i"
               [attr.data-item-index]="j"
               [attr.id]="activeModel?.id(item)"
@@ -50,11 +51,14 @@
               class="menu-item"
               [ngClass]="item.cssClasses"
               [class.is-menu-parent]="isSubMenuVisible(item)"
+              [attr.aria-label]="item.ariaLabel"
               [attr.aria-disabled]="!item.enabled"
               [attr.aria-haspopup]="item.hasSubMenu"
+              [attr.aria-expanded]="item.hasSubMenu ? isSubMenuVisible(item) : null"
+              [attr.aria-checked]="itemAriaChecked(item)"
 
-              closeOnActivate="false"
-              useCheckMarks="true"
+              [closeOnActivate]="false"
+              [useCheckMarks]="true"
               [itemActive]="isItemActive(item)"
               [disabled]="!item.enabled"
               [selection]="getSelectionModel(group)"
@@ -110,6 +114,7 @@
               #submenu>
             <material-list
                 *deferredContent
+                role="none"
                 class="item-group-list"
                 [width]="item.subMenu.width">
               <menu-item-groups

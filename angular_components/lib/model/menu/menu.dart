@@ -5,7 +5,6 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:meta/meta.dart';
 import 'package:observable/observable.dart';
 import 'package:quiver/core.dart' show Optional;
 import 'package:quiver/strings.dart' show isNotEmpty;
@@ -28,6 +27,13 @@ class MenuItemGroup<T> extends LabeledList<T> {
   final ObservableReference<bool> _isCollapsible;
   final ObservableReference<bool> _isExpanded;
   final ObservableReference<bool> _hasSeparator;
+
+  /// The `role` attribute that all items should have.
+  ///
+  /// The `role` attribute is used for a11y purposes and should be the same for
+  /// each menu item in a group. If the menu items are not selectable the role
+  /// should be `menuitem`. https://www.w3.org/TR/wai-aria-1.1/#menuitem
+  final itemsRole = 'menuitem';
 
   MenuItemGroup(List<T> items,
       [String label,
@@ -133,10 +139,11 @@ class MenuModel<T> implements HasIcon, AcceptsWidth {
 /// Example code for creating a menu item with tooltip
 ///     new MenuItem(label, tooltip: tooltip,
 ///                  action:action, icon:icon, subMenu:subMenu);
-class MenuItem<T> implements HasUIDisplayName, HasIcon {
+class MenuItem<T> with MenuItemMixin implements HasUIDisplayName, HasIcon {
   final String label;
   final String secondaryLabel;
   final String tooltip;
+  final String ariaLabel;
 
   /// A superscript annotation that is shown to the right of the label.
   ///
@@ -149,8 +156,6 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon {
   Function action;
 
   final Icon icon;
-  @override
-  Icon get uiIcon => icon;
 
   /// List of rendered suffixes for this menu item.
   final ObservableList<MenuItemAffix> itemSuffixes;
@@ -158,18 +163,7 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon {
   /// Additional CSS classes to be attached to the root menu item element.
   final BuiltList<String> cssClasses;
 
-  void _noop() {}
-  Function get nullAwareActionHandler => action != null ? action : _noop;
-
-  @virtual
   bool enabled;
-  bool get hasIcon => icon != null;
-
-  bool get hasSubMenu => subMenu != null;
-  bool get showTooltip => isNotEmpty(tooltip);
-  @override
-  String get uiDisplayName => label;
-  bool get hasSecondaryLabel => secondaryLabel != null;
 
   /// The constructor for a [MenuItem] which displays [label].
   ///
@@ -198,11 +192,13 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon {
       MenuItemAffix itemSuffix,
       ObservableList<MenuItemAffix> itemSuffixes,
       this.subMenu,
-      this.secondaryLabel})
+      this.secondaryLabel,
+      String ariaLabel})
       : itemSuffixes = itemSuffixes ??
             ObservableList<MenuItemAffix>.from(
                 Optional.fromNullable(itemSuffix)),
-        cssClasses = BuiltList<String>(cssClasses ?? const []) {
+        cssClasses = BuiltList<String>(cssClasses ?? const []),
+        ariaLabel = ariaLabel ?? label {
     assert(itemSuffix == null || itemSuffixes == null,
         'Only one of itemSuffix or itemSuffixes should be provided');
   }
@@ -216,6 +212,34 @@ class MenuItem<T> implements HasUIDisplayName, HasIcon {
         'icon': icon,
         'suffixes': itemSuffixes.map((affix) => '$affix').join(','),
       }.toString();
+}
+
+/// Required members to use [MenuItemMixin].
+abstract class _MenuItemBase {
+  Function get action;
+  Icon get icon;
+  String get label;
+  String get secondaryLabel;
+  String get tooltip;
+  MenuModel get subMenu;
+}
+
+/// Mixin to implement trivial getters on [MenuItem].
+abstract class MenuItemMixin implements _MenuItemBase {
+  void _noop() {}
+  Function get nullAwareActionHandler => action != null ? action : _noop;
+
+  bool get hasIcon => icon != null;
+
+  String get uiDisplayName => label;
+
+  Icon get uiIcon => icon;
+
+  bool get hasSubMenu => subMenu != null;
+
+  bool get hasSecondaryLabel => secondaryLabel != null;
+
+  bool get showTooltip => isNotEmpty(tooltip);
 }
 
 /// Type that can be specified to mark that there can be no subMenus for

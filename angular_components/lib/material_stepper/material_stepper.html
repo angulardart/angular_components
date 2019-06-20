@@ -10,6 +10,7 @@
      [acxStickyElement]="afterStepperElement"
      [sticky]="stickyHeader">
   <div class="stepper-step"
+       [attr.aria-label]="stepAriaLabel(step)"
        *ngFor="let step of steps"
        [attr.orientation]="orientation"
        [attr.size]="size"
@@ -111,3 +112,8 @@
     </span>
 </div>
 <div #afterStepperElement></div>
+<div *ngIf="announceCurrentStep"
+     aria-live="assertive"
+     class="visible-to-screen-reader-only">
+  {{stepAriaAnnounce}}
+</div>

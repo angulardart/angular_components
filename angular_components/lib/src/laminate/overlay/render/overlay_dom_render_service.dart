@@ -44,6 +44,12 @@ const overlaySyncDom = OpaqueToken('overlaySyncDom');
 /// part of the scrolling container.
 const overlayRepositionLoop = OpaqueToken('overlayRepositionLoop');
 
+/// An token to provide custom viewport boundaries for popups.
+///
+/// By default popups are contained within the browser window. This allows apps
+/// to provide boundaries around the edges of the window to contain popups.
+const overlayViewportBoundaries = OpaqueToken('overlayViewportBoundaries');
+
 /// A DOM implementation of the components needed for [OverlayService].
 ///
 /// In multi-threaded applications that use web workers, this will live on the

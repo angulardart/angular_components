@@ -11,6 +11,7 @@ import 'package:angular_components/laminate/components/modal/modal.dart';
 import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 /// A styled container following the Material Spec for Dialogs.
 ///
@@ -34,11 +35,22 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 class MaterialDialogComponent
     with KeyboardHandlerMixin
     implements AfterContentChecked, OnDestroy {
+  @HostBinding('attr.role')
+  static const hostRole = 'dialog';
+
+  @HostBinding('attr.aria-modal')
+  static const ariaModel = 'true';
+
+  @HostBinding('attr.aria-labelledby')
+  String get headerId => shouldShowHeader ? _uid : null;
+
   final HtmlElement _rootElement;
   final DomService _domService;
   final ChangeDetectorRef _changeDetector;
+  final NgZone _ngZone;
   final ModalComponent _modal;
   final _disposer = Disposer.oneShot();
+  final _uid = SequentialIdGenerator.fromUUID().nextId();
 
   HtmlElement _mainElement;
   bool _shouldShowHeader = true;
@@ -50,8 +62,13 @@ class MaterialDialogComponent
   bool _isInFullscreenMode;
   bool _shouldListenForFullscreenChanges = false;
 
-  MaterialDialogComponent(this._rootElement, this._domService,
-      this._changeDetector, @Optional() this._modal) {
+  MaterialDialogComponent(
+    this._rootElement,
+    this._domService,
+    this._changeDetector,
+    this._ngZone,
+    @Optional() this._modal,
+  ) {
     escapeHandler = _defaultEscapeHandler;
   }
 
@@ -109,11 +126,10 @@ class MaterialDialogComponent
           shouldShowBottomScrollStroke != this.shouldShowBottomScrollStroke) {
         this.shouldShowTopScrollStroke = shouldShowTopScrollStroke;
         this.shouldShowBottomScrollStroke = shouldShowBottomScrollStroke;
-        _changeDetector
-          ..markForCheck()
-          // This detectChanges() here is for updating the classes when the page
-          // initially loads.
-          ..detectChanges();
+        // Update the DOM based on the newly modified state.
+        _ngZone.runAfterChangesObserved(() {
+          _changeDetector.markForCheck();
+        });
       }
     }));
   }

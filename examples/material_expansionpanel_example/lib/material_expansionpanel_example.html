@@ -4,7 +4,7 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <section>
-  <material-expansionpanel-set>
+  <material-expansionpanel-set focusList>
     <material-expansionpanel wide
                              name="Name"
                              (close)="showConfirmationDialog($event)"
@@ -13,7 +13,7 @@
 
       <div>
         <span>Change the name:</span>
-        <material-input autoFocus [ngModel]="name" (inputKeyPress)="name = $event"></material-input>
+        <material-input #focusOnOpen [ngModel]="name" (inputKeyPress)="name = $event"></material-input>
       </div>
     </material-expansionpanel>
 
@@ -49,6 +49,9 @@
       </div>
       <div value>
         Panel headers can also have custom names.
+      </div>
+      <div tabIndex="0" #focusOnOpen>
+        I want to focus this content on open.
       </div>
     </material-expansionpanel>
   </material-expansionpanel-set>
@@ -232,8 +235,8 @@
 
 </section>
 
-<modal [visible]="showConfirmation">
-  <material-dialog class="confirmation-dialog">
+<modal [(visible)]="showConfirmation">
+  <material-dialog class="confirmation-dialog" autoFocus>
     <h3>Do you really want to cancel?</h3>
     <material-yes-no-buttons raised
                              yesHighlighted

@@ -52,4 +52,11 @@ class MaterialListComponent implements AcceptsWidth {
       size = MaterialListSize.values[val];
     }
   }
+
+  /// Role to apply to the material-list.
+  ///
+  /// Defaults to 'list'
+  @HostBinding('attr.role')
+  @Input()
+  String role = 'list';
 }

@@ -7,6 +7,7 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
+import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_spinner/material_spinner.dart';
@@ -24,14 +25,13 @@ import 'package:angular_components/material_spinner/material_spinner.dart';
 @Component(
   selector: 'material-yes-no-buttons',
   directives: [
+    AutoFocusDirective,
     MaterialButtonComponent,
     MaterialSpinnerComponent,
     NgClass,
     NgIf,
   ],
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialYesNoButtonsComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialYesNoButtonsComponent)],
   templateUrl: 'material_yes_no_buttons.html',
   styleUrls: ['material_yes_no_buttons.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -121,6 +121,40 @@ class MaterialYesNoButtonsComponent implements HasDisabled {
   @Input()
   bool pending = false;
 
+  /// The text to be used as an ARIA label on the save button.
+  ///
+  /// For example, `Ok`, `Apply`, etc. Defaults to `null` so screen readers will
+  /// read the button text as the label.
+  @Input()
+  String yesAriaLabel;
+
+  /// The text to be used as an ARIA label on the cancel button.
+  ///
+  /// For example, `Dismiss`, `Not now`, etc. Defaults to `null` so screen
+  /// readers will read the button text as the label.
+  @Input()
+  String noAriaLabel;
+
+  /// Whether the yes button should be auto-focused.
+  ///
+  /// Default value is `false`.
+  @Input()
+  bool yesAutoFocus = false;
+
+  /// Whether the no button should be auto-focused.
+  ///
+  /// Default value is `false`.
+  @Input()
+  bool noAutoFocus = false;
+
+  /// The description which will be set to yes button's aria-describedby.
+  @Input()
+  String yesAriaDescribedBy;
+
+  /// The description which will be set to no button's aria-describedby.
+  @Input()
+  String noAriaDescribedBy;
+
   @ViewChild('yesButton')
   MaterialButtonComponent yesButton;
 
@@ -181,19 +215,25 @@ class MaterialSubmitCancelButtonsDirective
       desc: 'Text on submit button.', meaning: 'Text on submit button.');
 }
 
-/// Base implementation of directive to listen to keyup events.
+/// Base implementation of directive to listen to key events.
 ///
 /// By default it listens only on the element itself, but if an ancestor has the
 /// `keyupBoundary` directive, it will listen on the whole subtree.
-abstract class BoundaryAwareKeyUpDirective implements OnDestroy {
+abstract class BoundaryAwareKeyDirective implements OnDestroy {
   StreamSubscription _subscription;
 
-  BoundaryAwareKeyUpDirective(
+  BoundaryAwareKeyDirective.keypress(
       Element element, @Optional() KeyUpBoundaryDirective boundary) {
-    final Stream<KeyboardEvent> keyUpStream =
+    final stream =
+        boundary?.keyPressStream ?? Element.keyPressEvent.forElement(element);
+    _subscription = stream.where(_isKeyMatching).listen(_onMatchingKey);
+  }
+
+  BoundaryAwareKeyDirective.keyup(
+      Element element, @Optional() KeyUpBoundaryDirective boundary) {
+    final stream =
         boundary?.keyUpStream ?? Element.keyUpEvent.forElement(element);
-    _subscription =
-        keyUpStream.where(_isKeyUpMatching).listen(_onMatchingKeyUp);
+    _subscription = stream.where(_isKeyMatching).listen(_onMatchingKey);
   }
 
   @override
@@ -203,26 +243,38 @@ abstract class BoundaryAwareKeyUpDirective implements OnDestroy {
   }
 
   /// Tests whether a subclass is interested in the event.
-  bool _isKeyUpMatching(KeyboardEvent event);
+  bool _isKeyMatching(KeyboardEvent event);
 
-  /// Invoked for events that passed [_isKeyUpMatching].
-  void _onMatchingKeyUp(KeyboardEvent event);
+  /// Invoked for events that passed [_isKeyMatching].
+  void _onMatchingKey(KeyboardEvent event);
 }
 
-/// Marks a subtree of the dom that should handle `keyup` events for a
-/// [BoundaryAwareKeyUpDirective] implementation.
+/// Marks a subtree of the dom that should handle key events for a
+/// [BoundaryAwareKeyDirective] implementation.
 // TODO(google): move to somewhere common.
+// TODO(google): Rename to be more appropriate.
 @Directive(
   selector: '[keyupBoundary]',
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
 class KeyUpBoundaryDirective {
-  /// Stream of `keyup` [KeyboardEvent]s of the DOM subtree.
-  final Stream<KeyboardEvent> keyUpStream;
+  final HtmlElement _element;
+  Stream<KeyboardEvent> _keyUpStream;
+  Stream<KeyboardEvent> _keyPressStream;
 
-  KeyUpBoundaryDirective(Element element)
-      : keyUpStream = Element.keyUpEvent.forElement(element);
+  KeyUpBoundaryDirective(this._element);
+
+  /// Stream of keyUp events.
+  ///
+  /// Use this stream when the KeyDirective you are creating cannot use a
+  /// keyPress event such as for modifier keys and Esc.
+  Stream<KeyboardEvent> get keyUpStream =>
+      _keyUpStream ??= Element.keyUpEvent.forElement(_element);
+
+  /// Stream of keyPress events.
+  Stream<KeyboardEvent> get keyPressStream =>
+      _keyPressStream ??= Element.keyPressEvent.forElement(_element);
 }
 
 /// If attached to the yes-no buttons it will listen for escape `keyup` event
@@ -232,7 +284,7 @@ class KeyUpBoundaryDirective {
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
+class EscapeCancelsDirective extends BoundaryAwareKeyDirective
     implements OnDestroy {
   final MaterialYesNoButtonsComponent _yesNo;
 
@@ -240,10 +292,10 @@ class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
 
   EscapeCancelsDirective(
       this._yesNo, Element element, @Optional() KeyUpBoundaryDirective boundary)
-      : super(element, boundary);
+      : super.keyup(element, boundary);
 
   @override
-  bool _isKeyUpMatching(KeyboardEvent event) {
+  bool _isKeyMatching(KeyboardEvent event) {
     if (event.keyCode != KeyCode.ESC) return false;
     // Make sure the no button is visible and enabled
     if (noButton == null || noButton.disabled) return false;
@@ -252,7 +304,7 @@ class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
   }
 
   @override
-  void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.onNo(event);
+  void _onMatchingKey(KeyboardEvent event) => _yesNo.onNo(event);
 }
 
 /// If attached to yes-no buttons, it will listen for Enter `keyup` events and
@@ -262,7 +314,7 @@ class EscapeCancelsDirective extends BoundaryAwareKeyUpDirective
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
-class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
+class EnterAcceptsDirective extends BoundaryAwareKeyDirective
     implements OnDestroy {
   final MaterialYesNoButtonsComponent _yesNo;
 
@@ -271,16 +323,16 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
 
   EnterAcceptsDirective(
       this._yesNo, Element element, @Optional() KeyUpBoundaryDirective boundary)
-      : super(element, boundary);
+      : super.keypress(element, boundary);
 
   /// Enables the directive to be conditionally applied.
   @Input()
   bool enterAccepts = true;
 
   @override
-  bool _isKeyUpMatching(KeyboardEvent event) {
+  bool _isKeyMatching(KeyboardEvent event) {
     if (!enterAccepts) return false;
-    if (event.keyCode != KeyCode.ENTER) return false;
+    if (event.keyCode != KeyCode.ENTER || event.repeat == true) return false;
     // Make sure the yes button is visible and enabled
     if (yesButton == null || yesButton.disabled) return false;
     // If the no button is visible, it must not be focused (otherwise enter must
@@ -291,5 +343,5 @@ class EnterAcceptsDirective extends BoundaryAwareKeyUpDirective
   }
 
   @override
-  void _onMatchingKeyUp(KeyboardEvent event) => _yesNo.onYes(event);
+  void _onMatchingKey(KeyboardEvent event) => _yesNo.onYes(event);
 }

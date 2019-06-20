@@ -22,9 +22,7 @@ import 'package:angular_components/utils/browser/events/events.dart';
   styleUrls: ['material_toggle.scss.css'],
   templateUrl: 'material_toggle.html',
   directives: [NgIf],
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialToggleComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialToggleComponent)],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialToggleComponent

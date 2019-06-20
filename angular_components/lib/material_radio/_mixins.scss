@@ -23,3 +23,9 @@
   }
 }
 
+/// Overrides the margin of the content.
+@mixin material-radio-content-margin($margin) {
+  ::ng-deep .content {
+    margin: $margin;
+  }
+}

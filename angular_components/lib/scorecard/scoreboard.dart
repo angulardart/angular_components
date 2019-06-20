@@ -179,11 +179,12 @@ class ScoreboardComponent implements OnInit, OnDestroy {
   void _resetTabIndex() {
     for (ScorecardComponent component in _scorecards) {
       var offset = _scorecardOffset(component.element);
-      var scoreCardBarEndPosition = _scorecardBar.currentTransformSize +
+      var scorecardBarEndPosition = _scorecardBar.currentTransformSize +
           _scorecardBar.currentClientSize -
           _scorecardBar.currentButtonSize;
-      if (offset < scoreCardBarEndPosition &&
-          offset > _scorecardBar.currentTransformSize) {
+      if (offset < scorecardBarEndPosition &&
+          offset > _scorecardBar.currentTransformSize &&
+          component.selectable) {
         component.element.tabIndex = 0;
       } else {
         component.element.tabIndex = -1;

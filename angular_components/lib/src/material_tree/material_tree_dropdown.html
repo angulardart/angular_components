@@ -33,7 +33,8 @@
   [preferredPositions]="popupPositions"
   [source]="button"
   [(visible)]="visible"
-  (opened)="focus()">
+  (opened)="focus()"
+  [class]="popupClassName">
   <div header>
     <ng-content select="[header]"></ng-content>
     <material-tree-filter
@@ -49,6 +50,8 @@
     *deferredContent
     [componentRenderer]="componentRenderer"
     [expandAll]="expandAll"
+    [allowParentSingleSelection]="allowParentSingleSelection"
+    [allowDeselectInHierarchy]="allowDeselectInHierarchy"
     [itemRenderer]="itemRenderer"
     [options]="options"
     [selection]="selection">

@@ -26,35 +26,32 @@ import 'package:angular_components/utils/browser/events/events.dart';
 )
 class ButtonDirective extends RootFocusable
     with HasTabIndex
-    implements OnInit, HasDisabled {
+    implements HasDisabled {
   /// Fired when the button is activated via click, tap, or key press.
   @Output()
   Stream<UIEvent> get trigger => _trigger.stream;
 
   final _trigger = StreamController<UIEvent>.broadcast(sync: true);
 
-  String _hostTabIndex;
-  String _role;
-  String _ariaRole;
+  String _hostTabIndex = '0';
+  final String _nonTabbableIndex;
+  bool _shouldHandleSpaceKey;
 
-  ButtonDirective(Element element, @Attribute('role') String role)
-      : _role = role,
+  ButtonDirective(Element element, @Attribute('role') String role,
+      {bool addTabIndexWhenNonTabbable = false, bool handleSpacePresses = true})
+      : this.role = (role ?? 'button'),
+        // Allow the subclass to define how the element should be made
+        // untabbable.
+        _nonTabbableIndex = addTabIndexWhenNonTabbable ? '-1' : null,
+        _shouldHandleSpaceKey = handleSpacePresses ?? true,
         super(element);
 
   /// Role of this component used for a11y.
   @Input()
-  set role(String value) {
-    assert(ariaRole == null, 'Role can only be set before initialization.');
-    _role = value;
-  }
+  String role;
 
   @HostBinding('attr.role')
-  String get ariaRole => _ariaRole;
-
-  @override
-  void ngOnInit() {
-    _ariaRole = _role ?? 'button';
-  }
+  String get ariaRole => role;
 
   /// String value to be passed to aria-disabled.
   @HostBinding('attr.aria-disabled')
@@ -69,7 +66,8 @@ class ButtonDirective extends RootFocusable
   @Input()
   bool tabbable = true;
 
-  String get hostTabIndex => tabbable && !disabled ? _hostTabIndex : '-1';
+  String get hostTabIndex =>
+      tabbable && !disabled ? _hostTabIndex : _nonTabbableIndex;
 
   /// The tab index of the component.
   ///
@@ -90,6 +88,7 @@ class ButtonDirective extends RootFocusable
   @HostListener('keypress')
   void handleKeyPress(KeyboardEvent keyboardEvent) {
     if (disabled) return;
+    if (isSpaceKey(keyboardEvent) && !_shouldHandleSpaceKey) return;
     int keyCode = keyboardEvent.keyCode;
     if (keyCode == KeyCode.ENTER || isSpaceKey(keyboardEvent)) {
       _trigger.add(keyboardEvent);

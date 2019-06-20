@@ -13,13 +13,13 @@ import 'package:angular_components/focus/focus_interface.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/enums/visibility.dart'
     as visibility;
-import 'package:angular_components/laminate/overlay/constants.dart';
 import 'package:angular_components/laminate/overlay/module.dart';
 import 'package:angular_components/laminate/overlay/overlay.dart';
 import 'package:angular_components/laminate/overlay/zindexer.dart';
 import 'package:angular_components/laminate/popup/module.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/mixins/material_dropdown_base.dart';
+import 'package:angular_components/model/math/box.dart';
 import 'package:angular_components/model/ui/toggle.dart';
 import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
@@ -37,13 +37,6 @@ export 'package:angular_components/laminate/popup/popup.dart'
 /// [PopupInterface].
 ///
 /// This is useful if content size is such that adds scroll to the page.
-/// - Even though this component supports [ChangeDetectionStrategy.OnPush]
-///   for the cases tested in examples, it does not set ChangeDetectionStrategy.
-///   This means that usage of this component within another component in OnPush
-///   mode is possible but at the implementors discretion since any such
-///   implementation would require all it's content children to support OnPush
-///   as well.
-///
 /// - If the contents change and need to readjust position use
 ///  [trackLayoutChanges] which is also defined in [PopupInterface].
 ///
@@ -66,16 +59,17 @@ export 'package:angular_components/laminate/popup/popup.dart'
 @Component(
   selector: 'material-popup',
   providers: [
-    Provider(DeferredContentAware, useExisting: MaterialPopupComponent),
-    Provider(DropdownHandle, useExisting: MaterialPopupComponent),
-    Provider(PopupHierarchy, useFactory: getHierarchy),
-    Provider(PopupRef, useFactory: getResolvedPopupRef),
+    ExistingProvider(DeferredContentAware, MaterialPopupComponent),
+    ExistingProvider(DropdownHandle, MaterialPopupComponent),
+    FactoryProvider(PopupHierarchy, getHierarchy),
+    FactoryProvider(PopupRef, getResolvedPopupRef),
   ],
   templateUrl: 'material_popup.html',
   styleUrls: ['material_popup.scss.css'],
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
   visibility: Visibility.all, // injected by hierarchy
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialPopupComponent extends Object
     with PopupBase, PopupEvents, PopupHierarchyElement
@@ -106,6 +100,7 @@ class MaterialPopupComponent extends Object
   final ChangeDetectorRef _changeDetector;
   final ViewContainerRef _viewContainer;
   final Disposer _disposer = Disposer.oneShot();
+  final Disposer _visibleDisposer = Disposer.multi();
   final NgZone _ngZone;
   final OverlayService _overlayService;
   final DomService _domService;
@@ -113,10 +108,6 @@ class MaterialPopupComponent extends Object
 
   final List<RelativePosition> _defaultPreferredPositions;
   RelativePosition _alignmentPosition;
-
-  StreamSubscription _layoutChangeSub;
-  StreamSubscription _layoutInternalSub;
-  StreamSubscription _windowResizeSub;
 
   OverlayRef _overlayRef;
 
@@ -140,7 +131,11 @@ class MaterialPopupComponent extends Object
   // The top/left of this [Rectangle] is always (0, 0). A Rectangle returned by
   // getBoundingClientRect() will be positioned relative to this point (i.e.
   // will be in the viewport vector space).
-  static MutableRectangle _viewportRect;
+  final MutableRectangle _viewportRect = MutableRectangle(0, 0, 0, 0);
+
+  // The top/bottom/left/right boundaries for the popup within the viewport
+  // rect.
+  final Box _viewportBoundaries;
 
   // The window.resize event is throttled because it can occur at a high
   // frequency (> 20 times per second).
@@ -163,6 +158,7 @@ class MaterialPopupComponent extends Object
   int _repositionOffsetX = 0;
   int _repositionOffsetY = 0;
   int _repositionLoopId;
+  List<Element> _autoDismissBlockers = [];
 
   @override
   bool get autoDismiss => state.autoDismiss;
@@ -183,6 +179,7 @@ class MaterialPopupComponent extends Object
 
   /// Direction of popup scaling.
   String _slide;
+
   String get slide => _slide;
 
   /// Direction of popup scaling.
@@ -238,6 +235,13 @@ class MaterialPopupComponent extends Object
   @Input()
   bool hasBox = true;
 
+  /// Page elements that do not auto-dismiss the popup in addition to the popup
+  /// up source element.
+  @Input()
+  set autoDismissBlockers(List<Element> elements) {
+    _autoDismissBlockers = elements;
+  }
+
   MaterialPopupComponent(
       @Optional() @SkipSelf() this._hierarchy,
       @Optional() @SkipSelf() MaterialPopupComponent parentPopup,
@@ -248,6 +252,7 @@ class MaterialPopupComponent extends Object
       this._zIndexer,
       @Inject(defaultPopupPositions) this._defaultPreferredPositions,
       @Inject(overlayRepositionLoop) this._useRepositionLoop,
+      @Inject(overlayViewportBoundaries) this._viewportBoundaries,
       @Optional() this._popupSizeProvider,
       this._changeDetector,
       this._viewContainer,
@@ -255,32 +260,12 @@ class MaterialPopupComponent extends Object
       : this.role = role ?? 'dialog' {
     // Close popup if parent closes.
     if (parentPopup != null) {
-      parentPopup.onClose.listen((_) => close());
+      _disposer
+          .addStreamSubscription(parentPopup.onClose.listen((_) => close()));
     }
 
     // Create the PopupRef for the ACX focus library.
     _resolvedPopupRef = MaterialPopupRef(this);
-
-    // Start the shared window.resize listener (if it hasn't been already).
-    _initViewportRect();
-  }
-
-  void _initViewportRect() {
-    if (_viewportRect != null) return;
-    // The reason a separate variable is maintained instead of using
-    // window.innerWidth/window.innerHeight directly is because accessing
-    // window.innerWidth/window.innerHeight can cause reflows.
-    _viewportRect =
-        MutableRectangle(0, 0, window.innerWidth, window.innerHeight);
-    _ngZone.runOutsideAngular(() {
-      window.onResize
-          .transform(
-              throttleStream(_resizeThrottleDuration, guaranteeLast: true))
-          .listen((_) {
-        _viewportRect.width = window.innerWidth;
-        _viewportRect.height = window.innerHeight;
-      });
-    });
   }
 
   @override
@@ -309,9 +294,7 @@ class MaterialPopupComponent extends Object
     if (_repositionLoopId != null) {
       window.cancelAnimationFrame(_repositionLoopId);
     }
-    _layoutInternalSub?.cancel();
-    _layoutChangeSub?.cancel();
-    _windowResizeSub?.cancel();
+    _visibleDisposer.dispose();
     _disposer.dispose();
     _animationTimer?.cancel();
     _isVisible = false;
@@ -405,7 +388,9 @@ class MaterialPopupComponent extends Object
     var sourceElement = state.source is ElementPopupSource
         ? (state.source as ElementPopupSource).sourceElement
         : null;
-    return sourceElement != null ? <Element>[sourceElement] : <Element>[];
+    return sourceElement != null
+        ? (_autoDismissBlockers.toList()..add(sourceElement))
+        : _autoDismissBlockers.toList();
   }
 
   @override
@@ -442,9 +427,18 @@ class MaterialPopupComponent extends Object
       throw StateError('Cannot open popup: no source set.');
     }
 
+    // Update the viewport size.
+    _updateViewportSize();
     // Initialize the minimum/maximum size and content size based on the
     // viewport size before popup position is populated.
     _updatePopupMinMaxSize();
+
+    _visibleDisposer.addStreamSubscription(window.onResize
+        .transform(throttleStream(_resizeThrottleDuration, guaranteeLast: true))
+        .listen((_) {
+      _updateViewportSize();
+      _updatePopupMinMaxSize();
+    }));
 
     // Put the overlay in the live DOM so we can measure its size.
     _overlayRef.state.visibility = visibility.Visibility.Hidden;
@@ -458,10 +452,9 @@ class MaterialPopupComponent extends Object
 
     // Start listening to both the popup and the source's layout.
     var initialData = Completer<Rectangle>();
-    var popupContentsLayoutStream =
-        _overlayRef.measureSizeChanges().asBroadcastStream(onCancel: (sub) {
-      _layoutInternalSub = sub;
-    });
+    var popupContentsLayoutStream = _overlayRef
+        .measureSizeChanges()
+        .asBroadcastStream(onListen: _visibleDisposer.addStreamSubscription);
     var popupSourceLayoutStream =
         state.source.onDimensionsChanged(track: state.trackLayoutChanges);
     if (!state.trackLayoutChanges) {
@@ -471,7 +464,8 @@ class MaterialPopupComponent extends Object
     // Merge the results of both streams.
     var mergedLayoutStream =
         _mergeStreams([popupContentsLayoutStream, popupSourceLayoutStream]);
-    _layoutChangeSub = mergedLayoutStream.listen((layoutRects) {
+    _visibleDisposer
+        .addStreamSubscription(mergedLayoutStream.listen((layoutRects) {
       // Ignore partial results.
       if (layoutRects.every((r) => r != null)) {
         if (!initialData.isCompleted) {
@@ -481,15 +475,7 @@ class MaterialPopupComponent extends Object
         _initialSourceDimensions = null;
         _schedulePositionUpdate(layoutRects[0], layoutRects[1]);
       }
-    });
-
-    if (_popupSizeProvider != null) {
-      _windowResizeSub = window.onResize
-          .transform(debounceStream(const Duration(milliseconds: 200)))
-          .listen((_) {
-        _updatePopupMinMaxSize();
-      });
-    }
+    }));
 
     // Resolve when the popup has started opening.
     return initialData.future;
@@ -556,26 +542,21 @@ class MaterialPopupComponent extends Object
     if (_isOpening) return;
 
     // Stop listening to popup layout changes.
-    _layoutInternalSub?.cancel();
-    _layoutChangeSub?.cancel();
-    _windowResizeSub?.cancel();
+    _visibleDisposer.dispose();
 
     // Stop the reposition loop (if it's running).
     if (_repositionLoopId != null) {
       _stopRepositionLoop();
     }
 
-    // If user tabs out of the popup or if the focus is inside of popup when the
-    // popup closes, restore focus on the popup source element instead of some
-    // seemingly random DOM location.
+    // If the focus is inside of popup when the popup closes, restore focus on
+    // the popup source element instead of some seemingly random DOM location.
     // TODO(google): removed the islastTriggerWithKeyboard to better support
     // mouse/keyboard mixed interactions.
     if (state.source is Focusable && hierarchy.islastTriggerWithKeyboard) {
       _domService.scheduleWrite(() {
-        if (window.document.activeElement.classes
-                .contains(overlayFocusablePlaceholderClassName) ||
-            _overlayRef.overlayElement
-                .contains(window.document.activeElement)) {
+        if (_overlayRef.overlayElement
+            .contains(window.document.activeElement)) {
           (state.source as Focusable).focus();
         }
       });
@@ -614,7 +595,7 @@ class MaterialPopupComponent extends Object
 
     // Set the overlay .pane to display: none.
     _overlayRef.state.visibility = visibility.Visibility.None;
-    _overlayRef.overlayElement.style..display = 'none';
+    _overlayRef.overlayElement.style.display = 'none';
 
     // Notify listeners that the popup is not visible.
     _isVisible = false;
@@ -674,7 +655,10 @@ class MaterialPopupComponent extends Object
       var popupRect = _overlayRef.overlayElement.getBoundingClientRect();
       popupRect =
           _shiftRectangle(popupRect, left: scrollShiftX, top: scrollShiftY);
-      var viewportShift = _shiftRectangleToFitWithin(popupRect, _viewportRect);
+      var boundedViewportRect =
+          _boundRectangle(_viewportRect, _viewportBoundaries);
+      var viewportShift =
+          _shiftRectangleToFitWithin(popupRect, boundedViewportRect);
       _repositionOffsetX += viewportShift.left;
       _repositionOffsetY += viewportShift.top;
     }
@@ -683,16 +667,23 @@ class MaterialPopupComponent extends Object
         'translate(${_repositionOffsetX}px, ${_repositionOffsetY}px)';
   }
 
+  void _updateViewportSize() {
+    _viewportRect.width = window.innerWidth;
+    _viewportRect.height = window.innerHeight;
+  }
+
   void _updatePopupMinMaxSize() {
     if (_popupSizeProvider == null) return;
+    var boundedViewportRect =
+        _boundRectangle(_viewportRect, _viewportBoundaries);
     minHeight = _popupSizeProvider.getMinHeight(
-        _overlayRef.state.top ?? 0, _viewportRect.height);
+        _overlayRef.state.top ?? 0, boundedViewportRect.height);
     minWidth = _popupSizeProvider.getMinWidth(
-        _overlayRef.state.left ?? 0, _viewportRect.width);
+        _overlayRef.state.left ?? 0, boundedViewportRect.width);
     maxHeight = _popupSizeProvider.getMaxHeight(
-        _overlayRef.state.top ?? 0, _viewportRect.height);
+        _overlayRef.state.top ?? 0, boundedViewportRect.height);
     maxWidth = _popupSizeProvider.getMaxWidth(
-        _overlayRef.state.left ?? 0, _viewportRect.width);
+        _overlayRef.state.left ?? 0, boundedViewportRect.width);
   }
 
   Iterable get _preferredPositions {
@@ -898,6 +889,12 @@ Rectangle _resizeRectangle(Rectangle rect, {num width, num height}) =>
 
 Rectangle _shiftRectangle(Rectangle rect, {num top = 0, num left = 0}) =>
     Rectangle(rect.left + left, rect.top + top, rect.width, rect.height);
+
+Rectangle _boundRectangle(Rectangle rect, Box boundaries) => Rectangle(
+    rect.left + boundaries.left,
+    rect.top + boundaries.top,
+    rect.width - boundaries.left - boundaries.right,
+    rect.height - boundaries.top - boundaries.bottom);
 
 /// Returns a transformation which, when applied to [rect], will cause [rect] to
 /// be entirely within [container].

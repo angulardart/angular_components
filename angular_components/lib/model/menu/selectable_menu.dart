@@ -23,6 +23,16 @@ class MenuItemGroupWithSelection<SelectionItemType>
     implements Selectable<SelectionItemType> {
   final SelectionModel<SelectionItemType> selectionModel;
 
+  /// The `role` attribute each menu item should apply.
+  ///
+  /// The `role` attribute is used for a11y purposes and should be the same for
+  /// each menu item in a group. For selectable menu items the possible roles
+  /// are `menuitemcheckbox` or `menuitemradio`.
+  /// https://www.w3.org/TR/wai-aria-1.1/#menuitemradio
+  /// https://www.w3.org/TR/wai-aria-1.1/#menuitemcheckbox
+  @override
+  final itemsRole;
+
   /// If true, the current menu should be closed when this item is selected.
   final bool shouldCloseMenuOnSelection;
 
@@ -33,6 +43,9 @@ class MenuItemGroupWithSelection<SelectionItemType>
       bool shouldCloseMenuOnSelection})
       : shouldCloseMenuOnSelection = shouldCloseMenuOnSelection ??
             selectionModel is! MultiSelectionModel,
+        itemsRole = (selectionModel?.isSingleSelect ?? true)
+            ? 'menuitemradio'
+            : 'menuitemcheckbox',
         super(items, label);
 
   /// True if the selection model is multi-select.
@@ -57,6 +70,7 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
     implements MenuItem {
   Function _action;
   SelectableOption _selectableState;
+  String ariaChecked;
 
   /// Converts [ItemType] into a string.
   ///
@@ -136,6 +150,9 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
 
   @override
   String get label => itemRenderer(value);
+
+  @override
+  String get ariaLabel => label;
 
   @override
   Function get nullAwareActionHandler => _action ?? _noOp;

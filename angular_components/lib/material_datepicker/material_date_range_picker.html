@@ -21,6 +21,7 @@
       <dropdown-button class="menu-lookalike primary-range"
           [tabbable]="false"
           [disabled]="disabled"
+          [buttonAriaLabel]="dropdownButtonAriaLabel"
           [buttonText]="formattedRange"
           [error]="error">
       </dropdown-button>
@@ -43,7 +44,7 @@
 -->
 <material-popup enforceSpaceConstraints
                 [class]="popupClassName"
-                [preferredPositions]="overlapAlignments"
+                [preferredPositions]="preferredPositions"
                 [source]="button"
                 (open)="open"
                 (close)="close">
@@ -58,6 +59,8 @@
                          [supportsDaysInputs]="supportsDaysInputs"
                          [minDate]="minDate"
                          [maxDate]="maxDate"
+                         [dateFormat]="dateFormat"
+                         [activeDateFormat]="activeDateFormat"
                          [allowHighlightUpdates]="allowHighlightUpdates"
                          [compact]="compact"
                          [movingStartMaintainsLength]="movingStartMaintainsLength"

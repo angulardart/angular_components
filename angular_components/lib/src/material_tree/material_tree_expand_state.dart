@@ -9,6 +9,9 @@ import 'dart:async';
 /// If [expanded] is true, then the option's children will be expanded.
 /// The material tree will sync state with options inheriting from
 /// MaterialTreeExpandState.
+///
+/// Pre-existing values will be overwritten if `MaterialTree.expandAll` is set
+/// to true.
 abstract class MaterialTreeExpandState {
   bool _pending = false;
   bool _expanded = false;

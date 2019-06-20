@@ -9,6 +9,7 @@ import 'dart:html'
 import 'package:angular/angular.dart';
 import 'package:logging/logging.dart' show Logger;
 import 'package:quiver/check.dart';
+import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart'
     show DomService;
 import 'package:angular_components/utils/disposer/disposer.dart' show Disposer;
@@ -33,6 +34,10 @@ final List<Uri> _defaultUriWhitelist = List.unmodifiable(<Uri>[]);
 /// The CSS selector that determines which elements can trigger the [@Output].
 const _triggerSelector = 'a.trigger';
 
+/// The following URI schemes are considered acceptable in external URLs, when
+/// the attribute doNotVerifyUrlDestinations is present.
+const _externalUriAllowedSchemes = {'http', 'https', 'mailto'};
+
 /// A component that allows the inclusion of some limited HTML in a safe way.
 /// This is ideal if you have internationalized messages with simple inline
 /// HTML. It is generally much preferable to using `bypassSecurityTrustHtml`,
@@ -45,8 +50,8 @@ const _triggerSelector = 'a.trigger';
 ///       `target` attributes. If `target` is set, `rel` must also be set and
 ///       must contain `noopener` (see
 ///       https://mathiasbynens.github.io/rel-noopener/ for background).
-/// *   `<span>` with (optionally) a class attribute.
-/// *   `<b>`, `<br>`, `<em>`, and `<i>` with no attributes.
+/// *   `<span>` `<b>`, `<br>`, `<em>`, and `<i>` with (optionally) a `class`
+///       attribute.
 ///
 /// Note that any styles applied with the class attribute will need to be
 /// annotated with `::ng-deep` (or equivalent mechanism) in order to actually
@@ -55,6 +60,11 @@ const _triggerSelector = 'a.trigger';
 /// Prohibited HTML (including invalid elements, attributes, or URLs) will blank
 /// the entire component and print a loud log message.
 ///
+/// If the attribute doNotVerifyUrlDestinations is present, external URLs will
+/// not be verified, except for their URI scheme. This is flag should only ever
+/// be used for URLs that come from a safe source, such as internal
+/// documentation.
+///
 /// If the `(trigger)` output is bound, anchor elements with the sentinel class
 /// "trigger" will send an event to this output. The event is the original
 /// Angular `$event`.
@@ -62,16 +72,21 @@ const _triggerSelector = 'a.trigger';
   selector: 'simple-html',
   template: '<span></span>',
   styleUrls: ['simple_html.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class SimpleHtmlComponent extends _SimpleHtmlBase {
   final Element _element;
 
-  SimpleHtmlComponent(DomService domService, this._element,
-      @Optional() @Inject(simpleHtmlUriWhitelist) List<Uri> domainWhitelist)
+  SimpleHtmlComponent(
+      DomService domService,
+      this._element,
+      @Optional() @Inject(simpleHtmlUriWhitelist) List<Uri> domainWhitelist,
+      @Attribute('doNotVerifyUrlDestinations') String externalUrisAllowed)
       : super(
             domService,
             _inlineElementValidatorBuilder(
-                domainWhitelist ?? _defaultUriWhitelist));
+                domainWhitelist ?? _defaultUriWhitelist,
+                attributeToBool(externalUrisAllowed)));
 
   @override
   Element get targetElement =>
@@ -82,14 +97,20 @@ class SimpleHtmlComponent extends _SimpleHtmlBase {
   selector: 'simple-html-block',
   template: '<div></div>',
   styleUrls: ['simple_html.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class SimpleHtmlBlockComponent extends _SimpleHtmlBase {
   final Element _element;
 
-  SimpleHtmlBlockComponent(DomService domService, this._element,
-      @Optional() @Inject(simpleHtmlUriWhitelist) List<Uri> domainWhitelist)
-      : super(domService,
-            _elementValidator(domainWhitelist ?? _defaultUriWhitelist));
+  SimpleHtmlBlockComponent(
+      DomService domService,
+      this._element,
+      @Optional() @Inject(simpleHtmlUriWhitelist) List<Uri> domainWhitelist,
+      @Attribute('doNotVerifyUrlDestinations') String externalUrisAllowed)
+      : super(
+            domService,
+            _elementValidator(domainWhitelist ?? _defaultUriWhitelist,
+                attributeToBool(externalUrisAllowed)));
 
   @override
   Element get targetElement =>
@@ -228,6 +249,21 @@ class _SimpleHtmlNodeValidator implements NodeValidator {
   }
 }
 
+/// Parse and resolve the raw URI.
+///
+/// This function will fail with an [_UnsafeUriError] if the raw URI cannot be
+/// parsed. The parsed URI is resolved against the base URI, so that relative
+/// links are fully expanded.
+Uri _parseAndResolveUri(String rawUri) {
+  Uri uri;
+  try {
+    uri = Uri.parse(rawUri);
+  } catch (e) {
+    throw _UnsafeUriError(rawUri, 'Could not parse');
+  }
+  return Uri.base.resolveUri(uri);
+}
+
 /// URI policy that allows URIs that are known to be safe to link to and throws
 /// [_UnsafeUriError] on all others.
 class _SafeUriPolicy implements UriPolicy {
@@ -243,17 +279,7 @@ class _SafeUriPolicy implements UriPolicy {
 
   @override
   bool allowsUri(String rawUri) {
-    // Parse the raw URI (and fail if it cannot be parsed).
-    Uri uri;
-    try {
-      uri = Uri.parse(rawUri);
-    } catch (e) {
-      throw _UnsafeUriError(rawUri, 'Could not parse');
-    }
-
-    // Resolve the URI against the current URI so that relative links are
-    // fully expanded.
-    Uri resolvedUri = Uri.base.resolveUri(uri);
+    final resolvedUri = _parseAndResolveUri(rawUri);
 
     // Extract the origin. This can throw in certain circumstances (see
     // https://api.dartlang.org/stable/1.24.3/dart-core/Uri/origin.html), which
@@ -285,28 +311,54 @@ class _SafeUriPolicy implements UriPolicy {
   }
 }
 
+/// URI policy that allows external URIs, but not URIs that are malformed or
+/// have a URI schemes that is not http, https or mailto.
+class _ExternalUriAllowedPolicy implements UriPolicy {
+  const _ExternalUriAllowedPolicy();
+
+  @override
+  bool allowsUri(String rawUri) {
+    final resolvedUri = _parseAndResolveUri(rawUri);
+
+    // Fail when the fully resolved URI does not have one of the pre-allowed
+    // URI schemes.
+    if (!_externalUriAllowedSchemes.contains(resolvedUri.scheme)) {
+      throw _UnsafeUriError(
+          rawUri, 'URI scheme ${resolvedUri.scheme} not allowed');
+    }
+
+    return true;
+  }
+}
+
 /// Returns a new [NodeValidatorBuilder] which allows SimpleHtml-permissible
 /// inline elements.
 ///
 /// The returned object is mutable so users should be careful about sharing
 /// them.
 NodeValidatorBuilder _inlineElementValidatorBuilder(
-        List<Uri> domainWhitelist) =>
-    NodeValidatorBuilder()
-      ..allowElement('a',
-          attributes: ['class', 'href', 'rel', 'target'],
-          uriPolicy: _SafeUriPolicy(domainWhitelist))
-      ..allowElement('b')
-      ..allowElement('br')
-      ..allowElement('em')
-      ..allowElement('i')
-      ..allowElement('span', attributes: ['class'])
-      ..allowElement('strong');
+    List<Uri> domainWhitelist, bool externalUrisAllowed) {
+  UriPolicy policy = externalUrisAllowed
+      ? _ExternalUriAllowedPolicy()
+      : _SafeUriPolicy(domainWhitelist);
+
+  return NodeValidatorBuilder()
+    ..allowElement('a',
+        attributes: ['class', 'href', 'rel', 'target', 'title'],
+        uriPolicy: policy)
+    ..allowElement('b', attributes: ['class'])
+    ..allowElement('br', attributes: ['class'])
+    ..allowElement('em', attributes: ['class'])
+    ..allowElement('i', attributes: ['class'])
+    ..allowElement('span', attributes: ['class'])
+    ..allowElement('strong', attributes: ['class']);
+}
 
 /// Returns a new [NodeValidator] which allows all SimpleHtml-permissible
 /// elements (both inline and block level).
-NodeValidator _elementValidator(List<Uri> domainWhitelist) =>
-    _inlineElementValidatorBuilder(domainWhitelist)
-      ..allowElement('p')
-      ..allowElement('ul')
-      ..allowElement('li');
+NodeValidator _elementValidator(
+        List<Uri> domainWhitelist, bool externalUrisAllowed) =>
+    _inlineElementValidatorBuilder(domainWhitelist, externalUrisAllowed)
+      ..allowElement('p', attributes: ['class'])
+      ..allowElement('ul', attributes: ['class'])
+      ..allowElement('li', attributes: ['class']);

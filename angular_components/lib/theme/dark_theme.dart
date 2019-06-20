@@ -51,6 +51,6 @@ class AcxDarkTheme {
 /// Sets the dark theme value for a subtree.
 @Directive(
   selector: '[darkTheme]',
-  providers: [Provider(darkThemeToken, useValue: true)],
+  providers: [ValueProvider.forToken(darkThemeToken, true)],
 )
 class DarkThemeDirective {}

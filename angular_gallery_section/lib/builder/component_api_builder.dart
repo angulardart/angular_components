@@ -9,6 +9,7 @@ import 'package:build/build.dart';
 import 'package:mustache/mustache.dart' show Template;
 import 'package:path/path.dart' as p;
 import 'package:angular_gallery_section/resolved_config.dart';
+import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
 
 /// A builder for generating an API page for an Angular component.
 ///
@@ -69,7 +70,15 @@ class ComponentApiBuilder extends Builder {
           'dartImport': config.mainDemo?.import,
           'examplePath': config.mainDemo?.path,
         },
-        'docs': config.docs?.map((doc) => doc.toJson())?.toList() ?? [],
+        'docs': config.docs?.map((doc) {
+              var jsonMap = doc.toJson();
+              // Add flags to identify the DocInfo constuctor to use later.
+              jsonMap['dartDoc'] = doc.docType == DocType.dartDocInfo;
+              jsonMap['markdownDoc'] = doc.docType == DocType.markdownDocInfo;
+              jsonMap['sassDoc'] = doc.docType == DocType.sassDocInfo;
+              return jsonMap;
+            })?.toList() ??
+            [],
         'benchmarks': config.benchmarks ?? [],
         'owners': config.owners,
         'uxOwners': config.uxOwners,

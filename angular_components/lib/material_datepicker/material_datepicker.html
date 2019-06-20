@@ -10,6 +10,7 @@
     {{labelMsg}}
   </div>
   <dropdown-button class="menu-lookalike primary-range"
+                  [attr.aria-label]="ariaLabelForDropdownButton"
                   [disabled]="disabled"
                   [error]="error"
                   [buttonText]="formattedDate"
@@ -63,13 +64,14 @@
           <material-select-item *ngFor="let presetDate of presetDates"
                                 (trigger)="onPresetClicked(presetDate)"
                                 [selected]="isPresetDateSelected(presetDate)"
-                                closeOnActivate="false">
+                                [closeOnActivate]="false">
             {{presetDate.title}}
         </material-select-item>
       </div>
 
       <div class="picker-container" [class.compact]="compact">
-        <material-calendar-picker class="calendar-picker"
+        <material-calendar-picker aria-hidden="true"
+                                  class="calendar-picker"
                                   [ngClass]="calendarWeekRowsStyle"
                                   [(state)]="calendar"
                                   [minDate]="minDate"

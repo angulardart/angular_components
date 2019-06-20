@@ -24,31 +24,31 @@ $acx-neutral-increase-color: $mat-light-transparent-black;
       color: $mat-light-transparent-black !important;
     }
 
-    // For positive scorecards, change the <h2> to positive style.
-    acx-scorecard.is-change-positive h2 {
+    // For positive scorecards, change the value label to positive style.
+    acx-scorecard.is-change-positive .label-value {
       color: $acx-positive-increase-color;
     }
 
-    // For negative scorecards, change the <h2> to negative style.
-    acx-scorecard.is-change-negative h2 {
+    // For negative scorecards, change the value label to negative style.
+    acx-scorecard.is-change-negative .label-value {
       color: $acx-negative-decrease-color;
     }
   }
 }
 
 // A mixin for applying styles to the title of a scorecard.
-@mixin acx-scorecard-title($selector: '') {
+@mixin acx-scorecard-title($selector: '', $modifier: '') {
   ::ng-deep #{$selector} {
-    acx-scorecard h3 {
+    acx-scorecard#{$modifier} .label-name {
       @content;
     }
   }
 }
 
 // A mixin for applying styles to the value of a scorecard.
-@mixin acx-scorecard-value($selector: '') {
+@mixin acx-scorecard-value($selector: '', $modifier: '') {
   ::ng-deep #{$selector} {
-    acx-scorecard h2 {
+    acx-scorecard#{$modifier} .label-value {
       @content;
     }
   }

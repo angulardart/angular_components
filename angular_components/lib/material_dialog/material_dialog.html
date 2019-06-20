@@ -5,19 +5,19 @@
 -->
 <focus-trap (keyup)="onKeyUp($event)">
   <div class="wrapper">
-    <header *ngIf="shouldShowHeader">
+    <header *ngIf="shouldShowHeader" [attr.id]="headerId" role="presentation">
       <ng-content select="[header]"></ng-content>
     </header>
 
     <div class="error" [class.expanded]="error != null">{{error}}</div>
 
-    <main #main
+    <main #main role="presentation"
           [class.top-scroll-stroke]="shouldShowTopScrollStroke"
           [class.bottom-scroll-stroke]="shouldShowBottomScrollStroke">
       <ng-content></ng-content>
     </main>
 
-    <footer *ngIf="shouldShowFooter">
+    <footer *ngIf="shouldShowFooter" role="presentation">
       <ng-content select="[footer]"></ng-content>
     </footer>
   </div>

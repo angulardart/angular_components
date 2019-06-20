@@ -54,7 +54,7 @@ $main-font-size: 13px;
 }
 
 .menu-lookalike {
-  @include dropdown-icon-spacing($mat-grid * 2);
+  @include dropdown-icon-spacing(0 0 0 $mat-grid * 2);
   width: $mat-grid * 22; // looks about right
 }
 

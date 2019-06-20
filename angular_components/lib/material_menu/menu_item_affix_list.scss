@@ -6,27 +6,15 @@
 @import 'package:angular_components/material_menu/mixins';
 
 :host {
-  display: block;
+  display: flex;
+  align-items: baseline;
 
   &:hover {
     @include menu-item-affix-hover;
   }
-}
 
-.material-list-item-primary.caption-text {
-  margin: 0 $mat-grid;
-}
-
-.material-list-item-primary.secondary-icon {
-  transition: color $mat-transition $mat-transition-standard;
-  width: $mat-grid * 3;
-
-  &:not(.disabled):hover {
-    color: $mat-transparent-black;
+  // Dynamically loaded components are not shimmed, hence the need for ::ng-deep.
+  ::ng-deep .affix:not(:first-child) {
+    margin-left: $mat-grid-type;
   }
-}
-
-.secondary-icon.hover-icon {
-  opacity: 0;
-  transition: opacity $mat-transition $mat-transition-standard;
 }

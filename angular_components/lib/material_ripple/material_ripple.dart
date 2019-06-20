@@ -150,7 +150,7 @@ void _applyFallbackAnimation(
   template: '',
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['material_ripple.scss.css'],
-  changeDetection: ChangeDetectionStrategy.Detached,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialRippleComponent implements OnDestroy {
   final HtmlElement _element;
@@ -217,5 +217,10 @@ class MaterialRippleComponent implements OnDestroy {
   void ngOnDestroy() {
     _element.removeEventListener('mousedown', _onMouseDown);
     _element.removeEventListener('keydown', _onKeyDown);
+    _ripplePool.forEach((ripple) {
+      if (ripple?.parent == _element) {
+        ripple.remove();
+      }
+    });
   }
 }

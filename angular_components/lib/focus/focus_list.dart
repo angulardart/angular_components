@@ -4,6 +4,7 @@
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// Used in conjunction with [FocusItemDirective] or
@@ -29,17 +30,27 @@ class FocusListDirective implements OnDestroy {
 
   @HostBinding('attr.role')
   final String role;
+  @HostBinding('attr.ignoreUpAndDown')
+  final bool ignoreUpAndDown;
   final _disposer = Disposer.multi();
   final _children = <FocusableItem>[];
   int get _length => _children.length;
 
-  FocusListDirective(this._ngZone, @Attribute('role') String role)
-      : this.role = role ?? 'list';
+  FocusListDirective(this._ngZone, @Attribute('role') String role,
+      @Attribute('ignoreUpAndDown') String ignoreUpAndDown)
+      : this.role = role ?? 'list',
+        this.ignoreUpAndDown = attributeToBool(ignoreUpAndDown);
 
   /// Whether focus movement loops from the end of the list to the beginning of
   /// the list. Default is `false`.
   @Input()
   bool loop = false;
+
+  /// Index of the element to focus on when the list appears.
+  ///
+  /// If null, focus will not be changed automatically.
+  @Input()
+  int autoFocusIndex;
 
   @ContentChildren(FocusableItem)
   set listItems(List<FocusableItem> listItems) {
@@ -51,20 +62,30 @@ class FocusListDirective implements OnDestroy {
     });
     // Since this is updating children that were already dirty-checked,
     // need to delay this change until next angular cycle.
-    _ngZone.onEventDone.first.then((_) {
+    _ngZone.runAfterChangesObserved(() {
       _children.forEach((c) {
         c.tabbable = false;
       });
       if (_children.isNotEmpty) {
-        _children.first.tabbable = true;
+        if (autoFocusIndex != null) {
+          focus(autoFocusIndex); // This will also make the item tabbable.
+        } else {
+          _children.first.tabbable = true;
+        }
       }
     });
   }
 
   void _moveFocus(FocusMoveEvent event) {
-    var i = _children.indexOf(event.focusItem);
-    if (i != -1) {
-      focus(i + event.offset);
+    if (event.home) {
+      focus(0);
+    } else if (event.end) {
+      focus(_length - 1);
+    } else if (!ignoreUpAndDown || !event.upDown) {
+      var i = _children.indexOf(event.focusItem);
+      if (i != -1) {
+        focus(i + event.offset);
+      }
     }
     event.preventDefault();
   }

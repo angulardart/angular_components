@@ -7,7 +7,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:quiver/time.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/scroll_host/interface.dart';
 import 'package:angular_components/src/utils/angular/scroll_host/gestures.dart';
 import 'package:angular_components/src/utils/angular/scroll_host/scroll_host_base.dart';
@@ -36,8 +35,8 @@ const scrollHostNewModule = Module(
 @Directive(
   selector: '[acxScrollHost]',
   providers: [
-    Provider(ScrollHost, useExisting: ElementScrollHost),
-    Provider(Clock, useValue: clockValue),
+    ExistingProvider(ScrollHost, ElementScrollHost),
+    ValueProvider(Clock, clockValue),
     GestureListenerFactory,
   ],
   exportAs: 'acxScrollHost',
@@ -209,6 +208,9 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
   void ngOnDestroy() {
     dispose();
   }
+
+  @override
+  void stopEvent(WheelEvent event) => _scrollHost.stopEvent(event);
 }
 
 /// Provides a scroll host that uses the browser window content area.
@@ -334,8 +336,8 @@ class StickyElementDirective implements AfterViewInit, OnDestroy {
   /// This allows the directive to be used for components in which the
   /// the sticky property is optional and dependent on input.
   @Input('sticky')
-  set sticky(sticky) {
-    _sticky = getBool(sticky);
+  set sticky(bool sticky) {
+    _sticky = sticky;
     if (_sticky) {
       _stick();
     } else {

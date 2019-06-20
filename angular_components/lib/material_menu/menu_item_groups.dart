@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:quiver/core.dart' as qc show Optional;
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
@@ -31,7 +32,7 @@ import 'package:angular_components/model/menu/selectable_menu.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/ui/highlighted_text_model.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
+import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 /// Renders list of menu items.
@@ -66,9 +67,11 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
   // TODO(google): Change preserveWhitespace to false to improve codesize.
   preserveWhitespace: true,
 )
-class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
+class MenuItemGroupsComponent
+    implements AfterViewInit, Focusable, OnInit, OnDestroy {
   final IdGenerator _idGenerator;
   final ChangeDetectorRef _changeDetector;
+  final _disposer = Disposer.oneShot();
 
   static const _menuDelay = Duration(milliseconds: 400);
 
@@ -77,7 +80,14 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   /// IMPORTANT: The menu model must be immutable. This component won't reflect
   /// any changes to the model's internal state
   @Input()
-  MenuModel menu;
+  set menu(MenuModel menu) {
+    _menu = menu;
+    _updateItemsAriaCheckedState(menu);
+    menu?.itemGroups?.forEach(_listenForSelectionChanges);
+  }
+
+  MenuModel get menu => _menu;
+  MenuModel _menu;
 
   @ViewChildren(FocusableActivateItem)
   List<FocusableActivateItem> focusableItems;
@@ -93,8 +103,8 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   ///
   /// Defaults to `false`.
   @Input()
-  set preventCloseOnPressLeft(value) {
-    _closeOnPressLeft = !getBool(value);
+  set preventCloseOnPressLeft(bool value) {
+    _closeOnPressLeft = !value;
   }
 
   bool _closeOnPressLeft = true;
@@ -125,12 +135,18 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   /// Whether the first item of the activeModel should be selected on init.
   ///
   /// Defaults to `false`.
+  /// This input must be set before the view loads as it does one-time item
+  /// activation on initialization.
   @Input()
-  set activateFirstItemOnInit(activate) {
-    _activateFirstItemOnInit = getBool(activate);
-  }
+  bool activateFirstItemOnInit = false;
 
-  bool _activateFirstItemOnInit = false;
+  /// Whether the last item of the activeModel should be selected on init.
+  ///
+  /// Defaults to `false`.
+  /// This input must be set before the view loads as it does one-time item
+  /// activation on initialization.
+  @Input()
+  bool activateLastItemOnInit = false;
 
   /// The top most menu node.
   ///
@@ -296,9 +312,6 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
           _dropdownHandle.close();
         }
         break;
-      case KeyCode.ESC:
-        _dropdownHandle.close();
-        break;
       default:
         // Try triggering any affix shortcut actions. If successful, then
         // prevent browser default behaviour for this key down action.
@@ -388,13 +401,26 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
   }
 
   @override
+  void ngAfterViewInit() {
+    // Focusing the active item happens after the view initializes to wait for
+    // the `focusableItems` view children to be set.
+    if (activateFirstItemOnInit || activateLastItemOnInit) _focusActiveItem();
+  }
+
+  @override
   void ngOnDestroy() {
     _activeModelChange?.cancel();
     _activeModelChange = null;
+    _disposer.dispose();
   }
 
   SelectionModel getSelectionModel(MenuItemGroup group) =>
       group is MenuItemGroupWithSelection ? group.selectionModel : null;
+
+  /// Returns the value for a menu item's `aria-checked` attribute value.
+  @visibleForTemplate
+  String itemAriaChecked(MenuItem item) =>
+      (item is SelectableMenuItem) ? item.ariaChecked : null;
 
   dynamic getItemValue(MenuItem item) =>
       item is SelectableMenuItem ? item.value : null;
@@ -435,7 +461,9 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
         .where((suffix) => suffix.hasShortcutKeyCode(keyCode))
         .toList();
 
-    for (final suffix in matching) suffix.triggerShortcutAction();
+    for (final suffix in matching) {
+      suffix.triggerShortcutAction();
+    }
 
     if (matching.any((suffix) => suffix.shouldCloseMenuOnTrigger)) {
       _menuRoot.closeHierarchy();
@@ -448,16 +476,22 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
     if ((menu != null) && (activeModel == null)) {
       activeModel = ActiveMenuItemModel(_idGenerator,
           menu: menu, filterOutUnselectableItems: true);
-      if (_activateFirstItemOnInit) {
-        // Set auto-focus to the currently selected list item if this menu is
-        // a sub-menu and was opened via keyboard shortcut.
-        _autoFocusItemId =
-            qc.Optional.of(activeModel.id(activeModel.activeItem));
+      if (activateLastItemOnInit) {
+        activeModel.activateLast();
+        _autoFocusActiveItem();
+      } else if (activateFirstItemOnInit) {
+        _autoFocusActiveItem();
       } else {
         // Don't activate any item.
         activeModel.activate(null);
       }
     }
+  }
+
+  void _autoFocusActiveItem() {
+    // Set auto-focus to the currently selected list item if this menu is
+    // a sub-menu and was opened via keyboard shortcut.
+    _autoFocusItemId = qc.Optional.of(activeModel.id(activeModel.activeItem));
   }
 
   /// Focus the active item if any.
@@ -483,6 +517,12 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
     }
   }
 
+  bool _isSelected(SelectionModel selectionModel, MenuItem item) {
+    final itemValue = getItemValue(item);
+    return itemValue != null &&
+        (selectionModel?.isSelected(itemValue) ?? false);
+  }
+
   @override
   void focus() {
     _focusActiveItem();
@@ -492,6 +532,68 @@ class MenuItemGroupsComponent implements Focusable, OnInit, OnDestroy {
     _openSubMenu(_hoveredItem);
     _changeDetector.markForCheck();
   }
+
+  void _listenForSelectionChanges(MenuItemGroup group) {
+    if (group is MenuItemGroupWithSelection) {
+      _disposer.addStreamSubscription(
+          group.selectionModel?.selectionChanges?.listen((_) {
+        _updateItemsAriaCheckedState(_menu);
+      }));
+    }
+  }
+
+  /// Updates the `aria-checked` value for each menu item.
+  ///
+  /// A menu item with role='menuitem' cannot have an `aria-checked` attribute.
+  /// "When a menuitemcheckbox or menuitemradio is checked, aria-checked is set
+  /// to true" - https://www.w3.org/TR/wai-aria-practices/#menu
+  ///
+  /// "The aria-checked attribute of a menuitemcheckbox indicates whether the
+  /// menu item is checked (true), unchecked (false), or represents a sub-level
+  /// menu of other menu items that have a mixture of checked and unchecked
+  /// values (mixed)." - https://www.w3.org/TR/wai-aria-1.1/#menuitemcheckbox
+  void _updateItemsAriaCheckedState(MenuModel menu) {
+    if (menu?.itemGroups?.isEmpty ?? true) return;
+
+    for (final group in menu.itemGroups) {
+      if (group is MenuItemGroupWithSelection) {
+        for (final item in group) {
+          // Update the submenu's items first.
+          if (item.hasSubMenu) {
+            _updateItemsAriaCheckedState(item.subMenu);
+          }
+
+          final isSelected = _isSelected(group.selectionModel, item);
+
+          if (!item.hasSubMenu) {
+            item.ariaChecked = isSelected.toString();
+          } else if (group.selectionModel.isSingleSelect) {
+            item.ariaChecked =
+                (isSelected || _anyChildrenSelected(group, item)).toString();
+          } else {
+            if (_anyChildrenSelected(group, item)) {
+              item.ariaChecked =
+                  _everyChildrenSelected(group, item) ? 'true' : 'mixed';
+            } else {
+              item.ariaChecked = isSelected.toString();
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /// Whether any children in an item's submenu are selected.
+  bool _anyChildrenSelected(MenuItemGroup group, MenuItem item) =>
+      item.subMenu.itemGroups.any((g) =>
+          g is MenuItemGroupWithSelection &&
+          g.any((i) => _isSelected(g.selectionModel, i)));
+
+  /// Whether all children in an item's submenu are selected.
+  bool _everyChildrenSelected(MenuItemGroup group, MenuItem item) =>
+      item.subMenu.itemGroups.every((g) =>
+          g is MenuItemGroupWithSelection &&
+          g.every((i) => _isSelected(g.selectionModel, i)));
 }
 
 const _preferredSubMenuPositions = [

@@ -20,6 +20,11 @@
            [style.min-width.px]="minWidth"
            [style.max-height.px]="maxHeight"
            [style.max-width.px]="maxWidth">
+          <!-- Focusable placeholder element to handle when user shift-tabs out of the popup we
+               restore focus to the popup source element -->
+          <div class="focusable-placeholder"
+               tabindex="0"
+               (focus)="visible = false"></div>
           <div class="material-popup-content content">
               <header>
                   <ng-content select="[header]"></ng-content>
@@ -31,6 +36,11 @@
                   <ng-content select="[footer]"></ng-content>
               </footer>
           </div>
+          <!-- Focusable placeholder element to handle when user tabs out of the popup we restore
+               focus to the popup source element -->
+          <div class="focusable-placeholder"
+               tabindex="0"
+               (focus)="visible = false"></div>
       </div>
   </div>
 </template>

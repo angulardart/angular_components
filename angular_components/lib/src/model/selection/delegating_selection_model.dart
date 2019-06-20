@@ -13,7 +13,11 @@ class DelegatingSelectionModel<T> extends Object
     implements SelectionModel<T> {
   final SelectionModel<T> _delegateModel;
 
-  DelegatingSelectionModel(this._delegateModel);
+  @override
+  final bool isSingleSelect;
+
+  DelegatingSelectionModel(this._delegateModel)
+      : isSingleSelect = _delegateModel.isSingleSelect;
 
   // Delegate to SelectionModel.
 
@@ -54,7 +58,7 @@ class DelegatingSelectionModel<T> extends Object
   }
 
   @override
-  T notifyPropertyChange<T>(Symbol field, T oldValue, T newValue) {
+  S notifyPropertyChange<S>(Symbol field, S oldValue, S newValue) {
     _delegateModel.notifyPropertyChange(field, oldValue, newValue);
     return newValue;
   }

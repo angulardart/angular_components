@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/glyph/glyph.dart';
@@ -16,7 +17,6 @@ import 'package:angular_components/mixins/material_dropdown_base.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// Material Select Item is a special kind of list item which can be selected.
@@ -27,9 +27,9 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 @Component(
   selector: 'material-select-item',
   providers: [
-    Provider(SelectionItem, useExisting: MaterialSelectItemComponent),
-    Provider(HasDisabled, useExisting: MaterialSelectItemComponent),
-    Provider(HasRenderer, useExisting: MaterialSelectItemComponent),
+    ExistingProvider(SelectionItem, MaterialSelectItemComponent),
+    ExistingProvider(HasDisabled, MaterialSelectItemComponent),
+    ExistingProvider(HasRenderer, MaterialSelectItemComponent),
   ],
   styleUrls: ['material_select_item.scss.css'],
   directives: [
@@ -46,13 +46,9 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
         SelectionItem<T>,
         HasRenderer<T>,
         HasComponentRenderer,
-        HasFactoryRenderer {
+        HasFactoryRenderer<RendersValue, T> {
   @HostBinding('class')
   static const hostClass = 'item';
-
-  // The qualified name is long because button_directive.dart uses hostTabIndex.
-  @HostBinding('tabIndex')
-  static const hostTabIndexForSelectItem = 0;
 
   final _disposer = Disposer.oneShot();
   final ActivationHandler _activationHandler;
@@ -68,8 +64,10 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
       @Optional() this._dropdown,
       @Optional() this._activationHandler,
       this._cdRef,
-      @Attribute('role') String role)
-      : super(element, role ?? 'option') {
+      @Attribute('role') String role,
+      {bool addTabIndexWhenNonTabbable = false})
+      : super(element, role ?? 'option',
+            addTabIndexWhenNonTabbable: addTabIndexWhenNonTabbable) {
     _disposer
       ..addStreamSubscription(trigger.listen(handleActivate))
       ..addFunction(() => _selectionChangeStreamSub?.cancel());
@@ -82,18 +80,9 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   /// Whether the item should be hidden.
   ///
   /// False by default.
-  @Input()
-  set isHidden(value) {
-    _isHidden = getBool(value);
-  }
-
-  bool _isHidden = false;
   @HostBinding('class.hidden')
-  bool get isHidden => _isHidden;
-
-  T _value;
-  @override
-  T get value => _value;
+  @Input()
+  bool isHidden = false;
 
   /// The value this selection item represents.
   ///
@@ -103,9 +92,7 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   /// (via the `itemRenderer` property).
   @Input()
   @override
-  set value(T val) {
-    _value = val;
-  }
+  T value;
 
   bool _supportsMultiSelect = false;
 
@@ -113,20 +100,11 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   @HostBinding('class.multiselect')
   bool get supportsMultiSelect => _supportsMultiSelect;
 
-  bool _hideCheckbox = false;
-  bool get hideCheckbox => _hideCheckbox;
-
   /// Whether to hide the checkbox.
   ///
   /// False by default.
   @Input()
-  set hideCheckbox(value) {
-    _hideCheckbox = getBool(value);
-  }
-
-  ItemRenderer<T> _itemRenderer = nullRenderer;
-  @override
-  ItemRenderer<T> get itemRenderer => _itemRenderer;
+  bool hideCheckbox = false;
 
   /// A function to render an item as a String.
   ///
@@ -134,9 +112,7 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   /// as content).
   @Input()
   @override
-  set itemRenderer(ItemRenderer<T> value) {
-    _itemRenderer = value;
-  }
+  ItemRenderer<T> itemRenderer = nullRenderer;
 
   @Input()
   @override
@@ -148,9 +124,7 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   ///  an item.
   @Input()
   @override
-  FactoryRenderer factoryRenderer;
-
-  bool get useCheckMarks => _useCheckMarks;
+  FactoryRenderer<RendersValue, T> factoryRenderer;
 
   /// If true, check marks are used instead of checkboxes to indicate whether or
   /// not the item is selected for multi-select items.
@@ -158,17 +132,13 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   /// This particular style is used in material menu dropdown for multi-select
   /// menu item groups.
   @Input()
-  set useCheckMarks(value) {
-    _useCheckMarks = getBool(value);
-  }
-
-  bool _useCheckMarks = false;
+  bool useCheckMarks = false;
 
   /// If true, triggering this item component will select the [value] within the
   /// [selection]; if false, triggering this item component will do nothing.
   @Input()
   set selectOnActivate(bool value) {
-    _selectOnActivate = getBool(value);
+    _selectOnActivate = value;
   }
 
   bool _selectOnActivate = true;
@@ -178,19 +148,19 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   /// triggering this component when [value] is selected will do nothing.
   @Input()
   set deselectOnActivate(bool value) {
-    _deselectOnActivate = getBool(value);
+    _deselectOnActivate = value;
   }
 
   bool _deselectOnActivate = true;
 
   bool get valueHasLabel => valueLabel != null;
   String get valueLabel {
-    if (_value == null) {
+    if (value == null) {
       return null;
     } else if (componentRenderer == null &&
         factoryRenderer == null &&
         !identical(itemRenderer, nullRenderer)) {
-      return itemRenderer(_value);
+      return itemRenderer(value);
     }
     return null;
   }
@@ -215,25 +185,15 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
     });
   }
 
-  bool _selected = false;
-  bool get selected => _selected;
-
   /// Manually mark items selected.
   @Input()
-  set selected(value) {
-    _selected = getBool(value);
-  }
-
-  bool _closeOnActivate = true;
-  bool get closeOnActivate => _closeOnActivate;
+  bool selected = false;
 
   /// Whether to cause dropdown to be closed on activation.
   ///
   /// True by default.
   @Input()
-  set closeOnActivate(value) {
-    _closeOnActivate = getBool(value);
-  }
+  bool closeOnActivate = true;
 
   // TODO(google): Remove after migration from ComponentRenderer is complete
   Type get componentType =>
@@ -256,8 +216,11 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
 
   void handleActivate(UIEvent e) {
     var hasCheckbox = supportsMultiSelect && !hideCheckbox;
-    if (closeOnActivate && !hasCheckbox) {
-      _dropdown?.close();
+    if (_dropdown != null && closeOnActivate && !hasCheckbox) {
+      _dropdown.close();
+      if (e is KeyboardEvent) {
+        e.stopPropagation();
+      }
     }
 
     if (_activationHandler?.handle(e, value) ?? false) return;
@@ -269,6 +232,9 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
       }
     }
   }
+
+  @visibleForTemplate
+  void onLoadCustomComponent(ComponentRef ref) {}
 
   @override
   void ngOnDestroy() {

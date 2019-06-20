@@ -1,0 +1,61 @@
+<!--
+ Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ for details. All rights reserved. Use of this source code is governed by a
+ BSD-style license that can be found in the LICENSE file.
+-->
+<p class="declaration-deprecated" *ngIf="doc.deprecated">
+  {{doc.deprecatedMessage}}
+</p>
+
+<p *ngIf="doc.selector.isNotEmpty">
+  <strong>Selector:</strong>
+  <code>&lt;{{doc.selector}}&gt;</code>
+</p>
+
+<p *ngIf="doc.exportAs.isNotEmpty">
+  <strong>Exported as:</strong>
+  <code>{{doc.exportAs}}</code>
+</p>
+
+<div [safeInnerHtml]="getSafeHtml(doc.comment)"></div>
+
+<ng-container *ngIf="showGeneratedDocs">
+  <div *ngIf="doc.inputs.isNotEmpty">
+    <strong>Inputs:</strong>
+    <ul class="property-list">
+      <li *ngFor="let input of doc.inputs">
+        <code class="property-name">
+          {{input.bindingAlias.isNotEmpty ? input.bindingAlias : input.name}}
+        </code>
+        <code class="property-type">{{input.type}}</code>
+
+        <p class="property-deprecated" *ngIf="input.deprecated">
+          {{input.deprecatedMessage}}
+        </p>
+        <p *ngIf="input.comment.isEmpty && !input.deprecated">
+          Missing a Dart Doc comment.
+        </p>
+        <div [safeInnerHtml]="getSafeHtml(input.comment)"></div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="doc.outputs.isNotEmpty">
+    <strong>Outputs:</strong>
+    <ul class="property-list">
+      <li *ngFor="let output of doc.outputs">
+        <code class="property-name">
+          {{output.bindingAlias.isNotEmpty ? output.bindingAlias : output.name}}
+        </code>
+        <code class="property-type">{{output.type}}</code>
+        <p class="property-deprecated" *ngIf="output.deprecated">
+          {{output.deprecatedMessage}}
+        </p>
+        <p *ngIf="output.comment.isEmpty && !output.deprecated">
+          Missing a Dart Doc comment.
+        </p>
+        <div [safeInnerHtml]="getSafeHtml(output.comment)"></div>
+      </li>
+    </ul>
+  </div>
+</ng-container>

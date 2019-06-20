@@ -15,7 +15,7 @@
   <div *ngIf="supportsCustomRange" class="group">
     <material-select-item (trigger)="onCustomClicked"
                           [selected]="isCustomRangeSelected"
-                          closeOnActivate="false">
+                          [closeOnActivate]="false">
       <div [class.custom-tab-left]="isBasic && !isCustomRangeSelected"
            [class.custom_tab-left-selected]="isBasic && isCustomRangeSelected">
         {{customRangeMsg}}
@@ -34,7 +34,7 @@
        [showTooltipIf]="!isValid(preset)"
        [materialTooltip]="rangeDisabledTooltip"
        [selected]="isSelected(preset.range)"
-       closeOnActivate="false">
+       [closeOnActivate]="false">
       {{preset.title}}
       <template [ngIf]="preset.alternatives != null && preset.alternatives.isNotEmpty">
         <material-button icon
@@ -59,7 +59,7 @@
             [showTooltipIf]="!isValid(alternative)"
             [materialTooltip]="rangeDisabledTooltip"
             [selected]="isAlternativePresetSelected(alternative)"
-            closeOnActivate="false">
+            [closeOnActivate]="false">
             {{alternative.shortTitle}}
           </material-select-item>
         </material-popup>
@@ -68,7 +68,7 @@
   </div>
   <div *ngIf="supportsDaysInputs" class="days group">
     <material-select-item class="days-input days-to-today"
-                          closeOnActivate="false"
+                          [closeOnActivate]="false"
                           (trigger)="onRangeClicked($event, daysToTodayRange)"
                           [selected]="isSelected(daysToTodayRange)">
       <material-input [(ngModel)]="daysToToday"
@@ -78,7 +78,7 @@
       <span>{{daysToTodayMsg}}</span>
     </material-select-item>
     <material-select-item class="days-input days-to-yesterday"
-                          closeOnActivate="false"
+                          [closeOnActivate]="false"
                           (trigger)="onRangeClicked($event, daysToYesterdayRange)"
                           [selected]="isSelected(daysToYesterdayRange)">
       <material-input [(ngModel)]="daysToYesterday"
@@ -108,6 +108,8 @@
                       [maxDate]="maxDate"
                       [isClearRangeSelected]="isClearRangeSelected"
                       [rangeId]="model.rangeId"
+                      [dateFormat]="dateFormat"
+                      [activeDateFormat]="activeDateFormat"
                       [(state)]="model.calendar.value"
                       [(range)]="model.range.value">
     </date-range-input>
@@ -124,6 +126,8 @@
                       [maxDate]="model.maxDate"
                       [isClearRangeSelected]="isClearRangeSelected"
                       [rangeId]="model.comparisonId"
+                      [dateFormat]="dateFormat"
+                      [activeDateFormat]="activeDateFormat"
                       [(state)]="model.calendar.value"
                       [(range)]="model.comparison.value"
                       [disabled]="!isCustomComparisonValid">

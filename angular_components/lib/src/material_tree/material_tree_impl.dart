@@ -3,15 +3,16 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import 'package:angular_components/src/material_tree/group/material_tree_group.dart';
-import 'package:angular_components/src/material_tree/group/material_tree_group_flat.dart';
-import 'package:angular_components/src/material_tree/material_tree_rendering_options.dart';
-import 'package:angular_components/src/material_tree/material_tree_root.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
+
+import 'group/material_tree_group.dart';
+import 'group/material_tree_group_flat.dart';
+import 'material_tree_rendering_options.dart';
+import 'material_tree_root.dart';
 
 /// A material selection component that supports a tree of options.
 ///
@@ -37,12 +38,16 @@ import 'package:angular_components/model/ui/has_factory.dart';
     NgFor,
     NgIf
   ],
-  viewProviders: [
-    Provider(MaterialTreeRoot, useExisting: MaterialTreeComponent)
+  directiveTypes: [
+    Typed<MaterialTreeGroupComponent>.of([#T]),
+    Typed<MaterialTreeGroupFlatCheckComponent>.of([#T]),
+    Typed<MaterialTreeGroupFlatListComponent>.of([#T]),
+    Typed<MaterialTreeGroupFlatRadioComponent>.of([#T]),
   ],
+  viewProviders: [ExistingProvider(MaterialTreeRoot, MaterialTreeComponent)],
   templateUrl: 'material_tree_impl.html',
 )
-class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
+class MaterialTreeComponent<T> with MaterialTreeRoot<T>, SelectionContainer<T> {
   /// Whether to hide check-marks in a single select dropdown
   @Input()
   @override
@@ -53,7 +58,7 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   MaterialTreeComponent(@Optional() @SkipSelf() MaterialTreeRoot parentTreeRoot,
       @Optional() @Self() this.renderingOptions)
       : optimizeForDropdown = parentTreeRoot?.optimizeForDropdown == true {
-    selection = const SelectionModel.empty();
+    selection = SelectionModel<T>.empty();
   }
 
   @Deprecated('Use [factoryRenderer] instead')
@@ -67,32 +72,32 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   /// rendering an item.
   @Input()
   @override
-  set factoryRenderer(FactoryRenderer value) {
+  set factoryRenderer(FactoryRenderer<RendersValue, T> value) {
     super.factoryRenderer = value;
   }
 
   /// A simple function to render the item to string.
   @Input()
   @override
-  set itemRenderer(ItemRenderer value) {
+  set itemRenderer(ItemRenderer<T> value) {
     super.itemRenderer = value;
   }
 
   /// The available options for this contianer.
   @Input()
   @override
-  set options(SelectionOptions value) {
+  set options(SelectionOptions<T> value) {
     super.options = value;
   }
 
   /// The selection model this container represents.
   @Input()
   @override
-  set selection(SelectionModel value) {
+  set selection(SelectionModel<T> value) {
     super.selection = value;
   }
 
-  /// Whether to always expand an option group.
+  /// Whether to initially expand an option group.
   @Input()
   bool expandAll = false;
 
@@ -105,6 +110,11 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   @Input()
   @override
   bool allowParentSingleSelection = false;
+
+  /// Whether clicking on a selected item should deselect it. (Only applicable
+  /// when [supportsHierarchy] is `true`.)
+  @Input()
+  bool allowDeselectInHierarchy = true;
 
   /// Whether to expand a given option group.
   ///
@@ -129,7 +139,7 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
   @ViewChildren(MaterialTreeGroupComponent)
   List<MaterialTreeGroupComponent> treeGroupNodes;
 
-  /// Collapses all expanded tree groups.
+  /// Collapses all tree groups.
   ///
   /// Remember to set expandAll to false in your component. This will not
   /// override that behavior.
@@ -139,11 +149,21 @@ class MaterialTreeComponent extends SelectionContainer with MaterialTreeRoot {
     }
   }
 
+  /// Expands all tree groups.
+  ///
+  /// Remember to set expandAll to true in your component. This will not
+  /// override that behavior.
+  void expandAllTreeGroups() {
+    for (var tree in treeGroupNodes) {
+      tree.expandAllOptions();
+    }
+  }
+
   /// Whether to show a flat list of items with multi-selection.
   bool get showFlatCheck => selection is MultiSelectionModel;
 
   /// Whether to show a flat list of items without any selection.
-  bool get showFlatList => selection == const SelectionModel.empty();
+  bool get showFlatList => selection is NullSelectionModel;
 
   /// Whether to show a flat list of items with single-selection.
   bool get showFlatRadio => !showFlatList && !showFlatCheck;

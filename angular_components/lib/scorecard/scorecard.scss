@@ -64,12 +64,12 @@ $font-size-heading-big: $mat-font-size-display-1;
     margin: 0;
     padding: $mat-grid * 3;
 
-    h3 {
+    .label-name {
       font-size: $font-size-app-big;
       padding-bottom: $mat-grid / 2;
     }
 
-    h2 {
+    .label-value {
       font-size: $font-size-heading-big;
     }
 
@@ -81,8 +81,8 @@ $font-size-heading-big: $mat-font-size-display-1;
   }
 }
 
-h3,
-h2 {
+.label-name,
+.label-value {
   clear: both;
   color: inherit;
   font-weight: normal;
@@ -93,12 +93,12 @@ h2 {
   white-space: nowrap;
 }
 
-h3 {
+.label-name {
   font-size: $font-size-app;
   padding-bottom: $mat-grid;
 }
 
-h2 {
+.label-value {
   font-size: $font-size-heading;
 
   value {
@@ -114,5 +114,5 @@ h2 {
 
 .change-glyph {
   color: $acx-neutral-increase-color;
-  display: inline-block;
+  vertical-align: middle;
 }

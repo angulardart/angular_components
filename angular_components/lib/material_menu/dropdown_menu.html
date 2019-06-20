@@ -4,7 +4,10 @@
  BSD-style license that can be found in the LICENSE file.
 -->
 <dropdown-button
-    (trigger)="isExpanded=true"
+    [ariaLabelledBy]="buttonAriaLabelledBy"
+    [ariaDescribedBy]="buttonAriaDescribedBy"
+    (keydown)="onKeyDown($event)"
+    (trigger)="handlePopupTriggerAction"
     [buttonText]="buttonText"
     [disabled]="disabled"
     [tabbable]="tabbable"
@@ -13,8 +16,9 @@
   <ng-content select="[button-content]"></ng-content>
 </dropdown-button>
 <menu-popup
-    [(isExpanded)]="isExpanded"
+    [(expandAction)]="expandAction"
     [menu]="menu"
+    [popupClass]="popupClass"
     [popupSource]="toggle"
     [preferredPositions]="preferredPositions"
     [width]="width">

@@ -2,11 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:meta/meta.dart';
 import 'package:angular_components/model/ui/icon.dart';
 
 /// Represents a menu item content affix.
-abstract class MenuItemAffix {
+///
+/// For new affix component models, please extend BaseMenuItemAffixModel for
+/// proper type safety. Do not extend this class directly.
+abstract class MenuItemAffix<FactoryType /* =ComponentFactory */ > {
   const MenuItemAffix();
 
   IconVisibility get visibility;
@@ -14,7 +16,14 @@ abstract class MenuItemAffix {
   bool get isVisibleOnHover => visibility == IconVisibility.hover;
   bool get isVisible => visibility != IconVisibility.hidden;
 
+  // Due to VM tests not supporting Angular, we cannot directly specify
+  // ComponentFactory here.
+  FactoryType get componentFactory;
+
+  /// If true, close the menu upon triggering the [action].
   bool get shouldCloseMenuOnTrigger;
+
+  /// Returns true if the [keyCode] should trigger the shortcut action.
   bool hasShortcutKeyCode(int keyCode);
   void triggerShortcutAction();
 
@@ -24,6 +33,7 @@ abstract class MenuItemAffix {
 typedef void IconAction();
 
 /// An icon that performs an action when the icon is triggered.
+@Deprecated('Use the IconAffix.withAction directly')
 class IconWithAction extends Icon {
   final IconAction action;
   final String ariaLabel;
@@ -35,60 +45,6 @@ class IconWithAction extends Icon {
   IconWithAction(String name, this.action, this.ariaLabel, this.keyCode,
       {this.shouldCloseMenuOnTrigger = false})
       : super(name);
-}
-
-/// Affix containing an icon.
-class IconAffix extends MenuItemAffix {
-  @override
-  final IconVisibility visibility;
-
-  final Icon icon;
-
-  @override
-  final String cssClass;
-
-  const IconAffix(
-      {@required this.icon,
-      this.visibility = IconVisibility.visible,
-      this.cssClass});
-
-  @override
-  bool get shouldCloseMenuOnTrigger =>
-      icon is IconWithAction &&
-      (icon as IconWithAction).shouldCloseMenuOnTrigger;
-
-  @override
-  bool hasShortcutKeyCode(int keyCode) =>
-      icon is IconWithAction && (icon as IconWithAction).keyCode == keyCode;
-
-  @override
-  void triggerShortcutAction() {
-    if (icon is! IconWithAction) return;
-    (icon as IconWithAction).action?.call();
-  }
-}
-
-/// Affix containing text.
-class CaptionAffix extends MenuItemAffix {
-  @override
-  final IconVisibility visibility;
-
-  final String text;
-
-  @override
-  final String cssClass;
-
-  const CaptionAffix(
-      {this.text, this.visibility = IconVisibility.visible, this.cssClass});
-
-  @override
-  bool get shouldCloseMenuOnTrigger => false;
-
-  @override
-  bool hasShortcutKeyCode(int keyCode) => false;
-
-  @override
-  void triggerShortcutAction() {}
 }
 
 /// Specifies the visibility state of an icon.

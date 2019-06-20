@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_components/content/deferred_content.dart';
@@ -18,8 +19,9 @@ import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
+import 'package:angular_components/model/ui/has_renderer.dart';
+import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 import 'material_tree_impl.dart';
@@ -37,19 +39,22 @@ import 'material_tree_impl.dart';
     NgIf,
     PopupSourceDirective
   ],
+  directiveTypes: [
+    Typed<MaterialTreeComponent>.of([#T]),
+  ],
   providers: [
-    Provider(Focusable, useExisting: MaterialTreeDropdownComponent),
-    Provider(MaterialTreeRoot, useExisting: MaterialTreeDropdownComponent)
+    ExistingProvider(Focusable, MaterialTreeDropdownComponent),
+    ExistingProvider(MaterialTreeRoot, MaterialTreeDropdownComponent)
   ],
   templateUrl: 'material_tree_dropdown.html',
   styleUrls: ['material_tree_dropdown.scss.css'],
   visibility: Visibility.all, // injected by clients
 )
-class MaterialTreeDropdownComponent extends SelectionContainer
-    with DropdownHandle, MaterialTreeRoot
+class MaterialTreeDropdownComponent<T>
+    with DropdownHandle, MaterialTreeRoot<T>, SelectionContainer<T>
     implements OnInit, Focusable {
   // Popup positioning to use when filtering is enabled.
-  static const List /*RelativePosition | List<RelativePosition>*/
+  static const List<Object /*RelativePosition | List<RelativePosition>*/ >
       _popupPositionsOffset = [
     RelativePosition.AdjacentBottomLeft,
     RelativePosition.AdjacentBottomEdge,
@@ -78,6 +83,12 @@ class MaterialTreeDropdownComponent extends SelectionContainer
 
   final _visibleStream = StreamController<bool>.broadcast(sync: true);
 
+  /// CSS classes from the root element, passed to the popup to allow scoping of
+  /// mixins.
+  ///
+  /// Only visible for the template.
+  final String popupClassName;
+
   /// Whether to always expand an option group.
   @Input()
   set expandAll(bool value) {
@@ -92,21 +103,46 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   @Input()
   bool shouldExpandAllWhenFiltered = true;
 
+  /// Whether the widgets supports the selection of non-leaf nodes
+  ///
+  /// When `false`, and the widget is using a single selection model clicking
+  /// the widget should toggle expansion when a non-leaf node is clicked. When
+  /// `true` the widget should select non-leaf nodes when clicked and only
+  /// toggle expansion when the expansion icon is clicked.
+  @Input()
+  bool allowParentSingleSelection = false;
+
+  /// Whether clicking on a selected item should deselect it. (Only applicable
+  /// when hierarchy is supported.)
+  @Input()
+  bool allowDeselectInHierarchy = true;
+
+  /// Function to convert the selected value to a string to be displayed as the
+  /// button text.
+  @Input()
+  ItemRenderer labelRenderer;
+
   bool get showFilterInsideButton =>
       supportsFiltering && !showFilterInsidePopup;
 
   Filterable get filterableOptions => options is Filterable
       ? options as Filterable
       : throw StateError(
-          'The SlectionOptions provided should implement Filterable');
+          'The SelectionOptions provided should implement Filterable');
 
   bool get expandAll =>
       _expandAll || (isFiltered && shouldExpandAllWhenFiltered);
 
+  /// Returns the text to be displayed in the button or in the filter (if
+  /// enabled).
+  ///
+  /// If a value has been selected for a single-select dropdown, this will
+  /// render the selected value with [labelRenderer], [itemRenderer], or
+  /// [defaultItemRenderer] in that order of preference.
   String get placeholder {
     if (selection is! MultiSelectionModel && selection.isNotEmpty) {
-      return (itemRenderer ??
-          defaultItemRenderer)(selection.selectedValues.first);
+      return (labelRenderer ?? (itemRenderer ?? defaultItemRenderer))(
+          selection.selectedValues.first);
     }
     return _placeholder;
   }
@@ -114,8 +150,10 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   @override
   final bool optimizeForDropdown = true;
 
-  MaterialTreeDropdownComponent(this._domService) {
-    selection = const SelectionModel.empty();
+  MaterialTreeDropdownComponent(this._domService,
+      @Attribute('popupClass') String popupClass, HtmlElement element)
+      : popupClassName = constructEncapsulatedCss(popupClass, element.classes) {
+    selection = SelectionModel<T>.empty();
   }
 
   @Deprecated('Use [factoryRenderer] instead')
@@ -129,28 +167,28 @@ class MaterialTreeDropdownComponent extends SelectionContainer
   /// rendering an item.
   @Input()
   @override
-  set factoryRenderer(FactoryRenderer value) {
+  set factoryRenderer(FactoryRenderer<RendersValue, T> value) {
     super.factoryRenderer = value;
   }
 
   /// A simple function to render the item to string.
   @Input()
   @override
-  set itemRenderer(ItemRenderer value) {
+  set itemRenderer(ItemRenderer<T> value) {
     super.itemRenderer = value;
   }
 
   /// The available options for this contianer.
   @Input()
   @override
-  set options(SelectionOptions value) {
+  set options(SelectionOptions<T> value) {
     super.options = value;
   }
 
   /// The selection model this container represents.
   @Input()
   @override
-  set selection(SelectionModel value) {
+  set selection(SelectionModel<T> value) {
     super.selection = value;
   }
 

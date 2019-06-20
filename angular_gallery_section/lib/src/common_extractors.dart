@@ -42,8 +42,10 @@ class ListStringExtractor extends SimpleAstVisitor<Iterable<String>> {
 /// [AstVisitor] to extract a [MapLiteral] and [MapLiteralEntry].
 class MapStringExtractor extends SimpleAstVisitor<Map<String, String>> {
   @override
-  visitMapLiteral(MapLiteral node) =>
-      Map.fromEntries(node.entries.map((entry) => MapEntry(
-          entry.key.accept(StringExtractor()),
-          entry.value.accept(StringExtractor()))));
+  visitSetOrMapLiteral(SetOrMapLiteral node) =>
+      Map.fromEntries(node.elements.map((collectionElement) {
+        var entry = collectionElement as MapLiteralEntry;
+        return MapEntry(entry.key.accept(StringExtractor()),
+            entry.value.accept(StringExtractor()));
+      }));
 }

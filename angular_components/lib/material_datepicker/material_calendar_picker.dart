@@ -74,7 +74,7 @@ int _dayOfWeek(int year, int month, int day) {
 /// automatically.
 ///
 @Component(
-  changeDetection: ChangeDetectionStrategy.Detached,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   directives: [NgFor],
   selector: 'material-calendar-picker',
   styleUrls: ['material_calendar_picker.scss.css'],
@@ -915,7 +915,9 @@ class _Month {
       months = -months;
       increment = result.prev;
     }
-    for (var i = 0; i < months; i++) increment();
+    for (var i = 0; i < months; i++) {
+      increment();
+    }
     return result;
   }
 

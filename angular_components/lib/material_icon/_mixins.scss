@@ -49,5 +49,18 @@
 @mixin svg-icon($svg-icon) {
   ::ng-deep .material-icon-i {
     background-image: $svg-icon;
+    background-size: cover;
   }
 }
+
+/// Sets the size of the inner <i> element of material-icon.
+///
+/// Useful when using custom SVG icons and cannot pass size into
+/// material-icon component directly.
+@mixin svg-icon-size($size) {
+  ::ng-deep .material-icon-i {
+    height: $size;
+    width: $size;
+  }
+}
+

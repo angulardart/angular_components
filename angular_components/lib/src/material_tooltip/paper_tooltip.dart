@@ -49,8 +49,8 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
   selector: 'material-tooltip-card',
   providers: [
     tooltipControllerBinding,
-    Provider(Tooltip, useFactory: getTooltipHandle),
-    Provider(DeferredContentAware, useExisting: MaterialPaperTooltipComponent)
+    FactoryProvider(Tooltip, getTooltipHandle),
+    ExistingProvider(DeferredContentAware, MaterialPaperTooltipComponent),
   ],
   directives: [
     AutoFocusDirective,
@@ -69,7 +69,7 @@ Tooltip getTooltipHandle(MaterialPaperTooltipComponent tooltip) =>
                 [autoDismiss]="focusContents"
                 [class]="popupClassName"
                 [source]="popupSource"
-                role="tooltip">
+                [attr.role]="focusContents ? 'dialog' : 'tooltip'">
   <div class="paper-container"
        [autoFocus]="focusContents"
        (mouseover)="onMouseOver()"

@@ -41,6 +41,15 @@
   }
 }
 
+// Sets the background color of the selected menu item.
+@mixin material-menu-selected-item-background-color($color) {
+  ::ng-deep {
+    material-select-item:not(.multiselect).selected.menu-item {
+      background-color: $color;
+    }
+  }
+}
+
 // Makes sure that content will wrap if the label is too wide.
 @mixin menu-item-text-wrap {
   ::ng-deep .menu-item-label {
@@ -89,6 +98,23 @@
 @mixin menu-item-icon-color($selector, $color) {
   ::ng-deep #{$selector}.menu-item material-icon.material-list-item-primary {
     color: $color;
+  }
+}
+
+// Creates a menu item with a custom icon.
+// Everything but $svg-path is optional. Use $selector to add additional
+// specificity, $svg-size to control the size of the svg itself, and
+// $icon-section-size to control the width of the entire icon container
+// (effectively adding padding between the icon and text). If left unspecified,
+// sizes will follow the normal behavior for an icon inside of a menu item.
+@mixin menu-item-custom-svg-icon($svg-path,
+    $selector: '',
+    $svg-size: null,
+    $icon-section-size: null) {
+  ::ng-deep #{$selector}.menu-item material-icon.material-list-item-primary {
+    @include svg-icon(inline-image($svg-path));
+    @include svg-icon-size($svg-size);
+    width: $icon-section-size;
   }
 }
 

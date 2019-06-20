@@ -22,9 +22,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 // TODO(google): should activate/deactivate on mouse hover
 @Component(
   selector: 'material-list-item',
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialListItemComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialListItemComponent)],
   styleUrls: ['material_list_item.scss.css'],
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -36,16 +34,15 @@ class MaterialListItemComponent extends ButtonDirective implements OnDestroy {
   final _disposer = Disposer.oneShot();
   final DropdownHandle _dropdown;
 
-  final String _hostTabIndex;
-
   @override
-  String get hostTabIndex => _hostTabIndex;
+  final String hostTabIndex;
 
   dom.HtmlElement element;
 
   MaterialListItemComponent(this.element, @Optional() this._dropdown,
-      @Attribute('tabindex') this._hostTabIndex, @Attribute('role') String role)
-      : super(element, role) {
+      @Attribute('tabindex') String tabIndex, @Attribute('role') String role)
+      : hostTabIndex = tabIndex ?? '0',
+        super(element, role ?? 'listitem') {
     if (_dropdown != null) {
       _disposer.addDisposable(trigger.listen(handleActivate));
     }

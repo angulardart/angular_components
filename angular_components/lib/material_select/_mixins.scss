@@ -51,10 +51,17 @@
   }
 }
 
-/// Adds spacing between text and icon in dropdown button.
-@mixin dropdown-icon-spacing($spacing) {
+/// Sets margin around the icon in dropdown button.
+@mixin dropdown-icon-spacing($margin) {
   ::ng-deep .icon {
-    margin-left: $spacing;
+    margin: $margin;
+  }
+}
+
+/// Sets the color of the icon in the dropdown button.
+@mixin dropdown-icon-color($color) {
+  ::ng-deep .icon {
+    color: $color;
   }
 }
 
@@ -88,10 +95,42 @@
   }
 }
 
+/// Sets the background color of the "selected" item.
+@mixin material-select-selected-item-background-color($color) {
+  ::ng-deep {
+    material-select-item:not(.multiselect).selected {
+      background: $color;
+    }
+  }
+}
+
+/// Sets the color of the items.
+@mixin material-select-item-color($color) {
+  ::ng-deep material-select-item {
+    color: $color;
+  }
+}
+
+/// Sets the color of the dropdown items.
+@mixin material-select-dropdown-item-color($color) {
+  ::ng-deep material-select-dropdown-item {
+    color: $color;
+  }
+}
+
 /// Sets the color of the "disabled" item.
 @mixin material-select-disabled-color($color) {
   ::ng-deep material-select-dropdown-item.item.disabled {
     color: $color;
+  }
+}
+
+/// Sets the background color of the selected dropdown item.
+@mixin material-select-selected-background-color($color) {
+  ::ng-deep {
+    material-select-dropdown-item:not(.multiselect).selected {
+      background: $color;
+    }
   }
 }
 
@@ -133,6 +172,16 @@
   }
 }
 
+/// Override the minimum height of the dropdown button.
+///
+/// This is useful for cases where the main dropdown button styling is not being
+/// used, such as when custom button contents are used.
+@mixin dropdown-button-min-height($min-height) {
+  ::ng-deep dropdown-button {
+    min-height: $min-height;
+  }
+}
+
 /// Sets the font size of the dropdown item.
 @mixin material-select-dropdown-item-font-size($font-size) {
   ::ng-deep material-select-dropdown-item {
@@ -169,5 +218,11 @@
         padding-bottom: $bottomPadding - 1;
       }
     }
+  }
+}
+
+@mixin material-select-item-font-size($font-size) {
+  ::ng-deep material-select-item {
+    font-size: $font-size;
   }
 }

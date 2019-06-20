@@ -17,7 +17,8 @@ class {{component}}Api {
   GalleryInfo model = GalleryInfo(
       docs: [
         {{#docs}}
-          Doc(
+        {{#dartDoc}}
+          DartDocInfo(
               '{{name}}',
               {{deprecated}},
               '{{deprecatedMessage}}',
@@ -27,7 +28,7 @@ class {{component}}Api {
               applyHighlighting(r"""{{comment}}"""),
               [
                 {{#inputs}}
-                Property(
+                DartPropertyInfo(
                     '{{annotation}}',
                     '{{name}}',
                     '{{bindingAlias}}',
@@ -41,7 +42,7 @@ class {{component}}Api {
               ],
               [
                 {{#outputs}}
-                Property(
+                DartPropertyInfo(
                     '{{annotation}}',
                     '{{name}}',
                     '{{bindingAlias}}',
@@ -53,6 +54,54 @@ class {{component}}Api {
                 ),
                 {{/outputs}}
               ]),
+        {{/dartDoc}}
+        {{#markdownDoc}}
+          MarkdownDocInfo(
+              '{{name}}',
+              '{{path}}',
+              applyHighlighting(r"""{{contents}}""")),
+        {{/markdownDoc}}
+        {{#sassDoc}}
+          SassDocInfo(
+              '{{name}}',
+              '{{path}}',
+              [
+                {{#variables}}
+                  SassVariableInfo(
+                      '{{name}}',
+                      r"""{{expression}}""",
+                      applyHighlighting(r"""{{comment}}""")),
+                {{/variables}}
+              ],[
+                {{#functions}}
+                  SassCallableInfo(
+                      '{{name}}',
+                      [
+                        {{#arguments}}
+                          SassArgumentInfo(
+                              '{{name}}',
+                              r"""{{defaultValue}}"""),
+                        {{/arguments}}
+                      ],
+                      '{{restArgument}}',
+                      applyHighlighting(r"""{{comment}}""")),
+                {{/functions}}
+              ],[
+                {{#mixins}}
+                  SassCallableInfo(
+                      '{{name}}',
+                      [
+                        {{#arguments}}
+                          SassArgumentInfo(
+                              '{{name}}',
+                              r"""{{defaultValue}}"""),
+                        {{/arguments}}
+                      ],
+                      '{{restArgument}}',
+                      applyHighlighting(r"""{{comment}}""")),
+                {{/mixins}}
+              ]),
+        {{/sassDoc}}
         {{/docs}}
       ],
       demos: [

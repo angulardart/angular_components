@@ -14,6 +14,7 @@ import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/forms/error_renderer.dart' show ErrorFn;
 import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 import 'deferred_validator.dart';
 
@@ -43,6 +44,8 @@ class BaseMaterialInput extends FocusableMixin
   final errorState = BottomPanelState.error;
   final hintState = BottomPanelState.hint;
 
+  final errorTextId = SequentialIdGenerator.fromUUID().nextId();
+
   bool _invalid = false;
   // Error message coming from the browser.
   String _validationMessage;
@@ -61,6 +64,9 @@ class BaseMaterialInput extends FocusableMixin
 
   /// Controls what section of the BottomPanel is displayed.
   BottomPanelState bottomPanelState = BottomPanelState.empty;
+
+  /// Controls the aria-describedby attribute on the input element.
+  String ariaDescribedBy;
 
   String _errorMsg;
   String get errorMsg => _errorMsg;
@@ -85,6 +91,16 @@ class BaseMaterialInput extends FocusableMixin
     updateBottomPanelState();
   }
 
+  String _inputAriaDescribedBy;
+
+  /// The ID of an element which should be assigned to the inner input element's
+  /// aria-describedby attribute.
+  @Input()
+  set inputAriaDescribedBy(String elementID) {
+    _inputAriaDescribedBy = elementID;
+    updateBottomPanelState();
+  }
+
   /// The label for this input.
   ///
   /// This is the default text that shows up if nothing's entered into the text
@@ -97,6 +113,16 @@ class BaseMaterialInput extends FocusableMixin
   /// Use [label] instead of this when a visible label is desired.
   @Input()
   String inputAriaLabel;
+
+  /// The autocomplete attribute for the inner input element.
+  ///
+  /// Defines the type of autocomplete functionality for the input. For example,
+  /// can be `on` or `off``.
+  ///
+  /// Note: Setting this field may depend on the browser implementation and is
+  /// not guaranteed to turn off the autocomplete functionality.
+  @Input()
+  String inputAutocomplete;
 
   String _hintText;
   String get hintText => _hintText;
@@ -442,10 +468,15 @@ class BaseMaterialInput extends FocusableMixin
     var oldState = bottomPanelState;
     if (invalid && isNotEmpty(errorMessage)) {
       bottomPanelState = BottomPanelState.error;
+      ariaDescribedBy = _inputAriaDescribedBy == null
+          ? errorTextId
+          : '$_inputAriaDescribedBy $errorTextId';
     } else if ((!showHintOnlyOnFocus || focused) && isNotEmpty(_hintText)) {
       bottomPanelState = BottomPanelState.hint;
+      ariaDescribedBy = _inputAriaDescribedBy;
     } else {
       bottomPanelState = BottomPanelState.empty;
+      ariaDescribedBy = _inputAriaDescribedBy;
     }
 
     if (oldState != bottomPanelState) {
@@ -456,6 +487,12 @@ class BaseMaterialInput extends FocusableMixin
   /// Selects all of the input's content.
   void selectAll() {
     inputRef.nativeElement.select();
+  }
+
+  @ViewChild(FocusableDirective)
+  @override
+  set focusable(Focusable value) {
+    super.focusable = value;
   }
 
   /// The message to display when character counter is shown.

@@ -21,6 +21,9 @@ export 'package:angular_components/material_input/material_number_accessor.dart'
 class MaterialPercentInputDirective {
   MaterialPercentInputDirective(
       MaterialInputComponent input, HtmlElement element) {
+    // 'percent' is an invalid 'type' attribute value for the 'input' element.
+    // Use value 'text' instead.
+    input.type = 'text';
     input.rightAlign = true;
     element.dir = 'ltr';
     final percentPattern = NumberFormat.percentPattern();
@@ -66,9 +69,10 @@ class MaterialPercentInputDirective {
   };
 
   static final _negativePercentageErrMsg = Intl.message(
-      'Percentages must be positive',
+      'Percentages must not be negative',
       desc: 'Validation error message when input precentage is negative, it '
-          'must be a positive number.');
+          'must be a positive number or zero.'
+          '[BACKUP_MESSAGE_ID:4311805941549841920]');
 
   static final _percentTooSmallErrMsg = Intl.message('Enter a larger number',
       desc: 'Validation error message for when the input percentage is too '

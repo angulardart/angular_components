@@ -7,33 +7,33 @@ import 'dart:async';
 import 'package:analyzer/analyzer.dart';
 import 'package:build/build.dart';
 import 'package:angular_gallery_section/g3doc_markdown.dart';
-import 'package:angular_gallery_section/resolved_config.dart';
+import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
 import 'package:angular_gallery_section/visitors/path_utils.dart' as path_utils;
 
 import 'src/common_extractors.dart';
 
-/// Extracts a [DocInfo] from [assetId] for the identifier [name].
+/// Extracts a [DartDocInfo] from [assetId] for the identifier [name].
 ///
 /// Will read [assetId] with [assetReader].
-Future<DocInfo> extractDocumentation(
+Future<DartDocInfo> extractDocumentation(
         String name, AssetId assetId, AssetReader assetReader) async =>
     parseCompilationUnit(await assetReader.readAsString(assetId),
             parseFunctionBodies: false)
-        .accept(GalleryDocumentaionExtraction(
+        .accept(GalleryDocumentationExtraction(
             name, path_utils.assetToPath(assetId.toString())));
 
-/// A visitor that extracts a [DocInfo] for an identifier [_name] and
+/// A visitor that extracts a [DartDocInfo] for an identifier [_name] and
 /// additional information from the Angular annotations @Component and
 /// @Directive (if present) for documentation purposes. [_filePath] is
-/// passed through to the extractor for [ProperyInfo]s.
-class GalleryDocumentaionExtraction extends SimpleAstVisitor<DocInfo> {
+/// passed through to the extractor for [DartPropertyInfo]s.
+class GalleryDocumentationExtraction extends SimpleAstVisitor<DartDocInfo> {
   static final inputAnnotation = 'Input';
   static final outputAnnotation = 'Output';
   final String _name;
   final String _filePath;
-  DocInfo _info;
+  DartDocInfo _info;
 
-  GalleryDocumentaionExtraction(this._name, this._filePath);
+  GalleryDocumentationExtraction(this._name, this._filePath);
 
   @override
   visitCompilationUnit(CompilationUnit node) {
@@ -45,13 +45,20 @@ class GalleryDocumentaionExtraction extends SimpleAstVisitor<DocInfo> {
   }
 
   @override
-  DocInfo visitClassDeclaration(ClassDeclaration node) {
+  DartDocInfo visitClassDeclaration(ClassDeclaration node) =>
+      _visitClassOrMixinDeclaration(node);
+
+  @override
+  DartDocInfo visitMixinDeclaration(MixinDeclaration node) =>
+      _visitClassOrMixinDeclaration(node);
+
+  _visitClassOrMixinDeclaration(ClassOrMixinDeclaration node) {
     if (_extractDocumentation(node) == null) return null;
 
-    var allProperties = <PropertyInfo>[];
+    var allProperties = <DartPropertyInfo>[];
     var propertyVisitor = _AllMemberDocsExtraction(_filePath);
     for (Declaration member in node.members) {
-      // Must collect the annotations early becausae class fields don't have
+      // Must collect the annotations early because class fields don't have
       // annotations attached to their actual node. The comments are attached to
       // the field nodes so we have to continue visiting.
       var propertyAnnotationNode = _angularPropertyAnnotation(member);
@@ -104,12 +111,12 @@ class GalleryDocumentaionExtraction extends SimpleAstVisitor<DocInfo> {
     return null;
   }
 
-  /// Collect information needed for documentaiton from [node].
-  DocInfo _extractDocumentation(NamedCompilationUnitMember node) {
+  /// Collect information needed for documentation from [node].
+  DartDocInfo _extractDocumentation(NamedCompilationUnitMember node) {
     if (node.name.name != _name) return null;
 
     final deprecatedAnnotationNode = _deprecatedAnnotation(node);
-    _info = DocInfo()
+    _info = DartDocInfo()
       ..name = node.name.name
       ..deprecated = deprecatedAnnotationNode != null
       ..deprecatedMessage = deprecatedAnnotationNode?.arguments?.arguments
@@ -152,13 +159,13 @@ class GalleryDocumentaionExtraction extends SimpleAstVisitor<DocInfo> {
           orElse: () => null);
 }
 
-/// A visitor that extracts a [PropertyInfo] for every @Input and @Output
+/// A visitor that extracts a [DartPropertyInfo] for every @Input and @Output
 /// property.
 ///
-/// Only passes [_filePath] through the the indivudual extractor each
-/// [PropertyInfo].
+/// Only passes [_filePath] through the the individual extractor each
+/// [DartPropertyInfo].
 class _AllMemberDocsExtraction
-    extends SimpleAstVisitor<Iterable<PropertyInfo>> {
+    extends SimpleAstVisitor<Iterable<DartPropertyInfo>> {
   final _MemberDocExtraction _propertyVisitor;
 
   _AllMemberDocsExtraction(_filePath)
@@ -178,11 +185,11 @@ class _AllMemberDocsExtraction
 }
 
 /// A visitor that extracts comments and the name of a class field or method as
-/// a [PropertyInfo].
+/// a [DartPropertyInfo].
 ///
-/// Only uses [_filePath] to store in the returned [PropertyInfo] to document
-/// the file it was extracted from.
-class _MemberDocExtraction extends SimpleAstVisitor<PropertyInfo> {
+/// Only uses [_filePath] to store in the returned [DartPropertyInfo] to
+/// document the file it was extracted from.
+class _MemberDocExtraction extends SimpleAstVisitor<DartPropertyInfo> {
   final String _filePath;
 
   _MemberDocExtraction(this._filePath);
@@ -193,10 +200,10 @@ class _MemberDocExtraction extends SimpleAstVisitor<PropertyInfo> {
   @override
   visitVariableDeclaration(VariableDeclaration node) => extractProperty(node);
 
-  /// Extracts information for documenentation from a [MethodDeclaration] or
+  /// Extracts information for documentation from a [MethodDeclaration] or
   /// [VariableDeclaration].
-  PropertyInfo extractProperty(Declaration node) {
-    return PropertyInfo()
+  DartPropertyInfo extractProperty(Declaration node) {
+    return DartPropertyInfo()
       ..name = (node as dynamic /* MethodDeclaration | VariableDeclaration */)
           .name
           .name

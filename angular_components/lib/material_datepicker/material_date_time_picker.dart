@@ -35,9 +35,7 @@ import 'package:angular_components/model/date/date.dart';
     MaterialTimePickerComponent,
     MaterialInputComponent,
   ],
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialDateTimePickerComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialDateTimePickerComponent)],
 )
 class MaterialDateTimePickerComponent implements HasDisabled {
   final Clock _clock;

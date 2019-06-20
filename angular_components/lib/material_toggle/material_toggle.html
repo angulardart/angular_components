@@ -19,8 +19,13 @@
   <div class="tgl-container">
     <div class="tgl-bar" animated attr.elevation="{{shadow_z}}"></div>
     <div class="tgl-btn-container">
+      <div
+        class="tgl-btn-underlay"
+        [class.under-checked]="checked"
+        [class.under-focus]="hasFocus">
       <div class="tgl-btn" animated attr.elevation="{{shadow_z}}">
         <ng-content></ng-content>
+      </div>
       </div>
     </div>
   </div>

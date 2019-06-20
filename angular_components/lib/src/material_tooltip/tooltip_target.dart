@@ -34,9 +34,10 @@ class MaterialTooltipTargetDirective extends TooltipBehavior
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
       HtmlElement element,
-      ChangeDetectorRef changeDetector)
-      : super(
-            domPopupSourceFactory, viewContainerRef, element, changeDetector) {
+      ChangeDetectorRef changeDetector,
+      @Attribute('initPopupAriaAttributes') String initAriaAttributes)
+      : super(domPopupSourceFactory, viewContainerRef, element, changeDetector,
+            initAriaAttributes) {
     this.element = element;
   }
 
@@ -71,8 +72,10 @@ abstract class TooltipBehavior extends TooltipTarget {
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
       HtmlElement element,
-      this._changeDetector)
-      : super(domPopupSourceFactory, viewContainerRef, element) {
+      this._changeDetector,
+      String initAriaAttributes)
+      : super(domPopupSourceFactory, viewContainerRef, element,
+            initAriaAttributes) {
     _show = DelayedAction(tooltipShowDelay, showTooltip);
   }
 
@@ -89,7 +92,6 @@ abstract class TooltipBehavior extends TooltipTarget {
     _tooltip?.activate();
   }
 
-  @HostListener('blur')
   @HostListener('click')
   void onBlurOrClick() => hideTooltip();
 
@@ -121,6 +123,20 @@ abstract class TooltipBehavior extends TooltipTarget {
     super.onClose();
     hideTooltip(immediate: true);
   }
+
+  @HostListener('blur')
+  void onBlur(FocusEvent event) {
+    // Don't hide the tooltip if the user clicked an empty area on the page.
+    if (event.relatedTarget == null) return;
+
+    // Don't hide the tooltip if focus went to an element inside the tooltip.
+    HtmlElement el;
+    for (el = event.relatedTarget; el.parent != null; el = el.parent) {
+      if (el.className == overlayContainerClassName) return;
+    }
+
+    hideTooltip(immediate: true);
+  }
 }
 
 /// A directive that marks the target of a tooltip and handles activating on
@@ -147,27 +163,14 @@ class ClickableTooltipTargetDirective extends TooltipBehavior
       DomPopupSourceFactory domPopupSourceFactory,
       ViewContainerRef viewContainerRef,
       HtmlElement element,
-      ChangeDetectorRef changeDetector)
-      : super(
-            domPopupSourceFactory, viewContainerRef, element, changeDetector) {
+      ChangeDetectorRef changeDetector,
+      @Attribute('initPopupAriaAttributes') String initAriaAttributes)
+      : super(domPopupSourceFactory, viewContainerRef, element, changeDetector,
+            initAriaAttributes) {
     this.element = element;
     _tooltipSubscription = tooltipActivate.listen((visible) {
       _tooltipVisible = visible;
     });
-  }
-
-  @HostListener('blur')
-  void onBlur(FocusEvent event) {
-    // Don't hide the tooltip if the user clicked an empty area on the page.
-    if (event.relatedTarget == null) return;
-
-    // Don't hide the tooltip if focus went to an element inside the tooltip.
-    HtmlElement el;
-    for (el = event.relatedTarget; el.parent != null; el = el.parent) {
-      if (el.className == overlayContainerClassName) return;
-    }
-
-    hideTooltip(immediate: true);
   }
 
   @HostListener('click')
@@ -207,15 +210,16 @@ abstract class TooltipTarget extends PopupSourceDirective {
   Tooltip _tooltip;
   final ViewContainerRef viewContainerRef;
   final HtmlElement _element;
+  String _previousDescribedbyId;
 
   TooltipTarget(DomPopupSourceFactory domPopupSourceFactory,
-      this.viewContainerRef, this._element)
+      this.viewContainerRef, this._element, String initAriaAttributes)
       : super(
             domPopupSourceFactory,
             _element,
             /* referenceDirective */ null,
             /* focusable */ null,
-            /* initAriaAttributes */ null);
+            initAriaAttributes);
 
   /// Sets the tooltip associated with this target.
   void setTooltip(Tooltip component) {
@@ -233,12 +237,17 @@ abstract class TooltipTarget extends PopupSourceDirective {
   @override
   void onOpen() {
     if (_id == null) return;
+    _previousDescribedbyId = _element.getAttribute('aria-describedby');
     _element.setAttribute('aria-describedby', _id);
   }
 
   @override
   void onClose() {
     if (_id == null) return;
-    _element.attributes.remove('aria-describedby');
+    if (_previousDescribedbyId != null) {
+      _element.setAttribute('aria-describedby', _previousDescribedbyId);
+    } else {
+      _element.attributes.remove('aria-describedby');
+    }
   }
 }

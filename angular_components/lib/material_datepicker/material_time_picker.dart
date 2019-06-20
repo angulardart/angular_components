@@ -30,9 +30,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
   directiveTypes: [
     Typed<MaterialDropdownSelectComponent<DateTime>>(),
   ],
-  providers: [
-    Provider(HasDisabled, useExisting: MaterialTimePickerComponent),
-  ],
+  providers: [ExistingProvider(HasDisabled, MaterialTimePickerComponent)],
   templateUrl: 'material_time_picker.html',
   styleUrls: ['material_time_picker.scss.css'],
 )
@@ -82,7 +80,11 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
         value?.minute != _time?.minute ||
         value?.isUtc != _time?.isUtc)) {
       _time = value;
-      selectedTime.clear();
+      if (time != null) {
+        selectedTime.select(time);
+      } else {
+        selectedTime.clear();
+      }
       _timeChangeController.add(time);
     }
     setInputErrorText(_validateTime(time));

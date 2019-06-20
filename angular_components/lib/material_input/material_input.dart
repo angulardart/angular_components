@@ -55,11 +55,11 @@ const String materialInputErrorKey = 'material-input-error';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     DeferredValidator,
-    Provider(NG_VALIDATORS, useExisting: DeferredValidator, multi: true),
-    Provider(ReferenceDirective, useExisting: MaterialInputComponent),
-    Provider(Focusable, useExisting: MaterialInputComponent),
-    Provider(HasDisabled, useExisting: MaterialInputComponent),
-    Provider(BaseMaterialInput, useExisting: MaterialInputComponent)
+    ExistingProvider.forToken(NG_VALIDATORS, DeferredValidator),
+    ExistingProvider(ReferenceDirective, MaterialInputComponent),
+    ExistingProvider(Focusable, MaterialInputComponent),
+    ExistingProvider(HasDisabled, MaterialInputComponent),
+    ExistingProvider(BaseMaterialInput, MaterialInputComponent),
   ],
   templateUrl: 'material_input.html',
   styleUrls: ['material_input.scss.css'],
@@ -85,15 +85,6 @@ class MaterialInputComponent extends BaseMaterialInput
   static const hostTabIndex = -1;
 
   ChangeDetectorRef _changeDetector;
-
-  /// TODO(google): The following value could be set in the base class, but
-  /// there is currently no working way to set ViewChild values on the base
-  /// class.
-  @ViewChild(FocusableDirective)
-  @override
-  set focusable(Focusable value) {
-    super.focusable = value;
-  }
 
   @ViewChild('inputEl')
   ElementRef inputEl;
@@ -127,7 +118,7 @@ class MaterialInputComponent extends BaseMaterialInput
 
   /// The role to assign to the inner input element.
   final String inputRole;
-  final _labelId = new SequentialIdGenerator.fromUUID().nextId();
+  final _labelId = SequentialIdGenerator.fromUUID().nextId();
 
   String get labelId => inputAriaLabel != null ? null : _labelId;
 
@@ -135,6 +126,12 @@ class MaterialInputComponent extends BaseMaterialInput
   @HostListener('focus')
   @override
   void focus() => super.focus();
+
+  /// Input element tabindex.
+  ///
+  /// Used to prevent focus/blur events on disabled inputs that caused weird
+  /// behavior of floating label, input validations, etc.
+  int get inputTabIndex => disabled ? -1 : 0;
 
   bool get hasLeadingText => isNotEmpty(leadingText);
   String get leadingText => _leadingText;
@@ -228,6 +225,11 @@ class MaterialInputComponent extends BaseMaterialInput
   /// set to "true".
   @Input()
   String inputAriaAutocomplete;
+
+  /// The ID of an element which should be assigned to the inner input element's
+  /// aria-controls attribute.
+  @Input()
+  String inputAriaControls;
 
   MaterialInputComponent(
       @Attribute('type') String type,
