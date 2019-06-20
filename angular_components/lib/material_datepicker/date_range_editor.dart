@@ -177,7 +177,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   // The subset of _presets which fall within minDate/maxDate (at least partly).
   // Filtered version of presets, regenerated as needed.
-  Set<DatepickerPreset> _validPresets = Set<DatepickerPreset>();
+  Set<DatepickerPreset> _validPresets = <DatepickerPreset>{};
 
   /// If the editor's inside a popup, a handle on the popup. (This is needed
   /// because we can't initialize the calendar's scroll position until after it
@@ -395,7 +395,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   final _controller = StreamController<UIEvent>.broadcast(sync: true);
 
   void _updateValidPresets() {
-    _validPresets = Set<DatepickerPreset>();
+    _validPresets = <DatepickerPreset>{};
     for (var preset in _presets) {
       if (preset.range.clamp(min: minDate, max: maxDate) != null) {
         _validPresets.add(preset);
