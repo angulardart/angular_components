@@ -37,14 +37,6 @@ class DatepickerComparison implements DateRangeComparison {
 
   bool get isComparisonEnabled => comparison != null;
 
-  @Deprecated('use comparesTo instead')
-  bool comparesToPreviousPeriod() =>
-      comparesTo(ComparisonOption.previousPeriod);
-
-  @Deprecated('use comparesTo instead')
-  bool comparesToSamePeriodLastYear() =>
-      comparesTo(ComparisonOption.samePeriodLastYear);
-
   /// Checks the comparison date range has same logic as given comparisonOption.
   bool comparesTo(ComparisonOption option) =>
       comparison != null &&
