@@ -5,7 +5,7 @@
 import 'dart:async';
 
 /// Runs [fn] within a zone.
-typedef RunInZoneFn(fn());
+typedef RunInZoneFn = Function(Function() fn);
 
 /// Generic zone-running helper mixin.
 abstract class _ZoneRunner {

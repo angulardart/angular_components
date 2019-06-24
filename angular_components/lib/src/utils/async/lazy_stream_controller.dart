@@ -5,7 +5,7 @@
 import 'dart:async';
 
 /// Creates a stream controller.
-typedef StreamController<T> StreamControllerFactory<T>();
+typedef StreamControllerFactory<T> = StreamController<T> Function();
 
 /// An implementation of [StreamController] that only actually creates the
 /// underlying [StreamController] when the [stream] getter is called for the

@@ -574,4 +574,4 @@ class _ChangeTracker {
   }
 }
 
-typedef bool IsDomMutatedPredicate();
+typedef IsDomMutatedPredicate = bool Function();

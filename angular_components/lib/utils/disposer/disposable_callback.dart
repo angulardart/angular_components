@@ -4,8 +4,8 @@
 
 import 'package:angular_components/utils/disposer/disposer.dart';
 
-typedef void CallbackNoParamFn();
-typedef void CallbackSingleParamFn<T>(T value);
+typedef CallbackNoParamFn = void Function();
+typedef CallbackSingleParamFn<T> = void Function(T value);
 
 /// A Disposable Callback base that can be extended from or used as a mixin.
 ///
