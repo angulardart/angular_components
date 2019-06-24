@@ -83,4 +83,4 @@ class ScrollObserver implements Disposable {
   }
 }
 
-typedef void ScrollObserverIdleCallback(bool idle);
+typedef ScrollObserverIdleCallback = void Function(bool idle);

@@ -7,7 +7,7 @@ import 'dart:async';
 import 'package:angular_components/utils/rate_limit_utils/rate_limit_utils.dart'
     show RateLimitStrategy;
 
-typedef void _AddEventFn(event);
+typedef _AddEventFn = void Function(dynamic event);
 
 /// An [EventSink] that rate-limits [Stream] events with a given
 /// [RateLimitStrategy] and [Duration].

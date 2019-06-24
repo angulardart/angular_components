@@ -40,7 +40,7 @@ bool isStandardTriggerEvent(UIEvent event) {
       event is KeyboardEvent && isKeyboardTrigger(event);
 }
 
-typedef bool Predicate<T>(T value);
+typedef Predicate<T> = bool Function(T value);
 
 Predicate<T> not<T>(Predicate<T> predicate) => (value) => !predicate(value);
 

@@ -6,10 +6,10 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:math' as math;
 
-import 'package:angular_components/src/utils/angular/scroll_host/scroll_host_event_impl.dart';
-import 'package:angular_components/src/utils/angular/scroll_host/scroll_host_interface.dart';
 import 'package:angular/angular.dart';
 import 'package:quiver/time.dart';
+import 'package:angular_components/src/utils/angular/scroll_host/scroll_host_event_impl.dart';
+import 'package:angular_components/src/utils/angular/scroll_host/scroll_host_interface.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 enum GestureDirection { up, down, left, right }
@@ -29,7 +29,7 @@ GestureDirection scrollDirection(num deltaX, num deltaY) {
   return null;
 }
 
-typedef bool DirectionCheck(GestureDirection direction);
+typedef DirectionCheck = bool Function(GestureDirection direction);
 
 /// A layer of indirection to allow injection.
 @Injectable()

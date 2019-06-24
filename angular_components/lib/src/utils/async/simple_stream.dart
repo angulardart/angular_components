@@ -4,9 +4,10 @@
 
 import 'dart:async';
 
-typedef void StreamCallContextFunc(dynamic func());
-typedef void StreamCallbackFunc<T>(T value);
-typedef void SubscriptionChangeListener<T>(StreamSubscription<T> subscription);
+typedef StreamCallContextFunc = void Function(dynamic Function() func);
+typedef StreamCallbackFunc<T> = void Function(T value);
+typedef SubscriptionChangeListener<T> = void Function(
+    StreamSubscription<T> subscription);
 
 /// A ListenOnly Implementation of a [Stream].  It only supports the listen
 /// method with the onData parameter.  Additionally, the streamsubscription can

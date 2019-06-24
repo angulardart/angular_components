@@ -5,7 +5,7 @@
 import 'dart:async';
 
 /// A callback registered with [AsyncNotifier].
-typedef void OnUpdateCallback();
+typedef OnUpdateCallback = void Function();
 
 /// An utility class for notifying ~once per VM turn to do an update action.
 ///
