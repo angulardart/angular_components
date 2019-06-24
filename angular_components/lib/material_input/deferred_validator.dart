@@ -5,7 +5,7 @@
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 
-typedef Map<String, dynamic> _ValidatorFn(AbstractControl c);
+typedef _ValidatorFn = Map<String, dynamic> Function(AbstractControl c);
 
 /// A validator that defers to another delegator.
 ///

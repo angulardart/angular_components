@@ -3,7 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// Definition for a method that takes in an item and converts it to a string.
-typedef String ItemRenderer<T>(T item);
+typedef ItemRenderer<T> = String Function(T item);
 
 /// Interface for a class defining itemRenderer.
 abstract class HasRenderer<T> {
@@ -47,7 +47,7 @@ abstract class RendersValue<T> {
 /// Defines a method that returns a component to render the Item.  The
 /// component must implement RendersValue.
 @Deprecated('Use FactoryRenderer instead as it allows for treeshaking')
-typedef Type ComponentRenderer<T extends RendersValue, I>(I item);
+typedef ComponentRenderer<T extends RendersValue, I> = Type Function(I item);
 
 /// HasComponentRenderer defines a method that takes in an item and returns the
 /// type to use to render the item.

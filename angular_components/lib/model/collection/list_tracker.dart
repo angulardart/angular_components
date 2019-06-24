@@ -251,4 +251,4 @@ class LazyListTracker<S, T> extends Object
   }
 }
 
-typedef B _MapFunction<A, B>(int index, A object);
+typedef _MapFunction<A, B> = B Function(int index, A object);

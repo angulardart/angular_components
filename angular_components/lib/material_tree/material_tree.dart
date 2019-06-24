@@ -5,6 +5,6 @@
 export 'package:angular_components/src/material_tree/group/material_tree_group.dart'
     show materialTreeLeftPaddingToken;
 export 'package:angular_components/src/material_tree/material_tree_dropdown.dart';
-export 'package:angular_components/src/material_tree/material_tree_impl.dart';
 export 'package:angular_components/src/material_tree/material_tree_expand_state.dart';
+export 'package:angular_components/src/material_tree/material_tree_impl.dart';
 export 'package:angular_components/src/material_tree/material_tree_rendering_options.dart';

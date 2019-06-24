@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
 import 'package:angular_components/interfaces/has_disabled.dart';
 
 // TODO(google): This copies a lot of values from material-input, and yet

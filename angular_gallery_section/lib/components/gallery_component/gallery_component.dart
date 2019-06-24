@@ -11,8 +11,8 @@ import 'package:js/js.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/laminate/popup/module.dart';
-import 'package:angular_gallery_section/components/gallery_component/documentation_component.dart';
 import 'package:angular_gallery/gallery/gallery_tokens.dart';
+import 'package:angular_gallery_section/components/gallery_component/documentation_component.dart';
 import 'package:angular_gallery_section/components/gallery_component/gallery_info.dart';
 
 /// The gallery component details page that encompass the component's dart docs,

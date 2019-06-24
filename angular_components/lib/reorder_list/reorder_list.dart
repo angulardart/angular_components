@@ -622,7 +622,7 @@ class ReorderListComponent implements OnDestroy {
   bool get showPlaceholder => _reorderActive;
 }
 
-typedef void ReorderListHandler(int sourceIndex, int destIndex);
+typedef ReorderListHandler = void Function(int sourceIndex, int destIndex);
 
 /// Indicates that the element is a list item in the containing `reorder-list`
 /// component. See [ReorderListComponent] for usage.

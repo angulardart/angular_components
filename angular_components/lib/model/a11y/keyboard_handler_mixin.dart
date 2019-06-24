@@ -7,7 +7,7 @@ import 'dart:html';
 import 'package:angular_components/utils/browser/events/events.dart';
 
 /// Callback to handle a keyboard event
-typedef void KeyboardEventHandler(KeyboardEvent event);
+typedef KeyboardEventHandler = void Function(KeyboardEvent event);
 
 /// Base class for handling common key events implementing accessibility best
 /// practices.
