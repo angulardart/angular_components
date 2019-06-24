@@ -89,6 +89,17 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
   }
 }
 
+/// Resets the tab text transform to its default value.
+@mixin tab-strip-reset-text-transform() {
+  ::ng-deep #{$_fixedStripNaviBar} #{$_tabBtnSel} {
+    text-transform: none;
+  }
+
+  ::ng-deep #{$_scrollingStripNaviBar} #{$_tabBtnSel} {
+    text-transform: none;
+  }
+}
+
 // Sets the selected tab color
 @mixin tab-strip-selected-tab-color($selector, $color) {
   ::ng-deep #{$selector} #{$_fixedStripNaviBar} #{$_activeTabBtnSel},
