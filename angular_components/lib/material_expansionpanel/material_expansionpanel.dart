@@ -305,6 +305,15 @@ class MaterialExpansionPanel
 
   String get groupAriaLabel => _groupAriaLabel == null ? name : _groupAriaLabel;
 
+  /// Level of the heading.
+  ///
+  /// If null, the heading will not have role="heading".
+  @Input()
+  int headerAriaLevel;
+
+  @visibleForTemplate
+  String get headerRole => headerAriaLevel == null ? 'none' : 'heading';
+
   /// An optional icon name to replace the expand arrows with a custom icon.
   @Input()
   set expandIcon(String expandIcon) => _expandIcon = expandIcon;
@@ -376,7 +385,7 @@ class MaterialExpansionPanel
       : _namedPanelMsg(groupAriaLabel);
 
   String get headerMsg {
-    if (disabled) {
+    if (disabled || _groupAriaLabel != null) {
       return groupAriaLabel;
     } else {
       return isExpanded ? closePanelMsg : openPanelMsg;
