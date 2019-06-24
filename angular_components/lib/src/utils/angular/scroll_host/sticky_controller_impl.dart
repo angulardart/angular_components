@@ -410,8 +410,8 @@ class StickyContainerLayout<T> {
   }
 
   void remove(T row) {
-    topRows?.remove(row);
-    bottomRows?.remove(row);
+    topRows?.removeWhere((rowData) => rowData.row == row);
+    bottomRows?.removeWhere((rowData) => rowData.row == row);
     hiddenRows?.remove(row);
   }
 
