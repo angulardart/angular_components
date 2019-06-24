@@ -47,7 +47,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
 
 import 'material_input.dart';
 
-typedef String _InputChangeCallback(String inputText);
+typedef _InputChangeCallback = String Function(String inputText);
 
 /// See material_auto_suggest_input.md for an overview of the component.
 /// See examples for usage.

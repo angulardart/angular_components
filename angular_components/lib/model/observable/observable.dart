@@ -20,7 +20,7 @@ import 'dart:async';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// Compares two objects for reference or content equality.
-typedef bool EqualsFn<T>(T a, T b);
+typedef EqualsFn<T> = bool Function(T a, T b);
 
 /// Allows listening on changes.
 abstract class ObserveAware<T> {

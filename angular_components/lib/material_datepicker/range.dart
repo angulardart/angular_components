@@ -31,7 +31,7 @@ DatepickerDateRange _genericPrev(DatepickerDateRange r) => _ifValidRange(
         r.start.add(days: -daysSpanned(r.start, r.end)),
         r.start.add(days: -1)));
 
-typedef DatepickerDateRange RangeFn(DatepickerDateRange range);
+typedef RangeFn = DatepickerDateRange Function(DatepickerDateRange range);
 
 /// A datepicker-specific implementation of [DateRange], extended with a title
 /// and an interface for computing the next/previous date range.
@@ -291,7 +291,7 @@ class _BasicDateRange implements DatepickerDateRange {
 /// Builds the date range title based on how many units ago the date range is.
 ///
 /// E.g. "1 year ago" or "3 days from now"
-typedef String RangeTitle(int ago);
+typedef RangeTitle = String Function(int ago);
 
 /// A single day. Special-cased to have titles like "today", "4 days ago", etc.
 class SingleDayRange implements DatepickerDateRange {

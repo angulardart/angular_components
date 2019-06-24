@@ -5,7 +5,7 @@
 import 'dart:async';
 
 /// Function to run when the timer expires.
-typedef void Callback();
+typedef Callback = void Function();
 
 /// A reusable [Timer] and callback which allows for immediate execution
 /// ([doNow]), cancelling ([cancel]) and throttled timer starting.

@@ -6,8 +6,8 @@ import 'dart:async';
 
 import 'async_action.dart';
 
-typedef dynamic /* Future | dynamic */ Executor();
-typedef dynamic /* Future | dynamic */ OnCancelFunction();
+typedef /* Future | dynamic */ Executor = dynamic Function();
+typedef /* Future | dynamic */ OnCancelFunction = dynamic Function();
 
 /// Controller Class for an [AsyncAction].
 /// The [AsyncController] provides a private handle to execute a closure if and

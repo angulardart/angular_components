@@ -15,7 +15,7 @@ import 'package:angular_components/utils/async/async.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// Returns whether [option] should be shown as expandable.
-typedef bool IsExpandable<T>(T option);
+typedef IsExpandable<T> = bool Function(T option);
 
 /// Represents a hierarchical node in a nested list UI.
 ///

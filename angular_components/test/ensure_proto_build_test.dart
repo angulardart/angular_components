@@ -3,10 +3,11 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @TestOn('vm')
-@Tags(const ['presubmit-only'])
+@Tags(['presubmit-only'])
 
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:path/path.dart' as p;
 import 'package:test/test.dart';
 

@@ -10,9 +10,9 @@ import 'package:angular/meta.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
-import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/forms/error_renderer.dart' show ErrorFn;
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/reference/reference.dart';
@@ -26,8 +26,8 @@ export 'package:angular_components/forms/error_renderer.dart' show ErrorFn;
 /// Key used in the Control's error map, when there is an error.
 const String materialInputErrorKey = 'material-input-error';
 
-typedef String ValidityCheck(String inputText);
-typedef int CharacterCounter(String inputText);
+typedef ValidityCheck = String Function(String inputText);
+typedef CharacterCounter = int Function(String inputText);
 
 /// Represents which label should be shown in the BottomPanel
 enum BottomPanelState {

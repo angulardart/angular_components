@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:quiver/core.dart' show Optional;
 import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:observable/observable.dart';
+import 'package:quiver/core.dart' show Optional;
 import 'package:quiver/strings.dart';
 import 'package:angular_components/model/menu/menu.dart';
 import 'package:angular_components/model/selection/select.dart';

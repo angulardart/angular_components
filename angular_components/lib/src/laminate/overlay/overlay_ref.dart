@@ -17,7 +17,8 @@ import 'package:angular_components/laminate/portal/portal.dart';
 ///
 /// This exists to separate the ruler API from tight coupling on overlays; see
 /// [Ruler.update] for the default implementation.
-typedef Future<Object> AsyncApplyState<E>(OverlayState state, E element);
+typedef AsyncApplyState<E> = Future<Object> Function(
+    OverlayState state, E element);
 
 /// A handler to return the position and size of the *content* of [element].
 ///
@@ -25,7 +26,8 @@ typedef Future<Object> AsyncApplyState<E>(OverlayState state, E element);
 ///
 /// This exists to separate the ruler API from tight coupling on overlays; see
 /// [Ruler.measure] and [Ruler.track] for the default implementations.
-typedef Stream<Rectangle> AsyncMeasureSize<E>(E element, {bool track});
+typedef AsyncMeasureSize<E> = Stream<Rectangle> Function(E element,
+    {bool track});
 
 /// A handle to manipulate an existing overlay pane.
 class OverlayRef implements PortalHost {

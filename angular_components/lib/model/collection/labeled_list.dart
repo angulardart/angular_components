@@ -6,7 +6,7 @@ import 'package:collection/collection.dart' as collection;
 import 'package:angular_components/model/ui/display_name.dart';
 
 /// Returns a non-null label.
-typedef String LabelFunction();
+typedef LabelFunction = String Function();
 
 /// A list with an optional label.
 class LabeledList<T> extends collection.DelegatingList<T>

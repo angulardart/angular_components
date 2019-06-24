@@ -323,7 +323,7 @@ class DomPortalHost extends BasePortalHost {
   }
 }
 
-typedef void OnTemplatePortalReady(TemplatePortal portal);
+typedef OnTemplatePortalReady = void Function(TemplatePortal portal);
 
 /// An implementation of [TemplatePortal] as an Angular directive.
 ///

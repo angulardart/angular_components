@@ -563,7 +563,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
       desc: 'Message that explains why a date range is invalid.');
 }
 
-typedef void NextPrevCallback();
+typedef NextPrevCallback = void Function();
 
 class DateRangeEditorNextPrevModel implements Sequential {
   final NextPrevCallback onNext;
