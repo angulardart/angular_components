@@ -12,7 +12,7 @@ class _SingleSelectionModelImpl<T> extends Observable<ChangeRecord>
   @override
   final isSingleSelect = true;
 
-  var _selectedKey;
+  Object _selectedKey;
 
   _SingleSelectionModelImpl(T selectedValue, this._keyOf) {
     if (selectedValue != null) {

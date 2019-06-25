@@ -74,7 +74,7 @@ SettableTimeZone settableTimeZoneFactory() => SettableTimeZone();
 class SettableTimeZone {
   final TimeFunction _time;
   final _initialized = Completer<Null>();
-  final _throwIfNotInitialized;
+  final bool _throwIfNotInitialized;
 
   /// The offset to add to UTC to get local time.
   ///
