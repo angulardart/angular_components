@@ -20,7 +20,8 @@ HtmlDocument getDocument() => document;
 @Injectable()
 Window getWindow() => window;
 
-/// Provides [Document], [HtmlDocument], and [Window] bound for use within Angular.
+/// Provides [Document], [HtmlDocument], and [Window] bound for use
+/// within Angular.
 ///
 /// Ideally, an application would limit direct use of these to maintain
 /// compatibility with web workers, but there is no Angular sanitized version

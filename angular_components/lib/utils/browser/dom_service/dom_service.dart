@@ -183,7 +183,8 @@ class DomService {
         // TODO(google): figure out a better way to initialize this earlier
         init();
         _nextFrameId = _window.requestAnimationFrame((highResTimer) {
-          // Protect against window implementation that does not cancel the frame.
+          // Protect against window implementation that does not
+          // cancel the frame.
           if (completer.isCompleted) return;
           if (completer == _nextFrameCompleter) {
             _nextFrameFuture = null;
@@ -401,12 +402,12 @@ class DomService {
   /// Returns a subscription that allows pausing, resuming and canceling the
   /// observer.
   StreamSubscription<DomService> trackLayoutChange<T>(
-      T fn(), void callback(T value),
+      T Function() fn, void Function(T) callback,
       {int framesToStabilize = 1, bool runInAngularZone = false}) {
     // TODO(google): Move layout checking into ruler service when landed.
-    Function trackerCallback = callback;
+    var trackerCallback = callback;
     if (runInAngularZone) {
-      trackerCallback = (value) {
+      trackerCallback = (T value) {
         _ngZone.run(() => callback(value));
       };
     }
@@ -539,13 +540,13 @@ enum DomServiceState {
   Reading
 }
 
-class _ChangeTracker {
+class _ChangeTracker<T> {
   final DomService _domService;
-  final Function _fn;
-  final Function _callback;
+  final T Function() _fn;
+  final void Function(T) _callback;
   final int _framesToStabilize;
 
-  var _lastValue;
+  T _lastValue;
   int _stableFrameCounter = 0;
 
   _ChangeTracker(

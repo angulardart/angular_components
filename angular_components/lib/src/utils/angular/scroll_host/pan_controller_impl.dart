@@ -96,7 +96,7 @@ class NonTouchPanController implements PanController {
   bool get _hasPan => _panTop || _panRight || _panBottom || _panLeft;
   bool get _hasNotification => _hasPan || _endPan;
 
-  _resetPans() {
+  void _resetPans() {
     _panTop = false;
     _panRight = false;
     _panBottom = false;
@@ -162,7 +162,7 @@ class NonTouchPanController implements PanController {
     }
   }
 
-  _scheduleDeduplication() {
+  void _scheduleDeduplication() {
     _cancelDeduplication();
     _deduplicationTimer = Timer(_deduplicationDuration, () {
       _deduplicationTimer = null;
