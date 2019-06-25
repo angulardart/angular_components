@@ -100,7 +100,7 @@ class DomTreeIterator implements Iterator<Element> {
   // 3) Check if element is first child of it's parent, then parent is next.
   //
   // 4) Go to last descendant of previous sibling, it's next in order.
-  _navigateBackward() {
+  void _navigateBackward() {
     if (_element == _scope) {
       // 1
       if (_wraps) {
@@ -142,7 +142,7 @@ class DomTreeIterator implements Iterator<Element> {
   // we went through the scope/document, wrap if applicable.
   //
   // 4) Otherwise simply go to the next sibling.
-  _navigateForward() {
+  void _navigateForward() {
     if (_element.children.isNotEmpty) {
       // 1
       _element = _firstChild(_element);

@@ -62,9 +62,9 @@ UnaryFunction<T> _throttle<T>(UnaryFunction<T> delegate, Duration interval,
     {@required bool guaranteeLast}) {
   bool onCooldown = false;
   bool hasLastArg = false;
-  var lastArg;
+  T lastArg;
   UnaryFunction<T> self;
-  self = (argument) {
+  self = (T argument) {
     if (!onCooldown) {
       onCooldown = true;
       Timer(interval, () {

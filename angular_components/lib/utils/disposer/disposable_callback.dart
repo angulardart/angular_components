@@ -31,7 +31,7 @@ class DisposableCallback extends DisposableCallbackBase {
     _callback = callback;
   }
 
-  call() {
+  void call() {
     if (_callback != null) {
       _callback();
     }
@@ -44,7 +44,7 @@ class SingleValueCallback<T> extends DisposableCallbackBase {
     _callback = callback;
   }
 
-  call(T value) {
+  void call(T value) {
     if (_callback != null) {
       _callback(value);
     }

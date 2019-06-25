@@ -455,7 +455,7 @@ class BasePanClassDirective {
     }
   }
 
-  _updateClass(bool prevValue, bool newValue, String suffix) {
+  void _updateClass(bool prevValue, bool newValue, String suffix) {
     if (prevValue == newValue) return;
     if (prevValue) {
       _domService.scheduleWrite(() {

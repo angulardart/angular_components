@@ -475,7 +475,7 @@ abstract class StickyRowUtils {
     // An eager, single-pass algorithm to decide which rows should stick or not.
     // The downside: importance of the rows are not accounted, and it may not
     // display a summary footer in certain conditions.
-    var stickyKeyToRowIndex;
+    Map<String, int> stickyKeyToRowIndex;
     for (var i = 0; i < rows.length; i++) {
       var row = rows[i];
       bool shouldStick = StickyRowUtils.shouldStick(
