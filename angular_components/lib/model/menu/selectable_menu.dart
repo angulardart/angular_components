@@ -31,7 +31,7 @@ class MenuItemGroupWithSelection<SelectionItemType>
   /// https://www.w3.org/TR/wai-aria-1.1/#menuitemradio
   /// https://www.w3.org/TR/wai-aria-1.1/#menuitemcheckbox
   @override
-  final itemsRole;
+  final String itemsRole;
 
   /// If true, the current menu should be closed when this item is selected.
   final bool shouldCloseMenuOnSelection;

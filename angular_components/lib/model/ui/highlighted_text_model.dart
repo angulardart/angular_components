@@ -21,7 +21,7 @@ class HighlightedTextSegment {
   HighlightedTextSegment(this.text, this.isHighlighted);
 
   @override
-  operator ==(other) =>
+  bool operator ==(other) =>
       other is HighlightedTextSegment &&
       isHighlighted == other.isHighlighted &&
       text == other.text;
