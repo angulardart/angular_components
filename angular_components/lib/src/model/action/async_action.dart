@@ -70,7 +70,7 @@ class AsyncAction<V> {
   final Future<V> _onDone;
   final Future<bool> _onDefer;
   final List<Future<bool>> _futureCancellations;
-  final List<Future> _executionDeferrals;
+  final List<Future<dynamic>> _executionDeferrals;
   final Function _cancelledGetter;
   final Function _lockedGetter;
   final Function _doneGetter;
@@ -160,7 +160,7 @@ class AsyncAction<V> {
   ///     asyncEvent.defer(asyncEvent.onDefer.then((_) {
   ///       return doSomeAsyncThingThatDelaysTheEvent();
   ///     });
-  void defer(Future executionDeferral) {
+  void defer(Future<dynamic> executionDeferral) {
     // Do nothing, it will be cancelled anyway.
     if (cancelled) return;
 
