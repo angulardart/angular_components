@@ -65,12 +65,7 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   ///
   /// If true, the component disable both start and end input field.
   @Input()
-  set disabled(bool isDisabled) {
-    _disabled = isDisabled;
-  }
-
-  bool get disabled => _disabled;
-  bool _disabled = false;
+  bool disabled = false;
 
   @override
   void ngOnInit() {
@@ -87,7 +82,7 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   }
 
   void onStartFocused() {
-    if (_disabled) {
+    if (disabled) {
       return;
     }
     if (state.currentSelection == rangeId && !state.previewAnchoredAtStart) {
@@ -97,7 +92,7 @@ class DateRangeInputComponent implements OnInit, OnDestroy {
   }
 
   void onEndFocused() {
-    if (_disabled) {
+    if (disabled) {
       return;
     }
     if (state.currentSelection == rangeId && state.previewAnchoredAtStart) {

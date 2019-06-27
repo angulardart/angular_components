@@ -110,22 +110,16 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
 
   DateTime get time => _withEpochDate(_time);
 
-  bool get disabled => _disabled;
-  bool _disabled = false;
-
   /// Whether changing the selected time should be disabled.
   @Input()
-  set disabled(bool value) => _disabled = value;
-
-  bool _required = false;
-  bool get required => _required;
+  bool disabled = false;
 
   /// Whether the time entry is required.
   ///
   /// If true, the embedded text field will display an error to the user if
   /// blank. If false, clearing the text field will set `time` to `null`.
   @Input()
-  set required(bool value) => _required = value;
+  bool required = false;
 
   bool get utc => _utc;
   bool _utc = false;
