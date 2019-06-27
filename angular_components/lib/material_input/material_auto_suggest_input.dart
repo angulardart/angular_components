@@ -102,6 +102,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
         KeyboardHandlerMixin,
         HighlightAssistantMixin<T>
     implements
+        AfterChanges,
         ControlValueAccessor<Object>,
         Focusable,
         OnInit,
@@ -123,6 +124,8 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
 
   final String popupId;
   final String inputId;
+
+  final ChangeDetectorRef _changeDetector;
 
   /// Keeps track of the item matching the filter as the suggestions are
   /// being updated.
@@ -186,7 +189,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
   /// The last future of filtering the options.
   DisposableFuture _lastFilterFuture;
 
-  /// Whether a filter call is scheduled.
+  /// Whether a filter is scheduled during the next call of [ngAfterChanges].
   bool _filterScheduled = false;
 
   bool _isDisposed = false;
@@ -348,11 +351,16 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
   factory MaterialAutoSuggestInputComponent(
           @Optional() @Self() NgControl cd,
           @Optional() IdGenerator idGenerator,
+          ChangeDetectorRef changeDetector,
           @Optional() @SkipSelf() PopupSizeProvider popupSizeDelegate) =>
-      MaterialAutoSuggestInputComponent.protected(cd,
-          idGenerator ?? SequentialIdGenerator.fromUUID(), popupSizeDelegate);
+      MaterialAutoSuggestInputComponent.protected(
+          cd,
+          idGenerator ?? SequentialIdGenerator.fromUUID(),
+          changeDetector,
+          popupSizeDelegate);
 
-  MaterialAutoSuggestInputComponent.protected(this._cd, IdGenerator idGenerator,
+  MaterialAutoSuggestInputComponent.protected(
+      this._cd, IdGenerator idGenerator, this._changeDetector,
       [this._popupSizeDelegate])
       : activeModel = ActiveItemModel(idGenerator, loop: true),
         popupId = idGenerator.nextId(),
@@ -392,6 +400,9 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     if (isSingleSelect && selection.selectedValues.isNotEmpty) {
       _lastSelectedItem = selection.selectedValues.first;
       if (_isInitialized) {
+        // Make sure input text is initialized correctly regardless of input
+        // order. Specified input text should take precedence over selection
+        // status.
         inputText = itemRenderer(_lastSelectedItem);
       }
     }
@@ -424,6 +435,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
   @Input('selectionOptions')
   @override
   set optionsInput(dynamic value) {
+    _filterScheduled = true;
     super.optionsInput = value;
   }
 
@@ -431,13 +443,16 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
   set options(SelectionOptions<T> options) {
     if (options == null) return;
     super.options = options;
-    _filterSuggestions();
     activeModel.items = options.optionsList;
     _optionsListener?.cancel();
     _optionsListener = options.stream.listen((_) {
       activeModel.items = options.optionsList;
       _updateItemActivation();
+      _changeDetector?.markForCheck();
     });
+    if (!_filterScheduled) {
+      _filterSuggestions();
+    }
   }
 
   /// How many suggestions to show.
@@ -449,7 +464,7 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     var newLimit = getInt(value);
     if (_limit != newLimit) {
       _limit = newLimit;
-      _filterSuggestions();
+      _filterScheduled = true;
     }
   }
 
@@ -651,19 +666,22 @@ class MaterialAutoSuggestInputComponent<T> extends MaterialSelectBase<T>
     }
   }
 
+  @override
+  void ngAfterChanges() {
+    if (_filterScheduled) {
+      _filterScheduled = false;
+      _filterSuggestions();
+    }
+  }
+
   /// Filter the suggestions if the flag is set and filtering is supported.
   void _filterSuggestions() {
-    if (_filterScheduled || !filterSuggestions || options is! Filterable) {
+    if (_isDisposed || !filterSuggestions || options is! Filterable) {
       return;
     }
-    _filterScheduled = true;
-    scheduleMicrotask(() {
-      if (_isDisposed) return;
-      _filterScheduled = false;
-      _lastFilterFuture?.dispose();
-      _lastFilterFuture =
-          (options as Filterable).filter(_inputText, limit: _limit);
-    });
+    _lastFilterFuture?.dispose();
+    _lastFilterFuture =
+        (options as Filterable).filter(_inputText, limit: _limit);
   }
 
   void _updateItemActivation(
