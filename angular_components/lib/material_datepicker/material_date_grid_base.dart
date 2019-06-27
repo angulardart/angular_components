@@ -183,13 +183,7 @@ abstract class MaterialDateGridBase
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(bool value) {
-    _compact = value;
-  }
-
-  bool get compact => _compact;
-
-  bool _compact = false;
+  bool compact = false;
 
   void onCalendarChange(CalendarState state);
 

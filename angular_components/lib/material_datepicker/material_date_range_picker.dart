@@ -202,37 +202,19 @@ class MaterialDateRangePickerComponent
   ///
   /// Defaults to true.
   @Input()
-  set showNextPrevButtons(bool value) {
-    _showNextPrevButtons = value;
-  }
-
-  bool get showNextPrevButtons => _showNextPrevButtons;
-
-  bool _showNextPrevButtons = true;
+  bool showNextPrevButtons = true;
 
   /// Whether or not this date range picker includes a section to input 'N days
   /// to today' and 'N days to yesterday' ranges.
   ///
   /// Defaults to `true`.
   @Input()
-  set supportsDaysInputs(bool value) {
-    _supportsDaysInputs = value;
-  }
-
-  bool get supportsDaysInputs => _supportsDaysInputs;
-
-  bool _supportsDaysInputs = true;
+  bool supportsDaysInputs = true;
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(bool value) {
-    _compact = value;
-  }
-
   @HostBinding('class.compact')
-  bool get compact => _compact;
-
-  bool _compact = !window.matchMedia("(pointer: coarse)").matches;
+  bool compact = !window.matchMedia("(pointer: coarse)").matches;
 
   /// For date range selection, whether clicking to move the start date should
   /// also move the end date (preserving the length of the selected range).
@@ -442,7 +424,7 @@ class MaterialDateRangePickerComponent
     }
     _disposer.addFunction(model.dispose);
 
-    _needsApply(modelValue) =>
+    bool _needsApply(DatepickerComparison modelValue) =>
         modelValue != selection.value || !_isPreset(modelValue);
 
     // Wire the internal model and the external value up to each other.
@@ -675,8 +657,9 @@ class MaterialDateRangePickerComponent
 
   static final cancelButtonMsg = Intl.message('Cancel',
       meaning: 'Button in a date picker',
-      desc: 'Label for a "cancel" button -- abandon the current date selection '
-          'and go back to whatever it was before the user opened the date picker');
+      desc: 'Label for a "cancel" button -- abandon the current date'
+          ' selection and go back to whatever it was before the user'
+          ' opened the date picker');
 
   String get applyButtonMsg => applyButtonLabel ?? _applyButtonMsg;
 

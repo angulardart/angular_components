@@ -96,22 +96,16 @@ class MaterialDateTimePickerComponent implements HasDisabled {
   @Input()
   int increment;
 
-  bool _disabled = false;
-  bool get disabled => _disabled;
-
   /// Whether changing the selected date and time should be disabled.
   @Input()
-  set disabled(bool value) => _disabled = value;
-
-  bool _required = false;
-  bool get required => _required;
+  bool disabled = false;
 
   /// Whether the date and time entry is required.
   ///
   /// If true, the embedded text fields will display an error to the user if
   /// blank. If false, clearing the text fields will set [dateTime] to `null`.
   @Input()
-  set required(bool value) => _required = value;
+  bool required = false;
 
   bool get utc => _utc;
   bool _utc = false;
@@ -219,7 +213,7 @@ class MaterialDateTimePickerComponent implements HasDisabled {
                 _date.year, _date.month, _date.day, _time.hour, _time.minute))
         : null;
 
-    if (_dateTime != null || !_required) {
+    if (_dateTime != null || !required) {
       _dateTimeController.add(_dateTime);
     }
   }

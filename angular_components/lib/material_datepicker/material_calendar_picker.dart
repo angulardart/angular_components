@@ -144,7 +144,7 @@ class MaterialCalendarPickerComponent
     final slotTemplate = DivElement()
       ..className = 'day-slot'
       ..appendText('');
-    var slot;
+    DivElement slot;
     for (var i = 0; i < WEEK_ROWS_IN_MONTH * 7; i++) {
       slot = slotTemplate.clone(true);
       container.append(slot);
@@ -290,7 +290,7 @@ class MaterialCalendarPickerComponent
   }
 
   _Month _monthAtOffset(int offset) {
-    var month;
+    _Month month;
     int total = 0;
     for (month = _minMonth.copy();
         total < offset && month < _maxMonth;
@@ -406,7 +406,7 @@ class MaterialCalendarPickerComponent
 
   void _renderVisible() {
     // Determine which months are visible (+/- overdraw).
-    var baseline;
+    _Month baseline;
     int offset;
     if (_renderedMonths.isEmpty) {
       baseline = _monthAtOffset(_scrollTop);

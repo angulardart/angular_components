@@ -103,14 +103,8 @@ class MaterialDatepickerComponent
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(bool value) {
-    _compact = value;
-  }
-
   @HostBinding('class.compact')
-  bool get compact => _compact;
-
-  bool _compact = !window.matchMedia("(pointer: coarse)").matches;
+  bool compact = !window.matchMedia("(pointer: coarse)").matches;
 
   /// False if null dates are allowed.
   ///

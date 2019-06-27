@@ -91,26 +91,14 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   /// This is useful for reducing visual noise during popup open/close
   /// animations. Defaults to true.
   @Input()
-  set allowHighlightUpdates(bool value) {
-    _allowHighlightUpdates = value;
-  }
-
-  bool get allowHighlightUpdates => _allowHighlightUpdates;
-
-  bool _allowHighlightUpdates = true;
+  bool allowHighlightUpdates = true;
 
   /// Whether or not this editor includes a section to edit a comparison date
   /// range.
   ///
   /// Defaults to `true`.
   @Input()
-  set supportsComparison(bool value) {
-    _supportsComparison = value;
-  }
-
-  bool get supportsComparison => _supportsComparison;
-
-  bool _supportsComparison = true;
+  bool supportsComparison = true;
 
   /// Checks if custom comparison is a valid option.
   bool get isCustomComparisonValid => model.isCustomComparisonValid;
@@ -121,14 +109,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(bool value) {
-    _compact = value;
-  }
-
   @HostBinding('class.compact')
-  bool get compact => _compact;
-
-  bool _compact = false;
+  bool compact = false;
 
   /// For date range selection, whether clicking to move the start date should
   /// also move the end date (preserving the length of the selected range).
@@ -142,13 +124,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   ///
   /// Defaults to `true`.
   @Input()
-  set supportsDaysInputs(bool value) {
-    _supportsDaysInputs = value;
-  }
-
-  bool get supportsDaysInputs => _supportsDaysInputs;
-
-  bool _supportsDaysInputs = true;
+  bool supportsDaysInputs = true;
 
   /// A list of predefined date ranges which the user can choose from. These are
   /// subject to clamping by `minDate` and `maxDate`, and are excluded entirely
