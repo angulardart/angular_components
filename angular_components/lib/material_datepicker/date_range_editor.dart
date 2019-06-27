@@ -11,6 +11,8 @@ import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/focus/focus_item.dart';
+import 'package:angular_components/focus/focus_list.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_button.dart';
@@ -60,6 +62,8 @@ export 'package:angular_components/src/material_datepicker/date_range_editor_mod
     ButtonDirective,
     ComparisonRangeEditorComponent,
     DateRangeInputComponent,
+    FocusItemDirective,
+    FocusListDirective,
     KeyboardOnlyFocusIndicatorDirective,
     MaterialButtonComponent,
     MaterialCalendarPickerComponent,

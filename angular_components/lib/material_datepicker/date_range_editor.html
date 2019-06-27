@@ -3,17 +3,19 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<material-select [width]="0"
+<material-select focusList
+                 [width]="0"
                  class="preset-list"
                  [class.basic-preset-list]="isBasic"
                  *ngIf="presets.isNotEmpty && shouldShowPredefinedList" acxScrollHost>
   <div *ngIf="supportsClearRange" class="group">
-    <material-select-item (trigger)="onClearRangeClicked">
+    <material-select-item focusItem (trigger)="onClearRangeClicked">
       {{clearRangeMsg}}
     </material-select-item>
   </div>
   <div *ngIf="supportsCustomRange" class="group">
-    <material-select-item (trigger)="onCustomClicked"
+    <material-select-item focusItem
+                          (trigger)="onCustomClicked"
                           [selected]="isCustomRangeSelected"
                           [closeOnActivate]="false">
       <div [class.custom-tab-left]="isBasic && !isCustomRangeSelected"
@@ -29,12 +31,13 @@
   </div>
   <div role="listbox" class="group">
     <material-select-item *ngFor="let preset of presets"
-       (trigger)="onRangeClicked($event, preset.range)"
-       [disabled]="!isValid(preset)"
-       [showTooltipIf]="!isValid(preset)"
-       [materialTooltip]="rangeDisabledTooltip"
-       [selected]="isSelected(preset.range)"
-       [closeOnActivate]="false">
+                          focusItem
+                          (trigger)="onRangeClicked($event, preset.range)"
+                          [disabled]="!isValid(preset)"
+                          [showTooltipIf]="!isValid(preset)"
+                          [materialTooltip]="rangeDisabledTooltip"
+                          [selected]="isSelected(preset.range)"
+                          [closeOnActivate]="false">
       {{preset.title}}
       <template [ngIf]="preset.alternatives != null && preset.alternatives.isNotEmpty">
         <material-button icon
@@ -53,13 +56,13 @@
                         [offsetY]="-4"
                         [source]="menuSource">
           <material-select-item *ngFor="let alternative of preset.alternatives"
-            class="preset-dropdown-item"
-            (trigger)="onAlternativePresetClicked($event, preset, alternative)"
-            [disabled]="!isValid(alternative)"
-            [showTooltipIf]="!isValid(alternative)"
-            [materialTooltip]="rangeDisabledTooltip"
-            [selected]="isAlternativePresetSelected(alternative)"
-            [closeOnActivate]="false">
+                                class="preset-dropdown-item"
+                                (trigger)="onAlternativePresetClicked($event, preset, alternative)"
+                                [disabled]="!isValid(alternative)"
+                                [showTooltipIf]="!isValid(alternative)"
+                                [materialTooltip]="rangeDisabledTooltip"
+                                [selected]="isAlternativePresetSelected(alternative)"
+                                [closeOnActivate]="false">
             {{alternative.shortTitle}}
           </material-select-item>
         </material-popup>
