@@ -32,7 +32,7 @@ class GalleryInfoBuilder extends Builder {
   GalleryInfoBuilder(this._staticImageServer);
 
   @override
-  build(BuildStep buildStep) async {
+  FutureOr<void> build(BuildStep buildStep) async {
     final inputId = buildStep.inputId;
 
     final extractedConfigs =
@@ -154,7 +154,7 @@ class GalleryInfoBuilder extends Builder {
   Future<DartDocInfo> _resolveDocFromClass(String identifier,
       LibraryElement library, AssetReader assetReader) async {
     // Outputs an error and fails the build.
-    failBuild(String missingIdentifier) =>
+    void failBuild(String missingIdentifier) =>
         throw 'Error: Failed to extract documentation from: '
             '$missingIdentifier.';
 

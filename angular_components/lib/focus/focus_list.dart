@@ -92,7 +92,7 @@ class FocusListDirective implements OnDestroy {
 
   void focus(int index) {
     if (_length == 0) return;
-    var newIndex;
+    int newIndex;
     if (loop) {
       newIndex = index % _length;
     } else {

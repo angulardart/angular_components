@@ -64,7 +64,7 @@ class MaterialStepperComponent {
 
   var _orientation = defaultOrientation;
   var _size = defaultSize;
-  var _legalJumps;
+  String _legalJumps;
 
   List<StepDirective> _stepDirectiveList;
   final _activeStepController =
