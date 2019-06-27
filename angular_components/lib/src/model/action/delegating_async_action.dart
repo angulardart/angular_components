@@ -24,5 +24,6 @@ abstract class DelegatingAsyncAction<V> implements AsyncAction<V> {
   @override
   void cancel() => delegate.cancel();
   @override
-  void defer(Future executionDeferral) => delegate.defer(executionDeferral);
+  void defer(Future<dynamic> executionDeferral) =>
+      delegate.defer(executionDeferral);
 }
