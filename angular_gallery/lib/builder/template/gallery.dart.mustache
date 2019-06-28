@@ -60,7 +60,7 @@ import 'gallery_route_library.dart';
 ])
 class GalleryComponent implements HighlightProvider {
   final HighlightAssistant _highlightAssistant = HighlightAssistant();
-  final ItemRenderer _highlightRenderer =
+  final ItemRenderer<dynamic> _highlightRenderer =
       (item) => item is _Example ? item.displayName : item?.toString();
   final List<RouteDefinition> routes = galleryRoutes;
   final FocusIndicatorController focusIndicatorController;
