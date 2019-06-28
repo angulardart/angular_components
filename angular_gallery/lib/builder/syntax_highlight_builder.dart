@@ -12,7 +12,7 @@ import '../src/template_util.dart';
 /// for use with highlight.js. https://highlightjs.org
 class SyntaxHighlightBuilder extends Builder {
   @override
-  Future build(BuildStep buildStep) async {
+  Future<void> build(BuildStep buildStep) async {
     final newAssetId =
         AssetId(buildStep.inputId.package, 'web/syntax_highlight.scss');
     await writeAsset(buildStep,
