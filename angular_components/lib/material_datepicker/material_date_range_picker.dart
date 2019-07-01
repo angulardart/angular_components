@@ -144,7 +144,6 @@ class MaterialDateRangePickerComponent
   ///
   /// Calendar will be hidden when custom range is not supported. Custom range
   /// should be supported in "fullyLoaded" or "basic" mode.
-
   bool get supportsCustomRange =>
       configuration == DateRangePickerConfiguration.fullyLoaded ||
       configuration == DateRangePickerConfiguration.basic;
@@ -166,6 +165,7 @@ class MaterialDateRangePickerComponent
   /// [DateRangePickerConfiguration.predefinedRangesOnly].
   ///
   /// Defaults to [DateRangePickerConfiguration.fullyLoaded].
+  /// Should not be changed after initialization.
   @Input('configuration')
   DateRangePickerConfiguration configuration =
       DateRangePickerConfiguration.fullyLoaded;
@@ -498,6 +498,7 @@ class MaterialDateRangePickerComponent
               DatepickerComparison.reclamp(model.value, minDate, maxDate);
           model.minDate = minDate;
           model.maxDate = maxDate;
+          model.basic = isBasic;
 
           _initCalendar();
           setFocusToDateRangeEditor();
