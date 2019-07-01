@@ -413,9 +413,12 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
-/// Mixin to change button text to capitalized.
-@mixin button-text-capitalize {
+/// Resets the text-transform property of the button.
+///
+/// This removes the uppercase transform default for the button and allows the
+/// content itself to control capitalization.
+@mixin reset-button-text-transform {
   ::ng-deep .content {
-    text-transform: capitalize;
+    text-transform: initial;
   }
 }
