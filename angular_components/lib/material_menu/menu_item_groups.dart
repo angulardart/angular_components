@@ -491,7 +491,9 @@ class MenuItemGroupsComponent
   void _autoFocusActiveItem() {
     // Set auto-focus to the currently selected list item if this menu is
     // a sub-menu and was opened via keyboard shortcut.
-    _autoFocusItemId = qc.Optional.of(activeModel.id(activeModel.activeItem));
+    if (activeModel.activeItem != null) {
+      _autoFocusItemId = qc.Optional.of(activeModel.id(activeModel.activeItem));
+    }
   }
 
   /// Focus the active item if any.
