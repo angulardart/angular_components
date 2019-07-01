@@ -63,6 +63,9 @@ class MaterialTreeGroupComponent<T> extends MaterialTreeNode<T>
   @override
   bool allowParentSingleSelection = false;
   @Input()
+  @override
+  bool allowParentMultiSelection = true;
+  @Input()
   bool deselectOnTrigger = true;
   final MaterialTreeRoot _root;
 
@@ -137,7 +140,7 @@ class MaterialTreeGroupComponent<T> extends MaterialTreeNode<T>
   void handleSelectionOrExpansion(Event e, Object option) {
     if (!isExpandable(option) && isSelectable(option) ||
         (allowParentSingleSelection && isSelectable(option)) ||
-        (isMultiSelect && isSelectable(option))) {
+        (allowParentMultiSelection && isSelectable(option))) {
       final previouslyToggledNode = _root.previouslyToggledNode;
       _root.previouslyToggledNode = option;
 
