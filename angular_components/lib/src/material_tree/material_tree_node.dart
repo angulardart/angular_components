@@ -71,6 +71,9 @@ class MaterialTreeNode<T> {
   /// Whether the parent node can be selected in single select mode
   bool allowParentSingleSelection = false;
 
+  /// Whether the parent node can be selected in multi select mode
+  bool allowParentMultiSelection = true;
+
   /// The current node.
   OptionGroup<T> get group => _group;
   @Input()
@@ -141,11 +144,17 @@ class MaterialTreeNode<T> {
 
   /// Returns whether [option] is selectable.
   bool isSelectable(T option) {
-    return (isMultiSelect || allowParentSingleSelection) &&
+    return _allowParentSelection &&
             _selectable.getSelectable(option) == SelectableOption.Selectable ||
         !isExpandable(option) &&
             _selectable.getSelectable(option) == SelectableOption.Selectable;
   }
+
+  // True when flag for allowing parent selection is true for the selection
+  // model type in use.
+  bool get _allowParentSelection =>
+      (isMultiSelect && allowParentMultiSelection) ||
+      (!isMultiSelect && allowParentSingleSelection);
 
   /// Whether a disabled checkbox should be rendered for this option.
   bool showDisabledCheckbox(option) =>
