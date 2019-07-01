@@ -227,7 +227,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   border-radius: $size / 2;
 
   ::ng-deep {
-    .content {
+    .content.content {
       height: $size;
       width: $size;
     }
