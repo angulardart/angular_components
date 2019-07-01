@@ -338,6 +338,21 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
+/// Sets the vertical alignment for a button.
+///
+/// Should target the button specifically.
+///   Example:
+///   ```scss
+///   material-button.bottom {
+///     @include vertical-align(bottom);
+///   }
+///   ```
+@mixin vertical-align($value) {
+  ::ng-deep .content.content {
+    vertical-align: $value;
+  }
+}
+
 /// Mixin to create a raised button taking an optional color of the button.
 ///
 /// Should be scopped to the specific button needed to make raised.
