@@ -37,7 +37,6 @@ import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
 import 'package:angular_components/model/observable/observable.dart';
-import 'package:angular_components/utils/angular/managed_zone/interface.dart';
 import 'package:angular_components/utils/angular/scroll_host/angular_2.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/showhide/showhide.dart';
@@ -199,7 +198,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   final Element _elementRef;
   final DomService _domService;
-  final ManagedZone _managedZone;
+  final NgZone _ngZone;
 
   // This controls when the calendar is created.
   // By default, this is null, and the calendar will be created shortly
@@ -315,7 +314,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   DateRangeEditorComponent(
       this._elementRef,
       this._domService,
-      this._managedZone,
+      this._ngZone,
       @Optional() DateRangeEditorHost editorHost,
       @Optional() @Inject(datepickerClock) Clock clock,
       Clock legacyClock) {
@@ -347,7 +346,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     // Give the browser a chance to do other work before creating the
     // calendar component (for a snappier UX)
     _domService.nextFrame.then((_) {
-      _managedZone.runInside(() {
+      _ngZone.run(() {
         if (_isCalendarCreated != null) return;
         _isCalendarCreated = true;
       });
