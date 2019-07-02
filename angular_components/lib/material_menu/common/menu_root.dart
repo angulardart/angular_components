@@ -20,7 +20,7 @@ class MenuRootDirective extends MenuRoot {
   @override
   void closeHierarchy() {
     visible = false;
-    _dropdown.close();
+    _dropdown?.close();
   }
 }
 
