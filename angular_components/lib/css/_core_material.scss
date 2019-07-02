@@ -31,22 +31,7 @@ $mat-grid-type: 4px;
   }
 }
 
-// Prefixed cursors
-// http://caniuse.com/#feat=css3-cursors-newer
-@mixin cursor-grab() {
-  cursor: move; // fall back to move if unavailable (IE)
-  cursor: -webkit-grab;
-  cursor: -moz-grab;
-  cursor: grab;
-}
-
-@mixin cursor-grabbing() {
-  cursor: move; // fall back to move if unavailable (IE)
-  cursor: -webkit-grabbing;
-  cursor: -moz-grabbing;
-  cursor: grabbing;
-}
-
+// DEPRECATED: use flex directly instead.
 @mixin button-bar-layout() {
   display: flex;
   flex-direction: row;
@@ -54,6 +39,8 @@ $mat-grid-type: 4px;
 }
 
 // Styles text that is used as a floating label over a material component.
+//
+// DEPRECATED: use the caption typography mixin instead.
 @mixin mat-input-header() {
   color: $mat-gray-600;
   // TODO(google): Migrate to extended mixin mat-font-caption
@@ -61,6 +48,7 @@ $mat-grid-type: 4px;
   font-weight: $mat-font-weight-regular;
 }
 
+// DEPRECATED: use <material-button> instead.
 @mixin clear-button() {
   background-color: transparent;
   border: 0;
@@ -72,6 +60,10 @@ $mat-grid-type: 4px;
 }
 
 // Note: this only supports square icons.
+//
+// WARINING: does not work in high contrast mode.
+//
+// DEPRECATED: use <material-icon> or <img> instead.
 @mixin icon-background(
     $icon-url, $background-size: 6 * $mat-grid, $icon-size: 3 * $mat-grid) {
 
@@ -88,8 +80,6 @@ $mat-grid-type: 4px;
   width: $background-size;
 }
 
-// TODO(google): remove icon-button and glyph-button in favor of a more
-// standard way of creating glyph buttons (e.g. a glyph button component)
 // DEPRECATED: use <material-button icon> instead.
 @mixin icon-button(
     $icon-url, $button-size: 6 * $mat-grid, $icon-size: 3 * $mat-grid) {
@@ -142,6 +132,7 @@ $mat-grid-type: 4px;
 
 // Similar to icon button, but to be used with a button containing an
 // `<glyph>` element.
+//
 // DEPRECATED: use <material-button icon> instead.
 @mixin glyph-button($button-size: 6 * $mat-grid, $circle: false) {
 
@@ -185,9 +176,26 @@ $mat-grid-type: 4px;
   }
 }
 
-// *** Deprecated
-// The following functions are deprecated.
+// DEPRECATED
+//
+// The following mixins are all deprecated.
 // The equivalent native CSS is available in all supported browsers.
+//
+
+// Duplicate property for fall back if `grab` is unavailable (IE)
+@mixin cursor-grab() {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+@mixin cursor-grabbing() {
+  cursor: move;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
 
 @mixin box-sizing($type:border-box) {
   -moz-box-sizing: $type; // Firefox < 29
