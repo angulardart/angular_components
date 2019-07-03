@@ -93,14 +93,6 @@ class MaterialStepperComponent {
   @Input()
   bool stickyHeader = false;
 
-  /// When `true`, steps will not be unloaded from the dom when inactive, but
-  /// will rather be hidden via css.
-  ///
-  /// This allows for fast switching between steps with DOMs that are
-  /// expensive to load.
-  @Input()
-  bool keepInactiveStepsInDom = false;
-
   // Jump to step at index if possible
   Future<bool> jumpStep(int index) {
     if (steps[index].isNotSelectable) return Future.value(false);
