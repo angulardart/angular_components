@@ -371,7 +371,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   /// Event which fires when one of the ranges is selected.
   @Output()
   Stream<UIEvent> get presetRangeSelected => _controller.stream;
-  final _controller = StreamController<UIEvent>.broadcast();
+  final _controller = StreamController<UIEvent>.broadcast(sync: true);
 
   void _updateValidPresets() {
     _validPresets = <DatepickerPreset>{};
