@@ -35,16 +35,18 @@
        [class.has-icons]="hasIcons"
        elevation="2">
     <div class="content-wrapper" [class.visible]="menuVisible" [class.closing]="closing">
-      <material-list-item (trigger)="hideMenu" class="close-menu" [closeOnActivate]="false">
-        <material-icon class="close-icon material-list-item-primary" icon="close"></material-icon>
-      </material-list-item>
-      <menu-item-groups [menu]="menuItem.subMenu"
-                        [activateFirstItemOnInit]="activateFirstItemOnInit"
-                        [activateLastItemOnInit]="activateLastItemOnInit"
-                        class="menu-groups"
-                        menu-root
-                        preventCloseOnPressLeft>
-      </menu-item-groups>
+      <focus-trap>
+        <material-list-item (trigger)="hideMenu" class="close-menu" [closeOnActivate]="false">
+          <material-icon class="close-icon material-list-item-primary" icon="close"></material-icon>
+        </material-list-item>
+        <menu-item-groups [menu]="menuItem.subMenu"
+                          [activateFirstItemOnInit]="activateFirstItemOnInit"
+                          [activateLastItemOnInit]="activateLastItemOnInit"
+                          class="menu-groups"
+                          menu-root
+                          preventCloseOnPressLeft>
+        </menu-item-groups>
+      </focus-trap>
     </div>
   </div>
 </material-popup>

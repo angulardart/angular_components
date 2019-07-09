@@ -9,6 +9,7 @@ import 'package:angular/angular.dart';
 import 'package:angular/meta.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_fab.dart';
@@ -31,6 +32,7 @@ import 'menu_item_groups.dart';
   directives: [
     AutoFocusDirective,
     DeferredContentDirective,
+    FocusTrapComponent,
     NgFor,
     NgIf,
     MaterialFabComponent,

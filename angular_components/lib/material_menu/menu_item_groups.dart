@@ -114,8 +114,12 @@ class MenuItemGroupsComponent
   /// This is set to true when mouse moved and is reset to false when a keyboard
   /// event captured or roughly [_menuDelay] after the last mouse move event
   /// triggered.
+  @HostBinding('class.mouse-driven')
   bool get isMouseDriven => _isMouseDriven;
   bool _isMouseDriven = false;
+
+  @HostBinding('class.keyboard-driven')
+  bool get isKeyboardDriven => !isMouseDriven;
 
   /// Optional model that is used to track keyboard active item.
   ActiveItemModel _activeModel;
@@ -355,6 +359,7 @@ class MenuItemGroupsComponent
     return null;
   }
 
+  @HostListener('focus')
   void onFocus(FocusEvent event) {
     MenuItem item = _itemForTarget(event.target);
     if (item == null) return;
