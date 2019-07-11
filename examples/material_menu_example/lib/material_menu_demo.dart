@@ -292,9 +292,9 @@ class ColorMenuItem extends MenuItem<ColorMenuItem> {
   ColorMenuItem(String label, SelectionModel selection,
       {Icon icon, MenuModel<MenuItem> subMenu, String secondaryLabel})
       : super(label,
-            icon: icon, subMenu: subMenu, secondaryLabel: secondaryLabel) {
-    this.action = () {
-      selection.select(label);
-    };
-  }
+            icon: icon,
+            subMenu: subMenu,
+            secondaryLabel: secondaryLabel, action: () {
+          selection.select(label);
+        });
 }
