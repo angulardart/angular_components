@@ -44,8 +44,19 @@
 }
 
 @mixin stepper-content {
-  ::ng-deep .stepper-content.mixin {
-    @content;
+  ::ng-deep {
+    .stepper-content.mixin,
+    .provided-content.mixin {
+      @content;
+    }
+  }
+}
+
+@mixin stepper-content-container {
+  ::ng-deep {
+    .stepper-content.mixin{
+      @content;
+    }
   }
 }
 
