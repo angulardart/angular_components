@@ -436,6 +436,9 @@ abstract class StickyRowUtils {
   /// Whether the row should stick or not, given the surrounding.
   static bool shouldStick(bool isTop, num hostTop, num hostBottom,
       Rectangle rowPosition, Rectangle rangePosition) {
+    if (rowPosition.height == 0) {
+      return false;
+    }
     if (isTop) {
       // the range, if it exists, is still visible or below the bottom
       bool rangeVisible = rangePosition == null ||
