@@ -244,6 +244,7 @@ $default-dropdown-outline-padding: $mat-grid $mat-grid * 1.5 $mat-grid $mat-grid
   }
 }
 
+/// Sets the font size of the item.
 @mixin material-select-item-font-size($font-size) {
   ::ng-deep material-select-item {
     font-size: $font-size;

@@ -300,6 +300,12 @@ class MaterialDateRangePickerComponent
 
   bool get requireFullPeriods => model.requireFullPeriods;
 
+  /// Whether to use menu-items-groups for presets for improved accessibility.
+  ///
+  /// Internal flag for safe transition.
+  @Input()
+  bool useMenuForPresets = false;
+
   /// An error displayed below the dropdown button.
   @Input()
   String error;
