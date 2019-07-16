@@ -8,6 +8,7 @@
 <div class="main-example">
   <div class="options-pane" elevation="2">
     <h4>Options</h4>
+    <material-checkbox [(checked)]="useMenuForPresets">Improve a11y</material-checkbox>
     <material-checkbox [(checked)]="supportsComparison">Support comparison</material-checkbox><br />
     <material-checkbox [(checked)]="isBasic">isBasic</material-checkbox><br />
     <material-checkbox [(checked)]="showNextPrevButtons">Show next/prev buttons</material-checkbox><br />
@@ -29,6 +30,7 @@
        [maxDate]="limitToRange.end"
        [presets]="presets"
        [configuration]="configuration"
+       [useMenuForPresets]="useMenuForPresets"
        [supportsComparison]="supportsComparison"
        [showNextPrevButtons]="showNextPrevButtons"
        [movingStartMaintainsLength]="movingStartMaintainsLength"

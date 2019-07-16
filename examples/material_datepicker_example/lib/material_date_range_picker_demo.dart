@@ -60,6 +60,7 @@ class MaterialDateRangePickerDemoComponent {
   bool showMessageBar = false;
   bool isBasic = false;
   bool movingStartMaintainsLength = true;
+  bool useMenuForPresets = false;
   List<DatepickerPreset> _defaultPresets;
   List<DatepickerPreset> _manyPresets;
   DatepickerComparison range;

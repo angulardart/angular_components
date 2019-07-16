@@ -8,7 +8,7 @@
                  [width]="0"
                  class="preset-list"
                  [class.basic-preset-list]="isBasic"
-                 *ngIf="presets.isNotEmpty && shouldShowPredefinedList" acxScrollHost>
+                 *ngIf="shouldShowPredefinedList" acxScrollHost>
   <div *ngIf="supportsClearRange" class="group">
     <material-select-item focusItem (trigger)="onClearRangeClicked">
       {{clearRangeMsg}}
@@ -31,7 +31,8 @@
     </material-select-item>
   </div>
   <div role="listbox" class="group">
-    <material-select-item *ngFor="let preset of presets"
+    <ng-container *ngIf="!useMenuForPresets">
+      <material-select-item *ngFor="let preset of presets"
                           focusItem
                           (trigger)="onRangeClicked($event, preset.range)"
                           [disabled]="!isValid(preset)"
@@ -39,36 +40,44 @@
                           [materialTooltip]="rangeDisabledTooltip"
                           [selected]="isSelected(preset.range)"
                           [closeOnActivate]="false">
-      {{preset.title}}
-      <template [ngIf]="preset.alternatives != null && preset.alternatives.isNotEmpty">
-        <material-button icon
-                         class="preset-dropdown-button"
-                         popupSource
-                         #menuSource="popupSource"
-                         alignPositionX="after"
-                         alignPositionY="start"
-                         (click)="$event.stopPropagation()"
-                         (keypress)="$event.stopPropagation()"
-                         (trigger)="popup.toggle()">
-          <material-icon icon="arrow_drop_down"></material-icon>
-        </material-button>
-        <material-popup #popup
-                        [offsetX]="9"
-                        [offsetY]="-4"
-                        [source]="menuSource">
-          <material-select-item *ngFor="let alternative of preset.alternatives"
-                                class="preset-dropdown-item"
-                                (trigger)="onAlternativePresetClicked($event, preset, alternative)"
-                                [disabled]="!isValid(alternative)"
-                                [showTooltipIf]="!isValid(alternative)"
-                                [materialTooltip]="rangeDisabledTooltip"
-                                [selected]="isAlternativePresetSelected(alternative)"
-                                [closeOnActivate]="false">
-            {{alternative.shortTitle}}
-          </material-select-item>
-        </material-popup>
-      </template>
-    </material-select-item>
+        {{preset.title}}
+        <template [ngIf]="preset.alternatives != null && preset.alternatives.isNotEmpty">
+          <material-button icon
+                           class="preset-dropdown-button"
+                           popupSource
+                           #menuSource="popupSource"
+                           alignPositionX="after"
+                           alignPositionY="start"
+                           (click)="$event.stopPropagation()"
+                           (keypress)="$event.stopPropagation()"
+                           (trigger)="popup.toggle()">
+            <material-icon icon="arrow_drop_down"></material-icon>
+          </material-button>
+          <material-popup #popup
+                          [offsetX]="9"
+                          [offsetY]="-4"
+                          [source]="menuSource">
+            <material-select-item *ngFor="let alternative of preset.alternatives"
+                                  class="preset-dropdown-item"
+                                  (trigger)="onAlternativePresetClicked($event, preset, alternative)"
+                                  [disabled]="!isValid(alternative)"
+                                  [showTooltipIf]="!isValid(alternative)"
+                                  [materialTooltip]="rangeDisabledTooltip"
+                                  [selected]="isAlternativePresetSelected(alternative)"
+                                  [closeOnActivate]="false">
+              {{alternative.shortTitle}}
+            </material-select-item>
+          </material-popup>
+        </template>
+      </material-select-item>
+    </ng-container>
+
+    <menu-item-groups
+        *ngIf="useMenuForPresets"
+        [menu]="presetsMenu"
+        menu-root
+        preventCloseOnPressLeft>
+    </menu-item-groups>
   </div>
   <div *ngIf="supportsDaysInputs" class="days group">
     <material-select-item class="days-input days-to-today"

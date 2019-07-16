@@ -8,6 +8,7 @@
 @import 'package:angular_components/material_datepicker/mixins';
 @import 'package:angular_components/material_input/mixins';
 @import 'package:angular_components/material_list/mixins';
+@import 'package:angular_components/material_select/size';
 
 @include material-scrollbars('date-range-editor', $mat-blue);
 
@@ -41,9 +42,8 @@
       border-bottom: 0;
     }
 
-    material-select-item {
-      font-size: inherit;
-    }
+    @include material-select-item-font-size($font-size: inherit);
+    @include material-select-item-padding($padding: 0 $select-item-padding);
 
     .days-input {
       display: flex;
