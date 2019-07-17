@@ -12,8 +12,8 @@
   <div class="knob" role="slider"
          [attr.tabindex]="disabled ? -1 : 0"
          (keydown)="knobKeyDown($event)"
-         [style.margin-left.px]="isRtl ? 0 : -8"
-         [style.margin-right.px]="isRtl ? -8 : 0"
+         [style.left.px]="isRtl ? 0 : -8"
+         [style.right.px]="isRtl ? -8 : 0"
          [attr.aria-valuemin]="min"
          [attr.aria-valuemax]="max"
          [attr.aria-valuenow]="value">
@@ -22,7 +22,7 @@
     <div class="knob-drag-shadow" [class.is-dragging]="isDragging"></div>
   </div>
   <div class="track-container right-track-container"
-       style.width="calc({{100-progressPercent}}% + 8px)">
+       style.width="calc({{100-progressPercent}}%)">
     <div class="track"></div>
   </div>
 </div>
