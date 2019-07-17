@@ -332,3 +332,10 @@
     }
   }
 }
+
+/// Changes the position of the label text above the input box when it's animated.
+@mixin material-input-animated-label-text-position() {
+  ::ng-deep {
+    transform: translateY(-100%) translateY(-$mat-grid);
+  }
+}
