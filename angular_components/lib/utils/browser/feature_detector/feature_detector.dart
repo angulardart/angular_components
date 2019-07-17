@@ -18,6 +18,14 @@ bool supportsHover(Window window) =>
         window.navigator.userAgent.contains("Nexus 9"));
 
 /// Whether the primary input mechanism on this system is touch.
+///
+/// Note: this check doesn't confirm the presence of a touchscreen, or that
+/// [TouchEvent] is supported at all. Any device which doesn't have a mouse
+/// or other fine-grained pointing device will pass this check, e.g. a TV, or
+/// a PC with alternative input devices.
+///
+/// Checking if touch events are supported? You probably want
+/// [TouchEvent.supported] instead.
 final bool isTouchInterface =
     (window.matchMedia('(pointer: coarse)').matches ?? false) ||
         js.context.hasProperty('__acxForceTouchEnabled');
