@@ -27,6 +27,9 @@ class MaterialSliderGalleryConfig {}
 class MaterialSliderExample {
   int value = 60;
   double value2 = 0.5;
+  int leftValue = 60;
+  int rightValue = 80;
   bool disabled = false;
   bool disabled2 = false;
+  bool disabled3 = false;
 }

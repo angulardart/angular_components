@@ -51,6 +51,10 @@ $track-height: 2px;
   width: 100%;
 }
 
+.double-sided-left-track-container > .track {
+  background-color: $mat-grey-500;
+}
+
 .left-track-container > .track {
   background-color: $mat-blue-500;
 }
