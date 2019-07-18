@@ -57,6 +57,7 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
 
   bool _disableAutoScroll;
   bool _usePositionSticky = false;
+  bool _useTouchGestureListener = true;
   bool _enableSmoothPushing = false;
 
   ElementScrollHost(this._domService, this._ngZone,
@@ -71,7 +72,8 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
     _scrollHost?.dispose();
     _scrollHost = ElementScrollHostBase(
         _domService, _ngZone, _gestureListenerFactory, element,
-        usePositionSticky: _usePositionSticky);
+        usePositionSticky: _usePositionSticky,
+        useTouchGestureListener: _useTouchGestureListener);
     stickyController.enableSmoothPushing = _enableSmoothPushing;
 
     if (!_usePositionSticky) {
@@ -122,6 +124,24 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
     }
   }
 
+  /// Whether to use [GestureListener] to override the native browser smooth
+  /// scrolling on touch devices.
+  ///
+  /// This is required to enable smooth scrolling for any components which
+  /// handle scrolling themselves, e.g. horizontal scrolling in the Material
+  /// Table.
+  ///
+  /// Note: because the listener tries to replicate native browser scrolling
+  /// mechanics, it won't precisely match whichever platform the code is
+  /// running on and may feel slightly unusual.
+  @Input()
+  set useTouchGestureListener(bool value) {
+    _useTouchGestureListener = value;
+    if (_scrollHost != null) {
+      _init();
+    }
+  }
+
   /// Fires an event immediately after [StickyController] updates the DOM.
   ///
   /// The intended use case is to allow manually positioning elements relative
@@ -167,6 +187,9 @@ class ElementScrollHost implements OnInit, OnDestroy, ElementScrollHostBase {
 
   @override
   bool get usePositionSticky => _scrollHost.usePositionSticky;
+
+  @override
+  bool get useTouchGestureListener => _scrollHost.useTouchGestureListener;
 
   @override
   bool get throttleScrollEvents => _scrollHost.throttleScrollEvents;
