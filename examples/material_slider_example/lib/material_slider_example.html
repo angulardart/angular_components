@@ -28,3 +28,17 @@
                    [disabled]="disabled2"></material-slider>
   <p>Value: {{value2}}</p>
 </section>
+
+<section>
+  <h2>Two Sided</h2>
+  <material-toggle
+      [(checked)]="disabled3"
+      label="Tap to {{disabled3 ? 'enable' : 'disable'}}">
+  </material-toggle><br/>
+  <material-slider [isTwoSided]="true"
+                   [(leftValue)]="leftValue"
+                   [(value)]="rightValue"
+                   [disabled]="disabled3"></material-slider>
+  <p>Left value: {{leftValue}}</p>
+  <p>Value: {{rightValue}}</p>
+</section>

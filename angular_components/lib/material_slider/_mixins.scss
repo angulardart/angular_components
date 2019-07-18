@@ -39,6 +39,10 @@
 /// }
 /// ```
 @mixin slider-track-color($selector, $left-color, $right-color: $mat-grey) {
+  ::ng-deep #{$selector} .double-sided-left-track-container > .track {
+    background-color: $right-color;
+  }
+
   ::ng-deep #{$selector} .left-track-container > .track {
     background-color: $left-color;
   }
