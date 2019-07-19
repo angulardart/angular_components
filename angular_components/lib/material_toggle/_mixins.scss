@@ -43,7 +43,8 @@
 }
 
 /// Displays the toggle label to the right of the toggle.
-@mixin flip-toggle-label-position() {
+// $modifier here to match mixin interface.
+@mixin flip-toggle-label-position($modifier: "") {
   ::ng-deep .material-toggle {
     flex-direction: row-reverse;
   }
