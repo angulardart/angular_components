@@ -25,6 +25,7 @@
               [attr.orientation]="orientation"
               [attr.active]="step.active"
               [attr.complete]="step.complete"
+              [class.partially-complete]="step.partiallyComplete"
               [class.can-select]="step.isSelectable">
           {{step.complete ? "" : step.index +1}}
           <span *ngIf="step.complete">
