@@ -335,7 +335,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 ///   }
 ///   ```
 @mixin button-padding($padding) {
-  ::ng-deep .content.content {
+  ::ng-deep .content.content.content {
     padding: $padding;
   }
 }
