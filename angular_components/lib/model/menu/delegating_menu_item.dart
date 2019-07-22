@@ -77,4 +77,7 @@ class DelegatingMenuItem<SubMenuType> implements MenuItem<SubMenuType> {
 
   @override
   String get secondaryLabel => _delegate.secondaryLabel;
+
+  @override
+  bool get hasVisibleSuffixes => _delegate.hasVisibleSuffixes;
 }

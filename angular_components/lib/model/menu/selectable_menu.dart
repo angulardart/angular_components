@@ -204,6 +204,13 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
     _selectableState = value;
     notifyPropertyChange(#selectableState, _selectableState, value);
   }
+
+  /// True if any of the [itemSuffixes] are rendered.
+  ///
+  /// Rendered suffixes include those that are visible on hover. Hidden suffixes
+  /// are excluded.
+  @override
+  bool get hasVisibleSuffixes => itemSuffixes.any((suffix) => suffix.isVisible);
 }
 
 void _noOp() {}
