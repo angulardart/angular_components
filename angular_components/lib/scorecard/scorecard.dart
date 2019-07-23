@@ -12,7 +12,7 @@ import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 import 'package:angular_components/utils/color/color.dart';
-import 'package:angular_components/utils/color/palette.dart';
+import 'package:angular_components/utils/color/material_chart_colors.dart';
 
 /// Standalone scorecard component.
 ///
