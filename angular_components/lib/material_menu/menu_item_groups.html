@@ -88,7 +88,7 @@
             </span>
           </span>
           <menu-item-affix-list
-              *ngIf="item.hasVisibleSuffixes"
+              *ngIf="item.itemSuffixes.isNotEmpty"
               class="suffix-list"
               [disabled]="!item.enabled"
               [items]="item.itemSuffixes">

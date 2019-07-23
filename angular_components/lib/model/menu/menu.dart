@@ -203,12 +203,6 @@ class MenuItem<T> with MenuItemMixin implements HasUIDisplayName, HasIcon {
         'Only one of itemSuffix or itemSuffixes should be provided');
   }
 
-  /// True if any of the [itemSuffixes] are rendered.
-  ///
-  /// Rendered suffixes include those that are visible on hover. Hidden suffixes
-  /// are excluded.
-  bool get hasVisibleSuffixes => itemSuffixes.any((suffix) => suffix.isVisible);
-
   @override
   String toString() => {
         'label': label,
