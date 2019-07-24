@@ -153,7 +153,26 @@ class MenuItem<T> with MenuItemMixin implements HasUIDisplayName, HasIcon {
   final String labelAnnotation;
   final MenuModel<T> subMenu;
 
-  Function action;
+  // This should be final as all the other state in this class, but needs
+  // to first migrate clients.
+  ActionWithContext _actionWithContext;
+
+  /// Action to perform when user select an item in the menu.
+  ActionWithContext get actionWithContext => _actionWithContext;
+  @Deprecated('This should be final.')
+  set actionWithContext(ActionWithContext value) {
+    _actionWithContext = value;
+    _action = () => value(null);
+  }
+
+  MenuAction _action;
+
+  @Deprecated('Use actionWithContext')
+  MenuAction get action => _action;
+  set action(MenuAction value) {
+    _action = value;
+    _actionWithContext = (_) => value();
+  }
 
   final Icon icon;
 
@@ -185,7 +204,8 @@ class MenuItem<T> with MenuItemMixin implements HasUIDisplayName, HasIcon {
   MenuItem(this.label,
       {this.enabled = true,
       this.tooltip,
-      this.action,
+      @Deprecated('Use ActionWithContext') MenuAction action,
+      ActionWithContext actionWithContext,
       this.icon,
       this.labelAnnotation,
       Iterable<String> cssClasses,
@@ -201,6 +221,13 @@ class MenuItem<T> with MenuItemMixin implements HasUIDisplayName, HasIcon {
         ariaLabel = ariaLabel ?? label {
     assert(itemSuffix == null || itemSuffixes == null,
         'Only one of itemSuffix or itemSuffixes should be provided');
+    assert(action == null || actionWithContext == null,
+        'Only one of action or actionWithContext should be provided');
+    if (action != null) {
+      this.action = action;
+    } else if (actionWithContext != null) {
+      this.actionWithContext = actionWithContext;
+    }
   }
 
   @override
@@ -216,7 +243,7 @@ class MenuItem<T> with MenuItemMixin implements HasUIDisplayName, HasIcon {
 
 /// Required members to use [MenuItemMixin].
 abstract class _MenuItemBase {
-  Function get action;
+  ActionWithContext get actionWithContext;
   Icon get icon;
   String get label;
   String get secondaryLabel;
@@ -224,11 +251,16 @@ abstract class _MenuItemBase {
   MenuModel get subMenu;
 }
 
+/// Action triggered by interaction with the menu.
+typedef MenuAction = void Function();
+
+/// Action triggered by interaction with the menu.
+///
+/// For web menus `context` should be the UIEvent.
+typedef ActionWithContext = void Function(dynamic context);
+
 /// Mixin to implement trivial getters on [MenuItem].
 abstract class MenuItemMixin implements _MenuItemBase {
-  void _noop() {}
-  Function get nullAwareActionHandler => action != null ? action : _noop;
-
   bool get hasIcon => icon != null;
 
   String get uiDisplayName => label;

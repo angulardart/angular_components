@@ -271,7 +271,7 @@ class MenuItemGroupsComponent
   }
 
   void select(MenuItem item, MenuItemGroup group) {
-    item.nullAwareActionHandler();
+    item.action?.call();
 
     // Fire the event for activating the menu item. This does not mean the item
     // is selected, but merely that it was triggered (by mouse, keyboard, w/e).
