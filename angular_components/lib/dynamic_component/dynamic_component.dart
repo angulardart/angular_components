@@ -5,14 +5,17 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular/experimental.dart' show changeDetectionLink;
 import 'package:angular_components/model/ui/has_renderer.dart';
 
 /// Dynamically renders another component, setting the [value] field on the
 /// dynamic component if it implements [RendersValue] (and not if the component
 /// does not implement the interface).
+@changeDetectionLink
 @Component(
   selector: 'dynamic-component',
   template: '''<template #marker></template>''',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class DynamicComponent implements OnDestroy, AfterChanges {
   final SlowComponentLoader _slowComponentLoader;
