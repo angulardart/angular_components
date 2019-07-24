@@ -80,3 +80,29 @@
     }
   }
 }
+
+$paper-tooltip-default-section-padding: $mat-grid * 3;
+$paper-tooltip-midsection-vertical-padding: $mat-grid * 2;
+$paper-tooltip-section-border: 1px solid $mat-gray-300;
+
+// Mixin for a multi-section paper tooltip.
+//
+// This mixin should be applied on the selector for each section.
+// For single-section tooltips, the padding is 24px. If a section is
+// followed by another section, the bottom padding is 16px and a border
+// is drawn between the 2 sections. If a section is preceded by another
+// section, the top padding is 16px.
+@mixin paper-tooltip-section {
+  padding: $paper-tooltip-default-section-padding;
+
+  &:not(:first-child) {
+    padding-top: $paper-tooltip-midsection-vertical-padding;
+  }
+
+  // Only show the border when there's a section after the current section.
+  &:not(:last-child) {
+    border-bottom: $paper-tooltip-section-border;
+    padding-bottom: $paper-tooltip-midsection-vertical-padding;
+  }
+}
+
