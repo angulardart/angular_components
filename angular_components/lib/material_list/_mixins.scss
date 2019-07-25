@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-@import 'size';
+@import 'package:angular_components/material_list/constants';
 @import 'package:angular_components/css/material/material';
 
 @mixin list-item-base {
@@ -61,7 +61,7 @@
     &:hover,
     &:focus,
     &.active {
-      background: $mat-grey-200;
+      background: $list-item-button-hover-background;
     }
 
     &.disabled {
