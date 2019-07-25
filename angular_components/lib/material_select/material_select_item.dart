@@ -108,8 +108,10 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
 
   /// A function to render an item as a String.
   ///
-  /// If none is provided, no label is generated (labels can still be passed
-  /// as content).
+  /// It is required that this function be pure, or change it's identity when
+  /// internal state has changed. Otherwise the item will not know it needs to
+  /// update the label. If none is provided, no label is generated (labels can
+  /// still be passed as content).
   @Input()
   @override
   ItemRenderer<T> itemRenderer = nullRenderer;
