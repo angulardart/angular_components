@@ -34,5 +34,11 @@ class MaterialTemporaryDrawerComponent extends MaterialDrawerBase {
   // should also block keyboard selection outside of the drawer, while open.
   @HostListener('click')
   @override
-  void toggle() => super.toggle();
+  void toggle() {
+    if (visible && !canClose) return;
+    super.toggle();
+  }
+
+  @Input()
+  bool canClose = true;
 }
