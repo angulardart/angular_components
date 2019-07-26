@@ -408,9 +408,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     for (var preset in _presets) {
       bool isValid = preset.range.clamp(min: minDate, max: maxDate) != null;
       if (isValid) _validPresets.add(preset);
-      MenuModel subMenu;
       if (preset.alternatives != null) {
-        final subitems = <SelectableMenuItem<DatepickerPreset>>[];
         for (var alternative in preset.alternatives) {
           bool isValidAlternative =
               alternative.range.clamp(min: minDate, max: maxDate) != null;
