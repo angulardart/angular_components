@@ -12,6 +12,7 @@
     <div class="error" [class.expanded]="error != null">{{error}}</div>
 
     <main #main role="presentation"
+          [class.with-scroll-strokes]="shouldShowScrollStrokes"
           [class.top-scroll-stroke]="shouldShowTopScrollStroke"
           [class.bottom-scroll-stroke]="shouldShowBottomScrollStroke">
       <ng-content></ng-content>
