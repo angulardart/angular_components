@@ -87,12 +87,17 @@ main {
   padding: 0 $mat-grid * 3;
   width: 100%;
 
+  &.with-scroll-strokes {
+    border-bottom: 1px transparent solid;
+    border-top: 1px transparent solid;
+  }
+
   &.top-scroll-stroke {
-    border-top: 1px $mat-gray-300 solid;
+    border-top-color: $mat-gray-300;
   }
 
   &.bottom-scroll-stroke {
-    border-bottom: 1px $mat-gray-300 solid;
+    border-bottom-color: $mat-gray-300;
   }
 }
 
