@@ -72,7 +72,7 @@ $edit-icon-size: $mat-grid * 2;
 }
 
 .stepper-step-index {
-  background-color: $mat-grey-500;
+  background-color: $mat-grey-700;
   border: 2px solid $mat-white;
   border-radius: 100%;
   box-sizing: content-box;
@@ -182,7 +182,7 @@ $edit-icon-size: $mat-grid * 2;
   }
 
   &[active = false] {
-    color: $mat-grey-500;
+    color: $mat-grey-700;
   }
 
   &[complete = true] {
@@ -209,7 +209,7 @@ $edit-icon-size: $mat-grid * 2;
   // TODO(google): Migrate to extended mixin mat-font-subhead
   font-size: $mat-font-size-subhead;
   font-weight: $mat-font-weight-regular;
-  color: $mat-grey-400;
+  color: $mat-grey-700;
   text-align: center;
   width: $mat-grid * 10;
 
