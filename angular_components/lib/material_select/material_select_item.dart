@@ -108,7 +108,7 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
 
   /// A function to render an item as a String.
   ///
-  /// It is required that this function be pure, or change it's identity when
+  /// It is required that this function be pure, or change its identity when
   /// internal state has changed. Otherwise the item will not know it needs to
   /// update the label. If none is provided, no label is generated (labels can
   /// still be passed as content).
@@ -123,7 +123,11 @@ class MaterialSelectItemComponent<T> extends ButtonDirective
   ComponentRenderer componentRenderer;
 
   /// Returns a [ComponentFactory] for dynamic component loader to use to render
-  ///  an item.
+  /// an item.
+  ///
+  /// It is required that this function be pure, or change its identity when
+  /// internal state has changed. Otherwise the item will not know it needs to
+  /// update the component.
   @Input()
   @override
   FactoryRenderer<RendersValue, T> factoryRenderer;
