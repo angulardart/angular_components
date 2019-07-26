@@ -1,21 +1,21 @@
-# Created with package:mono_repo v2.0.0
+# Created with package:mono_repo v2.1.0
 language: dart
 
 jobs:
   include:
     - stage: analyze_and_format
+      name: "SDK: 2.5.0-dev.1.0; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: `dartanalyzer --fatal-warnings .`"
+      dart: "2.5.0-dev.1.0"
+      env: PKGS="angular_components angular_gallery angular_gallery_section"
+      script: ./tool/travis.sh dartanalyzer
+    - stage: analyze_and_format
       name: "SDK: dev; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: [`dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`]"
       dart: dev
       env: PKGS="angular_components angular_gallery angular_gallery_section"
       script: ./tool/travis.sh dartfmt dartanalyzer
-    - stage: analyze_and_format
-      name: "SDK: 2.3.0-dev.0.1; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: `dartanalyzer --fatal-warnings .`"
-      dart: "2.3.0-dev.0.1"
-      env: PKGS="angular_components angular_gallery angular_gallery_section"
-      script: ./tool/travis.sh dartanalyzer
     - stage: unit_test
-      name: "SDK: 2.3.0-dev.0.1; PKG: angular_components; TASKS: [`./tool/travis/install_protoc.sh`, `pub run test --run-skipped`]"
-      dart: "2.3.0-dev.0.1"
+      name: "SDK: 2.5.0-dev.1.0; PKG: angular_components; TASKS: [`./tool/travis/install_protoc.sh`, `pub run test --run-skipped`]"
+      dart: "2.5.0-dev.1.0"
       env: PKGS="angular_components"
       script: ./tool/travis.sh command_0 test
     - stage: unit_test
@@ -24,8 +24,8 @@ jobs:
       env: PKGS="angular_components"
       script: ./tool/travis.sh command_0 test
     - stage: build
-      name: "SDK: 2.3.0-dev.0.1; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
-      dart: "2.3.0-dev.0.1"
+      name: "SDK: 2.5.0-dev.1.0; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
+      dart: "2.5.0-dev.1.0"
       env: PKGS="examples/angular_components_example"
       script: ./tool/travis.sh command_1 command_2
     - stage: build

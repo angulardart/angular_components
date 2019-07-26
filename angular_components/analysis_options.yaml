@@ -1,6 +1,9 @@
+include: package:pedantic/analysis_options.1.8.0.yaml
+
 analyzer:
   errors:
     dead_code: warning
+    todo: ignore
     unused_element: warning
     unused_import: warning
     unused_local_variable: warning
