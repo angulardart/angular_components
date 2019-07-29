@@ -1,1 +1,1 @@
-[{"displayName":"App Layout","dartImport":"package:app_layout_example/examples.api.template.dart","componentClass":"AppLayoutApi","docs":["README","Sass Mixins","MaterialPersistentDrawerDirective","MaterialTemporaryDrawerComponent","MaterialStackableDrawerComponent"]}]
+[{"displayName":"App Layout","group":null,"dartImport":"package:app_layout_example/examples.api.template.dart","componentClass":"AppLayoutApi","docs":["README","Sass: mixins","MaterialPersistentDrawerDirective","MaterialTemporaryDrawerComponent","MaterialStackableDrawerComponent"]}]

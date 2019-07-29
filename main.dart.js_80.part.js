@@ -26,8 +26,7 @@ T=c[21]
 N=c[22]
 X=c[23]
 F=c[24]
-var z=a.updateTypes([]);(function constants(){var y=a.makeConstList
-C.fF=new K.b1(C.aV,C.aE,"top center")
-C.cx=H.a(y([C.fF,C.bC,C.bZ]),[K.b1])})()}
-$__dart_deferred_initializers__["O5wECxu6uDZ3X7SI9ebwKJ649A8="] = $__dart_deferred_initializers__.current
+var z=a.updateTypes([]);(function constants(){C.bA=new K.ba(C.a9,C.aC,"bottom left")
+C.bX=new K.ba(C.at,C.aC,"bottom right")})()}
+$__dart_deferred_initializers__["m2Ny0m7gR3bckBgDF7h4KXizvXA="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_80.part.js.map

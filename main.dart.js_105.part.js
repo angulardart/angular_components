@@ -26,6 +26,6 @@ T=c[21]
 N=c[22]
 X=c[23]
 F=c[24]
-var z=a.updateTypes([]);(function constants(){C.a7=H.x(R.CC)})()}
-$__dart_deferred_initializers__["GaLZ6pXJ+PaTiy9ip+UDXYvOung="] = $__dart_deferred_initializers__.current
+var z=a.updateTypes([]);(function constants(){C.am=new S.dT("isRtl",[null])})()}
+$__dart_deferred_initializers__["HoKGpgcV6JpOiRy0pgy1Ecwrfzk="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_105.part.js.map
