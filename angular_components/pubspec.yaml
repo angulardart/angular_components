@@ -22,7 +22,7 @@ dependencies:
   logging: ^0.11.2
   meta: ^1.0.4
   observable: ^0.22.2
-  protobuf: ^0.13.6
+  protobuf: ^1.0.0
   quiver: '>=0.24.0 <3.0.0'
   sass_builder: ^2.0.2
 
