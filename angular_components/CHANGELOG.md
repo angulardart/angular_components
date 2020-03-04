@@ -1,4 +1,4 @@
-## 0.14.0-alpha+1
+## 0.14.0
 ### Component Updates
 
 #### Application Layout
@@ -106,6 +106,7 @@
 * Fix graphical issue with sticky elements with `height: 0`.
 * Add option to disable `GestureListener` in `ScrollHost`.
 * Rename `palette.dart` to `material_chart_colors.dart`.
+* Depend on the latest `package:protobuf`.
 
 ### Documentation
 * Minor documentation fixes.
