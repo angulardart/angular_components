@@ -30,7 +30,7 @@ abstract class MenuItemAffix<FactoryType /* =ComponentFactory */ > {
   String get cssClass;
 }
 
-typedef void IconAction();
+typedef IconAction = void Function();
 
 /// An icon that performs an action when the icon is triggered.
 @Deprecated('Use the IconAffix.withAction directly')

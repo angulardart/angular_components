@@ -7,13 +7,13 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 
 /// A function that can be throttled or debounced.
-typedef UnaryFunction<T>(T argument);
-typedef Future DebouncedFunction<T>(T argument);
-typedef Future DebouncedNullaryFunction();
+typedef UnaryFunction<T> = Function(T argument);
+typedef DebouncedFunction<T> = Future Function(T argument);
+typedef DebouncedNullaryFunction = Future Function();
 
 /// A function that rate-limits a delegate function. Helper typedef for
 /// consumers.
-typedef UnaryFunction<T> RateLimitStrategy<T>(
+typedef RateLimitStrategy<T> = UnaryFunction<T> Function(
     UnaryFunction<T> delegate, Duration duration);
 
 /// Returns a wrapper function that, when called with x, executes delegate(x)
@@ -62,9 +62,9 @@ UnaryFunction<T> _throttle<T>(UnaryFunction<T> delegate, Duration interval,
     {@required bool guaranteeLast}) {
   bool onCooldown = false;
   bool hasLastArg = false;
-  var lastArg;
+  T lastArg;
   UnaryFunction<T> self;
-  self = (argument) {
+  self = (T argument) {
     if (!onCooldown) {
       onCooldown = true;
       Timer(interval, () {

@@ -21,7 +21,7 @@ class GalleryLibBuilder extends Builder {
   GalleryLibBuilder(this._galleryTitle, this._styleUrls, this._examplePackages);
 
   @override
-  Future build(BuildStep buildStep) async {
+  Future<void> build(BuildStep buildStep) async {
     final examples = await loadSummaries(buildStep);
     await _generateGalleryDart(buildStep, examples);
     await _generateGalleryHtml(buildStep);
@@ -39,7 +39,7 @@ class GalleryLibBuilder extends Builder {
         ]
       };
 
-  Future _generateGalleryHtml(BuildStep buildStep) async {
+  Future<void> _generateGalleryHtml(BuildStep buildStep) async {
     final mustacheContext = {'galleryTitle': _galleryTitle};
     final newAssetId =
         AssetId(buildStep.inputId.package, 'lib/gallery/gallery.html');
@@ -47,7 +47,7 @@ class GalleryLibBuilder extends Builder {
         mustacheContext, newAssetId);
   }
 
-  Future _generateGalleryDart(
+  Future<void> _generateGalleryDart(
       BuildStep buildStep, List<Example> examples) async {
     final mustacheContext = {
       'styleUrls': _styleUrls,
@@ -60,14 +60,14 @@ class GalleryLibBuilder extends Builder {
         mustacheContext, newAssetId);
   }
 
-  Future _generateGalleryScss(BuildStep buildStep) async {
+  Future<void> _generateGalleryScss(BuildStep buildStep) async {
     final newAssetId =
         AssetId(buildStep.inputId.package, 'lib/gallery/gallery.scss');
     await writeAsset(buildStep, 'lib/builder/template/gallery.scss.mustache',
         {}, newAssetId);
   }
 
-  Future _generateGalleryRouteLibraryDart(
+  Future<void> _generateGalleryRouteLibraryDart(
       BuildStep buildStep, List<Example> examples) async {
     final mustacheContext = {
       'examples': examples,
@@ -84,7 +84,7 @@ class GalleryLibBuilder extends Builder {
 
   /// Reads gallery_section_summary.json files from all `_examplePackages`.
   Future<List<Example>> loadSummaries(BuildStep buildStep) async {
-    final examples = List<Example>();
+    final examples = <Example>[];
 
     for (var package in _examplePackages) {
       final gallerySectionSummaryId =
@@ -97,6 +97,7 @@ class GalleryLibBuilder extends Builder {
           .map((m) => (m as Map).cast<String, dynamic>());
       examples.addAll(summaries.map((summary) => Example(
           summary['displayName'],
+          summary['group'],
           summary['dartImport'],
           summary['componentClass'],
           summary['docs']?.cast<String>())));
@@ -110,11 +111,12 @@ class GalleryLibBuilder extends Builder {
 
 class Example {
   final String displayName;
+  final String group;
   final String dartImport;
   final String component;
   final List<String> relatedComponents;
 
-  Example(this.displayName, this.dartImport, this.component,
+  Example(this.displayName, this.group, this.dartImport, this.component,
       this.relatedComponents);
 
   String get name => strings

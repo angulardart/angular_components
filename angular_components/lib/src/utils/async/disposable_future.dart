@@ -21,7 +21,7 @@ class DisposableFuture<T> implements Future<T>, Disposable {
   /// Returns a disposable version of [stream.first].
   factory DisposableFuture.first(Stream<T> stream) {
     final completer = Completer<T>.sync();
-    StreamSubscription subscription;
+    StreamSubscription<Object> subscription;
     subscription = stream.listen((value) {
       subscription.cancel();
       completer.complete(value);
@@ -32,7 +32,7 @@ class DisposableFuture<T> implements Future<T>, Disposable {
   /// Returns a disposable version of [stream.last].
   factory DisposableFuture.last(Stream<T> stream) {
     final completer = Completer<T>.sync();
-    StreamSubscription subscription;
+    StreamSubscription<Object> subscription;
     T lastValue;
     subscription = stream.listen((value) {
       lastValue = value;

@@ -6,7 +6,7 @@
 /// Fuzzy-parses an enum, given a list of enum values and the string. It's
 /// "fuzzy" because it ignores case and treats hyphens and underscores as
 /// equivalent (so "single-date" matches "SINGLE_DATE").
-dynamic fuzzyParseEnum(List values, String val) {
+T fuzzyParseEnum<T>(List<T> values, String val) {
   var valAsRegex = val
       .toUpperCase()
       .replaceAll('.', r'\.')

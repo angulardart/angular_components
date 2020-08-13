@@ -11,8 +11,8 @@ import 'package:js/js.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/laminate/popup/module.dart';
-import 'package:angular_gallery_section/components/gallery_component/documentation_component.dart';
 import 'package:angular_gallery/gallery/gallery_tokens.dart';
+import 'package:angular_gallery_section/components/gallery_component/documentation_component.dart';
 import 'package:angular_gallery_section/components/gallery_component/gallery_info.dart';
 
 /// The gallery component details page that encompass the component's dart docs,
@@ -37,12 +37,12 @@ class GalleryComponent {
   @Input()
   GalleryInfo model;
 
-  /// The begining of a custom url used for the bug link on components.
+  /// The beginning of a custom url used for the bug link on components.
   ///
   /// Should contain any custom url parameters. A title will be appended.
   final String _bugUrl;
 
-  /// The begining of the link to the source code for all components.
+  /// The beginning of the link to the source code for all components.
   final String _sourcecodeUrl;
 
   /// Used to disable latency charts in testing environments where they can't
@@ -73,7 +73,7 @@ class GalleryComponent {
 
 /// Applies code highlighting on `<pre><code>` elements within [htmlFragment].
 ///
-/// Relies on syntax higlighting from highlight.js
+/// Relies on syntax highlighting from highlight.js
 /// https://github.com/highlightjs/highlight.js which must be loaded in the page
 /// first.
 String applyHighlighting(String htmlFragment) {
@@ -92,7 +92,7 @@ String applyHighlighting(String htmlFragment) {
 @JS('hljs.highlightBlock')
 external highlightBlock(block);
 
-/// A [NodeTreeSanitizer] that provides no sanitiztion.
+/// A [NodeTreeSanitizer] that provides no sanitization.
 class _NullNodeTreeSanitizer implements NodeTreeSanitizer {
   @override
   void sanitizeTree(Node node) {

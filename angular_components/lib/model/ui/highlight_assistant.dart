@@ -11,7 +11,7 @@ class HighlightAssistant {
 
   // Cache highlight segments.
   final _highlightCache =
-      Map<String, Map<dynamic, List<HighlightedTextSegment>>>();
+      <String, Map<dynamic, List<HighlightedTextSegment>>>{};
 
   final Highlighter _optionHighlighter;
 

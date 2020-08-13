@@ -3,115 +3,113 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<focus-trap
-    [class.mouse-driven]="isMouseDriven"
-    [class.keyboard-driven]="!isMouseDriven"
-    (focus)="onFocus">
-  <div group
-       class="group"
-       role="menu"
-       *ngFor="let group of menu.itemGroups; let i = index"
-       [class.has-separator]="group.hasSeparator"
-       [class.has-label]="group.hasLabel">
-    <div *ngIf="group.hasLabel"
-         buttonDecorator
-         class="group-header"
-         [attr.aria-expanded]="group.isCollapsible ? group.isExpanded.toString() : null"
-         [class.is-collapsible]="group.isCollapsible"
-         (trigger)="toggleExpansionIfCollapsible(group)">
-      <div class="group-label">
-        {{group.uiDisplayName}}
-      </div>
-      <material-icon
-          *ngIf="group.isCollapsible"
-          class="expansion-icon"
-          [class.expanded]="group.isExpanded"
-          [icon]="group.isExpanded ? 'expand_less' : 'expand_more'">
-      </material-icon>
+<div group
+     class="group"
+     role="menu"
+     *ngFor="let group of menu.itemGroups; let i = index"
+     [class.has-separator]="group.hasSeparator"
+     [class.has-label]="group.hasLabel">
+  <div *ngIf="group.hasLabel"
+       buttonDecorator
+       class="group-header"
+       [role]="group.isCollapsible ? 'button' : 'none'"
+       [attr.aria-expanded]="group.isCollapsible ? group.isExpanded.toString() : null"
+       [class.is-collapsible]="group.isCollapsible"
+       (trigger)="toggleExpansionIfCollapsible(group)">
+    <div class="group-label">
+      {{group.uiDisplayName}}
     </div>
-    <template [ngIf]="!group.isCollapsible || group.isExpanded">
-      <template ngFor let-item [ngForOf]="group" let-j="index">
-        <template [ngIf]="isItemVisible(item)">
-          <material-select-item
-              popupSource
-              #subMenuSource="popupSource"
+    <material-icon
+        *ngIf="group.isCollapsible"
+        class="expansion-icon"
+        [class.expanded]="group.isExpanded"
+        [icon]="group.isExpanded ? 'expand_less' : 'expand_more'">
+    </material-icon>
+  </div>
+  <template [ngIf]="!group.isCollapsible || group.isExpanded">
+    <template ngFor let-item [ngForOf]="group" let-j="index">
+      <template [ngIf]="isItemVisible(item)">
+        <material-select-item
+            popupSource
+            #subMenuSource="popupSource"
 
-              [autoFocus]="hasAutoFocus(activeModel?.id(item))"
-              [focusActivableItem]="activeModel?.id(item)"
+            [autoFocus]="hasAutoFocus(activeModel?.id(item))"
+            [focusActivableItem]="activeModel?.id(item)"
 
-              role="{{group.itemsRole}}"
-              [attr.data-group-index]="i"
-              [attr.data-item-index]="j"
-              [attr.id]="activeModel?.id(item)"
+            role="{{group.itemsRole}}"
+            [attr.data-group-index]="i"
+            [attr.data-item-index]="j"
+            [attr.id]="activeModel?.id(item)"
 
-              [materialTooltip]="item.tooltip"
-              [showTooltipIf]="item.showTooltip"
-              [tooltipPositions]="tooltipPositions"
+            [materialTooltip]="item.tooltip"
+            [showTooltipIf]="item.showTooltip"
+            [tooltipPositions]="tooltipPositions"
 
-              class="menu-item"
-              [ngClass]="item.cssClasses"
-              [class.is-menu-parent]="isSubMenuVisible(item)"
-              [attr.aria-label]="item.ariaLabel"
-              [attr.aria-disabled]="!item.enabled"
-              [attr.aria-haspopup]="item.hasSubMenu"
-              [attr.aria-expanded]="item.hasSubMenu ? isSubMenuVisible(item) : null"
-              [attr.aria-checked]="itemAriaChecked(item)"
+            class="menu-item"
+            [ngClass]="item.cssClasses"
+            [class.is-menu-parent]="isSubMenuVisible(item)"
+            [attr.aria-label]="item.ariaLabel"
+            [attr.aria-disabled]="!item.enabled"
+            [attr.aria-haspopup]="item.hasSubMenu"
+            [attr.aria-expanded]="item.hasSubMenu ? isSubMenuVisible(item) : null"
+            [attr.aria-checked]="itemAriaChecked(item)"
 
-              [closeOnActivate]="false"
-              [useCheckMarks]="true"
-              [itemActive]="isItemActive(item)"
-              [disabled]="!item.enabled"
-              [selection]="getSelectionModel(group)"
-              [selectOnActivate]="shouldSelectItemOnClick(item)"
-              [value]="getItemValue(item)"
-              (trigger)="handleSelectItemTrigger(item, group, $event)">
-            <material-icon
-                *ngIf="item.hasIcon"
-                class="material-list-item-primary"
-                [icon]="item.icon">
-            </material-icon>
-            <span class="menu-item-label-section">
-              <span *ngIf="hasHighlight" class="menu-item-label">
-                <highlighted-text [segments]="highlighted(item.uiDisplayName)">
-                </highlighted-text>
-                <sup *ngIf="item.labelAnnotation != null && item.labelAnnotation.isNotEmpty"
-                     class="label-annotation">
-                {{item.labelAnnotation}}
-              </sup>
-              </span>
-              <span *ngIf="!hasHighlight" class="menu-item-label">
-                {{item.uiDisplayName}}
-                <sup *ngIf="item.labelAnnotation != null && item.labelAnnotation.isNotEmpty"
-                     class="label-annotation">
-                {{item.labelAnnotation}}
-                </sup>
-              </span>
-              <span *ngIf="item.hasSecondaryLabel" class="menu-item-secondary-label">
-                {{item.secondaryLabel}}
-              </span>
+            [closeOnActivate]="false"
+            [useCheckMarks]="true"
+            [itemActive]="isItemActive(item)"
+            [disabled]="!item.enabled"
+            [selection]="getSelectionModel(group)"
+            [selectOnActivate]="shouldSelectItemOnClick(item)"
+            [value]="getItemValue(item)"
+            (trigger)="handleSelectItemTrigger(item, group, $event)">
+          <material-icon
+              *ngIf="item.hasIcon"
+              class="material-list-item-primary"
+              [icon]="item.icon">
+          </material-icon>
+          <span class="menu-item-label-section">
+            <span *ngIf="hasHighlight" class="menu-item-label">
+              <highlighted-text [segments]="highlighted(item.uiDisplayName)">
+              </highlighted-text>
+              <sup *ngIf="item.labelAnnotation != null && item.labelAnnotation.isNotEmpty"
+                   class="label-annotation">
+              {{item.labelAnnotation}}
+            </sup>
             </span>
-            <menu-item-affix-list
-                *ngIf="item.itemSuffixes.isNotEmpty"
-                class="suffix-list"
-                [disabled]="!item.enabled"
-                [items]="item.itemSuffixes">
-            </menu-item-affix-list>
-            <material-icon
-                *ngIf="item.hasSubMenu"
-                class="material-list-item-secondary submenu-icon"
-                icon="arrow_drop_down">
-            </material-icon>
-          </material-select-item>
-          <material-popup
+            <span *ngIf="!hasHighlight" class="menu-item-label">
+              {{item.uiDisplayName}}
+              <sup *ngIf="item.labelAnnotation != null && item.labelAnnotation.isNotEmpty"
+                   class="label-annotation">
+              {{item.labelAnnotation}}
+              </sup>
+            </span>
+            <span *ngIf="item.hasSecondaryLabel" class="menu-item-secondary-label">
+              {{item.secondaryLabel}}
+            </span>
+          </span>
+          <menu-item-affix-list
+              *ngIf="item.itemSuffixes.isNotEmpty"
+              class="suffix-list"
+              [disabled]="!item.enabled"
+              [items]="item.itemSuffixes">
+          </menu-item-affix-list>
+          <material-icon
               *ngIf="item.hasSubMenu"
-              [class]="popupClass"
-              [source]="subMenuSource"
-              enforceSpaceConstraints
-              [preferredPositions]="preferredSubMenuPositions"
-              [visible]="isSubMenuVisible(item)"
-              (visibleChange)="onSubMenuVisibilityChanged(item, $event)"
-              [autoDismiss]="false"
-              #submenu>
+              class="material-list-item-secondary submenu-icon"
+              icon="arrow_drop_down">
+          </material-icon>
+        </material-select-item>
+        <material-popup
+            *ngIf="item.hasSubMenu"
+            [class]="popupClass"
+            [source]="subMenuSource"
+            enforceSpaceConstraints
+            [preferredPositions]="preferredSubMenuPositions"
+            [visible]="isSubMenuVisible(item)"
+            (visibleChange)="onSubMenuVisibilityChanged(item, $event)"
+            [autoDismiss]="false"
+            #submenu>
+          <focus-trap>
             <material-list
                 *deferredContent
                 role="none"
@@ -125,9 +123,9 @@
                   [menu]="item.subMenu">
               </menu-item-groups>
             </material-list>
-          </material-popup>
-        </template>
+          </focus-trap>
+        </material-popup>
       </template>
     </template>
-  </div>
-</focus-trap>
+  </template>
+</div>

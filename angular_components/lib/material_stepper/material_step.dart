@@ -56,6 +56,18 @@ class StepDirective extends TemplatePortal {
   @Input()
   bool complete = false;
 
+  /// Whether the step is partially complete
+  ///
+  /// This will show the step icon with a 3/4 circle
+  bool _partiallyComplete = false;
+  @Input()
+  set partiallyComplete(bool b) {
+    assert(!b || complete == false);
+    _partiallyComplete = b;
+  }
+
+  bool get partiallyComplete => _partiallyComplete;
+
   /// Whether the step can continue.
   ///
   /// This can be used to prevent continuing on from a step until all parts of

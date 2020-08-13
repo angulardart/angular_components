@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
@@ -106,7 +108,7 @@ abstract class BaseMaterialInputValueAccessor<T>
 
   @override
   void registerOnTouched(callback) {
-    var sub;
+    StreamSubscription sub;
     sub = input.onBlur.listen((_) {
       sub.cancel(); // We only need the first event. Cancel the subscription.
       callback();

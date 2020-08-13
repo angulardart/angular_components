@@ -9,8 +9,8 @@ import 'package:angular_components/utils/async/async.dart';
 // - interfaces/parent.dart will replace Parent.
 export 'package:angular_components/src/model/selection/interfaces/selectable.dart';
 
-typedef int CountGetter();
-typedef bool Predicate<T>(T item);
+typedef CountGetter = int Function();
+typedef Predicate<T> = bool Function(T item);
 
 Predicate alwaysTrue = (_) => true;
 Predicate alwaysFalse = (_) => false;

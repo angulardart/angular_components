@@ -64,7 +64,7 @@ class MaterialStepperComponent {
 
   var _orientation = defaultOrientation;
   var _size = defaultSize;
-  var _legalJumps;
+  String _legalJumps;
 
   List<StepDirective> _stepDirectiveList;
   final _activeStepController =
@@ -92,6 +92,14 @@ class MaterialStepperComponent {
   /// Applicable only to steppers with horizontal header.
   @Input()
   bool stickyHeader = false;
+
+  /// When `true`, steps will not be unloaded from the dom when inactive, but
+  /// will rather be hidden via css.
+  ///
+  /// This allows for fast switching between steps with DOMs that are
+  /// expensive to load.
+  @Input()
+  bool keepInactiveStepsInDom = false;
 
   // Jump to step at index if possible
   Future<bool> jumpStep(int index) {
@@ -140,6 +148,11 @@ class MaterialStepperComponent {
   /// By default, displays "Cancel".
   @Input()
   String noText = _cancelMsg;
+
+  /// Text to be displayed on the button that goes to the next step.
+  /// By default, displays "Continue".
+  @Input()
+  String yesText = continueMsg;
 
   /// Orientation in which the steps are laid out.
   ///

@@ -12,9 +12,9 @@ import 'package:intl/intl.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
-import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
+import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_yes_no_buttons/material_yes_no_buttons.dart';
 import 'package:angular_components/model/action/async_action.dart';
@@ -219,7 +219,7 @@ class MaterialExpansionPanel
   @Input()
   bool closeOnSave = true;
 
-  ObservableReference<bool> _isExpanded = ObservableReference(false);
+  final ObservableReference<bool> _isExpanded = ObservableReference(false);
   bool get isExpanded => _isExpanded.value;
 
   /// If true, the panel is expanded by default, if false, the panel is closed.
@@ -305,6 +305,15 @@ class MaterialExpansionPanel
 
   String get groupAriaLabel => _groupAriaLabel == null ? name : _groupAriaLabel;
 
+  /// Level of the heading.
+  ///
+  /// If null, the heading will not have role="heading".
+  @Input()
+  int headerAriaLevel;
+
+  @visibleForTemplate
+  String get headerRole => headerAriaLevel == null ? 'none' : 'heading';
+
   /// An optional icon name to replace the expand arrows with a custom icon.
   @Input()
   set expandIcon(String expandIcon) => _expandIcon = expandIcon;
@@ -376,7 +385,7 @@ class MaterialExpansionPanel
       : _namedPanelMsg(groupAriaLabel);
 
   String get headerMsg {
-    if (disabled) {
+    if (disabled || _groupAriaLabel != null) {
       return groupAriaLabel;
     } else {
       return isExpanded ? closePanelMsg : openPanelMsg;

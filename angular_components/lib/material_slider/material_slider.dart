@@ -29,6 +29,9 @@ import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
   templateUrl: 'material_slider.html',
   styleUrls: ['material_slider.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  directives: [
+    NgIf,
+  ],
   // TODO(google): Change to `Visibility.local` to reduce code size.
   visibility: Visibility.all,
 )
@@ -48,17 +51,52 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
   @Input()
   bool disabled = false;
 
-  /// The current value of the input element.
+  bool _isTwoSided = false;
+
+  /// True if the slider is 2 sided.
+  bool get isTwoSided => _isTwoSided;
+  @Input()
+  set isTwoSided(bool isTwoSided) {
+    _isTwoSided = isTwoSided;
+  }
+
+  /// The current value of the input [value] element.
   ///
-  /// Must be between [min] and [max], inclusive, and a multiple of [step].
+  /// When [isTwoSided] is true, then this represents the current value of the
+  /// right slider knob. Must be between [min] and [max], inclusive, a multiple
+  /// of [step], and greater than [leftValue].
   @Input()
   num value = 0;
 
   final _changeController = StreamController<num>.broadcast(sync: true);
 
-  /// Publishes events when the value of the input is changed by the user.
+  /// Publishes events when the value of the [value] input is changed by the
+  /// user.
   @Output()
   Stream<num> get valueChange => _changeController.stream;
+
+  num _leftValue = 0;
+
+  /// The current value of the [leftValue] input in a 2 sided slider, defaults
+  /// to 0.
+  ///
+  /// When [isTwoSided] is true, then this represents the current value of the
+  /// left slider knob. Must be between [min] and [max], inclusive, a multiple
+  /// of [step] and less than or equal to [value].
+  num get leftValue => isTwoSided ? _leftValue : min;
+  @Input()
+  set leftValue(int val) {
+    if (isTwoSided) {
+      _leftValue = val;
+    }
+  }
+
+  final _leftChangeController = StreamController<num>.broadcast(sync: true);
+
+  /// Publishes events when the value of the [leftValue] input is changed
+  /// by the user in a 2 sided slider.
+  @Output()
+  Stream<num> get leftValueChange => _leftChangeController.stream;
 
   /// The minimum progress value.
   ///
@@ -78,8 +116,12 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
   @Input()
   num step = 1;
 
-  /// The current progress of the input in percent.
+  /// The current progress of the [value] input in percent.
   double get progressPercent => (100.0 * (value - min) / (max - min));
+
+  /// The current progress of the [leftValue] input in percent.
+  double get leftProgressPercent =>
+      isTwoSided ? (100.0 * (leftValue - min) / (max - min)) : 0;
 
   /// Verifies that the input values of this control are consistent.
   @override
@@ -95,6 +137,19 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
           message: 'Failed assertion: ${value} <= ${max}');
       checkArgument(_divisible(value - min, step),
           message: 'Failed assertion: (${value} - ${min}) % ${step} ~ 0.');
+
+      if (isTwoSided) {
+        checkArgument(leftValue <= value,
+            message: 'Failed assertion: ${leftValue} <= ${value}');
+        checkArgument(leftValue >= min,
+            message: 'Failed assertion: ${leftValue} >= ${min}');
+        // Redundant check but done for consistency.
+        checkArgument(leftValue <= max,
+            message: 'Failed assertion: ${leftValue} <= ${max}');
+        checkArgument(_divisible(leftValue - min, step),
+            message:
+                'Failed assertion: (${leftValue} - ${min}) % ${step} ~ 0.');
+      }
       return true;
     }());
   }
@@ -117,6 +172,12 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
   /// Whether the current user locale is RTL.
   bool get isRtl => Bidi.isRtlLanguage(Intl.defaultLocale ?? '');
 
+  /// True if mouse click event on left knob of a 2 sided slider.
+  bool isLeftKnobSelected = false;
+
+  /// True if mouse click event on right knob.
+  bool isRightKnobSelected = false;
+
   /// Updates the current value to reflect the given slider position, if needed.
   void _setValueToMousePosition(int position) {
     _domService.scheduleRead(() {
@@ -127,7 +188,6 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
       final fractionOfTrackLtr = (position - containerLeft) / containerWidth;
       final fractionOfTrack =
           isRtl ? 1.0 - fractionOfTrackLtr : fractionOfTrackLtr;
-
       final scaledValue = (fractionOfTrack * (max - min));
       final halfStep = step / 2;
       // Clamp to the closest step value.
@@ -135,17 +195,29 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
           (scaledValue ~/ step) * step +
           (scaledValue.remainder(step) > halfStep ? step : 0);
       final newValue = math.max(min, math.min(max, unboundedValue));
-      if (newValue != value) {
-        value = newValue;
-        _changeController.add(value);
+      // Adjust left knob in 2 sided slider
+      if (isLeftKnobSelected ||
+          (newValue < leftValue && !isRightKnobSelected)) {
+        if (newValue != leftValue) {
+          // Prevent left knob value from being greater than right knob value
+          leftValue = _getValidLeftValue(value, newValue);
+          _leftChangeController.add(leftValue);
+        }
+      } else {
+        // Adjust right knob in 1 or 2 sided slider.
+        if (newValue != value) {
+          // Prevent right knob value from being less than left knob value
+          value = _getValidRightValue(leftValue, newValue);
+          _changeController.add(value);
+        }
       }
     });
   }
 
-  /// Whether the user is currently dragging the slider knob.
+  /// Whether the user is currently dragging either slider knob.
   bool isDragging = false;
 
-  /// Handles mouse down events on the slider knob or the slider track.
+  /// Handles mouse down events on either slider knob or the slider track.
   void mouseDown(MouseEvent event) {
     if (disabled) return;
     if (event.button != 0) return;
@@ -160,12 +232,14 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
     document.onMouseUp.take(1).listen((event) {
       event.preventDefault();
       mouseMoveSubscription.cancel();
+      isLeftKnobSelected = false;
+      isRightKnobSelected = false;
       isDragging = false;
       _changeDetector.markForCheck();
     });
   }
 
-  /// Handles touch start events on the slider knob.
+  /// Handles touch start events on either slider knob.
   void touchStart(TouchEvent event) {
     if (disabled) return;
     event.preventDefault();
@@ -181,36 +255,56 @@ class MaterialSliderComponent implements AfterChanges, HasDisabled {
     document.onTouchEnd.take(1).listen((event) {
       event.preventDefault();
       touchMoveSubscription.cancel();
+      isLeftKnobSelected = false;
+      isRightKnobSelected = false;
       isDragging = false;
       _changeDetector.markForCheck();
     });
   }
 
-  /// Handles key press events on the slider knob.
-  void knobKeyDown(KeyboardEvent event) {
+  /// Handles key press events on either slider knob.
+  ///
+  /// [isLeftKnob] true indicates that the event ocurred on the left knob.
+  void knobKeyDown(KeyboardEvent event, {bool isLeftKnobPressed = false}) {
     if (disabled) return;
-    var newValue = value;
+    var currValue = isLeftKnobPressed ? leftValue : value;
+    var newValue = currValue;
     final bigStepSize = ((max - min) / 10.0).ceil();
     final sign = isRtl ? -1 : 1;
     switch (event.keyCode) {
       case KeyCode.DOWN:
       case KeyCode.LEFT:
-        newValue = math.max(min, math.min(max, value - step * sign));
+        newValue = math.max(min, math.min(max, currValue - step * sign));
         break;
       case KeyCode.UP:
       case KeyCode.RIGHT:
-        newValue = math.max(min, math.min(max, value + step * sign));
+        newValue = math.max(min, math.min(max, currValue + step * sign));
         break;
       case KeyCode.PAGE_UP:
-        newValue = math.max(min, math.min(max, value + step * bigStepSize));
+        newValue = math.max(min, math.min(max, currValue + step * bigStepSize));
         break;
       case KeyCode.PAGE_DOWN:
-        newValue = math.max(min, math.min(max, value - step * bigStepSize));
+        newValue = math.max(min, math.min(max, currValue - step * bigStepSize));
         break;
     }
-    if (newValue != value) {
-      value = newValue;
+    if (isLeftKnobPressed) {
+      if (newValue != leftValue) {
+        leftValue = _getValidLeftValue(value, newValue);
+        _leftChangeController.add(leftValue);
+      }
+    } else if (newValue != value) {
+      value = _getValidRightValue(leftValue, newValue);
       _changeController.add(value);
     }
   }
+
+  /// Returns a value that is valid for right knob depending on language
+  /// direction.
+  num _getValidRightValue(double valA, double valB, {isRtl = false}) =>
+      isRtl ? math.min(valA, valB) : math.max(valA, valB);
+
+  /// Returns a value that is valid for left knob depending on language
+  /// direction.
+  num _getValidLeftValue(double valA, double valB, {isRtl = false}) =>
+      isRtl ? math.max(valA, valB) : math.min(valA, valB);
 }

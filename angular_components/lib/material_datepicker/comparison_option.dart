@@ -8,7 +8,7 @@ import 'package:angular_components/material_datepicker/range.dart';
 /// Converts current date range to comparison date range.
 ///
 /// Return null if this is a "custom".
-typedef DatepickerDateRange ComparisonFn(DatepickerDateRange range);
+typedef ComparisonFn = DatepickerDateRange Function(DatepickerDateRange range);
 
 /// The [ComparisonOption]s the component provides to the user by default.
 List<ComparisonOption> defaultComparisonOptions = [

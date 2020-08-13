@@ -46,7 +46,7 @@ void _createRipple(
   final rect = container.getBoundingClientRect();
 
   // Create a ripple or grab one from the pool.
-  var ripple;
+  DivElement ripple;
   if (_numRipples < _maxRipples) {
     ripple = _rippleTemplate.clone(false) as DivElement;
     _ripplePool[_rippleIndex] = ripple;
@@ -84,10 +84,10 @@ void _applyAnimation(
       sqrt(pow(containerWidth / 2, 2) + pow(containerHeight / 2, 2)) + 10;
   final maxScale = maxRadius / _rippleRadius;
 
-  var top;
-  var left;
-  var initialTransform;
-  var finalTransform;
+  String top;
+  String left;
+  String initialTransform;
+  String finalTransform;
 
   if (center) {
     top = 'calc(50% - ${_rippleRadius}px)';
@@ -120,8 +120,8 @@ void _applyAnimation(
 /// Web Animations API.
 void _applyFallbackAnimation(
     DivElement ripple, bool center, Rectangle rect, int clientX, int clientY) {
-  var top;
-  var left;
+  String top;
+  String left;
 
   if (center) {
     top = 'calc(50% - ${_rippleRadius}px)';
@@ -205,7 +205,7 @@ class MaterialRippleComponent implements OnDestroy {
     _element.addEventListener('keydown', _onKeyDown);
   }
 
-  /// Allow the ripple to be created programatically.
+  /// Allow the ripple to be created programmatically.
   void createRipple(int clientX, int clientY) =>
       _createRipple(clientX, clientY, _element, center);
 

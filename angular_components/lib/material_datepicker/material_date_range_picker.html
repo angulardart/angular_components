@@ -54,6 +54,7 @@
     <div class="wrapper">
       <date-range-editor [model]="model"
                          [presets]="presets"
+                         [useMenuForPresets]="useMenuForPresets"
                          [supportsClearRange]="supportsClearRange"
                          [supportsComparison]="supportsComparison"
                          [supportsDaysInputs]="supportsDaysInputs"
@@ -74,12 +75,10 @@
 
       <div class="apply-bar" [class.visible]="applyBarVisible">
         <div class="separator">&nbsp;</div>
-        <material-button class="cancel"
-                         (trigger)="cancel(); $event.preventDefault()">
+        <material-button class="cancel" (trigger)="cancelAndPreventDefault">
           {{cancelButtonMsg}}
         </material-button>
-        <material-button class="apply"
-                         (trigger)="apply($event); $event.preventDefault()">
+        <material-button class="apply" (trigger)="applyAndPreventDefault">
           {{applyButtonMsg}}
         </material-button>
       </div>

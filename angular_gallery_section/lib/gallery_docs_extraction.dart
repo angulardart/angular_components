@@ -36,7 +36,7 @@ class GalleryDocumentationExtraction extends SimpleAstVisitor<DartDocInfo> {
   GalleryDocumentationExtraction(this._name, this._filePath);
 
   @override
-  visitCompilationUnit(CompilationUnit node) {
+  DartDocInfo visitCompilationUnit(CompilationUnit node) {
     for (final declaration in node.declarations) {
       final info = declaration.accept(this);
       if (info != null) return info;
@@ -52,7 +52,7 @@ class GalleryDocumentationExtraction extends SimpleAstVisitor<DartDocInfo> {
   DartDocInfo visitMixinDeclaration(MixinDeclaration node) =>
       _visitClassOrMixinDeclaration(node);
 
-  _visitClassOrMixinDeclaration(ClassOrMixinDeclaration node) {
+  DartDocInfo _visitClassOrMixinDeclaration(ClassOrMixinDeclaration node) {
     if (_extractDocumentation(node) == null) return null;
 
     var allProperties = <DartPropertyInfo>[];

@@ -7,7 +7,7 @@
     (keydown)="onKeyDown($event)"
     (trigger)="handlePopupTriggerAction"
     [attr.aria-label]="ariaLabel"
-    [attr.icon]="hasIcon"
+    [attr.icon.if]="hasIcon"
     [disabled]="disabled"
     [tabbable]="tabbable"
     [materialTooltip]="tooltipText"
@@ -16,7 +16,7 @@
     popupSource
     #toggle="popupSource">
   <material-icon
-      *ngIf="menu.uiIcon != null"
+      *ngIf="hasIcon"
       [icon]="menu.uiIcon">
   </material-icon>
   <span *ngIf="buttonText != null">{{buttonText}}</span>

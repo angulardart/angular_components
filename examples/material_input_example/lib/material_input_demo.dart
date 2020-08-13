@@ -8,12 +8,12 @@ import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_input/material_input.dart';
-import 'package:angular_components/material_input/material_input_multiline.dart';
 import 'package:angular_components/material_input/material_input_auto_select.dart';
+import 'package:angular_components/material_input/material_input_multiline.dart';
 import 'package:angular_components/material_input/material_number_accessor.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 
-typedef String ValidityCheck(String inputText);
+typedef ValidityCheck = String Function(String inputText);
 
 /// This directive applies a custom Validator to any material-input that uses
 /// the Forms API, and also has this directive.

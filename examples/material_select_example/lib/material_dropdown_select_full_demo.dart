@@ -14,8 +14,8 @@ import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/material_select/dropdown_button.dart';
 import 'package:angular_components/material_select/material_dropdown_select.dart';
-import 'package:angular_components/material_select/material_select_dropdown_item.dart';
 import 'package:angular_components/material_select/material_dropdown_select_accessor.dart';
+import 'package:angular_components/material_select/material_select_dropdown_item.dart';
 import 'package:angular_components/material_select/material_select_searchbox.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
@@ -84,7 +84,8 @@ class MaterialDropdownSelectFullDemoComponent {
     Language('de', 'German')
   ];
 
-  static List<OptionGroup<Language>> _languagesGroups = <OptionGroup<Language>>[
+  static final List<OptionGroup<Language>> _languagesGroups =
+      <OptionGroup<Language>>[
     OptionGroup<Language>.withLabel(const <Language>[
       Language('en-US', 'US English'),
       Language('fr-CA', 'Canadian English'),
@@ -103,21 +104,21 @@ class MaterialDropdownSelectFullDemoComponent {
     OptionGroup<Language>.withLabel(const <Language>[], 'Pangaea')
   ];
 
-  static List<RelativePosition> _popupPositionsAboveInput = const [
+  static final List<RelativePosition> _popupPositionsAboveInput = const [
     RelativePosition.AdjacentTopLeft,
     RelativePosition.AdjacentTopRight
   ];
-  static List<RelativePosition> _popupPositionsBelowInput = const [
+  static final List<RelativePosition> _popupPositionsBelowInput = const [
     RelativePosition.AdjacentBottomLeft,
     RelativePosition.AdjacentBottomRight
   ];
 
-  static ItemRenderer _displayNameRenderer =
+  static final ItemRenderer _displayNameRenderer =
       (item) => (item as HasUIDisplayName).uiDisplayName;
 
   // Specifying an itemRenderer avoids the selected item from knowing how to
   // display itself.
-  static ItemRenderer _itemRenderer = newCachingItemRenderer<Language>(
+  static final ItemRenderer _itemRenderer = newCachingItemRenderer<Language>(
       (language) => "${language.label} (${language.code})");
 
   bool useFactoryRenderer = false;

@@ -11,7 +11,7 @@ const String _oneShotDisposerMemoryLeakWarning =
     'one shot disposers after the dispose() method has been called.';
 
 /// A function, that when called, will cleanup any resources or subscriptions.
-typedef void DisposeFunction();
+typedef DisposeFunction = void Function();
 
 /// A class with a [dispose] method for cleaning up resources or subscriptions.
 abstract class Disposable {
@@ -78,8 +78,8 @@ class _SingleFunctionDisposable implements Disposable {
 /// [disposable], just treat it random.
 class Disposer implements Disposable {
   List<DisposeFunction> _disposeFunctions;
-  List<StreamSubscription> _disposeSubs;
-  List<EventSink> _disposeSinks;
+  List<StreamSubscription<Object>> _disposeSubs;
+  List<EventSink<Object>> _disposeSinks;
   List<Disposable> _disposeDisposables;
   final bool _oneShot;
   bool _disposeCalled = false;

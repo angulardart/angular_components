@@ -15,11 +15,19 @@ class DelegatingMenuItem<SubMenuType> implements MenuItem<SubMenuType> {
   DelegatingMenuItem(this._delegate);
 
   @override
-  Function get action => _delegate.action;
+  MenuAction get action => _delegate.action;
 
   @override
-  set action(Function action) {
+  set action(MenuAction action) {
     _delegate.action = action;
+  }
+
+  @override
+  ActionWithContext get actionWithContext => _delegate.actionWithContext;
+
+  @override
+  set actionWithContext(ActionWithContext actionWithContext) {
+    _delegate.actionWithContext = actionWithContext;
   }
 
   @override
@@ -50,9 +58,6 @@ class DelegatingMenuItem<SubMenuType> implements MenuItem<SubMenuType> {
 
   @override
   String get ariaLabel => _delegate.ariaLabel;
-
-  @override
-  Function get nullAwareActionHandler => _delegate.nullAwareActionHandler;
 
   @override
   bool get showTooltip => _delegate.showTooltip;

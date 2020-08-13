@@ -18,7 +18,8 @@ abstract class Portal<T> {
   /// Returns a future that completes with an instance of the portal's instance.
   ///
   /// Throws [StateError] if a portal is already attached.
-  Future<T> attach(PortalHost host) {
+  Future<dynamic /*ComponentRef<Object> | Map<String, dynamic>*/ > attach(
+      PortalHost host) {
     assert(host != null);
     if (isAttached) {
       throw StateError('Already attached to host!');
@@ -34,7 +35,7 @@ abstract class Portal<T> {
   /// Detaches the portal if attached to a host.
   ///
   /// Returns a future that completes when detached.
-  Future detach() {
+  Future<void> detach() {
     final currentHost = _attachedHost;
     assert(currentHost != null);
     _attachedHost = null;
@@ -62,7 +63,7 @@ class ComponentPortal<T> extends Portal<T> {
   final ViewContainerRef origin;
 
   /// The factory to create the component.
-  final ComponentFactory componentFactory;
+  final ComponentFactory<Object> componentFactory;
 
   // TODO(google): Document and better explain when/when not to set origin.
   // TODO(google): Add optional `onInitialize` callback/future.
@@ -106,7 +107,7 @@ class TemplatePortal extends Portal<Map<String, dynamic>> {
   }
 
   @override
-  Future detach() {
+  Future<void> detach() {
     _locals = const {};
     return super.detach();
   }
@@ -125,12 +126,13 @@ abstract class PortalHost implements Disposable {
   ///
   /// When possible, prefer using [Portal.attach], as it returns a typed result
   /// instead of [dynamic].
-  Future attach(Portal portal);
+  Future<dynamic /*ComponentRef<Object> | Map<String, dynamic>*/ > attach(
+      Portal<Object> portal);
 
   /// Detaches any active portal.
   ///
   /// Returns a future that completes when the existing portal is detached.
-  Future detach();
+  Future<void> detach();
 
   /// True if the host has a portal attached within.
   ///
@@ -143,12 +145,13 @@ abstract class PortalHost implements Disposable {
 ///
 /// Implement [attachComponentPortal] and [attachTemplatePortal].
 abstract class BasePortalHost implements PortalHost {
-  Portal _attachedPortal;
+  Portal<Object> _attachedPortal;
   DisposeFunction _detachPortal;
   bool _isDisposed = false;
 
   @override
-  Future attach(Portal portal) {
+  Future<dynamic /*ComponentRef<Object> | Map<String, dynamic>*/ > attach(
+      Portal<Object> portal) {
     assert(portal != null);
     if (_isDisposed) {
       throw StateError('Already disposed.');
@@ -156,7 +159,7 @@ abstract class BasePortalHost implements PortalHost {
     if (hasAttached) {
       throw StateError('Already has attached portal!');
     }
-    if (portal is ComponentPortal) {
+    if (portal is ComponentPortal<Object>) {
       _attachedPortal = portal;
       portal.setAttachedHost(this);
       return attachComponentPortal(portal);
@@ -171,7 +174,8 @@ abstract class BasePortalHost implements PortalHost {
     }
   }
 
-  Future<ComponentRef> attachComponentPortal(ComponentPortal portal);
+  Future<ComponentRef<Object>> attachComponentPortal(
+      ComponentPortal<Object> portal);
 
   Future<Map<String, dynamic>> attachTemplatePortal(TemplatePortal portal);
 
@@ -179,7 +183,7 @@ abstract class BasePortalHost implements PortalHost {
   static Map<String, dynamic> createLocalsMap(ViewRef viewRef) => {};
 
   @override
-  Future detach() {
+  Future<void> detach() {
     _attachedPortal.setAttachedHost(null);
     _attachedPortal = null;
     if (_detachPortal != null) {
@@ -216,10 +220,12 @@ class DelegatingPortalHost implements PortalHost {
   bool get hasAttached => _delegateHost.hasAttached;
 
   @override
-  Future attach(Portal portal) => _delegateHost.attach(portal);
+  Future<dynamic /*ComponentRef<Object> | Map<String, dynamic>*/ > attach(
+          Portal<Object> portal) =>
+      _delegateHost.attach(portal);
 
   @override
-  Future detach() => _delegateHost.detach();
+  Future<void> detach() => _delegateHost.detach();
 
   @override
   void dispose() {
@@ -241,7 +247,8 @@ class PortalHostDirective extends BasePortalHost {
   PortalHostDirective(this._componentLoader, this._viewContainerRef);
 
   @override
-  Future<ComponentRef> attachComponentPortal(ComponentPortal portal) {
+  Future<ComponentRef<Object>> attachComponentPortal(
+      ComponentPortal<Object> portal) {
     // By default, use the portal host as the origin. If [portal.origin] is set
     // however, then use that.
     var viewContainerRef = _viewContainerRef;
@@ -264,7 +271,7 @@ class PortalHostDirective extends BasePortalHost {
   }
 
   @Input('portalHost')
-  set portal(Portal portal) {
+  set portal(Portal<Object> portal) {
     if (hasAttached) {
       detach().then((_) {
         if (portal != null) {
@@ -289,7 +296,8 @@ class DomPortalHost extends BasePortalHost {
   DomPortalHost(this._hostElement, this._imperativeViewUtils);
 
   @override
-  Future<ComponentRef> attachComponentPortal(ComponentPortal portal) {
+  Future<ComponentRef<Object>> attachComponentPortal(
+      ComponentPortal<Object> portal) {
     if (portal.origin == null) {
       throw StateError('A component hosted in a DomPortalHost must '
           'have an `origin` set, since the DOM element itself '
@@ -315,7 +323,7 @@ class DomPortalHost extends BasePortalHost {
   }
 }
 
-typedef void OnTemplatePortalReady(TemplatePortal portal);
+typedef OnTemplatePortalReady = void Function(TemplatePortal portal);
 
 /// An implementation of [TemplatePortal] as an Angular directive.
 ///

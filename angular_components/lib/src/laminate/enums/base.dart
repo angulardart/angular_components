@@ -3,7 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 /// A function that sets [propertyName] to [propertyValue].
-typedef void SetPropertyFn(String propertyName, propertyValue);
+typedef SetPropertyFn = void Function(
+    String propertyName, dynamic propertyValue);
 
 abstract class ElementStyleEnum {
   /// Applies this enum using [setProperty].

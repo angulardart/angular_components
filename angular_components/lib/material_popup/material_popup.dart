@@ -242,6 +242,13 @@ class MaterialPopupComponent extends Object
     _autoDismissBlockers = elements;
   }
 
+  /// The label to be used for assistive technologies.
+  ///
+  /// If [role] is "dialog" and this is set, screenreaders will read this label
+  /// when focus first enters the popup.
+  @Input()
+  String ariaLabel;
+
   MaterialPopupComponent(
       @Optional() @SkipSelf() this._hierarchy,
       @Optional() @SkipSelf() MaterialPopupComponent parentPopup,

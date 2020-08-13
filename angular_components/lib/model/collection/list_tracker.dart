@@ -140,7 +140,7 @@ class LazyListTracker<S, T> extends Object
 
   void _initIfRequired() {
     if (_target == null) {
-      _target = List();
+      _target = [];
       if (_source is ObservableList) {
         (_source as ObservableList).deliverListChanges();
         _subscription = (_source as ObservableList)
@@ -251,4 +251,4 @@ class LazyListTracker<S, T> extends Object
   }
 }
 
-typedef B _MapFunction<A, B>(int index, A object);
+typedef _MapFunction<A, B> = B Function(int index, A object);

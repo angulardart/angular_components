@@ -32,7 +32,7 @@ class GalleryInfoBuilder extends Builder {
   GalleryInfoBuilder(this._staticImageServer);
 
   @override
-  build(BuildStep buildStep) async {
+  FutureOr<void> build(BuildStep buildStep) async {
     final inputId = buildStep.inputId;
 
     final extractedConfigs =
@@ -62,6 +62,7 @@ class GalleryInfoBuilder extends Builder {
       Future.wait(configs.map((config) async {
         final resolved = ResolvedConfig()
           ..displayName = config.displayName
+          ..group = config.group
           ..benchmarks = config.benchmarks
           ..owners = config.owners
           ..uxOwners = config.uxOwners
@@ -122,11 +123,17 @@ class GalleryInfoBuilder extends Builder {
       throw ('Could not find the asset: $externalAsset.');
     }
 
-    if (extension(assetId.path) == '.scss') {
-      return extractSassDocs('Sass Mixins', assetId, assetReader);
+    if (assetId.extension == '.scss') {
+      return extractSassDocs(
+          'Sass: ' +
+              basenameWithoutExtension(assetId.path)
+                  .replaceAll('_', ' ')
+                  .trim(),
+          assetId,
+          assetReader);
     }
 
-    if (extension(assetId.path) == '.md') {
+    if (assetId.extension == '.md') {
       final content = await assetReader.readAsString(assetId);
       return MarkdownDocInfo()
         ..name = basenameWithoutExtension(assetId.path)
@@ -147,7 +154,7 @@ class GalleryInfoBuilder extends Builder {
   Future<DartDocInfo> _resolveDocFromClass(String identifier,
       LibraryElement library, AssetReader assetReader) async {
     // Outputs an error and fails the build.
-    failBuild(String missingIdentifier) =>
+    void failBuild(String missingIdentifier) =>
         throw 'Error: Failed to extract documentation from: '
             '$missingIdentifier.';
 

@@ -7,6 +7,7 @@ import 'dart:math';
 
 import 'package:angular_components/laminate/enums/position.dart';
 import 'package:angular_components/laminate/enums/visibility.dart';
+import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 
 /// A ruler is an interface for querying and manipulating element positions
 /// and size through asynchronous APIs, and with integration with internal
@@ -93,13 +94,13 @@ abstract class RulerBase<E> implements Ruler<E> {
   /// Override with an implementation of [DomService.onLayoutChanged].
   ///
   /// The stream should fire within a DOM read queue.
-  Stream get onLayoutChanged;
+  Stream<DomService> get onLayoutChanged;
 
   /// Override with an implementation of [DomService.onRead].
   Future<void> onRead();
 
   /// Override with an implementation of [DomService.onWrite].
-  Future onWrite();
+  Future<void> onWrite();
 
   @override
   Future<Rectangle> measure(E element, {bool offset = false}) {

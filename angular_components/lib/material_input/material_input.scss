@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 @import 'package:angular_components/css/material/material';
+@import 'package:angular_components/material_input/mixins';
 
 $error-color: $mat-red-700;
 
@@ -54,6 +55,10 @@ $default-input-width: $mat-grid * 22;
   flex-direction: row;
   align-items: baseline;
   margin-bottom: $mat-grid;
+}
+
+:host(.ltr) .top-section {
+  /*! @noflip */ direction: ltr;
 }
 
 .input-container {
@@ -188,7 +193,7 @@ input[type=number] {
 }
 
 .animated.label-text {
-  transform: translateY(-100%) translateY(-$mat-grid);
+  @include material-input-animated-label-text-position();
   font-size: $mat-font-size-caption;
 }
 

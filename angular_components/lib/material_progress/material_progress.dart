@@ -4,6 +4,7 @@
 
 import 'dart:async';
 import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 import 'package:angular_components/utils/browser/feature_detector/feature_detector.dart'
@@ -80,7 +81,7 @@ class MaterialProgressComponent implements AfterViewInit, OnDestroy {
   String get ariaValue =>
       indeterminate ? _loadingValue : _activeProgressValue(activeProgress);
 
-  String _loadingValue =
+  final String _loadingValue =
       Intl.message('loading', desc: 'Label text for loading progress');
 
   String _activeProgressValue(int activeProgress) =>

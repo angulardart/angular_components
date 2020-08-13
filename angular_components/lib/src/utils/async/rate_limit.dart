@@ -7,7 +7,7 @@ import 'dart:async';
 import 'package:angular_components/utils/rate_limit_utils/rate_limit_utils.dart'
     show RateLimitStrategy;
 
-typedef void _AddEventFn(event);
+typedef _AddEventFn = void Function(dynamic event);
 
 /// An [EventSink] that rate-limits [Stream] events with a given
 /// [RateLimitStrategy] and [Duration].
@@ -15,10 +15,10 @@ typedef void _AddEventFn(event);
 /// The [RateLimitStrategy] is executed for each event in the stream,
 /// and events are only added to the [_outputSink] if the
 /// [RateLimitStrategy] executes its delegate function.
-class _RateLimitSink implements EventSink {
-  final EventSink _outputSink;
+class _RateLimitSink implements EventSink<dynamic> {
+  final EventSink<dynamic> _outputSink;
   final Duration _duration;
-  final RateLimitStrategy _rateLimitStrategy;
+  final RateLimitStrategy<dynamic> _rateLimitStrategy;
   _AddEventFn _addEvent;
 
   _RateLimitSink(this._outputSink, this._duration, this._rateLimitStrategy) {
@@ -45,11 +45,13 @@ class _RateLimitSink implements EventSink {
 /// [RateLimitStrategy] and [Duration].
 class RateLimitTransformer<S, T> extends StreamTransformerBase<S, T> {
   final Duration _duration;
-  final RateLimitStrategy _rateLimitStrategy;
+  final RateLimitStrategy<dynamic> _rateLimitStrategy;
 
   RateLimitTransformer(this._duration, this._rateLimitStrategy);
 
   @override
-  Stream<T> bind(Stream<S> stream) => Stream.eventTransformed(stream,
-      (EventSink sink) => _RateLimitSink(sink, _duration, _rateLimitStrategy));
+  Stream<T> bind(Stream<S> stream) => Stream.eventTransformed(
+      stream,
+      (EventSink<dynamic> sink) =>
+          _RateLimitSink(sink, _duration, _rateLimitStrategy));
 }

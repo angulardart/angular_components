@@ -54,10 +54,10 @@
              [attr.aria-controls]="inputAriaControls"
              [attr.aria-disabled]="disabled"
              [attr.autocomplete]="inputAutocomplete"
-             [attr.role]="inputRole"
+             [attr.role]="role"
              [ngModel]="inputText"
              (blur)="inputBlurAction($event, inputEl.validity.valid, inputEl.validationMessage)"
-             (change)="inputChange(inputEl.value, inputEl.validity.valid, inputEl.validationMessage);$event.stopPropagation()"
+             (change)="handleChange($event, inputEl)"
              [class.disabledInput]="disabled"
              [class.right-align]="rightAlign"
              (focus)="inputFocusAction"
@@ -125,6 +125,7 @@
     &nbsp;
   </div>
   <div *ngIf="maxCount != null || showCharacterCount"
+       [attr.aria-label]="msgCharacterCounterAriaLabel(inputTextLength, maxCount)"
        class="counter"
        [class.invalid]="invalid">
     {{msgCharacterCounter(inputTextLength, maxCount)}}

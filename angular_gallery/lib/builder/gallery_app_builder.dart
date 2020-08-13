@@ -27,13 +27,13 @@ class GalleryWebBuilder extends Builder {
       this._sourcecodeUrl);
 
   @override
-  Future build(BuildStep buildStep) async {
+  Future<void> build(BuildStep buildStep) async {
     await _generateIndexHtml(buildStep);
     await _generateMainDart(buildStep);
     await _generateStyleScss(buildStep);
   }
 
-  Future _generateIndexHtml(BuildStep buildStep) async {
+  Future<void> _generateIndexHtml(BuildStep buildStep) async {
     final mustacheContext = {
       'direction': _direction,
       'galleryTitle': _galleryTitle
@@ -43,7 +43,7 @@ class GalleryWebBuilder extends Builder {
         mustacheContext, newAssetId);
   }
 
-  Future _generateMainDart(BuildStep buildStep) async {
+  Future<void> _generateMainDart(BuildStep buildStep) async {
     final mustacheContext = {
       'galleryImportUri':
           'package:${buildStep.inputId.package}/gallery/gallery.template.dart',
@@ -60,7 +60,7 @@ class GalleryWebBuilder extends Builder {
         mustacheContext, newAssetId);
   }
 
-  Future _generateStyleScss(BuildStep buildStep) async {
+  Future<void> _generateStyleScss(BuildStep buildStep) async {
     final newAssetId = AssetId(buildStep.inputId.package, 'web/style.scss');
     await writeAsset(
         buildStep, 'lib/builder/template/style.scss.mustache', {}, newAssetId);
@@ -75,7 +75,7 @@ class GalleryWebBuilder extends Builder {
 /// Generates a home.dart component for the html template.
 class HomeDartBuilder extends Builder {
   @override
-  Future build(BuildStep buildStep) async {
+  Future<void> build(BuildStep buildStep) async {
     final inputId = buildStep.inputId;
     final mustacheContext = {
       'htmlTemplateUrl':

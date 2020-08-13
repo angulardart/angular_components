@@ -6,9 +6,6 @@ import 'dart:async';
 
 import 'async_action.dart';
 
-typedef dynamic /* Future | dynamic */ Executor();
-typedef dynamic /* Future | dynamic */ OnCancelFunction();
-
 /// Controller Class for an [AsyncAction].
 /// The [AsyncController] provides a private handle to execute a closure if and
 /// only if the action is not cancelled.
@@ -27,7 +24,7 @@ class AsyncActionController<V> {
   final _deferCompleter = Completer<bool>();
 
   // Futures to await before completing the execution.
-  final _executionDeferrals = <Future>[];
+  final _executionDeferrals = <Future<dynamic>>[];
 
   // Futures to await and check for cancelling.
   final _futureCancellations = <Future<bool>>[];
@@ -58,7 +55,8 @@ class AsyncActionController<V> {
   /// have completed. If [exec] returns a future, its result is piped through to
   /// the [onDone] future, otherwise, the [onDone] future is completed with the
   /// result.
-  Future execute(Executor exec, {OnCancelFunction onCancel, V valueOnCancel}) {
+  Future<void> execute(dynamic Function() exec,
+      {dynamic Function() onCancel, V valueOnCancel}) {
     // This function is very time-sensitive.
     // We are using explicit `Future`s to avoid breaking changes when the
     // behavior of `async` changes.
@@ -104,7 +102,7 @@ class AsyncActionController<V> {
     });
   }
 
-  Future _maybeWait() {
+  Future<dynamic> _maybeWait() {
     // Don't wait for the deferrals if the execution has been stayed.
     return Future.wait(_executionDeferrals);
   }
@@ -121,7 +119,7 @@ class AsyncActionController<V> {
     });
   }
 
-  void _executeAndAttach(dynamic /* AsyncExecutor|Executor */ exec) {
+  void _executeAndAttach(dynamic Function() exec) {
     var execResult = exec();
     _done = true;
     if (execResult is Future) {

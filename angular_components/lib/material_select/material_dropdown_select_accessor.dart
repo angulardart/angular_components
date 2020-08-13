@@ -112,7 +112,7 @@ abstract class BaseDropdownSelectValueAccessor<T>
   BaseDropdownSelectValueAccessor(this._select, this.selectionModel);
 
   @protected
-  initializeSelectionModel() {
+  void initializeSelectionModel() {
     if (initialized) return;
     initialized = true;
     assert(_select.selection == null,

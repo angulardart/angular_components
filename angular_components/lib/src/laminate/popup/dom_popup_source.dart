@@ -16,7 +16,8 @@ import 'package:angular_components/laminate/ruler/dom_ruler.dart';
 ///
 /// If [track] is true, should observe the DOM for layout changes. This is used
 /// to decouple [DomPopupSource] from the Ruler package.
-typedef Stream<Rectangle> AsyncMeasureSize<E>(E element, {bool track});
+typedef AsyncMeasureSize<E> = Stream<Rectangle> Function(E element,
+    {bool track});
 
 /// A factory that can [createPopupSource] from HTML elements.
 @Injectable()

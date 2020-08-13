@@ -9,7 +9,8 @@ import 'package:quiver/core.dart' show hash2;
 
 /// Produces a list of [HighlightedTextSegment] instances for the given [query]
 /// and [value].
-typedef List<HighlightedTextSegment> Highlighter<T>(String query, T value);
+typedef Highlighter<T> = List<HighlightedTextSegment> Function(
+    String query, T value);
 
 /// Represents a sub-sequence of a search suggestion, highlighted based on
 /// whether it matches the query string.
@@ -20,7 +21,7 @@ class HighlightedTextSegment {
   HighlightedTextSegment(this.text, this.isHighlighted);
 
   @override
-  operator ==(other) =>
+  bool operator ==(other) =>
       other is HighlightedTextSegment &&
       isHighlighted == other.isHighlighted &&
       text == other.text;

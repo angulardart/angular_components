@@ -10,20 +10,25 @@
           [filterable]="exampleOptions">
     </material-select-searchbox>
     <material-list focusList>
-      <div group *ngFor="let exampleGroup of exampleOptions.optionGroups">
-        <div label *ngIf="searchbox.inputText.isNotEmpty">Search Results</div>
-        <material-list-item *ngFor="let example of exampleGroup"
-                            focusItem
-                            [routerLink]="example.link"
-                            routerLinkActive="router-link-active">
-          <highlight-value [value]="example"></highlight-value>
-        </material-list-item>
-        <material-list-item *ngIf="exampleOptions.optionsList.isEmpty"
-                            class="no-matches"
-                            disabled>
-          No matches.
-        </material-list-item>
-      </div>
+      <div label *ngIf="searchbox.inputText.isNotEmpty">Search Results</div>
+      <ng-container *ngFor="let exampleGroup of exampleOptions.optionGroups">
+        <div group *ngIf="exampleGroup.isNotEmpty">
+          <div label *ngIf="exampleGroup.uiDisplayName.isNotEmpty">
+            {{exampleGroup.uiDisplayName}}
+          </div>
+          <material-list-item *ngFor="let example of exampleGroup"
+                              focusItem
+                              [routerLink]="example.link"
+                              routerLinkActive="router-link-active">
+            <highlight-value [value]="example"></highlight-value>
+          </material-list-item>
+        </div>
+      </ng-container>
+      <material-list-item *ngIf="exampleOptions.optionsList.isEmpty"
+                          class="no-matches"
+                          disabled>
+        No matches.
+      </material-list-item>
     </material-list>
   </ng-container>
 </material-drawer>

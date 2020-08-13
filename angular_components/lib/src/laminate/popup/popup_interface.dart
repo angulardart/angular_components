@@ -52,7 +52,7 @@ abstract class PopupInterface {
   /// positions. The popup will flatten out the list of positions and choose the
   /// first one that fits on screen.
   @Input()
-  set preferredPositions(Iterable preferredPositions);
+  set preferredPositions(Iterable<Object> preferredPositions);
 
   /// Sets the source the popup should be created relative to.
   @Input()
@@ -130,7 +130,7 @@ abstract class PopupBase implements PopupInterface {
   }
 
   @override
-  set preferredPositions(Iterable preferredPositions) {
+  set preferredPositions(Iterable<Object> preferredPositions) {
     state.preferredPositions = preferredPositions;
   }
 
@@ -172,7 +172,7 @@ abstract class PopupComposite implements PopupInterface {
   int offsetY = 0;
 
   @override
-  Iterable preferredPositions = const [];
+  Iterable<Object> preferredPositions = const [];
 
   @override
   PopupSource source;

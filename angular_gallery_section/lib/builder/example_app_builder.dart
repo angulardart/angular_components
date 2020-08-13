@@ -11,7 +11,7 @@ import 'package:mustache/mustache.dart' show Template;
 /// and gallery page that are generated from @GallerySectionConfig annotations.
 /// Produces web/main.dart, web/index.html, and web/styles.css.
 class ExampleAppBuilder extends Builder {
-  final _direction;
+  final String _direction;
 
   ExampleAppBuilder(this._direction);
 

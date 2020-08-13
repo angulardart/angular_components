@@ -72,6 +72,7 @@ $edit-icon-size: $mat-grid * 2;
 }
 
 .stepper-step-index {
+  background-color: $mat-grey-700;
   border: 2px solid $mat-white;
   border-radius: 100%;
   box-sizing: content-box;
@@ -91,16 +92,21 @@ $edit-icon-size: $mat-grid * 2;
     position: absolute;
   }
 
-  &[active = true] {
-    background-color: $mat-blue-500;
-  }
-
-  &[active = false] {
-    background-color: $mat-grey-500;
-  }
-
+  &[active = true],
   &[complete = true] {
     background-color: $mat-blue-500;
+  }
+
+  &.partially-complete {
+    background: $mat-white;
+    height: 0;
+    width: 0;
+    border: $mat-grid solid $mat-blue-500;
+    color: transparent;
+    border-radius: 50%;
+    border-left-color: transparent;
+    box-shadow: 0 0 0 2px $mat-white, 0 0 0 4px $mat-blue-500;
+    margin: $mat-grid-type * 1.5;
   }
 }
 
@@ -176,7 +182,7 @@ $edit-icon-size: $mat-grid * 2;
   }
 
   &[active = false] {
-    color: $mat-grey-500;
+    color: $mat-grey-700;
   }
 
   &[complete = true] {
@@ -203,7 +209,7 @@ $edit-icon-size: $mat-grid * 2;
   // TODO(google): Migrate to extended mixin mat-font-subhead
   font-size: $mat-font-size-subhead;
   font-weight: $mat-font-weight-regular;
-  color: $mat-grey-400;
+  color: $mat-grey-700;
   text-align: center;
   width: $mat-grid * 10;
 
@@ -250,4 +256,8 @@ $edit-icon-size: $mat-grid * 2;
   position: absolute;
   top: auto;
   width: 1px;
+}
+
+.hidden {
+  display: none;
 }

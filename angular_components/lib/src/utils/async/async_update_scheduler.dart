@@ -5,7 +5,7 @@
 import 'dart:async';
 
 /// A callback registered with [AsyncNotifier].
-typedef void OnUpdateCallback();
+typedef OnUpdateCallback = void Function();
 
 /// An utility class for notifying ~once per VM turn to do an update action.
 ///
@@ -46,12 +46,12 @@ class AsyncUpdateScheduler {
   final OnUpdateCallback _updateCallback;
 
   bool _isUpdateScheduled = false;
-  StreamController _onUpdateStreamController;
+  StreamController<Null> _onUpdateStreamController;
 
   /// Creates a new scheduler, optionally with a callback.
   AsyncUpdateScheduler([this._updateCallback]);
 
-  Stream get onUpdate {
+  Stream<Null> get onUpdate {
     if (_onUpdateStreamController == null) {
       _onUpdateStreamController = StreamController.broadcast(sync: true);
     }

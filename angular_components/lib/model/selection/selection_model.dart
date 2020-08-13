@@ -22,10 +22,10 @@ part 'package:angular_components/src/model/selection/single_selection_model_impl
 /// Returns a key-able object from [o].
 ///
 /// Must not return null, which is reserved to mean "no selection".
-typedef Object KeyProvider<T>(T o);
+typedef KeyProvider<T> = Object Function(T o);
 
 /// Matching function provider, for example used in SelectSuggestInput.
-typedef Future<List> MatchCallback(String string);
+typedef MatchCallback = Future<List> Function(String string);
 
 /// A simple pass-through implementation of [KeyProvider].
 Object _defaultKeyProvider(Object o) => o;

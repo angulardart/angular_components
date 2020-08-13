@@ -11,6 +11,8 @@ import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/focus/focus_item.dart';
+import 'package:angular_components/focus/focus_list.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_button.dart';
@@ -27,6 +29,8 @@ import 'package:angular_components/src/material_datepicker/comparison_range_edit
 import 'package:angular_components/src/material_datepicker/date_range_editor_model.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_input/material_input.dart';
+import 'package:angular_components/material_menu/menu_item_groups.dart';
+import 'package:angular_components/material_menu/common/menu_root.dart';
 import 'package:angular_components/material_popup/material_popup.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/material_select/material_select.dart';
@@ -34,8 +38,11 @@ import 'package:angular_components/material_select/material_select_item.dart';
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/model/date/date_formatter.dart';
+import 'package:angular_components/model/menu/menu.dart';
+import 'package:angular_components/model/menu/selectable_menu.dart';
 import 'package:angular_components/model/observable/observable.dart';
-import 'package:angular_components/utils/angular/managed_zone/interface.dart';
+import 'package:angular_components/model/selection/select.dart';
+import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/utils/angular/scroll_host/angular_2.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/showhide/showhide.dart';
@@ -60,6 +67,8 @@ export 'package:angular_components/src/material_datepicker/date_range_editor_mod
     ButtonDirective,
     ComparisonRangeEditorComponent,
     DateRangeInputComponent,
+    FocusItemDirective,
+    FocusListDirective,
     KeyboardOnlyFocusIndicatorDirective,
     MaterialButtonComponent,
     MaterialCalendarPickerComponent,
@@ -71,6 +80,8 @@ export 'package:angular_components/src/material_datepicker/date_range_editor_mod
     MaterialSelectComponent,
     MaterialSelectItemComponent,
     MaterialTooltipDirective,
+    MenuItemGroupsComponent,
+    MenuRootDirective,
     NextPrevComponent,
     NgFor,
     NgIf,
@@ -91,26 +102,28 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   /// This is useful for reducing visual noise during popup open/close
   /// animations. Defaults to true.
   @Input()
-  set allowHighlightUpdates(bool value) {
-    _allowHighlightUpdates = value;
-  }
-
-  bool get allowHighlightUpdates => _allowHighlightUpdates;
-
-  bool _allowHighlightUpdates = true;
+  bool allowHighlightUpdates = true;
 
   /// Whether or not this editor includes a section to edit a comparison date
   /// range.
   ///
   /// Defaults to `true`.
   @Input()
-  set supportsComparison(bool value) {
-    _supportsComparison = value;
+  bool supportsComparison = true;
+
+  bool _useMenuForPresets = false;
+
+  /// Whether to use menu-items-groups for presets for improved accessibility.
+  ///
+  /// Internal flag for safe transition.
+  bool get useMenuForPresets => _useMenuForPresets;
+  @Input()
+  set useMenuForPresets(bool value) {
+    _useMenuForPresets = value;
+    if (value && _presetsMenu == null) {
+      _updateValidPresets();
+    }
   }
-
-  bool get supportsComparison => _supportsComparison;
-
-  bool _supportsComparison = true;
 
   /// Checks if custom comparison is a valid option.
   bool get isCustomComparisonValid => model.isCustomComparisonValid;
@@ -121,14 +134,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   /// Whether to enable compact calendar styles.
   @Input()
-  set compact(bool value) {
-    _compact = value;
-  }
-
   @HostBinding('class.compact')
-  bool get compact => _compact;
-
-  bool _compact = false;
+  bool compact = false;
 
   /// For date range selection, whether clicking to move the start date should
   /// also move the end date (preserving the length of the selected range).
@@ -142,13 +149,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   ///
   /// Defaults to `true`.
   @Input()
-  set supportsDaysInputs(bool value) {
-    _supportsDaysInputs = value;
-  }
-
-  bool get supportsDaysInputs => _supportsDaysInputs;
-
-  bool _supportsDaysInputs = true;
+  bool supportsDaysInputs = true;
 
   /// A list of predefined date ranges which the user can choose from. These are
   /// subject to clamping by `minDate` and `maxDate`, and are excluded entirely
@@ -177,7 +178,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   // The subset of _presets which fall within minDate/maxDate (at least partly).
   // Filtered version of presets, regenerated as needed.
-  Set<DatepickerPreset> _validPresets = Set<DatepickerPreset>();
+  Set<DatepickerPreset> _validPresets = <DatepickerPreset>{};
 
   /// If the editor's inside a popup, a handle on the popup. (This is needed
   /// because we can't initialize the calendar's scroll position until after it
@@ -219,7 +220,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   final Element _elementRef;
   final DomService _domService;
-  final ManagedZone _managedZone;
+  final NgZone _ngZone;
+  MenuModel _presetsMenu;
 
   // This controls when the calendar is created.
   // By default, this is null, and the calendar will be created shortly
@@ -299,7 +301,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   bool get shouldShowCustomDateRangeColumn =>
       model.shouldShowCustomDateRangeColumn;
-  bool get shouldShowPredefinedList => model.shouldShowPredefinedList;
+  bool get shouldShowPredefinedList =>
+      _presets.isNotEmpty && model.shouldShowPredefinedList;
 
   /// Whether or not this date range picker is basic.
   ///
@@ -335,7 +338,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   DateRangeEditorComponent(
       this._elementRef,
       this._domService,
-      this._managedZone,
+      this._ngZone,
       @Optional() DateRangeEditorHost editorHost,
       @Optional() @Inject(datepickerClock) Clock clock,
       Clock legacyClock) {
@@ -367,7 +370,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     // Give the browser a chance to do other work before creating the
     // calendar component (for a snappier UX)
     _domService.nextFrame.then((_) {
-      _managedZone.runInside(() {
+      _ngZone.run(() {
         if (_isCalendarCreated != null) return;
         _isCalendarCreated = true;
       });
@@ -392,25 +395,84 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   /// Event which fires when one of the ranges is selected.
   @Output()
   Stream<UIEvent> get presetRangeSelected => _controller.stream;
+  // TODO(google): change to async.
   final _controller = StreamController<UIEvent>.broadcast(sync: true);
 
+  static String _renderPreset(DatepickerPreset value) => value.title;
+  static String _renderAlternativePreset(DatepickerPreset value) =>
+      value.shortTitle;
+  final _presetSelection = SingleSelectionModel<DatepickerPreset>();
+
   void _updateValidPresets() {
-    _validPresets = Set<DatepickerPreset>();
+    _validPresets = <DatepickerPreset>{};
     for (var preset in _presets) {
-      if (preset.range.clamp(min: minDate, max: maxDate) != null) {
-        _validPresets.add(preset);
-      }
+      bool isValid = preset.range.clamp(min: minDate, max: maxDate) != null;
+      if (isValid) _validPresets.add(preset);
       if (preset.alternatives != null) {
         for (var alternative in preset.alternatives) {
-          if (alternative.range.clamp(min: minDate, max: maxDate) != null) {
-            _validPresets.add(alternative);
-          }
+          bool isValidAlternative =
+              alternative.range.clamp(min: minDate, max: maxDate) != null;
+          if (isValidAlternative) _validPresets.add(alternative);
         }
       }
+      if (model.value?.range?.unclamped() == preset.range) {
+        _presetSelection.select(preset);
+      }
     }
+    if (useMenuForPresets) _buildMenu();
+  }
+
+  void _buildMenu() {
+    final items = <SelectableMenuItem<DatepickerPreset>>[];
+    for (var preset in _presets) {
+      MenuModel subMenu;
+      if (preset.alternatives != null) {
+        final subitems = <SelectableMenuItem<DatepickerPreset>>[];
+        for (var alternative in preset.alternatives) {
+          bool isValid = _validPresets.contains(alternative);
+          subitems.add(SelectableMenuItem(
+              cssClasses: ['preset-dropdown-item'],
+              value: alternative,
+              action: () {
+                // TODO(google): pass the event instead of null.
+                onAlternativePresetClicked(null, preset, alternative);
+                _presetSelection.select(alternative);
+              },
+              itemRenderer: _renderAlternativePreset,
+              tooltip: isValid ? null : rangeDisabledTooltip,
+              selectableState: isValid
+                  ? SelectableOption.Selectable
+                  : SelectableOption.Disabled));
+        }
+        subMenu = MenuModel([
+          MenuItemGroupWithSelection(
+              items: subitems, selectionModel: _presetSelection)
+        ]);
+      }
+      bool isValid = _validPresets.contains(preset);
+      items.add(SelectableMenuItem(
+          value: preset,
+          action: () {
+            _presetSelection.select(preset);
+            // TODO(google): pass the event instead of null.
+            onRangeClicked(null, preset.range);
+          },
+          itemRenderer: _renderPreset,
+          tooltip: isValid ? null : rangeDisabledTooltip,
+          selectableState:
+              isValid ? SelectableOption.Selectable : SelectableOption.Disabled,
+          subMenu: subMenu));
+    }
+    _presetsMenu = MenuModel([
+      MenuItemGroupWithSelection(items: items, selectionModel: _presetSelection)
+    ]);
   }
 
   void onRangeClicked(UIEvent event, DatepickerDateRange range) {
+    if (_presetSelection.isNotEmpty &&
+        _presetSelection.selectedValue.range != range) {
+      _presetSelection.clear();
+    }
     model.selectRange(range.clamp(min: minDate, max: maxDate));
     _controller.add(event);
   }
@@ -421,6 +483,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
     for (var i = 0; i < _presets.length; i++) {
       if (_presets[i] == parent) {
         _presets[i] = alternative;
+        if (useMenuForPresets) _updateValidPresets(); // to refresh the menu
         break;
       }
     }
@@ -443,6 +506,7 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   /// the current selection
   void onCustomClicked() {
     var oldRange = model.value?.range;
+    _presetSelection.clear();
     if (oldRange != null) {
       model.selectRange(DatepickerDateRange.custom(oldRange.start, oldRange.end)
           .clamp(min: minDate, max: maxDate));
@@ -505,7 +569,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
 
   bool showMonthSelector = false;
 
-  bool isSelected(range) => model.value?.range?.unclamped() == range;
+  bool isSelected(DatepickerDateRange range) =>
+      model.value?.range?.unclamped() == range;
 
   bool isValid(DatepickerPreset preset) => _validPresets.contains(preset);
 
@@ -521,6 +586,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   String get rangeTitle => model.value?.range?.title ?? '';
 
   String get customRangeDescription => formatRange(model.range.value);
+
+  MenuModel get presetsMenu => _presetsMenu;
 
   static final navigateBeforeMsg = Intl.message('Previous date range',
       name: 'navigateBeforeMsg',
@@ -562,6 +629,8 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
       name: 'DateRangeEditorComponent_rangeDisabledTooltip',
       desc: 'Message that explains why a date range is invalid.');
 }
+
+typedef NextPrevCallback = void Function();
 
 class DateRangeEditorNextPrevModel implements Sequential {
   final NextPrevCallback onNext;

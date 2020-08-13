@@ -25,6 +25,7 @@
               [attr.orientation]="orientation"
               [attr.active]="step.active"
               [attr.complete]="step.complete"
+              [class.partially-complete]="step.partiallyComplete"
               [class.can-select]="step.isSelectable">
           {{step.complete ? "" : step.index +1}}
           <span *ngIf="step.complete">
@@ -60,26 +61,30 @@
          [attr.size]="size">
     </div>
     <div *ngIf="shouldInlineContent && !stepperDone"
-         class="stepper-content"
+         class="stepper-content mixin"
          [attr.orientation]="orientation"
          [attr.size]="size"
          (keypress)="stopPropagationOfEnterAndSpace($event)">
-      <template [ngIf]="step.active">
-        <template [portalHost]="steps[step.index]"></template>
-        <span *ngIf="!activeStep.hideButtons" class="button-container">
-          <material-yes-no-buttons
-              class="stepper-yes-no-buttons"
-              raised
-              yesHighlighted
-              [disabled]="activeStep.busy"
-              [yesDisabled]="!activeStep.canContinue"
-              (yes)="stepForward($event, activeStep)"
-              (no)="stepBackward($event, activeStep)"
-              [yesText]="continueMsg"
-              [noText]="noText"
-              [noDisplayed]="!activeStep.cancelHidden && activeStep.index != 0">
-          </material-yes-no-buttons>
-        </span>
+      <template [ngIf]="step.active || keepInactiveStepsInDom">
+        <div class="provided-content mixin"
+             [class.hidden]="!step.active && keepInactiveStepsInDom">
+          <template [portalHost]="steps[step.index]"></template>
+          <span *ngIf="!activeStep.hideButtons"
+                class="button-container">
+            <material-yes-no-buttons
+                class="stepper-yes-no-buttons"
+                raised
+                yesHighlighted
+                [disabled]="activeStep.busy"
+                [yesDisabled]="!activeStep.canContinue"
+                (yes)="stepForward($event, activeStep)"
+                (no)="stepBackward($event, activeStep)"
+                [yesText]="yesText"
+                [noText]="noText"
+                [noDisplayed]="!activeStep.cancelHidden && activeStep.index != 0">
+            </material-yes-no-buttons>
+          </span>
+        </div>
       </template>
       <div *ngIf="!step.active && step.summaryDirective != null"
            class="step-summary-directive">
@@ -96,7 +101,16 @@
      class="stepper-content mixin"
      [attr.orientation]="orientation"
      [attr.size]="size">
-  <template [portalHost]="activeStep"></template>
+  <div *ngIf="!keepInactiveStepsInDom" class="provided-content mixin">
+    <template [portalHost]="activeStep"></template>
+  </div>
+  <ng-container *ngIf="keepInactiveStepsInDom">
+    <div *ngFor="let step of steps"
+         class="provided-content mixin"
+         [class.hidden]="step != activeStep">
+      <template [portalHost]="step"></template>
+    </div>
+  </ng-container>
     <span *ngIf="!activeStep.hideButtons" class="button-container">
       <material-yes-no-buttons
           raised
@@ -105,7 +119,7 @@
           [yesDisabled]="!activeStep.canContinue"
           (yes)="stepForward($event, activeStep)"
           (no)="stepBackward($event, activeStep)"
-          [yesText]="continueMsg"
+          [yesText]="yesText"
           [noText]="noText"
           [noDisplayed]="!activeStep.cancelHidden && activeStep.index != 0">
       </material-yes-no-buttons>

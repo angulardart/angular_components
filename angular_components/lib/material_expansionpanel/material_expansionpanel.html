@@ -9,7 +9,10 @@
      keyupBoundary>
 
   <!-- Title section -->
-<header [class.hidden]="headerHidden" #headerPanel role="presentation">
+<header #headerPanel
+     [class.hidden]="headerHidden"
+     [attr.role]="headerRole"
+     [attr.aria-level]="headerAriaLevel">
   <div class="header"
           buttonDecorator
           #expandCollapseButton
@@ -25,18 +28,19 @@
           (trigger)="handleHeaderClick">
     <material-icon
         *ngIf="shouldShowExpandIcon && shouldExpandOnLeft"
+        role="none"
         class="expand-button expand-on-left"
         [icon]="expandIcon"
         [class.expand-more]="shouldFlipExpandIcon"
         (click)="handleExpandIconClick">
     </material-icon>
-    <div class="panel-name">
+    <div class="panel-name" aria-hidden="true">
       <ng-content select="[name]"></ng-content>
       <p class="primary-text">{{name}}</p>
       <p class="secondary-text" *ngIf="secondaryText != null">{{secondaryText}}</p>
     </div>
 
-    <div class="panel-description" autoId #panelDescription="autoId">
+    <div class="panel-description" autoId #panelDescription="autoId" aria-hidden="true">
       <ng-content select="[value]"></ng-content>
     </div>
 
@@ -53,7 +57,12 @@
 </header>
 
 <!-- Expanded section -->
-<main [class.hidden]="!isExpanded" #mainPanel role="presentation" autoId #mainId="autoId">
+<main #mainPanel
+      [class.hidden]="!isExpanded"
+      role="region"
+      autoId
+      #mainId="autoId"
+      [attr.aria-hidden]="!isExpanded">
   <div #mainContent *deferredContent="forceContent: forceContentWhenClosed">
     <div #contentWrapper class="content-wrapper" [class.hidden-header]="hideExpandedHeader">
       <material-icon

@@ -3,13 +3,16 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
+<div
+    *ngIf="doc.libraryDoc.isNotEmpty"
+    [safeInnerHtml]="getSafeHtml(doc.libraryDoc)">
+</div>
+
 <ng-container *ngIf="doc.variables.isNotEmpty">
   <strong>Variables:</strong>
   <ul class="property-list">
     <li *ngFor="let variable of doc.variables">
-      <code class="property-name">
-        ${{variable.name}}: {{variable.expression}};
-      </code>
+      <code class="property-name">${{variable.name}}</code>
       <div *ngIf="variable.comment.isNotEmpty" [safeInnerHtml]="getSafeHtml(variable.comment)">
       </div>
     </li>

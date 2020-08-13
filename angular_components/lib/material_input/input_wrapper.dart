@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-
 import 'package:angular_components/interfaces/has_disabled.dart';
 
 // TODO(google): This copies a lot of values from material-input, and yet
@@ -33,7 +32,7 @@ class MaterialInputWrapper implements HasDisabled {
 
   /// Error to be displayed.
   ///
-  /// Higher precendent than all other errors which may be on this input.
+  /// Higher precedent than all other errors which may be on this input.
   @Input()
   String error;
 
@@ -71,7 +70,7 @@ class MaterialInputWrapper implements HasDisabled {
   /// Whether or not the input is required.
   ///
   /// If there's no input text, a required input will show a validation error
-  /// when it's first blured.
+  /// when it's first blurred.
   @Input()
   bool required = false;
 
@@ -98,14 +97,10 @@ class MaterialInputWrapper implements HasDisabled {
   @Input()
   String trailingGlyph;
 
-  String _label;
-  String get label => _label;
   // Set is added to allow the base classes to override this functionality.
   /// The label to use on the input.
   @Input()
-  set label(String value) {
-    _label = value;
-  }
+  String label;
 
   String _ariaLabel;
   String get ariaLabel => _ariaLabel ?? label;

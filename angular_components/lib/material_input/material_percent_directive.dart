@@ -41,7 +41,7 @@ class MaterialPercentInputDirective {
 
   // Used to override the standard error messages with percent equivalents.
   Map<String, dynamic> _replaceErrorMessage(Map<String, dynamic> errors) {
-    var overrides;
+    Map<String, dynamic> overrides;
     for (var key in _errorOverrides.keys) {
       if (_errorOverrides.containsKey(key)) {
         overrides ??= Map<String, dynamic>.from(errors);
@@ -60,9 +60,9 @@ class MaterialPercentInputDirective {
   // value instead of material-input so that we can use the percent errors as
   // needed.
   @Input()
-  Function percentErrorRenderer;
+  Map<String, dynamic> Function(Map<String, dynamic>) percentErrorRenderer;
 
-  static Map<String, String> _errorOverrides = {
+  static final _errorOverrides = {
     nonNegativeIntegerRequiredErrorKey: _negativePercentageErrMsg,
     numberBelowLowerBoundErrorKey: _percentTooSmallErrMsg,
     numberAboveUpperBoundErrorKey: _percentTooLargeErrMsg,

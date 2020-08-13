@@ -8,15 +8,17 @@
 <div class="main-example">
   <div class="options-pane" elevation="2">
     <h4>Options</h4>
-    <material-checkbox [(checked)]="supportsComparison">Support comparison</material-checkbox>
-    <material-checkbox [(checked)]="showNextPrevButtons">Show next/prev buttons</material-checkbox>
+    <material-checkbox [(checked)]="useMenuForPresets">Improve a11y</material-checkbox>
+    <material-checkbox [(checked)]="supportsComparison">Support comparison</material-checkbox><br />
+    <material-checkbox [(checked)]="isBasic">isBasic</material-checkbox><br />
+    <material-checkbox [(checked)]="showNextPrevButtons">Show next/prev buttons</material-checkbox><br />
     <material-checkbox [(checked)]="longPresetList">
       Long preset list (demonstrates scrolling)
-    </material-checkbox>
-    <material-checkbox [(checked)]="showMessageBar">Show message bar</material-checkbox>
+    </material-checkbox><br />
+    <material-checkbox [(checked)]="showMessageBar">Show message bar</material-checkbox><br />
     <material-checkbox [(checked)]="movingStartMaintainsLength">
       Maintain range length when moving start date
-    </material-checkbox>
+    </material-checkbox><br />
     <div class="limit-label">Limit to date range:</div>
     <date-range-input class="range-limit" [(range)]="limitToRange"></date-range-input>
     <div class="selection-label">The current selection is: {{range}}</div>
@@ -27,6 +29,8 @@
        [minDate]="limitToRange.start"
        [maxDate]="limitToRange.end"
        [presets]="presets"
+       [configuration]="configuration"
+       [useMenuForPresets]="useMenuForPresets"
        [supportsComparison]="supportsComparison"
        [showNextPrevButtons]="showNextPrevButtons"
        [movingStartMaintainsLength]="movingStartMaintainsLength"

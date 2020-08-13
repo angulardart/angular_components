@@ -5,15 +5,37 @@
 -->
 <div class="container" [class.is-disabled]="disabled" (mousedown)="mouseDown($event)"
     (touchstart)="touchStart($event)" #container>
+  <ng-container *ngIf="isTwoSided">
+    <div class="track-container double-sided-left-track-container"
+         style.width="calc({{leftProgressPercent}}%)">
+      <div class="track"></div>
+    </div>
+    <div class="left-knob knob" role="slider"
+         [attr.tabindex]="disabled ? -1 : 0"
+         (mousedown)="isLeftKnobSelected = true"
+         (touchstart)="isLeftKnobSelected = true"
+         (keydown)="knobKeyDown($event, isLeftKnobPressed: true)"
+         [style.left.px]="isRtl ? 0 : -8"
+         [style.right.px]="isRtl ? -8 : 0"
+         [attr.aria-valuemin]="min"
+         [attr.aria-valuemax]="max"
+         [attr.aria-valuenow]="leftValue">
+      <div class="knob-real"></div>
+      <div class="knob-hover-shadow"></div>
+      <div class="knob-drag-shadow" [class.is-dragging]="isDragging"></div>
+    </div>
+  </ng-container>
   <div class="track-container left-track-container"
-       [style.width.%]="progressPercent">
+       [style.width.%]="progressPercent - leftProgressPercent">
     <div class="track"></div>
   </div>
-  <div class="knob" role="slider"
+  <div class="right-knob knob" role="slider"
          [attr.tabindex]="disabled ? -1 : 0"
+         (mousedown)="isRightKnobSelected = true"
+         (touchstart)="isRightKnobSelected = true"
          (keydown)="knobKeyDown($event)"
-         [style.margin-left.px]="isRtl ? 0 : -8"
-         [style.margin-right.px]="isRtl ? -8 : 0"
+         [style.left.px]="isRtl ? 0 : -8"
+         [style.right.px]="isRtl ? -8 : 0"
          [attr.aria-valuemin]="min"
          [attr.aria-valuemax]="max"
          [attr.aria-valuenow]="value">
@@ -22,7 +44,7 @@
     <div class="knob-drag-shadow" [class.is-dragging]="isDragging"></div>
   </div>
   <div class="track-container right-track-container"
-       style.width="calc({{100-progressPercent}}% + 8px)">
+       style.width="calc({{100-progressPercent}}%)">
     <div class="track"></div>
   </div>
 </div>

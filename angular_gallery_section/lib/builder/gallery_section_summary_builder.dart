@@ -19,7 +19,7 @@ class GallerySectionSummaryBuilder extends Builder {
   @override
   Future build(BuildStep buildStep) async {
     final inputId = buildStep.inputId;
-    final summaries = List<Map<String, dynamic>>();
+    final summaries = <Map<String, dynamic>>[];
 
     // Extract details from @GallerySectionConfig annotations.
     await for (var assetId
@@ -32,6 +32,7 @@ class GallerySectionSummaryBuilder extends Builder {
 
       summaries.addAll(infoList.map((info) => {
             'displayName': info.displayName,
+            'group': info.group,
             'dartImport': _toApiTemplatePath(assetId.uri.toString()),
             'componentClass': '${info.classSafeName}Api',
             'docs': info.docs.map((doc) => doc.name).toList(),

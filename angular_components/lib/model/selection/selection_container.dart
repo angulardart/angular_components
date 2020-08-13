@@ -14,74 +14,38 @@ abstract class SelectionContainer<T>
         HasComponentRenderer<RendersValue, Object>,
         HasFactoryRenderer<RendersValue, T> {
   /// The selection model this container represents.
-  SelectionModel<T> _selection;
-  SelectionModel<T> get selection => _selection;
-  set selection(SelectionModel<T> value) {
-    _selection = value;
-  }
+  SelectionModel<T> selection;
 
   /// The available options for this container.
-  SelectionOptions<T> _options;
-  SelectionOptions<T> get options => _options;
-  set options(SelectionOptions<T> value) {
-    _options = value;
-  }
+  SelectionOptions<T> options;
 
   /// A simple function to render the an item to string.
   /// @override
-  ItemRenderer<T> _itemRenderer;
   @override
-  ItemRenderer<T> get itemRenderer => _itemRenderer;
-  @override
-  set itemRenderer(ItemRenderer<T> value) {
-    _itemRenderer = value;
-  }
+  ItemRenderer<T> itemRenderer;
 
   /// Specifies the componentRenderer to use to determine the component for
   /// rendering an item.
-  ComponentRenderer _componentRenderer;
-  @override
-  ComponentRenderer get componentRenderer => _componentRenderer;
   @override
   @Deprecated(
       'Use factoryRenderer instead it provides more tree-shakeable code')
-  set componentRenderer(ComponentRenderer value) {
-    _componentRenderer = value;
-  }
+  ComponentRenderer componentRenderer;
 
   /// Specifies the factoryRenderer to use to determine the factory for
   /// rendering an item.
-  FactoryRenderer<RendersValue, T> _factoryRenderer;
   @override
-  FactoryRenderer<RendersValue, T> get factoryRenderer => _factoryRenderer;
-  @override
-  set factoryRenderer(FactoryRenderer<RendersValue, T> value) {
-    _factoryRenderer = value;
-  }
+  FactoryRenderer<RendersValue, T> factoryRenderer;
 }
 
 /// A type of component which renders an item from a `SelectionModel`.
 abstract class SelectionItem<T> implements HasRenderer<T> {
   /// The selection model this item is a member of.
-  SelectionModel<T> _selection;
-  SelectionModel<T> get selection => _selection;
-  set selection(SelectionModel<T> value) {
-    _selection = value;
-  }
+  SelectionModel<T> selection;
 
   /// The value this component represents.
-  T _value;
-  T get value => _value;
-  set value(T value) {
-    _value = value;
-  }
+  T value;
 
   /// A simple function to render the item to string.
-  ItemRenderer<T> _itemRenderer;
   @override
-  ItemRenderer<T> get itemRenderer => _itemRenderer;
-  @override
-  set itemRenderer(ItemRenderer<T> value) {
-    _itemRenderer = value;
-  }
+  ItemRenderer<T> itemRenderer;
 }

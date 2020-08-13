@@ -31,7 +31,7 @@ DatepickerDateRange _genericPrev(DatepickerDateRange r) => _ifValidRange(
         r.start.add(days: -daysSpanned(r.start, r.end)),
         r.start.add(days: -1)));
 
-typedef DatepickerDateRange RangeFn(DatepickerDateRange range);
+typedef RangeFn = DatepickerDateRange Function(DatepickerDateRange range);
 
 /// A datepicker-specific implementation of [DateRange], extended with a title
 /// and an interface for computing the next/previous date range.
@@ -167,7 +167,7 @@ proto.DatepickerDateRange _makeProtoBuf(DatepickerDateRange range) =>
         : (proto.DatepickerDateRange()
           ..dateRange = _makeDateRangeProto(range.start, range.end));
 
-_makeDateRangeProto(Date start, Date end) => proto.DateRange()
+proto.DateRange _makeDateRangeProto(Date start, Date end) => proto.DateRange()
   ..start = _makeDateProto(start)
   ..end = _makeDateProto(end);
 
@@ -291,7 +291,7 @@ class _BasicDateRange implements DatepickerDateRange {
 /// Builds the date range title based on how many units ago the date range is.
 ///
 /// E.g. "1 year ago" or "3 days from now"
-typedef String RangeTitle(int ago);
+typedef RangeTitle = String Function(int ago);
 
 /// A single day. Special-cased to have titles like "today", "4 days ago", etc.
 class SingleDayRange implements DatepickerDateRange {
@@ -328,7 +328,7 @@ class SingleDayRange implements DatepickerDateRange {
   static String _defaultTitle(int daysAgo) =>
       daysAgo > 0 ? _addDaysMsg(daysAgo) : _daysFromNowMsg(-daysAgo);
 
-  static _addDaysMsg(daysAgo) => Intl.plural(daysAgo,
+  static String _addDaysMsg(int daysAgo) => Intl.plural(daysAgo,
       zero: 'Today',
       one: 'Yesterday',
       other: '$daysAgo days ago',
@@ -338,7 +338,7 @@ class SingleDayRange implements DatepickerDateRange {
           'of days in the past.',
       examples: const {'daysAgo': 2});
 
-  static _daysFromNowMsg(daysFromNow) => Intl.plural(daysFromNow,
+  static String _daysFromNowMsg(int daysFromNow) => Intl.plural(daysFromNow,
       zero: 'Today',
       one: 'Tomorrow',
       other: '$daysFromNow days from now',
@@ -394,7 +394,7 @@ class LastNDaysRange extends MultipleDaysRange {
   proto.DatepickerDateRange toProtoBuf() =>
       _makeProtoBuf(this)..lastNDays = _lengthInDays;
 
-  static _lastNDaysMsg(lengthInDays) => Intl.plural(lengthInDays,
+  static String _lastNDaysMsg(int lengthInDays) => Intl.plural(lengthInDays,
       one: 'Yesterday',
       other: 'Last $lengthInDays days',
       name: '_lastNDaysMsg',
@@ -419,14 +419,15 @@ class LastNDaysToTodayRange extends MultipleDaysRange {
   proto.DatepickerDateRange toProtoBuf() =>
       _makeProtoBuf(this)..lastNDaysToToday = _lengthInDays;
 
-  static _lastNDaysToTodayMsg(lengthInDays) => Intl.plural(lengthInDays,
-      one: 'Today',
-      other: '$lengthInDays days to today',
-      name: '_lastNDaysToTodayMsg',
-      args: [lengthInDays],
-      desc: 'A date range containing the last "lengthInDays" days, '
-          'ending today.',
-      examples: const {'lengthInDays': 7});
+  static String _lastNDaysToTodayMsg(int lengthInDays) =>
+      Intl.plural(lengthInDays,
+          one: 'Today',
+          other: '$lengthInDays days to today',
+          name: '_lastNDaysToTodayMsg',
+          args: [lengthInDays],
+          desc: 'A date range containing the last "lengthInDays" days, '
+              'ending today.',
+          examples: const {'lengthInDays': 7});
 }
 
 /// A range 'N' days long, which starts today.
@@ -446,14 +447,15 @@ class NextNDaysFromTodayRange extends MultipleDaysRange {
   proto.DatepickerDateRange toProtoBuf() =>
       _makeProtoBuf(this)..nextNDaysFromToday = _lengthInDays;
 
-  static _nextNDaysFromTodayMsg(lengthInDays) => Intl.plural(lengthInDays,
-      one: 'Today',
-      other: '$lengthInDays days from today',
-      name: '_nextNDaysFromTodayMsg',
-      args: [lengthInDays],
-      desc: 'A date range containing the next "lengthInDays" days, '
-          'starting with today. [REL_NOTE:brockschmid/01-01-2019]',
-      examples: const {'lengthInDays': 7});
+  static String _nextNDaysFromTodayMsg(int lengthInDays) =>
+      Intl.plural(lengthInDays,
+          one: 'Today',
+          other: '$lengthInDays days from today',
+          name: '_nextNDaysFromTodayMsg',
+          args: [lengthInDays],
+          desc: 'A date range containing the next "lengthInDays" days, '
+              'starting with today. [REL_NOTE:brockschmid/01-01-2019]',
+          examples: const {'lengthInDays': 7});
 }
 
 /// A single week. Special-cased to have titles like "This week" or "Last week".
@@ -521,7 +523,7 @@ class WeekRange implements DatepickerDateRange {
   static String _defaultTitle(int weeksAgo) =>
       weeksAgo > 0 ? _weeksAgoMsg(weeksAgo) : _weeksFromNowMsg(-weeksAgo);
 
-  static _weeksAgoMsg(weeksAgo) => Intl.plural(weeksAgo,
+  static String _weeksAgoMsg(int weeksAgo) => Intl.plural(weeksAgo,
       zero: 'This week', // TODO(google): 'This week (Mon-Sun)'
       one: 'Last week',
       other: '$weeksAgo weeks ago',
@@ -530,7 +532,7 @@ class WeekRange implements DatepickerDateRange {
       desc: 'A date range spanning a single week in the past.',
       examples: const {'weeksAgo': 2});
 
-  static _weeksFromNowMsg(weeksFromNow) => Intl.plural(weeksFromNow,
+  static String _weeksFromNowMsg(int weeksFromNow) => Intl.plural(weeksFromNow,
       zero: 'This week',
       one: 'Next week',
       other: '$weeksFromNow weeks from now',
@@ -592,7 +594,7 @@ class MonthRange implements DatepickerDateRange {
   static String _defaultTitle(int monthsAgo) =>
       monthsAgo > 0 ? _monthsAgoMsg(monthsAgo) : _monthsFromNowMsg(-monthsAgo);
 
-  static _monthsAgoMsg(monthsAgo) => Intl.plural(monthsAgo,
+  static String _monthsAgoMsg(int monthsAgo) => Intl.plural(monthsAgo,
       zero: 'This month',
       one: 'Last month',
       other: '$monthsAgo months ago',
@@ -601,14 +603,15 @@ class MonthRange implements DatepickerDateRange {
       desc: 'A date range spanning a single month in the past.',
       examples: const {'monthsAgo': 2});
 
-  static _monthsFromNowMsg(monthsFromNow) => Intl.plural(monthsFromNow,
-      zero: 'This month',
-      one: 'Next month',
-      other: '$monthsFromNow months from now',
-      name: '_monthsFromNowMsg',
-      args: [monthsFromNow],
-      desc: 'A date range spanning a single month in the future.',
-      examples: const {'monthsFromNow': 2});
+  static String _monthsFromNowMsg(int monthsFromNow) =>
+      Intl.plural(monthsFromNow,
+          zero: 'This month',
+          one: 'Next month',
+          other: '$monthsFromNow months from now',
+          name: '_monthsFromNowMsg',
+          args: [monthsFromNow],
+          desc: 'A date range spanning a single month in the future.',
+          examples: const {'monthsFromNow': 2});
 }
 
 /// A single broadcast month.
@@ -689,7 +692,7 @@ class BroadcastMonthRange implements DatepickerDateRange {
       ? _broadcastMonthsAgoMsg(broadcastMonthsAgo)
       : _broadcastMonthsFromNowMsg(-broadcastMonthsAgo);
 
-  static _broadcastMonthsAgoMsg(broadcastMonthsAgo) =>
+  static String _broadcastMonthsAgoMsg(broadcastMonthsAgo) =>
       Intl.plural(broadcastMonthsAgo,
           zero: 'This broadcast month',
           one: 'Last broadcast month',
@@ -699,7 +702,7 @@ class BroadcastMonthRange implements DatepickerDateRange {
           desc: 'A date range spanning a single broadcast month in the past.',
           examples: const {'broadcastMonthsAgo': 2});
 
-  static _broadcastMonthsFromNowMsg(broadcastMonthsFromNow) =>
+  static String _broadcastMonthsFromNowMsg(broadcastMonthsFromNow) =>
       Intl.plural(broadcastMonthsFromNow,
           zero: 'This broadcast month',
           one: 'Next broadcast month',
@@ -747,7 +750,7 @@ class YearRange implements DatepickerDateRange {
   static String _defaultTitle(int yearsAgo) =>
       yearsAgo > 0 ? _yearsAgoMsg(yearsAgo) : _yearsFromNowMsg(-yearsAgo);
 
-  static _yearsAgoMsg(yearsAgo) => Intl.plural(yearsAgo,
+  static String _yearsAgoMsg(int yearsAgo) => Intl.plural(yearsAgo,
       zero: 'This year',
       one: 'Last year',
       other: '$yearsAgo years ago',
@@ -756,7 +759,7 @@ class YearRange implements DatepickerDateRange {
       desc: 'A date range spanning a single year in the past.',
       examples: const {'yearsAgo': 2});
 
-  static _yearsFromNowMsg(yearsFromNow) => Intl.plural(yearsFromNow,
+  static String _yearsFromNowMsg(int yearsFromNow) => Intl.plural(yearsFromNow,
       zero: 'This year',
       one: 'Next year',
       other: '$yearsFromNow years from now',
@@ -835,7 +838,7 @@ class QuarterRange implements DatepickerDateRange {
       ? _quartersAgoMsg(quartersAgo)
       : _quartersFromNowMsg(-quartersAgo);
 
-  static _quartersAgoMsg(quartersAgo) => Intl.plural(quartersAgo,
+  static String _quartersAgoMsg(int quartersAgo) => Intl.plural(quartersAgo,
       zero: 'This quarter',
       one: 'Last quarter',
       other: '$quartersAgo quarters ago',
@@ -844,14 +847,15 @@ class QuarterRange implements DatepickerDateRange {
       desc: 'A date range spanning a single quarter in the past.',
       examples: const {'quartersAgo': 2});
 
-  static _quartersFromNowMsg(quartersFromNow) => Intl.plural(quartersFromNow,
-      zero: 'This quarter',
-      one: 'Next quarter',
-      other: '$quartersFromNow quarters from now',
-      name: '_quartersFromNowMsg',
-      args: [quartersFromNow],
-      desc: 'A date range spanning a single quarter in the future.',
-      examples: const {'quartersFromNow': 2});
+  static String _quartersFromNowMsg(int quartersFromNow) =>
+      Intl.plural(quartersFromNow,
+          zero: 'This quarter',
+          one: 'Next quarter',
+          other: '$quartersFromNow quarters from now',
+          name: '_quartersFromNowMsg',
+          args: [quartersFromNow],
+          desc: 'A date range spanning a single quarter in the future.',
+          examples: const {'quartersFromNow': 2});
 }
 
 // Commonly used date ranges
@@ -917,6 +921,6 @@ final _customDateRangeMsg = Intl.message('Custom',
     desc: 'Name of a user-specified date range, as opposed to a predefined '
         'date range like "Last 7 days"');
 
-get _allTimeMsg => Intl.message('All time',
+final _allTimeMsg = Intl.message('All time',
     name: '_allTimeMsg',
     desc: 'A date range containing the entire lifetime of the account.');

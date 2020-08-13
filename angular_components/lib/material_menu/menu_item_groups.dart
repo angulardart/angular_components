@@ -114,8 +114,12 @@ class MenuItemGroupsComponent
   /// This is set to true when mouse moved and is reset to false when a keyboard
   /// event captured or roughly [_menuDelay] after the last mouse move event
   /// triggered.
+  @HostBinding('class.mouse-driven')
   bool get isMouseDriven => _isMouseDriven;
   bool _isMouseDriven = false;
+
+  @HostBinding('class.keyboard-driven')
+  bool get isKeyboardDriven => !isMouseDriven;
 
   /// Optional model that is used to track keyboard active item.
   ActiveItemModel _activeModel;
@@ -267,7 +271,7 @@ class MenuItemGroupsComponent
   }
 
   void select(MenuItem item, MenuItemGroup group) {
-    item.nullAwareActionHandler();
+    item.action?.call();
 
     // Fire the event for activating the menu item. This does not mean the item
     // is selected, but merely that it was triggered (by mouse, keyboard, w/e).
@@ -355,6 +359,7 @@ class MenuItemGroupsComponent
     return null;
   }
 
+  @HostListener('focus')
   void onFocus(FocusEvent event) {
     MenuItem item = _itemForTarget(event.target);
     if (item == null) return;
@@ -491,7 +496,9 @@ class MenuItemGroupsComponent
   void _autoFocusActiveItem() {
     // Set auto-focus to the currently selected list item if this menu is
     // a sub-menu and was opened via keyboard shortcut.
-    _autoFocusItemId = qc.Optional.of(activeModel.id(activeModel.activeItem));
+    if (activeModel.activeItem != null) {
+      _autoFocusItemId = qc.Optional.of(activeModel.id(activeModel.activeItem));
+    }
   }
 
   /// Focus the active item if any.

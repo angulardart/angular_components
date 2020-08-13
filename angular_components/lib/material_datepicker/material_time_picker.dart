@@ -36,6 +36,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 )
 class MaterialTimePickerComponent extends KeyboardHandlerMixin
     implements HasDisabled, OnInit, OnDestroy {
+  static const minutesInDay = 24 * 60;
   static DateTime _utcTime(int hour, [int minute = 0]) => DateTime.utc(
       _unixEpoch.year, _unixEpoch.month, _unixEpoch.day, hour, minute);
 
@@ -56,6 +57,16 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
     DateFormat.jms(),
     DateFormat.Hms()
   ];
+
+  /// Generates the list of time options to be used in the picking dropdown,
+  /// based on [increment] in minutes.
+  static List<DateTime> _generateTimeOptions(int increment,
+      {bool utc = false}) {
+    final time = utc ? _utcTime : _localTime;
+    final minutesToTime = (minutes) => time(minutes ~/ 60, minutes % 60);
+    return List<DateTime>.generate(
+        minutesInDay ~/ increment, (index) => minutesToTime(index * increment));
+  }
 
   final Clock _clock;
   final _disposer = Disposer.oneShot();
@@ -99,22 +110,16 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
 
   DateTime get time => _withEpochDate(_time);
 
-  bool get disabled => _disabled;
-  bool _disabled = false;
-
   /// Whether changing the selected time should be disabled.
   @Input()
-  set disabled(bool value) => _disabled = value;
-
-  bool _required = false;
-  bool get required => _required;
+  bool disabled = false;
 
   /// Whether the time entry is required.
   ///
   /// If true, the embedded text field will display an error to the user if
   /// blank. If false, clearing the text field will set `time` to `null`.
   @Input()
-  set required(bool value) => _required = value;
+  bool required = false;
 
   bool get utc => _utc;
   bool _utc = false;
@@ -126,8 +131,8 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   set utc(bool value) {
     _utc = value;
 
-    timeOptions = TimeSelectionOptions(
-        List<DateTime>.generate(24, _utc ? _utcTime : _localTime));
+    timeOptions =
+        TimeSelectionOptions(_generateTimeOptions(_increment, utc: _utc));
 
     time = _time;
   }
@@ -180,6 +185,28 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
     }
   }
 
+  int _increment = 60;
+
+  /// Increment of dropdown options in minutes.
+  ///
+  /// Throws [ArgumentError] if value is less than 1 minute or greater
+  /// than 12 hours or day divided by it is fractional.
+  @Input()
+  set increment(int value) {
+    if (value < 1) {
+      throw ArgumentError('increment must not be less than 1 minute');
+    } else if (minutesInDay % value != 0) {
+      throw ArgumentError('day divided by increment must not be fractional');
+    } else if (minutesInDay ~/ value < 2) {
+      throw ArgumentError('increment must not be greater than 12 hours');
+    }
+
+    _increment = value;
+
+    timeOptions =
+        TimeSelectionOptions(_generateTimeOptions(_increment, utc: _utc));
+  }
+
   /// Publishes events when the selected time changes.
   ///
   /// Date is set to epoch(1970-1-1) and time set to [time]
@@ -194,7 +221,8 @@ class MaterialTimePickerComponent extends KeyboardHandlerMixin
   String renderTime(DateTime time) => outputFormat.format(time);
 
   MaterialTimePickerComponent(@Inject(datepickerClock) this._clock) {
-    timeOptions = TimeSelectionOptions(List<DateTime>.generate(24, _localTime));
+    timeOptions =
+        TimeSelectionOptions(_generateTimeOptions(_increment, utc: _utc));
   }
 
   @override

@@ -23,7 +23,7 @@ import 'package:angular_components/utils/disposer/disposer.dart';
 /// **NOTE**: Usage of this removes [Modal]'s built in LIFO stack.
 @Injectable()
 class GlobalModalStack {
-  final List<Modal> _stack = List<Modal>();
+  final List<Modal> _stack = <Modal>[];
 
   /// Size of the stack.
   int get length => _stack.length;
@@ -68,7 +68,7 @@ abstract class Modal {
   ///
   /// See [AsyncAction] for the API for deferring or cancelling the event.\
   @Output('close')
-  Stream<AsyncAction> get onClose;
+  Stream<AsyncAction<dynamic>> get onClose;
 
   /// Attempts to open the modal.
   ///
@@ -79,7 +79,7 @@ abstract class Modal {
   ///
   /// See [AsyncAction] for the API for deferring or cancelling the event.
   @Output('open')
-  Stream<AsyncAction> get onOpen;
+  Stream<AsyncAction<dynamic>> get onOpen;
 
   /// A stream of click events on the modal.
   ///
@@ -167,12 +167,12 @@ class ModalComponent
   final DomService _domService;
 
   @override
-  Stream<AsyncAction> get onOpen => _onOpen.stream;
-  final _onOpen = StreamController<AsyncAction>.broadcast(sync: true);
+  Stream<AsyncAction<dynamic>> get onOpen => _onOpen.stream;
+  final _onOpen = StreamController<AsyncAction<dynamic>>.broadcast(sync: true);
 
   @override
-  Stream<AsyncAction> get onClose => _onClose.stream;
-  final _onClose = StreamController<AsyncAction>.broadcast(sync: true);
+  Stream<AsyncAction<dynamic>> get onClose => _onClose.stream;
+  final _onClose = StreamController<AsyncAction<dynamic>>.broadcast(sync: true);
 
   @override
   Stream<bool> get onVisibleChanged => _onVisibleChanged.stream;
@@ -303,7 +303,7 @@ class ModalComponent
   @override
   Future<bool> open() {
     if (_pendingOpen == null) {
-      final controller = AsyncActionController();
+      final controller = AsyncActionController<dynamic>();
       controller.execute(_showModalOverlay);
       _pendingOpen = controller.action.onDone.then((completed) {
         _pendingOpen = null;
@@ -317,7 +317,7 @@ class ModalComponent
   @override
   Future<bool> close() {
     if (_pendingClose == null) {
-      final controller = AsyncActionController();
+      final controller = AsyncActionController<dynamic>();
       controller.execute(_hideModalOverlay);
       _pendingClose = controller.action.onDone.then((completed) {
         _pendingClose = null;

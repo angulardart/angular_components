@@ -25,7 +25,7 @@ class PopupState extends Observable {
       bool matchMinSourceWidth = false,
       int offsetX = 0,
       int offsetY = 0,
-      Iterable preferredPositions = const [],
+      Iterable<Object> preferredPositions = const [],
       PopupSource source,
       bool trackLayoutChanges = true,
       bool constrainToViewport = true}) {
@@ -57,7 +57,7 @@ class PopupState extends Observable {
         // a map let's obscure the fact it's a map and convert into properties.
         var propertyRecords = <ChangeRecord>[];
         for (var record in records) {
-          if (record is MapChangeRecord) {
+          if (record is MapChangeRecord<Object, Object>) {
             propertyRecords.add(PropertyChangeRecord(
                 this, record.key, record.oldValue, record.newValue));
           }
@@ -113,9 +113,9 @@ class PopupState extends Observable {
   /// Similarly to Angular providers, this supports nested lists of
   /// [RelativePosition]s. Under the hood, we'll flatten out the list and pick
   /// the first position that fits onscreen.
-  Iterable /* <RelativePosition | Iterable> */ get preferredPositions =>
+  Iterable<Object /* RelativePosition | Iterable */ > get preferredPositions =>
       _backingMap[#preferredPositions];
-  set preferredPositions(Iterable preferredPositions) {
+  set preferredPositions(Iterable<Object> preferredPositions) {
     _backingMap[#preferredPositions] = preferredPositions;
   }
 

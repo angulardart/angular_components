@@ -59,8 +59,8 @@ $menu-item-selector: '.menu-item';
   @include menu-item-affix-hover;
 }
 
-.mouse-driven {
-  #{$menu-item-selector}:not(:hover) {
+:host(.mouse-driven) {
+  #{$menu-item-selector}:not(:hover):not(:focus) {
     background-color: inherit;
   }
 
@@ -72,7 +72,7 @@ $menu-item-selector: '.menu-item';
   }
 }
 
-.keyboard-driven {
+:host(.keyboard-driven) {
   #{$menu-item-selector} {
     &:not(.active) {
       background-color: inherit;

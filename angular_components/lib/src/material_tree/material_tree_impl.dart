@@ -101,7 +101,7 @@ class MaterialTreeComponent<T> with MaterialTreeRoot<T>, SelectionContainer<T> {
   @Input()
   bool expandAll = false;
 
-  /// Whether the widgets supports the selection of non-leaf nodes
+  /// Whether the widgets supports the selection of non-leaf nodes.
   ///
   /// When `false`, and the widget is using a single selection model clicking
   /// the widget should toggle expansion when a non-leaf node is clicked. When
@@ -110,6 +110,16 @@ class MaterialTreeComponent<T> with MaterialTreeRoot<T>, SelectionContainer<T> {
   @Input()
   @override
   bool allowParentSingleSelection = false;
+
+  /// Whether the widgets supports the selection of non-leaf nodes.
+  ///
+  /// When `false`, and the widget is using a multi selection model clicking
+  /// the widget should toggle expansion when a non-leaf node is clicked. When
+  /// `true` the widget should select non-leaf nodes when clicked and only
+  /// toggle expansion when the expansion icon is clicked.
+  @Input()
+  @override
+  bool allowParentMultiSelection = true;
 
   /// Whether clicking on a selected item should deselect it. (Only applicable
   /// when [supportsHierarchy] is `true`.)

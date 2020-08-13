@@ -37,7 +37,8 @@ import 'package:angular_components/model/selection/selection_options.dart';
       <div class="shadow" style="width: 400px; margin: 24px;">
         <material-tree
           [options]="nestedOptions"
-          [selection]="multiSelection">
+          [selection]="multiSelection"
+          [allowParentMultiSelection]="allowParentMultiSelection">
         </material-tree>
       </div>
     ''',
@@ -46,6 +47,7 @@ import 'package:angular_components/model/selection/selection_options.dart';
 class MaterialTreeNestedMultiDemoComponent {
   final SelectionOptions nestedOptions = data.nestedOptions;
   final SelectionModel multiSelection = SelectionModel.multi();
+  var allowParentMultiSelection = true;
 
   @ViewChild(MaterialTreeComponent)
   MaterialTreeComponent materialTree;

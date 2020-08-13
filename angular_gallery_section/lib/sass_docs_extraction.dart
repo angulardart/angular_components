@@ -15,11 +15,23 @@ import 'package:angular_gallery_section/visitors/path_utils.dart' as path_utils;
 /// and mixins when their name starts with an underscore.
 Future<SassDocInfo> extractSassDocs(
     String name, AssetId assetId, AssetReader assetReader) async {
+  var libraryDoc = '';
   final contents = await assetReader.readAsString(assetId);
   final stylesheet = Stylesheet.parseScss(contents);
   final variableDeclarations = <SassVariableInfo>[];
   final functionRules = <SassCallableInfo>[];
   final mixinRules = <SassCallableInfo>[];
+
+  final first = stylesheet.children.firstWhere((_) => true, orElse: () => null);
+  if (first is SilentComment) {
+    final second =
+        stylesheet.children.skip(1).firstWhere((_) => true, orElse: () => null);
+    if (second is! VariableDeclaration &&
+        second is! FunctionRule &&
+        second is! MixinRule) {
+      libraryDoc = _formatComment(first);
+    }
+  }
 
   for (var node in stylesheet.children) {
     // Collect the variables, functions and mixins that do not have names
@@ -35,7 +47,7 @@ Future<SassDocInfo> extractSassDocs(
   }
 
   return SassDocInfo(name, path_utils.assetToPath(assetId.toString()),
-      variableDeclarations, functionRules, mixinRules);
+      libraryDoc, variableDeclarations, functionRules, mixinRules);
 }
 
 /// Gathers the information needed to document a [callable] (function or

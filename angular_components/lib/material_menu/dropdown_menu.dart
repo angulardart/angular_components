@@ -100,7 +100,7 @@ class DropdownMenuComponent extends Object
   }
 
   bool get dropdownStyle => _dropdownStyle;
-  bool _dropdownStyle = false;
+  final bool _dropdownStyle = false;
 
   @ViewChild(DropdownButtonComponent)
   DropdownButtonComponent dropdownButton;

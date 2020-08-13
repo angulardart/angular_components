@@ -5,19 +5,21 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular/experimental.dart' show changeDetectionLink;
 import 'package:angular_components/model/ui/has_renderer.dart';
 
 /// Dynamically renders another component, setting the [value] field on the
 /// dynamic component if it implements [RendersValue] (and not if the component
 /// does not implement the interface).
+@changeDetectionLink
 @Component(
   selector: 'dynamic-component',
   template: '''<template #marker></template>''',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class DynamicComponent implements OnDestroy, AfterChanges {
   final SlowComponentLoader _slowComponentLoader;
   final ComponentLoader _componentLoader;
-  final ChangeDetectorRef _changeDetectorRef;
   final _onLoadController = StreamController<ComponentRef>();
 
   ViewContainerRef _viewContainerRef;
@@ -45,8 +47,7 @@ class DynamicComponent implements OnDestroy, AfterChanges {
   @Output()
   Stream<ComponentRef> get onLoad => _onLoadController.stream;
 
-  DynamicComponent(this._slowComponentLoader, this._changeDetectorRef,
-      this._componentLoader);
+  DynamicComponent(this._slowComponentLoader, this._componentLoader);
 
   /// Returns the loaded dynamic component reference.
   ComponentRef get childComponent => _childComponent;
@@ -135,12 +136,12 @@ class DynamicComponent implements OnDestroy, AfterChanges {
   }
 
   void _updateChildComponent() {
-    _changeDetectorRef.markForCheck();
-
     if (_childComponent != null) {
-      if (_childComponent.instance is RendersValue) {
-        _childComponent.instance.value = _value;
-      }
+      _childComponent.update((instance) {
+        if (instance is RendersValue) {
+          instance.value = _value;
+        }
+      });
     }
   }
 }

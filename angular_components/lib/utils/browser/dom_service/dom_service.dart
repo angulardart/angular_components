@@ -15,10 +15,10 @@ import 'package:angular_components/utils/disposer/disposable_callback.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 
 /// A callback from [DomService.scheduleRead] or [DomService.scheduleWrite].
-typedef void DomReadWriteFn();
+typedef DomReadWriteFn = void Function();
 
 /// A callback that returns a future that completes in the next animation frame.
-typedef Future<num> RequestAnimationFrame();
+typedef RequestAnimationFrame = Future<num> Function();
 
 /// Utility class to synchronize DOM operations across components, e.g. to check
 /// changes in the layout after a UI update or application event.
@@ -47,8 +47,8 @@ class DomService {
   /// The time to increment after each layout check.
   static const int _IDLE_TIMER_INC_MILLIS = 100;
 
-  final _domReadQueue = List<DomReadWriteFn>();
-  final _domWriteQueue = List<DomReadWriteFn>();
+  final _domReadQueue = <DomReadWriteFn>[];
+  final _domWriteQueue = <DomReadWriteFn>[];
   final NgZone _ngZone;
   final Window _window;
 
@@ -56,17 +56,17 @@ class DomService {
   bool _insideDigest = false;
   Disposable _layoutObserveRead;
   bool _scheduledProcessQueue = false;
-  StreamController _onLayoutChangedController;
-  Stream _onLayoutChangedStream;
-  StreamController _onQueuesProcessedController;
-  Stream _onQueuesProcessedStream;
+  StreamController<DomService> _onLayoutChangedController;
+  Stream<DomService> _onLayoutChangedStream;
+  StreamController<DomService> _onQueuesProcessedController;
+  Stream<DomService> _onQueuesProcessedStream;
   int _nextFrameId = -1;
-  Completer _nextFrameCompleter;
+  Completer<num> _nextFrameCompleter;
   Future<num> _nextFrameFuture;
   DomServiceState _state = DomServiceState.Idle;
   bool _crossAppInitialized = false;
-  StreamController _onIdleController;
-  Stream _onIdleStream;
+  StreamController<Null> _onIdleController;
+  Stream<Null> _onIdleStream;
   int _idleTimerMillis = _MAX_IDLE_TIMER_MILLIS;
   Timer _idleTimer;
   bool _inDispatchTurnDoneEvent = false;
@@ -160,7 +160,7 @@ class DomService {
         highResTimer = DateTime.now().millisecondsSinceEpoch;
       }
       assert(_nextFrameCompleter != null);
-      final Completer completer = _nextFrameCompleter;
+      final completer = _nextFrameCompleter;
       _window.cancelAnimationFrame(_nextFrameId);
       _nextFrameFuture = null;
       _nextFrameCompleter = null;
@@ -183,7 +183,8 @@ class DomService {
         // TODO(google): figure out a better way to initialize this earlier
         init();
         _nextFrameId = _window.requestAnimationFrame((highResTimer) {
-          // Protect against window implementation that does not cancel the frame.
+          // Protect against window implementation that does not
+          // cancel the frame.
           if (completer.isCompleted) return;
           if (completer == _nextFrameCompleter) {
             _nextFrameFuture = null;
@@ -203,7 +204,7 @@ class DomService {
   /// **NOTE**:
   ///   - This is an EXPERIMENTAL feature, and should be used with extreme care.
   ///   - Subscriptions to the stream should be cancelled as soon as possible.
-  Stream get onIdle {
+  Stream<Null> get onIdle {
     if (_onIdleStream == null) {
       _onIdleController = StreamController.broadcast(
           sync: true, onListen: _resetIdleTimer, onCancel: _resetIdleTimer);
@@ -262,15 +263,15 @@ class DomService {
   }
 
   /// A future-based API version of [scheduleRead].
-  Future onRead() {
-    final completer = Completer.sync();
+  Future<void> onRead() {
+    final completer = Completer<Null>.sync();
     scheduleRead(completer.complete);
     return ZonedFuture(completer.future, _ngZone.runOutsideAngular);
   }
 
   /// A future-based API version of [scheduleWrite].
-  Future onWrite() {
-    final completer = Completer.sync();
+  Future<void> onWrite() {
+    final completer = Completer<Null>.sync();
     scheduleWrite(completer.complete);
     return ZonedFuture(completer.future, _ngZone.runOutsideAngular);
   }
@@ -326,7 +327,7 @@ class DomService {
   }
 
   /// A stream that fires when the queues have been processed and are now empty.
-  Stream get onQueuesProcessed {
+  Stream<DomService> get onQueuesProcessed {
     if (_onQueuesProcessedStream == null) {
       _onQueuesProcessedController = StreamController.broadcast(sync: true);
       _onQueuesProcessedStream = ZonedStream(
@@ -341,7 +342,7 @@ class DomService {
   /// - The stream fires *outside* of a framework managed zone
   /// - The stream fires *within* a scheduled DOM read queue, making it safe
   ///   to openly check elements size or positioning in this callback.
-  Stream get onLayoutChanged {
+  Stream<DomService> get onLayoutChanged {
     if (_onLayoutChangedStream == null) {
       _onLayoutChangedController = StreamController.broadcast(sync: true);
       _onLayoutChangedStream = ZonedStream(
@@ -378,7 +379,7 @@ class DomService {
     return _onLayoutChangedStream;
   }
 
-  void _listenOnLayoutEvents(Stream events) {
+  void _listenOnLayoutEvents(Stream<Object> events) {
     if (events == null) return; // happens only in tests with mocked window
     events.listen((_) => _scheduleOnLayoutChanged());
   }
@@ -400,12 +401,13 @@ class DomService {
   ///
   /// Returns a subscription that allows pausing, resuming and canceling the
   /// observer.
-  StreamSubscription trackLayoutChange<T>(T fn(), void callback(T value),
+  StreamSubscription<DomService> trackLayoutChange<T>(
+      T Function() fn, void Function(T) callback,
       {int framesToStabilize = 1, bool runInAngularZone = false}) {
     // TODO(google): Move layout checking into ruler service when landed.
-    Function trackerCallback = callback;
+    var trackerCallback = callback;
     if (runInAngularZone) {
-      trackerCallback = (value) {
+      trackerCallback = (T value) {
         _ngZone.run(() => callback(value));
       };
     }
@@ -425,7 +427,7 @@ class DomService {
   /// Returns a subscription that allows pausing, resuming and canceling the
   /// observer.
   @Deprecated("Use onLayoutChanged instead")
-  StreamSubscription addLayoutObserver(void domReadCallback()) =>
+  StreamSubscription<DomService> addLayoutObserver(void domReadCallback()) =>
       onLayoutChanged.listen((_) => domReadCallback());
 
   String describeStability() {
@@ -538,13 +540,13 @@ enum DomServiceState {
   Reading
 }
 
-class _ChangeTracker {
+class _ChangeTracker<T> {
   final DomService _domService;
-  final Function _fn;
-  final Function _callback;
+  final T Function() _fn;
+  final void Function(T) _callback;
   final int _framesToStabilize;
 
-  var _lastValue;
+  T _lastValue;
   int _stableFrameCounter = 0;
 
   _ChangeTracker(
@@ -573,4 +575,4 @@ class _ChangeTracker {
   }
 }
 
-typedef bool IsDomMutatedPredicate();
+typedef IsDomMutatedPredicate = bool Function();

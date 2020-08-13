@@ -17,7 +17,8 @@ import 'package:angular_components/laminate/portal/portal.dart';
 ///
 /// This exists to separate the ruler API from tight coupling on overlays; see
 /// [Ruler.update] for the default implementation.
-typedef Future AsyncApplyState<E>(OverlayState state, E element);
+typedef AsyncApplyState<E> = Future<Object> Function(
+    OverlayState state, E element);
 
 /// A handler to return the position and size of the *content* of [element].
 ///
@@ -25,7 +26,8 @@ typedef Future AsyncApplyState<E>(OverlayState state, E element);
 ///
 /// This exists to separate the ruler API from tight coupling on overlays; see
 /// [Ruler.measure] and [Ruler.track] for the default implementations.
-typedef Stream<Rectangle> AsyncMeasureSize<E>(E element, {bool track});
+typedef AsyncMeasureSize<E> = Stream<Rectangle> Function(E element,
+    {bool track});
 
 /// A handle to manipulate an existing overlay pane.
 class OverlayRef implements PortalHost {
@@ -89,10 +91,11 @@ class OverlayRef implements PortalHost {
   String get uniqueId => overlayElement.attributes['pane-id'];
 
   @override
-  Future attach(Portal portal) => _delegatePortalHost.attach(portal);
+  Future<Object> attach(Portal<Object> portal) =>
+      _delegatePortalHost.attach(portal);
 
   @override
-  Future detach() => _delegatePortalHost.detach();
+  Future<void> detach() => _delegatePortalHost.detach();
 
   @override
   bool get hasAttached => _delegatePortalHost.hasAttached;
@@ -123,9 +126,9 @@ class OverlayRef implements PortalHost {
   StreamController<bool> _onVisibleController;
 
   // Tracks whenever [OverlayRef.onUpdate] changes.
-  StreamSubscription _stateUpdateListener;
+  StreamSubscription<Null> _stateUpdateListener;
 
-  Future _applyChanges() {
+  Future<Object> _applyChanges() {
     if (_lastVisible != isVisible) {
       _lastVisible = isVisible;
       if (_onVisibleController != null) {

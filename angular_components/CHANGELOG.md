@@ -1,3 +1,115 @@
+## 0.14.0-alpha+1
+### Component Updates
+
+#### Application Layout
+* Add `canClose` input the temporary drawer to prevent the drawer from toggling.
+
+#### Dynamic Component
+* Use type promotion instead of dynamic dispatch to update a `RendersValue`
+  instance.
+* Change to "OnPush" change detection.
+
+#### Material Auto Suggest Input
+* Stop event propagation when key nav events are handled.
+* Update to work within components using `ChangeDetectionStrategy.OnPush`.
+
+#### Material Button
+* Add Sass mixins to change the padding on the internal button content, adjust
+  vertical alignment, and reset `text-transform`.
+* Remove Sass mixin `button-text-capitalize()`.
+* Fix visibility in Microsoft Edge on Windows when using High Contrast mode.
+
+#### Material Datepicker
+* Add Sass mixins for margins around and between the next and previous buttons.
+* Increase the color ratio for the apply/cancel buttons.
+* Allow picking times using specified increments.
+* Handle `<ESC>` key press when picker is visible.
+* Removed deprecated `comparesToPreviousPeriod()` and
+  `comparesToSamePeriodLastYear()`.
+* Delegate to `FocusItemDirective`.
+* Fix the a11y role for the date range preset list.
+* Improved accessibility for presets.
+
+#### Material Dialog
+* Add Sass mixin for the footer margin.
+* Always keep a transparent scroll stroke to prevent dialog from shifting.
+
+#### Material Expansion Panel
+* Improve accessibility.
+* Accommodate contents taller than the screen size.
+
+#### Material Input
+* Make text size limits available to screen readers.
+* Change attribute `inputRole` to and input `role`.
+* Add a CSS class `.ltr` so input can set `direction: ltr` on the top section.
+* Add Sass mixin to adjust the location of floating label.
+
+#### Material Menu
+* Prevent screen readers from reading a non-collapsible label as "button".
+* Apply the same background color on focused and active items.
+* Update `icon` attribute to use a Dart boolean instead of a string `'true'`.
+* Add Sass mixin for adding ellipsis to overflowing item text.
+* Auto-activate FAB menu items when a screen reader triggers the fab.
+* Only auto focus an active item when it exists.
+* Protect against null pointer exception when closing.
+* Move focus-trap outside of the menu-item-groups.
+* Add a way to pass context to the `MenuItem` actions.
+
+#### Material Popup
+* Add `ariaLabel` input.
+* Encapsulate the popup class name.
+
+#### Material Select
+* Fix selected item visibility in Microsoft Edge on Windows when using High
+  Contrast mode.
+* Add Sass mixins for adding ellipsis to overflowing item text and a custom
+  outline.
+
+#### Material Slider
+* Support two sided sliders.
+
+#### Material Stepper
+* Add `yesText` input.
+* Add input to keep inactive steps in DOM.
+* Add partially complete state.
+* Update icon and index colors for improved a11y.
+
+#### Material Tab
+* Set tabbable tab to always be activeTab.
+* Improve `allow-text-wrap` Sass mixin.
+* Rename Sass mixin `allow-text-wrap` to `tab-text-wrap` and default
+  `$break-word` to `true`.
+* Add Sass mixin to apply text transform.
+
+#### Material Tooltip
+* Fix deferred content within tooltip.
+* Add Sass mixin for paper tool tips with multiple sections.
+
+#### Material Tree
+* Add input to toggle selection of non-leaf nodes.
+
+### Other Updates
+
+#### Miscellaneous
+* Remove `mat-icon-image()` in favor of `inline-image()`.
+* Add `subtract()` to Date model.
+* Migrate event handlers with multiple statements to component methods.
+* Fix violations of the `strict-raw-types` analysis option.
+* Fix violations of `prefer_initializing_formals`, `prefer-collection-literals`,
+  and `prefer-final-fields` lints.
+* Properly remove items when invoking `StickyContainerLayout.remove()`.
+* Create mixins for error_panel.
+* General code readability fixes.
+* Deprecate outdated Sass mixins: `button-bar-layout()`, `mat-input-header()`,
+  `clear-button()`, `icon-background()`, `cursor-grab()`, and
+  `cursor-grabbing()`.
+* Fix graphical issue with sticky elements with `height: 0`.
+* Add option to disable `GestureListener` in `ScrollHost`.
+* Rename `palette.dart` to `material_chart_colors.dart`.
+
+### Documentation
+* Minor documentation fixes.
+
 ## 0.14.0-alpha
 ### Component Updates
 

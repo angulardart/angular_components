@@ -61,18 +61,22 @@ abstract class ScrollHostBase implements ScrollHost {
   /// Whether to use position: sticky and multithreaded scrolling.
   final bool usePositionSticky;
 
+  /// Whether to use [GestureListener] to override the native browser smooth
+  /// scrolling on touch devices.
+  final bool useTouchGestureListener;
+
   /// The target of scroll events from the scrollbar.
   GlobalEventHandlers get scrollbarHost;
 
   ScrollHostBase(this._domService, this._ngZone,
       GestureListenerFactory gestureListenerFactory,
-      {this.usePositionSticky = false}) {
+      {this.usePositionSticky = false, this.useTouchGestureListener = true}) {
     // TODO(google): add alternative impl based on TouchEvent.supported.
     _panController = NonTouchPanController(_ngZone, _domService, anchorElement);
     _stickyController = usePositionSticky
         ? PositionStickyController(this)
         : StickyControllerImpl(_domService, this);
-    if (feature_detector.isTouchInterface) {
+    if (feature_detector.isTouchInterface && useTouchGestureListener) {
       _gestureListener =
           gestureListenerFactory.create(anchorElement, _isDirectionScrollable);
     }
@@ -354,9 +358,10 @@ class ElementScrollHostBase extends ScrollHostBase {
 
   ElementScrollHostBase(DomService domService, NgZone managedZone,
       GestureListenerFactory gestureListenerFactory, this.element,
-      {bool usePositionSticky = false})
+      {bool usePositionSticky = false, useTouchGestureListener = true})
       : super(domService, managedZone, gestureListenerFactory,
-            usePositionSticky: usePositionSticky) {
+            usePositionSticky: usePositionSticky,
+            useTouchGestureListener: useTouchGestureListener) {
     element.style.overflowY = 'auto';
 
     // Allows scroll host which contains huge iframe be able to scroll on iOS.
@@ -455,7 +460,7 @@ class BasePanClassDirective {
     }
   }
 
-  _updateClass(bool prevValue, bool newValue, String suffix) {
+  void _updateClass(bool prevValue, bool newValue, String suffix) {
     if (prevValue == newValue) return;
     if (prevValue) {
       _domService.scheduleWrite(() {

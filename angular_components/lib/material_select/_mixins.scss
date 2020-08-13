@@ -5,6 +5,8 @@
 @import 'size';
 @import 'package:angular_components/css/material/material';
 
+$default-dropdown-outline-padding: $mat-grid $mat-grid * 1.5 $mat-grid $mat-grid * 2;
+
 /// Default padding material-select-item and material-select-dropdown-item.
 @mixin select-item-padding {
   padding: 0 $select-item-padding;
@@ -15,6 +17,7 @@
   @include select-item-padding;
 
   &:hover,
+  &:focus,
   &.active {
     background: $mat-grey-100;
   }
@@ -28,8 +31,8 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 3px;
-    background: $mat-grey-500;
+    width: 0;
+    border-left: 3px solid $mat-grey-500;
   }
 
   material-checkbox {
@@ -65,6 +68,15 @@
   }
 }
 
+/// Adds a outline around the dropdown select component
+@mixin dropdown-select-outline ($padding: $default-dropdown-outline-padding) {
+  ::ng-deep .border {
+    border: 1px solid $mat-border-light;
+    padding: $padding;
+    border-radius: $mat-grid-type;
+  }
+}
+
 /// Allow the button text to wrap instead of ellipsis.
 @mixin button-text-wrap {
   ::ng-deep .button.border .button-text {
@@ -84,7 +96,7 @@
 /// Apply to <material-select> or <material-select-item>.
 @mixin material-select-selected-color($color) {
   ::ng-deep .selected-accent.mixin.mixin {
-    background: $color;
+    border-left-color: $color;
   }
 }
 
@@ -115,6 +127,17 @@
 @mixin material-select-dropdown-item-color($color) {
   ::ng-deep material-select-dropdown-item {
     color: $color;
+  }
+}
+
+
+/// Sets overflow to ellipsis for the dropdown items.
+@mixin material-select-dropdown-item-ellipsis() {
+  ::ng-deep material-select-dropdown-item {
+    .label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
 
@@ -221,6 +244,7 @@
   }
 }
 
+/// Sets the font size of the item.
 @mixin material-select-item-font-size($font-size) {
   ::ng-deep material-select-item {
     font-size: $font-size;

@@ -89,6 +89,17 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
   }
 }
 
+/// Resets the tab text transform to its default value.
+@mixin tab-strip-reset-text-transform() {
+  ::ng-deep #{$_fixedStripNaviBar} #{$_tabBtnSel} {
+    text-transform: none;
+  }
+
+  ::ng-deep #{$_scrollingStripNaviBar} #{$_tabBtnSel} {
+    text-transform: none;
+  }
+}
+
 // Sets the selected tab color
 @mixin tab-strip-selected-tab-color($selector, $color) {
   ::ng-deep #{$selector} #{$_fixedStripNaviBar} #{$_activeTabBtnSel},
@@ -134,15 +145,18 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
   }
 }
 
-// Allow the text inside the tab to break into lines. This needs to carefully
-// scoped to tab-strip or tab-button. Example:
-// material-tab-strip {
-//   @include allow-text-wrap;
-// }
-@mixin allow-text-wrap {
-  ::ng-deep .content {
+/// Allow the text inside a tab to break across multiple lines.
+///
+/// Set `$break-word: false` to prevent breaking long words across lines.
+/// Warning: this can make some text cropped and unreadable and will affect
+/// some languages more than others.
+@mixin tab-text-wrap($break-word: true) {
+  ::ng-deep tab-button .content {
     text-overflow: initial;
     white-space: initial;
+    @if $break-word {
+      word-break: break-word;
+    }
   }
 }
 
@@ -152,3 +166,4 @@ $_focusTabBtnSel: $_tabBtnSel + '.focus';
     display: block;
   }
 }
+

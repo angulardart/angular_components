@@ -31,7 +31,6 @@ const List<String> _flippedIcons = [
 /// ```html
 /// <link
 ///     rel="stylesheet"
-///     type="text/css"
 ///     href="https://fonts.googleapis.com/icon?family=Material+Icons">
 /// ```
 ///

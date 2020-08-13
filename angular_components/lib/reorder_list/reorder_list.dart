@@ -113,7 +113,7 @@ class ReorderListComponent implements OnDestroy {
   int _moveSourceIndex = -1;
   int _currentMoveIndex = -1;
   HtmlElement _dragSourceElement;
-  List<int> _selectedElementIndexes = [];
+  final List<int> _selectedElementIndexes = [];
   // The index of the element that will indicate the first item selected
   // for shift multi selection.
   int _pivotItemIndex;
@@ -122,8 +122,8 @@ class ReorderListComponent implements OnDestroy {
   HtmlElement placeholder;
 
   ReorderListComponent(this._ngZone) {
-    _subscriptions = Map<HtmlElement, List<StreamSubscription>>();
-    _dragSubscriptions = Map<HtmlElement, StreamSubscription>();
+    _subscriptions = <HtmlElement, List<StreamSubscription>>{};
+    _dragSubscriptions = <HtmlElement, StreamSubscription>{};
   }
 
   @ContentChildren(ReorderItemDirective)
@@ -622,7 +622,7 @@ class ReorderListComponent implements OnDestroy {
   bool get showPlaceholder => _reorderActive;
 }
 
-typedef void ReorderListHandler(int sourceIndex, int destIndex);
+typedef ReorderListHandler = void Function(int sourceIndex, int destIndex);
 
 /// Indicates that the element is a list item in the containing `reorder-list`
 /// component. See [ReorderListComponent] for usage.

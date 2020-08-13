@@ -9,6 +9,7 @@ import 'package:angular/angular.dart';
 import 'package:angular/meta.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
+import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_fab.dart';
@@ -31,6 +32,7 @@ import 'menu_item_groups.dart';
   directives: [
     AutoFocusDirective,
     DeferredContentDirective,
+    FocusTrapComponent,
     NgFor,
     NgIf,
     MaterialFabComponent,
@@ -160,7 +162,9 @@ class MaterialFabMenuComponent extends Object
   }
 
   void trigger(Event event) {
-    _trigger(activateFirstItem: event is KeyboardEvent);
+    _trigger(
+        activateFirstItem:
+            event is KeyboardEvent || _isLikelyScreenReader(event));
   }
 
   void hideMenu() {
@@ -180,6 +184,16 @@ class MaterialFabMenuComponent extends Object
   void _hideMenuContent() {
     if (!_menuVisible) return;
     _menuVisible = false;
+  }
+
+  /// Check to see if an event was likely triggered by a screen reader.
+  ///
+  /// Screen readers interact with an accessibility API which may trigger
+  /// events. Even if the user hits `Enter` or `Space` on a button, the event
+  /// that's dispatched may be a MouseEvent. This method tries to see if the
+  /// mouse event was triggered by the accessibility api.
+  bool _isLikelyScreenReader(Event event) {
+    return event is MouseEvent && event.client.x == 0 && event.client.y == 0;
   }
 
   final tooltipPositions = const <RelativePosition>[

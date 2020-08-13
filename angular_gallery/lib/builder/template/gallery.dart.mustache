@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'package:quiver/collection.dart';
 import 'package:angular_components/app_layout/material_persistent_drawer.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
@@ -15,6 +16,7 @@ import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_list/material_list.dart';
 import 'package:angular_components/material_list/material_list_item.dart';
 import 'package:angular_components/material_select/material_select_searchbox.dart';
+import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/selection/string_selection_options.dart';
 import 'package:angular_components/model/a11y/focus_indicator_controller.dart';
 import 'package:angular_components/model/ui/has_renderer.dart';
@@ -58,7 +60,7 @@ import 'gallery_route_library.dart';
 ])
 class GalleryComponent implements HighlightProvider {
   final HighlightAssistant _highlightAssistant = HighlightAssistant();
-  final ItemRenderer _highlightRenderer =
+  final ItemRenderer<dynamic> _highlightRenderer =
       (item) => item is _Example ? item.displayName : item?.toString();
   final List<RouteDefinition> routes = galleryRoutes;
   final FocusIndicatorController focusIndicatorController;
@@ -72,15 +74,20 @@ class GalleryComponent implements HighlightProvider {
         _breadcrumb = breadcrumbs[example];
         querySelector('material-content').scrollTop = 0;
       });
-    exampleOptions = StringSelectionOptions<_Example>(allExamples,
+    final groups = Multimap<String, _Example>.fromIterable(allExamples,
+        key: (e) => e.group);
+    exampleOptions = StringSelectionOptions<_Example>.withOptionGroups(
+        (groups.keys.toList()..sort())
+            .map((g) => OptionGroup.withLabel(groups[g].toList(), g))
+            .toList(),
         toFilterableString: _toFilterableString);
   }
 
-  String _toFilterableString(_Example example) {
-    var labels =
-        <String>[example.displayName]..addAll(example.relatedComponents);
-    return labels.join('\n');
-  }
+  String _toFilterableString(_Example example) => <String>[
+        example.displayName,
+        example.group,
+        ...example.relatedComponents,
+      ].join('\n');
 
   String get breadcrumb => _breadcrumb;
 
@@ -99,7 +106,7 @@ class GalleryComponent implements HighlightProvider {
 
 final breadcrumbs = {
   {{# examples }}
-  '{{ name }}': '{{{ displayName }}}',
+  '{{ name }}': '{{#group}}{{{ group }}} > {{/group}}{{{displayName}}}',
   {{/ examples }}
 };
 
@@ -111,6 +118,7 @@ List<_Example> allExamples = const <_Example>[
     _Example(
         '/{{{ name }}}',
         '{{ displayName }}',
+        '{{ group }}',
         <String>[{{# relatedComponents }}'{{.}}',{{/ relatedComponents }}]
     ),
 {{/ examples }}
@@ -119,10 +127,13 @@ List<_Example> allExamples = const <_Example>[
 class _Example {
   /// The name used in headers and navigation panels.
   final String displayName;
+  /// The navigation panel group.
+  final String group;
   /// The router link for this example.
   final String link;
   /// A list of component names related to this example.
   final List<String> relatedComponents;
 
-  const _Example(this.link, this.displayName, this.relatedComponents);
+  const _Example(
+      this.link, this.displayName, this.group, this.relatedComponents);
 }

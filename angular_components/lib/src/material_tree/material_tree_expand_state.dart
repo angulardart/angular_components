@@ -33,6 +33,6 @@ abstract class MaterialTreeExpandState {
     }
   }
 
-  StreamController<bool> _expandEvents = StreamController.broadcast(sync: true);
+  final _expandEvents = StreamController<bool>.broadcast(sync: true);
   Stream<bool> get expandEvents => _expandEvents.stream.distinct();
 }

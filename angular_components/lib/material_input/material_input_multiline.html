@@ -54,7 +54,7 @@
                   [readonly]="disabled"
                   [ngModel]="inputText"
                   (blur)="inputBlurAction($event, textareaEl.validity.valid, textareaEl.validationMessage)"
-                  (change)="inputChange(textareaEl.value, textareaEl.validity.valid, textareaEl.validationMessage);$event.stopPropagation()"
+                  (change)="handleChange($event, textareaEl)"
                   (focus)="inputFocusAction"
                   (input)="inputKeypress(textareaEl.value, textareaEl.validity.valid, textareaEl.validationMessage)"
                   [tabindex]="inputTabIndex"></textarea>
@@ -93,8 +93,8 @@
     &nbsp;
   </div>
   <div *ngIf="maxCount != null || showCharacterCount"
+       [attr.aria-label]="msgCharacterCounterAriaLabel(inputTextLength, maxCount)"
        class="counter"
-       aria-hidden="true"
        [class.invalid]="invalid">
     {{msgCharacterCounter(inputTextLength, maxCount)}}
   </div>

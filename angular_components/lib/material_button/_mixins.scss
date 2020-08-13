@@ -142,6 +142,8 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
       right: 0;
       bottom: 0;
       background-color: currentColor;
+      // For windows high contrast.
+      outline: 2px solid transparent;
       opacity: $mat-divider-opacity;
       border-radius: inherit;
       pointer-events: none;
@@ -227,7 +229,7 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   border-radius: $size / 2;
 
   ::ng-deep {
-    .content {
+    .content.content {
       height: $size;
       width: $size;
     }
@@ -316,9 +318,40 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
 }
 
 /// Sets padding for the icon button.
+// @deprecated use button-padding instead.
 @mixin icon-button-padding($selector, $padding) {
-  #{$selector}[icon] ::ng-deep .content {
+  #{$selector}[icon] ::ng-deep .content.content {
     padding: $padding;
+  }
+}
+
+/// Sets the padding for a button.
+///
+/// Should target the button specifically. Works for standard and icon buttons.
+///   Example:
+///   ```scss
+///   material-button.padding {
+///     @include button-padding($mat-grid);
+///   }
+///   ```
+@mixin button-padding($padding) {
+  ::ng-deep .content.content.content {
+    padding: $padding;
+  }
+}
+
+/// Sets the vertical alignment for a button.
+///
+/// Should target the button specifically.
+///   Example:
+///   ```scss
+///   material-button.bottom {
+///     @include vertical-align(bottom);
+///   }
+///   ```
+@mixin vertical-align($value) {
+  ::ng-deep .content.content {
+    vertical-align: $value;
   }
 }
 
@@ -382,9 +415,12 @@ $button-disabled-background-dark: rgba(255, 255, 255, $mat-divider-opacity);
   }
 }
 
-/// Mixin to change button text to capitalized.
-@mixin button-text-capitalize {
+/// Resets the text-transform property of the button.
+///
+/// This removes the uppercase transform default for the button and allows the
+/// content itself to control capitalization.
+@mixin reset-button-text-transform {
   ::ng-deep .content {
-    text-transform: capitalize;
+    text-transform: initial;
   }
 }

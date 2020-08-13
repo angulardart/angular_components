@@ -32,7 +32,7 @@ const List<String> _flippedIcons = [
 /// This stylesheet should be included at the top of the page:
 ///
 /// ```html
-/// <link rel="stylesheet" type="text/css"
+/// <link rel="stylesheet"
 ///     href="https://fonts.googleapis.com/icon?family=Material+Icons">
 /// ```
 ///
@@ -89,7 +89,7 @@ class GlyphComponent {
     _iconSet = value;
   }
 
-  bool _useMaterialIconsExtended = true;
+  final bool _useMaterialIconsExtended = true;
 
   bool get useMaterialIconsExtended => _useMaterialIconsExtended;
 

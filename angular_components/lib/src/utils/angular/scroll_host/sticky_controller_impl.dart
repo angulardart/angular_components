@@ -20,7 +20,7 @@ class StickyControllerImpl implements StickyController {
   StreamSubscription _layoutSubscription;
 
   final _rowMap = <Element, _StickyRow>{};
-  Set<Element> _floatingElements = Set();
+  final Set<Element> _floatingElements = {};
 
   /// The ordered list of rows, based on their position. The order will be
   /// cached between layout checks, unless there was a register or an unregister
@@ -410,8 +410,8 @@ class StickyContainerLayout<T> {
   }
 
   void remove(T row) {
-    topRows?.remove(row);
-    bottomRows?.remove(row);
+    topRows?.removeWhere((rowData) => rowData.row == row);
+    bottomRows?.removeWhere((rowData) => rowData.row == row);
     hiddenRows?.remove(row);
   }
 
@@ -436,6 +436,9 @@ abstract class StickyRowUtils {
   /// Whether the row should stick or not, given the surrounding.
   static bool shouldStick(bool isTop, num hostTop, num hostBottom,
       Rectangle rowPosition, Rectangle rangePosition) {
+    if (rowPosition.height == 0) {
+      return false;
+    }
     if (isTop) {
       // the range, if it exists, is still visible or below the bottom
       bool rangeVisible = rangePosition == null ||
@@ -475,7 +478,7 @@ abstract class StickyRowUtils {
     // An eager, single-pass algorithm to decide which rows should stick or not.
     // The downside: importance of the rows are not accounted, and it may not
     // display a summary footer in certain conditions.
-    var stickyKeyToRowIndex;
+    Map<String, int> stickyKeyToRowIndex;
     for (var i = 0; i < rows.length; i++) {
       var row = rows[i];
       bool shouldStick = StickyRowUtils.shouldStick(

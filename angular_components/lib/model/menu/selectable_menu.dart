@@ -2,10 +2,10 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:quiver/core.dart' show Optional;
 import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:observable/observable.dart';
+import 'package:quiver/core.dart' show Optional;
 import 'package:quiver/strings.dart';
 import 'package:angular_components/model/menu/menu.dart';
 import 'package:angular_components/model/selection/select.dart';
@@ -31,7 +31,7 @@ class MenuItemGroupWithSelection<SelectionItemType>
   /// https://www.w3.org/TR/wai-aria-1.1/#menuitemradio
   /// https://www.w3.org/TR/wai-aria-1.1/#menuitemcheckbox
   @override
-  final itemsRole;
+  final String itemsRole;
 
   /// If true, the current menu should be closed when this item is selected.
   final bool shouldCloseMenuOnSelection;
@@ -68,7 +68,8 @@ class MenuItemGroupWithSelection<SelectionItemType>
 /// A selectable [MenuItem].
 class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
     implements MenuItem {
-  Function _action;
+  MenuAction _action;
+  ActionWithContext _actionWithContext;
   SelectableOption _selectableState;
   String ariaChecked;
 
@@ -132,13 +133,13 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
       this.secondaryLabel,
       this.labelAnnotation,
       Iterable<String> cssClasses,
-      Function action = _noOp,
+      MenuAction action,
+      ActionWithContext actionWithContext,
       SelectableOption selectableState = SelectableOption.Selectable,
       bool shouldSelectOnItemClick,
       MenuItemAffix itemSuffix,
       ObservableList<MenuItemAffix> itemSuffixes})
-      : _action = action,
-        _selectableState = selectableState,
+      : _selectableState = selectableState,
         shouldSelectOnItemClick = shouldSelectOnItemClick ?? subMenu == null,
         itemSuffixes = itemSuffixes ??
             ObservableList<MenuItemAffix>.from(
@@ -146,6 +147,18 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
         cssClasses = BuiltList<String>(cssClasses ?? const []) {
     assert(itemSuffix == null || itemSuffixes == null,
         'Only one of itemSuffix or itemSuffixes should be provided');
+    assert(action == null || actionWithContext == null,
+        'Only one of action or actionWithContext should be provided');
+    if (action != null) {
+      _action = action;
+      _actionWithContext = (_) => action();
+    } else if (actionWithContext != null) {
+      _action = () => actionWithContext(null);
+      _actionWithContext = actionWithContext;
+    } else {
+      _action = _noOp;
+      _actionWithContext = _noOp2;
+    }
   }
 
   @override
@@ -153,9 +166,6 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
 
   @override
   String get ariaLabel => label;
-
-  @override
-  Function get nullAwareActionHandler => _action ?? _noOp;
 
   @override
   bool get hasIcon => icon != null;
@@ -182,14 +192,27 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
   }
 
   @override
-  Function get action => _action;
+  MenuAction get action => _action;
 
   @override
-  set action(Function value) {
+  set action(MenuAction value) {
     if (value == _action) return;
 
     _action = value;
+    _actionWithContext = (_) => value();
     notifyPropertyChange(#action, _action, value);
+  }
+
+  @override
+  ActionWithContext get actionWithContext => _actionWithContext;
+
+  @override
+  set actionWithContext(ActionWithContext value) {
+    if (value == _actionWithContext) return;
+
+    _actionWithContext = value;
+    _action = () => value(null);
+    notifyPropertyChange(#actionWithContext, _actionWithContext, value);
   }
 
   @override
@@ -207,3 +230,4 @@ class SelectableMenuItem<ItemType> extends PropertyChangeNotifier
 }
 
 void _noOp() {}
+void _noOp2(_) {}

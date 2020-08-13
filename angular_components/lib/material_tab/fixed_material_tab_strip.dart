@@ -3,8 +3,10 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/meta.dart';
 import 'package:angular_components/annotations/rtl_annotation.dart';
 import 'package:angular_components/focus/focus_item.dart';
 import 'package:angular_components/focus/focus_list.dart';
@@ -31,15 +33,15 @@ import 'package:angular_components/material_tab/tab_change_event.dart';
   styleUrls: ['fixed_material_tab_strip.scss.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
-class FixedMaterialTabStripComponent {
+class FixedMaterialTabStripComponent implements AfterViewInit {
   @HostBinding('class')
   static const hostClass = 'themeable';
-
   final int _transitionAmount;
   final ChangeDetectorRef _changeDetector;
   int _activeTabIndex = 0;
   String _tabIndicatorTransform;
   List<String> _tabLabels;
+  NgZone _ngZone;
 
   /// Stream of [TabChangeEvent] instances, published before the tab has
   /// changed.
@@ -89,8 +91,8 @@ class FixedMaterialTabStripComponent {
   @Input()
   List<String> tabIds;
 
-  FixedMaterialTabStripComponent(
-      this._changeDetector, @Optional() @Inject(rtlToken) bool isRtl)
+  FixedMaterialTabStripComponent(this._changeDetector,
+      @Optional() @Inject(rtlToken) bool isRtl, this._ngZone)
       : _transitionAmount = _calculateTransitionAmount(isRtl ?? false) {
     _updateTabIndicatorTransform();
   }
@@ -109,6 +111,7 @@ class FixedMaterialTabStripComponent {
     activeTabIndex = index;
     _tabChange.add(event);
     _activeTabIndexChange.add(activeTabIndex);
+    focusController.setTabbable(activeTabIndex);
   }
 
   String activeStr(int index) {
@@ -121,5 +124,28 @@ class FixedMaterialTabStripComponent {
     var width = _tabLabels != null ? 1 / _tabLabels.length : 0;
     var location = _activeTabIndex * width * _transitionAmount;
     _tabIndicatorTransform = 'translateX($location%) scaleX($width)';
+  }
+
+  @visibleForTemplate
+  @ViewChild(FocusListDirective)
+  FocusListDirective focusController;
+
+  @visibleForTemplate
+  @ViewChild('navibar')
+  HtmlElement naviBar;
+
+  @HostListener('focusout')
+  void focusOutHandler(FocusEvent e) {
+    if (naviBar != null && !naviBar.contains(e.relatedTarget)) {
+      focusController.setTabbable(_activeTabIndex);
+    }
+  }
+
+  @override
+  void ngAfterViewInit() {
+    // Sets the tabbable item if the activeIndex is set on initialization.
+    _ngZone.runAfterChangesObserved(() {
+      focusController.setTabbable(_activeTabIndex);
+    });
   }
 }

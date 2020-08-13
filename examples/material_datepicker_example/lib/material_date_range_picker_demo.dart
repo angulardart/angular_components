@@ -9,6 +9,7 @@ import 'package:angular_components/material_checkbox/material_checkbox.dart';
 import 'package:angular_components/material_datepicker/comparison.dart';
 import 'package:angular_components/material_datepicker/date_range_input.dart';
 import 'package:angular_components/material_datepicker/material_date_range_picker.dart';
+import 'package:angular_components/material_datepicker/model.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/material_datepicker/preset.dart';
 import 'package:angular_components/material_datepicker/range.dart';
@@ -57,7 +58,9 @@ class MaterialDateRangePickerDemoComponent {
   bool showNextPrevButtons = true;
   bool longPresetList = false;
   bool showMessageBar = false;
+  bool isBasic = false;
   bool movingStartMaintainsLength = true;
+  bool useMenuForPresets = false;
   List<DatepickerPreset> _defaultPresets;
   List<DatepickerPreset> _manyPresets;
   DatepickerComparison range;
@@ -66,6 +69,10 @@ class MaterialDateRangePickerDemoComponent {
 
   List<DatepickerPreset> get presets =>
       longPresetList ? _manyPresets : _defaultPresets;
+
+  DateRangePickerConfiguration get configuration => isBasic
+      ? DateRangePickerConfiguration.basic
+      : DateRangePickerConfiguration.fullyLoaded;
 
   MaterialDateRangePickerDemoComponent() {
     var clock = Clock();

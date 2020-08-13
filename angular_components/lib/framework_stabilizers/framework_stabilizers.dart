@@ -11,12 +11,12 @@ import 'package:js/js.dart';
 
 /// Function provided by a framework to register an [IsStableCallback] that is
 /// invoked by the framework when it reaches a stable state.
-typedef void FrameworkStabilizer(IsStableCallback callback);
+typedef FrameworkStabilizer = void Function(IsStableCallback callback);
 
 /// Function invoked by a framework when it has reached a stable state. The
 /// `didWork` parameter indicates, if the framework did any work between
 /// callback registration and callback invocation.
-typedef void IsStableCallback(bool didWork, String name);
+typedef IsStableCallback = void Function(bool didWork, String name);
 
 // frameworkStabilizers is a property of the window object.
 @JS('frameworkStabilizers')

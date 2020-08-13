@@ -1,11 +1,11 @@
 name: angular_gallery_section
 author: Dart Team <misc@dartlang.org>
 environment:
-  sdk: '>=2.3.0-dev.0.1 <3.0.0'
+  sdk: '>=2.5.0-dev.1.0 <3.0.0'
 dependencies:
-  analyzer: ^0.36.0
-  angular: ^6.0.0-alpha
-  angular_components: 0.14.0-alpha
+  analyzer: ^0.37.0
+  angular: ^6.0.0-alpha+1
+  angular_components: 0.14.0-alpha+1
   angular_gallery:
     path: ../angular_gallery
   build: '>=0.11.1 <2.0.0'
