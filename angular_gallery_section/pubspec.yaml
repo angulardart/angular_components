@@ -1,7 +1,7 @@
 name: angular_gallery_section
 author: Dart Team <misc@dartlang.org>
 environment:
-  sdk: '>=2.5.0-dev.1.0 <3.0.0'
+  sdk: '>=2.8.1 <3.0.0'
 dependencies:
   analyzer: ^0.37.0
   angular: ^6.0.0-alpha+1
