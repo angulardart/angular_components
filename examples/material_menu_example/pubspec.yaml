@@ -3,8 +3,8 @@ author: Dart Team <misc@dartlang.org>
 environment:
   sdk: '>=2.8.1 <3.0.0'
 dependencies:
-  angular: ^6.0.0-alpha+1
-  angular_components: 0.14.0-alpha+1
+  angular: ^6.0.0
+  angular_components: 0.15.0
   angular_gallery:
     path: ../../angular_gallery
   angular_gallery_section:
