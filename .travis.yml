@@ -3,38 +3,39 @@ language: dart
 
 jobs:
   include:
-    - stage: analyze_and_format
-      name: "SDK: 2.5.0-dev.1.0; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: `dartanalyzer --fatal-warnings .`"
-      dart: "2.5.0-dev.1.0"
+    - stage: presubmit
+      name: "SDK: 2.9.3; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: [`dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`]"
+      dart: "2.9.3"
       env: PKGS="angular_components angular_gallery angular_gallery_section"
-      script: ./tool/travis.sh dartanalyzer
-    - stage: analyze_and_format
+      script: ./tool/travis.sh dartfmt dartanalyzer
+    - stage: presubmit
       name: "SDK: dev; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: [`dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`]"
       dart: dev
       env: PKGS="angular_components angular_gallery angular_gallery_section"
       script: ./tool/travis.sh dartfmt dartanalyzer
-    - stage: unit_test
-      name: "SDK: 2.5.0-dev.1.0; PKG: angular_components; TASKS: [`./tool/travis/install_protoc.sh`, `pub run test --run-skipped`]"
-      dart: "2.5.0-dev.1.0"
+    - stage: presubmit
+      name: "SDK: 2.9.3; PKG: angular_components; TASKS: [`./tool/travis/install_protoc.sh`, `pub run test --run-skipped`]"
+      dart: "2.9.3"
       env: PKGS="angular_components"
       script: ./tool/travis.sh command_0 test
-    - stage: unit_test
+    - stage: presubmit
       name: "SDK: dev; PKG: angular_components; TASKS: [`./tool/travis/install_protoc.sh`, `pub run test --run-skipped`]"
       dart: dev
       env: PKGS="angular_components"
       script: ./tool/travis.sh command_0 test
-    - stage: build
-      name: "SDK: 2.5.0-dev.1.0; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
-      dart: "2.5.0-dev.1.0"
+    - stage: presubmit
+      name: "SDK: 2.9.3; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
+      dart: "2.9.3"
       env: PKGS="examples/angular_components_example"
       script: ./tool/travis.sh command_1 command_2
-    - stage: build
+    - stage: presubmit
       name: "SDK: dev; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
       dart: dev
       env: PKGS="examples/angular_components_example"
       script: ./tool/travis.sh command_1 command_2
 
 stages:
+  - presubmit
   - analyze_and_format
   - unit_test
   - build
