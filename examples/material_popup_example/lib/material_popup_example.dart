@@ -46,21 +46,31 @@ class MaterialPopupDemoComponent {}
   changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialPopupExample {
+  static final _initialPosition = RelativePosition.OffsetBottomRight;
+
   // Keep track of each popup's visibility separately.
   final visible = List.filled(11, false);
 
-  SelectionModel<RelativePosition> position =
-      RadioGroupSingleSelectionModel(RelativePosition.OffsetBottomRight);
+  final position = RadioGroupSingleSelectionModel(_initialPosition);
 
-  RelativePosition get popupPosition => position.selectedValues.first;
+  List<RelativePosition> _popupPositions = [_initialPosition];
 
-  final SelectionOptions<RelativePosition> positions =
-      SelectionOptions.fromList(positionMap.keys.toList());
+  List<RelativePosition> get popupPositions {
+    final previous = _popupPositions.first;
+    final current = position.selectedValues.first;
+    if (current != previous) {
+      _popupPositions = [current];
+    }
+    return _popupPositions;
+  }
 
-  ItemRenderer<RelativePosition> positionLabel =
-      (RelativePosition position) => positionMap[position];
+  final positions = SelectionOptions.fromList(positionMap.keys.toList());
 
-  String get ddLabel => positionLabel(popupPosition);
+  static String positionLabel(RelativePosition position) {
+    return positionMap[position];
+  }
+
+  String get ddLabel => positionLabel(_popupPositions.first);
 }
 
 final positionMap = <RelativePosition, String>{

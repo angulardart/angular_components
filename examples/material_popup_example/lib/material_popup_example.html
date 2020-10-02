@@ -48,7 +48,7 @@
           <material-popup [source]="customsrc"
                           [(visible)]="visible[1]"
                           [enforceSpaceConstraints]="true"
-                          [preferredPositions]="[popupPosition]">
+                          [preferredPositions]="popupPositions">
             <div style="height: 200px; padding: 24px;">
               <p>Popup Content</p>
               <material-button
@@ -72,7 +72,7 @@
           <material-popup [source]="slidexsrc"
                           [(visible)]="visible[2]"
                           [enforceSpaceConstraints]="true"
-                          [preferredPositions]="[popupPosition]"
+                          [preferredPositions]="popupPositions"
                           slide="x">
             <div style="height: 200px; padding: 24px;">
               <p>Popup Content</p>
@@ -97,7 +97,7 @@
           <material-popup [source]="slideysrc"
                           [(visible)]="visible[3]"
                           [enforceSpaceConstraints]="true"
-                          [preferredPositions]="[popupPosition]"
+                          [preferredPositions]="popupPositions"
                           slide="y">
             <div style="height: 200px; padding: 24px;">
               <p>Popup Content</p>
