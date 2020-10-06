@@ -43,6 +43,7 @@ const materialTreeLeftPaddingToken =
   ],
   templateUrl: 'material_tree_group.html',
   styleUrls: ['material_tree_group.scss.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialTreeGroupComponent<T> extends MaterialTreeNode<T>
     implements OnDestroy {

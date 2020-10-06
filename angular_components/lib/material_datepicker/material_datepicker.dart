@@ -65,6 +65,7 @@ import 'package:angular_components/utils/angular/css/css.dart';
   providers: [ExistingProvider(HasDisabled, MaterialDatepickerComponent)],
   styleUrls: ['material_datepicker.scss.css'],
   templateUrl: 'material_datepicker.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialDatepickerComponent
     with FocusableMixin, KeyboardHandlerMixin

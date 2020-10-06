@@ -46,6 +46,7 @@ import 'material_tree_root.dart';
   ],
   viewProviders: [ExistingProvider(MaterialTreeRoot, MaterialTreeComponent)],
   templateUrl: 'material_tree_impl.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialTreeComponent<T> with MaterialTreeRoot<T>, SelectionContainer<T> {
   /// Whether to hide check-marks in a single select dropdown
