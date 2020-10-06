@@ -33,6 +33,7 @@ class MaterialSelectDemoComponent {
       SelectionModel.multi();
 
   String proto;
+  static const protocols = ['ftp', 'http', 'https'];
   static const languagesList = [
     Language('en-US', 'US English'),
     Language('en-UK', 'UK English'),

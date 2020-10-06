@@ -21,4 +21,9 @@ class DateInputDemoComponent {
   Date get today => Date.today();
 
   String formatDate(Date date) => date == null ? '(null)' : date.toString();
+
+  void resetToToday() {
+    requiredDate = today;
+    optionalDate = today;
+  }
 }

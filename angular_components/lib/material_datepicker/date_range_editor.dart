@@ -180,14 +180,6 @@ class DateRangeEditorComponent implements OnInit, AfterViewInit, Focusable {
   // Filtered version of presets, regenerated as needed.
   Set<DatepickerPreset> _validPresets = <DatepickerPreset>{};
 
-  /// If the editor's inside a popup, a handle on the popup. (This is needed
-  /// because we can't initialize the calendar's scroll position until after it
-  /// makes it into the DOM and has been laid out. Normally this is done
-  /// automatically, but when the calendar is inside a popup it needs to wait
-  /// until after the popup's been laid out.)
-  @Input()
-  PopupRef popupHandle;
-
   /// Dates earlier than `minDate` cannot be chosen. Defaults to Jan 1, 1000.
   @Input()
   set minDate(Date d) {

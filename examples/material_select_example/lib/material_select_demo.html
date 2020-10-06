@@ -24,7 +24,7 @@
   </material-select>
   <p>Or, create `material-select-item` elements using `*ngFor`.</p>
   <material-select focusList width="2" class="bordered-list">
-    <material-select-item *ngFor="let p of ['ftp', 'http', 'https']"
+    <material-select-item *ngFor="let p of protocols"
                           focusItem
                           (trigger)="proto = p"
                           [selected]="proto == p">{{p}}</material-select-item>

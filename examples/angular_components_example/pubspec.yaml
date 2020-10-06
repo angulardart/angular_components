@@ -1,11 +1,11 @@
 name: angular_components_example
 author: Dart Team <misc@dartlang.org>
 environment:
-  sdk: '>=2.5.0-dev.1.0 <3.0.0'
+  sdk: '>=2.8.1 <3.0.0'
 
 dependencies:
-  angular: ^6.0.0-alpha+1
-  angular_components: 0.14.0-alpha+1
+  angular: ^6.0.0
+  angular_components: 0.15.0
   angular_gallery:
     path: ../../angular_gallery
   app_layout_example:
@@ -69,3 +69,23 @@ dev_dependencies:
 dependency_overrides:
   angular_components:
     path: ../../angular_components
+  angular:
+    git:
+      url: git://github.com/dart-lang/angular.git
+      path: angular
+  angular_ast:
+    git:
+      url: git://github.com/dart-lang/angular.git
+      path: angular_ast
+  angular_compiler:
+    git:
+      url: git://github.com/dart-lang/angular.git
+      path: angular_compiler
+  angular_router:
+    git:
+      url: git://github.com/dart-lang/angular.git
+      path: angular_router
+  angular_forms:
+    git:
+      url: git://github.com/dart-lang/angular.git
+      path: angular_forms
