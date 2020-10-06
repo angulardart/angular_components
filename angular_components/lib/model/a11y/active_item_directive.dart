@@ -71,7 +71,9 @@ class ActiveItemDirective implements AfterViewInit, OnDestroy {
     if (_shouldScrollIntoView) {
       var isVisible = _popupRef != null
           ? _popupRef.isVisible
-          : _modal != null ? _modal.visible : true;
+          : _modal != null
+              ? _modal.visible
+              : true;
       if (isVisible) {
         _scrollIntoView();
       } else {

@@ -103,7 +103,11 @@ class MaterialToggleComponent
   bool get hasLabel => label != null && label.isNotEmpty;
 
   void _updateShadowZ() {
-    shadow_z = isHovered ? 3 : hasFocus ? 2 : 1;
+    shadow_z = isHovered
+        ? 3
+        : hasFocus
+            ? 2
+            : 1;
   }
 
   @visibleForTesting
