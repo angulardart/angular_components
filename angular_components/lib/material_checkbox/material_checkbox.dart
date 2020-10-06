@@ -200,11 +200,15 @@ class MaterialCheckboxComponent
 
     _checkedStr = indeterminate
         ? indeterminateAriaState
-        : _checked ? checkedAriaState : uncheckedAriaState;
+        : _checked
+            ? checkedAriaState
+            : uncheckedAriaState;
 
     _icon = _indeterminate
         ? indeterminateIcon
-        : _checked ? checkedIcon : uncheckedIcon;
+        : _checked
+            ? checkedIcon
+            : uncheckedIcon;
 
     if (emitEvent && _checked != prevChecked) {
       _onChecked.add(_checked);

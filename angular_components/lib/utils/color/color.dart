@@ -159,7 +159,9 @@ class Color {
         // Calculate number of characters per channel.
         final width = s.length == 6 || s.length == 8
             ? 2
-            : s.length == 3 || s.length == 4 ? 1 : 0;
+            : s.length == 3 || s.length == 4
+                ? 1
+                : 0;
         if (width == 0) break;
         int hex(int position) {
           final start = position * width;
