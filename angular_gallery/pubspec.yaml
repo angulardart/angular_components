@@ -30,3 +30,7 @@ dependency_overrides:
     git:
       url: git://github.com/dart-lang/angular.git
       path: angular_forms
+  angular_router:
+    git:
+      url: git://github.com/dart-lang/angular.git
+      path: angular_router
