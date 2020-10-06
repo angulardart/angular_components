@@ -9,7 +9,7 @@ stages:
     - group:
         - dartanalyzer: --fatal-warnings .
       dart:
-        - 2.5.0-dev.1.0
+        - 2.9.3
 
 cache:
   directories:
