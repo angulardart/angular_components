@@ -48,7 +48,8 @@ import 'material_tree_impl.dart';
   ],
   templateUrl: 'material_tree_dropdown.html',
   styleUrls: ['material_tree_dropdown.scss.css'],
-  visibility: Visibility.all, // injected by clients
+  visibility: Visibility.all, // injected by clients,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialTreeDropdownComponent<T>
     with DropdownHandle, MaterialTreeRoot<T>, SelectionContainer<T>

@@ -33,6 +33,7 @@ import 'package:angular_components/utils/id_generator/id_generator.dart';
     NgIf
   ],
   templateUrl: 'material_select_item.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialSelectDropdownItemComponent<T>
     extends MaterialSelectItemComponent<T> implements OnDestroy {
