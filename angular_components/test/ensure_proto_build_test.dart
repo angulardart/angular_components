@@ -4,7 +4,6 @@
 
 @TestOn('vm')
 @Tags(['presubmit-only'])
-
 import 'dart:convert';
 import 'dart:io';
 
@@ -60,6 +59,7 @@ void main() {
 }
 
 final _whitespace = RegExp(r'\s');
+
 Set<String> _changedGeneratedFiles() {
   var output = _runProc('git', ['status', '--porcelain']);
   return LineSplitter.split(output)
@@ -68,7 +68,7 @@ Set<String> _changedGeneratedFiles() {
       .toSet();
 }
 
-String _runProc(String proc, List<String> args, {String workingDirectory}) {
+String _runProc(String proc, List<String> args) {
   var result = Process.runSync(proc, args);
   if (result.exitCode != 0) {
     throw ProcessException(
