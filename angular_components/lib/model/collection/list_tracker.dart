@@ -5,8 +5,8 @@
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:observable/observable.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:observable/observable.dart';
 
 class LazyListTracker<S, T> extends Object
     with ListMixin<T>
@@ -119,8 +119,7 @@ class LazyListTracker<S, T> extends Object
 
   void disposeMapped(T object) {
     if (object is Disposable) {
-      var d = object;
-      d.dispose();
+      object.dispose();
     }
   }
 
