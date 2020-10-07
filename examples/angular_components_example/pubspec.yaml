@@ -69,23 +69,3 @@ dev_dependencies:
 dependency_overrides:
   angular_components:
     path: ../../angular_components
-  angular:
-    git:
-      url: git://github.com/dart-lang/angular.git
-      path: angular
-  angular_ast:
-    git:
-      url: git://github.com/dart-lang/angular.git
-      path: angular_ast
-  angular_compiler:
-    git:
-      url: git://github.com/dart-lang/angular.git
-      path: angular_compiler
-  angular_router:
-    git:
-      url: git://github.com/dart-lang/angular.git
-      path: angular_router
-  angular_forms:
-    git:
-      url: git://github.com/dart-lang/angular.git
-      path: angular_forms
