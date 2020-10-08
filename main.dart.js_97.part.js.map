@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "engine": "v2",
+  "file": "main.dart.js_97.part.js",
+  "sourceRoot": "",
+  "sources": ["../packages/material_input_example/gallery_section_config.api.template.dart"],
+  "names": ["MaterialInputApiNgFactory"],
+  "mappings": "A;;IAoW+CA,WAC7CA,QAAOA,GACTA,C",
+  "x_org_dartlang_dart2js": {
+    "minified_names": {
+      "global": "",
+      "instance": ""
+    },
+    "frames": ""
+  }
+}

@@ -3,14 +3,14 @@
   "engine": "v2",
   "file": "main.dart.js_75.part.js",
   "sourceRoot": "",
-  "sources": ["../packages/angular_components/material_list/material_list_item.template.dart","../packages/angular/src/core/linker/views/host_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular_components/material_list/material_list_item.dart"],
-  "names": ["viewFactory_MaterialListItemComponentHost0","HostView._data","initReflector","_ViewMaterialListItemComponentHost0.build","_ViewMaterialListItemComponentHost0.injectorGetInternal","_ViewMaterialListItemComponentHost0.detectChangesInternal","HostView.firstCheck","_ViewMaterialListItemComponentHost0.destroyInternal","","_ViewMaterialListItemComponentHost0","_data","HostView","registerComponent","MaterialListItemComponentNgFactory","firstCheck","changeDetectorState","ngOnDestroy"],
-  "mappings": "A;0DAwGEA;IAwCmDA,YACnDA,kBC6GIC,UD5GND,C;GAGKE,eACCA,KACFA,MAUJA;;AEtIEA,SFgIyBA,KA1DlBA;AA2DPA;AACAA;AAEAA,MAEFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAvDOC,WAEkBA;CAAhBA;GAC4BA;AAKnBA,SAAsCA,KAA6BA;CAJ5EA;AAKAA,MACPA,C;EAGQC,wBACyBA,UAC7BA,WAAYA,EAGhBA;AADEA,QACFA,C;EAGKC,qBClEDA,EAsN2BC;AD9IxBD;AACAA,UACPA,C;EAGKE,WACEA;AGxELA,IHyEKA,EGzELA,MH0EFA,C",
+  "sources": ["../packages/angular_components/model/ui/display_name.template.dart"],
+  "names": ["initReflector"],
+  "mappings": "A;;GASKA,eACCA,KACFA,MAKJA;S",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "yJAiJSQkC;8BAAAAAAzC2DAACnDpDEAAAAFU,A,A,A;0CDsGdIS;KAAoDCK;qiBA1B3BCECpEfCG,A;qDD+EHCI;EAAAAM;"
+    "frames": ""
   }
 }

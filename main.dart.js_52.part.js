@@ -1,1166 +1,2605 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,S,E,M,Q,D={ix:function ix(d,e){this.a=d
-this.b=e
-this.c="Growing item label"}},L,Z,O={
-aHL:function(d,e){return new O.xM(N.I(),E.y(d,e,D.ix))},
-aHM:function(d){return new O.UB(d,new G.K())},
-at6:function(){if($.adH)return
-$.adH=!0
-$.N.D(0,C.nZ,C.eB)
-E.C()
-U.yw()
-K.rc()
-M.bS()
-B.n4()
-E.yB()
-M.n3()
-K.br()},
-uX:function uX(d,e){var _=this
-_.e=d
-_.V=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
-_.aD=_.aN=_.aB=_.ay=_.aq=_.af=_.aj=_.ag=_.au=_.ai=_.aw=_.av=_.ap=_.al=_.ah=_.ao=_.ae=_.ak=_.ab=_.a7=_.aa=_.L=_.T=_.Z=_.a1=_.a4=_.a6=_.a_=_.W=_.a8=null
-_.bD=_.bz=_.bL=_.bN=_.bs=_.bx=_.b5=_.bf=_.bb=_.bk=_.aS=_.be=_.aR=_.bp=_.b4=_.ba=_.aE=_.aW=_.aV=_.aO=_.aU=_.bi=_.b9=_.aQ=_.aZ=_.aH=_.b8=_.aY=_.aT=_.ax=null
-_.c=_.b=_.a=_.c5=_.bA=_.cc=_.bK=_.bY=_.bo=_.bW=_.cv=_.c4=_.bZ=_.c8=_.c7=_.bq=_.bE=null
-_.d=e},
-xM:function xM(d,e){var _=this
-_.b=d
-_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=_.d=_.c=null
-_.a=e},
-UB:function UB(d,e){var _=this
-_.b=_.a=null
-_.c=d
-_.d=e}},B={hr:function hr(d){this.a=d}},A,U,T,N={
-alN:function(){return C.dL},
-aHJ:function(d){return new N.Uz(d,new G.K())},
-at5:function(){if($.adF)return
-$.adF=!0
-$.N.D(0,C.nX,C.dL)
-E.C()
-K.cX()
-D.cC()
-O.at6()},
-M_:function M_(d){var _=this
+$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G={
+aon:function(d){var w=null,v=new G.Ox(),u=H.a([new F.aZ(w,w,d,x.w)],x.h),t=new G.rW(v,R.hI(),!1,!0,new P.P(w,w,x.g))
+t.seo(u)
+t.j7(u,R.hI(),!0,!1,w,v,x.J)
+return t},
+aoo:function(d){var w=new G.Ow(),v=new G.rW(w,R.hI(),!1,!0,new P.P(null,null,x.g))
+v.seo(d)
+v.j7(d,R.hI(),!0,!1,null,w,x.J)
+return v},
+e6:function e6(d,e,f,g,h,i,j,k,l,m,n){var _=this
+_.e=_.d=_.c=_.b=_.a=!1
+_.f=!0
+_.r=!1
+_.x=!0
+_.y="None"
+_.z=d
+_.Q=e
+_.ch=f
+_.cx=g
+_.cy=h
+_.db=i
+_.dx=j
+_.dy=k
+_.fr=l
+_.fx=m
+_.go=_.fy=null
+_.id=n
+_.k2="Select Language"},
+Q0:function Q0(){},
+Q1:function Q1(){},
+Q4:function Q4(){},
+Q2:function Q2(){},
+Q3:function Q3(){},
+Q5:function Q5(d){this.a=d},
+bw:function bw(d,e){this.a=d
+this.b=e},
+hR:function hR(){this.a=""},
+hP:function hP(){this.a=""},
+rW:function rW(d,e,f,g,h){var _=this
+_.d=null
+_.e=-1
+_.f=null
+_.r=d
+_.x=null
+_.y=e
+_.z=f
+_.Q=g
+_.a=h
+_.c=_.b=null},
+Ox:function Ox(){},
+Ow:function Ow(){}},Y,R={
+aKO:function(){return new R.IV(new G.S())},
+awt:function(){if($.ae9)return
+$.ae9=!0
+$.V.w(0,C.np,new D.l("material-select-searchbox",R.aA3(),x.o))
+E.G()
+Q.ee()
+B.oK()
+N.eD()
+X.jA()
+V.hH()
+K.dD()},
+IV:function IV(d){var _=this
+_.c=_.b=_.a=null
+_.d=d},
+la:function la(d){this.a=d
+this.b=1}},K,V,E,M,Q={
+awr:function(){if($.aec)return
+$.aec=!0
+Y.rg()
+E.G()
+K.bP()
+K.dD()}},D,Z,O,A={
+aKJ:function(){return new A.IT(new G.S())},
+aJh:function(){return new A.HE(new G.S())},
+aio:function(){if($.adN)return
+$.adN=!0
+$.V.w(0,C.mo,new D.l("material-select-api",A.ahu(),x.n))
+$.V.w(0,C.lW,new D.l("material-dropdown-select-api",A.aht(),x.m))
+E.G()
+K.dj()
+D.d3()
+F.aip()
+L.awn()
+U.awo()},
+CC:function CC(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-Uz:function Uz(d,e){var _=this
-_.b=_.a=null
-_.c=d
-_.d=e}},X,F
-a.setFunctionNamesIfNecessary([D,O,B,N])
+IT:function IT(d){var _=this
+_.c=_.b=_.a=null
+_.d=d},
+Ca:function Ca(d){var _=this
+_.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
+_.d=d},
+HE:function HE(d){var _=this
+_.c=_.b=_.a=null
+_.d=d}},T,L={
+aJs:function(){return new L.HO(new G.S())},
+awn:function(){if($.adX)return
+$.adX=!0
+$.V.w(0,C.nF,new D.l("material-dropdown-select-simple-demo",L.ajA(),x.E))
+E.G()
+Y.rg()},
+uD:function uD(d){var _=this
+_.c=_.b=_.a=_.y=_.x=_.r=_.f=_.e=null
+_.d=d},
+HO:function HO(d){var _=this
+_.c=_.b=_.a=null
+_.d=d}},N={hr:function hr(d,e,f,g){var _=this
+_.a=d
+_.b=e
+_.c=null
+_.d=f
+_.e=g},ja:function ja(d){this.b=d}},U={
+aKK:function(d,e){return new U.kB(N.Q(),E.A(d,e,x.D))},
+aKL:function(d,e){return new U.lY(E.A(d,e,x.D))},
+aKM:function(d,e){return new U.lZ(E.A(d,e,x.D))},
+aKN:function(){return new U.IU(new G.S())},
+awo:function(){if($.adO)return
+$.adO=!0
+$.V.w(0,C.mq,new D.l("material-select-demo",U.ajT(),x.A))
+E.G()
+U.Lr()
+K.yw()
+X.aiq()
+U.air()
+M.oO()
+K.bP()
+N.cp()
+X.yr()},
+uV:function uV(d){var _=this
+_.z=_.y=_.x=_.r=_.f=_.e=!0
+_.Y=_.a6=_.a0=_.X=_.a7=_.V=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=null
+_.aF=_.ba=_.aY=_.aT=_.aw=_.aB=_.aM=_.aA=_.ax=_.as=_.af=_.aj=_.ah=_.ar=_.ai=_.av=_.au=_.aq=_.al=_.ag=_.an=_.ae=_.ak=_.a9=_.a8=_.aa=_.L=_.W=_.a_=_.a4=null
+_.c=_.b=_.a=_.bd=_.b6=_.bf=_.aQ=_.bc=_.aW=_.bh=_.aZ=_.b1=_.aC=_.aV=_.aU=_.aJ=_.aG=_.bb=_.b5=_.aI=_.aR=null
+_.d=d},
+W8:function W8(){},
+W9:function W9(){},
+Wa:function Wa(){},
+Wb:function Wb(){},
+Wc:function Wc(){},
+Wd:function Wd(){},
+kB:function kB(d,e){var _=this
+_.b=d
+_.r=_.f=_.e=_.d=_.c=null
+_.a=e},
+lY:function lY(d){var _=this
+_.f=_.e=_.d=_.c=_.b=null
+_.a=d},
+lZ:function lZ(d){var _=this
+_.f=_.e=_.d=_.c=_.b=null
+_.a=d},
+IU:function IU(d){var _=this
+_.c=_.b=_.a=null
+_.d=d}},X,B={zv:function zv(d,e,f){var _=this
+_.e=null
+_.a=d
+_.b=e
+_.c=null
+_.d=!1
+_.$ti=f},Ok:function Ok(d,e){this.a=d
+this.b=e},Af:function Af(d,e,f){var _=this
+_.e=null
+_.a=d
+_.b=e
+_.c=null
+_.d=!1
+_.$ti=f},SA:function SA(d,e){this.a=d
+this.b=e},oZ:function oZ(){},Mx:function Mx(d,e){this.a=d
+this.b=e}},S={hq:function hq(d){this.a=d},hm:function hm(d){this.a=d}},F={
+aJi:function(d,e){return new F.HF(E.A(d,e,x.W))},
+aJj:function(d,e){return new F.HG(E.A(d,e,x.W))},
+aJk:function(d,e){return new F.HH(E.A(d,e,x.W))},
+aJl:function(d,e){return new F.HI(E.A(d,e,x.W))},
+aJm:function(d,e){return new F.HJ(E.A(d,e,x.W))},
+aJn:function(d,e){return new F.HK(E.A(d,e,x.W))},
+aJo:function(d,e){return new F.HL(E.A(d,e,x.W))},
+aJp:function(d,e){return new F.HM(E.A(d,e,x.W))},
+aJq:function(d,e){return new F.x5(N.Q(),E.A(d,e,x.W))},
+aJr:function(){return new F.HN(new G.S())},
+aHz:function(){return new F.Ga(new G.S())},
+aHx:function(){return new F.G8(new G.S())},
+aip:function(){if($.ae8)return
+$.ae8=!0
+$.V.w(0,C.ny,new D.l("material-dropdown-select-full-demo",F.ajz(),x.B))
+$.V.w(0,C.lg,new D.l("example-renderer",F.ajy(),x.I))
+$.V.w(0,C.nt,new D.l("example-label-renderer",F.ajx(),x.Q))
+F.aip()
+E.G()
+L.dM()
+T.rf()
+G.oL()
+M.ck()
+Q.ee()
+Z.Lt()
+Y.rg()
+Q.awr()
+O.a3J()
+R.awt()
+N.eD()
+K.bP()
+N.cp()
+N.yt()
+X.yr()
+F.iX()
+K.dD()},
+uC:function uC(d,e,f){var _=this
+_.e=d
+_.f=e
+_.a7=_.V=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=null
+_.aw=_.aB=_.aM=_.aA=_.ax=_.as=_.af=_.aj=_.ah=_.ar=_.ai=_.av=_.au=_.aq=_.al=_.ag=_.an=_.ae=_.ak=_.a9=_.a8=_.aa=_.L=_.W=_.a_=_.a4=_.Y=_.a6=_.a0=_.X=null
+_.by=_.bx=_.bt=_.bC=_.bF=_.bm=_.bJ=_.bg=_.bd=_.b6=_.bf=_.aQ=_.bc=_.aW=_.bh=_.aZ=_.b1=_.aC=_.aV=_.aU=_.aJ=_.aG=_.bb=_.b5=_.aI=_.aR=_.aF=_.ba=_.aY=_.aT=null
+_.cu=_.cQ=_.d6=_.ct=_.cI=_.cc=_.cW=_.c7=_.cH=_.cD=_.cP=_.cg=_.d5=_.c_=_.cO=_.ck=_.dg=_.c1=_.bs=_.c6=_.bB=_.bO=_.bk=_.bR=_.cj=_.bY=_.bS=_.c3=_.c2=_.bl=null
+_.c=_.b=_.a=_.cJ=_.ci=_.dc=_.cY=_.cl=_.cX=null
+_.d=f},
+HF:function HF(d){this.a=d},
+HG:function HG(d){this.a=d},
+HH:function HH(d){this.a=d},
+HI:function HI(d){this.a=d},
+HJ:function HJ(d){this.a=d},
+HK:function HK(d){this.a=d},
+HL:function HL(d){this.a=d},
+HM:function HM(d){this.a=d},
+x5:function x5(d,e){var _=this
+_.b=d
+_.d=_.c=null
+_.a=e},
+HN:function HN(d){var _=this
+_.c=_.b=_.a=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
+_.d=d},
+BL:function BL(d,e){var _=this
+_.e=d
+_.c=_.b=_.a=_.r=_.f=null
+_.d=e},
+Ga:function Ga(d){var _=this
+_.c=_.b=_.a=null
+_.d=d},
+BJ:function BJ(d,e){var _=this
+_.e=d
+_.c=_.b=_.a=_.r=_.f=null
+_.d=e},
+G8:function G8(d){var _=this
+_.c=_.b=_.a=null
+_.d=d}}
+a.setFunctionNamesIfNecessary([G,R,Q,A,L,N,U,B,S,F])
 C=c[0]
 H=c[1]
 J=c[2]
 P=c[3]
 W=c[4]
-G=c[5]
+G=a.updateHolder(c[5],G)
 Y=c[6]
-R=c[7]
+R=a.updateHolder(c[7],R)
 K=c[8]
 V=c[9]
-S=c[10]
-E=c[11]
-M=c[12]
-Q=c[13]
-D=a.updateHolder(c[14],D)
-L=c[15]
-Z=c[16]
-O=a.updateHolder(c[17],O)
-B=a.updateHolder(c[18],B)
-A=c[19]
-U=c[20]
-T=c[21]
-N=a.updateHolder(c[22],N)
-X=c[23]
-F=c[24]
-B.hr.prototype={}
-N.M_.prototype={
-gmD:function(){var y=this.r
-return y==null?this.r=document:y},
-gyx:function(){var y=this.y
-return y==null?this.y=window:y},
-gmE:function(){var y,x=this,w=x.z
-if(w==null){w=x.d
-y=w.a
-w=w.b
-w=T.bc(y.k(C.b,w),y.k(C.E,w),y.m(C.f,w),x.gyx())
-x.z=w}return w},
-gyu:function(){var y,x=this,w=x.Q
-if(w==null){w=x.d
-w=w.a.m(C.W,w.b)
-y=x.gmE()
-w=x.Q=new O.aR(w,y)}return w},
-gqv:function(){var y=this,x=y.ch
-return x==null?y.ch=new K.aW(y.gmD(),y.gmE(),P.b9(null,[P.r,P.i])):x},
-gLN:function(){var y=this.cx
-if(y==null){y=this.d
-y=T.bg(y.a.m(C.f,y.b))
-this.cx=y}return y},
-gqw:function(){var y=this.cy
-if(y==null){y=this.d
-y=G.bn(y.a.k(C.t,y.b))
-this.cy=y}return y},
-gyz:function(){var y=this,x=y.db
-if(x==null){x=y.d
-x=G.bq(y.gmD(),x.a.k(C.u,x.b))
-y.db=x}return x},
-gyA:function(){var y=this,x=y.dx
-if(x==null){x=y.d
-x=G.bf(y.gqw(),y.gyz(),x.a.k(C.r,x.b))
-y.dx=x}return x},
-gqx:function(){var y=this.dy
-return y==null?this.dy=!0:y},
-gyB:function(){var y=this.fr
-return y==null?this.fr=!0:y},
-gyw:function(){var y=this.fy
-if(y==null){y=this.gmD()
-y=this.fy=new R.aU(y.querySelector("head"),y)}return y},
-gyy:function(){var y=this.go
-return y==null?this.go=X.bl():y},
-gyv:function(){var y=this,x=y.id
-return x==null?y.id=K.bk(y.gyw(),y.gyA(),y.gqw(),y.gqv(),y.gmE(),y.gyu(),y.gqx(),y.gyB(),y.gyy()):x},
-gLO:function(){var y,x,w,v,u=this,t=u.k1
-if(t==null){t=u.d
-y=t.a
+E=c[10]
+M=c[11]
+Q=a.updateHolder(c[12],Q)
+D=c[13]
+Z=c[14]
+O=c[15]
+A=a.updateHolder(c[16],A)
+T=c[17]
+L=a.updateHolder(c[18],L)
+N=a.updateHolder(c[19],N)
+U=a.updateHolder(c[20],U)
+X=c[21]
+B=a.updateHolder(c[22],B)
+S=a.updateHolder(c[23],S)
+F=a.updateHolder(c[24],F)
+B.zv.prototype={
+f2:function(d){this.e=this.b.gei().D(new B.Ok(this,d))},
+f6:function(d,e){var w
+this.GS()
+w=this.b
+if(e!=null)w.bi(0,e)
+else w.cb(0)}}
+B.Af.prototype={
+f2:function(d){this.e=this.b.gei().D(new B.SA(this,d))},
+f6:function(d,e){var w,v
+this.GS()
+w=this.b
+w.cb(0)
+if(e==null)return
+for(v=J.bQ(e);v.ac();)w.bi(0,v.gap(v))}}
+B.oZ.prototype={
+GS:function(){var w=this
+if(w.d)return
+w.d=!0
+w.a.sbI(w.b)},
+i1:function(d){var w=this.a.r1$
+this.c=new P.e(w,H.m(w).i("e<1>")).D(new B.Mx(this,d))},
+S:function(){var w=this.c
+if(w!=null)w.az(0)},
+ed:function(d){}}
+R.IV.prototype={
+q:function(){var w,v=this,u=R.a2D(v,0)
+v.b=u
+w=u.c
+v.a=new X.hs(new P.P(null,null,x.j))
+v.F(w)},
+P:function(d,e,f){if(d===C.i&&0===e)return this.a
+return f},
+G:function(){this.a.S()}}
+S.hq.prototype={}
+S.hm.prototype={}
+A.CC.prototype={
+gfV:function(){var w=this.r
+return w==null?this.r=document:w},
+gkt:function(){var w=this.y
+return w==null?this.y=window:w},
+gfW:function(){var w,v=this,u=v.z
+if(u==null){u=v.d
+w=u.a
+u=u.b
+u=T.bC(w.l(C.b,u),w.l(C.D,u),w.n(C.f,u),v.gkt())
+v.z=u}return u},
+gkq:function(){var w,v=this,u=v.Q
+if(u==null){u=v.d
+u=u.a.n(C.U,u.b)
+w=v.gfW()
+u=v.Q=new O.bk(u,w)}return u},
+giq:function(){var w=this,v=w.ch
+return v==null?w.ch=new K.bl(w.gfV(),w.gfW(),P.bA(null,x.f)):v},
+gqe:function(){var w=this.cx
+if(w==null){w=this.d
+w=T.bG(w.a.n(C.f,w.b))
+this.cx=w}return w},
+gir:function(){var w=this.cy
+if(w==null){w=this.d
+w=G.bL(w.a.l(C.t,w.b))
+this.cy=w}return w},
+gkv:function(){var w=this,v=w.db
+if(v==null){v=w.d
+v=G.bO(w.gfV(),v.a.l(C.u,v.b))
+w.db=v}return v},
+gkw:function(){var w=this,v=w.dx
+if(v==null){v=w.d
+v=G.bE(w.gir(),w.gkv(),v.a.l(C.r,v.b))
+w.dx=v}return v},
+gis:function(){var w=this.dy
+return w==null?this.dy=!0:w},
+gkx:function(){var w=this.fr
+return w==null?this.fr=!0:w},
+gks:function(){var w=this.fy
+if(w==null){w=this.gfV()
+w=this.fy=new R.bn(w.querySelector("head"),w)}return w},
+gku:function(){var w=this.go
+return w==null?this.go=X.bK():w},
+gkr:function(){var w=this,v=w.id
+return v==null?w.id=K.bI(w.gks(),w.gkw(),w.gir(),w.giq(),w.gfW(),w.gkq(),w.gis(),w.gkx(),w.gku()):v},
+gqf:function(){var w,v,u,t,s=this,r=s.k1
+if(r==null){r=s.d
+w=r.a
+r=r.b
+v=w.n(C.f,r)
+u=s.gis()
+t=s.gkr()
+w.l(C.k,r)
+r=s.k1=new X.bj(u,v,t)}return r},
+q:function(){var w,v=this,u=v.a2(),t=K.cS(v,0)
+v.e=t
+u.appendChild(t.c)
+t=v.d
+w=t.a
 t=t.b
-x=y.m(C.f,t)
-w=u.gqx()
-v=u.gyv()
-y.k(C.k,t)
-t=u.k1=new X.aQ(w,x,v)}return t},
-p:function(){var y,x=this,w=x.a2(),v=K.co(x,0)
-x.e=v
-w.appendChild(v.c)
-v=x.d
-y=v.a
-v=v.b
-y.m(C.ad,v)
-v=y.m(C.ae,v)
-v=new X.ao(v,!J.bo(window.location.href,"enableLatencyCharts=false"))
-x.f=v
-x.e.K(0,v)},
-O:function(d,e,f){var y,x=this
-if(0===e){if(d===C.N)return x.gmD()
-if(d===C.X){y=x.x
-return y==null?x.x=document:y}if(d===C.K)return x.gyx()
-if(d===C.b)return x.gmE()
-if(d===C.R)return x.gyu()
-if(d===C.P)return x.gqv()
-if(d===C.a1)return x.gLN()
-if(d===C.t)return x.gqw()
-if(d===C.u)return x.gyz()
-if(d===C.r)return x.gyA()
-if(d===C.V)return x.gqx()
-if(d===C.G)return x.gyB()
-if(d===C.H){y=x.fx
-return y==null?x.fx=C.a_:y}if(d===C.T)return x.gyw()
-if(d===C.F)return x.gyy()
-if(d===C.S)return x.gyv()
-if(d===C.k)return x.gLO()
-if(d===C.I){y=x.k2
-return y==null?x.k2=C.a0:y}if(d===C.w){y=x.k3
-return y==null?x.k3=new K.b0(x.gqv()):y}}return f},
-v:function(){var y=this,x=y.a.a,w=y.k4
-if(w!==x)y.k4=y.f.a=x
-y.e.i()},
-F:function(){this.e.j()}}
-N.Uz.prototype={
-p:function(){var y,x,w,v=this,u="angular_components/lib/material_list/material_list.dart",t="Input",s="String",r="angular_components/lib/material_list/material_list_item.dart",q="bool",p="angular_components/lib/button_decorator/button_decorator.dart",o=new N.M_(E.L(v,0,3)),n=$.a6P
-if(n==null){n=new O.bb(null,C.a,"","","")
-n.bG()
-$.a6P=n}o.b=n
-y=document.createElement("material-list-api")
-o.c=y
-v.b=o
-o=[D.c8]
-o=H.a([D.aE("MaterialListComponent",!1,"","material-list","",u,X.f('<p>Material List is a container component for a set of items with which the\nuser is intended to interact.</p>\n<p>It forms the basis for selection and menu components.\nThe <code>MaterialListComponent</code> class acts as the root node for a list\nproviding styling and the ability to collect item events.</p>\n<p><strong>Attributes:</strong></p><ul><li><code>size: string {x-small, small, medium, large, x-large}</code> Sizes for the\nlist, resulting in the width being 64px * {1.5, 3, 5, 6, 7} respectively.\nThe default size is "auto" which sizes the list to its contents.</li><li><code>min-size: string {x-small, small, medium, large, x-large}</code> Minimum size\nfor the list, resulting in the width at least the specified width.</li></ul>\n'),H.a([D.h(t,"role","",s,X.f("<p>Role to apply to the material-list.</p>\n<p>Defaults to 'list'</p>\n"),u,!1,""),D.h(t,"size","",s,X.f("<p>Preset width, 1 through 5. By default, the material list will expand to\nthe full width of its parent.</p>\n<p>Note: The spec clearly lays out predefined\nlist sizes so use the default, expanding size, sparingly.\nEach width multiplies the base block width (64px on desktop and tablet) by\n<code>1.5, 3, 5, 6, 7</code>, respectively to obtain a predictable width.\nSet to 0 to have the list expand to the full width of its parent.</p>\n"),u,!1,""),D.h(t,"width","","dynamic",X.f(""),u,!0,"Use size input instead.")],o),H.a([],o)),D.aE("MaterialListItemComponent",!1,"","material-list-item","",r,X.f("<p>Material List Item is a block element intended for user interaction; it has\n<code>:hover</code> styling and emits and <code>trigger</code> event when the user clicks or\npresses <code>enter</code> or <code>space</code> keys.</p>\n<p>See <code>MaterialListComponent</code> for item <strong>grouping</strong> and <strong>labelling</strong>.</p>\n<p>Note: If the material-list-item has a <code>DropdownHandle</code> in its ancestry, the\ndropdown will be closed on triggering (i.e. clicking or pressing enter/space\non) the list item if <code>closeOnActivate</code> is true.</p>\n"),H.a([D.h(t,"closeOnActivate","",q,X.f("<p>Whether the encompassing dropdown should close on selection of\nthis item.</p>\n"),r,!1,""),D.h(t,"disabled","",q,X.f("<p>Disables the trigger and gives item a disabled style.</p>\n"),r,!1,""),D.h(t,"role","",s,X.f("<p>Role of this component used for a11y.</p>\n"),p,!1,""),D.h(t,"tabbable","",q,X.f("<p>Is the component tabbable.</p>\n"),p,!1,""),D.h(t,"tabindex","",s,X.f("<p>The tab index of the component.</p>\n<p>The value is used if <code>tabbable</code> is <code>true</code> and <code>disabled</code> is <code>false</code>.</p>\n"),p,!1,"")],o),H.a([D.h("Output","trigger","","Stream<UIEvent>",X.f("<p>Fired when the button is activated via click, tap, or key press.</p>\n"),p,!1,"")],o))],[D.c1])
-x=H.a([new R.ag(C.eB,"MaterialListDemoComponent","material_list_example/lib/material_list_demo.dart")],[R.ag])
-w=P.i
-v.a=new B.hr(R.ct(H.a([],[w]),x,o,P.aq(w,w),!0))
-v.E(y)},
-$ak:function(){return[B.hr]}}
-D.ix.prototype={
-wg:function(d){var y=this.b
-if(y.cd(d))y.d8(d)
-else y.bm(0,d)}}
-O.uX.prototype={
-p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,h0,h1,h2,h3,h4,h5,h6,h7,h8,h9,i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,j0,j1,j2,j3,j4,j5,j6,j7,j8,j9,k0,k1,k2,k3,k4,k5,k6,k7,k8,k9,l0,l1,l2=this,l3=null,l4="section",l5="h2",l6="group",l7="Red",l8="Green",l9="Coral",m0="MediumOrchid",m1="p",m2="em",m3="bordered-list",m4="disabled",m5="width",m6="Item with secondary ",m7="material-list-item-secondary",m8="aria-hidden",m9="material-list-item-primary",n0="Item with primary icon",n1="Item",n2="focusItem",n3="no-outline",n4="keydown",n5=l2.a2()
-T.b(n5,"\n")
-y=document
-x=T.dp(y,n5)
-l2.bW=x
-l2.A(x,"colorchanger")
-l2.l(l2.bW)
-T.b(l2.bW,"Use the list to change color")
-w=T.d(y,n5,l4)
-l2.l(w)
-v=T.d(y,w,l5)
-l2.l(v)
-T.b(v,"Basic Demo with Groups")
-x=B.es(l2,6)
-l2.f=x
-u=x.c
-w.appendChild(u)
-l2.h(u)
-l2.r=new B.d2()
-t=y.createElement("div")
-T.c(t,l6,"")
-l2.h(t)
-x=E.bC(l2,8)
-l2.x=x
-s=x.c
-t.appendChild(s)
-l2.h(s)
-x=l2.d
-r=x.a
-x=x.b
-q=L.bA(s,r.k(C.o,x),l3,l3)
-l2.y=q
-p=T.m(l7)
-o=[W.b1]
-n=[P.l]
-l2.x.q(q,H.a([H.a([p],o)],n))
-q=E.bC(l2,10)
-l2.z=q
-m=q.c
-t.appendChild(m)
-l2.h(m)
-q=L.bA(m,r.k(C.o,x),l3,l3)
-l2.Q=q
-l=T.m(l8)
-l2.z.q(q,H.a([H.a([l],o)],n))
-q=E.bC(l2,12)
-l2.ch=q
-k=q.c
-l2.h(k)
-q=L.bA(k,r.k(C.o,x),l3,l3)
-l2.cx=q
-j=T.m(l9)
-l2.ch.q(q,H.a([H.a([j],o)],n))
-q=E.bC(l2,14)
-l2.cy=q
-i=q.c
-l2.h(i)
-q=L.bA(i,r.k(C.o,x),l3,l3)
-l2.db=q
-h=T.m(m0)
-l2.cy.q(q,H.a([H.a([h],o)],n))
-q=[W.aA]
-l2.f.q(l2.r,H.a([H.a([t,k,i],q)],n))
-g=T.d(y,n5,l4)
-l2.l(g)
-f=T.d(y,g,l5)
-l2.l(f)
-T.b(f,"Different list sizes and a label")
-e=T.d(y,g,m1)
-l2.l(e)
-d=T.d(y,e,m2)
-l2.l(d)
-T.b(d,"with borders to demonstrate container size")
-a0=T.d(y,g,m1)
-l2.l(a0)
-T.b(a0,"Sizes: x-small, small, medium, large, x-large")
-a1=l2.dx=new V.q(24,16,l2,T.G(g))
-l2.dy=new R.aG(a1,new D.x(a1,O.awr()))
-a2=T.d(y,n5,l4)
-l2.l(a2)
-a3=T.d(y,a2,l5)
-l2.l(a3)
-T.b(a3,"Minimum Width")
-a4=T.d(y,a2,m1)
-l2.l(a4)
-a5=T.d(y,a4,m2)
-l2.l(a5)
-T.b(a5,"with borders to demonstrate container width")
-a6=T.d(y,a2,m1)
-l2.l(a6)
-a1=T.d(y,a6,"input")
-l2.bo=a1
-l2.h(a1)
-a1=B.es(l2,33)
-l2.fr=a1
-a7=a1.c
-a2.appendChild(a7)
-l2.N(a7,m3)
-T.c(a7,"min-size","small")
-l2.h(a7)
-l2.fx=new B.d2()
-a8=y.createElement("div")
-T.c(a8,"label","")
-l2.h(a8)
-T.b(a8,"Min Width of medium")
-a1=E.bC(l2,36)
-l2.fy=a1
-a9=a1.c
-T.c(a9,m4,"")
-l2.h(a9)
-a1=L.bA(a9,r.k(C.o,x),l3,l3)
-l2.go=a1
-b0=T.m(l7)
-l2.fy.q(a1,H.a([H.a([b0],o)],n))
-a1=E.bC(l2,38)
-l2.id=a1
-b1=a1.c
-l2.h(b1)
-a1=L.bA(b1,r.k(C.o,x),l3,l3)
-l2.k1=a1
-b2=T.m(l8)
-l2.id.q(a1,H.a([H.a([b2],o)],n))
-a1=E.bC(l2,40)
-l2.k2=a1
-b3=a1.c
-l2.h(b3)
-a1=L.bA(b3,r.k(C.o,x),l3,l3)
-l2.k3=a1
-l2.k2.q(a1,H.a([H.a([l2.e.b],o)],n))
-a1=E.bC(l2,42)
-l2.k4=a1
-b4=a1.c
-l2.h(b4)
-a1=L.bA(b4,r.k(C.o,x),l3,l3)
-l2.r1=a1
-b5=T.m(m0)
-l2.k4.q(a1,H.a([H.a([b5],o)],n))
-l2.fr.q(l2.fx,H.a([H.a([a8,a9,b1,b3,b4],q)],n))
-b6=T.d(y,n5,l4)
-l2.A(b6,"stretched-list")
-l2.l(b6)
-b7=T.d(y,b6,l5)
-l2.l(b7)
-T.b(b7,"Stretching to fill Parent")
-b8=T.d(y,b6,m1)
-l2.l(b8)
-b9=T.d(y,b8,m2)
-l2.l(b9)
-T.b(b9,"via block-material-list mixin")
-a1=B.es(l2,50)
-l2.r2=a1
-c0=a1.c
-b6.appendChild(c0)
-l2.N(c0,m3)
-l2.h(c0)
-l2.rx=new B.d2()
-a1=E.bC(l2,51)
-l2.ry=a1
-c1=a1.c
-T.c(c1,m4,"")
-l2.h(c1)
-a1=L.bA(c1,r.k(C.o,x),l3,l3)
-l2.x1=a1
-c2=T.m(l7)
-l2.ry.q(a1,H.a([H.a([c2],o)],n))
-a1=E.bC(l2,53)
-l2.x2=a1
-c3=a1.c
-l2.h(c3)
-a1=L.bA(c3,r.k(C.o,x),l3,l3)
-l2.y1=a1
-c4=T.m(l8)
-l2.x2.q(a1,H.a([H.a([c4],o)],n))
-a1=E.bC(l2,55)
-l2.y2=a1
-c5=a1.c
-l2.h(c5)
-a1=L.bA(c5,r.k(C.o,x),l3,l3)
-l2.V=a1
-c6=T.m(l9)
-l2.y2.q(a1,H.a([H.a([c6],o)],n))
-a1=E.bC(l2,57)
-l2.a8=a1
-c7=a1.c
-l2.h(c7)
-a1=L.bA(c7,r.k(C.o,x),l3,l3)
-l2.W=a1
-c8=T.m(m0)
-l2.a8.q(a1,H.a([H.a([c8],o)],n))
-a1=[W.a9]
-l2.r2.q(l2.rx,H.a([H.a([c1,c3,c5,c7],a1)],n))
-c9=T.d(y,n5,l4)
-l2.l(c9)
-d0=T.d(y,c9,l5)
-l2.l(d0)
-T.b(d0,"Primary and Secondary item content")
-d1=B.es(l2,62)
-l2.a_=d1
-d2=d1.c
-c9.appendChild(d2)
-l2.N(d2,m3)
-T.c(d2,m5,"3")
-l2.h(d2)
-l2.a6=new B.d2()
-d1=E.bC(l2,63)
-l2.a4=d1
-d3=d1.c
-l2.h(d3)
-d1=L.bA(d3,r.k(C.o,x),l3,l3)
-l2.a1=d1
-d4=T.m(m6)
-d5=y.createElement("span")
-l2.A(d5,m7)
-l2.l(d5)
-T.b(d5,"ctrl+x")
-d1=[W.aN]
-l2.a4.q(l2.a1,H.a([H.a([d4,d5],d1)],n))
-d6=E.bC(l2,67)
-l2.Z=d6
-d7=d6.c
-l2.h(d7)
-d6=L.bA(d7,r.k(C.o,x),l3,l3)
-l2.T=d6
-d6=M.a6(l2,68)
-l2.L=d6
-d8=d6.c
-T.c(d8,m8,"true")
-l2.N(d8,m9)
-T.c(d8,"icon","today")
-l2.h(d8)
-d6=new Y.X(d8)
-l2.aa=d6
-l2.L.K(0,d6)
-d9=T.m(n0)
-l2.Z.q(l2.T,H.a([H.a([d8,d9],d1)],n))
-d6=E.bC(l2,70)
-l2.a7=d6
-e0=d6.c
-l2.h(e0)
-d6=L.bA(e0,r.k(C.o,x),l3,l3)
-l2.ab=d6
-e1=T.m(n1)
-l2.a7.q(d6,H.a([H.a([e1],o)],n))
-d6=E.bC(l2,72)
-l2.ak=d6
-e2=d6.c
-l2.h(e2)
-d6=L.bA(e2,r.k(C.o,x),l3,l3)
-l2.ae=d6
-e3=T.m(n1)
-l2.ak.q(d6,H.a([H.a([e3],o)],n))
-l2.a_.q(l2.a6,H.a([H.a([d3,d7,e0,e2],a1)],n))
-e4=T.d(y,n5,l4)
-l2.l(e4)
-e5=T.d(y,e4,l5)
-l2.l(e5)
-T.b(e5,"Grouping and dividers")
-d6=B.es(l2,77)
-l2.ao=d6
-e6=d6.c
-e4.appendChild(e6)
-l2.N(e6,m3)
-T.c(e6,m5,"3")
-l2.h(e6)
-l2.ah=new B.d2()
-e7=y.createElement("div")
-T.c(e7,l6,"")
-l2.h(e7)
-d6=E.bC(l2,79)
-l2.al=d6
-e8=d6.c
-e7.appendChild(e8)
-l2.h(e8)
-d6=L.bA(e8,r.k(C.o,x),l3,l3)
-l2.ap=d6
-e9=T.m(n1)
-l2.al.q(d6,H.a([H.a([e9],o)],n))
-d6=E.bC(l2,81)
-l2.av=d6
-f0=d6.c
-e7.appendChild(f0)
-l2.h(f0)
-d6=L.bA(f0,r.k(C.o,x),l3,l3)
-l2.aw=d6
-f1=T.m(n1)
-l2.av.q(d6,H.a([H.a([f1],o)],n))
-d6=E.bC(l2,83)
-l2.ai=d6
-f2=d6.c
-e7.appendChild(f2)
-l2.h(f2)
-d6=L.bA(f2,r.k(C.o,x),l3,l3)
-l2.au=d6
-f3=T.m(m6)
-f4=y.createElement("span")
-l2.A(f4,m7)
-l2.l(f4)
-T.b(f4,"ctrl+x")
-l2.ai.q(l2.au,H.a([H.a([f3,f4],d1)],n))
-f5=y.createElement("div")
-T.c(f5,l6,"")
-l2.h(f5)
-d6=E.bC(l2,88)
-l2.ag=d6
-f6=d6.c
-f5.appendChild(f6)
-l2.h(f6)
-d6=L.bA(f6,r.k(C.o,x),l3,l3)
-l2.aj=d6
-f7=T.m("Small Group Item")
-l2.ag.q(d6,H.a([H.a([f7],o)],n))
-d6=E.bC(l2,90)
-l2.af=d6
-f8=d6.c
-l2.h(f8)
-d6=L.bA(f8,r.k(C.o,x),l3,l3)
-l2.aq=d6
-d6=M.a6(l2,91)
-l2.ay=d6
-f9=d6.c
-T.c(f9,m8,"true")
-l2.N(f9,m9)
-T.c(f9,"icon","today")
-l2.h(f9)
-d6=new Y.X(f9)
-l2.aB=d6
-l2.ay.K(0,d6)
-g0=T.m(n0)
-l2.af.q(l2.aq,H.a([H.a([f9,g0],d1)],n))
-d1=E.bC(l2,93)
-l2.aN=d1
-g1=d1.c
-l2.h(g1)
-d1=L.bA(g1,r.k(C.o,x),l3,l3)
-l2.aD=d1
-g2=T.m(n1)
-l2.aN.q(d1,H.a([H.a([g2],o)],n))
-d1=E.bC(l2,95)
-l2.ax=d1
-g3=d1.c
-l2.h(g3)
-d1=L.bA(g3,r.k(C.o,x),l3,l3)
-l2.aT=d1
-g4=T.m(n1)
-l2.ax.q(d1,H.a([H.a([g4],o)],n))
-l2.ao.q(l2.ah,H.a([H.a([e7,f5,f8,g1,g3],q)],n))
-g5=T.d(y,n5,l4)
-l2.l(g5)
-g6=T.d(y,g5,l5)
-l2.l(g6)
-T.b(g6,"Select Items")
-g7=T.d(y,g5,m1)
-l2.l(g7)
-T.b(g7,"`material-select-item` is a special kind of `material-item` which shows a check icon if the item is marked as selected")
-d1=B.es(l2,102)
-l2.aY=d1
-g8=d1.c
-g5.appendChild(g8)
-l2.N(g8,m3)
-T.c(g8,m5,"3")
-l2.h(g8)
-l2.b8=new B.d2()
-d1=M.cU(l2,103,l3)
-l2.aH=d1
-g9=d1.c
-l2.h(g9)
-d1=B.cQ(g9,r.k(C.o,x),r.k(C.Y,x),l2.aH,l3,l3)
-l2.aZ=d1
-h0=T.m("Item 1")
-l2.aH.q(d1,H.a([H.a([h0],o)],n))
-d1=M.cU(l2,105,l3)
-l2.aQ=d1
-h1=d1.c
-l2.h(h1)
-d1=B.cQ(h1,r.k(C.o,x),r.k(C.Y,x),l2.aQ,l3,l3)
-l2.b9=d1
-h2=T.m("Item 2")
-l2.aQ.q(d1,H.a([H.a([h2],o)],n))
-d1=M.cU(l2,107,l3)
-l2.bi=d1
-h3=d1.c
-l2.h(h3)
-d1=B.cQ(h3,r.k(C.o,x),r.k(C.Y,x),l2.bi,l3,l3)
-l2.aU=d1
-h4=T.m("Item 3")
-l2.bi.q(d1,H.a([H.a([h4],o)],n))
-l2.aY.q(l2.b8,H.a([H.a([g9,h1,h3],a1)],n))
-h5=T.d(y,n5,l4)
-l2.l(h5)
-h6=T.d(y,h5,l5)
-l2.l(h6)
-T.b(h6,"Navigate Focus via Keyboard")
-h7=T.d(y,h5,m1)
-l2.l(h7)
-h8=T.d(y,h7,m2)
-l2.l(h8)
-T.b(h8,"Use <tab> to focus an item in the list, then use up/down and left/right keys to navigate.")
-a1=B.es(l2,115)
-l2.aO=a1
-a1=a1.c
-l2.bY=a1
-h5.appendChild(a1)
-l2.N(l2.bY,m3)
-T.c(l2.bY,"focusList","")
-a1=l2.bY
-a1.tabIndex=0
-l2.h(a1)
-a1=N.h6(r.m(C.f,x),l3,l3)
-l2.aV=new K.eZ(a1)
-l2.aW=new B.d2()
-h9=y.createElement("div")
-T.c(h9,l6,"")
-l2.h(h9)
-a1=E.bC(l2,117)
-l2.aE=a1
-a1=a1.c
-l2.bK=a1
-h9.appendChild(a1)
-T.c(l2.bK,n2,"")
-l2.h(l2.bK)
-a1=l2.bK
-l2.ba=new U.d0(M.di(a1,l2.aE,l3))
-a1=L.bA(a1,r.k(C.o,x),l3,l3)
-l2.b4=a1
-i0=T.m(l7)
-l2.aE.q(a1,H.a([H.a([i0],o)],n))
-a1=E.bC(l2,119)
-l2.bp=a1
-a1=a1.c
-l2.cc=a1
-h9.appendChild(a1)
-T.c(l2.cc,n2,"")
-l2.h(l2.cc)
-a1=l2.cc
-l2.aR=new U.d0(M.di(a1,l2.bp,l3))
-a1=L.bA(a1,r.k(C.o,x),l3,l3)
-l2.be=a1
-i1=T.m(l8)
-l2.bp.q(a1,H.a([H.a([i1],o)],n))
-a1=E.bC(l2,121)
-l2.aS=a1
-a1=a1.c
-l2.bA=a1
-T.c(a1,n2,"")
-l2.h(l2.bA)
-a1=l2.bA
-l2.bk=new U.d0(M.di(a1,l2.aS,l3))
-a1=L.bA(a1,r.k(C.o,x),l3,l3)
-l2.bb=a1
-i2=T.m(l9)
-l2.aS.q(a1,H.a([H.a([i2],o)],n))
-a1=E.bC(l2,123)
-l2.bf=a1
-a1=a1.c
-l2.c5=a1
-T.c(a1,n2,"")
-l2.h(l2.c5)
-a1=l2.c5
-l2.b5=new U.d0(M.di(a1,l2.bf,l3))
-a1=L.bA(a1,r.k(C.o,x),l3,l3)
-l2.bx=a1
-i3=T.m(m0)
-l2.bf.q(a1,H.a([H.a([i3],o)],n))
-l2.aV.a.seY(H.a([l2.ba.a,l2.aR.a,l2.bk.a,l2.b5.a],[E.aD]))
-l2.aO.q(l2.aW,H.a([H.a([h9,l2.bA,l2.c5],q)],n))
-i4=T.d(y,n5,l4)
-l2.l(i4)
-i5=T.d(y,i4,l5)
-l2.l(i5)
-T.b(i5,"No focus outline")
-a1=B.es(l2,128)
-l2.bs=a1
-i6=a1.c
-i4.appendChild(i6)
-l2.h(i6)
-l2.bN=new B.d2()
-i7=y.createElement("div")
-T.c(i7,l6,"")
-l2.h(i7)
-a1=E.bC(l2,130)
-l2.bL=a1
-i8=a1.c
-i7.appendChild(i8)
-l2.N(i8,O.bT("",n3," ","item",""))
-l2.h(i8)
-a1=L.bA(i8,r.k(C.o,x),l3,l3)
-l2.bz=a1
-i9=T.m(l7)
-l2.bL.q(a1,H.a([H.a([i9],o)],n))
-a1=E.bC(l2,132)
-l2.bD=a1
-j0=a1.c
-i7.appendChild(j0)
-l2.N(j0,O.bT("",n3," ","item",""))
-l2.h(j0)
-x=L.bA(j0,r.k(C.o,x),l3,l3)
-l2.bE=x
-j1=T.m(l8)
-l2.bD.q(x,H.a([H.a([j1],o)],n))
-l2.bs.q(l2.bN,H.a([H.a([i7],q)],n))
-x=l2.y.b
-r=W.ac
-j2=new P.o(x,[H.e(x,0)]).B(l2.u(l2.grQ(),r,r))
-x=l2.Q.b
-j3=new P.o(x,[H.e(x,0)]).B(l2.u(l2.grS(),r,r))
-x=l2.cx.b
-j4=new P.o(x,[H.e(x,0)]).B(l2.u(l2.grU(),r,r))
-x=l2.db.b
-j5=new P.o(x,[H.e(x,0)]).B(l2.u(l2.grW(),r,r))
-x=l2.bo
-q=W.H;(x&&C.by).S(x,"keypress",l2.u(l2.gS2(),q,q))
-x=l2.go.b
-j6=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gS4(),r,r))
-x=l2.k1.b
-j7=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gS6(),r,r))
-x=l2.k3.b
-j8=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gS8(),r,r))
-x=l2.r1.b
-j9=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gSa(),r,r))
-x=l2.x1.b
-k0=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gSc(),r,r))
-x=l2.y1.b
-k1=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gRF(),r,r))
-x=l2.V.b
-k2=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gRH(),r,r))
-x=l2.W.b
-k3=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gRJ(),r,r))
-x=l2.aZ.b
-k4=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gRL(),r,r))
-x=l2.b9.b
-k5=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gRN(),r,r))
-x=l2.aU.b
-k6=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gRP(),r,r))
-x=W.a4
-J.a2(l2.bK,n4,l2.u(l2.ba.a.gbR(),q,x))
-o=l2.b4.b
-k7=new P.o(o,[H.e(o,0)]).B(l2.u(l2.gRR(),r,r))
-J.a2(l2.cc,n4,l2.u(l2.aR.a.gbR(),q,x))
-o=l2.be.b
-k8=new P.o(o,[H.e(o,0)]).B(l2.u(l2.gRT(),r,r))
-J.a2(l2.bA,n4,l2.u(l2.bk.a.gbR(),q,x))
-o=l2.bb.b
-k9=new P.o(o,[H.e(o,0)]).B(l2.u(l2.gRV(),r,r))
-J.a2(l2.c5,n4,l2.u(l2.b5.a.gbR(),q,x))
-x=l2.bx.b
-l0=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gRX(),r,r))
-x=l2.bz.b
-l1=new P.o(x,[H.e(x,0)]).B(l2.u(l2.gRZ(),r,r))
-x=l2.bE.b
-l2.bt(H.a([j2,j3,j4,j5,j6,j7,j8,j9,k0,k1,k2,k3,k4,k5,k6,k7,k8,k9,l0,l1,new P.o(x,[H.e(x,0)]).B(l2.u(l2.gS0(),r,r))],[[P.S,-1]]))},
-O:function(d,e,f){var y,x=this,w=d===C.c
-if(w&&8<=e&&e<=9)return x.y
-if(w&&10<=e&&e<=11)return x.Q
-if(w&&12<=e&&e<=13)return x.cx
-if(w&&14<=e&&e<=15)return x.db
-if(w&&36<=e&&e<=37)return x.go
-if(w&&38<=e&&e<=39)return x.k1
-if(w&&40<=e&&e<=41)return x.k3
-if(w&&42<=e&&e<=43)return x.r1
-if(w&&51<=e&&e<=52)return x.x1
-if(w&&53<=e&&e<=54)return x.y1
-if(w&&55<=e&&e<=56)return x.V
-if(w&&57<=e&&e<=58)return x.W
-if(w&&63<=e&&e<=66)return x.a1
-if(w&&67<=e&&e<=69)return x.T
-if(w&&70<=e&&e<=71)return x.ab
-if(w&&72<=e&&e<=73)return x.ae
-if(w&&79<=e&&e<=80)return x.ap
-if(w&&81<=e&&e<=82)return x.aw
-if(w&&83<=e&&e<=86)return x.au
-if(w&&88<=e&&e<=89)return x.aj
-if(w&&90<=e&&e<=92)return x.aq
-if(w&&93<=e&&e<=94)return x.aD
-if(w&&95<=e&&e<=96)return x.aT
-y=d!==C.ab
-if((!y||w||d===C.J)&&103<=e&&e<=104)return x.aZ
-if((!y||w||d===C.J)&&105<=e&&e<=106)return x.b9
-if((!y||w||d===C.J)&&107<=e&&e<=108)return x.aU
-if(117<=e&&e<=118){if(d===C.O)return x.ba.a
-if(w)return x.b4}if(119<=e&&e<=120){if(d===C.O)return x.aR.a
-if(w)return x.be}if(121<=e&&e<=122){if(d===C.O)return x.bk.a
-if(w)return x.bb}if(123<=e&&e<=124){if(d===C.O)return x.b5.a
-if(w)return x.bx}if(w&&130<=e&&e<=131)return x.bz
-if(w&&132<=e&&e<=133)return x.bE
+w.n(C.a9,t)
+t=w.n(C.aa,t)
+t=new X.bf(t,!J.bF(window.location.href,"enableLatencyCharts=false"))
+v.f=t
+v.e.K(0,t)},
+P:function(d,e,f){var w,v=this
+if(0===e){if(d===C.L)return v.gfV()
+if(d===C.V){w=v.x
+return w==null?v.x=document:w}if(d===C.J)return v.gkt()
+if(d===C.b)return v.gfW()
+if(d===C.P)return v.gkq()
+if(d===C.N)return v.giq()
+if(d===C.a_)return v.gqe()
+if(d===C.t)return v.gir()
+if(d===C.u)return v.gkv()
+if(d===C.r)return v.gkw()
+if(d===C.T)return v.gis()
+if(d===C.F)return v.gkx()
+if(d===C.G){w=v.fx
+return w==null?v.fx=C.Y:w}if(d===C.R)return v.gks()
+if(d===C.E)return v.gku()
+if(d===C.Q)return v.gkr()
+if(d===C.k)return v.gqf()
+if(d===C.H){w=v.k2
+return w==null?v.k2=C.Z:w}if(d===C.v){w=v.k3
+return w==null?v.k3=new K.bt(v.giq()):w}}return f},
+A:function(){var w=this,v=w.a.a,u=w.k4
+if(u!==v)w.k4=w.f.a=v
+w.e.j()},
+G:function(){this.e.k()}}
+A.IT.prototype={
+q:function(){var w,v,u,t=this,s="ariaDescribedBy",r="String",q="ariaLabelledBy",p="componentRenderer",o="Type Function(dynamic)",n="disabled",m="bool",l="factoryRenderer",k="ComponentFactory<dynamic> Function(T)",j="itemRenderer",i="String Function(T)",h="listAutoFocus",g="selection",f="SelectionModel<T>",e="dynamic",d="deselectOnActivate",a0="tabbable",a1="<p>Is the component tabbable.</p>\n",a2="Stream<UIEvent>",a3="ariaActiveDescendant",a4=y.d,a5="buttonAriaLabel",a6="<p>Aria label for the button.</p>\n",a7="buttonText",a8="<p>Text on the button.</p>\n",a9="<p>Whether the button is disabled.</p>\n",b0=y.f,b1="iconName",b2=y.x,b3="<p>Whether the button is raised.</p>\n",b4="showButtonBorder",b5=y.q,b6="Stream<FocusEvent>",b7=y.o,b8=new A.CC(E.T(t,0,3)),b9=$.a8a
+if(b9==null)b9=$.a8a=O.bM(C.a,null)
+b8.b=b9
+w=document.createElement("material-select-api")
+b8.c=w
+t.b=b8
+b8=x.C
+b8=H.a([new D.b6("MaterialSelectComponent",!1,"","material-select","","angular_components/lib/material_select/material_select.dart",X.h("<p>Material Select is a container for selecting items from a collection,\nmarking selected options with a check icon.</p>\n<p>Options can be specified manually (in your template), or via a\n<code>SelectionOptions</code> instance. Options can be marked as selected via template\nor by checking against a selection model.</p>\n"),H.a([new D.j(s,"",r,X.h("<p>The description which will be set to select groups' aria-describedby.</p>\n"),!1,""),new D.j(q,"",r,X.h("<p>The label which will be set to select group's aria-labelledby.</p>\n"),!1,""),new D.j(p,"",o,X.h(""),!0,"Use factoryRenderer instead it is more tree-shakable"),new D.j(n,"",m,X.h("<p>Whether the select should be shown as disabled.</p>\n<p>Defaults to false.</p>\n"),!1,""),new D.j(l,"",k,X.h("<p>Used to create a <code>ComponentFactory</code> that must override <code>RendersValue</code>\nfrom a given option allowing for a more expressive option.</p>\n"),!1,""),new D.j(j,"",i,X.h("<p>A rendering function to render selection options to a String, if given a\n<code>value</code>.</p>\n"),!1,""),new D.j(h,"",m,X.h("<p>Whether to auto-focus the list as soon as it appears.</p>\n<p>Must be enabled before the component is initialized. If an item is\ninitially selected, that item will be focused, otherwise the first item is\nfocused. Only supported when selectable options are provided in <code>options</code>.</p>\n"),!1,""),new D.j("options","","SelectionOptions<T>",X.h("<p>The <code>SelectionOptions</code> instance providing options to render.</p>\n"),!1,""),new D.j(g,"",f,X.h("<p>The <code>SelectionModel</code> for this container.</p>\n"),!1,""),new D.j("width","",e,X.h("<p>The width of the rendered list, from 1 to 5.</p>\n"),!1,"")],b8),H.a([],b8)),new D.b6("MaterialSelectItemComponent",!1,"","material-select-item","","angular_components/lib/material_select/material_select_item.dart",X.h('<p>Material Select Item is a special kind of list item which can be selected.</p>\n<p>For accessibility, should be contained in an element with role="listbox" and\naria-multiselectable set appropriately, unless <code>role</code> is set to something\nother than "option".</p>\n'),H.a([new D.j("closeOnActivate","",m,X.h("<p>Whether to cause dropdown to be closed on activation.</p>\n<p>True by default.</p>\n"),!1,""),new D.j(p,"",o,X.h(""),!0,"Use factoryrenderer instead as it will produce more tree-shakeable code."),new D.j(d,"",m,X.h("<p>If true and selectOnActivate is true, triggering this item component will\ndeselect the currently selected <code>value</code> within the <code>selection</code>; if false,\ntriggering this component when <code>value</code> is selected will do nothing.</p>\n"),!1,""),new D.j(n,"",m,X.h("<p>Is the component disabled.</p>\n"),!1,""),new D.j(l,"",k,X.h("<p>Returns a <code>ComponentFactory</code> for dynamic component loader to use to render\nan item.</p>\n<p>It is required that this function be pure, or change its identity when\ninternal state has changed. Otherwise the item will not know it needs to\nupdate the component.</p>\n"),!1,""),new D.j("hideCheckbox","",m,X.h("<p>Whether to hide the checkbox.</p>\n<p>False by default.</p>\n"),!1,""),new D.j("isHidden","",m,X.h("<p>Whether the item should be hidden.</p>\n<p>False by default.</p>\n"),!1,""),new D.j(j,"",i,X.h("<p>A function to render an item as a String.</p>\n<p>It is required that this function be pure, or change its identity when\ninternal state has changed. Otherwise the item will not know it needs to\nupdate the label. If none is provided, no label is generated (labels can\nstill be passed as content).</p>\n"),!1,""),new D.j("role","",r,X.h("<p>Role of this component used for a11y.</p>\n"),!1,""),new D.j("selectOnActivate","",m,X.h("<p>If true, triggering this item component will select the <code>value</code> within the\n<code>selection</code>; if false, triggering this item component will do nothing.</p>\n"),!1,""),new D.j("selected","",m,X.h("<p>Manually mark items selected.</p>\n"),!1,""),new D.j(g,"",f,X.h("<p>Selection model to update with changes.</p>\n"),!1,""),new D.j(a0,"",m,X.h(a1),!1,""),new D.j("tabindex","",r,X.h("<p>The tab index of the component.</p>\n<p>The value is used if <code>tabbable</code> is <code>true</code> and <code>disabled</code> is <code>false</code>.</p>\n"),!1,""),new D.j("useCheckMarks","",m,X.h("<p>If true, check marks are used instead of checkboxes to indicate whether or\nnot the item is selected for multi-select items.</p>\n<p>This particular style is used in material menu dropdown for multi-select\nmenu item groups.</p>\n"),!1,""),new D.j("value","","T",X.h("<p>The value this selection item represents.</p>\n<p>If the object implements <code>HasUIDisplayName</code>, it will render use\nthe <code>uiDisplayName</code> field as the label for the item. Otherwise, the label\nis only generated by this component if an <code>ItemRenderer</code> is provided\n(via the <code>itemRenderer</code> property).</p>\n"),!1,"")],b8),H.a([new D.j("trigger","",a2,X.h("<p>Fired when the button is activated via click, tap, or key press.</p>\n"),!1,"")],b8)),new D.l2("material_dropdown_select",y.p,X.h(y.Q)),new D.b6("MaterialDropdownSelectComponent",!1,"","material-dropdown-select","",y.H,X.h(y.w),H.a([new D.j("activateFirstOption","",m,X.h(y.J),!1,""),new D.j(a3,"",r,X.h(a4),!1,""),new D.j("buttonAriaDescribedBy","",r,X.h(y._),!1,""),new D.j(a5,"",r,X.h(a6),!1,""),new D.j("buttonAriaLabelledBy","",r,X.h(y.A),!1,""),new D.j(a7,"",r,X.h(a8),!1,""),new D.j(p,"",o,X.h(""),!0,y.B),new D.j("constrainToViewport","",m,X.h(y.b),!1,""),new D.j("deselectLabel","",r,X.h(y.D),!1,""),new D.j(d,"",m,X.h(y.g),!1,""),new D.j(n,"",m,X.h(a9),!1,""),new D.j("enforceSpaceConstraints","",m,X.h(y.G),!1,""),new D.j("error","",r,X.h(y.V),!1,""),new D.j(l,"",k,X.h(y.k),!1,""),new D.j("icon","","Icon",X.h(b0),!1,""),new D.j(b1,"",r,X.h(b2),!1,""),new D.j(j,"",i,X.h(y.l),!1,""),new D.j("labelFactory","",y.E,X.h(y.F),!1,""),new D.j(h,"",m,X.h(y.S),!1,""),new D.j("optionsInput","options",e,X.h(y.u),!1,""),new D.j("popupMatchInputWidth","",m,X.h(y.I),!1,""),new D.j("preferredPositions","","List<dynamic>",X.h(y.Y),!1,""),new D.j("raised","",m,X.h(b3),!1,""),new D.j("selectionInput",g,e,X.h(y.e),!1,""),new D.j(b4,"",m,X.h(b5),!1,""),new D.j("slide","",r,X.h(y.R),!1,""),new D.j("trackLayoutChanges","",m,X.h(y.m),!1,""),new D.j("visible","",m,X.h("<p>Whether the dropdown is visible.</p>\n"),!1,""),new D.j("width","",e,X.h(y.L),!1,"")],b8),H.a([new D.j("blur","",b6,X.h(b7),!1,""),new D.j("focus","",b6,X.h(y.T),!1,""),new D.j("selectionChange","","Stream<dynamic>",X.h(y.v),!1,""),new D.j("visibleStream","visibleChange","Stream<bool>",X.h(y.n),!1,"")],b8)),new D.b6("DropdownButtonComponent",!1,"","dropdown-button","","angular_components/lib/material_select/dropdown_button.dart",X.h("<p>A button styled specifically for dropdowns.</p>\n<p>By default, this button is rendered with a triangle icon and an underline.\nThe component itself does not have a popup itself but can be used to build\ndropdowns that are not provided. Use <code>material-dropdown-select</code> for a\ncomponent that has the same button style, and implements the dropdown\nitself.</p>\n"),H.a([new D.j(a3,"",r,X.h(a4),!1,""),new D.j(s,"",r,X.h(""),!1,""),new D.j("ariaExpanded","",m,X.h("<p>True if the dropdown is expanded.</p>\n"),!1,""),new D.j(q,"",r,X.h('<p>The id of an element that additionally describes the button.</p>\n<p>For example, a text element that says "results per page" for a dropdown\nwith numerical options.</p>\n'),!1,""),new D.j("ariaOwns","",r,X.h("<p>The id of the content of the dropdown.</p>\n"),!1,""),new D.j(a5,"",r,X.h(a6),!1,""),new D.j(a7,"",r,X.h(a8),!1,""),new D.j(n,"",m,X.h(a9),!1,""),new D.j("error","",r,X.h("<p>An error displayed below the button.</p>\n<p>The button also gets a red underline when this is set.</p>\n"),!1,""),new D.j("icon","","Icon",X.h(b0),!1,""),new D.j(b1,"",r,X.h(b2),!1,""),new D.j("popupType","",r,X.h('<p>The value for aria-haspopup.</p>\n<p>See <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup</a> for valid values.</p>\n'),!1,""),new D.j("raised","",m,X.h(b3),!1,""),new D.j("role","",r,X.h("<p>The ARIA role of the dropdown button.</p>\n"),!1,""),new D.j(b4,"",m,X.h(b5),!1,""),new D.j(a0,"",m,X.h(a1),!1,"")],b8),H.a([new D.j("onBlur","blur",b6,X.h(b7),!1,""),new D.j("onFocus","focus",b6,X.h("<p>Event when the element is focused.</p>\n"),!1,""),new D.j("trigger","",a2,X.h("<p>Event fired when the button is clicked or keyboard activated.</p>\n"),!1,"")],b8)),new D.b6("displayNameRendererDirective",!1,"","[displayNameRenderer]","","angular_components/lib/material_select/display_name.dart",X.h("<p>Add this directive to any <code>SelectionContainer</code> or <code>SelectionItem</code>\ncomponent to render <code>HasUIDisplayName</code> objects.</p>\n"),H.a([],b8),H.a([],b8))],x.c)
+v=H.a([new R.aK(C.fh,"MaterialSelectDemoComponent","material_select_example/lib/material_select_demo.dart"),new R.aK(C.d5,y.i,y.Z),new R.aK(C.d6,"MaterialDropdownSelectFullDemoComponent",y.a)],x.Y)
+u=x.X
+t.a=new S.hq(R.d_(H.a([],x.i),v,b8,P.aX(u,u),!0))
+t.F(w)}}
+A.Ca.prototype={
+gfV:function(){var w=this.r
+return w==null?this.r=document:w},
+gkt:function(){var w=this.y
+return w==null?this.y=window:w},
+gfW:function(){var w,v=this,u=v.z
+if(u==null){u=v.d
+w=u.a
+u=u.b
+u=T.bC(w.l(C.b,u),w.l(C.D,u),w.n(C.f,u),v.gkt())
+v.z=u}return u},
+gkq:function(){var w,v=this,u=v.Q
+if(u==null){u=v.d
+u=u.a.n(C.U,u.b)
+w=v.gfW()
+u=v.Q=new O.bk(u,w)}return u},
+giq:function(){var w=this,v=w.ch
+return v==null?w.ch=new K.bl(w.gfV(),w.gfW(),P.bA(null,x.f)):v},
+gqe:function(){var w=this.cx
+if(w==null){w=this.d
+w=T.bG(w.a.n(C.f,w.b))
+this.cx=w}return w},
+gir:function(){var w=this.cy
+if(w==null){w=this.d
+w=G.bL(w.a.l(C.t,w.b))
+this.cy=w}return w},
+gkv:function(){var w=this,v=w.db
+if(v==null){v=w.d
+v=G.bO(w.gfV(),v.a.l(C.u,v.b))
+w.db=v}return v},
+gkw:function(){var w=this,v=w.dx
+if(v==null){v=w.d
+v=G.bE(w.gir(),w.gkv(),v.a.l(C.r,v.b))
+w.dx=v}return v},
+gis:function(){var w=this.dy
+return w==null?this.dy=!0:w},
+gkx:function(){var w=this.fr
+return w==null?this.fr=!0:w},
+gks:function(){var w=this.fy
+if(w==null){w=this.gfV()
+w=this.fy=new R.bn(w.querySelector("head"),w)}return w},
+gku:function(){var w=this.go
+return w==null?this.go=X.bK():w},
+gkr:function(){var w=this,v=w.id
+return v==null?w.id=K.bI(w.gks(),w.gkw(),w.gir(),w.giq(),w.gfW(),w.gkq(),w.gis(),w.gkx(),w.gku()):v},
+gqf:function(){var w,v,u,t,s=this,r=s.k1
+if(r==null){r=s.d
+w=r.a
+r=r.b
+v=w.n(C.f,r)
+u=s.gis()
+t=s.gkr()
+w.l(C.k,r)
+r=s.k1=new X.bj(u,v,t)}return r},
+q:function(){var w,v=this,u=v.a2(),t=K.cS(v,0)
+v.e=t
+u.appendChild(t.c)
+t=v.d
+w=t.a
+t=t.b
+w.n(C.a9,t)
+t=w.n(C.aa,t)
+t=new X.bf(t,!J.bF(window.location.href,"enableLatencyCharts=false"))
+v.f=t
+v.e.K(0,t)},
+P:function(d,e,f){var w,v=this
+if(0===e){if(d===C.L)return v.gfV()
+if(d===C.V){w=v.x
+return w==null?v.x=document:w}if(d===C.J)return v.gkt()
+if(d===C.b)return v.gfW()
+if(d===C.P)return v.gkq()
+if(d===C.N)return v.giq()
+if(d===C.a_)return v.gqe()
+if(d===C.t)return v.gir()
+if(d===C.u)return v.gkv()
+if(d===C.r)return v.gkw()
+if(d===C.T)return v.gis()
+if(d===C.F)return v.gkx()
+if(d===C.G){w=v.fx
+return w==null?v.fx=C.Y:w}if(d===C.R)return v.gks()
+if(d===C.E)return v.gku()
+if(d===C.Q)return v.gkr()
+if(d===C.k)return v.gqf()
+if(d===C.H){w=v.k2
+return w==null?v.k2=C.Z:w}if(d===C.v){w=v.k3
+return w==null?v.k3=new K.bt(v.giq()):w}}return f},
+A:function(){var w=this,v=w.a.a,u=w.k4
+if(u!==v)w.k4=w.f.a=v
+w.e.j()},
+G:function(){this.e.k()}}
+A.HE.prototype={
+q:function(){var w,v,u,t=this,s="bool",r="String",q="dynamic",p="Stream<FocusEvent>",o=new A.Ca(E.T(t,0,3)),n=$.a7s
+if(n==null)n=$.a7s=O.bM(C.a,null)
+o.b=n
+w=document.createElement("material-dropdown-select-api")
+o.c=w
+t.b=o
+o=x.C
+o=H.a([new D.l2("material_dropdown_select",y.p,X.h(y.Q)),new D.b6("MaterialDropdownSelectComponent",!1,"","material-dropdown-select","",y.H,X.h(y.w),H.a([new D.j("activateFirstOption","",s,X.h(y.J),!1,""),new D.j("ariaActiveDescendant","",r,X.h(y.d),!1,""),new D.j("buttonAriaDescribedBy","",r,X.h(y._),!1,""),new D.j("buttonAriaLabel","",r,X.h("<p>Aria label for the button.</p>\n"),!1,""),new D.j("buttonAriaLabelledBy","",r,X.h(y.A),!1,""),new D.j("buttonText","",r,X.h("<p>Text on the button.</p>\n"),!1,""),new D.j("componentRenderer","","Type Function(dynamic)",X.h(""),!0,y.B),new D.j("constrainToViewport","",s,X.h(y.b),!1,""),new D.j("deselectLabel","",r,X.h(y.D),!1,""),new D.j("deselectOnActivate","",s,X.h(y.g),!1,""),new D.j("disabled","",s,X.h("<p>Whether the button is disabled.</p>\n"),!1,""),new D.j("enforceSpaceConstraints","",s,X.h(y.G),!1,""),new D.j("error","",r,X.h(y.V),!1,""),new D.j("factoryRenderer","","ComponentFactory<dynamic> Function(T)",X.h(y.k),!1,""),new D.j("icon","","Icon",X.h(y.f),!1,""),new D.j("iconName","",r,X.h(y.x),!1,""),new D.j("itemRenderer","","String Function(T)",X.h(y.l),!1,""),new D.j("labelFactory","",y.E,X.h(y.F),!1,""),new D.j("listAutoFocus","",s,X.h(y.S),!1,""),new D.j("optionsInput","options",q,X.h(y.u),!1,""),new D.j("popupMatchInputWidth","",s,X.h(y.I),!1,""),new D.j("preferredPositions","","List<dynamic>",X.h(y.Y),!1,""),new D.j("raised","",s,X.h("<p>Whether the button is raised.</p>\n"),!1,""),new D.j("selectionInput","selection",q,X.h(y.e),!1,""),new D.j("showButtonBorder","",s,X.h(y.q),!1,""),new D.j("slide","",r,X.h(y.R),!1,""),new D.j("trackLayoutChanges","",s,X.h(y.m),!1,""),new D.j("visible","",s,X.h("<p>Whether the dropdown is visible.</p>\n"),!1,""),new D.j("width","",q,X.h(y.L),!1,"")],o),H.a([new D.j("blur","",p,X.h(y.o),!1,""),new D.j("focus","",p,X.h(y.T),!1,""),new D.j("selectionChange","","Stream<dynamic>",X.h(y.v),!1,""),new D.j("visibleStream","visibleChange","Stream<bool>",X.h(y.n),!1,"")],o))],x.c)
+v=H.a([new R.aK(C.d5,y.i,y.Z),new R.aK(C.d6,"MaterialDropdownSelectFullDemoComponent",y.a)],x.Y)
+u=x.X
+t.a=new S.hm(R.d_(H.a([],x.i),v,o,P.aX(u,u),!0))
+t.F(w)}}
+G.e6.prototype={
+gHH:function(){var w=this.dx.b
+return w.a!==0?w.gao(w):"Auto"},
+gbv:function(d){var w=this.cy.b
+return w.a!==0?w.gao(w):null},
+gHK:function(){switch(this.gHH()){case"Above":return C.dw
+case"Below":return C.dH}return C.aU},
+gj5:function(){var w=this.fr.b
+return w.a!==0&&!J.ab(w.gao(w),"Default")?w.gao(w):null},
+ga13:function(){var w=this.cx.b
+return new H.j3(w,new G.Q4(),H.m(w).i("j3<cK.E,t*>")).c0(0,",")},
+gcZ:function(){return this.b?$.rn():$.rm()},
+gha:function(){return this.a?new G.Q2():null},
+glG:function(){return this.c?new G.Q3():null},
+gHk:function(){var w=this.cx.b,v=w.a
+if(v===0)return"Select Languages"
+else if(v===1)return this.dU(w.gao(w))
+else return H.C(this.dU(w.gao(w)))+" + "+(w.a-1)+" more"},
+a1p:function(d){if(d)P.hD(C.bc,new G.Q5(this))},
+gIt:function(){var w,v=this,u=J.bX(v.id)
+if(u===0)return"Select Languages"
+else{w=v.id
+if(u===1)return v.dU(J.hK(w))
+else return H.C(v.dU(J.hK(w)))+" + "+(u-1)+" more"}},
+dU:function(d){return this.gcZ().$1(d)}}
+G.bw.prototype={
+gfL:function(){return this.b},
+N:function(d){return this.b},
+$iej:1}
+G.hR.prototype={
+say:function(d,e){this.a=e.b},
+$iep:1}
+G.hP.prototype={
+say:function(d,e){var w=e.c
+w=w!=null?w.$0():null
+this.a=w==null?"Languages":w},
+$iep:1}
+G.rW.prototype={
+ie:function(d){return d instanceof G.bw&&C.d.aP(d.a,"en")?C.aP:C.a7},
+$ikj:1}
+F.uC.prototype={
+q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,h0,h1,h2,h3,h4,h5,h6,h7,h8,h9,i0,i1,i2,i3,i4,i5,i6,i7=this,i8="\n",i9=null,j0="section",j1="\n  ",j2="h3",j3="\n    ",j4="\n      ",j5="\n        ",j6="header",j7="\n          ",j8="listHeader",j9="listFooter",k0="\n\n      ",k1="br",k2="label",k3="combobox",k4=i7.a,k5=i7.a2()
+T.b(k5,i8)
+w=document
+v=T.d(w,k5,j0)
+i7.m(v)
+T.b(v,j1)
+u=T.d(w,v,"h2")
+i7.m(u)
+T.b(u,"Dropdown Selections")
+T.b(v,j1)
+t=T.d(w,v,j2)
+i7.m(t)
+T.b(t,"Example Panel")
+T.b(v,j1)
+s=T.v(w,v)
+i7.C(s,"example example-with-options")
+i7.h(s)
+T.b(s,j3)
+r=T.v(w,s)
+i7.C(r,"example-pane")
+i7.h(r)
+T.b(r,j4)
+q=T.d(w,r,"h2")
+i7.m(q)
+T.b(q,"Single selection")
+T.b(r,j4)
+p=x.z
+o=Y.hE(i7,16,p)
+i7.r=o
+n=o.c
+r.appendChild(n)
+i7.h(n)
+o=i7.d
+m=o.a
+o=o.b
+l=M.hn(m.l(C.a2,o),m.l(C.B,o),m.l(C.ah,o),i9,i9,i7.r,n,p)
+i7.x=l
+k=T.n(j5)
+j=w.createElement("div")
+T.c(j,j6,"")
+i7.h(j)
+T.b(j,j7)
+l=i7.z=new V.u(20,18,i7,T.M(j))
+i7.Q=new K.L(new D.z(l,F.ayX()),l)
+T.b(j,j5)
+i=T.n(j5)
+h=w.createElement("div")
+T.c(h,j8,"")
+i7.h(h)
+T.b(h,j7)
+l=i7.ch=new V.u(25,23,i7,T.M(h))
+i7.cx=new K.L(new D.z(l,F.ayY()),l)
+T.b(h,j5)
+g=T.n(j5)
+f=w.createElement("div")
+T.c(f,j9,"")
+i7.h(f)
+T.b(f,j7)
+l=i7.cy=new V.u(30,28,i7,T.M(f))
+i7.db=new K.L(new D.z(l,F.ayZ()),l)
+T.b(f,j5)
+e=T.n(j5)
+d=w.createElement("div")
+T.c(d,"footer","")
+i7.h(d)
+T.b(d,j7)
+l=i7.dx=new V.u(35,33,i7,T.M(d))
+i7.dy=new K.L(new D.z(l,F.az_()),l)
+T.b(d,j5)
+a0=T.n(j4)
+l=x.T
+a1=x.l
+a2=x.M
+i7.r.u(i7.x,H.a([C.a,H.a([j],l),H.a([h],l),H.a([k,i,g,e,a0],a1),H.a([f],l),H.a([d],l)],a2))
+T.b(r,k0)
+a3=T.v(w,r)
+i7.h(a3)
+T.b(a3,"Model's selected value")
+T.b(r,j4)
+a4=T.v(w,r)
+i7.h(a4)
+a4.appendChild(i7.e.b)
+T.b(r,j4)
+i7.m(T.d(w,r,k1))
+i7.m(T.d(w,r,k1))
+i7.m(T.d(w,r,k1))
+T.b(r,k0)
+a5=T.d(w,r,"h2")
+i7.m(a5)
+T.b(a5,"Multi selection")
+T.b(r,j4)
+a6=Y.hE(i7,52,p)
+i7.fr=a6
+a7=a6.c
+r.appendChild(a7)
+i7.h(a7)
+a6=M.hn(m.l(C.a2,o),m.l(C.B,o),m.l(C.ah,o),i9,i9,i7.fr,a7,p)
+i7.fx=a6
+a8=T.n(j5)
+a9=w.createElement("div")
+T.c(a9,j6,"")
+i7.h(a9)
+T.b(a9,j7)
+a6=i7.go=new V.u(56,54,i7,T.M(a9))
+i7.id=new K.L(new D.z(a6,F.az0()),a6)
+T.b(a9,j5)
+b0=T.n(j5)
+b1=w.createElement("div")
+T.c(b1,j8,"")
+i7.h(b1)
+T.b(b1,j7)
+a6=i7.k1=new V.u(61,59,i7,T.M(b1))
+i7.k2=new K.L(new D.z(a6,F.az1()),a6)
+T.b(b1,j5)
+b2=T.n(j5)
+b3=w.createElement("div")
+T.c(b3,j9,"")
+i7.h(b3)
+T.b(b3,j7)
+a6=i7.k3=new V.u(66,64,i7,T.M(b3))
+i7.k4=new K.L(new D.z(a6,F.az2()),a6)
+T.b(b3,j5)
+b4=T.n(j5)
+b5=w.createElement("div")
+T.c(b5,"footer","")
+i7.h(b5)
+T.b(b5,j7)
+a6=i7.r1=new V.u(71,69,i7,T.M(b5))
+i7.r2=new K.L(new D.z(a6,F.az3()),a6)
+T.b(b5,j5)
+b6=T.n(j4)
+i7.fr.u(i7.fx,H.a([C.a,H.a([a9],l),H.a([b1],l),H.a([a8,b0,b2,b4,b6],a1),H.a([b3],l),H.a([b5],l)],a2))
+T.b(r,k0)
+b7=T.v(w,r)
+i7.h(b7)
+T.b(b7,"Model's selected values")
+T.b(r,j4)
+b8=T.v(w,r)
+i7.h(b8)
+b8.appendChild(i7.f.b)
+T.b(r,j3)
+T.b(s,j3)
+b9=T.v(w,s)
+i7.C(b9,"options-pane")
+i7.h(b9)
+T.b(b9,j4)
+c0=T.d(w,b9,j2)
+i7.m(c0)
+T.b(c0,"Options")
+T.b(b9,j4)
+a6=G.by(i7,87)
+i7.rx=a6
+c1=a6.c
+b9.appendChild(c1)
+i7.h(c1)
+a6=B.bx(c1,i7.rx,i9,i9,i9)
+i7.ry=a6
+c2=T.n("\n        Use item renderer\n      ")
+i7.rx.u(a6,H.a([H.a([c2],a1)],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+a6=G.by(i7,92)
+i7.x1=a6
+c3=a6.c
+b9.appendChild(c3)
+i7.h(c3)
+a6=B.bx(c3,i7.x1,i9,i9,i9)
+i7.x2=a6
+c4=T.n("\n        Use factory renderer\n      ")
+i7.x1.u(a6,H.a([H.a([c4],a1)],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+a6=G.by(i7,97)
+i7.y1=a6
+c5=a6.c
+b9.appendChild(c5)
+i7.h(c5)
+a6=B.bx(c5,i7.y1,i9,i9,i9)
+i7.y2=a6
+c6=T.n("\n        Use label factory\n      ")
+i7.y1.u(a6,H.a([H.a([c6],a1)],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+a6=G.by(i7,102)
+i7.V=a6
+c7=a6.c
+b9.appendChild(c7)
+i7.h(c7)
+a6=B.bx(c7,i7.V,i9,i9,i9)
+i7.a7=a6
+c8=T.n("\n        Use option group\n      ")
+i7.V.u(a6,H.a([H.a([c8],a1)],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+a6=G.by(i7,107)
+i7.X=a6
+c9=a6.c
+b9.appendChild(c9)
+i7.h(c9)
+a6=B.bx(c9,i7.X,i9,i9,i9)
+i7.a0=a6
+d0=T.n("\n        With custom header & footer\n      ")
+i7.X.u(a6,H.a([H.a([d0],a1)],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+a6=G.by(i7,112)
+i7.a6=a6
+d1=a6.c
+b9.appendChild(d1)
+i7.h(d1)
+a6=B.bx(d1,i7.a6,i9,i9,i9)
+i7.Y=a6
+d2=T.n("\n        Popup match inputs width\n      ")
+i7.a6.u(a6,H.a([H.a([d2],a1)],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+a6=G.by(i7,117)
+i7.a4=a6
+d3=a6.c
+b9.appendChild(d3)
+i7.h(d3)
+a6=B.bx(d3,i7.a4,i9,i9,i9)
+i7.a_=a6
+d4=T.n("\n        Popup visibility\n      ")
+i7.a4.u(a6,H.a([H.a([d4],a1)],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+a6=G.by(i7,122)
+i7.W=a6
+d5=a6.c
+b9.appendChild(d5)
+i7.h(d5)
+a6=B.bx(d5,i7.W,i9,i9,i9)
+i7.L=a6
+d6=T.n("\n        Deselect on click (for single select)\n      ")
+i7.W.u(a6,H.a([H.a([d6],a1)],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+d7=T.d(w,b9,k2)
+i7.m(d7)
+T.b(d7,"Deselect label: ")
+T.b(b9,j4)
+a6=Q.b1(i7,130)
+i7.aa=a6
+d8=a6.c
+b9.appendChild(d8)
+i7.h(d8)
+a6=new L.aQ(H.a([],x.v))
+i7.a8=a6
+a6=[a6]
+i7.a9=a6
+a6=U.ca(a6,i9)
+i7.ak=a6
+a6=L.b0(i9,i9,a6,i7.aa,i7.a8)
+i7.ae=a6
+i7.an=Z.ba(a6,i7.ak)
+i7.aa.u(i7.ae,H.a([C.a,C.a],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+d9=T.d(w,b9,k2)
+i7.m(d9)
+T.b(d9,"Width: ")
+T.b(b9,j4)
+a6=Y.hE(i7,138,p)
+i7.ag=a6
+e0=a6.c
+b9.appendChild(e0)
+i7.h(e0)
+a6=M.hn(m.l(C.a2,o),m.l(C.B,o),m.l(C.ah,o),i9,i9,i7.ag,e0,p)
+i7.al=a6
+e1=T.n(j4)
+i7.ag.u(a6,H.a([C.a,C.a,C.a,H.a([e1],a1),C.a,C.a],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+e2=T.d(w,b9,k2)
+i7.m(e2)
+T.b(e2,"Popup position: ")
+T.b(b9,j4)
+a6=Y.hE(i7,146,p)
+i7.au=a6
+e3=a6.c
+b9.appendChild(e3)
+i7.h(e3)
+a6=M.hn(m.l(C.a2,o),m.l(C.B,o),m.l(C.ah,o),i9,i9,i7.au,e3,p)
+i7.av=a6
+e4=T.n(j4)
+i7.au.u(a6,H.a([C.a,C.a,C.a,H.a([e4],a1),C.a,C.a],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j4)
+e5=T.d(w,b9,k2)
+i7.m(e5)
+T.b(e5,"Slide direction: ")
+T.b(b9,j4)
+a6=Y.hE(i7,154,p)
+i7.ar=a6
+e6=a6.c
+b9.appendChild(e6)
+i7.h(e6)
+a6=M.hn(m.l(C.a2,o),m.l(C.B,o),m.l(C.ah,o),i9,i9,i7.ar,e6,p)
+i7.ah=a6
+e7=T.n(j4)
+i7.ar.u(a6,H.a([C.a,C.a,C.a,H.a([e7],a1),C.a,C.a],a2))
+T.b(b9,j4)
+i7.m(T.d(w,b9,k1))
+T.b(b9,j3)
+T.b(s,j1)
+T.b(v,j1)
+e8=T.d(w,v,j2)
+i7.m(e8)
+T.b(e8,"Multiple Selection w/ searchbox")
+T.b(v,j1)
+a6=Y.hE(i7,164,p)
+i7.af=a6
+e9=a6.c
+v.appendChild(e9)
+T.c(e9,"buttonAriaRole",k3)
+i7.h(e9)
+a6=M.hn(m.l(C.a2,o),m.l(C.B,o),m.l(C.ah,o),i9,k3,i7.af,e9,p)
+i7.as=a6
+f0=T.n(j3)
+f1=w.createElement("div")
+T.c(f1,j6,"")
+i7.h(f1)
+T.b(f1,j4)
+a6=R.a2D(i7,168)
+i7.aA=a6
+f2=a6.c
+f1.appendChild(f2)
+T.c(f2,k2,"Search...")
+i7.h(f2)
+a6=new X.hs(new P.P(i9,i9,x.j))
+i7.aM=a6
+i7.aA.K(0,a6)
+T.b(f1,j3)
+f3=T.n(j1)
+i7.af.u(i7.as,H.a([C.a,H.a([f1],l),C.a,H.a([f0,f3],a1),C.a,C.a],a2))
+T.b(v,j1)
+f4=T.d(w,v,j2)
+i7.m(f4)
+T.b(f4,"Single Selection w/ Angular Forms")
+T.b(v,j1)
+l=Y.hE(i7,176,p)
+i7.aB=l
+f5=l.c
+v.appendChild(f5)
+i7.h(f5)
+l=M.hn(m.l(C.a2,o),m.l(C.B,o),m.l(C.ah,o),i9,i9,i7.aB,f5,p)
+i7.aw=l
+l=new B.zv(l,Z.dg(i9,p),x.R)
+i7.aT=l
+a6=x.r
+l=H.a([l],a6)
+i7.aY=l
+i7.ba=U.ca(i9,l)
+f6=T.n(j1)
+i7.aB.u(i7.aw,H.a([C.a,C.a,C.a,H.a([f6],a1),C.a,C.a],a2))
+T.b(v,j1)
+f7=T.d(w,v,j2)
+i7.m(f7)
+T.b(f7,"Multiple Selection w/ Angular Forms")
+T.b(v,j1)
+l=Y.hE(i7,182,p)
+i7.aR=l
+f8=l.c
+v.appendChild(f8)
+T.c(f8,"multi","")
+i7.h(f8)
+l=M.hn(m.l(C.a2,o),m.l(C.B,o),m.l(C.ah,o),i9,i9,i7.aR,f8,p)
+i7.aI=l
+l=new B.Af(l,Z.eQ(i9,p),x.d)
+i7.b5=l
+a6=H.a([l],a6)
+i7.bb=a6
+i7.aG=U.ca(i9,a6)
+f9=T.n(j1)
+i7.aR.u(i7.aI,H.a([C.a,C.a,C.a,H.a([f9],a1),C.a,C.a],a2))
+T.b(v,i8)
+T.b(k5,i8)
+g0=T.d(w,k5,j0)
+i7.m(g0)
+T.b(g0,j1)
+g1=T.d(w,g0,j2)
+i7.m(g1)
+T.b(g1,"Dropdown button")
+T.b(g0,j1)
+a6=Z.qi(i7,191)
+i7.aU=a6
+g2=a6.c
+g0.appendChild(g2)
+i7.h(g2)
+a6=Q.pg()
+i7.aV=a6
+g3=T.n(j1)
+i7.aU.u(a6,H.a([H.a([g3],a1)],a2))
+T.b(g0,j1)
+g4=T.d(w,g0,"p")
+i7.m(g4)
+T.b(g4,"I don't have a dropdown myself. I'm just a button with that style.")
+T.b(g0,j1)
+a6=Z.qi(i7,197)
+i7.aC=a6
+g5=a6.c
+g0.appendChild(g5)
+i7.h(g5)
+a6=Q.pg()
+i7.b1=a6
+g6=T.n(j1)
+i7.aC.u(a6,H.a([H.a([g6],a1)],a2))
+T.b(g0,i8)
+T.b(k5,i8)
+g7=T.d(w,k5,j0)
+i7.m(g7)
+T.b(g7,j1)
+g8=T.d(w,g7,j2)
+i7.m(g8)
+T.b(g8,"Template driven")
+T.b(g7,j1)
+g9=T.d(w,g7,"p")
+i7.m(g9)
+T.b(g9,"Note: Template driven forms are not as accessible and are not suggested for production.")
+T.b(g7,j1)
+a1=Y.hE(i7,209,p)
+i7.aZ=a1
+h0=a1.c
+g7.appendChild(h0)
+i7.h(h0)
+o=M.hn(m.l(C.a2,o),m.l(C.B,o),m.l(C.ah,o),i9,i9,i7.aZ,h0,p)
+i7.bh=o
+h1=T.n(j3)
+m=i7.bc=new V.u(211,209,i7,T.a7())
+i7.aQ=new R.bb(m,new D.z(m,F.az4()))
+h2=T.n(j1)
+i7.aZ.u(o,H.a([C.a,C.a,C.a,H.a([h1,m,h2],a2),C.a,C.a],a2))
+T.b(g7,i8)
+T.b(k5,i8)
+T.b(k5,i8)
+h3=T.v(w,k5)
+T.c(h3,"style","height:200px")
+i7.h(h3)
+T.b(k5,i8)
+a2=i7.ry.f
+m=x.b
+h4=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(i7.grt(),m,m))
+a2=i7.x2.f
+h5=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(i7.gQb(),m,m))
+a2=i7.y2.f
+h6=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(i7.gQh(),m,m))
+a2=i7.a7.f
+h7=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(i7.gQj(),m,m))
+a2=i7.a0.f
+h8=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(i7.gQl(),m,m))
+a2=i7.Y.f
+h9=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(i7.gQn(),m,m))
+a2=i7.a_.f
+i0=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(i7.gQp(),m,m))
+a2=i7.L.f
+i1=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(i7.gQr(),m,m))
+a2=i7.ak.f
+a2.toString
+i2=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(i7.gQt(),p,p))
+a2=i7.as.r1$
+i3=new P.e(a2,H.m(a2).i("e<1>")).D(i7.v(k4.ga1o(),m,m))
+m=i7.ba.f
+m.toString
+i4=new P.e(m,H.m(m).i("e<1>")).D(i7.v(i7.gQv(),p,p))
+m=i7.aG.f
+m.toString
+i5=new P.e(m,H.m(m).i("e<1>")).D(i7.v(i7.gQd(),p,p))
+p=i7.b1.c.b
+m=x.p
+i6=new P.e(p,H.m(p).i("e<1>")).D(i7.v(i7.gQf(),m,m))
+k4.fy=i7.aM
+i7.bo(H.a([h4,h5,h6,h7,h8,h9,i0,i1,i2,i3,i4,i5,i6],x.a))},
+P:function(d,e,f){var w,v=this
+if(16<=e&&e<=37){if(d===C.at&&16===e){w=v.y
+return w==null?v.y=v.x.x:w}if(d===C.ar||d===C.o||d===C.c||d===C.I||d===C.p||d===C.ac||d===C.B||d===C.W)return v.x}if(52<=e&&e<=73){if(d===C.at&&52===e){w=v.fy
+return w==null?v.fy=v.fx.x:w}if(d===C.ar||d===C.o||d===C.c||d===C.I||d===C.p||d===C.ac||d===C.B||d===C.W)return v.fx}w=d===C.c
+if(w&&87<=e&&e<=88)return v.ry
+if(w&&92<=e&&e<=93)return v.x2
+if(w&&97<=e&&e<=98)return v.y2
+if(w&&102<=e&&e<=103)return v.a7
+if(w&&107<=e&&e<=108)return v.a0
+if(w&&112<=e&&e<=113)return v.Y
+if(w&&117<=e&&e<=118)return v.a_
+if(w&&122<=e&&e<=123)return v.L
+if(130<=e&&e<=131){if(d===C.z)return v.a8
+if(d===C.a3||d===C.X)return v.ak
+if(d===C.C||d===C.A||d===C.q||d===C.i||w)return v.ae}if(138<=e&&e<=139){if(d===C.at&&138===e){w=v.aq
+return w==null?v.aq=v.al.x:w}if(d===C.ar||d===C.o||w||d===C.I||d===C.p||d===C.ac||d===C.B||d===C.W)return v.al}if(146<=e&&e<=147){if(d===C.at&&146===e){w=v.ai
+return w==null?v.ai=v.av.x:w}if(d===C.ar||d===C.o||w||d===C.I||d===C.p||d===C.ac||d===C.B||d===C.W)return v.av}if(154<=e&&e<=155){if(d===C.at&&154===e){w=v.aj
+return w==null?v.aj=v.ah.x:w}if(d===C.ar||d===C.o||w||d===C.I||d===C.p||d===C.ac||d===C.B||d===C.W)return v.ah}if(164<=e&&e<=171){if(d===C.i&&168<=e&&e<=169)return v.aM
+if(d===C.at&&164===e){w=v.ax
+return w==null?v.ax=v.as.x:w}if(d===C.ar||d===C.o||w||d===C.I||d===C.p||d===C.ac||d===C.B||d===C.W)return v.as}if(176<=e&&e<=177){if(d===C.at&&176===e){w=v.aF
+return w==null?v.aF=v.aw.x:w}if(d===C.ar||d===C.o||w||d===C.I||d===C.p||d===C.ac||d===C.B||d===C.W)return v.aw
+if(d===C.a3||d===C.X)return v.ba}if(182<=e&&e<=183){if(d===C.at&&182===e){w=v.aJ
+return w==null?v.aJ=v.aI.x:w}if(d===C.ar||d===C.o||w||d===C.I||d===C.p||d===C.ac||d===C.B||d===C.W)return v.aI
+if(d===C.a3||d===C.X)return v.aG}w=!w
+if((!w||d===C.i)&&191<=e&&e<=192)return v.aV
+if((!w||d===C.i)&&197<=e&&e<=198)return v.b1
+if(209<=e&&e<=212){if(d===C.at&&209===e){w=v.aW
+return w==null?v.aW=v.bh.x:w}if(d===C.ar||d===C.o||d===C.W||!w||d===C.I||d===C.p||d===C.ac||d===C.B)return v.bh}return f},
+A:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8=this,c9="Select Language",d0=c8.a,d1=c8.d.f===0
+if(d1){c8.x.ses(d0.ch)
+w=!0}else w=!1
+v=d0.ch.b
+u=v.length!==0?d0.dU(C.e.gao(v)):c9
+t=c8.bf
+if(t!=u){c8.bf=c8.x.a0$=u
+w=!0}s=d0.f
+u=c8.b6
+if(u!=s){c8.b6=c8.x.x1$=s
+w=!0}r=d0.gj5()
+u=c8.bd
+if(u!=r){c8.bd=c8.x.x2$=r
+w=!0}q=d0.gHK()
+u=c8.bg
+if(u!==q){c8.bg=c8.x.V$=q
+w=!0}p=d0.r
+u=c8.bJ
+if(u!=p){c8.x.saK(0,p)
+c8.bJ=p
+w=!0}o=d0.y
+u=c8.bm
+if(u!=o){c8.bm=c8.x.dx=o
+w=!0}n=d0.glG()
+u=c8.bF
+if(u==null?n!=null:u!==n){c8.bF=c8.x.fy=n
+w=!0}m=d0.x
+u=c8.bC
+if(u!=m){c8.bC=c8.x.fx=m
+w=!0}l=d0.gha()
+u=c8.bt
+if(u==null?l!=null:u!==l){u=c8.x
+u.toString
+u.dx$=l
+c8.bt=l
+w=!0}k=d0.b?$.rn():$.rm()
+u=c8.bx
+if(u!==k){u=c8.x
+u.toString
+u.cy$=k
+c8.bx=k
+w=!0}j=d0.gbv(d0)
+u=c8.by
+if(u!=j){u=c8.x
+u.toString
+u.fR(0,j)
+c8.by=j
+w=!0}i=d0.d?d0.Q:d0.z
+u=c8.bl
+if(u!==i){u=c8.x
+u.toString
+u.dI(i)
+c8.bl=i
+w=!0}if(w)c8.r.d.st(1)
+if(w)c8.x.at()
+c8.Q.sU(d0.e)
+c8.cx.sU(d0.e)
+c8.db.sU(d0.e)
+c8.dy.sU(d0.e)
+if(d1){c8.fx.ses(d0.cx)
+w=!0}else w=!1
+h=d0.gHk()
+u=c8.c2
+if(u!=h){c8.c2=c8.fx.a0$=h
+w=!0}g=d0.gj5()
+u=c8.c3
+if(u!=g){c8.c3=c8.fx.x2$=g
+w=!0}f=d0.gHK()
+u=c8.bS
+if(u!==f){c8.bS=c8.fx.V$=f
+w=!0}e=d0.r
+u=c8.bY
+if(u!=e){c8.fx.saK(0,e)
+c8.bY=e
+w=!0}d=d0.glG()
+u=c8.cj
+if(u==null?d!=null:u!==d){c8.cj=c8.fx.fy=d
+w=!0}a0=d0.gha()
+u=c8.bR
+if(u==null?a0!=null:u!==a0){u=c8.fx
+u.toString
+u.dx$=a0
+c8.bR=a0
+w=!0}a1=d0.b?$.rn():$.rm()
+u=c8.bk
+if(u!==a1){u=c8.fx
+u.toString
+u.cy$=a1
+c8.bk=a1
+w=!0}a2=d0.gbv(d0)
+u=c8.bO
+if(u!=a2){u=c8.fx
+u.toString
+u.fR(0,a2)
+c8.bO=a2
+w=!0}a3=d0.d?d0.Q:d0.z
+u=c8.bB
+if(u!==a3){u=c8.fx
+u.toString
+u.dI(a3)
+c8.bB=a3
+w=!0}if(w)c8.fr.d.st(1)
+if(w)c8.fx.at()
+c8.id.sU(d0.e)
+c8.k2.sU(d0.e)
+c8.k4.sU(d0.e)
+c8.r2.sU(d0.e)
+a4=d0.b
+u=c8.c6
+if(u!=a4){c8.ry.sbw(0,a4)
+c8.c6=a4
+w=!0}else w=!1
+if(w)c8.rx.d.st(1)
+a5=d0.a
+u=c8.bs
+if(u!=a5){c8.x2.sbw(0,a5)
+c8.bs=a5
+w=!0}else w=!1
+if(w)c8.x1.d.st(1)
+a6=d0.c
+u=c8.c1
+if(u!=a6){c8.y2.sbw(0,a6)
+c8.c1=a6
+w=!0}else w=!1
+if(w)c8.y1.d.st(1)
+a7=d0.d
+u=c8.dg
+if(u!=a7){c8.a7.sbw(0,a7)
+c8.dg=a7
+w=!0}else w=!1
+if(w)c8.V.d.st(1)
+a8=d0.e
+u=c8.ck
+if(u!=a8){c8.a0.sbw(0,a8)
+c8.ck=a8
+w=!0}else w=!1
+if(w)c8.X.d.st(1)
+a9=d0.f
+u=c8.cO
+if(u!=a9){c8.Y.sbw(0,a9)
+c8.cO=a9
+w=!0}else w=!1
+if(w)c8.a6.d.st(1)
+b0=d0.r
+u=c8.c_
+if(u!=b0){c8.a_.sbw(0,b0)
+c8.c_=b0
+w=!0}else w=!1
+if(w)c8.a4.d.st(1)
+b1=d0.x
+u=c8.d5
+if(u!=b1){c8.L.sbw(0,b1)
+c8.d5=b1
+w=!0}else w=!1
+if(w)c8.W.d.st(1)
+b2=d0.y
+u=c8.cg
+if(u!=b2){c8.ak.sbN(b2)
+c8.cg=b2
+w=!0}else w=!1
+if(w)c8.ak.at()
+if(d1)c8.ak.Z()
+if(d1){c8.ae.ry=!1
+w=!0}else w=!1
+if(w)c8.aa.d.st(1)
+if(d1){c8.al.ses(d0.cy)
+u=c8.al
+t=d0.db
+u.toString
+u.dI(t)
+w=!0}else w=!1
+u=d0.cy.b
+b3=u.a!==0?J.cW(u.gao(u)):"0"
+u=c8.cP
+if(u!==b3){c8.cP=c8.al.a0$=b3
+w=!0}if(w)c8.ag.d.st(1)
+if(w)c8.al.at()
+if(d1){c8.av.ses(d0.dx)
+u=c8.av
+t=d0.dy
+u.toString
+u.dI(t)
+w=!0}else w=!1
+b4=d0.gHH()
+u=c8.cD
+if(u!=b4){c8.cD=c8.av.a0$=b4
+w=!0}if(w)c8.au.d.st(1)
+if(w)c8.av.at()
+if(d1){c8.ah.ses(d0.fr)
+u=c8.ah
+t=d0.fx
+u.toString
+u.dI(t)
+w=!0}else w=!1
+u=d0.fr.b
+u=u.a!==0?u.gao(u):"Default"
+t=c8.cH
+if(t!=u){c8.cH=c8.ah.a0$=u
+w=!0}if(w)c8.ar.d.st(1)
+if(w)c8.ah.at()
+if(d1){c8.as.ses(d0.cx)
+u=c8.as
+u.go=!0
+u.r1=!1
+w=!0}else w=!1
+b5=d0.gHk()
+u=c8.c7
+if(u!=b5){c8.c7=c8.as.a0$=b5
+w=!0}b6=d0.b?$.rn():$.rm()
+u=c8.cW
+if(u!==b6){u=c8.as
+u.toString
+u.cy$=b6
+c8.cW=b6
+w=!0}b7=d0.d?d0.Q:d0.z
+u=c8.cc
+if(u!==b7){u=c8.as
+u.toString
+u.dI(b7)
+c8.cc=b7
+w=!0}if(w)c8.af.d.st(1)
+if(w)c8.as.at()
+if(d1)c8.aM.d="Search..."
+b8=d0.d?d0.Q:d0.z
+u=c8.cI
+if(u!==b8){c8.aM.sjF(b8)
+c8.cI=b8}u=d0.go
+b9=u==null?c9:d0.dU(u)
+u=c8.ct
+if(u!=b9){c8.ct=c8.aw.a0$=b9
+w=!0}else w=!1
+c0=d0.b?$.rn():$.rm()
+u=c8.d6
+if(u!==c0){u=c8.aw
+u.toString
+u.cy$=c0
+c8.d6=c0
+w=!0}c1=d0.d?d0.Q:d0.z
+u=c8.cQ
+if(u!==c1){u=c8.aw
+u.toString
+u.dI(c1)
+c8.cQ=c1
+w=!0}if(w)c8.aB.d.st(1)
+if(w)c8.aw.at()
+c2=d0.go
+u=c8.cu
+if(u!=c2){c8.ba.sbN(c2)
+c8.cu=c2
+w=!0}else w=!1
+if(w)c8.ba.at()
+if(d1)c8.ba.Z()
+c3=d0.gIt()
+u=c8.cX
+if(u!=c3){c8.cX=c8.aI.a0$=c3
+w=!0}else w=!1
+c4=d0.b?$.rn():$.rm()
+u=c8.cl
+if(u!==c4){u=c8.aI
+u.toString
+u.cy$=c4
+c8.cl=c4
+w=!0}c5=d0.d?d0.Q:d0.z
+u=c8.cY
+if(u!==c5){u=c8.aI
+u.toString
+u.dI(c5)
+c8.cY=c5
+w=!0}if(w)c8.aR.d.st(1)
+if(w)c8.aI.at()
+c6=d0.id
+u=c8.dc
+if(u==null?c6!=null:u!==c6){c8.aG.sbN(c6)
+c8.dc=c6
+w=!0}else w=!1
+if(w)c8.aG.at()
+if(d1)c8.aG.Z()
+if(d1){u=c8.aV
+u.a0$="Disabled"
+w=u.Y$=!0}else w=!1
+if(w)c8.aU.d.st(1)
+if(d1)c8.aV.Z()
+if(d1){u=c8.b1
+u.a0$="Implement a dropdown"
+u.Y$=!1
+w=!0}else w=!1
+if(w)c8.aC.d.st(1)
+if(d1)c8.b1.Z()
+c7=d0.k2
+u=c8.ci
+if(u!==c7){c8.ci=c8.bh.a0$=c7
+w=!0}else w=!1
+if(w)c8.aZ.d.st(1)
+if(w)c8.bh.at()
+u=c8.cJ
+if(u!==C.bO){c8.aQ.sbe(C.bO)
+c8.cJ=C.bO}c8.aQ.b8()
+c8.z.J()
+c8.ch.J()
+c8.cy.J()
+c8.dx.J()
+c8.go.J()
+c8.k1.J()
+c8.k3.J()
+c8.r1.J()
+c8.bc.J()
+v=v.length!==0?C.e.gao(v).b:null
+if(v==null)v=""
+c8.e.a5(v)
+v=d0.ga13()
+c8.f.a5(v)
+c8.rx.B(d1)
+c8.x1.B(d1)
+c8.y1.B(d1)
+c8.V.B(d1)
+c8.X.B(d1)
+c8.a6.B(d1)
+c8.a4.B(d1)
+c8.W.B(d1)
+c8.r.j()
+c8.fr.j()
+c8.rx.j()
+c8.x1.j()
+c8.y1.j()
+c8.V.j()
+c8.X.j()
+c8.a6.j()
+c8.a4.j()
+c8.W.j()
+c8.aa.j()
+c8.ag.j()
+c8.au.j()
+c8.ar.j()
+c8.af.j()
+c8.aA.j()
+c8.aB.j()
+c8.aR.j()
+c8.aU.j()
+c8.aC.j()
+c8.aZ.j()
+if(d1)c8.ae.a3()},
+G:function(){var w,v,u=this
+u.z.I()
+u.ch.I()
+u.cy.I()
+u.dx.I()
+u.go.I()
+u.k1.I()
+u.k3.I()
+u.r1.I()
+u.bc.I()
+u.r.k()
+u.fr.k()
+u.rx.k()
+u.x1.k()
+u.y1.k()
+u.V.k()
+u.X.k()
+u.a6.k()
+u.a4.k()
+u.W.k()
+u.aa.k()
+u.ag.k()
+u.au.k()
+u.ar.k()
+u.af.k()
+u.aA.k()
+u.aB.k()
+u.aR.k()
+u.aU.k()
+u.aC.k()
+u.aZ.k()
+u.x.S()
+u.fx.S()
+u.ry.toString
+u.x2.toString
+u.y2.toString
+u.a7.toString
+u.a0.toString
+u.Y.toString
+u.a_.toString
+u.L.toString
+w=u.ae
+w.toString
+w.aH()
+w.L=w.W=null
+u.an.a.H()
+u.al.S()
+u.av.S()
+u.ah.S()
+u.aM.S()
+u.as.S()
+u.aw.S()
+w=u.aT
+v=w.e
+if(v!=null)v.az(0)
+w.wY()
+u.aI.S()
+w=u.b5
+v=w.e
+if(v!=null)v.az(0)
+w.wY()
+u.bh.S()},
+ru:function(d){this.a.b=d},
+Qc:function(d){this.a.a=d},
+Qi:function(d){this.a.c=d},
+Qk:function(d){this.a.d=d},
+Qm:function(d){this.a.e=d},
+Qo:function(d){this.a.f=d},
+Qq:function(d){this.a.r=d},
+Qs:function(d){this.a.x=d},
+Qu:function(d){this.a.y=d},
+Qw:function(d){this.a.go=d},
+Qe:function(d){this.a.id=d},
+Qg:function(d){this.a.toString
+window.alert("Implement a dropdown")}}
+F.HF.prototype={
+q:function(){var w=document.createElement("div")
+this.h(w)
+T.b(w,"---Custom Header Section---")
+this.F(w)}}
+F.HG.prototype={
+q:function(){var w=document.createElement("div")
+this.h(w)
+T.b(w,"------Custom List Header Section------")
+this.F(w)}}
+F.HH.prototype={
+q:function(){var w=document.createElement("div")
+this.h(w)
+T.b(w,"------Custom List Footer Section------")
+this.F(w)}}
+F.HI.prototype={
+q:function(){var w=document.createElement("div")
+this.h(w)
+T.b(w,"---Custom Footer Section---")
+this.F(w)}}
+F.HJ.prototype={
+q:function(){var w=document.createElement("div")
+this.h(w)
+T.b(w,"---Custom Header Section---")
+this.F(w)}}
+F.HK.prototype={
+q:function(){var w=document.createElement("div")
+this.h(w)
+T.b(w,"------Custom List Header Section------")
+this.F(w)}}
+F.HL.prototype={
+q:function(){var w=document.createElement("div")
+this.h(w)
+T.b(w,"------Custom List Footer Section------")
+this.F(w)}}
+F.HM.prototype={
+q:function(){var w=document.createElement("div")
+this.h(w)
+T.b(w,"---Custom Footer Section---")
+this.F(w)}}
+F.x5.prototype={
+q:function(){var w,v,u,t,s,r=this,q=x.z,p=O.qo(r,0,q)
+r.c=p
+w=p.c
+r.h(w)
+p=r.a.c
+v=p.bh
+q=F.pL(w,null,v,v,p.gp().l(C.a2,p.ga1()),r.c,q)
+r.d=q
+u=T.n("\n      ")
+t=T.n("\n    ")
+p=x.M
+r.c.u(q,H.a([H.a([u,r.b.b,t],x.l)],p))
+q=r.d.b
+v=x.p
+s=new P.e(q,H.m(q).i("e<1>")).D(r.v(r.grt(),v,v))
+r.aD(H.a([w],p),H.a([s],x.a))},
+P:function(d,e,f){if((d===C.a8||d===C.I)&&e<=3)return this.d
 return f},
-v:function(){var y,x,w,v,u,t,s,r=this,q=r.a,p=r.d.f===0
-q.toString
-y=r.c7
-if(y!==C.bS){r.dy.sbg(C.bS)
-r.c7=C.bS}r.dy.b6()
-if(p){r.go.r=!0
-x=!0}else x=!1
-if(x)r.fy.d.st(1)
-if(p){r.x1.r=!0
-x=!0}else x=!1
-if(x)r.ry.d.st(1)
-if(p){r.a6.sbB(0,"3")
-x=!0}else x=!1
-if(x)r.a_.d.st(1)
-if(p){r.aa.sac(0,"today")
-x=!0}else x=!1
-if(x)r.L.d.st(1)
-if(p){r.ah.sbB(0,"3")
-x=!0}else x=!1
-if(x)r.ao.d.st(1)
-if(p){r.aB.sac(0,"today")
-x=!0}else x=!1
-if(x)r.ay.d.st(1)
-if(p){r.b8.sbB(0,"3")
-x=!0}else x=!1
-if(x)r.aY.d.st(1)
-y=q.b
-w=y.cd(1)
-v=r.bZ
-if(v!==w)r.bZ=r.aZ.r2=w
-u=y.cd(2)
-v=r.c4
-if(v!==u)r.c4=r.b9.r2=u
-t=y.cd(3)
-y=r.cv
-if(y!==t)r.cv=r.aU.r2=t
-r.dx.I()
-y=q.a.b
-y=y.length===0?"red":C.d.gam(y)
-v=r.bq
-if(v!=y){v=r.bW.style
-C.z.c1(v,(v&&C.z).bP(v,"color"),y,null)
-r.bq=y}r.f.w(p)
-r.x.w(p)
-r.z.w(p)
-r.ch.w(p)
-r.cy.w(p)
-s=q.c
-y=r.c8
-if(y!=s){r.bo.value=s
-r.c8=s}r.fr.w(p)
-r.fy.w(p)
-r.id.w(p)
-r.k2.w(p)
-y=q.c
-if(y==null)y=""
-r.e.X(y)
-r.k4.w(p)
-r.r2.w(p)
-r.ry.w(p)
-r.x2.w(p)
-r.y2.w(p)
-r.a8.w(p)
-r.a_.w(p)
-r.a4.w(p)
-r.Z.w(p)
-r.a7.w(p)
-r.ak.w(p)
-r.ao.w(p)
-r.al.w(p)
-r.av.w(p)
-r.ai.w(p)
-r.ag.w(p)
-r.af.w(p)
-r.aN.w(p)
-r.ax.w(p)
-r.aY.w(p)
-r.aH.w(p)
-r.aQ.w(p)
-r.bi.w(p)
-r.aV.b3(r.aO,r.bY)
-r.aO.w(p)
-r.ba.b3(r.aE,r.bK)
-r.aE.w(p)
-r.aR.b3(r.bp,r.cc)
-r.bp.w(p)
-r.bk.b3(r.aS,r.bA)
-r.aS.w(p)
-r.b5.b3(r.bf,r.c5)
-r.bf.w(p)
-r.bs.w(p)
-r.bL.w(p)
-r.bD.w(p)
-r.f.i()
-r.x.i()
-r.z.i()
-r.ch.i()
-r.cy.i()
-r.fr.i()
-r.fy.i()
-r.id.i()
-r.k2.i()
-r.k4.i()
-r.r2.i()
-r.ry.i()
-r.x2.i()
-r.y2.i()
-r.a8.i()
-r.a_.i()
-r.a4.i()
-r.Z.i()
-r.L.i()
-r.a7.i()
-r.ak.i()
-r.ao.i()
-r.al.i()
-r.av.i()
-r.ai.i()
-r.ag.i()
-r.af.i()
-r.ay.i()
-r.aN.i()
-r.ax.i()
-r.aY.i()
-r.aH.i()
-r.aQ.i()
-r.bi.i()
-r.aO.i()
-r.aE.i()
-r.bp.i()
-r.aS.i()
-r.bf.i()
-r.bs.i()
-r.bL.i()
-r.bD.i()},
-F:function(){var y=this
-y.dx.H()
-y.f.j()
-y.x.j()
-y.z.j()
-y.ch.j()
-y.cy.j()
-y.fr.j()
-y.fy.j()
-y.id.j()
-y.k2.j()
-y.k4.j()
-y.r2.j()
-y.ry.j()
-y.x2.j()
-y.y2.j()
-y.a8.j()
-y.a_.j()
-y.a4.j()
-y.Z.j()
-y.L.j()
-y.a7.j()
-y.ak.j()
-y.ao.j()
-y.al.j()
-y.av.j()
-y.ai.j()
-y.ag.j()
-y.af.j()
-y.ay.j()
-y.aN.j()
-y.ax.j()
-y.aY.j()
-y.aH.j()
-y.aQ.j()
-y.bi.j()
-y.aO.j()
-y.aE.j()
-y.bp.j()
-y.aS.j()
-y.bf.j()
-y.bs.j()
-y.bL.j()
-y.bD.j()
-y.y.Q.G()
-y.Q.Q.G()
-y.cx.Q.G()
-y.db.Q.G()
-y.go.Q.G()
-y.k1.Q.G()
-y.k3.Q.G()
-y.r1.Q.G()
-y.x1.Q.G()
-y.y1.Q.G()
-y.V.Q.G()
-y.W.Q.G()
-y.a1.Q.G()
-y.T.Q.G()
-y.ab.Q.G()
-y.ae.Q.G()
-y.ap.Q.G()
-y.aw.Q.G()
-y.au.Q.G()
-y.aj.Q.G()
-y.aq.Q.G()
-y.aD.Q.G()
-y.aT.Q.G()
-y.aZ.Q.G()
-y.b9.Q.G()
-y.aU.Q.G()
-y.b4.Q.G()
-y.be.Q.G()
-y.bb.Q.G()
-y.bx.Q.G()
-y.aV.a.d.G()
-y.bz.Q.G()
-y.bE.Q.G()},
-rR:function(d){this.a.a.bm(0,"red")},
-rT:function(d){this.a.a.bm(0,"green")},
-rV:function(d){this.a.a.bm(0,"coral")},
-rX:function(d){this.a.a.bm(0,"mediumOrchid")},
-S3:function(d){var y=this.bo
-this.a.c=y.value},
-S5:function(d){this.a.a.bm(0,"red")},
-S7:function(d){this.a.a.bm(0,"green")},
-S9:function(d){this.a.a.bm(0,"coral")},
-Sb:function(d){this.a.a.bm(0,"mediumOrchid")},
-Sd:function(d){this.a.a.bm(0,"red")},
-RG:function(d){this.a.a.bm(0,"green")},
-RI:function(d){this.a.a.bm(0,"coral")},
-RK:function(d){this.a.a.bm(0,"mediumOrchid")},
-RM:function(d){this.a.wg(1)},
-RO:function(d){this.a.wg(2)},
-RQ:function(d){this.a.wg(3)},
-RS:function(d){this.a.a.bm(0,"red")},
-RU:function(d){this.a.a.bm(0,"green")},
-RW:function(d){this.a.a.bm(0,"coral")},
-RY:function(d){this.a.a.bm(0,"mediumOrchid")},
-S_:function(d){this.a.a.bm(0,"red")},
-S1:function(d){this.a.a.bm(0,"green")}}
-O.xM.prototype={
-p:function(){var y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g=this,f=null,e=document,d=e.createElement("div")
-g.h(d)
-y=B.es(g,1)
-g.c=y
-x=y.c
-d.appendChild(x)
-g.N(x,"bordered-list")
-g.h(x)
-g.d=new B.d2()
-w=e.createElement("div")
-T.c(w,"label","")
-g.h(w)
-T.b(w,"List Width ")
-w.appendChild(g.b.b)
-y=E.bC(g,5)
-g.e=y
-v=y.c
-T.c(v,"disabled","")
-g.h(v)
-y=g.a.c
-u=L.bA(v,y.gn().k(C.o,y.ga0()),f,f)
-g.f=u
-t=T.m("Red")
-s=[W.b1]
-r=[P.l]
-g.e.q(u,H.a([H.a([t],s)],r))
-u=E.bC(g,7)
-g.r=u
-q=u.c
-g.h(q)
-u=L.bA(q,y.gn().k(C.o,y.ga0()),f,f)
-g.x=u
-p=T.m("Green")
-g.r.q(u,H.a([H.a([p],s)],r))
-u=E.bC(g,9)
-g.y=u
-o=u.c
-g.h(o)
-u=L.bA(o,y.gn().k(C.o,y.ga0()),f,f)
-g.z=u
-n=T.m("Coral")
-g.y.q(u,H.a([H.a([n],s)],r))
-u=E.bC(g,11)
-g.Q=u
-m=u.c
-g.h(m)
-y=L.bA(m,y.gn().k(C.o,y.ga0()),f,f)
-g.ch=y
-l=T.m("MediumOrchid")
-g.Q.q(y,H.a([H.a([l],s)],r))
-g.c.q(g.d,H.a([H.a([w,v,q,o,m],[W.aA])],r))
-y=g.f.b
-u=W.ac
-k=new P.o(y,[H.e(y,0)]).B(g.u(g.grQ(),u,u))
-y=g.x.b
-j=new P.o(y,[H.e(y,0)]).B(g.u(g.grS(),u,u))
-y=g.z.b
-i=new P.o(y,[H.e(y,0)]).B(g.u(g.grU(),u,u))
-y=g.ch.b
-h=new P.o(y,[H.e(y,0)]).B(g.u(g.grW(),u,u))
-g.aC(H.a([d],r),H.a([k,j,i,h],[[P.S,-1]]))},
-O:function(d,e,f){var y=this,x=d===C.c
-if(x&&5<=e&&e<=6)return y.f
-if(x&&7<=e&&e<=8)return y.x
-if(x&&9<=e&&e<=10)return y.z
-if(x&&11<=e&&e<=12)return y.ch
-return f},
-v:function(){var y,x=this,w=x.a,v=w.ch===0,u=w.f.C(0,"$implicit")
-w=x.cx
-if(w!=u){x.cx=x.d.a=u
-y=!0}else y=!1
-if(y)x.c.d.st(1)
-if(v){x.f.r=!0
-y=!0}else y=!1
-if(y)x.e.d.st(1)
-x.c.w(v)
-w=u==null?"":u
-x.b.X(w)
-x.e.w(v)
-x.r.w(v)
-x.y.w(v)
-x.Q.w(v)
-x.c.i()
-x.e.i()
-x.r.i()
-x.y.i()
-x.Q.i()},
-F:function(){var y=this
-y.c.j()
-y.e.j()
-y.r.j()
-y.y.j()
-y.Q.j()
-y.f.Q.G()
-y.x.Q.G()
-y.z.Q.G()
-y.ch.Q.G()},
-rR:function(d){this.a.a.a.bm(0,"red")},
-rT:function(d){this.a.a.a.bm(0,"green")},
-rV:function(d){this.a.a.a.bm(0,"coral")},
-rX:function(d){this.a.a.a.bm(0,"mediumOrchid")},
-$ap:function(){return[D.ix]}}
-O.UB.prototype={
-p:function(){var y,x,w=this,v=null,u=new O.uX(N.I(),E.L(w,0,3)),t=$.a6R
-if(t==null)t=$.a6R=O.T($.aBm,v)
+A:function(){var w=this,v=w.a,u=v.ch,t=v.f.E(0,"$implicit")
+w.c.B(u===0)
+v=t.b
+w.b.a5(v)
+w.c.j()},
+G:function(){this.c.k()
+this.d.Q.H()},
+ru:function(d){var w=this.a
+w.a.k2=w.f.E(0,"$implicit").b}}
+F.HN.prototype={
+gnb:function(){var w=this.e
+return w==null?this.e=document:w},
+gB0:function(){var w=this.r
+return w==null?this.r=window:w},
+gnc:function(){var w=this,v=w.x
+if(v==null){v=T.bC(w.l(C.b,null),w.l(C.D,null),w.n(C.f,null),w.gB0())
+w.x=v}return v},
+gAY:function(){var w,v=this,u=v.y
+if(u==null){u=v.n(C.U,null)
+w=v.gnc()
+u=v.y=new O.bk(u,w)}return u},
+grs:function(){var w=this,v=w.z
+return v==null?w.z=new K.bl(w.gnb(),w.gnc(),P.bA(null,x.f)):v},
+gQ9:function(){var w=this.Q
+if(w==null){w=T.bG(this.n(C.f,null))
+this.Q=w}return w},
+grv:function(){var w=this.ch
+if(w==null){w=G.bL(this.l(C.t,null))
+this.ch=w}return w},
+gB2:function(){var w=this,v=w.cx
+if(v==null){v=G.bO(w.gnb(),w.l(C.u,null))
+w.cx=v}return v},
+gB3:function(){var w=this,v=w.cy
+if(v==null){v=G.bE(w.grv(),w.gB2(),w.l(C.r,null))
+w.cy=v}return v},
+grw:function(){var w=this.db
+return w==null?this.db=!0:w},
+gB4:function(){var w=this.dx
+return w==null?this.dx=!0:w},
+gB_:function(){var w=this.fr
+if(w==null){w=this.gnb()
+w=this.fr=new R.bn(w.querySelector("head"),w)}return w},
+gB1:function(){var w=this.fx
+return w==null?this.fx=X.bK():w},
+gAZ:function(){var w=this,v=w.fy
+return v==null?w.fy=K.bI(w.gB_(),w.gB3(),w.grv(),w.grs(),w.gnc(),w.gAY(),w.grw(),w.gB4(),w.gB1()):v},
+gQa:function(){var w,v,u=this,t=u.go
+if(t==null){t=u.n(C.f,null)
+w=u.grw()
+v=u.gAZ()
+u.l(C.k,null)
+t=u.go=new X.bj(w,t,v)}return t},
+q:function(){var w,v,u,t,s=this,r=null,q=new F.uC(N.Q(),N.Q(),E.T(s,0,3)),p=$.a7u
+if(p==null)p=$.a7u=O.a1($.aDu,r)
+q.b=p
+w=document.createElement("material-dropdown-select-full-demo")
+q.c=w
+s.b=q
+q=x.J
+v=x.G
+u=x.X
+t=x.i
+s.a=new G.e6(G.aon(C.bO),G.aoo($.alE()),Z.dg(C.cj,q),Z.eQ(r,q),Z.eQ(r,v),F.U2(H.a([0,1,2,3,4,5],x._),v),Z.eQ(r,u),R.u2(H.a(["Auto","Above","Below"],t),r,u),Z.eQ(r,u),R.u2(H.a(["Default","x","y"],t),r,u),H.a([],x.U))
+s.F(w)},
+P:function(d,e,f){var w,v=this
+if(0===e){if(d===C.L)return v.gnb()
+if(d===C.V){w=v.f
+return w==null?v.f=document:w}if(d===C.J)return v.gB0()
+if(d===C.b)return v.gnc()
+if(d===C.P)return v.gAY()
+if(d===C.N)return v.grs()
+if(d===C.a_)return v.gQ9()
+if(d===C.t)return v.grv()
+if(d===C.u)return v.gB2()
+if(d===C.r)return v.gB3()
+if(d===C.T)return v.grw()
+if(d===C.F)return v.gB4()
+if(d===C.G){w=v.dy
+return w==null?v.dy=C.Y:w}if(d===C.R)return v.gB_()
+if(d===C.E)return v.gB1()
+if(d===C.Q)return v.gAZ()
+if(d===C.k)return v.gQa()
+if(d===C.H){w=v.id
+return w==null?v.id=C.Z:w}if(d===C.v){w=v.k1
+return w==null?v.k1=new K.bt(v.grs()):w}}return f}}
+F.BL.prototype={
+q:function(){var w,v=this,u=v.a2(),t=M.aa(v,0)
+v.f=t
+w=t.c
+u.appendChild(w)
+T.c(w,"baseline","")
+T.c(w,"icon","language")
+v.h(w)
+t=new Y.a3(w)
+v.r=t
+v.f.K(0,t)
+u.appendChild(v.e.b)},
+A:function(){var w,v,u=this,t=u.a
+if(u.d.f===0){u.r.sab(0,"language")
+w=!0}else w=!1
+if(w)u.f.d.st(1)
+v=t.a
+u.e.a5(v)
+u.f.j()},
+G:function(){this.f.k()}}
+F.Ga.prototype={
+q:function(){var w,v=this,u=new F.BL(N.Q(),E.T(v,0,3)),t=$.a6H
+if(t==null)t=$.a6H=O.a1($.aCX,null)
 u.b=t
-y=document.createElement("material-list-demo")
-u.c=y
-w.b=u
-u=Z.cS(v,P.i)
-x=Z.e4(v,v)
-x.bm(0,2)
-w.a=new D.ix(u,x)
-w.E(y)},
-$ak:function(){return[D.ix]}}
-var z=a.updateTypes([{func:1,ret:-1,args:[,]},{func:1,ret:[G.k,B.hr],args:[M.t]},{func:1,ret:[E.p,-1],args:[A.aB,P.E]},{func:1,ret:[G.k,D.ix],args:[M.t]}]);(function installTearOffs(){var y=a._static_1,x=a._static_2,w=a._instance_1u
-y(N,"aql","aHJ",1)
-x(O,"awr","aHL",2)
-y(O,"aws","aHM",3)
-var v
-w(v=O.uX.prototype,"grQ","rR",0)
-w(v,"grS","rT",0)
-w(v,"grU","rV",0)
-w(v,"grW","rX",0)
-w(v,"gS2","S3",0)
-w(v,"gS4","S5",0)
-w(v,"gS6","S7",0)
-w(v,"gS8","S9",0)
-w(v,"gSa","Sb",0)
-w(v,"gSc","Sd",0)
-w(v,"gRF","RG",0)
-w(v,"gRH","RI",0)
-w(v,"gRJ","RK",0)
-w(v,"gRL","RM",0)
-w(v,"gRN","RO",0)
-w(v,"gRP","RQ",0)
-w(v,"gRR","RS",0)
-w(v,"gRT","RU",0)
-w(v,"gRV","RW",0)
-w(v,"gRX","RY",0)
-w(v,"gRZ","S_",0)
-w(v,"gS0","S1",0)
-w(v=O.xM.prototype,"grQ","rR",0)
-w(v,"grS","rT",0)
-w(v,"grU","rV",0)
-w(v,"grW","rX",0)})();(function inheritance(){var y=a.inheritMany,x=a.inherit
-y(P.l,[B.hr,D.ix])
-y(E.b5,[N.M_,O.uX])
-y(G.k,[N.Uz,O.UB])
-x(O.xM,E.p)})();(function constants(){C.dL=new D.B("material-list-api",N.aql(),[B.hr])
-C.eB=new D.B("material-list-demo",O.aws(),[D.ix])
-C.nX=H.A(B.hr)
-C.nZ=H.A(D.ix)})();(function staticFields(){$.a6P=null
-$.adF=!1
-$.aDB=[".bordered-list._ngcontent-%ID%{border:1px solid black;border-radius:8px;margin:8px;overflow:hidden}:not(.stretched-list)._ngcontent-%ID% material-list._ngcontent-%ID%{display:inline-block}"]
-$.a6R=null
-$.adH=!1
-$.aBm=[$.aDB]})()}
-$__dart_deferred_initializers__["RllNz3kaLaaJAn3Tyvk24r8hkUY="] = $__dart_deferred_initializers__.current
+w=document.createElement("example-renderer")
+u.c=w
+v.b=u
+v.a=new G.hR()
+v.F(w)}}
+F.BJ.prototype={
+q:function(){var w,v=this,u=v.a2(),t=M.aa(v,0)
+v.f=t
+w=t.c
+u.appendChild(w)
+T.c(w,"baseline","")
+T.c(w,"icon","language")
+v.h(w)
+t=new Y.a3(w)
+v.r=t
+v.f.K(0,t)
+u.appendChild(v.e.b)},
+A:function(){var w,v,u=this,t=u.a
+if(u.d.f===0){u.r.sab(0,"language")
+w=!0}else w=!1
+if(w)u.f.d.st(1)
+v=t.a
+u.e.a5(v)
+u.f.j()},
+G:function(){this.f.k()}}
+F.G8.prototype={
+q:function(){var w,v=this,u=new F.BJ(N.Q(),E.T(v,0,3)),t=$.a6F
+if(t==null)t=$.a6F=O.a1($.aCV,null)
+u.b=t
+w=document.createElement("example-label-renderer")
+u.c=w
+v.b=u
+v.a=new G.hP()
+v.F(w)}}
+R.la.prototype={}
+L.uD.prototype={
+q:function(){var w,v,u,t,s,r=this,q=r.a2(),p=document,o=T.v(p,q)
+r.C(o,"example")
+r.h(o)
+w=T.d(p,o,"h2")
+r.m(w)
+T.b(w,"Simple single selection")
+v=x.z
+u=Y.hE(r,3,v)
+r.e=u
+t=u.c
+o.appendChild(t)
+r.h(t)
+u=r.d
+s=u.a
+u=u.b
+u=M.hn(s.l(C.a2,u),s.l(C.B,u),s.l(C.ah,u),null,null,r.e,t,v)
+r.f=u
+r.e.u(u,H.a([C.a,C.a,C.a,C.a,C.a,C.a],x.M))
+r.bo(H.a([r.f.gwB().D(r.v(r.gQx(),v,v))],x.a))},
+P:function(d,e,f){var w,v=this
+if(3===e){if(d===C.ar||d===C.o||d===C.c||d===C.I||d===C.p||d===C.ac||d===C.B||d===C.W)return v.f
+if(d===C.at){w=v.r
+return w==null?v.r=v.f.x:w}}return f},
+A:function(){var w,v,u,t,s,r=this,q=r.a
+if(r.d.f===0){w=r.f
+v=q.a
+w.toString
+w.dI(v)
+u=!0}else u=!1
+t=q.b
+w=r.x
+if(w!=t){r.f.a0$=O.b9(t)
+r.x=t
+u=!0}s=q.b
+w=r.y
+if(w!=s){r.f.ses(s)
+r.y=s
+u=!0}if(u)r.e.d.st(1)
+if(u)r.f.at()
+r.e.j()},
+G:function(){this.e.k()
+this.f.S()},
+Qy:function(d){this.a.b=d}}
+L.HO.prototype={
+q:function(){var w,v=this,u=new L.uD(E.T(v,0,3)),t=$.a7v
+if(t==null)t=$.a7v=O.a1($.aDv,null)
+u.b=t
+w=document.createElement("material-dropdown-select-simple-demo")
+u.c=w
+v.b=u
+v.a=new R.la(H.a([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],x._))
+v.F(w)}}
+N.hr.prototype={}
+N.ja.prototype={
+gfL:function(){return this.b},
+$iej:1}
+U.uV.prototype={
+q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8=this,c9=null,d0="section",d1="h2",d2="p",d3="bordered-list",d4="focusList",d5="width",d6="2",d7="focusItem",d8="value",d9="displayNameRenderer",e0="keydown",e1=c8.a2(),e2=document,e3=T.d(e2,e1,d0)
+c8.m(e3)
+w=T.d(e2,e3,d1)
+c8.m(w)
+T.b(w,"Basic Usage")
+v=T.d(e2,e3,d2)
+c8.m(v)
+T.b(v,"The template is responsible for handling item clicks and setting items as selected. For accessibility, add [FocusListDirective] to the material-list and [FocusItemDirective] to each item, or set your options with a SelectionOptions instance (see below) and that will be handled for you.")
+u=x.z
+t=U.lQ(c8,5,u)
+c8.Q=t
+t=t.c
+c8.bb=t
+e3.appendChild(t)
+c8.O(c8.bb,d3)
+T.c(c8.bb,d4,"")
+T.c(c8.bb,d5,d6)
+c8.h(c8.bb)
+t=c8.d
+s=t.a
+t=t.b
+r=N.j6(s.n(C.f,t),c9,c9)
+c8.ch=new K.fQ(r)
+r=$.yF()
+q=x.x
+c8.cx=new U.cz(r,q)
+p=M.dh(c8,6,u)
+c8.cy=p
+p=p.c
+c8.aG=p
+T.c(p,d7,"")
+c8.h(c8.aG)
+p=c8.aG
+c8.db=new U.dn(M.dO(p,c8.cy,c9))
+p=B.df(p,s.l(C.o,t),s.l(C.W,t),c8.cy,c9,u)
+c8.dx=p
+o=T.n("FTP")
+n=x.l
+m=x.M
+c8.cy.u(p,H.a([H.a([o],n)],m))
+p=M.dh(c8,8,u)
+c8.dy=p
+p=p.c
+c8.aJ=p
+T.c(p,d7,"")
+c8.h(c8.aJ)
+p=c8.aJ
+c8.fr=new U.dn(M.dO(p,c8.dy,c9))
+p=B.df(p,s.l(C.o,t),s.l(C.W,t),c8.dy,c9,u)
+c8.fx=p
+l=T.n("HTTP")
+c8.dy.u(p,H.a([H.a([l],n)],m))
+p=M.dh(c8,10,u)
+c8.fy=p
+p=p.c
+c8.aU=p
+T.c(p,d7,"")
+c8.h(c8.aU)
+p=c8.aU
+c8.go=new U.dn(M.dO(p,c8.fy,c9))
+p=B.df(p,s.l(C.o,t),s.l(C.W,t),c8.fy,c9,u)
+c8.id=p
+k=T.n("HTTPS")
+c8.fy.u(p,H.a([H.a([k],n)],m))
+p=x.q
+c8.ch.a.seY(H.a([c8.db.a,c8.fr.a,c8.go.a],p))
+j=$.bo()
+j.w(0,c8.dx,c8.cy)
+j.w(0,c8.fx,c8.dy)
+j.w(0,c8.id,c8.fy)
+i=x.s
+c8.cx.sfo(H.a([c8.dx,c8.fx,c8.id],i))
+h=x.T
+c8.Q.u(c8.cx,H.a([H.a([c8.aG,c8.aJ,c8.aU],h)],m))
+g=T.d(e2,e3,d2)
+c8.m(g)
+T.b(g,"Or, create `material-select-item` elements using `*ngFor`.")
+f=U.lQ(c8,14,u)
+c8.k1=f
+f=f.c
+c8.aV=f
+e3.appendChild(f)
+c8.O(c8.aV,d3)
+T.c(c8.aV,d4,"")
+T.c(c8.aV,d5,d6)
+c8.h(c8.aV)
+f=N.j6(s.n(C.f,t),c9,c9)
+c8.k2=new K.fQ(f)
+f=new U.cz(r,q)
+c8.k3=f
+e=c8.k4=new V.u(15,14,c8,T.a7())
+c8.r1=new R.bb(e,new D.z(e,U.azZ()))
+d=x.t
+c8.k1.u(f,H.a([H.a([e],d)],m))
+a0=T.d(e2,e1,d0)
+c8.m(a0)
+a1=T.d(e2,a0,d1)
+c8.m(a1)
+T.b(a1,"SelectionModel")
+a2=T.d(e2,a0,d2)
+c8.m(a2)
+T.b(a2,"See ")
+a3=T.d(e2,a2,"a")
+T.c(a3,"href","http://google3/third_party/dart_src/acx/model/selection")
+T.c(a3,"target","_blank")
+c8.h(a3)
+T.b(a3,"google3/third_party/dart_src/acx/model/selection")
+T.b(a2," for available selection models.")
+a4=T.d(e2,a0,d2)
+c8.m(a4)
+T.b(a4,"The selection model class handles the details of maintaining a selection. Use it and unlock the full power of `material-select`.")
+e=U.lQ(c8,26,u)
+c8.r2=e
+e=e.c
+c8.aC=e
+a0.appendChild(e)
+c8.O(c8.aC,d3)
+T.c(c8.aC,d4,"")
+T.c(c8.aC,d5,d6)
+c8.h(c8.aC)
+f=N.j6(s.n(C.f,t),c9,c9)
+c8.rx=new K.fQ(f)
+c8.ry=new U.cz(r,q)
+f=M.dh(c8,27,u)
+c8.x1=f
+f=f.c
+c8.b1=f
+T.c(f,d7,"")
+T.c(c8.b1,d8,"en-US")
+c8.h(c8.b1)
+f=c8.b1
+c8.x2=new U.dn(M.dO(f,c8.x1,c9))
+f=B.df(f,s.l(C.o,t),s.l(C.W,t),c8.x1,c9,u)
+c8.y1=f
+a5=T.n("US English")
+c8.x1.u(f,H.a([H.a([a5],n)],m))
+f=M.dh(c8,29,u)
+c8.y2=f
+f=f.c
+c8.aZ=f
+T.c(f,d7,"")
+T.c(c8.aZ,d8,"en-UK")
+c8.h(c8.aZ)
+f=c8.aZ
+c8.V=new U.dn(M.dO(f,c8.y2,c9))
+f=B.df(f,s.l(C.o,t),s.l(C.W,t),c8.y2,c9,u)
+c8.a7=f
+a6=T.n("UK English")
+c8.y2.u(f,H.a([H.a([a6],n)],m))
+f=M.dh(c8,31,u)
+c8.X=f
+f=f.c
+c8.bh=f
+T.c(f,d7,"")
+T.c(c8.bh,d8,"fr-CA")
+c8.h(c8.bh)
+f=c8.bh
+c8.a0=new U.dn(M.dO(f,c8.X,c9))
+f=B.df(f,s.l(C.o,t),s.l(C.W,t),c8.X,c9,u)
+c8.a6=f
+a7=T.n("Canadian French")
+c8.X.u(f,H.a([H.a([a7],n)],m))
+c8.rx.a.seY(H.a([c8.x2.a,c8.V.a,c8.a0.a],p))
+j.w(0,c8.y1,c8.x1)
+j.w(0,c8.a7,c8.y2)
+j.w(0,c8.a6,c8.X)
+c8.ry.sfo(H.a([c8.y1,c8.a7,c8.a6],i))
+c8.r2.u(c8.ry,H.a([H.a([c8.b1,c8.aZ,c8.bh],h)],m))
+a8=T.d(e2,a0,d2)
+c8.m(a8)
+T.b(a8,"Using a list of options and `*ngFor`.")
+f=U.lQ(c8,35,u)
+c8.Y=f
+f=f.c
+c8.aW=f
+a0.appendChild(f)
+c8.O(c8.aW,d3)
+T.c(c8.aW,d4,"")
+c8.h(c8.aW)
+f=N.j6(s.n(C.f,t),c9,c9)
+c8.a4=new K.fQ(f)
+f=new U.cz(r,q)
+c8.a_=f
+e=c8.W=new V.u(36,35,c8,T.a7())
+c8.L=new R.bb(e,new D.z(e,U.aA_()))
+c8.Y.u(f,H.a([H.a([e],d)],m))
+a9=T.d(e2,a0,d2)
+c8.m(a9)
+T.b(a9,"Using a list of options and `*ngFor` with check marks.")
+e=U.lQ(c8,39,u)
+c8.aa=e
+e=e.c
+c8.bc=e
+a0.appendChild(e)
+c8.O(c8.bc,d3)
+T.c(c8.bc,d4,"")
+c8.h(c8.bc)
+f=N.j6(s.n(C.f,t),c9,c9)
+c8.a8=new K.fQ(f)
+f=new U.cz(r,q)
+c8.a9=f
+e=c8.ak=new V.u(40,39,c8,T.a7())
+c8.ae=new R.bb(e,new D.z(e,U.aA0()))
+c8.aa.u(f,H.a([H.a([e],d)],m))
+b0=T.d(e2,e1,d0)
+c8.m(b0)
+b1=T.d(e2,b0,d1)
+c8.m(b1)
+T.b(b1,"[SelectionModel] and [SelectionOptions]")
+b2=T.d(e2,b0,d2)
+c8.m(b2)
+T.b(b2,"Really take it to the next level with a [SelectionOptions] instance. It manages the list of options and can be updated on the fly using streams.")
+d=U.lQ(c8,46,u)
+c8.an=d
+b3=d.c
+b0.appendChild(b3)
+c8.O(b3,d3)
+T.c(b3,d9,"")
+T.c(b3,d5,d6)
+c8.h(b3)
+d=new U.cz(r,q)
+c8.ag=d
+d.scZ($.nh())
+c8.ag.sfo(H.a([],i))
+c8.an.u(c8.ag,H.a([C.a],m))
+b4=T.d(e2,b0,d2)
+c8.m(b4)
+T.b(b4,"Using option groups.")
+f=U.lQ(c8,49,u)
+c8.al=f
+b5=f.c
+b0.appendChild(b5)
+c8.O(b5,d3)
+T.c(b5,d9,"")
+T.c(b5,d5,d6)
+c8.h(b5)
+f=new U.cz(r,q)
+c8.aq=f
+f.scZ($.nh())
+c8.aq.sfo(H.a([],i))
+c8.al.u(c8.aq,H.a([C.a],m))
+b6=T.d(e2,e1,d0)
+c8.m(b6)
+b7=T.d(e2,b6,d1)
+c8.m(b7)
+T.b(b7,"Custom selected color")
+b8=T.d(e2,b6,d2)
+c8.m(b8)
+T.b(b8,"Use ")
+b9=T.d(e2,b8,"code")
+c8.m(b9)
+T.b(b9,"@include material-select-selected-color($mat-green-500)")
+T.b(b8," to change the color of the accent on the selected item.")
+f=U.lQ(c8,58,u)
+c8.au=f
+f=f.c
+c8.aQ=f
+b6.appendChild(f)
+c8.O(c8.aQ,"bordered-list custom-selected-color")
+T.c(c8.aQ,d4,"")
+T.c(c8.aQ,d5,d6)
+c8.h(c8.aQ)
+f=N.j6(s.n(C.f,t),c9,c9)
+c8.av=new K.fQ(f)
+c8.ai=new U.cz(r,q)
+r=M.dh(c8,59,u)
+c8.ar=r
+r=r.c
+c8.bf=r
+T.c(r,d7,"")
+c8.h(c8.bf)
+r=c8.bf
+c8.ah=new U.dn(M.dO(r,c8.ar,c9))
+r=B.df(r,s.l(C.o,t),s.l(C.W,t),c8.ar,c9,u)
+c8.aj=r
+c0=T.n("FTP")
+c8.ar.u(r,H.a([H.a([c0],n)],m))
+r=M.dh(c8,61,u)
+c8.af=r
+r=r.c
+c8.b6=r
+T.c(r,d7,"")
+c8.h(c8.b6)
+r=c8.b6
+c8.as=new U.dn(M.dO(r,c8.af,c9))
+r=B.df(r,s.l(C.o,t),s.l(C.W,t),c8.af,c9,u)
+c8.ax=r
+c1=T.n("HTTP")
+c8.af.u(r,H.a([H.a([c1],n)],m))
+r=M.dh(c8,63,u)
+c8.aA=r
+r=r.c
+c8.bd=r
+T.c(r,d7,"")
+c8.h(c8.bd)
+r=c8.bd
+c8.aM=new U.dn(M.dO(r,c8.aA,c9))
+u=B.df(r,s.l(C.o,t),s.l(C.W,t),c8.aA,c9,u)
+c8.aB=u
+c2=T.n("HTTPS")
+c8.aA.u(u,H.a([H.a([c2],n)],m))
+c8.av.a.seY(H.a([c8.ah.a,c8.as.a,c8.aM.a],p))
+j.w(0,c8.aj,c8.ar)
+j.w(0,c8.ax,c8.af)
+j.w(0,c8.aB,c8.aA)
+c8.ai.sfo(H.a([c8.aj,c8.ax,c8.aB],i))
+c8.au.u(c8.ai,H.a([H.a([c8.bf,c8.b6,c8.bd],h)],m))
+u=x.L
+t=x.S
+J.a8(c8.aG,e0,c8.v(c8.db.a.gbL(),u,t))
+s=c8.dx.b
+r=x.p
+c3=new P.e(s,H.m(s).i("e<1>")).D(c8.v(c8.gtd(),r,r))
+J.a8(c8.aJ,e0,c8.v(c8.fr.a.gbL(),u,t))
+s=c8.fx.b
+c4=new P.e(s,H.m(s).i("e<1>")).D(c8.v(c8.gTW(),r,r))
+J.a8(c8.aU,e0,c8.v(c8.go.a.gbL(),u,t))
+s=c8.id.b
+c5=new P.e(s,H.m(s).i("e<1>")).D(c8.v(c8.gTY(),r,r))
+J.a8(c8.b1,e0,c8.v(c8.x2.a.gbL(),u,t))
+J.a8(c8.aZ,e0,c8.v(c8.V.a.gbL(),u,t))
+J.a8(c8.bh,e0,c8.v(c8.a0.a.gbL(),u,t))
+J.a8(c8.bf,e0,c8.v(c8.ah.a.gbL(),u,t))
+s=c8.aj.b
+c6=new P.e(s,H.m(s).i("e<1>")).D(c8.v(c8.gU_(),r,r))
+J.a8(c8.b6,e0,c8.v(c8.as.a.gbL(),u,t))
+s=c8.ax.b
+c7=new P.e(s,H.m(s).i("e<1>")).D(c8.v(c8.gU1(),r,r))
+J.a8(c8.bd,e0,c8.v(c8.aM.a.gbL(),u,t))
+t=c8.aB.b
+c8.bo(H.a([c3,c4,c5,c6,c7,new P.e(t,H.m(t).i("e<1>")).D(c8.v(c8.gU3(),r,r))],x.a))},
+P:function(d,e,f){var w,v,u,t=this
+if(5<=e&&e<=11){if(6<=e&&e<=7){if(d===C.M)return t.db.a
+if(d===C.a8||d===C.c||d===C.I)return t.dx}if(8<=e&&e<=9){if(d===C.M)return t.fr.a
+if(d===C.a8||d===C.c||d===C.I)return t.fx}if(10<=e){if(d===C.M)return t.go.a
+if(d===C.a8||d===C.c||d===C.I)return t.id}if(d===C.c||d===C.I||d===C.ac)return t.cx}w=d!==C.c
+if((!w||d===C.I||d===C.ac)&&14<=e&&e<=15)return t.k3
+if(26<=e&&e<=32){if(27<=e&&e<=28){if(d===C.M)return t.x2.a
+if(d===C.a8||!w||d===C.I)return t.y1}if(29<=e&&e<=30){if(d===C.M)return t.V.a
+if(d===C.a8||!w||d===C.I)return t.a7}if(31<=e){if(d===C.M)return t.a0.a
+if(d===C.a8||!w||d===C.I)return t.a6}if(!w||d===C.I||d===C.ac)return t.ry}if((!w||d===C.I||d===C.ac)&&35<=e&&e<=36)return t.a_
+if((!w||d===C.I||d===C.ac)&&39<=e&&e<=40)return t.a9
+v=d===C.I
+u=!v
+if((!u||!w||d===C.ac)&&46===e)return t.ag
+if((!u||!w||d===C.ac)&&49===e)return t.aq
+if(58<=e&&e<=64){if(59<=e&&e<=60){if(d===C.M)return t.ah.a
+if(d===C.a8||!w||v)return t.aj}if(61<=e&&e<=62){if(d===C.M)return t.as.a
+if(d===C.a8||!w||v)return t.ax}if(63<=e){if(d===C.M)return t.aM.a
+if(d===C.a8||!w||v)return t.aB}if(!w||!u||d===C.ac)return t.ai}return f},
+A:function(){var w,v,u,t,s,r,q,p,o,n=this,m="2",l=n.a,k=n.d.f===0
+if(k){w=n.cx
+w.toString
+w.fR(0,m)}if(k)n.cx.Z()
+v=l.c==="ftp"
+w=n.aw
+if(w!==v){n.aw=n.dx.r2=v
+u=!0}else u=!1
+if(u)n.cy.d.st(1)
+t=l.c==="http"
+w=n.aT
+if(w!==t){n.aT=n.fx.r2=t
+u=!0}else u=!1
+if(u)n.dy.d.st(1)
+s=l.c==="https"
+w=n.aY
+if(w!==s){n.aY=n.id.r2=s
+u=!0}else u=!1
+if(u)n.fy.d.st(1)
+if(k){w=n.k3
+w.toString
+w.fR(0,m)}if(k)n.k3.Z()
+if(k)n.r1.sbe(C.jW)
+n.r1.b8()
+if(k){w=n.ry
+w.toString
+w.fR(0,m)
+w=n.ry
+r=l.a
+w.toString
+w.ch$=r
+w.iy()}if(k)n.ry.Z()
+if(k){n.y1.fr="en-US"
+u=!0}else u=!1
+if(u)n.x1.d.st(1)
+if(k){n.a7.fr="en-UK"
+u=!0}else u=!1
+if(u)n.y2.d.st(1)
+if(k){n.a6.fr="fr-CA"
+u=!0}else u=!1
+if(u)n.X.d.st(1)
+if(k){w=n.a_
+r=l.b
+w.toString
+w.ch$=r
+w.iy()}if(k)n.a_.Z()
+w=n.ba
+if(w!==C.aT){n.L.sbe(C.aT)
+n.ba=C.aT}n.L.b8()
+if(k){w=n.a9
+r=l.b
+w.toString
+w.ch$=r
+w.iy()}if(k)n.a9.Z()
+w=n.aF
+if(w!==C.aT){n.ae.sbe(C.aT)
+n.aF=C.aT}n.ae.b8()
+if(k){w=n.ag
+r=l.d
+w.toString
+w.cx$=r
+w=n.ag
+w.toString
+w.fR(0,m)
+w=n.ag
+r=l.b
+w.toString
+w.ch$=r
+w.iy()}if(k)n.ag.Z()
+if(k){w=n.aq
+r=l.e
+w.toString
+w.cx$=r
+w=n.aq
+w.toString
+w.fR(0,m)
+w=n.aq
+r=l.b
+w.toString
+w.ch$=r
+w.iy()}if(k)n.aq.Z()
+if(k){w=n.ai
+w.toString
+w.fR(0,m)}if(k)n.ai.Z()
+q=l.c==="ftp"
+w=n.aR
+if(w!==q){n.aR=n.aj.r2=q
+u=!0}else u=!1
+if(u)n.ar.d.st(1)
+p=l.c==="http"
+w=n.aI
+if(w!==p){n.aI=n.ax.r2=p
+u=!0}else u=!1
+if(u)n.af.d.st(1)
+o=l.c==="https"
+w=n.b5
+if(w!==o){n.b5=n.aB.r2=o
+u=!0}else u=!1
+if(u)n.aA.d.st(1)
+n.k4.J()
+n.W.J()
+n.ak.J()
+if(n.f){n.k2.a.seY(n.k4.bT(new U.W8(),x.O,x.Z))
+n.f=!1}if(n.e){n.k3.sfo(n.k4.bT(new U.W9(),x.e,x.Z))
+n.e=!1}if(n.x){n.a4.a.seY(n.W.bT(new U.Wa(),x.O,x.k))
+n.x=!1}if(n.r){n.a_.sfo(n.W.bT(new U.Wb(),x.e,x.k))
+n.r=!1}if(n.z){n.a8.a.seY(n.ak.bT(new U.Wc(),x.O,x.V))
+n.z=!1}if(n.y){n.a9.sfo(n.ak.bT(new U.Wd(),x.e,x.V))
+n.y=!1}n.ch.b4(n.Q,n.bb)
+n.Q.B(k)
+n.db.b4(n.cy,n.aG)
+n.cy.B(k)
+n.fr.b4(n.dy,n.aJ)
+n.dy.B(k)
+n.go.b4(n.fy,n.aU)
+n.fy.B(k)
+n.k2.b4(n.k1,n.aV)
+n.k1.B(k)
+n.rx.b4(n.r2,n.aC)
+n.r2.B(k)
+n.x2.b4(n.x1,n.b1)
+n.x1.B(k)
+n.V.b4(n.y2,n.aZ)
+n.y2.B(k)
+n.a0.b4(n.X,n.bh)
+n.X.B(k)
+n.a4.b4(n.Y,n.aW)
+n.Y.B(k)
+n.a8.b4(n.aa,n.bc)
+n.aa.B(k)
+n.an.B(k)
+n.al.B(k)
+n.av.b4(n.au,n.aQ)
+n.au.B(k)
+n.ah.b4(n.ar,n.bf)
+n.ar.B(k)
+n.as.b4(n.af,n.b6)
+n.af.B(k)
+n.aM.b4(n.aA,n.bd)
+n.aA.B(k)
+n.Q.j()
+n.cy.j()
+n.dy.j()
+n.fy.j()
+n.k1.j()
+n.r2.j()
+n.x1.j()
+n.y2.j()
+n.X.j()
+n.Y.j()
+n.aa.j()
+n.an.j()
+n.al.j()
+n.au.j()
+n.ar.j()
+n.af.j()
+n.aA.j()},
+G:function(){var w=this
+w.k4.I()
+w.W.I()
+w.ak.I()
+w.Q.k()
+w.cy.k()
+w.dy.k()
+w.fy.k()
+w.k1.k()
+w.r2.k()
+w.x1.k()
+w.y2.k()
+w.X.k()
+w.Y.k()
+w.aa.k()
+w.an.k()
+w.al.k()
+w.au.k()
+w.ar.k()
+w.af.k()
+w.aA.k()
+w.dx.Q.H()
+w.fx.Q.H()
+w.id.Q.H()
+w.ch.a.d.H()
+w.k2.a.d.H()
+w.y1.Q.H()
+w.a7.Q.H()
+w.a6.Q.H()
+w.rx.a.d.H()
+w.a4.a.d.H()
+w.a8.a.d.H()
+w.aj.Q.H()
+w.ax.Q.H()
+w.aB.Q.H()
+w.av.a.d.H()},
+te:function(d){this.a.c="ftp"},
+TX:function(d){this.a.c="http"},
+TZ:function(d){this.a.c="https"},
+U0:function(d){this.a.c="ftp"},
+U2:function(d){this.a.c="http"},
+U4:function(d){this.a.c="https"}}
+U.kB.prototype={
+q:function(){var w,v,u=this,t=x.z,s=M.dh(u,0,t)
+u.c=s
+s=s.c
+u.r=s
+T.c(s,"focusItem","")
+u.h(u.r)
+s=u.r
+u.d=new U.dn(M.dO(s,u.c,null))
+w=u.a.c
+t=B.df(s,w.gp().l(C.o,w.ga1()),w.gp().l(C.W,w.ga1()),u.c,null,t)
+u.e=t
+s=x.M
+u.c.u(t,H.a([H.a([u.b.b],x.l)],s))
+J.a8(u.r,"keydown",u.v(u.d.a.gbL(),x.L,x.S))
+t=u.e.b
+w=x.p
+v=new P.e(t,H.m(t).i("e<1>")).D(u.v(u.gtd(),w,w))
+u.aD(H.a([u.r],s),H.a([v],x.a))},
+P:function(d,e,f){if(e<=1){if(d===C.M)return this.d.a
+if(d===C.a8||d===C.c||d===C.I)return this.e}return f},
+A:function(){var w,v=this,u=v.a,t=u.ch,s=u.f.E(0,"$implicit"),r=u.a.c==s
+u=v.f
+if(u!==r){v.f=v.e.r2=r
+w=!0}else w=!1
+if(w)v.c.d.st(1)
+v.d.b4(v.c,v.r)
+v.c.B(t===0)
+u=s==null?"":s
+v.b.a5(u)
+v.c.j()},
+bZ:function(){var w=this.a.c
+w.f=w.e=!0},
+G:function(){this.c.k()
+this.e.Q.H()},
+te:function(d){var w=this.a
+w.a.c=w.f.E(0,"$implicit")}}
+U.lY.prototype={
+q:function(){var w,v=this,u=x.z,t=M.dh(v,0,u)
+v.b=t
+t=t.c
+v.f=t
+T.c(t,"displayNameRenderer","")
+T.c(v.f,"focusItem","")
+v.h(v.f)
+t=v.a.c
+u=B.df(v.f,t.gp().l(C.o,t.ga1()),t.gp().l(C.W,t.ga1()),v.b,null,u)
+v.c=u
+t=v.f
+w=v.b
+v.d=new U.dn(M.dO(t,w,null))
+u.go=$.nh()
+w.u(u,H.a([C.a],x.M))
+J.a8(v.f,"keydown",v.v(v.d.a.gbL(),x.L,x.S))
+v.F(v.f)},
+P:function(d,e,f){if(0===e){if(d===C.I||d===C.a8||d===C.c)return this.c
+if(d===C.M)return this.d.a}return f},
+A:function(){var w,v=this,u=v.a,t=u.ch,s=u.f.E(0,"$implicit")
+u=v.e
+if(u!=s){v.e=v.c.fr=s
+w=!0}else w=!1
+if(w)v.b.d.st(1)
+v.b.B(t===0)
+v.d.b4(v.b,v.f)
+v.b.j()},
+bZ:function(){var w=this.a.c
+w.x=w.r=!0},
+G:function(){this.b.k()
+this.c.Q.H()}}
+U.lZ.prototype={
+q:function(){var w,v=this,u=x.z,t=M.dh(v,0,u)
+v.b=t
+t=t.c
+v.f=t
+T.c(t,"displayNameRenderer","")
+T.c(v.f,"focusItem","")
+v.h(v.f)
+t=v.a.c
+u=B.df(v.f,t.gp().l(C.o,t.ga1()),t.gp().l(C.W,t.ga1()),v.b,null,u)
+v.c=u
+t=v.f
+w=v.b
+v.d=new U.dn(M.dO(t,w,null))
+u.go=$.nh()
+w.u(u,H.a([C.a],x.M))
+J.a8(v.f,"keydown",v.v(v.d.a.gbL(),x.L,x.S))
+v.F(v.f)},
+P:function(d,e,f){if(0===e){if(d===C.I||d===C.a8||d===C.c)return this.c
+if(d===C.M)return this.d.a}return f},
+A:function(){var w,v=this,u=v.a,t=u.ch===0,s=u.f.E(0,"$implicit")
+if(t){v.c.k2=!0
+w=!0}else w=!1
+u=v.e
+if(u!=s){v.e=v.c.fr=s
+w=!0}if(w)v.b.d.st(1)
+v.b.B(t)
+v.d.b4(v.b,v.f)
+v.b.j()},
+bZ:function(){var w=this.a.c
+w.z=w.y=!0},
+G:function(){this.b.k()
+this.c.Q.H()}}
+U.IU.prototype={
+q:function(){var w,v=this,u=null,t=new U.uV(E.T(v,0,3)),s=$.a8c
+if(s==null)s=$.a8c=O.a1($.aDZ,u)
+t.b=s
+w=document.createElement("material-select-demo")
+t.c=w
+v.b=t
+t=x.y
+v.a=new N.hr(Z.dg(u,x.X),Z.eQ(u,t),F.U2(C.aT,t),F.apZ(H.a([F.kc(C.aT,"North America",u,t),F.kc(H.a([new N.ja("Japanese"),new N.ja("Korean")],x.F),"Asia",u,t)],x.u),t))
+v.F(w)}}
+var z=a.updateTypes(["~(@)","r<~>*(k*,I*)","t*(bw*)","~(E*)","l<hR*>*(@)","l<hP*>*(@)","dy*(kB*)","bu<@>*(kB*)","dy*(lY*)","bu<@>*(lY*)","dy*(lZ*)","bu<@>*(lZ*)","f<hs*>*()","f<hq*>*()","f<hm*>*()","f<e6*>*()","f<hR*>*()","f<hP*>*()","f<la*>*()","f<hr*>*()"])
+B.Ok.prototype={
+$1:function(d){var w,v,u=this.a.b
+u.gda()
+w=J.eh(u.gda())
+if(w)v=null
+else v=J.hK(u.gda())
+this.b.$1(v)},
+$S:function(){return this.a.$ti.i("U(F<e9<1*>*>*)")}}
+B.SA.prototype={
+$1:function(d){var w=J.a50(this.a.b.gda())
+this.b.$1(w)},
+$S:function(){return this.a.$ti.i("U(F<e9<1*>*>*)")}}
+B.Mx.prototype={
+$1:function(d){this.a.c.az(0)
+this.b.$0()},
+$S:6}
+G.Q0.prototype={
+$1:function(d){return x.P.a(d).gfL()},
+$S:15}
+G.Q1.prototype={
+$1:function(d){return d.b+" ("+d.a+")"},
+$S:z+2}
+G.Q4.prototype={
+$1:function(d){return d.b},
+$S:z+2}
+G.Q2.prototype={
+$1:function(d){return C.h_},
+$S:z+4}
+G.Q3.prototype={
+$1:function(d){return C.fE},
+$S:z+5}
+G.Q5.prototype={
+$0:function(){this.a.fy.bK(0)},
+$C:"$0",
+$R:0,
+$S:0}
+G.Ox.prototype={
+$1:function(d){return J.cW(d)},
+$S:z+2}
+G.Ow.prototype={
+$1:function(d){return J.cW(d)},
+$S:z+2}
+U.W8.prototype={
+$1:function(d){return d.d.a},
+$S:z+6}
+U.W9.prototype={
+$1:function(d){$.bo().w(0,d.e,d.c)
+return d.e},
+$S:z+7}
+U.Wa.prototype={
+$1:function(d){return d.d.a},
+$S:z+8}
+U.Wb.prototype={
+$1:function(d){$.bo().w(0,d.c,d.b)
+return d.c},
+$S:z+9}
+U.Wc.prototype={
+$1:function(d){return d.d.a},
+$S:z+10}
+U.Wd.prototype={
+$1:function(d){$.bo().w(0,d.c,d.b)
+return d.c},
+$S:z+11};(function aliases(){var w=B.oZ.prototype
+w.wY=w.S})();(function installTearOffs(){var w=a._instance_1u,v=a._static_0,u=a._static_2
+w(B.oZ.prototype,"ghX","ed",3)
+v(R,"aA3","aKO",12)
+v(A,"ahu","aKJ",13)
+v(A,"aht","aJh",14)
+w(G.e6.prototype,"ga1o","a1p",3)
+u(F,"ayX","aJi",1)
+u(F,"ayY","aJj",1)
+u(F,"ayZ","aJk",1)
+u(F,"az_","aJl",1)
+u(F,"az0","aJm",1)
+u(F,"az1","aJn",1)
+u(F,"az2","aJo",1)
+u(F,"az3","aJp",1)
+u(F,"az4","aJq",1)
+v(F,"ajz","aJr",15)
+v(F,"ajy","aHz",16)
+v(F,"ajx","aHx",17)
+var t
+w(t=F.uC.prototype,"grt","ru",0)
+w(t,"gQb","Qc",0)
+w(t,"gQh","Qi",0)
+w(t,"gQj","Qk",0)
+w(t,"gQl","Qm",0)
+w(t,"gQn","Qo",0)
+w(t,"gQp","Qq",0)
+w(t,"gQr","Qs",0)
+w(t,"gQt","Qu",0)
+w(t,"gQv","Qw",0)
+w(t,"gQd","Qe",0)
+w(t,"gQf","Qg",0)
+w(F.x5.prototype,"grt","ru",0)
+v(L,"ajA","aJs",18)
+w(L.uD.prototype,"gQx","Qy",0)
+u(U,"azZ","aKK",1)
+u(U,"aA_","aKL",1)
+u(U,"aA0","aKM",1)
+v(U,"ajT","aKN",19)
+w(t=U.uV.prototype,"gtd","te",0)
+w(t,"gTW","TX",0)
+w(t,"gTY","TZ",0)
+w(t,"gU_","U0",0)
+w(t,"gU1","U2",0)
+w(t,"gU3","U4",0)
+w(U.kB.prototype,"gtd","te",0)})();(function inheritance(){var w=a.inheritMany,v=a.inherit
+w(P.y,[B.oZ,S.hq,S.hm,G.e6,G.bw,G.hR,G.hP,R.la,N.hr,N.ja])
+w(B.oZ,[B.zv,B.Af])
+w(H.bv,[B.Ok,B.SA,B.Mx,G.Q0,G.Q1,G.Q4,G.Q2,G.Q3,G.Q5,G.Ox,G.Ow,U.W8,U.W9,U.Wa,U.Wb,U.Wc,U.Wd])
+w(G.f,[R.IV,A.IT,A.HE,F.HN,F.Ga,F.G8,L.HO,U.IU])
+w(E.br,[A.CC,A.Ca,F.uC,F.BL,F.BJ,L.uD,U.uV])
+v(G.rW,R.dW)
+w(E.r,[F.HF,F.HG,F.HH,F.HI,F.HJ,F.HK,F.HL,F.HM,F.x5,U.kB,U.lY,U.lZ])})()
+H.al(b.typeUniverse,JSON.parse('{"am":"w","ay":"w","aq":"af","an":"o","aC":"o","aE":"o","ao":"H","ap":"H","au":"J","az":"J","ar":"B","aB":"B","aH":"O","aG":"a4","aF":"a9","aw":"W","ax":"ad","aD":"X","aA":"ah","av":"ag","at":"ai","as":"a2","IV":{"f":["hs*"],"i":[],"f.T":"hs*"},"CC":{"k":[],"i":[]},"IT":{"f":["hq*"],"i":[],"f.T":"hq*"},"Ca":{"k":[],"i":[]},"HE":{"f":["hm*"],"i":[],"f.T":"hm*"},"bw":{"ej":[]},"hR":{"ep":["bw*"]},"hP":{"ep":["aZ<@>*"]},"rW":{"dW":["bw*"],"cA":["bw*"],"aY":[],"j5":[],"kj":["bw*"],"dW.T":"bw*","cA.T":"bw*"},"uC":{"k":[],"i":[]},"HF":{"r":["e6*"],"k":[],"i":[]},"HG":{"r":["e6*"],"k":[],"i":[]},"HH":{"r":["e6*"],"k":[],"i":[]},"HI":{"r":["e6*"],"k":[],"i":[]},"HJ":{"r":["e6*"],"k":[],"i":[]},"HK":{"r":["e6*"],"k":[],"i":[]},"HL":{"r":["e6*"],"k":[],"i":[]},"HM":{"r":["e6*"],"k":[],"i":[]},"x5":{"r":["e6*"],"k":[],"i":[]},"HN":{"f":["e6*"],"i":[],"f.T":"e6*"},"BL":{"k":[],"i":[]},"Ga":{"f":["hR*"],"i":[],"f.T":"hR*"},"BJ":{"k":[],"i":[]},"G8":{"f":["hP*"],"i":[],"f.T":"hP*"},"uD":{"k":[],"i":[]},"HO":{"f":["la*"],"i":[],"f.T":"la*"},"ja":{"ej":[]},"uV":{"k":[],"i":[]},"kB":{"r":["hr*"],"k":[],"i":[]},"lY":{"r":["hr*"],"k":[],"i":[]},"lZ":{"r":["hr*"],"k":[],"i":[]},"IU":{"f":["hr*"],"i":[],"f.T":"hr*"}}'))
+H.ez(b.typeUniverse,JSON.parse('{"oZ":1}'))
+var y={Q:'<h1>Overview</h1>\n<p>Most selection widgets care about two data points: what is selectable and what\nis selected.</p>\n<p>In ACX selection widgets, what is selectable is represented by the\n<a href="https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/selection_options.dart"><code>SelectionOptions</code></a>\ninterface, while what is selected is represented by the\n<a href="https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/selection_model.dart"><code>SelectionModel</code></a>\ninterface.</p>\n<p>Material Dropdown Select is a button-triggered dropdown. It uses these two\ninterfaces via the <code>options</code> and <code>selection</code> inputs. Together with the\n<code>selectionChange</code> output, you can setup two-way binding for the selected value.</p>\n<p>HTML:</p>\n<pre><code class="language-html">&lt;material-dropdown-select\n    [options]="myOptions"\n    [(selection)]="mySelection"\n    [buttonText]="..."&gt;\n&lt;/material-dropdown-select&gt;\n</code></pre>\n<p>Dart:</p>\n<pre><code class="language-dart">class MyView {\n  final myOptions = [1, 2, 3];\n  int mySelection = 2;\n}\n</code></pre>\n<h1>The options input</h1>\n<p>The <code>options</code> input accepts either a <code>SelectionOptions</code> class or a generic\n<code>List</code>.</p>\n<p>If a <code>List</code> is passed, a\n<a href="https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/string_selection_options.dart"><code>StringSelectionOptions</code></a>\nwill be created with the list and the <code>ItemRenderer</code> if specified to support\nbasic filtering.</p>\n<p>If you need more advanced features, like grouped options, custom filtering or\nasync search, you could also pass an implementation of <code>SelectionOptions</code>.</p>\n<h1>The selection input &amp; output</h1>\n<p>The <code>selection</code> input accepts either a <code>SelectionModel</code>, a selected value or\nnull.</p>\n<p>By default Material Dropdown Select uses\n<a href="https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/src/model/selection/single_selection_model_impl.dart"><code>SingleSelectionModel</code></a>.\nIf a selected value is passed to the <code>selection</code> input, this value will be\nselected by the default selection model. If a null value is passed to the input,\nthe default selection model will clear the selection.</p>\n<p>If you need to use a <code>MultiSelectionModel</code> or a custom implementation of\n<code>SelectionModel</code>, you could also use the same input.</p>\n<p>The <code>selectionChange</code> output emits the selected value(s) whenever selection\nchanges. For single select, it will either be the selected value or null. For\nmulti select, it will a list of selected values or an empty list.</p>\n<p>For simpler single select use cases, you can use the <code>[(selection)]</code> syntax to\nsetup two-way binding for your selected value.</p>\n<p><strong>Important</strong> If using SingleSelectionModel, this component will both deselect\nand then reselect on selection changes (two events) and\nSingleSelectionModel.selectedValue may become null unless\n<a href="https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/material_select/material_dropdown_select.dart?q=deselectOnActivate"><code>deselectOnActivate</code></a>\nis set to false.</p>\n',V:"<p>An error displayed below the dropdown button.</p>\n",G:"<p>Avoid rendering drop down offscreen.</p>\n",R:"<p>Direction of popup scaling.</p>\n<p>Valid values are <code>x</code>, <code>y</code>, or <code>null</code>.</p>\n",v:"<p>Emits the selected value(s) whenever selection changes.</p>\n<p>For single select, it will either be the selected value or null.\nFor multi select, it will a list of selected values or an empty list.</p>\n",o:"<p>Event that fires when the dropdown button is blurred.</p>\n",T:"<p>Event that fires when the dropdown button is focused.</p>\n",F:"<p>Factory that returns a component to be used for rendering group labels.</p>\n",n:"<p>Fired when the dropdown's visibility changes.</p>\n",k:"<p>Function that returns a component factory to render the Item.</p>\n<p>The resulting component must implement RendersValue.</p>\n",l:"<p>Function to convert an option object to string.</p>\n",f:"<p>Icon to be used with the button. (Optional)</p>\n",x:"<p>Icon to use for the button.</p>\n<p>See <code>MaterialIconComponent</code> for possible values.</p>\n",_:'<p>One or more space-delimited ids of elements that provide additional\ndescription for the dropdown select.</p>\n<p>For example, the id of a text element that says "Select a foo to use with\nyour bar."</p>\n',Y:"<p>Preferred positions for alignment when enforceSpaceConstraints is true</p>\n",w:"<p>See material_dropdown_select.md for an overview of the component.\nSee examples for usage.</p>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>buttonAriaRole</code> -- Aria label for the button icon.</li>\n<li><code>popupClass</code> -- Class to be added to the dropdown popup so that the popup\ncan be styled in an encapsulated way. See <code>MaterialPopup</code> for\ndocumentation.</li>\n</ul>\n",u:"<p>Sets the available options for the selection component.</p>\n<p>Accepts either a <code>SelectionOptions</code> or a <code>List</code>. If a <code>List</code> is passed,\nthe <code>StringSelectionOptions</code> class will be used to create the selection\noptions.</p>\n",e:"<p>Sets the selected value or selection model for the selection component.</p>\n<p>Accepts either a <code>SelectionModel</code>, a selected value or null.</p>\n",m:"<p>Sets whether the suggestion list scrolls with the input box.</p>\n<p>This is a pass through property, as defined in <code>PopupInterface</code>.</p>\n",D:"<p>Text label for select item that deselects the current selection.</p>\n",A:'<p>The id of an element that describes the selection in the dropdown button.</p>\n<p>For example, a text element that says "results per page" for a dropdown\nwith numerical options.</p>\n',d:"<p>The id of the active element of the dropdown.</p>\n",I:"<p>Whether or not the popup width is at least as wide as the select width.</p>\n",J:"<p>Whether to activate (visually focus but not select) the first available\noption when the dropdown opens.</p>\n",b:"<p>Whether to clamp the dropdown position so that it never goes offscreen.</p>\n",g:"<p>Whether to deselect a selected option on click or enter/space key.</p>\n<p>Single selection model only. Defaults to true.</p>\n",S:"<p>Whether to focus the options list by default when the popup opens.</p>\n<p>Should be set to false when another element in the popup is focused on\nopen, e.g. a search box.</p>\n",q:"<p>Whether to show the bottom border of the dropdown button.</p>\n",L:"<p>Width of the dropdown/list, default none, valid values are 0-5.</p>\n",E:"ComponentFactory<dynamic> Function(dynamic)",i:"MaterialDropdownSelectSimpleDemoComponent",B:"Use factoryRenderer it allows for more tree-shakable code.",H:"angular_components/lib/material_select/material_dropdown_select.dart",p:"angular_components/lib/material_select/material_dropdown_select.md",a:"material_select_example/lib/material_dropdown_select_full_demo.dart",Z:"material_select_example/lib/material_dropdown_select_simple_demo.dart"}
+var x=(function rtii(){var w=H.K
+return{Q:w("l<hP*>"),I:w("l<hR*>"),m:w("l<hm*>"),B:w("l<e6*>"),E:w("l<la*>"),n:w("l<hq*>"),A:w("l<hr*>"),o:w("l<hs*>"),R:w("zv<@>"),r:w("q<a1Y<@>*>"),C:w("q<j*>"),Y:w("q<aK*>"),c:w("q<dd*>"),T:w("q<aU*>"),q:w("q<cD*>"),U:w("q<bw*>"),F:w("q<ja*>"),M:w("q<y*>"),h:w("q<aZ<bw*>*>"),u:w("q<aZ<ja*>*>"),s:w("q<hx<@>*>"),a:w("q<bh<~>*>"),i:w("q<t*>"),l:w("q<a2*>"),t:w("q<u*>"),_:w("q<I*>"),v:w("q<aV<t*,@>*(dl<@>*)*>"),x:w("cz<@>"),d:w("Af<@>"),w:w("aZ<bw*>"),j:w("P<cc*>"),g:w("P<F<aZ<bw*>*>*>"),z:w("@"),L:w("w*"),O:w("cD*"),P:w("ej*"),S:w("b3*"),J:w("bw*"),y:w("ja*"),f:w("F<t*>*"),W:w("e6*"),D:w("hr*"),e:w("hx<@>*"),X:w("t*"),p:w("W*"),Z:w("kB*"),k:w("lY*"),V:w("lZ*"),b:w("E*"),G:w("I*")}})();(function constants(){var w=a.makeConstList
+C.fh=new D.l("material-select-demo",U.ajT(),x.A)
+C.fE=new D.l("example-label-renderer",F.ajx(),x.Q)
+C.d5=new D.l("material-dropdown-select-simple-demo",L.ajA(),x.E)
+C.d6=new D.l("material-dropdown-select-full-demo",F.ajz(),x.B)
+C.h_=new D.l("example-renderer",F.ajy(),x.I)
+C.cj=new G.bw("en-UK","UK English")
+C.dr=new G.bw("en-US","US English")
+C.dq=new G.bw("fr-CA","Canadian English")
+C.i_=new G.bw("af","Afrikaans")
+C.iq=new G.bw("sq","Albanian")
+C.i0=new G.bw("ar","Arabic")
+C.ij=new G.bw("hy","Armenian")
+C.i1=new G.bw("az","Azerbaijani")
+C.id=new G.bw("eu","Basque")
+C.i2=new G.bw("be","Belarusian")
+C.i4=new G.bw("bn","Bengali")
+C.i5=new G.bw("bs","Bosnian")
+C.i3=new G.bw("bg","Bulgarian")
+C.i6=new G.bw("ca","Catalan")
+C.i7=new G.bw("ceb","Cebuano")
+C.io=new G.bw("zh-CN","Chichewa")
+C.hZ=new G.bw("zh-TW","Chinese")
+C.dn=new G.bw("ny","Chinese (Simplified)")
+C.dp=new G.bw("zh","Chinese (Traditional)")
+C.ii=new G.bw("hr","Croatian")
+C.i8=new G.bw("cs","Czech")
+C.i9=new G.bw("da","Danish")
+C.il=new G.bw("nl","Dutch")
+C.ia=new G.bw("en","English")
+C.ib=new G.bw("eo","Esperanto")
+C.ic=new G.bw("et","Estonian")
+C.ir=new G.bw("tl","Filipino")
+C.ie=new G.bw("fi","Finnish")
+C.ig=new G.bw("fr","French")
+C.ih=new G.bw("gl","Galician")
+C.ik=new G.bw("ka","Georgian")
+C.ds=new G.bw("de","German")
+C.bO=H.a(w([C.dr,C.cj,C.dq,C.i_,C.iq,C.i0,C.ij,C.i1,C.id,C.i2,C.i4,C.i5,C.i3,C.i6,C.i7,C.io,C.hZ,C.dn,C.dp,C.ii,C.i8,C.i9,C.il,C.ia,C.ib,C.ic,C.ir,C.ie,C.ig,C.ih,C.ik,C.ds]),x.U)
+C.iJ=H.a(w([C.cj,C.ds]),x.U)
+C.iX=H.a(w([C.dn,C.dp]),x.U)
+C.hY=new N.ja("US English")
+C.im=new N.ja("UK English")
+C.ip=new N.ja("Canadian French")
+C.aT=H.a(w([C.hY,C.im,C.ip]),x.F)
+C.dJ=H.a(w([]),x.U)
+C.jW=H.a(w(["ftp","http","https"]),x.i)
+C.k4=H.a(w([C.dr,C.dq]),x.U)
+C.lg=H.D("hR")
+C.lW=H.D("hm")
+C.mo=H.D("hq")
+C.mq=H.D("hr")
+C.np=H.D("hs")
+C.nt=H.D("hP")
+C.ny=H.D("e6")
+C.nF=H.D("la")})();(function staticFields(){$.aec=!1
+$.ae9=!1
+$.a8a=null
+$.a7s=null
+$.adN=!1
+$.akV=[".example._ngcontent-%ID%{box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);margin-bottom:24px;padding:16px;max-width:672px}.example.example-with-options._ngcontent-%ID%{display:flex}.example-pane._ngcontent-%ID%{flex:1}.example-pane._ngcontent-%ID% material-dropdown-select._ngcontent-%ID%{width:200px;padding:16px 0}.options-pane._ngcontent-%ID%{flex:1;padding:16px;background:#eee}.options-pane._ngcontent-%ID% material-checkbox._ngcontent-%ID%{margin-left:0}"]
+$.a7u=null
+$.aCX=["material-icon._ngcontent-%ID%{margin-right:8px}"]
+$.a6H=null
+$.aCV=["._nghost-%ID%{margin-left:16px}material-icon._ngcontent-%ID%{margin-right:8px}"]
+$.a6F=null
+$.ae8=!1
+$.a7v=null
+$.adX=!1
+$.aFx=[".bordered-list._ngcontent-%ID%{border:1px solid black;border-radius:8px;margin:8px;overflow:hidden}.trigger-box._ngcontent-%ID%{display:inline-flex;cursor:pointer}.custom-selected-color._ngcontent-%ID%  .selected-accent.mixin.mixin{border-left-color:#0f9d58}"]
+$.a8c=null
+$.adO=!1
+$.aDu=[$.akV]
+$.aDv=[$.akV]
+$.aDZ=[$.aFx]})();(function lazyInitializers(){var w=a.lazyOld
+w($,"aO9","alE",function(){var v=null,u=x.J
+return H.a([F.kc(C.k4,"North America",v,u),F.kc(C.iX,"Asia",v,u),F.kc(C.iJ,"Europe",v,u),F.kc(C.dJ,"Antarctica","No languages",u),F.kc(C.dJ,"Pangaea",v,u)],x.h)})
+w($,"aO7","rm",function(){return new G.Q0()})
+w($,"aO8","rn",function(){return G.akt(new G.Q1(),x.J)})})()}
+$__dart_deferred_initializers__["8g/WyU7cv3ClAPkhiwBk9RgsP2U="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_52.part.js.map

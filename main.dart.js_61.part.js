@@ -1,35 +1,30 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,S,E,M,Q,D,L,Z,O,B={hA:function hA(d){this.a=d},
-alX:function(){return C.eD},
-aIw:function(d){return new B.VD(d,new G.K())},
-asF:function(){if($.acD)return
-$.acD=!0
-$.N.D(0,C.oi,C.eD)
-E.C()
-K.cX()
-D.cC()
-B.asG()},
-MN:function MN(d){var _=this
-_.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
+$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,E,M,Q,D,Z,O,A,T,L,N,U,X={f7:function f7(d,e,f,g){var _=this
+_.a=d
+_.b=e
+_.c=f
+_.e=_.d=0
+_.y=_.x=!1
+_.z=g
+_.cy=_.cx=_.ch=_.Q=null},Ro:function Ro(d){this.a=d}},B,S={
+o9:function(d,e){var x,w=new S.Cw(E.T(d,e,1)),v=$.a83
+if(v==null)v=$.a83=O.a1($.aDS,null)
+w.b=v
+x=document.createElement("material-progress")
+w.c=x
+return w},
+aKz:function(){return new S.IL(new G.S())},
+aij:function(){if($.ad1)return
+$.ad1=!0
+$.V.w(0,C.mj,new D.l("material-progress",S.azS(),y.b))
+E.G()},
+Cw:function Cw(d){var _=this
+_.c=_.b=_.a=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-VD:function VD(d,e){var _=this
-_.b=_.a=null
-_.c=d
-_.d=e},
-aIy:function(d){return new B.VF(d,new G.K())},
-asG:function(){if($.acE)return
-$.acE=!0
-$.N.D(0,C.ok,C.eo)
-E.C()
-X.a2B()},
-MP:function MP(d){var _=this
-_.c=_.b=_.a=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
-_.d=d},
-VF:function VF(d,e){var _=this
-_.b=_.a=null
-_.c=d
-_.d=e}},A,U,T,N,X={kZ:function kZ(){}},F
-a.setFunctionNamesIfNecessary([B,X])
+IL:function IL(d){var _=this
+_.c=_.b=_.a=null
+_.d=d}},F
+a.setFunctionNamesIfNecessary([X,S])
 C=c[0]
 H=c[1]
 J=c[2]
@@ -40,220 +35,132 @@ Y=c[6]
 R=c[7]
 K=c[8]
 V=c[9]
-S=c[10]
-E=c[11]
-M=c[12]
-Q=c[13]
-D=c[14]
-L=c[15]
-Z=c[16]
-O=c[17]
-B=a.updateHolder(c[18],B)
-A=c[19]
+E=c[10]
+M=c[11]
+Q=c[12]
+D=c[13]
+Z=c[14]
+O=c[15]
+A=c[16]
+T=c[17]
+L=c[18]
+N=c[19]
 U=c[20]
-T=c[21]
-N=c[22]
-X=a.updateHolder(c[23],X)
+X=a.updateHolder(c[21],X)
+B=c[22]
+S=a.updateHolder(c[23],S)
 F=c[24]
-B.hA.prototype={}
-B.MN.prototype={
-gnA:function(){var y=this.r
-return y==null?this.r=document:y},
-gCi:function(){var y=this.y
-return y==null?this.y=window:y},
-gnB:function(){var y,x=this,w=x.z
-if(w==null){w=x.d
-y=w.a
-w=w.b
-w=T.bc(y.k(C.b,w),y.k(C.E,w),y.m(C.f,w),x.gCi())
-x.z=w}return w},
-gCf:function(){var y,x=this,w=x.Q
-if(w==null){w=x.d
-w=w.a.m(C.W,w.b)
-y=x.gnB()
-w=x.Q=new O.aR(w,y)}return w},
-gtr:function(){var y=this,x=y.ch
-return x==null?y.ch=new K.aW(y.gnA(),y.gnB(),P.b9(null,[P.r,P.i])):x},
-gUg:function(){var y=this.cx
-if(y==null){y=this.d
-y=T.bg(y.a.m(C.f,y.b))
-this.cx=y}return y},
-gts:function(){var y=this.cy
-if(y==null){y=this.d
-y=G.bn(y.a.k(C.t,y.b))
-this.cy=y}return y},
-gCk:function(){var y=this,x=y.db
-if(x==null){x=y.d
-x=G.bq(y.gnA(),x.a.k(C.u,x.b))
-y.db=x}return x},
-gCl:function(){var y=this,x=y.dx
-if(x==null){x=y.d
-x=G.bf(y.gts(),y.gCk(),x.a.k(C.r,x.b))
-y.dx=x}return x},
-gtt:function(){var y=this.dy
-return y==null?this.dy=!0:y},
-gCm:function(){var y=this.fr
-return y==null?this.fr=!0:y},
-gCh:function(){var y=this.fy
-if(y==null){y=this.gnA()
-y=this.fy=new R.aU(y.querySelector("head"),y)}return y},
-gCj:function(){var y=this.go
-return y==null?this.go=X.bl():y},
-gCg:function(){var y=this,x=y.id
-return x==null?y.id=K.bk(y.gCh(),y.gCl(),y.gts(),y.gtr(),y.gnB(),y.gCf(),y.gtt(),y.gCm(),y.gCj()):x},
-gUh:function(){var y,x,w,v,u=this,t=u.k1
-if(t==null){t=u.d
-y=t.a
-t=t.b
-x=y.m(C.f,t)
-w=u.gtt()
-v=u.gCg()
-y.k(C.k,t)
-t=u.k1=new X.aQ(w,x,v)}return t},
-p:function(){var y,x=this,w=x.a2(),v=K.co(x,0)
-x.e=v
-w.appendChild(v.c)
-v=x.d
-y=v.a
-v=v.b
-y.m(C.ad,v)
-v=y.m(C.ae,v)
-v=new X.ao(v,!J.bo(window.location.href,"enableLatencyCharts=false"))
-x.f=v
-x.e.K(0,v)},
-O:function(d,e,f){var y,x=this
-if(0===e){if(d===C.N)return x.gnA()
-if(d===C.X){y=x.x
-return y==null?x.x=document:y}if(d===C.K)return x.gCi()
-if(d===C.b)return x.gnB()
-if(d===C.R)return x.gCf()
-if(d===C.P)return x.gtr()
-if(d===C.a1)return x.gUg()
-if(d===C.t)return x.gts()
-if(d===C.u)return x.gCk()
-if(d===C.r)return x.gCl()
-if(d===C.V)return x.gtt()
-if(d===C.G)return x.gCm()
-if(d===C.H){y=x.fx
-return y==null?x.fx=C.a_:y}if(d===C.T)return x.gCh()
-if(d===C.F)return x.gCj()
-if(d===C.S)return x.gCg()
-if(d===C.k)return x.gUh()
-if(d===C.I){y=x.k2
-return y==null?x.k2=C.a0:y}if(d===C.w){y=x.k3
-return y==null?x.k3=new K.b0(x.gtr()):y}}return f},
-v:function(){var y=this,x=y.a.a,w=y.k4
-if(w!==x)y.k4=y.f.a=x
-y.e.i()},
-F:function(){this.e.j()}}
-B.VD.prototype={
-p:function(){var y,x,w,v=this,u=new B.MN(E.L(v,0,3)),t=$.a7k
-if(t==null){t=new O.bb(null,C.a,"","","")
-t.bG()
-$.a7k=t}u.b=t
-y=document.createElement("material-spinner-api")
-u.c=y
-v.b=u
-u=[D.c8]
-u=H.a([D.aE("MaterialSpinnerComponent",!1,"","material-spinner","","angular_components/lib/material_spinner/material_spinner.dart",X.f('<p>A circular spinner for an indeterminate amount of time following the\nMaterial Spec for Progress &amp; Activity.</p>\n<p>See <a href="http://www.google.com/design/spec/components/progress-activity.html">http://www.google.com/design/spec/components/progress-activity.html</a>.</p>\n<p>To change the color of the spinner, change the <code>border-color</code> in CSS:</p>\n<pre><code>material-spinner {\n  border-color: $mat-red;\n}\n</code></pre>\n'),H.a([],u),H.a([],u))],[D.c1])
-x=H.a([new R.ag(C.eo,"MaterialSpinnerExample","material_spinner_example/lib/material_spinner_example.dart")],[R.ag])
-w=P.i
-v.a=new B.hA(R.ct(H.a([],[w]),x,u,P.aq(w,w),!0))
-v.E(y)},
-$ak:function(){return[B.hA]}}
-X.kZ.prototype={}
-B.MP.prototype={
-p:function(){var y,x,w,v,u,t,s,r,q,p,o=this,n=o.a2(),m=document,l=T.d(m,n,"p")
-o.l(l)
-T.b(l,"Different colors!")
-y=T.u(m,n)
-o.h(y)
-x=X.mB(o,3)
-o.e=x
-w=x.c
-y.appendChild(w)
-o.h(w)
-x=new T.eK()
-o.f=x
-o.e.K(0,x)
-x=X.mB(o,4)
-o.r=x
-v=x.c
-y.appendChild(v)
-o.N(v,"red")
-o.h(v)
-x=new T.eK()
-o.x=x
-o.r.K(0,x)
-x=X.mB(o,5)
-o.y=x
-u=x.c
-y.appendChild(u)
-o.N(u,"yellow")
-o.h(u)
-x=new T.eK()
-o.z=x
-o.y.K(0,x)
-x=X.mB(o,6)
-o.Q=x
-t=x.c
-y.appendChild(t)
-o.N(t,"green")
-o.h(t)
-x=new T.eK()
-o.ch=x
-o.Q.K(0,x)
-s=T.d(m,n,"p")
-o.l(s)
-T.b(s,"With text!")
-r=T.u(m,n)
-o.h(r)
-x=X.mB(o,10)
-o.cx=x
-q=x.c
-r.appendChild(q)
-o.h(q)
-x=new T.eK()
-o.cy=x
-o.cx.K(0,x)
-p=T.dp(m,r)
-o.l(p)
-T.b(p,"Submitting...")},
-v:function(){var y=this
-y.e.i()
-y.r.i()
-y.y.i()
-y.Q.i()
-y.cx.i()},
-F:function(){var y=this
-y.e.j()
-y.r.j()
-y.y.j()
-y.Q.j()
-y.cx.j()}}
-B.VF.prototype={
-p:function(){var y,x=this,w=new B.MP(E.L(x,0,3)),v=$.a7m
-if(v==null)v=$.a7m=O.T($.aBK,null)
-w.b=v
-y=document.createElement("material-spinner-example")
-w.c=y
-x.b=w
-x.a=new X.kZ()
-x.E(y)},
-$ak:function(){return[X.kZ]}}
-var z=a.updateTypes([{func:1,ret:[G.k,B.hA],args:[M.t]},{func:1,ret:[G.k,X.kZ],args:[M.t]}]);(function installTearOffs(){var y=a._static_1
-y(B,"ax7","aIw",0)
-y(B,"ax8","aIy",1)})();(function inheritance(){var y=a.inheritMany
-y(P.l,[B.hA,X.kZ])
-y(E.b5,[B.MN,B.MP])
-y(G.k,[B.VD,B.VF])})();(function constants(){C.eo=new D.B("material-spinner-example",B.ax8(),[X.kZ])
-C.eD=new D.B("material-spinner-api",B.ax7(),[B.hA])
-C.oi=H.A(B.hA)
-C.ok=H.A(X.kZ)})();(function staticFields(){$.a7k=null
-$.acD=!1
-$.aD8=["p._ngcontent-%ID%{font-weight:bold}div._ngcontent-%ID%{margin-bottom:32px}material-spinner._ngcontent-%ID%{margin-right:8px}.red._ngcontent-%ID%{border-color:#db4437}.yellow._ngcontent-%ID%{border-color:#ffeb3b}.green._ngcontent-%ID%{border-color:#0f9d58}"]
-$.a7m=null
-$.acE=!1
-$.aBK=[$.aD8]})()}
-$__dart_deferred_initializers__["t+EAy4eShtvU0jyfJ3rVNHcEoYc="] = $__dart_deferred_initializers__.current
+X.f7.prototype={
+shS:function(d,e){this.x=!0
+this.h2()},
+xG:function(d){return(C.h.Fx(d,0,100)-0)/100},
+S:function(){var x=this,w=x.ch
+if(w!=null)w.cancel()
+w=x.cy
+if(w!=null)w.cancel()
+x.cx=x.Q=x.cy=x.ch=null},
+h2:function(){var x,w,v,u,t,s,r=this
+if(!r.x||!r.c||!r.y||!$.LR())return
+x=r.b.getBoundingClientRect().width
+x.toString
+if(x===0){P.dk(new X.Ro(r))
+return}w=y.m
+v=y.q
+u=y.u
+t=H.a([C.dW,C.kn,P.bp(["transform","translateX("+H.C(0.25*x)+"px) scaleX(0.75)","offset",0.5],w,v),P.bp(["transform","translateX("+H.C(x)+"px) scaleX(0)","offset",0.75],w,v),P.bp(["transform","translateX("+H.C(x)+"px) scaleX(0)"],w,w)],u)
+s=H.a([C.dW,C.km,C.ko,P.bp(["transform","translateX("+H.C(x)+"px) scaleX(0.1)"],w,w)],u)
+u=r.Q
+r.ch=(u&&C.w).oc(u,t,C.dU)
+u=r.cx
+r.cy=(u&&C.w).oc(u,s,C.dU)}}
+S.Cw.prototype={
+q:function(){var x=this,w=x.a,v=x.a2(),u=document,t=T.v(u,v)
+x.cy=t
+x.C(t,"progress-container")
+T.c(x.cy,"role","progressbar")
+x.h(x.cy)
+t=T.v(u,x.cy)
+x.db=t
+x.C(t,"secondary-progress")
+x.h(x.db)
+t=T.v(u,x.cy)
+x.dx=t
+x.C(t,"active-progress")
+x.h(x.dx)
+w.Q=x.dx
+w.cx=x.db},
+A:function(){var x,w,v,u,t,s,r,q,p,o=this,n=null,m="active progress ",l="aria-label",k="transform",j=o.a
+if(j.x)x=j.z
+else{w=j.d
+x=T.aS(m+w,n,"MaterialProgressComponent__activeProgressValue",H.a([w],y.c),n)}w=o.e
+if(w!=x){T.R(o.cy,l,x)
+o.e=x}v=j.x?n:""+j.d
+w=o.f
+if(w!=v){T.R(o.cy,"aria-valuenow",v)
+o.f=v}u=j.x
+w=o.r
+if(w!==u){T.ae(o.cy,"indeterminate",u)
+o.r=u}if(j.x)t=!j.c||!$.LR()
+else t=!1
+w=o.x
+if(w!==t){T.ae(o.cy,"fallback",t)
+o.x=t}w=o.y
+if(w!==0){T.c(o.cy,"aria-valuemin",O.b9(0))
+o.y=0}w=o.z
+if(w!==100){T.c(o.cy,"aria-valuemax",O.b9(100))
+o.z=100}w=j.d
+s=j.e
+r=T.aS(m+w+" secondary progress "+s,n,"MaterialProgressComponent__activeAndSecondaryProgressValue",H.a([w,s],y.c),n)
+w=o.Q
+if(w!=r){T.R(o.db,l,r)
+o.Q=r}q="scaleX("+H.C(j.xG(j.e))+")"
+w=o.ch
+if(w!==q){w=o.db.style
+w.toString
+C.x.bV(w,C.x.bE(w,k),q,n)
+o.ch=q}p="scaleX("+H.C(j.xG(j.d))+")"
+w=o.cx
+if(w!==p){w=o.dx.style
+w.toString
+C.x.bV(w,C.x.bE(w,k),p,n)
+o.cx=p}}}
+S.IL.prototype={
+q:function(){var x=this,w=null,v=x.b=S.o9(x,0),u=v.c
+x.a=new X.f7(v,u,!0,T.aS("loading",w,w,w,w))
+x.F(u)},
+A:function(){var x=this.d.e
+this.b.j()
+if(x===0){x=this.a
+x.y=!0
+if(x.x)x.h2()}},
+G:function(){this.a.S()}}
+var z=a.updateTypes(["f<f7*>*()"])
+X.Ro.prototype={
+$0:function(){var x=this.a
+x.c=!1
+x.a.am()},
+$C:"$0",
+$R:0,
+$S:0};(function installTearOffs(){var x=a._static_0
+x(S,"azS","aKz",0)})();(function inheritance(){var x=a.inherit
+x(X.f7,P.y)
+x(X.Ro,H.bv)
+x(S.Cw,E.br)
+x(S.IL,G.f)})()
+H.al(b.typeUniverse,JSON.parse('{"am":"w","ay":"w","aq":"af","an":"o","aC":"o","aE":"o","ao":"H","ap":"H","au":"J","az":"J","ar":"B","aB":"B","aH":"O","aG":"a4","aF":"a9","aw":"W","ax":"ad","aD":"X","aA":"ah","av":"ag","at":"ai","as":"a2","Cw":{"k":[],"i":[]},"IL":{"f":["f7*"],"i":[],"f.T":"f7*"}}'))
+0
+var y={b:H.K("l<f7*>"),z:H.K("d5<t*,y*>"),u:H.K("q<aV<t*,y*>*>"),c:H.K("q<y*>"),E:H.K("q<t*>"),q:H.K("y*"),m:H.K("t*")};(function constants(){var x=a.makeConstList
+C.jL=H.a(x(["duration","iterations"]),y.E)
+C.dU=new H.d5(2,{duration:2000,iterations:1/0},C.jL,H.K("d5<t*,cx*>"))
+C.cr=H.a(x(["transform","offset"]),y.E)
+C.km=new H.d5(2,{transform:"translateX(0px) scaleX(0)",offset:0.6},C.cr,y.z)
+C.kn=new H.d5(2,{transform:"translateX(0px) scaleX(0.5)",offset:0.25},C.cr,y.z)
+C.ko=new H.d5(2,{transform:"translateX(0px) scaleX(0.6)",offset:0.8},C.cr,y.z)
+C.ke=H.a(x(["transform"]),y.E)
+C.dW=new H.d5(1,{transform:"translateX(0px) scaleX(0)"},C.ke,H.K("d5<t*,t*>"))
+C.mj=H.D("f7")})();(function staticFields(){$.aFf=["._nghost-%ID%{display:inline-block;width:100%;height:4px}.progress-container._ngcontent-%ID%{position:relative;height:100%;background-color:#e0e0e0;overflow:hidden}._nghost-%ID%[dir=rtl] .progress-container._ngcontent-%ID%,[dir=rtl] ._nghost-%ID% .progress-container._ngcontent-%ID%{transform:scaleX(-1)}.progress-container.indeterminate._ngcontent-%ID%{background-color:#c6dafc}.progress-container.indeterminate._ngcontent-%ID% > .secondary-progress._ngcontent-%ID%{background-color:#4285f4}.active-progress._ngcontent-%ID%,.secondary-progress._ngcontent-%ID%{transform-origin:left center;transform:scaleX(0);position:absolute;top:0;transition:transform 218ms cubic-bezier(0.4,0,0.2,1);right:0;bottom:0;left:0;will-change:transform}.active-progress._ngcontent-%ID%{background-color:#4285f4}.secondary-progress._ngcontent-%ID%{background-color:#a1c2fa}.progress-container.indeterminate.fallback._ngcontent-%ID% > .active-progress._ngcontent-%ID%{animation-name:indeterminate-active-progress;animation-duration:2000ms;animation-iteration-count:infinite;animation-timing-function:linear}.progress-container.indeterminate.fallback._ngcontent-%ID% > .secondary-progress._ngcontent-%ID%{animation-name:indeterminate-secondary-progress;animation-duration:2000ms;animation-iteration-count:infinite;animation-timing-function:linear}@keyframes indeterminate-active-progress{0%{transform:translate(0%) scaleX(0)}25%{transform:translate(0%) scaleX(0.5)}50%{transform:translate(25%) scaleX(0.75)}75%{transform:translate(100%) scaleX(0)}100%{transform:translate(100%) scaleX(0)}}@keyframes indeterminate-secondary-progress{0%{transform:translate(0%) scaleX(0)}60%{transform:translate(0%) scaleX(0)}80%{transform:translate(0%) scaleX(0.6)}100%{transform:translate(100%) scaleX(0.1)}}"]
+$.a83=null
+$.ad1=!1
+$.aDS=[$.aFf]})()}
+$__dart_deferred_initializers__["rkcPEqLbWsbWRylA9Gg/YlLl5Jg="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_61.part.js.map
