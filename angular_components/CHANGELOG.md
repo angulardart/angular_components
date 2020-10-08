@@ -1,3 +1,8 @@
+## 1.0.0
+
+* Stable release that supports the latest `package:angular` and 
+  `package:angular_forms`.
+
 ## 0.14.0-alpha+1
 ### Component Updates
 
