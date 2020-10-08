@@ -32,18 +32,6 @@ dev_dependencies:
   test: ^1.0.0
 
 dependency_overrides:
-  angular:
-    git:
-      url: git://github.com/dart-lang/angular.git
-      path: angular
-  angular_ast:
-    git:
-      url: git://github.com/dart-lang/angular.git
-      path: angular_ast
-  angular_compiler:
-    git:
-      url: git://github.com/dart-lang/angular.git
-      path: angular_compiler
   angular_forms:
     git:
       url: git://github.com/dart-lang/angular.git
