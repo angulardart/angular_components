@@ -6,7 +6,7 @@ environment:
 
 dependencies:
   angular: ^6.0.0
-  angular_components: 0.15.0
+  angular_components: ^1.0.0
   angular_forms: ^3.0.0
   angular_gallery:
     path: ../../angular_gallery
