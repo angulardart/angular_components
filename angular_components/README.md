@@ -43,7 +43,7 @@ Add the following font downloads to the head element of your page:
 ## Custom component styles
 
 The styles of these components can be customized in your project with a
-component's provided [Sass mixins](http://sass-lang.com/guide#topic-6).
+component's provided [Sass mixins](https://sass-lang.com/guide#topic-6).
 
 1. Add a dev dependency on the
 [sass_builder](https://pub.dartlang.org/packages/sass_builder) package to your

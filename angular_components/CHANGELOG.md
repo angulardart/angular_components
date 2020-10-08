@@ -1,3 +1,7 @@
+## 1.0.1-dev
+
+* Fix insecure link in `README.md`.
+
 ## 1.0.0
 
 * Stable release that supports the latest `package:angular` and 
