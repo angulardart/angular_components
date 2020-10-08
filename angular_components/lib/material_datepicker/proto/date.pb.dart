@@ -3,39 +3,21 @@
 //  source: date.proto
 //
 // @dart = 2.3
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Date extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i =
-      $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Date',
-          package: const $pb.PackageName(
-              const $core.bool.fromEnvironment('protobuf.omit_message_names')
-                  ? ''
-                  : 'angular_components.lib.material_datepicker.proto'),
-          createEmptyInstance: create)
-        ..a<$core.int>(
-            1,
-            const $core.bool.fromEnvironment('protobuf.omit_field_names')
-                ? ''
-                : 'year',
-            $pb.PbFieldType.O3)
-        ..a<$core.int>(
-            2,
-            const $core.bool.fromEnvironment('protobuf.omit_field_names')
-                ? ''
-                : 'month',
-            $pb.PbFieldType.O3)
-        ..a<$core.int>(
-            3,
-            const $core.bool.fromEnvironment('protobuf.omit_field_names')
-                ? ''
-                : 'day',
-            $pb.PbFieldType.O3)
-        ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Date',
+      package: const $pb.PackageName(
+          'angular_components.lib.material_datepicker.proto'),
+      createEmptyInstance: create)
+    ..a<$core.int>(1, 'year', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, 'month', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, 'day', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false;
 
   Date._() : super();
   factory Date() => create();
@@ -45,15 +27,9 @@ class Date extends $pb.GeneratedMessage {
   factory Date.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
   Date clone() => Date()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  Date copyWith(void Function(Date) updates) => super.copyWith(
-      (message) => updates(message as Date)); // ignore: deprecated_member_use
+  Date copyWith(void Function(Date) updates) =>
+      super.copyWith((message) => updates(message as Date));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Date create() => Date._();

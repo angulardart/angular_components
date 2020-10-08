@@ -3,7 +3,7 @@
 //  source: date_range.proto
 //
 // @dart = 2.3
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:core' as $core;
 
@@ -40,36 +40,23 @@ class DatepickerDateRange extends $pb.GeneratedMessage {
     12: DatepickerDateRange_RelativePreset.nextNDaysFromToday,
     0: DatepickerDateRange_RelativePreset.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DatepickerDateRange',
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('DatepickerDateRange',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'angular_components.lib.material_datepicker.proto'),
+          'angular_components.lib.material_datepicker.proto'),
       createEmptyInstance: create)
     ..oo(0, [2, 3, 4, 5, 6, 7, 8, 9, 10, 12])
-    ..aOM<DateRange>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'dateRange',
-        subBuilder: DateRange.create)
-    ..a<$core.int>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'daysAgo',
-        $pb.PbFieldType.O3)
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'weeksAgo', $pb.PbFieldType.O3)
-    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'monthsAgo', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'yearsAgo', $pb.PbFieldType.O3)
-    ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastNDays', $pb.PbFieldType.O3)
-    ..aOB(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'allTimeRange')
-    ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'broadcastMonthsAgo', $pb.PbFieldType.O3)
-    ..a<$core.int>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastNDaysToToday', $pb.PbFieldType.O3)
-    ..a<$core.int>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'quartersAgo', $pb.PbFieldType.O3)
-    ..a<$core.int>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'startWeekday', $pb.PbFieldType.O3)
-    ..a<$core.int>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextNDaysFromToday', $pb.PbFieldType.O3)
+    ..aOM<DateRange>(1, 'dateRange', subBuilder: DateRange.create)
+    ..a<$core.int>(2, 'daysAgo', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, 'weeksAgo', $pb.PbFieldType.O3)
+    ..a<$core.int>(4, 'monthsAgo', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, 'yearsAgo', $pb.PbFieldType.O3)
+    ..a<$core.int>(6, 'lastNDays', $pb.PbFieldType.O3)
+    ..aOB(7, 'allTimeRange')
+    ..a<$core.int>(8, 'broadcastMonthsAgo', $pb.PbFieldType.O3)
+    ..a<$core.int>(9, 'lastNDaysToToday', $pb.PbFieldType.O3)
+    ..a<$core.int>(10, 'quartersAgo', $pb.PbFieldType.O3)
+    ..a<$core.int>(11, 'startWeekday', $pb.PbFieldType.O3)
+    ..a<$core.int>(12, 'nextNDaysFromToday', $pb.PbFieldType.O3)
     ..hasRequiredFields = false;
 
   DatepickerDateRange._() : super();
@@ -80,16 +67,9 @@ class DatepickerDateRange extends $pb.GeneratedMessage {
   factory DatepickerDateRange.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
   DatepickerDateRange clone() => DatepickerDateRange()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
   DatepickerDateRange copyWith(void Function(DatepickerDateRange) updates) =>
-      super.copyWith((message) => updates(
-          message as DatepickerDateRange)); // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as DatepickerDateRange));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static DatepickerDateRange create() => DatepickerDateRange._();
@@ -253,24 +233,12 @@ class DatepickerDateRange extends $pb.GeneratedMessage {
 }
 
 class DateRange extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'DateRange',
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('DateRange',
       package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'angular_components.lib.material_datepicker.proto'),
+          'angular_components.lib.material_datepicker.proto'),
       createEmptyInstance: create)
-    ..aOM<$0.Date>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'start',
-        subBuilder: $0.Date.create)
-    ..aOM<$0.Date>(
-        2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'end',
-        subBuilder: $0.Date.create)
+    ..aOM<$0.Date>(1, 'start', subBuilder: $0.Date.create)
+    ..aOM<$0.Date>(2, 'end', subBuilder: $0.Date.create)
     ..hasRequiredFields = false;
 
   DateRange._() : super();
@@ -281,16 +249,9 @@ class DateRange extends $pb.GeneratedMessage {
   factory DateRange.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
   DateRange clone() => DateRange()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
   DateRange copyWith(void Function(DateRange) updates) =>
-      super.copyWith((message) =>
-          updates(message as DateRange)); // ignore: deprecated_member_use
+      super.copyWith((message) => updates(message as DateRange));
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static DateRange create() => DateRange._();
