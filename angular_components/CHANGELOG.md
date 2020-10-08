@@ -1,4 +1,4 @@
-## 1.0.1-dev
+## 1.0.1
 
 * Fix insecure link in `README.md`.
 * Update dependency on `package:protobuf` to `^1.0.0`.
