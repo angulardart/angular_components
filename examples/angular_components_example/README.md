@@ -34,5 +34,5 @@ When building and viewing the gallery these issues are expected at this time:
     overlayBindings or popupBindings`
 
 [AngularDart Components Gallery]: https://dart-lang.github.io/angular_components/
-[build_runner]: https://pub.dartlang.org/packages/build_runner
-[build]: https://pub.dartlang.org/packages/build
+[build_runner]: https://pub.dev/packages/build_runner
+[build]: https://pub.dev/packages/build
