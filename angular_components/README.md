@@ -46,7 +46,7 @@ The styles of these components can be customized in your project with a
 component's provided [Sass mixins](https://sass-lang.com/guide#topic-6).
 
 1. Add a dev dependency on the
-[sass_builder](https://pub.dartlang.org/packages/sass_builder) package to your
+[sass_builder](https://pub.dev/packages/sass_builder) package to your
 `pubspec.yaml`:
 
   ```yaml

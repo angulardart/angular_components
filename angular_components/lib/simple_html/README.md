@@ -13,7 +13,7 @@ HTML in the following use cases:
 Mixing these features with text that cannot appear verbatim in the template (due
 to, for example, use of the `Intl` library for localization) is otherwise
 difficult. This component is the recommended alternative to calling methods like
-[`bypassSecurityTrustHtml()`](https://pub.dartlang.org/documentation/angular/latest/angular.security/DomSanitizationService/bypassSecurityTrustHtml.html)
+[`bypassSecurityTrustHtml()`](https://pub.dev/documentation/angular/latest/angular.security/DomSanitizationService/bypassSecurityTrustHtml.html)
 when inserting HTML into the DOM.
 
 
@@ -108,9 +108,9 @@ You have a few options:
     If `seeHelpCenterMessage` is a plain string, it will be strictly sanitized
     and disallowed elements silently removed. To work around this,
     `seeHelpCenterMessage` may instead return a
-    [`SafeHtml`](https://pub.dartlang.org/documentation/angular/latest/angular.security/SafeHtml-class.html)
+    [`SafeHtml`](https://pub.dev/documentation/angular/latest/angular.security/SafeHtml-class.html)
     object. This object can be constructed by calling
-    [`bypassSecurityTrustHtml()`](https://pub.dartlang.org/documentation/angular/latest/angular.security/DomSanitizationService/bypassSecurityTrustHtml.html)
+    [`bypassSecurityTrustHtml()`](https://pub.dev/documentation/angular/latest/angular.security/DomSanitizationService/bypassSecurityTrustHtml.html)
     on the string. However, this is very dangerous because it disables _all_
     sanitization and allows all tags (even `<script>`). If the string
     accidentally contains user-controlled data, or the translator made a mistake
@@ -282,7 +282,7 @@ straightforward. Basic steps:
     `package:angular_components/simple_html/simple_html.dart` in your component
     file.
 1.  Add the `SimpleHtmlComponent` to your
-    [@Component](https://pub.dartlang.org/documentation/angular/latest/angular/Component-class.html)'s
+    [@Component](https://pub.dev/documentation/angular_compiler/latest/v1_src_metadata_directives/Component-class.html)'s
     directive list.
 1.  For each message that previously used `bypassSecurityTrustHtml()`, remove
     that call and use the string directly.
