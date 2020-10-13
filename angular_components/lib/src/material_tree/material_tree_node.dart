@@ -56,6 +56,9 @@ class MaterialTreeNode<T> {
     } else {
       _selectable = _AlwaysSelectable<T>();
     }
+
+    _root.selection.selectionChanges
+        .listen((_) => _changeDetector.markForCheck());
   }
 
   /// Whether all visible options should be expanded.
@@ -162,7 +165,14 @@ class MaterialTreeNode<T> {
       !hasChildren(option);
 
   /// Returns whether [option] is selected.
-  bool isSelected(T option) => _root.selection.isSelected(option);
+  bool isSelected(T option) {
+    if (_root.selection.isSelected(option)) {
+      print('option: ${option}');
+    } else {
+      print('no checked ${option}');
+    }
+    return _root.selection.isSelected(option);
+  }
 
   /// Returns any child groups of [option] that are loaded.
   Iterable<OptionGroup> getChildGroups(option) => _expandedNodes[option];
