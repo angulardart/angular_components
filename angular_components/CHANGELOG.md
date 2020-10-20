@@ -1,6 +1,9 @@
-## 1.0.2-dev
+## 1.0.2
 
 * Update a number of outdated links in documentation.
+* Reverted addition of `changeDetection: ChangeDetectionStrategy.OnPush` to
+  components where the functionality is broken. Note: this may result in
+  additional warnings during build.
 
 ## 1.0.1
 
