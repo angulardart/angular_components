@@ -1,0 +1,14 @@
+analyzer:
+  errors:
+    # Allow importing .template.dart files without an [explicit] analyzer error.
+    #uri_has_not_been_generated: ignore
+    # Ignore our own deprecated symbols (too noisy).
+    deprecated_member_use_from_same_package: ignore
+
+linter:
+  rules:
+  - prefer_equal_for_default_values
+  - prefer_generic_function_type_aliases
+  - slash_for_doc_comments
+  - unnecessary_const
+  - unnecessary_new

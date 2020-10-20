@@ -21,4 +21,4 @@ stages:
 
 cache:
   directories:
-  - .dart_tool/build
+  - .dart_tool

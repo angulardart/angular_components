@@ -8,17 +8,23 @@ jobs:
       os: linux
       script: tool/mono_repo_self_validate.sh
     - stage: analyze_and_format
-      name: "SDK: 2.9.3; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: `dartanalyzer --fatal-warnings .`"
+      name: "SDK: 2.9.3; PKGS: angular_components, angular_gallery, angular_gallery_section, examples/app_layout_example, examples/material_button_example, examples/material_card_example, examples/material_checkbox_example, examples/material_chips_example, examples/material_datepicker_example, examples/material_dialog_example, examples/material_expansionpanel_example, examples/material_icon_example, examples/material_list_example, examples/material_menu_example, examples/material_popup_example, examples/material_progress_example, examples/material_radio_example, examples/material_slider_example, examples/material_spinner_example, examples/material_stepper_example, examples/material_tab_example, examples/material_toggle_example, examples/material_tooltip_example, examples/material_yes_no_buttons_example, examples/scorecard_example, examples/simple_html_example; TASKS: `dartanalyzer --fatal-warnings .`"
       dart: "2.9.3"
       os: linux
-      env: PKGS="angular_components angular_gallery angular_gallery_section"
+      env: PKGS="angular_components angular_gallery angular_gallery_section examples/app_layout_example examples/material_button_example examples/material_card_example examples/material_checkbox_example examples/material_chips_example examples/material_datepicker_example examples/material_dialog_example examples/material_expansionpanel_example examples/material_icon_example examples/material_list_example examples/material_menu_example examples/material_popup_example examples/material_progress_example examples/material_radio_example examples/material_slider_example examples/material_spinner_example examples/material_stepper_example examples/material_tab_example examples/material_toggle_example examples/material_tooltip_example examples/material_yes_no_buttons_example examples/scorecard_example examples/simple_html_example"
       script: tool/travis.sh dartanalyzer
     - stage: analyze_and_format
-      name: "SDK: dev; PKGS: angular_components, angular_gallery, angular_gallery_section; TASKS: [`dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`]"
+      name: "SDK: dev; PKGS: angular_components, angular_gallery, angular_gallery_section, examples/app_layout_example, examples/material_button_example, examples/material_card_example, examples/material_checkbox_example, examples/material_chips_example, examples/material_datepicker_example, examples/material_dialog_example, examples/material_expansionpanel_example, examples/material_icon_example, examples/material_list_example, examples/material_menu_example, examples/material_popup_example, examples/material_progress_example, examples/material_radio_example, examples/material_slider_example, examples/material_spinner_example, examples/material_stepper_example, examples/material_tab_example, examples/material_toggle_example, examples/material_tooltip_example, examples/material_yes_no_buttons_example, examples/scorecard_example, examples/simple_html_example; TASKS: [`dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`]"
       dart: dev
       os: linux
-      env: PKGS="angular_components angular_gallery angular_gallery_section"
+      env: PKGS="angular_components angular_gallery angular_gallery_section examples/app_layout_example examples/material_button_example examples/material_card_example examples/material_checkbox_example examples/material_chips_example examples/material_datepicker_example examples/material_dialog_example examples/material_expansionpanel_example examples/material_icon_example examples/material_list_example examples/material_menu_example examples/material_popup_example examples/material_progress_example examples/material_radio_example examples/material_slider_example examples/material_spinner_example examples/material_stepper_example examples/material_tab_example examples/material_toggle_example examples/material_tooltip_example examples/material_yes_no_buttons_example examples/scorecard_example examples/simple_html_example"
       script: tool/travis.sh dartfmt dartanalyzer
+    - stage: analyze_and_format
+      name: "SDK: dev; PKGS: examples/material_input_example, examples/material_select_example, examples/material_tree_example; TASKS: `dartfmt -n --set-exit-if-changed .`"
+      dart: dev
+      os: linux
+      env: PKGS="examples/material_input_example examples/material_select_example examples/material_tree_example"
+      script: tool/travis.sh dartfmt
     - stage: unit_test
       name: "SDK: 2.9.3; PKG: angular_components; TASKS: [`./tool/travis/install_protoc.sh`, `pub run test --run-skipped`]"
       dart: "2.9.3"
@@ -58,7 +64,33 @@ branches:
 cache:
   directories:
     - "$HOME/.pub-cache"
-    - angular_components/.dart_tool/build
-    - angular_gallery/.dart_tool/build
-    - angular_gallery_section/.dart_tool/build
-    - examples/angular_components_example/.dart_tool/build
+    - angular_components/.dart_tool
+    - angular_gallery/.dart_tool
+    - angular_gallery_section/.dart_tool
+    - examples/angular_components_example/.dart_tool
+    - examples/app_layout_example/.dart_tool
+    - examples/material_button_example/.dart_tool
+    - examples/material_card_example/.dart_tool
+    - examples/material_checkbox_example/.dart_tool
+    - examples/material_chips_example/.dart_tool
+    - examples/material_datepicker_example/.dart_tool
+    - examples/material_dialog_example/.dart_tool
+    - examples/material_expansionpanel_example/.dart_tool
+    - examples/material_icon_example/.dart_tool
+    - examples/material_input_example/.dart_tool
+    - examples/material_list_example/.dart_tool
+    - examples/material_menu_example/.dart_tool
+    - examples/material_popup_example/.dart_tool
+    - examples/material_progress_example/.dart_tool
+    - examples/material_radio_example/.dart_tool
+    - examples/material_select_example/.dart_tool
+    - examples/material_slider_example/.dart_tool
+    - examples/material_spinner_example/.dart_tool
+    - examples/material_stepper_example/.dart_tool
+    - examples/material_tab_example/.dart_tool
+    - examples/material_toggle_example/.dart_tool
+    - examples/material_tooltip_example/.dart_tool
+    - examples/material_tree_example/.dart_tool
+    - examples/material_yes_no_buttons_example/.dart_tool
+    - examples/scorecard_example/.dart_tool
+    - examples/simple_html_example/.dart_tool
