@@ -18,7 +18,6 @@ import 'package:angular_components/utils/async/async.dart';
   selector: 'material-tree-filter',
   directives: [materialInputDirectives, NgIf],
   templateUrl: 'material_tree_filter.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 )
 class MaterialTreeFilterComponent {
   final StreamController _onFocusController =
