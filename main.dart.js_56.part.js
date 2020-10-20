@@ -1,38 +1,38 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y={lc:function lc(d){this.a=d
+$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y={kZ:function kZ(d){this.a=d
 this.b="blue"
-this.c="alarm"}},R,K,V,E={i9:function i9(d){this.a=d}},M={
-aJM:function(){return new M.I3(new G.S())},
+this.c="alarm"}},R,K,V,E={hw:function hw(d){this.a=d}},M={
+aJM:function(){return new M.I2(new G.R())},
 awZ:function(){if($.af5)return
 $.af5=!0
-$.V.w(0,C.m3,new D.l("material-icon-demo",M.ajF(),y.I))
-E.G()
-U.e0()
-M.ck()
-Q.ee()},
-uG:function uG(d,e){var _=this
+$.T.w(0,C.m3,new D.l("material-icon-demo",M.ajF(),y.I))
+E.F()
+U.dL()
+M.ch()
+Q.dV()},
+uE:function uE(d,e){var _=this
 _.e=d
 _.V=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
 _.aB=_.aM=_.aA=_.ax=_.as=_.af=_.aj=_.ah=_.ar=_.ai=_.av=_.au=_.aq=_.al=_.ag=_.an=_.ae=_.ak=_.a9=_.a8=_.aa=_.L=_.W=_.a_=_.a4=_.Y=_.a6=_.a0=_.X=_.a7=null
-_.bx=_.bt=_.bC=_.bF=_.bm=_.bJ=_.bg=_.bd=_.b6=_.bf=_.aQ=_.bc=_.aW=_.bh=_.aZ=_.b1=_.aC=_.aV=_.aU=_.aJ=_.aG=_.bb=_.b5=_.aI=_.aR=_.aF=_.ba=_.aY=_.aT=_.aw=null
-_.c=_.b=_.a=_.by=null
+_.bw=_.bs=_.bB=_.bF=_.bm=_.bJ=_.bg=_.bd=_.b6=_.bf=_.aQ=_.bc=_.aW=_.bh=_.aZ=_.b1=_.aC=_.aV=_.aU=_.aJ=_.aG=_.bb=_.b5=_.aI=_.aR=_.aF=_.ba=_.aY=_.aT=_.aw=null
+_.c=_.b=_.a=_.bx=null
 _.d=e},
-I3:function I3(d){var _=this
+I2:function I2(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},Q={
 ap7:function(){return C.fr},
-aJK:function(){return new Q.I1(new G.S())},
+aJK:function(){return new Q.I0(new G.R())},
 awY:function(){if($.af4)return
 $.af4=!0
-$.V.w(0,C.m1,new D.l("material-icon-api",Q.ajE(),y.u))
-E.G()
-K.dj()
-D.d3()
+$.T.w(0,C.m1,new D.l("material-icon-api",Q.ajE(),y.u))
+E.F()
+K.d7()
+D.cV()
 M.awZ()},
-Cf:function Cf(d){var _=this
+Cd:function Cd(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-I1:function I1(d){var _=this
+I0:function I0(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},D,Z,O,A,T,L,N,U,X,B,S,F
 a.setFunctionNamesIfNecessary([Y,E,M,Q])
@@ -61,8 +61,8 @@ X=c[21]
 B=c[22]
 S=c[23]
 F=c[24]
-E.i9.prototype={}
-Q.Cf.prototype={
+E.hw.prototype={}
+Q.Cd.prototype={
 gnh:function(){var x=this.r
 return x==null?this.r=document:x},
 gBp:function(){var x=this.y
@@ -71,30 +71,30 @@ gni:function(){var x,w=this,v=w.z
 if(v==null){v=w.d
 x=v.a
 v=v.b
-v=T.bC(x.l(C.b,v),x.l(C.D,v),x.n(C.f,v),w.gBp())
+v=T.bx(x.l(C.b,v),x.l(C.D,v),x.n(C.f,v),w.gBp())
 w.z=v}return v},
 gBm:function(){var x,w=this,v=w.Q
 if(v==null){v=w.d
 v=v.a.n(C.U,v.b)
 x=w.gni()
-v=w.Q=new O.bk(v,x)}return v},
+v=w.Q=new O.bh(v,x)}return v},
 grE:function(){var x=this,w=x.ch
-return w==null?x.ch=new K.bl(x.gnh(),x.gni(),P.bA(null,y.f)):w},
+return w==null?x.ch=new K.bi(x.gnh(),x.gni(),P.bu(null,y.f)):w},
 gQT:function(){var x=this.cx
 if(x==null){x=this.d
-x=T.bG(x.a.n(C.f,x.b))
+x=T.bB(x.a.n(C.f,x.b))
 this.cx=x}return x},
 grF:function(){var x=this.cy
 if(x==null){x=this.d
-x=G.bL(x.a.l(C.t,x.b))
+x=G.bF(x.a.l(C.t,x.b))
 this.cy=x}return x},
 gBr:function(){var x=this,w=x.db
 if(w==null){w=x.d
-w=G.bO(x.gnh(),w.a.l(C.u,w.b))
+w=G.bI(x.gnh(),w.a.l(C.u,w.b))
 x.db=w}return w},
 gBs:function(){var x=this,w=x.dx
 if(w==null){w=x.d
-w=G.bE(x.grF(),x.gBr(),w.a.l(C.r,w.b))
+w=G.bz(x.grF(),x.gBr(),w.a.l(C.r,w.b))
 x.dx=w}return w},
 grG:function(){var x=this.dy
 return x==null?this.dy=!0:x},
@@ -102,11 +102,11 @@ gBt:function(){var x=this.fr
 return x==null?this.fr=!0:x},
 gBo:function(){var x=this.fy
 if(x==null){x=this.gnh()
-x=this.fy=new R.bn(x.querySelector("head"),x)}return x},
+x=this.fy=new R.bk(x.querySelector("head"),x)}return x},
 gBq:function(){var x=this.go
-return x==null?this.go=X.bK():x},
+return x==null?this.go=X.bE():x},
 gBn:function(){var x=this,w=x.id
-return w==null?x.id=K.bI(x.gBo(),x.gBs(),x.grF(),x.grE(),x.gni(),x.gBm(),x.grG(),x.gBt(),x.gBq()):w},
+return w==null?x.id=K.bD(x.gBo(),x.gBs(),x.grF(),x.grE(),x.gni(),x.gBm(),x.grG(),x.gBt(),x.gBq()):w},
 gQU:function(){var x,w,v,u,t=this,s=t.k1
 if(s==null){s=t.d
 x=s.a
@@ -115,8 +115,8 @@ w=x.n(C.f,s)
 v=t.grG()
 u=t.gBn()
 x.l(C.k,s)
-s=t.k1=new X.bj(v,w,u)}return s},
-q:function(){var x,w=this,v=w.a2(),u=K.cS(w,0)
+s=t.k1=new X.bg(v,w,u)}return s},
+q:function(){var x,w=this,v=w.a2(),u=K.cH(w,0)
 w.e=u
 v.appendChild(u.c)
 u=w.d
@@ -124,7 +124,7 @@ x=u.a
 u=u.b
 x.n(C.a9,u)
 u=x.n(C.aa,u)
-u=new X.bf(u,!J.bF(window.location.href,"enableLatencyCharts=false"))
+u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
 w.f=u
 w.e.K(0,u)},
 P:function(d,e,f){var x,w=this
@@ -147,26 +147,26 @@ if(d===C.Q)return w.gBn()
 if(d===C.k)return w.gQU()
 if(d===C.H){x=w.k2
 return x==null?w.k2=C.Z:x}if(d===C.v){x=w.k3
-return x==null?w.k3=new K.bt(w.grE()):x}}return f},
+return x==null?w.k3=new K.bp(w.grE()):x}}return f},
 A:function(){var x=this,w=x.a.a,v=x.k4
 if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
-Q.I1.prototype={
-q:function(){var x,w,v,u=this,t=new Q.Cf(E.T(u,0,3)),s=$.a7D
-if(s==null)s=$.a7D=O.bM(C.a,null)
+Q.I0.prototype={
+q:function(){var x,w,v,u=this,t=new Q.Cd(E.S(u,0,3)),s=$.a7D
+if(s==null)s=$.a7D=O.bG(C.a,null)
 t.b=s
 x=document.createElement("material-icon-api")
 t.c=x
 u.b=t
 t=y.C
-t=H.a([new D.b6("MaterialIconComponent",!1,"","material-icon","","angular_components/lib/material_icon/material_icon.dart",X.h('<p>A material style icon.</p>\n<p>This stylesheet should be included at the top of the page:</p>\n<pre><code class="language-html">&lt;link\n    rel="stylesheet"\n    href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;\n</code></pre>\n<p>Make sure to take RTL into account. Specifically, use the <code>flip</code> attribute\nif the icon should be flipped for RTL UIs. Read <a href="https://material.io/guidelines/usability/bidirectionality.html#bidirectionality-rtl-mirroring-guidelines">these\nguidelines</a>\nfor advice on when and when not to flip the icon.</p>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>size: String</code> -- The size of the icon. Options are: <code>x-small</code>, <code>small</code>,\n<code>medium</code>, <code>large</code>, and <code>x-large</code>, corresponding to 12px, 13px, 16px, 18px,\n and 20px, respectively. If no size is specified, the default of 24px is\n used.</li>\n<li><code>flip</code> -- Whether the icon should be flipped for RTL languages.</li>\n<li><code>light</code> -- Whether the opacity of the icon should be reduced.</li>\n<li><code>baseline</code> Whether the icon needs to be aligned to the baseline.</li>\n</ul>\n'),H.a([new D.j("icon","","dynamic",X.h('<p>The <code>Icon</code> model (lib/model/ui/icon.dart) or icon\nidentifier (String) this component should display.</p>\n<p>See <a href="https://goo.gl/YKrYlu">https://www.google.com/design/icons/</a> for\navailable icons. If the icon name contains spaces, replace them with\nunderscores.</p>\n'),!1,"")],t),H.a([],t))],y.c)
-w=H.a([new R.aK(C.fA,"MaterialIconDemoComponent","material_icon_example/lib/material_icon_demo.dart")],y.D)
+t=H.a([new D.b5("MaterialIconComponent",!1,"","material-icon","","angular_components/lib/material_icon/material_icon.dart",X.h('<p>A material style icon.</p>\n<p>This stylesheet should be included at the top of the page:</p>\n<pre><code class="language-html">&lt;link\n    rel="stylesheet"\n    href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;\n</code></pre>\n<p>Make sure to take RTL into account. Specifically, use the <code>flip</code> attribute\nif the icon should be flipped for RTL UIs. Read <a href="https://material.io/guidelines/usability/bidirectionality.html#bidirectionality-rtl-mirroring-guidelines">these\nguidelines</a>\nfor advice on when and when not to flip the icon.</p>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>size: String</code> -- The size of the icon. Options are: <code>x-small</code>, <code>small</code>,\n<code>medium</code>, <code>large</code>, and <code>x-large</code>, corresponding to 12px, 13px, 16px, 18px,\n and 20px, respectively. If no size is specified, the default of 24px is\n used.</li>\n<li><code>flip</code> -- Whether the icon should be flipped for RTL languages.</li>\n<li><code>light</code> -- Whether the opacity of the icon should be reduced.</li>\n<li><code>baseline</code> Whether the icon needs to be aligned to the baseline.</li>\n</ul>\n'),H.a([new D.j("icon","","dynamic",X.h('<p>The <code>Icon</code> model (lib/model/ui/icon.dart) or icon\nidentifier (String) this component should display.</p>\n<p>See <a href="https://goo.gl/YKrYlu">https://www.google.com/design/icons/</a> for\navailable icons. If the icon name contains spaces, replace them with\nunderscores.</p>\n'),!1,"")],t),H.a([],t))],y.c)
+w=H.a([new R.aJ(C.fA,"MaterialIconDemoComponent","material_icon_example/lib/material_icon_demo.dart")],y.D)
 v=y.X
-u.a=new E.i9(R.d_(H.a([],y.i),w,t,P.aX(v,v),!0))
+u.a=new E.hw(R.cQ(H.a([],y.i),w,t,P.aW(v,v),!0))
 u.F(x)}}
-Y.lc.prototype={}
-M.uG.prototype={
+Y.kZ.prototype={}
+M.uE.prototype={
 q:function(){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,h0,h1,h2,h3,h4,h5,h6=this,h7="\n",h8=null,h9="section",i0="\n  ",i1="p",i2="\n\n  ",i3="h3",i4="\n    ",i5="raised",i6="icon",i7="bug_report",i8="size",i9="small",j0="baseline",j1="br",j2="\n    This\n    ",j3="flight_land",j4="settings",j5="svg-icon",j6="flip",j7=h6.a2()
 T.b(j7,h7)
 x=document
@@ -191,37 +191,37 @@ s=T.d(x,w,i3)
 h6.m(s)
 T.b(s,"Using a string identifier")
 T.b(w,i0)
-r=T.v(x,w)
+r=T.u(x,w)
 h6.h(r)
 T.b(r,i4)
-q=M.aa(h6,17)
+q=M.a8(h6,17)
 h6.f=q
 p=q.c
 r.appendChild(p)
 h6.h(p)
-q=new Y.a3(p)
+q=new Y.a2(p)
 h6.r=q
 h6.f.K(0,q)
 T.b(r,i0)
 T.b(w,i0)
-o=T.v(x,w)
+o=T.u(x,w)
 h6.h(o)
 T.b(o,i4)
-q=Q.b1(h6,22)
+q=Q.b0(h6,22)
 h6.x=q
 n=q.c
 o.appendChild(n)
 T.c(n,"label","Enter a new icon identifier here")
 h6.h(n)
 q=y.v
-m=new L.aQ(H.a([],q))
+m=new L.aP(H.a([],q))
 h6.y=m
-m=L.b0(h8,h8,h8,h6.x,m)
+m=L.b_(h8,h8,h8,h6.x,m)
 h6.z=m
 l=y.M
 h6.x.u(m,H.a([C.a,C.a],l))
 T.b(o,i4)
-m=U.a6(h6,24)
+m=U.a5(h6,24)
 h6.ch=m
 k=m.c
 o.appendChild(k)
@@ -231,16 +231,16 @@ m=h6.d
 j=m.a
 m=m.b
 i=j.l(C.l,m)
-i=new F.Z(i===!0)
+i=new F.Y(i===!0)
 h6.cx=i
-i=B.a5(k,i,h6.ch,h8)
+i=B.a4(k,i,h6.ch,h8)
 h6.cy=i
 h=T.n("Apply")
 g=y.l
 h6.ch.u(i,H.a([H.a([h],g)],l))
 T.b(o,i0)
 T.b(w,i0)
-f=T.v(x,w)
+f=T.u(x,w)
 h6.h(f)
 T.b(f,"\n    Current icon identifier: ")
 f.appendChild(h6.e.b)
@@ -250,56 +250,56 @@ e=T.d(x,w,i3)
 h6.m(e)
 T.b(e,"Using an icon model")
 T.b(w,i0)
-i=M.aa(h6,36)
+i=M.a8(h6,36)
 h6.db=i
 d=i.c
 w.appendChild(d)
 h6.h(d)
-i=new Y.a3(d)
+i=new Y.a2(d)
 h6.dx=i
 h6.db.K(0,i)
 T.b(w,i0)
-a0=T.v(x,w)
+a0=T.u(x,w)
 h6.h(a0)
 T.b(a0,i4)
-i=U.a6(h6,40)
+i=U.a5(h6,40)
 h6.dy=i
 a1=i.c
 a0.appendChild(a1)
 T.c(a1,i5,"")
 h6.h(a1)
 i=j.l(C.l,m)
-i=new F.Z(i===!0)
+i=new F.Y(i===!0)
 h6.fr=i
-i=B.a5(a1,i,h6.dy,h8)
+i=B.a4(a1,i,h6.dy,h8)
 h6.fx=i
 a2=T.n("done")
 h6.dy.u(i,H.a([H.a([a2],g)],l))
 T.b(a0,i4)
-i=U.a6(h6,43)
+i=U.a5(h6,43)
 h6.fy=i
 a3=i.c
 a0.appendChild(a3)
 T.c(a3,i5,"")
 h6.h(a3)
 i=j.l(C.l,m)
-i=new F.Z(i===!0)
+i=new F.Y(i===!0)
 h6.go=i
-i=B.a5(a3,i,h6.fy,h8)
+i=B.a4(a3,i,h6.fy,h8)
 h6.id=i
 a4=T.n("done_all")
 h6.fy.u(i,H.a([H.a([a4],g)],l))
 T.b(a0,i4)
-i=U.a6(h6,46)
+i=U.a5(h6,46)
 h6.k1=i
 a5=i.c
 a0.appendChild(a5)
 T.c(a5,i5,"")
 h6.h(a5)
 i=j.l(C.l,m)
-i=new F.Z(i===!0)
+i=new F.Y(i===!0)
 h6.k2=i
-i=B.a5(a5,i,h6.k1,h8)
+i=B.a4(a5,i,h6.k1,h8)
 h6.k3=i
 a6=T.n("done_outline")
 h6.k1.u(i,H.a([H.a([a6],g)],l))
@@ -321,43 +321,43 @@ b0=T.d(x,a7,i1)
 h6.m(b0)
 T.b(b0,"Set the color of the icon using the css color property.")
 T.b(a7,i0)
-i=M.aa(h6,62)
+i=M.a8(h6,62)
 h6.k4=i
 i=i.c
-h6.by=i
+h6.bx=i
 a7.appendChild(i)
-T.c(h6.by,"ariaLabel","Pet Friendly")
-T.c(h6.by,i6,"pets")
-h6.h(h6.by)
-i=new Y.a3(h6.by)
+T.c(h6.bx,"ariaLabel","Pet Friendly")
+T.c(h6.bx,i6,"pets")
+h6.h(h6.bx)
+i=new Y.a2(h6.bx)
 h6.r1=i
 h6.k4.K(0,i)
 T.b(a7,i0)
-b1=T.v(x,a7)
+b1=T.u(x,a7)
 h6.h(b1)
 T.b(b1,i4)
-i=Q.b1(h6,66)
+i=Q.b0(h6,66)
 h6.r2=i
 b2=i.c
 b1.appendChild(b2)
 T.c(b2,"label","Enter a new color here")
 h6.h(b2)
-q=new L.aQ(H.a([],q))
+q=new L.aP(H.a([],q))
 h6.rx=q
-q=L.b0(h8,h8,h8,h6.r2,q)
+q=L.b_(h8,h8,h8,h6.r2,q)
 h6.ry=q
 h6.r2.u(q,H.a([C.a,C.a],l))
 T.b(b1,i4)
-q=U.a6(h6,68)
+q=U.a5(h6,68)
 h6.x2=q
 b3=q.c
 b1.appendChild(b3)
 T.c(b3,i5,"")
 h6.h(b3)
 q=j.l(C.l,m)
-q=new F.Z(q===!0)
+q=new F.Y(q===!0)
 h6.y1=q
-q=B.a5(b3,q,h6.x2,h8)
+q=B.a4(b3,q,h6.x2,h8)
 h6.y2=q
 b4=T.n("Apply")
 h6.x2.u(q,H.a([H.a([b4],g)],l))
@@ -371,75 +371,75 @@ b6=T.d(x,a7,i1)
 h6.m(b6)
 T.b(b6,"Set the size of the icon using the size attribute.")
 T.b(a7,i0)
-l=M.aa(h6,78)
+l=M.a8(h6,78)
 h6.V=l
 b7=l.c
 a7.appendChild(b7)
 T.c(b7,i6,i7)
 T.c(b7,i8,"x-small")
 h6.h(b7)
-l=new Y.a3(b7)
+l=new Y.a2(b7)
 h6.a7=l
 h6.V.K(0,l)
 T.b(a7,i0)
-l=M.aa(h6,80)
+l=M.a8(h6,80)
 h6.X=l
 b8=l.c
 a7.appendChild(b8)
 T.c(b8,i6,i7)
 T.c(b8,i8,i9)
 h6.h(b8)
-l=new Y.a3(b8)
+l=new Y.a2(b8)
 h6.a0=l
 h6.X.K(0,l)
 T.b(a7,i0)
-l=M.aa(h6,82)
+l=M.a8(h6,82)
 h6.a6=l
 b9=l.c
 a7.appendChild(b9)
 T.c(b9,i6,i7)
 T.c(b9,i8,"medium")
 h6.h(b9)
-l=new Y.a3(b9)
+l=new Y.a2(b9)
 h6.Y=l
 h6.a6.K(0,l)
 T.b(a7,i0)
-l=M.aa(h6,84)
+l=M.a8(h6,84)
 h6.a4=l
 c0=l.c
 a7.appendChild(c0)
 T.c(c0,i6,i7)
 T.c(c0,i8,"large")
 h6.h(c0)
-l=new Y.a3(c0)
+l=new Y.a2(c0)
 h6.a_=l
 h6.a4.K(0,l)
 T.b(a7,i0)
-l=M.aa(h6,86)
+l=M.a8(h6,86)
 h6.W=l
 c1=l.c
 a7.appendChild(c1)
 T.c(c1,i6,i7)
 T.c(c1,i8,"x-large")
 h6.h(c1)
-l=new Y.a3(c1)
+l=new Y.a2(c1)
 h6.L=l
 h6.W.K(0,l)
 T.b(a7,i0)
-l=M.aa(h6,88)
+l=M.a8(h6,88)
 h6.aa=l
 c2=l.c
 a7.appendChild(c2)
 T.c(c2,i6,i7)
 h6.h(c2)
-l=new Y.a3(c2)
+l=new Y.a2(c2)
 h6.a8=l
 h6.aa.K(0,l)
 T.b(a7,i2)
 c3=T.d(x,a7,i1)
 h6.m(c3)
 T.b(c3,"\n    x-small 12px ")
-l=M.aa(h6,92)
+l=M.a8(h6,92)
 h6.a9=l
 c4=l.c
 c3.appendChild(c4)
@@ -447,12 +447,12 @@ T.c(c4,j0,"")
 T.c(c4,i6,i7)
 T.c(c4,i8,"x-small")
 h6.h(c4)
-l=new Y.a3(c4)
+l=new Y.a2(c4)
 h6.ak=l
 h6.a9.K(0,l)
 h6.m(T.d(x,c3,j1))
 T.b(c3,"\n    small 13px ")
-l=M.aa(h6,95)
+l=M.a8(h6,95)
 h6.ae=l
 c5=l.c
 c3.appendChild(c5)
@@ -460,12 +460,12 @@ T.c(c5,j0,"")
 T.c(c5,i6,i7)
 T.c(c5,i8,i9)
 h6.h(c5)
-l=new Y.a3(c5)
+l=new Y.a2(c5)
 h6.an=l
 h6.ae.K(0,l)
 h6.m(T.d(x,c3,j1))
 T.b(c3,"\n    medium 16px ")
-l=M.aa(h6,98)
+l=M.a8(h6,98)
 h6.ag=l
 c6=l.c
 c3.appendChild(c6)
@@ -473,12 +473,12 @@ T.c(c6,j0,"")
 T.c(c6,i6,i7)
 T.c(c6,i8,"medium")
 h6.h(c6)
-l=new Y.a3(c6)
+l=new Y.a2(c6)
 h6.al=l
 h6.ag.K(0,l)
 h6.m(T.d(x,c3,j1))
 T.b(c3,"\n    large 18px ")
-l=M.aa(h6,101)
+l=M.a8(h6,101)
 h6.aq=l
 c7=l.c
 c3.appendChild(c7)
@@ -486,12 +486,12 @@ T.c(c7,j0,"")
 T.c(c7,i6,i7)
 T.c(c7,i8,"large")
 h6.h(c7)
-l=new Y.a3(c7)
+l=new Y.a2(c7)
 h6.au=l
 h6.aq.K(0,l)
 h6.m(T.d(x,c3,j1))
 T.b(c3,"\n    x-large 20px ")
-l=M.aa(h6,104)
+l=M.a8(h6,104)
 h6.av=l
 c8=l.c
 c3.appendChild(c8)
@@ -499,19 +499,19 @@ T.c(c8,j0,"")
 T.c(c8,i6,i7)
 T.c(c8,i8,"x-large")
 h6.h(c8)
-l=new Y.a3(c8)
+l=new Y.a2(c8)
 h6.ai=l
 h6.av.K(0,l)
 h6.m(T.d(x,c3,j1))
 T.b(c3,"\n    Default (unspecified) 24px ")
-l=M.aa(h6,107)
+l=M.a8(h6,107)
 h6.ar=l
 c9=l.c
 c3.appendChild(c9)
 T.c(c9,j0,"")
 T.c(c9,i6,i7)
 h6.h(c9)
-l=new Y.a3(c9)
+l=new Y.a2(c9)
 h6.ah=l
 h6.ar.K(0,l)
 T.b(c3,i0)
@@ -520,14 +520,14 @@ d0=T.d(x,a7,i1)
 h6.m(d0)
 T.b(d0,"Set the icon to a non-standard size using the material-icon-size mixin.")
 T.b(a7,i0)
-l=M.aa(h6,113)
+l=M.a8(h6,113)
 h6.aj=l
 d1=l.c
 a7.appendChild(d1)
 h6.O(d1,"custom-size")
 T.c(d1,i6,i7)
 h6.h(d1)
-l=new Y.a3(d1)
+l=new Y.a2(d1)
 h6.af=l
 h6.aj.K(0,l)
 T.b(a7,i2)
@@ -542,13 +542,13 @@ T.b(a7,i0)
 d4=T.d(x,a7,i1)
 h6.m(d4)
 T.b(d4,j2)
-l=M.aa(h6,123)
+l=M.a8(h6,123)
 h6.as=l
 d5=l.c
 d4.appendChild(d5)
 T.c(d5,i6,j3)
 h6.h(d5)
-l=new Y.a3(d5)
+l=new Y.a2(d5)
 h6.ax=l
 h6.as.K(0,l)
 T.b(d4,"\n    is ")
@@ -560,14 +560,14 @@ T.b(a7,i0)
 d7=T.d(x,a7,i1)
 h6.m(d7)
 T.b(d7,j2)
-l=M.aa(h6,131)
+l=M.a8(h6,131)
 h6.aA=l
 d8=l.c
 d7.appendChild(d8)
 T.c(d8,j0,"")
 T.c(d8,i6,j3)
 h6.h(d8)
-l=new Y.a3(d8)
+l=new Y.a2(d8)
 h6.aM=l
 h6.aA.K(0,l)
 T.b(d7,"\n    is aligned with surrounding text.\n  ")
@@ -583,7 +583,7 @@ T.b(a7,i0)
 e1=T.d(x,a7,i1)
 h6.m(e1)
 T.b(e1,"\n    Light ")
-l=M.aa(h6,142)
+l=M.a8(h6,142)
 h6.aB=l
 e2=l.c
 e1.appendChild(e2)
@@ -591,7 +591,7 @@ T.c(e2,j0,"")
 T.c(e2,i6,j4)
 T.c(e2,"light","")
 h6.h(e2)
-l=new Y.a3(e2)
+l=new Y.a2(e2)
 h6.aw=l
 h6.aB.K(0,l)
 T.b(e1,i0)
@@ -599,14 +599,14 @@ T.b(a7,i0)
 e3=T.d(x,a7,i1)
 h6.m(e3)
 T.b(e3,"\n    Not light ")
-l=M.aa(h6,147)
+l=M.a8(h6,147)
 h6.aT=l
 e4=l.c
 e3.appendChild(e4)
 T.c(e4,j0,"")
 T.c(e4,i6,j4)
 h6.h(e4)
-l=new Y.a3(e4)
+l=new Y.a2(e4)
 h6.aY=l
 h6.aT.K(0,l)
 T.b(e3,i0)
@@ -623,18 +623,18 @@ e7=T.d(x,a7,i1)
 h6.m(e7)
 T.b(e7,'\n    Note: This requires setting the "icon" to the material-icon as blank so that it is not shown.\n  ')
 T.b(a7,i0)
-l=M.aa(h6,159)
+l=M.a8(h6,159)
 h6.ba=l
 e8=l.c
 a7.appendChild(e8)
 h6.O(e8,j5)
 T.c(e8,i6,"")
 h6.h(e8)
-l=new Y.a3(e8)
+l=new Y.a2(e8)
 h6.aF=l
 h6.ba.K(0,l)
 T.b(a7,i0)
-l=M.aa(h6,161)
+l=M.a8(h6,161)
 h6.aR=l
 e9=l.c
 a7.appendChild(e9)
@@ -642,7 +642,7 @@ h6.O(e9,j5)
 T.c(e9,i6,"")
 T.c(e9,i8,i9)
 h6.h(e9)
-l=new Y.a3(e9)
+l=new Y.a2(e9)
 h6.aI=l
 h6.aR.K(0,l)
 T.b(a7,h7)
@@ -664,14 +664,14 @@ T.b(f3,"Use the flip attribute to automatically mirror an icon when the directio
 T.b(f0,i0)
 f4=T.d(x,f0,i1)
 h6.m(f4)
-l=M.aa(h6,176)
+l=M.a8(h6,176)
 h6.b5=l
 f5=l.c
 f4.appendChild(f5)
 T.c(f5,j6,"")
 T.c(f5,i6,"forward")
 h6.h(f5)
-l=new Y.a3(f5)
+l=new Y.a2(f5)
 h6.bb=l
 h6.b5.K(0,l)
 T.b(f0,i0)
@@ -682,14 +682,14 @@ T.b(f0,i0)
 f7=T.d(x,f0,i1)
 h6.m(f7)
 T.b(f7,i4)
-l=M.aa(h6,183)
+l=M.a8(h6,183)
 h6.aG=l
 f8=l.c
 f7.appendChild(f8)
 T.c(f8,j0,"")
 T.c(f8,i6,"first_page")
 h6.h(f8)
-l=new Y.a3(f8)
+l=new Y.a2(f8)
 h6.aJ=l
 h6.aG.K(0,l)
 T.b(f7," is automatically flipped when the\n    direction is RTL, without using the flip attribute.\n  ")
@@ -708,47 +708,47 @@ g1=T.d(x,f0,i1)
 h6.m(g1)
 T.b(g1,"Icons that should be flipped:")
 T.b(f0,i0)
-l=M.aa(h6,195)
+l=M.a8(h6,195)
 h6.aU=l
 g2=l.c
 f0.appendChild(g2)
 T.c(g2,j6,"")
 T.c(g2,i6,"forward")
 h6.h(g2)
-l=new Y.a3(g2)
+l=new Y.a2(g2)
 h6.aV=l
 h6.aU.K(0,l)
 T.b(f0,i0)
-l=M.aa(h6,197)
+l=M.a8(h6,197)
 h6.aC=l
 g3=l.c
 f0.appendChild(g3)
 T.c(g3,j6,"")
 T.c(g3,i6,"check_box")
 h6.h(g3)
-l=new Y.a3(g3)
+l=new Y.a2(g3)
 h6.b1=l
 h6.aC.K(0,l)
 T.b(f0,i0)
-l=M.aa(h6,199)
+l=M.a8(h6,199)
 h6.aZ=l
 g4=l.c
 f0.appendChild(g4)
 T.c(g4,j6,"")
 T.c(g4,i6,"last_page")
 h6.h(g4)
-l=new Y.a3(g4)
+l=new Y.a2(g4)
 h6.bh=l
 h6.aZ.K(0,l)
 T.b(f0,i0)
-l=M.aa(h6,201)
+l=M.a8(h6,201)
 h6.aW=l
 g5=l.c
 f0.appendChild(g5)
 T.c(g5,j6,"")
 T.c(g5,i6,"format_indent_increase")
 h6.h(g5)
-l=new Y.a3(g5)
+l=new Y.a2(g5)
 h6.bc=l
 h6.aW.K(0,l)
 T.b(f0,i2)
@@ -760,43 +760,43 @@ h6.m(g7)
 T.b(g7,"not")
 T.b(g6," be flipped:")
 T.b(f0,i0)
-l=M.aa(h6,209)
+l=M.a8(h6,209)
 h6.aQ=l
 g8=l.c
 f0.appendChild(g8)
 T.c(g8,i6,"restaurant")
 h6.h(g8)
-l=new Y.a3(g8)
+l=new Y.a2(g8)
 h6.bf=l
 h6.aQ.K(0,l)
 T.b(f0,i0)
-l=M.aa(h6,211)
+l=M.a8(h6,211)
 h6.b6=l
 g9=l.c
 f0.appendChild(g9)
 T.c(g9,i6,"refresh")
 h6.h(g9)
-l=new Y.a3(g9)
+l=new Y.a2(g9)
 h6.bd=l
 h6.b6.K(0,l)
 T.b(f0,i0)
-l=M.aa(h6,213)
+l=M.a8(h6,213)
 h6.bg=l
 h0=l.c
 f0.appendChild(h0)
 T.c(h0,i6,"undo")
 h6.h(h0)
-l=new Y.a3(h0)
+l=new Y.a2(h0)
 h6.bJ=l
 h6.bg.K(0,l)
 T.b(f0,i0)
-l=M.aa(h6,215)
+l=M.a8(h6,215)
 h6.bm=l
 h1=l.c
 f0.appendChild(h1)
 T.c(h1,i6,"phone")
 h6.h(h1)
-l=new Y.a3(h1)
+l=new Y.a2(h1)
 h6.bF=l
 h6.bm.K(0,l)
 T.b(f0,h7)
@@ -821,9 +821,9 @@ if(d===C.n||d===C.j||d===C.c)return x.id}if(46<=e&&e<=47){if(d===C.m)return x.k2
 if(d===C.n||d===C.j||d===C.c)return x.k3}if(66===e){if(d===C.z)return x.rx
 if(d===C.C||d===C.q||d===C.i||d===C.c||d===C.A)return x.ry}if(68<=e&&e<=69){if(d===C.m)return x.y1
 if(d===C.n||d===C.j||d===C.c)return x.y2}return f},
-A:function(){var x,w,v,u=this,t="bug_report",s="flight_land",r="settings",q=u.a,p=u.d.f===0,o=q.c,n=u.bC
+A:function(){var x,w,v,u=this,t="bug_report",s="flight_land",r="settings",q=u.a,p=u.d.f===0,o=q.c,n=u.bB
 if(n!=o){u.r.sab(0,o)
-u.bC=o
+u.bB=o
 x=!0}else x=!1
 if(x)u.f.d.st(1)
 if(p){u.z.go="Enter a new icon identifier here"
@@ -831,9 +831,9 @@ x=!0}else x=!1
 if(x)u.x.d.st(1)
 if(p&&(u.cy.cy=!0))u.ch.d.st(1)
 w=q.a
-n=u.bt
+n=u.bs
 if(n!==w){u.dx.sab(0,w)
-u.bt=w
+u.bs=w
 x=!0}else x=!1
 if(x)u.db.d.st(1)
 if(p&&(u.fx.cy=!0))u.dy.d.st(1)
@@ -941,11 +941,11 @@ u.dy.B(p)
 u.fy.B(p)
 u.k1.B(p)
 v=q.b
-n=u.bx
-if(n!=v){n=u.by.style
+n=u.bw
+if(n!=v){n=u.bx.style
 n.toString
 C.x.bV(n,C.x.bE(n,"color"),v,null)
-u.bx=v}u.x2.B(p)
+u.bw=v}u.x2.B(p)
 u.f.j()
 u.x.j()
 u.ch.j()
@@ -1042,41 +1042,41 @@ R_:function(d){this.a.a=C.hP},
 R1:function(d){this.a.a=C.hQ},
 R3:function(d){var x=this.ry
 this.a.b=x.rx}}
-M.I3.prototype={
-q:function(){var x,w=this,v=new M.uG(N.Q(),E.T(w,0,3)),u=$.a7F
-if(u==null)u=$.a7F=O.a1($.aDB,null)
+M.I2.prototype={
+q:function(){var x,w=this,v=new M.uE(N.P(),E.S(w,0,3)),u=$.a7F
+if(u==null)u=$.a7F=O.a0($.aDB,null)
 v.b=u
 x=document.createElement("material-icon-demo")
 v.c=x
 w.b=v
-w.a=new Y.lc(C.dg)
+w.a=new Y.kZ(C.dg)
 w.F(x)}}
-var z=a.updateTypes(["~(@)","f<i9*>*()","f<lc*>*()"]);(function installTearOffs(){var x=a._static_0,w=a._instance_1u
+var z=a.updateTypes(["~(@)","f<hw*>*()","f<kZ*>*()"]);(function installTearOffs(){var x=a._static_0,w=a._instance_1u
 x(Q,"ajE","aJK",1)
 x(M,"ajF","aJM",2)
 var v
-w(v=M.uG.prototype,"gQV","QW",0)
+w(v=M.uE.prototype,"gQV","QW",0)
 w(v,"gQX","QY",0)
 w(v,"gQZ","R_",0)
 w(v,"gR0","R1",0)
 w(v,"gR2","R3",0)})();(function inheritance(){var x=a.inheritMany
-x(P.y,[E.i9,Y.lc])
-x(E.br,[Q.Cf,M.uG])
-x(G.f,[Q.I1,M.I3])})()
-H.al(b.typeUniverse,JSON.parse('{"am":"w","ay":"w","aq":"af","an":"o","aC":"o","aE":"o","ao":"H","ap":"H","au":"J","az":"J","ar":"B","aB":"B","aH":"O","aG":"a4","aF":"a9","aw":"W","ax":"ad","aD":"X","aA":"ah","av":"ag","at":"ai","as":"a2","Cf":{"k":[],"i":[]},"I1":{"f":["i9*"],"i":[],"f.T":"i9*"},"uG":{"k":[],"i":[]},"I3":{"f":["lc*"],"i":[],"f.T":"lc*"}}'))
+x(P.y,[E.hw,Y.kZ])
+x(E.bn,[Q.Cd,M.uE])
+x(G.f,[Q.I0,M.I2])})()
+H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","Cd":{"k":[],"i":[]},"I0":{"f":["hw*"],"i":[],"f.T":"hw*"},"uE":{"k":[],"i":[]},"I2":{"f":["kZ*"],"i":[],"f.T":"kZ*"}}'))
 0
 var y=(function rtii(){var x=H.K
-return{u:x("l<i9*>"),I:x("l<lc*>"),C:x("q<j*>"),D:x("q<aK*>"),c:x("q<dd*>"),M:x("q<y*>"),a:x("q<bh<~>*>"),i:x("q<t*>"),l:x("q<a2*>"),v:x("q<aV<t*,@>*(dl<@>*)*>"),f:x("F<t*>*"),X:x("t*"),S:x("W*")}})();(function constants(){C.fr=new D.l("material-icon-api",Q.ajE(),y.u)
+return{u:x("l<hw*>"),I:x("l<kZ*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),M:x("q<y*>"),a:x("q<be<~>*>"),i:x("q<t*>"),l:x("q<a1*>"),v:x("q<aV<t*,@>*(d9<@>*)*>"),f:x("D<t*>*"),X:x("t*"),S:x("V*")}})();(function constants(){C.fr=new D.l("material-icon-api",Q.ajE(),y.u)
 C.fA=new D.l("material-icon-demo",M.ajF(),y.I)
-C.dg=new L.dP("done")
-C.hP=new L.dP("done_all")
-C.hQ=new L.dP("done_outline")
-C.m1=H.D("i9")
-C.m3=H.D("lc")})();(function staticFields(){$.a7D=null
+C.dg=new L.dA("done")
+C.hP=new L.dA("done_all")
+C.hQ=new L.dA("done_outline")
+C.m1=H.C("hw")
+C.m3=H.C("kZ")})();(function staticFields(){$.a7D=null
 $.af4=!1
 $.aG1=['.custom-size._ngcontent-%ID%  .material-icon-i.material-icon-i{font-size:40px}material-input._ngcontent-%ID%{width:250px}.svg-icon._ngcontent-%ID%  .material-icon-i{background-image:url("packages/material_icon_example/example_icon.svg");background-size:cover}']
 $.a7F=null
 $.af5=!1
 $.aDB=[$.aG1]})()}
-$__dart_deferred_initializers__["lGb+t8ObKXptLqbP6c6DqBKJDgg="] = $__dart_deferred_initializers__.current
+$__dart_deferred_initializers__["Fus+4bsasVUSDUw2GdU1B+cZ6gg="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_56.part.js.map

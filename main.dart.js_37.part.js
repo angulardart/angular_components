@@ -1,16 +1,16 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K={
-aIw:function(){return new K.H0(new G.S())},
+aIw:function(){return new K.H_(new G.R())},
 axw:function(){if($.ag4)return
 $.ag4=!0
-$.V.w(0,C.lF,new D.l("material-button-example",K.ajk(),y.O))
+$.T.w(0,C.lF,new D.l("material-button-example",K.ajk(),y.O))
 N.axx()
-E.G()
-U.e0()
+E.F()
+U.dL()
 L.a3R()
-M.ck()
-F.a0s()},
-C_:function C_(d,e,f,g){var _=this
+M.ch()
+F.a0r()},
+BY:function BY(d,e,f,g){var _=this
 _.e=d
 _.f=e
 _.r=f
@@ -18,42 +18,42 @@ _.a0=_.X=_.a7=_.V=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.
 _.aY=_.aT=_.aw=_.aB=_.aM=_.aA=_.ax=_.as=_.af=_.aj=_.ah=_.ar=_.ai=_.av=_.au=_.aq=_.al=_.ag=_.an=_.ae=_.ak=_.a9=_.a8=_.aa=_.L=_.W=_.a_=_.a4=_.Y=_.a6=null
 _.c=_.b=_.a=_.bd=_.b6=_.bf=_.aQ=_.bc=_.aW=_.bh=_.aZ=_.b1=_.aC=_.aV=_.aU=_.aJ=_.aG=_.bb=_.b5=_.aI=_.aR=_.aF=_.ba=null
 _.d=g},
-H0:function H0(d){var _=this
+H_:function H_(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},V={
 aoU:function(){return C.h0},
-aIu:function(){return new V.GZ(new G.S())},
+aIu:function(){return new V.GY(new G.R())},
 axv:function(){if($.ag3)return
 $.ag3=!0
-$.V.w(0,C.lE,new D.l("material-button-api",V.ajj(),y.r))
-E.G()
-K.dj()
-D.d3()
+$.T.w(0,C.lE,new D.l("material-button-api",V.ajj(),y.r))
+E.F()
+K.d7()
+D.cV()
 K.axw()},
-BY:function BY(d){var _=this
+BW:function BW(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-GZ:function GZ(d){var _=this
+GY:function GY(d){var _=this
 _.c=_.b=_.a=null
-_.d=d}},E,M,Q,D,Z,O,A={i1:function i1(d){this.a=d},l4:function l4(){}},T={j2:function j2(){}},L,N={
-a2B:function(d,e){var x,w=new N.BB(E.T(d,e,3)),v=$.a6p
-if(v==null)v=$.a6p=O.bM(C.a,null)
+_.d=d}},E,M,Q,D,Z,O,A={hl:function hl(d){this.a=d},kO:function kO(){}},T={ic:function ic(){}},L,N={
+a2A:function(d,e){var x,w=new N.Bz(E.S(d,e,3)),v=$.a6p
+if(v==null)v=$.a6p=O.bG(C.a,null)
 w.b=v
 x=document.createElement("buttons")
 w.c=x
 return w},
-aGG:function(){return new N.Fv(new G.S())},
+aGG:function(){return new N.Fu(new G.R())},
 axx:function(){if($.ag5)return
 $.ag5=!0
-$.V.w(0,C.kX,new D.l("buttons",N.at0(),y.G))
-E.G()
-U.e0()
-M.ck()},
-BB:function BB(d){var _=this
+$.T.w(0,C.kX,new D.l("buttons",N.at0(),y.G))
+E.F()
+U.dL()
+M.ch()},
+Bz:function Bz(d){var _=this
 _.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.c=_.b=_.a=_.a8=_.aa=_.L=_.W=_.a_=_.a4=_.Y=_.a6=_.a0=_.X=_.a7=_.V=null
 _.d=d},
-Fv:function Fv(d){var _=this
+Fu:function Fu(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},U,X,B,S,F
 a.setFunctionNamesIfNecessary([K,V,A,T,N])
@@ -82,12 +82,12 @@ X=c[21]
 B=c[22]
 S=c[23]
 F=c[24]
-T.j2.prototype={}
-N.BB.prototype={
+T.ic.prototype={}
+N.Bz.prototype={
 q:function(){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1=this,b2=null,b3="section",b4="margin",b5="disabled",b6="Disabled",b7="raised",b8="icon",b9=b1.a2(),c0=document,c1=T.d(c0,b9,b3)
 b1.C(c1,b4)
 T.b(T.d(c0,c1,"h2"),"Flat")
-x=U.a6(b1,3)
+x=U.a5(b1,3)
 b1.e=x
 w=x.c
 c1.appendChild(w)
@@ -95,170 +95,170 @@ x=b1.d
 v=x.a
 x=x.b
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.f=u
-u=B.a5(w,u,b1.e,b2)
+u=B.a4(w,u,b1.e,b2)
 b1.r=u
 t=T.n("Default")
 s=y.l
 r=y.M
 b1.e.u(u,H.a([H.a([t],s)],r))
-u=U.a6(b1,5)
+u=U.a5(b1,5)
 b1.x=u
 q=u.c
 c1.appendChild(q)
 b1.O(q,"red")
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.y=u
-u=B.a5(q,u,b1.x,b2)
+u=B.a4(q,u,b1.x,b2)
 b1.z=u
 p=T.n("Colored")
 b1.x.u(u,H.a([H.a([p],s)],r))
-u=U.a6(b1,7)
+u=U.a5(b1,7)
 b1.Q=u
 o=u.c
 c1.appendChild(o)
 T.c(o,b5,"")
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.ch=u
-u=B.a5(o,u,b1.Q,b2)
+u=B.a4(o,u,b1.Q,b2)
 b1.cx=u
 n=T.n(b6)
 b1.Q.u(u,H.a([H.a([n],s)],r))
-u=U.a6(b1,9)
+u=U.a5(b1,9)
 b1.cy=u
 m=u.c
 c1.appendChild(m)
 T.c(m,"compact","")
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.db=u
-u=B.a5(m,u,b1.cy,b2)
+u=B.a4(m,u,b1.cy,b2)
 b1.dx=u
 l=T.n("Compact")
 b1.cy.u(u,H.a([H.a([l],s)],r))
 k=T.d(c0,b9,b3)
 b1.C(k,b4)
 T.b(T.d(c0,k,"h2"),"Raised")
-u=U.a6(b1,14)
+u=U.a5(b1,14)
 b1.dy=u
 j=u.c
 k.appendChild(j)
 T.c(j,b7,"")
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.fr=u
-u=B.a5(j,u,b1.dy,b2)
+u=B.a4(j,u,b1.dy,b2)
 b1.fx=u
 i=T.n("Raised")
 b1.dy.u(u,H.a([H.a([i],s)],r))
-u=U.a6(b1,16)
+u=U.a5(b1,16)
 b1.fy=u
 h=u.c
 k.appendChild(h)
 b1.O(h,"red")
 T.c(h,b7,"")
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.go=u
-u=B.a5(h,u,b1.fy,b2)
+u=B.a4(h,u,b1.fy,b2)
 b1.id=u
 g=T.n("Colored")
 b1.fy.u(u,H.a([H.a([g],s)],r))
-u=U.a6(b1,18)
+u=U.a5(b1,18)
 b1.k1=u
 f=u.c
 k.appendChild(f)
 T.c(f,b5,"")
 T.c(f,b7,"")
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.k2=u
-u=B.a5(f,u,b1.k1,b2)
+u=B.a4(f,u,b1.k1,b2)
 b1.k3=u
 e=T.n(b6)
 b1.k1.u(u,H.a([H.a([e],s)],r))
-u=U.a6(b1,20)
+u=U.a5(b1,20)
 b1.k4=u
 d=u.c
 k.appendChild(d)
 T.c(d,"dense","")
 T.c(d,b7,"")
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.r1=u
-u=B.a5(d,u,b1.k4,b2)
+u=B.a4(d,u,b1.k4,b2)
 b1.r2=u
 a0=T.n("Dense")
 b1.k4.u(u,H.a([H.a([a0],s)],r))
-u=U.a6(b1,22)
+u=U.a5(b1,22)
 b1.rx=u
 a1=u.c
 k.appendChild(a1)
 T.c(a1,"compact","")
 T.c(a1,b7,"")
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.ry=u
-u=B.a5(a1,u,b1.rx,b2)
+u=B.a4(a1,u,b1.rx,b2)
 b1.x1=u
 a2=T.n("Compact")
 b1.rx.u(u,H.a([H.a([a2],s)],r))
 a3=T.d(c0,b9,b3)
 b1.C(a3,b4)
 T.b(T.d(c0,a3,"h2"),"Icons")
-s=U.a6(b1,27)
+s=U.a5(b1,27)
 b1.x2=s
 a4=s.c
 a3.appendChild(a4)
 T.c(a4,b8,"")
 u=v.l(C.l,x)
-u=new F.Z(u===!0)
+u=new F.Y(u===!0)
 b1.y1=u
-b1.y2=B.a5(a4,u,b1.x2,b2)
-u=M.aa(b1,28)
+b1.y2=B.a4(a4,u,b1.x2,b2)
+u=M.a8(b1,28)
 b1.V=u
 a5=u.c
 T.c(a5,b8,"check")
-u=new Y.a3(a5)
+u=new Y.a2(a5)
 b1.a7=u
 b1.V.K(0,u)
 u=y.W
 b1.x2.u(b1.y2,H.a([H.a([a5],u)],r))
-s=U.a6(b1,29)
+s=U.a5(b1,29)
 b1.X=s
 a6=s.c
 a3.appendChild(a6)
 b1.O(a6,"blue-icon")
 T.c(a6,b8,"")
 s=v.l(C.l,x)
-s=new F.Z(s===!0)
+s=new F.Y(s===!0)
 b1.a0=s
-b1.a6=B.a5(a6,s,b1.X,b2)
-s=M.aa(b1,30)
+b1.a6=B.a4(a6,s,b1.X,b2)
+s=M.a8(b1,30)
 b1.Y=s
 a7=s.c
 T.c(a7,b8,"favorite")
-s=new Y.a3(a7)
+s=new Y.a2(a7)
 b1.a4=s
 b1.Y.K(0,s)
 b1.X.u(b1.a6,H.a([H.a([a7],u)],r))
-u=U.a6(b1,31)
+u=U.a5(b1,31)
 b1.a_=u
 a8=u.c
 a3.appendChild(a8)
 T.c(a8,b8,"")
 x=v.l(C.l,x)
-x=new F.Z(x===!0)
+x=new F.Y(x===!0)
 b1.W=x
-b1.L=B.a5(a8,x,b1.a_,b2)
-x=M.aa(b1,32)
+b1.L=B.a4(a8,x,b1.a_,b2)
+x=M.a8(b1,32)
 b1.aa=x
 a9=x.c
 T.c(a9,b8,"mail")
-x=new Y.a3(a9)
+x=new Y.a2(a9)
 b1.a8=x
 b1.aa.K(0,x)
 b0=T.n("Mail")
@@ -338,14 +338,14 @@ x.X.k()
 x.Y.k()
 x.a_.k()
 x.aa.k()}}
-N.Fv.prototype={
-q:function(){var x,w=this,v=N.a2B(w,0)
+N.Fu.prototype={
+q:function(){var x,w=this,v=N.a2A(w,0)
 w.b=v
 x=v.c
-w.a=new T.j2()
+w.a=new T.ic()
 w.F(x)}}
-A.i1.prototype={}
-V.BY.prototype={
+A.hl.prototype={}
+V.BW.prototype={
 gmS:function(){var x=this.r
 return x==null?this.r=document:x},
 gzJ:function(){var x=this.y
@@ -354,30 +354,30 @@ gmT:function(){var x,w=this,v=w.z
 if(v==null){v=w.d
 x=v.a
 v=v.b
-v=T.bC(x.l(C.b,v),x.l(C.D,v),x.n(C.f,v),w.gzJ())
+v=T.bx(x.l(C.b,v),x.l(C.D,v),x.n(C.f,v),w.gzJ())
 w.z=v}return v},
 gzG:function(){var x,w=this,v=w.Q
 if(v==null){v=w.d
 v=v.a.n(C.U,v.b)
 x=w.gmT()
-v=w.Q=new O.bk(v,x)}return v},
+v=w.Q=new O.bh(v,x)}return v},
 gqU:function(){var x=this,w=x.ch
-return w==null?x.ch=new K.bl(x.gmS(),x.gmT(),P.bA(null,y.f)):w},
+return w==null?x.ch=new K.bi(x.gmS(),x.gmT(),P.bu(null,y.f)):w},
 gOE:function(){var x=this.cx
 if(x==null){x=this.d
-x=T.bG(x.a.n(C.f,x.b))
+x=T.bB(x.a.n(C.f,x.b))
 this.cx=x}return x},
 gqV:function(){var x=this.cy
 if(x==null){x=this.d
-x=G.bL(x.a.l(C.t,x.b))
+x=G.bF(x.a.l(C.t,x.b))
 this.cy=x}return x},
 gzL:function(){var x=this,w=x.db
 if(w==null){w=x.d
-w=G.bO(x.gmS(),w.a.l(C.u,w.b))
+w=G.bI(x.gmS(),w.a.l(C.u,w.b))
 x.db=w}return w},
 gzM:function(){var x=this,w=x.dx
 if(w==null){w=x.d
-w=G.bE(x.gqV(),x.gzL(),w.a.l(C.r,w.b))
+w=G.bz(x.gqV(),x.gzL(),w.a.l(C.r,w.b))
 x.dx=w}return w},
 gqW:function(){var x=this.dy
 return x==null?this.dy=!0:x},
@@ -385,11 +385,11 @@ gzN:function(){var x=this.fr
 return x==null?this.fr=!0:x},
 gzI:function(){var x=this.fy
 if(x==null){x=this.gmS()
-x=this.fy=new R.bn(x.querySelector("head"),x)}return x},
+x=this.fy=new R.bk(x.querySelector("head"),x)}return x},
 gzK:function(){var x=this.go
-return x==null?this.go=X.bK():x},
+return x==null?this.go=X.bE():x},
 gzH:function(){var x=this,w=x.id
-return w==null?x.id=K.bI(x.gzI(),x.gzM(),x.gqV(),x.gqU(),x.gmT(),x.gzG(),x.gqW(),x.gzN(),x.gzK()):w},
+return w==null?x.id=K.bD(x.gzI(),x.gzM(),x.gqV(),x.gqU(),x.gmT(),x.gzG(),x.gqW(),x.gzN(),x.gzK()):w},
 gOF:function(){var x,w,v,u,t=this,s=t.k1
 if(s==null){s=t.d
 x=s.a
@@ -398,8 +398,8 @@ w=x.n(C.f,s)
 v=t.gqW()
 u=t.gzH()
 x.l(C.k,s)
-s=t.k1=new X.bj(v,w,u)}return s},
-q:function(){var x,w=this,v=w.a2(),u=K.cS(w,0)
+s=t.k1=new X.bg(v,w,u)}return s},
+q:function(){var x,w=this,v=w.a2(),u=K.cH(w,0)
 w.e=u
 v.appendChild(u.c)
 u=w.d
@@ -407,7 +407,7 @@ x=u.a
 u=u.b
 x.n(C.a9,u)
 u=x.n(C.aa,u)
-u=new X.bf(u,!J.bF(window.location.href,"enableLatencyCharts=false"))
+u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
 w.f=u
 w.e.K(0,u)},
 P:function(d,e,f){var x,w=this
@@ -430,26 +430,26 @@ if(d===C.Q)return w.gzH()
 if(d===C.k)return w.gOF()
 if(d===C.H){x=w.k2
 return x==null?w.k2=C.Z:x}if(d===C.v){x=w.k3
-return x==null?w.k3=new K.bt(w.gqU()):x}}return f},
+return x==null?w.k3=new K.bp(w.gqU()):x}}return f},
 A:function(){var x=this,w=x.a.a,v=x.k4
 if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
-V.GZ.prototype={
-q:function(){var x,w,v,u=this,t="disabled",s="bool",r="<p>Is the component disabled.</p>\n",q="<p>Is <code>true</code> if the button should have a box shadow that makes the button look\nraised.</p>\n",p="String",o="<p>Role of this component used for a11y.</p>\n",n="tabbable",m="<p>Is the component tabbable.</p>\n",l="tabindex",k="<p>The tab index of the component.</p>\n<p>The value is used if <code>tabbable</code> is <code>true</code> and <code>disabled</code> is <code>false</code>.</p>\n",j="Stream<UIEvent>",i="<p>Fired when the button is activated via click, tap, or key press.</p>\n",h=new V.BY(E.T(u,0,3)),g=$.a72
-if(g==null)g=$.a72=O.bM(C.a,null)
+V.GY.prototype={
+q:function(){var x,w,v,u=this,t="disabled",s="bool",r="<p>Is the component disabled.</p>\n",q="<p>Is <code>true</code> if the button should have a box shadow that makes the button look\nraised.</p>\n",p="String",o="<p>Role of this component used for a11y.</p>\n",n="tabbable",m="<p>Is the component tabbable.</p>\n",l="tabindex",k="<p>The tab index of the component.</p>\n<p>The value is used if <code>tabbable</code> is <code>true</code> and <code>disabled</code> is <code>false</code>.</p>\n",j="Stream<UIEvent>",i="<p>Fired when the button is activated via click, tap, or key press.</p>\n",h=new V.BW(E.S(u,0,3)),g=$.a72
+if(g==null)g=$.a72=O.bG(C.a,null)
 h.b=g
 x=document.createElement("material-button-api")
 h.c=x
 u.b=h
 h=y.C
-h=H.a([new D.b6("MaterialButtonComponent",!1,"","material-button","","angular_components/lib/material_button/material_button.dart",X.h("<p>A flat or raised button with an optional ripple effect.</p>\n<p><strong>Attributes:</strong></p>\n<p>The following attributes are commonly used with <code>&lt;material-button&gt;</code>:</p>\n<ul>\n<li><code>icon</code>: If present, removes the minimum width style of the button.\nTo specify the actual icon in the button, use a <code>&lt;glyph&gt;</code>,\n<code>&lt;material-icon&gt;</code>, or <code>&lt;img&gt;</code>.</li>\n<li><code>no-ink</code>: If present, removes the ripple effect from the button.</li>\n<li><code>clear-size</code>: If present, removes both <code>min-width</code> and <code>margin</code> from\nthe button.</li>\n<li><code>dense</code>: If present, reduces <code>font-size</code> to 13px and button height to\n32px.</li>\n</ul>\n<p><strong>Styling:</strong></p>\n<p>The preferred way of specifying button colors is to use mixins:</p>\n<pre><code>/* Make #myButton green with yellow text */\n@include button-background-color('#myButton', green);\n@include button-color('#myButton', yellow);\n</code></pre>\n<p>The advantage of using mixins for color is that they will not overwrite the\ndisabled state colors. You can also style the button with CSS as you would a\nnormal DOM element, although this will also affect the disabled state:</p>\n<pre><code>/* Make #myButton green with yellow text */\n#myButton {\n  background: green;\n  color: yellow;\n}\n</code></pre>\n<p>By default the ripple is the same color as the foreground at 25% opacity.\nTo customize the color, use the <code>material-ripple</code> selector:</p>\n<pre><code>/* Make #myButton use a blue ripple instead of foreground color */\n#myButton material-ripple {\n  color: blue;\n}\n</code></pre>\n<p>The opacity of the ripple is not customizable via CSS.</p>\n<p><strong>See also:</strong></p>\n<p>Examples:</p>\n<ul>\n<li><a href=\"https://github.com/dart-lang/io_2017_components_codelab/tree/master\">dart-lang/io_2017_components_codelab repo</a></li>\n</ul>\n<p>Other resources:</p>\n<ul>\n<li><a href=\"https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/\">Material design codelab</a></li>\n</ul>\n"),H.a([new D.j(t,"",s,X.h(r),!1,""),new D.j("raised","",s,X.h(q),!1,""),new D.j("role","",p,X.h(o),!1,""),new D.j(n,"",s,X.h(m),!1,""),new D.j(l,"",p,X.h(k),!1,"")],h),H.a([new D.j("trigger","",j,X.h(i),!1,"")],h)),new D.b6("MaterialFabComponent",!1,"","material-fab","","angular_components/lib/material_button/material_fab.dart",X.h("<p>Material FAB is a Floating Action Button. It is round, and behaves mostly\nthe same as a MaterialButton.</p>\n<p>It may be flat or raised. A raised button is styled with a shadow.</p>\n<p><strong>Styling:</strong></p>\n<p>The preferred way of specifying FAB colors is to use mixins:</p>\n<pre><code>/* Make #myButton green with yellow icon */\n@include button-background-color('#myButton', green);\n@include icon-button-color('#myButton', yellow);\n</code></pre>\n<p>The advantage of using mixins for color is that they will not overwrite the\ndisabled state colors. You can also style the FAB with CSS as you would a\nnormal DOM element, although this will also affect the disabled state:</p>\n<pre><code>/* Make #myButton green with yellow icon */\n#myButton {\n  background: green;\n  color: yellow;\n}\n</code></pre>\n<p>By default the ripple is the same color as the foreground at 25% opacity.\nYou may customize the color using this selector:</p>\n<pre><code>/* Make #myButton use a blue ripple instead of foreground color */\n#myButton material-ripple {\n  color: blue;\n}\n</code></pre>\n<p>The opacity of the ripple is not customizable via CSS.</p>\n"),H.a([new D.j(t,"",s,X.h(r),!1,""),new D.j("raised","",s,X.h(q),!1,""),new D.j("role","",p,X.h(o),!1,""),new D.j(n,"",s,X.h(m),!1,""),new D.j(l,"",p,X.h(k),!1,"")],h),H.a([new D.j("trigger","",j,X.h(i),!1,"")],h))],y.c)
-w=H.a([new R.aK(C.fX,"MaterialButtonExample","material_button_example/lib/material_button_example.dart")],y.D)
+h=H.a([new D.b5("MaterialButtonComponent",!1,"","material-button","","angular_components/lib/material_button/material_button.dart",X.h("<p>A flat or raised button with an optional ripple effect.</p>\n<p><strong>Attributes:</strong></p>\n<p>The following attributes are commonly used with <code>&lt;material-button&gt;</code>:</p>\n<ul>\n<li><code>icon</code>: If present, removes the minimum width style of the button.\nTo specify the actual icon in the button, use a <code>&lt;glyph&gt;</code>,\n<code>&lt;material-icon&gt;</code>, or <code>&lt;img&gt;</code>.</li>\n<li><code>no-ink</code>: If present, removes the ripple effect from the button.</li>\n<li><code>clear-size</code>: If present, removes both <code>min-width</code> and <code>margin</code> from\nthe button.</li>\n<li><code>dense</code>: If present, reduces <code>font-size</code> to 13px and button height to\n32px.</li>\n</ul>\n<p><strong>Styling:</strong></p>\n<p>The preferred way of specifying button colors is to use mixins:</p>\n<pre><code>/* Make #myButton green with yellow text */\n@include button-background-color('#myButton', green);\n@include button-color('#myButton', yellow);\n</code></pre>\n<p>The advantage of using mixins for color is that they will not overwrite the\ndisabled state colors. You can also style the button with CSS as you would a\nnormal DOM element, although this will also affect the disabled state:</p>\n<pre><code>/* Make #myButton green with yellow text */\n#myButton {\n  background: green;\n  color: yellow;\n}\n</code></pre>\n<p>By default the ripple is the same color as the foreground at 25% opacity.\nTo customize the color, use the <code>material-ripple</code> selector:</p>\n<pre><code>/* Make #myButton use a blue ripple instead of foreground color */\n#myButton material-ripple {\n  color: blue;\n}\n</code></pre>\n<p>The opacity of the ripple is not customizable via CSS.</p>\n<p><strong>See also:</strong></p>\n<p>Examples:</p>\n<ul>\n<li><a href=\"https://github.com/dart-lang/io_2017_components_codelab/tree/master\">dart-lang/io_2017_components_codelab repo</a></li>\n</ul>\n<p>Other resources:</p>\n<ul>\n<li><a href=\"https://codelabs.developers.google.com/codelabs/your-first-angulardart-web-app/\">Material design codelab</a></li>\n</ul>\n"),H.a([new D.j(t,"",s,X.h(r),!1,""),new D.j("raised","",s,X.h(q),!1,""),new D.j("role","",p,X.h(o),!1,""),new D.j(n,"",s,X.h(m),!1,""),new D.j(l,"",p,X.h(k),!1,"")],h),H.a([new D.j("trigger","",j,X.h(i),!1,"")],h)),new D.b5("MaterialFabComponent",!1,"","material-fab","","angular_components/lib/material_button/material_fab.dart",X.h("<p>Material FAB is a Floating Action Button. It is round, and behaves mostly\nthe same as a MaterialButton.</p>\n<p>It may be flat or raised. A raised button is styled with a shadow.</p>\n<p><strong>Styling:</strong></p>\n<p>The preferred way of specifying FAB colors is to use mixins:</p>\n<pre><code>/* Make #myButton green with yellow icon */\n@include button-background-color('#myButton', green);\n@include icon-button-color('#myButton', yellow);\n</code></pre>\n<p>The advantage of using mixins for color is that they will not overwrite the\ndisabled state colors. You can also style the FAB with CSS as you would a\nnormal DOM element, although this will also affect the disabled state:</p>\n<pre><code>/* Make #myButton green with yellow icon */\n#myButton {\n  background: green;\n  color: yellow;\n}\n</code></pre>\n<p>By default the ripple is the same color as the foreground at 25% opacity.\nYou may customize the color using this selector:</p>\n<pre><code>/* Make #myButton use a blue ripple instead of foreground color */\n#myButton material-ripple {\n  color: blue;\n}\n</code></pre>\n<p>The opacity of the ripple is not customizable via CSS.</p>\n"),H.a([new D.j(t,"",s,X.h(r),!1,""),new D.j("raised","",s,X.h(q),!1,""),new D.j("role","",p,X.h(o),!1,""),new D.j(n,"",s,X.h(m),!1,""),new D.j(l,"",p,X.h(k),!1,"")],h),H.a([new D.j("trigger","",j,X.h(i),!1,"")],h))],y.c)
+w=H.a([new R.aJ(C.fX,"MaterialButtonExample","material_button_example/lib/material_button_example.dart")],y.D)
 v=y.X
-u.a=new A.i1(R.d_(H.a([],y.i),w,h,P.aX(v,v),!0))
+u.a=new A.hl(R.cQ(H.a([],y.i),w,h,P.aW(v,v),!0))
 u.F(x)}}
-A.l4.prototype={}
-K.C_.prototype={
+A.kO.prototype={}
+K.BY.prototype={
 q:function(){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6=this,g7=null,g8="\n\n  ",g9="section",h0="\n    ",h1="\n      ",h2="\n        ",h3="\n  ",h4="margin",h5="h2",h6="raised",h7="disabled",h8="red disabled",h9="button",i0="no-mixin-red",i1="raised-example",i2="raised-color-example",i3="Disabled Color",i4="dense-example",i5="blue dense-example",i6="Raised and highlighted",i7="highlighted",i8="Without min-width and margin",i9="red",j0="clear-size",j1="strong",j2="icon",j3=g6.a2()
 T.b(j3,"\n")
 x=document
@@ -457,17 +457,17 @@ w=T.d(x,j3,"h1")
 g6.m(w)
 T.b(w,"Material Button")
 T.b(j3,"\n\n")
-v=T.v(x,j3)
+v=T.u(x,j3)
 g6.h(v)
 T.b(v,g8)
 u=T.d(x,v,g9)
 g6.m(u)
 T.b(u,h0)
-t=T.v(x,u)
+t=T.u(x,u)
 T.c(t,"flex","")
 g6.h(t)
 T.b(t,h1)
-s=T.v(x,t)
+s=T.u(x,t)
 T.c(s,"card","")
 g6.h(s)
 T.b(s,h2)
@@ -475,17 +475,17 @@ r=T.d(x,s,"p")
 g6.m(r)
 T.b(r,"Light Theme")
 T.b(s,h2)
-q=N.a2B(g6,15)
+q=N.a2A(g6,15)
 g6.x=q
 p=q.c
 s.appendChild(p)
 g6.h(p)
-q=new T.j2()
+q=new T.ic()
 g6.y=q
 g6.x.K(0,q)
 T.b(s,h1)
 T.b(t,h1)
-o=T.v(x,t)
+o=T.u(x,t)
 T.c(o,"card","")
 g6.C(o,"dark-theme")
 T.c(o,"darkTheme","")
@@ -495,12 +495,12 @@ n=T.d(x,o,"p")
 g6.m(n)
 T.b(n,"Dark Theme")
 T.b(o,h2)
-q=N.a2B(g6,23)
+q=N.a2A(g6,23)
 g6.ch=q
 m=q.c
 o.appendChild(m)
 g6.h(m)
-q=new T.j2()
+q=new T.ic()
 g6.cx=q
 g6.ch.K(0,q)
 T.b(o,h1)
@@ -515,7 +515,7 @@ k=T.d(x,l,h5)
 g6.m(k)
 T.b(k,"Custom text")
 T.b(l,h0)
-q=U.a6(g6,33)
+q=U.a5(g6,33)
 g6.cy=q
 j=q.c
 l.appendChild(j)
@@ -525,15 +525,15 @@ q=g6.d
 i=q.a
 q=q.b
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.db=h
-h=B.a5(j,h,g6.cy,g7)
+h=B.a4(j,h,g6.cy,g7)
 g6.dx=h
 g=y.l
 f=y.M
 g6.cy.u(h,H.a([H.a([g6.e.b],g)],f))
 T.b(l,h0)
-h=U.a6(g6,36)
+h=U.a5(g6,36)
 g6.dy=h
 e=h.c
 l.appendChild(e)
@@ -541,14 +541,14 @@ g6.O(e,"blue")
 T.c(e,h6,"")
 g6.h(e)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.fr=h
-h=B.a5(e,h,g6.dy,g7)
+h=B.a4(e,h,g6.dy,g7)
 g6.fx=h
 d=T.n("Colored ")
 g6.dy.u(h,H.a([H.a([d,g6.f.b],g)],f))
 T.b(l,h0)
-h=U.a6(g6,40)
+h=U.a5(g6,40)
 g6.fy=h
 a0=h.c
 l.appendChild(a0)
@@ -556,9 +556,9 @@ T.c(a0,h7,"")
 T.c(a0,h6,"")
 g6.h(a0)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.go=h
-h=B.a5(a0,h,g6.fy,g7)
+h=B.a4(a0,h,g6.fy,g7)
 g6.id=h
 a1=T.n("Disabled ")
 g6.fy.u(h,H.a([H.a([a1,g6.r.b],g)],f))
@@ -576,7 +576,7 @@ a4=T.d(x,a2,"p")
 g6.m(a4)
 T.b(a4,"Mixin is preferred over external CSS because it sets the right disabled color.")
 T.b(a2,h0)
-h=U.a6(g6,53)
+h=U.a5(g6,53)
 g6.k1=h
 a5=h.c
 a2.appendChild(a5)
@@ -584,14 +584,14 @@ g6.O(a5,h8)
 T.c(a5,h6,"")
 g6.h(a5)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.k2=h
-h=B.a5(a5,h,g6.k1,g7)
+h=B.a4(a5,h,g6.k1,g7)
 g6.k3=h
 a6=T.n(h9)
 g6.k1.u(h,H.a([H.a([a6],g)],f))
 T.b(a2,h0)
-h=U.a6(g6,56)
+h=U.a5(g6,56)
 g6.k4=h
 a7=h.c
 a2.appendChild(a7)
@@ -600,9 +600,9 @@ T.c(a7,h7,"")
 T.c(a7,h6,"")
 g6.h(a7)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.r1=h
-h=B.a5(a7,h,g6.k4,g7)
+h=B.a4(a7,h,g6.k4,g7)
 g6.r2=h
 a8=T.n(h7)
 g6.k4.u(h,H.a([H.a([a8],g)],f))
@@ -611,7 +611,7 @@ a9=T.d(x,a2,h5)
 g6.m(a9)
 T.b(a9,"Disabled not using mixin")
 T.b(a2,h0)
-h=U.a6(g6,62)
+h=U.a5(g6,62)
 g6.rx=h
 b0=h.c
 a2.appendChild(b0)
@@ -619,14 +619,14 @@ g6.O(b0,i0)
 T.c(b0,h6,"")
 g6.h(b0)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.ry=h
-h=B.a5(b0,h,g6.rx,g7)
+h=B.a4(b0,h,g6.rx,g7)
 g6.x1=h
 b1=T.n(h9)
 g6.rx.u(h,H.a([H.a([b1],g)],f))
 T.b(a2,h0)
-h=U.a6(g6,65)
+h=U.a5(g6,65)
 g6.x2=h
 b2=h.c
 a2.appendChild(b2)
@@ -635,9 +635,9 @@ T.c(b2,h7,"")
 T.c(b2,h6,"")
 g6.h(b2)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.y1=h
-h=B.a5(b2,h,g6.x2,g7)
+h=B.a4(b2,h,g6.x2,g7)
 g6.y2=h
 b3=T.n(h7)
 g6.x2.u(h,H.a([H.a([b3],g)],f))
@@ -646,21 +646,21 @@ b4=T.d(x,a2,h5)
 g6.m(b4)
 T.b(b4,"Raised using mixin")
 T.b(a2,h0)
-h=U.a6(g6,71)
+h=U.a5(g6,71)
 g6.V=h
 b5=h.c
 a2.appendChild(b5)
 g6.O(b5,i1)
 g6.h(b5)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.a7=h
-h=B.a5(b5,h,g6.V,g7)
+h=B.a4(b5,h,g6.V,g7)
 g6.X=h
 b6=T.n("Raised Mixin")
 g6.V.u(h,H.a([H.a([b6],g)],f))
 T.b(a2,h0)
-h=U.a6(g6,74)
+h=U.a5(g6,74)
 g6.a0=h
 b7=h.c
 a2.appendChild(b7)
@@ -668,28 +668,28 @@ g6.O(b7,i1)
 T.c(b7,h7,"")
 g6.h(b7)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.a6=h
-h=B.a5(b7,h,g6.a0,g7)
+h=B.a4(b7,h,g6.a0,g7)
 g6.Y=h
 b8=T.n("Disabled Raised")
 g6.a0.u(h,H.a([H.a([b8],g)],f))
 T.b(a2,h0)
-h=U.a6(g6,77)
+h=U.a5(g6,77)
 g6.a4=h
 b9=h.c
 a2.appendChild(b9)
 g6.O(b9,i2)
 g6.h(b9)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.a_=h
-h=B.a5(b9,h,g6.a4,g7)
+h=B.a4(b9,h,g6.a4,g7)
 g6.W=h
 c0=T.n("Raised Color")
 g6.a4.u(h,H.a([H.a([c0],g)],f))
 T.b(a2,h0)
-h=U.a6(g6,80)
+h=U.a5(g6,80)
 g6.L=h
 c1=h.c
 a2.appendChild(c1)
@@ -697,9 +697,9 @@ g6.O(c1,i2)
 T.c(c1,h7,"")
 g6.h(c1)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.aa=h
-h=B.a5(c1,h,g6.L,g7)
+h=B.a4(c1,h,g6.L,g7)
 g6.a8=h
 c2=T.n(i3)
 g6.L.u(h,H.a([H.a([c2],g)],f))
@@ -708,21 +708,21 @@ c3=T.d(x,a2,h5)
 g6.m(c3)
 T.b(c3,"Dense using mixin")
 T.b(a2,h0)
-h=U.a6(g6,86)
+h=U.a5(g6,86)
 g6.a9=h
 c4=h.c
 a2.appendChild(c4)
 g6.O(c4,i4)
 g6.h(c4)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.ak=h
-h=B.a5(c4,h,g6.a9,g7)
+h=B.a4(c4,h,g6.a9,g7)
 g6.ae=h
 c5=T.n("Dense Mixin")
 g6.a9.u(h,H.a([H.a([c5],g)],f))
 T.b(a2,h0)
-h=U.a6(g6,89)
+h=U.a5(g6,89)
 g6.an=h
 c6=h.c
 a2.appendChild(c6)
@@ -730,14 +730,14 @@ g6.O(c6,i4)
 T.c(c6,h7,"")
 g6.h(c6)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.ag=h
-h=B.a5(c6,h,g6.an,g7)
+h=B.a4(c6,h,g6.an,g7)
 g6.al=h
 c7=T.n("Disabled Dense")
 g6.an.u(h,H.a([H.a([c7],g)],f))
 T.b(a2,h0)
-h=U.a6(g6,92)
+h=U.a5(g6,92)
 g6.aq=h
 c8=h.c
 a2.appendChild(c8)
@@ -745,14 +745,14 @@ g6.O(c8,i5)
 T.c(c8,h6,"")
 g6.h(c8)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.au=h
-h=B.a5(c8,h,g6.aq,g7)
+h=B.a4(c8,h,g6.aq,g7)
 g6.av=h
 c9=T.n("Dense Color")
 g6.aq.u(h,H.a([H.a([c9],g)],f))
 T.b(a2,h0)
-h=U.a6(g6,95)
+h=U.a5(g6,95)
 g6.ai=h
 d0=h.c
 a2.appendChild(d0)
@@ -761,9 +761,9 @@ T.c(d0,h7,"")
 T.c(d0,h6,"")
 g6.h(d0)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.ar=h
-h=B.a5(d0,h,g6.ai,g7)
+h=B.a4(d0,h,g6.ai,g7)
 g6.ah=h
 d1=T.n(i3)
 g6.ai.u(h,H.a([H.a([d1],g)],f))
@@ -772,7 +772,7 @@ d2=T.d(x,a2,h5)
 g6.m(d2)
 T.b(d2,i6)
 T.b(a2,h0)
-h=U.a6(g6,101)
+h=U.a5(g6,101)
 g6.aj=h
 d3=h.c
 a2.appendChild(d3)
@@ -780,14 +780,14 @@ g6.O(d3,i7)
 T.c(d3,h6,"")
 g6.h(d3)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.af=h
-h=B.a5(d3,h,g6.aj,g7)
+h=B.a4(d3,h,g6.aj,g7)
 g6.as=h
 d4=T.n(i6)
 g6.aj.u(h,H.a([H.a([d4],g)],f))
 T.b(a2,h0)
-h=U.a6(g6,104)
+h=U.a5(g6,104)
 g6.ax=h
 d5=h.c
 a2.appendChild(d5)
@@ -796,9 +796,9 @@ T.c(d5,h7,"")
 T.c(d5,h6,"")
 g6.h(d5)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.aA=h
-h=B.a5(d5,h,g6.ax,g7)
+h=B.a4(d5,h,g6.ax,g7)
 g6.aM=h
 d6=T.n("Disabled raised and highlighted")
 g6.ax.u(h,H.a([H.a([d6],g)],f))
@@ -816,7 +816,7 @@ d9=T.d(x,d7,"p")
 g6.m(d9)
 T.b(d9,"Regular")
 T.b(d7,h0)
-h=U.a6(g6,116)
+h=U.a5(g6,116)
 g6.aB=h
 e0=h.c
 d7.appendChild(e0)
@@ -824,14 +824,14 @@ g6.O(e0,i9)
 T.c(e0,h6,"")
 g6.h(e0)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.aw=h
-h=B.a5(e0,h,g6.aB,g7)
+h=B.a4(e0,h,g6.aB,g7)
 g6.aT=h
 e1=T.n(h9)
 g6.aB.u(h,H.a([H.a([e1],g)],f))
 T.b(d7,h0)
-h=U.a6(g6,119)
+h=U.a5(g6,119)
 g6.aY=h
 e2=h.c
 d7.appendChild(e2)
@@ -839,9 +839,9 @@ g6.O(e2,i9)
 T.c(e2,h6,"")
 g6.h(e2)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.ba=h
-h=B.a5(e2,h,g6.aY,g7)
+h=B.a4(e2,h,g6.aY,g7)
 g6.aF=h
 e3=T.n("A")
 g6.aY.u(h,H.a([H.a([e3],g)],f))
@@ -850,7 +850,7 @@ e4=T.d(x,d7,"p")
 g6.m(e4)
 T.b(e4,i8)
 T.b(d7,h0)
-h=U.a6(g6,125)
+h=U.a5(g6,125)
 g6.aR=h
 e5=h.c
 d7.appendChild(e5)
@@ -859,14 +859,14 @@ T.c(e5,j0,"")
 T.c(e5,h6,"")
 g6.h(e5)
 h=i.l(C.l,q)
-h=new F.Z(h===!0)
+h=new F.Y(h===!0)
 g6.aI=h
-h=B.a5(e5,h,g6.aR,g7)
+h=B.a4(e5,h,g6.aR,g7)
 g6.b5=h
 e6=T.n(h9)
 g6.aR.u(h,H.a([H.a([e6],g)],f))
 T.b(d7,h0)
-h=U.a6(g6,128)
+h=U.a5(g6,128)
 g6.bb=h
 e7=h.c
 d7.appendChild(e7)
@@ -875,9 +875,9 @@ T.c(e7,j0,"")
 T.c(e7,h6,"")
 g6.h(e7)
 q=i.l(C.l,q)
-q=new F.Z(q===!0)
+q=new F.Y(q===!0)
 g6.aG=q
-q=B.a5(e7,q,g6.bb,g7)
+q=B.a4(e7,q,g6.bb,g7)
 g6.aJ=q
 e8=T.n("A")
 g6.bb.u(q,H.a([H.a([e8],g)],f))
@@ -903,28 +903,28 @@ g6.m(f3)
 T.b(f3,"B")
 T.b(f0,"utton\n    ")
 T.b(e9,h0)
-g=L.ql(g6,146)
+g=L.qi(g6,146)
 g6.aU=g
 f4=g.c
 e9.appendChild(f4)
 g6.O(f4,i9)
 T.c(f4,h6,"")
 g6.h(f4)
-g6.aV=M.pI(f4,g6.aU)
+g6.aV=M.pF(f4,g6.aU)
 f5=T.n(h1)
-g=M.aa(g6,148)
+g=M.a8(g6,148)
 g6.aC=g
 f6=g.c
 T.c(f6,j2,"add")
 g6.h(f6)
-g=new Y.a3(f6)
+g=new Y.a2(f6)
 g6.b1=g
 g6.aC.K(0,g)
 f7=T.n(h0)
 g=y.N
 g6.aU.u(g6.aV,H.a([H.a([f5,f6,f7],g)],f))
 T.b(e9,h0)
-q=L.ql(g6,151)
+q=L.qi(g6,151)
 g6.aZ=q
 f8=q.c
 e9.appendChild(f8)
@@ -932,20 +932,20 @@ g6.O(f8,"blue")
 T.c(f8,"mini","")
 T.c(f8,h6,"")
 g6.h(f8)
-g6.bh=M.pI(f8,g6.aZ)
+g6.bh=M.pF(f8,g6.aZ)
 f9=T.n(h1)
-q=M.aa(g6,153)
+q=M.a8(g6,153)
 g6.aW=q
 g0=q.c
 T.c(g0,j2,"reply")
 g6.h(g0)
-q=new Y.a3(g0)
+q=new Y.a2(g0)
 g6.bc=q
 g6.aW.K(0,q)
 g1=T.n(h0)
 g6.aZ.u(g6.bh,H.a([H.a([f9,g0,g1],g)],f))
 T.b(e9,h0)
-q=L.ql(g6,156)
+q=L.qi(g6,156)
 g6.aQ=q
 g2=q.c
 e9.appendChild(g2)
@@ -953,14 +953,14 @@ g6.O(g2,"green")
 T.c(g2,"mini","")
 T.c(g2,h6,"")
 g6.h(g2)
-g6.bf=M.pI(g2,g6.aQ)
+g6.bf=M.pF(g2,g6.aQ)
 g3=T.n(h1)
-q=M.aa(g6,158)
+q=M.a8(g6,158)
 g6.b6=q
 g4=q.c
 T.c(g4,j2,"check")
 g6.h(g4)
-q=new Y.a3(g4)
+q=new Y.a2(g4)
 g6.bd=q
 g6.b6.K(0,q)
 g5=T.n(h0)
@@ -1120,30 +1120,30 @@ x.aZ.k()
 x.aW.k()
 x.aQ.k()
 x.b6.k()}}
-K.H0.prototype={
-q:function(){var x,w=this,v=new K.C_(N.Q(),N.Q(),N.Q(),E.T(w,0,3)),u=$.a74
-if(u==null)u=$.a74=O.a1($.aDc,null)
+K.H_.prototype={
+q:function(){var x,w=this,v=new K.BY(N.P(),N.P(),N.P(),E.S(w,0,3)),u=$.a74
+if(u==null)u=$.a74=O.a0($.aDc,null)
 v.b=u
 x=document.createElement("material-button-example")
 v.c=x
 w.b=v
-w.a=new A.l4()
+w.a=new A.kO()
 w.F(x)}}
-var z=a.updateTypes(["f<j2*>*()","f<i1*>*()","f<l4*>*()"]);(function installTearOffs(){var x=a._static_0
+var z=a.updateTypes(["f<ic*>*()","f<hl*>*()","f<kO*>*()"]);(function installTearOffs(){var x=a._static_0
 x(N,"at0","aGG",0)
 x(V,"ajj","aIu",1)
 x(K,"ajk","aIw",2)})();(function inheritance(){var x=a.inheritMany
-x(P.y,[T.j2,A.i1,A.l4])
-x(E.br,[N.BB,V.BY,K.C_])
-x(G.f,[N.Fv,V.GZ,K.H0])})()
-H.al(b.typeUniverse,JSON.parse('{"am":"w","ay":"w","aq":"af","an":"o","aC":"o","aE":"o","ao":"H","ap":"H","au":"J","az":"J","ar":"B","aB":"B","aH":"O","aG":"a4","aF":"a9","aw":"W","ax":"ad","aD":"X","aA":"ah","av":"ag","at":"ai","as":"a2","BB":{"k":[],"i":[]},"Fv":{"f":["j2*"],"i":[],"f.T":"j2*"},"BY":{"k":[],"i":[]},"GZ":{"f":["i1*"],"i":[],"f.T":"i1*"},"C_":{"k":[],"i":[]},"H0":{"f":["l4*"],"i":[],"f.T":"l4*"}}'))
+x(P.y,[T.ic,A.hl,A.kO])
+x(E.bn,[N.Bz,V.BW,K.BY])
+x(G.f,[N.Fu,V.GY,K.H_])})()
+H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","Bz":{"k":[],"i":[]},"Fu":{"f":["ic*"],"i":[],"f.T":"ic*"},"BW":{"k":[],"i":[]},"GY":{"f":["hl*"],"i":[],"f.T":"hl*"},"BY":{"k":[],"i":[]},"H_":{"f":["kO*"],"i":[],"f.T":"kO*"}}'))
 0
 var y=(function rtii(){var x=H.K
-return{G:x("l<j2*>"),r:x("l<i1*>"),O:x("l<l4*>"),C:x("q<j*>"),D:x("q<aK*>"),c:x("q<dd*>"),W:x("q<B*>"),N:x("q<O*>"),M:x("q<y*>"),i:x("q<t*>"),l:x("q<a2*>"),f:x("F<t*>*"),X:x("t*")}})();(function constants(){C.fX=new D.l("material-button-example",K.ajk(),y.O)
+return{G:x("l<ic*>"),r:x("l<hl*>"),O:x("l<kO*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),W:x("q<A*>"),N:x("q<O*>"),M:x("q<y*>"),i:x("q<t*>"),l:x("q<a1*>"),f:x("D<t*>*"),X:x("t*")}})();(function constants(){C.fX=new D.l("material-button-example",K.ajk(),y.O)
 C.h0=new D.l("material-button-api",V.ajj(),y.r)
-C.kX=H.D("j2")
-C.lE=H.D("i1")
-C.lF=H.D("l4")})();(function staticFields(){$.a6p=null
+C.kX=H.C("ic")
+C.lE=H.C("hl")
+C.lF=H.C("kO")})();(function staticFields(){$.a6p=null
 $.ag5=!1
 $.a72=null
 $.ag3=!1
@@ -1151,5 +1151,5 @@ $.aEU=['._nghost-%ID%{font-family:Roboto,"Helvetica Neue",Arial,Helvetica,sans-s
 $.a74=null
 $.ag4=!1
 $.aDc=[$.aEU]})()}
-$__dart_deferred_initializers__["LGqJ+lcJrGdwcpvQJs+9MuHvQts="] = $__dart_deferred_initializers__.current
+$__dart_deferred_initializers__["oEt/DgcsvPjve9Yl/UpSrIwV9UA="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_37.part.js.map

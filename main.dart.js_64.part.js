@@ -1,35 +1,35 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y={
-Wm:function(d,e){var x,w=new Y.uZ(E.T(d,e,1)),v=$.a8h
-if(v==null)v=$.a8h=O.a1($.aE2,null)
+Wm:function(d,e){var x,w=new Y.uX(E.S(d,e,1)),v=$.a8h
+if(v==null)v=$.a8h=O.a0($.aE2,null)
 w.b=v
 x=document.createElement("material-slider")
 w.c=x
 return w},
-aKQ:function(d,e){return new Y.xu(E.A(d,e,y.W))},
-aKR:function(){return new Y.IX(new G.S())},
+aKQ:function(d,e){return new Y.xt(E.z(d,e))},
+aKR:function(){return new Y.IW(new G.R())},
 awm:function(){if($.adM)return
 $.adM=!0
-$.V.w(0,C.cH,new D.l("material-slider",Y.aA6(),y.P))
-E.G()
-V.e1()},
-uZ:function uZ(d){var _=this
+$.T.w(0,C.cH,new D.l("material-slider",Y.aA6(),y.P))
+E.F()
+V.dM()},
+uX:function uX(d){var _=this
 _.c=_.b=_.a=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-xu:function xu(d){var _=this
+xt:function xt(d){var _=this
 _.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=_.d=_.c=_.b=null
 _.a=d},
-IX:function IX(d){var _=this
+IW:function IW(d){var _=this
 _.c=_.b=_.a=null
-_.d=d}},R={lj:function lj(d){var _=this
+_.d=d}},R={l9:function l9(d){var _=this
 _.a=60
 _.b=d
 _.c=60
 _.d=80
-_.r=_.f=_.e=!1}},K,V,E,M={ij:function ij(d){this.a=d}},Q={
+_.r=_.f=_.e=!1}},K,V,E,M={hE:function hE(d){this.a=d}},Q={
 RE:function(d,e){var x=null,w=y.O
-return new Q.ht(d,e,new P.P(x,x,w),new P.P(x,x,w))},
-ht:function ht(d,e,f,g){var _=this
+return new Q.iw(d,e,new P.N(x,x,w),new P.N(x,x,w))},
+iw:function iw(d,e,f,g){var _=this
 _.a=d
 _.b=e
 _.d=_.c=!1
@@ -50,40 +50,40 @@ this.b=e},
 RJ:function RJ(d){this.a=d},
 RI:function RI(d,e){this.a=d
 this.b=e},
-aKS:function(){return new Q.IY(new G.S())},
+aKS:function(){return new Q.IX(new G.R())},
 awl:function(){if($.adL)return
 $.adL=!0
-$.V.w(0,C.mt,new D.l("material-slider-example",Q.ajV(),y.Z))
-E.G()
+$.T.w(0,C.mt,new D.l("material-slider-example",Q.ajV(),y.Z))
+E.F()
 Y.awm()
-Q.oM()},
-v_:function v_(d,e,f,g,h){var _=this
+Q.oI()},
+uY:function uY(d,e,f,g,h){var _=this
 _.e=d
 _.f=e
 _.r=f
 _.x=g
 _.c=_.b=_.a=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=null
 _.d=h},
-IY:function IY(d){var _=this
+IX:function IX(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},D,Z,O,A,T={
-rv:function(d){var x
+rr:function(d){var x
 if($.a59!==d){$.a59=d
 x=$.ale().b
 $.a5a=x.test(d)}return $.a5a}},L,N,U,X,B={
 apn:function(){return C.hp},
-aKP:function(){return new B.IW(new G.S())},
+aKP:function(){return new B.IV(new G.R())},
 awk:function(){if($.adK)return
 $.adK=!0
-$.V.w(0,C.ms,new D.l("material-slider-api",B.ajU(),y.p))
-E.G()
-K.dj()
-D.d3()
+$.T.w(0,C.ms,new D.l("material-slider-api",B.ajU(),y.p))
+E.F()
+K.d7()
+D.cV()
 Q.awl()},
-CD:function CD(d){var _=this
+CB:function CB(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-IW:function IW(d){var _=this
+IV:function IV(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},S,F
 a.setFunctionNamesIfNecessary([Y,R,M,Q,T,B])
@@ -112,7 +112,7 @@ X=c[21]
 B=a.updateHolder(c[22],B)
 S=c[23]
 F=c[24]
-Q.ht.prototype={
+Q.iw.prototype={
 gHN:function(){var x=this.e,w=this.y
 return 100*(x-w)/(this.z-w)},
 gH9:function(){var x,w,v=this
@@ -135,8 +135,8 @@ v.db=!0
 v.a.am()
 x=document
 w=y.l
-new P.hF(1,new W.ec(x,"mouseup",!1,w),w.i("hF<aW.T>")).D(new Q.RG(v,W.cN(x,"mousemove",new Q.RH(v),!1,y.X)))},
-a33:function(d){var x,w,v,u=this
+new P.fY(1,new W.dT(x,"mouseup",!1,w),w.i("fY<aU.T>")).D(new Q.RG(v,W.cA(x,"mousemove",new Q.RH(v),!1,y.X)))},
+a34:function(d){var x,w,v,u=this
 if(u.c)return
 d.preventDefault()
 x=d.targetTouches
@@ -148,14 +148,14 @@ u.db=!0
 u.a.am()
 x=document
 v=y.H
-new P.hF(1,new W.ec(x,"touchend",!1,v),v.i("hF<aW.T>")).D(new Q.RI(u,W.cN(x,"touchmove",new Q.RJ(u),!1,y.c)))},
+new P.fY(1,new W.dT(x,"touchend",!1,v),v.i("fY<aU.T>")).D(new Q.RI(u,W.cA(x,"touchmove",new Q.RJ(u),!1,y.c)))},
 vQ:function(d,e){var x,w,v,u,t,s,r=this
 if(r.c)return
 if(e)x=r.d?r.r:r.y
 else x=r.e
 w=C.aF.oi((r.z-r.y)/10)
-v=T.hY()
-u=T.rv(v==null?"":v)?-1:1
+v=T.hg()
+u=T.rr(v==null?"":v)?-1:1
 switch(d.keyCode){case 40:case 37:t=Math.max(r.y,Math.min(r.z,x-r.Q*u))
 break
 case 38:case 39:t=Math.max(r.y,Math.min(r.z,x+r.Q*u))
@@ -172,50 +172,50 @@ r.x.R(0,v)}}else if(t!=r.e){v=r.zj(r.d?r.r:r.y,t)
 r.e=v
 r.f.R(0,v)}},
 a0A:function(d){return this.vQ(d,!1)},
-zj:function(d,e){var x=Math.max(H.h5(d),H.h5(e))
+zj:function(d,e){var x=Math.max(H.fy(d),H.fy(e))
 return x},
-zi:function(d,e){var x=Math.min(H.h5(d),H.h5(e))
+zi:function(d,e){var x=Math.min(H.fy(d),H.fy(e))
 return x},
-$ieF:1}
-Y.uZ.prototype={
-q:function(){var x,w,v,u,t,s=this,r="mousedown",q="touchstart",p=s.a,o=s.a2(),n=document,m=T.v(n,o)
+$iej:1}
+Y.uX.prototype={
+q:function(){var x,w,v,u,t,s=this,r="mousedown",q="touchstart",p=s.a,o=s.a2(),n=document,m=T.u(n,o)
 s.fx=m
 s.C(m,"container")
 s.h(s.fx)
-m=s.e=new V.u(1,0,s,T.M(s.fx))
-s.f=new K.L(new D.z(m,Y.aA5()),m)
-m=T.v(n,s.fx)
+m=s.e=new V.r(1,0,s,T.L(s.fx))
+s.f=new K.J(new D.x(m,Y.aA5()),m)
+m=T.u(n,s.fx)
 s.fy=m
 s.C(m,"track-container left-track-container")
 s.h(s.fy)
-x=T.v(n,s.fy)
+x=T.u(n,s.fy)
 s.C(x,"track")
 s.h(x)
-m=T.v(n,s.fx)
+m=T.u(n,s.fx)
 s.go=m
 s.C(m,"right-knob knob")
 T.c(s.go,"role","slider")
 s.h(s.go)
-w=T.v(n,s.go)
+w=T.u(n,s.go)
 s.C(w,"knob-real")
 s.h(w)
-v=T.v(n,s.go)
+v=T.u(n,s.go)
 s.C(v,"knob-hover-shadow")
 s.h(v)
-m=T.v(n,s.go)
+m=T.u(n,s.go)
 s.id=m
 s.C(m,"knob-drag-shadow")
 s.h(s.id)
-m=T.v(n,s.fx)
+m=T.u(n,s.fx)
 s.k1=m
 s.C(m,"track-container right-track-container")
 s.h(s.k1)
-u=T.v(n,s.k1)
+u=T.u(n,s.k1)
 s.C(u,"track")
 s.h(u)
 m=s.fx
 t=y.L;(m&&C.w).T(m,r,s.v(p.ga10(),t,y.X))
-m=s.fx;(m&&C.w).T(m,q,s.v(p.ga32(),t,y.c))
+m=s.fx;(m&&C.w).T(m,q,s.v(p.ga33(),t,y.c))
 m=s.go;(m&&C.w).T(m,r,s.v(s.gti(),t,t))
 m=s.go;(m&&C.w).T(m,q,s.v(s.gtk(),t,t))
 m=s.go;(m&&C.w).T(m,"keydown",s.v(p.ga0z(),t,y.S))
@@ -225,7 +225,7 @@ l.f.sU(j.d)
 l.e.J()
 x=j.c
 w=l.r
-if(w!=x){T.ae(l.fx,"is-disabled",x)
+if(w!=x){T.ad(l.fx,"is-disabled",x)
 l.r=x}v=j.gHN()-j.gH9()
 w=l.x
 if(w!==v){w=l.fy.style
@@ -236,16 +236,16 @@ l.x=v}t=j.c?-1:0
 w=l.y
 if(w!==t){w=l.go
 u=C.h.N(t)
-T.R(w,"tabindex",u)
-l.y=t}w=T.hY()
-s=T.rv(w==null?"":w)?0:-8
+T.Q(w,"tabindex",u)
+l.y=t}w=T.hg()
+s=T.rr(w==null?"":w)?0:-8
 w=l.z
 if(w!==s){w=l.go.style
 u=C.h.N(s)+"px"
 w.toString
 C.x.bV(w,C.x.bE(w,"left"),u,k)
-l.z=s}w=T.hY()
-r=T.rv(w==null?"":w)?-8:0
+l.z=s}w=T.hg()
+r=T.rr(w==null?"":w)?-8:0
 w=l.Q
 if(w!==r){w=l.go.style
 u=C.h.N(r)+"px"
@@ -255,20 +255,20 @@ l.Q=r}q=j.y
 w=l.ch
 if(w!==q){w=l.go
 u=C.h.N(q)
-T.R(w,"aria-valuemin",u)
+T.Q(w,"aria-valuemin",u)
 l.ch=q}p=j.z
 w=l.cx
 if(w!==p){w=l.go
 u=C.h.N(p)
-T.R(w,"aria-valuemax",u)
+T.Q(w,"aria-valuemax",u)
 l.cx=p}o=j.e
 w=l.cy
 if(w!=o){w=l.go
-T.R(w,"aria-valuenow",o==null?k:C.y.N(o))
+T.Q(w,"aria-valuenow",o==null?k:C.y.N(o))
 l.cy=o}n=j.db
 w=l.db
-if(w!==n){T.ae(l.id,"is-dragging",n)
-l.db=n}w=H.C(100-j.gHN())
+if(w!==n){T.ad(l.id,"is-dragging",n)
+l.db=n}w=H.B(100-j.gHN())
 m="calc("+w+"%)"
 w=l.dx
 if(w!==m){w=l.k1.style
@@ -280,17 +280,17 @@ tj:function(d){this.a.cy=!0},
 tl:function(d){this.a.cy=!0},
 B:function(d){var x,w=this,v=w.a,u=v.c,t=w.dy
 if(t!=u){t=w.c
-T.R(t,"aria-disabled",u==null?null:C.aB.N(u))
+T.Q(t,"aria-disabled",u==null?null:C.aB.N(u))
 w.dy=u}x=v.c
 t=w.fr
 if(t!=x){T.b2(w.c,"is-disabled",x)
 w.fr=x}}}
-Y.xu.prototype={
+Y.xt.prototype={
 q:function(){var x,w,v,u,t=this,s=document,r=s.createElement("div")
 t.z=r
 t.C(r,"track-container double-sided-left-track-container")
 t.h(t.z)
-x=T.v(s,t.z)
+x=T.u(s,t.z)
 t.C(x,"track")
 t.h(x)
 r=s.createElement("div")
@@ -298,13 +298,13 @@ t.Q=r
 t.C(r,"left-knob knob")
 T.c(t.Q,"role","slider")
 t.h(t.Q)
-w=T.v(s,t.Q)
+w=T.u(s,t.Q)
 t.C(w,"knob-real")
 t.h(w)
-v=T.v(s,t.Q)
+v=T.u(s,t.Q)
 t.C(v,"knob-hover-shadow")
 t.h(v)
-r=T.v(s,t.Q)
+r=T.u(s,t.Q)
 t.ch=r
 t.C(r,"knob-drag-shadow")
 t.h(t.ch)
@@ -315,7 +315,7 @@ r=t.Q;(r&&C.w).T(r,"keydown",t.v(t.gUn(),u,u))
 t.aD(H.a([t.z,t.Q],y.M),null)},
 A:function(){var x,w,v,u,t,s,r,q,p=this,o=null,n=p.a.a,m=n.gH9(),l=p.b
 if(l!==m){l=p.z.style
-x=H.C(m)
+x=H.B(m)
 x="calc("+x+"%)"
 l.toString
 C.x.bV(l,C.x.bE(l,"width"),x,o)
@@ -323,16 +323,16 @@ p.b=m}w=n.c?-1:0
 l=p.c
 if(l!==w){l=p.Q
 x=C.h.N(w)
-T.R(l,"tabindex",x)
-p.c=w}l=T.hY()
-v=T.rv(l==null?"":l)?0:-8
+T.Q(l,"tabindex",x)
+p.c=w}l=T.hg()
+v=T.rr(l==null?"":l)?0:-8
 l=p.d
 if(l!==v){l=p.Q.style
 x=C.h.N(v)+"px"
 l.toString
 C.x.bV(l,C.x.bE(l,"left"),x,o)
-p.d=v}l=T.hY()
-u=T.rv(l==null?"":l)?-8:0
+p.d=v}l=T.hg()
+u=T.rr(l==null?"":l)?-8:0
 l=p.e
 if(l!==u){l=p.Q.style
 x=C.h.N(u)+"px"
@@ -342,24 +342,24 @@ p.e=u}t=n.y
 l=p.f
 if(l!==t){l=p.Q
 x=C.h.N(t)
-T.R(l,"aria-valuemin",x)
+T.Q(l,"aria-valuemin",x)
 p.f=t}s=n.z
 l=p.r
 if(l!==s){l=p.Q
 x=C.h.N(s)
-T.R(l,"aria-valuemax",x)
+T.Q(l,"aria-valuemax",x)
 p.r=s}r=n.d?n.r:n.y
 l=p.x
 if(l!=r){l=p.Q
-T.R(l,"aria-valuenow",r==null?o:C.h.N(r))
+T.Q(l,"aria-valuenow",r==null?o:C.h.N(r))
 p.x=r}q=n.db
 l=p.y
-if(l!==q){T.ae(p.ch,"is-dragging",q)
+if(l!==q){T.ad(p.ch,"is-dragging",q)
 p.y=q}},
 tj:function(d){this.a.a.cx=!0},
 tl:function(d){this.a.a.cx=!0},
 Uo:function(d){this.a.a.vQ(d,!0)}}
-Y.IX.prototype={
+Y.IW.prototype={
 q:function(){var x=this,w=x.b=Y.Wm(x,0),v=w.c
 w=Q.RE(w,x.n(C.b,null))
 x.a=w
@@ -369,8 +369,8 @@ return f},
 A:function(){var x=this.d.e
 this.b.B(x===0)
 this.b.j()}}
-M.ij.prototype={}
-B.CD.prototype={
+M.hE.prototype={}
+B.CB.prototype={
 gnx:function(){var x=this.r
 return x==null?this.r=document:x},
 gCn:function(){var x=this.y
@@ -379,30 +379,30 @@ gny:function(){var x,w=this,v=w.z
 if(v==null){v=w.d
 x=v.a
 v=v.b
-v=T.bC(x.l(C.b,v),x.l(C.D,v),x.n(C.f,v),w.gCn())
+v=T.bx(x.l(C.b,v),x.l(C.D,v),x.n(C.f,v),w.gCn())
 w.z=v}return v},
 gCk:function(){var x,w=this,v=w.Q
 if(v==null){v=w.d
 v=v.a.n(C.U,v.b)
 x=w.gny()
-v=w.Q=new O.bk(v,x)}return v},
+v=w.Q=new O.bh(v,x)}return v},
 gtf:function(){var x=this,w=x.ch
-return w==null?x.ch=new K.bl(x.gnx(),x.gny(),P.bA(null,y.f)):w},
+return w==null?x.ch=new K.bi(x.gnx(),x.gny(),P.bu(null,y.f)):w},
 gU7:function(){var x=this.cx
 if(x==null){x=this.d
-x=T.bG(x.a.n(C.f,x.b))
+x=T.bB(x.a.n(C.f,x.b))
 this.cx=x}return x},
 gtg:function(){var x=this.cy
 if(x==null){x=this.d
-x=G.bL(x.a.l(C.t,x.b))
+x=G.bF(x.a.l(C.t,x.b))
 this.cy=x}return x},
 gCp:function(){var x=this,w=x.db
 if(w==null){w=x.d
-w=G.bO(x.gnx(),w.a.l(C.u,w.b))
+w=G.bI(x.gnx(),w.a.l(C.u,w.b))
 x.db=w}return w},
 gCq:function(){var x=this,w=x.dx
 if(w==null){w=x.d
-w=G.bE(x.gtg(),x.gCp(),w.a.l(C.r,w.b))
+w=G.bz(x.gtg(),x.gCp(),w.a.l(C.r,w.b))
 x.dx=w}return w},
 gth:function(){var x=this.dy
 return x==null?this.dy=!0:x},
@@ -410,11 +410,11 @@ gCr:function(){var x=this.fr
 return x==null?this.fr=!0:x},
 gCm:function(){var x=this.fy
 if(x==null){x=this.gnx()
-x=this.fy=new R.bn(x.querySelector("head"),x)}return x},
+x=this.fy=new R.bk(x.querySelector("head"),x)}return x},
 gCo:function(){var x=this.go
-return x==null?this.go=X.bK():x},
+return x==null?this.go=X.bE():x},
 gCl:function(){var x=this,w=x.id
-return w==null?x.id=K.bI(x.gCm(),x.gCq(),x.gtg(),x.gtf(),x.gny(),x.gCk(),x.gth(),x.gCr(),x.gCo()):w},
+return w==null?x.id=K.bD(x.gCm(),x.gCq(),x.gtg(),x.gtf(),x.gny(),x.gCk(),x.gth(),x.gCr(),x.gCo()):w},
 gU8:function(){var x,w,v,u,t=this,s=t.k1
 if(s==null){s=t.d
 x=s.a
@@ -423,8 +423,8 @@ w=x.n(C.f,s)
 v=t.gth()
 u=t.gCl()
 x.l(C.k,s)
-s=t.k1=new X.bj(v,w,u)}return s},
-q:function(){var x,w=this,v=w.a2(),u=K.cS(w,0)
+s=t.k1=new X.bg(v,w,u)}return s},
+q:function(){var x,w=this,v=w.a2(),u=K.cH(w,0)
 w.e=u
 v.appendChild(u.c)
 u=w.d
@@ -432,7 +432,7 @@ x=u.a
 u=u.b
 x.n(C.a9,u)
 u=x.n(C.aa,u)
-u=new X.bf(u,!J.bF(window.location.href,"enableLatencyCharts=false"))
+u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
 w.f=u
 w.e.K(0,u)},
 P:function(d,e,f){var x,w=this
@@ -455,37 +455,37 @@ if(d===C.Q)return w.gCl()
 if(d===C.k)return w.gU8()
 if(d===C.H){x=w.k2
 return x==null?w.k2=C.Z:x}if(d===C.v){x=w.k3
-return x==null?w.k3=new K.bt(w.gtf()):x}}return f},
+return x==null?w.k3=new K.bp(w.gtf()):x}}return f},
 A:function(){var x=this,w=x.a.a,v=x.k4
 if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
-B.IW.prototype={
-q:function(){var x,w,v,u=this,t="num",s="Stream<num>",r=new B.CD(E.T(u,0,3)),q=$.a8g
-if(q==null)q=$.a8g=O.bM(C.a,null)
+B.IV.prototype={
+q:function(){var x,w,v,u=this,t="num",s="Stream<num>",r=new B.CB(E.S(u,0,3)),q=$.a8g
+if(q==null)q=$.a8g=O.bG(C.a,null)
 r.b=q
 x=document.createElement("material-slider-api")
 r.c=x
 u.b=r
 r=y.C
-r=H.a([new D.b6("MaterialSliderComponent",!1,"","material-slider","","angular_components/lib/material_slider/material_slider.dart",X.h('<p>A <a href="https://material.io/guidelines/components/sliders.html">material slider</a>\nwhich works for integer values.</p>\n<p>The slider can be controlled by dragging it with the mouse, or by using the\nkeyboard. In LTR, Left/down arrow keys decrease the value by 1, up/right\nkeys increase by 1, page up increases by 10% (rounded up) and page down\ndecreases by 10% (rounded up). In RTL, the keys have the opposite effect.</p>\n<p>WARNING when using double values floating point math can cause the values\nto be non-exact. If displaying the value to the user consider formatting\nthe result.</p>\n'),H.a([new D.j("disabled","","bool",X.h("<p>True if the slider disabled.</p>\n"),!1,""),new D.j("isTwoSided","","bool",X.h(""),!1,""),new D.j("leftValue","","int",X.h(""),!1,""),new D.j("max","",t,X.h("<p>The maximum progress value.</p>\n<p>Defaults to 100, must be strictly larger than min.</p>\n"),!1,""),new D.j("min","",t,X.h("<p>The minimum progress value.</p>\n<p>Defaults to 0, must be strictly smaller than max.</p>\n"),!1,""),new D.j("step","",t,X.h("<p>The step size of the input.</p>\n<p>Must be a positive number and a divisor of (max - min).</p>\n"),!1,""),new D.j("value","",t,X.h("<p>The current value of the input <code>value</code> element.</p>\n<p>When <code>isTwoSided</code> is true, then this represents the current value of the\nright slider knob. Must be between <code>min</code> and <code>max</code>, inclusive, a multiple\nof <code>step</code>, and greater than <code>leftValue</code>.</p>\n"),!1,"")],r),H.a([new D.j("leftValueChange","",s,X.h("<p>Publishes events when the value of the <code>leftValue</code> input is changed\nby the user in a 2 sided slider.</p>\n"),!1,""),new D.j("valueChange","",s,X.h("<p>Publishes events when the value of the <code>value</code> input is changed by the\nuser.</p>\n"),!1,"")],r))],y.r)
-w=H.a([new R.aK(C.fl,"MaterialSliderExample","material_slider_example/lib/material_slider_example.dart")],y.D)
+r=H.a([new D.b5("MaterialSliderComponent",!1,"","material-slider","","angular_components/lib/material_slider/material_slider.dart",X.h('<p>A <a href="https://material.io/guidelines/components/sliders.html">material slider</a>\nwhich works for integer values.</p>\n<p>The slider can be controlled by dragging it with the mouse, or by using the\nkeyboard. In LTR, Left/down arrow keys decrease the value by 1, up/right\nkeys increase by 1, page up increases by 10% (rounded up) and page down\ndecreases by 10% (rounded up). In RTL, the keys have the opposite effect.</p>\n<p>WARNING when using double values floating point math can cause the values\nto be non-exact. If displaying the value to the user consider formatting\nthe result.</p>\n'),H.a([new D.j("disabled","","bool",X.h("<p>True if the slider disabled.</p>\n"),!1,""),new D.j("isTwoSided","","bool",X.h(""),!1,""),new D.j("leftValue","","int",X.h(""),!1,""),new D.j("max","",t,X.h("<p>The maximum progress value.</p>\n<p>Defaults to 100, must be strictly larger than min.</p>\n"),!1,""),new D.j("min","",t,X.h("<p>The minimum progress value.</p>\n<p>Defaults to 0, must be strictly smaller than max.</p>\n"),!1,""),new D.j("step","",t,X.h("<p>The step size of the input.</p>\n<p>Must be a positive number and a divisor of (max - min).</p>\n"),!1,""),new D.j("value","",t,X.h("<p>The current value of the input <code>value</code> element.</p>\n<p>When <code>isTwoSided</code> is true, then this represents the current value of the\nright slider knob. Must be between <code>min</code> and <code>max</code>, inclusive, a multiple\nof <code>step</code>, and greater than <code>leftValue</code>.</p>\n"),!1,"")],r),H.a([new D.j("leftValueChange","",s,X.h("<p>Publishes events when the value of the <code>leftValue</code> input is changed\nby the user in a 2 sided slider.</p>\n"),!1,""),new D.j("valueChange","",s,X.h("<p>Publishes events when the value of the <code>value</code> input is changed by the\nuser.</p>\n"),!1,"")],r))],y.r)
+w=H.a([new R.aJ(C.fl,"MaterialSliderExample","material_slider_example/lib/material_slider_example.dart")],y.D)
 v=y.Q
-u.a=new M.ij(R.d_(H.a([],y.i),w,r,P.aX(v,v),!0))
+u.a=new M.hE(R.cQ(H.a([],y.i),w,r,P.aW(v,v),!0))
 u.F(x)}}
-R.lj.prototype={}
-Q.v_.prototype={
+R.l9.prototype={}
+Q.uY.prototype={
 q:function(){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4=this,a5="section",a6="Value: ",a7=a4.a2(),a8=document,a9=T.d(a8,a7,a5)
 a4.m(a9)
 x=T.d(a8,a9,"h2")
 a4.m(x)
 T.b(x,"Basic")
-w=Q.cT(a4,3)
+w=Q.cI(a4,3)
 a4.y=w
 v=w.c
 a9.appendChild(v)
 a4.h(v)
-w=D.cQ(a4.y,null)
+w=D.cG(a4.y,null)
 a4.z=w
 u=y.M
 a4.y.u(w,H.a([C.a],u))
@@ -510,12 +510,12 @@ a4.m(p)
 o=T.d(a8,p,"h2")
 a4.m(o)
 T.b(o,"Custom Colors and Double Values")
-r=Q.cT(a4,12)
+r=Q.cI(a4,12)
 a4.cx=r
 n=r.c
 p.appendChild(n)
 a4.h(n)
-r=D.cQ(a4.cx,null)
+r=D.cG(a4.cx,null)
 a4.cy=r
 a4.cx.u(r,H.a([C.a],u))
 a4.m(T.d(a8,p,"br"))
@@ -537,12 +537,12 @@ a4.m(k)
 j=T.d(a8,k,"h2")
 a4.m(j)
 T.b(j,"Two Sided")
-r=Q.cT(a4,21)
+r=Q.cI(a4,21)
 a4.dy=r
 i=r.c
 k.appendChild(i)
 a4.h(i)
-r=D.cQ(a4.dy,null)
+r=D.cG(a4.dy,null)
 a4.fr=r
 a4.dy.u(r,H.a([C.a],u))
 a4.m(T.d(a8,k,"br"))
@@ -689,24 +689,24 @@ Ug:function(d){this.a.b=d},
 Ui:function(d){this.a.r=d},
 Uk:function(d){this.a.c=d},
 Um:function(d){this.a.d=d}}
-Q.IY.prototype={
-q:function(){var x,w=this,v=new Q.v_(N.Q(),N.Q(),N.Q(),N.Q(),E.T(w,0,3)),u=$.a8i
-if(u==null)u=$.a8i=O.a1($.aE3,null)
+Q.IX.prototype={
+q:function(){var x,w=this,v=new Q.uY(N.P(),N.P(),N.P(),N.P(),E.S(w,0,3)),u=$.a8i
+if(u==null)u=$.a8i=O.a0($.aE3,null)
 v.b=u
 x=document.createElement("material-slider-example")
 v.c=x
 w.b=v
-w.a=new R.lj(0.5)
+w.a=new R.l9(0.5)
 w.F(x)}}
-var z=a.updateTypes(["~(@)","~(X*)","~(eV*)","~(b3*{isLeftKnobPressed:E*})","r<~>*(k*,I*)","f<ht*>*()","f<ij*>*()","f<lj*>*()"])
+var z=a.updateTypes(["~(@)","~(W*)","~(eu*)","~(b3*{isLeftKnobPressed:E*})","aj<~>*(k*,H*)","f<iw*>*()","f<hE*>*()","f<l9*>*()"])
 Q.RF.prototype={
 $0:function(){var x,w,v,u,t,s,r,q,p=this.a,o=p.ch,n=o.clientWidth
 if(n===0)return
 o=o.getBoundingClientRect().left
 o.toString
 x=(this.b-(o+C.aj.gwA(window)))/n
-o=T.hY()
-w=T.rv(o==null?"":o)?1-x:x
+o=T.hg()
+w=T.rr(o==null?"":o)?1-x:x
 o=p.z
 v=p.y
 u=w*(o-v)
@@ -758,38 +758,38 @@ x.db=x.cy=x.cx=!1
 x.a.am()},
 $S:69};(function installTearOffs(){var x=a._instance_1u,w=a.installInstanceTearOff,v=a._static_2,u=a._static_0
 var t
-x(t=Q.ht.prototype,"ga10","a11",1)
-x(t,"ga32","a33",2)
+x(t=Q.iw.prototype,"ga10","a11",1)
+x(t,"ga33","a34",2)
 w(t,"ga0z",0,1,null,["$2$isLeftKnobPressed","$1"],["vQ","a0A"],3,0)
 v(Y,"aA5","aKQ",4)
 u(Y,"aA6","aKR",5)
-x(t=Y.uZ.prototype,"gti","tj",0)
+x(t=Y.uX.prototype,"gti","tj",0)
 x(t,"gtk","tl",0)
-x(t=Y.xu.prototype,"gti","tj",0)
+x(t=Y.xt.prototype,"gti","tj",0)
 x(t,"gtk","tl",0)
 x(t,"gUn","Uo",0)
 u(B,"ajU","aKP",6)
 u(Q,"ajV","aKS",7)
-x(t=Q.v_.prototype,"gU9","Ua",0)
+x(t=Q.uY.prototype,"gU9","Ua",0)
 x(t,"gUb","Uc",0)
 x(t,"gUd","Ue",0)
 x(t,"gUf","Ug",0)
 x(t,"gUh","Ui",0)
 x(t,"gUj","Uk",0)
 x(t,"gUl","Um",0)})();(function inheritance(){var x=a.inheritMany,w=a.inherit
-x(P.y,[Q.ht,M.ij,R.lj])
-x(H.bv,[Q.RF,Q.RH,Q.RG,Q.RJ,Q.RI])
-x(E.br,[Y.uZ,B.CD,Q.v_])
-w(Y.xu,E.r)
-x(G.f,[Y.IX,B.IW,Q.IY])})()
-H.al(b.typeUniverse,JSON.parse('{"am":"w","ay":"w","aq":"af","an":"o","aC":"o","aE":"o","ao":"H","ap":"H","au":"J","az":"J","ar":"B","aB":"B","aH":"O","aG":"a4","aF":"a9","aw":"W","ax":"ad","aD":"X","aA":"ah","av":"ag","at":"ai","as":"a2","ht":{"eF":[]},"uZ":{"k":[],"i":[]},"xu":{"r":["ht*"],"k":[],"i":[]},"IX":{"f":["ht*"],"i":[],"f.T":"ht*"},"CD":{"k":[],"i":[]},"IW":{"f":["ij*"],"i":[],"f.T":"ij*"},"v_":{"k":[],"i":[]},"IY":{"f":["lj*"],"i":[],"f.T":"lj*"}}'))
+x(P.y,[Q.iw,M.hE,R.l9])
+x(H.bq,[Q.RF,Q.RH,Q.RG,Q.RJ,Q.RI])
+x(E.bn,[Y.uX,B.CB,Q.uY])
+w(Y.xt,E.aj)
+x(G.f,[Y.IW,B.IV,Q.IX])})()
+H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","iw":{"ej":[]},"uX":{"k":[],"i":[]},"xt":{"k":[],"i":[]},"IW":{"f":["iw*"],"i":[],"f.T":"iw*"},"CB":{"k":[],"i":[]},"IV":{"f":["hE*"],"i":[],"f.T":"hE*"},"uY":{"k":[],"i":[]},"IX":{"f":["l9*"],"i":[],"f.T":"l9*"}}'))
 0
 var y=(function rtii(){var x=H.K
-return{p:x("l<ij*>"),P:x("l<ht*>"),Z:x("l<lj*>"),C:x("q<j*>"),D:x("q<aK*>"),r:x("q<dd*>"),M:x("q<y*>"),a:x("q<bh<~>*>"),i:x("q<t*>"),l:x("ec<X*>"),H:x("ec<eV*>"),O:x("P<b_*>"),L:x("w*"),S:x("b3*"),f:x("F<t*>*"),W:x("ht*"),X:x("X*"),Q:x("t*"),c:x("eV*"),b:x("E*"),B:x("b_*")}})();(function constants(){C.fl=new D.l("material-slider-example",Q.ajV(),y.Z)
+return{p:x("l<hE*>"),P:x("l<iw*>"),Z:x("l<l9*>"),C:x("q<j*>"),D:x("q<aJ*>"),r:x("q<d_*>"),M:x("q<y*>"),a:x("q<be<~>*>"),i:x("q<t*>"),l:x("dT<W*>"),H:x("dT<eu*>"),O:x("N<b1*>"),L:x("v*"),S:x("b3*"),f:x("D<t*>*"),X:x("W*"),Q:x("t*"),c:x("eu*"),b:x("E*"),B:x("b1*")}})();(function constants(){C.fl=new D.l("material-slider-example",Q.ajV(),y.Z)
 C.hp=new D.l("material-slider-api",B.ajU(),y.p)
-C.ms=H.D("ij")
-C.cH=H.D("ht")
-C.mt=H.D("lj")})();(function staticFields(){$.aFw=[".container._ngcontent-%ID%{align-items:center;display:flex;flex-grow:1;height:32px;cursor:pointer}.container.is-disabled._ngcontent-%ID%{cursor:not-allowed}.container.is-disabled._ngcontent-%ID% .knob-real._ngcontent-%ID%{background-color:#757575}.container.is-disabled._ngcontent-%ID% .knob:focus._ngcontent-%ID% .knob-hover-shadow._ngcontent-%ID%,.container.is-disabled._ngcontent-%ID% .knob:hover._ngcontent-%ID% .knob-hover-shadow._ngcontent-%ID%{display:none}.container.is-disabled._ngcontent-%ID% .left-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#757575}.container.is-disabled._ngcontent-%ID% .right-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#bdbdbd}.track-container._ngcontent-%ID%{align-items:center;display:flex;height:4px}.track._ngcontent-%ID%{height:2px;width:100%}.double-sided-left-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#9e9e9e}.left-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#4285f4}.right-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#9e9e9e}.knob._ngcontent-%ID%{height:16px;position:relative;width:0}.knob-real._ngcontent-%ID%{background-color:#4285f4;border-radius:50%;height:16px;position:absolute;width:16px}.knob-hover-shadow._ngcontent-%ID%{border-radius:50%;height:32px;margin:-8px;position:absolute;transition:background-color 0.5s linear;width:32px}.knob-drag-shadow._ngcontent-%ID%{border-radius:50%;height:20px;margin:-2px;position:absolute;width:20px}.is-dragging.knob-drag-shadow._ngcontent-%ID%{background-color:#4285f4}.knob:focus._ngcontent-%ID%,.knob:hover._ngcontent-%ID%{outline:none}.knob:focus._ngcontent-%ID% .knob-hover-shadow._ngcontent-%ID%,.knob:hover._ngcontent-%ID% .knob-hover-shadow._ngcontent-%ID%{background-color:rgba(66,133,244,0.5)}"]
+C.ms=H.C("hE")
+C.cH=H.C("iw")
+C.mt=H.C("l9")})();(function staticFields(){$.aFw=[".container._ngcontent-%ID%{align-items:center;display:flex;flex-grow:1;height:32px;cursor:pointer}.container.is-disabled._ngcontent-%ID%{cursor:not-allowed}.container.is-disabled._ngcontent-%ID% .knob-real._ngcontent-%ID%{background-color:#757575}.container.is-disabled._ngcontent-%ID% .knob:focus._ngcontent-%ID% .knob-hover-shadow._ngcontent-%ID%,.container.is-disabled._ngcontent-%ID% .knob:hover._ngcontent-%ID% .knob-hover-shadow._ngcontent-%ID%{display:none}.container.is-disabled._ngcontent-%ID% .left-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#757575}.container.is-disabled._ngcontent-%ID% .right-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#bdbdbd}.track-container._ngcontent-%ID%{align-items:center;display:flex;height:4px}.track._ngcontent-%ID%{height:2px;width:100%}.double-sided-left-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#9e9e9e}.left-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#4285f4}.right-track-container._ngcontent-%ID% > .track._ngcontent-%ID%{background-color:#9e9e9e}.knob._ngcontent-%ID%{height:16px;position:relative;width:0}.knob-real._ngcontent-%ID%{background-color:#4285f4;border-radius:50%;height:16px;position:absolute;width:16px}.knob-hover-shadow._ngcontent-%ID%{border-radius:50%;height:32px;margin:-8px;position:absolute;transition:background-color 0.5s linear;width:32px}.knob-drag-shadow._ngcontent-%ID%{border-radius:50%;height:20px;margin:-2px;position:absolute;width:20px}.is-dragging.knob-drag-shadow._ngcontent-%ID%{background-color:#4285f4}.knob:focus._ngcontent-%ID%,.knob:hover._ngcontent-%ID%{outline:none}.knob:focus._ngcontent-%ID% .knob-hover-shadow._ngcontent-%ID%,.knob:hover._ngcontent-%ID% .knob-hover-shadow._ngcontent-%ID%{background-color:rgba(66,133,244,0.5)}"]
 $.a8h=null
 $.adM=!1
 $.a59=null
@@ -801,6 +801,6 @@ $.a8i=null
 $.adL=!1
 $.aE2=[$.aFw]
 $.aE3=[$.aFv]})();(function lazyInitializers(){var x=a.lazyOld
-x($,"aNh","ale",function(){return P.dJ("^(ar|dv|he|iw|fa|nqo|ps|sd|ug|ur|yi|.*[-_](Arab|Hebr|Thaa|Nkoo|Tfng))(?!.*[-_](Latn|Cyrl)($|-|_))($|-|_)",!1,!1)})})()}
-$__dart_deferred_initializers__["qY5KDT0fVyBAmkBcN2bE2wcYQlU="] = $__dart_deferred_initializers__.current
+x($,"aNh","ale",function(){return P.dt("^(ar|dv|he|iw|fa|nqo|ps|sd|ug|ur|yi|.*[-_](Arab|Hebr|Thaa|Nkoo|Tfng))(?!.*[-_](Latn|Cyrl)($|-|_))($|-|_)",!1,!1)})})()}
+$__dart_deferred_initializers__["imlJ6lE5Cq4Gacsm0WKyGF6q/Zk="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_64.part.js.map
