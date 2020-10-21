@@ -2,11 +2,11 @@ self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Objec
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,E,M,Q,D={l1:function l1(d,e){this.a=d
 this.b=e
 this.c="Growing item label"}},Z,O={
-aK7:function(d,e){return new O.x8(N.P(),E.z(d,e))},
-aK8:function(){return new O.In(new G.R())},
-awL:function(){if($.aeM)return
-$.aeM=!0
-$.T.w(0,C.ma,new D.l("material-list-demo",O.ajJ(),y.k))
+aK8:function(d,e){return new O.x8(N.P(),E.z(d,e))},
+aK9:function(){return new O.In(new G.R())},
+awM:function(){if($.aeN)return
+$.aeN=!0
+$.T.w(0,C.ma,new D.l("material-list-demo",O.ajK(),y.k))
 E.F()
 U.Lq()
 K.yv()
@@ -29,15 +29,15 @@ _.a=e},
 In:function In(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},A,T,L,N={
-apd:function(){return C.fM},
-aK5:function(){return new N.Il(new G.R())},
-awK:function(){if($.aeL)return
-$.aeL=!0
-$.T.w(0,C.m8,new D.l("material-list-api",N.ahv(),y.Y))
+ape:function(){return C.fL},
+aK6:function(){return new N.Il(new G.R())},
+awL:function(){if($.aeM)return
+$.aeM=!0
+$.T.w(0,C.m8,new D.l("material-list-api",N.ahw(),y.Y))
 E.F()
 K.d7()
 D.cV()
-O.awL()},
+O.awM()},
 Ci:function Ci(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
@@ -125,17 +125,14 @@ v=t.gqq()
 u=t.gyG()
 x.l(C.k,s)
 s=t.k1=new X.bg(v,w,u)}return s},
-q:function(){var x,w=this,v=w.a2(),u=K.cH(w,0)
-w.e=u
-v.appendChild(u.c)
-u=w.d
-x=u.a
-u=u.b
-x.n(C.a9,u)
-u=x.n(C.aa,u)
-u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
-w.f=u
-w.e.K(0,u)},
+q:function(){var x=this,w=x.a2(),v=K.cH(x,0)
+x.e=v
+w.appendChild(v.c)
+v=x.d
+v=v.a.n(C.a9,v.b)
+v=new X.cb(v,!J.bA(window.location.href,"enableLatencyCharts=false"))
+x.f=v
+x.e.K(0,v)},
 P:function(d,e,f){var x,w=this
 if(0===e){if(d===C.L)return w.gmC()
 if(d===C.V){x=w.x
@@ -162,15 +159,15 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 N.Il.prototype={
-q:function(){var x,w,v,u=this,t="String",s="bool",r=new N.Ci(E.S(u,0,3)),q=$.a7O
-if(q==null)q=$.a7O=O.bG(C.a,null)
+q:function(){var x,w,v,u=this,t="String",s="bool",r=new N.Ci(E.S(u,0,3)),q=$.a7P
+if(q==null)q=$.a7P=O.bG(C.a,null)
 r.b=q
 x=document.createElement("material-list-api")
 r.c=x
 u.b=r
 r=y.C
 r=H.a([new D.b5("MaterialListComponent",!1,"","material-list","","angular_components/lib/material_list/material_list.dart",X.h('<p>Material List is a container component for a set of items with which the\nuser is intended to interact.</p>\n<p>It forms the basis for selection and menu components.\nThe <code>MaterialListComponent</code> class acts as the root node for a list\nproviding styling and the ability to collect item events.</p>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>size: string {x-small, small, medium, large, x-large}</code> Sizes for the\nlist, resulting in the width being 64px * {1.5, 3, 5, 6, 7} respectively.\nThe default size is "auto" which sizes the list to its contents.</li>\n<li><code>min-size: string {x-small, small, medium, large, x-large}</code> Minimum size\nfor the list, resulting in the width at least the specified width.</li>\n</ul>\n'),H.a([new D.j("role","",t,X.h("<p>Role to apply to the material-list.</p>\n<p>Defaults to 'list'</p>\n"),!1,""),new D.j("size","",t,X.h("<p>Preset width, 1 through 5. By default, the material list will expand to\nthe full width of its parent.</p>\n<p>Note: The spec clearly lays out predefined\nlist sizes so use the default, expanding size, sparingly.\nEach width multiplies the base block width (64px on desktop and tablet) by\n<code>1.5, 3, 5, 6, 7</code>, respectively to obtain a predictable width.\nSet to 0 to have the list expand to the full width of its parent.</p>\n"),!1,""),new D.j("width","","dynamic",X.h(""),!0,"Use size input instead.")],r),H.a([],r)),new D.b5("MaterialListItemComponent",!1,"","material-list-item","","angular_components/lib/material_list/material_list_item.dart",X.h("<p>Material List Item is a block element intended for user interaction; it has\n<code>:hover</code> styling and emits and <code>trigger</code> event when the user clicks or\npresses <code>enter</code> or <code>space</code> keys.</p>\n<p>See <code>MaterialListComponent</code> for item <strong>grouping</strong> and <strong>labelling</strong>.</p>\n<p>Note: If the material-list-item has a <code>DropdownHandle</code> in its ancestry, the\ndropdown will be closed on triggering (i.e. clicking or pressing enter/space\non) the list item if <code>closeOnActivate</code> is true.</p>\n"),H.a([new D.j("closeOnActivate","",s,X.h("<p>Whether the encompassing dropdown should close on selection of\nthis item.</p>\n"),!1,""),new D.j("disabled","",s,X.h("<p>Disables the trigger and gives item a disabled style.</p>\n"),!1,""),new D.j("role","",t,X.h("<p>Role of this component used for a11y.</p>\n"),!1,""),new D.j("tabbable","",s,X.h("<p>Is the component tabbable.</p>\n"),!1,""),new D.j("tabindex","",t,X.h("<p>The tab index of the component.</p>\n<p>The value is used if <code>tabbable</code> is <code>true</code> and <code>disabled</code> is <code>false</code>.</p>\n"),!1,"")],r),H.a([new D.j("trigger","","Stream<UIEvent>",X.h("<p>Fired when the button is activated via click, tap, or key press.</p>\n"),!1,"")],r))],y.c)
-w=H.a([new R.aJ(C.hE,"MaterialListDemoComponent","material_list_example/lib/material_list_demo.dart")],y.D)
+w=H.a([new R.aJ(C.hD,"MaterialListDemoComponent","material_list_example/lib/material_list_demo.dart")],y.D)
 v=y.X
 u.a=new B.hy(R.cQ(H.a([],y.i),w,r,P.aW(v,v),!0))
 u.F(x)}}
@@ -256,7 +253,7 @@ a1=T.d(x,f,m2)
 l3.m(a1)
 T.b(a1,"Sizes: x-small, small, medium, large, x-large")
 a2=l3.dx=new V.r(24,16,l3,T.L(f))
-l3.dy=new R.ba(a2,new D.x(a2,O.azD()))
+l3.dy=new R.ba(a2,new D.x(a2,O.azE()))
 a3=T.d(x,n6,l5)
 l3.m(a3)
 a4=T.d(x,a3,l6)
@@ -689,7 +686,7 @@ j5=new P.e(w,H.m(w).i("e<1>")).D(l3.v(l3.grP(),q,q))
 w=l3.db.b
 j6=new P.e(w,H.m(w).i("e<1>")).D(l3.v(l3.grR(),q,q))
 w=l3.bk
-p=y.L;(w&&C.bu).T(w,"keypress",l3.v(l3.gSb(),p,p))
+p=y.L;(w&&C.bt).T(w,"keypress",l3.v(l3.gSb(),p,p))
 w=l3.go.b
 j7=new P.e(w,H.m(w).i("e<1>")).D(l3.v(l3.gSd(),q,q))
 w=l3.k1.b
@@ -767,8 +764,8 @@ return f},
 A:function(){var x,w,v,u,t,s,r,q=this,p=q.a,o=q.d.f===0
 p.toString
 x=q.c2
-if(x!==C.bS){q.dy.sbe(C.bS)
-q.c2=C.bS}q.dy.b8()
+if(x!==C.bR){q.dy.sbe(C.bR)
+q.c2=C.bR}q.dy.b8()
 if(o){x=q.go
 x.toString
 x.r=!0
@@ -1115,8 +1112,8 @@ rO:function(d){this.a.a.a.bi(0,"green")},
 rQ:function(d){this.a.a.a.bi(0,"coral")},
 rS:function(d){this.a.a.a.bi(0,"mediumOrchid")}}
 O.In.prototype={
-q:function(){var x,w,v=this,u=new O.uJ(N.P(),E.S(v,0,3)),t=$.a7Q
-if(t==null)t=$.a7Q=O.a0($.aDI,null)
+q:function(){var x,w,v=this,u=new O.uJ(N.P(),E.S(v,0,3)),t=$.a7R
+if(t==null)t=$.a7R=O.a0($.aDJ,null)
 u.b=t
 x=document.createElement("material-list-demo")
 u.c=x
@@ -1127,9 +1124,9 @@ w.bi(0,2)
 v.a=new D.l1(u,w)
 v.F(x)}}
 var z=a.updateTypes(["~(@)","f<hy*>*()","aj<~>*(k*,H*)","f<l1*>*()"]);(function installTearOffs(){var x=a._static_0,w=a._static_2,v=a._instance_1u
-x(N,"ahv","aK5",1)
-w(O,"azD","aK7",2)
-x(O,"ajJ","aK8",3)
+x(N,"ahw","aK6",1)
+w(O,"azE","aK8",2)
+x(O,"ajK","aK9",3)
 var u
 v(u=O.uJ.prototype,"grL","rM",0)
 v(u,"grN","rO",0)
@@ -1164,14 +1161,14 @@ w(O.x8,E.aj)})()
 H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","Ci":{"k":[],"i":[]},"Il":{"f":["hy*"],"i":[],"f.T":"hy*"},"uJ":{"k":[],"i":[]},"x8":{"k":[],"i":[]},"In":{"f":["l1*"],"i":[],"f.T":"l1*"}}'))
 0
 var y=(function rtii(){var x=H.K
-return{Y:x("l<hy*>"),k:x("l<l1*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),T:x("q<aT*>"),q:x("q<cu*>"),O:x("q<A*>"),N:x("q<O*>"),M:x("q<y*>"),a:x("q<be<~>*>"),i:x("q<t*>"),l:x("q<a1*>"),z:x("@"),L:x("v*"),p:x("b3*"),f:x("D<t*>*"),X:x("t*"),S:x("V*")}})();(function constants(){C.fM=new D.l("material-list-api",N.ahv(),y.Y)
-C.hE=new D.l("material-list-demo",O.ajJ(),y.k)
+return{Y:x("l<hy*>"),k:x("l<l1*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),T:x("q<aT*>"),q:x("q<cu*>"),O:x("q<A*>"),N:x("q<O*>"),M:x("q<y*>"),a:x("q<be<~>*>"),i:x("q<t*>"),l:x("q<a1*>"),z:x("@"),L:x("v*"),p:x("b3*"),f:x("D<t*>*"),X:x("t*"),S:x("V*")}})();(function constants(){C.fL=new D.l("material-list-api",N.ahw(),y.Y)
+C.hD=new D.l("material-list-demo",O.ajK(),y.k)
 C.m8=H.C("hy")
-C.ma=H.C("l1")})();(function staticFields(){$.a7O=null
-$.aeL=!1
-$.aFX=[".bordered-list._ngcontent-%ID%{border:1px solid black;border-radius:8px;margin:8px;overflow:hidden}:not(.stretched-list)._ngcontent-%ID% material-list._ngcontent-%ID%{display:inline-block}"]
-$.a7Q=null
+C.ma=H.C("l1")})();(function staticFields(){$.a7P=null
 $.aeM=!1
-$.aDI=[$.aFX]})()}
-$__dart_deferred_initializers__["wno4fETFK5D2pSblE452vBLJrGM="] = $__dart_deferred_initializers__.current
+$.aFY=[".bordered-list._ngcontent-%ID%{border:1px solid black;border-radius:8px;margin:8px;overflow:hidden}:not(.stretched-list)._ngcontent-%ID% material-list._ngcontent-%ID%{display:inline-block}"]
+$.a7R=null
+$.aeN=!1
+$.aDJ=[$.aFY]})()}
+$__dart_deferred_initializers__["UzxzYbx7g5ktzULavK1BWXQc93c="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_57.part.js.map

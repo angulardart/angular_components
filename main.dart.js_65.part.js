@@ -1,26 +1,26 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,E,M,Q,D,Z,O,A,T,L,N,U,X={la:function la(){}},B={hF:function hF(d){this.a=d},
-apo:function(){return C.hG},
-aKT:function(){return new B.IY(new G.R())},
-awi:function(){if($.adI)return
-$.adI=!0
-$.T.w(0,C.mu,new D.l("material-spinner-api",B.ajW(),y.B))
+app:function(){return C.hF},
+aKU:function(){return new B.IY(new G.R())},
+awj:function(){if($.adJ)return
+$.adJ=!0
+$.T.w(0,C.mu,new D.l("material-spinner-api",B.ajX(),y.B))
 E.F()
 K.d7()
 D.cV()
-B.awj()},
+B.awk()},
 CC:function CC(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
 IY:function IY(d){var _=this
 _.c=_.b=_.a=null
 _.d=d},
-aKV:function(){return new B.J_(new G.R())},
-awj:function(){if($.adJ)return
-$.adJ=!0
-$.T.w(0,C.mw,new D.l("material-spinner-example",B.ajX(),y.n))
+aKW:function(){return new B.J_(new G.R())},
+awk:function(){if($.adK)return
+$.adK=!0
+$.T.w(0,C.mw,new D.l("material-spinner-example",B.ajY(),y.n))
 E.F()
-X.a3B()},
+X.a3C()},
 CE:function CE(d){var _=this
 _.c=_.b=_.a=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
@@ -108,17 +108,14 @@ v=t.gto()
 u=t.gCt()
 x.l(C.k,s)
 s=t.k1=new X.bg(v,w,u)}return s},
-q:function(){var x,w=this,v=w.a2(),u=K.cH(w,0)
-w.e=u
-v.appendChild(u.c)
-u=w.d
-x=u.a
-u=u.b
-x.n(C.a9,u)
-u=x.n(C.aa,u)
-u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
-w.f=u
-w.e.K(0,u)},
+q:function(){var x=this,w=x.a2(),v=K.cH(x,0)
+x.e=v
+w.appendChild(v.c)
+v=x.d
+v=v.a.n(C.a9,v.b)
+v=new X.cb(v,!J.bA(window.location.href,"enableLatencyCharts=false"))
+x.f=v
+x.e.K(0,v)},
 P:function(d,e,f){var x,w=this
 if(0===e){if(d===C.L)return w.gnz()
 if(d===C.V){x=w.x
@@ -145,15 +142,15 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 B.IY.prototype={
-q:function(){var x,w,v,u=this,t=new B.CC(E.S(u,0,3)),s=$.a8j
-if(s==null)s=$.a8j=O.bG(C.a,null)
+q:function(){var x,w,v,u=this,t=new B.CC(E.S(u,0,3)),s=$.a8k
+if(s==null)s=$.a8k=O.bG(C.a,null)
 t.b=s
 x=document.createElement("material-spinner-api")
 t.c=x
 u.b=t
 t=y.d
 t=H.a([new D.b5("MaterialSpinnerComponent",!1,"","material-spinner","","angular_components/lib/material_spinner/material_spinner.dart",X.h('<p>A circular spinner for an indeterminate amount of time following the\nMaterial Spec for Progress &amp; Activity.</p>\n<p>See <a href="http://www.google.com/design/spec/components/progress-activity.html">http://www.google.com/design/spec/components/progress-activity.html</a>.</p>\n<p>To change the color of the spinner, change the <code>border-color</code> in CSS:</p>\n<pre><code>material-spinner {\n  border-color: $mat-red;\n}\n</code></pre>\n'),H.a([],t),H.a([],t))],y.z)
-w=H.a([new R.aJ(C.hq,"MaterialSpinnerExample","material_spinner_example/lib/material_spinner_example.dart")],y.b)
+w=H.a([new R.aJ(C.hp,"MaterialSpinnerExample","material_spinner_example/lib/material_spinner_example.dart")],y.b)
 v=y.m
 u.a=new B.hF(R.cQ(H.a([],y.E),w,t,P.aW(v,v),!0))
 u.F(x)}}
@@ -228,8 +225,8 @@ x.y.k()
 x.Q.k()
 x.cx.k()}}
 B.J_.prototype={
-q:function(){var x,w=this,v=new B.CE(E.S(w,0,3)),u=$.a8l
-if(u==null)u=$.a8l=O.a0($.aE5,null)
+q:function(){var x,w=this,v=new B.CE(E.S(w,0,3)),u=$.a8m
+if(u==null)u=$.a8m=O.a0($.aE6,null)
 v.b=u
 x=document.createElement("material-spinner-example")
 v.c=x
@@ -237,21 +234,21 @@ w.b=v
 w.a=new X.la()
 w.F(x)}}
 var z=a.updateTypes(["f<hF*>*()","f<la*>*()"]);(function installTearOffs(){var x=a._static_0
-x(B,"ajW","aKT",0)
-x(B,"ajX","aKV",1)})();(function inheritance(){var x=a.inheritMany
+x(B,"ajX","aKU",0)
+x(B,"ajY","aKW",1)})();(function inheritance(){var x=a.inheritMany
 x(P.y,[B.hF,X.la])
 x(E.bn,[B.CC,B.CE])
 x(G.f,[B.IY,B.J_])})()
 H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","CC":{"k":[],"i":[]},"IY":{"f":["hF*"],"i":[],"f.T":"hF*"},"CE":{"k":[],"i":[]},"J_":{"f":["la*"],"i":[],"f.T":"la*"}}'))
 0
-var y={B:H.K("l<hF*>"),n:H.K("l<la*>"),d:H.K("q<j*>"),b:H.K("q<aJ*>"),z:H.K("q<d_*>"),E:H.K("q<t*>"),C:H.K("D<t*>*"),m:H.K("t*")};(function constants(){C.hq=new D.l("material-spinner-example",B.ajX(),y.n)
-C.hG=new D.l("material-spinner-api",B.ajW(),y.B)
+var y={B:H.K("l<hF*>"),n:H.K("l<la*>"),d:H.K("q<j*>"),b:H.K("q<aJ*>"),z:H.K("q<d_*>"),E:H.K("q<t*>"),C:H.K("D<t*>*"),m:H.K("t*")};(function constants(){C.hp=new D.l("material-spinner-example",B.ajY(),y.n)
+C.hF=new D.l("material-spinner-api",B.ajX(),y.B)
 C.mu=H.C("hF")
-C.mw=H.C("la")})();(function staticFields(){$.a8j=null
-$.adI=!1
-$.aFu=["p._ngcontent-%ID%{font-weight:bold}div._ngcontent-%ID%{margin-bottom:32px}material-spinner._ngcontent-%ID%{margin-right:8px}.red._ngcontent-%ID%{border-color:#db4437}.yellow._ngcontent-%ID%{border-color:#ffeb3b}.green._ngcontent-%ID%{border-color:#0f9d58}"]
-$.a8l=null
+C.mw=H.C("la")})();(function staticFields(){$.a8k=null
 $.adJ=!1
-$.aE5=[$.aFu]})()}
-$__dart_deferred_initializers__["ViD+IEuANdX8ePZbVytXOQqBLgc="] = $__dart_deferred_initializers__.current
+$.aFv=["p._ngcontent-%ID%{font-weight:bold}div._ngcontent-%ID%{margin-bottom:32px}material-spinner._ngcontent-%ID%{margin-right:8px}.red._ngcontent-%ID%{border-color:#db4437}.yellow._ngcontent-%ID%{border-color:#ffeb3b}.green._ngcontent-%ID%{border-color:#0f9d58}"]
+$.a8m=null
+$.adK=!1
+$.aE6=[$.aFv]})()}
+$__dart_deferred_initializers__["Nv3N6gv3nyvq9pEWyyJwl+J5BcE="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_65.part.js.map

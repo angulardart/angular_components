@@ -2,10 +2,10 @@ self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Objec
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y={kZ:function kZ(d){this.a=d
 this.b="blue"
 this.c="alarm"}},R,K,V,E={hw:function hw(d){this.a=d}},M={
-aJM:function(){return new M.I2(new G.R())},
-awZ:function(){if($.af5)return
-$.af5=!0
-$.T.w(0,C.m3,new D.l("material-icon-demo",M.ajF(),y.I))
+aJN:function(){return new M.I2(new G.R())},
+ax_:function(){if($.af6)return
+$.af6=!0
+$.T.w(0,C.m3,new D.l("material-icon-demo",M.ajG(),y.I))
 E.F()
 U.dL()
 M.ch()
@@ -20,15 +20,15 @@ _.d=e},
 I2:function I2(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},Q={
-ap7:function(){return C.fr},
-aJK:function(){return new Q.I0(new G.R())},
-awY:function(){if($.af4)return
-$.af4=!0
-$.T.w(0,C.m1,new D.l("material-icon-api",Q.ajE(),y.u))
+ap8:function(){return C.fq},
+aJL:function(){return new Q.I0(new G.R())},
+awZ:function(){if($.af5)return
+$.af5=!0
+$.T.w(0,C.m1,new D.l("material-icon-api",Q.ajF(),y.u))
 E.F()
 K.d7()
 D.cV()
-M.awZ()},
+M.ax_()},
 Cd:function Cd(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
@@ -116,17 +116,14 @@ v=t.grG()
 u=t.gBn()
 x.l(C.k,s)
 s=t.k1=new X.bg(v,w,u)}return s},
-q:function(){var x,w=this,v=w.a2(),u=K.cH(w,0)
-w.e=u
-v.appendChild(u.c)
-u=w.d
-x=u.a
-u=u.b
-x.n(C.a9,u)
-u=x.n(C.aa,u)
-u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
-w.f=u
-w.e.K(0,u)},
+q:function(){var x=this,w=x.a2(),v=K.cH(x,0)
+x.e=v
+w.appendChild(v.c)
+v=x.d
+v=v.a.n(C.a9,v.b)
+v=new X.cb(v,!J.bA(window.location.href,"enableLatencyCharts=false"))
+x.f=v
+x.e.K(0,v)},
 P:function(d,e,f){var x,w=this
 if(0===e){if(d===C.L)return w.gnh()
 if(d===C.V){x=w.x
@@ -153,15 +150,15 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 Q.I0.prototype={
-q:function(){var x,w,v,u=this,t=new Q.Cd(E.S(u,0,3)),s=$.a7D
-if(s==null)s=$.a7D=O.bG(C.a,null)
+q:function(){var x,w,v,u=this,t=new Q.Cd(E.S(u,0,3)),s=$.a7E
+if(s==null)s=$.a7E=O.bG(C.a,null)
 t.b=s
 x=document.createElement("material-icon-api")
 t.c=x
 u.b=t
 t=y.C
 t=H.a([new D.b5("MaterialIconComponent",!1,"","material-icon","","angular_components/lib/material_icon/material_icon.dart",X.h('<p>A material style icon.</p>\n<p>This stylesheet should be included at the top of the page:</p>\n<pre><code class="language-html">&lt;link\n    rel="stylesheet"\n    href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;\n</code></pre>\n<p>Make sure to take RTL into account. Specifically, use the <code>flip</code> attribute\nif the icon should be flipped for RTL UIs. Read <a href="https://material.io/guidelines/usability/bidirectionality.html#bidirectionality-rtl-mirroring-guidelines">these\nguidelines</a>\nfor advice on when and when not to flip the icon.</p>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>size: String</code> -- The size of the icon. Options are: <code>x-small</code>, <code>small</code>,\n<code>medium</code>, <code>large</code>, and <code>x-large</code>, corresponding to 12px, 13px, 16px, 18px,\n and 20px, respectively. If no size is specified, the default of 24px is\n used.</li>\n<li><code>flip</code> -- Whether the icon should be flipped for RTL languages.</li>\n<li><code>light</code> -- Whether the opacity of the icon should be reduced.</li>\n<li><code>baseline</code> Whether the icon needs to be aligned to the baseline.</li>\n</ul>\n'),H.a([new D.j("icon","","dynamic",X.h('<p>The <code>Icon</code> model (lib/model/ui/icon.dart) or icon\nidentifier (String) this component should display.</p>\n<p>See <a href="https://goo.gl/YKrYlu">https://www.google.com/design/icons/</a> for\navailable icons. If the icon name contains spaces, replace them with\nunderscores.</p>\n'),!1,"")],t),H.a([],t))],y.c)
-w=H.a([new R.aJ(C.fA,"MaterialIconDemoComponent","material_icon_example/lib/material_icon_demo.dart")],y.D)
+w=H.a([new R.aJ(C.fz,"MaterialIconDemoComponent","material_icon_example/lib/material_icon_demo.dart")],y.D)
 v=y.X
 u.a=new E.hw(R.cQ(H.a([],y.i),w,t,P.aW(v,v),!0))
 u.F(x)}}
@@ -1037,23 +1034,23 @@ x.aH()
 x.L=x.W=null},
 QW:function(d){var x=this.z
 this.a.c=x.rx},
-QY:function(d){this.a.a=C.dg},
-R_:function(d){this.a.a=C.hP},
-R1:function(d){this.a.a=C.hQ},
+QY:function(d){this.a.a=C.df},
+R_:function(d){this.a.a=C.hO},
+R1:function(d){this.a.a=C.hP},
 R3:function(d){var x=this.ry
 this.a.b=x.rx}}
 M.I2.prototype={
-q:function(){var x,w=this,v=new M.uE(N.P(),E.S(w,0,3)),u=$.a7F
-if(u==null)u=$.a7F=O.a0($.aDB,null)
+q:function(){var x,w=this,v=new M.uE(N.P(),E.S(w,0,3)),u=$.a7G
+if(u==null)u=$.a7G=O.a0($.aDC,null)
 v.b=u
 x=document.createElement("material-icon-demo")
 v.c=x
 w.b=v
-w.a=new Y.kZ(C.dg)
+w.a=new Y.kZ(C.df)
 w.F(x)}}
 var z=a.updateTypes(["~(@)","f<hw*>*()","f<kZ*>*()"]);(function installTearOffs(){var x=a._static_0,w=a._instance_1u
-x(Q,"ajE","aJK",1)
-x(M,"ajF","aJM",2)
+x(Q,"ajF","aJL",1)
+x(M,"ajG","aJN",2)
 var v
 w(v=M.uE.prototype,"gQV","QW",0)
 w(v,"gQX","QY",0)
@@ -1066,17 +1063,17 @@ x(G.f,[Q.I0,M.I2])})()
 H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","Cd":{"k":[],"i":[]},"I0":{"f":["hw*"],"i":[],"f.T":"hw*"},"uE":{"k":[],"i":[]},"I2":{"f":["kZ*"],"i":[],"f.T":"kZ*"}}'))
 0
 var y=(function rtii(){var x=H.K
-return{u:x("l<hw*>"),I:x("l<kZ*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),M:x("q<y*>"),a:x("q<be<~>*>"),i:x("q<t*>"),l:x("q<a1*>"),v:x("q<aV<t*,@>*(d9<@>*)*>"),f:x("D<t*>*"),X:x("t*"),S:x("V*")}})();(function constants(){C.fr=new D.l("material-icon-api",Q.ajE(),y.u)
-C.fA=new D.l("material-icon-demo",M.ajF(),y.I)
-C.dg=new L.dA("done")
-C.hP=new L.dA("done_all")
-C.hQ=new L.dA("done_outline")
+return{u:x("l<hw*>"),I:x("l<kZ*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),M:x("q<y*>"),a:x("q<be<~>*>"),i:x("q<t*>"),l:x("q<a1*>"),v:x("q<aV<t*,@>*(d9<@>*)*>"),f:x("D<t*>*"),X:x("t*"),S:x("V*")}})();(function constants(){C.fq=new D.l("material-icon-api",Q.ajF(),y.u)
+C.fz=new D.l("material-icon-demo",M.ajG(),y.I)
+C.df=new L.dA("done")
+C.hO=new L.dA("done_all")
+C.hP=new L.dA("done_outline")
 C.m1=H.C("hw")
-C.m3=H.C("kZ")})();(function staticFields(){$.a7D=null
-$.af4=!1
-$.aG1=['.custom-size._ngcontent-%ID%  .material-icon-i.material-icon-i{font-size:40px}material-input._ngcontent-%ID%{width:250px}.svg-icon._ngcontent-%ID%  .material-icon-i{background-image:url("packages/material_icon_example/example_icon.svg");background-size:cover}']
-$.a7F=null
+C.m3=H.C("kZ")})();(function staticFields(){$.a7E=null
 $.af5=!1
-$.aDB=[$.aG1]})()}
-$__dart_deferred_initializers__["Fus+4bsasVUSDUw2GdU1B+cZ6gg="] = $__dart_deferred_initializers__.current
+$.aG2=['.custom-size._ngcontent-%ID%  .material-icon-i.material-icon-i{font-size:40px}material-input._ngcontent-%ID%{width:250px}.svg-icon._ngcontent-%ID%  .material-icon-i{background-image:url("packages/material_icon_example/example_icon.svg");background-size:cover}']
+$.a7G=null
+$.af6=!1
+$.aDC=[$.aG2]})()}
+$__dart_deferred_initializers__["5yNavoQPD7FLUi0Iq+595nGSdRI="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_56.part.js.map

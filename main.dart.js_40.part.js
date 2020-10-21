@@ -7,12 +7,12 @@ _.x="custom label"
 _.y=e
 _.z="???"},PC:function PC(){},lI:function lI(d,e){this.a=d
 this.b=e}},O,A,T={
-aIF:function(d,e){return new T.wL(E.z(d,e))},
-aIG:function(d,e){return new T.H8(N.P(),N.P(),E.z(d,e))},
-aIH:function(){return new T.H9(new G.R())},
-axs:function(){if($.ag0)return
-$.ag0=!0
-$.T.w(0,C.lK,new D.l("material-checkbox-example",T.ajp(),x.i))
+aIG:function(d,e){return new T.wL(E.z(d,e))},
+aIH:function(d,e){return new T.H8(N.P(),N.P(),E.z(d,e))},
+aII:function(){return new T.H9(new G.R())},
+axt:function(){if($.ag1)return
+$.ag1=!0
+$.T.w(0,C.lK,new D.l("material-checkbox-example",T.ajq(),x.i))
 E.F()
 U.dL()
 G.oH()
@@ -43,15 +43,15 @@ this.a=f},
 H9:function H9(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},L,N={
-aoY:function(){return C.fK},
-aIC:function(){return new N.H5(new G.R())},
-axr:function(){if($.ag_)return
-$.ag_=!0
-$.T.w(0,C.lI,new D.l("material-checkbox-api",N.ajo(),x.j))
+aoZ:function(){return C.fJ},
+aID:function(){return new N.H5(new G.R())},
+axs:function(){if($.ag0)return
+$.ag0=!0
+$.T.w(0,C.lI,new D.l("material-checkbox-api",N.ajp(),x.j))
 E.F()
 K.d7()
 D.cV()
-T.axs()},
+T.axt()},
 C1:function C1(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
@@ -139,17 +139,14 @@ u=s.gr7()
 t=s.gA4()
 w.l(C.k,r)
 r=s.k1=new X.bg(u,v,t)}return r},
-q:function(){var w,v=this,u=v.a2(),t=K.cH(v,0)
-v.e=t
-u.appendChild(t.c)
-t=v.d
-w=t.a
-t=t.b
-w.n(C.a9,t)
-t=w.n(C.aa,t)
-t=new X.cb(t,!J.bA(window.location.href,"enableLatencyCharts=false"))
-v.f=t
-v.e.K(0,t)},
+q:function(){var w=this,v=w.a2(),u=K.cH(w,0)
+w.e=u
+v.appendChild(u.c)
+u=w.d
+u=u.a.n(C.a9,u.b)
+u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
+w.f=u
+w.e.K(0,u)},
 P:function(d,e,f){var w,v=this
 if(0===e){if(d===C.L)return v.gmY()
 if(d===C.V){w=v.x
@@ -176,23 +173,23 @@ if(u!==v)w.k4=w.f.a=v
 w.e.j()},
 G:function(){this.e.k()}}
 N.H5.prototype={
-q:function(){var w,v,u,t=this,s="bool",r="Stream<bool>",q=new N.C1(E.S(t,0,3)),p=$.a79
-if(p==null)p=$.a79=O.bG(C.a,null)
+q:function(){var w,v,u,t=this,s="bool",r="Stream<bool>",q=new N.C1(E.S(t,0,3)),p=$.a7a
+if(p==null)p=$.a7a=O.bG(C.a,null)
 q.b=p
 w=document.createElement("material-checkbox-api")
 q.c=w
 t.b=q
 q=x.C
 q=H.a([new D.b5("MaterialCheckboxComponent",!1,"","material-checkbox","","angular_components/lib/material_checkbox/material_checkbox.dart",X.h("<p><code>material-checkbox</code> is a button that can be either checked or unchecked.</p>\n<p>User can tap the checkbox to check or uncheck it.  Usually you use\ncheckboxes to allow user to select multiple options from a set.  If you\nhave a single ON/OFF option, avoid using a single checkbox and use\n<code>material-toggle</code> instead.</p>\n<p>We are not extending ButtonDecorator because we need to override several\nattributes, including role, tabindex, but most importantly because checkbox\nshould only be interactible with SPACE, while button is for both SPACE and\nENTER.</p>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>no-ink</code> -- set this attribute to disable the ripple effect on the chip.</li>\n</ul>\n"),H.a([new D.j("checked","",s,X.h("<p>Current state of the checkbox. This is user set-able state, via\n<code>toggleChecked()</code>, so when checked, the <code>indeterminate</code> state gets\ncleared.</p>\n<p><code>true</code> is CHECKED and <code>false</code> is not.</p>\n"),!1,""),new D.j("disabled","",s,X.h("<p>Whether the checkbox should not respond to events, and have a style that\nsuggests that interaction is not allowed.</p>\n"),!1,""),new D.j("indeterminate","",s,X.h("<p>Alternative state of the checkbox, not user set-able state. Between\n<code>checked</code> and <code>indeterminate</code>, only one can be true, though both can be\nfalse.</p>\n<p><code>true</code> is INDETERMINATE and <code>false</code> is not.</p>\n"),!1,""),new D.j("indeterminateToChecked","",s,X.h("<p>Determines the state to go into when <code>indeterminate</code> state is toggled.</p>\n<p><code>true</code> will go to checked and <code>false</code> will go to unchecked.</p>\n"),!1,""),new D.j("label","","String",X.h("<p>Label for the checkbox, alternatively use content.</p>\n"),!1,""),new D.j("readOnly","",s,X.h("<p>Whether the checkbox can be changed by user interaction.</p>\n"),!1,""),new D.j("themeColor","","String",X.h("<p>Color of the checkbox and ripple when checked.</p>\n<p>Example: '#FF00FF'. By default it is $mat-blue-500. Note that the\nthemeColor is applied to the checkbox even when the box is unchecked,\nwhich deviates from the standard material spec. Use mixin to set\nthemeColor unless you want this behavior.</p>\n"),!1,"")],q),H.a([new D.j("onChange","change","Stream<String>",X.h("<p>Fired when checkbox state changes, sends <code>checkedStr</code>, i.e. ARIA state.</p>\n"),!1,""),new D.j("onChecked","checkedChange",r,X.h("<p>Fired when checkbox is checked or unchecked, but not when set\nindeterminate. Sends the state of <code>checked</code>.</p>\n"),!1,""),new D.j("onIndeterminate","indeterminateChange",r,X.h("<p>Fired when checkbox goes in and out of indeterminate state, but not when\nset to checked.</p>\n<p>Sends the state of <code>indeterminate</code>.</p>\n"),!1,"")],q))],x.c)
-v=H.a([new R.aJ(C.fd,"MaterialCheckboxExample","material_checkbox_example/lib/material_checkbox_example.dart")],x.D)
+v=H.a([new R.aJ(C.fc,"MaterialCheckboxExample","material_checkbox_example/lib/material_checkbox_example.dart")],x.D)
 u=x.X
 t.a=new D.hn(R.cQ(H.a([],x.V),v,q,P.aW(u,u),!0))
 t.F(w)}}
 Z.jl.prototype={
-Z1:function(){var w=this.c
+Z2:function(){var w=this.c
 this.a.push(new Z.lI(w.b,!1))
 w.lX("")},
-a2q:function(){var w=this.a
+a2r:function(){var w=this.a
 w=new H.cd(w,new Z.PC(),H.bv(w).i("cd<1>"))
 return w.gM(w)},
 IB:function(){var w=this.y
@@ -222,7 +219,7 @@ r=T.u(w,v)
 h8.h(r)
 T.b(r,i5)
 q=h8.cy=new V.r(14,12,h8,T.L(r))
-h8.db=new R.ba(q,new D.x(q,T.ayt()))
+h8.db=new R.ba(q,new D.x(q,T.ayu()))
 T.b(r,i2)
 T.b(v,i2)
 p=T.u(w,v)
@@ -281,7 +278,7 @@ e=T.d(w,f,"ul")
 h8.h(e)
 T.b(e,j0)
 i=h8.k3=new V.r(33,31,h8,T.L(e))
-h8.k4=new R.ba(i,new D.x(i,T.ayu()))
+h8.k4=new R.ba(i,new D.x(i,T.ayv()))
 T.b(e,i5)
 T.b(f,i2)
 T.b(v,h9)
@@ -708,7 +705,7 @@ T.b(g6,h9)
 T.b(j8,h9)
 n=h8.k2.b
 q=x.S
-h1=new P.e(n,H.m(n).i("e<1>")).D(h8.ad(j7.gZ0(),q))
+h1=new P.e(n,H.m(n).i("e<1>")).D(h8.ad(j7.gZ1(),q))
 n=h8.ry.x
 m=x.X
 h2=new P.e(n,H.m(n).i("e<1>")).D(h8.v(h8.gr8(),m,m))
@@ -902,7 +899,7 @@ v=!0}else v=!1
 if(v)h.aI.d.st(1)
 h.cy.J()
 h.k3.J()
-h.e.cr(f.a2q())
+h.e.cr(f.a2r())
 h.id.B(e)
 h.f.a5(O.b8(w.b))
 h.r1.B(e)
@@ -1069,8 +1066,8 @@ if(v==null)v=""
 this.b.a5(v)
 this.c.cr(w.b)}}
 T.H9.prototype={
-q:function(){var w,v=this,u=new T.um(N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),E.S(v,0,3)),t=$.a7b
-if(t==null)t=$.a7b=O.a0($.aDh,null)
+q:function(){var w,v=this,u=new T.um(N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),E.S(v,0,3)),t=$.a7c
+if(t==null)t=$.a7c=O.a0($.aDi,null)
 u.b=t
 w=document.createElement("material-checkbox-example")
 u.c=w
@@ -1084,13 +1081,13 @@ var z=a.updateTypes(["~(@)","~()","aj<~>*(k*,H*)","E*(lI*)","f<hn*>*()","f<jl*>*
 Z.PC.prototype={
 $1:function(d){return!d.b},
 $S:z+3};(function installTearOffs(){var w=a._static_0,v=a._instance_0u,u=a._static_2,t=a._instance_1u
-w(N,"ajo","aIC",4)
+w(N,"ajp","aID",4)
 var s
-v(s=Z.jl.prototype,"gZ0","Z1",1)
+v(s=Z.jl.prototype,"gZ1","Z2",1)
 v(s,"gIA","IB",1)
-u(T,"ayt","aIF",2)
 u(T,"ayu","aIG",2)
-w(T,"ajp","aIH",5)
+u(T,"ayv","aIH",2)
+w(T,"ajq","aII",5)
 t(s=T.um.prototype,"gr8","r9",0)
 t(s,"gOR","OS",0)
 t(s,"gOT","OU",0)
@@ -1106,14 +1103,14 @@ w(E.aj,[T.wL,T.H8])})()
 H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","C1":{"k":[],"i":[]},"H5":{"f":["hn*"],"i":[],"f.T":"hn*"},"um":{"k":[],"i":[]},"wL":{"k":[],"i":[]},"H8":{"k":[],"i":[]},"H9":{"f":["jl*"],"i":[],"f.T":"jl*"}}'))
 var y={c:"long label is bad label, but internationalisation has its own opinions"}
 var x=(function rtii(){var w=H.K
-return{j:w("l<hn*>"),i:w("l<jl*>"),C:w("q<j*>"),D:w("q<aJ*>"),c:w("q<d_*>"),N:w("q<O*>"),M:w("q<y*>"),a:w("q<be<~>*>"),V:w("q<t*>"),l:w("q<a1*>"),I:w("q<lI*>"),v:w("q<aV<t*,@>*(d9<@>*)*>"),m:w("b6<@>"),z:w("@"),f:w("D<t*>*"),X:w("t*"),S:w("V*"),b:w("E*")}})();(function constants(){C.fd=new D.l("material-checkbox-example",T.ajp(),x.i)
-C.fK=new D.l("material-checkbox-api",N.ajo(),x.j)
+return{j:w("l<hn*>"),i:w("l<jl*>"),C:w("q<j*>"),D:w("q<aJ*>"),c:w("q<d_*>"),N:w("q<O*>"),M:w("q<y*>"),a:w("q<be<~>*>"),V:w("q<t*>"),l:w("q<a1*>"),I:w("q<lI*>"),v:w("q<aV<t*,@>*(d9<@>*)*>"),m:w("b6<@>"),z:w("@"),f:w("D<t*>*"),X:w("t*"),S:w("V*"),b:w("E*")}})();(function constants(){C.fc=new D.l("material-checkbox-example",T.ajq(),x.i)
+C.fJ=new D.l("material-checkbox-api",N.ajp(),x.j)
 C.lI=H.C("hn")
-C.lK=H.C("jl")})();(function staticFields(){$.a79=null
-$.ag_=!1
-$.aGo=["._nghost-%ID%  material-checkbox.custom-theme:not(.disabled) .icon-container .icon.filled{color:#e91e63}.limited-width._ngcontent-%ID%{width:160px}.debug-info._ngcontent-%ID%{background:#eee}.help-icon._ngcontent-%ID%{margin:0 4px}material-checkbox.top._ngcontent-%ID%{align-items:flex-start}.material-checkbox-no-left-margin._ngcontent-%ID%{margin-left:-3px}"]
-$.a7b=null
+C.lK=H.C("jl")})();(function staticFields(){$.a7a=null
 $.ag0=!1
-$.aDh=[$.aGo]})()}
-$__dart_deferred_initializers__["FbSRDDIiC3Homi4wSgqudgZ1yaM="] = $__dart_deferred_initializers__.current
+$.aGp=["._nghost-%ID%  material-checkbox.custom-theme:not(.disabled) .icon-container .icon.filled{color:#e91e63}.limited-width._ngcontent-%ID%{width:160px}.debug-info._ngcontent-%ID%{background:#eee}.help-icon._ngcontent-%ID%{margin:0 4px}material-checkbox.top._ngcontent-%ID%{align-items:flex-start}.material-checkbox-no-left-margin._ngcontent-%ID%{margin-left:-3px}"]
+$.a7c=null
+$.ag1=!1
+$.aDi=[$.aGp]})()}
+$__dart_deferred_initializers__["A+aKATZ9Kh9ZVJgzdKWuR/3WQog="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_40.part.js.map

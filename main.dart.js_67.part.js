@@ -1,28 +1,28 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y={
-BM:function(d,e){var x,w=new Y.BL(E.S(d,e,1)),v=$.a6J
-if(v==null)v=$.a6J=O.a0($.aCZ,null)
+BM:function(d,e){var x,w=new Y.BL(E.S(d,e,1)),v=$.a6K
+if(v==null)v=$.a6K=O.a0($.aD_,null)
 w.b=v
 x=document.createElement("material-tab-strip")
 w.c=x
 w.O(x,"themeable")
 return w},
-aHA:function(d,e){return new Y.mT(E.z(d,e))},
-aHB:function(){return new Y.Gb(new G.R())},
-a3E:function(){if($.adh)return
-$.adh=!0
-$.T.w(0,C.kM,new D.l("material-tab-strip",Y.aud(),y.q))
+aHB:function(d,e){return new Y.mT(E.z(d,e))},
+aHC:function(){return new Y.Gb(new G.R())},
+a3F:function(){if($.adi)return
+$.adi=!0
+$.T.w(0,C.kM,new D.l("material-tab-strip",Y.aue(),y.q))
 E.F()
 T.ef()
 U.oN()
 U.Lq()
 K.yv()
-S.aw6()},
+S.aw7()},
 BL:function BL(d){var _=this
 _.e=!0
 _.c=_.b=_.a=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
 _.d=d},
-VK:function VK(){},
+VL:function VL(){},
 mT:function mT(d){var _=this
 _.y=_.x=_.r=_.f=_.e=_.d=_.c=_.b=null
 _.a=d},
@@ -31,9 +31,9 @@ _.c=_.b=_.a=null
 _.d=d}},R={o0:function o0(d,e){this.a=d
 this.c=e
 this.e=!1}},K={ld:function ld(){}},V={
-aw7:function(){if($.adk)return
-$.adk=!0
-E.F()}},E,M={Vb:function Vb(){}},Q={
+aw8:function(){if($.adl)return
+$.adl=!0
+E.F()}},E,M={Vc:function Vc(){}},Q={
 zD:function(d,e,f){var x=null,w=y.g,v=e===!0?-100:100
 w=new Q.j8(v,d,f,new P.N(x,x,w),new P.N(x,x,w),new P.b6(x,x,y.t))
 w.jg()
@@ -49,7 +49,7 @@ _.x=h
 _.y=i
 _.ch=_.Q=_.z=null},
 OC:function OC(d){this.a=d}},D={
-a2j:function(d){var x=null,w=y.g
+a2k:function(d){var x=null,w=y.g
 return new D.jB(d,new P.N(x,x,w),new P.N(x,x,w))},
 jB:function jB(d,e,f){var _=this
 _.a=d
@@ -69,18 +69,18 @@ _.c=e
 _.d=null
 _.e=!1
 _.a=f},
-qn:function(d,e){var x,w=new Z.CI(E.S(d,e,3)),v=$.a8r
-if(v==null)v=$.a8r=O.a0($.aE9,null)
+qn:function(d,e){var x,w=new Z.CI(E.S(d,e,3)),v=$.a8s
+if(v==null)v=$.a8s=O.a0($.aEa,null)
 w.b=v
 x=document.createElement("material-tab")
 w.c=x
 T.Q(x,"role","tabpanel")
 return w},
-aLh:function(d,e){return new Z.Ji(E.z(d,e))},
-aLi:function(){return new Z.Jj(new G.R())},
-ail:function(){if($.adr)return
-$.adr=!0
-$.T.w(0,C.mz,new D.l("material-tab",Z.aAR(),y.H))
+aLi:function(d,e){return new Z.Ji(E.z(d,e))},
+aLj:function(){return new Z.Jj(new G.R())},
+aim:function(){if($.ads)return
+$.ads=!0
+$.T.w(0,C.mz,new D.l("material-tab",Z.aAS(),y.H))
 E.F()
 G.ct()},
 CI:function CI(d){var _=this
@@ -90,13 +90,13 @@ Ji:function Ji(d){this.a=d},
 Jj:function Jj(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},O={
-aLo:function(){return new O.Jp(new G.R())},
-aw5:function(){if($.adg)return
-$.adg=!0
-$.T.w(0,C.mD,new D.l("material-tab-strip-mixin-example",O.ak1(),y.G))
+aLp:function(){return new O.Jp(new G.R())},
+aw6:function(){if($.adh)return
+$.adh=!0
+$.T.w(0,C.mD,new D.l("material-tab-strip-mixin-example",O.ak2(),y.G))
 E.F()
 U.oN()
-Y.a3E()
+Y.a3F()
 R.nb()
 T.oO()},
 CL:function CL(d){var _=this
@@ -106,16 +106,16 @@ Jp:function Jp(d){var _=this
 _.c=_.b=_.a=_.y=_.x=_.r=_.f=_.e=null
 _.d=d}},A={jC:function jC(){this.b=this.a=0
 this.c=!1}},T={
-a2I:function(d,e){var x,w=new T.Dc(N.P(),E.S(d,e,3)),v=$.a9e
-if(v==null)v=$.a9e=O.bG(C.a,null)
+a2J:function(d,e){var x,w=new T.Dc(N.P(),E.S(d,e,3)),v=$.a9f
+if(v==null)v=$.a9f=O.bG(C.a,null)
 w.b=v
 x=document.createElement("named-content")
 w.c=x
 return w},
-aMl:function(){return new T.Ka(new G.R())},
-aw9:function(){if($.adp)return
-$.adp=!0
-$.T.w(0,C.mT,new D.l("named-content",T.aBE(),y.V))
+aMm:function(){return new T.Ka(new G.R())},
+awa:function(){if($.adq)return
+$.adq=!0
+$.T.w(0,C.mT,new D.l("named-content",T.aBF(),y.V))
 E.F()},
 Dc:function Dc(d,e){var _=this
 _.e=d
@@ -124,19 +124,19 @@ _.d=e},
 Ka:function Ka(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},L={
-aLk:function(d,e){return new L.Jl(E.z(d,e))},
-aLl:function(d,e){return new L.Jm(E.z(d,e))},
-aLm:function(){return new L.Jn(new G.R())},
-aw2:function(){if($.ado)return
-$.ado=!0
-$.T.w(0,C.mB,new D.l("material-tab-panel-example",L.ak_(),y.w))
+aLl:function(d,e){return new L.Jl(E.z(d,e))},
+aLm:function(d,e){return new L.Jm(E.z(d,e))},
+aLn:function(){return new L.Jn(new G.R())},
+aw3:function(){if($.adp)return
+$.adp=!0
+$.T.w(0,C.mB,new D.l("material-tab-panel-example",L.ak0(),y.w))
 E.F()
 U.oN()
 V.eY()
-Z.ail()
-X.aw8()
-B.aii()
-T.aw9()},
+Z.aim()
+X.aw9()
+B.aij()
+T.awa()},
 CK:function CK(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
@@ -147,37 +147,37 @@ this.a=d},
 Jn:function Jn(d){var _=this
 _.c=_.b=_.a=_.e=null
 _.d=d}},N={
-apq:function(){return C.fN},
-aLg:function(){return new N.Jh(new G.R())},
-aw1:function(){if($.adf)return
-$.adf=!0
-$.T.w(0,C.my,new D.l("material-tab-api",N.ahx(),y.x))
+apr:function(){return C.fM},
+aLh:function(){return new N.Jh(new G.R())},
+aw2:function(){if($.adg)return
+$.adg=!0
+$.T.w(0,C.my,new D.l("material-tab-api",N.ahy(),y.x))
 E.F()
 K.d7()
 D.cV()
-L.aw2()
-S.aw3()
-O.aw5()},
+L.aw3()
+S.aw4()
+O.aw6()},
 CH:function CH(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
 Jh:function Jh(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},U={iB:function iB(d){this.a=d}},X={
-a2E:function(d,e){var x,w=new X.CJ(E.S(d,e,1)),v=$.a8s
-if(v==null)v=$.a8s=O.a0($.aEa,null)
+a2F:function(d,e){var x,w=new X.CJ(E.S(d,e,1)),v=$.a8t
+if(v==null)v=$.a8t=O.a0($.aEb,null)
 w.b=v
 x=document.createElement("material-tab-panel")
 w.c=x
 w.O(x,"themeable")
 return w},
-aLj:function(){return new X.Jk(new G.R())},
-aw8:function(){if($.adq)return
-$.adq=!0
-$.T.w(0,C.mA,new D.l("material-tab-panel",X.aAP(),y.R))
+aLk:function(){return new X.Jk(new G.R())},
+aw9:function(){if($.adr)return
+$.adr=!0
+$.T.w(0,C.mA,new D.l("material-tab-panel",X.aAQ(),y.R))
 E.F()
-Y.a3E()
-Z.ail()},
+Y.a3F()
+Z.aim()},
 CJ:function CJ(d){var _=this
 _.c=_.b=_.a=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
@@ -185,20 +185,20 @@ Jk:function Jk(d){var _=this
 _.c=_.b=_.a=null
 _.d=d},
 lc:function lc(){}},B={hH:function hH(d){this.a=d}},S={
-a9t:function(d,e){var x,w=new S.Do(N.P(),E.S(d,e,1)),v=$.a9u
-if(v==null)v=$.a9u=O.a0($.aES,null)
+a9u:function(d,e){var x,w=new S.Do(N.P(),E.S(d,e,1)),v=$.a9v
+if(v==null)v=$.a9v=O.a0($.aET,null)
 w.b=v
 x=document.createElement("tab-button")
 w.c=x
 return w},
-aNe:function(){return new S.L0(new G.R())},
-aw6:function(){if($.adj)return
-$.adj=!0
-$.T.w(0,C.nc,new D.l("tab-button",S.aGs(),y.s))
+aNf:function(){return new S.L0(new G.R())},
+aw7:function(){if($.adk)return
+$.adk=!0
+$.T.w(0,C.nc,new D.l("tab-button",S.aGt(),y.s))
 E.F()
-O.a3x()
+O.a3y()
 L.r9()
-V.aw7()},
+V.aw8()},
 Do:function Do(d,e){var _=this
 _.e=d
 _.c=_.b=_.a=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
@@ -206,13 +206,13 @@ _.d=e},
 L0:function L0(d){var _=this
 _.c=_.b=_.a=null
 _.d=d},
-aLn:function(){return new S.Jo(new G.R())},
-aw3:function(){if($.adn)return
-$.adn=!0
-$.T.w(0,C.mC,new D.l("material-tab-strip-example",S.ak0(),y.d))
+aLo:function(){return new S.Jo(new G.R())},
+aw4:function(){if($.ado)return
+$.ado=!0
+$.T.w(0,C.mC,new D.l("material-tab-strip-example",S.ak1(),y.d))
 E.F()
 U.oN()
-Y.a3E()
+Y.a3F()
 Q.oI()
 R.nb()
 T.oO()},
@@ -224,7 +224,7 @@ _.d=f},
 Jo:function Jo(d){var _=this
 _.c=_.b=_.a=_.y=_.x=_.r=_.f=_.e=null
 _.d=d}},F={
-a6b:function(d){var x=null
+a6c:function(d){var x=null
 return new F.k5(d,x,0,new P.N(x,x,y.K),x,!0,"tab",x,d)},
 k5:function k5(d,e,f,g,h,i,j,k,l){var _=this
 _.k2=d
@@ -283,7 +283,7 @@ w.y.R(0,w.c)
 w.Q.mb(w.c)},
 jg:function(){var x=this,w=x.e,v=w!=null?1/w.length:0
 x.d="translateX("+H.B(x.c*v*x.a)+"%) scaleX("+H.B(v)+")"},
-a_q:function(d){var x=this.ch
+a_r:function(d){var x=this.ch
 if(x!=null&&!x.contains(W.dg(d.relatedTarget)))this.Q.mb(this.c)},
 a3:function(){this.f.k7(new Q.OC(this))}}
 Y.BL.prototype={
@@ -303,10 +303,10 @@ x.ch=t
 x.C(t,"tab-indicator")
 x.h(x.ch)
 t=x.r=new V.r(2,0,x,T.L(x.Q))
-x.x=new R.ba(t,new D.x(t,Y.auc()))
+x.x=new R.ba(t,new D.x(t,Y.aud()))
 w.Q=x.f.a
 w.ch=x.Q
-$.iN.b.ew(0,v,"focusout",x.v(w.ga_p(),y._,y.E))},
+$.iN.b.ew(0,v,"focusout",x.v(w.ga_q(),y._,y.E))},
 A:function(){var x,w,v,u=this,t=u.a
 if(u.d.f===0)u.f.a.f=!0
 x=t.e
@@ -314,7 +314,7 @@ w=u.z
 if(w==null?x!=null:w!==x){u.x.sbe(x)
 u.z=x}u.x.b8()
 u.r.J()
-if(u.e){u.f.a.seY(u.r.bT(new Y.VK(),y.X,y.F))
+if(u.e){u.f.a.seY(u.r.bT(new Y.VL(),y.X,y.F))
 u.e=!1}u.f.b4(u,u.Q)
 v=t.d
 w=u.y
@@ -325,7 +325,7 @@ u.y=v}},
 G:function(){this.r.I()
 this.f.a.d.H()}}
 Y.mT.prototype={
-q:function(){var x,w,v=this,u=S.a9t(v,0)
+q:function(){var x,w,v=this,u=S.a9u(v,0)
 v.b=u
 u=u.c
 v.y=u
@@ -336,7 +336,7 @@ v.h(v.y)
 u=v.y
 x=v.b
 v.c=new U.db(M.dz(u,x,"tab"))
-u=F.a6b(u)
+u=F.a6c(u)
 v.d=u
 x.K(0,u)
 J.a7(v.y,"keydown",v.v(v.c.a.gbL(),y.L,y.S))
@@ -376,7 +376,7 @@ M4:function(d){var x=this.a
 x.a.JI(x.f.E(0,"index"))}}
 Y.Gb.prototype={
 q:function(){var x=this,w=x.b=Y.BM(x,0),v=w.c
-w=Q.zD(w,x.l(C.ah,null),x.n(C.f,null))
+w=Q.zD(w,x.l(C.ag,null),x.n(C.f,null))
 x.a=w
 x.F(v)},
 A:function(){var x=this.d.e
@@ -388,7 +388,7 @@ return new P.e(x,H.m(x).i("e<1>"))},
 $iu1:1}
 Z.CI.prototype={
 q:function(){var x=this,w=x.e=new V.r(0,null,x,T.L(x.a2()))
-x.f=new K.J(new D.x(w,Z.aAQ()),w)},
+x.f=new K.J(new D.x(w,Z.aAR()),w)},
 A:function(){var x=this.a
 this.f.sU(x.e)
 this.e.J()},
@@ -416,7 +416,7 @@ x=v.c
 v=Z.pK(x,w.l(C.a2,null))
 w.a=v
 w.F(x)},
-P:function(d,e,f){if((d===C.et||d===C.p)&&0===e)return this.a
+P:function(d,e,f){if((d===C.es||d===C.p)&&0===e)return this.a
 return f},
 A:function(){var x=this.d.e
 this.b.B(x===0)
@@ -457,7 +457,7 @@ u.h(x)
 r=u.d
 w=r.a
 r=r.b
-r=Q.zD(u.e,w.l(C.ah,r),w.n(C.f,r))
+r=Q.zD(u.e,w.l(C.ag,r),w.n(C.f,r))
 u.f=r
 u.e.K(0,r)
 u.bq(s,0)
@@ -484,8 +484,8 @@ u.e.j()
 if(s===0)u.f.a3()},
 G:function(){this.e.k()}}
 X.Jk.prototype={
-q:function(){var x=this,w=x.b=X.a2E(x,0),v=w.c
-w=D.a2j(w)
+q:function(){var x=this,w=x.b=X.a2F(x,0),v=w.c
+w=D.a2k(w)
 x.a=w
 w.swi(H.a([],y.m))
 x.F(v)},
@@ -545,10 +545,10 @@ o=r.cy
 if(o!=s){T.Q(r.c,"disabled",s)
 r.cy=s}}}
 S.L0.prototype={
-q:function(){var x,w=this,v=S.a9t(w,0)
+q:function(){var x,w=this,v=S.a9u(w,0)
 w.b=v
 x=v.c
-w.a=F.a6b(x)
+w.a=F.a6c(x)
 w.F(x)},
 A:function(){var x=this.d.e
 this.b.B(x===0)
@@ -556,8 +556,8 @@ this.b.j()}}
 R.o0.prototype={
 wd:function(d){this.e=!0},
 N:function(d){return"TabChangeEvent: ["+H.B(this.a)+":"+-1+"] => ["+H.B(this.c)+":"+-1+"]"},
-ga14:function(){return this.c}}
-M.Vb.prototype={}
+ga15:function(){return this.c}}
+M.Vc.prototype={}
 U.iB.prototype={}
 T.Dc.prototype={
 q:function(){var x=this.a2()
@@ -568,7 +568,7 @@ this.bq(x,0)},
 A:function(){var x=H.B(this.a.a)+" Content"
 this.e.a5(x)}}
 T.Ka.prototype={
-q:function(){var x,w=this,v=T.a2I(w,0)
+q:function(){var x,w=this,v=T.a2J(w,0)
 w.b=v
 x=v.c
 P.i6('Named Component "null" instantiated')
@@ -629,17 +629,14 @@ v=t.gqn()
 u=t.gyy()
 x.l(C.k,s)
 s=t.k1=new X.bg(v,w,u)}return s},
-q:function(){var x,w=this,v=w.a2(),u=K.cH(w,0)
-w.e=u
-v.appendChild(u.c)
-u=w.d
-x=u.a
-u=u.b
-x.n(C.a9,u)
-u=x.n(C.aa,u)
-u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
-w.f=u
-w.e.K(0,u)},
+q:function(){var x=this,w=x.a2(),v=K.cH(x,0)
+x.e=v
+w.appendChild(v.c)
+v=x.d
+v=v.a.n(C.a9,v.b)
+v=new X.cb(v,!J.bA(window.location.href,"enableLatencyCharts=false"))
+x.f=v
+x.e.K(0,v)},
 P:function(d,e,f){var x,w=this
 if(0===e){if(d===C.L)return w.gmA()
 if(d===C.V){x=w.x
@@ -666,15 +663,15 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 N.Jh.prototype={
-q:function(){var x,w,v,u=this,t="activeTabIndex",s="<p>Index of the active panel, 0-based.</p>\n<p>Default is 0.</p>\n",r="List<String>",q="beforeTabChange",p="Stream<TabChangeEvent>",o="<p>Stream of <code>TabChangeEvent</code> instances, published before the tab has\nchanged.</p>\n<p>Calling <code>TabChangeEvent#preventDefault</code> will prevent the tab from\nchanging.</p>\n",n="tabChange",m="<p>Stream of <code>TabChangeEvent</code> instances, published when the tab has changed.</p>\n",l=new N.CH(E.S(u,0,3)),k=$.a8q
-if(k==null)k=$.a8q=O.bG(C.a,null)
+q:function(){var x,w,v,u=this,t="activeTabIndex",s="<p>Index of the active panel, 0-based.</p>\n<p>Default is 0.</p>\n",r="List<String>",q="beforeTabChange",p="Stream<TabChangeEvent>",o="<p>Stream of <code>TabChangeEvent</code> instances, published before the tab has\nchanged.</p>\n<p>Calling <code>TabChangeEvent#preventDefault</code> will prevent the tab from\nchanging.</p>\n",n="tabChange",m="<p>Stream of <code>TabChangeEvent</code> instances, published when the tab has changed.</p>\n",l=new N.CH(E.S(u,0,3)),k=$.a8r
+if(k==null)k=$.a8r=O.bG(C.a,null)
 l.b=k
 x=document.createElement("material-tab-api")
 l.c=x
 u.b=l
 l=y.C
 l=H.a([new D.b5("FixedMaterialTabStripComponent",!1,"","material-tab-strip","","angular_components/lib/material_tab/fixed_material_tab_strip.dart",X.h("<p>A tab strip component with Tab-styled buttons and active tab indicator.</p>\n<p>This is the Fixed tab strip from the material spec which has equal sized\ntab buttons, and no scrolling.</p>\n<p>Note: To achieve a quality user experience, users of the tab strip must\nset focus to newly revealed content so that 1) the tab does not retain the\nfocus style, and 2) screen-readers can reckon what has changed.</p>\n"),H.a([new D.j(t,"","int",X.h(s),!1,""),new D.j("tabIds","",r,X.h("<p>List of tab button ids.</p>\n"),!1,""),new D.j("tabLabels","",r,X.h("<p>List of tab button labels.</p>\n"),!1,"")],l),H.a([new D.j("activeTabIndexChange","","Stream<int>",X.h("<p>Stream of updates to <code>activeTabIndex</code>, published after the <code>tabChange</code>\nevent has fired.</p>\n"),!1,""),new D.j(q,"",p,X.h(o),!1,""),new D.j(n,"",p,X.h(m),!1,"")],l)),new D.b5("MaterialTabPanelComponent",!1,"","material-tab-panel","","angular_components/lib/material_tab/material_tab_panel.dart",X.h("<p>A component that creates a tab panel with navigation bar on the top.</p>\n"),H.a([new D.j(t,"","dynamic",X.h(s),!1,""),new D.j("centerTabs","","bool",X.h("<p>Whether to center-align the tab buttons.</p>\n<p>Otherwise, buttons are aligned from the left end (LTR).</p>\n"),!1,"")],l),H.a([new D.j(q,"",p,X.h(o),!1,""),new D.j(n,"",p,X.h(m),!1,"")],l)),new D.b5("MaterialTabComponent",!1,"","material-tab","","angular_components/lib/material_tab/material_tab.dart",X.h("<p>A Material-styled card, which is shown or hidden as part of a\n<code>MaterialTabPanelComponent</code>.</p>\n<p>The <code>material-tab</code> component sets the button's label text via the <code>label</code>\nproperty. Tab contents can be lazily instantiated by using the\n<code>*deferredContent</code> template directive.</p>\n"),H.a([new D.j("label","","String",X.h("<p>The label for this tab.</p>\n"),!1,"")],l),H.a([],l))],y.c)
-w=H.a([new R.aJ(C.fp,"MaterialTabStripExample","material_tab_example/lib/material_tab_strip_example.dart"),new R.aJ(C.hC,"MaterialTabPanelExample","material_tab_example/lib/material_tab_panel_example.dart"),new R.aJ(C.hH,"MaterialTabStripMixinExample","material_tab_example/lib/material_tab_strip_mixin_example.dart")],y.D)
+w=H.a([new R.aJ(C.fo,"MaterialTabStripExample","material_tab_example/lib/material_tab_strip_example.dart"),new R.aJ(C.hB,"MaterialTabPanelExample","material_tab_example/lib/material_tab_panel_example.dart"),new R.aJ(C.hG,"MaterialTabStripMixinExample","material_tab_example/lib/material_tab_strip_mixin_example.dart")],y.D)
 v=y.Q
 u.a=new B.hH(R.cQ(H.a([],y.i),w,l,P.aW(v,v),!0))
 u.F(x)}}
@@ -685,13 +682,13 @@ a3.m(b0)
 x=T.d(a9,b0,"h2")
 a3.m(x)
 T.b(x,"A tab panel with 4 tabs")
-w=X.a2E(a3,3)
+w=X.a2F(a3,3)
 a3.e=w
 v=w.c
 b0.appendChild(v)
 a3.O(v,O.ci("",a4," ",a5,""))
 a3.h(v)
-a3.f=D.a2j(a3.e)
+a3.f=D.a2k(a3.e)
 w=Z.qn(a3,4)
 a3.r=w
 u=w.c
@@ -713,7 +710,7 @@ T.c(o,a6,"tab2")
 a3.h(o)
 s=Z.pK(o,t.l(C.a2,w))
 a3.z=s
-s=T.a2I(a3,7)
+s=T.a2J(a3,7)
 a3.Q=s
 n=s.c
 T.c(n,"name",a7)
@@ -733,7 +730,7 @@ a3.h(k)
 l=Z.pK(k,t.l(C.a2,w))
 a3.cy=l
 j=a3.db=new V.r(10,9,a3,T.a6())
-a3.dx=K.eB(j,new D.x(j,L.aAN()),l,a3)
+a3.dx=K.eB(j,new D.x(j,L.aAO()),l,a3)
 l=y.r
 a3.cx.u(a3.cy,H.a([H.a([a3.db],l)],p))
 j=Z.qn(a3,11)
@@ -744,7 +741,7 @@ a3.h(i)
 j=Z.pK(i,t.l(C.a2,w))
 a3.fr=j
 h=a3.fx=new V.r(12,11,a3,T.a6())
-a3.fy=K.eB(h,new D.x(h,L.aAO()),j,a3)
+a3.fy=K.eB(h,new D.x(h,L.aAP()),j,a3)
 a3.dy.u(a3.fr,H.a([H.a([a3.fx],l)],p))
 l=y.m
 a3.f.swi(H.a([a3.x,a3.z,a3.cy,a3.fr],l))
@@ -755,14 +752,14 @@ a3.m(g)
 f=T.d(a9,g,"h2")
 a3.m(f)
 T.b(f,"A tab panel with 2 tabs centered")
-j=X.a2E(a3,16)
+j=X.a2F(a3,16)
 a3.go=j
 e=j.c
 g.appendChild(e)
 T.c(e,"centerStrip","")
 a3.O(e,O.ci("",a4," ",a5,""))
 a3.h(e)
-a3.id=D.a2j(a3.go)
+a3.id=D.a2k(a3.go)
 j=Z.qn(a3,17)
 a3.k1=j
 d=j.c
@@ -783,7 +780,7 @@ a2=T.n("Content of tab 2")
 a3.k3.u(w,H.a([H.a([a2],q)],p))
 a3.id.swi(H.a([a3.k2,a3.k4],l))
 a3.go.u(a3.id,H.a([H.a([d,a1],s)],p))},
-P:function(d,e,f){var x=this,w=d!==C.et
+P:function(d,e,f){var x=this,w=d!==C.es
 if((!w||d===C.p)&&4<=e&&e<=5)return x.x
 if((!w||d===C.p)&&6<=e&&e<=8)return x.z
 if((!w||d===C.p)&&9<=e&&e<=10)return x.cy
@@ -840,7 +837,7 @@ x.fy.S()}}
 L.Jl.prototype={
 q:function(){var x,w,v,u=this,t="deferred tab 3",s=document.createElement("div")
 u.h(s)
-x=T.a2I(u,1)
+x=T.a2J(u,1)
 u.b=x
 w=x.c
 s.appendChild(w)
@@ -855,7 +852,7 @@ u.F(s)},
 A:function(){this.b.j()},
 G:function(){this.b.k()}}
 L.Jm.prototype={
-q:function(){var x,w,v=this,u=B.a2B(v,0)
+q:function(){var x,w,v=this,u=B.a2C(v,0)
 v.b=u
 x=u.c
 v.h(x)
@@ -873,15 +870,15 @@ L.Jn.prototype={
 gUx:function(){var x=this.e
 if(x==null){x=S.yp(this.n(C.L,null))
 this.e=x}return x},
-q:function(){var x,w=this,v=new L.CK(E.S(w,0,3)),u=$.a8t
-if(u==null)u=$.a8t=O.a0($.aEb,null)
+q:function(){var x,w=this,v=new L.CK(E.S(w,0,3)),u=$.a8u
+if(u==null)u=$.a8u=O.a0($.aEc,null)
 v.b=u
 x=document.createElement("material-tab-panel-example")
 v.c=x
 w.b=v
 w.a=new X.lc()
 w.F(x)},
-P:function(d,e,f){if(d===C.ah&&0===e)return this.gUx()
+P:function(d,e,f){if(d===C.ag&&0===e)return this.gUx()
 return f}}
 A.jC.prototype={
 w5:function(d){this.a=d.c},
@@ -895,7 +892,7 @@ h.appendChild(x.c)
 x=m.d
 w=x.a
 x=x.b
-v=Q.zD(m.r,w.l(C.ah,x),w.n(C.f,x))
+v=Q.zD(m.r,w.l(C.ag,x),w.n(C.f,x))
 m.x=v
 m.r.K(0,v)
 u=T.d(i,h,"p")
@@ -917,7 +914,7 @@ m.Q=v
 r=v.c
 s.appendChild(r)
 T.c(r,"style","width: 480px;")
-x=Q.zD(m.Q,w.l(C.ah,x),w.n(C.f,x))
+x=Q.zD(m.Q,w.l(C.ag,x),w.n(C.f,x))
 m.ch=x
 m.Q.K(0,x)
 q=T.d(i,s,"p")
@@ -938,7 +935,7 @@ return f},
 A:function(){var x,w,v,u=this,t=u.a,s=u.d.f===0
 if(s){t.toString
 x=u.x
-x.e=C.jF
+x.e=C.jE
 x.jg()
 w=!0}else w=!1
 if(w)u.r.d.st(1)
@@ -952,7 +949,7 @@ x.bj()
 u.cx=v
 w=!0}if(w)u.y.d.st(1)
 if(s){x=u.ch
-x.e=C.jD
+x.e=C.jC
 x.jg()
 w=!0}else w=!1
 if(w)u.Q.d.st(1)
@@ -968,7 +965,7 @@ G:function(){this.r.k()
 this.y.k()
 this.Q.k()},
 Uz:function(d){this.a.c=d},
-UB:function(d){this.a.b=d.ga14()}}
+UB:function(d){this.a.b=d.ga15()}}
 S.Jo.prototype={
 gxo:function(){var x=this.e
 return x==null?this.e=window:x},
@@ -977,8 +974,8 @@ if(w==null){w=T.bx(x.l(C.b,null),x.l(C.D,null),x.n(C.f,null),x.gxo())
 x.f=w}return w},
 gxf:function(){var x=this.r
 return x==null?this.r=document:x},
-q:function(){var x,w=this,v=new S.v0(N.P(),N.P(),E.S(w,0,3)),u=$.a8u
-if(u==null)u=$.a8u=O.bG(C.a,null)
+q:function(){var x,w=this,v=new S.v0(N.P(),N.P(),E.S(w,0,3)),u=$.a8v
+if(u==null)u=$.a8v=O.bG(C.a,null)
 v.b=u
 x=document.createElement("material-tab-strip-example")
 v.c=x
@@ -989,7 +986,7 @@ P:function(d,e,f){var x,w=this
 if(0===e){if(d===C.J)return w.gxo()
 if(d===C.b)return w.gKe()
 if(d===C.L)return w.gxf()
-if(d===C.ah){x=w.x
+if(d===C.ag){x=w.x
 return x==null?w.x=S.yp(w.gxf()):x}if(d===C.V){x=w.y
 return x==null?w.y=document:x}}return f}}
 K.ld.prototype={}
@@ -1008,13 +1005,13 @@ t.h(v)
 w=t.d
 u=w.a
 w=w.b
-w=Q.zD(t.e,u.l(C.ah,w),u.n(C.f,w))
+w=Q.zD(t.e,u.l(C.ag,w),u.n(C.f,w))
 t.f=w
 t.e.K(0,w)},
 A:function(){var x,w,v=this,u=v.a,t=v.d.f===0
 if(t){u.toString
 x=v.f
-x.e=C.jB
+x.e=C.jA
 x.jg()
 w=!0}else w=!1
 if(w)v.e.d.st(1)
@@ -1029,8 +1026,8 @@ return x==null?this.r=window:x},
 gUC:function(){var x=this,w=x.x
 if(w==null){w=T.bx(x.l(C.b,null),x.l(C.D,null),x.n(C.f,null),x.gCJ())
 x.x=w}return w},
-q:function(){var x,w=this,v=new O.CL(E.S(w,0,3)),u=$.a8v
-if(u==null)u=$.a8v=O.a0($.aEc,null)
+q:function(){var x,w=this,v=new O.CL(E.S(w,0,3)),u=$.a8w
+if(u==null)u=$.a8w=O.a0($.aEd,null)
 v.b=u
 x=document.createElement("material-tab-strip-mixin-example")
 v.c=x
@@ -1042,7 +1039,7 @@ if(0===e){if(d===C.L)return w.gCI()
 if(d===C.V){x=w.f
 return x==null?w.f=document:x}if(d===C.J)return w.gCJ()
 if(d===C.b)return w.gUC()
-if(d===C.ah){x=w.y
+if(d===C.ag){x=w.y
 return x==null?w.y=S.yp(w.gCI()):x}}return f}}
 var z=a.updateTypes(["~(o0*)","aj<~>*(k*,H*)","~(@)","t*(u1*)","~(c7*)","dk*(mT*)","f<j8*>*()","f<jA*>*()","f<jB*>*()","f<k5*>*()","f<iB*>*()","f<hH*>*()","f<lc*>*()","f<jC*>*()","f<ld*>*()"])
 Q.OC.prototype={
@@ -1051,7 +1048,7 @@ x.Q.mb(x.c)},
 $C:"$0",
 $R:0,
 $S:0}
-Y.VK.prototype={
+Y.VL.prototype={
 $1:function(d){return d.c.a},
 $S:z+5}
 D.RP.prototype={
@@ -1075,48 +1072,48 @@ v.c.R(0,!0)},
 $C:"$0",
 $R:0,
 $S:0};(function installTearOffs(){var x=a._instance_1u,w=a._static_2,v=a._static_0
-x(Q.j8.prototype,"ga_p","a_q",4)
-w(Y,"auc","aHA",1)
-v(Y,"aud","aHB",6)
+x(Q.j8.prototype,"ga_q","a_r",4)
+w(Y,"aud","aHB",1)
+v(Y,"aue","aHC",6)
 x(Y.mT.prototype,"gM3","M4",2)
-w(Z,"aAQ","aLh",1)
-v(Z,"aAR","aLi",7)
+w(Z,"aAR","aLi",1)
+v(Z,"aAS","aLj",7)
 var u
 x(u=D.jB.prototype,"gvW","vX",0)
 x(u,"gw4","w5",0)
-v(X,"aAP","aLj",8)
-v(S,"aGs","aNe",9)
-v(T,"aBE","aMl",10)
-v(N,"ahx","aLg",11)
-w(L,"aAN","aLk",1)
+v(X,"aAQ","aLk",8)
+v(S,"aGt","aNf",9)
+v(T,"aBF","aMm",10)
+v(N,"ahy","aLh",11)
 w(L,"aAO","aLl",1)
-v(L,"ak_","aLm",12)
+w(L,"aAP","aLm",1)
+v(L,"ak0","aLn",12)
 x(u=A.jC.prototype,"gw4","w5",0)
 x(u,"gvW","vX",0)
-v(S,"ak0","aLn",13)
+v(S,"ak1","aLo",13)
 x(u=S.v0.prototype,"gUy","Uz",2)
 x(u,"gUA","UB",2)
-v(O,"ak1","aLo",14)})();(function inheritance(){var x=a.mixin,w=a.inheritMany,v=a.inherit
-w(P.y,[Q.j8,D.jB,R.o0,M.Vb,U.iB,B.hH,X.lc,A.jC,K.ld])
-w(H.bq,[Q.OC,Y.VK,D.RP,D.RQ,D.RR])
+v(O,"ak2","aLp",14)})();(function inheritance(){var x=a.mixin,w=a.inheritMany,v=a.inherit
+w(P.y,[Q.j8,D.jB,R.o0,M.Vc,U.iB,B.hH,X.lc,A.jC,K.ld])
+w(H.bq,[Q.OC,Y.VL,D.RP,D.RQ,D.RR])
 w(E.bn,[Y.BL,Z.CI,X.CJ,S.Do,T.Dc,N.CH,L.CK,S.v0,O.CL])
 w(E.aj,[Y.mT,Z.Ji,L.Jl,L.Jm])
 w(G.f,[Y.Gb,Z.Jj,X.Jk,S.L0,T.Ka,N.Jh,L.Jn,S.Jo,O.Jp])
 v(Z.jA,E.jT)
 v(F.Fe,S.nL)
 v(F.k5,F.Fe)
-x(F.Fe,M.Vb)})()
+x(F.Fe,M.Vc)})()
 H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","BL":{"k":[],"i":[]},"mT":{"k":[],"i":[]},"Gb":{"f":["j8*"],"i":[],"f.T":"j8*"},"u1":{"bb":[]},"jA":{"u1":[],"bb":[],"aY":[]},"CI":{"k":[],"i":[]},"Ji":{"k":[],"i":[]},"Jj":{"f":["jA*"],"i":[],"f.T":"jA*"},"CJ":{"k":[],"i":[]},"Jk":{"f":["jB*"],"i":[],"f.T":"jB*"},"k5":{"bb":[],"aY":[]},"Do":{"k":[],"i":[]},"L0":{"f":["k5*"],"i":[],"f.T":"k5*"},"Dc":{"k":[],"i":[]},"Ka":{"f":["iB*"],"i":[],"f.T":"iB*"},"CH":{"k":[],"i":[]},"Jh":{"f":["hH*"],"i":[],"f.T":"hH*"},"CK":{"k":[],"i":[]},"Jl":{"k":[],"i":[]},"Jm":{"k":[],"i":[]},"Jn":{"f":["lc*"],"i":[],"f.T":"lc*"},"v0":{"k":[],"i":[]},"Jo":{"f":["jC*"],"i":[],"f.T":"jC*"},"CL":{"k":[],"i":[]},"Jp":{"f":["ld*"],"i":[],"f.T":"ld*"}}'))
 0
 var y=(function rtii(){var x=H.K
 return{q:x("l<j8*>"),x:x("l<hH*>"),H:x("l<jA*>"),R:x("l<jB*>"),w:x("l<lc*>"),d:x("l<jC*>"),G:x("l<ld*>"),V:x("l<iB*>"),s:x("l<k5*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),O:x("q<A*>"),M:x("q<y*>"),a:x("q<be<~>*>"),i:x("q<t*>"),m:x("q<u1*>"),l:x("q<a1*>"),r:x("q<r*>"),t:x("b6<H*>"),g:x("N<o0*>"),K:x("N<V*>"),W:x("N<E*>"),L:x("v*"),E:x("c7*"),X:x("cu*"),S:x("b3*"),f:x("D<t*>*"),P:x("W*"),_:x("y*"),Q:x("t*"),o:x("o0*"),p:x("V*"),F:x("mT*"),b:x("E*")}})();(function constants(){var x=a.makeConstList
-C.fp=new D.l("material-tab-strip-example",S.ak0(),y.d)
-C.fN=new D.l("material-tab-api",N.ahx(),y.x)
-C.hC=new D.l("material-tab-panel-example",L.ak_(),y.w)
-C.hH=new D.l("material-tab-strip-mixin-example",O.ak1(),y.G)
-C.jB=H.a(x(["Tab 1","Tab 2","Tab 3 has a long label","Tab 4"]),y.i)
-C.jD=H.a(x(["Tab 1 with a long name","Tab 2"]),y.i)
-C.jF=H.a(x(["Users with access","Managers with access","Pending Invitations"]),y.i)
+C.fo=new D.l("material-tab-strip-example",S.ak1(),y.d)
+C.fM=new D.l("material-tab-api",N.ahy(),y.x)
+C.hB=new D.l("material-tab-panel-example",L.ak0(),y.w)
+C.hG=new D.l("material-tab-strip-mixin-example",O.ak2(),y.G)
+C.jA=H.a(x(["Tab 1","Tab 2","Tab 3 has a long label","Tab 4"]),y.i)
+C.jC=H.a(x(["Tab 1 with a long name","Tab 2"]),y.i)
+C.jE=H.a(x(["Users with access","Managers with access","Pending Invitations"]),y.i)
 C.kM=H.C("j8")
 C.my=H.C("hH")
 C.mz=H.C("jA")
@@ -1126,36 +1123,36 @@ C.mC=H.C("jC")
 C.mD=H.C("ld")
 C.mT=H.C("iB")
 C.nc=H.C("k5")
-C.et=H.C("u1")})();(function staticFields(){$.aFn=["._nghost-%ID%{display:flex;flex-shrink:0;width:100%}.navi-bar._ngcontent-%ID%{display:flex;margin:0;overflow:hidden;padding:0;position:relative;white-space:nowrap;width:100%}.navi-bar._ngcontent-%ID% .tab-button._ngcontent-%ID%{flex:1;overflow:hidden;margin:0}.tab-indicator._ngcontent-%ID%{transform-origin:left center;background:#4285f4;bottom:0;left:0;right:0;height:2px;position:absolute;transition:transform cubic-bezier(0.4,0,0.2,1) 436ms}"]
-$.a6J=null
-$.adh=!1
-$.aFq=["._nghost-%ID%{display:flex}._nghost-%ID%:focus{outline:none}._nghost-%ID%.material-tab{padding:16px;box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)}.tab-content._ngcontent-%ID%{display:flex;flex:0 0 100%;width:100%}"]
-$.a8r=null
-$.adr=!1
-$.aFp=["._nghost-%ID%{display:block}._nghost-%ID%[centerStrip] > material-tab-strip._ngcontent-%ID%{margin:0 auto}"]
+C.es=H.C("u1")})();(function staticFields(){$.aFo=["._nghost-%ID%{display:flex;flex-shrink:0;width:100%}.navi-bar._ngcontent-%ID%{display:flex;margin:0;overflow:hidden;padding:0;position:relative;white-space:nowrap;width:100%}.navi-bar._ngcontent-%ID% .tab-button._ngcontent-%ID%{flex:1;overflow:hidden;margin:0}.tab-indicator._ngcontent-%ID%{transform-origin:left center;background:#4285f4;bottom:0;left:0;right:0;height:2px;position:absolute;transition:transform cubic-bezier(0.4,0,0.2,1) 436ms}"]
+$.a6K=null
+$.adi=!1
+$.aFr=["._nghost-%ID%{display:flex}._nghost-%ID%:focus{outline:none}._nghost-%ID%.material-tab{padding:16px;box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)}.tab-content._ngcontent-%ID%{display:flex;flex:0 0 100%;width:100%}"]
 $.a8s=null
-$.adq=!1
-$.aFo=['._nghost-%ID%{font-size:14px;font-weight:500;text-transform:uppercase;user-select:none;background:transparent;border-radius:inherit;box-sizing:border-box;cursor:pointer;display:inline-block;letter-spacing:0.01em;line-height:normal;outline:none;position:relative;text-align:center;display:inline-flex;justify-content:center;align-items:center;height:48px;font-weight:500;color:#616161}._nghost-%ID%.acx-theme-dark{color:#fff}._nghost-%ID%:not([icon]){margin:0 0.29em}._nghost-%ID%[dense]:not([icon]){height:32px;font-size:13px}._nghost-%ID%[compact]:not([icon]){padding:0 8px}._nghost-%ID%[disabled]{color:rgba(0,0,0,0.26);cursor:not-allowed}._nghost-%ID%[disabled].acx-theme-dark{color:rgba(255,255,255,0.3)}._nghost-%ID%[disabled] > *._ngcontent-%ID%{pointer-events:none}@media (hover:hover){._nghost-%ID%:not([disabled]):not([icon]):hover::after,._nghost-%ID%.is-focused::after{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;background-color:currentColor;outline:2px solid transparent;opacity:0.12;border-radius:inherit;pointer-events:none}}._nghost-%ID%[raised][animated]{transition:box-shadow 0.28s cubic-bezier(0.4,0,0.2,1)}._nghost-%ID%[raised][elevation="1"]{box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="2"]{box-shadow:0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="3"]{box-shadow:0 6px 10px 0 rgba(0,0,0,0.14),0 1px 18px 0 rgba(0,0,0,0.12),0 3px 5px -1px rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="4"]{box-shadow:0 8px 10px 1px rgba(0,0,0,0.14),0 3px 14px 2px rgba(0,0,0,0.12),0 5px 5px -3px rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="5"]{box-shadow:0 16px 24px 2px rgba(0,0,0,0.14),0 6px 30px 5px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="6"]{box-shadow:0 24px 38px 3px rgba(0,0,0,0.14),0 9px 46px 8px rgba(0,0,0,0.12),0 11px 15px -7px rgba(0,0,0,0.2)}._nghost-%ID%[raised].acx-theme-dark{background-color:#4285f4}._nghost-%ID%[raised][disabled]{background:rgba(0,0,0,0.12);box-shadow:none}._nghost-%ID%[raised][disabled].acx-theme-dark{background:rgba(255,255,255,0.12)}._nghost-%ID%[raised].highlighted:not([disabled]){background-color:#4285f4;color:#fff}._nghost-%ID%[no-ink] material-ripple._ngcontent-%ID%{display:none}._nghost-%ID%[clear-size]{margin:0}._nghost-%ID% .content._ngcontent-%ID%{display:inline-flex;align-items:center}._nghost-%ID%.active,._nghost-%ID%.focus{color:#4285f4}._nghost-%ID%.focus::after{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;background-color:currentColor;opacity:0.16;pointer-events:none}._nghost-%ID%.text-wrap{margin:0;padding:0 16px}._nghost-%ID%.text-wrap .content._ngcontent-%ID%{text-overflow:initial;white-space:initial}.content._ngcontent-%ID%{display:inline-block;overflow:hidden;padding:8px;text-overflow:ellipsis;white-space:nowrap}']
-$.a9u=null
-$.adj=!1
-$.adk=!1
-$.a9e=null
-$.adp=!1
-$.a8q=null
-$.adf=!1
-$.aFm=[".tab-panel._ngcontent-%ID%{width:400px;height:200px}material-tab-panel[centerStrip]._ngcontent-%ID%  material-tab-strip{width:200px} .tab-panel material-tab-strip.themeable .navi-bar .tab-button.active, .tab-panel material-tab-strip.themeable .navi-bar .tab-button.focus{color:#db4437} .tab-panel scrolling-material-tab-strip.themeable .navi-bar .tab-button.active, .tab-panel scrolling-material-tab-strip.themeable .navi-bar .tab-button.focus{color:#db4437} .tab-panel material-tab-strip.themeable .navi-bar .tab-indicator{background:#db4437} .tab-panel scrolling-material-tab-strip.themeable .navi-bar .tab-indicator{background:#db4437}"]
+$.ads=!1
+$.aFq=["._nghost-%ID%{display:block}._nghost-%ID%[centerStrip] > material-tab-strip._ngcontent-%ID%{margin:0 auto}"]
 $.a8t=null
-$.ado=!1
-$.a8u=null
-$.adn=!1
-$.aFl=["material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button{color:#616161} material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button{color:#616161} material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button.active, material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button.focus{color:#4285f4} material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button.active, material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button.focus{color:#4285f4} material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-indicator{background:#4285f4} material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-indicator{background:#4285f4} material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button.active, material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button.focus{color:#0f9d58} material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button.active, material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button.focus{color:#0f9d58}"]
-$.a8v=null
+$.adr=!1
+$.aFp=['._nghost-%ID%{font-size:14px;font-weight:500;text-transform:uppercase;user-select:none;background:transparent;border-radius:inherit;box-sizing:border-box;cursor:pointer;display:inline-block;letter-spacing:0.01em;line-height:normal;outline:none;position:relative;text-align:center;display:inline-flex;justify-content:center;align-items:center;height:48px;font-weight:500;color:#616161}._nghost-%ID%.acx-theme-dark{color:#fff}._nghost-%ID%:not([icon]){margin:0 0.29em}._nghost-%ID%[dense]:not([icon]){height:32px;font-size:13px}._nghost-%ID%[compact]:not([icon]){padding:0 8px}._nghost-%ID%[disabled]{color:rgba(0,0,0,0.26);cursor:not-allowed}._nghost-%ID%[disabled].acx-theme-dark{color:rgba(255,255,255,0.3)}._nghost-%ID%[disabled] > *._ngcontent-%ID%{pointer-events:none}@media (hover:hover){._nghost-%ID%:not([disabled]):not([icon]):hover::after,._nghost-%ID%.is-focused::after{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;background-color:currentColor;outline:2px solid transparent;opacity:0.12;border-radius:inherit;pointer-events:none}}._nghost-%ID%[raised][animated]{transition:box-shadow 0.28s cubic-bezier(0.4,0,0.2,1)}._nghost-%ID%[raised][elevation="1"]{box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="2"]{box-shadow:0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="3"]{box-shadow:0 6px 10px 0 rgba(0,0,0,0.14),0 1px 18px 0 rgba(0,0,0,0.12),0 3px 5px -1px rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="4"]{box-shadow:0 8px 10px 1px rgba(0,0,0,0.14),0 3px 14px 2px rgba(0,0,0,0.12),0 5px 5px -3px rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="5"]{box-shadow:0 16px 24px 2px rgba(0,0,0,0.14),0 6px 30px 5px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,0,0,0.2)}._nghost-%ID%[raised][elevation="6"]{box-shadow:0 24px 38px 3px rgba(0,0,0,0.14),0 9px 46px 8px rgba(0,0,0,0.12),0 11px 15px -7px rgba(0,0,0,0.2)}._nghost-%ID%[raised].acx-theme-dark{background-color:#4285f4}._nghost-%ID%[raised][disabled]{background:rgba(0,0,0,0.12);box-shadow:none}._nghost-%ID%[raised][disabled].acx-theme-dark{background:rgba(255,255,255,0.12)}._nghost-%ID%[raised].highlighted:not([disabled]){background-color:#4285f4;color:#fff}._nghost-%ID%[no-ink] material-ripple._ngcontent-%ID%{display:none}._nghost-%ID%[clear-size]{margin:0}._nghost-%ID% .content._ngcontent-%ID%{display:inline-flex;align-items:center}._nghost-%ID%.active,._nghost-%ID%.focus{color:#4285f4}._nghost-%ID%.focus::after{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;background-color:currentColor;opacity:0.16;pointer-events:none}._nghost-%ID%.text-wrap{margin:0;padding:0 16px}._nghost-%ID%.text-wrap .content._ngcontent-%ID%{text-overflow:initial;white-space:initial}.content._ngcontent-%ID%{display:inline-block;overflow:hidden;padding:8px;text-overflow:ellipsis;white-space:nowrap}']
+$.a9v=null
+$.adk=!1
+$.adl=!1
+$.a9f=null
+$.adq=!1
+$.a8r=null
 $.adg=!1
-$.aCZ=[$.aFn]
-$.aE9=[$.aFq]
-$.aEa=[$.aFp]
-$.aES=[$.aFo]
-$.aEb=[$.aFm]
-$.aEc=[$.aFl]})()}
-$__dart_deferred_initializers__["wYA/Lgo5BvEP4KY0+aQ1lGSXpUs="] = $__dart_deferred_initializers__.current
+$.aFn=[".tab-panel._ngcontent-%ID%{width:400px;height:200px}material-tab-panel[centerStrip]._ngcontent-%ID%  material-tab-strip{width:200px} .tab-panel material-tab-strip.themeable .navi-bar .tab-button.active, .tab-panel material-tab-strip.themeable .navi-bar .tab-button.focus{color:#db4437} .tab-panel scrolling-material-tab-strip.themeable .navi-bar .tab-button.active, .tab-panel scrolling-material-tab-strip.themeable .navi-bar .tab-button.focus{color:#db4437} .tab-panel material-tab-strip.themeable .navi-bar .tab-indicator{background:#db4437} .tab-panel scrolling-material-tab-strip.themeable .navi-bar .tab-indicator{background:#db4437}"]
+$.a8u=null
+$.adp=!1
+$.a8v=null
+$.ado=!1
+$.aFm=["material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button{color:#616161} material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button{color:#616161} material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button.active, material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button.focus{color:#4285f4} material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button.active, material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button.focus{color:#4285f4} material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-indicator{background:#4285f4} material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-indicator{background:#4285f4} material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button.active, material-tab-strip-mixin-example material-tab-strip.themeable .navi-bar .tab-button.focus{color:#0f9d58} material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button.active, material-tab-strip-mixin-example scrolling-material-tab-strip.themeable .navi-bar .tab-button.focus{color:#0f9d58}"]
+$.a8w=null
+$.adh=!1
+$.aD_=[$.aFo]
+$.aEa=[$.aFr]
+$.aEb=[$.aFq]
+$.aET=[$.aFp]
+$.aEc=[$.aFn]
+$.aEd=[$.aFm]})()}
+$__dart_deferred_initializers__["fZsEEE8zpfjG8wmtVooR3tb797g="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_67.part.js.map

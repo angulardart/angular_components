@@ -1,59 +1,59 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,E,M,Q,D,Z={
-app:function(){return C.hr},
-aL_:function(){return new Z.J3(new G.R())},
-awa:function(){if($.ads)return
-$.ads=!0
-$.T.w(0,C.mx,new D.l("material-stepper-api",Z.ajY(),y.w))
+apq:function(){return C.hq},
+aL0:function(){return new Z.J3(new G.R())},
+awb:function(){if($.adt)return
+$.adt=!0
+$.T.w(0,C.mx,new D.l("material-stepper-api",Z.ajZ(),y.w))
 E.F()
 K.d7()
 D.cV()
-U.awb()},
+U.awc()},
 CF:function CF(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
 J3:function J3(d){var _=this
 _.c=_.b=_.a=null
 _.d=d},
-aim:function(){if($.adH)return
-$.adH=!0
+ain:function(){if($.adI)return
+$.adI=!0
 E.F()
 G.LC()
 X.r7()}},O={
-qm:function(d,e){var x,w=new O.CG(E.S(d,e,3)),v=$.a8p
-if(v==null)v=$.a8p=O.a0($.aE8,null)
+qm:function(d,e){var x,w=new O.CG(E.S(d,e,3)),v=$.a8q
+if(v==null)v=$.a8q=O.a0($.aE9,null)
 w.b=v
 x=document.createElement("material-stepper")
 w.c=x
 w.O(x,"themeable")
 return w},
-aL0:function(d,e){return new O.xv(N.P(),N.P(),N.P(),E.z(d,e))},
-aL8:function(d,e){return new O.Ja(E.z(d,e))},
-aL9:function(d,e){return new O.Jb(E.z(d,e))},
-aLa:function(d,e){return new O.Jc(E.z(d,e))},
-aLb:function(d,e){return new O.Jd(E.z(d,e))},
-aLc:function(d,e){return new O.Je(E.z(d,e))},
-aLd:function(d,e){return new O.xx(E.z(d,e))},
-aLe:function(d,e){return new O.Jf(E.z(d,e))},
-aL1:function(d,e){return new O.J4(N.P(),E.z(d,e))},
-aL2:function(d,e){return new O.J5(E.z(d,e))},
-aL3:function(d,e){return new O.J6(E.z(d,e))},
-aL4:function(d,e){return new O.J7(E.z(d,e))},
-aL5:function(d,e){return new O.J8(E.z(d,e))},
-aL6:function(d,e){return new O.xw(E.z(d,e))},
-aL7:function(d,e){return new O.J9(N.P(),E.z(d,e))},
-aLf:function(){return new O.Jg(new G.R())},
-awc:function(){if($.adG)return
-$.adG=!0
-$.T.w(0,C.cI,new D.l("material-stepper",O.aAM(),y.J))
+aL1:function(d,e){return new O.xv(N.P(),N.P(),N.P(),E.z(d,e))},
+aL9:function(d,e){return new O.Ja(E.z(d,e))},
+aLa:function(d,e){return new O.Jb(E.z(d,e))},
+aLb:function(d,e){return new O.Jc(E.z(d,e))},
+aLc:function(d,e){return new O.Jd(E.z(d,e))},
+aLd:function(d,e){return new O.Je(E.z(d,e))},
+aLe:function(d,e){return new O.xx(E.z(d,e))},
+aLf:function(d,e){return new O.Jf(E.z(d,e))},
+aL2:function(d,e){return new O.J4(N.P(),E.z(d,e))},
+aL3:function(d,e){return new O.J5(E.z(d,e))},
+aL4:function(d,e){return new O.J6(E.z(d,e))},
+aL5:function(d,e){return new O.J7(E.z(d,e))},
+aL6:function(d,e){return new O.J8(E.z(d,e))},
+aL7:function(d,e){return new O.xw(E.z(d,e))},
+aL8:function(d,e){return new O.J9(N.P(),E.z(d,e))},
+aLg:function(){return new O.Jg(new G.R())},
+awd:function(){if($.adH)return
+$.adH=!0
+$.T.w(0,C.cH,new D.l("material-stepper",O.aAN(),y.J))
 E.F()
 R.ey()
 G.LC()
 M.ch()
-Z.aim()
-M.a0s()
+Z.ain()
+M.a0t()
 X.r7()
-R.a0w()
+R.a0x()
 V.h_()},
 CG:function CG(d){var _=this
 _.c=_.b=_.a=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
@@ -109,7 +109,7 @@ _.c=_.b=_.a=null
 _.d=d},
 hG:function hG(d){this.a=d}},A,T={
 dF:function(d,e){var x=null,w=y.h
-return new T.iF(new P.N(x,x,w),new P.N(x,x,w),new P.N(x,x,w),C.bv,d,e)},
+return new T.iF(new P.N(x,x,w),new P.N(x,x,w),new P.N(x,x,w),C.bu,d,e)},
 iF:function iF(d,e,f,g,h,i){var _=this
 _.f=d
 _.r=e
@@ -124,13 +124,13 @@ _.b=g
 _.c=h
 _.d=i
 _.a=null},
-Ul:function Ul(d){this.a=d},
+Um:function Um(d){this.a=d},
 Bb:function Bb(d,e,f){var _=this
 _.b=d
 _.c=e
 _.d=f
 _.a=null},
-Us:function Us(d,e){var _=this
+Ut:function Ut(d,e){var _=this
 _.a=d
 _.b=e
 _.c=null
@@ -138,42 +138,42 @@ _.f=!0}},L={nR:function nR(d,e){var _=this
 _.d=d
 _.e=e
 _.b=_.a=null
-_.c=!1},Tg:function Tg(d,e){this.a=d
+_.c=!1},Th:function Th(d,e){this.a=d
 this.b=e}},N,U={
-aMQ:function(d,e){return new U.KD(E.z(d,e))},
-aN0:function(d,e){return new U.KO(E.z(d,e))},
-aN6:function(d,e){return new U.KU(E.z(d,e))},
-aN7:function(d,e){return new U.KV(E.z(d,e))},
-aN8:function(d,e){return new U.y3(E.z(d,e))},
-aN9:function(d,e){return new U.KW(E.z(d,e))},
-aNa:function(d,e){return new U.KX(E.z(d,e))},
-aNb:function(d,e){return new U.KY(E.z(d,e))},
-aNc:function(d,e){return new U.KZ(E.z(d,e))},
-aMR:function(d,e){return new U.KE(E.z(d,e))},
-aMS:function(d,e){return new U.KF(E.z(d,e))},
-aMT:function(d,e){return new U.KG(E.z(d,e))},
-aMU:function(d,e){return new U.KH(E.z(d,e))},
-aMV:function(d,e){return new U.KI(E.z(d,e))},
-aMW:function(d,e){return new U.KJ(E.z(d,e))},
-aMX:function(d,e){return new U.KK(E.z(d,e))},
-aMY:function(d,e){return new U.KL(E.z(d,e))},
-aMZ:function(d,e){return new U.KM(E.z(d,e))},
-aN_:function(d,e){return new U.KN(E.z(d,e))},
-aN1:function(d,e){return new U.KP(E.z(d,e))},
-aN2:function(d,e){return new U.KQ(E.z(d,e))},
-aN3:function(d,e){return new U.KR(E.z(d,e))},
-aN4:function(d,e){return new U.KS(E.z(d,e))},
-aN5:function(d,e){return new U.KT(E.z(d,e))},
-aNd:function(){return new U.L_(new G.R())},
-awb:function(){if($.adu)return
-$.adu=!0
-$.T.w(0,C.na,new D.l("stepper-demo",U.ajZ(),y.Z))
+aMR:function(d,e){return new U.KD(E.z(d,e))},
+aN1:function(d,e){return new U.KO(E.z(d,e))},
+aN7:function(d,e){return new U.KU(E.z(d,e))},
+aN8:function(d,e){return new U.KV(E.z(d,e))},
+aN9:function(d,e){return new U.y3(E.z(d,e))},
+aNa:function(d,e){return new U.KW(E.z(d,e))},
+aNb:function(d,e){return new U.KX(E.z(d,e))},
+aNc:function(d,e){return new U.KY(E.z(d,e))},
+aNd:function(d,e){return new U.KZ(E.z(d,e))},
+aMS:function(d,e){return new U.KE(E.z(d,e))},
+aMT:function(d,e){return new U.KF(E.z(d,e))},
+aMU:function(d,e){return new U.KG(E.z(d,e))},
+aMV:function(d,e){return new U.KH(E.z(d,e))},
+aMW:function(d,e){return new U.KI(E.z(d,e))},
+aMX:function(d,e){return new U.KJ(E.z(d,e))},
+aMY:function(d,e){return new U.KK(E.z(d,e))},
+aMZ:function(d,e){return new U.KL(E.z(d,e))},
+aN_:function(d,e){return new U.KM(E.z(d,e))},
+aN0:function(d,e){return new U.KN(E.z(d,e))},
+aN2:function(d,e){return new U.KP(E.z(d,e))},
+aN3:function(d,e){return new U.KQ(E.z(d,e))},
+aN4:function(d,e){return new U.KR(E.z(d,e))},
+aN5:function(d,e){return new U.KS(E.z(d,e))},
+aN6:function(d,e){return new U.KT(E.z(d,e))},
+aNe:function(){return new U.L_(new G.R())},
+awc:function(){if($.adv)return
+$.adv=!0
+$.T.w(0,C.na,new D.l("stepper-demo",U.ak_(),y.Z))
 E.F()
 U.dL()
-Z.aim()
-O.awc()
+Z.ain()
+O.awd()
 X.r7()
-R.a0w()},
+R.a0x()},
 Dn:function Dn(d){var _=this
 _.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.aM=_.aA=_.ax=_.as=_.af=_.aj=_.ah=_.ar=_.ai=_.av=_.au=_.aq=_.al=_.ag=_.an=_.ae=_.ak=_.a9=_.a8=_.aa=_.L=_.W=_.a_=_.a4=_.Y=_.a6=_.a0=_.X=_.a7=_.V=null
@@ -209,7 +209,7 @@ L_:function L_(d){var _=this
 _.c=_.b=_.a=_.r=_.f=_.e=null
 _.d=d}},X,B,S={
 pJ:function(){var x=H.a([],y.z)
-return new S.jz(x,new P.N(null,null,y.O),P.aW(y.m,y.X),$.alT(),$.alU())},
+return new S.jz(x,new P.N(null,null,y.O),P.aW(y.m,y.X),$.alU(),$.alV())},
 jz:function jz(d,e,f,g,h){var _=this
 _.a=d
 _.b=null
@@ -227,7 +227,7 @@ RM:function RM(d){this.a=d},
 RL:function RL(d,e){this.a=d
 this.b=e},
 RK:function RK(d,e){this.a=d
-this.b=e}},F={k3:function k3(){this.a=!1},Um:function Um(){}}
+this.b=e}},F={k3:function k3(){this.a=!1},Un:function Un(){}}
 a.setFunctionNamesIfNecessary([Z,O,T,L,U,S,F])
 C=c[0]
 H=c[1]
@@ -257,15 +257,15 @@ F=a.updateHolder(c[24],F)
 L.nR.prototype={
 Fr:function(d){var x=this.e,w=x.iC(d.c)
 d.b.b2(0,w.gwG())
-this.b=x.gZs(x)
+this.b=x.gZt(x)
 return P.eC(P.aW(y.X,y.A),y.U)},
 soW:function(d){var x=this
-if(x.a!=null)x.ll(0).bP(new L.Tg(x,d),y.P)
+if(x.a!=null)x.ll(0).bP(new L.Th(x,d),y.P)
 else if(d!=null)x.uL(d)}}
 T.iF.prototype={
 u3:function(d,e){this.dy=!0
 e.R(0,d)
-d.a.bP(new T.Ul(this),y.P)}}
+d.a.bP(new T.Um(this),y.P)}}
 T.Bb.prototype={}
 S.jz.prototype={
 sii:function(d){var x=this
@@ -274,7 +274,7 @@ x.y.cb(0)
 x.r=d
 if(x.b==null){x.b=0
 x.h0()}P.d8(new S.RO(x))},
-a0w:function(d){if(!this.a[d].fx)return P.eC(!1,y.b)
+a0x:function(d){if(!this.a[d].fx)return P.eC(!1,y.b)
 this.c=!1
 return this.uk(d)},
 ps:function(d,e){var x
@@ -334,23 +334,23 @@ u.fr=w
 u.C(w,"stepper stepper-body mixin")
 u.h(u.fr)
 w=u.d
-w=w.a.n(C.c3,w.b)
+w=w.a.n(C.c2,w.b)
 v=u.fr
-u.e=new T.Us(v,w)
+u.e=new T.Ut(v,w)
 T.b(v,"\n  ")
 w=u.f=new V.r(3,1,u,T.L(u.fr))
-u.r=new R.ba(w,new D.x(w,O.aAx()))
+u.r=new R.ba(w,new D.x(w,O.aAy()))
 T.b(u.fr,t)
 T.b(s,t)
 w=u.x=new V.r(6,null,u,T.L(s))
-u.y=new K.J(new D.x(w,O.aAz()),w)
+u.y=new K.J(new D.x(w,O.aAA()),w)
 T.b(s,t)
 w=T.u(x,s)
 u.dy=w
 u.h(w)
 T.b(s,t)
 w=u.z=new V.r(10,null,u,T.L(s))
-u.Q=new K.J(new D.x(w,O.aAE()),w)
+u.Q=new K.J(new D.x(w,O.aAF()),w)
 T.b(s,t)},
 A:function(){var x,w,v,u=this,t=u.a,s=u.d.f,r=u.dy,q=u.cy
 if(q==null?r!=null:q!==r)u.cy=u.e.c=r
@@ -401,7 +401,7 @@ T.b(v.y2,s)
 v.y2.appendChild(v.b.b)
 T.b(v.y2,s)
 p=v.f=new V.r(7,3,v,T.L(v.y2))
-v.r=new K.J(new D.x(p,O.aAF()),p)
+v.r=new K.J(new D.x(p,O.aAG()),p)
 T.b(v.y2,t)
 T.b(v.y1,u)
 T.b(v.y1,u)
@@ -426,15 +426,15 @@ T.b(v.X,t)
 v.X.appendChild(v.d.b)
 T.b(v.X,s)
 p=v.x=new V.r(22,18,v,T.L(v.X))
-v.y=new K.J(new D.x(p,O.aAG()),p)
+v.y=new K.J(new D.x(p,O.aAH()),p)
 T.b(v.X,r)
 T.b(v.V,u)
 T.b(v.y1,u)
 p=v.z=new V.r(26,0,v,T.L(v.y1))
-v.Q=new K.J(new D.x(p,O.aAH()),p)
+v.Q=new K.J(new D.x(p,O.aAI()),p)
 T.b(v.y1,u)
 p=v.ch=new V.r(28,0,v,T.L(v.y1))
-v.cx=new K.J(new D.x(p,O.aAI()),p)
+v.cx=new K.J(new D.x(p,O.aAJ()),p)
 T.b(v.y1,"\n  ")
 p=v.y1
 x=y.L;(p&&C.w).T(p,"click",v.v(v.e.a.gcn(),x,y.Q))
@@ -525,14 +525,14 @@ T.Q(a3,"optional",p)
 f.x1=h}g=a4.e
 a3=f.x2
 if(a3!==g){T.Q(f.X,d,g)
-f.x2=g}f.d.a5(O.b8(a5.z?$.alV():""))},
+f.x2=g}f.d.a5(O.b8(a5.z?$.alW():""))},
 G:function(){var x=this
 x.f.I()
 x.x.I()
 x.z.I()
 x.ch.I()},
 kW:function(d){var x=this.a
-x.a.a0w(x.f.E(0,"$implicit").fy)}}
+x.a.a0x(x.f.E(0,"$implicit").fy)}}
 O.Ja.prototype={
 q:function(){var x,w,v=this,u=document.createElement("span")
 v.m(u)
@@ -603,13 +603,13 @@ x.C(v,"stepper-content mixin")
 x.h(x.z)
 T.b(x.z,w)
 v=x.b=new V.r(2,0,x,T.L(x.z))
-x.c=new K.J(new D.x(v,O.aAJ()),v)
+x.c=new K.J(new D.x(v,O.aAK()),v)
 T.b(x.z,w)
 v=x.d=new V.r(4,0,x,T.L(x.z))
-x.e=new K.J(new D.x(v,O.aAL()),v)
+x.e=new K.J(new D.x(v,O.aAM()),v)
 T.b(x.z,w)
 v=x.f=new V.r(6,0,x,T.L(x.z))
-x.r=new K.J(new D.x(v,O.aAy()),v)
+x.r=new K.J(new D.x(v,O.aAz()),v)
 T.b(x.z,"\n    ")
 v=x.z;(v&&C.w).T(v,"keypress",x.v(x.a.a.gJ_(),y.L,y.p))
 x.F(x.z)},
@@ -645,7 +645,7 @@ s=w.b=new V.r(3,1,w,T.L(w.x))
 w.c=new L.nR(s,s)
 T.b(w.x,u)
 s=w.d=new V.r(5,1,w,T.L(w.x))
-w.e=new K.J(new D.x(s,O.aAK()),s)
+w.e=new K.J(new D.x(s,O.aAL()),s)
 T.b(w.x,v)
 x=T.n("\n      ")
 w.aD(H.a([t,w.x,x],y.M),null)},
@@ -744,13 +744,13 @@ x.C(w,"stepper-content mixin")
 x.h(x.z)
 T.b(x.z,"\n  ")
 w=x.b=new V.r(2,0,x,T.L(x.z))
-x.c=new K.J(new D.x(w,O.aAA()),w)
+x.c=new K.J(new D.x(w,O.aAB()),w)
 T.b(x.z,"\n  ")
 w=x.d=new V.r(4,0,x,T.L(x.z))
-x.e=new K.J(new D.x(w,O.aAB()),w)
+x.e=new K.J(new D.x(w,O.aAC()),w)
 T.b(x.z,"\n    ")
 w=x.f=new V.r(6,0,x,T.L(x.z))
-x.r=new K.J(new D.x(w,O.aAD()),w)
+x.r=new K.J(new D.x(w,O.aAE()),w)
 T.b(x.z,"\n")
 x.F(x.z)},
 A:function(){var x,w,v=this,u=v.a.a,t=v.c
@@ -786,7 +786,7 @@ x.d=w}x.b.J()},
 G:function(){this.b.I()}}
 O.J7.prototype={
 q:function(){var x=this,w=T.n("\n    "),v=x.b=new V.r(1,null,x,T.a6())
-x.c=new R.ba(v,new D.x(v,O.aAC()))
+x.c=new R.ba(v,new D.x(v,O.aAD()))
 x.aD(H.a([w,v,T.n("\n  ")],y.M),null)},
 A:function(){var x=this,w=x.a.a.a,v=x.d
 if(v!==w){x.c.sbe(w)
@@ -883,11 +883,11 @@ v=S.pJ()
 w.a=v
 v.sii(H.a([],y.z))
 w.F(x)},
-P:function(d,e,f){if(d===C.cI&&0===e)return this.a
+P:function(d,e,f){if(d===C.cH&&0===e)return this.a
 return f}}
-T.Us.prototype={
+T.Ut.prototype={
 Yo:function(){var x=this.b.gki()
-if(x!=null)x.IX(this.a,C.bA,this.c,null,null)},
+if(x!=null)x.IX(this.a,C.bz,this.c,null,null)},
 EW:function(){var x=this.b.gki()
 if(x!=null)x.wn(this.a)}}
 O.hG.prototype={}
@@ -945,17 +945,14 @@ v=t.gtr()
 u=t.gCB()
 x.l(C.k,s)
 s=t.k1=new X.bg(v,w,u)}return s},
-q:function(){var x,w=this,v=w.a2(),u=K.cH(w,0)
-w.e=u
-v.appendChild(u.c)
-u=w.d
-x=u.a
-u=u.b
-x.n(C.a9,u)
-u=x.n(C.aa,u)
-u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
-w.f=u
-w.e.K(0,u)},
+q:function(){var x=this,w=x.a2(),v=K.cH(x,0)
+x.e=v
+w.appendChild(v.c)
+v=x.d
+v=v.a.n(C.a9,v.b)
+v=new X.cb(v,!J.bA(window.location.href,"enableLatencyCharts=false"))
+x.f=v
+x.e.K(0,v)},
 P:function(d,e,f){var x,w=this
 if(0===e){if(d===C.L)return w.gnB()
 if(d===C.V){x=w.x
@@ -982,21 +979,21 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 Z.J3.prototype={
-q:function(){var x,w,v,u=this,t="bool",s="String",r="activeStepChanged",q="Stream<AsyncAction<bool>>",p=new Z.CF(E.S(u,0,3)),o=$.a8o
-if(o==null)o=$.a8o=O.bG(C.a,null)
+q:function(){var x,w,v,u=this,t="bool",s="String",r="activeStepChanged",q="Stream<AsyncAction<bool>>",p=new Z.CF(E.S(u,0,3)),o=$.a8p
+if(o==null)o=$.a8p=O.bG(C.a,null)
 p.b=o
 x=document.createElement("material-stepper-api")
 p.c=x
 u.b=p
 p=y.C
 p=H.a([new D.b5("MaterialStepperComponent",!1,"","material-stepper","","angular_components/lib/material_stepper/material_stepper.dart",X.h("<p>A material-design-styled stepper.</p>\n<p>A stepper is a numbered indicator used to convey progress or function as a\nnavigational tool.</p>\n<p>Warning: content is reparented to the stepper component itself so any\n@ViewChild(ren) queries for content inside of a step or summary template\nwill not work in the original component.</p>\n"),H.a([new D.j("announceCurrentStep","",t,X.h("<p>When true, assertively announces the current step via aria live region.</p>\n"),!1,""),new D.j("keepInactiveStepsInDom","",t,X.h("<p>When <code>true</code>, steps will not be unloaded from the dom when inactive, but\nwill rather be hidden via css.</p>\n<p>This allows for fast switching between steps with DOMs that are\nexpensive to load.</p>\n"),!1,""),new D.j("legalJumps","",s,X.h("<p>Jumps (defined as step-switches not triggered by the Continue/Cancel\nbuttons) that are legal.</p>\n<p>Possible values:</p>\n<ul>\n<li>'none' (default; no jumps allowed),</li>\n<li>'backwards'(jumps to already completed steps allowed),</li>\n<li>'all' (any jump allowed, regardless of the step state).</li>\n</ul>\n"),!1,""),new D.j("noText","",s,X.h('<p>Text to be displayed on the button that goes back to the former step.\nBy default, displays "Cancel".</p>\n'),!1,""),new D.j("orientation","",s,X.h("<p>Orientation in which the steps are laid out.</p>\n<p>Possible values: 'horizontal' and 'vertical' (default).</p>\n"),!1,""),new D.j("size","",s,X.h("<p>Size theme which in turn determines sizes of various step header elements\n(e.g., the step number, step name, etc.).</p>\n<p>Possible values: 'default' (default) and 'mini'.</p>\n"),!1,""),new D.j("stickyHeader","",t,X.h("<p>Indicates whether the header, which lists the available steps,\nshould stick to the top of the page.</p>\n<p>Applicable only to steppers with horizontal header.</p>\n"),!1,""),new D.j("yesText","",s,X.h('<p>Text to be displayed on the button that goes to the next step.\nBy default, displays "Continue".</p>\n'),!1,"")],p),H.a([new D.j(r,r,"Stream<StepDirective>",X.h("<p>Event that fires when the active step has changed.</p>\n"),!1,"")],p)),new D.b5("StepDirective",!1,"","[step]","step","angular_components/lib/material_stepper/material_step.dart",X.h("<p>A step within the stepper.</p>\n<p>Warning: content is reparented to the stepper component itself so any\n@ViewChild(ren) queries for content inside of a step or summary template\nwill not work in the original component.</p>\n"),H.a([new D.j("canContinue","",t,X.h("<p>Whether the step can continue.</p>\n<p>This can be used to prevent continuing on from a step until all parts of\nthe current step meet validation requirements.</p>\n"),!1,""),new D.j("cancelHidden","",t,X.h("<p>Whether the cancel button should be hidden on this step.</p>\n"),!1,""),new D.j("complete","",t,X.h("<p>Whether the step is completed.</p>\n<p>This is set when the stepper goes to the next step.</p>\n"),!1,""),new D.j("completeSummary","",s,X.h("<p>Summary text shown when the step is completed in a vertical default-sized\nstepper. For other steppers, this doesn't apply.</p>\n"),!1,""),new D.j("hideButtons","",t,X.h("<p>Whether the buttons should be hidden on this step.</p>\n"),!1,""),new D.j("name","",s,X.h("<p>Name shown as the title.</p>\n"),!1,""),new D.j("optional","",t,X.h("<p>Whether the step is optional. Optional steps have an extra label denoting\nthat they're optional and should be skip-able. Default is false.</p>\n"),!1,""),new D.j("partiallyComplete","",t,X.h(""),!1,"")],p),H.a([new D.j("cancelStream","cancel",q,X.h("<p>Called when the Cancel button is clicked.</p>\n<p>If the event handler calls <code>$event.cancel()</code>, the step won't be cancelled.</p>\n"),!1,""),new D.j("continueStream","continue",q,X.h("<p>Called when the Continue button is clicked.</p>\n<p>If the event handler calls <code>$event.cancel()</code>, the step won't be continued.</p>\n"),!1,""),new D.j("jumpStream","jumpHere",q,X.h("<p>Called when the user wants to jump to this step.</p>\n<p>If the event handler calls <code>$event.cancel()</code>, the step won't be continued.</p>\n"),!1,"")],p))],y.c)
-w=H.a([new R.aJ(C.h4,"StepperDemoComponent","material_stepper_example/lib/material_stepper_demo.dart")],y.D)
+w=H.a([new R.aJ(C.h3,"StepperDemoComponent","material_stepper_example/lib/material_stepper_demo.dart")],y.D)
 v=y.X
 u.a=new O.hG(R.cQ(H.a([],y.i),w,p,P.aW(v,v),!0))
 u.F(x)}}
 F.k3.prototype={
-a2Z:function(){this.a=!this.a},
-a3g:function(d){d.uO(P.OJ(C.hJ,new F.Um(),y.b))}}
+a3_:function(){this.a=!this.a},
+a3h:function(d){d.uO(P.OJ(C.hI,new F.Un(),y.b))}}
 U.Dn.prototype={
 q:function(){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6=this,a7="section",a8="h2",a9="legalJumps",b0="orientation",b1="horizontal",b2="size",b3="default",b4="all",b5="vertical",b6=a6.a,b7=a6.a2(),b8=document,b9=T.d(b8,b7,a7)
 a6.m(b9)
@@ -1014,16 +1011,16 @@ a6.h(v)
 w=S.pJ()
 a6.f=w
 u=a6.r=new V.r(4,3,a6,T.a6())
-u=T.dF(new D.x(u,U.aA9()),u)
+u=T.dF(new D.x(u,U.aAa()),u)
 a6.x=u
 t=a6.y=new V.r(5,3,a6,T.a6())
-t=T.dF(new D.x(t,U.aAk()),t)
+t=T.dF(new D.x(t,U.aAl()),t)
 a6.z=t
 s=a6.Q=new V.r(6,3,a6,T.a6())
-s=T.dF(new D.x(s,U.aAq()),s)
+s=T.dF(new D.x(s,U.aAr()),s)
 a6.ch=s
 r=a6.cx=new V.r(7,3,a6,T.a6())
-r=T.dF(new D.x(r,U.aAr()),r)
+r=T.dF(new D.x(r,U.aAs()),r)
 a6.cy=r
 q=y.z
 w.sii(H.a([u,t,s,r],q))
@@ -1044,13 +1041,13 @@ a6.h(n)
 r=S.pJ()
 a6.dx=r
 s=a6.dy=new V.r(12,11,a6,T.a6())
-s=T.dF(new D.x(s,U.aAs()),s)
+s=T.dF(new D.x(s,U.aAt()),s)
 a6.fr=s
 t=a6.fx=new V.r(13,11,a6,T.a6())
-t=T.dF(new D.x(t,U.aAt()),t)
+t=T.dF(new D.x(t,U.aAu()),t)
 a6.fy=t
 u=a6.go=new V.r(14,11,a6,T.a6())
-u=T.dF(new D.x(u,U.aAu()),u)
+u=T.dF(new D.x(u,U.aAv()),u)
 a6.id=u
 r.sii(H.a([s,t,u],q))
 a6.db.K(0,a6.dx)
@@ -1069,13 +1066,13 @@ a6.h(k)
 u=S.pJ()
 a6.k2=u
 t=a6.k3=new V.r(19,18,a6,T.a6())
-t=T.dF(new D.x(t,U.aAv()),t)
+t=T.dF(new D.x(t,U.aAw()),t)
 a6.k4=t
 s=a6.r1=new V.r(20,18,a6,T.a6())
-s=T.dF(new D.x(s,U.aAw()),s)
+s=T.dF(new D.x(s,U.aAx()),s)
 a6.r2=s
 r=a6.rx=new V.r(21,18,a6,T.a6())
-r=T.dF(new D.x(r,U.aAa()),r)
+r=T.dF(new D.x(r,U.aAb()),r)
 a6.ry=r
 u.sii(H.a([t,s,r],q))
 a6.k1.K(0,a6.k2)
@@ -1095,16 +1092,16 @@ a6.h(h)
 r=S.pJ()
 a6.x2=r
 s=a6.y1=new V.r(26,25,a6,T.a6())
-s=T.dF(new D.x(s,U.aAb()),s)
+s=T.dF(new D.x(s,U.aAc()),s)
 a6.y2=s
 t=a6.V=new V.r(27,25,a6,T.a6())
-t=T.dF(new D.x(t,U.aAc()),t)
+t=T.dF(new D.x(t,U.aAd()),t)
 a6.a7=t
 u=a6.X=new V.r(28,25,a6,T.a6())
-u=T.dF(new D.x(u,U.aAd()),u)
+u=T.dF(new D.x(u,U.aAe()),u)
 a6.a0=u
 w=a6.a6=new V.r(29,25,a6,T.a6())
-w=T.dF(new D.x(w,U.aAe()),w)
+w=T.dF(new D.x(w,U.aAf()),w)
 a6.Y=w
 r.sii(H.a([s,t,u,w],q))
 a6.x1.K(0,a6.x2)
@@ -1125,16 +1122,16 @@ a6.h(e)
 w=S.pJ()
 a6.a_=w
 u=a6.W=new V.r(34,33,a6,T.a6())
-u=T.dF(new D.x(u,U.aAf()),u)
+u=T.dF(new D.x(u,U.aAg()),u)
 a6.L=u
 t=a6.aa=new V.r(35,33,a6,T.a6())
-t=T.dF(new D.x(t,U.aAg()),t)
+t=T.dF(new D.x(t,U.aAh()),t)
 a6.a8=t
 s=a6.a9=new V.r(36,33,a6,T.a6())
-s=T.dF(new D.x(s,U.aAh()),s)
+s=T.dF(new D.x(s,U.aAi()),s)
 a6.ak=s
 r=a6.ae=new V.r(37,33,a6,T.a6())
-r=T.dF(new D.x(r,U.aAi()),r)
+r=T.dF(new D.x(r,U.aAj()),r)
 a6.an=r
 w.sii(H.a([u,t,s,r],q))
 a6.a4.K(0,a6.a_)
@@ -1154,25 +1151,25 @@ a6.h(a1)
 r=S.pJ()
 a6.al=r
 s=a6.aq=new V.r(42,41,a6,T.a6())
-s=T.dF(new D.x(s,U.aAj()),s)
+s=T.dF(new D.x(s,U.aAk()),s)
 a6.au=s
 t=a6.av=new V.r(43,41,a6,T.a6())
-t=T.dF(new D.x(t,U.aAl()),t)
+t=T.dF(new D.x(t,U.aAm()),t)
 a6.ai=t
 u=a6.ar=new V.r(44,41,a6,T.a6())
-a6.ah=new T.Bb(C.bv,new D.x(u,U.aAm()),u)
+a6.ah=new T.Bb(C.bu,new D.x(u,U.aAn()),u)
 u=a6.aj=new V.r(45,41,a6,T.a6())
-u=T.dF(new D.x(u,U.aAn()),u)
+u=T.dF(new D.x(u,U.aAo()),u)
 a6.af=u
 w=a6.as=new V.r(46,41,a6,T.a6())
-a6.ax=new T.Bb(C.bv,new D.x(w,U.aAo()),w)
+a6.ax=new T.Bb(C.bu,new D.x(w,U.aAp()),w)
 w=a6.aA=new V.r(47,41,a6,T.a6())
-w=T.dF(new D.x(w,U.aAp()),w)
+w=T.dF(new D.x(w,U.aAq()),w)
 a6.aM=w
 r.sii(H.a([s,t,u,w],q))
 a6.ag.K(0,a6.al)
 q=a6.x.f
-w=b6.ga3f()
+w=b6.ga3g()
 u=y.f
 a2=new P.e(q,H.m(q).i("e<1>")).D(a6.v(w,u,u))
 q=a6.z.r
@@ -1183,7 +1180,7 @@ q=a6.r2.r
 a5=new P.e(q,H.m(q).i("e<1>")).D(a6.v(w,u,u))
 q=a6.a8.r
 a6.bo(H.a([a2,a3,a4,a5,new P.e(q,H.m(q).i("e<1>")).D(a6.v(w,u,u))],y.a))},
-P:function(d,e,f){var x=this,w=d===C.cI
+P:function(d,e,f){var x=this,w=d===C.cH
 if(w&&3<=e&&e<=7)return x.f
 if(w&&11<=e&&e<=14)return x.dx
 if(w&&18<=e&&e<=21)return x.k2
@@ -1408,7 +1405,7 @@ p=T.n("Custom Continue Button")
 m.e.u(w,H.a([H.a([p],s)],r))
 s=m.d.b
 w=y.S
-o=new P.e(s,H.m(s).i("e<1>")).D(m.ad(k.a.ga2Y(),w))
+o=new P.e(s,H.m(s).i("e<1>")).D(m.ad(k.a.ga2Z(),w))
 k=m.r.b
 n=new P.e(k,H.m(k).i("e<1>")).D(m.v(m.gUv(),w,w))
 m.aD(H.a([i,m.y],r),H.a([o,n],y.a))},
@@ -1583,14 +1580,14 @@ T.b(x,"Content D")
 w.F(u)}}
 U.L_.prototype={
 gxe:function(){var x=this.e
-return x==null?this.e=C.aA:x},
+return x==null?this.e=C.az:x},
 gxh:function(){var x=this.f
 return x==null?this.f=new B.jb(this.gxe()):x},
 gKm:function(){var x=this,w=x.r
-if(w==null){w=T.a9v(x.n(C.b,null),x.n(C.f,null),x.gxh(),x.n(C.J,null))
+if(w==null){w=T.a9w(x.n(C.b,null),x.n(C.f,null),x.gxh(),x.n(C.J,null))
 x.r=w}return w},
-q:function(){var x,w=this,v=new U.Dn(E.S(w,0,3)),u=$.a9s
-if(u==null)u=$.a9s=O.a0($.aER,null)
+q:function(){var x,w=this,v=new U.Dn(E.S(w,0,3)),u=$.a9t
+if(u==null)u=$.a9t=O.a0($.aES,null)
 v.b=u
 x=document.createElement("stepper-demo")
 v.c=x
@@ -1598,14 +1595,14 @@ w.b=v
 w.a=new F.k3()
 w.F(x)},
 P:function(d,e,f){if(0===e){if(d===C.a5)return this.gxe()
-if(d===C.bD)return this.gxh()
-if(d===C.c3)return this.gKm()}return f}}
+if(d===C.bC)return this.gxh()
+if(d===C.c2)return this.gKm()}return f}}
 var z=a.updateTypes(["aj<~>*(k*,H*)","~(@)","~(b3*)","iF*(iF*)","~()","~(ek<E*>*)","f<jz*>*()","f<hG*>*()","f<k3*>*()"])
-L.Tg.prototype={
+L.Th.prototype={
 $1:function(d){var x=this.b
 if(x!=null)this.a.uL(x)},
 $S:13}
-T.Ul.prototype={
+T.Um.prototype={
 $1:function(d){this.a.dy=!1},
 $S:6}
 S.RO.prototype={
@@ -1638,45 +1635,44 @@ d.fr=w===this.b-1
 x.a=w+1
 return d},
 $S:z+3}
-F.Um.prototype={
+F.Un.prototype={
 $0:function(){return!1},
 $S:9};(function installTearOffs(){var x=a._instance_1u,w=a._static_2,v=a._static_0,u=a._instance_0u
 x(S.jz.prototype,"gJ_","J0",2)
-w(O,"aAx","aL0",0)
-w(O,"aAF","aL8",0)
+w(O,"aAy","aL1",0)
 w(O,"aAG","aL9",0)
 w(O,"aAH","aLa",0)
 w(O,"aAI","aLb",0)
 w(O,"aAJ","aLc",0)
 w(O,"aAK","aLd",0)
 w(O,"aAL","aLe",0)
-w(O,"aAy","aL1",0)
+w(O,"aAM","aLf",0)
 w(O,"aAz","aL2",0)
 w(O,"aAA","aL3",0)
 w(O,"aAB","aL4",0)
 w(O,"aAC","aL5",0)
 w(O,"aAD","aL6",0)
 w(O,"aAE","aL7",0)
-v(O,"aAM","aLf",6)
+w(O,"aAF","aL8",0)
+v(O,"aAN","aLg",6)
 x(O.xv.prototype,"gkV","kW",1)
 var t
 x(t=O.xx.prototype,"gkV","kW",1)
 x(t,"gts","tt",1)
 x(t=O.xw.prototype,"gkV","kW",1)
 x(t,"gts","tt",1)
-v(Z,"ajY","aL_",7)
-u(t=F.k3.prototype,"ga2Y","a2Z",4)
-x(t,"ga3f","a3g",5)
-w(U,"aA9","aMQ",0)
-w(U,"aAk","aN0",0)
-w(U,"aAq","aN6",0)
+v(Z,"ajZ","aL0",7)
+u(t=F.k3.prototype,"ga2Z","a3_",4)
+x(t,"ga3g","a3h",5)
+w(U,"aAa","aMR",0)
+w(U,"aAl","aN1",0)
 w(U,"aAr","aN7",0)
 w(U,"aAs","aN8",0)
 w(U,"aAt","aN9",0)
 w(U,"aAu","aNa",0)
 w(U,"aAv","aNb",0)
 w(U,"aAw","aNc",0)
-w(U,"aAa","aMR",0)
+w(U,"aAx","aNd",0)
 w(U,"aAb","aMS",0)
 w(U,"aAc","aMT",0)
 w(U,"aAd","aMU",0)
@@ -1686,41 +1682,42 @@ w(U,"aAg","aMX",0)
 w(U,"aAh","aMY",0)
 w(U,"aAi","aMZ",0)
 w(U,"aAj","aN_",0)
-w(U,"aAl","aN1",0)
+w(U,"aAk","aN0",0)
 w(U,"aAm","aN2",0)
 w(U,"aAn","aN3",0)
 w(U,"aAo","aN4",0)
 w(U,"aAp","aN5",0)
-v(U,"ajZ","aNd",8)
+w(U,"aAq","aN6",0)
+v(U,"ak_","aNe",8)
 x(U.y3.prototype,"gUv","Uw",1)})();(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(L.nR,L.rp)
-w(H.bq,[L.Tg,T.Ul,S.RO,S.RN,S.RM,S.RL,S.RK,F.Um])
+w(H.bq,[L.Th,T.Um,S.RO,S.RN,S.RM,S.RL,S.RK,F.Un])
 w(L.Bg,[T.iF,T.Bb])
-w(P.y,[S.jz,T.Us,O.hG,F.k3])
+w(P.y,[S.jz,T.Ut,O.hG,F.k3])
 w(E.bn,[O.CG,Z.CF,U.Dn])
 w(E.aj,[O.xv,O.Ja,O.Jb,O.Jc,O.Jd,O.Je,O.xx,O.Jf,O.J4,O.J5,O.J6,O.J7,O.J8,O.xw,O.J9,U.KD,U.KO,U.KU,U.KV,U.y3,U.KW,U.KX,U.KY,U.KZ,U.KE,U.KF,U.KG,U.KH,U.KI,U.KJ,U.KK,U.KL,U.KM,U.KN,U.KP,U.KQ,U.KR,U.KS,U.KT])
 w(G.f,[O.Jg,Z.J3,U.L_])})()
 H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","nR":{"aY":[]},"CG":{"k":[],"i":[]},"xv":{"k":[],"i":[]},"Ja":{"k":[],"i":[]},"Jb":{"k":[],"i":[]},"Jc":{"k":[],"i":[]},"Jd":{"k":[],"i":[]},"Je":{"k":[],"i":[]},"xx":{"k":[],"i":[]},"Jf":{"k":[],"i":[]},"J4":{"k":[],"i":[]},"J5":{"k":[],"i":[]},"J6":{"k":[],"i":[]},"J7":{"k":[],"i":[]},"J8":{"k":[],"i":[]},"xw":{"k":[],"i":[]},"J9":{"k":[],"i":[]},"Jg":{"f":["jz*"],"i":[],"f.T":"jz*"},"CF":{"k":[],"i":[]},"J3":{"f":["hG*"],"i":[],"f.T":"hG*"},"Dn":{"k":[],"i":[]},"KD":{"k":[],"i":[]},"KO":{"k":[],"i":[]},"KU":{"k":[],"i":[]},"KV":{"k":[],"i":[]},"y3":{"k":[],"i":[]},"KW":{"k":[],"i":[]},"KX":{"k":[],"i":[]},"KY":{"k":[],"i":[]},"KZ":{"k":[],"i":[]},"KE":{"k":[],"i":[]},"KF":{"k":[],"i":[]},"KG":{"k":[],"i":[]},"KH":{"k":[],"i":[]},"KI":{"k":[],"i":[]},"KJ":{"k":[],"i":[]},"KK":{"k":[],"i":[]},"KL":{"k":[],"i":[]},"KM":{"k":[],"i":[]},"KN":{"k":[],"i":[]},"KP":{"k":[],"i":[]},"KQ":{"k":[],"i":[]},"KR":{"k":[],"i":[]},"KS":{"k":[],"i":[]},"KT":{"k":[],"i":[]},"L_":{"f":["k3*"],"i":[],"f.T":"k3*"}}'))
 0
 var y=(function rtii(){var x=H.K
-return{w:x("l<hG*>"),J:x("l<jz*>"),Z:x("l<k3*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),M:x("q<y*>"),z:x("q<iF*>"),a:x("q<be<~>*>"),i:x("q<t*>"),l:x("q<a1*>"),P:x("U"),h:x("N<ek<E*>*>"),O:x("N<iF*>"),A:x("@"),f:x("ek<E*>*"),L:x("v*"),p:x("b3*"),G:x("D<t*>*"),U:x("aV<t*,@>*"),Q:x("W*"),m:x("iF*"),X:x("t*"),S:x("V*"),b:x("E*")}})();(function constants(){C.h4=new D.l("stepper-demo",U.ajZ(),y.Z)
-C.hr=new D.l("material-stepper-api",Z.ajY(),y.w)
-C.hJ=new P.cC(1e6)
+return{w:x("l<hG*>"),J:x("l<jz*>"),Z:x("l<k3*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),M:x("q<y*>"),z:x("q<iF*>"),a:x("q<be<~>*>"),i:x("q<t*>"),l:x("q<a1*>"),P:x("U"),h:x("N<ek<E*>*>"),O:x("N<iF*>"),A:x("@"),f:x("ek<E*>*"),L:x("v*"),p:x("b3*"),G:x("D<t*>*"),U:x("aV<t*,@>*"),Q:x("W*"),m:x("iF*"),X:x("t*"),S:x("V*"),b:x("E*")}})();(function constants(){C.h3=new D.l("stepper-demo",U.ak_(),y.Z)
+C.hq=new D.l("material-stepper-api",Z.ajZ(),y.w)
+C.hI=new P.cC(1e6)
 C.mx=H.C("hG")
-C.cI=H.C("jz")
-C.na=H.C("k3")})();(function staticFields(){$.adH=!1
-$.aFt=["._nghost-%ID%{display:block}.step-line._ngcontent-%ID%{border-color:#bdbdbd;border-style:solid;position:absolute}.step-line[orientation=horizontal]._ngcontent-%ID%{border-width:1px 0 0;height:0;top:14px;right:8px}.step-line[orientation=horizontal][size=default]._ngcontent-%ID%{width:64px}.step-line[orientation=horizontal][size=mini]._ngcontent-%ID%{width:24px}.step-line[orientation=vertical]._ngcontent-%ID%{border-width:0 1px 0 0;height:100%;left:13px;top:27px;width:0}.step-line[orientation=vertical][last=true]._ngcontent-%ID%{height:0}.stepper[orientation=horizontal]._ngcontent-%ID%{display:flex;flex-direction:row;flex-wrap:wrap}.stepper[orientation=vertical]._ngcontent-%ID%{display:inline-block}.stepper[orientation=vertical][size=default]._ngcontent-%ID%{display:block}.stepper[orientation=vertical][size=mini]._ngcontent-%ID%{max-width:400px}.stepper-step-index._ngcontent-%ID%{background-color:#616161;border:2px solid #fff;border-radius:100%;box-sizing:content-box;color:#fff;cursor:default;font-size:13px;height:24px;line-height:24px;text-align:center;width:24px}.stepper-step-index[orientation=horizontal]._ngcontent-%ID%{flex-shrink:0}.stepper-step-index[orientation=vertical]._ngcontent-%ID%{position:absolute}.stepper-step-index[active=true]._ngcontent-%ID%,.stepper-step-index[complete=true]._ngcontent-%ID%{background-color:#4285f4}.stepper-step-index.partially-complete._ngcontent-%ID%{background:#fff;height:0;width:0;border:8px solid #4285f4;color:transparent;border-radius:50%;border-left-color:transparent;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4;margin:6px}.stepper-step._ngcontent-%ID%{box-sizing:border-box;cursor:default;outline-width:0;position:relative}.stepper-step[selectable=true]:focus._ngcontent-%ID%{background-color:#eee}.stepper-step[selectable=true]:focus._ngcontent-%ID% .edit-icon._ngcontent-%ID%{color:#616161}.stepper-step[orientation=horizontal]._ngcontent-%ID%{display:flex;flex-direction:row}.stepper-step[orientation=vertical]._ngcontent-%ID%{padding-bottom:40px;width:auto}.stepper-step-header._ngcontent-%ID%{box-sizing:border-box}.stepper-step-header[orientation=horizontal]._ngcontent-%ID%{margin:5px 80px 0 0;padding-left:8px;flex-shrink:0}.stepper-step-header[orientation=horizontal][size=mini]._ngcontent-%ID%{margin-right:40px}.stepper-step-header[orientation=vertical]._ngcontent-%ID%{height:100%;margin:0 0 0 40px;padding:5px 64px 0 0}.stepper-step-header._ngcontent-%ID% .edit-icon._ngcontent-%ID%{display:none}.stepper-step-header._ngcontent-%ID% .edit-icon[orientation=vertical][size=default]._ngcontent-%ID%{display:inherit;padding-left:16px;vertical-align:sub}.stepper-step-header._ngcontent-%ID% .edit-icon[orientation=vertical][size=default]._ngcontent-%ID%  .material-icon-i.material-icon-i{font-size:16px}.stepper-step-name._ngcontent-%ID%{font-size:15px;font-weight:400;color:black;margin:0 auto}.stepper-step-name[active=true]._ngcontent-%ID%{font-weight:500}.stepper-step-name[active=false]._ngcontent-%ID%{color:#616161}.stepper-step-name[complete=true]._ngcontent-%ID%{color:black}.stepper-content[orientation=vertical][size=default]._ngcontent-%ID%{padding-left:40px}.stepper-content[orientation=vertical][size=mini]._ngcontent-%ID%{display:inline-block;top:0;vertical-align:top}.stepper-step-optional._ngcontent-%ID%{font-size:15px;font-weight:400;color:#616161;text-align:center;width:80px}.stepper-step-optional[orientation=horizontal]._ngcontent-%ID%{font-size:12px;font-weight:400}.stepper-step-optional[orientation=horizontal][optional=false]._ngcontent-%ID%{width:0}.stepper-step-optional[orientation=vertical]._ngcontent-%ID%{float:right}.stepper-step-optional[orientation=vertical][size=mini]._ngcontent-%ID%{float:none}.stepper-step-summary._ngcontent-%ID%{font-size:12px;font-weight:400;color:#757575;padding-top:16px}.can-select._ngcontent-%ID%{cursor:pointer}.button-container._ngcontent-%ID%{display:block;padding-top:24px}.visible-to-screen-reader-only._ngcontent-%ID%{height:1px;left:-9999px;overflow:hidden;position:absolute;top:auto;width:1px}.hidden._ngcontent-%ID%{display:none}"]
+C.cH=H.C("jz")
+C.na=H.C("k3")})();(function staticFields(){$.adI=!1
+$.aFu=["._nghost-%ID%{display:block}.step-line._ngcontent-%ID%{border-color:#bdbdbd;border-style:solid;position:absolute}.step-line[orientation=horizontal]._ngcontent-%ID%{border-width:1px 0 0;height:0;top:14px;right:8px}.step-line[orientation=horizontal][size=default]._ngcontent-%ID%{width:64px}.step-line[orientation=horizontal][size=mini]._ngcontent-%ID%{width:24px}.step-line[orientation=vertical]._ngcontent-%ID%{border-width:0 1px 0 0;height:100%;left:13px;top:27px;width:0}.step-line[orientation=vertical][last=true]._ngcontent-%ID%{height:0}.stepper[orientation=horizontal]._ngcontent-%ID%{display:flex;flex-direction:row;flex-wrap:wrap}.stepper[orientation=vertical]._ngcontent-%ID%{display:inline-block}.stepper[orientation=vertical][size=default]._ngcontent-%ID%{display:block}.stepper[orientation=vertical][size=mini]._ngcontent-%ID%{max-width:400px}.stepper-step-index._ngcontent-%ID%{background-color:#616161;border:2px solid #fff;border-radius:100%;box-sizing:content-box;color:#fff;cursor:default;font-size:13px;height:24px;line-height:24px;text-align:center;width:24px}.stepper-step-index[orientation=horizontal]._ngcontent-%ID%{flex-shrink:0}.stepper-step-index[orientation=vertical]._ngcontent-%ID%{position:absolute}.stepper-step-index[active=true]._ngcontent-%ID%,.stepper-step-index[complete=true]._ngcontent-%ID%{background-color:#4285f4}.stepper-step-index.partially-complete._ngcontent-%ID%{background:#fff;height:0;width:0;border:8px solid #4285f4;color:transparent;border-radius:50%;border-left-color:transparent;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4;margin:6px}.stepper-step._ngcontent-%ID%{box-sizing:border-box;cursor:default;outline-width:0;position:relative}.stepper-step[selectable=true]:focus._ngcontent-%ID%{background-color:#eee}.stepper-step[selectable=true]:focus._ngcontent-%ID% .edit-icon._ngcontent-%ID%{color:#616161}.stepper-step[orientation=horizontal]._ngcontent-%ID%{display:flex;flex-direction:row}.stepper-step[orientation=vertical]._ngcontent-%ID%{padding-bottom:40px;width:auto}.stepper-step-header._ngcontent-%ID%{box-sizing:border-box}.stepper-step-header[orientation=horizontal]._ngcontent-%ID%{margin:5px 80px 0 0;padding-left:8px;flex-shrink:0}.stepper-step-header[orientation=horizontal][size=mini]._ngcontent-%ID%{margin-right:40px}.stepper-step-header[orientation=vertical]._ngcontent-%ID%{height:100%;margin:0 0 0 40px;padding:5px 64px 0 0}.stepper-step-header._ngcontent-%ID% .edit-icon._ngcontent-%ID%{display:none}.stepper-step-header._ngcontent-%ID% .edit-icon[orientation=vertical][size=default]._ngcontent-%ID%{display:inherit;padding-left:16px;vertical-align:sub}.stepper-step-header._ngcontent-%ID% .edit-icon[orientation=vertical][size=default]._ngcontent-%ID%  .material-icon-i.material-icon-i{font-size:16px}.stepper-step-name._ngcontent-%ID%{font-size:15px;font-weight:400;color:black;margin:0 auto}.stepper-step-name[active=true]._ngcontent-%ID%{font-weight:500}.stepper-step-name[active=false]._ngcontent-%ID%{color:#616161}.stepper-step-name[complete=true]._ngcontent-%ID%{color:black}.stepper-content[orientation=vertical][size=default]._ngcontent-%ID%{padding-left:40px}.stepper-content[orientation=vertical][size=mini]._ngcontent-%ID%{display:inline-block;top:0;vertical-align:top}.stepper-step-optional._ngcontent-%ID%{font-size:15px;font-weight:400;color:#616161;text-align:center;width:80px}.stepper-step-optional[orientation=horizontal]._ngcontent-%ID%{font-size:12px;font-weight:400}.stepper-step-optional[orientation=horizontal][optional=false]._ngcontent-%ID%{width:0}.stepper-step-optional[orientation=vertical]._ngcontent-%ID%{float:right}.stepper-step-optional[orientation=vertical][size=mini]._ngcontent-%ID%{float:none}.stepper-step-summary._ngcontent-%ID%{font-size:12px;font-weight:400;color:#757575;padding-top:16px}.can-select._ngcontent-%ID%{cursor:pointer}.button-container._ngcontent-%ID%{display:block;padding-top:24px}.visible-to-screen-reader-only._ngcontent-%ID%{height:1px;left:-9999px;overflow:hidden;position:absolute;top:auto;width:1px}.hidden._ngcontent-%ID%{display:none}"]
+$.a8q=null
+$.adH=!1
 $.a8p=null
-$.adG=!1
-$.a8o=null
-$.ads=!1
-$.aFs=["._nghost-%ID% .step-a._ngcontent-%ID%{background-color:#a1c2fa;height:160px;width:560px}._nghost-%ID% .step-b._ngcontent-%ID%{background-color:#87ceac;height:160px;width:560px}._nghost-%ID% .step-c._ngcontent-%ID%{background-color:#ffcc80;height:160px;width:560px}._nghost-%ID% .step-d._ngcontent-%ID%{background-color:#ffe082;height:160px;width:560px}._nghost-%ID% .custom-toggle-button._ngcontent-%ID%{background:#e6ee9c;margin-top:40px}._nghost-%ID% .custom-continue-button._ngcontent-%ID%{background-color:#0f9d58;color:#fff;font-size:16px;margin-top:16px}._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-yes-no-buttons  .btn-yes[raised],._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-yes-no-buttons  .btn-yes.btn:not([disabled]).highlighted[raised]{background-color:#fff}._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-step-index[active=true]{background-color:#009688}._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-step-index[active=false]{background-color:#9e9e9e}._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-step-index[complete=true]{background-color:#009688}._nghost-%ID% .teal-themed._ngcontent-%ID%  .btn-yes[raised],._nghost-%ID% .teal-themed._ngcontent-%ID%  .btn-yes.btn:not([disabled]).highlighted[raised]{background-color:#009688}._nghost-%ID% .teal-themed._ngcontent-%ID%  .btn-no.btn:not([disabled]){color:#009688}"]
-$.a9s=null
-$.adu=!1
-$.aE8=[$.aFt]
-$.aER=[$.aFs]})();(function lazyInitializers(){var x=a.lazyOld
-x($,"aOs","alV",function(){return T.aR("Optional",null,"optionalMsg",null,null)})
-x($,"aOr","alU",function(){return T.aR("Continue",null,"continueMsg",null,null)})
-x($,"aOq","alT",function(){return T.aR("Cancel",null,"_cancelMsg",null,null)})})()}
-$__dart_deferred_initializers__["gyYOHOb+62NbRF3Ruoz36L37flU="] = $__dart_deferred_initializers__.current
+$.adt=!1
+$.aFt=["._nghost-%ID% .step-a._ngcontent-%ID%{background-color:#a1c2fa;height:160px;width:560px}._nghost-%ID% .step-b._ngcontent-%ID%{background-color:#87ceac;height:160px;width:560px}._nghost-%ID% .step-c._ngcontent-%ID%{background-color:#ffcc80;height:160px;width:560px}._nghost-%ID% .step-d._ngcontent-%ID%{background-color:#ffe082;height:160px;width:560px}._nghost-%ID% .custom-toggle-button._ngcontent-%ID%{background:#e6ee9c;margin-top:40px}._nghost-%ID% .custom-continue-button._ngcontent-%ID%{background-color:#0f9d58;color:#fff;font-size:16px;margin-top:16px}._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-yes-no-buttons  .btn-yes[raised],._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-yes-no-buttons  .btn-yes.btn:not([disabled]).highlighted[raised]{background-color:#fff}._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-step-index[active=true]{background-color:#009688}._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-step-index[active=false]{background-color:#9e9e9e}._nghost-%ID% .teal-themed._ngcontent-%ID%  material-stepper.themeable .stepper-step-index[complete=true]{background-color:#009688}._nghost-%ID% .teal-themed._ngcontent-%ID%  .btn-yes[raised],._nghost-%ID% .teal-themed._ngcontent-%ID%  .btn-yes.btn:not([disabled]).highlighted[raised]{background-color:#009688}._nghost-%ID% .teal-themed._ngcontent-%ID%  .btn-no.btn:not([disabled]){color:#009688}"]
+$.a9t=null
+$.adv=!1
+$.aE9=[$.aFu]
+$.aES=[$.aFt]})();(function lazyInitializers(){var x=a.lazyOld
+x($,"aOt","alW",function(){return T.aR("Optional",null,"optionalMsg",null,null)})
+x($,"aOs","alV",function(){return T.aR("Continue",null,"continueMsg",null,null)})
+x($,"aOr","alU",function(){return T.aR("Cancel",null,"_cancelMsg",null,null)})})()}
+$__dart_deferred_initializers__["xoIy7f6E1/3H+C7A4nEz453KPLw="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_66.part.js.map

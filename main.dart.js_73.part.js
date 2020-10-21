@@ -2,18 +2,18 @@ self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Objec
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K={eA:function eA(d,e,f){this.a=d
 this.b=e
 this.c=f}},V={hS:function hS(d){this.a=d}},E={
-aMI:function(d,e){return new E.oz(E.z(d,e))},
-aMJ:function(d,e){return new E.oA(E.z(d,e))},
-aMK:function(){return new E.Kx(new G.R())},
-avn:function(){if($.abd)return
-$.abd=!0
-$.T.w(0,C.n4,new D.l("scorecard-demo",E.akL(),x.m))
+aMJ:function(d,e){return new E.oz(E.z(d,e))},
+aMK:function(d,e){return new E.oA(E.z(d,e))},
+aML:function(){return new E.Kx(new G.R())},
+avo:function(){if($.abe)return
+$.abe=!0
+$.T.w(0,C.n4,new D.l("scorecard-demo",E.akM(),x.m))
 E.F()
 U.oN()
-N.a0n()
-U.avo()
-N.ai1()
-V.a0o()
+N.a0o()
+U.avp()
+N.ai2()
+V.a0p()
 K.dp()},
 vf:function vf(d){var _=this
 _.f=_.e=!0
@@ -23,8 +23,8 @@ _.bx=_.bw=_.bs=_.bB=_.bF=_.bm=_.bJ=_.bg=_.bd=_.b6=_.bf=_.aQ=_.bc=_.aW=_.bh=_.aZ=
 _.cu=_.cQ=_.d6=_.ct=_.cI=_.cc=_.cW=_.c7=_.cH=_.cD=_.cP=_.cg=_.d5=_.c_=_.cO=_.ck=_.dg=_.c1=_.br=_.c6=_.bA=_.bO=_.bk=_.bR=_.cj=_.bY=_.bS=_.c3=_.c2=_.bl=null
 _.c=_.b=_.a=_.ek=_.dh=_.dD=_.dC=_.cq=_.cJ=_.ci=_.dc=_.cY=_.cl=_.cX=null
 _.d=d},
-WO:function WO(){},
 WP:function WP(){},
+WQ:function WQ(){},
 oz:function oz(d){var _=this
 _.e=_.d=_.c=_.b=null
 _.a=d},
@@ -34,27 +34,27 @@ _.a=d},
 Kx:function Kx(d){var _=this
 _.c=_.b=_.a=_.e=null
 _.d=d}},M,Q,D,Z,O,A={
-apW:function(){return C.h1},
-aMB:function(){return new A.Kq(new G.R())},
-avm:function(){if($.abc)return
-$.abc=!0
-$.T.w(0,C.n2,new D.l("scorecard-api",A.akK(),x.e))
+apX:function(){return C.h0},
+aMC:function(){return new A.Kq(new G.R())},
+avn:function(){if($.abd)return
+$.abd=!0
+$.T.w(0,C.n2,new D.l("scorecard-api",A.akL(),x.e))
 E.F()
 K.d7()
 D.cV()
-E.avn()},
+E.avo()},
 Dg:function Dg(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
 Kq:function Kq(d){var _=this
 _.c=_.b=_.a=null
 _.d=d},
-avt:function(){if($.abQ)return
-$.abQ=!0
+avu:function(){if($.abR)return
+$.abR=!0
 E.F()
 U.oN()
 R.nb()}},T={
-apX:function(d,e,f){var w=new T.AV(new P.b6(null,null,x.j),new R.aN(!0),e,d)
+apY:function(d,e,f){var w=new T.AV(new P.b6(null,null,x.j),new R.aN(!0),e,d)
 w.e=f===!0
 return w},
 AV:function AV(d,e,f,g){var _=this
@@ -64,13 +64,13 @@ _.c=f
 _.d=g
 _.y=_.x=_.r=_.f=_.e=null
 _.Q=_.z=0},
-TT:function TT(d){this.a=d},
 TU:function TU(d){this.a=d},
-TW:function TW(d){this.a=d},
-TX:function TX(d){this.a=d},
 TV:function TV(d){this.a=d},
-TS:function TS(d){this.a=d}},L={
-bP:function(d,e,f){return new L.ea(new P.N(null,null,x.W),d,e,e,f,C.an)},
+TX:function TX(d){this.a=d},
+TY:function TY(d){this.a=d},
+TW:function TW(d){this.a=d},
+TT:function TT(d){this.a=d}},L={
+bP:function(d,e,f){return new L.ea(new P.N(null,null,x.W),d,e,e,f,C.am)},
 ea:function ea(d,e,f,g,h,i){var _=this
 _.d=d
 _.f=_.e=!1
@@ -86,33 +86,33 @@ _.fy=null
 _.a=g
 _.b=h
 _.c=i},
-ai8:function(){if($.abK)return
-$.abK=!0
-V.a0o()
-V.a0o()}},N={
-bQ:function(d,e){var w,v=new N.Dh(N.P(),N.P(),E.S(d,e,1)),u=$.a9k
-if(u==null)u=$.a9k=O.a0($.aEM,null)
+ai9:function(){if($.abL)return
+$.abL=!0
+V.a0p()
+V.a0p()}},N={
+bQ:function(d,e){var w,v=new N.Dh(N.P(),N.P(),E.S(d,e,1)),u=$.a9l
+if(u==null)u=$.a9l=O.a0($.aEN,null)
 v.b=u
 w=document.createElement("acx-scorecard")
 v.c=w
 v.O(w,"themeable")
 return v},
-aMC:function(d,e){return new N.Kr(E.z(d,e))},
-aMD:function(d,e){return new N.Ks(N.P(),E.z(d,e))},
-aME:function(d,e){return new N.Kt(N.P(),E.z(d,e))},
-aMF:function(d,e){return new N.Ku(E.z(d,e))},
-aMG:function(d,e){return new N.Kv(N.P(),E.z(d,e))},
-aMH:function(){return new N.Kw(new G.R())},
-ai1:function(){if($.abJ)return
-$.abJ=!0
-$.T.w(0,C.n3,new D.l("acx-scorecard",N.aCC(),x.Z))
+aMD:function(d,e){return new N.Kr(E.z(d,e))},
+aME:function(d,e){return new N.Ks(N.P(),E.z(d,e))},
+aMF:function(d,e){return new N.Kt(N.P(),E.z(d,e))},
+aMG:function(d,e){return new N.Ku(E.z(d,e))},
+aMH:function(d,e){return new N.Kv(N.P(),E.z(d,e))},
+aMI:function(){return new N.Kw(new G.R())},
+ai2:function(){if($.abK)return
+$.abK=!0
+$.T.w(0,C.n3,new D.l("acx-scorecard",N.aCD(),x.Z))
 E.F()
 R.iP()
 M.ch()
 L.r9()
 V.dM()
 V.h_()
-L.ai8()},
+L.ai9()},
 Dh:function Dh(d,e,f){var _=this
 _.e=d
 _.f=e
@@ -134,26 +134,26 @@ this.a=e},
 Kw:function Kw(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},U={
-ev:function(d,e){var w,v=new U.Df(E.S(d,e,1)),u=$.a9i
-if(u==null)u=$.a9i=O.a0($.aEL,null)
+ev:function(d,e){var w,v=new U.Df(E.S(d,e,1)),u=$.a9j
+if(u==null)u=$.a9j=O.a0($.aEM,null)
 v.b=u
 w=document.createElement("acx-scoreboard")
 v.c=w
 return v},
-aMy:function(d,e){return new U.Kn(E.z(d,e))},
-aMz:function(d,e){return new U.Ko(E.z(d,e))},
-aMA:function(){return new U.Kp(new G.R())},
-avo:function(){if($.abP)return
-$.abP=!0
-$.T.w(0,C.n1,new D.l("acx-scoreboard",U.aCu(),x.V))
+aMz:function(d,e){return new U.Kn(E.z(d,e))},
+aMA:function(d,e){return new U.Ko(E.z(d,e))},
+aMB:function(){return new U.Kp(new G.R())},
+avp:function(){if($.abQ)return
+$.abQ=!0
+$.T.w(0,C.n1,new D.l("acx-scoreboard",U.aCv(),x.V))
 E.F()
 U.dL()
 M.ch()
 K.bJ()
 R.nb()
-L.ai8()
-N.ai1()
-A.avt()},
+L.ai9()
+N.ai2()
+A.avu()},
 Df:function Df(d){var _=this
 _.c=_.b=_.a=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
@@ -166,7 +166,7 @@ _.a=d},
 Kp:function Kp(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},X,B,S,F={z8:function z8(){},
-es:function(d,e,f){var w=new F.jX(new R.aN(!0),new R.aN(!1),f,e,C.ed)
+es:function(d,e,f){var w=new F.jX(new R.aN(!0),new R.aN(!1),f,e,C.ec)
 w.z=!0
 return w},
 jX:function jX(d,e,f,g,h){var _=this
@@ -178,24 +178,24 @@ _.z=_.r=_.f=_.e=null
 _.cx=_.ch=_.Q=!1
 _.cy=h
 _.dy=_.db=!1},
-TR:function TR(d){this.a=d},
-TQ:function TQ(d,e){this.a=d
+TS:function TS(d){this.a=d},
+TR:function TR(d,e){this.a=d
 this.b=e},
-TO:function TO(){},
-TP:function TP(d,e,f){this.a=d
+TP:function TP(){},
+TQ:function TQ(d,e,f){this.a=d
+this.b=e
+this.c=f},
+TO:function TO(d,e,f){this.a=d
 this.b=e
 this.c=f},
 TN:function TN(d,e,f){this.a=d
 this.b=e
 this.c=f},
-TM:function TM(d,e,f){this.a=d
-this.b=e
-this.c=f},
 nW:function nW(d){this.b=d},
-a66:function(d){return P.tc(d,new F.TY(),!0,x.B)},
+a67:function(d){return P.tc(d,new F.TZ(),!0,x.B)},
 lD:function lD(d){this.d=d
 this.e=10},
-TY:function TY(){}}
+TZ:function TZ(){}}
 a.setFunctionNamesIfNecessary([K,V,E,A,T,L,N,U,F])
 C=c[0]
 H=c[1]
@@ -237,9 +237,9 @@ return w},
 sdv:function(d){this.f=d
 if(this.Q)P.d8(this.gDH())},
 Z:function(){var w=this
-switch(w.cy){case C.bX:case C.bY:case C.ee:w.e=Z.d4(null,x.z)
+switch(w.cy){case C.bW:case C.bX:case C.ed:w.e=Z.d4(null,x.z)
 break
-case C.cB:w.e=Z.ep(null,x.z)
+case C.cA:w.e=Z.ep(null,x.z)
 break
 default:w.e=new Z.fv(x.b)
 break}if(!w.Q){w.Q=!0
@@ -247,7 +247,7 @@ P.d8(w.gDH())}},
 sIk:function(d){var w
 this.r=d
 w=d.a
-this.a.d3(new P.e(w,H.m(w).i("e<1>")).D(new F.TR(this)))},
+this.a.d3(new P.e(w,H.m(w).i("e<1>")).D(new F.TS(this)))},
 pe:function(){this.r.pe()
 this.u4()},
 pf:function(){this.r.pf()
@@ -277,25 +277,25 @@ p.H()
 if(q.z)q.O_()
 for(w=q.f,v=w.length,u=0;u<w.length;w.length===v||(0,H.bd)(w),++u){t=w[u]
 s=q.cy
-t.x=s===C.ee?t.x:s!==C.ed
+t.x=s===C.ed?t.x:s!==C.ec
 t.y.am()
 s=t.fx
 if(s)q.e.bi(0,t)
 s=t.d
-p.d3(new P.e(s,H.m(s).i("e<1>")).dY(new F.TQ(q,t),null,null,!1))}if(q.cy===C.bY){p=q.e
+p.d3(new P.e(s,H.m(s).i("e<1>")).dY(new F.TR(q,t),null,null,!1))}if(q.cy===C.bX){p=q.e
 p=p.gaN(p)}else p=!1
 if(p){p=q.e
 w=q.f
 p.bi(0,(w&&C.e).gao(w))}q.F7()
 if(q.db){p=q.r
-if(p!=null)p.HV(0)}if(q.cy===C.cB)for(p=q.f,w=p.length,r=0,u=0;u<w;++u){t=p[u]
-if(t.fy==null)t.fy=C.iB[C.h.aO(r,12)];++r}q.u2()},
+if(p!=null)p.HV(0)}if(q.cy===C.cA)for(p=q.f,w=p.length,r=0,u=0;u<w;++u){t=p[u]
+if(t.fy==null)t.fy=C.iA[C.h.aO(r,12)];++r}q.u2()},
 O_:function(){var w,v,u=this,t={},s=u.f
 s.toString
 w=H.bv(s).i("bj<1,A*>")
-v=P.bM(new H.bj(s,new F.TO(),w),!0,w.i("cr.E"))
+v=P.bM(new H.bj(s,new F.TP(),w),!0,w.i("cr.E"))
 t.a=0
-u.a.d3(u.d.cL(new F.TP(t,u,v)))},
+u.a.d3(u.d.cL(new F.TQ(t,u,v)))},
 F7:function(){var w,v,u,t
 for(w=this.f,v=w.length,u=0;u<w.length;w.length===v||(0,H.bd)(w),++u){t=w[u]
 if(t.x)t.fx=this.e.c8(t)}}}
@@ -307,7 +307,7 @@ u.cx=q
 u.C(q,"acx-scoreboard")
 u.h(u.cx)
 q=u.e=new V.r(1,0,u,T.L(u.cx))
-u.f=new K.J(new D.x(q,U.aCs()),q)
+u.f=new K.J(new D.x(q,U.aCt()),q)
 w=T.u(r,u.cx)
 u.C(w,"scorecard-bar")
 T.c(w,"scorecardBar","")
@@ -315,11 +315,11 @@ u.h(w)
 q=u.d
 v=q.a
 q=q.b
-q=T.apX(v.n(C.b,q),w,v.l(C.ah,q))
+q=T.apY(v.n(C.b,q),w,v.l(C.ag,q))
 u.r=q
 u.bq(w,0)
 q=u.x=new V.r(3,0,u,T.L(u.cx))
-u.y=new K.J(new D.x(q,U.aCt()),q)
+u.y=new K.J(new D.x(q,U.aCu()),q)
 t.sIk(u.r)},
 A:function(){var w,v,u,t,s=this,r=s.a,q=s.d.f
 s.f.sU(r.glB())
@@ -378,7 +378,7 @@ v=s.ch
 t=u.r
 if(t!==v){T.b2(u.y,"hide",v)
 u.r=v}u.b.B(r)
-if(r){t=$.am4()
+if(r){t=$.am5()
 if(t!=null)T.Q(u.z,"aria-label",t)}u.b.j()
 u.e.j()},
 G:function(){this.b.k()
@@ -420,7 +420,7 @@ v=s.cx
 t=u.r
 if(t!==v){T.b2(u.y,"hide",v)
 u.r=v}u.b.B(r)
-if(r){t=$.am5()
+if(r){t=$.am6()
 if(t!=null)T.Q(u.z,"aria-label",t)}u.b.j()
 u.e.j()},
 G:function(){this.b.k()
@@ -454,14 +454,14 @@ v.e5()
 if(v.x){w=!v.fx
 v.fx=w
 v.d.R(0,w)}},
-a_T:function(d){var w,v=d.keyCode
+a_U:function(d){var w,v=d.keyCode
 if(this.x)w=v===13||Z.iS(d)
 else w=!1
 if(w){d.preventDefault()
 this.ox()}}}
 N.Dh.prototype={
 q:function(){var w,v,u,t,s=this,r=null,q=s.a,p=s.a2(),o=s.r=new V.r(0,r,s,T.L(p))
-s.x=new K.J(new D.x(o,N.aCx()),o)
+s.x=new K.J(new D.x(o,N.aCy()),o)
 w=document
 v=T.u(w,p)
 s.C(v,"label-name")
@@ -475,13 +475,13 @@ s.h(s.k2)
 s.k2.appendChild(s.f.b)
 s.bq(s.k2,1)
 o=s.y=new V.r(5,r,s,T.L(p))
-s.z=new K.J(new D.x(o,N.aCy()),o)
+s.z=new K.J(new D.x(o,N.aCz()),o)
 T.b(p,"\n")
 o=s.Q=new V.r(7,r,s,T.L(p))
-s.ch=new K.J(new D.x(o,N.aCz()),o)
+s.ch=new K.J(new D.x(o,N.aCA()),o)
 T.b(p,"\n")
 o=s.cx=new V.r(9,r,s,T.L(p))
-s.cy=new K.J(new D.x(o,N.aCB()),o)
+s.cy=new K.J(new D.x(o,N.aCC()),o)
 T.b(p,"\n")
 s.bq(p,3)
 o=x.L
@@ -492,7 +492,7 @@ t.T(p,"blur",s.ad(q.gep(),o))
 t.T(p,"mousedown",s.ad(q.gd0(),o))
 t.T(p,"click",s.ad(q.gcn(),o))
 t.T(p,"focus",s.v(q.gc9(q),o,o))
-t.T(p,"keypress",s.v(q.ga_S(),o,u))},
+t.T(p,"keypress",s.v(q.ga_T(),o,u))},
 A:function(){var w,v=this,u=v.a
 v.x.sU(u.x)
 v.z.sU(!1)
@@ -530,7 +530,7 @@ l=p.fy
 if(l!=t){T.Q(p.c,"role",t)
 p.fy=t}if(n.fx){l=n.fy
 l=l==null?o:l.gGM()
-s=l==null?C.d2.gGM():l}else s="inherit"
+s=l==null?C.d1.gGM():l}else s="inherit"
 l=p.go
 if(l!==s){l=p.c.style
 l.toString
@@ -567,7 +567,7 @@ q:function(){var w,v=this,u=document.createElement("span")
 v.C(u,"description")
 v.m(u)
 w=v.c=new V.r(1,0,v,T.L(u))
-v.d=new K.J(new D.x(w,N.aCA()),w)
+v.d=new K.J(new D.x(w,N.aCB()),w)
 T.b(u," ")
 u.appendChild(v.b.b)
 T.b(u,"  ")
@@ -618,7 +618,7 @@ this.b.j()}}
 T.AV.prototype={
 Z:function(){var w=this,v=w.b,u=w.d
 v.d3(u.du(w.gXc()))
-v.d3(u.a35(new T.TT(w),new T.TU(w),!0,x.X))},
+v.d3(u.a36(new T.TU(w),new T.TV(w),!0,x.X))},
 glB:function(){var w,v=this.r
 if(v!=null){w=this.x
 v=w!=null&&v<w}else v=!1
@@ -627,12 +627,12 @@ gFq:function(){var w=this.r
 return w!=null&&Math.abs(this.z)+w>=this.x},
 gFL:function(){var w=this.c
 return this.f?w.parentElement.clientHeight:w.parentElement.clientWidth},
-pe:function(){this.b.d3(this.d.du(new T.TW(this)))},
-pf:function(){this.b.d3(this.d.du(new T.TX(this)))},
+pe:function(){this.b.d3(this.d.du(new T.TX(this)))},
+pf:function(){this.b.d3(this.d.du(new T.TY(this)))},
 HV:function(d){var w=this
 if(w.z!==0){w.z=0
-w.ux()}w.b.d3(w.d.du(new T.TV(w)))},
-ux:function(){this.b.d3(this.d.cL(new T.TS(this)))},
+w.ux()}w.b.d3(w.d.du(new T.TW(w)))},
+ux:function(){this.b.d3(this.d.cL(new T.TT(this)))},
 u1:function(d){var w,v,u,t=this
 t.r=t.gFL()
 w=t.c
@@ -644,7 +644,7 @@ w=new W.ob(w,v)
 if(!w.gaN(w)&&t.x>0){u=t.x/v.length
 w=t.r
 if(w<u)t.y=w
-else t.y=C.y.fj(C.aF.fj((w-t.Q*2)/u)*u)}else t.y=t.r},
+else t.y=C.y.fj(C.aE.fj((w-t.Q*2)/u)*u)}else t.y=t.r},
 nR:function(){return this.u1(!1)},
 ze:function(){var w,v,u,t,s,r,q,p=this
 if(p.Q===0){w=new W.fu(p.c.parentElement.querySelectorAll(".scroll-button"),x.Q)
@@ -656,7 +656,7 @@ s.toString
 r=s.getPropertyValue(C.x.bE(s,t))
 if(r!=="auto"){v=P.dt("[^0-9.]",!0,!1)
 r.toString
-q=H.a2q(H.iU(r,v,""))
+q=H.a2r(H.iU(r,v,""))
 p.Q=C.y.fj(q==null?0:q)
 break}}}}}
 K.eA.prototype={
@@ -669,7 +669,7 @@ if(e==null)return!1
 if(v!==e)w=e instanceof K.eA&&v.a===e.a&&v.b===e.b&&v.c===e.c&&Math.abs(0)<0.01
 else w=!0
 return w},
-gb_:function(d){return X.ahJ(this.a,this.b,this.c,1)}}
+gb_:function(d){return X.ahK(this.a,this.b,this.c,1)}}
 V.hS.prototype={}
 A.Dg.prototype={
 gnW:function(){var w=this.r
@@ -725,17 +725,14 @@ u=s.gu8()
 t=s.gEs()
 w.l(C.k,r)
 r=s.k1=new X.bg(u,v,t)}return r},
-q:function(){var w,v=this,u=v.a2(),t=K.cH(v,0)
-v.e=t
-u.appendChild(t.c)
-t=v.d
-w=t.a
-t=t.b
-w.n(C.a9,t)
-t=w.n(C.aa,t)
-t=new X.cb(t,!J.bA(window.location.href,"enableLatencyCharts=false"))
-v.f=t
-v.e.K(0,t)},
+q:function(){var w=this,v=w.a2(),u=K.cH(w,0)
+w.e=u
+v.appendChild(u.c)
+u=w.d
+u=u.a.n(C.a9,u.b)
+u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
+w.f=u
+w.e.K(0,u)},
 P:function(d,e,f){var w,v=this
 if(0===e){if(d===C.L)return v.gnW()
 if(d===C.V){w=v.x
@@ -762,22 +759,22 @@ if(u!==v)w.k4=w.f.a=v
 w.e.j()},
 G:function(){this.e.k()}}
 A.Kq.prototype={
-q:function(){var w,v,u,t=this,s="bool",r="String",q=new A.Dg(E.S(t,0,3)),p=$.a9j
-if(p==null)p=$.a9j=O.bG(C.a,null)
+q:function(){var w,v,u,t=this,s="bool",r="String",q=new A.Dg(E.S(t,0,3)),p=$.a9k
+if(p==null)p=$.a9k=O.bG(C.a,null)
 q.b=p
 w=document.createElement("scorecard-api")
 q.c=w
 t.b=q
 q=x.C
 q=H.a([new D.b5("ScorecardComponent",!1,"","acx-scorecard","","angular_components/lib/scorecard/scorecard.dart",X.h("<p>Standalone scorecard component.</p>\n<p>This component is meant to be reused/embedded in larger components.</p>\n<p><strong>ng-content:</strong></p>\n<ul>\n<li><code>name</code> -- Custom content in the label area.</li>\n<li><code>value</code> -- Custom content in the value area.</li>\n<li><code>description</code> -- Custom content in the description area.\nFor this to show up, requires also setting the <code>description</code> attribute,\neven if it's only set to the empty string.</li>\n</ul>\n"),H.a([new D.j("changeGlyph","",s,X.h("<p>Whether to display a small change arrow glyph in the description;\noptional.</p>\n"),!1,""),new D.j("changeType","",r,X.h("<p>Set the type of change depicted by scorecard.</p>\n<p>This determines the style of the description. Possible values are:</p>\n<ul>\n<li>'POSITIVE'</li>\n<li>'NEGATIVE'</li>\n<li>'NEUTRAL' (default)</li>\n</ul>\n"),!1,""),new D.j("description","",r,X.h("<p>Short description on the scorecard; optional.</p>\n"),!1,""),new D.j("extraBig","",s,X.h('<p>Whether to use the "big" class style for scorecards; optional.</p>\n'),!1,""),new D.j("label","",r,X.h("<p>The title of the scorecard.</p>\n"),!1,""),new D.j("selectable","",s,X.h("<p>Whether the selection state of the scorecard can be changed by clicking.</p>\n"),!1,""),new D.j("selected","",s,X.h("<p>Whether the scorecard is selected.</p>\n"),!1,""),new D.j("selectedColor","","Color",X.h("<p>The <code>Color</code> to apply to the scorecard background when it is selected.</p>\n"),!1,""),new D.j("suggestionAfter","",r,X.h("<p>A piece of suggestion text after the description; optional.</p>\n"),!1,""),new D.j("suggestionBefore","",r,X.h("<p>A piece of suggestion text before the description; optional.</p>\n"),!1,""),new D.j("tooltip","",r,X.h("<p>The value displayed in a tooltip when the users hovers over the value.</p>\n"),!1,""),new D.j("value","",r,X.h("<p>The value displayed to the user.</p>\n"),!1,"")],q),H.a([new D.j("selectedChange","","Stream<bool>",X.h("<p>Fired when the selection state changes.</p>\n"),!1,"")],q)),new D.b5("ScoreboardComponent",!1,"","acx-scoreboard","","angular_components/lib/scorecard/scoreboard.dart",X.h("<p>This component manages a row of scorecards.</p>\n<p>a11y note: The default selectable colors use the charting palette from\npalette.dart which has some colors which do not obey color contrast it is\nadviseable that you specify your selected colors instead of relying on the\ndefault.</p>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>enableUniformWidths: bool</code> -- Whether scorecards in the scoreboard\nshould have uniform widths.</li>\n</ul>\n"),H.a([new D.j("isVertical","",s,X.h("<p>Whether the scorecard is displayed vertically. Defaults to false.</p>\n"),!1,""),new D.j("resetOnCardChanges","",s,X.h("<p>Whether to reset the card selection when there are card changes.</p>\n<p>If a card is added or removed, and this is set to true, then all\ncards will be deselected. For <code>ScoreboardType.radio</code>, the first card will\nbe selected.</p>\n"),!1,""),new D.j("scrollable","",s,X.h("<p>Whether allow scrolling the scoreboard via scroll buttons.</p>\n<p>Scrollable property can be set dynamically during app runtime -- will add\nor remove window resize listener depending on state of <code>scrollable</code>.</p>\n"),!1,""),new D.j("type","","ScoreboardType",X.h("<p>Type of scoreboard, e.g., standard, selectable, radio, toggle.</p>\n"),!1,"")],q),H.a([],q))],x.c)
-v=H.a([new R.aJ(C.h7,"ScorecardDemoComponent","scorecard_example/lib/scorecard_demo.dart")],x.D)
+v=H.a([new R.aJ(C.h6,"ScorecardDemoComponent","scorecard_example/lib/scorecard_demo.dart")],x.D)
 u=x.X
 t.a=new V.hS(R.cQ(H.a([],x.i),v,q,P.aW(u,u),!0))
 t.F(w)}}
 F.lD.prototype={
-sa1a:function(d){if(d==null||d<=0)return
+sa1b:function(d){if(d==null||d<=0)return
 this.e=d
-this.d=F.a66(d)}}
+this.d=F.a67(d)}}
 E.vf.prototype={
 q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,h0,h1,h2,h3,h4,h5,h6,h7,h8,h9,i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,j0,j1,j2,j3,j4,j5,j6,j7,j8,j9,k0,k1,k2,k3,k4,k5,k6,k7,k8,k9,l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,m0,m1,m2,m3,m4,m5,m6,m7,m8,m9,n0,n1,n2,n3,n4,n5,n6,n7,n8,n9,o0,o1,o2,o3,o4,o5,o6,o7,o8,o9,p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,t0,t1,t2,t3,t4,t5,t6,t7,t8,t9,u0,u1,u2,u3,u4=this,u5="\n",u6=null,u7="changeType",u8="POSITIVE",u9="description",v0="+$24.20 (15%)",v1="label",v2="value",v3="$158.22",v4="themeable",v5="\n\n",v6="h3",v7="\n  ",v8="Estimated earnings",v9="NEGATIVE",w0="-$0.02 (3%)",w1="Ad RPM",w2="$0.58",w3="Suggestions to add",w4="Keywords",w5="412",w6="isVertical",w7="scrollable",w8="\n    ",w9="p",x0="\n  Using the ",x1="em",x2=" mixin:\n",x3="suggestionAfter",x4="acx-scorecard-vertical-align",x5="vertically-align-scorecard-top",x6="\n      This",x7="br",x8="\n      injected",x9="\n      content",y0="\n      takes",y1="\n      up",y2="\n      a",y3="\n      lot",y4="\n      of",y5="\n      lines",y6="-$39.63 (15%)",y7="Estimated cost",y8="$264.23",y9="\n      has",z0="\n      less",z1="\n      Some injected content.\n    ",z2="Scorecard with flex display",z3="injected-div",z4=u4.a2()
 T.b(z4,u5)
@@ -1149,7 +1146,7 @@ g0=U.c5(g0,u6)
 u4.ah=g0
 g0=L.b_("number",u6,g0,u4.aq,u4.au)
 u4.aj=g0
-a9=F.jv(g0,u4.ah,u6,"","",u6,s.l(C.aD,u))
+a9=F.jv(g0,u4.ah,u6,"","",u6,s.l(C.aC,u))
 u4.af=a9
 u4.aq.u(u4.aj,H.a([C.a,C.a],o))
 T.b(z4,v5)
@@ -1163,7 +1160,7 @@ a9=F.es(u6,s.n(C.b,u),u4.as)
 u4.ax=a9
 g2=T.n(v7)
 f9=u4.aA=new V.r(98,96,u4,T.a6())
-u4.aM=new R.ba(f9,new D.x(f9,E.aCv()))
+u4.aM=new R.ba(f9,new D.x(f9,E.aCw()))
 g3=T.n(u5)
 u4.as.u(a9,H.a([H.a([g2,f9,g3],o)],o))
 T.b(z4,v5)
@@ -1182,7 +1179,7 @@ a9=F.es(u6,s.n(C.b,u),u4.aB)
 u4.aw=a9
 g6=T.n(w8)
 f9=u4.aT=new V.r(105,103,u4,T.a6())
-u4.aY=new R.ba(f9,new D.x(f9,E.aCw()))
+u4.aY=new R.ba(f9,new D.x(f9,E.aCx()))
 g7=T.n(v7)
 u4.aB.u(a9,H.a([H.a([g6,f9,g7],o)],o))
 T.b(g4,u5)
@@ -1842,7 +1839,7 @@ s=x.z
 u4.bo(H.a([new P.e(u,H.m(u).i("e<1>")).D(u4.v(u4.gXM(),s,s))],x.a))},
 P:function(d,e,f){var w=this
 if(94===e){if(d===C.z)return w.au
-if(d===C.er)return w.ai
+if(d===C.eq)return w.ai
 if(d===C.a3||d===C.X)return w.ah
 if(d===C.C||d===C.A||d===C.q||d===C.i||d===C.c)return w.aj}return f},
 A:function(){var w,v,u,t,s,r=this,q="$158.22",p="+$24.20 (15%)",o="POSITIVE",n="Estimated earnings",m="Ad RPM",l="$0.58",k="-$0.02 (3%)",j="NEGATIVE",i="Keywords",h="412",g="Suggestions to add",f="Estimated cost",e="$264.23",d="-$39.63 (15%)",a0="Scorecard with flex display",a1=r.a,a2=r.d.f===0
@@ -1889,7 +1886,7 @@ w.dx=g
 v=!0}else v=!1
 if(v)r.fx.d.st(1)
 if(a2){a1.toString
-r.id.cy=C.cB
+r.id.cy=C.cA
 v=!0}else v=!1
 if(v)r.go.d.st(1)
 if(a2)r.id.Z()
@@ -1911,11 +1908,11 @@ if(a2){w=r.r2
 w.Q=i
 w.ch=h
 w.dx=g
-w.fy=C.d1
+w.fy=C.d0
 v=!0}else v=!1
 if(v)r.r1.d.st(1)
 if(a2){a1.toString
-r.ry.cy=C.bX
+r.ry.cy=C.bW
 v=!0}else v=!1
 if(v)r.rx.d.st(1)
 if(a2)r.ry.Z()
@@ -1940,7 +1937,7 @@ w.dx=g
 v=!0}else v=!1
 if(v)r.V.d.st(1)
 if(a2){a1.toString
-r.a0.cy=C.bY
+r.a0.cy=C.bX
 v=!0}else v=!1
 if(v)r.X.d.st(1)
 if(a2)r.a0.Z()
@@ -1999,7 +1996,7 @@ w.go="Number of scorecards"
 v=w.y2=!0}else v=!1
 if(v)r.aq.d.st(1)
 if(a2){w=r.ax
-w.cy=C.bX
+w.cy=C.bW
 v=w.db=!0}else v=!1
 if(v)r.as.d.st(1)
 if(a2)r.ax.Z()
@@ -2008,7 +2005,7 @@ w=r.dh
 if(w!==t){r.aM.sbe(t)
 r.dh=t}r.aM.b8()
 if(a2){w=r.aw
-w.cy=C.bX
+w.cy=C.bW
 v=w.dy=w.db=!0}else v=!1
 if(v)r.aB.d.st(1)
 if(a2)r.aw.Z()
@@ -2178,8 +2175,8 @@ w.scN(o)}else v=!1
 if(v)r.cq.d.st(1)
 r.aA.J()
 r.aT.J()
-if(r.e){r.ax.sdv(r.aA.bT(new E.WO(),x.o,x.P))
-r.e=!1}if(r.f){r.aw.sdv(r.aT.bT(new E.WP(),x.o,x.q))
+if(r.e){r.ax.sdv(r.aA.bT(new E.WP(),x.o,x.P))
+r.e=!1}if(r.f){r.aw.sdv(r.aT.bT(new E.WQ(),x.o,x.q))
 r.f=!1}r.r.B(a2)
 r.y.B(a2)
 r.Q.B(a2)
@@ -2399,7 +2396,7 @@ w.b.H()
 w=v.d6
 w.a.H()
 w.b.H()},
-XN:function(d){this.a.sa1a(d)}}
+XN:function(d){this.a.sa1b(d)}}
 E.oz.prototype={
 q:function(){var w,v,u=this,t=N.bQ(u,0)
 u.b=t
@@ -2458,65 +2455,65 @@ E.Kx.prototype={
 gNS:function(){var w=this.e
 if(w==null){w=S.yp(this.n(C.L,null))
 this.e=w}return w},
-q:function(){var w,v=this,u=new E.vf(E.S(v,0,3)),t=$.a9l
-if(t==null)t=$.a9l=O.a0($.aEN,null)
+q:function(){var w,v=this,u=new E.vf(E.S(v,0,3)),t=$.a9m
+if(t==null)t=$.a9m=O.a0($.aEO,null)
 u.b=t
 w=document.createElement("scorecard-demo")
 u.c=w
 v.b=u
-v.a=new F.lD(F.a66(10))
+v.a=new F.lD(F.a67(10))
 v.F(w)},
-P:function(d,e,f){if(d===C.ah&&0===e)return this.gNS()
+P:function(d,e,f){if(d===C.ag&&0===e)return this.gNS()
 return f}}
 var z=a.updateTypes(["aj<~>*(k*,H*)","~()","A*(ea*)","~(b3*)","~({windowResize:@})","~(@)","ea*(oz*)","ea*(oA*)","f<jX*>*()","f<ea*>*()","f<hS*>*()","f<lD*>*()"])
-F.TR.prototype={
+F.TS.prototype={
 $1:function(d){return this.a.u2()},
 $S:20}
-F.TQ.prototype={
+F.TR.prototype={
 $1:function(d){var w=this.a,v=this.b
-if(w.e.c8(v)){if(w.cy!==C.bY)w.e.d4(v)}else w.e.bi(0,v)
+if(w.e.c8(v)){if(w.cy!==C.bX)w.e.d4(v)}else w.e.bi(0,v)
 w.F7()
 return null},
 $S:20}
-F.TO.prototype={
+F.TP.prototype={
 $1:function(d){return d.z},
 $S:z+2}
-F.TP.prototype={
+F.TQ.prototype={
 $0:function(){var w,v,u,t
 for(w=this.c,v=w.length,u=0;u<w.length;w.length===v||(0,H.bd)(w),++u){t=w[u].style
 t.minWidth=""}v=this.b
-v.a.d3(v.d.du(new F.TN(this.a,v,w)))},
+v.a.d3(v.d.du(new F.TO(this.a,v,w)))},
 $S:0}
-F.TN.prototype={
+F.TO.prototype={
 $0:function(){var w,v,u,t,s,r,q,p,o
 for(w=this.c,v=w.length,u=this.a,t=0;t<w.length;w.length===v||(0,H.bd)(w),++t){s=w[t]
 s.toString
 r=window.getComputedStyle(s,"").width
 q=P.dt("[^0-9.]",!0,!1)
 p=H.iU(r,q,"")
-o=p.length===0?0:P.a3m(p)
+o=p.length===0?0:P.a3n(p)
 if(o>u.a)u.a=o}++u.a
 v=this.b
-v.a.d3(v.d.cL(new F.TM(u,v,w)))},
+v.a.d3(v.d.cL(new F.TN(u,v,w)))},
 $S:0}
-F.TM.prototype={
+F.TN.prototype={
 $0:function(){var w,v,u,t,s,r
 for(w=this.c,v=w.length,u=this.a,t=0;t<w.length;w.length===v||(0,H.bd)(w),++t){s=w[t].style
 r=H.B(u.a)+"px"
 s.minWidth=r}this.b.u2()},
 $S:0}
-T.TT.prototype={
+T.TU.prototype={
 $0:function(){var w=this.a,v=J.cL(w.gFL())+" ",u=w.c
 return v+C.h.N(w.f?C.y.aS(u.scrollHeight):C.y.aS(u.scrollWidth))},
 $C:"$0",
 $R:0,
 $S:7}
-T.TU.prototype={
+T.TV.prototype={
 $1:function(d){var w=this.a
 w.u1(!0)
 w.a.R(0,!0)},
 $S:5}
-T.TW.prototype={
+T.TX.prototype={
 $0:function(){var w,v,u,t=this.a
 t.nR()
 w=t.y
@@ -2528,7 +2525,7 @@ if(t.f||!t.e)t.z=v+w
 else t.z=v-w
 t.ux()},
 $S:0}
-T.TX.prototype={
+T.TY.prototype={
 $0:function(){var w,v,u,t,s=this.a
 s.nR()
 w=s.y
@@ -2541,25 +2538,25 @@ if(s.f||!s.e)s.z=v-w
 else s.z=v+w
 s.ux()},
 $S:0}
-T.TV.prototype={
+T.TW.prototype={
 $0:function(){var w=this.a
 w.nR()
 w.a.R(0,!0)},
 $S:0}
-T.TS.prototype={
+T.TT.prototype={
 $0:function(){var w=this.a,v=w.c.style,u="translate"+(w.f?"Y":"X")+"("+w.z+"px)"
 v.toString
 C.x.bV(v,C.x.bE(v,"transform"),u,"")
 w.a.R(0,!0)},
 $S:0}
-F.TY.prototype={
+F.TZ.prototype={
 $1:function(d){return d+1},
 $S:25}
-E.WO.prototype={
+E.WP.prototype={
 $1:function(d){$.cf().w(0,d.c,d.b)
 return d.c},
 $S:z+6}
-E.WP.prototype={
+E.WQ.prototype={
 $1:function(d){$.cf().w(0,d.c,d.b)
 return d.c},
 $S:z+7};(function installTearOffs(){var w=a._instance_0u,v=a._static_2,u=a._static_0,t=a._instance_1u,s=a.installInstanceTearOff
@@ -2567,25 +2564,25 @@ var r
 w(r=F.jX.prototype,"gIl","pe",1)
 w(r,"gIm","pf",1)
 w(r,"gDH","WO",1)
-v(U,"aCs","aMy",0)
 v(U,"aCt","aMz",0)
-u(U,"aCu","aMA",8)
+v(U,"aCu","aMA",0)
+u(U,"aCv","aMB",8)
 w(r=L.ea.prototype,"gcn","ox",1)
-t(r,"ga_S","a_T",3)
-v(N,"aCx","aMC",0)
+t(r,"ga_T","a_U",3)
 v(N,"aCy","aMD",0)
 v(N,"aCz","aME",0)
 v(N,"aCA","aMF",0)
 v(N,"aCB","aMG",0)
-u(N,"aCC","aMH",9)
+v(N,"aCC","aMH",0)
+u(N,"aCD","aMI",9)
 s(T.AV.prototype,"gXc",0,0,null,["$1$windowResize","$0"],["u1","nR"],4,0)
-u(A,"akK","aMB",10)
-v(E,"aCv","aMI",0)
+u(A,"akL","aMC",10)
 v(E,"aCw","aMJ",0)
-u(E,"akL","aMK",11)
+v(E,"aCx","aMK",0)
+u(E,"akM","aML",11)
 t(E.vf.prototype,"gXM","XN",5)})();(function inheritance(){var w=a.inheritMany,v=a.inherit
 w(P.y,[F.z8,F.jX,F.nW,T.AV,K.eA,V.hS,F.lD])
-w(H.bq,[F.TR,F.TQ,F.TO,F.TP,F.TN,F.TM,T.TT,T.TU,T.TW,T.TX,T.TV,T.TS,F.TY,E.WO,E.WP])
+w(H.bq,[F.TS,F.TR,F.TP,F.TQ,F.TO,F.TN,T.TU,T.TV,T.TX,T.TY,T.TW,T.TT,F.TZ,E.WP,E.WQ])
 w(E.bn,[U.Df,N.Dh,A.Dg,E.vf])
 w(E.aj,[U.Kn,U.Ko,N.Kr,N.Ks,N.Kt,N.Ku,N.Kv,E.oz,E.oA])
 w(G.f,[U.Kp,N.Kw,A.Kq,E.Kx])
@@ -2594,48 +2591,48 @@ H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","
 var y={d:"Scorecard without description with min-height mixin"}
 var x=(function rtii(){var w=H.K
 return{V:w("l<jX*>"),e:w("l<hS*>"),Z:w("l<ea*>"),m:w("l<lD*>"),C:w("q<j*>"),D:w("q<aJ*>"),c:w("q<d_*>"),T:w("q<aT*>"),N:w("q<O*>"),M:w("q<y*>"),h:w("q<ea*>"),a:w("q<be<~>*>"),i:w("q<t*>"),l:w("q<a1*>"),v:w("q<aV<t*,@>*(d9<@>*)*>"),j:w("b6<E*>"),Q:w("fu<aT*>"),b:w("fv<@>"),W:w("N<E*>"),z:w("@"),L:w("v*"),p:w("b3*"),f:w("D<t*>*"),o:w("ea*"),X:w("t*"),S:w("V*"),P:w("oz*"),q:w("oA*"),B:w("H*")}})();(function constants(){var w=a.makeConstList
-C.d1=new K.eA(15,157,88)
-C.d2=new K.eA(66,133,244)
-C.h1=new D.l("scorecard-api",A.akK(),x.e)
-C.h7=new D.l("scorecard-demo",E.akL(),x.m)
-C.f5=new K.eA(219,68,55)
-C.f7=new K.eA(244,180,0)
-C.f3=new K.eA(171,71,188)
-C.f1=new K.eA(0,172,193)
-C.f8=new K.eA(255,112,67)
-C.f2=new K.eA(158,157,36)
-C.f9=new K.eA(92,107,192)
-C.f6=new K.eA(240,98,146)
-C.f0=new K.eA(0,121,107)
-C.f4=new K.eA(194,24,91)
-C.iB=H.a(w([C.d2,C.f5,C.f7,C.d1,C.f3,C.f1,C.f8,C.f2,C.f9,C.f6,C.f0,C.f4]),H.K("q<eA*>"))
-C.ed=new F.nW("ScoreboardType.standard")
-C.cB=new F.nW("ScoreboardType.selectable")
-C.bX=new F.nW("ScoreboardType.toggle")
-C.bY=new F.nW("ScoreboardType.radio")
-C.ee=new F.nW("ScoreboardType.custom")
+C.d0=new K.eA(15,157,88)
+C.d1=new K.eA(66,133,244)
+C.h0=new D.l("scorecard-api",A.akL(),x.e)
+C.h6=new D.l("scorecard-demo",E.akM(),x.m)
+C.f4=new K.eA(219,68,55)
+C.f6=new K.eA(244,180,0)
+C.f2=new K.eA(171,71,188)
+C.f0=new K.eA(0,172,193)
+C.f7=new K.eA(255,112,67)
+C.f1=new K.eA(158,157,36)
+C.f8=new K.eA(92,107,192)
+C.f5=new K.eA(240,98,146)
+C.f_=new K.eA(0,121,107)
+C.f3=new K.eA(194,24,91)
+C.iA=H.a(w([C.d1,C.f4,C.f6,C.d0,C.f2,C.f0,C.f7,C.f1,C.f8,C.f5,C.f_,C.f3]),H.K("q<eA*>"))
+C.ec=new F.nW("ScoreboardType.standard")
+C.cA=new F.nW("ScoreboardType.selectable")
+C.bW=new F.nW("ScoreboardType.toggle")
+C.bX=new F.nW("ScoreboardType.radio")
+C.ed=new F.nW("ScoreboardType.custom")
 C.n1=H.C("jX")
 C.n2=H.C("hS")
 C.n3=H.C("ea")
-C.n4=H.C("lD")})();(function staticFields(){$.aG5=[".acx-scoreboard._ngcontent-%ID%{display:block;overflow:hidden;position:relative;z-index:0}.acx-scoreboard._ngcontent-%ID% .scroll-button._ngcontent-%ID%{display:flex;flex-shrink:0;background:rgba(255,255,255,0.87);color:rgba(0,0,0,0.54);margin:0;padding:0 8px;position:absolute;z-index:1}.acx-scoreboard._ngcontent-%ID% .scroll-button.hide._ngcontent-%ID%{display:none}.acx-scoreboard._ngcontent-%ID% .scroll-button:not([icon])._ngcontent-%ID%{border-radius:0;min-width:inherit}.scorecard-bar._ngcontent-%ID%{display:inline-block;margin:0;padding:0;position:relative;transition:transform cubic-bezier(0.4,0,0.2,1) 436ms;white-space:nowrap}.acx-scoreboard-horizontal._ngcontent-%ID% .scroll-button._ngcontent-%ID%{height:100%;min-width:inherit;top:0}.acx-scoreboard-horizontal._ngcontent-%ID% .scroll-forward-button._ngcontent-%ID%{right:0}.acx-scoreboard-horizontal._ngcontent-%ID% .scroll-back-button._ngcontent-%ID%{left:0}.acx-scoreboard-horizontal._ngcontent-%ID% acx-scorecard._ngcontent-%ID%{vertical-align:top}.acx-scoreboard-vertical._ngcontent-%ID%{display:inline-block;height:100%}.acx-scoreboard-vertical._ngcontent-%ID% .scroll-button._ngcontent-%ID%{justify-content:center;width:100%}.acx-scoreboard-vertical._ngcontent-%ID% .scroll-forward-button._ngcontent-%ID%{bottom:0}.acx-scoreboard-vertical._ngcontent-%ID% .scroll-back-button._ngcontent-%ID%{top:0}.acx-scoreboard-vertical._ngcontent-%ID% .scorecard-bar._ngcontent-%ID%{display:flex;flex-direction:column}"]
-$.a9i=null
-$.abP=!1
-$.aFB=["._nghost-%ID%{color:rgba(0,0,0,0.87);display:inline-block;font-size:13px;padding:24px;position:relative}._nghost-%ID%:hover.selectable{cursor:pointer}._nghost-%ID%:hover:not(.selected){background:rgba(0,0,0,0.06)}._nghost-%ID%:not(.selected).is-change-positive .description._ngcontent-%ID%{color:#0f9d58}._nghost-%ID%:not(.selected).is-change-negative .description._ngcontent-%ID%{color:#db4437}._nghost-%ID%.selected{color:#fff}._nghost-%ID%.selected .description._ngcontent-%ID%,._nghost-%ID%.selected .suggestion._ngcontent-%ID%{color:#fff}._nghost-%ID%.right-align{text-align:right}._nghost-%ID%.extra-big{margin:0;padding:24px}._nghost-%ID%.extra-big .label-name._ngcontent-%ID%{font-size:14px;padding-bottom:4px}._nghost-%ID%.extra-big .label-value._ngcontent-%ID%{font-size:34px}._nghost-%ID%.extra-big .description._ngcontent-%ID%{padding-top:4px;font-size:14px;display:block}.label-name._ngcontent-%ID%,.label-value._ngcontent-%ID%{clear:both;color:inherit;font-weight:normal;line-height:initial;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.label-name._ngcontent-%ID%{font-size:13px;padding-bottom:8px}.label-value._ngcontent-%ID%{font-size:32px}.label-value._ngcontent-%ID% value._ngcontent-%ID%{line-height:1}.description._ngcontent-%ID%,.suggestion._ngcontent-%ID%{color:rgba(0,0,0,0.54);padding-top:8px}.change-glyph._ngcontent-%ID%{color:rgba(0,0,0,0.54);vertical-align:middle}"]
-$.a9k=null
-$.abJ=!1
-$.abQ=!1
-$.abK=!1
+C.n4=H.C("lD")})();(function staticFields(){$.aG6=[".acx-scoreboard._ngcontent-%ID%{display:block;overflow:hidden;position:relative;z-index:0}.acx-scoreboard._ngcontent-%ID% .scroll-button._ngcontent-%ID%{display:flex;flex-shrink:0;background:rgba(255,255,255,0.87);color:rgba(0,0,0,0.54);margin:0;padding:0 8px;position:absolute;z-index:1}.acx-scoreboard._ngcontent-%ID% .scroll-button.hide._ngcontent-%ID%{display:none}.acx-scoreboard._ngcontent-%ID% .scroll-button:not([icon])._ngcontent-%ID%{border-radius:0;min-width:inherit}.scorecard-bar._ngcontent-%ID%{display:inline-block;margin:0;padding:0;position:relative;transition:transform cubic-bezier(0.4,0,0.2,1) 436ms;white-space:nowrap}.acx-scoreboard-horizontal._ngcontent-%ID% .scroll-button._ngcontent-%ID%{height:100%;min-width:inherit;top:0}.acx-scoreboard-horizontal._ngcontent-%ID% .scroll-forward-button._ngcontent-%ID%{right:0}.acx-scoreboard-horizontal._ngcontent-%ID% .scroll-back-button._ngcontent-%ID%{left:0}.acx-scoreboard-horizontal._ngcontent-%ID% acx-scorecard._ngcontent-%ID%{vertical-align:top}.acx-scoreboard-vertical._ngcontent-%ID%{display:inline-block;height:100%}.acx-scoreboard-vertical._ngcontent-%ID% .scroll-button._ngcontent-%ID%{justify-content:center;width:100%}.acx-scoreboard-vertical._ngcontent-%ID% .scroll-forward-button._ngcontent-%ID%{bottom:0}.acx-scoreboard-vertical._ngcontent-%ID% .scroll-back-button._ngcontent-%ID%{top:0}.acx-scoreboard-vertical._ngcontent-%ID% .scorecard-bar._ngcontent-%ID%{display:flex;flex-direction:column}"]
 $.a9j=null
-$.abc=!1
-$.aFr=[".customize acx-scorecard .description{color:rgba(0,0,0,0.54)!important} .customize acx-scorecard.is-change-positive .label-value{color:#0f9d58} .customize acx-scorecard.is-change-negative .label-value{color:#db4437} .customize-description-color acx-scorecard .change-glyph{color:#4285f4} .customize-description-color acx-scorecard:not(.selected).themeable .description{color:#ff9800} .customize-positive-negative-colors acx-scorecard:not(.selected).themeable.is-change-positive .description{color:#3f51b5} .customize-positive-negative-colors acx-scorecard:not(.selected).themeable.is-change-negative .description{color:#e91e63} .customize-suggestion-color acx-scorecard .suggestion{color:#9c27b0} .customize-suggestion-to-separate-line acx-scorecard .suggestion{display:block} .vertically-align-scorecard-top acx-scorecard{vertical-align:top} .vertically-align-scorecard-bottom acx-scorecard{vertical-align:bottom} .description-with-min-height .description{display:block;min-height:15px}.custom-rule._ngcontent-%ID%  acx-scorecard .label-name{color:#4285f4}.custom-rule._ngcontent-%ID%  acx-scorecard .label-value{color:#ff9800}.vertical-scoreboard-container._ngcontent-%ID%{height:600px}.injected-div._ngcontent-%ID%{border:1px solid #f4c7c3;margin:3px 0;width:100%}.flex-scoreboard-container._ngcontent-%ID%{border:1px solid #f4c7c3;width:300px}.flex-scoreboard-container._ngcontent-%ID%  acx-scorecard{flex:1}.flex-scoreboard-container._ngcontent-%ID%  .scorecard-bar{display:flex;flex-direction:column}"]
+$.abQ=!1
+$.aFC=["._nghost-%ID%{color:rgba(0,0,0,0.87);display:inline-block;font-size:13px;padding:24px;position:relative}._nghost-%ID%:hover.selectable{cursor:pointer}._nghost-%ID%:hover:not(.selected){background:rgba(0,0,0,0.06)}._nghost-%ID%:not(.selected).is-change-positive .description._ngcontent-%ID%{color:#0f9d58}._nghost-%ID%:not(.selected).is-change-negative .description._ngcontent-%ID%{color:#db4437}._nghost-%ID%.selected{color:#fff}._nghost-%ID%.selected .description._ngcontent-%ID%,._nghost-%ID%.selected .suggestion._ngcontent-%ID%{color:#fff}._nghost-%ID%.right-align{text-align:right}._nghost-%ID%.extra-big{margin:0;padding:24px}._nghost-%ID%.extra-big .label-name._ngcontent-%ID%{font-size:14px;padding-bottom:4px}._nghost-%ID%.extra-big .label-value._ngcontent-%ID%{font-size:34px}._nghost-%ID%.extra-big .description._ngcontent-%ID%{padding-top:4px;font-size:14px;display:block}.label-name._ngcontent-%ID%,.label-value._ngcontent-%ID%{clear:both;color:inherit;font-weight:normal;line-height:initial;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.label-name._ngcontent-%ID%{font-size:13px;padding-bottom:8px}.label-value._ngcontent-%ID%{font-size:32px}.label-value._ngcontent-%ID% value._ngcontent-%ID%{line-height:1}.description._ngcontent-%ID%,.suggestion._ngcontent-%ID%{color:rgba(0,0,0,0.54);padding-top:8px}.change-glyph._ngcontent-%ID%{color:rgba(0,0,0,0.54);vertical-align:middle}"]
 $.a9l=null
+$.abK=!1
+$.abR=!1
+$.abL=!1
+$.a9k=null
 $.abd=!1
-$.aEL=[$.aG5]
-$.aEM=[$.aFB]
-$.aEN=[$.aFr]})();(function lazyInitializers(){var w=a.lazyOld
-w($,"aOP","am5",function(){var v=null
+$.aFs=[".customize acx-scorecard .description{color:rgba(0,0,0,0.54)!important} .customize acx-scorecard.is-change-positive .label-value{color:#0f9d58} .customize acx-scorecard.is-change-negative .label-value{color:#db4437} .customize-description-color acx-scorecard .change-glyph{color:#4285f4} .customize-description-color acx-scorecard:not(.selected).themeable .description{color:#ff9800} .customize-positive-negative-colors acx-scorecard:not(.selected).themeable.is-change-positive .description{color:#3f51b5} .customize-positive-negative-colors acx-scorecard:not(.selected).themeable.is-change-negative .description{color:#e91e63} .customize-suggestion-color acx-scorecard .suggestion{color:#9c27b0} .customize-suggestion-to-separate-line acx-scorecard .suggestion{display:block} .vertically-align-scorecard-top acx-scorecard{vertical-align:top} .vertically-align-scorecard-bottom acx-scorecard{vertical-align:bottom} .description-with-min-height .description{display:block;min-height:15px}.custom-rule._ngcontent-%ID%  acx-scorecard .label-name{color:#4285f4}.custom-rule._ngcontent-%ID%  acx-scorecard .label-value{color:#ff9800}.vertical-scoreboard-container._ngcontent-%ID%{height:600px}.injected-div._ngcontent-%ID%{border:1px solid #f4c7c3;margin:3px 0;width:100%}.flex-scoreboard-container._ngcontent-%ID%{border:1px solid #f4c7c3;width:300px}.flex-scoreboard-container._ngcontent-%ID%  acx-scorecard{flex:1}.flex-scoreboard-container._ngcontent-%ID%  .scorecard-bar{display:flex;flex-direction:column}"]
+$.a9m=null
+$.abe=!1
+$.aEM=[$.aG6]
+$.aEN=[$.aFC]
+$.aEO=[$.aFs]})();(function lazyInitializers(){var w=a.lazyOld
+w($,"aOQ","am6",function(){var v=null
 return T.aR("Scroll scorecard bar forward",v,v,v,v)})
-w($,"aOO","am4",function(){var v=null
+w($,"aOP","am5",function(){var v=null
 return T.aR("Scroll scorecard bar backward",v,v,v,v)})})()}
-$__dart_deferred_initializers__["eZVA04vEpvMsX5a83G4ejeb8Uhs="] = $__dart_deferred_initializers__.current
+$__dart_deferred_initializers__["7lRWXis7MHo/7V/fBkySMzlVUGA="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_73.part.js.map

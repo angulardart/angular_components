@@ -1,22 +1,22 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G={
-mz:function(d,e){var x,w=new G.uo(E.S(d,e,1)),v=$.a7e
-if(v==null)v=$.a7e=O.a0($.aDj,null)
+mz:function(d,e){var x,w=new G.uo(E.S(d,e,1)),v=$.a7f
+if(v==null)v=$.a7f=O.a0($.aDk,null)
 w.b=v
 x=document.createElement("material-chips")
 w.c=x
 return w},
-al3:function(d){return new G.wQ(new G.R(),d.i("wQ<0*>"))},
-axq:function(){if($.afY)return
-$.afY=!0
-$.T.w(0,C.lN,new D.l("material-chips",H.dy(G.ayB(),y.z),y.A))
+al4:function(d){return new G.wQ(new G.R(),d.i("wQ<0*>"))},
+axr:function(){if($.afZ)return
+$.afZ=!0
+$.T.w(0,C.lN,new D.l("material-chips",H.dy(G.ayC(),y.z),y.A))
 E.F()
-Z.aiO()
+Z.aiP()
 K.bJ()},
 uo:function uo(d){var _=this
 _.c=_.b=_.a=_.r=_.f=_.e=null
 _.d=d},
-VR:function VR(){},
+VS:function VS(){},
 wP:function wP(d){var _=this
 _.r=_.f=_.e=_.d=_.c=_.b=null
 _.a=d},
@@ -24,15 +24,15 @@ wQ:function wQ(d,e){var _=this
 _.c=_.b=_.a=null
 _.d=d
 _.$ti=e},
-ap0:function(){var x=new G.jm(H.a([],y.U),H.a([],y.d),G.a5K(),new G.PE())
+ap1:function(){var x=new G.jm(H.a([],y.U),H.a([],y.d),G.a5L(),new G.PE())
 x.HW()
 x.HX()
 return x},
-a5K:function(){return Z.ep(H.a([new G.fi("pepperoni"),new G.fi("pineapple"),new G.fi("peppers"),new G.fi("sausage"),new G.fi("BACON")],y.K),y.P)},
-a2g:function(d){if(d===0)return""
-if(d>=5)return"V"+G.a2g(d-5)
+a5L:function(){return Z.ep(H.a([new G.fi("pepperoni"),new G.fi("pineapple"),new G.fi("peppers"),new G.fi("sausage"),new G.fi("BACON")],y.K),y.P)},
+a2h:function(d){if(d===0)return""
+if(d>=5)return"V"+G.a2h(d-5)
 if(d===4)return"IV"
-return"I"+G.a2g(d-1)},
+return"I"+G.a2h(d-1)},
 jm:function jm(d,e,f,g){var _=this
 _.c=d
 _.d=e
@@ -42,7 +42,7 @@ PE:function PE(){},
 fi:function fi(d){this.a=d},
 k2:function k2(d,e){this.a=d
 this.b=e}},Y,R,K,V={
-fn:function(d){return new V.ho($.alz(),G.Ll(),P.e5(null,null,null,!0,y.z),d)},
+fn:function(d){return new V.ho($.alA(),G.Ll(),P.e5(null,null,null,!0,y.z),d)},
 ho:function ho(d,e,f,g){var _=this
 _.b=d
 _.c=null
@@ -53,20 +53,20 @@ _.x=_.r=null
 _.y=f
 _.z=null
 _.a=g}},E,M,Q={
-aIJ:function(d,e){return new Q.wR(E.z(d,e))},
-aIK:function(d,e){return new Q.wS(E.z(d,e))},
-aIL:function(d,e){return new Q.wT(E.z(d,e))},
-aIM:function(){return new Q.Hb(new G.R())},
-axo:function(){if($.afV)return
-$.afV=!0
-$.T.w(0,C.lO,new D.l("material-chips-demo",Q.ajr(),y.o))
+aIK:function(d,e){return new Q.wR(E.z(d,e))},
+aIL:function(d,e){return new Q.wS(E.z(d,e))},
+aIM:function(d,e){return new Q.wT(E.z(d,e))},
+aIN:function(){return new Q.Hb(new G.R())},
+axp:function(){if($.afW)return
+$.afW=!0
+$.T.w(0,C.lO,new D.l("material-chips-demo",Q.ajs(),y.o))
 E.F()
 R.ey()
 U.dL()
-Z.aiO()
-G.axq()
+Z.aiP()
+G.axr()
 M.ch()
-X.aiq()
+X.air()
 K.bJ()
 X.yq()},
 C4:function C4(d,e){var _=this
@@ -87,17 +87,17 @@ _.a=d},
 Hb:function Hb(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},D,Z={
-ft:function(d,e){var x,w=new Z.un(N.P(),E.S(d,e,1)),v=$.a7c
-if(v==null)v=$.a7c=O.a0($.aDi,null)
+ft:function(d,e){var x,w=new Z.un(N.P(),E.S(d,e,1)),v=$.a7d
+if(v==null)v=$.a7d=O.a0($.aDj,null)
 w.b=v
 x=document.createElement("material-chip")
 w.c=x
 w.O(x,"themeable")
 return w},
-al2:function(d){return new Z.wO(new G.R(),d.i("wO<0*>"))},
-aiO:function(){if($.afZ)return
-$.afZ=!0
-$.T.w(0,C.lL,new D.l("material-chip",H.dy(Z.ayx(),y.z),y.r))
+al3:function(d){return new Z.wO(new G.R(),d.i("wO<0*>"))},
+aiP:function(){if($.ag_)return
+$.ag_=!0
+$.T.w(0,C.lL,new D.l("material-chip",H.dy(Z.ayy(),y.z),y.r))
 E.F()
 R.ey()
 G.ct()
@@ -106,8 +106,8 @@ un:function un(d,e){var _=this
 _.e=d
 _.c=_.b=_.a=_.Q=_.z=_.y=_.x=_.r=_.f=null
 _.d=e},
-VP:function VP(){},
 VQ:function VQ(){},
+VR:function VR(){},
 wM:function wM(d){this.a=d},
 wN:function wN(d){var _=this
 _.e=_.d=_.c=_.b=null
@@ -116,22 +116,22 @@ wO:function wO(d,e){var _=this
 _.c=_.b=_.a=null
 _.d=d
 _.$ti=e}},O,A,T={hp:function hp(d){this.a=d}},L={
-aoZ:function(){return C.h9},
-aII:function(){return new L.Ha(new G.R())},
-axn:function(){if($.afU)return
-$.afU=!0
-$.T.w(0,C.lM,new D.l("material-chips-api",L.ajq(),y.f))
+ap_:function(){return C.h8},
+aIJ:function(){return new L.Ha(new G.R())},
+axo:function(){if($.afV)return
+$.afV=!0
+$.T.w(0,C.lM,new D.l("material-chips-api",L.ajr(),y.f))
 E.F()
 K.d7()
 D.cV()
-Q.axo()},
+Q.axp()},
 C3:function C3(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
 Ha:function Ha(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},N,U,X,B={
-ap_:function(d){return d==null?null:J.cL(d)},
+ap0:function(d){return d==null?null:J.cL(d)},
 e0:function e0(d,e,f,g,h){var _=this
 _.a=d
 _.b=e
@@ -173,21 +173,21 @@ gcZ:function(){return this.f},
 hy:function(){var x=this,w=x.r
 if(w==null)x.x=null
 else if(x.f!==G.Ll())x.x=x.dU(w)},
-ga2r:function(d){var x=this.y
+ga2s:function(d){var x=this.y
 return new P.cp(x,H.m(x).i("cp<1>"))},
-a2t:function(d){var x=this,w=x.c
+a2u:function(d){var x=this,w=x.c
 if(w!=null)w.d4(x.r)
 x.y.R(0,x.r)
 w=J.aM(d)
 w.wd(d)
 w.wX(d)},
 gIb:function(d){var x=this.z
-return x==null?this.z=$.amw().ec():x},
+return x==null?this.z=$.amx().ec():x},
 dU:function(d){return this.gcZ().$1(d)},
-hm:function(d){return this.ga2r(this).$0()}}
+hm:function(d){return this.ga2s(this).$0()}}
 Z.un.prototype={
 q:function(){var x=this,w=x.a2(),v=x.f=new V.r(0,null,x,T.L(w))
-x.r=new K.J(new D.x(v,new Z.VP()),v)
+x.r=new K.J(new D.x(v,new Z.VQ()),v)
 v=T.u(document,w)
 x.Q=v
 x.C(v,"content")
@@ -196,7 +196,7 @@ x.Q.appendChild(x.e.b)
 T.b(x.Q," ")
 x.bq(x.Q,1)
 v=x.x=new V.r(4,null,x,T.L(w))
-x.y=new K.J(new D.x(v,new Z.VQ()),v)},
+x.y=new K.J(new D.x(v,new Z.VR()),v)},
 A:function(){var x,w,v=this,u=v.a
 v.r.sU(u.e)
 v.y.sU(u.d)
@@ -223,7 +223,7 @@ T.c(q,"buttonDecorator","")
 t.C(t.e,"delete-button")
 t.h(t.e)
 t.b=new R.dq(T.dZ(t.e,null,!1,!0))
-x=C.bd.FH(r,s,"svg")
+x=C.bc.FH(r,s,"svg")
 t.e.appendChild(x)
 t.O(x,"delete-icon")
 T.c(x,"height","24")
@@ -231,7 +231,7 @@ T.c(x,"viewBox","0 0 24 24")
 T.c(x,"width","24")
 T.c(x,"xmlns",s)
 t.m(x)
-w=C.bd.FH(r,s,"path")
+w=C.bc.FH(r,s,"path")
 x.appendChild(w)
 T.c(w,"d","M12 2c-5.53 0-10 4.47-10 10s4.47 10 10 10 10-4.47 10-10-4.47-10-10-10zm5\n                 13.59l-1.41 1.41-3.59-3.59-3.59 3.59-1.41-1.41 3.59-3.59-3.59-3.59 1.41-1.41 3.59\n                 3.59 3.59-3.59 1.41 1.41-3.59 3.59 3.59 3.59z")
 t.m(w)
@@ -240,7 +240,7 @@ v=y.L;(q&&C.w).T(q,"click",t.v(t.b.a.gcn(),v,y.X))
 q=t.e;(q&&C.w).T(q,"keypress",t.v(t.b.a.gcd(),v,y.p))
 v=t.b.a.b
 q=y.S
-u=new P.e(v,H.m(v).i("e<1>")).D(t.v(t.a.a.ga2s(),q,q))
+u=new P.e(v,H.m(v).i("e<1>")).D(t.v(t.a.a.ga2t(),q,q))
 t.aD(H.a([t.e],y.M),H.a([u],y.a))},
 P:function(d,e,f){if(d===C.j&&e<=2)return this.b.a
 return f},
@@ -267,7 +267,7 @@ x.H()
 x.d3(w.d.gei().D(new B.PD(w)))}}
 G.uo.prototype={
 q:function(){var x=this,w=x.a2(),v=x.e=new V.r(0,null,x,T.L(w))
-x.f=new R.ba(v,new D.x(v,new G.VR()))
+x.f=new R.ba(v,new D.x(v,new G.VS()))
 x.bq(w,0)},
 A:function(){var x=this,w=x.a.d.gda(),v=x.r
 if(v!==w){x.f.sbe(w)
@@ -308,7 +308,7 @@ u.b.j()},
 G:function(){this.b.k()}}
 G.wQ.prototype={
 q:function(){var x=this,w=x.b=G.mz(x,0),v=w.c
-x.a=new B.e0(w,new R.aN(!1),C.aN,B.nc(),x.$ti.i("e0<1*>"))
+x.a=new B.e0(w,new R.aN(!1),C.aM,B.nc(),x.$ti.i("e0<1*>"))
 x.F(v)},
 P:function(d,e,f){if(d===C.I&&0===e)return this.a
 return f},
@@ -369,17 +369,14 @@ v=t.grd()
 u=t.gAc()
 x.l(C.k,s)
 s=t.k1=new X.bg(v,w,u)}return s},
-q:function(){var x,w=this,v=w.a2(),u=K.cH(w,0)
-w.e=u
-v.appendChild(u.c)
-u=w.d
-x=u.a
-u=u.b
-x.n(C.a9,u)
-u=x.n(C.aa,u)
-u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
-w.f=u
-w.e.K(0,u)},
+q:function(){var x=this,w=x.a2(),v=K.cH(x,0)
+x.e=v
+w.appendChild(v.c)
+v=x.d
+v=v.a.n(C.a9,v.b)
+v=new X.cb(v,!J.bA(window.location.href,"enableLatencyCharts=false"))
+x.f=v
+x.e.K(0,v)},
 P:function(d,e,f){var x,w=this
 if(0===e){if(d===C.L)return w.gn_()
 if(d===C.V){x=w.x
@@ -406,31 +403,31 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 L.Ha.prototype={
-q:function(){var x,w,v,u=this,t="itemRenderer",s="String Function(T)",r="removable",q="bool",p="selectionModel",o="SelectionModel<T>",n=new L.C3(E.S(u,0,3)),m=$.a7d
-if(m==null)m=$.a7d=O.bG(C.a,null)
+q:function(){var x,w,v,u=this,t="itemRenderer",s="String Function(T)",r="removable",q="bool",p="selectionModel",o="SelectionModel<T>",n=new L.C3(E.S(u,0,3)),m=$.a7e
+if(m==null)m=$.a7e=O.bG(C.a,null)
 n.b=m
 x=document.createElement("material-chips-api")
 n.c=x
 u.b=n
 n=y.C
 n=H.a([new D.b5("MaterialChipsComponent",!1,"","material-chips","","angular_components/lib/material_chips/material_chips.dart",X.h("<p>A <strong>chips</strong> collection widget, displaying a list of objects as Chips.</p>\n"),H.a([new D.j(t,"",s,X.h("<p>A function to render items as a string.</p>\n<p>Note: this <code>ItemRenderer</code> is only used when a <code>SelectionModel</code> is also\nprovided. If chips are manually rendered, the <code>itemRenderer</code> property will\nalso need to be manually set on them.</p>\n<p>Note about OnPush: If <code>ItemRenderer</code> is not a pure function and has\ninternal state that may render the same item differently, the reference\nitself must change in order to take effect.</p>\n"),!1,""),new D.j(r,"",q,X.h("<p>Whether the chips can be removed.</p>\n"),!1,""),new D.j(p,"",o,X.h("<p>The selection model this component controls.</p>\n"),!1,"")],n),H.a([],n)),new D.b5("MaterialChipComponent",!1,"","material-chip","","angular_components/lib/material_chips/material_chip.dart",X.h("<p>A \"chip\" widget renders an object in the 'chip' format - a rounded box with\na shadow, typically used in a horizontal list. Any object implementing the\n<code>HasUIDisplayName</code> interface can be used, or no object at all.</p>\n<p>The delete button is only shown when a selectionModel is set on the widget\nor a removable property is true.\nWhen hasLeftIcon is true, the left-icon content should be set to a\n<code>MaterialIconComponent</code> or an SVG image.\nChip components are rendered in a <code>material-chips</code> component.</p>\n"),H.a([new D.j("deleteButtonAriaMessage","","String",X.h("<p>Aria label for delete button.</p>\n"),!1,""),new D.j("hasLeftIcon","",q,X.h("<p>Whether the chip should show the custom icon, default to false.</p>\n"),!1,""),new D.j(t,"",s,X.h("<p>An <code>ItemRenderer</code> function (takes an object and returns a string).</p>\n<p>If ItemRenderer is not state-less, and may return different values for\nthe same input item, then the ItemRenderer reference needs to update, or\nthat change will not be reflected.</p>\n<p>When provided, it is used to generate a label for the chip.</p>\n"),!1,""),new D.j(r,"",q,X.h("<p>Whether the chip should show remove button, default to true.</p>\n"),!1,""),new D.j(p,"",o,X.h("<p>A selection model to render as chips.</p>\n<p>This model should not be used for rendering, changes will not be\nreflected.</p>\n<p>Chips can be deselected from the model via user interaction unless\n<code>removable</code> is set to false.</p>\n"),!1,""),new D.j("value","","dynamic",X.h("<p>Data model to render.</p>\n<p>Provide your own label in the content of the chip, or provide an\n<code>ItemRenderer</code>.</p>\n"),!1,"")],n),H.a([new D.j("remove","","Stream<dynamic>",X.h("<p>Event fired when the chip is removed which returns the value of the chip.</p>\n"),!1,"")],n))],y.c)
-w=H.a([new R.aJ(C.fJ,"MaterialChipsDemoComponent","material_chips_example/lib/material_chips_demo.dart")],y.D)
+w=H.a([new R.aJ(C.fI,"MaterialChipsDemoComponent","material_chips_example/lib/material_chips_demo.dart")],y.D)
 v=y.Q
 u.a=new T.hp(R.cQ(H.a([],y.i),w,n,P.aW(v,v),!0))
 u.F(x)}}
 G.jm.prototype={
 HW:function(){var x=this.c
 C.e.sM(x,0)
-C.e.bt(x,C.k7)},
-a2K:function(){this.e=G.a5K()},
+C.e.bt(x,C.k6)},
+a2L:function(){this.e=G.a5L()},
 HX:function(){var x=this.d
 C.e.sM(x,0)
-C.e.bt(x,C.iM)},
+C.e.bt(x,C.iL)},
 gdP:function(){return!0}}
 G.fi.prototype={$ie_:1,
 gfL:function(){return this.a}}
 G.k2.prototype={
-ga_9:function(){return this.a},
+ga_a:function(){return this.a},
 gbU:function(d){return this.b}}
 Q.C4.prototype={
 q:function(){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7=this,e8=null,e9="section",f0="h2",f1="themeable",f2="icon",f3="left-icon",f4="size",f5="large",f6="link",f7="With left icon",f8="control-bar",f9="raised",g0="Reset",g1="displayNameRenderer",g2=e7.a,g3=e7.a2(),g4=document,g5=T.d(g4,g3,e9)
@@ -444,7 +441,7 @@ v=w.c
 g5.appendChild(v)
 e7.h(v)
 w=y.B
-e7.r=new B.e0(e7.f,new R.aN(!1),C.aN,B.nc(),w)
+e7.r=new B.e0(e7.f,new R.aN(!1),C.aM,B.nc(),w)
 u=Z.ft(e7,4)
 e7.x=u
 t=u.c
@@ -568,10 +565,10 @@ a9=a7.c
 a1.appendChild(a9)
 e7.h(a9)
 a7=e7.x1
-b0=new B.e0(a7,new R.aN(!1),C.aN,B.nc(),w)
+b0=new B.e0(a7,new R.aN(!1),C.aM,B.nc(),w)
 e7.x2=b0
 b1=e7.y1=new V.r(30,29,e7,T.a6())
-e7.y2=new R.ba(b1,new D.x(b1,Q.ayy()))
+e7.y2=new R.ba(b1,new D.x(b1,Q.ayz()))
 b2=y.s
 a7.u(b0,H.a([H.a([b1],b2)],q))
 b3=T.d(g4,a1,"p")
@@ -599,10 +596,10 @@ b7=a7.c
 a1.appendChild(b7)
 e7.h(b7)
 a7=e7.a0
-b0=new B.e0(a7,new R.aN(!1),C.aN,B.nc(),w)
+b0=new B.e0(a7,new R.aN(!1),C.aM,B.nc(),w)
 e7.a6=b0
 b1=e7.Y=new V.r(37,36,e7,T.a6())
-e7.a4=new R.ba(b1,new D.x(b1,Q.ayz()))
+e7.a4=new R.ba(b1,new D.x(b1,Q.ayA()))
 a7.u(b0,H.a([H.a([b1],b2)],q))
 b8=T.d(g4,g3,e9)
 e7.m(b8)
@@ -632,7 +629,7 @@ b8.appendChild(c3)
 T.c(c3,g1,"")
 e7.h(c3)
 a7=e7.aa
-b0=e7.a8=new B.e0(a7,new R.aN(!1),C.aN,B.nc(),w)
+b0=e7.a8=new B.e0(a7,new R.aN(!1),C.aM,B.nc(),w)
 b0.e=$.ne()
 a7.u(b0,H.a([C.a],q))
 c4=T.d(g4,b8,"p")
@@ -645,7 +642,7 @@ b8.appendChild(c5)
 T.c(c5,g1,"")
 e7.h(c5)
 a7=e7.a9
-b0=e7.ak=new B.e0(a7,new R.aN(!1),C.aN,B.nc(),w)
+b0=e7.ak=new B.e0(a7,new R.aN(!1),C.aM,B.nc(),w)
 b0.e=$.ne()
 a7.u(b0,H.a([C.a],q))
 c6=T.d(g4,g3,e9)
@@ -659,7 +656,7 @@ c8=a7.c
 c6.appendChild(c8)
 e7.O(c8,"dense")
 e7.h(c8)
-e7.an=new B.e0(e7.ae,new R.aN(!1),C.aN,B.nc(),w)
+e7.an=new B.e0(e7.ae,new R.aN(!1),C.aM,B.nc(),w)
 a7=Z.ft(e7,52)
 e7.ag=a7
 c9=a7.c
@@ -705,7 +702,7 @@ e7.O(d7,"dense")
 T.c(d7,g1,"")
 e7.h(d7)
 u=e7.aj
-a7=e7.af=new B.e0(u,new R.aN(!1),C.aN,B.nc(),w)
+a7=e7.af=new B.e0(u,new R.aN(!1),C.aM,B.nc(),w)
 a7.e=$.ne()
 u.u(a7,H.a([C.a],q))
 d8=T.d(g4,g3,e9)
@@ -736,19 +733,19 @@ d8.appendChild(e3)
 e7.O(e3,"clickable")
 e7.h(e3)
 r=e7.aM
-w=new B.e0(r,new R.aN(!1),C.aN,B.nc(),w)
+w=new B.e0(r,new R.aN(!1),C.aM,B.nc(),w)
 e7.aB=w
 u=e7.aw=new V.r(69,68,e7,T.a6())
-e7.aT=new R.ba(u,new D.x(u,Q.ayA()))
+e7.aT=new R.ba(u,new D.x(u,Q.ayB()))
 r.u(w,H.a([H.a([u],b2)],q))
 q=e7.ry.b
 b2=y.S
-e4=new P.e(q,H.m(q).i("e<1>")).D(e7.ad(g2.ga2F(),b2))
+e4=new P.e(q,H.m(q).i("e<1>")).D(e7.ad(g2.ga2G(),b2))
 q=e7.X.b
-u=g2.ga2I()
+u=g2.ga2J()
 e5=new P.e(q,H.m(q).i("e<1>")).D(e7.ad(u,b2))
 q=e7.L.b
-e6=new P.e(q,H.m(q).i("e<1>")).D(e7.ad(g2.ga2J(),b2))
+e6=new P.e(q,H.m(q).i("e<1>")).D(e7.ad(g2.ga2K(),b2))
 q=e7.aA.b
 e7.bo(H.a([e4,e5,e6,new P.e(q,H.m(q).i("e<1>")).D(e7.ad(u,b2))],y.a))},
 P:function(d,e,f){var x,w=this
@@ -1012,21 +1009,21 @@ P.i6(x.a.f.$1(w))},
 P_:function(d){var x=this.a,w=x.f.E(0,"$implicit")
 C.e.bC(x.a.d,w)}}
 Q.Hb.prototype={
-q:function(){var x,w=this,v=new Q.C4(N.P(),E.S(w,0,3)),u=$.a7f
-if(u==null)u=$.a7f=O.a0($.aDk,null)
+q:function(){var x,w=this,v=new Q.C4(N.P(),E.S(w,0,3)),u=$.a7g
+if(u==null)u=$.a7g=O.a0($.aDl,null)
 v.b=u
 x=document.createElement("material-chips-demo")
 v.c=x
 w.b=v
-w.a=G.ap0()
+w.a=G.ap1()
 w.F(x)}}
 var z=a.updateTypes(["~(@)","~()","aj<~>*(k*,H*)","f<ho<0^*>*>*()<y*>","t*(y*)","f<e0<0^*>*>*()<y*>","f<hp*>*()","f<jm*>*()"])
-Z.VP.prototype={
+Z.VQ.prototype={
 $2:function(d,e){return new Z.wM(E.z(d,e))},
 $C:"$2",
 $R:2,
 $S:1}
-Z.VQ.prototype={
+Z.VR.prototype={
 $2:function(d,e){return new Z.wN(E.z(d,e))},
 $C:"$2",
 $R:2,
@@ -1034,34 +1031,34 @@ $S:1}
 B.PD.prototype={
 $1:function(d){this.a.a.am()},
 $S:function(){return this.a.$ti.i("U(D<dR<1*>*>*)")}}
-G.VR.prototype={
+G.VS.prototype={
 $2:function(d,e){return new G.wP(E.z(d,e))},
 $C:"$2",
 $R:2,
 $S:1}
 G.PE.prototype={
-$1:function(d){return("Star Wars: Episode "+G.a2g(d.ga_9())+" "+H.B(J.a4V(d))).toUpperCase()},
+$1:function(d){return("Star Wars: Episode "+G.a2h(d.ga_a())+" "+H.B(J.a4W(d))).toUpperCase()},
 $S:15};(function installTearOffs(){var x=a._instance_1u,w=a.installStaticTearOff,v=a._static_1,u=a._static_0,t=a._instance_0u,s=a._static_2
-x(V.ho.prototype,"ga2s","a2t",0)
-w(Z,"ayx",0,null,["$1$0","$0"],["al2",function(){return Z.al2(y.z)}],3,0)
-v(B,"nc","ap_",4)
-w(G,"ayB",0,null,["$1$0","$0"],["al3",function(){return G.al3(y.z)}],5,0)
-u(L,"ajq","aII",6)
+x(V.ho.prototype,"ga2t","a2u",0)
+w(Z,"ayy",0,null,["$1$0","$0"],["al3",function(){return Z.al3(y.z)}],3,0)
+v(B,"nc","ap0",4)
+w(G,"ayC",0,null,["$1$0","$0"],["al4",function(){return G.al4(y.z)}],5,0)
+u(L,"ajr","aIJ",6)
 var r
-t(r=G.jm.prototype,"ga2F","HW",1)
-t(r,"ga2J","a2K",1)
-t(r,"ga2I","HX",1)
-s(Q,"ayy","aIJ",2)
+t(r=G.jm.prototype,"ga2G","HW",1)
+t(r,"ga2K","a2L",1)
+t(r,"ga2J","HX",1)
 s(Q,"ayz","aIK",2)
 s(Q,"ayA","aIL",2)
-u(Q,"ajr","aIM",7)
+s(Q,"ayB","aIM",2)
+u(Q,"ajs","aIN",7)
 x(Q.wR.prototype,"gkL","kM",0)
 x(Q.wS.prototype,"gkL","kM",0)
 x(r=Q.wT.prototype,"gkL","kM",0)
 x(r,"gOZ","P_",0)})();(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(V.ho,E.jT)
 w(E.bn,[Z.un,G.uo,L.C3,Q.C4])
-w(H.bq,[Z.VP,Z.VQ,B.PD,G.VR,G.PE])
+w(H.bq,[Z.VQ,Z.VR,B.PD,G.VS,G.PE])
 w(E.aj,[Z.wM,Z.wN,G.wP,Q.wR,Q.wS,Q.wT])
 w(G.f,[Z.wO,G.wQ,L.Ha,Q.Hb])
 w(P.y,[B.e0,T.hp,G.jm,G.fi,G.k2])})()
@@ -1070,9 +1067,9 @@ H.dw(b.typeUniverse,JSON.parse('{"ho":1,"un":1,"wM":1,"wN":1,"uo":1,"wP":1}'))
 0
 var y=(function rtii(){var x=H.K
 return{r:x("l<ho<@>*>"),f:x("l<hp*>"),A:x("l<e0<@>*>"),o:x("l<jm*>"),U:x("q<fi*>"),C:x("q<j*>"),D:x("q<aJ*>"),c:x("q<d_*>"),T:x("q<aT*>"),K:x("q<e_*>"),O:x("q<A*>"),M:x("q<y*>"),d:x("q<k2*>"),a:x("q<be<~>*>"),i:x("q<t*>"),l:x("q<a1*>"),s:x("q<r*>"),B:x("e0<@>"),z:x("@"),L:x("v*"),P:x("e_*"),p:x("b3*"),G:x("D<t*>*"),X:x("W*"),Q:x("t*"),S:x("V*")}})();(function constants(){var x=a.makeConstList
-C.aN=new Z.fv(H.K("fv<U>"))
-C.fJ=new D.l("material-chips-demo",Q.ajr(),y.o)
-C.h9=new D.l("material-chips-api",L.ajq(),y.f)
+C.aM=new Z.fv(H.K("fv<U>"))
+C.fI=new D.l("material-chips-demo",Q.ajs(),y.o)
+C.h8=new D.l("material-chips-api",L.ajr(),y.f)
 C.kD=new G.k2(1,"The Phantom Menace")
 C.kz=new G.k2(2,"Attack of the Clones")
 C.ky=new G.k2(3,"Revenge of the Sith")
@@ -1080,31 +1077,31 @@ C.kE=new G.k2(4,"A New Hope")
 C.kB=new G.k2(5,"The Empire Strikes Back")
 C.kC=new G.k2(6,"Return of the Jedi")
 C.kA=new G.k2(7,"The Force Awakens")
-C.iM=H.a(x([C.kD,C.kz,C.ky,C.kE,C.kB,C.kC,C.kA]),y.d)
-C.eY=new G.fi("science")
-C.eX=new G.fi("math")
-C.f_=new G.fi("wizardry")
-C.eZ=new G.fi("technology")
-C.eW=new G.fi("engineering")
-C.k7=H.a(x([C.eY,C.eX,C.f_,C.eZ,C.eW]),y.U)
+C.iL=H.a(x([C.kD,C.kz,C.ky,C.kE,C.kB,C.kC,C.kA]),y.d)
+C.eX=new G.fi("science")
+C.eW=new G.fi("math")
+C.eZ=new G.fi("wizardry")
+C.eY=new G.fi("technology")
+C.eV=new G.fi("engineering")
+C.k6=H.a(x([C.eX,C.eW,C.eZ,C.eY,C.eV]),y.U)
 C.lL=H.C("ho<@>")
 C.lM=H.C("hp")
 C.lN=H.C("e0<@>")
-C.lO=H.C("jm")})();(function staticFields(){$.aGn=["._nghost-%ID%{background-color:#e0e0e0;color:black;display:flex;align-items:center;border-radius:16px;height:32px;margin:4px;overflow:hidden}.content._ngcontent-%ID%{margin:0 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.left-icon._ngcontent-%ID%{color:#9e9e9e;fill:#9e9e9e;display:flex;align-items:center;justify-content:center;margin-right:-8px;margin-left:4px;padding:3px}.delete-button._ngcontent-%ID%{border:0;cursor:pointer;outline:none}.delete-button:focus._ngcontent-%ID% .delete-icon._ngcontent-%ID%{fill:#fff}.delete-icon._ngcontent-%ID%{display:flex;background-size:19px 19px;border:0;cursor:pointer;height:19px;margin-left:-8px;margin-right:4px;min-width:19px;padding:3px;width:19px;fill:#9e9e9e}._nghost-%ID%[emphasis]{background-color:#4285f4;color:#fff}._nghost-%ID%[emphasis] .left-icon._ngcontent-%ID%{color:#fff;fill:#fff}._nghost-%ID%[emphasis] .delete-icon._ngcontent-%ID%{fill:#fff}._nghost-%ID%[emphasis] .delete-button:focus._ngcontent-%ID% .delete-icon-svg._ngcontent-%ID%{fill:#e0e0e0}"]
-$.a7c=null
-$.afZ=!1
-$.aGm=["._nghost-%ID%{display:flex;flex-wrap:wrap;justify-content:flex-start;flex-direction:row;align-items:center;align-content:space-around;margin:0;padding:0;position:relative;vertical-align:top}material-chip:last-of-type._ngcontent-%ID%{margin-right:16px}"]
-$.a7e=null
-$.afY=!1
+C.lO=H.C("jm")})();(function staticFields(){$.aGo=["._nghost-%ID%{background-color:#e0e0e0;color:black;display:flex;align-items:center;border-radius:16px;height:32px;margin:4px;overflow:hidden}.content._ngcontent-%ID%{margin:0 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.left-icon._ngcontent-%ID%{color:#9e9e9e;fill:#9e9e9e;display:flex;align-items:center;justify-content:center;margin-right:-8px;margin-left:4px;padding:3px}.delete-button._ngcontent-%ID%{border:0;cursor:pointer;outline:none}.delete-button:focus._ngcontent-%ID% .delete-icon._ngcontent-%ID%{fill:#fff}.delete-icon._ngcontent-%ID%{display:flex;background-size:19px 19px;border:0;cursor:pointer;height:19px;margin-left:-8px;margin-right:4px;min-width:19px;padding:3px;width:19px;fill:#9e9e9e}._nghost-%ID%[emphasis]{background-color:#4285f4;color:#fff}._nghost-%ID%[emphasis] .left-icon._ngcontent-%ID%{color:#fff;fill:#fff}._nghost-%ID%[emphasis] .delete-icon._ngcontent-%ID%{fill:#fff}._nghost-%ID%[emphasis] .delete-button:focus._ngcontent-%ID% .delete-icon-svg._ngcontent-%ID%{fill:#e0e0e0}"]
 $.a7d=null
-$.afU=!1
-$.aGl=["div.control-bar._ngcontent-%ID%{margin:8px} material-chip.themeable.my-theme{background-color:#db4437;color:#fff} material-chip.themeable.my-theme:hover{background-color:#0f9d58;color:#fff} material-chip.themeable.my-theme:focus{background-color:#1c3aa9;color:#fff} material-chip.themeable.my-theme[emphasis]:hover{background-color:#0f9d58} material-chip.themeable.my-theme[emphasis]:focus{background-color:#1c3aa9} material-chip.themeable.my-theme .delete-icon{fill:#fff} material-chip.themeable.my-theme .left-icon{color:#fff;fill:#fff} material-chip.themeable.my-theme .left-icon{background-color:#097138;border-radius:50%;height:32px;margin-left:0;margin-right:-4px;min-width:32px;padding:0;width:32px} material-chip.themeable.left-icon-bg{background-color:#757575;color:#fff} material-chip.themeable.left-icon-bg:hover{background-color:#616161;color:#fff} material-chip.themeable.left-icon-bg:focus{background-color:#616161;color:#fff} material-chip.themeable.left-icon-bg[emphasis]:hover{background-color:#616161} material-chip.themeable.left-icon-bg[emphasis]:focus{background-color:#616161} material-chip.themeable.left-icon-bg .delete-icon{fill:#fff} material-chip.themeable.left-icon-bg .left-icon{background-color:#4285f4;border-radius:50%;height:32px;margin-left:0;margin-right:-4px;min-width:32px;padding:0;width:32px}.left-icon-bg._ngcontent-%ID% material-icon._ngcontent-%ID%{color:#fff;fill:#fff}.clickable._ngcontent-%ID% material-chip._ngcontent-%ID%{cursor:pointer}.clickable._ngcontent-%ID% material-chip[emphasis]:hover._ngcontent-%ID%{background-color:#3367d6}.clickable._ngcontent-%ID% material-chip[emphasis]:focus._ngcontent-%ID%{background-color:#1c3aa9}.clickable._ngcontent-%ID% material-chip:focus._ngcontent-%ID%{background-color:#757575;color:#fff;outline:none}.clickable._ngcontent-%ID% material-chip:focus._ngcontent-%ID%  .delete-icon{fill:#fff}.clickable._ngcontent-%ID% material-chip:hover._ngcontent-%ID%{background-color:#bdbdbd;color:#fff}.clickable._ngcontent-%ID% material-chip:hover._ngcontent-%ID%  .delete-icon{fill:#fff}.clickable._ngcontent-%ID% material-chip._ngcontent-%ID%  .delete-icon:focus{fill:#e0e0e0}.dense._ngcontent-%ID%  material-chip{height:24px;border-radius:12px;margin:2px 4px}.dense._ngcontent-%ID%  material-chip .content{font-size:13px}.dense._ngcontent-%ID%  material-chip .delete-icon{margin-right:0}.dense._ngcontent-%ID%  material-chip .left-icon{margin-left:0}"]
+$.ag_=!1
+$.aGn=["._nghost-%ID%{display:flex;flex-wrap:wrap;justify-content:flex-start;flex-direction:row;align-items:center;align-content:space-around;margin:0;padding:0;position:relative;vertical-align:top}material-chip:last-of-type._ngcontent-%ID%{margin-right:16px}"]
 $.a7f=null
+$.afZ=!1
+$.a7e=null
 $.afV=!1
-$.aDi=[$.aGn]
-$.aDj=[$.aGm]
-$.aDk=[$.aGl]})();(function lazyInitializers(){var x=a.lazyOld
-x($,"aO2","alz",function(){return T.aR("Delete",null,"chipDeleteButtonMessage",null,"Label for a button which removes the item when clicked.")})
-x($,"aPN","amw",function(){return R.a67()})})()}
-$__dart_deferred_initializers__["AHQxMwm8IpGV36DtKkgCNB7p+RU="] = $__dart_deferred_initializers__.current
+$.aGm=["div.control-bar._ngcontent-%ID%{margin:8px} material-chip.themeable.my-theme{background-color:#db4437;color:#fff} material-chip.themeable.my-theme:hover{background-color:#0f9d58;color:#fff} material-chip.themeable.my-theme:focus{background-color:#1c3aa9;color:#fff} material-chip.themeable.my-theme[emphasis]:hover{background-color:#0f9d58} material-chip.themeable.my-theme[emphasis]:focus{background-color:#1c3aa9} material-chip.themeable.my-theme .delete-icon{fill:#fff} material-chip.themeable.my-theme .left-icon{color:#fff;fill:#fff} material-chip.themeable.my-theme .left-icon{background-color:#097138;border-radius:50%;height:32px;margin-left:0;margin-right:-4px;min-width:32px;padding:0;width:32px} material-chip.themeable.left-icon-bg{background-color:#757575;color:#fff} material-chip.themeable.left-icon-bg:hover{background-color:#616161;color:#fff} material-chip.themeable.left-icon-bg:focus{background-color:#616161;color:#fff} material-chip.themeable.left-icon-bg[emphasis]:hover{background-color:#616161} material-chip.themeable.left-icon-bg[emphasis]:focus{background-color:#616161} material-chip.themeable.left-icon-bg .delete-icon{fill:#fff} material-chip.themeable.left-icon-bg .left-icon{background-color:#4285f4;border-radius:50%;height:32px;margin-left:0;margin-right:-4px;min-width:32px;padding:0;width:32px}.left-icon-bg._ngcontent-%ID% material-icon._ngcontent-%ID%{color:#fff;fill:#fff}.clickable._ngcontent-%ID% material-chip._ngcontent-%ID%{cursor:pointer}.clickable._ngcontent-%ID% material-chip[emphasis]:hover._ngcontent-%ID%{background-color:#3367d6}.clickable._ngcontent-%ID% material-chip[emphasis]:focus._ngcontent-%ID%{background-color:#1c3aa9}.clickable._ngcontent-%ID% material-chip:focus._ngcontent-%ID%{background-color:#757575;color:#fff;outline:none}.clickable._ngcontent-%ID% material-chip:focus._ngcontent-%ID%  .delete-icon{fill:#fff}.clickable._ngcontent-%ID% material-chip:hover._ngcontent-%ID%{background-color:#bdbdbd;color:#fff}.clickable._ngcontent-%ID% material-chip:hover._ngcontent-%ID%  .delete-icon{fill:#fff}.clickable._ngcontent-%ID% material-chip._ngcontent-%ID%  .delete-icon:focus{fill:#e0e0e0}.dense._ngcontent-%ID%  material-chip{height:24px;border-radius:12px;margin:2px 4px}.dense._ngcontent-%ID%  material-chip .content{font-size:13px}.dense._ngcontent-%ID%  material-chip .delete-icon{margin-right:0}.dense._ngcontent-%ID%  material-chip .left-icon{margin-left:0}"]
+$.a7g=null
+$.afW=!1
+$.aDj=[$.aGo]
+$.aDk=[$.aGn]
+$.aDl=[$.aGm]})();(function lazyInitializers(){var x=a.lazyOld
+x($,"aO3","alA",function(){return T.aR("Delete",null,"chipDeleteButtonMessage",null,"Label for a button which removes the item when clicked.")})
+x($,"aPO","amx",function(){return R.a68()})})()}
+$__dart_deferred_initializers__["ap6snMYijtzuEgZl/C2Lce/6r2k="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_41.part.js.map

@@ -4,36 +4,36 @@ _.a="Test"
 _.b=!0
 _.c=!1
 _.d=null}},Y,R,K={
-ax1:function(){if($.af9)return
-$.af9=!0
+ax2:function(){if($.afa)return
+$.afa=!0
 E.F()
 T.yy()
-D.a3T()}},V,E={rQ:function rQ(d){this.b=d
+D.a3U()}},V,E={rQ:function rQ(d){this.b=d
 this.c=!0
 this.a=null},
-ax3:function(){if($.afb)return
-$.afb=!0
+ax4:function(){if($.afc)return
+$.afc=!0
 E.F()},
 z_:function z_(d){this.a=d}},M,Q,D={
-cy:function(d,e){var w,v=new D.uD(N.P(),E.S(d,e,1)),u=$.a7x
-if(u==null)u=$.a7x=O.a0($.aDx,null)
+cy:function(d,e){var w,v=new D.uD(N.P(),E.S(d,e,1)),u=$.a7y
+if(u==null)u=$.a7y=O.a0($.aDy,null)
 v.b=u
 w=document.createElement("material-expansionpanel")
 v.c=w
 return v},
-aJu:function(d,e){return new D.HP(E.z(d,e))},
-aJv:function(d,e){return new D.HQ(N.P(),E.z(d,e))},
-aJw:function(d,e){return new D.HR(E.z(d,e))},
-aJx:function(d,e){return new D.oo(E.z(d,e))},
-aJy:function(d,e){return new D.op(E.z(d,e))},
-aJz:function(d,e){return new D.x5(E.z(d,e))},
-aJA:function(d,e){return new D.x6(E.z(d,e))},
-aJB:function(d,e){return new D.HS(E.z(d,e))},
-aJC:function(d,e){return new D.HT(E.z(d,e))},
-aJE:function(){return new D.HV(new G.R())},
-a3T:function(){if($.afa)return
-$.afa=!0
-$.T.w(0,C.c2,new D.l("material-expansionpanel",D.azf(),x.l))
+aJv:function(d,e){return new D.HP(E.z(d,e))},
+aJw:function(d,e){return new D.HQ(N.P(),E.z(d,e))},
+aJx:function(d,e){return new D.HR(E.z(d,e))},
+aJy:function(d,e){return new D.oo(E.z(d,e))},
+aJz:function(d,e){return new D.op(E.z(d,e))},
+aJA:function(d,e){return new D.x5(E.z(d,e))},
+aJB:function(d,e){return new D.x6(E.z(d,e))},
+aJC:function(d,e){return new D.HS(E.z(d,e))},
+aJD:function(d,e){return new D.HT(E.z(d,e))},
+aJF:function(){return new D.HV(new G.R())},
+a3U:function(){if($.afb)return
+$.afb=!0
+$.T.w(0,C.c1,new D.l("material-expansionpanel",D.azg(),x.l))
 E.F()
 T.ef()
 R.ey()
@@ -41,21 +41,21 @@ V.eY()
 G.ct()
 R.iP()
 M.ch()
-M.a0s()
+M.a0t()
 X.r7()
 O.fA()
-E.ax3()
+E.ax4()
 V.dM()
-V.aj3()},
+V.aj4()},
 uD:function uD(d,e){var _=this
 _.r=_.f=_.e=!0
 _.x=d
 _.a0=_.X=_.a7=_.V=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=null
 _.c=_.b=_.a=_.a_=_.a4=_.Y=_.a6=null
 _.d=e},
-VW:function VW(){},
 VX:function VX(){},
 VY:function VY(){},
+VZ:function VZ(){},
 HP:function HP(d){var _=this
 _.f=_.e=_.d=_.c=_.b=null
 _.a=d},
@@ -82,23 +82,23 @@ _.a=d},
 HV:function HV(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},Z,O,A={
-aJt:function(){return new A.HO(new G.R())},
-ax0:function(){if($.af7)return
-$.af7=!0
-$.T.w(0,C.lX,new D.l("material-expansion-demo",A.ajC(),x.F))
+aJu:function(){return new A.HO(new G.R())},
+ax1:function(){if($.af8)return
+$.af8=!0
+$.T.w(0,C.lX,new D.l("material-expansion-demo",A.ajD(),x.F))
 E.F()
 G.ct()
 K.yv()
 O.LD()
 T.yy()
 U.dL()
-Z.aiG()
-D.a3T()
-K.ax1()
-S.ax2()
+Z.aiH()
+D.a3U()
+K.ax2()
+S.ax3()
 M.ch()
 Q.dV()
-M.a0s()
+M.a0t()
 X.r7()
 K.dp()},
 uC:function uC(d,e){var _=this
@@ -111,7 +111,7 @@ _.d=e},
 HO:function HO(d){var _=this
 _.c=_.b=_.a=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d}},T={
-cv:function(d,e,f,g,h){var w=null,v=H.a([],x.U),u=x.W,t=$.alH(),s=$.alG(),r=x.h
+cv:function(d,e,f,g,h){var w=null,v=H.a([],x.U),u=x.W,t=$.alI(),s=$.alH(),r=x.h
 return new T.hu(d,e,f,new R.aN(!0),g!=null,!1,v,new Q.cc(!1,!1,x.V),new P.N(w,w,u),new P.N(w,w,u),t,s,new P.N(w,w,r),new P.N(w,w,r),new P.N(w,w,r),new P.N(w,w,r),new P.N(w,w,x.R))},
 hu:function hu(d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t){var _=this
 _.a=d
@@ -170,10 +170,10 @@ Qh:function Qh(d,e){this.a=d
 this.b=e},
 Qg:function Qg(d,e){this.a=d
 this.b=e}},L={hv:function hv(d){this.a=d}},N={
-a55:function(d,e){var w=(d==null?new R.eN(R.fU()):d).ec()
+a56:function(d,e){var w=(d==null?new R.eN(R.fU()):d).ec()
 return new N.Mv(w)},
 Mv:function Mv(d){this.a=d}},U,X={
-ap6:function(d,e,f){var w=new X.A0(d,e,f)
+ap7:function(d,e,f){var w=new X.A0(d,e,f)
 w.K_(d,e,f)
 return w},
 A0:function A0(d,e,f){var _=this
@@ -198,20 +198,20 @@ Qf:function Qf(d,e){this.a=d
 this.b=e},
 Qa:function Qa(d,e){this.a=d
 this.b=e}},B,S={
-ax2:function(){if($.af8)return
-$.af8=!0
-D.a3T()
+ax3:function(){if($.af9)return
+$.af9=!0
+D.a3U()
 E.F()
 X.r7()}},F={
-ap5:function(){return C.fG},
-aJD:function(){return new F.HU(new G.R())},
-ax_:function(){if($.af6)return
-$.af6=!0
-$.T.w(0,C.lY,new D.l("material-expansion-panel-api",F.ajB(),x.k))
+ap6:function(){return C.fF},
+aJE:function(){return new F.HU(new G.R())},
+ax0:function(){if($.af7)return
+$.af7=!0
+$.T.w(0,C.lY,new D.l("material-expansion-panel-api",F.ajC(),x.k))
 E.F()
 K.d7()
 D.cV()
-A.ax0()},
+A.ax1()},
 C9:function C9(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
@@ -247,16 +247,16 @@ F=a.updateHolder(c[24],F)
 T.hu.prototype={
 sGu:function(d){if(x.Y.b(d))this.Q=d
 else if(d instanceof Z.cm)this.Q=new E.jT(d.a)},
-sa0L:function(d){var w,v=this
+sa0M:function(d){var w,v=this
 v.ch=d
 v.a.f.cA(new T.Qz(v),x.P)
 w=new X.ny()
 w.a=new T.QA(v)
 v.c.du(w.geE())
 v.d.d3(w)},
-sa06:function(d){this.cx=d
+sa07:function(d){this.cx=d
 this.a.f.cA(new T.Qu(this),x.P)},
-sa0K:function(d){this.cy=d
+sa0L:function(d){this.cy=d
 if(d==null)return
 this.xW()},
 xW:function(){var w,v,u,t,s=this
@@ -280,20 +280,20 @@ if(v.ghH()!=="expand_less"||v.y2)w=!1
 else w=v.k4&&!v.k1
 return w},
 guW:function(){var w=this.r2,v=w==null
-if(v&&v)w=$.alF()
+if(v&&v)w=$.alG()
 else w=T.aR(H.B(w)+" panel",null,"_namedPanelMsg",H.a([w],x.M),null)
 return w},
-ga05:function(){var w,v,u=this
+ga06:function(){var w,v,u=this
 if(u.k1||!1){w=u.r2
 return w}else{if(u.fx.y)w=u.guW()
 else{w=u.r2
 v=w==null
-if(v&&v)w=$.alI()
+if(v&&v)w=$.alJ()
 else w=T.aR(H.B(w)+" panel",null,"_namedPanelMsg",H.a([w],x.M),null)}return w}},
-a_N:function(){var w=this
+a_O:function(){var w=this
 if(!w.r1)if(w.fx.y)w.uX(0)
 else w.FQ(0)},
-a_K:function(){var w=this
+a_L:function(){var w=this
 if(w.r1)if(w.fx.y)w.uX(0)
 else w.FQ(0)},
 Z:function(){var w=this,v=w.fy
@@ -303,7 +303,7 @@ bK:function(d){var w=this.L
 if(w!=null)w.bK(0)},
 gvn:function(){var w=this.aa
 return new P.e(w,H.m(w).i("e<1>"))},
-lE:function(d){var w=E.a24(this,d)
+lE:function(d){var w=E.a25(this,d)
 if(w!=null)this.aa.R(0,w)},
 sk9:function(d){},
 FR:function(d,e){if(this.k1&&e)return P.eC(!1,x.b)
@@ -312,13 +312,13 @@ FQ:function(d){return this.FR(d,!0)},
 li:function(d,e){if(this.k1&&e)return P.eC(!1,x.b)
 return this.Fv(!1,e,this.a4)},
 uX:function(d){return this.li(d,!0)},
-a_3:function(){var w=this,v=x.b,u=Z.nl(v)
+a_4:function(){var w=this,v=x.b,u=Z.nl(v)
 w.a_.R(0,u.gdd(u))
 w.k3=!0
 w.b.am()
 u.lo(new T.Qq(w,w.y),!1)
 return u.gdd(u).a.bP(new T.Qr(w),v)},
-a_1:function(){var w=this,v=x.b,u=Z.nl(v)
+a_2:function(){var w=this,v=x.b,u=Z.nl(v)
 w.W.R(0,u.gdd(u))
 w.k3=!0
 w.b.am()
@@ -380,9 +380,9 @@ w=q.d
 v=w.a
 w=w.b
 u=v.n(C.b,w)
-q.Q=new O.dB(l,u,C.an)
+q.Q=new O.dB(l,u,C.am)
 l=q.ch=new V.r(3,2,q,T.L(q.Y))
-q.cx=new K.J(new D.x(l,D.az6()),l)
+q.cx=new K.J(new D.x(l,D.az7()),l)
 t=T.u(m,q.Y)
 T.c(t,p,"true")
 q.C(t,"panel-name")
@@ -393,29 +393,29 @@ q.C(s,"primary-text")
 q.m(s)
 s.appendChild(q.x.b)
 l=q.cy=new V.r(7,4,q,T.L(t))
-q.db=new K.J(new D.x(l,D.az7()),l)
+q.db=new K.J(new D.x(l,D.az8()),l)
 l=T.u(m,q.Y)
 q.a4=l
 T.c(l,p,"true")
 T.c(q.a4,"autoId","")
 q.C(q.a4,"panel-description")
 q.h(q.a4)
-l=N.a55(v.l(C.a2,w),null)
+l=N.a56(v.l(C.a2,w),null)
 q.dx=new E.z_(l)
 q.bq(q.a4,1)
 l=q.dy=new V.r(9,2,q,T.L(q.Y))
-q.fr=new K.J(new D.x(l,D.az8()),l)
+q.fr=new K.J(new D.x(l,D.az9()),l)
 l=q.fx=new V.r(10,1,q,T.L(q.a6))
-q.fy=new K.J(new D.x(l,D.az9()),l)
+q.fy=new K.J(new D.x(l,D.aza()),l)
 l=T.d(m,q.a0,"main")
 q.a_=l
 T.c(l,"autoId","")
 T.c(q.a_,"role","region")
 q.m(q.a_)
-l=N.a55(v.l(C.a2,w),null)
+l=N.a56(v.l(C.a2,w),null)
 q.go=new E.z_(l)
 l=q.id=new V.r(12,11,q,T.L(q.a_))
-l=K.eB(l,new D.x(l,D.aza()),v.n(C.p,w),q)
+l=K.eB(l,new D.x(l,D.azb()),v.n(C.p,w),q)
 q.k1=l
 l=q.Y
 w=x.L;(l&&C.w).T(l,"click",q.v(q.gkT(),w,w))
@@ -427,15 +427,15 @@ l=q.Y;(l&&C.w).T(l,"mousedown",q.ad(q.Q.gd0(),w))
 l=q.Y
 u=q.Q;(l&&C.w).T(l,"focus",q.v(u.gc9(u),w,w))
 u=q.z.a.b
-r=new P.e(u,H.m(u).i("e<1>")).D(q.ad(o.ga_M(),x.S))
-o.sa0L(q.a_)
-o.sa06(q.a6)
+r=new P.e(u,H.m(u).i("e<1>")).D(q.ad(o.ga_N(),x.S))
+o.sa0M(q.a_)
+o.sa07(q.a6)
 o.db=q.Y
 o.L=q.z.a
 q.bo(H.a([r],x.a))
 J.a7(n,"keydown",q.v(o.gbL(),w,v))},
 P:function(d,e,f){if(e<=12){if(d===C.j&&2<=e&&e<=9)return this.z.a
-if(d===C.c1)return this.y}return f},
+if(d===C.c0)return this.y}return f},
 A:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k=this,j=null,i=k.a,h=k.d.f,g=k.dx.a,f=k.go.a
 if(!i.k1)w=i.fx.y&&i.k4
 else w=!0
@@ -459,11 +459,11 @@ k.cy.J()
 k.dy.J()
 k.fx.J()
 k.id.J()
-if(k.f){h=k.id.bT(new D.VW(),x.Q,x.s)
-i.sa0K(h.length!==0?C.e.gao(h):j)
-k.f=!1}if(k.e){h=k.fx.bT(new D.VX(),x.Q,x.d)
+if(k.f){h=k.id.bT(new D.VX(),x.Q,x.s)
+i.sa0L(h.length!==0?C.e.gao(h):j)
+k.f=!1}if(k.e){h=k.fx.bT(new D.VY(),x.Q,x.d)
 i.dx=h.length!==0?C.e.gao(h):j
-k.e=!1}if(k.r){h=k.id.bT(new D.VY(),x.Q,x.s)
+k.e=!1}if(k.r){h=k.id.bT(new D.VZ(),x.Q,x.s)
 i.dy=h.length!==0?C.e.gao(h):j
 i.xW()
 k.r=!1}h=i.fx
@@ -484,11 +484,11 @@ if(v!==r){T.ad(k.Y,"closed",r)
 k.rx=r}v=h.y
 u=k.ry
 if(u!=v){u=k.Y
-T.Q(u,"aria-expanded",v==null?j:C.aB.N(v))
+T.Q(u,"aria-expanded",v==null?j:C.aA.N(v))
 k.ry=v}q=i.r1
 v=k.x1
 if(v!==q){T.ad(k.Y,"disable-header-expansion",q)
-k.x1=q}p=i.ga05()
+k.x1=q}p=i.ga06()
 v=k.x2
 if(v!=p){T.Q(k.Y,"aria-label",p)
 k.x2=p}o=g.a
@@ -523,7 +523,7 @@ w.k1.S()},
 kU:function(d){var w
 this.z.a.dS(d)
 w=this.Q
-w.c=C.aw
+w.c=C.av
 w.e5()}}
 D.HP.prototype={
 q:function(){var w=this,v=M.a8(w,0)
@@ -596,17 +596,17 @@ v.ch=t
 v.C(t,"content-wrapper")
 v.h(v.ch)
 t=v.b=new V.r(2,1,v,T.L(v.ch))
-v.c=new K.J(new D.x(t,D.azb()),t)
+v.c=new K.J(new D.x(t,D.azc()),t)
 w=T.u(u,v.ch)
 v.C(w,"content")
 v.h(w)
 v.bq(w,3)
 t=v.d=new V.r(4,1,v,T.L(v.ch))
-v.e=new K.J(new D.x(t,D.azc()),t)
+v.e=new K.J(new D.x(t,D.azd()),t)
 t=v.f=new V.r(5,0,v,T.L(v.Q))
-v.r=new K.J(new D.x(t,D.azd()),t)
+v.r=new K.J(new D.x(t,D.aze()),t)
 t=v.x=new V.r(6,0,v,T.L(v.Q))
-v.y=new K.J(new D.x(t,D.aze()),t)
+v.y=new K.J(new D.x(t,D.azf()),t)
 v.F(v.Q)},
 A:function(){var w,v=this,u=v.a.a,t=v.c
 t.sU(u.gwN()&&u.f)
@@ -643,7 +643,7 @@ u.c=new R.dq(T.dZ(r,null,!1,!0))
 u.d=new Y.a2(r)
 t=t.c
 t=t.gp().gp().n(C.b,t.gp().ga1())
-u.e=new O.dB(r,t,C.an)
+u.e=new O.dB(r,t,C.am)
 u.b.K(0,u.d)
 t=x.L
 J.a7(u.z,"click",u.v(u.gkT(),t,t))
@@ -669,7 +669,7 @@ if(w)s.b.d.st(1)
 r=q.fx.y
 v=s.f
 if(v!=r){v=s.z
-T.Q(v,"aria-expanded",r==null?null:C.aB.N(r))
+T.Q(v,"aria-expanded",r==null?null:C.aA.N(r))
 s.f=r}u=p.a
 r=s.r
 if(r!==u){r=s.z
@@ -683,7 +683,7 @@ G:function(){this.b.k()},
 kU:function(d){var w
 this.c.a.dS(d)
 w=this.e
-w.c=C.aw
+w.c=C.av
 w.e5()}}
 D.x6.prototype={
 q:function(){var w,v,u=this,t=u.a,s=t.a,r=M.a8(u,0)
@@ -699,7 +699,7 @@ u.c=new R.dq(T.dZ(r,null,!1,!0))
 u.d=new Y.a2(r)
 t=t.c
 t=t.gp().gp().n(C.b,t.gp().ga1())
-u.e=new O.dB(r,t,C.an)
+u.e=new O.dB(r,t,C.am)
 u.b.K(0,u.d)
 t=x.L
 J.a7(u.y,"click",u.v(u.gkT(),t,t))
@@ -724,7 +724,7 @@ if(w)t.b.d.st(1)
 q=s.fx.y
 v=t.f
 if(v!=q){v=t.y
-T.Q(v,"aria-expanded",q==null?null:C.aB.N(q))
+T.Q(v,"aria-expanded",q==null?null:C.aA.N(q))
 t.f=q}u=s.guW()
 q=t.r
 if(q!=u){T.Q(t.y,"aria-label",u)
@@ -734,7 +734,7 @@ G:function(){this.b.k()},
 kU:function(d){var w
 this.c.a.dS(d)
 w=this.e
-w.c=C.aw
+w.c=C.av
 w.e5()}}
 D.HS.prototype={
 q:function(){var w=this,v=document.createElement("div")
@@ -757,9 +757,9 @@ t.d=q
 t.b.K(0,t.c)
 q=t.c.a
 s=x.S
-v=new P.e(q,H.m(q).i("e<1>")).D(t.ad(r.ga_2(),s))
+v=new P.e(q,H.m(q).i("e<1>")).D(t.ad(r.ga_3(),s))
 q=t.c.b
-u=new P.e(q,H.m(q).i("e<1>")).D(t.ad(r.ga_0(),s))
+u=new P.e(q,H.m(q).i("e<1>")).D(t.ad(r.ga_1(),s))
 t.aD(H.a([w],x.M),H.a([v,u],x.a))},
 P:function(d,e,f){if(0===e){if(d===C.c)return this.c
 if(d===C.lf)return this.d}return f},
@@ -791,7 +791,7 @@ w=t.c
 t=T.cv(v.n(C.f,u),v.b,v.n(C.b,u),u,u)
 v.a=t
 v.F(w)},
-P:function(d,e,f){if((d===C.c2||d===C.p||d===C.c||d===C.M||d===C.i)&&0===e)return this.a
+P:function(d,e,f){if((d===C.c1||d===C.p||d===C.c||d===C.M||d===C.i)&&0===e)return this.a
 return f},
 A:function(){var w=this.d.e
 if(w===0)this.a.Z()
@@ -799,7 +799,7 @@ this.b.j()},
 G:function(){this.a.d.H()}}
 X.A0.prototype={
 K_:function(d,e,f){this.d=new P.N(new X.Q6(this),new X.Q7(this),x.t)},
-a1u:function(d){var w=this,v=w.e
+a1v:function(d){var w=this,v=w.e
 if(v!=null)v.az(0)
 if(d){v=w.d
 v.toString
@@ -929,17 +929,14 @@ u=s.grB()
 t=s.gB6()
 w.l(C.k,r)
 r=s.k1=new X.bg(u,v,t)}return r},
-q:function(){var w,v=this,u=v.a2(),t=K.cH(v,0)
-v.e=t
-u.appendChild(t.c)
-t=v.d
-w=t.a
-t=t.b
-w.n(C.a9,t)
-t=w.n(C.aa,t)
-t=new X.cb(t,!J.bA(window.location.href,"enableLatencyCharts=false"))
-v.f=t
-v.e.K(0,t)},
+q:function(){var w=this,v=w.a2(),u=K.cH(w,0)
+w.e=u
+v.appendChild(u.c)
+u=w.d
+u=u.a.n(C.a9,u.b)
+u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
+w.f=u
+w.e.K(0,u)},
 P:function(d,e,f){var w,v=this
 if(0===e){if(d===C.L)return v.gnd()
 if(d===C.V){w=v.x
@@ -966,15 +963,15 @@ if(u!==v)w.k4=w.f.a=v
 w.e.j()},
 G:function(){this.e.k()}}
 F.HU.prototype={
-q:function(){var w,v,u,t=this,s="bool",r="String",q="Stream<AsyncAction<bool>>",p="Stream<bool>",o=new F.C9(E.S(t,0,3)),n=$.a7y
-if(n==null)n=$.a7y=O.bG(C.a,null)
+q:function(){var w,v,u,t=this,s="bool",r="String",q="Stream<AsyncAction<bool>>",p="Stream<bool>",o=new F.C9(E.S(t,0,3)),n=$.a7z
+if(n==null)n=$.a7z=O.bG(C.a,null)
 o.b=n
 w=document.createElement("material-expansion-panel-api")
 o.c=w
 t.b=o
 o=x.C
 o=H.a([new D.b5("MaterialExpansionPanel",!1,"","material-expansionpanel","","angular_components/lib/material_expansionpanel/material_expansionpanel.dart",X.h('<p>A material-styled expansion-panel.</p>\n<p>One or more panels are grouped together in a expansion-panel-set. When a\npanel is clicked on, the panel contents expand. A panel consists of a name,\na value, optional secondary text, and the expanded panel contents.</p>\n<p>Content element with attribute <code>value</code> will be used as the "value" of the\npanel contents when it is in a collapsed state</p>\n<p>Interactions with a panel are done through the parent expansion-set. The set\ntakes into account the state of the other panels in the set, and issues the\nappropriate actions onto each individual panel.</p>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>wide</code> -- When specified the width of the panel when expanded, is\nslightly wider then its width when collapsed.</li>\n<li><code>flat</code> -- Indicates that the panel should not "float" or separate from\nother panels when expanded.</li>\n<li><code>forceContentWhenClosed</code> -- Keeps expansion panel content in the DOM when\nthe expansion panel is closed. This should only be used in rare\ncircumstances.</li>\n</ul>\n<p><strong>Content Reference:</strong></p>\n<ul>\n<li><code>focusOnOpen</code> -- Mark a Focusable or DOM element with #focusOnOpen in the\ncontent to have that item be focused when the expansion panel opens.</li>\n</ul>\n'),H.a([new D.j("alwaysHideExpandIcon","",s,X.h("<p>If true, the expand icon should never be visible.</p>\n"),!1,""),new D.j("alwaysShowExpandIcon","",s,X.h("<p>If true, the expand icon should always be visible regardless whether a\ncustom icon is used.</p>\n"),!1,""),new D.j("cancelDisplayed","",s,X.h("<p>Option to set if widget should show cancel button <code>true</code> by default.</p>\n"),!1,""),new D.j("cancelText","",r,X.h('<p>The text to be shown on the cancel button.</p>\n<p>For example: "Dismiss", "Not now", etc. Default value is "Cancel".</p>\n'),!1,""),new D.j("closeOnSave","",s,X.h("<p>If true, after a successful save, the panel will attempt to close.</p>\n"),!1,""),new D.j("disableHeaderExpansion","",s,X.h("<p>If true, clicking on the header does not expand or collapse the panel.</p>\n"),!1,""),new D.j("disabled","",s,X.h("<p>If true, the panel will remain in the collapsed state with no way to\nexpand it, or if expanded by default, it will stay in expanded state.</p>\n"),!1,""),new D.j("enterAccepts","",s,X.h("<p>If set to true, the toolbelt buttons will listen for Enter <code>keyup</code> events\nand trigger the <code>yes</code> action on them.</p>\n"),!1,""),new D.j("expandIcon","",r,X.h("<p>An optional icon name to replace the expand arrows with a custom icon.</p>\n"),!1,""),new D.j("focusOnOpenChild","focusOnOpen","dynamic",X.h("<p>Sets the focus child so that we can focus on it when the panel opens.</p>\n"),!1,""),new D.j("groupAriaLabel","",r,X.h("<p>Aria label used to describe the header.</p>\n"),!1,""),new D.j("headerAriaLevel","","int",X.h('<p>Level of the heading.</p>\n<p>If null, the heading will not have role="heading".</p>\n'),!1,""),new D.j("hideExpandedHeader","",s,X.h("<p>If true, the header which displays the name of the panel is hidden when\nthe panel is expanded.</p>\n"),!1,""),new D.j("isExpanded","expanded",s,X.h("<p>If true, the panel is expanded by default, if false, the panel is closed.</p>\n"),!1,""),new D.j("name","",r,X.h("<p>A short name label for the expansion panel.</p>\n"),!1,""),new D.j("saveDisabled","",s,X.h("<p>Whether the save button is disabled.</p>\n"),!1,""),new D.j("saveText","",r,X.h('<p>The text to be shown on the save button.</p>\n<p>For example: "Ok", "Apply", etc. Default value is "Save".</p>\n'),!1,""),new D.j("secondaryText","",r,X.h("<p>Some optional secondary summary text that describes the state of the\nwidget hosted inside the panel.</p>\n"),!1,""),new D.j("showSaveCancel","",s,X.h("<p>Option to set if widget should show save/cancel buttons <code>true</code> by default.</p>\n"),!1,"")],o),H.a([new D.j("cancel","",q,X.h("<p>Event fired when panel is cancelled.</p>\n"),!1,""),new D.j("close","",q,X.h("<p>Event fired when panel is trying to close.</p>\n<p>This action may be cancelled.</p>\n"),!1,""),new D.j("isExpandedChange","expandedChange",p,X.h("<p>Event fired when the panel is either collapsed or expanded.</p>\n"),!1,""),new D.j("isExpandedChangeByUserAction","expandedChangeByUser",p,X.h("<p>Event fired when the panel is collapsed or expanded by the user.</p>\n"),!1,""),new D.j("open","",q,X.h("<p>Event fired when panel is trying to open.</p>\n<p>This action may be cancelled.</p>\n"),!1,""),new D.j("save","",q,X.h("<p>Event fired when panel is saved.</p>\n"),!1,"")],o)),new D.b5("MaterialExpansionPanelSet",!1,"","material-expansionpanel-set","","angular_components/lib/material_expansionpanel/material_expansionpanel_set.dart",X.h("<p>A directive which will turn a set of <code>MaterialExpansionPanel</code>s into an\naccordion widget, thus only allowing only one <code>MaterialExpansionPanel</code> to be\nopen at a time.</p>\n<p><code>MaterialExpansionPanelSet</code> must be used with <code>MaterialExpansionPanel</code> as\ndirect children. For example, the set will <em>not</em> work for the following\nscenario:</p>\n<pre><code class=\"language-dart\">@Component(\n  selector: 'middle-man',\n  template: '&lt;material-expansionpanel&gt;&lt;/material-expansionpanel&gt;',\n  directives: [MaterialExpansionPanel],\n)\nclass MiddleManComponent {}\n\n&lt;material-expansionpanel-set&gt;\n  &lt;middle-man&gt;&lt;/middle-man&gt;\n  &lt;middle-man&gt;&lt;/middle-man&gt;\n&lt;/material-expansionpanel-set&gt;\n</code></pre>\n"),H.a([],o),H.a([],o)),new D.b5("MaterialExpansionPanelAutoDismiss",!1,"","material-expansionpanel[autoDismissable]","","angular_components/lib/material_expansionpanel/material_expansionpanel_auto_dismiss.dart",X.h("<p>A directive that automatically collapses <code>MaterialExpansionPanel</code>.</p>\n<p>When a <code>MaterialExpansionPanel</code> is expanded, any click outside of it will\nautomatically collapses the panel.</p>\n<p><strong>Example usage:</strong></p>\n<pre><code>&lt;material-expansionpanel autoDismissable&gt;\n&lt;/material-expansionpanel&gt;\n</code></pre>\n"),H.a([],o),H.a([],o))],x.c)
-v=H.a([new R.aJ(C.fm,"MaterialExpansionDemo","material_expansionpanel_example/lib/material_expansionpanel_example.dart")],x.D)
+v=H.a([new R.aJ(C.fl,"MaterialExpansionDemo","material_expansionpanel_example/lib/material_expansionpanel_example.dart")],x.D)
 u=x.X
 t.a=new L.hv(R.cQ(H.a([],x.i),v,o,P.aW(u,u),!0))
 t.F(w)}}
@@ -1263,7 +1260,7 @@ T.c(d3,l4,y.g)
 k8.h(d3)
 j=T.cv(t.n(C.f,u),k8.a0,t.n(C.b,u),l0,l0)
 k8.a6=j
-j=X.ap6(j,t.l(C.r,u),d3)
+j=X.ap7(j,t.l(C.r,u),d3)
 k8.Y=j
 d4=T.n("\n    This panel will be automatically collapsed when there is a click outside of it.\n  ")
 k8.a0.u(k8.a6,H.a([C.a,C.a,C.a,H.a([d4],d),C.a],s))
@@ -1575,7 +1572,7 @@ k8.bs=d
 i8=d.c
 n9.appendChild(i8)
 k8.h(i8)
-j=D.hO(t.n(C.k,u),i8,t.n(C.b,u),t.l(C.ab,u),t.l(C.au,u))
+j=D.hO(t.n(C.k,u),i8,t.n(C.b,u),t.l(C.aa,u),t.l(C.at,u))
 k8.bw=j
 i9=T.n(l2)
 j=Z.hW(k8,167)
@@ -1620,7 +1617,7 @@ t=x.X
 j9=new P.e(s,H.m(s).i("e<1>")).D(k8.v(k8.gQD(),t,t))
 t=k8.a6.fx
 s=x.b
-k0=t.gc5(t).D(k8.v(k8.Y.ga1t(),s,s))
+k0=t.gc5(t).D(k8.v(k8.Y.ga1u(),s,s))
 t=k8.a_.W
 k1=new P.e(t,H.m(t).i("e<1>")).D(k8.v(h,u,u))
 u=k8.ai.fx
@@ -1641,7 +1638,7 @@ k8.bo(H.a([j7,j8,j9,k0,k1,k2,k3,k4,k5,k6,k7,new P.e(s,H.m(s).i("e<1>")).D(k8.v(k
 P:function(d,e,f){var w,v,u=this
 if(5<=e&&e<=17){if(15===e){if(d===C.z)return u.Q
 if(d===C.a3||d===C.X)return u.cx
-if(d===C.C||d===C.A||d===C.q||d===C.i||d===C.c)return u.cy}if(d===C.c2||d===C.M||d===C.p||d===C.c||d===C.i)return u.y}w=d!==C.c2
+if(d===C.C||d===C.A||d===C.q||d===C.i||d===C.c)return u.cy}if(d===C.c1||d===C.M||d===C.p||d===C.c||d===C.i)return u.y}w=d!==C.c1
 if((!w||d===C.M||d===C.p||d===C.c||d===C.i)&&19<=e&&e<=20)return u.dy
 if((!w||d===C.M||d===C.p||d===C.c||d===C.i)&&22<=e&&e<=23)return u.fx
 if((!w||d===C.M||d===C.p||d===C.c||d===C.i)&&25<=e&&e<=26)return u.go
@@ -1675,7 +1672,7 @@ if(d===C.n||d===C.j||d===C.c)return u.bh}if(147<=e&&e<=148){if(d===C.m)return u.
 if(d===C.n||d===C.j||d===C.c)return u.aQ}if(!w||d===C.p||d===C.c||d===C.M||d===C.i)return u.aC}if(152<=e&&e<=162){if(156<=e&&e<=157){if(d===C.m)return u.bg
 if(d===C.n||d===C.j||d===C.c)return u.bJ}if(159<=e&&e<=160){if(d===C.m)return u.bF
 if(d===C.n||d===C.j||d===C.c)return u.bB}if(!w||d===C.p||d===C.c||d===C.M||d===C.i)return u.b6}if(165<=e&&e<=175){if(d===C.c&&172<=e&&e<=173)return u.bS
-if(d===C.ag||d===C.p||d===C.ab)return u.bw}return f},
+if(d===C.af||d===C.p||d===C.aa)return u.bw}return f},
 A:function(){var w,v,u,t,s,r=this,q="Optional",p="No header",o=r.a,n=r.d.f===0
 if(n){r.y.r2="Name"
 w=!0}else w=!1
@@ -2062,8 +2059,8 @@ w=u.grD()
 v=u.gBf()
 u.l(C.k,null)
 t=u.go=new X.bg(w,t,v)}return t},
-q:function(){var w,v=this,u=new A.uC(N.P(),E.S(v,0,3)),t=$.a7w
-if(t==null)t=$.a7w=O.a0($.aDw,null)
+q:function(){var w,v=this,u=new A.uC(N.P(),E.S(v,0,3)),t=$.a7x
+if(t==null)t=$.a7x=O.a0($.aDx,null)
 u.b=t
 w=document.createElement("material-expansion-demo")
 u.c=w
@@ -2092,7 +2089,7 @@ var z=a.updateTypes(["~(@)","aj<~>*(k*,H*)","U(ek<E*>*)","~()","~(b3*)","ai<E*>*
 T.Qz.prototype={
 $0:function(){var w=this.a,v=w.ch
 v.toString
-v=C.c8.vq(v)
+v=C.c7.vq(v)
 w.d.b9(new P.ew(new T.Qx(),v,v.$ti.i("ew<aU.T>")).D(new T.Qy(w)))},
 $C:"$0",
 $R:0,
@@ -2121,7 +2118,7 @@ $S:6}
 T.Qu.prototype={
 $0:function(){var w=this.a,v=w.cx
 v.toString
-v=C.c8.vq(v)
+v=C.c7.vq(v)
 w.d.b9(new P.ew(new T.Qs(),v,v.$ti.i("ew<aU.T>")).D(new T.Qt(w)))},
 $C:"$0",
 $R:0,
@@ -2223,13 +2220,13 @@ u=J.bA(v.getPropertyValue(C.x.bE(v,"transition")),"height")}else u=!1
 t=u?H.B(w)+"px":""
 this.b.cC(0,t)},
 $S:0}
-D.VW.prototype={
+D.VX.prototype={
 $1:function(d){return d.Q},
 $S:z+6}
-D.VX.prototype={
+D.VY.prototype={
 $1:function(d){return d.b},
 $S:z+8}
-D.VY.prototype={
+D.VZ.prototype={
 $1:function(d){return d.ch},
 $S:z+6}
 X.Q6.prototype={
@@ -2264,13 +2261,12 @@ $1:function(d){if(d)this.a.nZ(this.b)
 return!d},
 $S:33};(function installTearOffs(){var w=a._instance_0u,v=a._instance_1u,u=a.installInstanceTearOff,t=a._static_2,s=a._static_0
 var r
-w(r=T.hu.prototype,"ga_M","a_N",3)
-w(r,"gGC","a_K",3)
+w(r=T.hu.prototype,"ga_N","a_O",3)
+w(r,"gGC","a_L",3)
 v(r,"gbL","lE",4)
 u(r,"gFB",1,0,function(){return{byUserAction:!0}},["$1$byUserAction","$0"],["li","uX"],7,0)
-w(r,"ga_2","a_3",5)
-w(r,"ga_0","a_1",5)
-t(D,"az6","aJu",1)
+w(r,"ga_3","a_4",5)
+w(r,"ga_1","a_2",5)
 t(D,"az7","aJv",1)
 t(D,"az8","aJw",1)
 t(D,"az9","aJx",1)
@@ -2279,17 +2275,18 @@ t(D,"azb","aJz",1)
 t(D,"azc","aJA",1)
 t(D,"azd","aJB",1)
 t(D,"aze","aJC",1)
-s(D,"azf","aJE",13)
+t(D,"azf","aJD",1)
+s(D,"azg","aJF",13)
 v(D.uD.prototype,"gkT","kU",0)
 v(D.x5.prototype,"gkT","kU",0)
 v(D.x6.prototype,"gkT","kU",0)
-v(r=X.A0.prototype,"ga1t","a1u",9)
+v(r=X.A0.prototype,"ga1u","a1v",9)
 v(r,"gWE","WF",10)
 v(r=E.rQ.prototype,"gqM","qN",11)
 v(r,"gtW","tX",4)
-s(F,"ajB","aJD",14)
+s(F,"ajC","aJE",14)
 v(G.jq.prototype,"gIP","IQ",12)
-s(A,"ajC","aJt",15)
+s(A,"ajD","aJu",15)
 v(r=A.uC.prototype,"gQD","QE",0)
 v(r,"gQF","QG",0)
 v(r,"gQH","QI",0)
@@ -2299,7 +2296,7 @@ v(r,"gQN","QO",0)
 v(r,"gQP","QQ",0)
 v(r,"gQR","QS",0)})();(function inheritance(){var w=a.inheritMany,v=a.inherit
 w(P.y,[T.hu,X.A0,X.Q9,N.Mv,L.hv,G.jq])
-w(H.bq,[T.Qz,T.Qx,T.Qy,T.Qv,T.QA,T.Qw,T.Qu,T.Qs,T.Qt,T.QC,T.QB,T.Qq,T.Qr,T.Qo,T.Qp,T.Qn,T.Qm,T.Qi,T.Qj,T.Qk,T.Ql,T.Qh,T.Qg,D.VW,D.VX,D.VY,X.Q6,X.Q7,X.Q8,X.Qb,X.Qc,X.Qd,X.Qe,X.Qf,X.Qa])
+w(H.bq,[T.Qz,T.Qx,T.Qy,T.Qv,T.QA,T.Qw,T.Qu,T.Qs,T.Qt,T.QC,T.QB,T.Qq,T.Qr,T.Qo,T.Qp,T.Qn,T.Qm,T.Qi,T.Qj,T.Qk,T.Ql,T.Qh,T.Qg,D.VX,D.VY,D.VZ,X.Q6,X.Q7,X.Q8,X.Qb,X.Qc,X.Qd,X.Qe,X.Qf,X.Qa])
 w(E.bn,[D.uD,F.C9,A.uC])
 w(E.aj,[D.HP,D.HQ,D.HR,D.oo,D.op,D.x5,D.x6,D.HS,D.HT])
 w(G.f,[D.HV,F.HU,A.HO])
@@ -2308,27 +2305,27 @@ v(E.z_,E.nx)})()
 H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","hu":{"cu":[],"bb":[]},"uD":{"k":[],"i":[]},"HP":{"k":[],"i":[]},"HQ":{"k":[],"i":[]},"HR":{"k":[],"i":[]},"oo":{"k":[],"i":[]},"op":{"k":[],"i":[]},"x5":{"k":[],"i":[]},"x6":{"k":[],"i":[]},"HS":{"k":[],"i":[]},"HT":{"k":[],"i":[]},"HV":{"f":["hu*"],"i":[],"f.T":"hu*"},"C9":{"k":[],"i":[]},"HU":{"f":["hv*"],"i":[],"f.T":"hv*"},"uC":{"k":[],"i":[]},"HO":{"f":["jq*"],"i":[],"f.T":"jq*"}}'))
 var y={g:"Click outside auto-collapses this panel (autoDismissable attribute)",b:"Expanded by default with left align action buttons"}
 var x=(function rtii(){var w=H.K
-return{F:w("l<jq*>"),l:w("l<hu*>"),k:w("l<hv*>"),U:w("q<aNr<t*>*>"),C:w("q<j*>"),D:w("q<aJ*>"),c:w("q<d_*>"),T:w("q<aT*>"),q:w("q<cu*>"),I:w("q<hu*>"),N:w("q<O*>"),M:w("q<y*>"),a:w("q<be<~>*>"),i:w("q<t*>"),j:w("q<a1*>"),v:w("q<aV<t*,@>*(d9<@>*)*>"),P:w("U"),V:w("cc<E*>"),m:w("cz<t*>"),r:w("cz<E*>"),o:w("aL<t*>"),e:w("aL<E*>"),h:w("N<ek<E*>*>"),t:w("N<v*>"),R:w("N<fF*>"),W:w("N<E*>"),z:w("@"),G:w("ek<E*>*"),g:w("aT*"),L:w("v*"),Y:w("bb*"),Q:w("A*"),p:w("b3*"),f:w("D<t*>*"),O:w("W*"),X:w("t*"),S:w("V*"),d:w("oo*"),s:w("op*"),b:w("E*"),H:w("~")}})();(function constants(){C.fm=new D.l("material-expansion-demo",A.ajC(),x.F)
-C.fG=new D.l("material-expansion-panel-api",F.ajB(),x.k)
+return{F:w("l<jq*>"),l:w("l<hu*>"),k:w("l<hv*>"),U:w("q<aNs<t*>*>"),C:w("q<j*>"),D:w("q<aJ*>"),c:w("q<d_*>"),T:w("q<aT*>"),q:w("q<cu*>"),I:w("q<hu*>"),N:w("q<O*>"),M:w("q<y*>"),a:w("q<be<~>*>"),i:w("q<t*>"),j:w("q<a1*>"),v:w("q<aV<t*,@>*(d9<@>*)*>"),P:w("U"),V:w("cc<E*>"),m:w("cz<t*>"),r:w("cz<E*>"),o:w("aL<t*>"),e:w("aL<E*>"),h:w("N<ek<E*>*>"),t:w("N<v*>"),R:w("N<fF*>"),W:w("N<E*>"),z:w("@"),G:w("ek<E*>*"),g:w("aT*"),L:w("v*"),Y:w("bb*"),Q:w("A*"),p:w("b3*"),f:w("D<t*>*"),O:w("W*"),X:w("t*"),S:w("V*"),d:w("oo*"),s:w("op*"),b:w("E*"),H:w("~")}})();(function constants(){C.fl=new D.l("material-expansion-demo",A.ajD(),x.F)
+C.fF=new D.l("material-expansion-panel-api",F.ajC(),x.k)
 C.lf=H.C("rQ")
 C.lX=H.C("jq")
 C.lY=H.C("hv")
-C.c2=H.C("hu")})();(function staticFields(){$.aG3=[".panel._ngcontent-%ID%{box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);background-color:#fff;margin:0;transition:margin 436ms cubic-bezier(0.4,0,0.2,1);width:inherit}._nghost-%ID%:not([hidden]){display:block}._nghost-%ID%[flat] .panel._ngcontent-%ID%{box-shadow:none;border:1px solid rgba(0,0,0,0.12)}._nghost-%ID%[wide] .panel._ngcontent-%ID%{box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);background-color:#fff;margin:0 24px;transition:margin 436ms cubic-bezier(0.4,0,0.2,1)}.panel.open._ngcontent-%ID%,._nghost-%ID%[wide] .panel.open._ngcontent-%ID%{box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);background-color:#fff;margin:16px 0}._nghost-%ID%[flat] .panel.open._ngcontent-%ID%{box-shadow:none;margin:0}.expand-button._ngcontent-%ID%{user-select:none;color:#616161;cursor:pointer;transition:transform 436ms cubic-bezier(0.4,0,0.2,1)}.expand-button.expand-more._ngcontent-%ID%{transform:rotate(180deg)}.expand-button.expand-on-left._ngcontent-%ID%{margin:0 4px 0 0}header._ngcontent-%ID%{display:flex;color:rgba(0,0,0,0.87);transition:height 218ms cubic-bezier(0.4,0,0.2,1),min-height 218ms cubic-bezier(0.4,0,0.2,1),opacity 436ms cubic-bezier(0.4,0,0.2,1),visibility 436ms step-start;visibility:inherit}header.hidden._ngcontent-%ID%{min-height:0;height:0;opacity:0;overflow:hidden;transition:height 218ms cubic-bezier(0.4,0,0.2,1),min-height 218ms cubic-bezier(0.4,0,0.2,1),opacity 436ms cubic-bezier(0.4,0,0.2,1),visibility 436ms step-end;visibility:hidden}.header._ngcontent-%ID%{align-items:center;display:flex;flex-grow:1;font-size:15px;font-weight:400;cursor:pointer;min-height:48px;min-width:0;padding:0 24px;transition:min-height 218ms cubic-bezier(0.4,0,0.2,1)}.header.closed:not(.is-disabled):hover._ngcontent-%ID%,.header.closed:not(.is-disabled):focus._ngcontent-%ID%{background-color:#eee}.header.disable-header-expansion._ngcontent-%ID%,.header.is-disabled._ngcontent-%ID%{cursor:default}.panel.open._ngcontent-%ID% > header:not(.hidden)._ngcontent-%ID% > .header._ngcontent-%ID%{min-height:64px}.background._ngcontent-%ID%,._nghost-%ID%[wide] .background._ngcontent-%ID%{background-color:whitesmoke}.panel-name._ngcontent-%ID%{padding-right:16px;min-width:20%}.panel-name._ngcontent-%ID% .primary-text._ngcontent-%ID%{margin:0}.panel-name._ngcontent-%ID% .secondary-text._ngcontent-%ID%{font-size:12px;font-weight:400;color:rgba(0,0,0,0.54);margin:0}.panel-description._ngcontent-%ID%{flex-grow:1;color:rgba(0,0,0,0.54);overflow:hidden;padding-right:16px}main._ngcontent-%ID%{opacity:1;overflow:hidden;transition:height 218ms cubic-bezier(0.4,0,0.2,1),opacity 218ms cubic-bezier(0.4,0,0.2,1),visibility 218ms step-start;visibility:inherit;width:100%}main.hidden._ngcontent-%ID%{height:0;opacity:0;transition:height 218ms cubic-bezier(0.4,0,0.2,1),opacity 218ms cubic-bezier(0.4,0,0.2,1),visibility 218ms step-end;visibility:hidden}.content-wrapper._ngcontent-%ID%{display:flex;margin:0 24px 16px}.content-wrapper.hidden-header._ngcontent-%ID%{margin-top:16px}.content-wrapper._ngcontent-%ID% > .expand-button._ngcontent-%ID%{align-self:flex-start;flex-shrink:0;margin-left:16px}.content-wrapper._ngcontent-%ID% > .expand-button.expand-on-left._ngcontent-%ID%{margin:0 4px 0 0}.content._ngcontent-%ID%{flex-grow:1;overflow:hidden;width:100%}.action-buttons._ngcontent-%ID%,.toolbelt._ngcontent-%ID%  [toolbelt]{box-sizing:border-box;border-top:1px rgba(0,0,0,0.12) solid;padding:16px 0;width:100%}.action-buttons._ngcontent-%ID%{color:#4285f4}"]
-$.a7x=null
+C.c1=H.C("hu")})();(function staticFields(){$.aG4=[".panel._ngcontent-%ID%{box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);background-color:#fff;margin:0;transition:margin 436ms cubic-bezier(0.4,0,0.2,1);width:inherit}._nghost-%ID%:not([hidden]){display:block}._nghost-%ID%[flat] .panel._ngcontent-%ID%{box-shadow:none;border:1px solid rgba(0,0,0,0.12)}._nghost-%ID%[wide] .panel._ngcontent-%ID%{box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);background-color:#fff;margin:0 24px;transition:margin 436ms cubic-bezier(0.4,0,0.2,1)}.panel.open._ngcontent-%ID%,._nghost-%ID%[wide] .panel.open._ngcontent-%ID%{box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);background-color:#fff;margin:16px 0}._nghost-%ID%[flat] .panel.open._ngcontent-%ID%{box-shadow:none;margin:0}.expand-button._ngcontent-%ID%{user-select:none;color:#616161;cursor:pointer;transition:transform 436ms cubic-bezier(0.4,0,0.2,1)}.expand-button.expand-more._ngcontent-%ID%{transform:rotate(180deg)}.expand-button.expand-on-left._ngcontent-%ID%{margin:0 4px 0 0}header._ngcontent-%ID%{display:flex;color:rgba(0,0,0,0.87);transition:height 218ms cubic-bezier(0.4,0,0.2,1),min-height 218ms cubic-bezier(0.4,0,0.2,1),opacity 436ms cubic-bezier(0.4,0,0.2,1),visibility 436ms step-start;visibility:inherit}header.hidden._ngcontent-%ID%{min-height:0;height:0;opacity:0;overflow:hidden;transition:height 218ms cubic-bezier(0.4,0,0.2,1),min-height 218ms cubic-bezier(0.4,0,0.2,1),opacity 436ms cubic-bezier(0.4,0,0.2,1),visibility 436ms step-end;visibility:hidden}.header._ngcontent-%ID%{align-items:center;display:flex;flex-grow:1;font-size:15px;font-weight:400;cursor:pointer;min-height:48px;min-width:0;padding:0 24px;transition:min-height 218ms cubic-bezier(0.4,0,0.2,1)}.header.closed:not(.is-disabled):hover._ngcontent-%ID%,.header.closed:not(.is-disabled):focus._ngcontent-%ID%{background-color:#eee}.header.disable-header-expansion._ngcontent-%ID%,.header.is-disabled._ngcontent-%ID%{cursor:default}.panel.open._ngcontent-%ID% > header:not(.hidden)._ngcontent-%ID% > .header._ngcontent-%ID%{min-height:64px}.background._ngcontent-%ID%,._nghost-%ID%[wide] .background._ngcontent-%ID%{background-color:whitesmoke}.panel-name._ngcontent-%ID%{padding-right:16px;min-width:20%}.panel-name._ngcontent-%ID% .primary-text._ngcontent-%ID%{margin:0}.panel-name._ngcontent-%ID% .secondary-text._ngcontent-%ID%{font-size:12px;font-weight:400;color:rgba(0,0,0,0.54);margin:0}.panel-description._ngcontent-%ID%{flex-grow:1;color:rgba(0,0,0,0.54);overflow:hidden;padding-right:16px}main._ngcontent-%ID%{opacity:1;overflow:hidden;transition:height 218ms cubic-bezier(0.4,0,0.2,1),opacity 218ms cubic-bezier(0.4,0,0.2,1),visibility 218ms step-start;visibility:inherit;width:100%}main.hidden._ngcontent-%ID%{height:0;opacity:0;transition:height 218ms cubic-bezier(0.4,0,0.2,1),opacity 218ms cubic-bezier(0.4,0,0.2,1),visibility 218ms step-end;visibility:hidden}.content-wrapper._ngcontent-%ID%{display:flex;margin:0 24px 16px}.content-wrapper.hidden-header._ngcontent-%ID%{margin-top:16px}.content-wrapper._ngcontent-%ID% > .expand-button._ngcontent-%ID%{align-self:flex-start;flex-shrink:0;margin-left:16px}.content-wrapper._ngcontent-%ID% > .expand-button.expand-on-left._ngcontent-%ID%{margin:0 4px 0 0}.content._ngcontent-%ID%{flex-grow:1;overflow:hidden;width:100%}.action-buttons._ngcontent-%ID%,.toolbelt._ngcontent-%ID%  [toolbelt]{box-sizing:border-box;border-top:1px rgba(0,0,0,0.12) solid;padding:16px 0;width:100%}.action-buttons._ngcontent-%ID%{color:#4285f4}"]
+$.a7y=null
+$.afb=!1
 $.afa=!1
 $.af9=!1
-$.af8=!1
-$.afb=!1
-$.a7y=null
-$.af6=!1
-$.aG2=[".dark._ngcontent-%ID%  div.panel.themeable{background-color:#424242}.dark._ngcontent-%ID%  div.panel.themeable{color:#fff}.dark._ngcontent-%ID%  div.panel.themeable > header{color:rgba(255,255,255,0.87)}.dark._ngcontent-%ID%  div.panel.themeable > header p.secondary-text{color:rgba(255,255,255,0.54)}.dark._ngcontent-%ID%  div.panel.themeable material-icon.expand-button{color:rgba(255,255,255,0.87)}.dark._ngcontent-%ID%  div.panel.themeable > header > .header.closed:hover,.dark._ngcontent-%ID%  div.panel.themeable > header > .header.closed:focus{background-color:#212121}.dark._ngcontent-%ID%  div.panel.themeable > header > .header.closed:hover,.dark._ngcontent-%ID%  div.panel.themeable > header > .header.closed:focus{color:#fff}.dense._ngcontent-%ID%  div.panel.themeable .header,.dense._ngcontent-%ID%  div.panel.themeable.open > header:not(.hidden) > .header{min-height:32px}.dense._ngcontent-%ID%  div.panel.themeable .action-buttons{padding:8px 0}.dense._ngcontent-%ID%  div.panel.themeable .panel-name{margin:8px 0;line-height:16px}.dense._ngcontent-%ID%  div.panel.themeable .content-wrapper{margin:0 24px 8px}.reminder._ngcontent-%ID%{color:#4285f4;margin-right:4px;vertical-align:text-top}.action._ngcontent-%ID%{padding:8px 0}.flat-panels._ngcontent-%ID% material-expansionpanel._ngcontent-%ID%{width:320px}.expand-on-left-panels._ngcontent-%ID% material-expansionpanel._ngcontent-%ID%{width:480px}.independent-panels._ngcontent-%ID% material-expansionpanel._ngcontent-%ID%{width:600px}.custom-toolbelt-buttons._ngcontent-%ID%  .btn-yes.btn:not([disabled]),.custom-toolbelt-buttons._ngcontent-%ID%  .btn-yes.btn:not([disabled]).highlighted,.custom-toolbelt-buttons._ngcontent-%ID%  .btn-yes.btn:not([disabled]).highlighted[raised]{color:#4285f4}.custom-toolbelt-panel._ngcontent-%ID% [toolbelt]._ngcontent-%ID%{align-items:center;display:flex;justify-content:space-between;color:rgba(0,0,0,0.54);padding-right:24px}.confirmation-dialog._ngcontent-%ID%{height:144px;text-align:center;width:320px}.confirmation-dialog._ngcontent-%ID% h3._ngcontent-%ID%{font-size:15px;font-weight:400}.confirmation-dialog._ngcontent-%ID% material-yes-no-buttons._ngcontent-%ID%{display:block}.left-align-action-buttons._ngcontent-%ID%  material-yes-no-buttons{flex-direction:row}.bottom-header-action._ngcontent-%ID%  div.panel.themeable header{flex-direction:column}"]
-$.a7w=null
+$.afc=!1
+$.a7z=null
 $.af7=!1
-$.aDx=[$.aG3]
-$.aDw=[$.aG2]})();(function lazyInitializers(){var w=a.lazyOld
-w($,"aOa","alF",function(){return T.aR("Hide panel",null,"_closePanelMsg",null,null)})
-w($,"aOd","alI",function(){return T.aR("Show panel",null,"_openPanelMsg",null,null)})
-w($,"aOc","alH",function(){return T.aR("Save",null,"_msgSave",null,"Text on save button.")})
-w($,"aOb","alG",function(){return T.aR("Cancel",null,"_msgCancel",null,"Text on cancel button.")})})()}
-$__dart_deferred_initializers__["14/DmXwTtqtQD1vLc5aPyzecPzA="] = $__dart_deferred_initializers__.current
+$.aG3=[".dark._ngcontent-%ID%  div.panel.themeable{background-color:#424242}.dark._ngcontent-%ID%  div.panel.themeable{color:#fff}.dark._ngcontent-%ID%  div.panel.themeable > header{color:rgba(255,255,255,0.87)}.dark._ngcontent-%ID%  div.panel.themeable > header p.secondary-text{color:rgba(255,255,255,0.54)}.dark._ngcontent-%ID%  div.panel.themeable material-icon.expand-button{color:rgba(255,255,255,0.87)}.dark._ngcontent-%ID%  div.panel.themeable > header > .header.closed:hover,.dark._ngcontent-%ID%  div.panel.themeable > header > .header.closed:focus{background-color:#212121}.dark._ngcontent-%ID%  div.panel.themeable > header > .header.closed:hover,.dark._ngcontent-%ID%  div.panel.themeable > header > .header.closed:focus{color:#fff}.dense._ngcontent-%ID%  div.panel.themeable .header,.dense._ngcontent-%ID%  div.panel.themeable.open > header:not(.hidden) > .header{min-height:32px}.dense._ngcontent-%ID%  div.panel.themeable .action-buttons{padding:8px 0}.dense._ngcontent-%ID%  div.panel.themeable .panel-name{margin:8px 0;line-height:16px}.dense._ngcontent-%ID%  div.panel.themeable .content-wrapper{margin:0 24px 8px}.reminder._ngcontent-%ID%{color:#4285f4;margin-right:4px;vertical-align:text-top}.action._ngcontent-%ID%{padding:8px 0}.flat-panels._ngcontent-%ID% material-expansionpanel._ngcontent-%ID%{width:320px}.expand-on-left-panels._ngcontent-%ID% material-expansionpanel._ngcontent-%ID%{width:480px}.independent-panels._ngcontent-%ID% material-expansionpanel._ngcontent-%ID%{width:600px}.custom-toolbelt-buttons._ngcontent-%ID%  .btn-yes.btn:not([disabled]),.custom-toolbelt-buttons._ngcontent-%ID%  .btn-yes.btn:not([disabled]).highlighted,.custom-toolbelt-buttons._ngcontent-%ID%  .btn-yes.btn:not([disabled]).highlighted[raised]{color:#4285f4}.custom-toolbelt-panel._ngcontent-%ID% [toolbelt]._ngcontent-%ID%{align-items:center;display:flex;justify-content:space-between;color:rgba(0,0,0,0.54);padding-right:24px}.confirmation-dialog._ngcontent-%ID%{height:144px;text-align:center;width:320px}.confirmation-dialog._ngcontent-%ID% h3._ngcontent-%ID%{font-size:15px;font-weight:400}.confirmation-dialog._ngcontent-%ID% material-yes-no-buttons._ngcontent-%ID%{display:block}.left-align-action-buttons._ngcontent-%ID%  material-yes-no-buttons{flex-direction:row}.bottom-header-action._ngcontent-%ID%  div.panel.themeable header{flex-direction:column}"]
+$.a7x=null
+$.af8=!1
+$.aDy=[$.aG4]
+$.aDx=[$.aG3]})();(function lazyInitializers(){var w=a.lazyOld
+w($,"aOb","alG",function(){return T.aR("Hide panel",null,"_closePanelMsg",null,null)})
+w($,"aOe","alJ",function(){return T.aR("Show panel",null,"_openPanelMsg",null,null)})
+w($,"aOd","alI",function(){return T.aR("Save",null,"_msgSave",null,"Text on save button.")})
+w($,"aOc","alH",function(){return T.aR("Cancel",null,"_msgCancel",null,"Text on cancel button.")})})()}
+$__dart_deferred_initializers__["4A5oO7MpCkJg6tOR65umStxlTEQ="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_53.part.js.map
