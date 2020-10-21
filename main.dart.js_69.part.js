@@ -152,7 +152,7 @@ w=document.createElement("material-toggle-api")
 s.c=w
 t.b=s
 s=x.C
-s=H.a([new D.b5("MaterialToggleComponent",!1,"","material-toggle","","angular_components/lib/material_toggle/material_toggle.dart",X.h("<p><code>material-toggle</code> is a button that can be either ON or OFF.</p>\n<p>User can tap the toggle button to change the state.\nUsually you use toggle buttons when you have a single ON/OFF option.\nIf you have multiple options from a set to be checked/unchecked, use\n<code>material-checkbox</code> instead.</p>\n"),H.a([new D.j("ariaLabel","","String",X.h("<p>ARIA label to use for the toggle button.</p>\n"),!1,""),new D.j("checked","","bool",X.h("<p>Current state of the toggle button.</p>\n<p><code>true</code> is ON and <code>false</code> is OFF.</p>\n"),!1,""),new D.j("disabled","","bool",X.h("<p>Enables/disables the toggle button.</p>\n<p><code>true</code> is disabled and <code>false</code> is enabled.</p>\n"),!1,""),new D.j("label","","String",X.h("<p>Label for the toggle button.</p>\n"),!1,"")],s),H.a([new D.j("onChecked","checkedChange","Stream<bool>",X.h("<p>Event that is fired when the toggle is checked.</p>\n"),!1,"")],s))],x.c)
+s=H.a([new D.b5("MaterialToggleComponent",!1,"","material-toggle","","angular_components/lib/material_toggle/material_toggle.dart",X.h("<p><code>material-toggle</code> is a button that can be either ON or OFF.</p>\n<p>User can tap the toggle button to change the state.\nUsually you use toggle buttons when you have a single ON/OFF option.\nIf you have multiple options from a set to be checked/unchecked, use\n<code>material-checkbox</code> instead.</p>\n"),H.a([new D.j("ariaLabel","","String*",X.h("<p>ARIA label to use for the toggle button.</p>\n"),!1,""),new D.j("checked","","bool*",X.h("<p>Current state of the toggle button.</p>\n<p><code>true</code> is ON and <code>false</code> is OFF.</p>\n"),!1,""),new D.j("disabled","","bool*",X.h("<p>Enables/disables the toggle button.</p>\n<p><code>true</code> is disabled and <code>false</code> is enabled.</p>\n"),!1,""),new D.j("label","","String*",X.h("<p>Label for the toggle button.</p>\n"),!1,"")],s),H.a([new D.j("onChecked","checkedChange","Stream<bool*>*",X.h("<p>Event that is fired when the toggle is checked.</p>\n"),!1,"")],s))],x.c)
 v=H.a([new R.aJ(C.fa,"MaterialToggleExampleComponent","material_toggle_example/lib/material_toggle_example.dart")],x.D)
 u=x.X
 t.a=new U.hI(R.cQ(H.a([],x.i),v,s,P.aW(u,u),!0))
@@ -516,5 +516,5 @@ $.aFk=["material-toggle._ngcontent-%ID%{padding:12px;width:320px}.theme-red._ngc
 $.a8D=null
 $.ade=!1
 $.aEh=[$.aFk]})()}
-$__dart_deferred_initializers__["otacOnRvel4C5t1PjZFa9GOQj/U="] = $__dart_deferred_initializers__.current
+$__dart_deferred_initializers__["kaBQGHvUZnG9Tr3x4ItM5G0VF2A="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_69.part.js.map

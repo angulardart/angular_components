@@ -191,14 +191,14 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 D.Hr.prototype={
-q:function(){var x,w,v,u=this,t="bool",s=new D.C6(E.S(u,0,3)),r=$.a7o
+q:function(){var x,w,v,u=this,t="bool*",s=new D.C6(E.S(u,0,3)),r=$.a7o
 if(r==null)r=$.a7o=O.bG(C.a,null)
 s.b=r
 x=document.createElement("material-dialog-api")
 s.c=x
 u.b=s
 s=y.C
-s=H.a([new D.b5("MaterialDialogComponent",!1,"","material-dialog","","angular_components/lib/material_dialog/material_dialog.dart",X.h("<p>A styled container following the Material Spec for Dialogs.</p>\n<p><strong>Supported Content:</strong></p>\n<ul>\n<li><code>[header]</code> -- Header content for the dialog.</li>\n<li><code>[footer]</code> -- Footer content for the dialog.</li>\n</ul>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>headered</code> -- Adds a gray background to the dialog header.</li>\n<li><code>info</code> -- Styles the dialog as an info dialog.</li>\n</ul>\n"),H.a([new D.j("error","","String",X.h("<p>Error to show up in the error section of the dialog.</p>\n"),!1,""),new D.j("escapeHandler","","void Function(KeyboardEvent)",X.h("<p>Function to handle escape key events from the dialog. By default it tries\nto close the parent modal, if any.</p>\n"),!1,""),new D.j("hideFooter","",t,X.h("<p>Whether to hide the dialog footer.</p>\n"),!1,""),new D.j("hideHeader","",t,X.h("<p>Whether to hide the dialog header.</p>\n"),!1,""),new D.j("shouldListenForFullscreenChanges","listenForFullscreenChanges",t,X.h("<p>Determines whether to listen for when the dialog enters or exits\nfullscreen mode.</p>\n"),!1,""),new D.j("shouldShowScrollStrokes","",t,X.h("<p>Whether to show the top/bottom borders on the <main> part of the dialog to\nindicate whether there is more content that the user can reach by\nscrolling.</p>\n"),!1,"")],s),H.a([new D.j("isInFullscreenMode","fullscreenMode","Stream<bool>",X.h("<p>Stream for when the dialog enters or exits fullscreen mode.</p>\n"),!1,"")],s))],y.c)
+s=H.a([new D.b5("MaterialDialogComponent",!1,"","material-dialog","","angular_components/lib/material_dialog/material_dialog.dart",X.h("<p>A styled container following the Material Spec for Dialogs.</p>\n<p><strong>Supported Content:</strong></p>\n<ul>\n<li><code>[header]</code> -- Header content for the dialog.</li>\n<li><code>[footer]</code> -- Footer content for the dialog.</li>\n</ul>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>headered</code> -- Adds a gray background to the dialog header.</li>\n<li><code>info</code> -- Styles the dialog as an info dialog.</li>\n</ul>\n"),H.a([new D.j("error","","String*",X.h("<p>Error to show up in the error section of the dialog.</p>\n"),!1,""),new D.j("escapeHandler","","void Function(KeyboardEvent*)*",X.h("<p>Function to handle escape key events from the dialog. By default it tries\nto close the parent modal, if any.</p>\n"),!1,""),new D.j("hideFooter","",t,X.h("<p>Whether to hide the dialog footer.</p>\n"),!1,""),new D.j("hideHeader","",t,X.h("<p>Whether to hide the dialog header.</p>\n"),!1,""),new D.j("shouldListenForFullscreenChanges","listenForFullscreenChanges",t,X.h("<p>Determines whether to listen for when the dialog enters or exits\nfullscreen mode.</p>\n"),!1,""),new D.j("shouldShowScrollStrokes","",t,X.h("<p>Whether to show the top/bottom borders on the <main> part of the dialog to\nindicate whether there is more content that the user can reach by\nscrolling.</p>\n"),!1,"")],s),H.a([new D.j("isInFullscreenMode","fullscreenMode","Stream<bool*>*",X.h("<p>Stream for when the dialog enters or exits fullscreen mode.</p>\n"),!1,"")],s))],y.c)
 w=H.a([new R.aJ(C.fK,"MaterialDialogExample","material_dialog_example/lib/material_dialog_example.dart")],y.D)
 v=y.X
 u.a=new U.hr(R.cQ(H.a([],y.i),w,s,P.aW(v,v),!0))
@@ -1723,5 +1723,5 @@ $.aG7=["material-button[raised]._ngcontent-%ID%{background:#4285f4;color:#fff;ma
 $.a7q=null
 $.afg=!1
 $.aDr=[$.aG7]})()}
-$__dart_deferred_initializers__["v4opTBpdb7qmO9HCeR7oiA86KSI="] = $__dart_deferred_initializers__.current
+$__dart_deferred_initializers__["d2uQT7C3OV8FVwKTKBBFwN9ARs4="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_50.part.js.map

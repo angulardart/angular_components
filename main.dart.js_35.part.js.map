@@ -3,7 +3,7 @@
   "engine": "v2",
   "file": "main.dart.js_35.part.js",
   "sourceRoot": "",
-  "sources": ["../packages/angular_components/material_checkbox/material_checkbox.template.dart","../packages/angular/src/core/linker/views/host_view.dart","../packages/angular/src/di/reflector.dart","../packages/angular/src/core/linker/component_factory.dart"],
+  "sources": ["org-dartlang-app:///packages/angular_components/material_checkbox/material_checkbox.template.dart","org-dartlang-app:///packages/angular/src/core/linker/views/host_view.dart","org-dartlang-app:///packages/angular/src/di/reflector.dart","org-dartlang-app:///packages/angular/src/core/linker/component_factory.dart"],
   "names": ["viewFactory_MaterialCheckboxComponentHost0","HostView._data","initReflector","createMaterialCheckboxComponentFactory","_ViewMaterialCheckboxComponentHost0.build","_ViewMaterialCheckboxComponentHost0.injectorGetInternal","_ViewMaterialCheckboxComponentHost0.detectChangesInternal","HostView.firstCheck","_ViewMaterialCheckboxComponentHost0.destroyInternal","","_ViewMaterialCheckboxComponentHost0","_data","HostView","registerComponent","firstCheck","changeDetectorState"],
   "mappings": "A;0DAwPMA;IAkC+CA,WACnDA,gBC/BIC,UDgCND,C;GAGKE,eACCA,KACFA,MAeJA;;AErREA,SF0QyBA,IG9JnBC,4BHgEuCD;AA+F7CA;AACAA;AACAA;AAEAA;AACAA;AAEAA;AAEAA,MACFA,C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAtDOE,WACkBA,cAAhBA,gBAC4BA;AACRA,CAApBA;AACLA,MACFA,C;EAGQC,wBACyBA,UAC7BA,WAAYA,EAGhBA;AADEA,QACFA,C;EAGKC,qBC5MDA,EAmN2BC;ADDxBD;AACAA,UACPA,C;EAGKE,eACEA,WACPA,C",
   "x_org_dartlang_dart2js": {

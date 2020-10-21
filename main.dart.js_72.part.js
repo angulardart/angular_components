@@ -153,7 +153,7 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 K.JT.prototype={
-q:function(){var x,w,v,u=this,t="angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",s="bool",r="String",q="Stream<UIEvent>",p=new K.D6(E.S(u,0,3)),o=$.a97
+q:function(){var x,w,v,u=this,t="angular_components/lib/material_yes_no_buttons/material_yes_no_buttons.dart",s="bool*",r="String*",q="Stream<UIEvent*>*",p=new K.D6(E.S(u,0,3)),o=$.a97
 if(o==null)o=$.a97=O.bG(C.a,null)
 p.b=o
 x=document.createElement("material-yes-no-buttons-api")
@@ -597,5 +597,5 @@ $.ac9=!1
 $.aEG=[$.aF0]})();(function lazyInitializers(){var x=a.lazyOld
 x($,"aOq","alT",function(){return T.aR("Save",null,null,null,"Text on save button.")})
 x($,"aOp","alS",function(){return T.aR("Cancel",null,null,null,"Text on cancel button.")})})()}
-$__dart_deferred_initializers__["lM/tfe6ldAaQMabqY5w/5sl0qHc="] = $__dart_deferred_initializers__.current
+$__dart_deferred_initializers__["lLte4/ShgZw7m4e2aCNIp5p2F5c="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_72.part.js.map

@@ -674,7 +674,7 @@ if(u!==v)w.k4=w.f.a=v
 w.e.j()},
 G:function(){this.e.k()}}
 N.Ft.prototype={
-q:function(){var w,v,u,t=this,s="visible",r="bool",q="<p>Visibility of the drawer.</p>\n",p="contentVisible",o="visibleChange",n="Stream<bool>",m="<p>Event fired when the visibility of the drawer changes.</p>\n<p>Note: does not fire until after the animation is complete.</p>\n",l="canClose",k=new N.By(E.S(t,0,3)),j=$.a6p
+q:function(){var w,v,u,t=this,s="visible",r="bool*",q="<p>Visibility of the drawer.</p>\n",p="contentVisible",o="visibleChange",n="Stream<bool*>*",m="<p>Event fired when the visibility of the drawer changes.</p>\n<p>Note: does not fire until after the animation is complete.</p>\n",l="canClose",k=new N.By(E.S(t,0,3)),j=$.a6p
 if(j==null)j=$.a6p=O.bG(C.a,null)
 k.b=j
 w=document.createElement("app-layout-api")
@@ -1225,5 +1225,5 @@ $.aEe=[$.aEY]
 $.aDs=[$.a4e,$.a1p]
 $.aDt=[$.a4e,$.a1p]
 $.aE8=[$.a4e,$.a1p,$.aEW]})()}
-$__dart_deferred_initializers__["phzw07QFOs8HRBvcwEE0ojk2Pb4="] = $__dart_deferred_initializers__.current
+$__dart_deferred_initializers__["+Su0ouO7VunL47/UBVQlRglfLac="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_1.part.js.map

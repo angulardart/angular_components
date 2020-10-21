@@ -142,14 +142,14 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 M.IJ.prototype={
-q:function(){var x,w,v,u=this,t="int",s=new M.Ct(E.S(u,0,3)),r=$.a83
+q:function(){var x,w,v,u=this,t="int*",s=new M.Ct(E.S(u,0,3)),r=$.a83
 if(r==null)r=$.a83=O.bG(C.a,null)
 s.b=r
 x=document.createElement("material-progress-api")
 s.c=x
 u.b=s
 s=y.w
-s=H.a([new D.b5("MaterialProgressComponent",!1,"","material-progress","","angular_components/lib/material_progress/material_progress.dart",X.h("<p>The progress bars are for situations where the percentage completed can be\ndetermined. They give users a quick sense of how much longer an operation\nwill take.</p>\n"),H.a([new D.j("activeProgress","",t,X.h("<p>The current progress value.</p>\n"),!1,""),new D.j("indeterminate","","bool",X.h("<p>Boolean whether the progress bar is deterministic.</p>\n<p>Defaults to <code>false</code>.</p>\n"),!1,""),new D.j("max","",t,X.h("<p>The maximum progress value.</p>\n<p>Defaults to 100.</p>\n"),!1,""),new D.j("min","",t,X.h("<p>The minimum progress value.</p>\n<p>Defaults to 0.</p>\n"),!1,""),new D.j("secondaryProgress","",t,X.h('<p>The "secondary" progress. Shows up behind the primary progress in a\nlighter color.</p>\n'),!1,"")],s),H.a([],s))],y.z)
+s=H.a([new D.b5("MaterialProgressComponent",!1,"","material-progress","","angular_components/lib/material_progress/material_progress.dart",X.h("<p>The progress bars are for situations where the percentage completed can be\ndetermined. They give users a quick sense of how much longer an operation\nwill take.</p>\n"),H.a([new D.j("activeProgress","",t,X.h("<p>The current progress value.</p>\n"),!1,""),new D.j("indeterminate","","bool*",X.h("<p>Boolean whether the progress bar is deterministic.</p>\n<p>Defaults to <code>false</code>.</p>\n"),!1,""),new D.j("max","",t,X.h("<p>The maximum progress value.</p>\n<p>Defaults to 100.</p>\n"),!1,""),new D.j("min","",t,X.h("<p>The minimum progress value.</p>\n<p>Defaults to 0.</p>\n"),!1,""),new D.j("secondaryProgress","",t,X.h('<p>The "secondary" progress. Shows up behind the primary progress in a\nlighter color.</p>\n'),!1,"")],s),H.a([],s))],y.z)
 w=H.a([new R.aJ(C.hx,"MaterialProgressDemoComponent","material_progress_example/lib/material_progress_demo.dart")],y.b)
 v=y.m
 u.a=new O.hB(R.cQ(H.a([],y.E),w,s,P.aW(v,v),!0))
@@ -323,5 +323,5 @@ $.aFK=['h2._ngcontent-%ID%{color:#9e9e9e;font-family:Roboto,"Helvetica Neue",Ari
 $.a85=null
 $.aeh=!1
 $.aDU=[$.aFK]})()}
-$__dart_deferred_initializers__["4AQ4uLfEK5IBozV1SiuOVadBVTc="] = $__dart_deferred_initializers__.current
+$__dart_deferred_initializers__["viHZkVSnpFM/8OkTSn2YUpH6uhU="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_60.part.js.map

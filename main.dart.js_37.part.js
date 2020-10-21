@@ -433,7 +433,7 @@ if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
 V.GY.prototype={
-q:function(){var x,w,v,u=this,t="disabled",s="bool",r="<p>Is the component disabled.</p>\n",q="<p>Is <code>true</code> if the button should have a box shadow that makes the button look\nraised.</p>\n",p="String",o="<p>Role of this component used for a11y.</p>\n",n="tabbable",m="<p>Is the component tabbable.</p>\n",l="tabindex",k="<p>The tab index of the component.</p>\n<p>The value is used if <code>tabbable</code> is <code>true</code> and <code>disabled</code> is <code>false</code>.</p>\n",j="Stream<UIEvent>",i="<p>Fired when the button is activated via click, tap, or key press.</p>\n",h=new V.BW(E.S(u,0,3)),g=$.a73
+q:function(){var x,w,v,u=this,t="disabled",s="bool*",r="<p>Is the component disabled.</p>\n",q="<p>Is <code>true</code> if the button should have a box shadow that makes the button look\nraised.</p>\n",p="String*",o="<p>Role of this component used for a11y.</p>\n",n="tabbable",m="<p>Is the component tabbable.</p>\n",l="tabindex",k="<p>The tab index of the component.</p>\n<p>The value is used if <code>tabbable</code> is <code>true</code> and <code>disabled</code> is <code>false</code>.</p>\n",j="Stream<UIEvent*>*",i="<p>Fired when the button is activated via click, tap, or key press.</p>\n",h=new V.BW(E.S(u,0,3)),g=$.a73
 if(g==null)g=$.a73=O.bG(C.a,null)
 h.b=g
 x=document.createElement("material-button-api")
@@ -1148,5 +1148,5 @@ $.aEV=['._nghost-%ID%{font-family:Roboto,"Helvetica Neue",Arial,Helvetica,sans-s
 $.a75=null
 $.ag5=!1
 $.aDd=[$.aEV]})()}
-$__dart_deferred_initializers__["37sQy9zvb4F+9Sj0tuMVJVUuuTg="] = $__dart_deferred_initializers__.current
+$__dart_deferred_initializers__["8W3Aiv0udgKyCC6oyGbW9wFmQ6k="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_37.part.js.map
