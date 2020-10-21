@@ -15,7 +15,6 @@ import 'package:angular_components/material_select/material_dropdown_select.dart
 import 'package:angular_components/material_tooltip/material_tooltip.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_gallery_section/annotation/gallery_section_config.dart';
 
 @GallerySectionConfig(

@@ -5,20 +5,16 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:analyzer/dart/ast/standard_ast_factory.dart';
-import 'package:analyzer/dart/ast/token.dart';
 import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/src/dart/ast/token.dart';
-import 'package:analyzer/src/dart/resolver/scope.dart';
-import 'package:build/build.dart';
-import 'package:path/path.dart';
+import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
 import 'package:angular_gallery_section/g3doc_markdown.dart';
 import 'package:angular_gallery_section/gallery_docs_extraction.dart';
 import 'package:angular_gallery_section/gallery_section_config_extraction.dart';
 import 'package:angular_gallery_section/resolved_config.dart';
 import 'package:angular_gallery_section/sass_docs_extraction.dart';
-import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
 import 'package:angular_gallery_section/visitors/path_utils.dart' as path_utils;
+import 'package:build/build.dart';
+import 'package:path/path.dart';
 
 /// A builder for generating a json summary of each occurrence of a
 /// @GallerySectionConfig annotation.
@@ -228,7 +224,7 @@ class GalleryInfoBuilder extends Builder {
     final interfaces = leafClass.allSupertypes;
 
     // Object contains no interesting documentation and complicates searching.
-    interfaces.removeWhere((interface) => interface.isObject);
+    interfaces.removeWhere((interface) => interface.isDartCoreObject);
 
     final classes = <ClassElement>[];
     for (var i in interfaces) {

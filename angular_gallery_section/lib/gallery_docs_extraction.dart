@@ -4,11 +4,13 @@
 
 import 'dart:async';
 
-import 'package:analyzer/analyzer.dart';
-import 'package:build/build.dart';
-import 'package:angular_gallery_section/g3doc_markdown.dart';
+import 'package:analyzer/dart/analysis/utilities.dart';
+import 'package:analyzer/dart/ast/ast.dart';
+import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:angular_gallery_section/components/gallery_component/documentation_info.dart';
+import 'package:angular_gallery_section/g3doc_markdown.dart';
 import 'package:angular_gallery_section/visitors/path_utils.dart' as path_utils;
+import 'package:build/build.dart';
 
 import 'src/common_extractors.dart';
 
@@ -17,9 +19,8 @@ import 'src/common_extractors.dart';
 /// Will read [assetId] with [assetReader].
 Future<DartDocInfo> extractDocumentation(
         String name, AssetId assetId, AssetReader assetReader) async =>
-    parseCompilationUnit(await assetReader.readAsString(assetId),
-            parseFunctionBodies: false)
-        .accept(GalleryDocumentationExtraction(
+    parseString(content: await assetReader.readAsString(assetId)).unit.accept(
+        GalleryDocumentationExtraction(
             name, path_utils.assetToPath(assetId.toString())));
 
 /// A visitor that extracts a [DartDocInfo] for an identifier [_name] and

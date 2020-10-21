@@ -37,11 +37,6 @@ class GalleryComponent {
   @Input()
   GalleryInfo model;
 
-  /// The beginning of a custom url used for the bug link on components.
-  ///
-  /// Should contain any custom url parameters. A title will be appended.
-  final String _bugUrl;
-
   /// The beginning of the link to the source code for all components.
   final String _sourcecodeUrl;
 
@@ -50,7 +45,7 @@ class GalleryComponent {
   final latencyChartsEnabled =
       !window.location.href.contains('enableLatencyCharts=false');
 
-  GalleryComponent(@bugUrl this._bugUrl, @sourcecodeUrl this._sourcecodeUrl);
+  GalleryComponent(@sourcecodeUrl this._sourcecodeUrl);
 
   bool get showToc =>
       (model.docs.length + model.demos.length + model.benchmarks.length) > 1;

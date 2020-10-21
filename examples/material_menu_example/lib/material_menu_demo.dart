@@ -5,20 +5,20 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:observable/observable.dart';
 import 'package:angular_components/laminate/overlay/zindexer.dart';
 import 'package:angular_components/laminate/popup/module.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
-import 'package:angular_components/material_menu/dropdown_menu.dart';
-import 'package:angular_components/material_menu/material_menu.dart';
 import 'package:angular_components/material_menu/affix/caption_affix_model.dart';
 import 'package:angular_components/material_menu/affix/icon_affix_model.dart';
+import 'package:angular_components/material_menu/dropdown_menu.dart';
+import 'package:angular_components/material_menu/material_menu.dart';
 import 'package:angular_components/model/menu/menu.dart';
 import 'package:angular_components/model/menu/selectable_menu.dart';
 import 'package:angular_components/model/selection/select.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/ui/icon.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:observable/observable.dart';
 
 @Component(
   selector: 'material-menu-demo',
@@ -294,7 +294,7 @@ class ColorMenuItem extends MenuItem<ColorMenuItem> {
       : super(label,
             icon: icon,
             subMenu: subMenu,
-            secondaryLabel: secondaryLabel, action: () {
+            secondaryLabel: secondaryLabel, actionWithContext: (ctx) {
           selection.select(label);
         });
 }
