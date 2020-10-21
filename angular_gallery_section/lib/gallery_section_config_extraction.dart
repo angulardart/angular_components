@@ -4,7 +4,9 @@
 
 import 'dart:async';
 
-import 'package:analyzer/analyzer.dart';
+import 'package:analyzer/dart/analysis/utilities.dart';
+import 'package:analyzer/dart/ast/ast.dart';
+import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:build/build.dart';
 
 import 'src/common_extractors.dart';
@@ -14,9 +16,9 @@ import 'src/common_extractors.dart';
 /// The asset identified by [assetId] will be read using [assetReader].
 Future<Iterable<ConfigInfo>> extractGallerySectionConfigs(
         AssetId assetId, AssetReader assetReader) async =>
-    parseCompilationUnit(await assetReader.readAsString(assetId),
-            parseFunctionBodies: false)
-        .accept(GallerySectionConfigExtraction());
+    parseString(
+      content: await assetReader.readAsString(assetId),
+    ).unit.accept(GallerySectionConfigExtraction());
 
 /// [AstVisitor] to extract multiple @GallerySectionConfig annotations, and
 /// the parameters they are constructed with.

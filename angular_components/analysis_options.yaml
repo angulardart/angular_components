@@ -8,3 +8,8 @@ analyzer:
     unused_import: warning
     unused_local_variable: warning
     uri_has_not_been_generated: ignore
+    deprecated_member_use_from_same_package: ignore
+
+linter:
+  rules:
+  - prefer_generic_function_type_aliases
