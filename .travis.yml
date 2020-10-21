@@ -44,14 +44,14 @@ jobs:
       env: PKGS="angular_components"
       script: tool/travis.sh command_0 test
     - stage: build
-      name: "SDK: 2.9.3; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
-      dart: "2.9.3"
+      name: "SDK: dev; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
+      dart: dev
       os: linux
       env: PKGS="examples/angular_components_example"
       script: tool/travis.sh command_1 command_2
     - stage: build
-      name: "SDK: dev; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
-      dart: dev
+      name: "SDK: stable; PKG: examples/angular_components_example; TASKS: [`pub run build_runner build web`, `pub run build_runner build web --release`]"
+      dart: stable
       os: linux
       env: PKGS="examples/angular_components_example"
       script: tool/travis.sh command_1 command_2
