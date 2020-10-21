@@ -3,7 +3,7 @@ stages:
   - analyze_and_format:
     - group:
         - dartfmt: sdk
-        - dartanalyzer: --fatal-warnings .
+        - dartanalyzer: --fatal-warnings --fatal-infos .
       dart:
         - dev
     - group:
