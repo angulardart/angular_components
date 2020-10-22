@@ -1,12 +1,12 @@
-# Created with package:mono_repo v2.5.0
+# Created with package:mono_repo v3.0.0
 language: dart
 
 jobs:
   include:
-    - stage: mono_repo_self_validate
+    - stage: analyze_and_format
       name: mono_repo self validate
       os: linux
-      script: tool/mono_repo_self_validate.sh
+      script: "pub global activate mono_repo 3.0.0 && pub global run mono_repo travis --validate"
     - stage: analyze_and_format
       name: "SDK: 2.9.3; PKGS: angular_components, angular_gallery, angular_gallery_section, examples/app_layout_example, examples/material_button_example, examples/material_card_example, examples/material_checkbox_example, examples/material_chips_example, examples/material_datepicker_example, examples/material_dialog_example, examples/material_expansionpanel_example, examples/material_icon_example, examples/material_list_example, examples/material_menu_example, examples/material_popup_example, examples/material_progress_example, examples/material_radio_example, examples/material_slider_example, examples/material_spinner_example, examples/material_stepper_example, examples/material_tab_example, examples/material_toggle_example, examples/material_tooltip_example, examples/material_yes_no_buttons_example, examples/scorecard_example, examples/simple_html_example; TASKS: `dartanalyzer --fatal-warnings .`"
       dart: "2.9.3"
@@ -57,7 +57,6 @@ jobs:
       script: tool/travis.sh command_1 command_2
 
 stages:
-  - mono_repo_self_validate
   - analyze_and_format
   - unit_test
   - build
