@@ -9,7 +9,7 @@ testing policies make these widgets an excellent fit for projects using
 [AngularDart].
 
 [Material design]: https://material.io/guidelines
-[AngularDart]: https://webdev.dartlang.org/angular
+[AngularDart]: https://pub.dev/packages/angular
 [applications]: https://news.dartlang.org/2016/03/the-new-adwords-ui-uses-dart-we-asked.html
 [AngularDart Components Gallery]: https://dart-lang.github.io/angular_components/
 
