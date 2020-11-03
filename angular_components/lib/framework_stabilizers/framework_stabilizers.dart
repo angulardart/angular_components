@@ -34,10 +34,7 @@ class FrameworkStabilizers {
   static int _nextId = 0;
 
   static List get _frameworkStabilizers {
-    if (_frameworkStabilizersJs == null) {
-      _frameworkStabilizersJs = [];
-    }
-    return _frameworkStabilizersJs;
+    return _frameworkStabilizersJs ??= [];
   }
 
   /// Add a stabilize function for a framework.
