@@ -20,6 +20,7 @@ typedef IsStableCallback = void Function(bool didWork, String name);
 
 // frameworkStabilizers is a property of the window object.
 @JS('frameworkStabilizers')
+// ignore: unused_element
 external List get _frameworkStabilizersJs;
 
 @JS('frameworkStabilizers')
