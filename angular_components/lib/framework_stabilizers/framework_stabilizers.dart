@@ -20,9 +20,11 @@ typedef IsStableCallback = void Function(bool didWork, String name);
 
 // frameworkStabilizers is a property of the window object.
 @JS('frameworkStabilizers')
+// ignore: unused_element
 external List get _frameworkStabilizersJs;
 
 @JS('frameworkStabilizers')
+// ignore: unused_element
 external set _frameworkStabilizersJs(List values);
 
 /// Provides a set of helper functions for frameworks to register and deregister
@@ -33,10 +35,7 @@ class FrameworkStabilizers {
   static int _nextId = 0;
 
   static List get _frameworkStabilizers {
-    if (_frameworkStabilizersJs == null) {
-      _frameworkStabilizersJs = [];
-    }
-    return _frameworkStabilizersJs;
+    return _frameworkStabilizersJs ??= [];
   }
 
   /// Add a stabilize function for a framework.
