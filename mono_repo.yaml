@@ -1,6 +1,8 @@
 # See with https://github.com/google/mono_repo.dart for details on this file
-
 self_validate: analyze_and_format
+
+ci: [travis, github]
+
 travis:
   stages:
     - analyze_and_format
