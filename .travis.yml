@@ -1,4 +1,4 @@
-# Created with package:mono_repo v3.1.0-beta.1
+# Created with package:mono_repo v3.1.0-beta.4
 language: dart
 
 jobs:
@@ -6,7 +6,7 @@ jobs:
     - stage: analyze_and_format
       name: mono_repo self validate
       os: linux
-      script: "pub global activate mono_repo 3.1.0-beta.1 && pub global run mono_repo generate --validate"
+      script: "pub global activate mono_repo 3.1.0-beta.4 && pub global run mono_repo generate --validate"
     - stage: analyze_and_format
       name: "SDK: 2.9.3; PKGS: angular_components, angular_gallery, angular_gallery_section, examples/app_layout_example, examples/material_button_example, examples/material_card_example, examples/material_checkbox_example, examples/material_chips_example, examples/material_datepicker_example, examples/material_dialog_example, examples/material_expansionpanel_example, examples/material_icon_example, examples/material_list_example, examples/material_menu_example, examples/material_popup_example, examples/material_progress_example, examples/material_radio_example, examples/material_slider_example, examples/material_spinner_example, examples/material_stepper_example, examples/material_tab_example, examples/material_toggle_example, examples/material_tooltip_example, examples/material_yes_no_buttons_example, examples/scorecard_example, examples/simple_html_example; TASKS: `dartanalyzer --fatal-warnings .`"
       dart: "2.9.3"
@@ -68,7 +68,7 @@ branches:
 
 cache:
   directories:
-    - "$HOME/.pub-cache"
+    - $HOME/.pub-cache
     - angular_components/.dart_tool
     - angular_gallery/.dart_tool
     - angular_gallery_section/.dart_tool
