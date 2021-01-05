@@ -8,8 +8,8 @@ testing policies make these widgets an excellent fit for projects using the
 Angular package.
 
 [Material design]: https://material.io/guidelines
-[AngularDart]: https://github.com/dart-lang/angular
-[AngularDart Components Gallery]: https://dart-lang.github.io/angular_components/
+[AngularDart]: https://github.com/angulardart/angular
+[AngularDart Components Gallery]: https://angulardart.github.io/angular_components/
 
 ## Useful links
 
@@ -21,7 +21,7 @@ Angular package.
 Add the following font downloads to the head element of your page:
 
 * __Roboto Font__
-([example](https://github.com/dart-lang/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L9))
+([example](https://github.com/angulardart/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L9))
 
   ```html
   <link
@@ -31,7 +31,7 @@ Add the following font downloads to the head element of your page:
   ```
 
 * __Material Icon Font__
-([example](https://github.com/dart-lang/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L11))
+([example](https://github.com/angulardart/angular_components/blob/7f254c89cbbd512cc284a7e9d03bb687f9948bd9/angular_gallery/lib/builder/template/index.html.mustache#L11))
 
   ```html
   <link

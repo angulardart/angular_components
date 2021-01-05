@@ -168,7 +168,7 @@ errors in testing.
 ### Supported tags
 
 See the
-[component's documentation](https://github.com/dart-lang/angular_components/blob/master/lib/simple_html/simple_html.dart)
+[component's documentation](https://github.com/angulardart/angular_components/blob/master/lib/simple_html/simple_html.dart)
 for the exact specification of what is supported. A general overview is:
 
 *   `<simple-html>` supports the following safe inline elements:
@@ -199,7 +199,7 @@ as permitted.
 
 Additional paths can be permitted through an optional Angular dependency. See
 the
-[simpleHtmlUriWhitelist](https://github.com/dart-lang/angular_components/blob/master/lib/simple_html/simple_html.dart)
+[simpleHtmlUriWhitelist](https://github.com/angulardart/angular_components/blob/master/lib/simple_html/simple_html.dart)
 token for details.
 
 #### Allowing external URIs without a whitelist

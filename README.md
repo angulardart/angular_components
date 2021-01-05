@@ -11,7 +11,7 @@ testing policies make these widgets an excellent fit for projects using
 [Material design]: https://material.io/guidelines
 [AngularDart]: https://pub.dev/packages/angular
 [applications]: https://news.dartlang.org/2016/03/the-new-adwords-ui-uses-dart-we-asked.html
-[AngularDart Components Gallery]: https://dart-lang.github.io/angular_components/
+[AngularDart Components Gallery]: https://angulardart.github.io/angular_components/
 
 The following packages provide the components as well as code generation for the
 AngularDart Components gallery.
@@ -36,8 +36,8 @@ Example packages for each of the components. Additionally, the
 [examples/angular_components_example] subdirectory contains the base package
 for building the AngularDart gallery.
 
-[angular_components]: (https://github.com/dart-lang/angular_components/tree/master/angular_components)
-[angular_gallery]: (https://github.com/dart-lang/angular_components/tree/master/angular_gallery)
-[angular_gallery_section]: (https://github.com/dart-lang/angular_components/tree/master/angular_gallery_section)
-[examples]: (https://github.com/dart-lang/angular_components/tree/master/examples)
-[examples/angular_components_example]: (https://github.com/dart-lang/angular_components/tree/master/examples/angular_components_example)
+[angular_components]: (https://github.com/angulardart/angular_components/tree/master/angular_components)
+[angular_gallery]: (https://github.com/angulardart/angular_components/tree/master/angular_gallery)
+[angular_gallery_section]: (https://github.com/angulardart/angular_components/tree/master/angular_gallery_section)
+[examples]: (https://github.com/angulardart/angular_components/tree/master/examples)
+[examples/angular_components_example]: (https://github.com/angulardart/angular_components/tree/master/examples/angular_components_example)

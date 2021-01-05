@@ -12,7 +12,7 @@ targets:
           styleUrls: ["gallery.scss.css"]
           galleryTitle: "AngularDart Gallery"
           examples: "app_layout_example,material_button_example,material_card_example,material_checkbox_example,material_chips_example,material_datepicker_example,material_dialog_example,material_expansionpanel_example,material_icon_example,material_input_example,material_list_example,material_menu_example,material_popup_example,material_progress_example,material_radio_example,material_select_example,material_slider_example,material_spinner_example,material_stepper_example,material_tab_example,material_toggle_example,material_tooltip_example,material_tree_example,material_yes_no_buttons_example,simple_html_example,scorecard_example"
-          sourcecodeUrl: "https://github.com/dart-lang/angular_components/tree/master/"
+          sourcecodeUrl: "https://github.com/angulardart/angular_components/tree/master/"
       angular_components|scss_builder:
         enabled: true
       angular_gallery_section:
