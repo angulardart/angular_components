@@ -68,7 +68,7 @@ Here is an example:
 </header>
 ```
 
-![Simple App Bar](/dart-lang/angular_components/master/angular_components/lib/app_layout/g3doc/simple_app_bar.png)
+![Simple App Bar](/angulardart/angular_components/blob/master/angular_components/lib/app_layout/g3doc/simple_app_bar.png)
 
 ## Drawers
 

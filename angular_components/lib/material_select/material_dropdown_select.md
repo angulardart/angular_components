@@ -4,9 +4,9 @@ Most selection widgets care about two data points: what is selectable and what
 is selected.
 
 In ACX selection widgets, what is selectable is represented by the
-[`SelectionOptions`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/selection_options.dart)
+[`SelectionOptions`](https://github.com/angulardart/angular_components/blob/master/angular_components/lib/model/selection/selection_options.dart)
 interface, while what is selected is represented by the
-[`SelectionModel`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/selection_model.dart)
+[`SelectionModel`](https://github.com/angulardart/angular_components/blob/master/angular_components/lib/model/selection/selection_model.dart)
 interface.
 
 Material Dropdown Select is a button-triggered dropdown. It uses these two
@@ -38,7 +38,7 @@ The `options` input accepts either a `SelectionOptions` class or a generic
 `List`.
 
 If a `List` is passed, a
-[`StringSelectionOptions`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/string_selection_options.dart)
+[`StringSelectionOptions`](https://github.com/angulardart/angular_components/blob/master/angular_components/lib/model/selection/string_selection_options.dart)
 will be created with the list and the `ItemRenderer` if specified to support
 basic filtering.
 
@@ -51,7 +51,7 @@ The `selection` input accepts either a `SelectionModel`, a selected value or
 null.
 
 By default Material Dropdown Select uses
-[`SingleSelectionModel`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/src/model/selection/single_selection_model_impl.dart).
+[`SingleSelectionModel`](https://github.com/angulardart/angular_components/blob/master/angular_components/lib/src/model/selection/single_selection_model_impl.dart).
 If a selected value is passed to the `selection` input, this value will be
 selected by the default selection model. If a null value is passed to the input,
 the default selection model will clear the selection.
@@ -69,5 +69,5 @@ setup two-way binding for your selected value.
 **Important** If using SingleSelectionModel, this component will both deselect
 and then reselect on selection changes (two events) and
 SingleSelectionModel.selectedValue may become null unless
-[`deselectOnActivate`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/material_select/material_dropdown_select.dart?q=deselectOnActivate)
+[`deselectOnActivate`](https://github.com/angulardart/angular_components/blob/master/angular_components/lib/material_select/material_dropdown_select.dart?q=deselectOnActivate)
 is set to false.

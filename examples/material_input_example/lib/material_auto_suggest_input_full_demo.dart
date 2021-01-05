@@ -42,7 +42,7 @@ List<String> _numberNames = <String>[
 ];
 
 // TODO(google) Change dynamic to List<int> once Angular can retain the type
-// information. https://github.com/dart-lang/angular/issues/68
+// information. https://github.com/angulardart/angular/issues/68
 ItemRenderer<dynamic /* List<int>*/ > _numberNameRenderer =
     (dynamic /* List<int>*/ list) =>
         list.map((n) => _numberNames[n - 1]).join(', ');
@@ -136,7 +136,7 @@ class MaterialAutoSuggestInputFullDemoComponent {
   SelectionOptions get options => suggestionOptionsWithItemRenderer;
 
   // TODO(google) Change dynamic to List<int> once Angular can retain the type
-  // information. https://github.com/dart-lang/angular/issues/68
+  // information. https://github.com/angulardart/angular/issues/68
   ItemRenderer<dynamic /* List<int>*/ > get itemRenderer => _numberNameRenderer;
 
   FactoryRenderer get factoryRenderer =>

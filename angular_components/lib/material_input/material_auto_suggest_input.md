@@ -4,9 +4,9 @@ Most selection widgets care about two data points: what is selectable and what
 is selected.
 
 In ACX selection widgets, what is selectable is represented by the
-[`SelectionOptions`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/selection_options.dart)
+[`SelectionOptions`](https://github.com/angulardart/angular_components/blob/master/angular_components/lib/model/selection/selection_options.dart)
 interface, while what is selected is represented by the
-[`SelectionModel`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/selection_model.dart)
+[`SelectionModel`](https://github.com/angulardart/angular_components/blob/master/angular_components/lib/model/selection/selection_model.dart)
 interface.
 
 Material Auto Suggest Input is an input field which provides suggestions to
@@ -71,7 +71,7 @@ The `selectionOptions` input accepts either a `SelectionOptions` class or a
 generic `List`.
 
 If a `List` is passed, a
-[`StringSelectionOptions`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/model/selection/string_selection_options.dart)
+[`StringSelectionOptions`](https://github.com/angulardart/angular_components/blob/master/angular_components/lib/model/selection/string_selection_options.dart)
 will be created with the list and the `ItemRenderer` if specified to support
 basic filtering.
 
@@ -84,7 +84,7 @@ The `selection` input accepts either a `SelectionModel`, a selected value or
 null.
 
 By default Material Auto Suggest Input uses
-[`SingleSelectionModel`](https://github.com/dart-lang/angular_components/blob/master/angular_components/lib/src/model/selection/single_selection_model_impl.dart).
+[`SingleSelectionModel`](https://github.com/angulardart/angular_components/blob/master/angular_components/lib/src/model/selection/single_selection_model_impl.dart).
 If a selected value is passed to the `selection` input, this value will be
 selected by the default selection model. If a null value is passed to the input,
 the default selection model will clear the selection.

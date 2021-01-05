@@ -103,7 +103,7 @@ class MaterialChipsDemoComponent {
   }
 
   // TODO(google) Change dynamic to StarWarsMovie once Angular can retain the
-  // type information. https://github.com/dart-lang/angular/issues/68
+  // type information. https://github.com/angulardart/angular/issues/68
   ItemRenderer<dynamic /*StarWarsMovie*/ > renderMovieChip =
       (dynamic /*StarWarsMovie*/ protoChip) {
     return 'Star Wars: Episode ${arabicToRoman(protoChip.episodeIndex)}'

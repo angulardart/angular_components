@@ -31,8 +31,8 @@ void main() {
 @GenerateInjector([
     datepickerBindings,
     FactoryProvider(ExceptionHandler, exceptionHandlerFactory),
-    ValueProvider.forToken(bugUrl, 'https://github.com/dart-lang/angular_components/issues/new'),
-    ValueProvider.forToken(sourcecodeUrl, 'https://github.com/dart-lang/angular_components/issues/new'),
+    ValueProvider.forToken(bugUrl, 'https://github.com/angulardart/angular_components/issues/new'),
+    ValueProvider.forToken(sourcecodeUrl, 'https://github.com/angulardart/angular_components/issues/new'),
 ])
 final InjectorFactory appInjectorFactory = ng.appInjectorFactory$Injector;
 
