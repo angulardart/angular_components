@@ -1,63 +1,63 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y={
-a2E:function(d,e){var w,v=new Y.uZ(E.S(d,e,3)),u=$.a8n
-if(u==null)u=$.a8n=O.a0($.aE7,null)
+a2I:function(d,e){var w,v=new Y.v_(E.S(d,e,3)),u=$.a8t
+if(u==null)u=$.a8t=O.a0($.aEd,null)
 v.b=u
 w=document.createElement("material-drawer")
 v.c=w
 return v},
-aKX:function(){return new Y.J0(new G.R())},
-axE:function(){if($.aga)return
-$.aga=!0
-$.T.w(0,C.bh,new D.l("material-drawer[stackable]",Y.aA9(),x.y))
+aL2:function(){return new Y.J3(new G.R())},
+axI:function(){if($.agh)return
+$.agh=!0
+$.T.w(0,C.bh,new D.l("material-drawer[stackable]",Y.aAe(),x.y))
 E.F()
-V.aiQ()},
-uZ:function uZ(d){var _=this
+V.aiX()},
+v_:function v_(d){var _=this
 _.c=_.b=_.a=_.x=_.r=_.f=_.e=null
 _.d=d},
-J0:function J0(d){var _=this
+J3:function J3(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},R={
-aJe:function(d,e){return new R.Hz(E.z(d,e))},
-aJf:function(){return new R.HA(new G.R())},
-axB:function(){if($.agf)return
-$.agf=!0
-$.T.w(0,C.lU,new D.l("mat-drawer-demo",R.ahi(),x.z))
+aJk:function(d,e){return new R.HC(E.z(d,e))},
+aJl:function(){return new R.HD(new G.R())},
+axF:function(){if($.agm)return
+$.agm=!0
+$.T.w(0,C.lU,new D.l("mat-drawer-demo",R.ahp(),x.z))
 E.F()
-O.aiS()
-V.eY()
+O.aiZ()
+V.eZ()
 U.dL()
-M.ch()
-B.oL()
-E.Lu()
-Q.oI()},
-ux:function ux(d){var _=this
+M.cg()
+B.oN()
+E.Lz()
+Q.oK()},
+uy:function uy(d){var _=this
 _.c=_.b=_.a=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-Hz:function Hz(d){var _=this
+HC:function HC(d){var _=this
 _.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=_.d=_.c=_.b=null
 _.a=d},
-HA:function HA(d){var _=this
+HD:function HD(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},K,V={
-a8x:function(d,e){var w,v=new V.v1(E.S(d,e,1)),u=$.a8y
-if(u==null)u=$.a8y=O.a0($.aEe,null)
+a8D:function(d,e){var w,v=new V.v2(E.S(d,e,1)),u=$.a8E
+if(u==null)u=$.a8E=O.a0($.aEk,null)
 v.b=u
 w=document.createElement("material-drawer")
 v.c=w
 return v},
-aLq:function(){return new V.Jq(new G.R())},
-aiQ:function(){if($.agb)return
-$.agb=!0
-$.T.w(0,C.cJ,new D.l("material-drawer[temporary]",V.aAT(),x.D))
-S.aiR()
+aLw:function(){return new V.Jt(new G.R())},
+aiX:function(){if($.agi)return
+$.agi=!0
+$.T.w(0,C.cJ,new D.l("material-drawer[temporary]",V.aAY(),x.D))
+S.aiY()
 E.F()},
-v1:function v1(d){var _=this
+v2:function v2(d){var _=this
 _.c=_.b=_.a=_.f=_.e=null
 _.d=d},
-Jq:function Jq(d){var _=this
+Jt:function Jt(d){var _=this
 _.c=_.b=_.a=null
-_.d=d}},E,M,Q,D={TM:function TM(d,e,f,g,h,i){var _=this
+_.d=d}},E,M,Q,D={TQ:function TQ(d,e,f,g,h,i){var _=this
 _.a=d
 _.b=e
 _.c=f
@@ -67,81 +67,81 @@ _.f=i},nV:function nV(d,e,f,g){var _=this
 _.a=d
 _.b=e
 _.c=f
-_.d=g},TL:function TL(){},jV:function jV(d,e){this.a=d
-this.b=e}},Z={lb:function lb(){var _=this
+_.d=g},TP:function TP(){},jV:function jV(d,e){this.a=d
+this.b=e}},Z={ld:function ld(){var _=this
 _.d=_.c=_.b=_.a=!1},
-aKY:function(d,e){return new Z.xu(E.z(d,e))},
-aKZ:function(d,e){return new Z.J1(E.z(d,e))},
-aL_:function(){return new Z.J2(new G.R())},
-axD:function(){if($.ag9)return
-$.ag9=!0
-$.T.w(0,C.nj,new D.l("mat-stacking-drawer-demo",Z.akS(),x.h))
+aL3:function(d,e){return new Z.xu(E.z(d,e))},
+aL4:function(d,e){return new Z.J4(E.z(d,e))},
+aL5:function(){return new Z.J5(new G.R())},
+axH:function(){if($.agg)return
+$.agg=!0
+$.T.w(0,C.nj,new D.l("mat-stacking-drawer-demo",Z.akY(),x.h))
 E.F()
-Y.axE()
-V.eY()
+Y.axI()
+V.eZ()
 U.dL()
-M.ch()
-Q.oI()},
-v_:function v_(d){var _=this
+M.cg()
+Q.oK()},
+v0:function v0(d){var _=this
 _.c=_.b=_.a=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
 xu:function xu(d){var _=this
 _.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=_.d=_.c=_.b=null
 _.a=d},
-J1:function J1(d){this.a=d},
-J2:function J2(d){var _=this
+J4:function J4(d){this.a=d},
+J5:function J5(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},O={
-aiS:function(){if($.age)return
-$.age=!0
-S.aiR()
+aiZ:function(){if($.agl)return
+$.agl=!0
+S.aiY()
 E.F()}},A,T={
-aJg:function(d,e){return new T.HB(E.z(d,e))},
-aJh:function(){return new T.HC(new G.R())},
-axC:function(){if($.agd)return
-$.agd=!0
-$.T.w(0,C.lV,new D.l("mat-drawer-mobile-demo",T.akt(),x.j))
+aJm:function(d,e){return new T.HE(E.z(d,e))},
+aJn:function(){return new T.HF(new G.R())},
+axG:function(){if($.agk)return
+$.agk=!0
+$.T.w(0,C.lV,new D.l("mat-drawer-mobile-demo",T.akz(),x.j))
 E.F()
-O.aiS()
-V.aiQ()
-V.eY()
+O.aiZ()
+V.aiX()
+V.eZ()
 U.dL()
-M.ch()
-Q.oI()},
-uy:function uy(d){var _=this
+M.cg()
+Q.oK()},
+uz:function uz(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-HB:function HB(d){this.a=d},
-HC:function HC(d){var _=this
+HE:function HE(d){this.a=d},
+HF:function HF(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},L,N={
-a2j:function(d){return new N.jy(d,!1,new P.N(null,null,x.i))},
+a2n:function(d){return new N.jy(d,!1,new P.N(null,null,x.i))},
 jy:function jy(d,e,f){var _=this
 _.f=d
 _.r=!1
 _.a=e
 _.b=f},
-anz:function(){return C.hi},
-aGG:function(){return new N.Ft(new G.R())},
-axz:function(){if($.ag7)return
-$.ag7=!0
-$.T.w(0,C.kT,new D.l("app-layout-api",N.ahx(),x.r))
+anE:function(){return C.hj},
+aGM:function(){return new N.Fw(new G.R())},
+axD:function(){if($.age)return
+$.age=!0
+$.T.w(0,C.kT,new D.l("app-layout-api",N.ahE(),x.r))
 E.F()
 K.d7()
 D.cV()
-R.axB()
-T.axC()
-Z.axD()},
-By:function By(d){var _=this
+R.axF()
+T.axG()
+Z.axH()},
+BA:function BA(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-Ft:function Ft(d){var _=this
+Fw:function Fw(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},U,X,B={fQ:function fQ(d,e){this.a=d
-this.b=e},h4:function h4(d){this.a=d}},S={
-aiR:function(){if($.agc)return
-$.agc=!0
-E.F()}},F={kV:function kV(){this.b=this.a=!1},kW:function kW(){this.c=this.b=this.a=!1}}
+this.b=e},h5:function h5(d){this.a=d}},S={
+aiY:function(){if($.agj)return
+$.agj=!0
+E.F()}},F={kX:function kX(){this.b=this.a=!1},kY:function kY(){this.c=this.b=this.a=!1}}
 a.setFunctionNamesIfNecessary([Y,R,V,D,Z,O,T,N,B,S,F])
 C=c[0]
 H=c[1]
@@ -176,30 +176,30 @@ if(w!=null)w.r=e},
 gGP:function(){return!this.a},
 gGQ:function(){return this.a},
 j3:function(d){return this.Jj(0)}}
-Y.uZ.prototype={
+Y.v_.prototype={
 q:function(){var w,v=this,u=v.a,t=v.a2(),s=T.u(document,t)
 v.x=s
 v.C(s,"drawer-content")
 v.h(v.x)
-v.bq(v.x,0)
+v.br(v.x,0)
 s=v.x
-w=x.L;(s&&C.w).T(s,"click",v.v(v.gUr(),w,w))
-J.a7(t,"click",v.ad(u.gwj(u),w))},
+w=x.L;(s&&C.w).T(s,"click",v.v(v.gUs(),w,w))
+J.a7(t,"click",v.ad(u.gwl(u),w))},
 A:function(){var w=this,v=w.a.r,u=w.e
 if(u!=v){T.ad(w.x,"drawer-content-expanded",v)
 w.e=v}},
-Us:function(d){J.mb(d)},
+Ut:function(d){J.md(d)},
 B:function(d){var w,v=this,u=v.a,t=!u.a,s=v.f
 if(s!==t){T.b2(v.c,"mat-drawer-collapsed",t)
 v.f=t}w=u.a
 s=v.r
 if(s!=w){T.b2(v.c,"mat-drawer-expanded",w)
 v.r=w}}}
-Y.J0.prototype={
-q:function(){var w,v=this,u=Y.a2E(v,0)
+Y.J3.prototype={
+q:function(){var w,v=this,u=Y.a2I(v,0)
 v.b=u
 w=u.c
-u=N.a2j(v.l(C.bh,null))
+u=N.a2n(v.l(C.bh,null))
 v.a=u
 v.F(w)},
 P:function(d,e,f){if((d===C.bh||d===C.p)&&0===e)return this.a
@@ -212,22 +212,22 @@ B.fQ.prototype={
 gGP:function(){return!this.a},
 gGQ:function(){return this.a},
 j3:function(d){this.Jg(0)}}
-V.v1.prototype={
+V.v2.prototype={
 q:function(){var w,v=this,u=v.a,t=v.a2(),s=T.u(document,t)
 v.C(s,"drawer-content")
 v.h(s)
-v.bq(s,0)
-w=x.L;(s&&C.w).T(s,"click",v.v(v.gMt(),w,w))
-J.a7(t,"click",v.ad(u.gwj(u),w))},
-Mu:function(d){J.mb(d)},
+v.br(s,0)
+w=x.L;(s&&C.w).T(s,"click",v.v(v.gMu(),w,w))
+J.a7(t,"click",v.ad(u.gwl(u),w))},
+Mv:function(d){J.md(d)},
 B:function(d){var w,v=this,u=v.a,t=u.gGP(),s=v.e
 if(s!==t){T.b2(v.c,"mat-drawer-collapsed",t)
 v.e=t}w=u.gGQ()
 s=v.f
 if(s!=w){T.b2(v.c,"mat-drawer-expanded",w)
 v.f=w}}}
-V.Jq.prototype={
-q:function(){var w,v=this,u=V.a8x(v,0)
+V.Jt.prototype={
+q:function(){var w,v=this,u=V.a8D(v,0)
 v.b=u
 w=u.c
 v.a=new B.fQ(!1,new P.N(null,null,x.i))
@@ -238,27 +238,27 @@ A:function(){var w,v=this,u=v.d.e===0
 if(u){w=v.a
 w.b.R(0,w.a)}v.b.B(u)
 v.b.j()}}
-D.TM.prototype={
+D.TQ.prototype={
 gln:function(){return C.d8},
 giX:function(d){return this.a},
 gd1:function(d){return this.b}}
 D.nV.prototype={
-gwQ:function(d){var w,v=this,u=v.b,t=u.length
+gwS:function(d){var w,v=this,u=v.b,t=u.length
 if(t===0)return v.a
-w=new H.bj(u,new D.TL(),H.bv(u).i("bj<1,t*>")).c0(0,", ")
+w=new H.bj(u,new D.TP(),H.bv(u).i("bj<1,t*>")).c0(0,", ")
 u=v.c
 if(u.length!==0)w=w+", $"+u+"..."
 return v.a+"( "+w+" )"}}
 D.jV.prototype={}
-F.kV.prototype={}
-R.ux.prototype={
+F.kX.prototype={}
+R.uy.prototype={
 q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1=this,a2=null,a3="material-navigation",a4=a1.a2(),a5=document,a6=T.d(a5,a4,"material-drawer")
 a1.go=a6
 T.c(a6,"persistent","")
 a1.m(a1.go)
-a1.e=new O.A2(new G.tp(!0,new P.N(a2,a2,x.i)))
+a1.e=new O.A4(new G.to(!0,new P.N(a2,a2,x.i)))
 a6=a1.f=new V.r(1,0,a1,T.L(a1.go))
-a1.r=K.eB(a6,new D.x(a6,R.asG()),a1.e.a,a1)
+a1.r=K.eD(a6,new D.x(a6,R.asL()),a1.e.a,a1)
 w=T.u(a5,a4)
 a1.C(w,"material-content")
 a1.h(w)
@@ -277,7 +277,7 @@ T.c(t,"icon","")
 a1.h(t)
 a6=a1.d
 a6=a6.a.l(C.l,a6.b)
-a6=new F.Y(a6===!0)
+a6=new F.Z(a6===!0)
 a1.y=a6
 a1.z=B.a4(t,a6,a1.x,a2)
 a6=M.a8(a1,6)
@@ -324,34 +324,34 @@ a1.h(i)
 h=T.d(a5,i,"h3")
 a1.m(h)
 T.b(h,"Options")
-g=Q.cI(a1,24)
+g=Q.cJ(a1,24)
 a1.cx=g
 f=g.c
 i.appendChild(f)
 T.c(f,"label","end")
 a1.h(f)
-g=D.cG(a1.cx,a2)
+g=D.cH(a1.cx,a2)
 a1.cy=g
 a1.cx.u(g,H.a([C.a],a6))
-g=Q.cI(a1,25)
+g=Q.cJ(a1,25)
 a1.db=g
 e=g.c
 i.appendChild(e)
 T.c(e,"label","custom width")
 a1.h(e)
-g=D.cG(a1.db,a2)
+g=D.cH(a1.db,a2)
 a1.dx=g
 a1.db.u(g,H.a([C.a],a6))
 a6=a1.z.b
 g=x.S
-d=new P.e(a6,H.m(a6).i("e<1>")).D(a1.v(a1.gKM(),g,g))
+d=new P.e(a6,H.m(a6).i("e<1>")).D(a1.v(a1.gKN(),g,g))
 g=a1.cy.f
 a6=x.b
-a0=new P.e(g,H.m(g).i("e<1>")).D(a1.v(a1.gMv(),a6,a6))
+a0=new P.e(g,H.m(g).i("e<1>")).D(a1.v(a1.gMw(),a6,a6))
 g=a1.dx.f
-a1.bo(H.a([d,a0,new P.e(g,H.m(g).i("e<1>")).D(a1.v(a1.gMR(),a6,a6))],x.a))},
+a1.bo(H.a([d,a0,new P.e(g,H.m(g).i("e<1>")).D(a1.v(a1.gMS(),a6,a6))],x.a))},
 P:function(d,e,f){var w,v=this
-if((d===C.ex||d===C.p)&&e<=1)return v.e.a
+if((d===C.ey||d===C.p)&&e<=1)return v.e.a
 if(5<=e&&e<=6){if(d===C.m)return v.y
 if(d===C.n||d===C.j||d===C.c)return v.z}w=d===C.c
 if(w&&24===e)return v.cy
@@ -389,7 +389,7 @@ q.dy=s}r=p.b?"":null
 w=q.fr
 if(w!=r){w=q.go
 T.Q(w,"end",r==null?null:r)
-q.fr=r}q.e.b4(q,q.go)
+q.fr=r}q.e.b3(q,q.go)
 q.x.B(o)
 q.x.j()
 q.Q.j()
@@ -404,16 +404,16 @@ w.Q.k()
 w.cx.k()
 w.db.k()
 w.r.S()},
-KN:function(d){var w=this.e.a
+KO:function(d){var w=this.e.a
 w.saK(0,!w.a)},
-Mw:function(d){this.a.b=d},
-MS:function(d){this.a.a=d}}
-R.Hz.prototype={
-q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4=this,a5=null,a6="group",a7="icon",a8=B.eQ(a4,0)
+Mx:function(d){this.a.b=d},
+MT:function(d){this.a.a=d}}
+R.HC.prototype={
+q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4=this,a5=null,a6="group",a7="icon",a8=B.eS(a4,0)
 a4.b=a8
 w=a8.c
 a4.h(w)
-a4.c=new B.d1()
+a4.c=new B.d0()
 v=document
 u=v.createElement("div")
 a4.C(u,"mat-drawer-spacer")
@@ -422,13 +422,13 @@ a4.h(u)
 t=v.createElement("div")
 T.c(t,a6,"")
 a4.h(t)
-a8=E.bW(a4,3)
+a8=E.bV(a4,3)
 a4.d=a8
 s=a8.c
 t.appendChild(s)
 a4.h(s)
 a8=a4.a.c
-r=L.bV(s,a8.gp().l(C.o,a8.ga1()),a5,a5)
+r=L.bU(s,a8.gp().l(C.o,a8.ga1()),a5,a5)
 a4.e=r
 r=M.a8(a4,4)
 a4.f=r
@@ -442,12 +442,12 @@ p=T.n("Inbox")
 r=x.N
 o=x.M
 a4.d.u(a4.e,H.a([H.a([q,p],r)],o))
-n=E.bW(a4,6)
+n=E.bV(a4,6)
 a4.x=n
 m=n.c
 t.appendChild(m)
 a4.h(m)
-n=L.bV(m,a8.gp().l(C.o,a8.ga1()),a5,a5)
+n=L.bU(m,a8.gp().l(C.o,a8.ga1()),a5,a5)
 a4.y=n
 n=M.a8(a4,7)
 a4.z=n
@@ -459,12 +459,12 @@ a4.Q=n
 a4.z.K(0,n)
 k=T.n("Star")
 a4.x.u(a4.y,H.a([H.a([l,k],r)],o))
-n=E.bW(a4,9)
+n=E.bV(a4,9)
 a4.ch=n
 j=n.c
 t.appendChild(j)
 a4.h(j)
-n=L.bV(j,a8.gp().l(C.o,a8.ga1()),a5,a5)
+n=L.bU(j,a8.gp().l(C.o,a8.ga1()),a5,a5)
 a4.cx=n
 n=M.a8(a4,10)
 a4.cy=n
@@ -476,12 +476,12 @@ a4.db=n
 a4.cy.K(0,n)
 h=T.n("Sent Mail")
 a4.ch.u(a4.cx,H.a([H.a([i,h],r)],o))
-n=E.bW(a4,12)
+n=E.bV(a4,12)
 a4.dx=n
 g=n.c
 t.appendChild(g)
 a4.h(g)
-n=L.bV(g,a8.gp().l(C.o,a8.ga1()),a5,a5)
+n=L.bU(g,a8.gp().l(C.o,a8.ga1()),a5,a5)
 a4.dy=n
 n=M.a8(a4,13)
 a4.fr=n
@@ -500,12 +500,12 @@ a0=T.u(v,d)
 T.c(a0,"label","")
 a4.h(a0)
 T.b(a0,"Tags")
-n=E.bW(a4,18)
+n=E.bV(a4,18)
 a4.fy=n
 a1=n.c
 d.appendChild(a1)
 a4.h(a1)
-a8=L.bV(a1,a8.gp().l(C.o,a8.ga1()),a5,a5)
+a8=L.bU(a1,a8.gp().l(C.o,a8.ga1()),a5,a5)
 a4.go=a8
 a8=M.a8(a4,19)
 a4.id=a8
@@ -576,106 +576,106 @@ w.y.Q.H()
 w.cx.Q.H()
 w.dy.Q.H()
 w.go.Q.H()}}
-R.HA.prototype={
-q:function(){var w,v=this,u=new R.ux(E.S(v,0,3)),t=$.a7r
-if(t==null)t=$.a7r=O.a0($.aDs,null)
+R.HD.prototype={
+q:function(){var w,v=this,u=new R.uy(E.S(v,0,3)),t=$.a7x
+if(t==null)t=$.a7x=O.a0($.aDy,null)
 u.b=t
 w=document.createElement("mat-drawer-demo")
 u.c=w
 v.b=u
-v.a=new F.kV()
+v.a=new F.kX()
 v.F(w)}}
-B.h4.prototype={}
-N.By.prototype={
+B.h5.prototype={}
+N.BA.prototype={
 gmE:function(){var w=this.r
 return w==null?this.r=document:w},
-gyQ:function(){var w=this.y
+gyS:function(){var w=this.y
 return w==null?this.y=window:w},
 gmF:function(){var w,v=this,u=v.z
 if(u==null){u=v.d
 w=u.a
 u=u.b
-u=T.bx(w.l(C.b,u),w.l(C.D,u),w.n(C.f,u),v.gyQ())
+u=T.bx(w.l(C.b,u),w.l(C.D,u),w.n(C.f,u),v.gyS())
 v.z=u}return u},
-gyN:function(){var w,v=this,u=v.Q
+gyP:function(){var w,v=this,u=v.Q
 if(u==null){u=v.d
 u=u.a.n(C.U,u.b)
 w=v.gmF()
 u=v.Q=new O.bh(u,w)}return u},
-gqr:function(){var w=this,v=w.ch
+gqt:function(){var w=this,v=w.ch
 return v==null?w.ch=new K.bi(w.gmE(),w.gmF(),P.bu(null,x.f)):v},
-gM_:function(){var w=this.cx
+gM0:function(){var w=this.cx
 if(w==null){w=this.d
 w=T.bB(w.a.n(C.f,w.b))
 this.cx=w}return w},
-gqs:function(){var w=this.cy
+gqu:function(){var w=this.cy
 if(w==null){w=this.d
 w=G.bF(w.a.l(C.t,w.b))
 this.cy=w}return w},
-gyS:function(){var w=this,v=w.db
+gyU:function(){var w=this,v=w.db
 if(v==null){v=w.d
-v=G.bI(w.gmE(),v.a.l(C.u,v.b))
+v=G.bJ(w.gmE(),v.a.l(C.u,v.b))
 w.db=v}return v},
-gyT:function(){var w=this,v=w.dx
+gyV:function(){var w=this,v=w.dx
 if(v==null){v=w.d
-v=G.bz(w.gqs(),w.gyS(),v.a.l(C.r,v.b))
+v=G.bz(w.gqu(),w.gyU(),v.a.l(C.r,v.b))
 w.dx=v}return v},
-gqt:function(){var w=this.dy
+gqv:function(){var w=this.dy
 return w==null?this.dy=!0:w},
-gyU:function(){var w=this.fr
+gyW:function(){var w=this.fr
 return w==null?this.fr=!0:w},
-gyP:function(){var w=this.fy
+gyR:function(){var w=this.fy
 if(w==null){w=this.gmE()
 w=this.fy=new R.bk(w.querySelector("head"),w)}return w},
-gyR:function(){var w=this.go
+gyT:function(){var w=this.go
 return w==null?this.go=X.bE():w},
-gyO:function(){var w=this,v=w.id
-return v==null?w.id=K.bD(w.gyP(),w.gyT(),w.gqs(),w.gqr(),w.gmF(),w.gyN(),w.gqt(),w.gyU(),w.gyR()):v},
-gM0:function(){var w,v,u,t,s=this,r=s.k1
+gyQ:function(){var w=this,v=w.id
+return v==null?w.id=K.bD(w.gyR(),w.gyV(),w.gqu(),w.gqt(),w.gmF(),w.gyP(),w.gqv(),w.gyW(),w.gyT()):v},
+gM1:function(){var w,v,u,t,s=this,r=s.k1
 if(r==null){r=s.d
 w=r.a
 r=r.b
 v=w.n(C.f,r)
-u=s.gqt()
-t=s.gyO()
+u=s.gqv()
+t=s.gyQ()
 w.l(C.k,r)
 r=s.k1=new X.bg(u,v,t)}return r},
-q:function(){var w=this,v=w.a2(),u=K.cH(w,0)
+q:function(){var w=this,v=w.a2(),u=K.cI(w,0)
 w.e=u
 v.appendChild(u.c)
 u=w.d
 u=u.a.n(C.a9,u.b)
-u=new X.cb(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
+u=new X.ca(u,!J.bA(window.location.href,"enableLatencyCharts=false"))
 w.f=u
 w.e.K(0,u)},
 P:function(d,e,f){var w,v=this
 if(0===e){if(d===C.L)return v.gmE()
 if(d===C.V){w=v.x
-return w==null?v.x=document:w}if(d===C.J)return v.gyQ()
+return w==null?v.x=document:w}if(d===C.J)return v.gyS()
 if(d===C.b)return v.gmF()
-if(d===C.P)return v.gyN()
-if(d===C.N)return v.gqr()
-if(d===C.a_)return v.gM_()
-if(d===C.t)return v.gqs()
-if(d===C.u)return v.gyS()
-if(d===C.r)return v.gyT()
-if(d===C.T)return v.gqt()
-if(d===C.F)return v.gyU()
+if(d===C.P)return v.gyP()
+if(d===C.N)return v.gqt()
+if(d===C.a_)return v.gM0()
+if(d===C.t)return v.gqu()
+if(d===C.u)return v.gyU()
+if(d===C.r)return v.gyV()
+if(d===C.T)return v.gqv()
+if(d===C.F)return v.gyW()
 if(d===C.G){w=v.fx
-return w==null?v.fx=C.Y:w}if(d===C.R)return v.gyP()
-if(d===C.E)return v.gyR()
-if(d===C.Q)return v.gyO()
-if(d===C.k)return v.gM0()
+return w==null?v.fx=C.Y:w}if(d===C.R)return v.gyR()
+if(d===C.E)return v.gyT()
+if(d===C.Q)return v.gyQ()
+if(d===C.k)return v.gM1()
 if(d===C.H){w=v.k2
 return w==null?v.k2=C.Z:w}if(d===C.v){w=v.k3
-return w==null?v.k3=new K.bp(v.gqr()):w}}return f},
+return w==null?v.k3=new K.bp(v.gqt()):w}}return f},
 A:function(){var w=this,v=w.a.a,u=w.k4
 if(u!==v)w.k4=w.f.a=v
 w.e.j()},
 G:function(){this.e.k()}}
-N.Ft.prototype={
-q:function(){var w,v,u,t=this,s="visible",r="bool*",q="<p>Visibility of the drawer.</p>\n",p="contentVisible",o="visibleChange",n="Stream<bool*>*",m="<p>Event fired when the visibility of the drawer changes.</p>\n<p>Note: does not fire until after the animation is complete.</p>\n",l="canClose",k=new N.By(E.S(t,0,3)),j=$.a6p
-if(j==null)j=$.a6p=O.bG(C.a,null)
+N.Fw.prototype={
+q:function(){var w,v,u,t=this,s="visible",r="bool*",q="<p>Visibility of the drawer.</p>\n",p="contentVisible",o="visibleChange",n="Stream<bool*>*",m="<p>Event fired when the visibility of the drawer changes.</p>\n<p>Note: does not fire until after the animation is complete.</p>\n",l="canClose",k=new N.BA(E.S(t,0,3)),j=$.a6v
+if(j==null)j=$.a6v=O.bH(C.a,null)
 k.b=j
 w=document.createElement("app-layout-api")
 k.c=w
@@ -683,14 +683,14 @@ t.b=k
 k=x.P
 v=x.d
 u=x.C
-u=H.a([new D.kL("README","angular_components/lib/app_layout/README.md",X.h('<h1>App Layout</h1>\n<p>App layout is a system of styles, directives, and components that when used\ntogether can give a material look and feel to the scafolding of your\napplication. It provides an App Bar, Drawers, and Navigation styling following\nthe material spec.</p>\n<h2>Setup</h2>\n<p>The styles are provided by\n<code>package:angular_components/app_layout/layout.scss.css</code>. To use these styles in\nan angular component simply add it as a <code>styleUrls</code> value in your <code>Component</code>\nannotation. It is suggested that the style is added before any component\nspecific styling so you can easily override style values as needed.</p>\n<pre><code class="language-dart">@Component(\n    selector: \'my-component\',\n    templateUrl: \'my_component.html\',\n    styleUrls: const [\n      \'package:angular_components/app_layout/layout.scss.css\',\n      \'my_component.scss.css\'])\nclass MyComponent {}\n</code></pre>\n<h2>App Bar</h2>\n<p>An app bar has the following classes which can be used together to create a\nheader:</p><!-- mdformat off(Basic table formatting for GitHub markdown compatibility) -->\n<table><thead><tr><th>Class</th><th>Description</th></tr></thead><tbody><tr><td><strong>material-header</strong></td><td>Container element for the header.</td></tr><tr><td>shadow</td><td>Modifier on material-header to apply a shadow to the <br>header.</td></tr><tr><td>dense-header</td><td>Makes the App Bar denser for interfaces that primarily <br>use mouse and keyboard.</td></tr><tr><td><strong>material-header-row</strong></td><td>A row within the header.</td></tr><tr><td>material-drawer-button</td><td>A button within the row that is placed on the left and <br>is used for navigation.</td></tr><tr><td>material-header-title</td><td>A title for the header.</td></tr><tr><td>material-spacer</td><td>Consumes space between the title and any navigation <br>links. Needs to be placed after the title and before <br>any navigation elements.</td></tr><tr><td>material-navigation</td><td>Navigation elements which will be displayed on the <br>left side of the header. Only use with anchor tags, <br>material-button have there own styling built in.</td></tr></tbody></table><!-- mdformat on -->\n<p>Here is an example:</p>\n<pre><code class="language-html">&lt;header class="material-header"&gt;\n  &lt;div class="material-header-row"&gt;\n    &lt;material-button icon\n        class="material-drawer-button" (trigger)="drawer.toggle()"&gt;\n      &lt;material-icon icon="menu"&gt;&lt;/material-icon&gt;\n    &lt;/material-button&gt;\n    &lt;span class="material-header-title"&gt;Simple Layout&lt;/span&gt;\n    &lt;div class="material-spacer"&gt;&lt;/div&gt;\n    &lt;nav class="material-navigation"&gt;\n      &lt;a&gt;Link 1&lt;/a&gt;\n    &lt;/nav&gt;\n    &lt;nav class="material-navigation"&gt;\n      &lt;a&gt;Link 2&lt;/a&gt;\n    &lt;/nav&gt;\n    &lt;nav class="material-navigation"&gt;\n      &lt;a&gt;Link 3&lt;/a&gt;\n    &lt;/nav&gt;\n  &lt;/div&gt;\n&lt;/header&gt;\n</code></pre>\n<p><img src="https://raw.githubusercontent.com/dart-lang/angular_components/master/angular_components/lib/app_layout/g3doc/simple_app_bar.png" alt="Simple App Bar" /></p>\n<h2>Drawers</h2>\n<p>There are three kinds of drawers that are available: <em>permanent</em>, <em>persistent</em>,\nand <em>temporary</em>. All drawers are instantiated by the <code>material-drawer</code> element.\nThese drawers are implemented differently to provide the best performance for\neach. For the main content outside of the drawer wrap it in a <code>material-content</code>\nelement, or a element with the class <code>material-content</code>.</p>\n<h3>Permanent Drawers</h3>\n<p>Permanent drawers are drawers which can\'t be closed. They are provided purely by\nCSS. To have a permanent drawer add the <code>permanent</code> attribute to the\n<code>material-drawer</code> element. Example:</p>\n<pre><code class="language-html">&lt;material-drawer permanent&gt;\n  &lt;!-- Drawer content here --&gt;\n&lt;/material-drawer&gt;\n&lt;material-content&gt;\n  &lt;!-- Content goes here --&gt;\n&lt;/material-content&gt;\n</code></pre>\n<h3>Persistent Drawers</h3>\n<p>Persistent drawers are drawers which can be open and closed by an action, such\nas a button trigger. These drawers reposition the content to fit in with the\nflow of the drawer. To use a persistent drawer add the <code>persistent</code> attribute to\nthe <code>material-drawer</code> element, and add the <code>MaterialPersistentDrawerDirective</code>\nto the parent\'s directives list.</p>\n<p>Lastly, connect the open/close drawer action to the drawer. This is most easily\ndone using the <a href="https://webdev.dartlang.org/angular/guide/template-syntax#!#ref-vars">reference\nvariable</a>\nsyntax. The persistent drawer directive exports itself as <code>drawer</code> this allows\nit to be used easily by other actions. <code>toggle()</code> can be used to open/close the\ndrawer. The drawer supports the <code>deferredContent</code> directive allowing a developer\nto add/remove content from the page when the drawer is not visible (closed.)\nHere is a complete example:</p>\n<pre><code class="language-html">&lt;material-drawer persistent #drawer="drawer"&gt;\n  &lt;div *deferredContent&gt;\n    &lt;!-- Drawer content goes here --&gt;\n  &lt;/div&gt;\n&lt;/material-drawer&gt;\n&lt;material-content&gt;\n  &lt;header class="material-header shadow"&gt;\n    &lt;div class="material-header-row"&gt;\n      &lt;!-- This button will toggle (open/close) the drawer --&gt;\n      &lt;material-button icon\n          class="material-drawer-button" (trigger)="drawer.toggle()"&gt;\n        &lt;material-icon icon="menu"&gt;&lt;/material-icon&gt;\n      &lt;/material-button&gt;\n      &lt;!-- Other header info goes here --&gt;\n    &lt;/div&gt;\n  &lt;/header&gt;\n  &lt;div&gt;\n    Content goes here.\n  &lt;/div&gt;\n&lt;/material-content&gt;\n</code></pre>\n<h3>Temporary drawers</h3>\n<p>Temporary drawers are drawers that live on top of the content. They are provided\nby <code>MaterialTemporaryDrawerComponent</code> which has a similar look and feel to the\nother drawers. To use a temporary drawer add the <code>temporary</code> attribute to the\n<code>material-drawer</code> element, and add <code>MaterialTemporaryDrawerComponent</code> to the\nparent\'s directive list.</p>\n<p>The temporary drawer has an optional <code>overlay</code> attribute which can be used to\nshow a transparent overlay above non-drawer content while the drawer is open.</p>\n<p>Here is an example:</p>\n<pre><code class="language-html">&lt;material-drawer temporary #drawer="drawer" overlay&gt;\n  &lt;div *deferredContent&gt;\n    Here is some drawer content.\n  &lt;/div&gt;\n&lt;/material-drawer&gt;\n&lt;material-content&gt;\n  &lt;header class="material-header shadow"&gt;\n    &lt;div class="material-header-row"&gt;\n      &lt;material-button class="material-drawer-button" icon\n                       (trigger)="drawer.toggle()"&gt;\n        &lt;material-icon icon="menu"&gt;&lt;/material-icon&gt;\n      &lt;/material-button&gt;\n      &lt;span class="material-header-title"&gt;Mobile Layout&lt;/span&gt;\n      &lt;div class="material-spacer"&gt;&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/header&gt;\n  &lt;!-- Content goes here --&gt;\n&lt;/material-content&gt;\n</code></pre>\n<h3>Displaying the drawer on the opposite side</h3>\n<p>All drawers have an HTML attribute <code>end</code> which positions the drawer on the\nopposite side of the page as normal (right side in LTR, and left side in RTL.)</p>\n<p>Example:</p>\n<pre><code class="language-html">&lt;material-drawer temporary end&gt;\n  &lt;!-- This drawer is going to be on the right side in LTR,\n       left side in RTL. --&gt;\n&lt;/material-drawer&gt;\n</code></pre>\n<h3>App Bar and Drawer interaction</h3>\n<p>The app bar and the drawer work in tandem to provide an overal app layout for an\napplication. The app bar can live both inside, or outside of <code>material-content</code>.\nIf it is inside of <code>material-content</code> it will live with the content and if\napplicable be repositioned with the content. If it is on top of\n<code>material-content</code> the drawer and content will be positioned below the app bar\nfor the <code>permanent</code> and <code>persistent</code> drawers.</p>\n<p>Example:</p>\n<pre><code class="language-html">&lt;header class="material-header shadow"&gt;\n  &lt;div class="material-header-row"&gt;\n    &lt;material-button icon\n        class="material-drawer-button" (trigger)="drawer.toggle()"&gt;\n      &lt;material-icon icon="menu"&gt;&lt;/material-icon&gt;\n    &lt;/material-button&gt;\n    &lt;span class="material-header-title"&gt;Simple Layout&lt;/span&gt;\n    &lt;div class="material-spacer"&gt;&lt;/div&gt;\n    &lt;nav class="material-navigation"&gt;\n      &lt;a&gt;Link 1&lt;/a&gt;\n    &lt;/nav&gt;\n  &lt;/div&gt;\n&lt;/header&gt;\n&lt;material-drawer persistent #drawer="drawer"&gt;\n  &lt;!-- Drawer content here --&gt;\n&lt;/material-drawer&gt;\n&lt;material-content&gt;\n  &lt;!-- Content here --&gt;\n&lt;/material-content&gt;\n</code></pre>\n<h2>Navigation Styles</h2>\n<p>Navigation element styles within the drawer are also provided by app_layout.\nThis is accomplished using the standard <code>material-list</code> component, and some\nspecial CSS classes.</p>\n<p>The top level drawer content should be a <code>MaterialListComponent</code> with optional\ngroup elements which are specified by the <code>group</code> attribute on an element.</p>\n<p>The <code>mat-drawer-spacer</code> CSS class is optional and ensures that if the header is\ninside of <code>material-content</code> then the drawer content will start at the bottom of\nthe header.</p>\n<p>Use <code>MaterialListItemComponent</code>s for the items in your drawer. For each group if\nyou need a label on the group use the <code>label</code> attribute on a block element\ndirectly inside of your group element.</p>\n<p>Here is an example:</p>\n<pre><code class="language-html">&lt;material-drawer permanent&gt;\n  &lt;material-list *deferredContent&gt;\n    &lt;!-- Position the start of the drawer content correctly --&gt;\n    &lt;div group class="mat-drawer-spacer"&gt;&lt;/div&gt;\n    &lt;!-- Here is a group without a label --&gt;\n    &lt;div group&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="inbox"&gt;&lt;/material-icon&gt;Inbox\n      &lt;/material-list-item&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="star"&gt;&lt;/material-icon&gt;Star\n      &lt;/material-list-item&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="send"&gt;&lt;/material-icon&gt;Sent Mail\n      &lt;/material-list-item&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="drafts"&gt;&lt;/material-icon&gt;Drafts\n      &lt;/material-list-item&gt;\n    &lt;/div&gt;\n    &lt;!-- This group has a label --&gt;\n    &lt;div group&gt;\n      &lt;div label&gt;Tags&lt;/div&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="star"&gt;&lt;/material-icon&gt;Favorites\n      &lt;/material-list-item&gt;\n    &lt;/div&gt;\n  &lt;/material-list&gt;\n&lt;/material-drawer&gt;\n</code></pre>\n<p>Due to style encapsulation, if the list content isn\'t directly in a drawer (that\nis, it\'s wrapped in another component) you\'ll have to provide the styles above\nusing a mixin.</p>\n<p>Example scss drawer content component:</p>\n<pre><code class="language-scss">@import \'package:angular_components/lib/app_layout/mixins\';\n\n:host {\n  @include mat-drawer-list-items;\n}\n</code></pre>\n')),new D.TM("Sass: mixins","angular_components/lib/app_layout/_mixins.scss",X.h(""),H.a([],x.n),H.a([new D.nV("-drawer-content",H.a([new D.jV("host","false"),new D.jV("hostSelector",""),new D.jV("drawerSelector","")],k),"",X.h("<p>Internal function to generate selector for drawer-content.</p>\n<p>Required to allow the temporary and stackable drawers to use the width mixin\nrather than duplicating the styles, which would get out of date.</p>\n<ul>\n<li>$host encapsulates the styles within :host.</li>\n<li>$hostSelector appends a selector to the host material-drawer.</li>\n<li>$drawerSelector appends a selector to .drawer-content.</li>\n</ul>\n"))],v),H.a([new D.nV("mat-drawer-width",H.a([new D.jV("width","")],k),"",X.h('<p>Sets width of persitent and permanent material drawers.</p>\n<p>Must be applied to the component itself, e.g.:</p>\n<pre><code class="language-scss">material-drawer {\n  @include mat-drawer-width(512px);\n}\n</code></pre>\n')),new D.nV("mat-temporary-drawer-width",H.a([new D.jV("width","")],k),"-selector",X.h('<p>Sets width of MaterialTemporaryDrawerComponent and\nMaterialStackableDrawerComponent</p>\n<p>Should be applied to the component itself, e.g.:</p>\n<pre><code class="language-scss">material-drawer[temporary] {\n  @include mat-temporary-drawer-width(512px);\n}\n</code></pre>\n<p>_selector is for internal use only.</p>\n')),new D.nV("mat-drawer-list-items",H.a([],k),"",X.h("<p>Adds the mixins that apply the correct styles for material-list items inside\nof material-drawer.</p>\n"))],v)),new D.b5("MaterialPersistentDrawerDirective",!1,"","material-drawer[persistent]","drawer","angular_components/lib/app_layout/material_persistent_drawer.dart",X.h("<p>A persistent drawer that can be pinned open or closed.</p>\n<p>Need to include package:angular_components/app_layout/layout.scss.css\nin the list of styleUrls of the containing component.</p>\n<p>Works with deferred content.</p>\n"),H.a([new D.j(s,"",r,X.h(q),!1,"")],u),H.a([new D.j(p,o,n,X.h(m),!1,"")],u)),new D.b5("MaterialTemporaryDrawerComponent",!1,"","material-drawer[temporary]","drawer","angular_components/lib/app_layout/material_temporary_drawer.dart",X.h("<p>A temporary drawer that can be opened and closed.</p>\n<p>Works with deferred content.</p>\n"),H.a([new D.j(l,"",r,X.h(""),!1,""),new D.j(s,"",r,X.h(q),!1,"")],u),H.a([new D.j(p,o,n,X.h(m),!1,"")],u)),new D.b5("MaterialStackableDrawerComponent",!1,"","material-drawer[stackable]","","angular_components/lib/app_layout/material_stackable_drawer.dart",X.h("<p>A stackable temporary drawer that can be opened and closed.</p>\n<p>While a stackable drawer is open any existing stackable drawer will be\nexpanded to fill the screen in the background.</p>\n<p>Works with deferred content.</p>\n"),H.a([new D.j(l,"",r,X.h(""),!1,""),new D.j("isExpanded","",r,X.h("<p>'True' when the drawer is expanded to full screen.</p>\n"),!1,""),new D.j(s,"",r,X.h(q),!1,"")],u),H.a([new D.j(p,o,n,X.h(m),!1,"")],u))],x.s)
-v=H.a([new R.aJ(C.h7,"MaterialDrawerExample","app_layout_example/lib/app_layout_example.dart"),new R.aJ(C.fQ,"MaterialDrawerMobileExample","app_layout_example/lib/mobile_app_layout_example.dart"),new R.aJ(C.hj,"MaterialStackingDrawerExample","app_layout_example/lib/stacking_drawer_example.dart")],x.U)
+u=H.a([new D.kN("README","angular_components/lib/app_layout/README.md",X.h('<h1>App Layout</h1>\n<p>App layout is a system of styles, directives, and components that when used\ntogether can give a material look and feel to the scafolding of your\napplication. It provides an App Bar, Drawers, and Navigation styling following\nthe material spec.</p>\n<h2>Setup</h2>\n<p>The styles are provided by\n<code>package:angular_components/app_layout/layout.scss.css</code>. To use these styles in\nan angular component simply add it as a <code>styleUrls</code> value in your <code>Component</code>\nannotation. It is suggested that the style is added before any component\nspecific styling so you can easily override style values as needed.</p>\n<pre><code class="language-dart">@Component(\n    selector: \'my-component\',\n    templateUrl: \'my_component.html\',\n    styleUrls: const [\n      \'package:angular_components/app_layout/layout.scss.css\',\n      \'my_component.scss.css\'])\nclass MyComponent {}\n</code></pre>\n<h2>App Bar</h2>\n<p>An app bar has the following classes which can be used together to create a\nheader:</p><!-- mdformat off(Basic table formatting for GitHub markdown compatibility) -->\n<table><thead><tr><th>Class</th><th>Description</th></tr></thead><tbody><tr><td><strong>material-header</strong></td><td>Container element for the header.</td></tr><tr><td>shadow</td><td>Modifier on material-header to apply a shadow to the <br>header.</td></tr><tr><td>dense-header</td><td>Makes the App Bar denser for interfaces that primarily <br>use mouse and keyboard.</td></tr><tr><td><strong>material-header-row</strong></td><td>A row within the header.</td></tr><tr><td>material-drawer-button</td><td>A button within the row that is placed on the left and <br>is used for navigation.</td></tr><tr><td>material-header-title</td><td>A title for the header.</td></tr><tr><td>material-spacer</td><td>Consumes space between the title and any navigation <br>links. Needs to be placed after the title and before <br>any navigation elements.</td></tr><tr><td>material-navigation</td><td>Navigation elements which will be displayed on the <br>left side of the header. Only use with anchor tags, <br>material-button have there own styling built in.</td></tr></tbody></table><!-- mdformat on -->\n<p>Here is an example:</p>\n<pre><code class="language-html">&lt;header class="material-header"&gt;\n  &lt;div class="material-header-row"&gt;\n    &lt;material-button icon\n        class="material-drawer-button" (trigger)="drawer.toggle()"&gt;\n      &lt;material-icon icon="menu"&gt;&lt;/material-icon&gt;\n    &lt;/material-button&gt;\n    &lt;span class="material-header-title"&gt;Simple Layout&lt;/span&gt;\n    &lt;div class="material-spacer"&gt;&lt;/div&gt;\n    &lt;nav class="material-navigation"&gt;\n      &lt;a&gt;Link 1&lt;/a&gt;\n    &lt;/nav&gt;\n    &lt;nav class="material-navigation"&gt;\n      &lt;a&gt;Link 2&lt;/a&gt;\n    &lt;/nav&gt;\n    &lt;nav class="material-navigation"&gt;\n      &lt;a&gt;Link 3&lt;/a&gt;\n    &lt;/nav&gt;\n  &lt;/div&gt;\n&lt;/header&gt;\n</code></pre>\n<p><img src="https://raw.githubusercontent.com/angulardart/angular_components/blob/master/angular_components/lib/app_layout/g3doc/simple_app_bar.png" alt="Simple App Bar" /></p>\n<h2>Drawers</h2>\n<p>There are three kinds of drawers that are available: <em>permanent</em>, <em>persistent</em>,\nand <em>temporary</em>. All drawers are instantiated by the <code>material-drawer</code> element.\nThese drawers are implemented differently to provide the best performance for\neach. For the main content outside of the drawer wrap it in a <code>material-content</code>\nelement, or a element with the class <code>material-content</code>.</p>\n<h3>Permanent Drawers</h3>\n<p>Permanent drawers are drawers which can\'t be closed. They are provided purely by\nCSS. To have a permanent drawer add the <code>permanent</code> attribute to the\n<code>material-drawer</code> element. Example:</p>\n<pre><code class="language-html">&lt;material-drawer permanent&gt;\n  &lt;!-- Drawer content here --&gt;\n&lt;/material-drawer&gt;\n&lt;material-content&gt;\n  &lt;!-- Content goes here --&gt;\n&lt;/material-content&gt;\n</code></pre>\n<h3>Persistent Drawers</h3>\n<p>Persistent drawers are drawers which can be open and closed by an action, such\nas a button trigger. These drawers reposition the content to fit in with the\nflow of the drawer. To use a persistent drawer add the <code>persistent</code> attribute to\nthe <code>material-drawer</code> element, and add the <code>MaterialPersistentDrawerDirective</code>\nto the parent\'s directives list.</p>\n<p>Lastly, connect the open/close drawer action to the drawer. This is most easily\ndone using the <a href="https://webdev.dartlang.org/angular/guide/template-syntax#!#ref-vars">reference\nvariable</a>\nsyntax. The persistent drawer directive exports itself as <code>drawer</code> this allows\nit to be used easily by other actions. <code>toggle()</code> can be used to open/close the\ndrawer. The drawer supports the <code>deferredContent</code> directive allowing a developer\nto add/remove content from the page when the drawer is not visible (closed.)\nHere is a complete example:</p>\n<pre><code class="language-html">&lt;material-drawer persistent #drawer="drawer"&gt;\n  &lt;div *deferredContent&gt;\n    &lt;!-- Drawer content goes here --&gt;\n  &lt;/div&gt;\n&lt;/material-drawer&gt;\n&lt;material-content&gt;\n  &lt;header class="material-header shadow"&gt;\n    &lt;div class="material-header-row"&gt;\n      &lt;!-- This button will toggle (open/close) the drawer --&gt;\n      &lt;material-button icon\n          class="material-drawer-button" (trigger)="drawer.toggle()"&gt;\n        &lt;material-icon icon="menu"&gt;&lt;/material-icon&gt;\n      &lt;/material-button&gt;\n      &lt;!-- Other header info goes here --&gt;\n    &lt;/div&gt;\n  &lt;/header&gt;\n  &lt;div&gt;\n    Content goes here.\n  &lt;/div&gt;\n&lt;/material-content&gt;\n</code></pre>\n<h3>Temporary drawers</h3>\n<p>Temporary drawers are drawers that live on top of the content. They are provided\nby <code>MaterialTemporaryDrawerComponent</code> which has a similar look and feel to the\nother drawers. To use a temporary drawer add the <code>temporary</code> attribute to the\n<code>material-drawer</code> element, and add <code>MaterialTemporaryDrawerComponent</code> to the\nparent\'s directive list.</p>\n<p>The temporary drawer has an optional <code>overlay</code> attribute which can be used to\nshow a transparent overlay above non-drawer content while the drawer is open.</p>\n<p>Here is an example:</p>\n<pre><code class="language-html">&lt;material-drawer temporary #drawer="drawer" overlay&gt;\n  &lt;div *deferredContent&gt;\n    Here is some drawer content.\n  &lt;/div&gt;\n&lt;/material-drawer&gt;\n&lt;material-content&gt;\n  &lt;header class="material-header shadow"&gt;\n    &lt;div class="material-header-row"&gt;\n      &lt;material-button class="material-drawer-button" icon\n                       (trigger)="drawer.toggle()"&gt;\n        &lt;material-icon icon="menu"&gt;&lt;/material-icon&gt;\n      &lt;/material-button&gt;\n      &lt;span class="material-header-title"&gt;Mobile Layout&lt;/span&gt;\n      &lt;div class="material-spacer"&gt;&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/header&gt;\n  &lt;!-- Content goes here --&gt;\n&lt;/material-content&gt;\n</code></pre>\n<h3>Displaying the drawer on the opposite side</h3>\n<p>All drawers have an HTML attribute <code>end</code> which positions the drawer on the\nopposite side of the page as normal (right side in LTR, and left side in RTL.)</p>\n<p>Example:</p>\n<pre><code class="language-html">&lt;material-drawer temporary end&gt;\n  &lt;!-- This drawer is going to be on the right side in LTR,\n       left side in RTL. --&gt;\n&lt;/material-drawer&gt;\n</code></pre>\n<h3>App Bar and Drawer interaction</h3>\n<p>The app bar and the drawer work in tandem to provide an overal app layout for an\napplication. The app bar can live both inside, or outside of <code>material-content</code>.\nIf it is inside of <code>material-content</code> it will live with the content and if\napplicable be repositioned with the content. If it is on top of\n<code>material-content</code> the drawer and content will be positioned below the app bar\nfor the <code>permanent</code> and <code>persistent</code> drawers.</p>\n<p>Example:</p>\n<pre><code class="language-html">&lt;header class="material-header shadow"&gt;\n  &lt;div class="material-header-row"&gt;\n    &lt;material-button icon\n        class="material-drawer-button" (trigger)="drawer.toggle()"&gt;\n      &lt;material-icon icon="menu"&gt;&lt;/material-icon&gt;\n    &lt;/material-button&gt;\n    &lt;span class="material-header-title"&gt;Simple Layout&lt;/span&gt;\n    &lt;div class="material-spacer"&gt;&lt;/div&gt;\n    &lt;nav class="material-navigation"&gt;\n      &lt;a&gt;Link 1&lt;/a&gt;\n    &lt;/nav&gt;\n  &lt;/div&gt;\n&lt;/header&gt;\n&lt;material-drawer persistent #drawer="drawer"&gt;\n  &lt;!-- Drawer content here --&gt;\n&lt;/material-drawer&gt;\n&lt;material-content&gt;\n  &lt;!-- Content here --&gt;\n&lt;/material-content&gt;\n</code></pre>\n<h2>Navigation Styles</h2>\n<p>Navigation element styles within the drawer are also provided by app_layout.\nThis is accomplished using the standard <code>material-list</code> component, and some\nspecial CSS classes.</p>\n<p>The top level drawer content should be a <code>MaterialListComponent</code> with optional\ngroup elements which are specified by the <code>group</code> attribute on an element.</p>\n<p>The <code>mat-drawer-spacer</code> CSS class is optional and ensures that if the header is\ninside of <code>material-content</code> then the drawer content will start at the bottom of\nthe header.</p>\n<p>Use <code>MaterialListItemComponent</code>s for the items in your drawer. For each group if\nyou need a label on the group use the <code>label</code> attribute on a block element\ndirectly inside of your group element.</p>\n<p>Here is an example:</p>\n<pre><code class="language-html">&lt;material-drawer permanent&gt;\n  &lt;material-list *deferredContent&gt;\n    &lt;!-- Position the start of the drawer content correctly --&gt;\n    &lt;div group class="mat-drawer-spacer"&gt;&lt;/div&gt;\n    &lt;!-- Here is a group without a label --&gt;\n    &lt;div group&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="inbox"&gt;&lt;/material-icon&gt;Inbox\n      &lt;/material-list-item&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="star"&gt;&lt;/material-icon&gt;Star\n      &lt;/material-list-item&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="send"&gt;&lt;/material-icon&gt;Sent Mail\n      &lt;/material-list-item&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="drafts"&gt;&lt;/material-icon&gt;Drafts\n      &lt;/material-list-item&gt;\n    &lt;/div&gt;\n    &lt;!-- This group has a label --&gt;\n    &lt;div group&gt;\n      &lt;div label&gt;Tags&lt;/div&gt;\n      &lt;material-list-item&gt;\n        &lt;material-icon icon="star"&gt;&lt;/material-icon&gt;Favorites\n      &lt;/material-list-item&gt;\n    &lt;/div&gt;\n  &lt;/material-list&gt;\n&lt;/material-drawer&gt;\n</code></pre>\n<p>Due to style encapsulation, if the list content isn\'t directly in a drawer (that\nis, it\'s wrapped in another component) you\'ll have to provide the styles above\nusing a mixin.</p>\n<p>Example scss drawer content component:</p>\n<pre><code class="language-scss">@import \'package:angular_components/lib/app_layout/mixins\';\n\n:host {\n  @include mat-drawer-list-items;\n}\n</code></pre>\n')),new D.TQ("Sass: mixins","angular_components/lib/app_layout/_mixins.scss",X.h(""),H.a([],x.n),H.a([new D.nV("-drawer-content",H.a([new D.jV("host","false"),new D.jV("hostSelector",""),new D.jV("drawerSelector","")],k),"",X.h("<p>Internal function to generate selector for drawer-content.</p>\n<p>Required to allow the temporary and stackable drawers to use the width mixin\nrather than duplicating the styles, which would get out of date.</p>\n<ul>\n<li>$host encapsulates the styles within :host.</li>\n<li>$hostSelector appends a selector to the host material-drawer.</li>\n<li>$drawerSelector appends a selector to .drawer-content.</li>\n</ul>\n"))],v),H.a([new D.nV("mat-drawer-width",H.a([new D.jV("width","")],k),"",X.h('<p>Sets width of persitent and permanent material drawers.</p>\n<p>Must be applied to the component itself, e.g.:</p>\n<pre><code class="language-scss">material-drawer {\n  @include mat-drawer-width(512px);\n}\n</code></pre>\n')),new D.nV("mat-temporary-drawer-width",H.a([new D.jV("width","")],k),"-selector",X.h('<p>Sets width of MaterialTemporaryDrawerComponent and\nMaterialStackableDrawerComponent</p>\n<p>Should be applied to the component itself, e.g.:</p>\n<pre><code class="language-scss">material-drawer[temporary] {\n  @include mat-temporary-drawer-width(512px);\n}\n</code></pre>\n<p>_selector is for internal use only.</p>\n')),new D.nV("mat-drawer-list-items",H.a([],k),"",X.h("<p>Adds the mixins that apply the correct styles for material-list items inside\nof material-drawer.</p>\n"))],v)),new D.b5("MaterialPersistentDrawerDirective",!1,"","material-drawer[persistent]","drawer","angular_components/lib/app_layout/material_persistent_drawer.dart",X.h("<p>A persistent drawer that can be pinned open or closed.</p>\n<p>Need to include package:angular_components/app_layout/layout.scss.css\nin the list of styleUrls of the containing component.</p>\n<p>Works with deferred content.</p>\n"),H.a([new D.j(s,"",r,X.h(q),!1,"")],u),H.a([new D.j(p,o,n,X.h(m),!1,"")],u)),new D.b5("MaterialTemporaryDrawerComponent",!1,"","material-drawer[temporary]","drawer","angular_components/lib/app_layout/material_temporary_drawer.dart",X.h("<p>A temporary drawer that can be opened and closed.</p>\n<p>Works with deferred content.</p>\n"),H.a([new D.j(l,"",r,X.h(""),!1,""),new D.j(s,"",r,X.h(q),!1,"")],u),H.a([new D.j(p,o,n,X.h(m),!1,"")],u)),new D.b5("MaterialStackableDrawerComponent",!1,"","material-drawer[stackable]","","angular_components/lib/app_layout/material_stackable_drawer.dart",X.h("<p>A stackable temporary drawer that can be opened and closed.</p>\n<p>While a stackable drawer is open any existing stackable drawer will be\nexpanded to fill the screen in the background.</p>\n<p>Works with deferred content.</p>\n"),H.a([new D.j(l,"",r,X.h(""),!1,""),new D.j("isExpanded","",r,X.h("<p>'True' when the drawer is expanded to full screen.</p>\n"),!1,""),new D.j(s,"",r,X.h(q),!1,"")],u),H.a([new D.j(p,o,n,X.h(m),!1,"")],u))],x.s)
+v=H.a([new R.aJ(C.h8,"MaterialDrawerExample","app_layout_example/lib/app_layout_example.dart"),new R.aJ(C.fR,"MaterialDrawerMobileExample","app_layout_example/lib/mobile_app_layout_example.dart"),new R.aJ(C.hk,"MaterialStackingDrawerExample","app_layout_example/lib/stacking_drawer_example.dart")],x.U)
 k=x.X
-t.a=new B.h4(R.cQ(H.a([],x.V),v,u,P.bl(["Material Spec (Drawer)","https://material.io/design/components/navigation-drawer.html","Material Spec (App Bar)","https://material.io/design/components/app-bars-top.html"],k,k),!0))
+t.a=new B.h5(R.cQ(H.a([],x.V),v,u,P.bl(["Material Spec (Drawer)","https://material.io/design/components/navigation-drawer.html","Material Spec (App Bar)","https://material.io/design/components/app-bars-top.html"],k,k),!0))
 t.F(w)}}
-F.kW.prototype={}
-T.uy.prototype={
-q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4=this,a5=null,a6="material-navigation",a7="label",a8=a4.a2(),a9=V.a8x(a4,0)
+F.kY.prototype={}
+T.uz.prototype={
+q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4=this,a5=null,a6="material-navigation",a7="label",a8=a4.a2(),a9=V.a8D(a4,0)
 a4.e=a9
 a9=a9.c
 a4.k4=a9
@@ -700,7 +700,7 @@ a4.h(a4.k4)
 a9=new B.fQ(!1,new P.N(a5,a5,x.i))
 a4.f=a9
 w=a4.r=new V.r(1,0,a4,T.a6())
-a4.x=K.eB(w,new D.x(w,T.aBw()),a9,a4)
+a4.x=K.eD(w,new D.x(w,T.aBB()),a9,a4)
 a9=x.M
 a4.e.u(a4.f,H.a([H.a([a4.r],x.c)],a9))
 v=document
@@ -722,7 +722,7 @@ T.c(r,"icon","")
 a4.h(r)
 w=a4.d
 w=w.a.l(C.l,w.b)
-w=new F.Y(w===!0)
+w=new F.Z(w===!0)
 a4.z=w
 a4.Q=B.a4(r,w,a4.y,a5)
 w=M.a8(a4,6)
@@ -768,43 +768,43 @@ a4.h(g)
 f=T.d(v,g,"h3")
 a4.m(f)
 T.b(f,"Options")
-w=Q.cI(a4,24)
+w=Q.cJ(a4,24)
 a4.cy=w
 e=w.c
 g.appendChild(e)
 T.c(e,a7,"end")
 a4.h(e)
-w=D.cG(a4.cy,a5)
+w=D.cH(a4.cy,a5)
 a4.db=w
 a4.cy.u(w,H.a([C.a],a9))
-w=Q.cI(a4,25)
+w=Q.cJ(a4,25)
 a4.dx=w
 d=w.c
 g.appendChild(d)
 T.c(d,a7,"overlay")
 a4.h(d)
-w=D.cG(a4.dx,a5)
+w=D.cH(a4.dx,a5)
 a4.dy=w
 a4.dx.u(w,H.a([C.a],a9))
-w=Q.cI(a4,26)
+w=Q.cJ(a4,26)
 a4.fr=w
 a0=w.c
 g.appendChild(a0)
 T.c(a0,a7,"custom width")
 a4.h(a0)
-w=D.cG(a4.fr,a5)
+w=D.cH(a4.fr,a5)
 a4.fx=w
 a4.fr.u(w,H.a([C.a],a9))
 a9=a4.Q.b
 w=x.S
-a1=new P.e(a9,H.m(a9).i("e<1>")).D(a4.v(a4.gVN(),w,w))
+a1=new P.e(a9,H.m(a9).i("e<1>")).D(a4.v(a4.gVO(),w,w))
 w=a4.db.f
 a9=x.b
-a2=new P.e(w,H.m(w).i("e<1>")).D(a4.v(a4.gVP(),a9,a9))
+a2=new P.e(w,H.m(w).i("e<1>")).D(a4.v(a4.gVQ(),a9,a9))
 w=a4.dy.f
-a3=new P.e(w,H.m(w).i("e<1>")).D(a4.v(a4.gVR(),a9,a9))
+a3=new P.e(w,H.m(w).i("e<1>")).D(a4.v(a4.gVS(),a9,a9))
 w=a4.fx.f
-a4.bo(H.a([a1,a2,a3,new P.e(w,H.m(w).i("e<1>")).D(a4.v(a4.gNc(),a9,a9))],x.a))},
+a4.bo(H.a([a1,a2,a3,new P.e(w,H.m(w).i("e<1>")).D(a4.v(a4.gNd(),a9,a9))],x.a))},
 P:function(d,e,f){var w,v=this
 if((d===C.cJ||d===C.p)&&e<=1)return v.f
 if(5<=e&&e<=6){if(d===C.m)return v.z
@@ -878,27 +878,27 @@ w.cy.k()
 w.dx.k()
 w.fr.k()
 w.x.S()},
-VO:function(d){this.f.j3(0)},
-VQ:function(d){this.a.b=d},
-VS:function(d){this.a.c=d},
-Nd:function(d){this.a.a=d}}
-T.HB.prototype={
+VP:function(d){this.f.j3(0)},
+VR:function(d){this.a.b=d},
+VT:function(d){this.a.c=d},
+Ne:function(d){this.a.a=d}}
+T.HE.prototype={
 q:function(){var w=document.createElement("div")
 this.h(w)
 T.b(w,"Here is some drawer content.")
 this.F(w)}}
-T.HC.prototype={
-q:function(){var w,v=this,u=new T.uy(E.S(v,0,3)),t=$.a7s
-if(t==null)t=$.a7s=O.a0($.aDt,null)
+T.HF.prototype={
+q:function(){var w,v=this,u=new T.uz(E.S(v,0,3)),t=$.a7y
+if(t==null)t=$.a7y=O.a0($.aDz,null)
 u.b=t
 w=document.createElement("mat-drawer-mobile-demo")
 u.c=w
 v.b=u
-v.a=new F.kW()
+v.a=new F.kY()
 v.F(w)}}
-Z.lb.prototype={}
-Z.v_.prototype={
-q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5=this,a6="material-navigation",a7=a5.a2(),a8=Y.a2E(a5,0)
+Z.ld.prototype={}
+Z.v0.prototype={
+q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5=this,a6="material-navigation",a7=a5.a2(),a8=Y.a2I(a5,0)
 a5.e=a8
 a8=a8.c
 a5.k1=a8
@@ -909,10 +909,10 @@ a5.h(a5.k1)
 a8=a5.d
 w=a8.a
 a8=a8.b
-v=N.a2j(w.l(C.bh,a8))
+v=N.a2n(w.l(C.bh,a8))
 a5.f=v
 u=a5.r=new V.r(1,0,a5,T.a6())
-a5.x=K.eB(u,new D.x(u,Z.aCH()),v,a5)
+a5.x=K.eD(u,new D.x(u,Z.aCN()),v,a5)
 v=x.M
 a5.e.u(a5.f,H.a([H.a([a5.r],x.c)],v))
 t=document
@@ -933,7 +933,7 @@ a5.O(p,"material-drawer-button")
 T.c(p,"icon","")
 a5.h(p)
 a8=w.l(C.l,a8)
-a8=new F.Y(a8===!0)
+a8=new F.Z(a8===!0)
 a5.z=a8
 a5.Q=B.a4(p,a8,a5.y,null)
 a8=M.a8(a5,6)
@@ -979,34 +979,34 @@ a5.h(e)
 d=T.d(t,e,"h3")
 a5.m(d)
 T.b(d,"Options")
-a8=Q.cI(a5,24)
+a8=Q.cJ(a5,24)
 a5.cy=a8
 a0=a8.c
 e.appendChild(a0)
 T.c(a0,"label","end")
 a5.h(a0)
-a8=D.cG(a5.cy,null)
+a8=D.cH(a5.cy,null)
 a5.db=a8
 a5.cy.u(a8,H.a([C.a],v))
-a8=Q.cI(a5,25)
+a8=Q.cJ(a5,25)
 a5.dx=a8
 a1=a8.c
 e.appendChild(a1)
 T.c(a1,"label","overlay")
 a5.h(a1)
-a8=D.cG(a5.dx,null)
+a8=D.cH(a5.dx,null)
 a5.dy=a8
 a5.dx.u(a8,H.a([C.a],v))
 v=a5.f.b
 a8=x.b
-a2=new P.e(v,H.m(v).i("e<1>")).D(a5.v(a5.gug(),a8,a8))
+a2=new P.e(v,H.m(v).i("e<1>")).D(a5.v(a5.guj(),a8,a8))
 v=a5.Q.b
 w=x.S
-a3=new P.e(v,H.m(v).i("e<1>")).D(a5.v(a5.gui(),w,w))
+a3=new P.e(v,H.m(v).i("e<1>")).D(a5.v(a5.gul(),w,w))
 w=a5.db.f
-a4=new P.e(w,H.m(w).i("e<1>")).D(a5.v(a5.gYd(),a8,a8))
+a4=new P.e(w,H.m(w).i("e<1>")).D(a5.v(a5.gYe(),a8,a8))
 w=a5.dy.f
-a5.bo(H.a([a2,a3,a4,new P.e(w,H.m(w).i("e<1>")).D(a5.v(a5.gYf(),a8,a8))],x.a))},
+a5.bo(H.a([a2,a3,a4,new P.e(w,H.m(w).i("e<1>")).D(a5.v(a5.gYg(),a8,a8))],x.a))},
 P:function(d,e,f){var w,v=this
 if((d===C.bh||d===C.p)&&e<=1)return v.f
 if(5<=e&&e<=6){if(d===C.m)return v.z
@@ -1065,10 +1065,10 @@ w.ch.k()
 w.cy.k()
 w.dx.k()
 w.x.S()},
-uh:function(d){this.a.c=d},
-uj:function(d){this.a.c=!0},
-Ye:function(d){this.a.a=d},
-Yg:function(d){this.a.b=d}}
+uk:function(d){this.a.c=d},
+um:function(d){this.a.c=!0},
+Yf:function(d){this.a.a=d},
+Yh:function(d){this.a.b=d}}
 Z.xu.prototype={
 q:function(){var w,v,u,t,s,r,q,p=this,o=document.createElement("div")
 p.h(o)
@@ -1080,14 +1080,14 @@ o.appendChild(v)
 p.h(v)
 w=p.a.c
 u=w.gp().l(C.l,w.ga1())
-u=new F.Y(u===!0)
+u=new F.Z(u===!0)
 p.c=u
 u=B.a4(v,u,p.b,null)
 p.d=u
 t=T.n("Click for more.")
 s=x.M
 p.b.u(u,H.a([H.a([t],x.l)],s))
-u=Y.a2E(p,4)
+u=Y.a2I(p,4)
 p.e=u
 u=u.c
 p.ch=u
@@ -1095,17 +1095,17 @@ o.appendChild(u)
 p.O(p.ch,"drawer2")
 T.c(p.ch,"stackable","")
 p.h(p.ch)
-w=N.a2j(w.f)
+w=N.a2n(w.f)
 p.f=w
 u=p.r=new V.r(5,4,p,T.a6())
-p.x=K.eB(u,new D.x(u,Z.aCI()),w,p)
+p.x=K.eD(u,new D.x(u,Z.aCO()),w,p)
 p.e.u(p.f,H.a([H.a([p.r],x.c)],s))
 w=p.d.b
 u=x.S
-r=new P.e(w,H.m(w).i("e<1>")).D(p.v(p.gug(),u,u))
+r=new P.e(w,H.m(w).i("e<1>")).D(p.v(p.guj(),u,u))
 u=p.f.b
 w=x.b
-q=new P.e(u,H.m(u).i("e<1>")).D(p.v(p.gui(),w,w))
+q=new P.e(u,H.m(u).i("e<1>")).D(p.v(p.gul(),w,w))
 p.aD(H.a([o],s),H.a([r,q],x.a))},
 P:function(d,e,f){if(2<=e&&e<=3){if(d===C.m)return this.c
 if(d===C.n||d===C.j||d===C.c)return this.d}if((d===C.bh||d===C.p)&&4<=e&&e<=5)return this.f
@@ -1133,97 +1133,97 @@ w.r.I()
 w.b.k()
 w.e.k()
 w.x.S()},
-uh:function(d){this.a.a.d=!0},
-uj:function(d){this.a.a.d=d}}
-Z.J1.prototype={
+uk:function(d){this.a.a.d=!0},
+um:function(d){this.a.a.d=d}}
+Z.J4.prototype={
 q:function(){var w=document.createElement("div")
 this.h(w)
 T.b(w,"Here is some more drawer content.")
 this.F(w)}}
-Z.J2.prototype={
-q:function(){var w,v=this,u=new Z.v_(E.S(v,0,3)),t=$.a8o
-if(t==null)t=$.a8o=O.a0($.aE8,null)
+Z.J5.prototype={
+q:function(){var w,v=this,u=new Z.v0(E.S(v,0,3)),t=$.a8u
+if(t==null)t=$.a8u=O.a0($.aEe,null)
 u.b=t
 w=document.createElement("mat-stacking-drawer-demo")
 u.c=w
 v.b=u
-v.a=new Z.lb()
+v.a=new Z.ld()
 v.F(w)}}
-var z=a.updateTypes(["~(@)","aj<~>*(k*,H*)","~()","t*(jV*)","f<jy*>*()","f<fQ*>*()","f<kV*>*()","f<h4*>*()","f<kW*>*()","f<lb*>*()"])
-D.TL.prototype={
+var z=a.updateTypes(["~(@)","aj<~>*(k*,H*)","~()","t*(jV*)","f<jy*>*()","f<fQ*>*()","f<kX*>*()","f<h5*>*()","f<kY*>*()","f<ld*>*()"])
+D.TP.prototype={
 $1:function(d){var w=d.b,v=d.a
 return w.length===0?"$"+v:"$"+v+": "+w},
 $S:z+3};(function aliases(){var w=B.fQ.prototype
 w.Jj=w.j3})();(function installTearOffs(){var w=a._instance_0i,v=a._static_0,u=a._instance_1u,t=a._static_2
-w(N.jy.prototype,"gwj","j3",2)
-v(Y,"aA9","aKX",4)
-u(Y.uZ.prototype,"gUr","Us",0)
-w(B.fQ.prototype,"gwj","j3",2)
-v(V,"aAT","aLq",5)
-u(V.v1.prototype,"gMt","Mu",0)
-t(R,"asG","aJe",1)
-v(R,"ahi","aJf",6)
+w(N.jy.prototype,"gwl","j3",2)
+v(Y,"aAe","aL2",4)
+u(Y.v_.prototype,"gUs","Ut",0)
+w(B.fQ.prototype,"gwl","j3",2)
+v(V,"aAY","aLw",5)
+u(V.v2.prototype,"gMu","Mv",0)
+t(R,"asL","aJk",1)
+v(R,"ahp","aJl",6)
 var s
-u(s=R.ux.prototype,"gKM","KN",0)
-u(s,"gMv","Mw",0)
-u(s,"gMR","MS",0)
-v(N,"ahx","aGG",7)
-t(T,"aBw","aJg",1)
-v(T,"akt","aJh",8)
-u(s=T.uy.prototype,"gVN","VO",0)
-u(s,"gVP","VQ",0)
-u(s,"gVR","VS",0)
-u(s,"gNc","Nd",0)
-t(Z,"aCH","aKY",1)
-t(Z,"aCI","aKZ",1)
-v(Z,"akS","aL_",9)
-u(s=Z.v_.prototype,"gug","uh",0)
-u(s,"gui","uj",0)
-u(s,"gYd","Ye",0)
-u(s,"gYf","Yg",0)
-u(s=Z.xu.prototype,"gug","uh",0)
-u(s,"gui","uj",0)})();(function inheritance(){var w=a.inherit,v=a.inheritMany
-w(B.fQ,L.tl)
+u(s=R.uy.prototype,"gKN","KO",0)
+u(s,"gMw","Mx",0)
+u(s,"gMS","MT",0)
+v(N,"ahE","aGM",7)
+t(T,"aBB","aJm",1)
+v(T,"akz","aJn",8)
+u(s=T.uz.prototype,"gVO","VP",0)
+u(s,"gVQ","VR",0)
+u(s,"gVS","VT",0)
+u(s,"gNd","Ne",0)
+t(Z,"aCN","aL3",1)
+t(Z,"aCO","aL4",1)
+v(Z,"akY","aL5",9)
+u(s=Z.v0.prototype,"guj","uk",0)
+u(s,"gul","um",0)
+u(s,"gYe","Yf",0)
+u(s,"gYg","Yh",0)
+u(s=Z.xu.prototype,"guj","uk",0)
+u(s,"gul","um",0)})();(function inheritance(){var w=a.inherit,v=a.inheritMany
+w(B.fQ,L.tk)
 w(N.jy,B.fQ)
-v(E.bn,[Y.uZ,V.v1,R.ux,N.By,T.uy,Z.v_])
-v(G.f,[Y.J0,V.Jq,R.HA,N.Ft,T.HC,Z.J2])
-v(P.y,[D.TM,D.nV,D.jV,F.kV,B.h4,F.kW,Z.lb])
-w(D.TL,H.bq)
-v(E.aj,[R.Hz,T.HB,Z.xu,Z.J1])})()
-H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","uZ":{"k":[],"i":[]},"J0":{"f":["jy*"],"i":[],"f.T":"jy*"},"v1":{"k":[],"i":[]},"Jq":{"f":["fQ*"],"i":[],"f.T":"fQ*"},"ux":{"k":[],"i":[]},"Hz":{"k":[],"i":[]},"HA":{"f":["kV*"],"i":[],"f.T":"kV*"},"By":{"k":[],"i":[]},"Ft":{"f":["h4*"],"i":[],"f.T":"h4*"},"uy":{"k":[],"i":[]},"HB":{"k":[],"i":[]},"HC":{"f":["kW*"],"i":[],"f.T":"kW*"},"v_":{"k":[],"i":[]},"xu":{"k":[],"i":[]},"J1":{"k":[],"i":[]},"J2":{"f":["lb*"],"i":[],"f.T":"lb*"}}'))
+v(E.bn,[Y.v_,V.v2,R.uy,N.BA,T.uz,Z.v0])
+v(G.f,[Y.J3,V.Jt,R.HD,N.Fw,T.HF,Z.J5])
+v(P.y,[D.TQ,D.nV,D.jV,F.kX,B.h5,F.kY,Z.ld])
+w(D.TP,H.bq)
+v(E.aj,[R.HC,T.HE,Z.xu,Z.J4])})()
+H.ak(b.typeUniverse,JSON.parse('{"al":"w","ax":"w","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"U","aw":"ac","aC":"V","az":"ah","au":"af","as":"ai","ar":"a1","v_":{"k":[],"i":[]},"J3":{"f":["jy*"],"i":[],"f.T":"jy*"},"v2":{"k":[],"i":[]},"Jt":{"f":["fQ*"],"i":[],"f.T":"fQ*"},"uy":{"k":[],"i":[]},"HC":{"k":[],"i":[]},"HD":{"f":["kX*"],"i":[],"f.T":"kX*"},"BA":{"k":[],"i":[]},"Fw":{"f":["h5*"],"i":[],"f.T":"h5*"},"uz":{"k":[],"i":[]},"HE":{"k":[],"i":[]},"HF":{"f":["kY*"],"i":[],"f.T":"kY*"},"v0":{"k":[],"i":[]},"xu":{"k":[],"i":[]},"J4":{"k":[],"i":[]},"J5":{"f":["ld*"],"i":[],"f.T":"ld*"}}'))
 var y={d:"Lorem ipsum dolor sit amet, ad erat postea ullamcorper nec, veri veniam quo et. Diam phaedrum ei mea, quaeque voluptaria efficiantur duo no. Eu adhuc veritus civibus nec, sumo invidunt mel id, in vim dictas detraxit. Per an legere iriure blandit. Veri iisque accusamus an pri."}
 var x=(function rtii(){var w=H.K
-return{r:w("l<h4*>"),z:w("l<kV*>"),j:w("l<kW*>"),y:w("l<jy*>"),h:w("l<lb*>"),D:w("l<fQ*>"),C:w("q<j*>"),U:w("q<aJ*>"),s:w("q<d_*>"),T:w("q<aT*>"),O:w("q<A*>"),N:w("q<O*>"),M:w("q<y*>"),P:w("q<jV*>"),d:w("q<nV*>"),n:w("q<aOO*>"),a:w("q<be<~>*>"),V:w("q<t*>"),l:w("q<a1*>"),c:w("q<r*>"),i:w("N<E*>"),L:w("v*"),f:w("D<t*>*"),X:w("t*"),S:w("V*"),b:w("E*")}})();(function constants(){C.fQ=new D.l("mat-drawer-mobile-demo",T.akt(),x.j)
-C.h7=new D.l("mat-drawer-demo",R.ahi(),x.z)
-C.hi=new D.l("app-layout-api",N.ahx(),x.r)
-C.hj=new D.l("mat-stacking-drawer-demo",Z.akS(),x.h)
+return{r:w("l<h5*>"),z:w("l<kX*>"),j:w("l<kY*>"),y:w("l<jy*>"),h:w("l<ld*>"),D:w("l<fQ*>"),C:w("q<j*>"),U:w("q<aJ*>"),s:w("q<cZ*>"),T:w("q<aT*>"),O:w("q<A*>"),N:w("q<O*>"),M:w("q<y*>"),P:w("q<jV*>"),d:w("q<nV*>"),n:w("q<aOU*>"),a:w("q<be<~>*>"),V:w("q<t*>"),l:w("q<a1*>"),c:w("q<r*>"),i:w("N<E*>"),L:w("w*"),f:w("D<t*>*"),X:w("t*"),S:w("U*"),b:w("E*")}})();(function constants(){C.fR=new D.l("mat-drawer-mobile-demo",T.akz(),x.j)
+C.h8=new D.l("mat-drawer-demo",R.ahp(),x.z)
+C.hj=new D.l("app-layout-api",N.ahE(),x.r)
+C.hk=new D.l("mat-stacking-drawer-demo",Z.akY(),x.h)
 C.bh=H.C("jy")
-C.kT=H.C("h4")
-C.lU=H.C("kV")
-C.lV=H.C("kW")
-C.nj=H.C("lb")
-C.cJ=H.C("fQ")})();(function staticFields(){$.agc=!1
+C.kT=H.C("h5")
+C.lU=H.C("kX")
+C.lV=H.C("kY")
+C.nj=H.C("ld")
+C.cJ=H.C("fQ")})();(function staticFields(){$.agj=!1
+$.agl=!1
+$.aF2=["._nghost-%ID%{bottom:0;left:0;position:absolute;right:0;top:0;background-color:transparent;overflow:hidden;pointer-events:none;z-index:1}._nghost-%ID%.mat-drawer-expanded{pointer-events:auto}._nghost-%ID%[overlay].mat-drawer-expanded{background-color:rgba(0,0,0,0.38);transition-duration:225ms}._nghost-%ID%[overlay]{background-color:transparent;transition:background-color 195ms cubic-bezier(0.4,0,0.2,1)}._nghost-%ID% > .drawer-content._ngcontent-%ID%{background-color:#fff;bottom:0;box-sizing:border-box;display:flex;flex-direction:column;flex-wrap:nowrap;overflow:hidden;position:absolute;top:0;box-shadow:none;transform:translateX(0);pointer-events:auto;transition-property:box-shadow,left,right,transform,width;transition-duration:195ms;transition-timing-function:cubic-bezier(0.4,0,0.6,1)}._nghost-%ID%.mat-drawer-expanded > .drawer-content._ngcontent-%ID%{box-shadow:0 16px 24px 2px rgba(0,0,0,0.14),0 6px 30px 5px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,0,0,0.2);transition-duration:225ms;transition-timing-function:cubic-bezier(0,0,0.2,1)}._nghost-%ID%  > .drawer-content{left:-256px;width:256px}._nghost-%ID%.mat-drawer-expanded  > .drawer-content{transform:translateX(100%)}._nghost-%ID%[end]  > .drawer-content{left:initial;right:-256px}._nghost-%ID%[end].mat-drawer-expanded  > .drawer-content{transform:translateX(-100%)}._nghost-%ID%  > .drawer-content.drawer-content-expanded{left:-100%;width:100%}._nghost-%ID%.mat-drawer-expanded  > .drawer-content.drawer-content-expanded{transform:translateX(100%)}._nghost-%ID%[end]  > .drawer-content.drawer-content-expanded{left:initial;right:-100%}._nghost-%ID%[end].mat-drawer-expanded  > .drawer-content.drawer-content-expanded{transform:translateX(-100%)}"]
+$.a8t=null
+$.agh=!1
+$.aF3=["._nghost-%ID%{bottom:0;left:0;position:absolute;right:0;top:0;background-color:transparent;overflow:hidden;pointer-events:none;z-index:1}._nghost-%ID%.mat-drawer-expanded{pointer-events:auto}._nghost-%ID%[overlay].mat-drawer-expanded{background-color:rgba(0,0,0,0.38);transition-duration:225ms}._nghost-%ID%[overlay]{background-color:transparent;transition:background-color 195ms cubic-bezier(0.4,0,0.2,1)}._nghost-%ID% > .drawer-content._ngcontent-%ID%{background-color:#fff;bottom:0;box-sizing:border-box;display:flex;flex-direction:column;flex-wrap:nowrap;overflow:hidden;position:absolute;top:0;box-shadow:none;transform:translateX(0);pointer-events:auto;transition-property:box-shadow,left,right,transform,width;transition-duration:195ms;transition-timing-function:cubic-bezier(0.4,0,0.6,1)}._nghost-%ID%.mat-drawer-expanded > .drawer-content._ngcontent-%ID%{box-shadow:0 16px 24px 2px rgba(0,0,0,0.14),0 6px 30px 5px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,0,0,0.2);transition-duration:225ms;transition-timing-function:cubic-bezier(0,0,0.2,1)}._nghost-%ID%  > .drawer-content{left:-256px;width:256px}._nghost-%ID%.mat-drawer-expanded  > .drawer-content{transform:translateX(100%)}._nghost-%ID%[end]  > .drawer-content{left:initial;right:-256px}._nghost-%ID%[end].mat-drawer-expanded  > .drawer-content{transform:translateX(-100%)}"]
+$.a8E=null
+$.agi=!1
+$.a4g=["._nghost-%ID%{border:1px solid;display:block;height:400px;margin:16px;overflow:hidden;position:relative;width:800px}.controls._ngcontent-%ID%{align-items:flex-start;display:flex;flex-direction:column}.custom-width[persistent]._ngcontent-%ID%,.custom-width[permanent]._ngcontent-%ID%{width:50%}.custom-width[persistent]:not([end])._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[persistent]:not([end])._ngcontent-%ID% ~ .material-content._ngcontent-%ID%,.custom-width[permanent]:not([end])._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[permanent]:not([end])._ngcontent-%ID% ~ .material-content._ngcontent-%ID%{margin-left:50%}.custom-width[persistent][end]._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[persistent][end]._ngcontent-%ID% ~ .material-content._ngcontent-%ID%,.custom-width[permanent][end]._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[permanent][end]._ngcontent-%ID% ~ .material-content._ngcontent-%ID%{margin-right:50%}.custom-width[persistent].mat-drawer-collapsed:not([end])._ngcontent-%ID%{transform:translateX(-100%)}.custom-width[persistent].mat-drawer-collapsed:not([end])._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[persistent].mat-drawer-collapsed:not([end])._ngcontent-%ID% ~ .material-content._ngcontent-%ID%{margin-left:0}.custom-width[persistent].mat-drawer-collapsed[end]._ngcontent-%ID%{transform:translateX(100%)}.custom-width[persistent].mat-drawer-collapsed[end]._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[persistent].mat-drawer-collapsed[end]._ngcontent-%ID% ~ .material-content._ngcontent-%ID%{margin-right:0}.custom-width._ngcontent-%ID%  > .drawer-content{left:-50%;width:50%}.custom-width.mat-drawer-expanded._ngcontent-%ID%  > .drawer-content{transform:translateX(100%)}.custom-width[end]._ngcontent-%ID%  > .drawer-content{left:initial;right:-50%}.custom-width[end].mat-drawer-expanded._ngcontent-%ID%  > .drawer-content{transform:translateX(-100%)}"]
+$.a7x=null
+$.agm=!1
+$.a6v=null
 $.age=!1
-$.aEX=["._nghost-%ID%{bottom:0;left:0;position:absolute;right:0;top:0;background-color:transparent;overflow:hidden;pointer-events:none;z-index:1}._nghost-%ID%.mat-drawer-expanded{pointer-events:auto}._nghost-%ID%[overlay].mat-drawer-expanded{background-color:rgba(0,0,0,0.38);transition-duration:225ms}._nghost-%ID%[overlay]{background-color:transparent;transition:background-color 195ms cubic-bezier(0.4,0,0.2,1)}._nghost-%ID% > .drawer-content._ngcontent-%ID%{background-color:#fff;bottom:0;box-sizing:border-box;display:flex;flex-direction:column;flex-wrap:nowrap;overflow:hidden;position:absolute;top:0;box-shadow:none;transform:translateX(0);pointer-events:auto;transition-property:box-shadow,left,right,transform,width;transition-duration:195ms;transition-timing-function:cubic-bezier(0.4,0,0.6,1)}._nghost-%ID%.mat-drawer-expanded > .drawer-content._ngcontent-%ID%{box-shadow:0 16px 24px 2px rgba(0,0,0,0.14),0 6px 30px 5px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,0,0,0.2);transition-duration:225ms;transition-timing-function:cubic-bezier(0,0,0.2,1)}._nghost-%ID%  > .drawer-content{left:-256px;width:256px}._nghost-%ID%.mat-drawer-expanded  > .drawer-content{transform:translateX(100%)}._nghost-%ID%[end]  > .drawer-content{left:initial;right:-256px}._nghost-%ID%[end].mat-drawer-expanded  > .drawer-content{transform:translateX(-100%)}._nghost-%ID%  > .drawer-content.drawer-content-expanded{left:-100%;width:100%}._nghost-%ID%.mat-drawer-expanded  > .drawer-content.drawer-content-expanded{transform:translateX(100%)}._nghost-%ID%[end]  > .drawer-content.drawer-content-expanded{left:initial;right:-100%}._nghost-%ID%[end].mat-drawer-expanded  > .drawer-content.drawer-content-expanded{transform:translateX(-100%)}"]
-$.a8n=null
-$.aga=!1
-$.aEY=["._nghost-%ID%{bottom:0;left:0;position:absolute;right:0;top:0;background-color:transparent;overflow:hidden;pointer-events:none;z-index:1}._nghost-%ID%.mat-drawer-expanded{pointer-events:auto}._nghost-%ID%[overlay].mat-drawer-expanded{background-color:rgba(0,0,0,0.38);transition-duration:225ms}._nghost-%ID%[overlay]{background-color:transparent;transition:background-color 195ms cubic-bezier(0.4,0,0.2,1)}._nghost-%ID% > .drawer-content._ngcontent-%ID%{background-color:#fff;bottom:0;box-sizing:border-box;display:flex;flex-direction:column;flex-wrap:nowrap;overflow:hidden;position:absolute;top:0;box-shadow:none;transform:translateX(0);pointer-events:auto;transition-property:box-shadow,left,right,transform,width;transition-duration:195ms;transition-timing-function:cubic-bezier(0.4,0,0.6,1)}._nghost-%ID%.mat-drawer-expanded > .drawer-content._ngcontent-%ID%{box-shadow:0 16px 24px 2px rgba(0,0,0,0.14),0 6px 30px 5px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,0,0,0.2);transition-duration:225ms;transition-timing-function:cubic-bezier(0,0,0.2,1)}._nghost-%ID%  > .drawer-content{left:-256px;width:256px}._nghost-%ID%.mat-drawer-expanded  > .drawer-content{transform:translateX(100%)}._nghost-%ID%[end]  > .drawer-content{left:initial;right:-256px}._nghost-%ID%[end].mat-drawer-expanded  > .drawer-content{transform:translateX(-100%)}"]
-$.a8y=null
-$.agb=!1
-$.a4e=["._nghost-%ID%{border:1px solid;display:block;height:400px;margin:16px;overflow:hidden;position:relative;width:800px}.controls._ngcontent-%ID%{align-items:flex-start;display:flex;flex-direction:column}.custom-width[persistent]._ngcontent-%ID%,.custom-width[permanent]._ngcontent-%ID%{width:50%}.custom-width[persistent]:not([end])._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[persistent]:not([end])._ngcontent-%ID% ~ .material-content._ngcontent-%ID%,.custom-width[permanent]:not([end])._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[permanent]:not([end])._ngcontent-%ID% ~ .material-content._ngcontent-%ID%{margin-left:50%}.custom-width[persistent][end]._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[persistent][end]._ngcontent-%ID% ~ .material-content._ngcontent-%ID%,.custom-width[permanent][end]._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[permanent][end]._ngcontent-%ID% ~ .material-content._ngcontent-%ID%{margin-right:50%}.custom-width[persistent].mat-drawer-collapsed:not([end])._ngcontent-%ID%{transform:translateX(-100%)}.custom-width[persistent].mat-drawer-collapsed:not([end])._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[persistent].mat-drawer-collapsed:not([end])._ngcontent-%ID% ~ .material-content._ngcontent-%ID%{margin-left:0}.custom-width[persistent].mat-drawer-collapsed[end]._ngcontent-%ID%{transform:translateX(100%)}.custom-width[persistent].mat-drawer-collapsed[end]._ngcontent-%ID% ~ material-content._ngcontent-%ID%,.custom-width[persistent].mat-drawer-collapsed[end]._ngcontent-%ID% ~ .material-content._ngcontent-%ID%{margin-right:0}.custom-width._ngcontent-%ID%  > .drawer-content{left:-50%;width:50%}.custom-width.mat-drawer-expanded._ngcontent-%ID%  > .drawer-content{transform:translateX(100%)}.custom-width[end]._ngcontent-%ID%  > .drawer-content{left:initial;right:-50%}.custom-width[end].mat-drawer-expanded._ngcontent-%ID%  > .drawer-content{transform:translateX(-100%)}"]
-$.a7r=null
-$.agf=!1
-$.a6p=null
-$.ag7=!1
-$.a7s=null
-$.agd=!1
-$.aEW=[".drawer1._ngcontent-%ID%  > .drawer-content{left:-50%;width:50%}.drawer1.mat-drawer-expanded._ngcontent-%ID%  > .drawer-content{transform:translateX(100%)}.drawer1[end]._ngcontent-%ID%  > .drawer-content{left:initial;right:-50%}.drawer1[end].mat-drawer-expanded._ngcontent-%ID%  > .drawer-content{transform:translateX(-100%)}"]
-$.a8o=null
-$.ag9=!1
-$.aE7=[$.aEX]
-$.aEe=[$.aEY]
-$.aDs=[$.a4e,$.a1p]
-$.aDt=[$.a4e,$.a1p]
-$.aE8=[$.a4e,$.a1p,$.aEW]})()}
-$__dart_deferred_initializers__["+Su0ouO7VunL47/UBVQlRglfLac="] = $__dart_deferred_initializers__.current
+$.a7y=null
+$.agk=!1
+$.aF1=[".drawer1._ngcontent-%ID%  > .drawer-content{left:-50%;width:50%}.drawer1.mat-drawer-expanded._ngcontent-%ID%  > .drawer-content{transform:translateX(100%)}.drawer1[end]._ngcontent-%ID%  > .drawer-content{left:initial;right:-50%}.drawer1[end].mat-drawer-expanded._ngcontent-%ID%  > .drawer-content{transform:translateX(-100%)}"]
+$.a8u=null
+$.agg=!1
+$.aEd=[$.aF2]
+$.aEk=[$.aF3]
+$.aDy=[$.a4g,$.a1q]
+$.aDz=[$.a4g,$.a1q]
+$.aEe=[$.a4g,$.a1q,$.aF1]})()}
+$__dart_deferred_initializers__["SD/DrX8Xh6pirsflLcfjweIJHEA="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_1.part.js.map

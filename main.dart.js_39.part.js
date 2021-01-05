@@ -1,32 +1,32 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,E={
-aIC:function(){return new E.H4(new G.R())},
-axv:function(){if($.ag3)return
-$.ag3=!0
-$.T.w(0,C.lH,new D.l("material-card-example",E.ajo(),y.f))
+aII:function(){return new E.H7(new G.R())},
+axz:function(){if($.aga)return
+$.aga=!0
+$.T.w(0,C.lH,new D.l("material-card-example",E.aju(),y.f))
 E.F()
 U.dL()
-M.ch()},
-C0:function C0(d){var _=this
+M.cg()},
+C2:function C2(d){var _=this
 _.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.c=_.b=_.a=_.a8=_.aa=_.L=_.W=_.a_=_.a4=_.Y=_.a6=_.a0=_.X=_.a7=_.V=null
 _.d=d},
-H4:function H4(d){var _=this
+H7:function H7(d){var _=this
 _.c=_.b=_.a=null
-_.d=d}},M,Q,D,Z,O,A={hm:function hm(d){this.a=d},kQ:function kQ(){}},T={
-aoY:function(){return C.h5},
-aIB:function(){return new T.H3(new G.R())},
-axu:function(){if($.ag2)return
-$.ag2=!0
-$.T.w(0,C.lG,new D.l("material-card-api",T.ajn(),y.g))
+_.d=d}},M,Q,D,Z,O,A={hn:function hn(d){this.a=d},kS:function kS(){}},T={
+ap3:function(){return C.h6},
+aIH:function(){return new T.H6(new G.R())},
+axy:function(){if($.ag9)return
+$.ag9=!0
+$.T.w(0,C.lG,new D.l("material-card-api",T.ajt(),y.g))
 E.F()
 K.d7()
 D.cV()
-E.axv()},
-C_:function C_(d){var _=this
+E.axz()},
+C1:function C1(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-H3:function H3(d){var _=this
+H6:function H6(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},L,N,U,X,B,S,F
 a.setFunctionNamesIfNecessary([E,A,T])
@@ -55,108 +55,108 @@ X=c[21]
 B=c[22]
 S=c[23]
 F=c[24]
-A.hm.prototype={}
-T.C_.prototype={
+A.hn.prototype={}
+T.C1.prototype={
 gmW:function(){var x=this.r
 return x==null?this.r=document:x},
-gzZ:function(){var x=this.y
+gA_:function(){var x=this.y
 return x==null?this.y=window:x},
 gmX:function(){var x,w=this,v=w.z
 if(v==null){v=w.d
 x=v.a
 v=v.b
-v=T.bx(x.l(C.b,v),x.l(C.D,v),x.n(C.f,v),w.gzZ())
+v=T.bx(x.l(C.b,v),x.l(C.D,v),x.n(C.f,v),w.gA_())
 w.z=v}return v},
-gzW:function(){var x,w=this,v=w.Q
+gzX:function(){var x,w=this,v=w.Q
 if(v==null){v=w.d
 v=v.a.n(C.U,v.b)
 x=w.gmX()
 v=w.Q=new O.bh(v,x)}return v},
-gr0:function(){var x=this,w=x.ch
+gr5:function(){var x=this,w=x.ch
 return w==null?x.ch=new K.bi(x.gmW(),x.gmX(),P.bu(null,y.C)):w},
-gON:function(){var x=this.cx
+gOO:function(){var x=this.cx
 if(x==null){x=this.d
 x=T.bB(x.a.n(C.f,x.b))
 this.cx=x}return x},
-gr3:function(){var x=this.cy
+gr6:function(){var x=this.cy
 if(x==null){x=this.d
 x=G.bF(x.a.l(C.t,x.b))
 this.cy=x}return x},
-gA0:function(){var x=this,w=x.db
+gA1:function(){var x=this,w=x.db
 if(w==null){w=x.d
-w=G.bI(x.gmW(),w.a.l(C.u,w.b))
+w=G.bJ(x.gmW(),w.a.l(C.u,w.b))
 x.db=w}return w},
-gA1:function(){var x=this,w=x.dx
+gA2:function(){var x=this,w=x.dx
 if(w==null){w=x.d
-w=G.bz(x.gr3(),x.gA0(),w.a.l(C.r,w.b))
+w=G.bz(x.gr6(),x.gA1(),w.a.l(C.r,w.b))
 x.dx=w}return w},
-gr4:function(){var x=this.dy
+gr7:function(){var x=this.dy
 return x==null?this.dy=!0:x},
-gA2:function(){var x=this.fr
+gA3:function(){var x=this.fr
 return x==null?this.fr=!0:x},
-gzY:function(){var x=this.fy
+gzZ:function(){var x=this.fy
 if(x==null){x=this.gmW()
 x=this.fy=new R.bk(x.querySelector("head"),x)}return x},
-gA_:function(){var x=this.go
+gA0:function(){var x=this.go
 return x==null?this.go=X.bE():x},
-gzX:function(){var x=this,w=x.id
-return w==null?x.id=K.bD(x.gzY(),x.gA1(),x.gr3(),x.gr0(),x.gmX(),x.gzW(),x.gr4(),x.gA2(),x.gA_()):w},
-gOO:function(){var x,w,v,u,t=this,s=t.k1
+gzY:function(){var x=this,w=x.id
+return w==null?x.id=K.bD(x.gzZ(),x.gA2(),x.gr6(),x.gr5(),x.gmX(),x.gzX(),x.gr7(),x.gA3(),x.gA0()):w},
+gOP:function(){var x,w,v,u,t=this,s=t.k1
 if(s==null){s=t.d
 x=s.a
 s=s.b
 w=x.n(C.f,s)
-v=t.gr4()
-u=t.gzX()
+v=t.gr7()
+u=t.gzY()
 x.l(C.k,s)
 s=t.k1=new X.bg(v,w,u)}return s},
-q:function(){var x=this,w=x.a2(),v=K.cH(x,0)
+q:function(){var x=this,w=x.a2(),v=K.cI(x,0)
 x.e=v
 w.appendChild(v.c)
 v=x.d
 v=v.a.n(C.a9,v.b)
-v=new X.cb(v,!J.bA(window.location.href,"enableLatencyCharts=false"))
+v=new X.ca(v,!J.bA(window.location.href,"enableLatencyCharts=false"))
 x.f=v
 x.e.K(0,v)},
 P:function(d,e,f){var x,w=this
 if(0===e){if(d===C.L)return w.gmW()
 if(d===C.V){x=w.x
-return x==null?w.x=document:x}if(d===C.J)return w.gzZ()
+return x==null?w.x=document:x}if(d===C.J)return w.gA_()
 if(d===C.b)return w.gmX()
-if(d===C.P)return w.gzW()
-if(d===C.N)return w.gr0()
-if(d===C.a_)return w.gON()
-if(d===C.t)return w.gr3()
-if(d===C.u)return w.gA0()
-if(d===C.r)return w.gA1()
-if(d===C.T)return w.gr4()
-if(d===C.F)return w.gA2()
+if(d===C.P)return w.gzX()
+if(d===C.N)return w.gr5()
+if(d===C.a_)return w.gOO()
+if(d===C.t)return w.gr6()
+if(d===C.u)return w.gA1()
+if(d===C.r)return w.gA2()
+if(d===C.T)return w.gr7()
+if(d===C.F)return w.gA3()
 if(d===C.G){x=w.fx
-return x==null?w.fx=C.Y:x}if(d===C.R)return w.gzY()
-if(d===C.E)return w.gA_()
-if(d===C.Q)return w.gzX()
-if(d===C.k)return w.gOO()
+return x==null?w.fx=C.Y:x}if(d===C.R)return w.gzZ()
+if(d===C.E)return w.gA0()
+if(d===C.Q)return w.gzY()
+if(d===C.k)return w.gOP()
 if(d===C.H){x=w.k2
 return x==null?w.k2=C.Z:x}if(d===C.v){x=w.k3
-return x==null?w.k3=new K.bp(w.gr0()):x}}return f},
+return x==null?w.k3=new K.bp(w.gr5()):x}}return f},
 A:function(){var x=this,w=x.a.a,v=x.k4
 if(v!==w)x.k4=x.f.a=w
 x.e.j()},
 G:function(){this.e.k()}}
-T.H3.prototype={
-q:function(){var x,w,v,u=this,t=new T.C_(E.S(u,0,3)),s=$.a78
-if(s==null)s=$.a78=O.bG(C.a,null)
+T.H6.prototype={
+q:function(){var x,w,v,u=this,t=new T.C1(E.S(u,0,3)),s=$.a7e
+if(s==null)s=$.a7e=O.bH(C.a,null)
 t.b=s
 x=document.createElement("material-card-api")
 t.c=x
 u.b=t
-t=H.a([new D.kL("README","angular_components/lib/material_card/README.md",X.h("<h1>Material Card</h1>\n<p>Material Card is card styling provided by the Google material team also known as\nmdc-web. This is a wrapper to allow the style to be used in AngularDart\napplications. For documentation on how to use these styling please see the <a href=\"https://github.com/material-components/material-components-web/tree/master/packages/mdc-card\">mdc\ndocumentation</a>. Examples can be found <a href=\"https://material-components.github.io/material-components-web-catalog/#/component/card\">here</a>.</p>\n<h2>Setup</h2>\n<p>The styles are provided by\n<code>package:angular_components/css/mdc_web/card/mdc-card.scss.css</code>. To use\nthese styles in an Angular component simply add it as a <code>styleUrls</code> value in\nyour <code>Component</code> annotation. We suggest that the style be added before any\ncomponent specific styling so you can easily override style values as needed.</p>\n<pre><code class=\"language-dart\">@Component(\n    selector: 'my-component',\n    templateUrl: 'my_component.html',\n    styleUrls: [\n      'package:angular_components/css/mdc_web/card/mdc-card.scss.css',\n      'my_component.scss.css'])\nclass MyComponent {}\n</code></pre>\n"))],y.z)
-w=H.a([new R.aJ(C.fj,"MaterialCardExample","material_card_example/lib/material_card_example.dart")],y.b)
+t=H.a([new D.kN("README","angular_components/lib/material_card/README.md",X.h("<h1>Material Card</h1>\n<p>Material Card is card styling provided by the Google material team also known as\nmdc-web. This is a wrapper to allow the style to be used in AngularDart\napplications. For documentation on how to use these styling please see the <a href=\"https://github.com/material-components/material-components-web/tree/master/packages/mdc-card\">mdc\ndocumentation</a>. Examples can be found <a href=\"https://material-components.github.io/material-components-web-catalog/#/component/card\">here</a>.</p>\n<h2>Setup</h2>\n<p>The styles are provided by\n<code>package:angular_components/css/mdc_web/card/mdc-card.scss.css</code>. To use\nthese styles in an Angular component simply add it as a <code>styleUrls</code> value in\nyour <code>Component</code> annotation. We suggest that the style be added before any\ncomponent specific styling so you can easily override style values as needed.</p>\n<pre><code class=\"language-dart\">@Component(\n    selector: 'my-component',\n    templateUrl: 'my_component.html',\n    styleUrls: [\n      'package:angular_components/css/mdc_web/card/mdc-card.scss.css',\n      'my_component.scss.css'])\nclass MyComponent {}\n</code></pre>\n"))],y.z)
+w=H.a([new R.aJ(C.fk,"MaterialCardExample","material_card_example/lib/material_card_example.dart")],y.b)
 v=y.m
-u.a=new A.hm(R.cQ(H.a([],y.E),w,t,P.bl(["Material Spec","https://material.io/design/components/cards.html"],v,v),!0))
+u.a=new A.hn(R.cQ(H.a([],y.E),w,t,P.bl(["Material Spec","https://material.io/design/components/cards.html"],v,v),!0))
 u.F(x)}}
-A.kQ.prototype={}
-E.C0.prototype={
+A.kS.prototype={}
+E.C2.prototype={
 q:function(){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6=this,c7=null,c8="h2",c9="mdc-card__media mdc-card__media--16-9 demo-card__media",d0="demo-card__primary",d1="demo-card__title",d2="Our Changing Planet",d3="demo-card__subtitle",d4="by Kurt Wagner",d5="demo-card__secondary",d6="Visit ten places on our planet that are undergoing the biggest changes today.",d7="mdc-card__actions",d8="mdc-card__action-buttons",d9="Bookmark",e0="mdc-card__action-icons",e1="icon",e2="favorite_border",e3="more_vert",e4=c6.a2(),e5=document,e6=T.d(e5,e4,"section")
 c6.m(e6)
 x=T.d(e5,e6,c8)
@@ -198,7 +198,7 @@ o=c6.d
 m=o.a
 o=o.b
 l=m.l(C.l,o)
-l=new F.Y(l===!0)
+l=new F.Z(l===!0)
 c6.f=l
 l=B.a4(n,l,c6.e,c7)
 c6.r=l
@@ -212,7 +212,7 @@ h=l.c
 p.appendChild(h)
 c6.h(h)
 l=m.l(C.l,o)
-l=new F.Y(l===!0)
+l=new F.Z(l===!0)
 c6.y=l
 l=B.a4(h,l,c6.x,c7)
 c6.z=l
@@ -228,7 +228,7 @@ f.appendChild(e)
 T.c(e,e1,"")
 c6.h(e)
 l=m.l(C.l,o)
-l=new F.Y(l===!0)
+l=new F.Z(l===!0)
 c6.ch=l
 c6.cx=B.a4(e,l,c6.Q,c7)
 l=M.a8(c6,20)
@@ -248,7 +248,7 @@ f.appendChild(a1)
 T.c(a1,e1,"")
 c6.h(a1)
 a0=m.l(C.l,o)
-a0=new F.Y(a0===!0)
+a0=new F.Z(a0===!0)
 c6.dy=a0
 c6.fr=B.a4(a1,a0,c6.dx,c7)
 a0=M.a8(c6,22)
@@ -267,7 +267,7 @@ f.appendChild(a3)
 T.c(a3,e1,"")
 c6.h(a3)
 a0=m.l(C.l,o)
-a0=new F.Y(a0===!0)
+a0=new F.Z(a0===!0)
 c6.id=a0
 c6.k1=B.a4(a3,a0,c6.go,c7)
 a0=M.a8(c6,24)
@@ -317,7 +317,7 @@ b5=a0.c
 b4.appendChild(b5)
 c6.h(b5)
 a0=m.l(C.l,o)
-a0=new F.Y(a0===!0)
+a0=new F.Z(a0===!0)
 c6.r1=a0
 a0=B.a4(b5,a0,c6.k4,c7)
 c6.r2=a0
@@ -329,7 +329,7 @@ b7=a0.c
 b4.appendChild(b7)
 c6.h(b7)
 a0=m.l(C.l,o)
-a0=new F.Y(a0===!0)
+a0=new F.Z(a0===!0)
 c6.ry=a0
 a0=B.a4(b7,a0,c6.rx,c7)
 c6.x1=a0
@@ -345,7 +345,7 @@ b9.appendChild(c0)
 T.c(c0,e1,"")
 c6.h(c0)
 j=m.l(C.l,o)
-j=new F.Y(j===!0)
+j=new F.Z(j===!0)
 c6.y1=j
 c6.y2=B.a4(c0,j,c6.x2,c7)
 j=M.a8(c6,45)
@@ -364,7 +364,7 @@ b9.appendChild(c2)
 T.c(c2,e1,"")
 c6.h(c2)
 j=m.l(C.l,o)
-j=new F.Y(j===!0)
+j=new F.Z(j===!0)
 c6.a0=j
 c6.a6=B.a4(c2,j,c6.X,c7)
 j=M.a8(c6,47)
@@ -383,7 +383,7 @@ b9.appendChild(c4)
 T.c(c4,e1,"")
 c6.h(c4)
 o=m.l(C.l,o)
-o=new F.Y(o===!0)
+o=new F.Z(o===!0)
 c6.W=o
 c6.L=B.a4(c4,o,c6.a_,c7)
 o=M.a8(c6,49)
@@ -469,33 +469,33 @@ x.X.k()
 x.Y.k()
 x.a_.k()
 x.aa.k()}}
-E.H4.prototype={
-q:function(){var x,w=this,v=new E.C0(E.S(w,0,3)),u=$.a79
-if(u==null)u=$.a79=O.a0($.aDg,null)
+E.H7.prototype={
+q:function(){var x,w=this,v=new E.C2(E.S(w,0,3)),u=$.a7f
+if(u==null)u=$.a7f=O.a0($.aDm,null)
 v.b=u
 x=document.createElement("material-card-example")
 v.c=x
 w.b=v
-w.a=new A.kQ()
+w.a=new A.kS()
 w.F(x)}}
-var z=a.updateTypes(["f<hm*>*()","f<kQ*>*()"]);(function installTearOffs(){var x=a._static_0
-x(T,"ajn","aIB",0)
-x(E,"ajo","aIC",1)})();(function inheritance(){var x=a.inheritMany
-x(P.y,[A.hm,A.kQ])
-x(E.bn,[T.C_,E.C0])
-x(G.f,[T.H3,E.H4])})()
-H.ak(b.typeUniverse,JSON.parse('{"al":"v","ax":"v","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"V","aw":"ac","aC":"W","az":"ag","au":"af","as":"ah","ar":"a1","C_":{"k":[],"i":[]},"H3":{"f":["hm*"],"i":[],"f.T":"hm*"},"C0":{"k":[],"i":[]},"H4":{"f":["kQ*"],"i":[],"f.T":"kQ*"}}'))
+var z=a.updateTypes(["f<hn*>*()","f<kS*>*()"]);(function installTearOffs(){var x=a._static_0
+x(T,"ajt","aIH",0)
+x(E,"aju","aII",1)})();(function inheritance(){var x=a.inheritMany
+x(P.y,[A.hn,A.kS])
+x(E.bn,[T.C1,E.C2])
+x(G.f,[T.H6,E.H7])})()
+H.ak(b.typeUniverse,JSON.parse('{"al":"w","ax":"w","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"U","aw":"ac","aC":"V","az":"ah","au":"af","as":"ai","ar":"a1","C1":{"k":[],"i":[]},"H6":{"f":["hn*"],"i":[],"f.T":"hn*"},"C2":{"k":[],"i":[]},"H7":{"f":["kS*"],"i":[],"f.T":"kS*"}}'))
 0
 var y=(function rtii(){var x=H.K
-return{g:x("l<hm*>"),f:x("l<kQ*>"),b:x("q<aJ*>"),z:x("q<d_*>"),e:x("q<A*>"),c:x("q<y*>"),E:x("q<t*>"),o:x("q<a1*>"),C:x("D<t*>*"),m:x("t*")}})();(function constants(){C.fj=new D.l("material-card-example",E.ajo(),y.f)
-C.h5=new D.l("material-card-api",T.ajn(),y.g)
-C.lG=H.C("hm")
-C.lH=H.C("kQ")})();(function staticFields(){$.aGq=['.mdc-card._ngcontent-%ID%{border-radius:4px;background-color:#fff;background-color:var(--mdc-theme-surface, #fff);box-shadow:0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);display:flex;flex-direction:column;box-sizing:border-box}.mdc-card--outlined._ngcontent-%ID%{box-shadow:0px 0px 0px 0px rgba(0,0,0,0.2),0px 0px 0px 0px rgba(0,0,0,0.14),0px 0px 0px 0px rgba(0,0,0,0.12);border-width:1px;border-style:solid;border-color:#e0e0e0}.mdc-card__media._ngcontent-%ID%{position:relative;box-sizing:border-box;background-repeat:no-repeat;background-position:center;background-size:cover}.mdc-card__media._ngcontent-%ID%::before{display:block;content:""}.mdc-card__media:first-child._ngcontent-%ID%{border-top-left-radius:inherit;border-top-right-radius:inherit}.mdc-card__media:last-child._ngcontent-%ID%{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit}.mdc-card__media--square._ngcontent-%ID%::before{margin-top:100%}.mdc-card__media--16-9._ngcontent-%ID%::before{margin-top:56.25%}.mdc-card__media-content._ngcontent-%ID%{position:absolute;top:0;right:0;bottom:0;left:0;box-sizing:border-box}.mdc-card__primary-action._ngcontent-%ID%{display:flex;flex-direction:column;box-sizing:border-box;position:relative;outline:none;color:inherit;text-decoration:none;cursor:pointer;overflow:hidden}.mdc-card__primary-action:first-child._ngcontent-%ID%{border-top-left-radius:inherit;border-top-right-radius:inherit}.mdc-card__primary-action:last-child._ngcontent-%ID%{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit}.mdc-card__actions._ngcontent-%ID%{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;min-height:52px;padding:8px}.mdc-card__actions--full-bleed._ngcontent-%ID%{padding:0}.mdc-card__action-buttons._ngcontent-%ID%,.mdc-card__action-icons._ngcontent-%ID%{display:flex;flex-direction:row;align-items:center;box-sizing:border-box}.mdc-card__action-icons._ngcontent-%ID%{color:rgba(0,0,0,0.6);flex-grow:1;justify-content:flex-end}.mdc-card__action-buttons._ngcontent-%ID% + .mdc-card__action-icons._ngcontent-%ID%{margin-left:16px;margin-right:0}[dir=rtl]._ngcontent-%ID% .mdc-card__action-buttons._ngcontent-%ID% + .mdc-card__action-icons._ngcontent-%ID%,.mdc-card__action-buttons._ngcontent-%ID% + .mdc-card__action-icons[dir=rtl]._ngcontent-%ID%{margin-left:0;margin-right:16px}.mdc-card__action._ngcontent-%ID%{display:inline-flex;flex-direction:row;align-items:center;box-sizing:border-box;justify-content:center;cursor:pointer;user-select:none}.mdc-card__action:focus._ngcontent-%ID%{outline:none}.mdc-card__action--button._ngcontent-%ID%{margin-left:0;margin-right:8px;padding:0 8px}[dir=rtl]._ngcontent-%ID% .mdc-card__action--button._ngcontent-%ID%,.mdc-card__action--button[dir=rtl]._ngcontent-%ID%{margin-left:8px;margin-right:0}.mdc-card__action--button:last-child._ngcontent-%ID%{margin-left:0;margin-right:0}[dir=rtl]._ngcontent-%ID% .mdc-card__action--button:last-child._ngcontent-%ID%,.mdc-card__action--button:last-child[dir=rtl]._ngcontent-%ID%{margin-left:0;margin-right:0}.mdc-card__actions--full-bleed._ngcontent-%ID% .mdc-card__action--button._ngcontent-%ID%{justify-content:space-between;width:100%;height:auto;max-height:none;margin:0;padding:8px 16px;text-align:left}[dir=rtl]._ngcontent-%ID% .mdc-card__actions--full-bleed._ngcontent-%ID% .mdc-card__action--button._ngcontent-%ID%,.mdc-card__actions--full-bleed._ngcontent-%ID% .mdc-card__action--button[dir=rtl]._ngcontent-%ID%{text-align:right}.mdc-card__action--icon._ngcontent-%ID%{margin:-6px 0;padding:12px}.mdc-card__action--icon:not(:disabled)._ngcontent-%ID%{color:rgba(0,0,0,0.6)}.mdc-card__primary-action._ngcontent-%ID%{--mdc-ripple-fg-size:0;--mdc-ripple-left:0;--mdc-ripple-top:0;--mdc-ripple-fg-scale:1;--mdc-ripple-fg-translate-end:0;--mdc-ripple-fg-translate-start:0;-webkit-tap-highlight-color:rgba(0,0,0,0);will-change:transform,opacity}.mdc-card__primary-action._ngcontent-%ID%::before,.mdc-card__primary-action._ngcontent-%ID%::after{position:absolute;border-radius:50%;opacity:0;pointer-events:none;content:""}.mdc-card__primary-action._ngcontent-%ID%::before{transition:opacity 15ms linear,background-color 15ms linear;z-index:1}.mdc-card__primary-action.mdc-ripple-upgraded._ngcontent-%ID%::before{transform:scale(var(--mdc-ripple-fg-scale, 1))}.mdc-card__primary-action.mdc-ripple-upgraded._ngcontent-%ID%::after{top:0;left:0;transform:scale(0);transform-origin:center center}.mdc-card__primary-action.mdc-ripple-upgraded--unbounded._ngcontent-%ID%::after{top:var(--mdc-ripple-top, 0);left:var(--mdc-ripple-left, 0)}.mdc-card__primary-action.mdc-ripple-upgraded--foreground-activation._ngcontent-%ID%::after{animation:mdc-ripple-fg-radius-in 225ms forwards,mdc-ripple-fg-opacity-in 75ms forwards}.mdc-card__primary-action.mdc-ripple-upgraded--foreground-deactivation._ngcontent-%ID%::after{animation:mdc-ripple-fg-opacity-out 150ms;transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}.mdc-card__primary-action._ngcontent-%ID%::before,.mdc-card__primary-action._ngcontent-%ID%::after{top:calc(50% - 100%);left:calc(50% - 100%);width:200%;height:200%}.mdc-card__primary-action.mdc-ripple-upgraded._ngcontent-%ID%::after{width:var(--mdc-ripple-fg-size, 100%);height:var(--mdc-ripple-fg-size, 100%)}.mdc-card__primary-action._ngcontent-%ID%::before,.mdc-card__primary-action._ngcontent-%ID%::after{background-color:black}.mdc-card__primary-action:hover._ngcontent-%ID%::before{opacity:0.04}.mdc-card__primary-action.mdc-ripple-upgraded--background-focused._ngcontent-%ID%::before,.mdc-card__primary-action:not(.mdc-ripple-upgraded):focus._ngcontent-%ID%::before{transition-duration:75ms;opacity:0.12}.mdc-card__primary-action:not(.mdc-ripple-upgraded)._ngcontent-%ID%::after{transition:opacity 150ms linear}.mdc-card__primary-action:not(.mdc-ripple-upgraded):active._ngcontent-%ID%::after{transition-duration:75ms;opacity:0.12}.mdc-card__primary-action.mdc-ripple-upgraded._ngcontent-%ID%{--mdc-ripple-fg-opacity:0.12}']
-$.a78=null
-$.ag2=!1
-$.aGr=['._nghost-%ID%{display:flex}.demo-size._ngcontent-%ID%{width:352px}.demo-card__title._ngcontent-%ID%{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:rgba(0,0,0,0.87);font:500 20px/32px Roboto,Noto,sans-serif;letter-spacing:0.005em;line-height:1em;margin:0}.demo-card__subtitle._ngcontent-%ID%{color:rgba(0,0,0,0.87);font:400 15px/24px Roboto,Noto,sans-serif;letter-spacing:0.01em;margin:0}.demo-card__media._ngcontent-%ID%{background-image:url("http://material-components-web.appspot.com/images/16-9.jpg")}.demo-card__primary._ngcontent-%ID%{padding:16px}.demo-card__secondary._ngcontent-%ID%{color:rgba(0,0,0,0.87);font:400 13px/20px Roboto,Noto,sans-serif;letter-spacing:0.01em;padding:0 16px 8px}section._ngcontent-%ID%{display:block}section._ngcontent-%ID% + section._ngcontent-%ID%{margin-left:32px}']
-$.a79=null
-$.ag3=!1
-$.aDg=[$.aGq,$.aGr]})()}
-$__dart_deferred_initializers__["YHi7lBmQr7AHbimBnn7PXrmtWg0="] = $__dart_deferred_initializers__.current
+return{g:x("l<hn*>"),f:x("l<kS*>"),b:x("q<aJ*>"),z:x("q<cZ*>"),e:x("q<A*>"),c:x("q<y*>"),E:x("q<t*>"),o:x("q<a1*>"),C:x("D<t*>*"),m:x("t*")}})();(function constants(){C.fk=new D.l("material-card-example",E.aju(),y.f)
+C.h6=new D.l("material-card-api",T.ajt(),y.g)
+C.lG=H.C("hn")
+C.lH=H.C("kS")})();(function staticFields(){$.aGw=['.mdc-card._ngcontent-%ID%{border-radius:4px;background-color:#fff;background-color:var(--mdc-theme-surface, #fff);box-shadow:0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);display:flex;flex-direction:column;box-sizing:border-box}.mdc-card--outlined._ngcontent-%ID%{box-shadow:0px 0px 0px 0px rgba(0,0,0,0.2),0px 0px 0px 0px rgba(0,0,0,0.14),0px 0px 0px 0px rgba(0,0,0,0.12);border-width:1px;border-style:solid;border-color:#e0e0e0}.mdc-card__media._ngcontent-%ID%{position:relative;box-sizing:border-box;background-repeat:no-repeat;background-position:center;background-size:cover}.mdc-card__media._ngcontent-%ID%::before{display:block;content:""}.mdc-card__media:first-child._ngcontent-%ID%{border-top-left-radius:inherit;border-top-right-radius:inherit}.mdc-card__media:last-child._ngcontent-%ID%{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit}.mdc-card__media--square._ngcontent-%ID%::before{margin-top:100%}.mdc-card__media--16-9._ngcontent-%ID%::before{margin-top:56.25%}.mdc-card__media-content._ngcontent-%ID%{position:absolute;top:0;right:0;bottom:0;left:0;box-sizing:border-box}.mdc-card__primary-action._ngcontent-%ID%{display:flex;flex-direction:column;box-sizing:border-box;position:relative;outline:none;color:inherit;text-decoration:none;cursor:pointer;overflow:hidden}.mdc-card__primary-action:first-child._ngcontent-%ID%{border-top-left-radius:inherit;border-top-right-radius:inherit}.mdc-card__primary-action:last-child._ngcontent-%ID%{border-bottom-left-radius:inherit;border-bottom-right-radius:inherit}.mdc-card__actions._ngcontent-%ID%{display:flex;flex-direction:row;align-items:center;box-sizing:border-box;min-height:52px;padding:8px}.mdc-card__actions--full-bleed._ngcontent-%ID%{padding:0}.mdc-card__action-buttons._ngcontent-%ID%,.mdc-card__action-icons._ngcontent-%ID%{display:flex;flex-direction:row;align-items:center;box-sizing:border-box}.mdc-card__action-icons._ngcontent-%ID%{color:rgba(0,0,0,0.6);flex-grow:1;justify-content:flex-end}.mdc-card__action-buttons._ngcontent-%ID% + .mdc-card__action-icons._ngcontent-%ID%{margin-left:16px;margin-right:0}[dir=rtl]._ngcontent-%ID% .mdc-card__action-buttons._ngcontent-%ID% + .mdc-card__action-icons._ngcontent-%ID%,.mdc-card__action-buttons._ngcontent-%ID% + .mdc-card__action-icons[dir=rtl]._ngcontent-%ID%{margin-left:0;margin-right:16px}.mdc-card__action._ngcontent-%ID%{display:inline-flex;flex-direction:row;align-items:center;box-sizing:border-box;justify-content:center;cursor:pointer;user-select:none}.mdc-card__action:focus._ngcontent-%ID%{outline:none}.mdc-card__action--button._ngcontent-%ID%{margin-left:0;margin-right:8px;padding:0 8px}[dir=rtl]._ngcontent-%ID% .mdc-card__action--button._ngcontent-%ID%,.mdc-card__action--button[dir=rtl]._ngcontent-%ID%{margin-left:8px;margin-right:0}.mdc-card__action--button:last-child._ngcontent-%ID%{margin-left:0;margin-right:0}[dir=rtl]._ngcontent-%ID% .mdc-card__action--button:last-child._ngcontent-%ID%,.mdc-card__action--button:last-child[dir=rtl]._ngcontent-%ID%{margin-left:0;margin-right:0}.mdc-card__actions--full-bleed._ngcontent-%ID% .mdc-card__action--button._ngcontent-%ID%{justify-content:space-between;width:100%;height:auto;max-height:none;margin:0;padding:8px 16px;text-align:left}[dir=rtl]._ngcontent-%ID% .mdc-card__actions--full-bleed._ngcontent-%ID% .mdc-card__action--button._ngcontent-%ID%,.mdc-card__actions--full-bleed._ngcontent-%ID% .mdc-card__action--button[dir=rtl]._ngcontent-%ID%{text-align:right}.mdc-card__action--icon._ngcontent-%ID%{margin:-6px 0;padding:12px}.mdc-card__action--icon:not(:disabled)._ngcontent-%ID%{color:rgba(0,0,0,0.6)}.mdc-card__primary-action._ngcontent-%ID%{--mdc-ripple-fg-size:0;--mdc-ripple-left:0;--mdc-ripple-top:0;--mdc-ripple-fg-scale:1;--mdc-ripple-fg-translate-end:0;--mdc-ripple-fg-translate-start:0;-webkit-tap-highlight-color:rgba(0,0,0,0);will-change:transform,opacity}.mdc-card__primary-action._ngcontent-%ID%::before,.mdc-card__primary-action._ngcontent-%ID%::after{position:absolute;border-radius:50%;opacity:0;pointer-events:none;content:""}.mdc-card__primary-action._ngcontent-%ID%::before{transition:opacity 15ms linear,background-color 15ms linear;z-index:1}.mdc-card__primary-action.mdc-ripple-upgraded._ngcontent-%ID%::before{transform:scale(var(--mdc-ripple-fg-scale, 1))}.mdc-card__primary-action.mdc-ripple-upgraded._ngcontent-%ID%::after{top:0;left:0;transform:scale(0);transform-origin:center center}.mdc-card__primary-action.mdc-ripple-upgraded--unbounded._ngcontent-%ID%::after{top:var(--mdc-ripple-top, 0);left:var(--mdc-ripple-left, 0)}.mdc-card__primary-action.mdc-ripple-upgraded--foreground-activation._ngcontent-%ID%::after{animation:mdc-ripple-fg-radius-in 225ms forwards,mdc-ripple-fg-opacity-in 75ms forwards}.mdc-card__primary-action.mdc-ripple-upgraded--foreground-deactivation._ngcontent-%ID%::after{animation:mdc-ripple-fg-opacity-out 150ms;transform:translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1))}.mdc-card__primary-action._ngcontent-%ID%::before,.mdc-card__primary-action._ngcontent-%ID%::after{top:calc(50% - 100%);left:calc(50% - 100%);width:200%;height:200%}.mdc-card__primary-action.mdc-ripple-upgraded._ngcontent-%ID%::after{width:var(--mdc-ripple-fg-size, 100%);height:var(--mdc-ripple-fg-size, 100%)}.mdc-card__primary-action._ngcontent-%ID%::before,.mdc-card__primary-action._ngcontent-%ID%::after{background-color:black}.mdc-card__primary-action:hover._ngcontent-%ID%::before{opacity:0.04}.mdc-card__primary-action.mdc-ripple-upgraded--background-focused._ngcontent-%ID%::before,.mdc-card__primary-action:not(.mdc-ripple-upgraded):focus._ngcontent-%ID%::before{transition-duration:75ms;opacity:0.12}.mdc-card__primary-action:not(.mdc-ripple-upgraded)._ngcontent-%ID%::after{transition:opacity 150ms linear}.mdc-card__primary-action:not(.mdc-ripple-upgraded):active._ngcontent-%ID%::after{transition-duration:75ms;opacity:0.12}.mdc-card__primary-action.mdc-ripple-upgraded._ngcontent-%ID%{--mdc-ripple-fg-opacity:0.12}']
+$.a7e=null
+$.ag9=!1
+$.aGx=['._nghost-%ID%{display:flex}.demo-size._ngcontent-%ID%{width:352px}.demo-card__title._ngcontent-%ID%{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:rgba(0,0,0,0.87);font:500 20px/32px Roboto,Noto,sans-serif;letter-spacing:0.005em;line-height:1em;margin:0}.demo-card__subtitle._ngcontent-%ID%{color:rgba(0,0,0,0.87);font:400 15px/24px Roboto,Noto,sans-serif;letter-spacing:0.01em;margin:0}.demo-card__media._ngcontent-%ID%{background-image:url("http://material-components-web.appspot.com/images/16-9.jpg")}.demo-card__primary._ngcontent-%ID%{padding:16px}.demo-card__secondary._ngcontent-%ID%{color:rgba(0,0,0,0.87);font:400 13px/20px Roboto,Noto,sans-serif;letter-spacing:0.01em;padding:0 16px 8px}section._ngcontent-%ID%{display:block}section._ngcontent-%ID% + section._ngcontent-%ID%{margin-left:32px}']
+$.a7f=null
+$.aga=!1
+$.aDm=[$.aGw,$.aGx]})()}
+$__dart_deferred_initializers__["pYknwpZ2eUahVaEysRXVgthMn9I="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_39.part.js.map
