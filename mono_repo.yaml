@@ -4,9 +4,13 @@ self_validate: analyze_and_format
 
 github:
   stages:
-    - analyze_and_format
+    - analyze_and_format_core
+    - analyze_and_format_examples_1
+    - analyze_and_format_examples_2
     - unit_test
     - build
 
-# merge_stages:
-#   - analyze_and_format
+merge_stages:
+  - analyze_and_format_core
+  - analyze_and_format_examples_1
+  - analyze_and_format_examples_2
