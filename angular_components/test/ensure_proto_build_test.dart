@@ -30,8 +30,8 @@ void main() {
       protocPath = (result.stdout as String).trim();
     }
 
-    final String parentDir = Directory.current.parent.path;
-    final datepickerProtoPath = '${parentDir}/lib/material_datepicker/proto';
+    final String currentDir = Directory.current.path;
+    final datepickerProtoPath = '${currentDir}/lib/material_datepicker/proto';
 
     // 1 - get a list of modified `.pb.dart` files - should be empty
     expect(_changedGeneratedFiles(), isEmpty);
