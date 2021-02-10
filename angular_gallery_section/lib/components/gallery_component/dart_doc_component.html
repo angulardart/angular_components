@@ -17,7 +17,7 @@
   <code>{{doc.exportAs}}</code>
 </p>
 
-<div [safeInnerHtml]="getSafeHtml(doc.comment)"></div>
+<div>{{doc.comment}}</div>
 
 <ng-container *ngIf="showGeneratedDocs">
   <div *ngIf="doc.inputs.isNotEmpty">
@@ -35,7 +35,7 @@
         <p *ngIf="input.comment.isEmpty && !input.deprecated">
           Missing a Dart Doc comment.
         </p>
-        <div [safeInnerHtml]="getSafeHtml(input.comment)"></div>
+        <div>{{input.comment}}</div>
       </li>
     </ul>
   </div>
@@ -54,7 +54,7 @@
         <p *ngIf="output.comment.isEmpty && !output.deprecated">
           Missing a Dart Doc comment.
         </p>
-        <div [safeInnerHtml]="getSafeHtml(output.comment)"></div>
+        <div>{{output.comment}}</div>
       </li>
     </ul>
   </div>

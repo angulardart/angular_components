@@ -3,17 +3,15 @@
  for details. All rights reserved. Use of this source code is governed by a
  BSD-style license that can be found in the LICENSE file.
 -->
-<div
-    *ngIf="doc.libraryDoc.isNotEmpty"
-    [safeInnerHtml]="getSafeHtml(doc.libraryDoc)">
-</div>
+<div *ngIf="doc.libraryDoc.isNotEmpty">{{doc.libraryDoc}}</div>
 
 <ng-container *ngIf="doc.variables.isNotEmpty">
   <strong>Variables:</strong>
   <ul class="property-list">
     <li *ngFor="let variable of doc.variables">
       <code class="property-name">${{variable.name}}</code>
-      <div *ngIf="variable.comment.isNotEmpty" [safeInnerHtml]="getSafeHtml(variable.comment)">
+      <div *ngIf="variable.comment.isNotEmpty">
+        {{variable.comment}}
       </div>
     </li>
   </ul>
@@ -24,7 +22,8 @@
   <ul class="property-list">
     <li *ngFor="let function of doc.functions">
       <code class="property-name">{{function.signature}}</code>
-      <div *ngIf="function.comment.isNotEmpty" [safeInnerHtml]="getSafeHtml(function.comment)">
+      <div *ngIf="function.comment.isNotEmpty">
+        {{function.comment}}
       </div>
     </li>
   </ul>
@@ -35,7 +34,7 @@
   <ul class="property-list">
     <li *ngFor="let mix of doc.mixins">
       <code class="property-name">{{mix.signature}}</code>
-      <div *ngIf="mix.comment.isNotEmpty" [safeInnerHtml]="getSafeHtml(mix.comment)"></div>
+      <div *ngIf="mix.comment.isNotEmpty">{{mix.comment}}</div>
     </li>
   </ul>
 </ng-container>
