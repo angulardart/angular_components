@@ -5,7 +5,7 @@ stages:
         - dartfmt: sdk
         - dartanalyzer: --fatal-warnings .
       dart:
-        - dev
+        - beta
 
 cache:
   directories:

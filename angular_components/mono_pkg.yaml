@@ -1,6 +1,6 @@
 # See https://github.com/google/mono_repo.dart for details
 dart:
-  - dev
+  - beta
 
 stages:
   - analyze_and_format_core:
@@ -8,7 +8,7 @@ stages:
         - dartfmt: sdk
         - dartanalyzer: --fatal-warnings .
       dart:
-        - dev
+        - beta
   - unit_test:
     - group:
       - command: ./tool/travis/install_protoc.sh

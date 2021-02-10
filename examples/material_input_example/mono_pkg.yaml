@@ -6,7 +6,7 @@ stages:
         # errors exist
         #- dartanalyzer: --fatal-warnings .
       dart:
-        - dev
+        - beta
     # errors exist
     # - group:
     #     - dartanalyzer: --fatal-warnings .
