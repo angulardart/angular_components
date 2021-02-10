@@ -35,7 +35,7 @@ jobs:
       - name: mono_repo self validate
         run: pub global run mono_repo generate --validate
   job_002:
-    name: "analyze_and_format_core; Dart beta; PKG: angular_components; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`"
+    name: "analyze_and_format_core; PKG: angular_components; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -70,7 +70,7 @@ jobs:
     needs:
       - job_001
   job_003:
-    name: "analyze_and_format_core; Dart beta; PKGS: angular_gallery, angular_gallery_section; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings --fatal-infos .`"
+    name: "analyze_and_format_core; PKGS: angular_gallery, angular_gallery_section; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -118,7 +118,7 @@ jobs:
     needs:
       - job_001
   job_004:
-    name: "analyze_and_format_examples_1; Dart beta; PKGS: examples/app_layout_example, examples/material_button_example, examples/material_card_example, examples/material_checkbox_example, examples/material_chips_example, examples/material_datepicker_example, examples/material_dialog_example, examples/material_expansionpanel_example, examples/material_icon_example, examples/material_list_example, examples/material_yes_no_buttons_example; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings --fatal-infos .`"
+    name: "analyze_and_format_examples_1; PKGS: examples/app_layout_example, examples/material_button_example, examples/material_card_example, examples/material_checkbox_example, examples/material_chips_example, examples/material_datepicker_example, examples/material_dialog_example, examples/material_expansionpanel_example, examples/material_icon_example, examples/material_list_example, examples/material_yes_no_buttons_example; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -285,7 +285,7 @@ jobs:
       - job_002
       - job_003
   job_005:
-    name: "analyze_and_format_examples_1; Dart beta; PKG: examples/material_input_example; `dartfmt -n --set-exit-if-changed .`"
+    name: "analyze_and_format_examples_1; PKG: examples/material_input_example; `dartfmt -n --set-exit-if-changed .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -318,7 +318,7 @@ jobs:
       - job_002
       - job_003
   job_006:
-    name: "analyze_and_format_examples_1; Dart beta; PKG: examples/material_menu_example; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`"
+    name: "analyze_and_format_examples_1; PKG: examples/material_menu_example; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -355,7 +355,7 @@ jobs:
       - job_002
       - job_003
   job_007:
-    name: "analyze_and_format_examples_2; Dart beta; PKGS: examples/material_popup_example, examples/material_progress_example, examples/material_radio_example, examples/material_slider_example, examples/material_spinner_example, examples/material_stepper_example, examples/material_tab_example, examples/material_toggle_example, examples/material_tooltip_example, examples/scorecard_example, examples/simple_html_example; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings --fatal-infos .`"
+    name: "analyze_and_format_examples_2; PKGS: examples/material_popup_example, examples/material_progress_example, examples/material_radio_example, examples/material_slider_example, examples/material_spinner_example, examples/material_stepper_example, examples/material_tab_example, examples/material_toggle_example, examples/material_tooltip_example, examples/scorecard_example, examples/simple_html_example; `dartfmt -n --set-exit-if-changed .`, `dartanalyzer --fatal-warnings --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -525,7 +525,7 @@ jobs:
       - job_005
       - job_006
   job_008:
-    name: "analyze_and_format_examples_2; Dart beta; PKGS: examples/material_select_example, examples/material_tree_example; `dartfmt -n --set-exit-if-changed .`"
+    name: "analyze_and_format_examples_2; PKGS: examples/material_select_example, examples/material_tree_example; `dartfmt -n --set-exit-if-changed .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -570,7 +570,7 @@ jobs:
       - job_005
       - job_006
   job_009:
-    name: "unit_test; Dart beta; PKG: angular_components; `./tool/travis/install_protoc.sh`, `pub run test --run-skipped`"
+    name: "unit_test; PKG: angular_components; `./tool/travis/install_protoc.sh`, `pub run test --run-skipped`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -612,65 +612,22 @@ jobs:
       - job_007
       - job_008
   job_010:
-    name: "build; Dart stable; PKG: examples/angular_components_example; `pub run build_runner build web`, `pub run build_runner build web --release`"
+    name: "build; PKG: examples/angular_components_example; `pub run build_runner build web`, `pub run build_runner build web --release`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@v2
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:examples/angular_components_example;commands:command_1-command_2"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:examples/angular_components_example;commands:command_1-command_2"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:examples/angular_components_example
-            os:ubuntu-latest;pub-cache-hosted;dart:stable
+            os:ubuntu-latest;pub-cache-hosted;dart:beta;packages:examples/angular_components_example
+            os:ubuntu-latest;pub-cache-hosted;dart:beta
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
       - uses: dart-lang/setup-dart@v0.3
         with:
-          sdk: stable
-      - id: checkout
-        uses: actions/checkout@v2
-      - id: examples_angular_components_example_pub_upgrade
-        name: "examples/angular_components_example; pub upgrade --no-precompile"
-        if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: examples/angular_components_example
-        run: pub upgrade --no-precompile
-      - name: examples/angular_components_example; pub run build_runner build web
-        if: "always() && steps.examples_angular_components_example_pub_upgrade.conclusion == 'success'"
-        working-directory: examples/angular_components_example
-        run: pub run build_runner build web
-      - name: "examples/angular_components_example; pub run build_runner build web --release"
-        if: "always() && steps.examples_angular_components_example_pub_upgrade.conclusion == 'success'"
-        working-directory: examples/angular_components_example
-        run: pub run build_runner build web --release
-    if:
-    needs:
-      - job_001
-      - job_002
-      - job_003
-      - job_004
-      - job_005
-      - job_006
-      - job_007
-      - job_008
-      - job_009
-  job_011:
-    name: "build; Dart dev; PKG: examples/angular_components_example; `pub run build_runner build web`, `pub run build_runner build web --release`"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cache Pub hosted dependencies
-        uses: actions/cache@v2
-        with:
-          path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/angular_components_example;commands:command_1-command_2"
-          restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/angular_components_example
-            os:ubuntu-latest;pub-cache-hosted;dart:dev
-            os:ubuntu-latest;pub-cache-hosted
-            os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
-        with:
-          sdk: dev
+          sdk: beta
       - id: checkout
         uses: actions/checkout@v2
       - id: examples_angular_components_example_pub_upgrade
