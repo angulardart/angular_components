@@ -17,7 +17,7 @@ dependencies:
   built_collection: ^4.0.0
   collection: ^1.14.10
   fixnum: ^0.10.7
-  intl: ^0.16.0
+  intl: ^0.17.0-nullsafety
   js: ^0.6.1
   logging: ^0.11.2
   meta: ^1.0.4
@@ -30,3 +30,35 @@ dev_dependencies:
   path: ^1.6.1
   pedantic: ^1.8.0
   test: ^1.0.0
+
+dependency_overrides:
+  angular:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular
+  angular_compiler:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_compiler
+  angular_ast:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_ast
+  angular_forms:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_forms
+  angular_router:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_router
+  angular_test:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_test

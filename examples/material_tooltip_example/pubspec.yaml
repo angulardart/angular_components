@@ -12,3 +12,37 @@ dependencies:
   angular_gallery_section:
     path: ../../angular_gallery_section
   build_config: '>=0.2.6 <0.5.0'
+
+dependency_overrides:
+  angular_components:
+    path: ../../angular_components
+  angular:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular
+  angular_compiler:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_compiler
+  angular_ast:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_ast
+  angular_forms:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_forms
+  angular_router:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_router
+  angular_test:
+    git:
+      url: https://github.com/angulardart/angular.git
+      ref: lktests
+      path: angular_test
