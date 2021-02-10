@@ -6,7 +6,6 @@ import 'dart:async';
 import 'dart:html' as html;
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:meta/meta.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';

@@ -5,7 +5,6 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/time.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';

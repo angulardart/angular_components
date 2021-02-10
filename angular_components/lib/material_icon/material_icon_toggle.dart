@@ -3,8 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
-
 import 'material_icon.dart';
 
 /// Adds a second icon to [MaterialIconComponent] that can be toggled on and

@@ -5,7 +5,6 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
 import 'package:observable/observable.dart';
 import 'package:quiver/core.dart' as qc;
 import 'package:angular_components/dynamic_component/dynamic_component.dart';

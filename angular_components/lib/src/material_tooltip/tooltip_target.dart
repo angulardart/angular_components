@@ -6,7 +6,6 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
 import 'package:meta/meta.dart';
 import 'package:angular_components/laminate/overlay/constants.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
