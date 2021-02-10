@@ -3,7 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import 'package:angular/security.dart';
 import 'package:angular_gallery_section/components/gallery_component/gallery_info.dart';
 
 /// A list of all documentation directives.
@@ -17,20 +16,7 @@ class DocumentationComponent {
   @Input()
   bool showGeneratedDocs;
 
-  final _sanitizedHtml = <String, SafeHtml>{};
-
-  DomSanitizationService _santizationService;
-
-  DocumentationComponent(this._santizationService);
-
-  SafeHtml getSafeHtml(String value) {
-    var html = _sanitizedHtml[value];
-    if (html == null) {
-      html = _santizationService.bypassSecurityTrustHtml(value);
-      _sanitizedHtml[value] = html;
-    }
-    return html;
-  }
+  DocumentationComponent();
 }
 
 /// Displays documentation for dart files in the gallery application.
@@ -41,14 +27,12 @@ class DocumentationComponent {
   directives: [
     NgFor,
     NgIf,
-    SafeInnerHtmlDirective,
   ],
   templateUrl: 'dart_doc_component.html',
   styleUrls: ['documentation_component.scss.css'],
 )
 class DartDocComponent extends DocumentationComponent {
-  DartDocComponent(DomSanitizationService santizationService)
-      : super(santizationService);
+  DartDocComponent() : super();
 
   /// The documentation to display.
   @Input()
@@ -60,13 +44,11 @@ class DartDocComponent extends DocumentationComponent {
 /// Typically used for the generated HTML from a markdown README.
 @Component(
   selector: 'documentation-component[markdown]',
-  directives: [SafeInnerHtmlDirective],
-  template: '<div [safeInnerHtml]="getSafeHtml(doc.contents)"></div>',
+  template: '<div>{{doc.contents}}</div>',
   styleUrls: ['documentation_component.scss.css'],
 )
 class MarkdownDocComponent extends DocumentationComponent {
-  MarkdownDocComponent(DomSanitizationService santizationService)
-      : super(santizationService);
+  MarkdownDocComponent() : super();
 
   /// The documentation to display.
   @Input()
@@ -82,14 +64,12 @@ class MarkdownDocComponent extends DocumentationComponent {
   directives: [
     NgFor,
     NgIf,
-    SafeInnerHtmlDirective,
   ],
   templateUrl: 'sass_doc_component.html',
   styleUrls: ['documentation_component.scss.css'],
 )
 class SassDocComponent extends DocumentationComponent {
-  SassDocComponent(DomSanitizationService santizationService)
-      : super(santizationService);
+  SassDocComponent() : super();
 
   /// The documentation to display.
   @Input()
