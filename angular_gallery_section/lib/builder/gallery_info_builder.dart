@@ -299,7 +299,7 @@ class GalleryInfoBuilder extends Builder {
   /// Returns the library that defines [name] as a class or top level function,
   /// as reachable from [rootLibrary].
   LibraryElement _getLibrary(String name, LibraryElement rootLibrary) {
-    var result = rootLibrary.scope.lookup2(name).getter;
+    var result = rootLibrary.scope.lookup(name).getter;
 
     if (result == null) {
       throw 'Error: Failed to locate a library containing $name.';
