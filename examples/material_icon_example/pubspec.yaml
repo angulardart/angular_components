@@ -19,12 +19,12 @@ dependency_overrides:
   angular:
     git:
       url: https://github.com/angulardart/angular.git
-      ref: lktests
+      ref: google
       path: angular
   angular_compiler:
     git:
       url: https://github.com/angulardart/angular.git
-      ref: lktests
+      ref: google
       path: angular_compiler
   angular_ast:
     git:
