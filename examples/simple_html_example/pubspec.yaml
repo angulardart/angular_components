@@ -47,3 +47,7 @@ dependency_overrides:
       url: https://github.com/angulardart/angular.git
       ref: lktests
       path: angular_test
+  sass:
+    git:
+      url: https://github.com/lukaszkolodziejczyk/dart-sass.git
+      ref: nullsafety-args

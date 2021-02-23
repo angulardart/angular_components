@@ -50,3 +50,7 @@ dependency_overrides:
     git:
       url: https://github.com/lukaszkolodziejczyk/observable.git
       ref: dart_internal
+  sass:
+    git:
+      url: https://github.com/lukaszkolodziejczyk/dart-sass.git
+      ref: nullsafety-args
