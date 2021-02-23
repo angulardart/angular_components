@@ -51,3 +51,7 @@ dependency_overrides:
       url: https://github.com/angulardart/angular.git
       ref: lktests
       path: angular_test
+  observable:
+    git:
+      url: https://github.com/lukaszkolodziejczyk/observable.git
+      ref: dart_internal
