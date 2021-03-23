@@ -1,34 +1,34 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,E,M,Q,D,Z,O={
-apy:function(){return C.fv},
-aLz:function(){return new O.Jw(new G.R())},
-aw4:function(){if($.adk)return
-$.adk=!0
-$.T.w(0,C.mF,new D.l("material-toggle-api",O.aka(),x.s))
+apB:function(){return C.fu},
+aLE:function(){return new O.Jv(new G.R())},
+aw9:function(){if($.adn)return
+$.adn=!0
+$.T.w(0,C.mE,new D.l("material-toggle-api",O.akc(),x.s))
 E.F()
 K.d7()
-D.cV()
-T.aw5()},
-CP:function CP(d){var _=this
+D.cU()
+T.awa()},
+CO:function CO(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-Jw:function Jw(d){var _=this
+Jv:function Jv(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},A,T={
-aLC:function(){return new T.Jz(new G.R())},
-aw5:function(){if($.adl)return
-$.adl=!0
-$.T.w(0,C.nk,new D.l("material-toggle-example",T.akb(),x.G))
+aLH:function(){return new T.Jy(new G.R())},
+awa:function(){if($.ado)return
+$.ado=!0
+$.T.w(0,C.nj,new D.l("material-toggle-example",T.akd(),x.G))
 E.F()
-Q.oK()},
-v6:function v6(d,e){var _=this
+Q.oJ()},
+v5:function v5(d,e){var _=this
 _.e=d
 _.V=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=null
 _.c=_.b=_.a=_.a7=null
 _.d=e},
-Jz:function Jz(d){var _=this
+Jy:function Jy(d){var _=this
 _.c=_.b=_.a=null
-_.d=d}},L,N,U={hJ:function hJ(d){this.a=d}},X,B,S={lh:function lh(){this.b=this.a=!1
+_.d=d}},L,N,U={hK:function hK(d){this.a=d}},X,B,S={lh:function lh(){this.b=this.a=!1
 this.c=null}},F
 a.setFunctionNamesIfNecessary([O,T,U,S])
 C=c[0]
@@ -56,59 +56,59 @@ X=c[21]
 B=c[22]
 S=a.updateHolder(c[23],S)
 F=c[24]
-U.hJ.prototype={}
-O.CP.prototype={
+U.hK.prototype={}
+O.CO.prototype={
 gnF:function(){var w=this.r
 return w==null?this.r=document:w},
-gCW:function(){var w=this.y
+gCY:function(){var w=this.y
 return w==null?this.y=window:w},
 gnG:function(){var w,v=this,u=v.z
 if(u==null){u=v.d
 w=u.a
 u=u.b
-u=T.bx(w.l(C.b,u),w.l(C.D,u),w.n(C.f,u),v.gCW())
+u=T.bx(w.l(C.b,u),w.l(C.D,u),w.n(C.f,u),v.gCY())
 v.z=u}return u},
-gCT:function(){var w,v=this,u=v.Q
+gCV:function(){var w,v=this,u=v.Q
 if(u==null){u=v.d
 u=u.a.n(C.U,u.b)
 w=v.gnG()
 u=v.Q=new O.bh(u,w)}return u},
 gtA:function(){var w=this,v=w.ch
 return v==null?w.ch=new K.bi(w.gnF(),w.gnG(),P.bu(null,x.f)):v},
-gUQ:function(){var w=this.cx
+gUV:function(){var w=this.cx
 if(w==null){w=this.d
 w=T.bB(w.a.n(C.f,w.b))
 this.cx=w}return w},
 gtB:function(){var w=this.cy
 if(w==null){w=this.d
-w=G.bF(w.a.l(C.t,w.b))
+w=G.bF(w.a.l(C.u,w.b))
 this.cy=w}return w},
-gCY:function(){var w=this,v=w.db
+gD_:function(){var w=this,v=w.db
 if(v==null){v=w.d
-v=G.bJ(w.gnF(),v.a.l(C.u,v.b))
+v=G.bJ(w.gnF(),v.a.l(C.v,v.b))
 w.db=v}return v},
-gCZ:function(){var w=this,v=w.dx
+gD0:function(){var w=this,v=w.dx
 if(v==null){v=w.d
-v=G.bz(w.gtB(),w.gCY(),v.a.l(C.r,v.b))
+v=G.bz(w.gtB(),w.gD_(),v.a.l(C.t,v.b))
 w.dx=v}return v},
 gtC:function(){var w=this.dy
 return w==null?this.dy=!0:w},
-gD_:function(){var w=this.fr
+gD1:function(){var w=this.fr
 return w==null?this.fr=!0:w},
-gCV:function(){var w=this.fy
+gCX:function(){var w=this.fy
 if(w==null){w=this.gnF()
 w=this.fy=new R.bk(w.querySelector("head"),w)}return w},
-gCX:function(){var w=this.go
+gCZ:function(){var w=this.go
 return w==null?this.go=X.bE():w},
-gCU:function(){var w=this,v=w.id
-return v==null?w.id=K.bD(w.gCV(),w.gCZ(),w.gtB(),w.gtA(),w.gnG(),w.gCT(),w.gtC(),w.gD_(),w.gCX()):v},
-gUR:function(){var w,v,u,t,s=this,r=s.k1
+gCW:function(){var w=this,v=w.id
+return v==null?w.id=K.bD(w.gCX(),w.gD0(),w.gtB(),w.gtA(),w.gnG(),w.gCV(),w.gtC(),w.gD1(),w.gCZ()):v},
+gUW:function(){var w,v,u,t,s=this,r=s.k1
 if(r==null){r=s.d
 w=r.a
 r=r.b
 v=w.n(C.f,r)
 u=s.gtC()
-t=s.gCU()
+t=s.gCW()
 w.l(C.k,r)
 r=s.k1=new X.bg(u,v,t)}return r},
 q:function(){var w=this,v=w.a2(),u=K.cI(w,0)
@@ -122,43 +122,43 @@ w.e.K(0,u)},
 P:function(d,e,f){var w,v=this
 if(0===e){if(d===C.L)return v.gnF()
 if(d===C.V){w=v.x
-return w==null?v.x=document:w}if(d===C.J)return v.gCW()
+return w==null?v.x=document:w}if(d===C.J)return v.gCY()
 if(d===C.b)return v.gnG()
-if(d===C.P)return v.gCT()
+if(d===C.P)return v.gCV()
 if(d===C.N)return v.gtA()
-if(d===C.a_)return v.gUQ()
-if(d===C.t)return v.gtB()
-if(d===C.u)return v.gCY()
-if(d===C.r)return v.gCZ()
+if(d===C.a_)return v.gUV()
+if(d===C.u)return v.gtB()
+if(d===C.v)return v.gD_()
+if(d===C.t)return v.gD0()
 if(d===C.T)return v.gtC()
-if(d===C.F)return v.gD_()
+if(d===C.F)return v.gD1()
 if(d===C.G){w=v.fx
-return w==null?v.fx=C.Y:w}if(d===C.R)return v.gCV()
-if(d===C.E)return v.gCX()
-if(d===C.Q)return v.gCU()
-if(d===C.k)return v.gUR()
+return w==null?v.fx=C.Y:w}if(d===C.R)return v.gCX()
+if(d===C.E)return v.gCZ()
+if(d===C.Q)return v.gCW()
+if(d===C.k)return v.gUW()
 if(d===C.H){w=v.k2
-return w==null?v.k2=C.Z:w}if(d===C.v){w=v.k3
+return w==null?v.k2=C.Z:w}if(d===C.w){w=v.k3
 return w==null?v.k3=new K.bp(v.gtA()):w}}return f},
 A:function(){var w=this,v=w.a.a,u=w.k4
 if(u!==v)w.k4=w.f.a=v
 w.e.j()},
 G:function(){this.e.k()}}
-O.Jw.prototype={
-q:function(){var w,v,u,t=this,s=new O.CP(E.S(t,0,3)),r=$.a8H
-if(r==null)r=$.a8H=O.bH(C.a,null)
+O.Jv.prototype={
+q:function(){var w,v,u,t=this,s=new O.CO(E.S(t,0,3)),r=$.a8I
+if(r==null)r=$.a8I=O.bH(C.a,null)
 s.b=r
 w=document.createElement("material-toggle-api")
 s.c=w
 t.b=s
 s=x.C
 s=H.a([new D.b5("MaterialToggleComponent",!1,"","material-toggle","","angular_components/lib/material_toggle/material_toggle.dart",X.h("<p><code>material-toggle</code> is a button that can be either ON or OFF.</p>\n<p>User can tap the toggle button to change the state.\nUsually you use toggle buttons when you have a single ON/OFF option.\nIf you have multiple options from a set to be checked/unchecked, use\n<code>material-checkbox</code> instead.</p>\n"),H.a([new D.j("ariaLabel","","String*",X.h("<p>ARIA label to use for the toggle button.</p>\n"),!1,""),new D.j("checked","","bool*",X.h("<p>Current state of the toggle button.</p>\n<p><code>true</code> is ON and <code>false</code> is OFF.</p>\n"),!1,""),new D.j("disabled","","bool*",X.h("<p>Enables/disables the toggle button.</p>\n<p><code>true</code> is disabled and <code>false</code> is enabled.</p>\n"),!1,""),new D.j("label","","String*",X.h("<p>Label for the toggle button.</p>\n"),!1,"")],s),H.a([new D.j("onChecked","checkedChange","Stream<bool*>*",X.h("<p>Event that is fired when the toggle is checked.</p>\n"),!1,"")],s))],x.c)
-v=H.a([new R.aJ(C.fb,"MaterialToggleExampleComponent","material_toggle_example/lib/material_toggle_example.dart")],x.D)
+v=H.a([new R.aK(C.fa,"MaterialToggleExampleComponent","material_toggle_example/lib/material_toggle_example.dart")],x.D)
 u=x.X
-t.a=new U.hJ(R.cQ(H.a([],x.i),v,s,P.aW(u,u),!0))
+t.a=new U.hK(R.cP(H.a([],x.i),v,s,P.aV(u,u),!0))
 t.F(w)}}
 S.lh.prototype={}
-T.v6.prototype={
+T.v5.prototype={
 q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5=this,b6=null,b7="section",b8="h2",b9="label",c0="br",c1="theme-red",c2="checked",c3="theme-purple",c4="disabled",c5=b5.a2(),c6=document,c7=T.d(c6,c5,b7)
 b5.m(c7)
 w=T.d(c6,c7,b8)
@@ -337,11 +337,11 @@ b5.x1=v
 b5.ry.u(v,H.a([C.a],t))
 t=b5.r.f
 v=x.b
-b3=new P.e(t,H.m(t).i("e<1>")).D(b5.v(b5.gUS(),v,v))
+b3=new P.e(t,H.m(t).i("e<1>")).D(b5.v(b5.gUX(),v,v))
 t=b5.dy.f
-b4=new P.e(t,H.m(t).i("e<1>")).D(b5.v(b5.gUU(),v,v))
+b4=new P.e(t,H.m(t).i("e<1>")).D(b5.v(b5.gUZ(),v,v))
 t=b5.fx.f
-b5.bo(H.a([b3,b4,new P.e(t,H.m(t).i("e<1>")).D(b5.v(b5.gUW(),v,v))],x.a))},
+b5.bo(H.a([b3,b4,new P.e(t,H.m(t).i("e<1>")).D(b5.v(b5.gV0(),v,v))],x.a))},
 P:function(d,e,f){var w=this,v=d===C.c
 if(v&&3===e)return w.r
 if(v&&8===e)return w.y
@@ -441,7 +441,7 @@ v.e=!1
 v.bj()
 w=!0}else w=!1
 if(w)p.ry.d.st(1)
-p.e.cr(o.c)
+p.e.cs(o.c)
 p.f.j()
 p.x.j()
 p.z.j()
@@ -482,39 +482,39 @@ w.k2.k()
 w.k4.k()
 w.r2.k()
 w.ry.k()},
-UT:function(d){this.a.c=d},
-UV:function(d){this.a.a=d},
-UX:function(d){this.a.b=d}}
-T.Jz.prototype={
-q:function(){var w,v=this,u=new T.v6(N.P(),E.S(v,0,3)),t=$.a8J
-if(t==null)t=$.a8J=O.a0($.aEn,null)
+UY:function(d){this.a.c=d},
+V_:function(d){this.a.a=d},
+V1:function(d){this.a.b=d}}
+T.Jy.prototype={
+q:function(){var w,v=this,u=new T.v5(N.P(),E.S(v,0,3)),t=$.a8K
+if(t==null)t=$.a8K=O.a0($.aEs,null)
 u.b=t
 w=document.createElement("material-toggle-example")
 u.c=w
 v.b=u
 v.a=new S.lh()
 v.F(w)}}
-var z=a.updateTypes(["~(@)","f<hJ*>*()","f<lh*>*()"]);(function installTearOffs(){var w=a._static_0,v=a._instance_1u
-w(O,"aka","aLz",1)
-w(T,"akb","aLC",2)
+var z=a.updateTypes(["~(@)","f<hK*>*()","f<lh*>*()"]);(function installTearOffs(){var w=a._static_0,v=a._instance_1u
+w(O,"akc","aLE",1)
+w(T,"akd","aLH",2)
 var u
-v(u=T.v6.prototype,"gUS","UT",0)
-v(u,"gUU","UV",0)
-v(u,"gUW","UX",0)})();(function inheritance(){var w=a.inheritMany
-w(P.y,[U.hJ,S.lh])
-w(E.bn,[O.CP,T.v6])
-w(G.f,[O.Jw,T.Jz])})()
-H.ak(b.typeUniverse,JSON.parse('{"al":"w","ax":"w","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"U","aw":"ac","aC":"V","az":"ah","au":"af","as":"ai","ar":"a1","CP":{"k":[],"i":[]},"Jw":{"f":["hJ*"],"i":[],"f.T":"hJ*"},"v6":{"k":[],"i":[]},"Jz":{"f":["lh*"],"i":[],"f.T":"lh*"}}'))
+v(u=T.v5.prototype,"gUX","UY",0)
+v(u,"gUZ","V_",0)
+v(u,"gV0","V1",0)})();(function inheritance(){var w=a.inheritMany
+w(P.A,[U.hK,S.lh])
+w(E.bn,[O.CO,T.v5])
+w(G.f,[O.Jv,T.Jy])})()
+H.ak(b.typeUniverse,JSON.parse('{"al":"w","ax":"w","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"z","aA":"z","aI":"O","aG":"a6","aF":"a9","av":"U","aw":"ac","aC":"V","az":"ah","au":"ag","as":"ai","ar":"a1","CO":{"k":[],"i":[]},"Jv":{"f":["hK*"],"i":[],"f.T":"hK*"},"v5":{"k":[],"i":[]},"Jy":{"f":["lh*"],"i":[],"f.T":"lh*"}}'))
 var y={a:"Toggle buttons with very long labels will look like this when\n             rendered. Probably a good idea to keep your labels short."}
 var x=(function rtii(){var w=H.K
-return{s:w("l<hJ*>"),G:w("l<lh*>"),C:w("q<j*>"),D:w("q<aJ*>"),c:w("q<cZ*>"),M:w("q<y*>"),a:w("q<be<~>*>"),i:w("q<t*>"),f:w("D<t*>*"),X:w("t*"),b:w("E*")}})();(function constants(){C.fb=new D.l("material-toggle-example",T.akb(),x.G)
-C.fv=new D.l("material-toggle-api",O.aka(),x.s)
-C.mF=H.C("hJ")
-C.nk=H.C("lh")})();(function staticFields(){$.a8H=null
-$.adk=!1
-$.aFq=["material-toggle._ngcontent-%ID%{padding:12px;width:320px}.theme-red._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#db4437}.theme-red._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#db4437}.theme-red._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus else{background-color:rgba(188,188,188,0.24)}.theme-red._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked{background-color:rgba(219,68,55,0.24)}.theme-purple._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#9c27b0}.theme-purple._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#9c27b0}.theme-purple._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus else{background-color:rgba(188,188,188,0.24)}.theme-purple._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked{background-color:rgba(156,39,176,0.24)}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle .tgl-btn{background-color:#cddc39}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#8bc34a}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#8bc34a}.custom-theme._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus{background-color:rgba(205,220,57,0.24)}.custom-theme._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus else{background-color:rgba(188,188,188,0.24)}.custom-theme._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked{background-color:rgba(139,195,74,0.24)}.flip-label._ngcontent-%ID%  .material-toggle{flex-direction:row-reverse}.flip-label._ngcontent-%ID%  .material-toggle .tgl-lbl{padding-left:8px}"]
-$.a8J=null
-$.adl=!1
-$.aEn=[$.aFq]})()}
-$__dart_deferred_initializers__["Nyym4D33NYCBpLpP3N9BdTKy2gQ="] = $__dart_deferred_initializers__.current
+return{s:w("l<hK*>"),G:w("l<lh*>"),C:w("q<j*>"),D:w("q<aK*>"),c:w("q<cZ*>"),M:w("q<A*>"),a:w("q<be<~>*>"),i:w("q<t*>"),f:w("D<t*>*"),X:w("t*"),b:w("E*")}})();(function constants(){C.fa=new D.l("material-toggle-example",T.akd(),x.G)
+C.fu=new D.l("material-toggle-api",O.akc(),x.s)
+C.mE=H.C("hK")
+C.nj=H.C("lh")})();(function staticFields(){$.a8I=null
+$.adn=!1
+$.aFv=["material-toggle._ngcontent-%ID%{padding:12px;width:320px}.theme-red._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#db4437}.theme-red._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#db4437}.theme-red._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus else{background-color:rgba(188,188,188,0.24)}.theme-red._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked{background-color:rgba(219,68,55,0.24)}.theme-purple._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#9c27b0}.theme-purple._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#9c27b0}.theme-purple._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus else{background-color:rgba(188,188,188,0.24)}.theme-purple._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked{background-color:rgba(156,39,176,0.24)}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle .tgl-btn{background-color:#cddc39}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar{background-color:#8bc34a}.custom-theme._ngcontent-%ID%  material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn{background-color:#8bc34a}.custom-theme._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus{background-color:rgba(205,220,57,0.24)}.custom-theme._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus else{background-color:rgba(188,188,188,0.24)}.custom-theme._ngcontent-%ID%  material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked{background-color:rgba(139,195,74,0.24)}.flip-label._ngcontent-%ID%  .material-toggle{flex-direction:row-reverse}.flip-label._ngcontent-%ID%  .material-toggle .tgl-lbl{padding-left:8px}"]
+$.a8K=null
+$.ado=!1
+$.aEs=[$.aFv]})()}
+$__dart_deferred_initializers__["zzuq3eoXDL31TWCzEP7UhugbUEw="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_69.part.js.map

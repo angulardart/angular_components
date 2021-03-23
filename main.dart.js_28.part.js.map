@@ -5,12 +5,12 @@
   "sourceRoot": "",
   "sources": ["org-dartlang-app:///packages/angular_components/model/selection/string_selection_options.dart","org-dartlang-app:///packages/angular_components/model/selection/selection_options.dart","org-dartlang-sdk:///lib/async/broadcast_stream_controller.dart","org-dartlang-app:///packages/angular_components/model/selection/string_selection_options.template.dart","org-dartlang-sdk:///lib/async/stream_controller.dart"],
   "names": ["StringSelectionOptions","StreamController.broadcast","SelectionOptions","initReflector","OptionGroup","","withOptionGroups","StringSelectionOptions.withOptionGroups","_controller","broadcast","SelectionOptions._controller"],
-  "mappings": "A;;GA8EEA,gBAM4BA,kBCvD5BA,4DDqEgCA,KAXNA,OAWMA;AApBhCA,aAS0BA,aEmR1BC,mCF5RAD;ACaOE;ADbPF,OAS0BA;AAT1BA,QAW+CA,C;GG7E5CG,eACCA,KACFA,MAQJA;;AAJEA;AACAA;AAEAA,MACFA,C;GFOEC,uDAA6EA,C",
+  "mappings": "A;;GA8EEA,gBAM4BA,kBCvD5BA,4DDqEgCA,KAXNA,OAWMA;AApBhCA,aAS0BA,aE6Q1BC,mCFtRAD;ACaOE;ADbPF,OAS0BA;AAT1BA,QAW+CA,C;GG7E5CG,eACCA,KACFA,MAQJA;;AAJEA;AACAA;AAEAA,MACFA,C;GFOEC,uDAA6EA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "oNAoF+BK4D;AAAlBCK;OAAAAa;0BAAAAAAkBLDAClBFGAAAACAGwDIJmC,A,A,A,A;cHlDRAADZAAS,A;AAaACO;"
+    "frames": "oNAoF+BK4D;AAAlBCK;OAAAAa;0BAAAAAAkBLDAClBFGAAAACAG8CIJmC,A,A,A,A;cHxCRAADZAAS,A;AAaACO;"
   }
 }

@@ -3,14 +3,14 @@
   "engine": "v2",
   "file": "main.dart.js_95.part.js",
   "sourceRoot": "",
-  "sources": ["org-dartlang-app:///packages/angular_components/model/selection/selection_options.dart","org-dartlang-sdk:///lib/async/broadcast_stream_controller.dart","org-dartlang-sdk:///lib/async/stream_controller.dart"],
-  "names": ["SelectionOptions.fromList","StreamController.broadcast","SelectionOptions","","_controller","broadcast","SelectionOptions._controller"],
-  "mappings": "A;;GAgGEA,cAC2BA,kBAACA,4CAD5BA,SC0QAC,mCD1QAD;AALOE;AAKPF,QACsEA,C",
+  "sources": ["org-dartlang-app:///packages/material_select_example/demos.api.template.dart"],
+  "names": ["MaterialDropdownSelectApiNgFactory"],
+  "mappings": "A;;IA2qBwDA,WACtDA,QAAOA,GACTA,C",
   "x_org_dartlang_dart2js": {
     "minified_names": {
       "global": "",
       "instance": ""
     },
-    "frames": "ySAiGQGAAbFCAAAACAEwDIFmC,A,A,A;cFlDRAAAMAAS,A;"
+    "frames": ""
   }
 }

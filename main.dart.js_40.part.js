@@ -1,26 +1,26 @@
 self.$__dart_deferred_initializers__=self.$__dart_deferred_initializers__||Object.create(null)
-$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,E,M,Q,D={ho:function ho(d){this.a=d}},Z={jl:function jl(d,e){var _=this
+$__dart_deferred_initializers__.current=function(a,b,c,$){var C,H,J,P,W,G,Y,R,K,V,E,M,Q,D={hp:function hp(d){this.a=d}},Z={jn:function jn(d,e){var _=this
 _.a=null
 _.c=d
 _.r=_.f=_.e=_.d=!1
 _.x="custom label"
 _.y=e
-_.z="???"},PH:function PH(){},lL:function lL(d,e){this.a=d
+_.z="???"},PG:function PG(){},lK:function lK(d,e){this.a=d
 this.b=e}},O,A,T={
-aIM:function(d,e){return new T.wL(E.z(d,e))},
-aIN:function(d,e){return new T.Hb(N.P(),N.P(),E.z(d,e))},
-aIO:function(){return new T.Hc(new G.R())},
-axx:function(){if($.ag8)return
-$.ag8=!0
-$.T.w(0,C.lK,new D.l("material-checkbox-example",T.ajw(),x.i))
+aIR:function(d,e){return new T.wK(E.y(d,e))},
+aIS:function(d,e){return new T.Ha(N.P(),N.P(),E.y(d,e))},
+aIT:function(){return new T.Hb(new G.R())},
+axC:function(){if($.agb)return
+$.agb=!0
+$.T.w(0,C.lJ,new D.l("material-checkbox-example",T.ajy(),x.i))
 E.F()
 U.dL()
-G.oJ()
+G.oI()
 M.cg()
 Q.dV()
-Q.oK()
-K.dq()},
-un:function un(d,e,f,g,h,i,j,k,l,m){var _=this
+Q.oJ()
+K.dp()},
+um:function um(d,e,f,g,h,i,j,k,l,m){var _=this
 _.e=d
 _.f=e
 _.r=f
@@ -31,31 +31,31 @@ _.Q=j
 _.ch=k
 _.cx=l
 _.W=_.a_=_.a4=_.Y=_.a6=_.a0=_.X=_.a7=_.V=_.y2=_.y1=_.x2=_.x1=_.ry=_.rx=_.r2=_.r1=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=null
-_.b4=_.aI=_.aR=_.aF=_.b9=_.aY=_.aT=_.aw=_.aB=_.aM=_.aA=_.ax=_.ar=_.af=_.aj=_.ah=_.aq=_.ai=_.av=_.au=_.ap=_.al=_.ag=_.an=_.ae=_.ak=_.a9=_.a8=_.aa=_.L=null
-_.c=_.b=_.a=_.bJ=_.bg=_.bd=_.b5=_.bf=_.aQ=_.bc=_.aW=_.bh=_.aZ=_.b1=_.aC=_.aV=_.aU=_.aJ=_.aG=_.ba=null
+_.b4=_.aI=_.aR=_.aF=_.b9=_.aZ=_.aU=_.aw=_.aB=_.aM=_.aA=_.ax=_.ar=_.af=_.aj=_.ah=_.aq=_.ai=_.av=_.au=_.ap=_.al=_.ag=_.an=_.ae=_.ak=_.a9=_.a8=_.aa=_.L=null
+_.c=_.b=_.a=_.bJ=_.bg=_.bd=_.b5=_.bf=_.aQ=_.bc=_.aX=_.bh=_.b_=_.b1=_.aC=_.aW=_.aV=_.aJ=_.aG=_.ba=null
 _.d=m},
-wL:function wL(d){var _=this
+wK:function wK(d){var _=this
 _.f=_.e=_.d=_.c=_.b=null
 _.a=d},
-Hb:function Hb(d,e,f){this.b=d
+Ha:function Ha(d,e,f){this.b=d
 this.c=e
 this.a=f},
-Hc:function Hc(d){var _=this
+Hb:function Hb(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},L,N={
-ap4:function(){return C.fK},
-aIJ:function(){return new N.H8(new G.R())},
-axw:function(){if($.ag7)return
-$.ag7=!0
-$.T.w(0,C.lI,new D.l("material-checkbox-api",N.ajv(),x.j))
+ap7:function(){return C.fJ},
+aIO:function(){return new N.H7(new G.R())},
+axB:function(){if($.aga)return
+$.aga=!0
+$.T.w(0,C.lH,new D.l("material-checkbox-api",N.ajx(),x.j))
 E.F()
 K.d7()
-D.cV()
-T.axx()},
-C3:function C3(d){var _=this
+D.cU()
+T.axC()},
+C2:function C2(d){var _=this
 _.c=_.b=_.a=_.k4=_.k3=_.k2=_.k1=_.id=_.go=_.fy=_.fx=_.fr=_.dy=_.dx=_.db=_.cy=_.cx=_.ch=_.Q=_.z=_.y=_.x=_.r=_.f=_.e=null
 _.d=d},
-H8:function H8(d){var _=this
+H7:function H7(d){var _=this
 _.c=_.b=_.a=null
 _.d=d}},U,X,B,S,F
 a.setFunctionNamesIfNecessary([D,Z,T,N])
@@ -84,59 +84,59 @@ X=c[21]
 B=c[22]
 S=c[23]
 F=c[24]
-D.ho.prototype={}
-N.C3.prototype={
+D.hp.prototype={}
+N.C2.prototype={
 gmY:function(){var w=this.r
 return w==null?this.r=document:w},
-gA7:function(){var w=this.y
+gA9:function(){var w=this.y
 return w==null?this.y=window:w},
 gmZ:function(){var w,v=this,u=v.z
 if(u==null){u=v.d
 w=u.a
 u=u.b
-u=T.bx(w.l(C.b,u),w.l(C.D,u),w.n(C.f,u),v.gA7())
+u=T.bx(w.l(C.b,u),w.l(C.D,u),w.n(C.f,u),v.gA9())
 v.z=u}return u},
-gA4:function(){var w,v=this,u=v.Q
+gA6:function(){var w,v=this,u=v.Q
 if(u==null){u=v.d
 u=u.a.n(C.U,u.b)
 w=v.gmZ()
 u=v.Q=new O.bh(u,w)}return u},
 gr8:function(){var w=this,v=w.ch
 return v==null?w.ch=new K.bi(w.gmY(),w.gmZ(),P.bu(null,x.f)):v},
-gOQ:function(){var w=this.cx
+gOV:function(){var w=this.cx
 if(w==null){w=this.d
 w=T.bB(w.a.n(C.f,w.b))
 this.cx=w}return w},
 gr9:function(){var w=this.cy
 if(w==null){w=this.d
-w=G.bF(w.a.l(C.t,w.b))
+w=G.bF(w.a.l(C.u,w.b))
 this.cy=w}return w},
-gA9:function(){var w=this,v=w.db
+gAb:function(){var w=this,v=w.db
 if(v==null){v=w.d
-v=G.bJ(w.gmY(),v.a.l(C.u,v.b))
+v=G.bJ(w.gmY(),v.a.l(C.v,v.b))
 w.db=v}return v},
-gAa:function(){var w=this,v=w.dx
+gAc:function(){var w=this,v=w.dx
 if(v==null){v=w.d
-v=G.bz(w.gr9(),w.gA9(),v.a.l(C.r,v.b))
+v=G.bz(w.gr9(),w.gAb(),v.a.l(C.t,v.b))
 w.dx=v}return v},
 gra:function(){var w=this.dy
 return w==null?this.dy=!0:w},
-gAb:function(){var w=this.fr
+gAd:function(){var w=this.fr
 return w==null?this.fr=!0:w},
-gA6:function(){var w=this.fy
+gA8:function(){var w=this.fy
 if(w==null){w=this.gmY()
 w=this.fy=new R.bk(w.querySelector("head"),w)}return w},
-gA8:function(){var w=this.go
+gAa:function(){var w=this.go
 return w==null?this.go=X.bE():w},
-gA5:function(){var w=this,v=w.id
-return v==null?w.id=K.bD(w.gA6(),w.gAa(),w.gr9(),w.gr8(),w.gmZ(),w.gA4(),w.gra(),w.gAb(),w.gA8()):v},
-gOR:function(){var w,v,u,t,s=this,r=s.k1
+gA7:function(){var w=this,v=w.id
+return v==null?w.id=K.bD(w.gA8(),w.gAc(),w.gr9(),w.gr8(),w.gmZ(),w.gA6(),w.gra(),w.gAd(),w.gAa()):v},
+gOW:function(){var w,v,u,t,s=this,r=s.k1
 if(r==null){r=s.d
 w=r.a
 r=r.b
 v=w.n(C.f,r)
 u=s.gra()
-t=s.gA5()
+t=s.gA7()
 w.l(C.k,r)
 r=s.k1=new X.bg(u,v,t)}return r},
 q:function(){var w=this,v=w.a2(),u=K.cI(w,0)
@@ -150,53 +150,53 @@ w.e.K(0,u)},
 P:function(d,e,f){var w,v=this
 if(0===e){if(d===C.L)return v.gmY()
 if(d===C.V){w=v.x
-return w==null?v.x=document:w}if(d===C.J)return v.gA7()
+return w==null?v.x=document:w}if(d===C.J)return v.gA9()
 if(d===C.b)return v.gmZ()
-if(d===C.P)return v.gA4()
+if(d===C.P)return v.gA6()
 if(d===C.N)return v.gr8()
-if(d===C.a_)return v.gOQ()
-if(d===C.t)return v.gr9()
-if(d===C.u)return v.gA9()
-if(d===C.r)return v.gAa()
+if(d===C.a_)return v.gOV()
+if(d===C.u)return v.gr9()
+if(d===C.v)return v.gAb()
+if(d===C.t)return v.gAc()
 if(d===C.T)return v.gra()
-if(d===C.F)return v.gAb()
+if(d===C.F)return v.gAd()
 if(d===C.G){w=v.fx
-return w==null?v.fx=C.Y:w}if(d===C.R)return v.gA6()
-if(d===C.E)return v.gA8()
-if(d===C.Q)return v.gA5()
-if(d===C.k)return v.gOR()
+return w==null?v.fx=C.Y:w}if(d===C.R)return v.gA8()
+if(d===C.E)return v.gAa()
+if(d===C.Q)return v.gA7()
+if(d===C.k)return v.gOW()
 if(d===C.H){w=v.k2
-return w==null?v.k2=C.Z:w}if(d===C.v){w=v.k3
+return w==null?v.k2=C.Z:w}if(d===C.w){w=v.k3
 return w==null?v.k3=new K.bp(v.gr8()):w}}return f},
 A:function(){var w=this,v=w.a.a,u=w.k4
 if(u!==v)w.k4=w.f.a=v
 w.e.j()},
 G:function(){this.e.k()}}
-N.H8.prototype={
-q:function(){var w,v,u,t=this,s="bool*",r="Stream<bool*>*",q=new N.C3(E.S(t,0,3)),p=$.a7g
-if(p==null)p=$.a7g=O.bH(C.a,null)
+N.H7.prototype={
+q:function(){var w,v,u,t=this,s="bool*",r="Stream<bool*>*",q=new N.C2(E.S(t,0,3)),p=$.a7h
+if(p==null)p=$.a7h=O.bH(C.a,null)
 q.b=p
 w=document.createElement("material-checkbox-api")
 q.c=w
 t.b=q
 q=x.C
 q=H.a([new D.b5("MaterialCheckboxComponent",!1,"","material-checkbox","","angular_components/lib/material_checkbox/material_checkbox.dart",X.h("<p><code>material-checkbox</code> is a button that can be either checked or unchecked.</p>\n<p>User can tap the checkbox to check or uncheck it.  Usually you use\ncheckboxes to allow user to select multiple options from a set.  If you\nhave a single ON/OFF option, avoid using a single checkbox and use\n<code>material-toggle</code> instead.</p>\n<p>We are not extending ButtonDecorator because we need to override several\nattributes, including role, tabindex, but most importantly because checkbox\nshould only be interactible with SPACE, while button is for both SPACE and\nENTER.</p>\n<p><strong>Attributes:</strong></p>\n<ul>\n<li><code>no-ink</code> -- set this attribute to disable the ripple effect on the chip.</li>\n</ul>\n"),H.a([new D.j("checked","",s,X.h("<p>Current state of the checkbox. This is user set-able state, via\n<code>toggleChecked()</code>, so when checked, the <code>indeterminate</code> state gets\ncleared.</p>\n<p><code>true</code> is CHECKED and <code>false</code> is not.</p>\n"),!1,""),new D.j("disabled","",s,X.h("<p>Whether the checkbox should not respond to events, and have a style that\nsuggests that interaction is not allowed.</p>\n"),!1,""),new D.j("indeterminate","",s,X.h("<p>Alternative state of the checkbox, not user set-able state. Between\n<code>checked</code> and <code>indeterminate</code>, only one can be true, though both can be\nfalse.</p>\n<p><code>true</code> is INDETERMINATE and <code>false</code> is not.</p>\n"),!1,""),new D.j("indeterminateToChecked","",s,X.h("<p>Determines the state to go into when <code>indeterminate</code> state is toggled.</p>\n<p><code>true</code> will go to checked and <code>false</code> will go to unchecked.</p>\n"),!1,""),new D.j("label","","String*",X.h("<p>Label for the checkbox, alternatively use content.</p>\n"),!1,""),new D.j("readOnly","",s,X.h("<p>Whether the checkbox can be changed by user interaction.</p>\n"),!1,""),new D.j("themeColor","","String*",X.h("<p>Color of the checkbox and ripple when checked.</p>\n<p>Example: '#FF00FF'. By default it is $mat-blue-500. Note that the\nthemeColor is applied to the checkbox even when the box is unchecked,\nwhich deviates from the standard material spec. Use mixin to set\nthemeColor unless you want this behavior.</p>\n"),!1,"")],q),H.a([new D.j("onChange","change","Stream<String*>*",X.h("<p>Fired when checkbox state changes, sends <code>checkedStr</code>, i.e. ARIA state.</p>\n"),!1,""),new D.j("onChecked","checkedChange",r,X.h("<p>Fired when checkbox is checked or unchecked, but not when set\nindeterminate. Sends the state of <code>checked</code>.</p>\n"),!1,""),new D.j("onIndeterminate","indeterminateChange",r,X.h("<p>Fired when checkbox goes in and out of indeterminate state, but not when\nset to checked.</p>\n<p>Sends the state of <code>indeterminate</code>.</p>\n"),!1,"")],q))],x.c)
-v=H.a([new R.aJ(C.fd,"MaterialCheckboxExample","material_checkbox_example/lib/material_checkbox_example.dart")],x.D)
+v=H.a([new R.aK(C.fc,"MaterialCheckboxExample","material_checkbox_example/lib/material_checkbox_example.dart")],x.D)
 u=x.X
-t.a=new D.ho(R.cQ(H.a([],x.V),v,q,P.aW(u,u),!0))
+t.a=new D.hp(R.cP(H.a([],x.V),v,q,P.aV(u,u),!0))
 t.F(w)}}
-Z.jl.prototype={
-Z2:function(){var w=this.c
-this.a.push(new Z.lL(w.b,!1))
+Z.jn.prototype={
+Z6:function(){var w=this.c
+this.a.push(new Z.lK(w.b,!1))
 w.lX("")},
-a2r:function(){var w=this.a
-w=new H.cc(w,new Z.PH(),H.bv(w).i("cc<1>"))
+a2v:function(){var w=this.a
+w=new H.cc(w,new Z.PG(),H.bv(w).i("cc<1>"))
 return w.gM(w)},
-IB:function(){var w=this.y
+IF:function(){var w=this.y
 this.x=w.b
 w.lX("")}}
-Z.lL.prototype={}
-T.un.prototype={
+Z.lK.prototype={}
+T.um.prototype={
 q:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,h0,h1,h2,h3,h4,h5,h6,h7,h8=this,h9="\n",i0=null,i1="section",i2="\n  ",i3="h1",i4="em",i5="\n    ",i6="label",i7="text",i8="debug-info",i9="br",j0="\n      ",j1="\n\n",j2="h3",j3="done and done",j4="themeColor",j5="themeable",j6="\n        ",j7=h8.a,j8=h8.a2()
 T.b(j8,h9)
 w=document
@@ -219,7 +219,7 @@ r=T.u(w,v)
 h8.h(r)
 T.b(r,i5)
 q=h8.cy=new V.r(14,12,h8,T.L(r))
-h8.db=new R.ba(q,new D.x(q,T.ayz()))
+h8.db=new R.ba(q,new D.x(q,T.ayE()))
 T.b(r,i2)
 T.b(v,i2)
 p=T.u(w,v)
@@ -240,7 +240,7 @@ h8.dy=n
 n=[n]
 h8.fr=n
 m=x.m
-n=new T.lx(new P.b6(i0,i0,m),X.ri(i0),X.yp(n))
+n=new T.lx(new P.b6(i0,i0,m),X.rj(i0),X.yo(n))
 h8.fx=n
 n=L.b_(i7,i0,n,h8.dx,h8.dy)
 h8.fy=n
@@ -248,7 +248,7 @@ h8.go=Z.b9(n,h8.fx)
 n=x.M
 h8.dx.u(h8.fy,H.a([C.a,C.a],n))
 T.b(p,i5)
-l=U.a5(h8,22)
+l=U.a4(h8,22)
 h8.id=l
 k=l.c
 p.appendChild(k)
@@ -260,7 +260,7 @@ l=l.b
 i=j.l(C.l,l)
 i=new F.Z(i===!0)
 h8.k1=i
-i=B.a4(k,i,h8.id,i0)
+i=B.a3(k,i,h8.id,i0)
 h8.k2=i
 h=T.n("add it")
 g=x.l
@@ -278,7 +278,7 @@ e=T.d(w,f,"ul")
 h8.h(e)
 T.b(e,j0)
 i=h8.k3=new V.r(33,31,h8,T.L(e))
-h8.k4=new R.ba(i,new D.x(i,T.ayA()))
+h8.k4=new R.ba(i,new D.x(i,T.ayF()))
 T.b(e,i5)
 T.b(f,i2)
 T.b(v,h9)
@@ -350,14 +350,14 @@ q=new L.aP(H.a([],q))
 h8.x2=q
 q=[q]
 h8.y1=q
-q=new T.lx(new P.b6(i0,i0,m),X.ri(i0),X.yp(q))
+q=new T.lx(new P.b6(i0,i0,m),X.rj(i0),X.yo(q))
 h8.y2=q
 q=L.b_(i7,i0,q,h8.x1,h8.x2)
 h8.V=q
 h8.a7=Z.b9(q,h8.y2)
 h8.x1.u(h8.V,H.a([C.a,C.a],n))
 T.b(b1,i5)
-q=U.a5(h8,70)
+q=U.a4(h8,70)
 h8.X=q
 b3=q.c
 b1.appendChild(b3)
@@ -366,7 +366,7 @@ h8.h(b3)
 q=j.l(C.l,l)
 q=new F.Z(q===!0)
 h8.a0=q
-q=B.a4(b3,q,h8.X,i0)
+q=B.a3(b3,q,h8.X,i0)
 h8.a6=q
 b4=T.n("update label")
 h8.X.u(q,H.a([H.a([b4],g)],n))
@@ -599,7 +599,7 @@ h8.O(f0,O.ch("","limited-width"," ",j5,""))
 T.c(f0,i6,y.c)
 h8.h(f0)
 q=B.bs(f0,h8.aw,i0,i0,i0)
-h8.aT=q
+h8.aU=q
 f1=T.n(i5)
 h8.aw.u(q,H.a([H.a([f1],g)],n))
 T.b(c4,i5)
@@ -608,12 +608,12 @@ h8.m(f2)
 T.b(f2,"Custom content; align top")
 T.b(c4,i5)
 g=G.bt(h8,182)
-h8.aY=g
+h8.aZ=g
 f3=g.c
 c4.appendChild(f3)
 h8.O(f3,O.ch("","top"," ",j5,""))
 h8.h(f3)
-h8.b9=B.bs(f3,h8.aY,i0,i0,i0)
+h8.b9=B.bs(f3,h8.aZ,i0,i0,i0)
 f4=T.n(j0)
 f5=w.createElement("div")
 h8.C(f5,"custom")
@@ -644,7 +644,7 @@ T.c(f8,"rows","2")
 h8.h(f8)
 T.b(f5,j0)
 f9=T.n(i5)
-h8.aY.u(h8.b9,H.a([H.a([f4,f5,f9],x.N)],n))
+h8.aZ.u(h8.b9,H.a([H.a([f4,f5,f9],x.N)],n))
 T.b(c4,i2)
 T.b(c2,h9)
 T.b(j8,j1)
@@ -705,23 +705,23 @@ T.b(g6,h9)
 T.b(j8,h9)
 n=h8.k2.b
 q=x.S
-h1=new P.e(n,H.m(n).i("e<1>")).D(h8.ad(j7.gZ1(),q))
+h1=new P.e(n,H.m(n).i("e<1>")).D(h8.ad(j7.gZ5(),q))
 n=h8.ry.x
 m=x.X
 h2=new P.e(n,H.m(n).i("e<1>")).D(h8.v(h8.grb(),m,m))
 m=h8.ry.f
 n=x.b
-h3=new P.e(m,H.m(m).i("e<1>")).D(h8.v(h8.gOS(),n,n))
+h3=new P.e(m,H.m(m).i("e<1>")).D(h8.v(h8.gOX(),n,n))
 m=h8.ry.r
-h4=new P.e(m,H.m(m).i("e<1>")).D(h8.v(h8.gOU(),n,n))
+h4=new P.e(m,H.m(m).i("e<1>")).D(h8.v(h8.gOZ(),n,n))
 m=h8.a6.b
-h5=new P.e(m,H.m(m).i("e<1>")).D(h8.ad(j7.gIA(),q))
+h5=new P.e(m,H.m(m).i("e<1>")).D(h8.ad(j7.gIE(),q))
 q=h8.a4.f
-h6=new P.e(q,H.m(q).i("e<1>")).D(h8.v(h8.gOW(),n,n))
+h6=new P.e(q,H.m(q).i("e<1>")).D(h8.v(h8.gP0(),n,n))
 q=h8.W.f
-h7=new P.e(q,H.m(q).i("e<1>")).D(h8.v(h8.gNn(),n,n))
+h7=new P.e(q,H.m(q).i("e<1>")).D(h8.v(h8.gNs(),n,n))
 q=h8.aa.f
-h8.bo(H.a([h1,h2,h3,h4,h5,h6,h7,new P.e(q,H.m(q).i("e<1>")).D(h8.v(h8.gNp(),n,n))],x.a))},
+h8.bo(H.a([h1,h2,h3,h4,h5,h6,h7,new P.e(q,H.m(q).i("e<1>")).D(h8.v(h8.gNu(),n,n))],x.a))},
 P:function(d,e,f){var w,v=this
 if(19<=e&&e<=20){if(d===C.z)return v.dy
 if(d===C.X)return v.fx
@@ -745,7 +745,7 @@ if(w&&155<=e&&e<=156)return v.aj
 if(w&&161<=e&&e<=162)return v.ar
 if(w&&167<=e&&e<=168)return v.aA
 if(w&&170<=e&&e<=171)return v.aB
-if(w&&176<=e&&e<=177)return v.aT
+if(w&&176<=e&&e<=177)return v.aU
 if(w&&182<=e&&e<=194)return v.b9
 if(w&&209===e)return v.b4
 if(w&&223===e)return v.aG
@@ -754,11 +754,11 @@ A:function(){var w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h=this,g="done and done",f=h.a,e=
 if(a0!==d){h.db.sbe(d)
 h.aJ=d}h.db.b7()
 w=f.c
-a0=h.aU
+a0=h.aV
 if(a0!==w){a0=h.fx
 a0.f=w
 v=a0.e=!0
-h.aU=w}else v=!1
+h.aV=w}else v=!1
 if(v)h.fx.as()
 if(e){a0=h.fy
 a0.go="add new todo here"
@@ -769,9 +769,9 @@ v=!0}else v=!1
 if(v)h.dx.d.st(1)
 if(e&&(h.k2.cy=!0))h.id.d.st(1)
 u=f.a
-a0=h.aV
+a0=h.aW
 if(a0!==u){h.k4.sbe(u)
-h.aV=u}h.k4.b7()
+h.aW=u}h.k4.b7()
 if(e){h.r2.fx="Custom tab index"
 v=!0}else v=!1
 if(v)h.r1.d.st(1)
@@ -783,16 +783,16 @@ s=f.d
 a0=h.b1
 if(a0!=s){h.b1=h.ry.z=s
 v=!0}r=f.x
-a0=h.aZ
-if(a0!=r){h.aZ=h.ry.fx=r
+a0=h.b_
+if(a0!=r){h.b_=h.ry.fx=r
 v=!0}q=f.e
 a0=h.bh
-if(a0!=q){h.ry.sbv(0,q)
+if(a0!=q){h.ry.sbw(0,q)
 h.bh=q
 v=!0}p=f.f
-a0=h.aW
+a0=h.aX
 if(a0!=p){h.ry.shS(0,p)
-h.aW=p
+h.aX=p
 v=!0}if(v)h.rx.d.st(1)
 o=f.y
 a0=h.bc
@@ -846,7 +846,7 @@ v=!0}else v=!1
 if(v)h.ak.d.st(1)
 if(e){a0=h.ag
 a0.fx="plain checked"
-a0.sbv(0,!0)
+a0.sbw(0,!0)
 v=!0}else v=!1
 if(v)h.an.d.st(1)
 if(e){a0=h.ap
@@ -861,7 +861,7 @@ if(v)h.au.d.st(1)
 if(e){a0=h.aq
 a0.z=!0
 a0.fx=g
-a0.sbv(0,!0)
+a0.sbw(0,!0)
 v=!0}else v=!1
 if(v)h.ai.d.st(1)
 if(e){a0=h.aj
@@ -872,7 +872,7 @@ v=!0}else v=!1
 if(v)h.ah.d.st(1)
 if(e){a0=h.ar
 a0.fx="indeterminate?"
-a0.sbv(0,!0)
+a0.sbw(0,!0)
 h.ar.shS(0,!0)
 v=!0}else v=!1
 if(v)h.af.d.st(1)
@@ -886,7 +886,7 @@ a0.fr="#FF00FF"
 a0.fx="A magenta checkbox"
 v=!0}else v=!1
 if(v)h.aM.d.st(1)
-if(e){h.aT.fx=y.c
+if(e){h.aU.fx=y.c
 v=!0}else v=!1
 if(v)h.aw.d.st(1)
 if(e){h.aR.sab(0,"help")
@@ -894,12 +894,12 @@ v=!0}else v=!1
 if(v)h.aF.d.st(1)
 if(e){a0=h.b4
 a0.fx="Themed!"
-a0.sbv(0,!0)
+a0.sbw(0,!0)
 v=!0}else v=!1
 if(v)h.aI.d.st(1)
 h.cy.J()
 h.k3.J()
-h.e.cr(f.a2r())
+h.e.cs(f.a2v())
 h.id.B(e)
 h.f.a5(O.b8(w.b))
 h.r1.B(e)
@@ -912,10 +912,10 @@ h.x.a5(a0)
 a0=f.z
 if(a0==null)a0=""
 h.y.a5(a0)
-h.z.cr(f.e)
-h.Q.cr(f.d)
-h.ch.cr(f.f)
-h.cx.cr(f.r)
+h.z.cs(f.e)
+h.Q.cs(f.d)
+h.ch.cs(f.f)
+h.cx.cs(f.r)
 h.a8.B(e)
 h.ak.B(e)
 h.an.B(e)
@@ -927,7 +927,7 @@ h.af.B(e)
 h.ax.B(e)
 h.aM.B(e)
 h.aw.B(e)
-h.aY.B(e)
+h.aZ.B(e)
 h.aI.B(e)
 h.ba.B(e)
 h.dx.j()
@@ -950,7 +950,7 @@ h.af.j()
 h.ax.j()
 h.aM.j()
 h.aw.j()
-h.aY.j()
+h.aZ.j()
 h.aF.j()
 h.aI.j()
 h.ba.j()
@@ -982,7 +982,7 @@ v.af.k()
 v.ax.k()
 v.aM.k()
 v.aw.k()
-v.aY.k()
+v.aZ.k()
 v.aF.k()
 v.aI.k()
 v.ba.k()
@@ -1008,17 +1008,17 @@ v.aj.toString
 v.ar.toString
 v.aA.toString
 v.aB.toString
-v.aT.toString
+v.aU.toString
 v.b9.toString
 v.b4.toString
 v.aG.toString},
 rd:function(d){this.a.z=d},
-OT:function(d){this.a.e=d},
-OV:function(d){this.a.f=d},
-OX:function(d){this.a.d=d},
-No:function(d){this.a.f=d},
-Nq:function(d){this.a.r=d}}
-T.wL.prototype={
+OY:function(d){this.a.e=d},
+P_:function(d){this.a.f=d},
+P1:function(d){this.a.d=d},
+Nt:function(d){this.a.f=d},
+Nv:function(d){this.a.r=d}}
+T.wK.prototype={
 q:function(){var w,v,u,t,s,r=this,q=null,p=G.bt(r,0)
 r.b=p
 w=p.c
@@ -1054,7 +1054,7 @@ u.b.j()},
 G:function(){this.b.k()
 this.d.toString},
 rd:function(d){this.a.f.E(0,"$implicit").b=d}}
-T.Hb.prototype={
+T.Ha.prototype={
 q:function(){var w=this,v=document.createElement("li")
 w.m(v)
 v.appendChild(w.b.b)
@@ -1064,53 +1064,53 @@ w.F(v)},
 A:function(){var w=this.a.f.E(0,"$implicit"),v=w.a
 if(v==null)v=""
 this.b.a5(v)
-this.c.cr(w.b)}}
-T.Hc.prototype={
-q:function(){var w,v=this,u=new T.un(N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),E.S(v,0,3)),t=$.a7i
-if(t==null)t=$.a7i=O.a0($.aDo,null)
+this.c.cs(w.b)}}
+T.Hb.prototype={
+q:function(){var w,v=this,u=new T.um(N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),N.P(),E.S(v,0,3)),t=$.a7j
+if(t==null)t=$.a7j=O.a0($.aDt,null)
 u.b=t
 w=document.createElement("material-checkbox-example")
 u.c=w
 v.b=u
 u=x.z
-u=new Z.jl(Z.p7("",null,u),Z.p7("",null,u))
-u.a=H.a([new Z.lL("learn angular",!0),new Z.lL("build an angular app",!1),new Z.lL("profit!",!1)],x.I)
+u=new Z.jn(Z.p6("",null,u),Z.p6("",null,u))
+u.a=H.a([new Z.lK("learn angular",!0),new Z.lK("build an angular app",!1),new Z.lK("profit!",!1)],x.I)
 v.a=u
 v.F(w)}}
-var z=a.updateTypes(["~(@)","~()","aj<~>*(k*,H*)","E*(lL*)","f<ho*>*()","f<jl*>*()"])
-Z.PH.prototype={
+var z=a.updateTypes(["~(@)","~()","aj<~>*(k*,H*)","E*(lK*)","f<hp*>*()","f<jn*>*()"])
+Z.PG.prototype={
 $1:function(d){return!d.b},
 $S:z+3};(function installTearOffs(){var w=a._static_0,v=a._instance_0u,u=a._static_2,t=a._instance_1u
-w(N,"ajv","aIJ",4)
+w(N,"ajx","aIO",4)
 var s
-v(s=Z.jl.prototype,"gZ1","Z2",1)
-v(s,"gIA","IB",1)
-u(T,"ayz","aIM",2)
-u(T,"ayA","aIN",2)
-w(T,"ajw","aIO",5)
-t(s=T.un.prototype,"grb","rd",0)
-t(s,"gOS","OT",0)
-t(s,"gOU","OV",0)
-t(s,"gOW","OX",0)
-t(s,"gNn","No",0)
-t(s,"gNp","Nq",0)
-t(T.wL.prototype,"grb","rd",0)})();(function inheritance(){var w=a.inheritMany,v=a.inherit
-w(P.y,[D.ho,Z.jl,Z.lL])
-w(E.bn,[N.C3,T.un])
-w(G.f,[N.H8,T.Hc])
-v(Z.PH,H.bq)
-w(E.aj,[T.wL,T.Hb])})()
-H.ak(b.typeUniverse,JSON.parse('{"al":"w","ax":"w","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"A","aA":"A","aG":"O","aF":"a3","aE":"a9","av":"U","aw":"ac","aC":"V","az":"ah","au":"af","as":"ai","ar":"a1","C3":{"k":[],"i":[]},"H8":{"f":["ho*"],"i":[],"f.T":"ho*"},"un":{"k":[],"i":[]},"wL":{"k":[],"i":[]},"Hb":{"k":[],"i":[]},"Hc":{"f":["jl*"],"i":[],"f.T":"jl*"}}'))
+v(s=Z.jn.prototype,"gZ5","Z6",1)
+v(s,"gIE","IF",1)
+u(T,"ayE","aIR",2)
+u(T,"ayF","aIS",2)
+w(T,"ajy","aIT",5)
+t(s=T.um.prototype,"grb","rd",0)
+t(s,"gOX","OY",0)
+t(s,"gOZ","P_",0)
+t(s,"gP0","P1",0)
+t(s,"gNs","Nt",0)
+t(s,"gNu","Nv",0)
+t(T.wK.prototype,"grb","rd",0)})();(function inheritance(){var w=a.inheritMany,v=a.inherit
+w(P.A,[D.hp,Z.jn,Z.lK])
+w(E.bn,[N.C2,T.um])
+w(G.f,[N.H7,T.Hb])
+v(Z.PG,H.bq)
+w(E.aj,[T.wK,T.Ha])})()
+H.ak(b.typeUniverse,JSON.parse('{"al":"w","ax":"w","ap":"ae","am":"o","aB":"o","aD":"o","an":"G","ao":"G","at":"I","ay":"I","aq":"z","aA":"z","aI":"O","aG":"a6","aF":"a9","av":"U","aw":"ac","aC":"V","az":"ah","au":"ag","as":"ai","ar":"a1","C2":{"k":[],"i":[]},"H7":{"f":["hp*"],"i":[],"f.T":"hp*"},"um":{"k":[],"i":[]},"wK":{"k":[],"i":[]},"Ha":{"k":[],"i":[]},"Hb":{"f":["jn*"],"i":[],"f.T":"jn*"}}'))
 var y={c:"long label is bad label, but internationalisation has its own opinions"}
 var x=(function rtii(){var w=H.K
-return{j:w("l<ho*>"),i:w("l<jl*>"),C:w("q<j*>"),D:w("q<aJ*>"),c:w("q<cZ*>"),N:w("q<O*>"),M:w("q<y*>"),a:w("q<be<~>*>"),V:w("q<t*>"),l:w("q<a1*>"),I:w("q<lL*>"),v:w("q<aV<t*,@>*(d9<@>*)*>"),m:w("b6<@>"),z:w("@"),f:w("D<t*>*"),X:w("t*"),S:w("U*"),b:w("E*")}})();(function constants(){C.fd=new D.l("material-checkbox-example",T.ajw(),x.i)
-C.fK=new D.l("material-checkbox-api",N.ajv(),x.j)
-C.lI=H.C("ho")
-C.lK=H.C("jl")})();(function staticFields(){$.a7g=null
-$.ag7=!1
-$.aGv=["._nghost-%ID%  material-checkbox.custom-theme:not(.disabled) .icon-container .icon.filled{color:#e91e63}.limited-width._ngcontent-%ID%{width:160px}.debug-info._ngcontent-%ID%{background:#eee}.help-icon._ngcontent-%ID%{margin:0 4px}material-checkbox.top._ngcontent-%ID%{align-items:flex-start}.material-checkbox-no-left-margin._ngcontent-%ID%{margin-left:-3px}"]
-$.a7i=null
-$.ag8=!1
-$.aDo=[$.aGv]})()}
-$__dart_deferred_initializers__["qZzkmUP8n89+OVH6wsM1knvGm0o="] = $__dart_deferred_initializers__.current
+return{j:w("l<hp*>"),i:w("l<jn*>"),C:w("q<j*>"),D:w("q<aK*>"),c:w("q<cZ*>"),N:w("q<O*>"),M:w("q<A*>"),a:w("q<be<~>*>"),V:w("q<t*>"),l:w("q<a1*>"),I:w("q<lK*>"),v:w("q<aW<t*,@>*(d9<@>*)*>"),m:w("b6<@>"),z:w("@"),f:w("D<t*>*"),X:w("t*"),S:w("U*"),b:w("E*")}})();(function constants(){C.fc=new D.l("material-checkbox-example",T.ajy(),x.i)
+C.fJ=new D.l("material-checkbox-api",N.ajx(),x.j)
+C.lH=H.C("hp")
+C.lJ=H.C("jn")})();(function staticFields(){$.a7h=null
+$.aga=!1
+$.aGA=["._nghost-%ID%  material-checkbox.custom-theme:not(.disabled) .icon-container .icon.filled{color:#e91e63}.limited-width._ngcontent-%ID%{width:160px}.debug-info._ngcontent-%ID%{background:#eee}.help-icon._ngcontent-%ID%{margin:0 4px}material-checkbox.top._ngcontent-%ID%{align-items:flex-start}.material-checkbox-no-left-margin._ngcontent-%ID%{margin-left:-3px}"]
+$.a7j=null
+$.agb=!1
+$.aDt=[$.aGA]})()}
+$__dart_deferred_initializers__["xlHCqgXymjd9o882XVx36ula95Q="] = $__dart_deferred_initializers__.current
 //# sourceMappingURL=main.dart.js_40.part.js.map
