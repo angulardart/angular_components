@@ -1,3 +1,7 @@
+## 1.0.3
+
+* Roll observable dependency.
+
 ## 1.0.2
 
 * Update a number of outdated links in documentation.
