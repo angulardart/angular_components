@@ -1,6 +1,6 @@
 # See https://github.com/google/mono_repo.dart for details
 stages:
-  - analyze_and_format:
+  - analyze_and_format_examples_1:
     - group:
         - dartfmt: sdk
         # errors exist
