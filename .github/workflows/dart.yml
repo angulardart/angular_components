@@ -1,4 +1,4 @@
-# Created with package:mono_repo v3.4.6
+# Created with package:mono_repo v3.4.7
 name: Dart CI
 on:
   push:
@@ -25,13 +25,13 @@ jobs:
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: stable
       - id: checkout
         uses: actions/checkout@v2
       - name: mono_repo self validate
-        run: pub global activate mono_repo 3.4.6
+        run: pub global activate mono_repo 3.4.7
       - name: mono_repo self validate
         run: pub global run mono_repo generate --validate
   job_002:
@@ -48,7 +48,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:2.9.3
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: "2.9.3"
       - id: checkout
@@ -97,7 +97,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: dev
       - id: checkout
@@ -145,7 +145,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: dev
       - id: checkout
@@ -180,7 +180,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:2.9.3
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: "2.9.3"
       - id: checkout
@@ -313,7 +313,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: dev
       - id: checkout
@@ -481,7 +481,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: dev
       - id: checkout
@@ -515,7 +515,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: dev
       - id: checkout
@@ -553,7 +553,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:2.9.3
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: "2.9.3"
       - id: checkout
@@ -681,7 +681,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: dev
       - id: checkout
@@ -853,7 +853,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: dev
       - id: checkout
@@ -900,7 +900,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: dev
       - id: checkout
@@ -945,7 +945,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:2.9.3
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: "2.9.3"
       - id: checkout
@@ -977,22 +977,22 @@ jobs:
       - job_010
       - job_011
   job_014:
-    name: "build; Dart stable; PKG: examples/angular_components_example; `pub run build_runner build web`, `pub run build_runner build web --release`"
+    name: "build; Dart dev; PKG: examples/angular_components_example; `pub run build_runner build web`, `pub run build_runner build web --release`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@v2
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:examples/angular_components_example;commands:command_1-command_2"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/angular_components_example;commands:command_1-command_2"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:examples/angular_components_example
-            os:ubuntu-latest;pub-cache-hosted;dart:stable
+            os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/angular_components_example
+            os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
-          sdk: stable
+          sdk: dev
       - id: checkout
         uses: actions/checkout@v2
       - id: examples_angular_components_example_pub_upgrade
@@ -1024,22 +1024,22 @@ jobs:
       - job_012
       - job_013
   job_015:
-    name: "build; Dart dev; PKG: examples/angular_components_example; `pub run build_runner build web`, `pub run build_runner build web --release`"
+    name: "build; Dart stable; PKG: examples/angular_components_example; `pub run build_runner build web`, `pub run build_runner build web --release`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@v2
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/angular_components_example;commands:command_1-command_2"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:examples/angular_components_example;commands:command_1-command_2"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/angular_components_example
-            os:ubuntu-latest;pub-cache-hosted;dart:dev
+            os:ubuntu-latest;pub-cache-hosted;dart:stable;packages:examples/angular_components_example
+            os:ubuntu-latest;pub-cache-hosted;dart:stable
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v0.3
+      - uses: dart-lang/setup-dart@v1.0
         with:
-          sdk: dev
+          sdk: stable
       - id: checkout
         uses: actions/checkout@v2
       - id: examples_angular_components_example_pub_upgrade
