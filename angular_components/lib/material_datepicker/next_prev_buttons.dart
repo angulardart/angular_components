@@ -129,3 +129,5 @@ class NextPrevComponent implements OnDestroy {
     _modelListeners.dispose();
   }
 }
+
+typedef void NextPrevCallback();

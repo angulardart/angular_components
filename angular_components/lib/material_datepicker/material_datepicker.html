@@ -43,6 +43,21 @@
         </material-input>
       </div>
 
+      <div class="month-selector-toolbar" *ngIf="supportsMonthSelector">
+          <div class="month-selector-dropdown"
+               buttonDecorator
+               keyboardOnlyFocusIndicator
+               (trigger)="onMonthSelectorDropdownClicked">
+            <span class="visible-month">{{visibleMonthName}}</span>
+            <material-icon icon="arrow_drop_down"
+                   class="month-selector-dropdown-icon"
+                   [class.flipped]="showMonthSelector"></material-icon>
+          </div>
+          <next-prev-buttons class="next-prev-range"
+                       [model]="nextPrevModel">
+          </next-prev-buttons>
+      </div>
+
       <div role="listbox"
            class="preset-dates-wrapper"
            *ngIf="presetDates.isNotEmpty">
@@ -54,15 +69,27 @@
         </material-select-item>
       </div>
 
-      <material-calendar-picker aria-hidden="true"
-                                class="calendar-picker"
-                                [ngClass]="calendarWeekRowsStyle"
-                                [(state)]="calendar"
-                                [minDate]="minDate"
-                                [maxDate]="maxDate"
-                                [compact]="compact"
-                                mode="single-date">
-      </material-calendar-picker>
+      <div class="picker-container" [class.compact]="compact">
+        <material-calendar-picker aria-hidden="true"
+                                  class="calendar-picker"
+                                  [ngClass]="calendarWeekRowsStyle"
+                                  [(state)]="calendar"
+                                  [minDate]="minDate"
+                                  [maxDate]="maxDate"
+                                  [compact]="compact"
+                                  [showhide]="!showMonthSelector"
+                                  (visibleMonth)="onVisibleMonthChange"
+                                  mode="single-date">
+        </material-calendar-picker>
+        <material-month-picker class="calendar-picker month-selector"
+                              *ngIf="supportsMonthSelector"
+                              [showhide]="showMonthSelector"
+                              [(state)]="monthSelectorState"
+                              [minDate]="minDate"
+                              [maxDate]="maxDate"
+                              mode="single-date">
+        </material-month-picker>
+      </div>
     </div>
   </focus-trap>
 </material-popup>
