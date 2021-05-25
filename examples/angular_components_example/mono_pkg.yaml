@@ -1,6 +1,6 @@
 # See https://github.com/google/mono_repo.dart for details
 dart:
-  - stable
+  - 2.9.3
   - dev
 
 stages:

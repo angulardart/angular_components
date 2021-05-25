@@ -4,12 +4,12 @@ stages:
     - group:
         - dartfmt: sdk
         # errors exist
-        #- dartanalyzer: --fatal-warnings .
+        #- dartanalyzer: .
       dart:
         - dev
     # errors exist
     # - group:
-    #     - dartanalyzer: --fatal-warnings .
+    #     - dartanalyzer: .
     #   dart:
     #     - 2.9.3
 
