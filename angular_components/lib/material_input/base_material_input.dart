@@ -7,9 +7,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular/meta.dart';
-import 'package:angular_forms/angular_forms.dart';
-import 'package:intl/intl.dart';
-import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/forms/error_renderer.dart' show ErrorFn;
 import 'package:angular_components/interfaces/has_disabled.dart';
@@ -18,6 +15,9 @@ import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_components/utils/angular/reference/reference.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
+import 'package:angular_forms/angular_forms.dart';
+import 'package:intl/intl.dart';
+import 'package:quiver/strings.dart' show isEmpty, isNotEmpty;
 
 import 'deferred_validator.dart';
 

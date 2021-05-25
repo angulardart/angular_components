@@ -7,7 +7,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular/meta.dart';
-import 'package:quiver/core.dart' as qc show Optional;
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
@@ -34,6 +33,7 @@ import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/ui/highlighted_text_model.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
 import 'package:angular_components/utils/id_generator/id_generator.dart';
+import 'package:quiver/core.dart' as qc show Optional;
 
 /// Renders list of menu items.
 @Component(

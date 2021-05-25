@@ -5,7 +5,6 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/focus/focus_interface.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/mixins/focusable_mixin.dart';

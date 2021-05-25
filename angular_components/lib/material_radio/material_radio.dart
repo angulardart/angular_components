@@ -7,8 +7,6 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular/meta.dart';
-import 'package:angular_forms/angular_forms.dart';
-import 'package:meta/meta.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
@@ -17,6 +15,8 @@ import 'package:angular_components/material_ripple/material_ripple.dart';
 import 'package:angular_components/model/ui/icon.dart';
 import 'package:angular_components/utils/browser/events/events.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:angular_forms/angular_forms.dart';
+import 'package:meta/meta.dart';
 
 const Icon uncheckedIcon = Icon('radio_button_unchecked');
 const Icon checkedIcon = Icon('radio_button_checked');

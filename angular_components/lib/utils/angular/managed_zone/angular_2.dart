@@ -4,7 +4,7 @@
 
 import 'dart:async';
 
-import 'package:angular/di.dart';
+import 'package:angular/angular.dart';
 import 'package:angular_components/src/utils/angular/managed_zone/managed_zone.dart';
 
 export 'package:angular_components/src/utils/angular/managed_zone/managed_zone.dart';

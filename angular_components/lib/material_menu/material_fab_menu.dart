@@ -11,7 +11,6 @@ import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
 import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
-import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_fab.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
 import 'package:angular_components/material_list/material_list_item.dart';

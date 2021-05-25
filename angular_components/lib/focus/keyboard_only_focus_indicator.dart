@@ -6,8 +6,8 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular/meta.dart';
-import 'package:meta/meta.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
+import 'package:meta/meta.dart';
 
 /// [KeyboardOnlyFocusIndicatorDirective] is a decorator that hides the outline
 /// on an element when the element is focused with a mouse, and shows the

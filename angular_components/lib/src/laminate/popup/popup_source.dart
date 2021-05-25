@@ -4,7 +4,6 @@
 
 import 'dart:async';
 import 'dart:html';
-import 'dart:math';
 
 import 'package:angular_components/focus/focus_interface.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';

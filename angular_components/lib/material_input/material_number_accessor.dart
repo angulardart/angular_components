@@ -5,15 +5,14 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
+import 'package:angular_components/utils/angular/properties/properties.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:intl/intl.dart';
 import 'package:quiver/strings.dart';
-import 'package:angular_components/utils/angular/properties/properties.dart';
 
 import 'base_material_input.dart';
 import 'material_input.dart';
-import 'material_input_default_value_accessor.dart';
 import 'material_input_error_keys.dart';
 import 'material_number_validators.dart';
 
