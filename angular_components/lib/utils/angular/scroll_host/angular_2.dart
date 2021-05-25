@@ -6,12 +6,10 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:quiver/time.dart';
-import 'package:angular_components/utils/angular/scroll_host/interface.dart';
-import 'package:angular_components/src/utils/angular/scroll_host/gestures.dart';
 import 'package:angular_components/src/utils/angular/scroll_host/scroll_host_base.dart';
-import 'package:angular_components/src/utils/angular/scroll_host/scroll_host_interface.dart';
+import 'package:angular_components/utils/angular/scroll_host/interface.dart';
 import 'package:angular_components/utils/browser/dom_service/angular_2.dart';
+import 'package:quiver/time.dart';
 
 export 'package:angular_components/src/utils/angular/scroll_host/scroll_host_interface.dart'
     show ScrollHost;

@@ -5,13 +5,12 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
-import 'package:observable/observable.dart';
-import 'package:quiver/core.dart' as qc;
 import 'package:angular_components/dynamic_component/dynamic_component.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_menu/affix/base_affix.dart';
 import 'package:angular_components/model/menu/menu_item_affix.dart';
+import 'package:observable/observable.dart';
+import 'package:quiver/core.dart' as qc;
 
 /// Renders the list of menu item affixes.
 ///

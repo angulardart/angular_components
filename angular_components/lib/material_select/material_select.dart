@@ -14,7 +14,6 @@ import 'package:angular_components/model/selection/selection_container.dart';
 import 'package:angular_components/model/selection/selection_model.dart';
 import 'package:angular_components/model/selection/selection_options.dart';
 import 'package:angular_components/model/ui/has_factory.dart';
-import 'package:angular_components/model/ui/has_renderer.dart';
 import 'package:angular_components/model/ui/template_support.dart';
 
 import 'material_select_base.dart';

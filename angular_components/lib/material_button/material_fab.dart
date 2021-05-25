@@ -5,7 +5,6 @@
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
 import 'package:angular_components/material_ripple/material_ripple.dart';
 
 import 'material_button_base.dart';

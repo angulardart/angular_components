@@ -5,8 +5,6 @@
 @JS()
 library angular_components.framework_stabilizers.framework_stabilizers;
 
-import 'dart:js';
-
 import 'package:js/js.dart';
 
 /// Function provided by a framework to register an [IsStableCallback] that is

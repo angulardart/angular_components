@@ -4,8 +4,6 @@
 
 import 'package:angular_components/model/selection/selection_model.dart';
 
-import 'delegating_selection_model.dart';
-
 /// Single selection model that always has a value selected
 class RadioGroupSingleSelectionModel<T>
     extends DelegatingSingleSelectionModel<T> {

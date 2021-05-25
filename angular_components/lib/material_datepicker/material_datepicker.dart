@@ -6,8 +6,6 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:intl/intl.dart';
-import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
@@ -15,7 +13,6 @@ import 'package:angular_components/focus/focus_trap.dart';
 import 'package:angular_components/focus/keyboard_only_focus_indicator.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
-import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_datepicker/calendar.dart';
 import 'package:angular_components/material_datepicker/date_input.dart';
 import 'package:angular_components/material_datepicker/material_calendar_picker.dart';
@@ -30,6 +27,8 @@ import 'package:angular_components/mixins/focusable_mixin.dart';
 import 'package:angular_components/model/a11y/keyboard_handler_mixin.dart';
 import 'package:angular_components/model/date/date.dart';
 import 'package:angular_components/utils/angular/css/css.dart';
+import 'package:intl/intl.dart';
+import 'package:quiver/time.dart';
 
 /// A material-design-styled single date picker -- a date parsing input and
 /// calendar picker. Users can type in their own custom dates, or click on the

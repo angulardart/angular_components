@@ -7,8 +7,6 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
-import 'package:intl/intl.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/content/deferred_content_aware.dart';
@@ -23,6 +21,7 @@ import 'package:angular_components/utils/angular/id/id.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposable_callback.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:intl/intl.dart';
 
 /// A material-styled expansion-panel.
 ///

@@ -6,9 +6,6 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
-import 'package:intl/intl.dart';
-import 'package:quiver/time.dart';
 import 'package:angular_components/button_decorator/button_decorator.dart';
 import 'package:angular_components/content/deferred_content.dart';
 import 'package:angular_components/focus/focus.dart';
@@ -18,7 +15,6 @@ import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/laminate/enums/alignment.dart';
 import 'package:angular_components/laminate/popup/popup.dart';
 import 'package:angular_components/material_button/material_button.dart';
-import 'package:angular_components/material_datepicker/comparison.dart';
 import 'package:angular_components/material_datepicker/comparison_option.dart';
 import 'package:angular_components/material_datepicker/config.dart';
 import 'package:angular_components/material_datepicker/date_range_editor.dart';
@@ -37,6 +33,8 @@ import 'package:angular_components/model/observable/observable.dart';
 import 'package:angular_components/utils/angular/css/css.dart';
 import 'package:angular_components/utils/browser/dom_service/dom_service.dart';
 import 'package:angular_components/utils/disposer/disposer.dart';
+import 'package:intl/intl.dart';
+import 'package:quiver/time.dart';
 
 /// Custom date range formatter interface.
 typedef RangeFormatter = String Function(DateRange range);

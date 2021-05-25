@@ -5,15 +5,14 @@
 import 'dart:async';
 
 import 'package:angular/angular.dart';
-import 'package:angular/meta.dart';
-import 'package:intl/intl.dart';
-import 'package:quiver/time.dart';
 import 'package:angular_components/interfaces/has_disabled.dart';
 import 'package:angular_components/material_datepicker/material_datepicker.dart';
 import 'package:angular_components/material_datepicker/material_time_picker.dart';
 import 'package:angular_components/material_datepicker/module.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/model/date/date.dart';
+import 'package:intl/intl.dart';
+import 'package:quiver/time.dart';
 
 /// A material-design-styled single date and time picker.
 ///
