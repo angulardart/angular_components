@@ -3,11 +3,11 @@ stages:
   - analyze_and_format_examples_1:
     - group:
         - dartfmt: sdk
-        - dartanalyzer: --fatal-warnings .
+        - dartanalyzer: .
       dart:
         - dev
     - group:
-        - dartanalyzer: --fatal-warnings .
+        - dartanalyzer: .
       dart:
         - 2.9.3
 

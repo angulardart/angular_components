@@ -82,12 +82,12 @@ for PKG in ${PKGS}; do
         pub run build_runner build web --release || EXIT_CODE=$?
         ;;
       dartanalyzer_0)
-        echo 'dartanalyzer --fatal-warnings .'
-        dartanalyzer --fatal-warnings . || EXIT_CODE=$?
+        echo 'dartanalyzer .'
+        dartanalyzer . || EXIT_CODE=$?
         ;;
       dartanalyzer_1)
-        echo 'dartanalyzer --fatal-warnings --fatal-infos .'
-        dartanalyzer --fatal-warnings --fatal-infos . || EXIT_CODE=$?
+        echo 'dartanalyzer --fatal-infos .'
+        dartanalyzer --fatal-infos . || EXIT_CODE=$?
         ;;
       dartfmt)
         echo 'dartfmt -n --set-exit-if-changed .'
