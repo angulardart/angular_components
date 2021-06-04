@@ -1,6 +1,6 @@
 # See https://github.com/google/mono_repo.dart for details
 dart:
-  - 2.9.3
+  - 2.10.5
   - dev
 
 stages:
@@ -13,7 +13,7 @@ stages:
     - group:
         - dartanalyzer: .
       dart:
-        - 2.9.3
+        - 2.10.5
   - unit_test:
     - group:
       - command: ./tool/travis/install_protoc.sh

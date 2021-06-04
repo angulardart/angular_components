@@ -9,7 +9,7 @@ stages:
     - group:
         - dartanalyzer: .
       dart:
-        - 2.9.3
+        - 2.10.5
 
 cache:
   directories:
