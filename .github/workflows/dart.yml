@@ -979,7 +979,7 @@ jobs:
       - job_010
       - job_011
   job_014:
-    name: "build; Dart 2.10.5; PKG: examples/angular_components_example; `pub run build_runner build web`, `pub run build_runner build web --release`"
+    name: "build; Dart 2.10.5; PKG: examples/angular_components_example; `dart pub run build_runner build web`, `dart pub run build_runner build web --release`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -1002,14 +1002,14 @@ jobs:
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/angular_components_example
         run: dart pub upgrade
-      - name: examples/angular_components_example; pub run build_runner build web
+      - name: examples/angular_components_example; dart pub run build_runner build web
         if: "always() && steps.examples_angular_components_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/angular_components_example
-        run: pub run build_runner build web
-      - name: "examples/angular_components_example; pub run build_runner build web --release"
+        run: dart pub run build_runner build web
+      - name: "examples/angular_components_example; dart pub run build_runner build web --release"
         if: "always() && steps.examples_angular_components_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/angular_components_example
-        run: pub run build_runner build web --release
+        run: dart pub run build_runner build web --release
     if:
     needs:
       - job_001
@@ -1026,7 +1026,7 @@ jobs:
       - job_012
       - job_013
   job_015:
-    name: "build; Dart dev; PKG: examples/angular_components_example; `pub run build_runner build web`, `pub run build_runner build web --release`"
+    name: "build; Dart dev; PKG: examples/angular_components_example; `dart pub run build_runner build web`, `dart pub run build_runner build web --release`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -1049,14 +1049,14 @@ jobs:
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/angular_components_example
         run: dart pub upgrade
-      - name: examples/angular_components_example; pub run build_runner build web
+      - name: examples/angular_components_example; dart pub run build_runner build web
         if: "always() && steps.examples_angular_components_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/angular_components_example
-        run: pub run build_runner build web
-      - name: "examples/angular_components_example; pub run build_runner build web --release"
+        run: dart pub run build_runner build web
+      - name: "examples/angular_components_example; dart pub run build_runner build web --release"
         if: "always() && steps.examples_angular_components_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/angular_components_example
-        run: pub run build_runner build web --release
+        run: dart pub run build_runner build web --release
     if:
     needs:
       - job_001

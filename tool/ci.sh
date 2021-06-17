@@ -80,12 +80,12 @@ for PKG in ${PKGS}; do
         ./tool/travis/install_protoc.sh || EXIT_CODE=$?
         ;;
       command_1)
-        echo 'pub run build_runner build web'
-        pub run build_runner build web || EXIT_CODE=$?
+        echo 'dart pub run build_runner build web'
+        dart pub run build_runner build web || EXIT_CODE=$?
         ;;
       command_2)
-        echo 'pub run build_runner build web --release'
-        pub run build_runner build web --release || EXIT_CODE=$?
+        echo 'dart pub run build_runner build web --release'
+        dart pub run build_runner build web --release || EXIT_CODE=$?
         ;;
       format)
         echo 'dart format --output=none --set-exit-if-changed .'
