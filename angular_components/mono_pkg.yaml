@@ -6,12 +6,12 @@ dart:
 stages:
   - analyze_and_format_core:
     - group:
-        - dartfmt: sdk
-        - dartanalyzer: .
+        - format
+        - analyze: .
       dart:
         - dev
     - group:
-        - dartanalyzer: .
+        - analyze: .
       dart:
         - 2.10.5
   - unit_test:

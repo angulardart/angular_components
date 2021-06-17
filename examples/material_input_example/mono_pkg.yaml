@@ -2,14 +2,14 @@
 stages:
   - analyze_and_format_examples_1:
     - group:
-        - dartfmt: sdk
+        - format
         # errors exist
-        #- dartanalyzer: .
+        #- analyze: .
       dart:
         - dev
     # errors exist
     # - group:
-    #     - dartanalyzer: .
+    #     - analyze: .
     #   dart:
     #     - 2.10.5
 

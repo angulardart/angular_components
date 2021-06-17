@@ -2,12 +2,12 @@
 stages:
   - analyze_and_format_examples_2:
     - group:
-        - dartfmt: sdk
-        - dartanalyzer: --fatal-infos .
+        - format
+        - analyze: --fatal-infos .
       dart:
         - dev
     - group:
-        - dartanalyzer: .
+        - analyze: .
       dart:
         - 2.10.5
 

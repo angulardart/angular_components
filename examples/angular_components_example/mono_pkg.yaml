@@ -6,8 +6,8 @@ dart:
 stages:
   - build:
     - group:
-      - command: pub run build_runner build web
-      - command: pub run build_runner build web --release
+      - command: dart pub run build_runner build web
+      - command: dart pub run build_runner build web --release
 
 cache:
   directories:
