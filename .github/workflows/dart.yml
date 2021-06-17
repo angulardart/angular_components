@@ -1,4 +1,4 @@
-# Created with package:mono_repo v4.1.0
+# Created with package:mono_repo v5.0.0
 name: Dart CI
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - name: mono_repo self validate
-        run: dart pub global activate mono_repo 4.1.0
+        run: dart pub global activate mono_repo 5.0.0
       - name: mono_repo self validate
         run: dart pub global run mono_repo generate --validate
   job_002:
@@ -44,7 +44,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:angular_components-angular_gallery-angular_gallery_section;commands:dartanalyzer_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:angular_components-angular_gallery-angular_gallery_section;commands:analyze_0"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:angular_components-angular_gallery-angular_gallery_section
             os:ubuntu-latest;pub-cache-hosted;dart:2.10.5
@@ -56,28 +56,28 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: angular_components_pub_upgrade
-        name: angular_components; pub upgrade
+        name: angular_components; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: angular_components
-        run: pub upgrade
+        run: dart pub upgrade
       - name: angular_components; dart analyze .
         if: "always() && steps.angular_components_pub_upgrade.conclusion == 'success'"
         working-directory: angular_components
         run: dart analyze .
       - id: angular_gallery_pub_upgrade
-        name: angular_gallery; pub upgrade
+        name: angular_gallery; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: angular_gallery
-        run: pub upgrade
+        run: dart pub upgrade
       - name: angular_gallery; dart analyze .
         if: "always() && steps.angular_gallery_pub_upgrade.conclusion == 'success'"
         working-directory: angular_gallery
         run: dart analyze .
       - id: angular_gallery_section_pub_upgrade
-        name: angular_gallery_section; pub upgrade
+        name: angular_gallery_section; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: angular_gallery_section
-        run: pub upgrade
+        run: dart pub upgrade
       - name: angular_gallery_section; dart analyze .
         if: "always() && steps.angular_gallery_section_pub_upgrade.conclusion == 'success'"
         working-directory: angular_gallery_section
@@ -93,7 +93,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:angular_components;commands:dartfmt-dartanalyzer_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:angular_components;commands:format-analyze_0"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:angular_components
             os:ubuntu-latest;pub-cache-hosted;dart:dev
@@ -105,10 +105,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: angular_components_pub_upgrade
-        name: angular_components; pub upgrade
+        name: angular_components; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: angular_components
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "angular_components; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.angular_components_pub_upgrade.conclusion == 'success'"
         working-directory: angular_components
@@ -128,7 +128,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:angular_gallery-angular_gallery_section;commands:dartfmt-dartanalyzer_1"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:angular_gallery-angular_gallery_section;commands:format-analyze_1"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:angular_gallery-angular_gallery_section
             os:ubuntu-latest;pub-cache-hosted;dart:dev
@@ -140,10 +140,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: angular_gallery_pub_upgrade
-        name: angular_gallery; pub upgrade
+        name: angular_gallery; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: angular_gallery
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "angular_gallery; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.angular_gallery_pub_upgrade.conclusion == 'success'"
         working-directory: angular_gallery
@@ -153,10 +153,10 @@ jobs:
         working-directory: angular_gallery
         run: dart analyze --fatal-infos .
       - id: angular_gallery_section_pub_upgrade
-        name: angular_gallery_section; pub upgrade
+        name: angular_gallery_section; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: angular_gallery_section
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "angular_gallery_section; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.angular_gallery_section_pub_upgrade.conclusion == 'success'"
         working-directory: angular_gallery_section
@@ -176,7 +176,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_menu_example-examples/material_yes_no_buttons_example;commands:dartanalyzer_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_menu_example-examples/material_yes_no_buttons_example;commands:analyze_0"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_menu_example-examples/material_yes_no_buttons_example
             os:ubuntu-latest;pub-cache-hosted;dart:2.10.5
@@ -188,109 +188,109 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_app_layout_example_pub_upgrade
-        name: examples/app_layout_example; pub upgrade
+        name: examples/app_layout_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/app_layout_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/app_layout_example; dart analyze .
         if: "always() && steps.examples_app_layout_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/app_layout_example
         run: dart analyze .
       - id: examples_material_button_example_pub_upgrade
-        name: examples/material_button_example; pub upgrade
+        name: examples/material_button_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_button_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_button_example; dart analyze .
         if: "always() && steps.examples_material_button_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_button_example
         run: dart analyze .
       - id: examples_material_card_example_pub_upgrade
-        name: examples/material_card_example; pub upgrade
+        name: examples/material_card_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_card_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_card_example; dart analyze .
         if: "always() && steps.examples_material_card_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_card_example
         run: dart analyze .
       - id: examples_material_checkbox_example_pub_upgrade
-        name: examples/material_checkbox_example; pub upgrade
+        name: examples/material_checkbox_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_checkbox_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_checkbox_example; dart analyze .
         if: "always() && steps.examples_material_checkbox_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_checkbox_example
         run: dart analyze .
       - id: examples_material_chips_example_pub_upgrade
-        name: examples/material_chips_example; pub upgrade
+        name: examples/material_chips_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_chips_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_chips_example; dart analyze .
         if: "always() && steps.examples_material_chips_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_chips_example
         run: dart analyze .
       - id: examples_material_datepicker_example_pub_upgrade
-        name: examples/material_datepicker_example; pub upgrade
+        name: examples/material_datepicker_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_datepicker_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_datepicker_example; dart analyze .
         if: "always() && steps.examples_material_datepicker_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_datepicker_example
         run: dart analyze .
       - id: examples_material_dialog_example_pub_upgrade
-        name: examples/material_dialog_example; pub upgrade
+        name: examples/material_dialog_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_dialog_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_dialog_example; dart analyze .
         if: "always() && steps.examples_material_dialog_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_dialog_example
         run: dart analyze .
       - id: examples_material_expansionpanel_example_pub_upgrade
-        name: examples/material_expansionpanel_example; pub upgrade
+        name: examples/material_expansionpanel_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_expansionpanel_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_expansionpanel_example; dart analyze .
         if: "always() && steps.examples_material_expansionpanel_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_expansionpanel_example
         run: dart analyze .
       - id: examples_material_icon_example_pub_upgrade
-        name: examples/material_icon_example; pub upgrade
+        name: examples/material_icon_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_icon_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_icon_example; dart analyze .
         if: "always() && steps.examples_material_icon_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_icon_example
         run: dart analyze .
       - id: examples_material_list_example_pub_upgrade
-        name: examples/material_list_example; pub upgrade
+        name: examples/material_list_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_list_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_list_example; dart analyze .
         if: "always() && steps.examples_material_list_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_list_example
         run: dart analyze .
       - id: examples_material_menu_example_pub_upgrade
-        name: examples/material_menu_example; pub upgrade
+        name: examples/material_menu_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_menu_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_menu_example; dart analyze .
         if: "always() && steps.examples_material_menu_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_menu_example
         run: dart analyze .
       - id: examples_material_yes_no_buttons_example_pub_upgrade
-        name: examples/material_yes_no_buttons_example; pub upgrade
+        name: examples/material_yes_no_buttons_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_yes_no_buttons_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_yes_no_buttons_example; dart analyze .
         if: "always() && steps.examples_material_yes_no_buttons_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_yes_no_buttons_example
@@ -309,7 +309,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_yes_no_buttons_example;commands:dartfmt-dartanalyzer_1"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_yes_no_buttons_example;commands:format-analyze_1"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_yes_no_buttons_example
             os:ubuntu-latest;pub-cache-hosted;dart:dev
@@ -321,10 +321,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_app_layout_example_pub_upgrade
-        name: examples/app_layout_example; pub upgrade
+        name: examples/app_layout_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/app_layout_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/app_layout_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_app_layout_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/app_layout_example
@@ -334,10 +334,10 @@ jobs:
         working-directory: examples/app_layout_example
         run: dart analyze --fatal-infos .
       - id: examples_material_button_example_pub_upgrade
-        name: examples/material_button_example; pub upgrade
+        name: examples/material_button_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_button_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_button_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_button_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_button_example
@@ -347,10 +347,10 @@ jobs:
         working-directory: examples/material_button_example
         run: dart analyze --fatal-infos .
       - id: examples_material_card_example_pub_upgrade
-        name: examples/material_card_example; pub upgrade
+        name: examples/material_card_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_card_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_card_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_card_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_card_example
@@ -360,10 +360,10 @@ jobs:
         working-directory: examples/material_card_example
         run: dart analyze --fatal-infos .
       - id: examples_material_checkbox_example_pub_upgrade
-        name: examples/material_checkbox_example; pub upgrade
+        name: examples/material_checkbox_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_checkbox_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_checkbox_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_checkbox_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_checkbox_example
@@ -373,10 +373,10 @@ jobs:
         working-directory: examples/material_checkbox_example
         run: dart analyze --fatal-infos .
       - id: examples_material_chips_example_pub_upgrade
-        name: examples/material_chips_example; pub upgrade
+        name: examples/material_chips_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_chips_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_chips_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_chips_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_chips_example
@@ -386,10 +386,10 @@ jobs:
         working-directory: examples/material_chips_example
         run: dart analyze --fatal-infos .
       - id: examples_material_datepicker_example_pub_upgrade
-        name: examples/material_datepicker_example; pub upgrade
+        name: examples/material_datepicker_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_datepicker_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_datepicker_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_datepicker_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_datepicker_example
@@ -399,10 +399,10 @@ jobs:
         working-directory: examples/material_datepicker_example
         run: dart analyze --fatal-infos .
       - id: examples_material_dialog_example_pub_upgrade
-        name: examples/material_dialog_example; pub upgrade
+        name: examples/material_dialog_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_dialog_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_dialog_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_dialog_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_dialog_example
@@ -412,10 +412,10 @@ jobs:
         working-directory: examples/material_dialog_example
         run: dart analyze --fatal-infos .
       - id: examples_material_expansionpanel_example_pub_upgrade
-        name: examples/material_expansionpanel_example; pub upgrade
+        name: examples/material_expansionpanel_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_expansionpanel_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_expansionpanel_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_expansionpanel_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_expansionpanel_example
@@ -425,10 +425,10 @@ jobs:
         working-directory: examples/material_expansionpanel_example
         run: dart analyze --fatal-infos .
       - id: examples_material_icon_example_pub_upgrade
-        name: examples/material_icon_example; pub upgrade
+        name: examples/material_icon_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_icon_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_icon_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_icon_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_icon_example
@@ -438,10 +438,10 @@ jobs:
         working-directory: examples/material_icon_example
         run: dart analyze --fatal-infos .
       - id: examples_material_list_example_pub_upgrade
-        name: examples/material_list_example; pub upgrade
+        name: examples/material_list_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_list_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_list_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_list_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_list_example
@@ -451,10 +451,10 @@ jobs:
         working-directory: examples/material_list_example
         run: dart analyze --fatal-infos .
       - id: examples_material_yes_no_buttons_example_pub_upgrade
-        name: examples/material_yes_no_buttons_example; pub upgrade
+        name: examples/material_yes_no_buttons_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_yes_no_buttons_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_yes_no_buttons_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_yes_no_buttons_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_yes_no_buttons_example
@@ -477,7 +477,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_input_example;commands:dartfmt"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_input_example;commands:format"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_input_example
             os:ubuntu-latest;pub-cache-hosted;dart:dev
@@ -489,10 +489,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_material_input_example_pub_upgrade
-        name: examples/material_input_example; pub upgrade
+        name: examples/material_input_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_input_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_input_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_input_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_input_example
@@ -511,7 +511,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_menu_example;commands:dartfmt-dartanalyzer_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_menu_example;commands:format-analyze_0"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_menu_example
             os:ubuntu-latest;pub-cache-hosted;dart:dev
@@ -523,10 +523,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_material_menu_example_pub_upgrade
-        name: examples/material_menu_example; pub upgrade
+        name: examples/material_menu_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_menu_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_menu_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_menu_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_menu_example
@@ -549,7 +549,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example;commands:dartanalyzer_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example;commands:analyze_0"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example
             os:ubuntu-latest;pub-cache-hosted;dart:2.10.5
@@ -561,100 +561,100 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_material_popup_example_pub_upgrade
-        name: examples/material_popup_example; pub upgrade
+        name: examples/material_popup_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_popup_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_popup_example; dart analyze .
         if: "always() && steps.examples_material_popup_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_popup_example
         run: dart analyze .
       - id: examples_material_progress_example_pub_upgrade
-        name: examples/material_progress_example; pub upgrade
+        name: examples/material_progress_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_progress_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_progress_example; dart analyze .
         if: "always() && steps.examples_material_progress_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_progress_example
         run: dart analyze .
       - id: examples_material_radio_example_pub_upgrade
-        name: examples/material_radio_example; pub upgrade
+        name: examples/material_radio_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_radio_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_radio_example; dart analyze .
         if: "always() && steps.examples_material_radio_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_radio_example
         run: dart analyze .
       - id: examples_material_slider_example_pub_upgrade
-        name: examples/material_slider_example; pub upgrade
+        name: examples/material_slider_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_slider_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_slider_example; dart analyze .
         if: "always() && steps.examples_material_slider_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_slider_example
         run: dart analyze .
       - id: examples_material_spinner_example_pub_upgrade
-        name: examples/material_spinner_example; pub upgrade
+        name: examples/material_spinner_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_spinner_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_spinner_example; dart analyze .
         if: "always() && steps.examples_material_spinner_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_spinner_example
         run: dart analyze .
       - id: examples_material_stepper_example_pub_upgrade
-        name: examples/material_stepper_example; pub upgrade
+        name: examples/material_stepper_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_stepper_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_stepper_example; dart analyze .
         if: "always() && steps.examples_material_stepper_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_stepper_example
         run: dart analyze .
       - id: examples_material_tab_example_pub_upgrade
-        name: examples/material_tab_example; pub upgrade
+        name: examples/material_tab_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_tab_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_tab_example; dart analyze .
         if: "always() && steps.examples_material_tab_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_tab_example
         run: dart analyze .
       - id: examples_material_toggle_example_pub_upgrade
-        name: examples/material_toggle_example; pub upgrade
+        name: examples/material_toggle_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_toggle_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_toggle_example; dart analyze .
         if: "always() && steps.examples_material_toggle_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_toggle_example
         run: dart analyze .
       - id: examples_material_tooltip_example_pub_upgrade
-        name: examples/material_tooltip_example; pub upgrade
+        name: examples/material_tooltip_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_tooltip_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/material_tooltip_example; dart analyze .
         if: "always() && steps.examples_material_tooltip_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_tooltip_example
         run: dart analyze .
       - id: examples_scorecard_example_pub_upgrade
-        name: examples/scorecard_example; pub upgrade
+        name: examples/scorecard_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/scorecard_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/scorecard_example; dart analyze .
         if: "always() && steps.examples_scorecard_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/scorecard_example
         run: dart analyze .
       - id: examples_simple_html_example_pub_upgrade
-        name: examples/simple_html_example; pub upgrade
+        name: examples/simple_html_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/simple_html_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/simple_html_example; dart analyze .
         if: "always() && steps.examples_simple_html_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/simple_html_example
@@ -677,7 +677,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example;commands:dartfmt-dartanalyzer_1"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example;commands:format-analyze_1"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example
             os:ubuntu-latest;pub-cache-hosted;dart:dev
@@ -689,10 +689,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_material_popup_example_pub_upgrade
-        name: examples/material_popup_example; pub upgrade
+        name: examples/material_popup_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_popup_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_popup_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_popup_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_popup_example
@@ -702,10 +702,10 @@ jobs:
         working-directory: examples/material_popup_example
         run: dart analyze --fatal-infos .
       - id: examples_material_progress_example_pub_upgrade
-        name: examples/material_progress_example; pub upgrade
+        name: examples/material_progress_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_progress_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_progress_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_progress_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_progress_example
@@ -715,10 +715,10 @@ jobs:
         working-directory: examples/material_progress_example
         run: dart analyze --fatal-infos .
       - id: examples_material_radio_example_pub_upgrade
-        name: examples/material_radio_example; pub upgrade
+        name: examples/material_radio_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_radio_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_radio_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_radio_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_radio_example
@@ -728,10 +728,10 @@ jobs:
         working-directory: examples/material_radio_example
         run: dart analyze --fatal-infos .
       - id: examples_material_slider_example_pub_upgrade
-        name: examples/material_slider_example; pub upgrade
+        name: examples/material_slider_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_slider_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_slider_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_slider_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_slider_example
@@ -741,10 +741,10 @@ jobs:
         working-directory: examples/material_slider_example
         run: dart analyze --fatal-infos .
       - id: examples_material_spinner_example_pub_upgrade
-        name: examples/material_spinner_example; pub upgrade
+        name: examples/material_spinner_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_spinner_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_spinner_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_spinner_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_spinner_example
@@ -754,10 +754,10 @@ jobs:
         working-directory: examples/material_spinner_example
         run: dart analyze --fatal-infos .
       - id: examples_material_stepper_example_pub_upgrade
-        name: examples/material_stepper_example; pub upgrade
+        name: examples/material_stepper_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_stepper_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_stepper_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_stepper_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_stepper_example
@@ -767,10 +767,10 @@ jobs:
         working-directory: examples/material_stepper_example
         run: dart analyze --fatal-infos .
       - id: examples_material_tab_example_pub_upgrade
-        name: examples/material_tab_example; pub upgrade
+        name: examples/material_tab_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_tab_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_tab_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_tab_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_tab_example
@@ -780,10 +780,10 @@ jobs:
         working-directory: examples/material_tab_example
         run: dart analyze --fatal-infos .
       - id: examples_material_toggle_example_pub_upgrade
-        name: examples/material_toggle_example; pub upgrade
+        name: examples/material_toggle_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_toggle_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_toggle_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_toggle_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_toggle_example
@@ -793,10 +793,10 @@ jobs:
         working-directory: examples/material_toggle_example
         run: dart analyze --fatal-infos .
       - id: examples_material_tooltip_example_pub_upgrade
-        name: examples/material_tooltip_example; pub upgrade
+        name: examples/material_tooltip_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_tooltip_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_tooltip_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_tooltip_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_tooltip_example
@@ -806,10 +806,10 @@ jobs:
         working-directory: examples/material_tooltip_example
         run: dart analyze --fatal-infos .
       - id: examples_scorecard_example_pub_upgrade
-        name: examples/scorecard_example; pub upgrade
+        name: examples/scorecard_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/scorecard_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/scorecard_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_scorecard_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/scorecard_example
@@ -819,10 +819,10 @@ jobs:
         working-directory: examples/scorecard_example
         run: dart analyze --fatal-infos .
       - id: examples_simple_html_example_pub_upgrade
-        name: examples/simple_html_example; pub upgrade
+        name: examples/simple_html_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/simple_html_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/simple_html_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_simple_html_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/simple_html_example
@@ -849,7 +849,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_select_example-examples/material_tree_example;commands:dartfmt"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_select_example-examples/material_tree_example;commands:format"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;dart:dev;packages:examples/material_select_example-examples/material_tree_example
             os:ubuntu-latest;pub-cache-hosted;dart:dev
@@ -861,19 +861,19 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_material_select_example_pub_upgrade
-        name: examples/material_select_example; pub upgrade
+        name: examples/material_select_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_select_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_select_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_select_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_select_example
         run: "dart format --output=none --set-exit-if-changed ."
       - id: examples_material_tree_example_pub_upgrade
-        name: examples/material_tree_example; pub upgrade
+        name: examples/material_tree_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/material_tree_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: "examples/material_tree_example; dart format --output=none --set-exit-if-changed ."
         if: "always() && steps.examples_material_tree_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/material_tree_example
@@ -908,10 +908,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: angular_components_pub_upgrade
-        name: angular_components; pub upgrade
+        name: angular_components; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: angular_components
-        run: pub upgrade
+        run: dart pub upgrade
       - name: angular_components; ./tool/travis/install_protoc.sh
         if: "always() && steps.angular_components_pub_upgrade.conclusion == 'success'"
         working-directory: angular_components
@@ -953,10 +953,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: angular_components_pub_upgrade
-        name: angular_components; pub upgrade
+        name: angular_components; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: angular_components
-        run: pub upgrade
+        run: dart pub upgrade
       - name: angular_components; ./tool/travis/install_protoc.sh
         if: "always() && steps.angular_components_pub_upgrade.conclusion == 'success'"
         working-directory: angular_components
@@ -998,10 +998,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_angular_components_example_pub_upgrade
-        name: examples/angular_components_example; pub upgrade
+        name: examples/angular_components_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/angular_components_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/angular_components_example; pub run build_runner build web
         if: "always() && steps.examples_angular_components_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/angular_components_example
@@ -1045,10 +1045,10 @@ jobs:
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_angular_components_example_pub_upgrade
-        name: examples/angular_components_example; pub upgrade
+        name: examples/angular_components_example; dart pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: examples/angular_components_example
-        run: pub upgrade
+        run: dart pub upgrade
       - name: examples/angular_components_example; pub run build_runner build web
         if: "always() && steps.examples_angular_components_example_pub_upgrade.conclusion == 'success'"
         working-directory: examples/angular_components_example
