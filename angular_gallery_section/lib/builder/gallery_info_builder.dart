@@ -113,7 +113,7 @@ class GalleryInfoBuilder extends Builder {
   /// Supports reading .md or .scss assets.
   Future<DocInfo> _readExternalAsset(
       String externalAsset, AssetReader assetReader) async {
-    final assetId = AssetId.resolve(externalAsset);
+    final assetId = AssetId.resolve(Uri.parse(externalAsset));
 
     if (!await assetReader.canRead(assetId)) {
       throw ('Could not find the asset: $externalAsset.');
@@ -154,7 +154,7 @@ class GalleryInfoBuilder extends Builder {
         throw 'Error: Failed to extract documentation from: '
             '$missingIdentifier.';
 
-    final libraryId = AssetId.resolve(library.source.uri.toString());
+    final libraryId = AssetId.resolve(library.source.uri);
     final docClass = library.getType(identifier);
     DartDocInfo docs;
 
@@ -174,8 +174,7 @@ class GalleryInfoBuilder extends Builder {
       // Must extract documentation from AST because the
       // classElement.documentationComment, classElement.metadata, etc are not
       // populated in the resolved element model available here.
-      var libraryId =
-          AssetId.resolve(classElement.library.source.uri.toString());
+      var libraryId = AssetId.resolve(classElement.library.source.uri);
       docs =
           await extractDocumentation(classElement.name, libraryId, assetReader);
 
@@ -183,7 +182,7 @@ class GalleryInfoBuilder extends Builder {
         // The super class must be defined in the library as a part file.
         for (var part in classElement.library.parts) {
           if (part.getType(classElement.name) != null) {
-            libraryId = AssetId.resolve(part.source.uri.toString());
+            libraryId = AssetId.resolve(part.source.uri);
             docs = await extractDocumentation(
                 classElement.name, libraryId, assetReader);
           }
@@ -282,7 +281,7 @@ class GalleryInfoBuilder extends Builder {
   Future<DemoInfo> _resolveDemo(String demoClassName, LibraryElement library,
       AssetReader assetReader) async {
     if (demoClassName == null) return null;
-    final libraryId = AssetId.resolve(library.source.uri.toString());
+    final libraryId = AssetId.resolve(library.source.uri);
     final extractedDemo =
         await extractDocumentation(demoClassName, libraryId, assetReader);
 
@@ -299,7 +298,7 @@ class GalleryInfoBuilder extends Builder {
   /// Returns the library that defines [name] as a class or top level function,
   /// as reachable from [rootLibrary].
   LibraryElement _getLibrary(String name, LibraryElement rootLibrary) {
-    var result = rootLibrary.scope.lookup2(name).getter;
+    var result = rootLibrary.scope.lookup(name).getter;
 
     if (result == null) {
       throw 'Error: Failed to locate a library containing $name.';
