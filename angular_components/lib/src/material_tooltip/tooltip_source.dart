@@ -52,12 +52,8 @@ class MaterialTooltipSourceDirective extends PopupSourceDirective
       DomPopupSourceFactory domPopupSourceFactory,
       this.element,
       @Attribute('initPopupAriaAttributes') String initAriaAttributes)
-      : super(
-            domPopupSourceFactory,
-            element,
-            /* referenceDirective */ null,
-            /* focusable */ null,
-            initAriaAttributes) {
+      : super(domPopupSourceFactory, element, /* referenceDirective */ null,
+            /* focusable */ null, initAriaAttributes) {
     _show = DelayedAction(tooltipShowDelay, activate);
   }
 

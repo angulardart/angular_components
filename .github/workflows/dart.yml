@@ -1,4 +1,4 @@
-# Created with package:mono_repo v5.0.0
+# Created with package:mono_repo v5.0.2
 name: Dart CI
 on:
   push:
@@ -27,32 +27,32 @@ jobs:
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: stable
       - id: checkout
         uses: actions/checkout@v2.3.4
       - name: mono_repo self validate
-        run: dart pub global activate mono_repo 5.0.0
+        run: dart pub global activate mono_repo 5.0.2
       - name: mono_repo self validate
         run: dart pub global run mono_repo generate --validate
   job_002:
-    name: "analyze_and_format_core; Dart 2.10.5; PKGS: angular_components, angular_gallery, angular_gallery_section; `dart analyze .`"
+    name: "analyze_and_format_core; Dart 2.14.2; PKGS: angular_components, angular_gallery, angular_gallery_section; `dart analyze .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:angular_components-angular_gallery-angular_gallery_section;commands:analyze_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:angular_components-angular_gallery-angular_gallery_section;commands:analyze_0"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:angular_components-angular_gallery-angular_gallery_section
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:angular_components-angular_gallery-angular_gallery_section
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
-          sdk: "2.10.5"
+          sdk: "2.14.2"
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: angular_components_pub_upgrade
@@ -99,7 +99,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: dev
       - id: checkout
@@ -134,7 +134,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: dev
       - id: checkout
@@ -169,22 +169,22 @@ jobs:
     needs:
       - job_001
   job_005:
-    name: "analyze_and_format_examples_1; Dart 2.10.5; PKGS: examples/app_layout_example, examples/material_button_example, examples/material_card_example, examples/material_checkbox_example, examples/material_chips_example, examples/material_datepicker_example, examples/material_dialog_example, examples/material_expansionpanel_example, examples/material_icon_example, examples/material_list_example, examples/material_menu_example, examples/material_yes_no_buttons_example; `dart analyze .`"
+    name: "analyze_and_format_examples_1; Dart 2.14.2; PKGS: examples/app_layout_example, examples/material_button_example, examples/material_card_example, examples/material_checkbox_example, examples/material_chips_example, examples/material_datepicker_example, examples/material_dialog_example, examples/material_expansionpanel_example, examples/material_icon_example, examples/material_list_example, examples/material_menu_example, examples/material_yes_no_buttons_example; `dart analyze .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_menu_example-examples/material_yes_no_buttons_example;commands:analyze_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_menu_example-examples/material_yes_no_buttons_example;commands:analyze_0"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_menu_example-examples/material_yes_no_buttons_example
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:examples/app_layout_example-examples/material_button_example-examples/material_card_example-examples/material_checkbox_example-examples/material_chips_example-examples/material_datepicker_example-examples/material_dialog_example-examples/material_expansionpanel_example-examples/material_icon_example-examples/material_list_example-examples/material_menu_example-examples/material_yes_no_buttons_example
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
-          sdk: "2.10.5"
+          sdk: "2.14.2"
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_app_layout_example_pub_upgrade
@@ -315,7 +315,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: dev
       - id: checkout
@@ -483,7 +483,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: dev
       - id: checkout
@@ -517,7 +517,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: dev
       - id: checkout
@@ -542,22 +542,22 @@ jobs:
       - job_003
       - job_004
   job_009:
-    name: "analyze_and_format_examples_2; Dart 2.10.5; PKGS: examples/material_popup_example, examples/material_progress_example, examples/material_radio_example, examples/material_slider_example, examples/material_spinner_example, examples/material_stepper_example, examples/material_tab_example, examples/material_toggle_example, examples/material_tooltip_example, examples/scorecard_example, examples/simple_html_example; `dart analyze .`"
+    name: "analyze_and_format_examples_2; Dart 2.14.2; PKGS: examples/material_popup_example, examples/material_progress_example, examples/material_radio_example, examples/material_slider_example, examples/material_spinner_example, examples/material_stepper_example, examples/material_tab_example, examples/material_toggle_example, examples/material_tooltip_example, examples/scorecard_example, examples/simple_html_example; `dart analyze .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example;commands:analyze_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example;commands:analyze_0"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:examples/material_popup_example-examples/material_progress_example-examples/material_radio_example-examples/material_slider_example-examples/material_spinner_example-examples/material_stepper_example-examples/material_tab_example-examples/material_toggle_example-examples/material_tooltip_example-examples/scorecard_example-examples/simple_html_example
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
-          sdk: "2.10.5"
+          sdk: "2.14.2"
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_material_popup_example_pub_upgrade
@@ -683,7 +683,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: dev
       - id: checkout
@@ -855,7 +855,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: dev
       - id: checkout
@@ -889,22 +889,22 @@ jobs:
       - job_007
       - job_008
   job_012:
-    name: "unit_test; Dart 2.10.5; PKG: angular_components; `./tool/travis/install_protoc.sh`, `dart test --run-skipped`"
+    name: "unit_test; Dart 2.14.2; PKG: angular_components; `./tool/travis/install_protoc.sh`, `dart test --run-skipped`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:angular_components;commands:command_0-test"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:angular_components;commands:command_0-test"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:angular_components
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:angular_components
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
-          sdk: "2.10.5"
+          sdk: "2.14.2"
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: angular_components_pub_upgrade
@@ -947,7 +947,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: dev
       - id: checkout
@@ -979,22 +979,22 @@ jobs:
       - job_010
       - job_011
   job_014:
-    name: "build; Dart 2.10.5; PKG: examples/angular_components_example; `dart pub run build_runner build web`, `dart pub run build_runner build web --release`"
+    name: "build; Dart 2.14.2; PKG: examples/angular_components_example; `dart pub run build_runner build web`, `dart pub run build_runner build web --release`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@v2.1.6
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/angular_components_example;commands:command_1-command_2"
+          key: "os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:examples/angular_components_example;commands:command_1-command_2"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5;packages:examples/angular_components_example
-            os:ubuntu-latest;pub-cache-hosted;dart:2.10.5
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2;packages:examples/angular_components_example
+            os:ubuntu-latest;pub-cache-hosted;dart:2.14.2
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
-          sdk: "2.10.5"
+          sdk: "2.14.2"
       - id: checkout
         uses: actions/checkout@v2.3.4
       - id: examples_angular_components_example_pub_upgrade
@@ -1039,7 +1039,7 @@ jobs:
             os:ubuntu-latest;pub-cache-hosted;dart:dev
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - uses: dart-lang/setup-dart@v1.0
+      - uses: dart-lang/setup-dart@v1.2
         with:
           sdk: dev
       - id: checkout
