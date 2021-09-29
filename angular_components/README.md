@@ -14,7 +14,7 @@ Angular package.
 ## Useful links
 
 * [Material Design site](https://material.io)
-* [Gitter chat room](https://gitter.im/dart-lang/angular)
+* [Gitter chat room](https://gitter.im/angulardart/community)
 
 ## Required Fonts
 
